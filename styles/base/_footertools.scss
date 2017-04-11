@@ -1,0 +1,102 @@
+.footertools{
+  &__quicklinks-black{
+    background-image: url(../assets/images/fireman-m.jpg);
+    background-size: cover;
+    height: 350px;
+    text-align: center;
+    .centered-links{
+      padding-top: 100px;
+    }
+    .ft-galaxy{
+      position: relative;
+      height: 350px;
+      .galaxys5{
+        position: absolute;
+        max-width: 100%;
+        bottom: 0;
+        right: 0;
+      }
+    }
+  }
+}
+
+.linktile{
+  display:block;
+  width: 320px;
+  padding-left: 59px;
+  margin-bottom: 30px;
+  height: 48px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 14px;
+  color: white;
+  line-height: 21px;
+  background-size: 48px 48px;
+  background-repeat: no-repeat;
+  &:hover{
+    text-decoration: none;
+  }
+  span{
+    line-height: 20px;
+    font-size: 24px;
+    font-weight:300;
+  }
+  &__icon-certified{
+    @extend .linktile;
+    background-image: url(../assets/svg/Certificate-white.svg);
+    &:hover, &.active{
+      color: $fn-ltblue;
+      background-image: url(../assets/svg/Certificate.svg);
+    }
+  }
+  &__icon-essential{
+    @extend .linktile;
+    background-image: url(../assets/svg/Share-white.svg);
+    &:hover, &.active{
+      color: $fn-ltblue;
+      background-image: url(../assets/svg/Share.svg);
+    }
+  }
+  &__icon-info{
+    @extend .linktile;
+    background-image: url(../assets/svg/Information-white.svg);
+    &:hover, &.active{
+      color: $fn-ltblue;
+      background-image: url(../assets/svg/Information.svg);
+    }
+  }
+  &__icon-help{
+    @extend .linktile;
+    background-image: url(../assets/svg/Information-white.svg);
+    &:hover, &.active{
+      color: $fn-ltblue;
+      background-image: url(../assets/svg/Information.svg);
+    }
+  }
+}
+
+
+/* XS */
+@media only screen and (min-width : 480px) {
+  .footertools__quicklinks-black{
+    background-image: url(../assets/images/fireman-m.jpg);
+  }
+}
+/* SM */
+@media only screen and (min-width : 768px) {
+  .footertools__quicklinks-black{
+    background-image: url(../assets/images/fireman.png);
+  }
+}
+/* MD */
+@media only screen and (min-width : 992px) {
+  .footertools__quicklinks-black{
+    background-image: url(../assets/images/fireman.png);
+  }
+}
+/* LG */
+@media only screen and (min-width : 1200px) {
+  .footertools__quicklinks-black{
+    background-image: url(../assets/images/fireman.png);
+  }
+}

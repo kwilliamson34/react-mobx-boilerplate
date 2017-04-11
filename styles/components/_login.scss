@@ -1,0 +1,56 @@
+.loginWidget {
+  form {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+
+    h1,
+    h2,
+    a,
+    p {
+      text-align: center;
+    }
+
+    h2 {
+      font-size:24px;
+      font-weight: normal;
+    }
+
+    a {
+      display:block;
+    }
+
+    label {
+      font-weight: normal;
+    }
+
+    input {
+      padding: .25rem;
+    }
+
+    input,
+    button {
+      width: 100%;
+    }
+
+    input {
+      margin-bottom: 1rem;
+    }
+
+    button {
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    p.error {
+      color: $fn-red;
+    }
+
+    p.error,
+    a {
+      font-size: 14px;
+    }
+  }
+}

@@ -1,0 +1,46 @@
+.ScreenshotGallery{
+  min-height: 250px;
+  background: #e1e1e1;
+  border-top: 1px solid $fn-grey;
+  border-bottom: 1px solid $fn-grey;
+  &__wrapper{
+  padding: 30px 0;
+  white-space: nowrap;
+  overflow-x: scroll;
+  }
+  &__list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: center;
+  }
+  &__list-item{
+    &--portrait{
+      flex: 0 1 185px;
+      margin: 0 15px;
+      min-width: 185px;
+      overflow: hidden;
+      height: 300px;
+      border: 10px solid white;
+      img{
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+      }
+    }
+    &--landscape{
+      flex: 0 1 300px;
+      min-width: 300px;
+      margin: 0 15px;
+      height: 185px;
+      border: 10px solid white;
+      img{
+        width: 100%;
+        max-height: 100%;
+        height: auto;
+      }
+    }
+  }
+}

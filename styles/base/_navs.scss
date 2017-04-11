@@ -1,0 +1,264 @@
+#material-search{
+  position: fixed;
+  bottom: 2em;
+  right: 2em;
+}
+.fn-globalnav {
+    .fn-globalnav-list {
+        > li {
+            margin: 0 1px 1px 0;
+            display: block;
+            float: left;
+            width: calc(50% - 1px);
+            height: 90px;
+            position: relative;
+            color: white;
+            cursor:pointer;
+            background-size: cover;
+            background-position: bottom right;
+            background-repeat: no-repeat;
+            span {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                font-size: 16px;
+                line-height: 20px;
+                font-weight: 300;
+                text-transform: uppercase;
+                width: 100%;
+                padding: 10px 15px;
+            }
+            &.single {
+              background-image: url(../assets/images/tile_firstresp.png);
+              &:hover {
+                  background-image: url(../assets/images/tile_firstresp_hover.png);
+              }
+            }
+            &.entity {
+              background-image: url(../assets/images/tile_safety.png);
+              &:hover {
+                  background-image: url(../assets/images/tile_safety_hover.png);
+              }
+            }
+            &.phones {
+              background-image: url(../assets/images/tile_phones.png);
+              &:hover {
+                  background-image: url(../assets/images/tile_phones_hover.png);
+              }
+            }
+            &.radios {
+                background-image: url(../assets/images/tile_radios.png);
+                &:hover {
+                    background-image: url(../assets/images/tile_radios_hover.png);
+                }
+            }
+            &.accessories {
+              background-image: url(../assets/images/tile_accessories.png);
+              &:hover {
+                  background-image: url(../assets/images/tile_accessories_hover.png);
+              }
+            }
+        }
+    }
+}
+.link-list {
+    > li {
+        position: relative;
+        line-height: 42px;
+        color: white;
+        background: $fn-blue;
+        margin-bottom: 5px;
+        padding-left: 15px;
+        font-weight: 300;
+        cursor: pointer;
+        &:hover {
+            background: $fn-ltblue;
+        }
+        &.red {
+            background: $fn-red;
+            &:hover {
+                background: #f1a592;
+            }
+        }
+        &.yellow {
+            background: $fn-yellow;
+            &:hover {
+                background: #fed58e;
+            }
+        }
+        &:after {
+            content: "r";
+            font-family: $icon-font;
+            position: absolute;
+            right: 10px;
+            top: 0;
+            color: white;
+        }
+    }
+}
+.content-secondary {
+    ul {
+        border-top: 2px solid $fn-grey;
+        border-bottom: 2px solid $fn-grey;
+        > li {
+            border-bottom: 1px solid $fn-grey;
+            text-transform: uppercase;
+            font-size: 13px;
+            padding: 5px 0;
+             > span,
+            > a {
+                color: $fn-dark;
+                line-height: 18px;
+                font-weight: bold;
+            }
+            &:last-child {
+                border-bottom: 0 none;
+            }
+            &:hover {
+                background: $fn-ltgrey;
+            }
+        }
+         > .active > span,
+        > .active > a {
+            color: $fn-blue;
+            text-decoration: underline;
+            cursor: default;
+            pointer-events: none;
+        }
+    }
+}
+// portal square nav
+.squares-nav {
+    margin: 15px 15px 15px 0;
+    > div {
+        padding: 5px;
+    }
+}
+.square {
+    position: relative;
+    width: 100%;
+    margin: 0 5px 5px 0;
+    cursor: pointer;
+    background-size: cover;
+    background-position: bottom right;
+    &:before {
+        content: "";
+        display: block;
+        padding-top: 100%;
+    }
+    > div {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 10px;
+        color: white;
+        span {
+            display: block;
+            text-transform: uppercase;
+            font-size: 14px;
+            font-weight: 300;
+        }
+        h3 {
+            font-weight: 300;
+            border-bottom: 0 none;
+            text-transform: uppercase;
+            font-size: 24px;
+            line-height: 27px;
+        }
+    }
+    &.utility {
+        background-image: url("../assets/images/sq_UTILITY.png");
+    }
+    &.flood {
+        background-image: url("../assets/images/sq_FLOOD.png");
+    }
+    &.hazmat {
+        background-image: url("../assets/images/sq_HAZMAT.png");
+    }
+    &.firstaid {
+        background-image: url("../assets/images/sq_FIRSTAID.png");
+    }
+    &.bleve {
+        background-image: url("../assets/images/sq_BLEVE.png");
+    }
+    &.command {
+        background-image: url("../assets/images/sq_COMMAND.png");
+    }
+}
+/* XS */
+@media only screen and (min-width : 480px) {
+    .square {
+        > div {
+            padding: 10px;
+            h3 {
+                font-size: 24px;
+                line-height: 27px;
+            }
+        }
+    }
+    .fn-globalnav {
+      .fn-globalnav-list {
+        > li {
+          width: calc(50% - 1px);
+        }
+      }
+    }
+}
+/* SM */
+@media only screen and (min-width : 768px) {
+    .square {
+        > div {
+            padding: 15px;
+            h3 {
+                font-size: 28px;
+                line-height: 28px;
+            }
+        }
+    }
+    .fn-globalnav {
+      .fn-globalnav-list {
+        > li {
+          width: calc(33.33% - 1px);
+        }
+      }
+    }
+}
+/* MD */
+@media only screen and (min-width : 992px) {
+    .square {
+        > div {
+            padding: 15px;
+            h3 {
+                font-size: 32px;
+                line-height: 32px;
+            }
+        }
+    }
+    .fn-globalnav {
+      .fn-globalnav-list {
+        > li {
+          width: calc(20% - 1px);
+        }
+      }
+    }
+}
+/* LG */
+@media only screen and (min-width : 1200px) {
+    .square {
+        > div {
+            padding: 15px;
+            h3 {
+                font-size: 32px;
+                line-height: 32px;
+            }
+        }
+    }
+    .fn-globalnav {
+      .fn-globalnav-list {
+        > li {
+          width: calc(20% - 1px);
+        }
+      }
+    }
+}

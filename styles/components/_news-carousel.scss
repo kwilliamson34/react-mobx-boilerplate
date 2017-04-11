@@ -1,0 +1,72 @@
+.fn-news-carousel {
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
+
+    .fn-news-carousel-list {
+        position: relative;
+        white-space: nowrap;
+        transition: left 1s linear;
+        > li {
+            display: inline-block;
+            img{
+              width: 100%;
+              margin-bottom: 10px;
+            }
+            h4{
+              text-transform: uppercase;
+              font-size: 15px;
+            }
+            p{
+              font-weight: 300;
+              font-size: 14px;
+            }
+        }
+
+
+    }
+}
+/* XS */
+@media only screen and (min-width : 480px) {
+    .fn-news-carousel {
+        .fn-news-carousel-list {
+            > li {
+                width: 100%;
+                padding-right: 0;
+            }
+        }
+    }
+}
+/* SM */
+@media only screen and (min-width : 768px) {
+    .fn-news-carousel {
+        .fn-news-carousel-list {
+            > li {
+                width: 50%;
+                padding-right: 5px;
+            }
+        }
+    }
+}
+/* MD */
+@media only screen and (min-width : 992px) {
+    .fn-news-carousel {
+        .fn-news-carousel-list {
+            > li {
+                width: 33.33%;
+                padding-right: 5px;
+            }
+        }
+    }
+}
+/* LG */
+@media only screen and (min-width : 1200px) {
+    .fn-news-carousel {
+        .fn-news-carousel-list {
+            > li {
+                width: 25%;
+                padding-right: 5px;
+            }
+        }
+    }
+}

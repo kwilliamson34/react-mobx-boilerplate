@@ -1,0 +1,35 @@
+.styleGuide{
+  .color-block{
+    margin: 0 4% 4em 0;
+    width: 16%;
+    height: 100%;
+    border: 1px solid $fn-grey;
+    position: relative;
+    float: left;
+    text-align: center;
+    div{
+      width: 50%;
+      height: 50px;
+      float: left;
+      &:after{
+        content: '';
+      }
+    }
+    label{
+      position: absolute;
+      bottom: -24px;
+      text-transform: uppercase;
+      left: 0;
+      font-size: 12px;
+      color: $fn-dkgrey
+    }
+  }
+  .fontList{
+    margin-left: 15px;
+    li{
+      line-height: 32px;
+      font-size: 16px;
+    }
+  }
+
+}

@@ -1,0 +1,40 @@
+//button overrides
+.fn-primary, .fn-secondary{
+  border-radius: 18px;
+  padding: 0 1em;
+  line-height: 33px;
+  height: 36px;
+  background: white;
+  margin-right: .5em;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: bold;
+  &:focus{
+    outline: 0 !important;
+  }
+  i{
+    font-size: 24px;
+    vertical-align: middle;
+    vertical-align: -webkit-baseline-middle;
+  }
+}
+.fn-primary{
+  @extend .btn;
+  background: $fn-ltblue;
+  font-weight: 300;
+  color: #fff;
+  &:hover,&.active, &:active, &:focus{
+    background: $fn-ltblue;
+    color: white;
+  }
+
+}
+.fn-secondary{
+  @extend .btn;
+  border: 2px solid $fn-dkgrey;
+  color: $fn-dkgrey;
+  &:hover, &.active, &:active, &:focus{
+    color: white;
+    background: $fn-dkgrey;
+  }
+}

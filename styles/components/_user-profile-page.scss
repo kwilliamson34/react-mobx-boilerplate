@@ -1,0 +1,33 @@
+.userProfilePage {
+  .panel-body {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .myGroup,
+  .profile {
+    div {
+      border-bottom: 1px solid $fn-grey;
+      padding: 10px;
+      font-size: 12px;
+      line-height: 16px;
+
+      &:last-of-type {
+        border: 0;
+      }
+
+      label {
+        width: 100%;
+        span.icon-edit {
+          float: right;
+        }
+      }
+      p {
+        font-weight: bold;
+        margin: 0;
+      }
+    }
+
+
+  }
+
+}

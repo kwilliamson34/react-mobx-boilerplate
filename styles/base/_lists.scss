@@ -1,0 +1,26 @@
+.list{
+  &__general, &__mediatypes{
+    list-style: disc;
+    padding: 0 15px;
+    li{
+      margin-bottom: .75em;
+      color: $fn-blue;
+      line-height: 140%;
+      div, span, p{color: $fn-dark}
+    }
+  }
+  &__quicklinks{
+    line-height: 32px;
+    li{
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 14px;
+      a{
+        color: #000;
+        &:hover{
+          color: $fn-blue;
+        }
+      }
+    }
+  }
+}

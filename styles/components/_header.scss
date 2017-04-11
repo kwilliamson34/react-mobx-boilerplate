@@ -1,0 +1,241 @@
+header {
+    position: relative;
+    width: 100%;
+    background: #fff;
+    height: 100px;
+    .top-subnav {
+        border-bottom: 1px solid $fn-grey;
+        height: 36px;
+        font-size: 13px;
+        line-height: 36px;
+        img {
+            margin: 10px 0 0 8px;
+            cursor: pointer;
+        }
+        a {
+            color: #000;
+            font-weight: 500;
+            margin-right: 15px;
+        }
+        i {
+            font-size: 18px;
+            color: $fn-dark;
+            margin: 0 0.25em;
+            cursor: pointer;
+            &:hover {
+                color: $fn-blue;
+            }
+        }
+    }
+    .fn-breadcrumb {
+        @extend .clearfix;
+        background: $fn-grey;
+        font-size: 13px;
+        height: 36px;
+        line-height: 36px;
+        text-transform: uppercase;
+    }
+    .header-mobile {
+        background: $fn-grey;
+        height: 48px;
+        line-height: 48px;
+        position: relative;
+        text-align: center;
+        width: 100%;
+        z-index: 100;
+        a {
+            border-bottom: 0 none;
+            &:active,
+            &:hover {
+                border-bottom: 0 none;
+                text-decoration: none;
+            }
+        }
+        .btnMenu {
+            display: inline-block;
+            height: 48px;
+            width: 42px;
+            &.open {
+                i {
+                    color: $fn-blue;
+                }
+            }
+        }
+        i {
+            font-size: 21px;
+            line-height: 48px;
+            vertical-align: -webkit-baseline-middle;
+            color: $fn-dark;
+        }
+        .fn-logo {
+            margin-top: 10px;
+            height: 26px;
+        }
+    }
+    .dropdown-menu {
+        border-top: 3px solid $fn-blue;
+        min-width: 370px;
+        a {
+            &:hover {
+                text-decoration: none;
+            }
+        }
+        .actions,
+        li:not(.parent-item) {
+            &:hover {
+                background: $fn-ltblue;
+                span {
+                    color: #fff;
+                }
+            }
+        }
+        > li {
+            min-height: 42px;
+            text-transform: none;
+            &.actions {
+                text-align: center;
+                padding: 7px 15px;
+            }
+            > a {
+                line-height: 42px;
+                display: block;
+                font-size: 16px;
+                span {
+                    display: block;
+                    padding: 0 0 0 15px;
+                }
+                &:hover {
+                    background: none;
+                }
+            }
+            ul {
+                border-top: 1px solid $fn-grey;
+                li {
+                    //second level
+                    border-bottom: 1px solid #ccc;
+                    line-height: 42px;
+                    display: block;
+                    font-size: 16px;
+                    background: $fn-grey;
+                    span {
+                        display: block;
+                        padding: 0 0 0 30px;
+                    }
+                    &:last-child {
+                        border-bottom: 0 none;
+                    }
+                    > a {
+                        font-weight: 400;
+                        color: $fn-dark;
+                        padding: 0 15px;
+                        display: block;
+                    }
+                    li {
+                        //third level
+                        background: $fn-ltgrey;
+                        border-color: #ccc;
+                        &:hover {
+                            background: $fn-ltblue;
+                            a,
+                            a:active,
+                            a:visited {
+                                color: white;
+                                text-decoration: none;
+                            }
+                        }
+                        span {
+                            display: block;
+                            padding: 0 0 0 45px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .parent-item > a {
+        position: relative;
+        span {
+            font-weight: bold;
+        }
+        &:after {
+            position: absolute;
+            font-family: $icon-font;
+            content: "g";
+            top: 2px;
+            right: 15px;
+            transform: rotate(0deg);
+            transition: all 0.6s;
+        }
+        &.collapsed {
+            span {
+                font-weight: 400;
+            }
+            &:after {
+                transform: rotate(-90deg);
+            }
+        }
+    }
+}
+.fn-logo-desk {
+    display: inline-block;
+    margin-top: 10px;
+    height: 46px;
+    vertical-align: top;
+    &.main-menu {
+        margin-right: 10px;
+        i {
+            display: inline-block;
+            font-size: 24px;
+            vertical-align: top;
+            color: black;
+            cursor: pointer;
+        }
+    }
+    .fn-logo {
+        height: 36px;
+        vertical-align: top;
+    }
+}
+.btn-main-menu {
+    display: inline;
+    border: 1px solid #eee;
+    button {
+        border: 1px solid #eee;
+        background: none;
+        vertical-align: -webkit-baseline-middle;
+    }
+}
+.menu-global-mobile {
+    //display: block;
+    width: 90%;
+}
+.nav__developer {
+    float: right;
+    margin: 5px 0;
+    .nav__developer-list > li {
+        float: left;
+        text-transform: uppercase;
+        display: inline-block;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        margin: 15px 0 10px 15px;
+        padding-bottom: 5px;
+        > a {
+            color: black;
+            text-decoration: none;
+            padding-bottom: 7px;
+            &.active,
+            &:hover {
+                color: $fn-blue;
+                border-bottom: 3px solid $fn-blue;
+            }
+        }
+        &.active {
+            > a {
+                color: $fn-blue;
+                border-bottom: 3px solid $fn-blue;
+            }
+        }
+    }
+}

@@ -1,0 +1,37 @@
+table{
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin-bottom: 30px;
+  tr:nth-child(odd) {
+   background-color: $fn-ltgrey;
+  }
+  th, td{
+    padding: 5px 7px;
+  }
+  th{
+    background: $fn-yellow;
+    font-size: 13px;
+    font-weight: bold;
+    border: 1px solid $fn-yellow
+  }
+  td{
+    border: 1px solid $fn-grey;
+    font-size: 13px;
+    .fn-primary{
+      margin-bottom: 5px;
+    }
+  }
+}
+.table-filter{
+  display: inline-block;
+  float: right;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 42px;
+  a{
+    margin-left: 15px;
+  }
+}
+.table-label{
+  h2{display: inline-block;}
+}
