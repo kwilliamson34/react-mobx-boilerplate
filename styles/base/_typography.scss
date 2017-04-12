@@ -1,66 +1,208 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,500italic,300italic,400italic,700italic);
-
-//Font vars
+@font-face {
+  font-family: Roboto;
+  font-weight: 300;
+  font-style: normal;
+  src: url('../assets/fonts/Roboto-Light.woff2') format('woff2'), url('../assets/fonts/Roboto-Light.woff') format('woff'), url('../assets/fonts/Roboto-Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: Roboto;
+  font-weight: 300;
+  font-style: italic;
+  src: url('../assets/fonts/Roboto-LightItalic.ttf') format('truetype');
+}
+@font-face {
+  font-family: Roboto;
+  font-weight: 400;
+  font-style: normal;
+  src: url('../assets/fonts/Roboto-Regular.woff2') format('woff2'), url('../assets/fonts/Roboto-Regular.woff') format('woff'), url('../assets/fonts/Roboto-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: Roboto;
+  font-weight: 400;
+  font-style: italic;
+  src: url('../assets/fonts/Roboto-Italic.ttf') format('truetype');
+}
+@font-face {
+  font-family: Roboto;
+  font-weight: 500;
+  font-style: normal;
+  src: url('../assets/fonts/Roboto-Medium.woff2') format('woff2'), url('../assets/fonts/Roboto-Medium.woff') format('woff'), url('../assets/fonts/Roboto-Medium.ttf') format('truetype');
+}
+@font-face {
+  font-family: Roboto;
+  font-weight: 500;
+  font-style: italic;
+  src: url('../assets/fonts/Roboto-MediumItalic.ttf') format('truetype');
+}
+@font-face {
+  font-family: Roboto;
+  font-weight: 700;
+  font-style: normal;
+  src: url('../assets/fonts/Roboto-Bold.woff2') format('woff2'), url('../assets/fonts/Roboto-Bold.woff') format('woff'), url('../assets/fonts/Roboto-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: Roboto;
+  font-weight: 700;
+  font-style: italic;
+  src: url('../assets/fonts/Roboto-BoldItalic.ttf') format('truetype');
+}
 $roboto: 'Roboto', 'Helvetica-Neue', sans-serif;
 
-h1, h2, h3, h4 {
-  font-weight: bold;
-  margin: 0 0 15px;
-  padding: 0;
+html {
+  font-family: $roboto;
+  font-size: 62.5% !important; //sets rem to base 10 instead of base 16
 }
 
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.4rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin-bottom: 1.6rem;
+  line-height: 1.6;
+  &:focus {
+    @include focus();
+  }
+}
+
+.as-h1,
 h1 {
-  border-bottom: 1px solid #eee;
-  font-size: 1.755em;
-  font-weight: 300;
-  margin: 0 0 15px;
-  padding: 0;
+  font-size: $fn-h1-default-size;
+  font-weight: $fn-normal-weight;
+  line-height: 1.2; //58 leading
 }
+
+.as-h2,
 h2 {
-  font-size: 1.2em;
-  font-weight: 500;
+  font-size: $fn-h2-default-size;
+  font-weight: $fn-normal-weight;
+  line-height: 1.12; //40 leading
 }
 
+.as-h3,
 h3 {
-  border-bottom: 1px solid #eee;
-  font-size: 1.75em;
-  font-weight: 300;
+  font-size: $fn-h3-default-size;
+  font-weight: $fn-normal-weight;
+  line-height: 1.07; //30 leading
 }
 
-
+.as-h4,
 h4 {
-  font-size: 1.5em;
-  margin-bottom: 0;
-}
-p{margin-bottom: 1em;}
-
-//text coloring
-.blue{color: $fn-blue}
-.red{color: $fn-red}
-
-a.link-app{
-  color: #000;
-  &:hover, &:active, &.active{color: $fn-blue;}
-  &:active,&.active{font-weight: bold}
+  font-size: $fn-h4-default-size;
+  font-weight: $fn-medium-weight;
+  text-transform: uppercase;
+  letter-spacing: 2.65px;
 }
 
-$icon-font: "FirstNet-icons";
+p {
+  font-size: $fn-body-default-size;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+
+  &.intro {
+    font-size: $fn-intro-default-size;
+  }
+}
+
+caption,
+p.disclaimer {
+  font-size: $fn-small-text-default-size;
+}
+
+caption {
+  padding-bottom: 5px;
+  color: $fn-dkgrey;
+}
+
+.as-link,
+a {
+  color: $active-link-color;
+  text-decoration: none;
+  font-weight: $fn-medium-weight;
+
+  &.hover,
+  &:hover {
+    color: $active-link-color;
+    text-decoration: underline;
+  }
+
+  &.active,
+  &:active {
+    color: $inactive-link-color;
+    text-decoration: underline;
+  }
+
+  &.visited,
+  &:visited {
+    color: $inactive-link-color;
+  }
+
+  &.focus,
+  &:focus {
+    @include focus();
+  }
+}
+//color variations
+.green {
+  color: $fn-green;
+}
+
+.red {
+  color: $fn-red;
+}
+
+.yellow {
+  color: $fn-yellow;
+}
+
+.blue {
+  color: $fn-blue;
+}
+
+.ltblue {
+  color: $fn-ltblue;
+}
+//style variations
+strong {
+  font-weight: $fn-bold-weight;
+}
+
+em {
+  font-style: italic;
+}
+
+figure {
+  margin-bottom: 1.5rem;
+}
+
+.monospace {
+  font-family: monospace;
+}
+$icon-font: 'FirstNet-icons';
 @font-face {
-  font-family: "FirstNet-icons";
-  src:url("../assets/fonts/FirstNet-icons.eot");
-  src:url("../assets/fonts/FirstNet-icons.eot?#iefix") format("embedded-opentype"),
-    url("../assets/fonts/FirstNet-icons.woff") format("woff"),
-    url("../assets/fonts/FirstNet-icons.ttf") format("truetype"),
-    url("../assets/fonts/FirstNet-icons.svg#FirstNet-icons") format("svg");
-  font-weight: normal;
+  font-family: 'FirstNet-icons';
+  src: url('../assets/fonts/FirstNet-icons.eot');
+  src: url('../assets/fonts/FirstNet-icons.eot?#iefix') format('embedded-opentype'), url('../assets/fonts/FirstNet-icons.woff') format('woff'), url('../assets/fonts/FirstNet-icons.ttf') format('truetype'), url('../assets/fonts/FirstNet-icons.svg#FirstNet-icons') format('svg');
+  font-weight: $fn-normal-weight;
+  font-size: 2.0rem;
   font-style: normal;
 }
 
 [data-icon]:before {
-  font-family: "FirstNet-icons" !important;
+  font-family: 'FirstNet-icons' !important;
   content: attr(data-icon);
   font-style: normal !important;
-  font-weight: normal !important;
+  font-weight: $fn-normal-weight !important;
   font-variant: normal !important;
   text-transform: none !important;
   speak: none;
@@ -70,91 +212,108 @@ $icon-font: "FirstNet-icons";
   vertical-align: -webkit-baseline-middle;
 }
 
-[class^="icon-"]:before,
-[class*=" icon-"]:before {
-  font-family: "FirstNet-icons" !important;
+[class*=' icon-']:before,
+[class^='icon-']:before {
+  font-family: 'FirstNet-icons' !important;
+  font-size: 1.8rem;
+  vertical-align: text-top;
   font-style: normal !important;
-  font-weight: normal !important;
+  font-weight: $fn-normal-weight !important;
   font-variant: normal !important;
   text-transform: none !important;
   speak: none;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-decoration: none;
 }
 
-.icon-calendar:before {
-  content: "\61";
+.icon-help:before {
+  content: '\61';
 }
-.icon-certificate:before {
-  content: "\62";
+
+.icon-profile:before {
+  content: '\62';
 }
-.icon-checkcricle:before {
-  content: "\63";
+
+.icon-search:before {
+  content: '\63';
 }
-.icon-checkcriclegrey:before {
-  content: "\64";
+
+.icon-print:before {
+  content: '\64';
 }
-.icon-checksq:before {
-  content: "\65";
+
+.icon-comment:before {
+  content: '\65';
 }
-.icon-crossout:before {
-  content: "\66";
+
+.icon-arrowDown:before {
+  content: '\66';
 }
-.icon-downarrow:before {
-  content: "\67";
+
+.icon-arrowRight:before {
+  content: '\67';
 }
-.icon-download:before {
-  content: "\68";
+
+.icon-arrowUp:before {
+  content: '\68';
 }
-.icon-edit:before {
-  content: "\69";
+
+.icon-arrowLeft:before {
+  content: '\69';
 }
-.icon-graph:before {
-  content: "\6a";
+
+.icon-logout:before {
+  content: '\6a';
 }
-.icon-hamburger:before {
-  content: "\6b";
+
+.icon-email:before {
+  content: '\6b';
 }
-.icon-information:before {
+
+.icon-checkmark:before {
   content: "\6c";
 }
-.icon-lock:before {
+
+.icon-close:before {
   content: "\6d";
 }
-.icon-pictureicon:before {
-  content: "\6e";
+
+.icon-file:before {
+  content: '\6e';
 }
-.icon-playbutton:before {
+
+.icon-pencil:before {
   content: "\6f";
 }
-.icon-profile:before {
+
+.icon-trash:before {
   content: "\70";
 }
-.icon-ratingstar:before {
+
+.icon-circle-x:before {
   content: "\71";
+  transform: rotate(45deg);
+  display: inline-block;
 }
-.icon-rightarrow:before {
+
+.icon-facebook:before {
   content: "\72";
 }
-.icon-search:before {
+
+.icon-twitter:before {
   content: "\73";
 }
-.icon-share:before {
+
+.icon-tumblr:before {
+  content: "\74";
+}
+
+.icon-youtube:before {
   content: "\75";
 }
-.icon-uparrow:before {
+
+.icon-linkedin:before {
   content: "\76";
-}
-.icon-upload:before {
-  content: "\77";
-}
-.icon-video:before {
-  content: "\78";
-}
-.icon-warning:before {
-  content: "\79";
-}
-.icon-leftarrow:before {
-  content: "\7a";
 }

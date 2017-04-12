@@ -1,26 +1,97 @@
-.list{
-  &__general, &__mediatypes{
-    list-style: disc;
+.list {
+  &__general,
+  &__mediatypes {
+    list-style: none;
     padding: 0 15px;
-    li{
-      margin-bottom: .75em;
-      color: $fn-blue;
+
+    li {
+      text-align: left;
+      margin-bottom: 0.75em;
+      color: $fn-dark;
       line-height: 140%;
-      div, span, p{color: $fn-dark}
+      position: relative;
+      padding-left: 15px;
+
+      &:before {
+        position: absolute;
+        top: 1px;
+        left: 0;
+        content: "•";
+        color: $fn-blue;
+      }
     }
   }
-  &__quicklinks{
-    line-height: 32px;
-    li{
-      text-transform: uppercase;
-      font-weight: bold;
-      font-size: 14px;
-      a{
-        color: #000;
-        &:hover{
+
+  &__quicklinks {
+    li {
+      font-size: $fn-body-default-size;
+      margin-bottom: 10px;
+      line-height: 140%;
+
+      a {
+        color: $fn-blue;
+
+        &:hover {
           color: $fn-blue;
         }
       }
     }
+  }
+
+  &__inline {
+    @extend .clearfix;
+    list-style: none;
+
+    li {
+      display: inline-block;
+      float: left;
+      margin-right: 15px;
+
+      &:before {
+        content: '';
+      }
+    }
+  }
+}
+
+li.actionicon {
+  line-height: 24px;
+
+  i {
+    color: $fn-dkgrey;
+    font-size: 16px;
+    vertical-align: text-top;
+  }
+
+  button {
+    background: none;
+    border: 0;
+    text-transform: uppercase;
+    font-size: $fn-label-default-size;
+    font-weight: $fn-bold-weight;
+    color: $fn-blue;
+    padding: 0 0 0 2px;
+    margin-left: 2px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  &.divider {
+    height: 48px;
+    &:before {
+      content: "|";
+      line-height:  48px;
+      font-size: 19px;
+    }
+  }
+}
+/* temporary style for temporary L2 template listing */
+.phLinkList{
+  li{
+    line-height: 1.6;
+  }
+  ul{
+    margin-left: 15px;
   }
 }

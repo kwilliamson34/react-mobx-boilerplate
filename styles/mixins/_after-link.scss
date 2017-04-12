@@ -1,0 +1,7 @@
+@mixin after-link() {
+  &:after {
+    content: '›';
+    font-size: 1.9rem;
+    padding-left: 5px;
+  }
+}

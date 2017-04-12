@@ -1,0 +1,45 @@
+/* padding adjustment for sticky header, no submenu */
+.landing-page{
+  padding-top: 0;
+}
+.content-page{
+  > section{
+    padding-bottom: 100px;
+  }
+
+}
+
+@media only screen and (min-width : 0px) {
+  .hasSideNav{
+    padding-top: 90px;
+  }
+  .content-page{
+    padding-top: 0;
+
+    .container{
+      width: 100%;
+    }
+  }
+
+}
+@media only screen and (min-width : 992px) {
+  .hasSideNav{
+    padding-top: 0;
+  }
+  .content-page{
+    padding-top: 45px;
+
+    .container{
+      width: 970px;
+    }
+  }
+
+}
+@media only screen and (min-width : 1200px) {
+  .content-page{
+    .container{
+      width: 1170px;
+    }
+  }
+
+}

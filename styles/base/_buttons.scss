@@ -1,40 +1,299 @@
 //button overrides
-.fn-primary, .fn-secondary{
-  border-radius: 18px;
-  padding: 0 1em;
+
+.btn {
+  padding: 0 1.6rem;
   line-height: 33px;
   height: 36px;
   background: white;
-  margin-right: .5em;
+  margin-right: 0.8em;
+  font-size: $fn-button-default-size;
+  font-weight: $fn-normal-weight;
   text-transform: uppercase;
-  font-size: 13px;
-  font-weight: bold;
-  &:focus{
-    outline: 0 !important;
+  outline: none;
+
+  &.active,
+  &.hover,
+  &:active,
+  &:hover {
+    outline: none;
+    box-shadow: none;
   }
-  i{
-    font-size: 24px;
+
+  &.focus,
+  &:focus {
+    @include focus();
+    color: #fff;
+  }
+}
+/* Use aria-disabled to style a button to appear disabled, so it's also conveyed to screen readers while letting SC users focus on it. the "true" string is required */
+button {
+  &[aria-disabled="true"],
+  &[disabled] {
+    background: white !important;
+    color: $input-outline-disabled !important;
+    border: 1px solid $input-outline-disabled !important;
+    pointer-events: none;
+  }
+}
+
+.fn-inverse,
+.fn-primary,
+.fn-secondary {
+  min-width: 120px;
+  border-radius: 25px;
+  padding: 0 4rem;
+  line-height: 48px;
+  height: 50px;
+  font-weight: $fn-medium-weight;
+
+  i {
+    font-size: 2.4rem;
     vertical-align: middle;
     vertical-align: -webkit-baseline-middle;
   }
+
+  &:after {
+    display: none;
+  }
 }
-.fn-primary{
+
+.fn-primary {
   @extend .btn;
-  background: $fn-ltblue;
-  font-weight: 300;
-  color: #fff;
-  &:hover,&.active, &:active, &:focus{
-    background: $fn-ltblue;
+  border: 2px solid $primary-button-color;
+  color: $primary-button-color;
+  background: transparent;
+
+  &.hover,
+  &:hover {
+    background: $primary-button-color;
+    border-color: $primary-button-color;
+    color: white;
+    box-shadow: none;
+  }
+
+  &.active,
+  &:active {
+    outline: none !important;
+    background: darken($primary-button-color,15%) !important;
+    border-color: darken($primary-button-color,15%) !important;
     color: white;
   }
 
+  &.focus,
+  &:focus {
+    @include focus();
+    background: $primary-button-color;
+    color: white;
+    border-radius: 25px;
+  }
 }
-.fn-secondary{
+
+.fn-secondary {
   @extend .btn;
   border: 2px solid $fn-dkgrey;
   color: $fn-dkgrey;
-  &:hover, &.active, &:active, &:focus{
+  background: transparent;
+
+  &.hover,
+  &:hover {
     color: white;
     background: $fn-dkgrey;
+  }
+
+  &.active,
+  &:active {
+    outline: none !important;
+    color: white;
+    background: darken($fn-dkgrey,15%) !important;
+    border-color: darken($fn-dkgrey,15%) !important;
+  }
+
+  &.focus,
+  &:focus {
+    @include focus();
+    color: white;
+    background: $fn-dkgrey;
+    border-radius: 25px;
+  }
+}
+
+.fn-inverse {
+  @extend .btn;
+  border: 2px solid white;
+  background: none;
+  color: white;
+
+  &.hover,
+  &:hover {
+    color: $fn-dark !important;
+    background: white;
+  }
+
+  &.active,
+  &:active {
+    outline: none !important;
+    color: $fn-dark !important;
+    background: darken(white,15%) !important;
+    border-color: darken(white,15%) !important;
+  }
+
+  &.focus,
+  &:focus {
+    @include focus();
+    color: black;
+    background: white;
+    border-radius: 25px;
+  }
+}
+
+.fn-save {
+  @extend .fn-primary;
+  min-width: 100px;
+}
+
+.fn-cancel {
+  @extend .fn-secondary;
+  min-width: 100px;
+}
+
+.btn-group {
+  & > .btn,
+  & > .fn-primary {
+    margin-right: 0;
+
+    &.active,
+    &:active,
+    &:focus,
+    &:hover {
+      z-index: 0;
+    }
+  }
+}
+
+.btn-link {
+  color: $fn-ltblue;
+  position: relative;
+  display: inline-block;
+  padding: 0 5px 0 0;
+  border-radius: 0;
+  background-color: transparent;
+
+  &.focus,
+  &.hover,
+  &:focus,
+  &:hover {
+    color: $fn-ltblue;
+    border: none;
+    background-color: transparent;
+  }
+
+  &.active,
+  &:active {
+    color: $fn-blue;
+  }
+
+  &.visited,
+  &:visited {
+    color: $fn-blue;
+  }
+}
+.transcript-toggle{
+  display: inline-block;
+  position: relative;
+  padding: 0 5px 0 0;
+  border-radius: 0;
+  background-color: transparent;
+  text-transform:uppercase;
+  border: 2px solid transparent;
+  padding-right: 30px;
+  color: $fn-ltblue;
+  font-size: $fn-label-default-size;
+  font-weight: $fn-medium-weight;
+  &:focus{
+    @include focus();
+  }
+  &:after {
+    content: '\67';
+    display:inline-block;
+    position: absolute;
+    right: 8px;
+    top: 12px;
+    font-family: $icon-font;
+    text-transform: none;
+    transform: rotate(90deg);
+    transition: transform $fn-animation-duration ease;
+  }
+  &[aria-expanded=true]{
+    color: $fn-ltblue;
+    box-shadow: none;
+    &:after {
+      transform: rotate(-90deg);
+    }
+  }
+}
+.back-to-top {
+  margin: 0;
+  position: fixed;
+  bottom: 2em;
+  left: 1em;
+  width: 48px;
+  height: 48px;
+  line-height: 2.9;
+  text-align: center;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  z-index: 75;
+  display: none;
+  text-decoration: none;
+  color: $fn-dkgrey;
+  background: white;
+  box-shadow: 0 0 6px 0 rgba(0,0,0,0.12), 0 4px 2px 0 rgba(0,0,0,0.05);
+
+  i {
+    color: $fn-dkgrey;
+  }
+  &:focus{
+    border-color: $focus-lightbg;
+    text-decoration: none;
+  }
+  &:active,
+  &:hover {
+    background: $fn-blue;
+    text-decoration: none;
+    i {
+      color: white;
+    }
+  }
+}
+/* XS */
+@media only screen and (min-width : 320px) {
+  .btn-primary {
+    width: 100%;
+  }
+  .back-to-top{
+    left: 1em;
+    right: auto;
+  }
+}
+/* SM */
+@media only screen and (min-width : 768px) {
+  .btn-primary {
+    width: auto;
+  }
+}
+/* MD */
+@media only screen and (min-width : 992px) {
+  .btn-primary {
+    width: auto;
+  }
+  .back-to-top{
+    left: auto;
+    right: 2em;
+  }
+}
+/* LG */
+@media only screen and (min-width : 1200px) {
+  .btn-primary {
+    width: auto;
   }
 }

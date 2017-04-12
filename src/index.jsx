@@ -10,7 +10,7 @@ import Footer from './components/footer.jsx';
 
 import {appStore} from './core/stores/app.store';
 
-import '../styles/styles.scss';
+import '../styles/app.scss';
 
 @observer class App extends React.Component {
 
