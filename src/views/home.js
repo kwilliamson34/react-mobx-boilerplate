@@ -1,12 +1,16 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-export default class Home extends React.Component {
+import TitlePane from '../components/title-pane';
+
+export default class HomeView extends React.Component {
 
     render() {
         return (
+          <main className="content-main">
+            <TitlePane  pageTitle="PSE Homepage" />
             <div className="view-home">
-                <Link to="/admin-dashboard" role="button" className="btn-dashboard">Administrator Dashboard</Link>
+
                 <section className="placeholder alert-dropdown">
                     Alert Dropdown
                 </section>
@@ -20,6 +24,8 @@ export default class Home extends React.Component {
                     <h2>Marketing Portal Links</h2>
                 </section>
             </div>
+          </main>
         )
     }
+
 }

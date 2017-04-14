@@ -1,5 +1,6 @@
-.view-home{
-  .btn-dashboard{
+
+  .btn-dashboard,
+  .btn-dashboard:visited{
     display: inline-block;
     height: 42px;
     line-height: 42px;
@@ -7,5 +8,6 @@
     background: $fn-red;
     color: white;
     padding: 0 30px;
+    text-transform: uppercase;
+    letter-spacing: 2.12px;
   }
-}
