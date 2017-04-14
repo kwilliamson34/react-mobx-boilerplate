@@ -52,7 +52,8 @@ module.exports = {
 		]
 	},
 	devServer: {
-		port: 3030
+		port: 3030,
+		historyApiFallback: true
 	},
 	plugins: [
 		new webpack.LoaderOptionsPlugin({
