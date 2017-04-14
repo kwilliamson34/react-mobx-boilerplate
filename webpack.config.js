@@ -1,5 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
+const precss = require("precss");
+const autoprefixer = require("autoprefixer");
 
 const PATHS = {
 	app: path.join(__dirname, 'app'),
@@ -8,7 +10,7 @@ const PATHS = {
 };
 
 module.exports = {
-	entry: './src/index.jsx',
+	entry: './src/index.js',
 	output: {
 		filename: 'bundle.js',
 		path: path.resolve(__dirname, 'build')
@@ -16,7 +18,7 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.jsx?$/,
+				test: /\.(js|jsx)$/,
 				include: [
 					path.resolve(__dirname, 'src')
 				],
@@ -33,6 +35,7 @@ module.exports = {
 				use: [
 					{loader: 'style-loader'},
 					{loader: 'css-loader'},
+					{loader: 'postcss-loader'},
 					{loader: 'sass-loader'}
 				]
 			},
@@ -50,5 +53,18 @@ module.exports = {
 	},
 	devServer: {
 		port: 3030
-	}
+	},
+	plugins: [
+		new webpack.LoaderOptionsPlugin({
+        test: /\.scss$/,
+        debug: true,
+        options: {
+          postcss: function() {
+                    return [ precss, autoprefixer ];
+                },
+            context: path.join(__dirname, "src"),
+            output: { path: path.join(__dirname, "build") }
+        }
+    })
+	]
 };

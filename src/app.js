@@ -9,12 +9,12 @@ import {PSEStore} from './core/stores/pse.store';
 import '../styles/app.scss';
 
 //Common Components
-import Header from './components/header.jsx';
-import Footer from './components/footer.jsx';
+import Header from './components/header';
+import Footer from './components/footer';
 
 //Views
-import Home from './views/home.jsx';
-import Dashboard from './views/dashboard.jsx';
+import Home from './views/home';
+import Dashboard from './views/dashboard';
 
 export default class App extends React.Component {
 
