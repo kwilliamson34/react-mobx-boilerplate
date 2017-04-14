@@ -1,45 +1,27 @@
-/* padding adjustment for sticky header, no submenu */
-.landing-page{
-  padding-top: 0;
-}
-.content-page{
-  > section{
-    padding-bottom: 100px;
+section.placeholder{
+  border: 2px dashed #ccc;
+  text-align: center;
+  height: 250px;
+  width: 100%;
+  h2{
+    margin-top: 60px;
   }
-
+  &.alert-dropdown{
+    height: 48px;
+    background: $fn-grey;
+    line-height: 48px;
+  }
+  &.geolink{}
+  &.news-feed{}
+  &.mp-links{}
 }
 
+/*
 @media only screen and (min-width : 0px) {
-  .hasSideNav{
-    padding-top: 90px;
-  }
-  .content-page{
-    padding-top: 0;
-
-    .container{
-      width: 100%;
-    }
-  }
-
 }
 @media only screen and (min-width : 992px) {
-  .hasSideNav{
-    padding-top: 0;
-  }
-  .content-page{
-    padding-top: 45px;
-
-    .container{
-      width: 970px;
-    }
-  }
-
 }
 @media only screen and (min-width : 1200px) {
-  .content-page{
-    .container{
-      width: 1170px;
-    }
-  }
 
 }
+*/
