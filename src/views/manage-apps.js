@@ -7,7 +7,7 @@ export default class ManageAppsView extends React.Component {
     render() {
         return (
           <main className="content-main">
-            <TitlePane />
+            <TitlePane pageTitle="Manage Apps" />
             <section className="placeholder-long">
                 <div className="container">
                     <h2>Manage Apps</h2>
