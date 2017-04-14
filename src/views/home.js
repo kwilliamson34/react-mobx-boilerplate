@@ -7,10 +7,8 @@ export default class HomeView extends React.Component {
 
     render() {
         return (
-          <main className="content-main">
-            <TitlePane  pageTitle="PSE Homepage" />
-            <div className="view-home">
-
+            <main className="content-main">
+                <TitlePane pageTitle="PSE Homepage"/>
                 <section className="placeholder alert-dropdown">
                     Alert Dropdown
                 </section>
@@ -23,8 +21,7 @@ export default class HomeView extends React.Component {
                 <section className="placeholder mp-links">
                     <h2>Marketing Portal Links</h2>
                 </section>
-            </div>
-          </main>
+            </main>
         )
     }
 
