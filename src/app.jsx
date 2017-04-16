@@ -1,17 +1,17 @@
 import React from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-import ScrollToTop from './components/scroll-to-top';
+import ScrollToTop from './core/services/scroll-to-top';
 
 //State Management
 import {Provider, observer} from 'mobx-react';
-import {PSEStore} from './core/stores/pse.store';
+import {PSEStore} from './core/stores/master.store';
 
 //Styles
 import '../styles/app.scss';
 
 //Common Components
-import Header from './components/header';
-import Footer from './components/footer';
+import Header from './components/header/index';
+import Footer from './components/footer/index';
 
 //Views
 import HomeView from './views/home';

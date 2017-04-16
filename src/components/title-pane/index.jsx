@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export default class TitlePane extends React.Component {
     constructor(props) {
@@ -18,5 +19,8 @@ export default class TitlePane extends React.Component {
             </div>
         )
     }
+}
 
+TitlePane.propTypes = {
+  pageTitle: PropTypes.string.isRequired
 };
