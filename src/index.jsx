@@ -13,8 +13,8 @@ import {PSEStore} from './core/stores/master.store';
 import '../styles/app.scss';
 
 //Common Components
-import Header from './components/header/index';
-import Footer from './components/footer/index';
+import Header from './components/header';
+import Footer from './components/footer';
 
 //Views
 import HomeView from './views/home';
