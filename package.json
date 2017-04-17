@@ -5,7 +5,7 @@
   "main": "index.jsx",
   "scripts": {
     "build": "rm -rf build & webpack --progress",
-    "start": "webpack-dev-server --hot"
+    "start": "webpack-dev-server --hot --open"
   },
   "license": "ISC",
   "dependencies": {
