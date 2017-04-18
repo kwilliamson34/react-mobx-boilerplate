@@ -6,7 +6,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import ScrollToTop from './core/services/scroll-to-top';
 
 //State Management
-import {observer, PropTypes} from 'mobx-react';
+import {Provider, observer} from 'mobx-react';
 import {PSEStore} from './core/stores/master.store';
 
 //Styles
@@ -23,17 +23,17 @@ import ManageAppsView from './views/manage-apps';
 import AppDetailsView from './views/app-details';
 
 @observer
-class App extends React.Component {
+export default class App extends React.Component {
 
     constructor(props) {
         super(props);
-        this.store = this.props.store;
     }
 
     render() {
         return (
             <Router>
-                <ScrollToTop>
+              <Provider store={PSEStore}>
+                  <ScrollToTop>
                     <div id="PSE-wrapper">
                         <Header/>
                         <Route exact path="/" component={HomeView}/>
@@ -42,14 +42,12 @@ class App extends React.Component {
                         <Route path="/app/detail" component={AppDetailsView} />
                         <Footer/>
                     </div>
-              </ScrollToTop>
+                  </ScrollToTop>
+              </Provider>
             </Router>
         )
     }
 }
 
-App.propTypes = {
-  store: PropTypes.observableObject
-}
 
-ReactDOM.render(<App store={PSEStore}/>, document.getElementById('app') );
+ReactDOM.render(<App />, document.getElementById('app') );
