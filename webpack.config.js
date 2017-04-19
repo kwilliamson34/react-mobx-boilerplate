@@ -13,10 +13,42 @@ const PATHS = {
 };
 
 module.exports = {
-	entry: './src/index.jsx',
+	context: path.resolve(__dirname, 'src'),
+	entry: [
+		'react-hot-loader/patch',
+    // activate HMR for React
+
+    'webpack-dev-server/client?http://localhost:3030',
+    // bundle the client for webpack-dev-server
+    // and connect to the provided endpoint
+
+    'webpack/hot/only-dev-server',
+    // bundle the client for hot reloading
+    // only- means to only hot reload for successful updates
+
+		'./index.jsx'
+	],
 	output: {
 		filename: 'js/bundle.[hash].js',
-		path: path.resolve(__dirname, 'build')
+		path: path.resolve(__dirname, 'build'),
+		publicPath: '/'
+    // necessary for HMR to know where to load the hot update chunks
+	},
+	devtool: 'eval',
+	devServer: {
+		port:3030,
+		historyApiFallback: true,
+		hot: true,
+
+		contentBase: path.resolve(__dirname, 'build'),
+    // match the output path
+
+		publicPath: '/',
+		proxy: {
+			'/api/sauron': {
+				target: 'http://mordor.me'
+			}
+		}
 	},
 	resolve: {
     extensions: ['.js', '.jsx']
@@ -89,21 +121,34 @@ module.exports = {
 		]
 	},
 	plugins: [
-        new ExtractTextPlugin({
-	        filename: 'css/styles.[contenthash].css',
-	        disable: process.env.npm_lifecycle_event === 'start'
-        }),
-        new HtmlWebpackPlugin({
-          template: 'index.ejs'
-        })
-  ],
-	devServer: {
-		port: 3030,
-		historyApiFallback: true,
-		proxy: {
-			'/api/sauron': {
-				target: 'http://mordor.me'
-			}
-		}
-	}
+		new webpack.HotModuleReplacementPlugin(),
+    // enable HMR globally
+
+    new webpack.NamedModulesPlugin(),
+    // prints more readable module names in the browser console on HMR updates
+
+		new ExtractTextPlugin({
+	  	filename: 'css/styles.[contenthash].css',
+	    disable: process.env.npm_lifecycle_event === 'start'
+    }),
+
+		new HtmlWebpackPlugin({
+    	template: './index.ejs',
+			hash: false
+    }),
+
+		new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /nb/),
+    new webpack.LoaderOptionsPlugin({
+            test: /\.scss$/,
+            debug: true,
+            options: {
+                postcss: function() {
+                    return [ precss, autoprefixer ];
+                },
+                context: path.join(__dirname, "src"),
+                output: { path: path.join(__dirname, "build") }
+            }
+    })
+  ]
+
 };
