@@ -1,0 +1,39 @@
+.admin-component {
+	.ac-panel-heading{
+		background: $fn-black;
+		border-color: $fn-black;
+		color: $fn-white;
+		h3{
+			margin:0;
+			padding: 0px 15px;
+			height:45px;
+			line-height: 45px;
+			font-size: 14px;
+		    font-weight: 500;
+		    text-transform: uppercase;
+		    letter-spacing: 2.65px;
+		}
+	}
+
+	.ac-panel-body{
+		border: 1px solid $fn-bordergrey;
+		border-top: none;
+		border-bottom: none;
+		float:left;
+		.list-group-item{
+			height: 80px;
+			margin:0;
+			border:none;
+			border-bottom: 1px solid $fn-bordergrey;
+			border-radius: 0px;
+		}
+		.list-group-item-heading{
+			font-size: 14px;
+			margin-left:40px;
+		}
+		.list-group-item-text{
+			font-size: 18px;
+			margin-left:40px;
+		}
+	}
+}
