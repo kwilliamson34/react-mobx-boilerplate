@@ -5,8 +5,11 @@ import { AppContainer } from 'react-hot-loader';
 
 import App from './app.jsx';
 
-
-ReactDOM.render(<AppContainer><App /></AppContainer>, document.getElementById('app') );
+ReactDOM.render(
+  <AppContainer>
+    <App />
+  </AppContainer>
+  , document.getElementById('app') );
 
 // Hot Module Replacement API
 if (module.hot) {

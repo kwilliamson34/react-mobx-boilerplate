@@ -1,0 +1,21 @@
+.fnnav__weather{
+  float: right;
+  border: 2px dashed #ccc;
+  width: 450px;
+  text-align: right;
+  height: 90px;
+  overflow: hidden;
+}
+
+/* mobile/tablet */
+@media only screen and (min-width : 0) {
+  .fnnav__weather{
+    display: none;
+  }
+}
+  /* Desktop */
+  @media only screen and (min-width : 992px) {
+    .fnnav__weather{
+      display: block;
+    }
+  }

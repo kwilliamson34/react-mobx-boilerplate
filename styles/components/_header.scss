@@ -1,0 +1,280 @@
+$fn-mobile-item-height: 60px;
+
+.fnnav {
+    @extend .clearfix;
+
+    &__mainbar {
+        background: white;
+        color: $fn-dkgrey;
+        border-top: 5px solid black;
+    }
+
+    &__brand {
+        float: left;
+        display: inline-block;
+
+        > a {
+            display: block;
+            height: 100%;
+            border: 2px solid white;
+
+            &:focus {
+                @include focus();
+            }
+        }
+
+        img {
+            vertical-align: middle;
+            width: 100%;
+            max-width: 100%;
+        }
+    }
+
+    &__main {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        z-index: 110;
+        border-top: 1px solid #ccc;
+        width: 100vw;
+        max-height: 760px;
+        max-width: 505px;
+        overflow-y: scroll;
+        background: $fn-ltgrey;
+        padding-bottom: 30px;
+    }
+}
+
+
+
+// Hamburger
+
+.navbar-toggle {
+    margin: 0;
+    float: left;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 0;
+    border-left: 1px solid $fn-grey;
+    border-right: 1px solid $fn-grey;
+    text-align: center;
+    background: white;
+
+    &:focus {
+        @include focus();
+    }
+
+    &:hover {
+        background: #fff;
+
+        .icon-bar {
+            background: $fn-dkgrey;
+        }
+    }
+
+    .icon-bar {
+        background: $fn-dkgrey;
+        height: 3px;
+        margin: 4px auto;
+    }
+}
+
+.mainnav-item {
+    clear: both;
+    padding: 0 30px;
+    border-width: 0;
+    text-align: left;
+    overflow: hidden;
+    font-size: 14px;
+    background: white;
+    > a,
+    > span {
+        display: block;
+        height: $fn-mobile-item-height;
+        line-height: $fn-mobile-item-height;
+        font-weight: $fn-medium-weight;
+        color: $fn-dkgrey;
+        border-bottom: 1px solid $fn-grey;
+        text-transform: uppercase;
+        i{
+          display: inline-block;
+          text-decoration: none;
+          margin-right: 10px;
+        }
+    }
+
+    .btnSubmenu {
+        width: $fn-mobile-item-height;
+        height: $fn-mobile-item-height;
+        float: right;
+        background: none;
+        border: 0 none;
+        padding: 0 15px;
+        color: $fn-ltblue;
+        transition: all $fn-animation-duration ease;
+
+        &:before {
+            display: inline-block;
+            content: '\66';
+            font-family: $icon-font;
+            text-transform: none;
+            transform: rotate(0deg);
+            transition: transform $fn-animation-duration ease;
+        }
+    }
+
+    &:last-child {
+        a {
+            border-bottom: 0 none !important;
+        }
+    }
+
+    > ul {
+        max-height: 500px;
+        overflow: hidden;
+        transition: max-height $fn-animation-duration ease;
+
+        > li {
+            padding-left: 15px;
+        }
+
+        a {
+            display: block;
+            height: $fn-mobile-item-height;
+            line-height: $fn-mobile-item-height;
+
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding-right: 10px;
+            padding-left: 10px;
+            i{
+              display: inline-block;
+              margin-right: 10px;
+              text-decoration: none;
+            }
+        }
+        > li:not(:last-child){
+          border-bottom: 1px solid #e1e1e1;
+        }
+    }
+    &.blue{
+      background: $fn-blue;
+      color: white;
+      > a,
+      > ul a,
+      .btnSubmenu:before
+       {
+        color: white;
+      }
+    }
+    &.pse-selector{
+      background: $fn-grey;
+
+    }
+}
+@media only screen and (min-width : 0px) {
+    $fn-primary-nav-height: 60px;
+
+    .fnnav__utility {
+        display: none;
+    }
+
+    .fnnav__brand {
+        width: calc(100vw - 51px);
+
+        > a {
+            width: 250px;
+            margin: 10px 0 10px 7%;
+            pointer-events: none;
+        }
+    }
+
+    .fnnav__mainbar {
+        height: $fn-primary-nav-height;
+        min-width: 410px;
+        border: 0;
+    }
+
+    .navbar-toggle {
+        width: 49px;
+        height: $fn-primary-nav-height;
+    }
+
+    .fnnav__main {
+        display: block;
+        top: $fn-primary-nav-height;
+        left: 100vw;
+    }
+}
+/*Tablet*/
+@media only screen and (min-width : 768px) {
+    $fn-primary-nav-height: 98px;
+
+    .fnnav__utility {
+        display: none;
+    }
+
+    .fnnav__mainbar {
+        height: $fn-primary-nav-height;
+        border-top: 0;
+
+        > .container {
+            width: 100%;
+        }
+    }
+
+    .fnnav__brand {
+        width: calc(100% - 146px);
+
+        > a {
+            width: 430px;
+            margin: 16px auto;
+        }
+    }
+
+    .navbar-toggle {
+        width: 72px;
+        height: $fn-primary-nav-height;
+        display: block;
+    }
+
+    .fnnav__main {
+        display: block;
+        top: $fn-primary-nav-height;
+        left: 0;
+    }
+}
+/* Desktop */
+@media only screen and (min-width : 992px) {
+    $fn-primary-nav-height: 94px;
+
+    .fnnav__utility {
+        display: block;
+    }
+
+    .fnnav__mainbar {
+        height: $fn-primary-nav-height;
+
+        > .container {
+            width: 970px;
+        }
+    }
+
+    .fnnav__main,
+    .navbar-toggle {
+        display: none;
+    }
+
+    .fnnav__brand {
+        width: 440px;
+    }
+}
+@media only screen and (min-width : 1200px) {
+    .fnnav__mainbar {
+        > .container {
+            width: 1170px;
+        }
+    }
+}
+@import "utility-nav";
+@import "weather-widget";

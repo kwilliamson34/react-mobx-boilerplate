@@ -4,7 +4,7 @@ import ScrollToTop from './core/services/scroll-to-top';
 
 //State Management
 import {Provider, observer} from 'mobx-react';
-import {pseStore} from './core/stores/master.store';
+import {pseMasterStore} from './core/stores/master.store';
 
 //Styles
 import '../styles/app.scss';
@@ -29,7 +29,7 @@ export default class App extends React.Component {
     render() {
         return (
             <Router>
-              <Provider store={pseStore}>
+              <Provider store={pseMasterStore}>
                   <ScrollToTop>
                     <div id="PSE-wrapper">
                         <Header/>

@@ -11,7 +11,7 @@ export default class ManageAppsView extends React.Component {
                 <div className="container">
                     <h2>Manage Apps</h2>
                     <p>Filters Here</p>
-                    <div>List of apps</div>
+                    <div>List of app summaries for us to all take a look at:</div>
                 </div>
             </section>
           </main>

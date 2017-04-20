@@ -18,4 +18,4 @@ class PSEStore {
 
 }
 
-export const pseStore = new PSEStore();
+export const pseMasterStore = new PSEStore();

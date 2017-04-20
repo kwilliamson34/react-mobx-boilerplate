@@ -19,6 +19,7 @@
 
 //Base
 @import
+  "base/bootstrap-overrides",
   "base/typography",
   "base/base",
   "base/buttons",
@@ -29,6 +30,7 @@
 
 //Components
 @import
-  "components/title-pane";
+  "components/title-pane",
+  "components/header";
 
 //Views
