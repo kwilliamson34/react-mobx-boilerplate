@@ -26,7 +26,21 @@
             }
         }
     }
-
+    .dropdown-group > ul > li > a{
+      display: inline-block;
+      height: 48px;
+      width: 48px;
+      color: white;
+      text-align: center;
+      line-height: 42px;
+      border: 2px solid transparent;
+      text-decoration: none;
+      &:hover, .active {
+          color: $fn-dkgrey;
+          background: white;
+          text-decoration: none;
+      }
+    }
     .dropdown-toggle {
         height: 48px;
         border-radius: 0;
