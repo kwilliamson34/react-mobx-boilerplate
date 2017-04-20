@@ -1,0 +1,27 @@
+@media print {
+  * {
+    transition: none !important;
+  }
+
+  article,
+  body {
+    background: white !important;
+  }
+
+  article a[href^="#"]:after {
+    content: "";
+  }
+
+  footer,
+  header {
+    display: none !important;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  img{
+    page-break-inside: avoid;
+  }
+}

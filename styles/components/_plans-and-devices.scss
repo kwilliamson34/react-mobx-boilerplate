@@ -1,75 +1,127 @@
-.max-container {
-    max-width:970px;
+.imagebox{
+    > h3 { 
+        color: $fn-white;
+        font-size: $fn-h3-default-size;
+        font-weight: $fn-bold-weight;
+    }
+    > p { 
+        color: $fn-white;
+        font-size: 1.8rem;
+        line-height: 2.2rem;
+        font-weight: $fn-medium-weight;        
+        padding-bottom:3rem;    
+    }
+    &.rate-plans{ 
+        background: url(/images/RatePlans.png);    
+    }
+    &.view-solutions{ 
+        background: url(/images/ViewSolutions.png);    
+    }
+    &.shop-devices{ 
+        background: url(/images/ShopDevices.png);    
+    }
+    > a.pad-button {
+        border: 2px solid $fn-white;
+        border-radius: 100px;
+        color: $fn-white;
+        background-color: transparent;
+        font-size: $fn-button-default-size;
+        font-weight: $fn-bold-weight;
+        background: transparent;
+        margin: auto;
+        text-align: center;        
+    }
+    > a.pad-button:active,
+    > a.pad-button:hover,
+    > a.pad-button:focus {
+        border: 2px solid $fn-white;
+        border-radius: 100px;
+        background-color: $fn-white;
+        color: $fn-dkgrey;
+        font-size: $fn-button-default-size;
+        font-weight: $fn-bold-weight;
+        text-align: center;
+    }
 }
 
-.imagebox-plans-and-devices {
-    height: 310px;
-    max-width:310px;
-    width: 100%;
-    padding: 24px;
-    background-size: 310px 310px !important;
-    background-repeat: no-repeat;
-    background-position: center;
+/** Media queries for change of display with different breakpoints **/
+@media (min-width: 0px) AND (max-width: 450px) {
+    .max-container {
+        max-width:100%;
+    }
+    .imagebox{
+        height: 250px;
+        max-width:100%;
+        min-width:280px;
+        width: 100%;
+        padding: 1.5rem;
+        background-size: 100% auto !important;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
 }
-
-.imagebox-plans-and-devices.type-view-solutions {
-    background: url(/images/ViewSolutions.png);    
+@media (min-width: 451px) AND (max-width: 767px) {
+    .max-container {
+        max-width:100%;
+    }
+    .imagebox{
+        height: 333px;
+        max-width:100%;
+        min-width:380px;
+        width: 100%;
+        padding: 2.4rem;
+        background-size: 100% auto !important;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
 }
-
-.imagebox-plans-and-devices.type-rate-plans {
-    background: url(/images/RatePlans.png);    
+@media (min-width: 769px) AND (max-width: 991px) {
+    .max-container {
+        max-width:750px;
+    }
+    .imagebox{
+        height: 333px;
+        max-width:100%;
+        min-width:380px;
+        width: 100%;
+        padding: 2.8rem;
+        background-size: 100% auto !important;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
 }
-
-.imagebox-plans-and-devices.type-shop-devices {
-    background: url(/images/ShopDevices.png);    
+@media (min-width: 992px) AND (max-width: 1199px) {
+    .max-container {
+        max-width:970px;
+    }
+    .imagebox{
+        height: 333px;
+        max-width:310px;
+        width: 100%;
+        padding: 3.2rem;
+        background-size: 350px 350px !important;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
 }
-
-.image-plans-and-devices {
-    border: 1px solid #000000;
-    max-width:100%;
-    max-height: 300px;
-    min-height: 48px;
+@media (min-width: 1200px) {
+    .max-container {
+        max-width:1170px;
+    }
+    .imagebox{
+        height: 380px;
+        max-width:380px;
+        width: 100%;
+        padding: 4.0rem;
+        background-size: 400px 400px !important;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
 }
-.plans-and-devices-button {
-	border: 2px solid #FFFFFF;
-	border-radius: 100px;
-	color: #FFFFFF !important;
-    background-color: transparent !important;
-	font-family: Roboto !important;
-	font-size: 14px !important;
-	font-weight: bold !important;
-    background: transparent;
-    margin: auto;
-    text-align: center;
-}
-
-
-.btn.plans-and-devices-button:hover, .btn.plans-and-devices-button:focus, .btn.plans-and-devices-button:active {
-	border: 2px solid #FFFFFF;
-	border-radius: 100px;
-	background-color: #FFFFFF !important;
-    color: #333333 !important;
-	font-family: Roboto;
-	font-size: 14px;
-	font-weight: bold;
-	text-align: center;
-}
-.plans-and-devices-menu-button {
-    padding-top:35px;    
-}
-.plans-and-devices-title {
-	color: #FFFFFF !important;
-	font-family: Roboto;
-	font-size: 28px;
-	font-weight: bold;
-}
-.plans-and-devices-p {
-	color: #FFFFFF !important;
-	font-family: Roboto;
-	font-size: 18px;
-    line-height: 22px;
-	font-weight: normal;
-}
-.plans-and-devices-spacing {
-    padding-bottom:10px;
+@media (min-width: 320px) AND (max-width: 992px) {
+    .device-row {
+        padding-bottom: 20px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
 }
