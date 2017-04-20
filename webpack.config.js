@@ -89,18 +89,13 @@ module.exports = {
 	        ]
 		    })
 			},
-
 			{
 				test: /\.png$/,
-				include: [
-					path.resolve(__dirname, 'images')
-				],
+				include: [ path.resolve(__dirname, 'images') ],
 				use: [
 					{
         		loader: 'file-loader',
-						options: {
-							name: 'images/[name].[ext]'
-						}
+						options: { name: 'images/[name].[ext]' }
           }
 				]
 			},
@@ -140,16 +135,15 @@ module.exports = {
 
 		new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /nb/),
     new webpack.LoaderOptionsPlugin({
-            test: /\.scss$/,
-            debug: true,
-            options: {
-                postcss: function() {
-                    return [ precss, autoprefixer ];
-                },
-                context: path.join(__dirname, "src"),
-                output: { path: path.join(__dirname, "build") }
-            }
+				test: /\.scss$/,
+				debug: true,
+				options: {
+						postcss: function() {
+								return [ precss, autoprefixer ];
+						},
+						context: path.join(__dirname, "src"),
+						output: { path: path.join(__dirname, "build") }
+				}
     })
   ]
-
 };
