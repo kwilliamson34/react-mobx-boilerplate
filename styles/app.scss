@@ -32,12 +32,9 @@
 //Components
 @import
   "components/title-pane",
-<<<<<<< HEAD
   "components/header",
-  "components/plans-and-devices";
-=======
-  "components/plans-and-devices",
-  "components/plans-and-devices-responsive";
->>>>>>> moved responsive media queries to new file
+  "components/plans-and-devices"
+  "components/plans-and-devices/plans-and-devices",
+  "components/plans-and-devices/mediaquery";
 
 //Views
