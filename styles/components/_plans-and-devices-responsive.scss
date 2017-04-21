@@ -1,81 +1,98 @@
 /** Media queries for change of display with different breakpoints **/
-@media (min-width: 0px) AND (max-width: 450px) {
-    .max-container {
-        max-width:100%;
-    }
-    .imagebox{
-        height: 250px;
-        max-width:100%;
-        min-width:280px;
-        width: 100%;
-        padding: 1.5rem;
-        background-size: 100% auto !important;
-        background-repeat: no-repeat;
-        background-position: center;
-    }
+/* SM */
+@media only screen and (min-width : 768px) {
+  .pad-box {
+  	padding-top:50%;
+	background-size: 100% !important;
+	margin-bottom:20px;
+    background-position: center bottom;
+  }
+  .pad-box.rate-plans { 
+    background: url(/images/RatePlans.png);    
+    background-position: center bottom !important;
+  }
+  .pad-box.view-solutions { 
+    background: url(/images/ViewSolutions.png);    
+    background-position: center bottom !important;
+  }
+  .pad-box.shop-devices { 
+    background: url(/images/ShopDevices.png);    
+    background-position: center top !important;
+  }
 }
-@media (min-width: 451px) AND (max-width: 767px) {
-    .max-container {
-        max-width:100%;
+/* MD */
+@media only screen and (min-width : 992px) {
+	.pad-box {
+		padding:0;
+		background:none;
+		margin:0;
+        position: relative;
+	}
+	.pad-box .pad-padding {
+		padding-top: 80%;
+		background-size: 100% !important;
+		margin:10px;
+        position: relative;
+        top: 0;
+	}
+
+    .pad-box.rate-plans { 
+        background: none;    
     }
+    .pad-box.view-solutions { 
+        background: none;    
+    }
+    .pad-box.shop-devices { 
+        background: none;    
+    }
+
+    .pad-box.rate-plans .pad-padding  { 
+        background: url(/images/RatePlans.png);    
+        background-position: center bottom !important;
+    }
+    .pad-box.view-solutions .pad-padding  { 
+        background: url(/images/ViewSolutions.png);    
+        background-position: center bottom !important;
+    }
+    .pad-box.shop-devices .pad-padding  { 
+        background: url(/images/ShopDevices.png);    
+        background-position: center top !important;
+    }
+
+	.pad-text {
+		position:absolute;
+		top:0;
+	}
+
+}
+
+@media (min-width: 0px) AND (max-width: 991px) {
     .imagebox{
         height: 333px;
         max-width:100%;
-        min-width:380px;
+        min-width:100%;
         width: 100%;
-        padding: 2.4rem;
+        padding: 10%;
         background-size: 100% auto !important;
-        background-repeat: no-repeat;
-        background-position: center;
     }
 }
-@media (min-width: 769px) AND (max-width: 991px) {
-    .max-container {
-        max-width:750px;
-    }
-    .imagebox{
-        height: 333px;
-        max-width:100%;
-        min-width:380px;
-        width: 100%;
-        padding: 2.8rem;
-        background-size: 100% auto !important;
-        background-repeat: no-repeat;
-        background-position: center;
-    }
-}
+
 @media (min-width: 992px) AND (max-width: 1199px) {
-    .max-container {
-        max-width:970px;
-    }
     .imagebox{
         height: 333px;
         max-width:310px;
         width: 100%;
         padding: 3.2rem;
-        background-size: 350px 350px !important;
-        background-repeat: no-repeat;
-        background-position: center;
+        background-size: 350px 350px;
     }
 }
+
 @media (min-width: 1200px) {
-    .max-container {
-        max-width:1170px;
-    }
     .imagebox{
         height: 380px;
         max-width:380px;
         width: 100%;
         padding: 4.0rem;
-        background-size: 400px 400px !important;
-        background-repeat: no-repeat;
-        background-position: center;
-    }
-}
-@media (min-width: 320px) AND (max-width: 992px) {
-    .device-row {
-        padding-bottom: 20px;
-        padding-left: 40px;
-        padding-right: 40px;
+        background-size: 400px 400px;
     }
 }

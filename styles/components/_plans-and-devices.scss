@@ -1,3 +1,34 @@
+.pad-padding {
+    position: absolute;
+	top:0;
+}
+.pad-text {
+	color:#fff;
+}
+.pad-header-spacing {
+    padding-top:20px;
+    padding-bottom:20px;
+}
+
+.pad-box {
+	padding-top: 75%;
+	background-size: 100% !important;
+    position:relative;
+
+    &.view-solutions{ 
+        background: url(/images/ViewSolutions.png);
+        background-position: center bottom !important;
+    }
+    &.rate-plans{ 
+        background: url(/images/RatePlans.png);
+        background-position: center bottom !important;
+    }
+    &.shop-devices{ 
+        background: url(/images/ShopDevices.png);    
+        background-position: center top !important;
+    }    
+}
+
 .imagebox{
     > h3 { 
         color: $fn-white;
@@ -10,15 +41,6 @@
         line-height: 2.2rem;
         font-weight: $fn-medium-weight;        
         padding-bottom:3rem;    
-    }
-    &.rate-plans{ 
-        background: url(/images/RatePlans.png);    
-    }
-    &.view-solutions{ 
-        background: url(/images/ViewSolutions.png);    
-    }
-    &.shop-devices{ 
-        background: url(/images/ShopDevices.png);    
     }
     > a.pad-button {
         border: 2px solid $fn-white;
