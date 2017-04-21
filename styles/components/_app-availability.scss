@@ -1,17 +1,17 @@
 .admin-component {
 	.ac-panel-heading{
-		background: $fn-black;
-		border-color: $fn-black;
+		background: $table-header-bg;
+		border-color: $table-header-bg;
 		color: $fn-white;
-		h3{
+		h4{
 			margin:0;
 			padding: 0px 15px;
-			height:45px;
-			line-height: 45px;
-			font-size: 14px;
-		    font-weight: 500;
+			height:50px;
+			line-height: 50px;
+			font-size: $fn-label-default-size;
+		    font-weight: $fn-medium-weight;
 		    text-transform: uppercase;
-		    letter-spacing: 2.65px;
+		    letter-spacing: 0;
 		}
 	}
 
@@ -21,19 +21,40 @@
 		border-bottom: none;
 		float:left;
 		.list-group-item{
-			height: 80px;
+			position: relative;
+			height: 135px;
 			margin:0;
 			border:none;
 			border-bottom: 1px solid $fn-bordergrey;
 			border-radius: 0px;
+			padding: 30px 20px;
 		}
 		.list-group-item-heading{
-			font-size: 14px;
-			margin-left:40px;
+			position:relative;
+			font-size: $fn-label-default-size;
+			letter-spacing: 0;
+			padding-left: 40px;
+			i {
+				position:absolute;
+				left:0;
+				color: $fn-mdgrey;
+				&.mdi-new-box{
+					color: $fn-ltblue;
+				}
+				&.mdi-check-circle-outline,&.mdi-wifi{
+					color: $fn-green;
+				}
+				&.mdi-block-helper{
+					color: $fn-red;
+				}
+				&.mdi-star{
+					color: $fn-yellow;
+				}
+			}
 		}
 		.list-group-item-text{
-			font-size: 18px;
-			margin-left:40px;
+			font-size: $fn-body-default-size;
+			margin-left: 40px;
 		}
 	}
 }

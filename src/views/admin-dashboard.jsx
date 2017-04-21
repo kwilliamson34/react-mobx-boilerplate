@@ -13,7 +13,7 @@ export default class AdminDashboardView extends React.Component {
                     <h2>Admin Dashboard</h2>
                     <p>content here</p>
                     <div className="col-sm-12 col-md-6">
-                        <h2>Manage App</h2>
+                        <h3>Manage App</h3>
                         <AppAvailability />
                     </div>
                 </div>
