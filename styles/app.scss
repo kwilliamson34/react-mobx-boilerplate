@@ -4,7 +4,8 @@
 
 //Vendor
 @import
-  "vendors/bootstrap";
+  "vendors/bootstrap",
+  "vendors/font-awesome/font-awesome";
 
 //Abstracts
 @import
@@ -29,6 +30,8 @@
 
 //Components
 @import
-  "components/title-pane";
+  "components/title-pane",
+  "components/footer/footer",
+  "components/footer/mediaquery";
 
 //Views
