@@ -13,11 +13,11 @@ import '../styles/app.scss';
 import Header from './components/header';
 import Footer from './components/footer';
 
-//Views
-import HomeView from './views/home';
-import AdminDashboardView from './views/admin-dashboard';
-import ManageAppsView from './views/manage-apps';
-import AppDetailsView from './views/app-details';
+//Pages
+import HomeView from './pages/home.page';
+import AdminDashboardView from './pages/admin-dashboard.page';
+import ManageAppsView from './pages/manage-apps.page';
+import AppDetailsView from './pages/app-details.page';
 
 @observer
 export default class App extends React.Component {

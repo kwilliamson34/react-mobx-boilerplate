@@ -90,7 +90,7 @@ module.exports = {
 		    })
 			},
 			{
-				test: /\.png$/,
+				test: /\.(png|svg)$/,
 				include: [ path.resolve(__dirname, 'images') ],
 				use: [
 					{
