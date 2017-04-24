@@ -1,0 +1,64 @@
+.card-wrapper a {
+    &:hover{
+        text-decoration: none;
+    }
+}
+
+.card-container {
+    width: 100px;
+    height: 160px;
+    position: relative;
+    background-color: white;
+	color: #4A4A4A;
+    .card-badge{
+        position: absolute;
+        top: 7px;
+        left: 5px;
+        img{
+            height: 20px;
+        }
+    }
+
+    .card-logo {
+        height: 85px;
+        width: 85px;
+        margin: 10px 7px 0px 7px;
+        img {
+            height: auto;
+            width: auto;
+            max-height: 100%;
+            max-width: 100%;
+        }
+    }
+
+    .card-info{
+        // @include paragraph-text();
+        font-size: 16px;
+        margin: 5px 10px 0px 10px;
+    }
+
+
+    .card-rating{
+        position: absolute;
+        bottom: 5px;
+        left: 10px;
+        .ratings-stars{
+            vertical-align: text-bottom;
+        }
+        .ratings-star {
+            height: 10px;
+        }
+    }
+
+    .card-platform{
+        position: absolute;
+        bottom: 5px;
+        right: 7px;
+        img{
+            height: 14px;
+        }
+    }
+}
+
+
+@import "summary-card-lg";
