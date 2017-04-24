@@ -10,14 +10,15 @@ import {pseMasterStore} from './core/stores/master.store';
 import '../styles/app.scss';
 
 //Common Components
-import Header from './components/header';
+import Header from './components/header/header';
 import Footer from './components/footer';
 
 //Pages
-import HomeView from './pages/home.page';
-import AdminDashboardView from './pages/admin-dashboard.page';
-import ManageAppsView from './pages/manage-apps.page';
-import AppDetailsView from './pages/app-details.page';
+import HomePage from './pages/home.page';
+import AdminDashboardPage from './pages/admin-dashboard.page';
+import ManageAppsPage from './pages/manage-apps.page';
+import AppDetailsPage from './pages/app-details.page';
+import HelpCenterPage from './pages/help-center.page';
 
 @observer
 export default class App extends React.Component {
@@ -33,10 +34,11 @@ export default class App extends React.Component {
                   <ScrollToTop>
                     <div id="PSE-wrapper">
                         <Header/>
-                        <Route exact path="/" component={HomeView}/>
-                        <Route exact path="/admin" component={AdminDashboardView} />
-                        <Route path="/admin/manage-apps" component={ManageAppsView}/>
-                        <Route path="/app/detail" component={AppDetailsView} />
+                        <Route exact path="/" component={HomePage}/>
+                        <Route exact path="/admin" component={AdminDashboardPage} />
+                        <Route path="/admin/manage-apps" component={ManageAppsPage}/>
+                        <Route path="/app/detail" component={AppDetailsPage} />
+                        <Route exact path="/help-center" component={HelpCenterPage} />
                         <Footer/>
                     </div>
                   </ScrollToTop>

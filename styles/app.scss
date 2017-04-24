@@ -22,18 +22,13 @@
 @import
   "base/bootstrap-overrides",
   "base/typography",
-  "base/base",
   "base/buttons",
-  "base/lists",
-  "base/tables",
-  "base/forms",
   "base/views";
 
 //Components
 @import
   "components/title-pane",
   "components/header",
-  "components/plans-and-devices"
   "components/plans-and-devices/plans-and-devices",
   "components/plans-and-devices/mediaquery",
   "components/header";

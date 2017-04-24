@@ -7,6 +7,8 @@ $fn-mobile-item-height: 60px;
         background: white;
         color: $fn-dkgrey;
         border-top: 5px solid black;
+        position: relative;
+        z-index:100;
     }
 
     &__brand {
@@ -37,10 +39,10 @@ $fn-mobile-item-height: 60px;
         z-index: 110;
         border-top: 1px solid #ccc;
         width: 100vw;
-        max-height: 760px;
+        height: 100vh;
         max-width: 505px;
         overflow-y: scroll;
-        background: $fn-ltgrey;
+        background: $fn-dkgrey;
         padding-bottom: 30px;
     }
 }
@@ -78,7 +80,20 @@ $fn-mobile-item-height: 60px;
         margin: 4px auto;
     }
 }
+.pageMask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.7);
+    z-index: 96;
+    display: block;
 
+    &.visible {
+      display: block;
+    }
+}
 .mainnav-item {
     clear: both;
     padding: 0 30px;
@@ -96,6 +111,7 @@ $fn-mobile-item-height: 60px;
         color: $fn-dkgrey;
         border-bottom: 1px solid $fn-grey;
         text-transform: uppercase;
+        text-decoration: none;
         i{
           display: inline-block;
           text-decoration: none;
@@ -142,11 +158,14 @@ $fn-mobile-item-height: 60px;
             display: block;
             height: $fn-mobile-item-height;
             line-height: $fn-mobile-item-height;
-
             text-transform: uppercase;
             letter-spacing: 0.5px;
             padding-right: 10px;
             padding-left: 10px;
+            text-decoration: none;
+            &:hover{
+
+            }
             i{
               display: inline-block;
               margin-right: 10px;
@@ -168,10 +187,14 @@ $fn-mobile-item-height: 60px;
       }
     }
     &.pse-selector{
-      background: $fn-grey;
-
+      background: $fn-dkgrey;
+      span{
+        color: white;
+      }
     }
 }
+
+/* mobile */
 @media only screen and (min-width : 0px) {
     $fn-primary-nav-height: 60px;
 
@@ -185,7 +208,6 @@ $fn-mobile-item-height: 60px;
         > a {
             width: 250px;
             margin: 10px 0 10px 7%;
-            pointer-events: none;
         }
     }
 
@@ -203,9 +225,10 @@ $fn-mobile-item-height: 60px;
     .fnnav__main {
         display: block;
         top: $fn-primary-nav-height;
-        left: 100vw;
+        left: -100vw;
     }
 }
+
 /*Tablet*/
 @media only screen and (min-width : 768px) {
     $fn-primary-nav-height: 98px;

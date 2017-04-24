@@ -2,7 +2,7 @@ import React from 'react';
 
 import TitlePane from '../components/title-pane';
 
-export default class ManageAppsView extends React.Component {
+export default class ManageAppsPage extends React.Component {
     render() {
         return (
           <main className="content-main">

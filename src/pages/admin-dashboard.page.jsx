@@ -2,7 +2,7 @@ import React from 'react';
 
 import TitlePane from '../components/title-pane';
 
-export default class AdminDashboardView extends React.Component {
+export default class AdminDashboardPage extends React.Component {
     render() {
         return (
           <main className="content-main">

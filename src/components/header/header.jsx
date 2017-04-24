@@ -13,8 +13,10 @@ export default class PSEHeader extends React.Component {
 		render() {
 				return (
 						<header className="fnnav pse" role="banner">
+							<div className="pageMask hidden-md hidden-lg"></div>
 								<UtilityNav/>
 								<div className="fnnav__mainbar">
+
 										<Grid >
 												<Row>
 														<div className="fnnav__header">
@@ -25,8 +27,9 @@ export default class PSEHeader extends React.Component {
 																		<span className='icon-bar'></span>
 																</button>
 																<div className="fnnav__brand">
-																		<Link to="/"><img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Logo"/>
-																				<span className="sr-only">Go to Home</span>
+																		<Link to="/">
+																				<img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Logo" />
+																				<span className="sr-only">Go Home</span>
 																		</Link>
 																</div>
 														</div>
