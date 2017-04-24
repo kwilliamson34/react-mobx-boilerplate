@@ -1,0 +1,91 @@
+@font-face {
+  font-family: Roboto;
+  font-weight: 300;
+  font-style: normal;
+  src: url('/fonts/roboto/Roboto-Light.woff2') format('woff2'), url('/fonts/roboto/Roboto-Light.woff') format('woff'), url('/fonts/roboto/Roboto-Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: Roboto;
+  font-weight: 300;
+  font-style: italic;
+  src: url('/fonts/roboto/Roboto-LightItalic.ttf') format('truetype');
+}
+@font-face {
+  font-family: Roboto;
+  font-weight: 400;
+  font-style: normal;
+  src: url('/fonts/roboto/Roboto-Regular.woff2') format('woff2'), url('/fonts/roboto/Roboto-Regular.woff') format('woff'), url('/fonts/roboto/Roboto-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: Roboto;
+  font-weight: 400;
+  font-style: italic;
+  src: url('/fonts/roboto/Roboto-Italic.ttf') format('truetype');
+}
+@font-face {
+  font-family: Roboto;
+  font-weight: 500;
+  font-style: normal;
+  src: url('/fonts/roboto/Roboto-Medium.woff2') format('woff2'), url('/fonts/roboto/Roboto-Medium.woff') format('woff'), url('/fonts/roboto/Roboto-Medium.ttf') format('truetype');
+}
+@font-face {
+  font-family: Roboto;
+  font-weight: 500;
+  font-style: italic;
+  src: url('/fonts/roboto/Roboto-MediumItalic.ttf') format('truetype');
+}
+@font-face {
+  font-family: Roboto;
+  font-weight: 700;
+  font-style: normal;
+  src: url('/fonts/roboto/Roboto-Bold.woff2') format('woff2'), url('/fonts/roboto/Roboto-Bold.woff') format('woff'), url('/fonts/roboto/Roboto-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: Roboto;
+  font-weight: 700;
+  font-style: italic;
+  src: url('/fonts/roboto/Roboto-BoldItalic.ttf') format('truetype');
+}
+$roboto: 'Roboto', 'Helvetica-Neue', sans-serif;
+
+html {
+  font-family: $roboto;
+  font-size: 62.5%; //sets rem to base 10 instead of base 16
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.6;
+  &:focus {
+    @include focus();
+  }
+}
+
+h1, .as-h1 {
+  font-size: $fn-h1-default-size;
+  font-weight: $fn-normal-weight;
+  line-height: 1.2; //58 leading
+}
+
+h2, .as-h2 {
+  font-size: $fn-h2-default-size;
+  font-weight: $fn-normal-weight;
+  line-height: 1.12; //40 leading
+}
+
+h3, .as-h3 {
+  font-size: $fn-h3-default-size;
+  font-weight: $fn-normal-weight;
+  line-height: 1.07; //30 leading
+}
+
+h4, .as-h4 {
+  font-size: $fn-h4-default-size;
+  font-weight: $fn-medium-weight;
+  text-transform: uppercase;
+  letter-spacing: 2.65px;
+}

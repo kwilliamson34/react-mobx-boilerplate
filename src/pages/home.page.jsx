@@ -1,6 +1,7 @@
 import React from 'react';
 
 import TitlePane from '../components/title-pane';
+import PlansAndDevices from '../components/plans-and-devices/plans-and-devices';
 
 export default class HomeView extends React.Component {
 
@@ -17,9 +18,7 @@ export default class HomeView extends React.Component {
                 <section className="placeholder news-feed">
                     <h2>News feed</h2>
                 </section>
-                <section className="placeholder mp-links">
-                    <h2>Marketing Portal Links</h2>
-                </section>
+                <PlansAndDevices />
             </main>
         )
     }
