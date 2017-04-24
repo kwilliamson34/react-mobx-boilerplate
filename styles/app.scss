@@ -18,16 +18,6 @@
   "mixins/card-hover",
   "mixins/after-link";
 
-//Base
-@import
-  "base/typography",
-  "base/base",
-  "base/buttons",
-  "base/lists",
-  "base/tables",
-  "base/forms",
-  "base/views";
-
 //Components
 @import
   "components/title-pane",
@@ -36,4 +26,6 @@
   "components/plans-and-devices/plans-and-devices",
   "components/plans-and-devices/mediaquery";
 
-//Views
+//Pages
+@import "base/typography",
+        "pages/pse-pages";
