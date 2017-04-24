@@ -7,6 +7,10 @@
   "vendors/bootstrap",
   "vendors/firstnet/firstnet";
 
+//Base
+@import
+  "base/views";
+
 //Abstracts
 @import
   "abstracts/variables",
