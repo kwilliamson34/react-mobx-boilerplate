@@ -3,15 +3,38 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const precss = require("precss");
+const autoprefixer = require("autoprefixer");
+
+const PATHS = {
+	app: path.join(__dirname, 'app'),
+	build: path.join(__dirname, 'build'),
+	hotStatic: '/static/'
+};
+
 module.exports = {
-	entry: './src/index.jsx',
+	context: path.resolve(__dirname, 'src'),
+	entry: [
+		'react-hot-loader/patch',
+    // activate HMR for React
+
+    'webpack-dev-server/client?http://localhost:3030',
+    // bundle the client for webpack-dev-server
+    // and connect to the provided endpoint
+
+    'webpack/hot/only-dev-server',
+    // bundle the client for hot reloading
+    // only- means to only hot reload for successful updates
+
+		'./index.jsx'
+	],
 	output: {
 		filename: 'js/bundle.[hash].js',
-		path: path.resolve(__dirname, 'build')
+		path: path.resolve(__dirname, 'build'),
+		publicPath: '/'
+    // necessary for HMR to know where to load the hot update chunks
 	},
-	resolve: {
-    extensions: ['.js', '.jsx']
-  },
+	devtool: 'eval',
 	devServer: {
 		port:3030,
 		historyApiFallback: true,
@@ -27,6 +50,9 @@ module.exports = {
 			}
 		}
 	},
+	resolve: {
+    extensions: ['.js', '.jsx']
+  },
 	module: {
 		rules: [
 			{
@@ -44,8 +70,8 @@ module.exports = {
 					path.resolve(__dirname, 'src')
 				],
 				use: [
-					{ loader: 'babel-loader' },
-					{ loader: 'eslint-loader' }
+					{loader: 'babel-loader'},
+					{loader: 'eslint-loader'}
 				]
 			},
 			{
@@ -54,25 +80,27 @@ module.exports = {
 					path.resolve(__dirname, 'styles')
 				],
 				use: ExtractTextPlugin.extract({
-					fallback: { loader: 'style-loader', options: { convertToAbsoluteUrls: false } },
-					use: [
-						{ loader: 'css-loader', options: { sourceMap: false } },
-						{ loader: 'sass-loader', options: { sourceMap: false } }
-					]
-				})
+	        fallback: 'style-loader',
+	        use: [
+	          {loader: 'css-loader'},
+	          {loader: 'sass-loader'},
+						{loader: 'postcss-loader'},
+						{loader: 'sass-loader'}
+	        ]
+		    })
 			},
 			{
-				test: /\.png$/,
+				test: /\.(png|svg)$/,
 				include: [
 					path.resolve(__dirname, 'images')
 				],
 				use: [
 					{
-						loader: 'file-loader',
+        		loader: 'file-loader',
 						options: {
 							name: '[path][name].[ext]'
 						}
-					}
+          }
 				]
 			},
 			{
@@ -82,32 +110,44 @@ module.exports = {
 				],
 				use: [
 					{
-						loader: 'file-loader',
+        		loader: 'file-loader',
 						options: {
 							publicPath: '../',
 							name: 'fonts/[name].[ext]'
 						}
-					}
+          }
 				]
 			}
 		]
 	},
 	plugins: [
+		new webpack.HotModuleReplacementPlugin(),
+    // enable HMR globally
+
+    new webpack.NamedModulesPlugin(),
+    // prints more readable module names in the browser console on HMR updates
+
 		new ExtractTextPlugin({
-			filename: 'css/styles.[contenthash].css',
-			disable: process.env.npm_lifecycle_event === 'start'
-		}),
+	  	filename: 'css/styles.[contenthash].css',
+	    disable: process.env.npm_lifecycle_event === 'start'
+    }),
+
 		new HtmlWebpackPlugin({
-			template: './src/index.ejs'
-		})
-	],
-	devServer: {
-		port: 3030,
-		historyApiFallback: true,
-		proxy: {
-			'/api-services': {
-				target: 'http://34.204.23.33'
-			}
-		}
-	}
-}
+    	template: './index.ejs',
+			hash: false
+    }),
+
+		new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /nb/),
+    new webpack.LoaderOptionsPlugin({
+				test: /\.scss$/,
+				debug: true,
+				options: {
+						postcss: function() {
+								return [ precss, autoprefixer ];
+						},
+						context: path.join(__dirname, "src"),
+						output: { path: path.join(__dirname, "build") }
+				}
+    })
+  ]
+};
