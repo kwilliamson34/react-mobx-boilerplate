@@ -2,49 +2,49 @@
   font-family: Roboto;
   font-weight: 300;
   font-style: normal;
-  src: url('../assets/fonts/Roboto-Light.woff2') format('woff2'), url('../assets/fonts/Roboto-Light.woff') format('woff'), url('../assets/fonts/Roboto-Light.ttf') format('truetype');
+  src: url('/fonts/Roboto-Light.woff2') format('woff2'), url('/fonts/Roboto-Light.woff') format('woff'), url('/fonts/Roboto-Light.ttf') format('truetype');
 }
 @font-face {
   font-family: Roboto;
   font-weight: 300;
   font-style: italic;
-  src: url('../assets/fonts/Roboto-LightItalic.ttf') format('truetype');
+  src: url('/fonts/Roboto-LightItalic.ttf') format('truetype');
 }
 @font-face {
   font-family: Roboto;
   font-weight: 400;
   font-style: normal;
-  src: url('../assets/fonts/Roboto-Regular.woff2') format('woff2'), url('../assets/fonts/Roboto-Regular.woff') format('woff'), url('../assets/fonts/Roboto-Regular.ttf') format('truetype');
+  src: url('/fonts/Roboto-Regular.woff2') format('woff2'), url('/fonts/Roboto-Regular.woff') format('woff'), url('/fonts/Roboto-Regular.ttf') format('truetype');
 }
 @font-face {
   font-family: Roboto;
   font-weight: 400;
   font-style: italic;
-  src: url('../assets/fonts/Roboto-Italic.ttf') format('truetype');
+  src: url('/fonts/Roboto-Italic.ttf') format('truetype');
 }
 @font-face {
   font-family: Roboto;
   font-weight: 500;
   font-style: normal;
-  src: url('../assets/fonts/Roboto-Medium.woff2') format('woff2'), url('../assets/fonts/Roboto-Medium.woff') format('woff'), url('../assets/fonts/Roboto-Medium.ttf') format('truetype');
+  src: url('/fonts/Roboto-Medium.woff2') format('woff2'), url('/fonts/Roboto-Medium.woff') format('woff'), url('/fonts/Roboto-Medium.ttf') format('truetype');
 }
 @font-face {
   font-family: Roboto;
   font-weight: 500;
   font-style: italic;
-  src: url('../assets/fonts/Roboto-MediumItalic.ttf') format('truetype');
+  src: url('/fonts/Roboto-MediumItalic.ttf') format('truetype');
 }
 @font-face {
   font-family: Roboto;
   font-weight: 700;
   font-style: normal;
-  src: url('../assets/fonts/Roboto-Bold.woff2') format('woff2'), url('../assets/fonts/Roboto-Bold.woff') format('woff'), url('../assets/fonts/Roboto-Bold.ttf') format('truetype');
+  src: url('/fonts/Roboto-Bold.woff2') format('woff2'), url('/fonts/Roboto-Bold.woff') format('woff'), url('/fonts/Roboto-Bold.ttf') format('truetype');
 }
 @font-face {
   font-family: Roboto;
   font-weight: 700;
   font-style: italic;
-  src: url('../assets/fonts/Roboto-BoldItalic.ttf') format('truetype');
+  src: url('/fonts/Roboto-BoldItalic.ttf') format('truetype');
 }
 $roboto: 'Roboto', 'Helvetica-Neue', sans-serif;
 
@@ -191,8 +191,8 @@ figure {
 $icon-font: 'FirstNet-icons';
 @font-face {
   font-family: 'FirstNet-icons';
-  src: url('../assets/fonts/FirstNet-icons.eot');
-  src: url('../assets/fonts/FirstNet-icons.eot?#iefix') format('embedded-opentype'), url('../assets/fonts/FirstNet-icons.woff') format('woff'), url('../assets/fonts/FirstNet-icons.ttf') format('truetype'), url('../assets/fonts/FirstNet-icons.svg#FirstNet-icons') format('svg');
+  src: url('/fonts/FirstNet-icons.eot');
+  src: url('/fonts/FirstNet-icons.eot?#iefix') format('embedded-opentype'), url('/fonts/FirstNet-icons.woff') format('woff'), url('/fonts/FirstNet-icons.ttf') format('truetype'), url('/fonts/FirstNet-icons.svg#FirstNet-icons') format('svg');
   font-weight: $fn-normal-weight;
   font-size: 2.0rem;
   font-style: normal;

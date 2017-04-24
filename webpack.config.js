@@ -91,18 +91,22 @@ module.exports = {
 			},
 			{
 				test: /\.(png|svg)$/,
-				include: [ path.resolve(__dirname, 'images') ],
+				include: [
+					path.resolve(__dirname, 'images')
+				],
 				use: [
 					{
         		loader: 'file-loader',
-						options: { name: 'images/[name].[ext]' }
+						options: {
+							name: '[path][name].[ext]'
+						}
           }
 				]
 			},
 			{
 				test: /\.(eot|woff2|woff|ttf|svg)$/,
 				include: [
-					path.resolve(__dirname, 'assets')
+					path.resolve(__dirname, 'fonts')
 				],
 				use: [
 					{

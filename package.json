@@ -4,7 +4,8 @@
   "description": "FirstNet PSE Homepage",
   "main": "index.jsx",
   "scripts": {
-    "build": "rm -rf build & webpack --progress",
+    "copyassets": "copyfiles -u 1 ./src/assets/**/*  ./src/assets/favicon-16x16.png ./src/assets/favicon-32x32.png ./build",
+    "build": "rm -rf build & copyassets & webpack --progress",
     "start": "webpack-dev-server --open",
     "test": "jest --coverage"
   },
