@@ -1,0 +1,42 @@
+$focus-shadow-depth: 1px;
+
+@mixin focus($borderColor: $focus-lightbg) {
+  &:not(.no-focus-styles) {
+    outline: none;
+    border: 2px solid $borderColor;
+    box-shadow: 0 0 $focus-shadow-depth $borderColor;
+    box-sizing: border-box;
+
+    &.dropdown-toggle {
+      border-color: $borderColor;
+      box-shadow: 0 0 $focus-shadow-depth $borderColor;
+    }
+
+    &.tray-btn {
+      border-color: white;
+      box-shadow: 0 0 $focus-shadow-depth white;
+    }
+  }
+}
+
+// reusing Bootstrap's .sr-only for screen readers
+@mixin sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+// reusing Bootstrap's .sr-only-focusable for screen readers
+// use with :focus, :active
+@mixin sr-only-focusable {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+}

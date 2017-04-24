@@ -4,7 +4,8 @@
 
 //Vendor
 @import
-  "vendors/bootstrap";
+  "vendors/bootstrap",
+  "vendors/firstnet/firstnet";
 
 //Abstracts
 @import
@@ -29,6 +30,8 @@
 
 //Components
 @import
-  "components/title-pane";
+  "components/title-pane",
+  "components/plans-and-devices/plans-and-devices",
+  "components/plans-and-devices/mediaquery";
 
 //Views
