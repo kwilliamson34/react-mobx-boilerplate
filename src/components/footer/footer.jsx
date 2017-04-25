@@ -14,7 +14,7 @@ export class Footer extends React.Component {
 				<div className="footer-height footer-top">
 					<div className="row footer-row">
 						<div className="col-xs-12 col-md-10 col-md-offset-1">
-							<Link to="/"><img alt="FirstNet Local Control Home" src="/images/FirstnetLocalControl.png" className="footer-logo" /></Link>
+							<Link to="/"><img alt="FirstNet Local Control Home" src="./images/FirstNetLocalControl.png" className="footer-logo" /></Link>
 						</div>
 					</div>
 					<div className="row footer-row">
@@ -101,10 +101,10 @@ export class Footer extends React.Component {
 					</div>
 					<div className="col-xs-12 col-sm-4 col-md-2 footer-text-images">
 						<a href="https://www.commerce.gov/" target="_blank" rel="noopener noreferrer">
-							<img src="/images/dept_of_commerce_1.png" className="footer-commerce-logo" alt="Logo - US Department of Commerce"/>
+							<img src="./images/dept_of_commerce_1.png" className="footer-commerce-logo" alt="Logo - US Department of Commerce"/>
 						</a>
 						<a href="https://www.ntia.doc.gov/" target="_blank" rel="noopener noreferrer">
-							<img src="/images/dept_of_commerce_2.png" className="footer-commerce-logo" alt="Logo - National Telecommunications And Information Administration"/>
+							<img src="./images/dept_of_commerce_2.png" className="footer-commerce-logo" alt="Logo - National Telecommunications And Information Administration"/>
 						</a>
 					</div>
 				</div>
