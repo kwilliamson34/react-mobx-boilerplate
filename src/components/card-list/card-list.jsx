@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types'; // if not @injecting the store, use prop-types
 import { Link } from 'react-router-dom';
 
@@ -9,7 +8,7 @@ import { observer } from 'mobx-react';
 import { SummaryCard } from '../summary-card/summary-card.jsx';
 
 
-@observer 
+@observer
 export class CardList extends React.Component {
 
 
@@ -22,7 +21,7 @@ export class CardList extends React.Component {
 
     static defaultProps = {
         cards: [],
-        title: ""
+        title: ''
     }
 
     constructor(props) {
@@ -38,7 +37,7 @@ export class CardList extends React.Component {
 
     render() {
         return (
-            <div className="card-list-container row">
+            <div className="card-list-container col-md-12 col-xs-12">
                 <div className="container">
                     {this.props.title &&
                         (<h2 className="card-list-title">
@@ -49,18 +48,17 @@ export class CardList extends React.Component {
                     <div className="card-list-cards row">
                         {this.props.cards.map((card, i) =>{
                             return (
-                                <div className="col-md-3 col-xs-4 center-block" key={i} >                        
+                                <div className="col-md-3 col-xs-4 center-block" key={i} >
                                     <Link to="/faq">
                                         <SummaryCard events={card.events} display={card}></SummaryCard>
                                     </Link>
                                 </div>
                             )
                         })}
-                        
                     </div>
                 {/*<button className="btn fn-primary center-block" onClick={this.handleButtonClick}>
-                    Show {(this.state.showFewer) 
-                    ? 'More' 
+                    Show {(this.state.showFewer)
+                    ? 'More'
                     : 'Fewer'}
                 </button>*/}
                 </div>

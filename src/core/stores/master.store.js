@@ -5,11 +5,11 @@ import { homeStore } from './home.store';
 
 class PSEStore {
 
-  constructor () {
-		this.homeStore = homeStore;
-	}
+  constructor() {
+    this.homeStore = homeStore;
+  }
 
-	// ACTIONS
+  // ACTIONS
   @action nameFieldChange(value) {
     this.nameFieldStr = value;
   }
@@ -19,7 +19,7 @@ class PSEStore {
     return this.names[this.names.length - 1];
   }
 
-	// OBSERVABLES
+  // OBSERVABLES
   @observable names = [];
 
 }

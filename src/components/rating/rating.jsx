@@ -1,10 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
 import { observer } from 'mobx-react';
 
-@observer 
+@observer
 export class Rating extends React.Component {
 
     constructor(props) {
@@ -53,7 +52,7 @@ export class Rating extends React.Component {
 }
 
 Rating.propTypes = {
-    rating: PropTypes.number.isRequired,
+    rating: PropTypes.number.isRequired
 };
 
 Rating.defaultProps = {
