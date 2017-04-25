@@ -45,8 +45,8 @@ module.exports = {
 
 		publicPath: '/',
 		proxy: {
-			'/api/sauron': {
-				target: 'http://mordor.me'
+			'/api-services': {
+				target: 'http://34.204.23.33'
 			}
 		}
 	},
