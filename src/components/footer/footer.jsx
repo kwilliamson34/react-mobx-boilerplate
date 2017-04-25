@@ -19,78 +19,83 @@ export class Footer extends React.Component {
 					</div>
 					<div className="row footer-row">
 						<div className="col-md-4 col-md-offset-1 col-xs-12 col-sm-12">
-							<ul className="footer-menu-ul">
-								<li className="hidden-md hidden-lg hidden-xl text-left"><hr className="footer-separator"/></li>
-								<li><h2 className="footer-menu-header">FIRSTNET PORTALS</h2></li>
-								<li><a href="http://www.firstnet.com/appstore">FIRSTNET APP STORE</a></li>
-								<li><a href="http://www.firstnet.gov">FIRSTNET.GOV</a></li>
-								<li><a href="http://www.firstnet.com">FIRSTNET.COM</a></li>
-							</ul>
+							<nav id="footer-portals-menu" aria-label="Firstnet Portals Menu">
+								<ul className="footer-menu-ul">
+									<li className="hidden-md hidden-lg hidden-xl text-left"><hr className="footer-separator"/></li>
+									<li role="presentation"><h2 className="footer-menu-header">FIRSTNET PORTALS</h2></li>
+									<li role="presentation"><a href="http://www.firstnet.com/appstore">FIRSTNET APP STORE</a></li>
+									<li role="presentation"><a href="http://www.firstnet.gov">FIRSTNET.GOV</a></li>
+									<li role="presentation"><a href="http://www.firstnet.com">FIRSTNET.COM</a></li>
+								</ul>
+							</nav>
 						</div>
 						<div className="col-md-3 col-sm-12 col-xs-12">
-							<ul className="footer-menu-ul">
-								<li className="hidden-md hidden-lg hidden-xl text-left"><hr className="footer-separator"/></li>
-								<li><h2 className="footer-menu-header">FOLLOW US</h2></li>
-								<li className="footer-menu-social">
-									<a href="http://www.facebook.com" aria-label="facebook" alt="facebook">
-                                    <span className="fa-stack fa-1x footer-icon-menu-spacing" aria-hidden="true">
-										<span className="fa fa-circle fa-stack-2x footer-icon-background" aria-hidden="true" />
-										<span className="fa fa-facebook fa-stack-1x footer-icon-foreground" aria-hidden="true" />
-                                    </span>
-                                    <span className="hidden-xs hidden-sm" aria-hidden="true">FACEBOOK</span></a>
-                                </li>
-                                <li className="footer-menu-social">
-									<a href="http://www.twitter.com" aria-label="twitter" alt="twitter">
-                                    <span className="fa-stack fa-1x footer-icon-menu-spacing" aria-hidden="true">
-										<span className="fa fa-circle fa-stack-2x footer-icon-background" aria-hidden="true" />
-										<span className="fa fa-twitter fa-stack-1x footer-icon-foreground" aria-hidden="true" />
-                                    </span>
-                                    <span className="hidden-xs hidden-sm" aria-hidden="true">TWITTER</span></a>
-								</li>
-								<li className="footer-menu-social">
-									<a href="http://www.tumblr.com" aria-label="tumblr" alt="tumblr">
-                                    <span className="fa-stack fa-1x footer-icon-menu-spacing" aria-hidden="true">
-										<span className="fa fa-circle fa-stack-2x footer-icon-background" aria-hidden="true" />
-										<span className="fa fa-tumblr fa-stack-1x footer-icon-foreground" aria-hidden="true" />
-                                    </span>
-                                    <span className="hidden-xs hidden-sm" aria-hidden="true">TUMBLR</span></a>
-								</li>
-								<li className="footer-menu-social">
-									<a href="http://www.youtube.com" aria-label="youtube" alt="youtube">
-                                    <span className="fa-stack fa-1x footer-icon-menu-spacing" aria-hidden="true">
-										<span className="fa fa-circle fa-stack-2x footer-icon-background" aria-hidden="true" />
-                                        <span className="fa fa-youtube fa-stack-1x footer-icon-foreground" aria-hidden="true" />
-                                    </span>
-                                    <span className="hidden-xs hidden-sm" aria-hidden="true">YOUTUBE</span></a>
-								</li>
-							</ul>
+							<nav id="footer-social-menu" aria-label="Social Menu">
+								<ul className="footer-menu-ul">
+									<li className="hidden-md hidden-lg hidden-xl text-left"><hr className="footer-separator"/></li>
+									<li role="presentation"><h2 className="footer-menu-header">FOLLOW US</h2></li>
+									<li className="footer-menu-social" role="presentation">
+										<a href="http://www.facebook.com" aria-label="facebook" alt="facebook">
+										<span className="fa-stack fa-1x footer-icon-menu-spacing" aria-hidden="true">
+											<span className="fa fa-circle fa-stack-2x footer-icon-background" aria-hidden="true" />
+											<span className="fa fa-facebook fa-stack-1x footer-icon-foreground" aria-hidden="true" />
+										</span>
+										<span className="hidden-xs hidden-sm" aria-hidden="true">FACEBOOK</span></a>
+									</li>
+									<li className="footer-menu-social" role="presentation">
+										<a href="http://www.twitter.com" aria-label="twitter" alt="twitter">
+										<span className="fa-stack fa-1x footer-icon-menu-spacing" aria-hidden="true">
+											<span className="fa fa-circle fa-stack-2x footer-icon-background" aria-hidden="true" />
+											<span className="fa fa-twitter fa-stack-1x footer-icon-foreground" aria-hidden="true" />
+										</span>
+										<span className="hidden-xs hidden-sm" aria-hidden="true">TWITTER</span></a>
+									</li>
+									<li className="footer-menu-social" role="presentation">
+										<a href="http://www.tumblr.com" aria-label="tumblr" alt="tumblr">
+										<span className="fa-stack fa-1x footer-icon-menu-spacing" aria-hidden="true">
+											<span className="fa fa-circle fa-stack-2x footer-icon-background" aria-hidden="true" />
+											<span className="fa fa-tumblr fa-stack-1x footer-icon-foreground" aria-hidden="true" />
+										</span>
+										<span className="hidden-xs hidden-sm" aria-hidden="true">TUMBLR</span></a>
+									</li>
+									<li className="footer-menu-social" role="presentation">
+										<a href="http://www.youtube.com" aria-label="youtube" alt="youtube">
+										<span className="fa-stack fa-1x footer-icon-menu-spacing" aria-hidden="true">
+											<span className="fa fa-circle fa-stack-2x footer-icon-background" aria-hidden="true" />
+											<span className="fa fa-youtube fa-stack-1x footer-icon-foreground" aria-hidden="true" />
+										</span>
+										<span className="hidden-xs hidden-sm" aria-hidden="true">YOUTUBE</span></a>
+									</li>
+								</ul>
+							</nav>
 						</div>
 						<div className="col-md-4 col-xs-12 col-sm-12 footer-styling-mobile">
-							<ul className="footer-menu-ul">
-								<li><h2 className="footer-menu-header"><span className="fa fa-question-circle footer-icon-menu-spacing" aria-hidden="true" /> GET HELP</h2></li>
-								<li className="footer-help-menu-spacing">
-									<Link to="/faq">FAQ</Link>
-								</li>
-								<li className="footer-help-menu-spacing">
-									<Link to="/feedback">PROVIDE FEEDBACK</Link>
-								</li>
-								<li className="footer-help-menu-spacing">
-									<Link to="/contact">CONTACT US</Link>
-								</li>
-							</ul>
-
+							<nav id="footer-help-menu" aria-label="Help Menu">
+								<ul className="footer-menu-ul">
+									<li role="presentation"><h2 className="footer-menu-header"><span className="fa fa-question-circle footer-icon-menu-spacing" aria-hidden="true" /> GET HELP</h2></li>
+									<li className="footer-help-menu-spacing" role="presentation">
+										<Link to="/faq">FAQ</Link>
+									</li>
+									<li className="footer-help-menu-spacing" role="presentation">
+										<Link to="/feedback">PROVIDE FEEDBACK</Link>
+									</li>
+									<li className="footer-help-menu-spacing" role="presentation">
+										<Link to="/contact">CONTACT US</Link>
+									</li>
+								</ul>
+							</nav>
 						</div>
 					</div>
 				</div>
 				<div className="row footer-bottom">
 					<div className="col-xs-12 col-sm-8 col-md-10 footer-text-links">
-						<nav>
+						<nav id="sublinks" aria-label="Sublinks">
 							<ul className="footer-small-links">
-								<li><a href="https://www.commerce.gov/" target="_blank" rel="noopener noreferrer">Commerce.gov</a></li>
-								<li><Link to="Privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</Link></li>
-								<li><Link to="Policies" target="_blank" rel="noopener noreferrer">Web Policies</Link></li>
-								<li><Link to="Accessibility" target="_blank" rel="noopener noreferrer">Accessibility</Link></li>
-								<li><a href="https://www.usa.gov/" target="_blank" rel="noopener noreferrer">USA.gov</a></li>
+								<li role="presentation"><a href="https://www.commerce.gov/" target="_blank" rel="noopener noreferrer">Commerce.gov</a></li>
+								<li role="presentation"><Link to="Privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</Link></li>
+								<li role="presentation"><Link to="Policies" target="_blank" rel="noopener noreferrer">Web Policies</Link></li>
+								<li role="presentation"><Link to="Accessibility" target="_blank" rel="noopener noreferrer">Accessibility</Link></li>
+								<li role="presentation"><a href="https://www.usa.gov/" target="_blank" rel="noopener noreferrer">USA.gov</a></li>
 							</ul>
 						</nav>
 					</div>
