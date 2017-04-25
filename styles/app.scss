@@ -10,8 +10,7 @@
 //Abstracts
 @import
   "abstracts/variables",
-  "abstracts/utils",
-  "abstracts/materialdesignicons/materialdesignicons.scss";
+  "abstracts/utils";
 
 //Mixins
 @import
@@ -23,8 +22,7 @@
 @import
   "components/title-pane",
   "components/plans-and-devices/plans-and-devices",
-  "components/plans-and-devices/mediaquery",
-  "components/app-availability";
+  "components/plans-and-devices/mediaquery";
 
 //Pages
 @import "base/typography",
