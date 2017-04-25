@@ -1,8 +1,12 @@
 /** Footer Styles **/
 .footer-bar {
-    height: 5px;
-    width: 100%;
-    background-color: #000000;
+    border-top: 4px solid $fn-black;
+}
+
+.footer-row > div:not(:last-child) {
+    border-right: 1px solid $fn-grey;
+    height:100%;
+    display: block;
 }
 
 .footer-row {
@@ -11,68 +15,45 @@
 }
 
 .footer-menu-ul > li, .footer-menu-ul > li > a {
-    font-weight: normal;
-    font-size: 16px;
+    font-weight: $fn-normal-weight;
+    font-size: 1.6rem;
     padding-bottom:10px;
-    font-family: 'Roboto';
-    color: #212121;
+    color: $fn-dark;
 	letter-spacing: 1px;
-	line-height: 19px;
+	line-height: 2.8rem;
 }
 
-.footer-menu-ul > li.footer-menu-header, .footer-menu-ul > li.footer-menu-header > a {
-    font-weight: bold;
-    font-size: 18px;
-    padding-bottom:35px;
-    font-family: 'Roboto';
-    color: #333333;
+h4.footer-menu-header {
+    font-weight: $fn-bold-weight;
+    font-size: $fn-h4-default-size;
+    padding-bottom:0;
+    color: $fn-dkgrey;
 	letter-spacing: 1px;
-	line-height: 15px;
+	line-height: 3rem;    
+}
+.footer-menu-ul > li.footer-menu-header, .footer-menu-ul > li.footer-menu-header > a {
+    font-weight: $fn-bold-weight;
+    font-size: 1.8rem;
+    padding-bottom:45px;
+    color: $fn-dkgrey;
+	letter-spacing: 1px;
+	line-height: 1.5rem;
 }
 .footer-icon-background {
-    color: #9B9B9B;
+    color: $fn-social-grey;
 }
 
 .footer-icon-foreground {
-    color: #FFFFFF;
+    color: $fn-white;
 }
 .footer-icon-menu-spacing {
     margin-right:10px;
 }
-.footer-icon-header-spacing {
-    margin-right:10px;    
-}
 .footer-help-menu-spacing {
     margin-left:27px;
 }
-.footer-button {
-	border: 2px solid #1071BC;
-	border-radius: 100px;
-	color: #1071BC !important;
-    background-color: #FFFFFF !important;
-	font-family: Roboto !important;
-	font-size: 14px !important;
-	font-weight: bold !important;
-	line-height: 16px !important;
-	text-align: center;
-}
-.btn.footer-button:hover, .btn.footer-button:focus, .btn.footer-button:active {
-	border: 2px solid #1071BC;
-	border-radius: 100px;
-	color: #FFFFFF !important;
-    background-color: #1071BC !important;
-	font-family: Roboto;
-	font-size: 14px;
-	font-weight: bold;
-	line-height: 16px;
-	text-align: center;
-}
 .footer-menu-button {
     padding-top:35px;    
-}
-.footer-column-seperator-right {
-	border-right: 1px solid #EFEFEF;
-    height:200px;
 }
 .footer-logo {
     padding-left: 33px;
@@ -84,12 +65,14 @@
     padding:5px;
 }
 .footer-top {
-    background-color: #FAFAFA;
+    background-color: $fn-ltgrey;
 }
 .footer-bottom {
-    background-color: #FFFFFF;
+    background-color: $fn-white;
     height:88px;
     padding-top:24px;
+    margin-left: 0;
+    margin-right: 0;
 }
 .footer-height {
     min-height:400px;
@@ -100,20 +83,24 @@
     padding-left:35px;
 }
 .footer-separator {
-    width:50%;
-    max-width: 200px;
+    width:70%;
+    max-width: 400px;
     margin-top: 10px;
     margin-bottom: 20px;
     margin-left: 0;
     margin-right: 0;
 }
 ul.footer-small-links > li {
-    padding-right:5px; padding-left:5px;    
+    padding-right:8px; padding-left:8px;    
     display: inline;
-    font-weight: normal;
+    font-weight: $fn-normal-weight;
     font-size: 1.4rem;
     color: $fn-ltblue;
-
+    line-height: 2.8rem;
+    border-right: 1px solid $fn-grey;
+}
+ul.footer-small-links > li:last-child {
+    border-right: 0;
 }
 ul.footer-small-links > li:first-child {
     padding-left:0;    
@@ -128,7 +115,7 @@ ul.footer-small-links {
     display: inline;
 }
 .footer-text-links {
-    padding-top:15px;
+    padding-top:7px;
     padding-bottom:15px;
     padding-left:35px;
 }

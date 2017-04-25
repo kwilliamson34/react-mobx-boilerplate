@@ -14,12 +14,16 @@
         margin-top: 45px;
         border-top: 1px solid $fn-mdgrey;
         border-bottom: 1px solid $fn-mdgrey;
-        background: #E4E4E4;
+        background: $fn-grey;
     }
     .footer-menu-social {
         display:inline;
     }
-    .footer-column-seperator-right {
+
+    .footer-help-menu-spacing {
+        margin-left:0;
+    }
+    .footer-row > div:not(:last-child) {
         border-right: 0;
         height:auto;
     }
@@ -38,13 +42,6 @@
         padding-bottom: 45px;
         margin-top: 45px;
     }
-    .footer-menu-social {
-        display:inline;
-    }
-    .footer-column-seperator-right {
-        border-right: 0;
-        height:auto;
-    }
     .footer-logo {
         padding-left: 30px;
         padding-top: 20px;
@@ -52,6 +49,18 @@
         max-width:400px;
     }
 }
+
+/* SM */
+@media only screen and (max-width : 992px) {
+    .footer-menu-social {
+        display:inline;
+    }
+    .footer-row > div:not(:last-child) {
+        border-right: 0;
+        height:auto;
+    }
+}
+
 @media only screen and (min-width : 992px) {
     .footer-text-links {
         text-align: right;

@@ -1,10 +1,8 @@
 import React from 'react';
 
-import { observer } from 'mobx-react';
-
 import { Link } from 'react-router-dom';
 
-@observer export class Footer extends React.Component {
+export class Footer extends React.Component {
 
 	constructor(props) {
 		super(props);
@@ -12,28 +10,28 @@ import { Link } from 'react-router-dom';
 
 	render() {
 		return (
-			<footer id="dev-console-footer">
+			<footer id="dev-console-footer" className="footer-bar">
 				<div className="footer-bar"></div>
 				<div className="footer-height footer-top">
 					<div className="row footer-row">
 						<div className="col-xs-12">
-							<Link to="/"><img src="/images/FirstnetLocalControl.png" className="footer-logo" alt="FirstNet Develop" /></Link>
+							<Link to="/"><img alt="FirstNet Local Control Home" src="/images/FirstnetLocalControl.png" className="footer-logo" /></Link>
 						</div>
 					</div>
 					<div className="row footer-row">
-						<div className="col-md-3 col-xs-12 col-sm-12 footer-column-seperator-right">
+						<div className="col-md-3 col-xs-12 col-sm-12">
 							<ul className="footer-menu-ul">
 								<li className="hidden-md hidden-lg hidden-xl text-left"><hr className="footer-separator"/></li>
-								<li className="footer-menu-header">FIRSTNET PORTALS</li>
+								<li><h4 className="footer-menu-header">FIRSTNET PORTALS</h4></li>
 								<li><a href="http://www.firstnet.com/appstore">FIRSTNET APP STORE</a></li>
 								<li><a href="http://www.firstnet.gov">FIRSTNET.GOV</a></li>
 								<li><a href="http://www.firstnet.com">FIRSTNET.COM</a></li>
 							</ul>
 						</div>
-						<div className="col-md-3 col-sm-12 col-xs-12 footer-column-seperator-right">
+						<div className="col-md-3 col-sm-12 col-xs-12">
 							<ul className="footer-menu-ul">
 								<li className="hidden-md hidden-lg hidden-xl text-left"><hr className="footer-separator"/></li>
-								<li className="footer-menu-header">FOLLOW US</li>
+								<li><h4 className="footer-menu-header">FOLLOW US</h4></li>
 								<li className="footer-menu-social">
 									<a href="http://www.facebook.com" aria-label="facebook" alt="facebook">
                                     <span className="fa-stack fa-1x footer-icon-menu-spacing" aria-hidden="true">
@@ -70,9 +68,7 @@ import { Link } from 'react-router-dom';
 						</div>
 						<div className="col-md-6 col-xs-12 col-sm-12 footer-styling-mobile">
 							<ul className="footer-menu-ul">
-								<li className="footer-menu-header">
-									<span className="fa fa-question-circle footer-icon-header-spacing" aria-hidden="true" />
-										GET HELP</li>
+								<li><h4 className="footer-menu-header"><span className="fa fa-question-circle footer-icon-menu-spacing" aria-hidden="true" /> GET HELP</h4></li>
 								<li className="footer-help-menu-spacing">
 									<Link to="/faq">FAQ</Link>
 								</li>
@@ -87,15 +83,17 @@ import { Link } from 'react-router-dom';
 						</div>
 					</div>
 				</div>
-				<div className="row footer-bottom footer-row">
+				<div className="row footer-bottom">
 					<div className="col-xs-12 col-sm-8 col-md-10 footer-text-links">
-						<ul className="footer-small-links">
-							<li><a href="https://www.commerce.gov/" target="_blank" rel="noopener noreferrer">Commerce.gov</a></li>
-							<li><Link to="Privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</Link></li>
-							<li><Link to="Policies" target="_blank" rel="noopener noreferrer">Web Policies</Link></li>
-							<li><Link to="Accessibility" target="_blank" rel="noopener noreferrer">Accessibility</Link></li>
-							<li><a href="https://www.usa.gov/" target="_blank" rel="noopener noreferrer">USA.gov</a></li>
-						</ul>
+						<nav>
+							<ul className="footer-small-links">
+								<li><a href="https://www.commerce.gov/" target="_blank" rel="noopener noreferrer">Commerce.gov</a></li>
+								<li><Link to="Privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</Link></li>
+								<li><Link to="Policies" target="_blank" rel="noopener noreferrer">Web Policies</Link></li>
+								<li><Link to="Accessibility" target="_blank" rel="noopener noreferrer">Accessibility</Link></li>
+								<li><a href="https://www.usa.gov/" target="_blank" rel="noopener noreferrer">USA.gov</a></li>
+							</ul>
+						</nav>
 					</div>
 					<div className="col-xs-12 col-sm-4 col-md-2 footer-text-images">
 						<a href="https://www.commerce.gov/" target="_blank" rel="noopener noreferrer">
