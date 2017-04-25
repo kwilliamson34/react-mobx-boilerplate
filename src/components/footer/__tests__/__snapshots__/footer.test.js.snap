@@ -1,5 +1,6 @@
 exports[`<Footer /> renders matches previous footer snapshot 1`] = `
 <footer
+  className="footer-bar"
   id="dev-console-footer">
   <div
     className="footer-bar" />
@@ -13,7 +14,7 @@ exports[`<Footer /> renders matches previous footer snapshot 1`] = `
           href="/"
           onClick={[Function anonymous]}>
           <img
-            alt="FirstNet Develop"
+            alt="FirstNet Local Control Home"
             className="footer-logo"
             src="/images/FirstnetLocalControl.png" />
         </a>
@@ -22,7 +23,7 @@ exports[`<Footer /> renders matches previous footer snapshot 1`] = `
     <div
       className="row footer-row">
       <div
-        className="col-md-3 col-xs-12 col-sm-12 footer-column-seperator-right">
+        className="col-md-3 col-xs-12 col-sm-12">
         <ul
           className="footer-menu-ul">
           <li
@@ -30,9 +31,11 @@ exports[`<Footer /> renders matches previous footer snapshot 1`] = `
             <hr
               className="footer-separator" />
           </li>
-          <li
-            className="footer-menu-header">
-            FIRSTNET PORTALS
+          <li>
+            <h4
+              className="footer-menu-header">
+              FIRSTNET PORTALS
+            </h4>
           </li>
           <li>
             <a
@@ -55,7 +58,7 @@ exports[`<Footer /> renders matches previous footer snapshot 1`] = `
         </ul>
       </div>
       <div
-        className="col-md-3 col-sm-12 col-xs-12 footer-column-seperator-right">
+        className="col-md-3 col-sm-12 col-xs-12">
         <ul
           className="footer-menu-ul">
           <li
@@ -63,9 +66,11 @@ exports[`<Footer /> renders matches previous footer snapshot 1`] = `
             <hr
               className="footer-separator" />
           </li>
-          <li
-            className="footer-menu-header">
-            FOLLOW US
+          <li>
+            <h4
+              className="footer-menu-header">
+              FOLLOW US
+            </h4>
           </li>
           <li
             className="footer-menu-social">
@@ -165,12 +170,14 @@ exports[`<Footer /> renders matches previous footer snapshot 1`] = `
         className="col-md-6 col-xs-12 col-sm-12 footer-styling-mobile">
         <ul
           className="footer-menu-ul">
-          <li
-            className="footer-menu-header">
-            <span
-              aria-hidden="true"
-              className="fa fa-question-circle footer-icon-header-spacing" />
-            GET HELP
+          <li>
+            <h4
+              className="footer-menu-header">
+              <span
+                aria-hidden="true"
+                className="fa fa-question-circle footer-icon-menu-spacing" />
+               GET HELP
+            </h4>
           </li>
           <li
             className="footer-help-menu-spacing">
@@ -201,55 +208,57 @@ exports[`<Footer /> renders matches previous footer snapshot 1`] = `
     </div>
   </div>
   <div
-    className="row footer-bottom footer-row">
+    className="row footer-bottom">
     <div
       className="col-xs-12 col-sm-8 col-md-10 footer-text-links">
-      <ul
-        className="footer-small-links">
-        <li>
-          <a
-            href="https://www.commerce.gov/"
-            rel="noopener noreferrer"
-            target="_blank">
-            Commerce.gov
-          </a>
-        </li>
-        <li>
-          <a
-            href="PrivacyX"
-            onClick={[Function anonymous]}
-            rel="noopener noreferrer"
-            target="_blank">
-            Privacy Policy
-          </a>
-        </li>
-        <li>
-          <a
-            href="Policies"
-            onClick={[Function anonymous]}
-            rel="noopener noreferrer"
-            target="_blank">
-            Web Policies
-          </a>
-        </li>
-        <li>
-          <a
-            href="Accessibility"
-            onClick={[Function anonymous]}
-            rel="noopener noreferrer"
-            target="_blank">
-            Accessibility
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://www.usa.gov/"
-            rel="noopener noreferrer"
-            target="_blank">
-            USA.gov
-          </a>
-        </li>
-      </ul>
+      <nav>
+        <ul
+          className="footer-small-links">
+          <li>
+            <a
+              href="https://www.commerce.gov/"
+              rel="noopener noreferrer"
+              target="_blank">
+              Commerce.gov
+            </a>
+          </li>
+          <li>
+            <a
+              href="Privacy"
+              onClick={[Function anonymous]}
+              rel="noopener noreferrer"
+              target="_blank">
+              Privacy Policy
+            </a>
+          </li>
+          <li>
+            <a
+              href="Policies"
+              onClick={[Function anonymous]}
+              rel="noopener noreferrer"
+              target="_blank">
+              Web Policies
+            </a>
+          </li>
+          <li>
+            <a
+              href="Accessibility"
+              onClick={[Function anonymous]}
+              rel="noopener noreferrer"
+              target="_blank">
+              Accessibility
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.usa.gov/"
+              rel="noopener noreferrer"
+              target="_blank">
+              USA.gov
+            </a>
+          </li>
+        </ul>
+      </nav>
     </div>
     <div
       className="col-xs-12 col-sm-4 col-md-2 footer-text-images">

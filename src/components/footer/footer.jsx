@@ -11,15 +11,14 @@ export class Footer extends React.Component {
 	render() {
 		return (
 			<footer id="dev-console-footer" className="footer-bar">
-				<div className="footer-bar"></div>
 				<div className="footer-height footer-top">
 					<div className="row footer-row">
-						<div className="col-xs-12">
+						<div className="col-xs-12 col-md-10 col-md-offset-1">
 							<Link to="/"><img alt="FirstNet Local Control Home" src="/images/FirstnetLocalControl.png" className="footer-logo" /></Link>
 						</div>
 					</div>
 					<div className="row footer-row">
-						<div className="col-md-3 col-xs-12 col-sm-12">
+						<div className="col-md-4 col-md-offset-1 col-xs-12 col-sm-12">
 							<ul className="footer-menu-ul">
 								<li className="hidden-md hidden-lg hidden-xl text-left"><hr className="footer-separator"/></li>
 								<li><h4 className="footer-menu-header">FIRSTNET PORTALS</h4></li>
@@ -66,7 +65,7 @@ export class Footer extends React.Component {
 								</li>
 							</ul>
 						</div>
-						<div className="col-md-6 col-xs-12 col-sm-12 footer-styling-mobile">
+						<div className="col-md-4 col-xs-12 col-sm-12 footer-styling-mobile">
 							<ul className="footer-menu-ul">
 								<li><h4 className="footer-menu-header"><span className="fa fa-question-circle footer-icon-menu-spacing" aria-hidden="true" /> GET HELP</h4></li>
 								<li className="footer-help-menu-spacing">
