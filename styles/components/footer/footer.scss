@@ -26,7 +26,7 @@
 h2.footer-menu-header {
     font-weight: $fn-bold-weight;
     font-size: $fn-h4-default-size;
-    padding-bottom:0;
+    padding-bottom: 1rem;
     color: $fn-dkgrey;
 	letter-spacing: 1px;
 	line-height: 3rem;    
@@ -78,6 +78,14 @@ h2.footer-menu-header {
     min-height:400px;
 }
 
+.footer-menu-header {
+    padding-left:35px;    
+}
+
+.footer-hr {
+    padding-left:35px;    
+}
+
 .footer-menu-ul {
     list-style-type: none;
     padding-left:35px;
@@ -87,7 +95,7 @@ h2.footer-menu-header {
     max-width: 400px;
     margin-top: 10px;
     margin-bottom: 20px;
-    margin-left: 0;
+    margin-left: 35px;
     margin-right: 0;
 }
 ul.footer-small-links > li {

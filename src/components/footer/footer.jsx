@@ -10,7 +10,7 @@ export class Footer extends React.Component {
 
 	render() {
 		return (
-			<footer id="dev-console-footer" className="footer-bar">
+			<footer id="pse-footer" className="footer-bar">
 				<div className="footer-height footer-top">
 					<div className="row footer-row">
 						<div className="col-xs-12 col-md-10 col-md-offset-1">
@@ -18,11 +18,11 @@ export class Footer extends React.Component {
 						</div>
 					</div>
 					<div className="row footer-row">
-						<div className="col-md-4 col-md-offset-1 col-xs-12 col-sm-12">
+						<div className="col-md-4 col-md-offset-1 col-xs-12 col-sm-12 text-left">
+							<span className="hidden-md hidden-lg hidden-xl text-left footer-hr"><hr className="footer-separator"/></span>
+							<h2 className="footer-menu-header">FIRSTNET PORTALS</h2>
 							<nav id="footer-portals-menu" aria-label="Firstnet Portals Menu">
 								<ul className="footer-menu-ul">
-									<li className="hidden-md hidden-lg hidden-xl text-left"><hr className="footer-separator"/></li>
-									<li role="presentation"><h2 className="footer-menu-header">FIRSTNET PORTALS</h2></li>
 									<li role="presentation"><a href="http://www.firstnet.com/appstore">FIRSTNET APP STORE</a></li>
 									<li role="presentation"><a href="http://www.firstnet.gov">FIRSTNET.GOV</a></li>
 									<li role="presentation"><a href="http://www.firstnet.com">FIRSTNET.COM</a></li>
@@ -31,9 +31,9 @@ export class Footer extends React.Component {
 						</div>
 						<div className="col-md-3 col-sm-12 col-xs-12">
 							<nav id="footer-social-menu" aria-label="Social Menu">
+								<span className="hidden-md hidden-lg hidden-xl text-left footer-hr"><hr className="footer-separator"/></span>
+								<h2 className="footer-menu-header">FOLLOW US</h2>
 								<ul className="footer-menu-ul">
-									<li className="hidden-md hidden-lg hidden-xl text-left"><hr className="footer-separator"/></li>
-									<li role="presentation"><h2 className="footer-menu-header">FOLLOW US</h2></li>
 									<li className="footer-menu-social" role="presentation">
 										<a href="http://www.facebook.com" aria-label="facebook" alt="facebook">
 										<span className="fa-stack fa-1x footer-icon-menu-spacing" aria-hidden="true">
@@ -70,9 +70,9 @@ export class Footer extends React.Component {
 							</nav>
 						</div>
 						<div className="col-md-4 col-xs-12 col-sm-12 footer-styling-mobile">
+							<h2 className="footer-menu-header"><span className="fa fa-question-circle footer-icon-menu-spacing" aria-hidden="true" /> GET HELP</h2>
 							<nav id="footer-help-menu" aria-label="Help Menu">
 								<ul className="footer-menu-ul">
-									<li role="presentation"><h2 className="footer-menu-header"><span className="fa fa-question-circle footer-icon-menu-spacing" aria-hidden="true" /> GET HELP</h2></li>
 									<li className="footer-help-menu-spacing" role="presentation">
 										<Link to="/faq">FAQ</Link>
 									</li>
