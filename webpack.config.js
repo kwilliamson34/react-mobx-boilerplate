@@ -113,7 +113,7 @@ module.exports = {
 					{
         		loader: 'file-loader',
 						options: {
-							publicPath: './',
+							publicPath: '../',
 							name: 'fonts/[name].[ext]'
 						}
           }
