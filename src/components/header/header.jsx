@@ -1,9 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import $ from 'jquery';
 
 import UtilityNav from './utility-nav';
 import PSESelector from '../pse-selector';
+
 
 export default class PSEHeader extends React.Component {
 		constructor(props) {
@@ -13,13 +13,13 @@ export default class PSEHeader extends React.Component {
 		render() {
 				return (
 						<header className="fnnav pse" role="banner">
-							<div className="pageMask hidden-md hidden-lg"></div>
+							<div className="pageMask hidden-md hidden-lg" />
 								<UtilityNav/>
 								<div className="fnnav__mainbar">
 										<div className="container">
 												<div className="row">
 														<div className="fnnav__header">
-																<button type='button' className="navbar-toggle">
+																<button type='button' className="navbar-toggle" data-toggle="collapse" data-target="#main-menu" aria-haspopup="true" aria-expanded="false">
 																		<span className='sr-only'>Toggle navigation</span>
 																		<span className='icon-bar'></span>
 																		<span className='icon-bar'></span>
@@ -35,12 +35,12 @@ export default class PSEHeader extends React.Component {
 														<nav id="main-menu" aria-label="Main Menu">
 																<ul className='fnnav__main'>
 																		<li className="mainnav-item blue" role="presentation">
-																				<button className="btnSubmenu">
+																				<button className="btnSubmenu" data-toggle="collapse" data-target="#pse-profile-nav" aria-haspopup="true" aria-expanded="false">
 																						<span className="sr-only">Expand Section Navigation</span>
 																				</button>
 																				<a id="pse-profile" href="#profile">
-																						<i aria-hidden="true" className="icon-profile"></i>Lois Lane</a>
-																				<ul aria-labelledby="pse-profile">
+																						<i className="icon-profile" aria-hidden="true" ></i>Lois Lane</a>
+																				<ul id="pse-profile-nav" className="collapse" aria-labelledby="pse-profile">
 																						<li role="presentation">
 																								<Link to="#manage-account">Manage My Account</Link>
 																						</li>
@@ -63,22 +63,22 @@ export default class PSEHeader extends React.Component {
 																				</ul>
 																		</li>
 																		<li className="mainnav-item" role="presentation">
-																				<button className="btnSubmenu">
+																				<button className="btnSubmenu" data-toggle="collapse" data-target="#pse-admin-nav" aria-haspopup="true" aria-expanded="false">
 																						<span className="sr-only">Expand Section Navigation</span>
 																				</button>
-																				<Link to="/admin">Administration Dashboard</Link>
-																				<ul aria-labelledby="pse-help-center">
+																				<Link id="linkBtn-admin" role="button" to="/admin">Administration Dashboard</Link>
+																				<ul id="pse-admin-nav" aria-labelledby="linkBtn-admin">
 																						<li role="presentation">
 																								<Link to="/admin/manage-apps">Manage Apps</Link>
 																						</li>
 																				</ul>
 																		</li>
 																		<li className="mainnav-item" role="presentation">
-																				<button className="btnSubmenu">
+																				<button className="btnSubmenu" data-toggle="collapse" data-target="#pse-helpcenter-nav" aria-haspopup="true" aria-expanded="false">
 																						<span className="sr-only">Expand Section Navigation</span>
 																				</button>
-																				<Link id="pse-help-center" to="/?help-center">Help Center</Link>
-																				<ul aria-labelledby="pse-help-center">
+																				<Link id="linkBtn-help-center" to="/help-center">Help Center</Link>
+																				<ul id="pse-helpcenter-nav" aria-labelledby="linkBtn-help-center">
 																						<li role="presentation">
 																								<Link to="#faq">FAQ</Link>
 																						</li>

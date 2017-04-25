@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 export default class PlansAndDevices extends React.Component {
 
@@ -23,7 +23,7 @@ export default class PlansAndDevices extends React.Component {
                                 <div className="pad-text imagebox">
                                     <h3>Rate Plans</h3>
                                     <p>Lorem ipsum dolor sit amet consectetuer adipiscing elit</p>
-                                    <Link to="view-solutions" className="pad-button btn btn-lg btn-default">Shop Plans</Link>                                
+                                    <Link to="view-solutions" className="pad-button btn btn-lg btn-default">Shop Plans</Link>
                                 </div>
                             </div>
                         </div>
@@ -32,7 +32,7 @@ export default class PlansAndDevices extends React.Component {
                                 <div className="pad-text imagebox">
                                     <h3>Devices & Accessories</h3>
                                     <p>Lorem ipsum dolor sit amet consectetuer adipiscing elit</p>
-                                    <Link to="view-solutions" className="pad-button btn btn-lg btn-default">Shop Devices</Link>                                
+                                    <Link to="view-solutions" className="pad-button btn btn-lg btn-default">Shop Devices</Link>
                                 </div>
                             </div>
                         </div>

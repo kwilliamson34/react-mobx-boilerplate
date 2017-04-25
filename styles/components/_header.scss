@@ -137,6 +137,9 @@ $fn-mobile-item-height: 60px;
             transform: rotate(0deg);
             transition: transform $fn-animation-duration ease;
         }
+        &[aria-expanded=true]:before{
+          transform: rotate(-180deg);
+        }
     }
 
     &:last-child {
@@ -185,6 +188,9 @@ $fn-mobile-item-height: 60px;
       .btnSubmenu:before
        {
         color: white;
+      }
+      .btnSubmenu[aria-expanded=false] + a{
+        border-bottom: 0;
       }
     }
     &.pse-selector{

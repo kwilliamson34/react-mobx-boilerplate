@@ -1,3 +1,6 @@
+import 'jquery';
+import 'bootstrap';
+
 import React from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import ScrollToTop from './core/services/scroll-to-top';
@@ -33,6 +36,7 @@ export default class App extends React.Component {
               <Provider store={pseMasterStore}>
                   <ScrollToTop>
                     <div id="PSE-wrapper">
+                        <a href="#main-content" className="sr-only sr-only-focusable">Skip Navigation</a>
                         <Header/>
                         <Route exact path="/" component={HomePage}/>
                         <Route exact path="/admin" component={AdminDashboardPage} />
