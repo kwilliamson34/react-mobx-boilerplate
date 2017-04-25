@@ -21,7 +21,7 @@ export class Footer extends React.Component {
 						<div className="col-md-4 col-md-offset-1 col-xs-12 col-sm-12">
 							<ul className="footer-menu-ul">
 								<li className="hidden-md hidden-lg hidden-xl text-left"><hr className="footer-separator"/></li>
-								<li><h4 className="footer-menu-header">FIRSTNET PORTALS</h4></li>
+								<li><h2 className="footer-menu-header">FIRSTNET PORTALS</h2></li>
 								<li><a href="http://www.firstnet.com/appstore">FIRSTNET APP STORE</a></li>
 								<li><a href="http://www.firstnet.gov">FIRSTNET.GOV</a></li>
 								<li><a href="http://www.firstnet.com">FIRSTNET.COM</a></li>
@@ -30,7 +30,7 @@ export class Footer extends React.Component {
 						<div className="col-md-3 col-sm-12 col-xs-12">
 							<ul className="footer-menu-ul">
 								<li className="hidden-md hidden-lg hidden-xl text-left"><hr className="footer-separator"/></li>
-								<li><h4 className="footer-menu-header">FOLLOW US</h4></li>
+								<li><h2 className="footer-menu-header">FOLLOW US</h2></li>
 								<li className="footer-menu-social">
 									<a href="http://www.facebook.com" aria-label="facebook" alt="facebook">
                                     <span className="fa-stack fa-1x footer-icon-menu-spacing" aria-hidden="true">
@@ -67,7 +67,7 @@ export class Footer extends React.Component {
 						</div>
 						<div className="col-md-4 col-xs-12 col-sm-12 footer-styling-mobile">
 							<ul className="footer-menu-ul">
-								<li><h4 className="footer-menu-header"><span className="fa fa-question-circle footer-icon-menu-spacing" aria-hidden="true" /> GET HELP</h4></li>
+								<li><h2 className="footer-menu-header"><span className="fa fa-question-circle footer-icon-menu-spacing" aria-hidden="true" /> GET HELP</h2></li>
 								<li className="footer-help-menu-spacing">
 									<Link to="/faq">FAQ</Link>
 								</li>
