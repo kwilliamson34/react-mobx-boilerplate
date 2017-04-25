@@ -1,0 +1,42 @@
+@media #{$desktop} {
+    .card-container {
+        width: 215px;
+        height: 325px;
+        .card-badge{
+            top: 20px;
+            left: 15px;
+            img {
+                height: 28px;
+            }
+        }
+        .card-logo{
+            height: 135px;
+            width: 135px;
+            margin: 55px 40px 0px 40px;
+        }
+        .card-info{
+            // @include paragraph-text();
+            font-size: 20px;
+            margin: 15px 15px 0px 15px;
+        }
+        .card-publisher{
+            font-size: 14px;
+        }
+        .card-rating{
+            font-size: 20px;
+            bottom: 15px;
+            left: 15px;
+            .ratings-star {
+                height: 20px;
+            }
+        }
+        
+        .card-platform{
+            bottom: 20px;
+            right: 20px;
+            img{
+                height: 28px;
+            }
+        }
+    }
+}

@@ -1,9 +1,15 @@
 import { action, computed, observable } from 'mobx';
 //import { apiService } from '../services/api.service';
 
+import { homeStore } from './home.store';
+
 class PSEStore {
 
-	// ACTIONS
+  constructor() {
+    this.homeStore = homeStore;
+  }
+
+  // ACTIONS
   @action nameFieldChange(value) {
     this.nameFieldStr = value;
   }
@@ -13,7 +19,7 @@ class PSEStore {
     return this.names[this.names.length - 1];
   }
 
-	// OBSERVABLES
+  // OBSERVABLES
   @observable names = [];
 
 }
