@@ -126,8 +126,8 @@ module.exports = {
     // prints more readable module names in the browser console on HMR updates
 
 		new webpack.ProvidePlugin({
-		   'jQuery': 'jquery',
-		   '$': 'jquery'
+		   'global.jQuery': 'jquery',
+		   'global.$': 'jquery'
 		}),
 
 		new ExtractTextPlugin({

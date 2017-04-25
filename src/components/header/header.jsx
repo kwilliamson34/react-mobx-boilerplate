@@ -4,10 +4,19 @@ import {Link} from 'react-router-dom';
 import UtilityNav from './utility-nav';
 import PSESelector from '../pse-selector';
 
+import {observer, inject} from 'mobx-react';
 
+@inject('store')
+@observer
 export default class PSEHeader extends React.Component {
 		constructor(props) {
 				super(props);
+				this.headerStore = this.props.store.headerStore;
+
+		}
+
+		toggleMainMenu = (e) => {
+			this.headerStore.toggleMainMenu();
 		}
 
 		render() {
@@ -19,7 +28,12 @@ export default class PSEHeader extends React.Component {
 										<div className="container">
 												<div className="row">
 														<div className="fnnav__header">
-																<button type='button' className="navbar-toggle" data-toggle="collapse" data-target="#main-menu" aria-haspopup="true" aria-expanded="false">
+																<button type='button'
+																	onClick={this.toggleMainMenu}
+																	className="navbar-toggle"
+																	data-target="#main-menu"
+																	aria-haspopup="true"
+																	aria-expanded="false">
 																		<span className='sr-only'>Toggle navigation</span>
 																		<span className='icon-bar'></span>
 																		<span className='icon-bar'></span>

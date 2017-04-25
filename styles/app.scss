@@ -5,6 +5,7 @@
 //Vendor
 @import
   "vendors/bootstrap",
+  "vendors/firstnet/firstnet",
   "vendors/font-awesome/font-awesome";
 
 //Abstracts
@@ -18,8 +19,16 @@
   "mixins/card-hover",
   "mixins/after-link";
 
+//Base
+@import
+      "base/bootstrap-overrides",
+      "base/typography",
+      "base/buttons",
+      "base/views";
+
 //Components
 @import
+  "components/header",
   "components/title-pane",
   "components/card-list",
   "components/summary-card",
@@ -27,10 +36,3 @@
   "components/plans-and-devices/mediaquery",
   "components/footer/footer",
   "components/footer/mediaquery";
-
-//Base
-@import
-    "base/bootstrap-overrides",
-    "base/typography",
-    "base/buttons",
-    "base/views";
