@@ -23,27 +23,27 @@ import { appStore } from '../../core/stores/apps.store';
             <ListGroupItem className="col-xs-6">
               <Button href="/admin/manage-apps" className='fn-primary'>Manage Apps</Button>
             </ListGroupItem>
-            <ListGroupItem className="col-xs-6"> 
+            <ListGroupItem className="col-xs-6">
               <h4 className="list-group-item-heading"><i className="mdi mdi-check-circle-outline"></i>Not Blocked</h4>
               <p className="list-group-item-text">{appStore.notBlockedApps}</p>
               </ListGroupItem>
-            <ListGroupItem className="col-xs-6"> 
+            <ListGroupItem className="col-xs-6">
               <h4 className="list-group-item-heading"><i className="mdi mdi-block-helper"></i>Blocked</h4>
               <p className="list-group-item-text">{appStore.blockedApps}</p>
               </ListGroupItem>
-            <ListGroupItem className="col-xs-6"> 
+            <ListGroupItem className="col-xs-6">
               <h4 className="list-group-item-heading"><i className="mdi mdi-star-off"></i> Not Recommended</h4>
               <p className="list-group-item-text">{appStore.notRecApps}</p>
               </ListGroupItem>
-            <ListGroupItem className="col-xs-6"> 
+            <ListGroupItem className="col-xs-6">
               <h4 className="list-group-item-heading"><i className="mdi mdi-star"></i>Recommended</h4>
               <p className="list-group-item-text">{appStore.recApps}</p>
               </ListGroupItem>
-            <ListGroupItem className="col-xs-6"> 
+            <ListGroupItem className="col-xs-6">
               <h4 className="list-group-item-heading"><i className="mdi mdi-wifi-off"></i>Not Pushed to MDM</h4>
               <p className="list-group-item-text">{appStore.notPushedApps}</p>
               </ListGroupItem>
-            <ListGroupItem className="col-xs-6"> 
+            <ListGroupItem className="col-xs-6">
               <h4 className="list-group-item-heading"><i className="mdi mdi-wifi"></i>Pushed to MDM</h4>
               <p className="list-group-item-text">{appStore.pushedApps}</p>
               </ListGroupItem>

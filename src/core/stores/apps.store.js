@@ -6,9 +6,9 @@ class AppStore {
   @action getAppAvailability() {
 
     const query = {};
-    apiService.updatePSELocation(query)
+    apiService.getAppAvailability(query)
       .then((response) => {
-
+        console.log(response)
       })
       .catch((error) => {
         console.warn(error);
