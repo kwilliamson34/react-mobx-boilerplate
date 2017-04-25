@@ -1,7 +1,7 @@
 import React from 'react';
 
 import TitlePane from '../components/title-pane';
-import AppAvailability from '../components/app-availability';
+import AppAvailability from '../components/app-availability/app-availability';
 
 export default class AdminDashboardView extends React.Component {
     render() {

@@ -7,6 +7,7 @@
   "vendors/bootstrap",
   "vendors/materialdesignicons/materialdesignicons",
   "vendors/firstnet/firstnet";
+  "vendors/font-awesome/font-awesome";
 
 //Base
 @import
@@ -30,7 +31,9 @@
   "components/summary-card",
   "components/app-availability",
   "components/plans-and-devices/plans-and-devices",
-  "components/plans-and-devices/mediaquery";
+  "components/plans-and-devices/mediaquery",
+  "components/footer/footer",
+  "components/footer/mediaquery";
 
 //Pages
 @import "base/typography",

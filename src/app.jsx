@@ -11,7 +11,8 @@ import '../styles/app.scss';
 
 //Common Components
 import Header from './components/header';
-import Footer from './components/footer';
+//import Footer from './components/footer';
+import { Footer } from './components/footer/footer.jsx';
 
 //Pages
 import HomeView from './pages/home.page';
