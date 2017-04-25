@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {Grid, Row, Button} from 'react-bootstrap';
+import $ from 'jquery';
 
 import UtilityNav from './utility-nav';
 import PSESelector from '../pse-selector';
@@ -16,9 +16,8 @@ export default class PSEHeader extends React.Component {
 							<div className="pageMask hidden-md hidden-lg"></div>
 								<UtilityNav/>
 								<div className="fnnav__mainbar">
-
-										<Grid >
-												<Row>
+										<div className="container">
+												<div className="row">
 														<div className="fnnav__header">
 																<button type='button' className="navbar-toggle">
 																		<span className='sr-only'>Toggle navigation</span>
@@ -36,9 +35,9 @@ export default class PSEHeader extends React.Component {
 														<nav id="main-menu" aria-label="Main Menu">
 																<ul className='fnnav__main'>
 																		<li className="mainnav-item blue" role="presentation">
-																				<Button bsClass="btnSubmenu">
+																				<button className="btnSubmenu">
 																						<span className="sr-only">Expand Section Navigation</span>
-																				</Button>
+																				</button>
 																				<a id="pse-profile" href="#profile">
 																						<i aria-hidden="true" className="icon-profile"></i>Lois Lane</a>
 																				<ul aria-labelledby="pse-profile">
@@ -64,9 +63,9 @@ export default class PSEHeader extends React.Component {
 																				</ul>
 																		</li>
 																		<li className="mainnav-item" role="presentation">
-																				<Button bsClass="btnSubmenu">
+																				<button className="btnSubmenu">
 																						<span className="sr-only">Expand Section Navigation</span>
-																				</Button>
+																				</button>
 																				<Link to="/admin">Administration Dashboard</Link>
 																				<ul aria-labelledby="pse-help-center">
 																						<li role="presentation">
@@ -75,9 +74,9 @@ export default class PSEHeader extends React.Component {
 																				</ul>
 																		</li>
 																		<li className="mainnav-item" role="presentation">
-																				<Button bsClass="btnSubmenu">
+																				<button className="btnSubmenu">
 																						<span className="sr-only">Expand Section Navigation</span>
-																				</Button>
+																				</button>
 																				<Link id="pse-help-center" to="/?help-center">Help Center</Link>
 																				<ul aria-labelledby="pse-help-center">
 																						<li role="presentation">
@@ -99,9 +98,8 @@ export default class PSEHeader extends React.Component {
 														<div className="fnnav__weather">
 																weather
 														</div>
-												</Row>
-
-										</Grid>
+												</div>
+										</div>
 								</div>
 						</header>
 				)

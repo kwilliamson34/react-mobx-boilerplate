@@ -102,7 +102,7 @@ module.exports = {
 			{
 				test: /\.(eot|woff2|woff|ttf|svg)$/,
 				include: [
-					path.resolve(__dirname, 'assets')
+					path.resolve(__dirname, 'fonts')
 				],
 				use: [
 					{
