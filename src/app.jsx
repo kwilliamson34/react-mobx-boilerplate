@@ -13,15 +13,16 @@ import {pseMasterStore} from './core/stores/master.store';
 import '../styles/app.scss';
 
 //Common Components
-import Header from './components/header/header';
-import Footer from './components/footer';
 
+import Header from './components/header/header';
+import { Footer } from './components/footer/footer.jsx';
 //Pages
 import HomePage from './pages/home.page';
 import AdminDashboardPage from './pages/admin-dashboard.page';
 import ManageAppsPage from './pages/manage-apps.page';
 import AppDetailsPage from './pages/app-details.page';
 import HelpCenterPage from './pages/help-center.page';
+
 
 @observer
 export default class App extends React.Component {

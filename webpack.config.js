@@ -45,7 +45,7 @@ module.exports = {
 
 		publicPath: '/',
 		proxy: {
-			'/api/services': {
+			'/api-services': {
 				target: 'http://34.204.23.33'
 			}
 		}
@@ -91,7 +91,9 @@ module.exports = {
 			},
 			{
 				test: /\.(png|svg)$/,
-				include: [ path.resolve(__dirname, 'images') ],
+				include: [
+					path.resolve(__dirname, 'images')
+				],
 				use: [
 					{
         		loader: 'file-loader',

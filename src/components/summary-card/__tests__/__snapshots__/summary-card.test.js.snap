@@ -1,0 +1,90 @@
+exports[`<SummaryCard /> render testing matches snapshot 1`] = `
+<div
+  className="card-wrapper">
+  <div
+    className="card-container center-block has-shadow"
+    onClick={undefined}>
+    <div
+      className="card-badge">
+      <img
+        alt="Endorsed app"
+        src="../../images/fn_badge.svg" />
+    </div>
+    <div
+      className="card-logo">
+      <img
+        alt="app name Logo"
+        src="https://ease.apperian.com/uploads/../../images/app-icon.png" />
+    </div>
+    <div
+      className="card-info">
+      <div
+        className="card-name">
+        app name
+      </div>
+      <div
+        className="card-publisher hidden-sm hidden-xs">
+        publisher name
+      </div>
+    </div>
+    <div
+      className="card-rating">
+      <div
+        className="ratings-container">
+        <span
+          className="ratings-number">
+          <span
+            className="sr-only">
+            Rating of
+          </span>
+          3.5
+        </span>
+        <span
+          className="ratings-stars">
+          <span
+            aria-hidden="true">
+            <img
+              alt="Rating Star"
+              className="ratings-star"
+              src="/images/star.png" />
+          </span>
+          <span
+            aria-hidden="true">
+            <img
+              alt="Rating Star"
+              className="ratings-star"
+              src="/images/star.png" />
+          </span>
+          <span
+            aria-hidden="true">
+            <img
+              alt="Rating Star"
+              className="ratings-star"
+              src="/images/star.png" />
+          </span>
+          <span
+            aria-hidden="true">
+            <img
+              alt="Rating Star"
+              className="ratings-star"
+              src="/images/star-half.png" />
+          </span>
+          <span
+            aria-hidden="true">
+            <img
+              alt="Rating Star"
+              className="ratings-star"
+              src="/images/star-outline.png" />
+          </span>
+        </span>
+      </div>
+    </div>
+    <div
+      className="card-platform">
+      <img
+        alt="Hosted at undefined"
+        src="../../images/Apple.svg" />
+    </div>
+  </div>
+</div>
+`;

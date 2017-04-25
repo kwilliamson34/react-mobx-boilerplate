@@ -25,22 +25,32 @@ export default class UtilityNav extends React.Component {
                                             <span className="sr-only">Profile Dropdown</span>
                                         </button>
                                         <ul role="menu" className="dropdown-menu dropdown-menu-right" aria-labelledby="user-dropdown">
-                                            <li role="presentation"><Link to="/profile/manage-account">Manage My Account</Link></li>
-                                            <li role="presentation"><Link to="/profile/change-password">Change Password</Link></li>
-                                            <li role="presentation"><Link to="/profile/configure-location">Configure Location</Link></li>
-                                            <li role="presentation"><Link to="/profile/configure-news">Configure News</Link></li>
-                                            <li role="presentation"><Link to="/profile/configure-mdm">Configure MDM</Link></li>
                                             <li role="presentation">
-                                              <Link to="/logout">
-                                                <i aria-hidden="true" className="icon-logout"></i>
-                                                Log Out
-                                              </Link>
+                                                <Link to="/profile/manage-account">Manage My Account</Link>
+                                            </li>
+                                            <li role="presentation">
+                                                <Link to="/profile/change-password">Change Password</Link>
+                                            </li>
+                                            <li role="presentation">
+                                                <Link to="/profile/configure-location">Configure Location</Link>
+                                            </li>
+                                            <li role="presentation">
+                                                <Link to="/profile/configure-news">Configure News</Link>
+                                            </li>
+                                            <li role="presentation">
+                                                <Link to="/profile/configure-mdm">Configure MDM</Link>
+                                            </li>
+                                            <li role="presentation">
+                                                <Link to="/logout">
+                                                    <i aria-hidden="true" className="icon-logout"></i>
+                                                    Log Out
+                                                </Link>
                                             </li>
                                         </ul>
                                     </div>
                                 </li>
                                 <li>
-                                    <Link to="/help-center">
+                                    <Link to="/help-center" activeClassName="active">
                                         <i aria-hidden="true" className="icon-help"></i>
                                         <span className="sr-only">Go to Help Center</span>
                                     </Link>
@@ -50,7 +60,6 @@ export default class UtilityNav extends React.Component {
                     </div>
                 </div>
             </div>
-        )
-    }
-
+          )
+        }
 }
