@@ -5,15 +5,21 @@ class AppStore {
 
   @action getAppAvailability() {
 
-    const query = {};
-    apiService.getAppAvailability(query)
-      .then((response) => {
-        console.log(response)
-      })
-      .catch((error) => {
-        console.warn(error);
-
-      });
+        const success = (res) => {
+          let data = res.data;
+          
+          this.newApps = data.new_apps;
+          this.notBlockedApps = data.un_blocked_apps;
+          this.blockedApps = data.blocked_apps;
+          this.notRecApps = data.un_recommended_apps;
+          this.recApps = data.recommended_apps;
+          this.notPushedApps = data.un_pushed_mdm_apps;
+          this.pushedApps = data.pushed_mdm_apps;
+        }
+        const fail = (err) => {
+            console.warn(err);
+        }
+        return apiService.getAppAvailability().then(success, fail)
   }
 
 	// OBSERVABLES
