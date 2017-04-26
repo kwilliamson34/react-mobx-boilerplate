@@ -46,14 +46,10 @@ export class SummaryCard extends React.Component {
         this.display = nextProps.display;
     }
 
-    handleClick(){
-        console.log("clicked")
-    }
-
 	render() {
 		return (
             <article className="card-wrapper">
-                    <div className="card-container center-block has-shadow" onClick={this.handleClick}>
+                    <div className="card-container center-block has-shadow">
                         {this.display.badge &&
                             (<div className="card-badge">
                                 <img src='../../images/fn_badge.svg' alt="Endorsed app"/>
