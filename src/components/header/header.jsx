@@ -10,7 +10,7 @@ import {observer,inject} from 'mobx-react';
 
 @inject('store')
 @observer
-export class PSEHeader extends React.Component {
+export default class PSEHeader extends React.Component {
 	constructor(props) {
 		super(props);
 		this.headerStore = this.props.store.headerStore;
