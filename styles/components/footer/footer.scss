@@ -5,7 +5,7 @@
 
 .footer-row > div:not(:last-child) {
     border-right: 1px solid $fn-grey;
-    height:190px;
+    
     display: block;
 }
 
@@ -29,7 +29,7 @@ h2.footer-menu-header {
     padding-bottom: 1rem;
     color: $fn-dkgrey;
 	letter-spacing: 1px;
-	line-height: 3rem;    
+	line-height: 3rem;
 }
 .footer-menu-ul > li.footer-menu-header, .footer-menu-ul > li.footer-menu-header > a {
     font-weight: $fn-bold-weight;
@@ -53,7 +53,7 @@ h2.footer-menu-header {
     margin-left:27px;
 }
 .footer-menu-button {
-    padding-top:35px;    
+    padding-top:35px;
 }
 .footer-logo {
     padding-left: 33px;
@@ -79,11 +79,11 @@ h2.footer-menu-header {
 }
 
 .footer-menu-header {
-    padding-left:35px;    
+    padding-left:35px;
 }
 
 .footer-hr {
-    padding-left:35px;    
+    padding-left:35px;
 }
 
 .footer-menu-ul {
@@ -99,7 +99,7 @@ h2.footer-menu-header {
     margin-right: 0;
 }
 ul.footer-small-links > li {
-    padding-right:8px; padding-left:8px;    
+    padding-right:8px; padding-left:8px;
     display: inline;
     font-weight: $fn-normal-weight;
     font-size: 1.4rem;
@@ -111,7 +111,7 @@ ul.footer-small-links > li:last-child {
     border-right: 0;
 }
 ul.footer-small-links > li:first-child {
-    padding-left:0;    
+    padding-left:0;
 }
 ul.footer-small-links > li:active,
 ul.footer-small-links > li:hover,
@@ -129,5 +129,5 @@ ul.footer-small-links {
 }
 .footer-text-images {
     padding-bottom:15px;
-    padding-left:35px;    
+    padding-left:35px;
 }
