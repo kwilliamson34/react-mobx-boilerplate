@@ -5,7 +5,9 @@
 //Vendor
 @import
   "vendors/bootstrap",
-  "vendors/firstnet/firstnet";
+  "vendors/materialdesignicons/materialdesignicons",
+  "vendors/firstnet/firstnet",
+  "vendors/font-awesome/font-awesome";
 
 //Base
 @import
@@ -28,9 +30,14 @@
   "components/card-list",
   "components/summary-card",
   "components/search",
+  "components/app-availability",
   "components/plans-and-devices/plans-and-devices",
-  "components/plans-and-devices/mediaquery";
+  "components/plans-and-devices/mediaquery",
+  "components/footer/footer",
+  "components/footer/mediaquery";
 
 //Pages
-@import "base/typography",
-        "pages/pse-pages";
+@import
+  "base/base",
+  "base/typography",
+  "pages/pse-pages";

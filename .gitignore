@@ -7,3 +7,9 @@ coverage/
 .idea
 .idea/
 .idea/*
+
+#coverage and snapshot folders from jest
+coverage
+coverage/
+coverage/*
+*__snapshots__*

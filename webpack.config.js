@@ -31,7 +31,7 @@ module.exports = {
 	output: {
 		filename: 'js/bundle.[hash].js',
 		path: path.resolve(__dirname, 'build'),
-		publicPath: '/'
+		publicPath: './'
     // necessary for HMR to know where to load the hot update chunks
 	},
 	devtool: 'eval',
@@ -45,7 +45,7 @@ module.exports = {
 
 		publicPath: '/',
 		proxy: {
-			'/api-services': {
+			'/api-services-summary': {
 				target: 'http://34.204.23.33'
 			}
 		}
@@ -98,6 +98,7 @@ module.exports = {
 					{
         		loader: 'file-loader',
 						options: {
+							publicPath: './',
 							name: '[path][name].[ext]'
 						}
           }
