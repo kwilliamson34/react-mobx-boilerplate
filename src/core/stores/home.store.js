@@ -22,7 +22,7 @@ class HomeStore {
             return this.homeCards;
         }
         const fail = (err) => {
-            console.warn(err);
+            console.log(err);
         }
         return apiService.getHomeCards().then(success, fail)
     }
