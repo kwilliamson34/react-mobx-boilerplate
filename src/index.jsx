@@ -12,7 +12,7 @@ ReactDOM.render(
   , document.getElementById('app') );
 
 // Hot Module Replacement API
-if (module.hot) {
+if (module && module.hot) {
   module.hot.accept('./app', () => {
     render(App)
   });

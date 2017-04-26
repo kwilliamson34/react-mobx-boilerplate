@@ -130,8 +130,8 @@ export default class PSEHeader extends React.Component {
 			</header>
 		)
 	}
-
 }
+
 PSEHeader.propTypes = {
 	store: PropTypes.object
 };
