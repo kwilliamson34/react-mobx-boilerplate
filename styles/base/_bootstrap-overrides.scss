@@ -2,7 +2,7 @@
     &.open {
         .dropdown-toggle {
             box-shadow: none;
-            background: #fff;
+            background: $fn-white;
             color: $fn-dkgrey;
             border-color: none;
         }
@@ -20,7 +20,7 @@
         margin: -1px 0 0;
         border: 0 none;
         box-shadow: 0 2px 5px 0 rgba(50, 50, 50, 0.75);
-        background-color: white;
+        background-color: $fn-white;
     }
 
     .dropdown-menu {
@@ -57,14 +57,14 @@
     border-left: 1px solid $fn-grey;
     border-right: 1px solid $fn-grey;
     text-align: center;
-    background: white;
+    background: $fn-white;
 
     &:focus {
         @include focus();
     }
 
     &:hover {
-        background: #fff;
+        background: $fn-white;
 
         .icon-bar {
             background: $fn-dkgrey;
