@@ -14,7 +14,6 @@ export default class PSEHeader extends React.Component {
 		constructor(props) {
 				super(props);
 				this.headerStore = this.props.store.headerStore;
-
 		}
 
 		toggleMainMenu = () => {

@@ -50,39 +50,6 @@ $fn-mobile-item-height: 60px;
     }
 }
 
-
-
-// Hamburger
-
-.navbar-toggle {
-    margin: 0;
-    float: left;
-    text-align: center;
-    vertical-align: middle;
-    border-radius: 0;
-    border-left: 1px solid $fn-grey;
-    border-right: 1px solid $fn-grey;
-    text-align: center;
-    background: white;
-
-    &:focus {
-        @include focus();
-    }
-
-    &:hover {
-        background: #fff;
-
-        .icon-bar {
-            background: $fn-dkgrey;
-        }
-    }
-
-    .icon-bar {
-        background: $fn-dkgrey;
-        height: 3px;
-        margin: 4px auto;
-    }
-}
 .pageMask {
     position: fixed;
     top: 0;
@@ -93,6 +60,7 @@ $fn-mobile-item-height: 60px;
     z-index: 96;
     display: none;
 }
+
 .mainnav-item {
     clear: both;
     padding: 0 30px;
