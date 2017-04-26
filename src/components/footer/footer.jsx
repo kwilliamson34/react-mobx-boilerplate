@@ -34,7 +34,7 @@ export class Footer extends React.Component {
 							<nav id="footer-social-menu" aria-label="Social Menu">
 								<ul className="footer-menu-ul">
 									<li className="footer-menu-social" role="presentation">
-										<a href="http://www.facebook.com" aria-label="facebook">
+										<a href="https://www.facebook.com/firstnetgov/" aria-label="facebook" target="_blank" rel="noopener noreferrer">
 										<span className="fa-stack fa-1x footer-icon-menu-spacing" aria-hidden="true">
 											<span className="fa fa-circle fa-stack-2x footer-icon-background" aria-hidden="true" />
 											<span className="fa fa-facebook fa-stack-1x footer-icon-foreground" aria-hidden="true" />
@@ -42,7 +42,7 @@ export class Footer extends React.Component {
 										<span className="hidden-xs hidden-sm" aria-hidden="true">FACEBOOK</span></a>
 									</li>
 									<li className="footer-menu-social" role="presentation">
-										<a href="http://www.twitter.com" aria-label="twitter" alt="twitter">
+										<a href="https://twitter.com/FirstNetGov" aria-label="twitter" target="_blank" rel="noopener noreferrer">
 										<span className="fa-stack fa-1x footer-icon-menu-spacing" aria-hidden="true">
 											<span className="fa fa-circle fa-stack-2x footer-icon-background" aria-hidden="true" />
 											<span className="fa fa-twitter fa-stack-1x footer-icon-foreground" aria-hidden="true" />
@@ -50,15 +50,14 @@ export class Footer extends React.Component {
 										<span className="hidden-xs hidden-sm" aria-hidden="true">TWITTER</span></a>
 									</li>
 									<li className="footer-menu-social" role="presentation">
-										<a href="http://www.tumblr.com" aria-label="tumblr">
-										<span className="fa-stack fa-1x footer-icon-menu-spacing" aria-hidden="true">
+										<a href="https://firstnetgov.tumblr.com/" aria-label="tumblr" target="_blank" rel="noopener noreferrer">										<span className="fa-stack fa-1x footer-icon-menu-spacing" aria-hidden="true">
 											<span className="fa fa-circle fa-stack-2x footer-icon-background" aria-hidden="true" />
 											<span className="fa fa-tumblr fa-stack-1x footer-icon-foreground" aria-hidden="true" />
 										</span>
 										<span className="hidden-xs hidden-sm" aria-hidden="true">TUMBLR</span></a>
 									</li>
 									<li className="footer-menu-social" role="presentation">
-										<a href="http://www.youtube.com" aria-label="youtube">
+										<a href="https://www.youtube.com/user/FirstNetGov" aria-label="youtube" target="_blank" rel="noopener noreferrer">
 										<span className="fa-stack fa-1x footer-icon-menu-spacing" aria-hidden="true">
 											<span className="fa fa-circle fa-stack-2x footer-icon-background" aria-hidden="true" />
 											<span className="fa fa-youtube fa-stack-1x footer-icon-foreground" aria-hidden="true" />
