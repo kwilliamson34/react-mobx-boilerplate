@@ -4,9 +4,9 @@ $fn-mobile-item-height: 60px;
     @extend .clearfix;
 
     &__mainbar {
-        background: white;
+        background: $fn-white;
         color: $fn-dkgrey;
-        border-top: 5px solid black;
+        border-top: 5px solid $fn-black;
         position: relative;
         z-index:100;
         &.open + .pageMask{
@@ -20,7 +20,7 @@ $fn-mobile-item-height: 60px;
         > a {
             display: block;
             height: 100%;
-            border: 2px solid white;
+            border: 2px solid $fn-white;
 
             &:focus {
                 @include focus();
@@ -39,7 +39,7 @@ $fn-mobile-item-height: 60px;
         top: 60px;
         left: 0;
         z-index: 110;
-        border-top: 1px solid #ccc;
+        border-top: 1px solid $fn-grey;
         width: 100vw;
         height: 100vh;
         max-width: 505px;
@@ -68,7 +68,7 @@ $fn-mobile-item-height: 60px;
     text-align: left;
     overflow: hidden;
     font-size: 14px;
-    background: white;
+    background: $fn-white;
     > a,
     > span {
         display: block;
@@ -111,7 +111,7 @@ $fn-mobile-item-height: 60px;
 
     &:last-child {
         a {
-            border-bottom: 0 none !important;
+            border-bottom: 0 none;
         }
     }
 
@@ -134,9 +134,6 @@ $fn-mobile-item-height: 60px;
             padding-right: 10px;
             padding-left: 10px;
             text-decoration: none;
-            &:hover{
-
-            }
             i{
               display: inline-block;
               margin-right: 10px;
@@ -144,17 +141,17 @@ $fn-mobile-item-height: 60px;
             }
         }
         > li:not(:last-child){
-          border-bottom: 1px solid #e1e1e1;
+          border-bottom: 1px solid $fn-grey;
         }
     }
     &.blue{
       background: $fn-blue;
-      color: white;
+      color: $fn-white;
       > a,
       > ul a,
       .btnSubmenu:before
        {
-        color: white;
+        color: $fn-white;
       }
       .btnSubmenu[aria-expanded=false] + a{
         border-bottom: 0;
@@ -163,7 +160,7 @@ $fn-mobile-item-height: 60px;
     &.pse-selector{
       background: $fn-dkgrey;
       span{
-        color: white;
+        color: $fn-white;
       }
     }
 }

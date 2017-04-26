@@ -22,10 +22,12 @@
 
 //Base
 @import
-      "base/bootstrap-overrides",
-      "base/typography",
-      "base/buttons",
-      "base/views";
+  "base/base",
+  "base/typography",
+  "base/bootstrap-overrides",
+  "base/typography",
+  "base/buttons",
+  "base/views";
 
 //Components
 @import
@@ -38,8 +40,7 @@
   "components/plans-and-devices/mediaquery",
   "components/footer/footer",
   "components/footer/mediaquery";
+
 //Pages
 @import
-  "base/base",
-  "base/typography",
   "pages/pse-pages";
