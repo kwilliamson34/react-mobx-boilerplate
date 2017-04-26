@@ -122,12 +122,9 @@ module.exports = {
 		new webpack.HotModuleReplacementPlugin(),
     // enable HMR globally
 
-    new webpack.NamedModulesPlugin(),
-    // prints more readable module names in the browser console on HMR updates
-
 		new webpack.ProvidePlugin({
-		   'global.jQuery': 'jquery',
-		   'global.$': 'jquery'
+		   'jQuery': 'jquery',
+		   '$': 'jquery'
 		}),
 
 		new ExtractTextPlugin({

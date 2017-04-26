@@ -1,8 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 
 import UtilityNav from './utility-nav';
-import PSESelector from '../pse-selector';
+import PSESelector from '../pse-selector/pse-selector';
+import WeatherWidget from '../weather-widget/weather-widget';
 
 import {observer, inject} from 'mobx-react';
 
@@ -15,41 +17,45 @@ export default class PSEHeader extends React.Component {
 
 		}
 
-		toggleMainMenu = (e) => {
+		toggleMainMenu = () => {
 			this.headerStore.toggleMainMenu();
 		}
 
 		render() {
+			var mainbarClass = (this.headerStore.mainMenuIsOpen)? 'fnnav__mainbar open' : 'fnnav__mainbar';
 				return (
 						<header className="fnnav pse" role="banner">
-							<div className="pageMask hidden-md hidden-lg" />
 								<UtilityNav/>
-								<div className="fnnav__mainbar">
+								<div className={mainbarClass}>
 										<div className="container">
 												<div className="row">
 														<div className="fnnav__header">
+															<div className="fnnav__brand">
+																	<Link to="/">
+																			<img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Logo" />
+																			<span className="sr-only">Go Home</span>
+																	</Link>
+															</div>
 																<button type='button'
-																	onClick={this.toggleMainMenu}
 																	className="navbar-toggle"
-																	data-target="#main-menu"
+																	onClick={this.toggleMainMenu}
 																	aria-haspopup="true"
-																	aria-expanded="false">
+																	aria-expanded={this.headerStore.mainMenuIsOpen}>
 																		<span className='sr-only'>Toggle navigation</span>
 																		<span className='icon-bar'></span>
 																		<span className='icon-bar'></span>
 																		<span className='icon-bar'></span>
 																</button>
-																<div className="fnnav__brand">
-																		<Link to="/">
-																				<img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Logo" />
-																				<span className="sr-only">Go Home</span>
-																		</Link>
-																</div>
+																<WeatherWidget />
 														</div>
-														<nav id="main-menu" aria-label="Main Menu">
-																<ul className='fnnav__main'>
+														<nav id="main-menu" aria-label="Main Menu" aria-hidden={!this.headerStore.mainMenuIsOpen}>
+																<ul className="fnnav__main">
 																		<li className="mainnav-item blue" role="presentation">
-																				<button className="btnSubmenu" data-toggle="collapse" data-target="#pse-profile-nav" aria-haspopup="true" aria-expanded="false">
+																				<button className="btnSubmenu"
+																					data-toggle="collapse"
+																					data-target="#pse-profile-nav"
+																					aria-haspopup="true"
+																					aria-expanded="false">
 																						<span className="sr-only">Expand Section Navigation</span>
 																				</button>
 																				<a id="pse-profile" href="#profile">
@@ -72,27 +78,36 @@ export default class PSEHeader extends React.Component {
 																						</li>
 																						<li role="presentation">
 																								<Link to="#log-out">
-																										<i className="icon-logout" aria-hidden="true"></i>Log Out</Link>
+																									<i className="icon-logout" aria-hidden="true"></i>Log Out
+																								</Link>
 																						</li>
 																				</ul>
 																		</li>
 																		<li className="mainnav-item" role="presentation">
-																				<button className="btnSubmenu" data-toggle="collapse" data-target="#pse-admin-nav" aria-haspopup="true" aria-expanded="false">
+																				<button className="btnSubmenu"
+																					data-toggle="collapse"
+																					data-target="#pse-admin-nav"
+																					aria-haspopup="true"
+																					aria-expanded="false">
 																						<span className="sr-only">Expand Section Navigation</span>
 																				</button>
 																				<Link id="linkBtn-admin" role="button" to="/admin">Administration Dashboard</Link>
-																				<ul id="pse-admin-nav" aria-labelledby="linkBtn-admin">
+																				<ul id="pse-admin-nav" className="collapse" aria-labelledby="linkBtn-admin">
 																						<li role="presentation">
 																								<Link to="/admin/manage-apps">Manage Apps</Link>
 																						</li>
 																				</ul>
 																		</li>
 																		<li className="mainnav-item" role="presentation">
-																				<button className="btnSubmenu" data-toggle="collapse" data-target="#pse-helpcenter-nav" aria-haspopup="true" aria-expanded="false">
+																				<button className="btnSubmenu"
+																					data-toggle="collapse"
+																					data-target="#pse-helpcenter-nav"
+																					aria-haspopup="true"
+																					aria-expanded="false">
 																						<span className="sr-only">Expand Section Navigation</span>
 																				</button>
 																				<Link id="linkBtn-help-center" to="/help-center">Help Center</Link>
-																				<ul id="pse-helpcenter-nav" aria-labelledby="linkBtn-help-center">
+																				<ul id="pse-helpcenter-nav" className="collapse" aria-labelledby="linkBtn-help-center">
 																						<li role="presentation">
 																								<Link to="#faq">FAQ</Link>
 																						</li>
@@ -109,14 +124,15 @@ export default class PSEHeader extends React.Component {
 																		</li>
 																</ul>
 														</nav>
-														<div className="fnnav__weather">
-																weather
-														</div>
 												</div>
 										</div>
 								</div>
+								<div className="pageMask hidden-md hidden-lg" onClick={this.toggleMainMenu} />
 						</header>
 				)
 		}
 
 }
+PSEHeader.propTypes = {
+  store: PropTypes.object
+};

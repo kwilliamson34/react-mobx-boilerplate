@@ -1,8 +1,9 @@
 .fnnav__weather{
   float: right;
-  border: 2px dashed #ccc;
+  border: 2px dotted #ccc;
   width: 450px;
-  text-align: right;
+  text-align: center;
+  line-height: 90px;
   height: 90px;
   overflow: hidden;
 }

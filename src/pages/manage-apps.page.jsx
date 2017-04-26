@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TitlePane from '../components/title-pane';
+import TitlePane from '../components/title-pane/title-pane';
 
 export default class ManageAppsPage extends React.Component {
     render() {

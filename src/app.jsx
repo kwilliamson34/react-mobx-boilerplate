@@ -1,4 +1,4 @@
-import 'jquery';
+global.jQuery = global.$ = require('jquery');
 import 'bootstrap';
 
 import React from 'react';
@@ -16,6 +16,7 @@ import '../styles/app.scss';
 
 import Header from './components/header/header';
 import { Footer } from './components/footer/footer.jsx';
+
 //Pages
 import HomePage from './pages/home.page';
 import AdminDashboardPage from './pages/admin-dashboard.page';

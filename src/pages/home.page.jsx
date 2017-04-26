@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TitlePane from '../components/title-pane';
+import TitlePane from '../components/title-pane/title-pane';
 import PlansAndDevices from '../components/plans-and-devices/plans-and-devices';
 
 export default class HomePage extends React.Component {

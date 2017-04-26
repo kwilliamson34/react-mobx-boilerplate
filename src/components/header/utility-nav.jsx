@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-import PSESelector from '../pse-selector';
+import PSESelector from '../pse-selector/pse-selector';
 
 export default class UtilityNav extends React.Component {
     constructor(props) {

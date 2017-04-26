@@ -9,10 +9,12 @@ $fn-mobile-item-height: 60px;
         border-top: 5px solid black;
         position: relative;
         z-index:100;
+        &.open + .pageMask{
+          display: block;
+        }
     }
 
     &__brand {
-        float: left;
         display: inline-block;
 
         > a {
@@ -44,6 +46,7 @@ $fn-mobile-item-height: 60px;
         overflow-y: scroll;
         background: $fn-dkgrey;
         padding-bottom: 30px;
+        transition: left $fn-animation-duration ease;
     }
 }
 
@@ -88,11 +91,7 @@ $fn-mobile-item-height: 60px;
     height: 100vh;
     background: rgba(0,0,0,0.7);
     z-index: 96;
-    display: block;
-
-    &.visible {
-      display: block;
-    }
+    display: none;
 }
 .mainnav-item {
     clear: both;
@@ -222,6 +221,11 @@ $fn-mobile-item-height: 60px;
         height: $fn-primary-nav-height;
         min-width: 410px;
         border: 0;
+        &.open{
+          .fnnav__main{
+            left: 0;
+          }
+        }
     }
 
     .navbar-toggle {
@@ -271,7 +275,7 @@ $fn-mobile-item-height: 60px;
     .fnnav__main {
         display: block;
         top: $fn-primary-nav-height;
-        left: 0;
+        left: -505px;
     }
 }
 /* Desktop */
