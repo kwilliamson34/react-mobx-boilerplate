@@ -5,7 +5,8 @@
 //Vendor
 @import
   "vendors/bootstrap",
-  "vendors/firstnet/firstnet",
+  "vendors/materialdesignicons/materialdesignicons",
+  "vendors/firstnet/firstnet";
   "vendors/font-awesome/font-awesome";
 
 //Base
@@ -28,6 +29,7 @@
   "components/title-pane",
   "components/card-list",
   "components/summary-card",
+  "components/app-availability",
   "components/plans-and-devices/plans-and-devices",
   "components/plans-and-devices/mediaquery",
   "components/footer/footer",
