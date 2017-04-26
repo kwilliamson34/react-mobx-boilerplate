@@ -4,6 +4,7 @@ import TitlePane from '../components/title-pane/title-pane';
 
 import { CardList } from '../components/card-list/card-list.jsx';
 import { SearchForm } from '../components/search/search-form.jsx';
+import {inject, observer} from 'mobx-react';
 
 @inject('store')
 @observer
