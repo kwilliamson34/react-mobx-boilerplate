@@ -1,8 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {Grid, Row, Dropdown, MenuItem} from 'react-bootstrap';
 
-import PSESelector from '../pse-selector';
+import PSESelector from '../pse-selector/pse-selector';
 
 export default class UtilityNav extends React.Component {
     constructor(props) {
@@ -12,43 +11,55 @@ export default class UtilityNav extends React.Component {
     render() {
         return (
             <div className="fnnav__utility">
-                <Grid>
-                    <Row>
+                <div className="container">
+                    <div className="row">
                         <nav className="dropdown-group">
                             <ul>
                                 <li>
                                     <PSESelector/>
                                 </li>
                                 <li>
-                                    <Dropdown id="user-dropdown" pullRight>
-                                        <Dropdown.Toggle noCaret>
+                                    <div className="dropdown btn-group">
+                                        <button id="user-dropdown" role="button" className="dropdown-toggle btn btn-default" data-toggle="dropdown">
                                             <i aria-hidden="true" className="icon-profile"></i>
                                             <span className="sr-only">Profile Dropdown</span>
-                                        </Dropdown.Toggle>
-                                        <Dropdown.Menu pullRight>
-                                            <MenuItem eventKey='1'>Manage My Account</MenuItem>
-                                            <MenuItem eventKey='2'>Change Password</MenuItem>
-                                            <MenuItem eventKey='3'>Configure Location</MenuItem>
-                                            <MenuItem eventKey='4'>Configure News</MenuItem>
-                                            <MenuItem eventKey='5'>Configure MDM</MenuItem>
-                                            <MenuItem eventKey='6'>
-                                                <i aria-hidden="true" className="icon-logout"></i>
-                                                Log Out</MenuItem>
-                                        </Dropdown.Menu>
-                                    </Dropdown>
+                                        </button>
+                                        <ul role="menu" className="dropdown-menu dropdown-menu-right" aria-labelledby="user-dropdown">
+                                            <li role="presentation">
+                                                <Link to="/profile/manage-account">Manage My Account</Link>
+                                            </li>
+                                            <li role="presentation">
+                                                <Link to="/profile/change-password">Change Password</Link>
+                                            </li>
+                                            <li role="presentation">
+                                                <Link to="/profile/configure-location">Configure Location</Link>
+                                            </li>
+                                            <li role="presentation">
+                                                <Link to="/profile/configure-news">Configure News</Link>
+                                            </li>
+                                            <li role="presentation">
+                                                <Link to="/profile/configure-mdm">Configure MDM</Link>
+                                            </li>
+                                            <li role="presentation">
+                                                <Link to="/logout">
+                                                    <i aria-hidden="true" className="icon-logout"></i>
+                                                    Log Out
+                                                </Link>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </li>
                                 <li>
-                                    <Link to="/help-center" activeClassName="active">
+                                    <Link to="/help-center">
                                         <i aria-hidden="true" className="icon-help"></i>
                                         <span className="sr-only">Go to Help Center</span>
                                     </Link>
                                 </li>
                             </ul>
                         </nav>
-                    </Row>
-                </Grid>
+                    </div>
+                </div>
             </div>
-        )
-    }
-
+          )
+        }
 }
