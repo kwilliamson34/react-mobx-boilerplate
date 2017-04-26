@@ -19,6 +19,8 @@ import HomeView from './pages/home.page';
 import AdminDashboardView from './pages/admin-dashboard.page';
 import ManageAppsView from './pages/manage-apps.page';
 import AppDetailsView from './pages/app-details.page';
+import ShopPlansView from './pages/shop-plans.page';
+import ShopDevicesView from './pages/shop-devices.page';
 
 @observer
 export default class App extends React.Component {
@@ -38,6 +40,8 @@ export default class App extends React.Component {
                         <Route exact path="/admin" component={AdminDashboardView} />
                         <Route path="/admin/manage-apps" component={ManageAppsView}/>
                         <Route path="/app/detail" component={AppDetailsView} />
+                        <Route path="/shop-plans" component={ShopPlansView} />
+                        <Route path="/shop-devices" component={ShopDevicesView} />
                         <Footer/>
                     </div>
                   </ScrollToTop>

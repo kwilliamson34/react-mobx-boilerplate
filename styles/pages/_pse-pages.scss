@@ -1,35 +1,63 @@
 .btn-dashboard,
-.btn-dashboard:visited{
-  display: inline-block;
-  height: 42px;
-  line-height: 38px;
-  border-radius:24px;
-  border: 2px solid $fn-admin-red;
-  background: $fn-admin-red;
-  color: white;
-  padding: 0 30px;
-  text-transform: uppercase;
-  letter-spacing: 2.12px;
+.btn-dashboard:visited {
+    display: inline-block;
+    height: 42px;
+    line-height: 38px;
+    border-radius: 24px;
+    border: 2px solid $fn-admin-red;
+    background: $fn-admin-red;
+    color: white;
+    padding: 0 30px;
+    text-transform: uppercase;
+    letter-spacing: 2.12px;
 }
-section.placeholder{
-  border: 2px dashed #ccc;
-  text-align: center;
-  min-height: 250px;
-  width: 100%;
-  &-long{
-    min-height: 850px;
-    border: 1px solid #ccc;
+
+section.placeholder {
+    border: 2px dashed #ccc;
+    text-align: center;
+    min-height: 250px;
+    width: 100%;
+    &-long {
+        min-height: 850px;
+        border: 1px solid #ccc;
+    }
+    h2 {
+        margin-top: 60px;
+    }
+    &.alert-dropdown {
+        height: 48px;
+        min-height: auto;
+        background: $fn-grey;
+        line-height: 48px;
+    }
+    &.geolink {}
+    &.news-feed {}
+    &.mp-links {}
+}
+
+.content-wrapper{
+  min-height: 635px;
+  padding: 25px 0;
+}
+
+.product-row {
+  padding: 55px 0 60px;
+  &:nth-child(even){
+    background: $fn-ltbluegrey;
   }
-  h2{
-    margin-top: 60px;
+  .card-container{
+    display: inline-block;
+    margin: 0 10px;
   }
-  &.alert-dropdown{
-    height: 48px;
-    min-height: auto;
-    background: $fn-grey;
-    line-height: 48px;
+  .btn {
+    margin-top: 30px;
   }
-  &.geolink{}
-  &.news-feed{}
-  &.mp-links{}
+}
+
+.section-copy {
+    font-size: 18px;
+    line-height: 30px;
+    .btn{
+      margin: 20px 0;
+    }
 }

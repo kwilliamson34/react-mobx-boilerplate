@@ -7,7 +7,7 @@ export default class HomeView extends React.Component {
 
     render() {
         return (
-            <main className="content-main">
+            <main id="content-main">
                 <TitlePane pageTitle="PSE Homepage"/>
                 <section className="placeholder alert-dropdown">
                     Alert Dropdown
