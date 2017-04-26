@@ -9,9 +9,9 @@ import { Rating } from '../rating/rating.jsx';
 export class SummaryCard extends React.Component {
 
     static propTypes = {
-        events: PropTypes.shape({
-            handleClick: PropTypes.func
-        }),
+        // events: PropTypes.shape({
+        //     handleClick: PropTypes.func
+        // }),
         display: PropTypes.shape({
             name: PropTypes.string, //name
             publisher: PropTypes.string, //author
@@ -30,26 +30,30 @@ export class SummaryCard extends React.Component {
             rating: 0,
             badge: '',
             platforms: ''
-        },
-        events: {
-            link: '#'
         }
+        // events: {
+        //     link: '#'
+        // }
     }
 
 	constructor(props) {
 		super(props);
         this.display = this.props.display;
-        this.events = this.props.events;
+        // this.events = this.props.events;
 	}
 
     componentWillReceiveProps(nextProps) {
         this.display = nextProps.display;
     }
 
+    handleClick(){
+        console.log("clicked")
+    }
+
 	render() {
 		return (
             <article className="card-wrapper">
-                    <div className="card-container center-block has-shadow" onClick={this.events.handleClick}>
+                    <div className="card-container center-block has-shadow" onClick={this.handleClick}>
                         {this.display.badge &&
                             (<div className="card-badge">
                                 <img src='../../images/fn_badge.svg' alt="Endorsed app"/>
