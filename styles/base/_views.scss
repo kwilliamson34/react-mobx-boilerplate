@@ -18,7 +18,7 @@ section.placeholder{
   }
   &.geolink{}
   &.news-feed{}
-  &.mp-links{}
+  &.mp-links{border:0 none;}
 }
 
 $device: "screen and (max-width: #{$screen-sm-max})";

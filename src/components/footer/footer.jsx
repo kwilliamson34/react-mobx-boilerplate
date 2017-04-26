@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Link } from 'react-router-dom';
 
 export class Footer extends React.Component {
@@ -14,12 +13,12 @@ export class Footer extends React.Component {
 				<div className="footer-height footer-top">
 					<div className="row footer-row">
 						<div className="col-xs-12 col-md-10 col-md-offset-1">
-							<Link to="/"><img alt="FirstNet Local Control Home" src="./images/FirstNetLocalControl.png" className="footer-logo" /></Link>
+							<Link to="/"><img alt="FirstNet Local Control Home" src="/images/logo-FirstNet-local-control.svg" className="footer-logo" /></Link>
 						</div>
 					</div>
-					<div className="row footer-row">
-						<div className="col-md-4 col-md-offset-1 col-xs-12 col-sm-12 text-left">
-							<span className="hidden-md hidden-lg hidden-xl text-left footer-hr"><hr className="footer-separator"/></span>
+					<div className="row footer-row is-flex">
+						<div className="col-md-4 col-md-offset-1 col-xs-12 col-sm-12">
+							<span className="hidden-md hidden-lg hidden-xl"><hr className="footer-separator"/></span>
 							<h2 className="footer-menu-header">FIRSTNET PORTALS</h2>
 							<nav id="footer-portals-menu" aria-label="Firstnet Portals Menu">
 								<ul className="footer-menu-ul">
@@ -30,7 +29,7 @@ export class Footer extends React.Component {
 							</nav>
 						</div>
 						<div className="col-md-3 col-sm-12 col-xs-12">
-							<span className="hidden-md hidden-lg hidden-xl text-left footer-hr"><hr className="footer-separator"/></span>
+							<span className="hidden-md hidden-lg hidden-xl"><hr className="footer-separator"/></span>
 							<h2 className="footer-menu-header">FOLLOW US</h2>
 							<nav id="footer-social-menu" aria-label="Social Menu">
 								<ul className="footer-menu-ul">
@@ -92,19 +91,19 @@ export class Footer extends React.Component {
 						<nav id="sublinks" aria-label="Sublinks">
 							<ul className="footer-small-links">
 								<li role="presentation"><a href="https://www.commerce.gov/" target="_blank" rel="noopener noreferrer">Commerce.gov</a></li>
-								<li role="presentation"><Link to="Privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</Link></li>
-								<li role="presentation"><Link to="Policies" target="_blank" rel="noopener noreferrer">Web Policies</Link></li>
-								<li role="presentation"><Link to="Accessibility" target="_blank" rel="noopener noreferrer">Accessibility</Link></li>
+								<li role="presentation"><Link to="/privacy">Privacy Policy</Link></li>
+								<li role="presentation"><Link to="/policies">Web Policies</Link></li>
+								<li role="presentation"><Link to="/accessibility">Accessibility</Link></li>
 								<li role="presentation"><a href="https://www.usa.gov/" target="_blank" rel="noopener noreferrer">USA.gov</a></li>
 							</ul>
 						</nav>
 					</div>
 					<div className="col-xs-12 col-sm-4 col-md-2 footer-text-images">
 						<a href="https://www.commerce.gov/" target="_blank" rel="noopener noreferrer">
-							<img src="./images/dept_of_commerce_1.png" className="footer-commerce-logo" alt="Logo - US Department of Commerce"/>
+							<img src="/images/dept_of_commerce_1.png" className="footer-commerce-logo" alt="Logo - US Department of Commerce"/>
 						</a>
 						<a href="https://www.ntia.doc.gov/" target="_blank" rel="noopener noreferrer">
-							<img src="./images/dept_of_commerce_2.png" className="footer-commerce-logo" alt="Logo - National Telecommunications And Information Administration"/>
+							<img src="/images/dept_of_commerce_2.png" className="footer-commerce-logo" alt="Logo - National Telecommunications And Information Administration"/>
 						</a>
 					</div>
 				</div>
