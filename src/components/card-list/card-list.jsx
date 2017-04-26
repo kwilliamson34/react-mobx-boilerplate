@@ -37,7 +37,7 @@ export class CardList extends React.Component {
 
     render() {
         return (
-            <div className="card-list-container col-md-12 col-xs-12">
+            <section className="card-list-container col-md-12 col-xs-12">
                 <div className="container">
                     {this.props.title &&
                         (<h2 className="card-list-title">
@@ -50,7 +50,7 @@ export class CardList extends React.Component {
                             return (
                                 <div className="col-md-3 col-xs-4 center-block" key={i} >
                                     <Link to="/faq">
-                                        <SummaryCard events={card.events} display={card}></SummaryCard>
+                                        <SummaryCard display={card}></SummaryCard>
                                     </Link>
                                 </div>
                             )
@@ -62,7 +62,7 @@ export class CardList extends React.Component {
                     : 'Fewer'}
                 </button>*/}
                 </div>
-            </div>
+            </section>
         );
     }
 }
