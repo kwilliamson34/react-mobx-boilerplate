@@ -16,9 +16,9 @@ export class Footer extends React.Component {
 							<Link to="/"><img alt="FirstNet Local Control Home" src="/images/logo-FirstNet-local-control.svg" className="footer-logo" /></Link>
 						</div>
 					</div>
-					<div className="row footer-row">
-						<div className="col-md-4 col-md-offset-1 col-xs-12 col-sm-12 text-left">
-							<span className="hidden-md hidden-lg hidden-xl text-left footer-hr"><hr className="footer-separator"/></span>
+					<div className="row footer-row is-flex">
+						<div className="col-md-4 col-md-offset-1 col-xs-12 col-sm-12">
+							<span className="hidden-md hidden-lg hidden-xl"><hr className="footer-separator"/></span>
 							<h2 className="footer-menu-header">FIRSTNET PORTALS</h2>
 							<nav id="footer-portals-menu" aria-label="Firstnet Portals Menu">
 								<ul className="footer-menu-ul">
@@ -29,7 +29,7 @@ export class Footer extends React.Component {
 							</nav>
 						</div>
 						<div className="col-md-3 col-sm-12 col-xs-12">
-							<span className="hidden-md hidden-lg hidden-xl text-left footer-hr"><hr className="footer-separator"/></span>
+							<span className="hidden-md hidden-lg hidden-xl"><hr className="footer-separator"/></span>
 							<h2 className="footer-menu-header">FOLLOW US</h2>
 							<nav id="footer-social-menu" aria-label="Social Menu">
 								<ul className="footer-menu-ul">

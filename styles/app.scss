@@ -36,5 +36,7 @@
   "components/footer/mediaquery";
 
 //Pages
-@import "base/typography",
-        "pages/pse-pages";
+@import
+  "base/base",
+  "base/typography",
+  "pages/pse-pages";
