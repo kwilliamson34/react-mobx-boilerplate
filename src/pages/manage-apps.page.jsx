@@ -1,11 +1,10 @@
 import React from 'react';
+import {inject, observer} from 'mobx-react';
 
 import TitlePane from '../components/title-pane/title-pane';
-
-import { CardList } from '../components/card-list/card-list.jsx';
-import { SearchForm } from '../components/search/search-form.jsx';
-import { Filters } from '../components/filters/filters.jsx';
-import {inject, observer} from 'mobx-react';
+import { CardList } from '../components/card-list/card-list';
+import { SearchForm } from '../components/search/search-form';
+import { Filters } from '../components/filters/filters';
 
 @inject('store')
 @observer

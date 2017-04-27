@@ -71,7 +71,7 @@ export class SummaryCard extends React.Component {
                         </div>
                         {this.display.platforms &&
                             <div className="card-platform">
-                                <span className="sr-only">Hosted at the</span>{this.display.platforms}<span className="sr-only">app store</span>
+                                <span className="sr-only">Hosted at the </span>{this.display.platforms}<span className="sr-only"> app store</span>
                                 {/*<img src={'../../images/'+ this.display.platforms +'.svg'} alt={'Hosted at ' + this.display.platform}/>*/}
                             </div>
                         }
