@@ -32,14 +32,17 @@ class ApiService {
             }
         })
     }
-    /*
-    getAppDetails(appID) {
-      return axios.get(`${base}apps/admin/stats?${appID}`)
-        .then((res) => {
+
+    getAppDetails(appPSK) {
+      return axios.get(`${base}app?app_psk=${appPSK}`,{
+        headers: {
+          'x-auth-token': '34234'
+        }
+      }).then((res) => {
           return appDetailService.conditionData(res.data);
         });
     }
-    */
+
 }
 
 export const apiService = new ApiService();

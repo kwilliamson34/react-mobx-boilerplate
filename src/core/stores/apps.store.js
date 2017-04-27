@@ -7,7 +7,7 @@ class AppStore {
 
         const success = (res) => {
           let data = res.data;
-          
+
           this.newApps = data.new_apps;
           this.notBlockedApps = data.un_blocked_apps;
           this.blockedApps = data.blocked_apps;
@@ -20,6 +20,16 @@ class AppStore {
             console.warn(err);
         }
         return apiService.getAppAvailability().then(success, fail)
+  }
+
+  @action getAppDetails(appPSK) {
+    const success = (res) => {
+      console.log('AppDetailResponse:\n' + res);
+    }
+    const fail = (err) => {
+        console.warn(err);
+    }
+    return apiService.getAppDetails(appPSK).then(success, fail);
   }
 
 	// OBSERVABLES

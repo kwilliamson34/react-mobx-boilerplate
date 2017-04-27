@@ -1,16 +1,24 @@
 import React from 'react';
+import {observer,inject} from 'mobx-react';
 
 import TitlePane from '../components/title-pane/title-pane';
 
+@inject('store')
+@observer
 export default class AppDetailsPage extends React.Component {
+  constructor(props){
+    super(props);
+    this.appStore = this.props.store.appStore;
+  }
 
   componentDidMount(){
-    this.homeStore.getHomeCards();
+    console.log('app_psk: ' + this.props.match.params.appId);
+    this.appStore.getAppDetails({this.props.match.params.appId});
   }
 
     render() {
         return (
-          <main className="content-main">
+          <main id="content-main">
             <article>
             <TitlePane pageTitle="App Details"/>
             <section className="app-summary">
