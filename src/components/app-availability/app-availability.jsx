@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {ListGroup, ListGroupItem, Button} from 'react-bootstrap';
 import { observer } from 'mobx-react';
+import {Link} from 'react-router-dom';
 import { appStore } from '../../core/stores/apps.store';
 
 @observer export default class AppAvailability extends Component {
@@ -21,7 +22,9 @@ import { appStore } from '../../core/stores/apps.store';
               <p className="list-group-item-text">{appStore.newApps}</p>
             </ListGroupItem>
             <ListGroupItem className="col-xs-6">
-              <Button href="/manage-apps" className='fn-primary'>Manage Apps</Button>
+              <Link to="/manage-apps">
+                <Button className='fn-primary'>Manage Apps</Button>
+              </Link>
             </ListGroupItem>
             <ListGroupItem className="col-xs-6">
               <h4 className="list-group-item-heading"><i className="mdi mdi-check-circle-outline"></i>Not Blocked</h4>
