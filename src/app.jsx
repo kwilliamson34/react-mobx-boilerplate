@@ -45,11 +45,11 @@ export default class App extends React.Component {
                         <Header/>
                         <Route exact path="/" component={HomePage}/>
                         <Route exact path="/admin" component={AdminDashboardPage} />
-                        <Route path="/manage-apps" component={ManageAppsPage}/>
+                        <Route exact path="/manage-apps" component={ManageAppsPage}/>
                         <Route path="/app/detail" component={AppDetailsPage} />
                         <Route exact path="/help-center" component={HelpCenterPage} />
-                        <Route path="/shop-plans" component={ShopPlansView} />
-                        <Route path="/shop-devices" component={ShopDevicesView} />
+                        <Route exact path="/shop-plans" component={ShopPlansView} />
+                        <Route exact path="/shop-devices" component={ShopDevicesView} />
                         <Footer/>
                     </div>
                   </ScrollToTop>
