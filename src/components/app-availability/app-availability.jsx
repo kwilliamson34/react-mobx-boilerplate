@@ -21,7 +21,7 @@ import { appStore } from '../../core/stores/apps.store';
               <p className="list-group-item-text">{appStore.newApps}</p>
             </ListGroupItem>
             <ListGroupItem className="col-xs-6">
-              <Button href="/admin/manage-apps" className='fn-primary'>Manage Apps</Button>
+              <Button href="/manage-apps" className='fn-primary'>Manage Apps</Button>
             </ListGroupItem>
             <ListGroupItem className="col-xs-6">
               <h4 className="list-group-item-heading"><i className="mdi mdi-check-circle-outline"></i>Not Blocked</h4>

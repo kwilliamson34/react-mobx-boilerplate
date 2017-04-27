@@ -93,7 +93,7 @@ export default class PSEHeader extends React.Component {
 																<Link id="linkBtn-admin" role="button" to="/admin">Administration Dashboard</Link>
 																<ul id="pse-admin-nav" className="collapse" aria-labelledby="linkBtn-admin">
 																		<li role="presentation">
-																				<Link to="/admin/manage-apps">Manage Apps</Link>
+																				<Link to="manage-apps">Manage Apps</Link>
 																		</li>
 																</ul>
 														</li>

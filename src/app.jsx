@@ -2,7 +2,7 @@ import 'jquery';
 import 'bootstrap';
 
 import React from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import ScrollToTop from './core/services/scroll-to-top';
 
 //State Management
@@ -40,11 +40,13 @@ export default class App extends React.Component {
                     <div id="PSE-wrapper">
                         <a href="#main-content" className="sr-only sr-only-focusable">Skip Navigation</a>
                         <Header/>
-                        <Route exact path="/" component={HomePage}/>
-                        <Route exact path="/admin" component={AdminDashboardPage} />
-                        <Route path="/admin/manage-apps" component={ManageAppsPage}/>
-                        <Route path="/app/detail" component={AppDetailsPage} />
-                        <Route exact path="/help-center" component={HelpCenterPage} />
+                        <Switch>
+                          <Route exact path="/" component={HomePage}/>
+                          <Route exact path="/admin" component={AdminDashboardPage} />
+                          <Route exact path="/manage-apps" component={ManageAppsPage}/>
+                          <Route path="/app-detail/:appId" component={AppDetailsPage} />
+                          <Route exact path="/help-center" component={HelpCenterPage} />
+                        </Switch>
                         <Footer/>
                     </div>
                   </ScrollToTop>

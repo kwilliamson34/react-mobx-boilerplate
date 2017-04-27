@@ -35,7 +35,14 @@ class ApiService {
             }
         })
     }
-
+    /*
+    getAppDetails(appID) {
+      return axios.get(`${base}apps/admin/stats?${appID}`)
+        .then((res) => {
+          return appDetailService.conditionData(res.data);
+        });
+    }
+    */
 }
 
 export const apiService = new ApiService();
