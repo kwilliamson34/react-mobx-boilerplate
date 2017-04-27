@@ -2,6 +2,7 @@ import React from 'react';
 
 import TitlePane from '../components/title-pane/title-pane';
 import AppAvailability from '../components/app-availability/app-availability';
+import PlansAndDevices from '../components/plans-and-devices/plans-and-devices';
 
 
 export default class AdminDashboardPage extends React.Component {
@@ -19,6 +20,7 @@ export default class AdminDashboardPage extends React.Component {
                     </div>
                 </div>
             </section>
+            <PlansAndDevices />            
           </main>
         )
     }
