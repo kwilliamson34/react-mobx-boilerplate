@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export class Footer extends React.Component {
+export default class Footer extends React.Component {
 
 	constructor(props) {
 		super(props);
@@ -13,7 +13,11 @@ export class Footer extends React.Component {
 				<div className="footer-height footer-top">
 					<div className="row footer-row">
 						<div className="col-xs-12 col-md-10 col-md-offset-1">
-							<Link to="/"><img alt="FirstNet Local Control Home" src="/images/logo-FirstNet-local-control.svg" className="footer-logo" /></Link>
+							<div className="clear-image-box footer-logo">
+								<Link to="/" className="clear-image-box">
+									<img alt="FirstNet Local Control Home" src="./images/logo-FirstNet-local-control.svg" className="footer-logo-size" />
+								</Link>
+							</div>
 						</div>
 					</div>
 					<div className="row footer-row is-flex">
@@ -22,9 +26,9 @@ export class Footer extends React.Component {
 							<h2 className="footer-menu-header">FIRSTNET PORTALS</h2>
 							<nav id="footer-portals-menu" aria-label="Firstnet Portals Menu">
 								<ul className="footer-menu-ul">
-									<li role="presentation"><a href="http://www.firstnet.com/appstore">FIRSTNET APP STORE</a></li>
-									<li role="presentation"><a href="http://www.firstnet.gov">FIRSTNET.GOV</a></li>
-									<li role="presentation"><a href="http://www.firstnet.com">FIRSTNET.COM</a></li>
+									<li role="presentation"><a href="http://www.firstnet.com/appstore" target="_blank" rel="noopener noreferrer">FIRSTNET APP STORE</a></li>
+									<li role="presentation"><a href="http://www.firstnet.gov" target="_blank" rel="noopener noreferrer">FIRSTNET.GOV</a></li>
+									<li role="presentation"><a href="http://www.firstnet.com" target="_blank" rel="noopener noreferrer">FIRSTNET.COM</a></li>
 								</ul>
 							</nav>
 						</div>
@@ -98,11 +102,11 @@ export class Footer extends React.Component {
 						</nav>
 					</div>
 					<div className="col-xs-12 col-sm-4 col-md-2 footer-text-images">
-						<a href="https://www.commerce.gov/" target="_blank" rel="noopener noreferrer">
-							<img src="/images/dept_of_commerce_1.png" className="footer-commerce-logo" alt="Logo - US Department of Commerce"/>
+						<a href="https://www.commerce.gov/" target="_blank" rel="noopener noreferrer" className="clear-image-box">
+							<img src="./images/dept_of_commerce_1.png" className="footer-commerce-logo" alt="Logo - US Department of Commerce"/>
 						</a>
-						<a href="https://www.ntia.doc.gov/" target="_blank" rel="noopener noreferrer">
-							<img src="/images/dept_of_commerce_2.png" className="footer-commerce-logo" alt="Logo - National Telecommunications And Information Administration"/>
+						<a href="https://www.ntia.doc.gov/" target="_blank" rel="noopener noreferrer" className="clear-image-box">
+							<img src="./images/dept_of_commerce_2.png" className="footer-commerce-logo" alt="Logo - National Telecommunications And Information Administration"/>
 						</a>
 					</div>
 				</div>
