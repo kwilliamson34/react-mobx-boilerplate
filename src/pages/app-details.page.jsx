@@ -13,7 +13,7 @@ export default class AppDetailsPage extends React.Component {
 
   componentDidMount(){
     console.log('app_psk: ' + this.props.match.params.appId);
-    this.appStore.getAppDetails({this.props.match.params.appId});
+    this.appStore.getAppDetails(this.props.match.params.appId);
   }
 
     render() {
