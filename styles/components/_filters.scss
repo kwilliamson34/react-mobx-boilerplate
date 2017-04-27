@@ -1,0 +1,18 @@
+.filters {
+  text-align: right;
+  position: relative;
+
+  .form-inline, h4 {
+    display: inline-block;
+  }
+
+  .form-group {
+    display: inline-block;
+    margin: 5px;
+    text-align: left;
+    label, select {
+      margin: 2px;
+      display: block;
+    }
+  }
+}
