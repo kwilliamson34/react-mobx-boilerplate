@@ -11,10 +11,6 @@
     .footer-menu-social {
         display:inline;
     }
-
-    .footer-help-menu-spacing {
-        margin-left:0;
-    }
     .footer-row > div:not(:last-child) {
         border-right: 0;
         height:auto;
@@ -61,6 +57,9 @@
     .footer-row > div:not(:last-child) {
         border-right: 0;
         height:auto;
+    }
+    .footer-help-menu-spacing {
+        margin-left:0;
     }
 }
 
