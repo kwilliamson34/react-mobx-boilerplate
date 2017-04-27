@@ -4,7 +4,7 @@ import { utilsService } from './utils.service';
 const base = '/api'
 
 // TODO - temp hardcode pending PSEID implementation
-const pseid = '&pse_id=123'
+const pseid = 'pse_id=123'
 
 class ApiService {
 
@@ -19,7 +19,9 @@ class ApiService {
     }
 
     getSearchResults(query) {
-        return axios.get(`${base}/apps/search?searchTxt=${query}${pseid}`)
+        // TODO - swap routes when they are actually working
+        // return axios.get(`${base}/apps/search?searchTxt=${query}&${pseid}`)
+        return axios.get(`${base}/apps/admin?${pseid}`)
             .then((res) => {
                 return utilsService.conditionData(res.data.applications);
             });

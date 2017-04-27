@@ -12,17 +12,17 @@
 	color: #4A4A4A;
     .card-badge{
         position: absolute;
-        top: 7px;
-        left: 5px;
+        top: 0.7rem;
+        left: 0.5rem;
         img{
-            height: 20px;
+            height: 2.0rem;
         }
     }
 
     .card-logo {
         height: 85px;
         width: 85px;
-        margin: 10px 7px 0px 7px;
+        margin: 1rem 0.7rem 0rem 0.7rem;
         img {
             height: auto;
             width: auto;
@@ -33,30 +33,28 @@
 
     .card-info{
         // @include paragraph-text();
-        font-size: 16px;
-        margin: 5px 10px 0px 10px;
+        font-size: 1.6rem;
+        margin: 0.5rem 1rem 0rem 1rem;
     }
 
 
     .card-rating{
         position: absolute;
-        bottom: 5px;
-        left: 10px;
+        bottom: 0.5rem;
+        left: 1.0rem;
         .ratings-stars{
             vertical-align: text-bottom;
         }
         .ratings-star {
-            height: 10px;
+            height: 1rem;
         }
     }
 
     .card-platform{
         position: absolute;
-        bottom: 5px;
-        right: 7px;
-        img{
-            height: 14px;
-        }
+        bottom: 0.5rem;
+        right: 0.7rem;
+        size: 1.4rem;
     }
 }
 

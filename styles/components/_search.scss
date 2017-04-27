@@ -8,11 +8,12 @@
   
   &.input-group {
     .form-control {
+      height: 48px;
       padding-right: 35px !important;
     }
     .icon-close{
       position: absolute;
-      right: 75px;
+      right: 85px;
       top: 0;
       bottom: 0;
       height: 20px;
