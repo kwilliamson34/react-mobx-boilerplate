@@ -1,6 +1,6 @@
 import React from 'react';
 import {Button} from 'react-bootstrap';
-import TitlePane from '../components/title-pane';
+import TitlePane from '../components/title-pane/title-pane';
 
 export default class ShopPlansView extends React.Component {
     render() {

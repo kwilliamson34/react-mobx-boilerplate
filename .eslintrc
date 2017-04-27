@@ -19,9 +19,9 @@
       "no-trailing-spaces": [1, { "skipBlankLines": true }],
       "no-unreachable": 1,
       "no-undef": "warn",
-      "no-console": "warn",
       "no-unused-vars": "warn",
-      "react/prop-types": "warn"
+      "react/prop-types": "warn",
+      "no-console": 0
     },
     "env": {
       "browser": true

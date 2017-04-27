@@ -12,7 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.16.0",
-    "copyfiles": "^1.2.0",
+    "bootstrap": "^3.3.7",
     "jquery": "^3.2.1",
     "mobx": "^3.1.5",
     "mobx-react": "^4.1.3",

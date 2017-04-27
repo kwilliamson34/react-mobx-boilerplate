@@ -2,11 +2,15 @@ import { action, computed, observable } from 'mobx';
 //import { apiService } from '../services/api.service';
 
 import { homeStore } from './home.store';
+import { searchStore } from './search.store';
+import { headerStore } from './header.store';
 
 class PSEStore {
 
   constructor() {
     this.homeStore = homeStore;
+    this.searchStore = searchStore;
+    this.headerStore = headerStore;
   }
 
   // ACTIONS
@@ -24,4 +28,4 @@ class PSEStore {
 
 }
 
-export const pseStore = new PSEStore();
+export const pseMasterStore = new PSEStore();

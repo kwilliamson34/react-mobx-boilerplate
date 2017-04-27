@@ -1,209 +1,228 @@
 exports[`<Footer /> renders matches previous footer snapshot 1`] = `
 <footer
   className="footer-bar"
-  id="dev-console-footer">
-  <div
-    className="footer-bar" />
+  id="pse-footer">
   <div
     className="footer-height footer-top">
     <div
       className="row footer-row">
       <div
-        className="col-xs-12">
+        className="col-xs-12 col-md-10 col-md-offset-1">
         <a
           href="/"
           onClick={[Function anonymous]}>
           <img
             alt="FirstNet Local Control Home"
             className="footer-logo"
-            src="/images/FirstnetLocalControl.png" />
+            src="/images/logo-FirstNet-local-control.svg" />
         </a>
       </div>
     </div>
     <div
-      className="row footer-row">
+      className="row footer-row is-flex">
       <div
-        className="col-md-3 col-xs-12 col-sm-12">
-        <ul
-          className="footer-menu-ul">
-          <li
-            className="hidden-md hidden-lg hidden-xl text-left">
-            <hr
-              className="footer-separator" />
-          </li>
-          <li>
-            <h4
-              className="footer-menu-header">
-              FIRSTNET PORTALS
-            </h4>
-          </li>
-          <li>
-            <a
-              href="http://www.firstnet.com/appstore">
-              FIRSTNET APP STORE
-            </a>
-          </li>
-          <li>
-            <a
-              href="http://www.firstnet.gov">
-              FIRSTNET.GOV
-            </a>
-          </li>
-          <li>
-            <a
-              href="http://www.firstnet.com">
-              FIRSTNET.COM
-            </a>
-          </li>
-        </ul>
+        className="col-md-4 col-md-offset-1 col-xs-12 col-sm-12">
+        <span
+          className="hidden-md hidden-lg hidden-xl">
+          <hr
+            className="footer-separator" />
+        </span>
+        <h2
+          className="footer-menu-header">
+          FIRSTNET PORTALS
+        </h2>
+        <nav
+          aria-label="Firstnet Portals Menu"
+          id="footer-portals-menu">
+          <ul
+            className="footer-menu-ul">
+            <li
+              role="presentation">
+              <a
+                href="http://www.firstnet.com/appstore">
+                FIRSTNET APP STORE
+              </a>
+            </li>
+            <li
+              role="presentation">
+              <a
+                href="http://www.firstnet.gov">
+                FIRSTNET.GOV
+              </a>
+            </li>
+            <li
+              role="presentation">
+              <a
+                href="http://www.firstnet.com">
+                FIRSTNET.COM
+              </a>
+            </li>
+          </ul>
+        </nav>
       </div>
       <div
         className="col-md-3 col-sm-12 col-xs-12">
-        <ul
-          className="footer-menu-ul">
-          <li
-            className="hidden-md hidden-lg hidden-xl text-left">
-            <hr
-              className="footer-separator" />
-          </li>
-          <li>
-            <h4
-              className="footer-menu-header">
-              FOLLOW US
-            </h4>
-          </li>
-          <li
-            className="footer-menu-social">
-            <a
-              alt="facebook"
-              aria-label="facebook"
-              href="http://www.facebook.com">
-              <span
-                aria-hidden="true"
-                className="fa-stack fa-1x footer-icon-menu-spacing">
+        <span
+          className="hidden-md hidden-lg hidden-xl">
+          <hr
+            className="footer-separator" />
+        </span>
+        <h2
+          className="footer-menu-header">
+          FOLLOW US
+        </h2>
+        <nav
+          aria-label="Social Menu"
+          id="footer-social-menu">
+          <ul
+            className="footer-menu-ul">
+            <li
+              className="footer-menu-social"
+              role="presentation">
+              <a
+                aria-label="facebook"
+                href="https://www.facebook.com/firstnetgov/"
+                rel="noopener noreferrer"
+                target="_blank">
                 <span
                   aria-hidden="true"
-                  className="fa fa-circle fa-stack-2x footer-icon-background" />
+                  className="fa-stack fa-1x footer-icon-menu-spacing">
+                  <span
+                    aria-hidden="true"
+                    className="fa fa-circle fa-stack-2x footer-icon-background" />
+                  <span
+                    aria-hidden="true"
+                    className="fa fa-facebook fa-stack-1x footer-icon-foreground" />
+                </span>
                 <span
                   aria-hidden="true"
-                  className="fa fa-facebook fa-stack-1x footer-icon-foreground" />
-              </span>
-              <span
-                aria-hidden="true"
-                className="hidden-xs hidden-sm">
-                FACEBOOK
-              </span>
-            </a>
-          </li>
-          <li
-            className="footer-menu-social">
-            <a
-              alt="twitter"
-              aria-label="twitter"
-              href="http://www.twitter.com">
-              <span
-                aria-hidden="true"
-                className="fa-stack fa-1x footer-icon-menu-spacing">
+                  className="hidden-xs hidden-sm">
+                  FACEBOOK
+                </span>
+              </a>
+            </li>
+            <li
+              className="footer-menu-social"
+              role="presentation">
+              <a
+                aria-label="twitter"
+                href="https://twitter.com/FirstNetGov"
+                rel="noopener noreferrer"
+                target="_blank">
                 <span
                   aria-hidden="true"
-                  className="fa fa-circle fa-stack-2x footer-icon-background" />
+                  className="fa-stack fa-1x footer-icon-menu-spacing">
+                  <span
+                    aria-hidden="true"
+                    className="fa fa-circle fa-stack-2x footer-icon-background" />
+                  <span
+                    aria-hidden="true"
+                    className="fa fa-twitter fa-stack-1x footer-icon-foreground" />
+                </span>
                 <span
                   aria-hidden="true"
-                  className="fa fa-twitter fa-stack-1x footer-icon-foreground" />
-              </span>
-              <span
-                aria-hidden="true"
-                className="hidden-xs hidden-sm">
-                TWITTER
-              </span>
-            </a>
-          </li>
-          <li
-            className="footer-menu-social">
-            <a
-              alt="tumblr"
-              aria-label="tumblr"
-              href="http://www.tumblr.com">
-              <span
-                aria-hidden="true"
-                className="fa-stack fa-1x footer-icon-menu-spacing">
+                  className="hidden-xs hidden-sm">
+                  TWITTER
+                </span>
+              </a>
+            </li>
+            <li
+              className="footer-menu-social"
+              role="presentation">
+              <a
+                aria-label="tumblr"
+                href="https://firstnetgov.tumblr.com/"
+                rel="noopener noreferrer"
+                target="_blank">
+                          
                 <span
                   aria-hidden="true"
-                  className="fa fa-circle fa-stack-2x footer-icon-background" />
+                  className="fa-stack fa-1x footer-icon-menu-spacing">
+                  <span
+                    aria-hidden="true"
+                    className="fa fa-circle fa-stack-2x footer-icon-background" />
+                  <span
+                    aria-hidden="true"
+                    className="fa fa-tumblr fa-stack-1x footer-icon-foreground" />
+                </span>
                 <span
                   aria-hidden="true"
-                  className="fa fa-tumblr fa-stack-1x footer-icon-foreground" />
-              </span>
-              <span
-                aria-hidden="true"
-                className="hidden-xs hidden-sm">
-                TUMBLR
-              </span>
-            </a>
-          </li>
-          <li
-            className="footer-menu-social">
-            <a
-              alt="youtube"
-              aria-label="youtube"
-              href="http://www.youtube.com">
-              <span
-                aria-hidden="true"
-                className="fa-stack fa-1x footer-icon-menu-spacing">
+                  className="hidden-xs hidden-sm">
+                  TUMBLR
+                </span>
+              </a>
+            </li>
+            <li
+              className="footer-menu-social"
+              role="presentation">
+              <a
+                aria-label="youtube"
+                href="https://www.youtube.com/user/FirstNetGov"
+                rel="noopener noreferrer"
+                target="_blank">
                 <span
                   aria-hidden="true"
-                  className="fa fa-circle fa-stack-2x footer-icon-background" />
+                  className="fa-stack fa-1x footer-icon-menu-spacing">
+                  <span
+                    aria-hidden="true"
+                    className="fa fa-circle fa-stack-2x footer-icon-background" />
+                  <span
+                    aria-hidden="true"
+                    className="fa fa-youtube fa-stack-1x footer-icon-foreground" />
+                </span>
                 <span
                   aria-hidden="true"
-                  className="fa fa-youtube fa-stack-1x footer-icon-foreground" />
-              </span>
-              <span
-                aria-hidden="true"
-                className="hidden-xs hidden-sm">
-                YOUTUBE
-              </span>
-            </a>
-          </li>
-        </ul>
+                  className="hidden-xs hidden-sm">
+                  YOUTUBE
+                </span>
+              </a>
+            </li>
+          </ul>
+        </nav>
       </div>
       <div
-        className="col-md-6 col-xs-12 col-sm-12 footer-styling-mobile">
-        <ul
-          className="footer-menu-ul">
-          <li>
-            <h4
-              className="footer-menu-header">
-              <span
-                aria-hidden="true"
-                className="fa fa-question-circle footer-icon-menu-spacing" />
-               GET HELP
-            </h4>
-          </li>
-          <li
-            className="footer-help-menu-spacing">
-            <a
-              href="/faq"
-              onClick={[Function anonymous]}>
-              FAQ
-            </a>
-          </li>
-          <li
-            className="footer-help-menu-spacing">
-            <a
-              href="/feedback"
-              onClick={[Function anonymous]}>
-              PROVIDE FEEDBACK
-            </a>
-          </li>
-          <li
-            className="footer-help-menu-spacing">
-            <a
-              href="/contact"
-              onClick={[Function anonymous]}>
-              CONTACT US
-            </a>
-          </li>
-        </ul>
+        className="col-md-4 col-xs-12 col-sm-12 footer-styling-mobile">
+        <h2
+          className="footer-menu-header">
+          <span
+            aria-hidden="true"
+            className="fa fa-question-circle footer-icon-menu-spacing" />
+           GET HELP
+        </h2>
+        <nav
+          aria-label="Help Menu"
+          id="footer-help-menu">
+          <ul
+            className="footer-menu-ul">
+            <li
+              className="footer-help-menu-spacing"
+              role="presentation">
+              <a
+                href="/faq"
+                onClick={[Function anonymous]}>
+                FAQ
+              </a>
+            </li>
+            <li
+              className="footer-help-menu-spacing"
+              role="presentation">
+              <a
+                href="/feedback"
+                onClick={[Function anonymous]}>
+                PROVIDE FEEDBACK
+              </a>
+            </li>
+            <li
+              className="footer-help-menu-spacing"
+              role="presentation">
+              <a
+                href="/contact"
+                onClick={[Function anonymous]}>
+                CONTACT US
+              </a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
   </div>
@@ -211,10 +230,13 @@ exports[`<Footer /> renders matches previous footer snapshot 1`] = `
     className="row footer-bottom">
     <div
       className="col-xs-12 col-sm-8 col-md-10 footer-text-links">
-      <nav>
+      <nav
+        aria-label="Sublinks"
+        id="sublinks">
         <ul
           className="footer-small-links">
-          <li>
+          <li
+            role="presentation">
             <a
               href="https://www.commerce.gov/"
               rel="noopener noreferrer"
@@ -222,34 +244,32 @@ exports[`<Footer /> renders matches previous footer snapshot 1`] = `
               Commerce.gov
             </a>
           </li>
-          <li>
+          <li
+            role="presentation">
             <a
-              href="Privacy"
-              onClick={[Function anonymous]}
-              rel="noopener noreferrer"
-              target="_blank">
+              href="/privacy"
+              onClick={[Function anonymous]}>
               Privacy Policy
             </a>
           </li>
-          <li>
+          <li
+            role="presentation">
             <a
-              href="Policies"
-              onClick={[Function anonymous]}
-              rel="noopener noreferrer"
-              target="_blank">
+              href="/policies"
+              onClick={[Function anonymous]}>
               Web Policies
             </a>
           </li>
-          <li>
+          <li
+            role="presentation">
             <a
-              href="Accessibility"
-              onClick={[Function anonymous]}
-              rel="noopener noreferrer"
-              target="_blank">
+              href="/accessibility"
+              onClick={[Function anonymous]}>
               Accessibility
             </a>
           </li>
-          <li>
+          <li
+            role="presentation">
             <a
               href="https://www.usa.gov/"
               rel="noopener noreferrer"
