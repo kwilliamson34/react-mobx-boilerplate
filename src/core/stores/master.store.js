@@ -4,7 +4,7 @@ import { action, computed, observable } from 'mobx';
 // import { homeStore } from './home.store';
 // import { searchStore } from './search.store';
 import { headerStore } from './header.store';
-import { cardListStore } from './Card-list.store';
+import { cardListStore } from './card-list.store';
 
 class PSEStore {
 

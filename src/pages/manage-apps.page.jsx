@@ -8,7 +8,7 @@ import { Filters } from '../components/filters/filters';
 
 @inject('store')
 @observer
-export default class ManageAppsView extends React.Component {
+export default class ManageAppsPage extends React.Component {
 
 	constructor(props) {
 		super(props);

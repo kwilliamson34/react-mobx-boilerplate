@@ -93,11 +93,11 @@ export default class Footer extends React.Component {
 					<div className="col-xs-12 col-sm-8 col-md-10 footer-text-links">
 						<nav id="sublinks" aria-label="Sublinks">
 							<ul className="footer-small-links">
-								<li role="presentation"><a href="https://www.commerce.gov/" target="_blank" rel="noopener noreferrer">Commerce.gov</a></li>
-								<li role="presentation"><Link to="/privacy">Privacy Policy</Link></li>
-								<li role="presentation"><Link to="/policies">Web Policies</Link></li>
-								<li role="presentation"><Link to="/accessibility">Accessibility</Link></li>
-								<li role="presentation"><a href="https://www.usa.gov/" target="_blank" rel="noopener noreferrer">USA.gov</a></li>
+								<li role="presentation"> <a href="https://www.commerce.gov/" target="_blank" rel="noopener noreferrer">Commerce.gov</a> </li>
+								<li role="presentation"> <Link to="/privacy">Privacy&nbsp;Policy</Link> </li>
+								<li role="presentation"> <Link to="/policies">Web&nbsp;Policies</Link> </li>
+								<li role="presentation"> <Link to="/accessibility">Accessibility</Link> </li>
+								<li role="presentation"> <a href="https://www.usa.gov/" target="_blank" rel="noopener noreferrer">USA.gov</a> </li>
 							</ul>
 						</nav>
 					</div>
