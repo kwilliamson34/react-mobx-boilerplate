@@ -29,14 +29,14 @@ export default class ManageAppsView extends React.Component {
 					<section className="">
 						<div className="container">
 							<div className="row">
-								<div className="col-md-4">
+								<div className="col-md-3">
 									<h2>Manage Apps</h2>
 								</div>
-								<div className="col-md-8 row">
-									<div className="col-md-4">
+								<div className="col-md-9 row">
+									<div className="col-md-6">
 										<Filters store={this.cardListStore} />
 									</div>
-									<div className="col-md-8">
+									<div className="col-md-6">
 										<SearchForm store={this.cardListStore} />
 									</div>
 								</div>

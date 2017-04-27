@@ -3,40 +3,40 @@
         width: 215px;
         height: 325px;
         .card-badge{
-            top: 20px;
-            left: 15px;
+            top: 2rem;
+            left: 1.5rem;
             img {
-                height: 28px;
+                height: 2.8rem;
             }
         }
         .card-logo{
             height: 135px;
             width: 135px;
-            margin: 55px 40px 0px 40px;
+            margin: 5.5rem 4.0rem 0rem 4.0rem;
         }
         .card-info{
             // @include paragraph-text();
-            font-size: 20px;
-            margin: 15px 15px 0px 15px;
+            font-size: 2rem;
+            margin: 1.5rem 1.5rem 0 1.5rem;
         }
         .card-publisher{
-            font-size: 14px;
+            font-size: 1.4rem;
         }
         .card-rating{
-            font-size: 20px;
-            bottom: 15px;
-            left: 15px;
+            font-size: 1.6rem;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            color: $fn-dkgrey;
             .ratings-star {
-                height: 20px;
+                height: 1.3rem;
             }
         }
         
         .card-platform{
-            bottom: 20px;
-            right: 20px;
-            img{
-                height: 28px;
-            }
+            color: $fn-dkgrey;
+            bottom: 1.6rem;
+            right: 2rem;
+            font-size: 1.6rem;
         }
     }
 }

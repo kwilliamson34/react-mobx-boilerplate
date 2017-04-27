@@ -1,6 +1,7 @@
 .filters {
   text-align: right;
   position: relative;
+  padding: 10px;
 
   .form-inline, h4 {
     display: inline-block;
@@ -8,11 +9,12 @@
 
   .form-group {
     display: inline-block;
-    margin: 5px;
+    margin: 0px;
     text-align: left;
     label, select {
-      margin: 2px;
+      margin: 0px;
       display: block;
+      height: 48px;
     }
   }
 }

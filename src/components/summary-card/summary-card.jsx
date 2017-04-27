@@ -18,7 +18,7 @@ export class SummaryCard extends React.Component {
             imageUrl: PropTypes.string,
             rating: PropTypes.number,
             badge: PropTypes.bool,
-            platforms: PropTypes.oneOf(['', 'Apple', 'Android'])
+            platforms: PropTypes.oneOf(['', 'iOS', 'Android'])
         }).isRequired
     }
 
@@ -71,7 +71,8 @@ export class SummaryCard extends React.Component {
                         </div>
                         {this.display.platforms &&
                             <div className="card-platform">
-                                <img src={'../../images/'+ this.display.platforms +'.svg'} alt={'Hosted at ' + this.display.platform}/>
+                                <span className="sr-only">Hosted at the</span>{this.display.platforms}<span className="sr-only">app store</span>
+                                {/*<img src={'../../images/'+ this.display.platforms +'.svg'} alt={'Hosted at ' + this.display.platform}/>*/}
                             </div>
                         }
                     </div>

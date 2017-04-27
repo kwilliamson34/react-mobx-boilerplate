@@ -11,8 +11,7 @@ class UtilsService {
 
     conditionData(objs) {
         let simplifiedObjs = objs.filter((obj) => {
-            console.log(obj)
-            if(obj.custom_metadata === null || (obj.custom_metadata === null && !obj.custom_metadata.user_segment === null)){
+            if(obj.custom_metadata === null || (obj.custom_metadata && (obj.custom_metadata.user_segment === null || (obj.custom_metadata.user_segment && obj.custom_metadata.user_segment.length < 1)))){
                 return false;
             } else {
                 return true;
@@ -41,3 +40,5 @@ class UtilsService {
     }
 
 }
+
+export const utilsService = new UtilsService();
