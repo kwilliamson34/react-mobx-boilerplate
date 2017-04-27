@@ -1,8 +1,7 @@
-
 class UtilsService {
 
     static platform = {
-        1: 'Apple',
+        1: 'iOS',
         2: 'Android',
         102: 'Android',
         104: 'Android',
@@ -11,9 +10,14 @@ class UtilsService {
     }
 
     conditionData(objs) {
-        let simplifiedObjs = objs.map((obj) => {
-            //error checking
-            if(!obj.custom_metadata || (!obj.custom_metadata && !obj.custom_metadata.user_segment)) return;
+        let simplifiedObjs = objs.filter((obj) => {
+            console.log(obj)
+            if(obj.custom_metadata === null || (obj.custom_metadata === null && !obj.custom_metadata.user_segment === null)){
+                return false;
+            } else {
+                return true;
+            }
+        }).map((obj) => {
             let simplifiedObj = {};
             simplifiedObj.name = obj.app_name;
             simplifiedObj.publisher = obj.author;
@@ -37,5 +41,3 @@ class UtilsService {
     }
 
 }
-
-export const utilsService = new UtilsService();

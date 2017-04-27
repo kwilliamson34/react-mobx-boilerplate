@@ -1,6 +1,5 @@
 import { action, autorun, computed, observable } from 'mobx';
 import { apiService } from '../services/api.service';
-import { history } from '../services/history.service';
 import _ from 'lodash';
 
 // Category Mapping
@@ -17,28 +16,12 @@ const user_segment = {
 
 class CardListStore {
 
-    constructor() {
-        autorun(() => {
-            if (this.searchIsVisible) {
-                this.clear();
-            }
-        });
-    }
-
-    listenForRouteChanges() {
-      history.listen((location, action) => {
-        if(action === 'PUSH' && location.pathname !== '/search-results') {
-          this.reset();
-          this.handleClose();
-        }
-      });
-    }
-
     // ACTIONS
     @action getHomeCards() {
         const success = (res) => {
-            this.homeCards = res;
-            return this.homeCards;
+            this.searchResults = res;
+            this.shouldShowSearchResults = true;
+            return this.searchResults;
         }
         const fail = (err) => {
             console.warn(err);
@@ -50,14 +33,17 @@ class CardListStore {
         this.searchQuery = '';
     }
 
-    @action reset() {
-        this.searchResults = null;
-    }
-
     @action getSearchResults = _.debounce(() => {
+
+        if (this.searchQuery === '') {
+            this.searchResults = null;
+            this.shouldShowSearchResults = false;
+            return;
+        }
 
         const success = (response) => {
             this.searchResults = response;
+            this.shouldShowSearchResults = true;
             this.finishLoading();
         }
 
@@ -74,19 +60,10 @@ class CardListStore {
 
     @action finishLoading() {
         this.isLoading = false;
-        history.push('/search-results');
     }
 
     @action handleInput(value) {
         this.searchQuery = value;
-    }
-
-    @action handleClose() {
-        this.searchIsVisible = false;
-    }
-
-    @action searchIconClick() {
-        this.searchIsVisible = true;
     }
 
     @action changeCategoryFilter(value) {
@@ -102,45 +79,42 @@ class CardListStore {
     //COMPUTEDS
 
     @computed get recommendedCards() {
-        return this.homeCards.filter((app) => {
+        return this.searchResults.filter((app) => {
             return (app.recommended)
         })
     }
+
     @computed get fireCards() {
-        return this.homeCards.filter((app) => {
+        return this.searchResults.filter((app) => {
             return (app.user_segment.indexOf(user_segment.FIRE_RESCUE) > -1)
         })
     }
+
     @computed get lawCards() {
-        return this.homeCards.filter((app) => {
+        return this.searchResults.filter((app) => {
             return (app.user_segment.indexOf(user_segment.LAW_ENFORCEMENT) > -1)
         })
     }
+
     @computed get emergencyCards() {
-        return this.homeCards.filter((app) => {
+        return this.searchResults.filter((app) => {
             return (app.user_segment.indexOf(user_segment.EMERGENCY_MEDICAL) > -1)
         })
     }
+
     @computed get dispatchCards() {
-        return this.homeCards.filter((app) => {
+        return this.searchResults.filter((app) => {
             return (app.user_segment.indexOf(user_segment.DISPATCH) > -1)
         })
     }
 
+    // probably to be deprecated.
     @computed get searchButtonIsEnabled() {
-        return this.searchQuery !== '';
-    }
-
-    @computed get numSearchResults() {
-        if (this.searchResults) {
-            return this.searchResults.length;
-        } else {
-            return 0;
-        }
+        return true;
     }
 
     @computed get filteredSearchResults() {
-        return this.homeCards.filter((app) => {
+        return this.searchResults.filter((app) => {
             let categoryCheck = () => {
                 if (this.categoryFilter) {
                     return app.category.indexOf(+this.categoryFilter) > -1
@@ -168,14 +142,15 @@ class CardListStore {
     }
 
     // OBSERVABLES
-
-    @observable homeCards = [];
+  
+    // @observable homeCards = [];
     @observable categoryFilter = 'Select Category';
     @observable segmentFilter = 'Select Fitler';
 
+    @observable shouldShowSearchResults = false;
     @observable searchIsVisible = false;
     @observable searchQuery = '';
-    @observable searchResults = null;
+    @observable searchResults = [];
     @observable isLoading = false;
 
     @observable categories = [
