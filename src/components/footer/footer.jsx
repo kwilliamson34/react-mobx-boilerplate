@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export class Footer extends React.Component {
+export default class Footer extends React.Component {
 
 	constructor(props) {
 		super(props);
@@ -13,7 +13,7 @@ export class Footer extends React.Component {
 				<div className="footer-height footer-top">
 					<div className="row footer-row">
 						<div className="col-xs-12 col-md-10 col-md-offset-1">
-							<div className="clear-image-box footer-logo">						
+							<div className="clear-image-box footer-logo">
 								<Link to="/" className="clear-image-box">
 									<img alt="FirstNet Local Control Home" src="./images/logo-FirstNet-local-control.svg" className="footer-logo-size" />
 								</Link>
