@@ -11,7 +11,7 @@ export default class HomePage extends React.Component {
             <main id="content-main">
                 <TitlePane pageTitle="PSE Home Page"/>
                 <section className="placeholder alert-dropdown">
-                    Alert Dropdown
+                    Alert Dropdown Component
                 </section>
                 <section className="placeholder geolink">
                     <h2>Geolink Map Section</h2>

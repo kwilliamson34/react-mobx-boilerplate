@@ -45,8 +45,8 @@ module.exports = {
 
 		publicPath: '/',
 		proxy: {
-			'/api-services-summary': {
-				target: 'http://34.204.23.33'
+			'/api': {
+				target: 'http://pse-qa.sapientfirst.net'
 			}
 		}
 	},
