@@ -5,7 +5,7 @@ import TitlePane from '../components/title-pane/title-pane';
 export default class AppDetailsPage extends React.Component {
     render() {
         return (
-          <main className="content-main">
+          <main id="content-main">
             <TitlePane pageTitle="App Details"/>
             <section className="placeholder-long">
                 <div className="container">

@@ -7,7 +7,7 @@ import AppAvailability from '../components/app-availability/app-availability';
 export default class AdminDashboardPage extends React.Component {
     render() {
         return (
-          <main className="content-main">
+          <main id="content-main">
             <TitlePane pageTitle="Admin Dashboard" />
             <section className="placeholder-long">
                 <div className="container">

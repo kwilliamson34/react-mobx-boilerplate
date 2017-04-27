@@ -19,7 +19,6 @@ export default class ManageAppsView extends React.Component {
 	componentDidMount(){
 		this.homeStore.getHomeCards();
 	}
-
 	render() {
 		return (
 			<main className="content-main">
