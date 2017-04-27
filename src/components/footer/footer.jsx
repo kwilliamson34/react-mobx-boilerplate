@@ -26,9 +26,9 @@ export class Footer extends React.Component {
 							<h2 className="footer-menu-header">FIRSTNET PORTALS</h2>
 							<nav id="footer-portals-menu" aria-label="Firstnet Portals Menu">
 								<ul className="footer-menu-ul">
-									<li role="presentation"><a href="http://www.firstnet.com/appstore">FIRSTNET APP STORE</a></li>
-									<li role="presentation"><a href="http://www.firstnet.gov">FIRSTNET.GOV</a></li>
-									<li role="presentation"><a href="http://www.firstnet.com">FIRSTNET.COM</a></li>
+									<li role="presentation"><a href="http://www.firstnet.com/appstore" target="_blank" rel="noopener noreferrer">FIRSTNET APP STORE</a></li>
+									<li role="presentation"><a href="http://www.firstnet.gov" target="_blank" rel="noopener noreferrer">FIRSTNET.GOV</a></li>
+									<li role="presentation"><a href="http://www.firstnet.com" target="_blank" rel="noopener noreferrer">FIRSTNET.COM</a></li>
 								</ul>
 							</nav>
 						</div>
