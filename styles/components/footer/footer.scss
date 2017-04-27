@@ -1,14 +1,4 @@
 /** Footer Styles **/
-.footer-bar {
-    border-top: 4px solid $fn-black;
-}
-
-.footer-row > div:not(:last-child) {
-    border-right: 1px solid $fn-grey;
-
-    display: block;
-}
-
 .footer-row {
     margin-left: 0;
     margin-right: 0;
@@ -16,10 +6,8 @@
 
 .footer-menu-ul > li, .footer-menu-ul > li > a {
     font-weight: $fn-normal-weight;
-    font-size: 1.6rem;
-    padding-bottom:10px;
+    font-size: 1.4rem;
     color: $fn-dark;
-	letter-spacing: 1px;
 	line-height: 2.8rem;
 }
 
@@ -29,7 +17,7 @@ h2.footer-menu-header {
     padding-bottom: 1rem;
     color: $fn-dkgrey;
 	letter-spacing: 1px;
-	line-height: 3rem;
+	line-height: 3rem;    
 }
 .footer-menu-ul > li.footer-menu-header, .footer-menu-ul > li.footer-menu-header > a {
     font-weight: $fn-bold-weight;
@@ -50,18 +38,21 @@ h2.footer-menu-header {
     margin-right:10px;
 }
 .footer-help-menu-spacing {
-    margin-left:27px;
+    margin-left:35px;
 }
 .footer-menu-button {
-    padding-top:35px;
+    padding-top:35px;    
 }
 .footer-logo {
     padding-left: 33px;
     padding-top: 30px;
     padding-bottom: 40px;
 }
+.footer-logo-size {
+    max-width:400px;
+} 
 .footer-commerce-logo {
-    width: 40px;
+    width: 45px;
     padding:5px;
 }
 .footer-top {
@@ -77,11 +68,12 @@ h2.footer-menu-header {
 .footer-height {
     min-height:400px;
 }
-
 .footer-menu-header {
-    padding-left:35px;
+    padding-left:35px;    
 }
-
+.footer-hr {
+    padding-left:35px;    
+}
 .footer-menu-ul {
     list-style-type: none;
     padding-left:35px;
@@ -95,7 +87,7 @@ h2.footer-menu-header {
     margin-right: 0;
 }
 ul.footer-small-links > li {
-    padding-right:8px; padding-left:8px;
+    padding-right:8px; padding-left:8px;    
     display: inline;
     font-weight: $fn-normal-weight;
     font-size: 1.4rem;
@@ -107,7 +99,7 @@ ul.footer-small-links > li:last-child {
     border-right: 0;
 }
 ul.footer-small-links > li:first-child {
-    padding-left:0;
+    padding-left:0;    
 }
 ul.footer-small-links > li:active,
 ul.footer-small-links > li:hover,
@@ -125,5 +117,37 @@ ul.footer-small-links {
 }
 .footer-text-images {
     padding-bottom:15px;
-    padding-left:35px;
+    padding-left:35px;    
+}
+.footer-button {
+	border: 2px solid $fn-ltblue;
+	border-radius: 100px;
+	color: $fn-ltblue !important;
+    background-color: $fn-white !important;
+	font-size: 1.2rem !important;
+	font-weight: $fn-bold-weight !important;
+	line-height: 3.3rem !important;
+	text-align: center;
+    padding-left:40px;
+    padding-right: 40px;
+    padding-top: 6px;
+    min-height:48px;
+}
+.btn.footer-button:hover, .btn.footer-button:focus, .btn.footer-button:active {
+	border: 2px solid $fn-ltblue;
+	border-radius: 100px;
+	color: $fn-white !important;
+    background-color: $fn-ltblue !important;
+	font-size: 1.2rem !important;
+	font-weight: $fn-bold-weight;
+	line-height: 3.3rem !important;
+	text-align: center;
+}
+.footer-menu-button {
+    padding-top:35px;    
+}
+
+/** Add 508 compliance boxes that match image sizes **/
+.clear-image-box {
+    display: inline-block;
 }
