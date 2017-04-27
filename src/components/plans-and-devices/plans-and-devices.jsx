@@ -5,7 +5,7 @@ export default class PlansAndDevices extends React.Component {
 
     render() {
         return (
-            <section className="placeholder mp-links">
+            <section className="placeholder mp-links" id="PlansAndDevices">
                 <div className="container pad-header-spacing">
                     <h2>Shop Plans and Devices</h2>
                     <div className="row">

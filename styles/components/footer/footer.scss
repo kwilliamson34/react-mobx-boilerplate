@@ -1,4 +1,14 @@
 /** Footer Styles **/
+.footer-bar {
+    border-top: 4px solid $fn-black;
+}
+
+.footer-row > div:not(:last-child) {
+    border-right: 1px solid $fn-grey;
+    height:190px;
+    display: block;
+}
+
 .footer-row {
     margin-left: 0;
     margin-right: 0;
