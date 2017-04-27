@@ -40,7 +40,7 @@ export default class App extends React.Component {
             <Router>
               <Provider store={pseMasterStore}>
                   <ScrollToTop>
-                    <div id="PSE-wrapper">
+                    <div id="PSE-wrapper" className="xxx">
                         <a href="#main-content" className="sr-only sr-only-focusable">Skip Navigation</a>
                         <Header/>
                         <Route exact path="/" component={HomePage}/>
