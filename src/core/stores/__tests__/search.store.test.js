@@ -18,7 +18,7 @@ apiService.getSearchResults = (query) => {
 
 describe("SearchStore", () => {
 
-    test("search button is disabled", () => {
+    test("search button is disabled by default", () => {
       expect(store.searchButtonIsEnabled).toBe(false);
     });
 
@@ -28,7 +28,7 @@ describe("SearchStore", () => {
       expect(store.searchQuery).toBe(testText);
     });
 
-    test("search button is enabled", () => {
+    test("search button is enabled after text is entered", () => {
       expect(store.searchButtonIsEnabled).toBe(true);
     });
 
