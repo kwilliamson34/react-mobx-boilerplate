@@ -35,29 +35,7 @@ section.placeholder {
     &.mp-links {}
 }
 
-.content-wrapper{
-  min-height: 635px;
-  padding: 25px 0;
-}
-
-.product-row {
-  padding: 55px 0 60px;
-  &:nth-child(even){
-    background: $fn-ltbluegrey;
-  }
-  .card-container{
-    display: inline-block;
-    margin: 0 10px;
-  }
-  .btn {
-    margin-top: 30px;
-  }
-}
-
-.section-copy {
-    font-size: 18px;
-    line-height: 30px;
-    .btn{
-      margin: 20px 0;
-    }
+.content-wrapper {
+    min-height: 635px;
+    padding: 25px 0;
 }
