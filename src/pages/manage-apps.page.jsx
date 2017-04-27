@@ -5,6 +5,8 @@ import TitlePane from '../components/title-pane/title-pane';
 import { CardList } from '../components/card-list/card-list.jsx';
 import { SearchForm } from '../components/search/search-form.jsx';
 
+import {observer,inject} from 'mobx-react';
+
 @inject('store')
 @observer
 export default class ManageAppsView extends React.Component {
