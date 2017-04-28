@@ -13,3 +13,10 @@
         }
     }
 }
+
+@media #{$desktop} {
+
+    .app-management{
+        width: 215px;
+    }
+}

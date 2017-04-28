@@ -51,7 +51,7 @@ export class CardList extends React.Component {
                             return (
                                 <div className="col-md-3 col-xs-4 center-block" key={i} >
                                     <SummaryCard display={card}></SummaryCard>
-                                    <div className="hidden-sm">
+                                    <div className="hidden-xs">
                                         <AppManagementBlock app={card} ></AppManagementBlock>
                                     </div>
                                 </div>
