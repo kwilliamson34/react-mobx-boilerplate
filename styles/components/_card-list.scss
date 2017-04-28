@@ -2,8 +2,8 @@
     padding-bottom: 20px;
 
     .center-block {
-      padding-top: 20px;
-      padding-bottom: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
     }
 
     &:nth-of-type(odd) {
@@ -20,13 +20,14 @@
         padding: 0;
     }
 
+    // .card-container {
+    //     width: 100px;
+    //     margin: 0;
+    // }
+
     .card-wrapper {
         display: inline-block;
-        margin: 20px 20px 0;
-
-        &:focus {
-          margin: 20px 18px 0;
-        }
+        width: 100%;
     }
 }
 
