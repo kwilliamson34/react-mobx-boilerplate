@@ -6,7 +6,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import ScrollToTop from './core/services/scroll-to-top';
 
 //State Management
-import {Provider} from 'mobx-react';
+import {Provider, observer} from 'mobx-react';
 import {pseMasterStore} from './core/stores/master.store';
 
 //Styles

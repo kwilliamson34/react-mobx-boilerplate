@@ -3,6 +3,10 @@ import {observer,inject} from 'mobx-react';
 
 import TitlePane from '../components/title-pane/title-pane';
 import {Rating} from '../components/rating/rating';
+import Toggle from '../components/toggle/toggle';
+
+//import mock response from services
+const appDetail = require('../fixtures/mock-app-detail.json');
 
 @inject('store')
 @observer
@@ -14,32 +18,11 @@ export default class AppDetailsPage extends React.Component {
 
   componentDidMount(){
     //console.log('app_psk: ' + this.props.match.params.appPSK);
-    this.appStore.getAppDetails(68483);
+    //this.appStore.getAppDetails(68483);
+    console.log('Service not ready yet for integration');
   }
 
-  function
     render() {
-      const appDetail = {
-        icon_path: '/images/appicon-placeholder.png',
-        appName: 'Mobile Iron',
-        appLongDescription: '<p>MobileIron’s Mobile@Work securely connects your Android device to your company network so that you can easily access email and other work resources.</p><ul><li>Purpose-built for Mobile IT with millions of users globally</li><li>Complete separation of corporate and personal data</li><li>500+ of Global 2000 customers</li><li>More than 97% customer support satisfaction rate</li></ul>',
-        author: 'AT&T',
-        endorsement: true,
-        reviewCount: 44,
-        avgRevRating: 4,
-        versionNum: '2.5',
-        releaseDate: '07/17/2017',
-        filesize: '32Mb',
-        platform: 'Android',
-        isAvailable: true,
-        isRecommended: false,
-        devWebsite: 'http://google.com/',
-        devDescription: '<p>Etiam sollicitudin tortor risus, eget rutrum lacus fringilla vitae. Fusce ornare dictum maximus. Sed porta ligula convallis, tempor neque id, interdum purus. Praesent euismod magna ac commodo consequat. Nulla facilisi. Fusce in cursus neque. Sed rhoncus laoreet mi non accumsan. Morbi consequat lacinia interdum. Ut ex nibh, auctor sit amet lorem at, molestie vehicula odio. Pellentesque bibendum congue nulla, nec pellentesque tortor vulputate in. Phasellus facilisis arcu nulla, et finibus libero iaculis a. Cras commodo ligula eget laoreet aliquam. Phasellus viverra mollis turpis eget sodales. Donec pretium lacinia arcu, non posuere nibh ornare non. Aliquam tincidunt justo ante, a tempor nulla suscipit at.</p>'
-
-      }
-      var isMobile = document.documentElement.clientWidth < 768;
-      console.log(isMobile);
-
         return (
           <main id="content-main">
             <article className="app-details-page">
@@ -83,8 +66,8 @@ export default class AppDetailsPage extends React.Component {
 
                     </div>
                     <div className="col-xs-12 col-sm-4 app-actions">
-                      <div><label>Available</label></div>
-                      <div><label>Recommended</label></div>
+                      <div><Toggle id="toggle-available" label="Available" defaultOn={appDetail.isAvailable} /></div>
+                      <div><Toggle id="toggle-recommended" label="Recommended" defaultOn={appDetail.isRecommended} /></div>
                       <div><button type="button" className="fn-primary">Push to MDM</button></div>
                     </div>
                 </div>

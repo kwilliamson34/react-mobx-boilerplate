@@ -49,7 +49,7 @@ export class SummaryCard extends React.Component {
 
 	render() {
     return (
-        <Link to="/faq" className="card-wrapper">
+        <Link to="/app" className="card-wrapper">
             <div className="card-container center-block has-shadow">
                 {this.display.badge && (
                     <div className="card-badge">
