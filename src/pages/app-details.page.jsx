@@ -2,6 +2,7 @@ import React from 'react';
 import {observer,inject} from 'mobx-react';
 
 import TitlePane from '../components/title-pane/title-pane';
+import {Rating} from '../components/rating/rating';
 
 @inject('store')
 @observer
@@ -16,6 +17,7 @@ export default class AppDetailsPage extends React.Component {
     this.appStore.getAppDetails(68483);
   }
 
+  function
     render() {
       const appDetail = {
         icon_path: '/images/appicon-placeholder.png',
@@ -26,7 +28,8 @@ export default class AppDetailsPage extends React.Component {
         reviewCount: 44,
         avgRevRating: 4,
         versionNum: '2.5',
-        releaseDate: 'April 20, 2017',
+        releaseDate: '07/17/2017',
+        filesize: '32Mb',
         platform: 'Android',
         isAvailable: true,
         isRecommended: false,
@@ -34,37 +37,56 @@ export default class AppDetailsPage extends React.Component {
         devDescription: '<p>Etiam sollicitudin tortor risus, eget rutrum lacus fringilla vitae. Fusce ornare dictum maximus. Sed porta ligula convallis, tempor neque id, interdum purus. Praesent euismod magna ac commodo consequat. Nulla facilisi. Fusce in cursus neque. Sed rhoncus laoreet mi non accumsan. Morbi consequat lacinia interdum. Ut ex nibh, auctor sit amet lorem at, molestie vehicula odio. Pellentesque bibendum congue nulla, nec pellentesque tortor vulputate in. Phasellus facilisis arcu nulla, et finibus libero iaculis a. Cras commodo ligula eget laoreet aliquam. Phasellus viverra mollis turpis eget sodales. Donec pretium lacinia arcu, non posuere nibh ornare non. Aliquam tincidunt justo ante, a tempor nulla suscipit at.</p>'
 
       }
+      var isMobile = document.documentElement.clientWidth < 768;
+      console.log(isMobile);
+
         return (
-
-
-
           <main id="content-main">
             <article className="app-details-page">
             <TitlePane pageTitle="App Details"/>
             <section className="app-summary">
               <div className="container">
                 <div className="row">
-                  <div className="col-xs-12 col-sm-3 col-md-3">
+                  <div className="col-xs-4 col-sm-3 col-md-3 appicon-wrapper">
                     <div className="app-icon">
                       <img src={appDetail.icon_path} alt={appDetail.appName} />
                     </div>
                   </div>
-                  <div className="col-xs-12 col-sm-9">
+
+                  <div className="col-xs-8 col-sm-9 app-title">
                     <h1>{appDetail.appName}</h1>
                   </div>
-                  <div className="col-xs-12 col-sm-9">
-                    <div className="app-meta">
-                      {appDetail.author}
-                      <div>Current Version: {appDetail.versionNum}</div>
-                      <div>Updated: {appDetail.releaseDate}</div>
-                      <div>Platform: {appDetail.platform}</div>
+
+                    <div className="col-xs-8 col-sm-5 app-meta">
+                      <div className="visible-xs">
+                        {appDetail.endorsement &&
+                          <div className="endorsed">FirstNet Endorsed</div>
+                        }
+                        <span className="sr-only">Average Rating</span> <img className="ratings-star" src="/images/star.png" alt="Rating Star" aria-hidden="true" />{appDetail.avgRevRating} ({appDetail.reviewCount}<span className="sr-only">Reviews Completed</span>) <span aria-hidden="true">V</span><span className="sr-only">Version </span> {appDetail.versionNum} <span className="sr-only">Filesize</span> {appDetail.filesize}
+                      </div>
+
+                      <div className="hidden-xs">
+                        <ul>
+                          <li>{appDetail.author}</li>
+                          <li>Version: <strong>{appDetail.versionNum}</strong>
+                          <br />Released: <strong>{appDetail.releaseDate}</strong></li>
+
+                          <li>
+                            {appDetail.endorsement &&
+                            <div className="endorsed">FirstNet Endorsed</div>
+                            }
+                            <Rating rating={appDetail.avgRevRating} />({appDetail.reviewCount}<span className="sr-only">Reviews Completed</span>)
+                        </li>
+                          <li>Platform<br /><strong>{appDetail.platform}</strong></li>
+                        </ul>
+                      </div>
+
                     </div>
-                    <div className="app-actions">
+                    <div className="col-xs-12 col-sm-4 app-actions">
                       <div><label>Available</label></div>
                       <div><label>Recommended</label></div>
                       <div><button type="button" className="fn-primary">Push to MDM</button></div>
                     </div>
-                  </div>
                 </div>
               </div>
             </section>
