@@ -11,7 +11,7 @@ class UtilsService {
 
     conditionData(objs) {
         let simplifiedObjs = objs.filter((obj) => {
-            if(obj.custom_metadata === null || (obj.custom_metadata && (obj.custom_metadata.user_segment === null || (obj.custom_metadata.user_segment && obj.custom_metadata.user_segment.length < 1)))){
+            if (obj.custom_metadata === null || (obj.custom_metadata && (obj.custom_metadata.user_segment === null || (obj.custom_metadata.user_segment && obj.custom_metadata.user_segment.length < 1)))) {
                 return false;
             } else {
                 return true;
@@ -21,7 +21,7 @@ class UtilsService {
             simplifiedObj.name = obj.app_name;
             simplifiedObj.publisher = obj.author;
             // TODO - move data base url to global endpoints
-            simplifiedObj.imageUrl = 'https://ease.apperian.com/uploads/'+obj.icon_path;
+            simplifiedObj.imageUrl = 'https://ease.apperian.com/uploads/' + obj.icon_path;
             simplifiedObj.rating = obj.rating;
             simplifiedObj.id = obj.id;
             simplifiedObj.badge = obj.is_endorsed;
@@ -33,12 +33,8 @@ class UtilsService {
                 simplifiedObj.category = [];
                 simplifiedObj.user_segment = [];
             }
-            if(!obj.is_Available){ simplifiedObj.available = true; }
-            if(!obj.is_Recommended){
-                simplifiedObj.recommended = false;
-            } else {
-                simplifiedObj.recommended = obj.is_Recommended;
-            }
+            simplifiedObj.available = obj.is_Available === null ? true : obj.is_Available;
+            simplifiedObj.recommended = obj.is_Recommended === null ? false : obj.is_Recommended;
             return simplifiedObj;
         })
         return simplifiedObjs;
