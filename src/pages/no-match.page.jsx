@@ -12,7 +12,7 @@ export default class NoMatch extends React.Component {
                   <div className="row">
                     <div className="col-xs-12">
                       <h1>Error 404</h1>
-                      <h2>No match for <code>{this.props.match.url}</code></h2>
+                      <h2>No match for <code>{this.props.location.pathname}</code></h2>
                     </div>
                   </div>
                 </div>

@@ -28,7 +28,6 @@ import ShopPlansView from './pages/shop-plans.page';
 
 import NoMatch from './pages/no-match.page';
 
-
 @observer
 export default class App extends React.Component {
 

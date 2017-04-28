@@ -5,6 +5,7 @@ import { action, computed, observable } from 'mobx';
 // import { searchStore } from './search.store';
 import { headerStore } from './header.store';
 import { cardListStore } from './card-list.store';
+import { appStore } from './apps.store';
 
 class PSEStore {
 
@@ -13,6 +14,7 @@ class PSEStore {
     // this.searchStore = searchStore;
     this.headerStore = headerStore;
     this.cardListStore = cardListStore;
+    this.appStore = appStore;
   }
 
   // ACTIONS

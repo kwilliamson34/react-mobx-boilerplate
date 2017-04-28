@@ -11,6 +11,7 @@ class ApiService {
     loadUserData() {
         return axios.get('http://localhost:3000/user');
     }
+    
     getHomeCards() {
         return axios.get(`${base}/apps/admin?${pseid}`)
             .then((res) => {
@@ -33,6 +34,14 @@ class ApiService {
                 'x-auth-token': '34234'
             }
         })
+    }
+
+    getAppDetails(appPSK) {
+      return axios.get(`${base}/app?app_psk=${appPSK}`,{
+        headers: {
+          'x-auth-token': '34234'
+        }
+      });
     }
 
 }
