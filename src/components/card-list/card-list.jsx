@@ -50,9 +50,7 @@ export class CardList extends React.Component {
                         {this.props.cards.map((card, i) =>{
                             return (
                                 <div className="col-md-3 col-xs-4 center-block" key={i} >
-                                    <Link to="/faq">
-                                        <SummaryCard display={card}></SummaryCard>
-                                    </Link>
+                                    <SummaryCard display={card}></SummaryCard>
                                     <AppManagementBlock app={card} ></AppManagementBlock>
                                 </div>
                             )
@@ -68,7 +66,3 @@ export class CardList extends React.Component {
         );
     }
 }
-
-
-
-
