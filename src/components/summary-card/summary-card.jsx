@@ -63,7 +63,7 @@ export class SummaryCard extends React.Component {
                     <div className="card-name">
                         {this.display.name}
                     </div>
-                    <div className="card-publisher hidden-sm hidden-xs">
+                    <div className="card-publisher hidden-xs">
                         {this.display.publisher}
                     </div>
                 </section>
