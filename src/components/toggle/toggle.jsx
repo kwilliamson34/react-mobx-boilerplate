@@ -4,7 +4,9 @@ import $ from 'jquery';
 class Toggle extends React.Component {
   constructor(props) {
     super(props);
-    // this.onClick = this.props.onClick.bind(this);
+    if(this.props.onClick){
+      this.onClick = this.props.onClick.bind(this);
+    }
     this.handleFocusEnter = this.handleFocusEnter.bind(this);
   }
 
@@ -15,8 +17,8 @@ class Toggle extends React.Component {
   }
 
   render() {
-    const inputIdentifier = this.props.value + '-checkbox';
-    const labelIdentifier = this.props.value + '-label';
+    const inputIdentifier = this.props.id + '-checkbox';
+    const labelIdentifier = this.props.id + '-label';
     return (
       <div className="checkbox-as-toggle">
         <input className="checkbox" id={inputIdentifier} type="checkbox" defaultChecked={this.props.defaultOn} value={this.props.value} onClick={this.onClick} tabIndex="-1"/>
@@ -31,6 +33,7 @@ class Toggle extends React.Component {
 }
 
 Toggle.propTypes = {
+  id: PropTypes.string.isRequired,
   value: PropTypes.bool,
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func,

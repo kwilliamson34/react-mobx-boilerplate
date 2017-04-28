@@ -25,16 +25,19 @@ class UtilsService {
             simplifiedObj.rating = obj.rating;
             simplifiedObj.id = obj.id;
             simplifiedObj.badge = obj.is_endorsed;
-            simplifiedObj.recommended = obj.is_Recommended;
             simplifiedObj.platforms = UtilsService.platform[obj.operating_system];
-            simplifiedObj.available = true;
-            simplifiedObj.recommended = false;
             if (obj.custom_metadata) {
                 simplifiedObj.category = obj.custom_metadata.category;
                 simplifiedObj.user_segment = obj.custom_metadata.user_segment;
             } else {
                 simplifiedObj.category = [];
                 simplifiedObj.user_segment = [];
+            }
+            if(!obj.is_Available){ simplifiedObj.available = true; }
+            if(!obj.is_Recommended){
+                simplifiedObj.recommended = false;
+            } else {
+                simplifiedObj.recommended = obj.is_Recommended;
             }
             return simplifiedObj;
         })

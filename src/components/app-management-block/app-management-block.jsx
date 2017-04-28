@@ -13,11 +13,9 @@ import Toggle from '../toggle/toggle.jsx';
 export class AppManagementBlock extends React.Component {
 
     static propTypes = {
-
-    }
-    
-    static defaultProps = {
-
+        // TODO - potentially will need store, depending on interaction with changing the toggle
+        // store: PropTypes.object.isRequired,
+        app: PropTypes.object.isRequired
     }
 
     constructor(props) {
@@ -27,19 +25,21 @@ export class AppManagementBlock extends React.Component {
     }
 
     handleAvailableClick(event){
-        this.props.app.available = !this.props.app.available;
+        // TODO - Will move to a store or service once interaction has been determined
+        this.props.app.is_Available = !this.props.app.is_Available;
     }
 
     handleRecommendedClick(event){
-        this.props.app.recommended = !this.props.app.recommended;
+        // TODO - Will move to a store or service once interaction has been determined
+        this.props.app.is_Recommended = !this.props.app.is_Recommended;
     }
 
     render() {
         return (
             <div>
                 <div className="app-management">
-                    <Toggle label="Available" value={this.props.app.available} defaultOn={true} onClick={this.handleToggleClick} />
-                    <Toggle label="Recommended" value={this.props.app.recommended} onClick={this.handleToggleClick} />
+                    <Toggle label="Available" value={this.props.app.is_Available} id={"Avail"+this.props.app.id} defaultOn={true} onClick={this.handleToggleClick} />
+                    <Toggle label="Recommended" value={this.props.app.is_Recommended} id={"Recom"+this.props.app.id} onClick={this.handleToggleClick} />
                     <Link to="/mdm">
                         <Button className="fn-primary">Push to MDM</Button>
                     </Link>
