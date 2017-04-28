@@ -44,7 +44,7 @@ export default class AppDetailsPage extends React.Component {
                     <h1>{appDetail.appName}</h1>
                   </div>
                   <div className="col-xs-8 col-sm-5 app-meta">
-                    {/* @mschiffman, I know we're not supposed to put business logic here in the render, so please let me know how situations like these should be handled */}
+
                     <div className="visible-xs">
                       {appDetail.endorsement &&
                         <div className="endorsed">FirstNet Endorsed</div>
@@ -56,10 +56,9 @@ export default class AppDetailsPage extends React.Component {
                         aria-hidden="true" />
                         {appDetail.avgRevRating}
                         ({appDetail.reviewCount}<span className="sr-only">Reviews Completed</span>)
-                      <span aria-hidden="true">V</span><span className="sr-only">Version </span> {appDetail.versionNum}
-                      <span className="sr-only">Filesize</span> {appDetail.filesize}
+                      &nbsp; <span aria-hidden="true">V</span><span className="sr-only">Version </span> {appDetail.versionNum}
+                      &nbsp; <span className="sr-only">Filesize</span> {appDetail.filesize}
                     </div>
-
                     <div className="hidden-xs">
                       <ul>
                         <li>{appDetail.author}</li>
@@ -77,7 +76,6 @@ export default class AppDetailsPage extends React.Component {
                         <li>Platform<br /><strong>{appDetail.platform}</strong></li>
                       </ul>
                     </div>
-                    {/* end meta display block in question */}
                   </div>
                     <div className="col-xs-12 col-sm-4 app-actions">
                       <div>

@@ -19,7 +19,7 @@ class AppStore {
         const fail = (err) => {
             console.warn(err);
         }
-        return apiService.getAppAvailability().then(success, fail)
+        apiService.getAppAvailability().then(success, fail)
   }
 
   @action getAppDetails(appPSK) {
@@ -29,7 +29,7 @@ class AppStore {
     const fail = (err) => {
         console.warn(err);
     }
-    return apiService.getAppDetails(appPSK).then(success, fail);
+    apiService.getAppDetails(appPSK).then(success, fail);
   }
 
 	// OBSERVABLES
