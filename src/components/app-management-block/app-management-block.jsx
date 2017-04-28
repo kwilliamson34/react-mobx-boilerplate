@@ -26,20 +26,20 @@ export class AppManagementBlock extends React.Component {
 
     handleAvailableClick(event){
         // TODO - Will move to a store or service once interaction has been determined
-        this.props.app.is_Available = !this.props.app.is_Available;
+        this.props.app.available = !this.props.app.available;
     }
 
     handleRecommendedClick(event){
         // TODO - Will move to a store or service once interaction has been determined
-        this.props.app.is_Recommended = !this.props.app.is_Recommended;
+        this.props.app.recommended = !this.props.app.recommended;
     }
 
     render() {
         return (
             <div>
                 <div className="app-management">
-                    <Toggle label="Available" value={this.props.app.is_Available} id={"Avail"+this.props.app.id} defaultOn={true} onClick={this.handleToggleClick} />
-                    <Toggle label="Recommended" value={this.props.app.is_Recommended} id={"Recom"+this.props.app.id} onClick={this.handleToggleClick} />
+                    <Toggle label="Available" value={this.props.app.available} id={"Avail"+this.props.app.id} defaultOn={this.props.app.available} onClick={this.handleToggleClick} />
+                    <Toggle label="Recommended" value={this.props.app.recommended} id={"Recom"+this.props.app.id} defaultOn={this.props.app.recommended} onClick={this.handleToggleClick} />
                     <Link to="/mdm">
                         <Button className="fn-primary">Push to MDM</Button>
                     </Link>
