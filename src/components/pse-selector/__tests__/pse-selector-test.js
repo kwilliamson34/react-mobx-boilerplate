@@ -3,23 +3,42 @@ jest.unmock('../pse-selector');
 import PSESelector from '../pse-selector';
 import { MemoryRouter } from 'react-router-dom';
 
-idescribe('<PSESelector />', () => {
+describe('<PSESelector />', () => {
     describe('render', () => {
-        test('matches snapshot when menu is closed', () => {
-          let props = {
-              store: {
-                  headerStore: {
-                      currentPSE :'Fire & Rescue Station 32'
-                  }
-              }
-          };
+        test('matches previous PSE Selector snapshot for multiple available PSEs', () => {
+            let props = {
+                store: {
+                    headerStore: {
+                        currentPSE: 'Fire & Rescue Station 32',
+                        pse_list: ['Fire & Rescue Station 32', 'Fire Station 12', 'Fire & Rescue Station 24', 'Fire Station 6', 'Fire Station 10']
+                    }
+                }
+            };
           const component = renderer.create(
               <MemoryRouter>
-                  <PSESelector {...props} />
+                <PSESelector {...props} />
               </MemoryRouter>
           );
-          let tree = component.toJSON();
-          expect(tree).toMatchSnapshot();
+            let tree = component.toJSON();
+            expect(tree).toMatchSnapshot();
+        });
+
+        test('matches previous PSE Selector snapshot for one available PSE', () => {
+            let props = {
+                store: {
+                    headerStore: {
+                        currentPSE: 'Fire & Rescue Station 32',
+                        pse_list: ['Fire & Rescue Station 32']
+                    }
+                }
+            };
+            const component = renderer.create(
+              <MemoryRouter>
+                <PSESelector {...props} />
+              </MemoryRouter>
+            );
+            let tree = component.toJSON();
+            expect(tree).toMatchSnapshot();
         });
     });
 });
