@@ -96,6 +96,9 @@ h2.footer-menu-header {
     margin-left: 35px;
     margin-right: 0;
 }
+ul.footer-small-links {
+    margin-left:15px;
+}
 ul.footer-small-links > li {
     padding-right:8px; padding-left:8px;    
     display: inline;
@@ -107,9 +110,6 @@ ul.footer-small-links > li {
 }
 ul.footer-small-links > li:last-child {
     border-right: 0;
-}
-ul.footer-small-links > li:first-child {
-    padding-left:0;    
 }
 ul.footer-small-links > li:active,
 ul.footer-small-links > li:hover,
