@@ -20,7 +20,7 @@ export default class AdminDashboardPage extends React.Component {
                     </div>
                 </div>
             </section>
-            <PlansAndDevices />            
+            <PlansAndDevices />
           </main>
         )
     }

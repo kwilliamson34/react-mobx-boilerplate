@@ -12,6 +12,10 @@ export default class PSESelector extends React.Component {
 		this.headerStore = this.props.store.headerStore;
 	}
 
+	componentWillMount() {
+		this.headerStore.getLastPSE();
+	}
+
 	updatePSE(val){
 		this.headerStore.updatePSE(val);
 	}
@@ -20,13 +24,13 @@ export default class PSESelector extends React.Component {
 		return (
 			<div className="pse-selector-btn">
 				{(this.headerStore.pse_list.length > 1)
-				?<DropdownButton id="pse-selector" title={this.headerStore.currentPSE} onSelect={this.updatePSE.bind(this)} noCaret>
+				?<DropdownButton id="pse-selector" title={this.headerStore.currentPSEName} onSelect={this.updatePSE.bind(this)} noCaret>
 					{this.headerStore.pse_list.map((pse_name, idx) => {
 						return <MenuItem eventKey={idx} key={idx}>{pse_name}</MenuItem>
 					})}
 					</DropdownButton>
 				:<div id="pse-selector">
-						<p>{this.headerStore.currentPSE}</p>
+						<p>{this.headerStore.currentPSEName}</p>
 					</div>
 				}
 			</div>
