@@ -1,15 +1,14 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
-import { inject, observer } from 'mobx-react';
+import { observer } from 'mobx-react';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
 
 import Toggle from '../toggle/toggle.jsx';
 
-@observer 
+@observer
 export class AppManagementBlock extends React.Component {
 
     static propTypes = {
@@ -24,12 +23,12 @@ export class AppManagementBlock extends React.Component {
         this.handleRecommendedClick = this.handleRecommendedClick.bind(this)
     }
 
-    handleAvailableClick(event){
+    handleAvailableClick(){
         // TODO - Will move to a store or service once interaction has been determined
         this.props.app.is_Available = !this.props.app.is_Available;
     }
 
-    handleRecommendedClick(event){
+    handleRecommendedClick(){
         // TODO - Will move to a store or service once interaction has been determined
         this.props.app.is_Recommended = !this.props.app.is_Recommended;
     }
@@ -38,8 +37,8 @@ export class AppManagementBlock extends React.Component {
         return (
             <div>
                 <div className="app-management">
-                    <Toggle label="Available" value={this.props.app.is_Available} id={"Avail"+this.props.app.id} defaultOn={true} onClick={this.handleToggleClick} />
-                    <Toggle label="Recommended" value={this.props.app.is_Recommended} id={"Recom"+this.props.app.id} onClick={this.handleToggleClick} />
+                    <Toggle label="Available" value={this.props.app.is_Available} id={'Avail' + this.props.app.id} defaultOn={true} onClick={this.handleToggleClick} />
+                    <Toggle label="Recommended" value={this.props.app.is_Recommended} id={'Recom' + this.props.app.id} onClick={this.handleToggleClick} />
                     <Link to="/mdm">
                         <Button className="fn-primary">Push to MDM</Button>
                     </Link>
