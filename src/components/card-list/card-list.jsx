@@ -6,6 +6,7 @@ import { observer } from 'mobx-react';
 // import { inject, observer, PropTypes } from 'mobx-react'; // if @injecting, use mobx PropTypes to get observableArray etc.
 
 import { SummaryCard } from '../summary-card/summary-card.jsx';
+import { AppManagementBlock } from '../app-management-block/app-management-block.jsx';
 
 
 @observer
@@ -52,6 +53,7 @@ export class CardList extends React.Component {
                                     <Link to="/faq">
                                         <SummaryCard display={card}></SummaryCard>
                                     </Link>
+                                    <AppManagementBlock app={card} ></AppManagementBlock>
                                 </div>
                             )
                         })}

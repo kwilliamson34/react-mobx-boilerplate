@@ -27,6 +27,8 @@ class UtilsService {
             simplifiedObj.badge = obj.is_endorsed;
             simplifiedObj.recommended = obj.is_Recommended;
             simplifiedObj.platforms = UtilsService.platform[obj.operating_system];
+            simplifiedObj.available = true;
+            simplifiedObj.recommended = false;
             if (obj.custom_metadata) {
                 simplifiedObj.category = obj.custom_metadata.category;
                 simplifiedObj.user_segment = obj.custom_metadata.user_segment;
