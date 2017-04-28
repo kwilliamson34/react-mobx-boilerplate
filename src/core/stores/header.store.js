@@ -8,7 +8,6 @@ class HeaderStore {
 	}
 
 	@action updatePSE (val) {
-		console.log(val)
 		this.currentPSE = this.pse_list[val];
 	}
 
