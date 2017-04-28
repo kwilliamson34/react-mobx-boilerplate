@@ -1,8 +1,13 @@
 import React from 'react';
-import {observer,inject} from 'mobx-react';
+import {
+	observer,
+	inject
+} from 'mobx-react';
 
 import TitlePane from '../components/title-pane/title-pane';
-import {Rating} from '../components/rating/rating';
+import {
+	Rating
+} from '../components/rating/rating';
 import Toggle from '../components/toggle/toggle';
 
 //import mock response from services
@@ -11,20 +16,20 @@ const appDetail = require('../fixtures/mock-app-detail.json');
 @inject('store')
 @observer
 export default class AppDetailsPage extends React.Component {
-  constructor(props){
-    super(props);
-    this.appStore = this.props.store.appStore;
-  }
+	constructor(props) {
+		super(props);
+		this.appStore = this.props.store.appStore;
+	}
 
-  componentDidMount(){
-    //console.log('app_psk: ' + this.props.match.params.appPSK);
-    //this.appStore.getAppDetails(68483);
-    console.log('Service not ready yet for integration');
-  }
+	componentDidMount() {
+		//console.log('app_psk: ' + this.props.match.params.appPSK);
+		//this.appStore.getAppDetails(68483);
+		console.log('Service not ready yet for integration');
+	}
 
-    render() {
-        return (
-          <main id="content-main">
+	render() {
+		return (
+			<main id="content-main">
             <article className="app-details-page">
             <TitlePane pageTitle="App Details"/>
             <section className="app-summary">
@@ -35,40 +40,55 @@ export default class AppDetailsPage extends React.Component {
                       <img src={appDetail.icon_path} alt={appDetail.appName} />
                     </div>
                   </div>
-
                   <div className="col-xs-8 col-sm-9 app-title">
                     <h1>{appDetail.appName}</h1>
                   </div>
-
-                    <div className="col-xs-8 col-sm-5 app-meta">
-                      <div className="visible-xs">
-                        {appDetail.endorsement &&
-                          <div className="endorsed">FirstNet Endorsed</div>
-                        }
-                        <span className="sr-only">Average Rating</span> <img className="ratings-star" src="/images/star.png" alt="Rating Star" aria-hidden="true" />{appDetail.avgRevRating} ({appDetail.reviewCount}<span className="sr-only">Reviews Completed</span>) <span aria-hidden="true">V</span><span className="sr-only">Version </span> {appDetail.versionNum} <span className="sr-only">Filesize</span> {appDetail.filesize}
-                      </div>
-
-                      <div className="hidden-xs">
-                        <ul>
-                          <li>{appDetail.author}</li>
-                          <li>Version: <strong>{appDetail.versionNum}</strong>
-                          <br />Released: <strong>{appDetail.releaseDate}</strong></li>
-
-                          <li>
-                            {appDetail.endorsement &&
-                            <div className="endorsed">FirstNet Endorsed</div>
-                            }
-                            <Rating rating={appDetail.avgRevRating} />({appDetail.reviewCount}<span className="sr-only">Reviews Completed</span>)
-                        </li>
-                          <li>Platform<br /><strong>{appDetail.platform}</strong></li>
-                        </ul>
-                      </div>
-
+                  <div className="col-xs-8 col-sm-5 app-meta">
+                    {/* @mschiffman, I know we're not supposed to put business logic here in the render, so please let me know how situations like these should be handled */}
+                    <div className="visible-xs">
+                      {appDetail.endorsement &&
+                        <div className="endorsed">FirstNet Endorsed</div>
+                      }
+                      <span className="sr-only">Average Rating</span>
+                      <img className="ratings-star"
+                        src="/images/star.png"
+                        alt="Rating Star"
+                        aria-hidden="true" />
+                        {appDetail.avgRevRating}
+                        ({appDetail.reviewCount}<span className="sr-only">Reviews Completed</span>)
+                      <span aria-hidden="true">V</span><span className="sr-only">Version </span> {appDetail.versionNum}
+                      <span className="sr-only">Filesize</span> {appDetail.filesize}
                     </div>
+
+                    <div className="hidden-xs">
+                      <ul>
+                        <li>{appDetail.author}</li>
+                        <li>
+                          Version: <strong>{appDetail.versionNum}</strong><br />
+                          Released: <strong>{appDetail.releaseDate}</strong>
+                        </li>
+                        <li>
+                          {appDetail.endorsement &&
+                            <div className="endorsed">FirstNet Endorsed</div>
+                          }
+                          <Rating
+                            rating={appDetail.avgRevRating} />({appDetail.reviewCount}<span className="sr-only">Reviews Completed</span>)
+                        </li>
+                        <li>Platform<br /><strong>{appDetail.platform}</strong></li>
+                      </ul>
+                    </div>
+                    {/* end meta display block in question */}
+                  </div>
                     <div className="col-xs-12 col-sm-4 app-actions">
-                      <div><Toggle id="toggle-available" label="Available" defaultOn={appDetail.isAvailable} /></div>
-                      <div><Toggle id="toggle-recommended" label="Recommended" defaultOn={appDetail.isRecommended} /></div>
-                      <div><button type="button" className="fn-primary">Push to MDM</button></div>
+                      <div>
+                        <Toggle id="toggle-available" label="Available" defaultOn={appDetail.isAvailable} />
+                      </div>
+                      <div>
+                        <Toggle id="toggle-recommended" label="Recommended" defaultOn={appDetail.isRecommended} />
+                      </div>
+                      <div>
+                        <button type="button" className="fn-primary">Push to MDM</button>
+                      </div>
                     </div>
                 </div>
               </div>
@@ -114,7 +134,7 @@ export default class AppDetailsPage extends React.Component {
               </div>
             </section>
           </article>
-          </main>
-        )
-    }
+        </main>
+		)
+	}
 }
