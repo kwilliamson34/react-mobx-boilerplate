@@ -159,6 +159,7 @@ $fn-mobile-item-height: 60px;
     }
     &.pse-selector{
       background: $fn-dkgrey;
+      border:0;
       span{
         color: $fn-white;
       }
@@ -241,6 +242,9 @@ $fn-mobile-item-height: 60px;
         display: block;
         top: $fn-primary-nav-height;
         left: -505px;
+        .pse-selector{
+            border-bottom: 1px solid $fn-grey;
+        }
     }
 }
 /* Desktop */
@@ -275,5 +279,6 @@ $fn-mobile-item-height: 60px;
         }
     }
 }
+@import "pse-selector";
 @import "utility-nav";
 @import "weather-widget";

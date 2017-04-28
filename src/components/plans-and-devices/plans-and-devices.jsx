@@ -32,7 +32,7 @@ export default class PlansAndDevices extends React.Component {
                                 <div className="pad-text imagebox">
                                     <h3>Devices & Accessories</h3>
                                     <p>Lorem ipsum dolor sit amet consectetuer adipiscing elit</p>
-                                    <Link to="/shop-devices" className="pad-button btn btn-lg btn-default">Shop Devices</Link>
+                                    <Link to="shop-devices" className="pad-button btn btn-lg btn-default">Shop Devices</Link>
                                 </div>
                             </div>
                         </div>

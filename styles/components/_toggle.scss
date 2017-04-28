@@ -1,0 +1,85 @@
+$toggle-width: 38px;
+$toggle-on-offset: 19px;
+$toggle-height: 12px;
+$toggle-circle-diameter: 20px;
+$toggle-vertical-offset: 4px;
+
+.checkbox-as-toggle {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  line-height: $toggle-circle-diameter;
+
+  *,
+  *:after,
+  *:before {
+    transition: 0.25s ease-in-out;
+  }
+
+  .checkbox-label {
+    display: block;
+    background: transparent;
+    height: 24px;
+    position: relative;
+    width: 100%;
+    line-height: $toggle-circle-diameter;
+
+    &:focus {
+      @include focus();
+    }
+
+
+    span {
+      display: block;
+      position: absolute;
+      z-index: 0;
+      left: 0px;
+      line-height: 2rem;
+      font-size: $fn-label-default-size;
+      font-weight: $fn-bold-weight;
+    }
+
+    span.pill {
+      background: $fn-mdgrey;
+      box-shadow: 0 0 0 2px $fn-mdgrey;
+      height: $toggle-height;
+      width: $toggle-width;
+      border-radius: $toggle-height;
+      line-height: $toggle-circle-diameter;
+      left: auto;
+      right: 0px;
+      top: $toggle-vertical-offset;
+    }
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: 1;
+      right: 0;
+      border-radius: $toggle-circle-diameter;
+      height: $toggle-circle-diameter;
+      width: $toggle-circle-diameter;
+      background: white;
+      box-shadow: 0 3px 3px rgba(0,0,0,.2),0 0 0 2px $fn-grey;
+    }
+  }
+
+  .checkbox {
+    position: absolute;
+    left: -5000px;
+
+    &:checked {
+      + .checkbox-label {
+        span.pill {
+          background: $fn-ltblue;
+          box-shadow: 0 0 0 2px $fn-ltblue;
+        }
+
+        &:after {
+          right: $toggle-on-offset;
+          box-shadow: 0 3px 3px rgba(0,0,0,.2),0 0 0 2px $fn-blue;
+          background: $fn-blue;
+        }
+      }
+    }
+  }
+}
