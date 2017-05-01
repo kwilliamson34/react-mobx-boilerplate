@@ -43,7 +43,7 @@ export default class AppDetailsPage extends React.Component {
               <div className="col-xs-8 col-sm-9 app-title">
                 <h1>{appDetail.appName}</h1>
               </div>
-              <div className="col-xs-8 col-sm-5 app-meta">
+              <div className="col-xs-8 col-sm-5 col-lg-6 app-meta">
 
                 <div className="visible-xs">
                   {appDetail.endorsement &&
@@ -70,14 +70,15 @@ export default class AppDetailsPage extends React.Component {
                       {appDetail.endorsement &&
                         <div className="endorsed">FirstNet Endorsed</div>
                       }
+											<span className="card-rating">
                       <Rating
-                        rating={appDetail.avgRevRating} />({appDetail.reviewCount}<span className="sr-only">Reviews Completed</span>)
+                        rating={appDetail.avgRevRating} /></span>({appDetail.reviewCount}<span className="sr-only">Reviews Completed</span>)
                     </li>
                     <li>Platform<br /><strong>{appDetail.platform}</strong></li>
                   </ul>
                 </div>
               </div>
-                <div className="col-xs-12 col-sm-4 app-actions">
+                <div className="col-xs-12 col-sm-4 col-lg-3 app-actions">
                   <div>
                     <Toggle id="toggle-available" label="Available" defaultOn={appDetail.isAvailable} />
                   </div>
