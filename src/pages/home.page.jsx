@@ -7,8 +7,7 @@ export default class HomePage extends React.Component {
 
     render() {
         return (
-
-            <main id="content-main">
+            <article id="home-page">
                 <TitlePane pageTitle="PSE Home Page"/>
                 <section className="placeholder alert-dropdown">
                     Alert Dropdown Component
@@ -20,7 +19,7 @@ export default class HomePage extends React.Component {
                     <h2>News feed</h2>
                 </section>
                 <PlansAndDevices />
-            </main>
+            </article>
         )
     }
 

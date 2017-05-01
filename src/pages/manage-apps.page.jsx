@@ -24,7 +24,7 @@ export default class ManageAppsPage extends React.Component {
 
 	render() {
 		return (
-			<main className="content-main">
+			<article id="manage-apps-page">
 				<TitlePane pageTitle="Manage Apps" />
 					<section className="">
 						<div className="container">
@@ -55,7 +55,7 @@ export default class ManageAppsPage extends React.Component {
 								{/*}*/}
 							</div>
 					</section>
-				</main>
+				</article>
 			)
 	}
 }

@@ -43,16 +43,19 @@ export default class App extends React.Component {
                     <div id="PSE-wrapper">
                         <a href="#main-content" className="sr-only sr-only-focusable">Skip Navigation</a>
                         <Header/>
-                        <Switch>
-                          <Route path="/" exact component={HomePage}/>
-                          <Route path="/admin" exact component={AdminDashboardPage} />
-                          <Route path="/manage-apps" exact component={ManageAppsPage}/>
-                          <Route path="/help-center" exact component={HelpCenterPage} />
-                          <Route path="/shop-plans" exact component={ShopPlansView} />
-                          <Route path="/app" component={AppDetailsPage} />
-                          <Route component={NoMatch}/>
-                        </Switch>
+                          <main id="main-content">
+                            <Switch>
+                              <Route path="/" exact component={HomePage}/>
+                              <Route path="/admin" exact component={AdminDashboardPage} />
+                              <Route path="/manage-apps" exact component={ManageAppsPage}/>
+                              <Route path="/help-center" exact component={HelpCenterPage} />
+                              <Route path="/shop-plans" exact component={ShopPlansView} />
+                              <Route path="/app" component={AppDetailsPage} />
+                              <Route component={NoMatch}/>
+                            </Switch>
+                          </main>
                         <Footer/>
+
                     </div>
                   </ScrollToTop>
               </Provider>

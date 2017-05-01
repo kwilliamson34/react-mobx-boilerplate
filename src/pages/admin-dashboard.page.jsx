@@ -8,7 +8,7 @@ import PlansAndDevices from '../components/plans-and-devices/plans-and-devices';
 export default class AdminDashboardPage extends React.Component {
     render() {
         return (
-          <main id="content-main">
+          <article id="admin-dashboard-page">
             <TitlePane pageTitle="Admin Dashboard" />
             <section className="placeholder-long">
                 <div className="container">
@@ -21,7 +21,7 @@ export default class AdminDashboardPage extends React.Component {
                 </div>
             </section>
             <PlansAndDevices />
-          </main>
+          </article>
         )
     }
 }
