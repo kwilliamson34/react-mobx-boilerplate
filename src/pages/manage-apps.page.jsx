@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {inject, observer} from 'mobx-react';
 
 import TitlePane from '../components/title-pane/title-pane';
@@ -58,3 +59,7 @@ export default class ManageAppsPage extends React.Component {
 			)
 	}
 }
+
+ManageAppsPage.propTypes = {
+	store: PropTypes.object
+};

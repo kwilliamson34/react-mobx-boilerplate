@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types'; // if not @injecting the store, use prop-types
-import { Link } from 'react-router-dom';
 
 import { observer } from 'mobx-react';
 // import { inject, observer, PropTypes } from 'mobx-react'; // if @injecting, use mobx PropTypes to get observableArray etc.

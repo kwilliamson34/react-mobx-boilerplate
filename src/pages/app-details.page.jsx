@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
 	observer,
 	inject
@@ -136,3 +137,8 @@ export default class AppDetailsPage extends React.Component {
 		)
 	}
 }
+
+
+AppDetailsPage.propTypes = {
+	store: PropTypes.object
+};
