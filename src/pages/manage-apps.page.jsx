@@ -42,21 +42,21 @@ export default class ManageAppsPage extends React.Component {
 								</div>
 							</div>
 						</div>
-							<div className="row">
-								{/*TODO - clean this up to just change the store and title.*/}
-								{/*{!this.cardListStore.isFiltered &&
-									<CardList title="Apps" cards={this.cardListStore.searchResults}></CardList>
-								}
-								{this.cardListStore.shouldShowSearchResults && !this.cardListStore.isLoading &&
-									<CardList title="Search Results" cards={this.cardListStore.searchResults}></CardList>
-								}*/}
-								{/*{this.cardListStore.isFiltered &&*/}
-									<CardList title="Apps" cards={this.cardListStore.filteredSearchResults} />
-								{/*}*/}
-							</div>
-					</section>
-				</article>
-			)
+						<div className="row">
+							{/*TODO - clean this up to just change the store and title.*/}
+							{/*{!this.cardListStore.isFiltered &&
+								<CardList title="Apps" cards={this.cardListStore.searchResults}></CardList>
+							}
+							{this.cardListStore.shouldShowSearchResults && !this.cardListStore.isLoading &&
+								<CardList title="Search Results" cards={this.cardListStore.searchResults}></CardList>
+							}*/}
+							{/*{this.cardListStore.isFiltered &&*/}
+								<CardList title="Apps" cards={this.cardListStore.filteredSearchResults} />
+							{/*}*/}
+						</div>
+				</section>
+			</article>
+		)
 	}
 }
 

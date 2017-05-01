@@ -20,7 +20,6 @@ export default class NoMatch extends React.Component {
           </article>
         )
     }
-
 }
 
 NoMatch.propTypes = {
