@@ -44,7 +44,6 @@ export default class AppDetailsPage extends React.Component {
                 <h1>{appDetail.appName}</h1>
               </div>
               <div className="col-xs-8 col-sm-5 col-lg-6 app-meta">
-
                 <div className="visible-xs">
                   {appDetail.endorsement &&
                     <div className="endorsed">FirstNet Endorsed</div>
@@ -55,7 +54,7 @@ export default class AppDetailsPage extends React.Component {
                     alt="Rating Star"
                     aria-hidden="true" />
                     {appDetail.avgRevRating}
-                    ({appDetail.reviewCount}<span className="sr-only">Reviews Completed</span>)
+                    ({appDetail.reviewCount} <span className="sr-only">Reviews Completed</span>)
                   &nbsp; <span aria-hidden="true">V</span><span className="sr-only">Version </span> {appDetail.versionNum}
                   &nbsp; <span className="sr-only">Filesize</span> {appDetail.filesize}
                 </div>
@@ -71,8 +70,9 @@ export default class AppDetailsPage extends React.Component {
                         <div className="endorsed">FirstNet Endorsed</div>
                       }
 											<span className="card-rating">
-                      <Rating
-                        rating={appDetail.avgRevRating} /></span>({appDetail.reviewCount}<span className="sr-only">Reviews Completed</span>)
+                      	<Rating
+                        rating={appDetail.avgRevRating} />
+											</span> ({appDetail.reviewCount}<span className="sr-only">Reviews Completed</span>)
                     </li>
                     <li>Platform<br /><strong>{appDetail.platform}</strong></li>
                   </ul>
