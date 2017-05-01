@@ -5,6 +5,7 @@ import TitlePane from '../components/title-pane/title-pane';
 import { CardList } from '../components/card-list/card-list';
 import { SearchForm } from '../components/search/search-form';
 import { Filters } from '../components/filters/filters';
+import { Pagination } from '../components/pagination/pagination';
 
 @inject('store')
 @observer
@@ -53,6 +54,9 @@ export default class ManageAppsPage extends React.Component {
 									<CardList title="Apps" cards={this.cardListStore.filteredSearchResults} />
 								{/*}*/}
 							</div>
+						<div className="row">
+							<Pagination store={this.cardListStore} />
+						</div>
 					</section>
 				</main>
 			)
