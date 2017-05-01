@@ -27,7 +27,6 @@ $toggle-vertical-offset: 4px;
       @include focus();
     }
 
-
     span {
       display: block;
       position: absolute;
@@ -54,7 +53,7 @@ $toggle-vertical-offset: 4px;
       display: block;
       position: absolute;
       z-index: 1;
-      right: 0;
+      right: $toggle-on-offset;
       border-radius: $toggle-circle-diameter;
       height: $toggle-circle-diameter;
       width: $toggle-circle-diameter;
@@ -75,7 +74,7 @@ $toggle-vertical-offset: 4px;
         }
 
         &:after {
-          right: $toggle-on-offset;
+          right: 0;
           box-shadow: 0 3px 3px rgba(0,0,0,.2),0 0 0 2px $fn-blue;
           background: $fn-blue;
         }
