@@ -1,4 +1,4 @@
-import { action, autorun, computed, observable } from 'mobx';
+import { action, computed, observable } from 'mobx';
 import { apiService } from '../services/api.service';
 import _ from 'lodash';
 
@@ -195,7 +195,7 @@ class CardListStore {
         { title: 'Emergency Medical', value: 202 },
         { title: 'Hazmat Dispatch', value: 203 },
         { title: 'Emergency Management', value: 204 },
-        { title: 'Critical Infrastructure', value: 205 },
+        { title: 'Critical Infrastructure', value: 205 }
     ];
     @observable segmentFilter = '';
 }

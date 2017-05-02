@@ -8,10 +8,10 @@ const pseid = 'pse_id=123'
 
 class ApiService {
 
-    // loadUserData() {
-    //     return axios.get('http://localhost:3000/user');
-    // }
-    
+    loadUserData() {
+        return axios.get('http://localhost:3000/user');
+    }
+
     getHomeCards() {
         return axios.get(`${base}/apps?${pseid}`)
             .then((res) => {
@@ -20,9 +20,7 @@ class ApiService {
     }
 
     getSearchResults(query) {
-        // TODO - swap routes when they are actually working
-        // return axios.get(`${base}/apps/search?searchTxt=${query}&${pseid}`)
-        return axios.get(`${base}/apps?${pseid}`)
+        return axios.get(`${base}/apps/admin/search?searchTxt=${query}&${pseid}`)
             .then((res) => {
                 return utilsService.conditionData(res.data.applications);
             });

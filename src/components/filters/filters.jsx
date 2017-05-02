@@ -1,5 +1,5 @@
 import React from 'react';
-import { observer, inject, PropTypes } from 'mobx-react';
+import { observer, PropTypes } from 'mobx-react';
 
 @observer
 export class Filters extends React.Component {

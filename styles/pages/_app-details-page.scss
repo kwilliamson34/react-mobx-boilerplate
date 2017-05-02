@@ -1,4 +1,4 @@
-.app-details-page {
+#app-details-page {
   background: $fn-grey;
 
   .appicon-wrapper {
@@ -24,7 +24,12 @@
     > .container {
       background: $fn-white;
     }
-
+    .ratings-container{
+      display: inline-block;
+    }
+    .ratings-star{
+      height: 1.6rem;
+    }
     .ratings-number {
       display: none;
     }
