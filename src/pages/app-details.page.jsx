@@ -70,8 +70,7 @@ export default class AppDetailsPage extends React.Component {
                         <div className="endorsed">FirstNet Endorsed</div>
                       }
 											<span className="card-rating">
-                      	<Rating
-                        rating={appDetail.avgRevRating} />
+												<Rating rating={appDetail.avgRevRating} />
 											</span> ({appDetail.reviewCount}<span className="sr-only">Reviews Completed</span>)
                     </li>
                     <li>Platform<br /><strong>{appDetail.platform}</strong></li>
