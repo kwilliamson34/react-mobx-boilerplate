@@ -16,32 +16,35 @@ module.exports = {
 	context: path.resolve(__dirname, 'src'),
 	entry: [
 		'react-hot-loader/patch',
-    // activate HMR for React
+		// activate HMR for React
 
-    'webpack-dev-server/client?http://localhost:3030',
-    // bundle the client for webpack-dev-server
-    // and connect to the provided endpoint
+		'webpack-dev-server/client?http://localhost:3030',
+		// bundle the client for webpack-dev-server
+		// and connect to the provided endpoint
 
-    'webpack/hot/only-dev-server',
-    // bundle the client for hot reloading
-    // only- means to only hot reload for successful updates
+		'webpack/hot/only-dev-server',
+		// bundle the client for hot reloading
+		// only- means to only hot reload for successful updates
 
+		'babel-polyfill',
+		// babel doesn't handle Promise by default
+		// this enables promise polyfills for IE
 		'./index.jsx'
 	],
 	output: {
 		filename: 'js/bundle.[hash].js',
 		path: path.resolve(__dirname, 'build'),
 		publicPath: './'
-    // necessary for HMR to know where to load the hot update chunks
+		// necessary for HMR to know where to load the hot update chunks
 	},
 	devtool: 'eval',
 	devServer: {
-		port:3030,
+		port: 3030,
 		historyApiFallback: true,
 		hot: true,
 
 		contentBase: path.resolve(__dirname, 'build'),
-    // match the output path
+		// match the output path
 
 		publicPath: '/',
 		proxy: {
@@ -51,8 +54,8 @@ module.exports = {
 		}
 	},
 	resolve: {
-    extensions: ['.js', '.jsx']
-  },
+		extensions: ['.js', '.jsx']
+	},
 	module: {
 		rules: [
 			{
@@ -70,8 +73,8 @@ module.exports = {
 					path.resolve(__dirname, 'src')
 				],
 				use: [
-					{loader: 'babel-loader'},
-					{loader: 'eslint-loader'}
+					{ loader: 'babel-loader' },
+					{ loader: 'eslint-loader' }
 				]
 			},
 			{
@@ -80,14 +83,14 @@ module.exports = {
 					path.resolve(__dirname, 'styles')
 				],
 				use: ExtractTextPlugin.extract({
-	        fallback: 'style-loader',
-	        use: [
-	          {loader: 'css-loader'},
-	          {loader: 'sass-loader'},
-						{loader: 'postcss-loader'},
-						{loader: 'sass-loader'}
-	        ]
-		    })
+					fallback: 'style-loader',
+					use: [
+						{ loader: 'css-loader' },
+						{ loader: 'sass-loader' },
+						{ loader: 'postcss-loader' },
+						{ loader: 'sass-loader' }
+					]
+				})
 			},
 			{
 				test: /\.(png|svg)$/,
@@ -96,12 +99,12 @@ module.exports = {
 				],
 				use: [
 					{
-        		loader: 'file-loader',
+						loader: 'file-loader',
 						options: {
 							publicPath: './',
 							name: '[path][name].[ext]'
 						}
-          }
+					}
 				]
 			},
 			{
@@ -111,46 +114,46 @@ module.exports = {
 				],
 				use: [
 					{
-        		loader: 'file-loader',
+						loader: 'file-loader',
 						options: {
 							publicPath: '../',
 							name: 'fonts/[name].[ext]'
 						}
-          }
+					}
 				]
 			}
 		]
 	},
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
-    // enable HMR globally
+		// enable HMR globally
 
 		new webpack.ProvidePlugin({
-		   'jQuery': 'jquery',
-		   '$': 'jquery'
+			'jQuery': 'jquery',
+			'$': 'jquery'
 		}),
 
 		new ExtractTextPlugin({
-	  	filename: 'css/styles.[contenthash].css',
-	    disable: process.env.npm_lifecycle_event === 'start'
-    }),
+			filename: 'css/styles.[contenthash].css',
+			disable: process.env.npm_lifecycle_event === 'start'
+		}),
 
 		new HtmlWebpackPlugin({
-    	template: './index.ejs',
+			template: './index.ejs',
 			hash: false
-    }),
+		}),
 
 		new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /nb/),
-    new webpack.LoaderOptionsPlugin({
-				test: /\.scss$/,
-				debug: true,
-				options: {
-						postcss: function() {
-								return [ precss, autoprefixer ];
-						},
-						context: path.join(__dirname, "src"),
-						output: { path: path.join(__dirname, "build") }
-				}
-    })
-  ]
+		new webpack.LoaderOptionsPlugin({
+			test: /\.scss$/,
+			debug: true,
+			options: {
+				postcss: function () {
+					return [precss, autoprefixer];
+				},
+				context: path.join(__dirname, "src"),
+				output: { path: path.join(__dirname, "build") }
+			}
+		})
+	]
 };
