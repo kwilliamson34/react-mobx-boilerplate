@@ -184,7 +184,7 @@ class CardListStore {
         { title: 'Situational Awareness & Detection', value: 108 },
         { title: 'Cyber Security & Fraud Detection', value: 109 },
         { title: 'Forensic Intelligence', value: 110 },
-        { title: 'Public Safety Community', value: 111 },
+        { title: 'Public Safety Community', value: 111 }
     ];
     @observable categoryFilter = '';
 
