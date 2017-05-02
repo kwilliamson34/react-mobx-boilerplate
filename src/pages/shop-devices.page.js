@@ -5,7 +5,7 @@ import TitlePane from '../components/title-pane/title-pane';
 export default class ShopPlansView extends React.Component {
     render() {
         return (
-          <main id="content-main">
+          <article id="shop-devices-page">
             <TitlePane pageTitle="Plans"/>
             <div className="content-wrapper shop-devices  text-center">
                 <section className="product-row">
@@ -103,7 +103,7 @@ export default class ShopPlansView extends React.Component {
                     </div>
                 </section>
             </div>
-          </main>
+          </article>
         )
     }
 }

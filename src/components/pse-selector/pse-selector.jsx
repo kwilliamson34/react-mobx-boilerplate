@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {DropdownButton, MenuItem} from 'react-bootstrap';
 
 import {observer,inject} from 'mobx-react';
@@ -38,4 +39,6 @@ export default class PSESelector extends React.Component {
 	}
 }
 
-PSESelector.propTypes = {};
+PSESelector.propTypes = {
+	store: PropTypes.object
+};

@@ -24,7 +24,8 @@
       "no-console": 0
     },
     "env": {
-      "browser": true
+      "browser": true,
+      "node": true
     },
     "extends": ["eslint:recommended", "plugin:react/recommended"]
 }

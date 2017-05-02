@@ -1,5 +1,10 @@
 import React from 'react';
+<<<<<<< HEAD
 import { inject, observer } from 'mobx-react';
+=======
+import PropTypes from 'prop-types';
+import {inject, observer} from 'mobx-react';
+>>>>>>> 3425319f2507010ae0dae2c3c135e7b3a75ea0d7
 
 import TitlePane from '../components/title-pane/title-pane';
 import { CardList } from '../components/card-list/card-list';
@@ -23,7 +28,7 @@ export default class ManageAppsPage extends React.Component {
 
 	render() {
 		return (
-			<main className="content-main">
+			<article id="manage-apps-page">
 				<TitlePane pageTitle="Manage Apps" />
 				<section className="">
 					<div className="container manage-apps">
@@ -45,7 +50,11 @@ export default class ManageAppsPage extends React.Component {
 						<CardList cards={this.cardListStore.filteredSearchResults} />
 					</div>
 				</section>
-			</main>
+			</article>
 		)
 	}
 }
+
+ManageAppsPage.propTypes = {
+	store: PropTypes.object
+};
