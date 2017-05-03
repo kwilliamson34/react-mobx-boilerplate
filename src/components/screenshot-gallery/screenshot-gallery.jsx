@@ -27,7 +27,6 @@ export class ScreenshotGallery extends React.Component {
   }
 
   render() {
-    let hideGalleryIfNoShots = this.screenshots.length === 0 ? {display: 'none'} : {};
 
     let slides = this.screenshots.map((node, i) => {
       return (
@@ -36,7 +35,7 @@ export class ScreenshotGallery extends React.Component {
     });
 
     return (
-      <div className="gallery-container" style={hideGalleryIfNoShots}>
+      <div className="gallery-container">
         {slides}
       </div>
     )
