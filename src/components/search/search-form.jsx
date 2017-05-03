@@ -26,10 +26,6 @@ export class SearchForm extends React.Component {
     this.store.clear();
   }
 
-  get disabledState() {
-    return this.store.searchButtonIsEnabled ? '' : 'disabled';
-  }
-
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
@@ -39,7 +35,7 @@ export class SearchForm extends React.Component {
             <span className="icon-close" onClick={this.handleClearClick}></span>
           }
           <span className="input-group-btn">
-            <button className="btn btn-primary" type="submit" disabled={this.disabledState}>
+            <button className="btn btn-primary" type="submit">
               <span className="sr-only">Search</span>
               <span className="icon-search"/>
             </button>
