@@ -12,5 +12,47 @@
   "isAvailable": true,
   "isRecommended": false,
   "devWebsite": "http://google.com/",
-  "devDescription": "<p>Etiam sollicitudin tortor risus, eget rutrum lacus fringilla vitae. Fusce ornare dictum maximus. Sed porta ligula convallis, tempor neque id, interdum purus. Praesent euismod magna ac commodo consequat. Nulla facilisi. Fusce in cursus neque. Sed rhoncus laoreet mi non accumsan. Morbi consequat lacinia interdum. Ut ex nibh, auctor sit amet lorem at, molestie vehicula odio. Pellentesque bibendum congue nulla, nec pellentesque tortor vulputate in. Phasellus facilisis arcu nulla, et finibus libero iaculis a. Cras commodo ligula eget laoreet aliquam. Phasellus viverra mollis turpis eget sodales. Donec pretium lacinia arcu, non posuere nibh ornare non. Aliquam tincidunt justo ante, a tempor nulla suscipit at.</p>"
+  "devDescription": "<p>Etiam sollicitudin tortor risus, eget rutrum lacus fringilla vitae. Fusce ornare dictum maximus. Sed porta ligula convallis, tempor neque id, interdum purus. Praesent euismod magna ac commodo consequat. Nulla facilisi. Fusce in cursus neque. Sed rhoncus laoreet mi non accumsan. Morbi consequat lacinia interdum. Ut ex nibh, auctor sit amet lorem at, molestie vehicula odio. Pellentesque bibendum congue nulla, nec pellentesque tortor vulputate in. Phasellus facilisis arcu nulla, et finibus libero iaculis a. Cras commodo ligula eget laoreet aliquam. Phasellus viverra mollis turpis eget sodales. Donec pretium lacinia arcu, non posuere nibh ornare non. Aliquam tincidunt justo ante, a tempor nulla suscipit at.</p>",
+  "screenshots": [
+    {
+      "description": "Image1",
+      "path": "vertical.png"
+    },
+    {
+      "description": "Image2",
+      "path": "horizontal.png"
+    },
+    {
+      "description": "Image3",
+      "path": "vertical.png"
+    },
+    {
+      "description": "Image4",
+      "path": "vertical.png"
+    },
+    {
+      "description": "Image5",
+      "path": "horizontal.png"
+    },
+    {
+      "description": "Image6",
+      "path": "vertical.png"
+    },
+    {
+      "description": "Image7",
+      "path": "horizontal.png"
+    },
+    {
+      "description": "Image8",
+      "path": "vertical.png"
+    },
+    {
+      "description": "Image9",
+      "path": "vertical.png"
+    },
+    {
+      "description": "Image10",
+      "path": "horizontal.png"
+    }
+  ]
 }
