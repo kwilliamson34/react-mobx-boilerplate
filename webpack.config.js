@@ -34,7 +34,7 @@ module.exports = {
 	output: {
 		filename: 'js/bundle.[hash].js',
 		path: path.resolve(__dirname, 'build'),
-		publicPath: './'
+		publicPath: '/'
 		// necessary for HMR to know where to load the hot update chunks
 	},
 	devtool: 'eval',
