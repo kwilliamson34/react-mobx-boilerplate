@@ -1,4 +1,8 @@
 .gallery-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   position: relative;
   height: 600px;
   margin: 0px 60px 0px 60px;
@@ -8,10 +12,6 @@
 }
 
 .slide-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
   position: relative;
   max-height: 480px;
   border: 1px dashed red;
