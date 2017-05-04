@@ -1,7 +1,14 @@
+.filter-title{
+  // TODO - update to standard styling
+  height: 48px; color: #4A4A4A;	font-size: 16px;	font-weight: 500;	line-height: 48px;
+  // margin-right: 0px;
+  text-align: left;
+}
+
 .filters {
   text-align: right;
   position: relative;
-  padding: 10px;
+  padding: 10px 0;
 
   .form-inline, h4 {
     display: inline-block;
@@ -18,3 +25,5 @@
     }
   }
 }
+
+@import 'filters-lg';

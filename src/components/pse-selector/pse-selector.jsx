@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {DropdownButton, MenuItem} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 
@@ -25,18 +26,26 @@ export default class PSESelector extends React.Component {
 		return (
 			<div className="pse-selector-btn">
 				{(this.headerStore.pse_list.length > 1)
-				?<DropdownButton id="pse-selector" title={this.headerStore.currentPSEName} onSelect={this.updatePSE.bind(this)} noCaret>
-					{this.headerStore.pse_list.map((pse_name, idx) => {
-						return <MenuItem eventKey={idx} key={idx}>{pse_name}</MenuItem>
-					})}
-					</DropdownButton>
+				?<div className="dropdown btn-group">
+					<button id="user-dropdown" role="button" className="dropdown-toggle btn btn-default" data-toggle="dropdown">{this.headerStore.currentPSEName}</button>
+					<ul role="menu" className="dropdown-menu dropdown-menu-right" aria-labelledby="user-dropdown">
+						{this.headerStore.pse_list.map((pse_name, idx) => {
+							return(
+								<li role="presentation" key={idx}>
+									<a href="#" onClick={this.updatePSE.bind(this,idx)}>{pse_name}</a>
+								</li>
+							)
+						})}
+					</ul>
+				</div>
 				:<div id="pse-selector">
-						<p>{this.headerStore.currentPSEName}</p>
-					</div>
+					<p>{this.headerStore.currentPSEName}</p>
+				</div>
 				}
 			</div>
 		)
 	}
 }
-
-PSESelector.propTypes = {};
+PSESelector.propTypes = {
+	store: PropTypes.object
+};

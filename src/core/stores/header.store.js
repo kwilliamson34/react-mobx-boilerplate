@@ -8,13 +8,12 @@ class HeaderStore {
 	}
 
 	@action getLastPSE() {
-		let storedPSE = localStorage.getItem("pse-homepage_lastViewedPSE");
+		let storedPSE = localStorage.getItem('pse-homepage_lastViewedPSE');
 
 		this.currentPSEName = storedPSE ? this.pse_list[storedPSE] : this.pse_list[0];
 	}
 
 	@action updatePSE(val) {
-
 		if(val){
 			localStorage.setItem("pse-homepage_lastViewedPSE", val);
 			this.currentPSEName = this.pse_list[val];	

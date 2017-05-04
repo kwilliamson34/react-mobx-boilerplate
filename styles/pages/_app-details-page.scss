@@ -1,0 +1,219 @@
+#app-details-page {
+  background: $fn-grey;
+
+  .appicon-wrapper {
+    padding-left: 30px;
+
+    .app-icon {
+      min-width: 48px;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  .endorsed {
+    color: $fn-ltblue;
+    font-weight: $fn-medium-weight;
+  }
+
+  .app-summary {
+    padding: 30px 0;
+
+    > .container {
+      background: $fn-white;
+    }
+    .ratings-container{
+      display: inline-block;
+    }
+    .ratings-star{
+      height: 1.6rem;
+    }
+    .ratings-number {
+      display: none;
+    }
+
+    .app-meta {
+      ul {
+        > li {
+          width: 50%;
+          float: left;
+          margin-bottom: 10px;
+          line-height: 1.6;
+        }
+      }
+    }
+  }
+
+  .app-gallery {
+    background: $fn-white;
+    height: 600px;
+  }
+
+  .app-description,
+  .app-developer {
+    padding: 70px 0 50px;
+  }
+
+  .app-ratings {
+    padding: 70px 0 50px;
+    background: $fn-white;
+  }
+
+  .developer-website {
+    margin-top: 30px;
+  }
+}
+/* mobile */
+@media only screen and (min-width : 0px) {
+  .app-details-page {
+    .app-summary {
+      h1 {
+        font-size: 2.4rem;
+        margin-bottom: 0;
+      }
+
+      > .container {
+        background: transparent;
+        padding: 0;
+      }
+
+      .appicon-wrapper {
+        text-align: right;
+
+        img {
+          max-width: 120px;
+        }
+      }
+
+      .endorsed {
+        margin-bottom: 15px;
+      }
+
+      .app-title {
+        padding: 0 30px 0 0;
+      }
+
+      .app-meta {
+        padding: 0 30px 0 0;
+      }
+
+      .app-actions {
+        margin-top: 30px;
+
+        > div {
+          border-top: 1px solid $fn-dkgrey;
+          padding: 15px 30px;
+
+          &:last-child {
+            border-top: 1px solid $fn-dkgrey;
+            text-align: center;
+
+            button.fn-primary {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+
+    .developer-website {
+      text-align: left;
+    }
+  }
+}
+/*Tablet*/
+@media only screen and (min-width : 768px) {
+  .app-details-page {
+    .app-summary {
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .appicon-wrapper {
+        text-align: right;
+
+        img {
+          max-width: 150px;
+        }
+      }
+
+      .endorsed {
+        margin-bottom: 0;
+      }
+
+      .app-actions {
+        margin-top: 0;
+
+        > div {
+          border-top: 0;
+          padding: 0 15px 10px;
+
+          &:last-child {
+            border-top: 0;
+            text-align: center;
+
+            button.fn-primary {
+              width: auto;
+              padding: 0 1.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+/* Desktop */
+@media only screen and (min-width : 992px) {
+  .app-details-page {
+    .app-summary {
+      font-size: $fn-body-default-size;
+
+      > .container {
+        background: $fn-white;
+        padding-top: 30px;
+        padding-bottom: 30px;
+      }
+
+      h1 {
+        font-size: 5.3rem;
+        margin-bottom: 1.6rem;
+      }
+
+      .appicon-wrapper {
+        text-align: right;
+
+        img {
+          max-width: 200px;
+        }
+      }
+
+      .app-actions {
+        margin-top: 0;
+
+        > div {
+          border-top: 0;
+          padding: 5px 15px 10px;
+
+          &:last-child {
+            border-top: 0;
+            text-align: center;
+
+            button.fn-primary {
+              width: auto;
+              padding: 0 4rem;
+            }
+          }
+        }
+      }
+    }
+
+    .developer-website {
+      text-align: center;
+    }
+  }
+}
+/* LG */
+@media only screen and (min-width : 1200px) {}

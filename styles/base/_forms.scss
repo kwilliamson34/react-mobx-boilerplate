@@ -62,13 +62,15 @@ select {
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
-    border: 1px solid #ccc;
+    border: 1px solid $fn-mdgrey;
     padding: 0 0.75em;
-    color: black;
-    font-weight: $fn-bold-weight;
-    background: $fn-ltgrey url('/assets/svg/DownArrow.svg') no-repeat;
+    padding-right: 33px;
+    color: $fn-black;
+    font-size: 1.4rem;
+    font-weight: $fn-medium-weight;
+    background: $fn-ltgrey url('/images/DownArrow.svg') no-repeat;
     background-size: 14px 14px;
-    background-position: 96% 48%;
+    background-position: right 15px top 50%;
   }
 }
 

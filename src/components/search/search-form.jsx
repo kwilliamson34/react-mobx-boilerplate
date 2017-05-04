@@ -1,6 +1,5 @@
 import React from 'react';
-import { observer, inject, PropTypes } from 'mobx-react';
-import _ from 'lodash';
+import { observer, PropTypes } from 'mobx-react';
 
 @observer
 export class SearchForm extends React.Component {
@@ -23,12 +22,12 @@ export class SearchForm extends React.Component {
     this.store.getSearchResults();
   }
 
-  handleClearClick = (event) => {
+  handleClearClick = () => {
     this.store.clear();
   }
 
   get disabledState() {
-    return this.store.searchButtonIsEnabled ? "" : "disabled";
+    return this.store.searchButtonIsEnabled ? '' : 'disabled';
   }
 
   render() {

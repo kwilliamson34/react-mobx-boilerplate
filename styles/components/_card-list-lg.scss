@@ -1,6 +1,14 @@
-@media #{$desktop}{
+@media #{$tablet}{
     .card-list-container{
         padding-left: 50px;
         padding-right: 50px;
+        .card-wrapper {
+            margin: 20px 0px 0;
+
+            &:focus {
+            margin: 20px 0px 0;
+            }
+        }
     }
+
 }

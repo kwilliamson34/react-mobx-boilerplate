@@ -49,7 +49,7 @@ export class SummaryCard extends React.Component {
 
 	render() {
     return (
-        <Link to="/faq" className="card-wrapper">
+        <Link to="/app" className="card-wrapper">
             <div className="card-container center-block has-shadow">
                 {this.display.badge && (
                     <div className="card-badge">
@@ -63,7 +63,7 @@ export class SummaryCard extends React.Component {
                     <div className="card-name">
                         {this.display.name}
                     </div>
-                    <div className="card-publisher hidden-sm hidden-xs">
+                    <div className="card-publisher hidden-xs">
                         {this.display.publisher}
                     </div>
                 </section>
