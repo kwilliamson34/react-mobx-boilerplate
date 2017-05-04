@@ -4,39 +4,30 @@
   align-items: stretch;
   justify-content: space-between;
   position: relative;
-  // height: 600px;
-  padding: 60px 0;
+  padding: 60px 0px 30px 0px;
   overflow-x: scroll;
   overflow-y: hidden;
-  // border: 1px dashed blue;
 }
 
 .slide-container {
   display: flex;
   flex-direction: column;
-  // align-items: center;
   justify-content: center;
   position: relative;
-  // max-height: 480px;
-  margin: 0px 42px 42px 0px;
-  // border: 1px dashed red;
+  margin: 0px 15px;
 
 }
 
 .slide-figure {
   max-height: 480px;
-  // border: 1px dashed green;
 
   .slide-img {
     max-height: 440px;
     max-width: 440px;
-    // border: 1px dashed yellow;
   }
 }
 .slide-caption {
   justify-content: flex-end;
   position: absolute;
   bottom: 0;
-  // height: 18.5px;
-  // padding: 0px 0px 0px 24.62px;
 }
