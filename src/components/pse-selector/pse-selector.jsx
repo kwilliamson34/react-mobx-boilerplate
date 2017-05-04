@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {DropdownButton, MenuItem} from 'react-bootstrap';
-import {Link} from 'react-router-dom';
 
 import {observer,inject} from 'mobx-react';
 
