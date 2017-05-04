@@ -2,7 +2,7 @@ $focus-shadow-depth: 1px;
 
 @mixin focus() {
   outline: none;
-  border: 2px solid $focus-lightbg;
+  outline: 2px solid $focus-lightbg;
   box-shadow: 0 0 $focus-shadow-depth $focus-lightbg;
   box-sizing: border-box;
 

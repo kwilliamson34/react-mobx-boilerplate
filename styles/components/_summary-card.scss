@@ -1,5 +1,10 @@
-.card-wrapper a {
-    &:hover {
+.card-wrapper {
+    text-align: center;
+}
+
+.card-focus{
+    display: inline-block;
+    &:hover, &:focus {
         text-decoration: none;
     }
 }
@@ -10,6 +15,7 @@
     position: relative;
     background-color: white;
     color: #4A4A4A;
+    text-align: left;
 
     .card-badge {
         position: absolute;
