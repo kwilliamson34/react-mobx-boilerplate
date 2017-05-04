@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {inject, observer} from 'mobx-react';
 
 import TitlePane from '../components/title-pane/title-pane';
@@ -7,58 +8,75 @@ import { SearchForm } from '../components/search/search-form';
 import { Filters } from '../components/filters/filters';
 import { Pagination } from '../components/pagination/pagination';
 
+
 @inject('store')
 @observer
 export default class ManageAppsPage extends React.Component {
 
 	constructor(props) {
 		super(props);
-		// this.homeStore = this.props.store.homeStore;
-		// this.searchStore = this.props.store.searchStore;
 		this.cardListStore = this.props.store.cardListStore;
+		this.onButtonClick = this.onButtonClick.bind(this);
+		// this.canLoadMore = this.canLoadMore.bind(this);
+		this.pageId = 'manageAppsPage';
+		this.itemsPerRow = 4;
 	}
 
-	componentDidMount(){
+	componentDidMount() {
 		this.cardListStore.getHomeCards();
+		if(!this.props.store.pages[this.pageId]){
+			this.props.store.registerPage(this.pageId);
+		}
+	}
+
+	onButtonClick() {
+		this.props.store.changePage(this.pageId);
+	}
+
+	paginate(cards, page){
+		let totalCards = this.props.store.pages[page] * this.itemsPerRow;
+		return cards.slice(0, totalCards);
+	}
+
+	get paginatedCards(){
+		return this.paginate(this.cardListStore.filteredSearchResults, this.pageId)
+	}
+
+	get canLoadMore(){
+		let totalItems = this.cardListStore.filteredSearchResults.length;
+		console.log(totalItems, totalItems > this.props.store.pages[this.pageId] * this.itemsPerRow);
+		return totalItems > 4 && totalItems > (this.props.store.pages[this.pageId] * this.itemsPerRow);
 	}
 
 	render() {
 		return (
-			<main className="content-main">
+			<article id="manage-apps-page">
 				<TitlePane pageTitle="Manage Apps" />
-					<section className="">
-						<div className="container">
-							<div className="row">
-								<div className="col-md-3">
-									<h2>Manage Apps</h2>
-								</div>
-								<div className="col-md-9 row">
-									<div className="col-md-6">
-										<Filters store={this.cardListStore} />
-									</div>
-									<div className="col-md-6">
-										<SearchForm store={this.cardListStore} />
-									</div>
-								</div>
-							</div>
-						</div>
-							<div className="row">
-								{/*TODO - clean this up to just change the store and title.*/}
-								{/*{!this.cardListStore.isFiltered &&
-									<CardList title="Apps" cards={this.cardListStore.searchResults}></CardList>
-								}
-								{this.cardListStore.shouldShowSearchResults && !this.cardListStore.isLoading &&
-									<CardList title="Search Results" cards={this.cardListStore.searchResults}></CardList>
-								}*/}
-								{/*{this.cardListStore.isFiltered &&*/}
-									<CardList title="Apps" cards={this.cardListStore.filteredSearchResults} />
-								{/*}*/}
-							</div>
+				<section className="">
+					<div className="container manage-apps">
 						<div className="row">
-							<Pagination store={this.cardListStore} />
+							<div className="col-md-3">
+								<h2>Manage Apps</h2>
+							</div>
+							<div className="col-md-9 row">
+								<div className="col-md-6">
+									<Filters store={this.cardListStore} />
+								</div>
+								<div className="col-md-6">
+									<SearchForm store={this.cardListStore} />
+								</div>
+							</div>
 						</div>
-					</section>
-				</main>
-			)
+					</div>
+					<div className="row">
+						<CardList canLoadMore={this.canLoadMore} cards={this.paginatedCards} handleButtonClick={this.onButtonClick}/>
+					</div>
+				</section>
+			</article>
+		)
 	}
 }
+
+ManageAppsPage.propTypes = {
+	store: PropTypes.object
+};

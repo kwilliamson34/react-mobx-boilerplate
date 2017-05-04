@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types'; // if not @injecting the store, use prop-types
-import { Link } from 'react-router-dom';
 
 import { observer } from 'mobx-react';
+// import { Button } from 'react-bootstrap-dom';
 // import { inject, observer, PropTypes } from 'mobx-react'; // if @injecting, use mobx PropTypes to get observableArray etc.
 
 import { SummaryCard } from '../summary-card/summary-card.jsx';
@@ -17,24 +17,24 @@ export class CardList extends React.Component {
     static propTypes = {
         cards: PropTypes.array.isRequired,
         // cards: PropTypes.observableArray.isRequired, // if using mobx PropTypes, can use observables.
-        title: PropTypes.string
+        title: PropTypes.string,
     }
 
     static defaultProps = {
         cards: [],
-        title: ''
+        title: '',
     }
 
     constructor(props) {
         super(props);
-        // this.state = {
-        //     showFewer: true
-        // }
+        this.cards = this.props.cards;
+        this.canLoadMore = this.props.canLoadMore;
     }
 
-    // handleButtonClick = () => {
-    //     this.setState({showFewer: !this.state.showFewer});
-    // }
+    componentWillReceiveProps(nextProps) {
+        this.cards = nextProps.cards;
+        this.canLoadMore = nextProps.canLoadMore;
+    }
 
     render() {
         return (
@@ -47,7 +47,7 @@ export class CardList extends React.Component {
                         </h2>)
                     }
                     <div className="card-list-cards row">
-                        {this.props.cards.map((card, i) =>{
+                        {this.cards.map((card, i) =>{
                             return (
                                 <div className="col-md-3 col-xs-4 center-block" key={i} >
                                     <SummaryCard display={card}></SummaryCard>
@@ -58,11 +58,11 @@ export class CardList extends React.Component {
                             )
                         })}
                     </div>
-                {/*<button className="btn fn-primary center-block" onClick={this.handleButtonClick}>
-                    Show {(this.state.showFewer)
-                    ? 'More'
-                    : 'Fewer'}
-                </button>*/}
+                    {this.canLoadMore &&
+                        (<div className="card-list-load-more">
+                            <button className="btn fn-primary" onClick={this.props.handleButtonClick}>Load More</button>
+                        </div>)
+                    }
                 </div>
             </section>
         );

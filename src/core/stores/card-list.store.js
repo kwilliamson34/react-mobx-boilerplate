@@ -1,4 +1,4 @@
-import { action, autorun, computed, observable } from 'mobx';
+import { action, computed, observable } from 'mobx';
 import { apiService } from '../services/api.service';
 import _ from 'lodash';
 
@@ -74,6 +74,9 @@ class CardListStore {
         this.segmentFilter = value;
     }
 
+    @action changePlatformFilter(value) {
+        this.platformFilter = value;
+    }
 
 
     //COMPUTEDS
@@ -129,12 +132,19 @@ class CardListStore {
                     return true;
                 }
             }
-            return (categoryCheck() && segmentCheck())
+            let platformCheck = () => {
+                if (this.platformFilter) {
+                    return app.platforms === this.platformFilter;
+                } else {
+                    return true;
+                }
+            }
+            return (categoryCheck() && segmentCheck() && platformCheck())
         })
     }
 
     @computed get isFiltered() {
-        if( this.categoryFilter !== '' || this.segmentFilter !== '' ){
+        if (this.categoryFilter !== '' || this.segmentFilter !== '' || this.platformFilter !== '') {
             return true;
         } else {
             return false;
@@ -142,7 +152,7 @@ class CardListStore {
     }
 
     // OBSERVABLES
-  
+
     // @observable homeCards = [];
     @observable categoryFilter = 'Select Category';
     @observable segmentFilter = 'Select Fitler';
@@ -153,10 +163,30 @@ class CardListStore {
     @observable searchResults = [];
     @observable isLoading = false;
 
+    @observable platforms = [
+        { title: 'Platform', value: '' },
+        { title: 'iOS', value: 'iOS' },
+        { title: 'Android', value: 'Android' }
+    ];
+    @observable platformFilter = '';
+
     @observable categories = [
-        { title: 'Category', value: '' }
+        { title: 'Category', value: '' },
+        { title: 'Public Safety (Communication) Tools', value: 100 },
+        { title: 'Device Security', value: 101 },
+        { title: 'Secure Connections', value: 102 },
+        { title: 'Cloud Solutions', value: 103 },
+        { title: 'Next Gen 9-1-1', value: 104 },
+        { title: 'CAD Solutions', value: 105 },
+        { title: 'Video Surveillance', value: 106 },
+        { title: 'In Building Coverage & Mapping', value: 107 },
+        { title: 'Situational Awareness & Detection', value: 108 },
+        { title: 'Cyber Security & Fraud Detection', value: 109 },
+        { title: 'Forensic Intelligence', value: 110 },
+        { title: 'Public Safety Community', value: 111 }
     ];
     @observable categoryFilter = '';
+
     @observable segments = [
         { title: 'Segment', value: '' },
         { title: 'Law Enforcement', value: 200 },
@@ -164,7 +194,7 @@ class CardListStore {
         { title: 'Emergency Medical', value: 202 },
         { title: 'Hazmat Dispatch', value: 203 },
         { title: 'Emergency Management', value: 204 },
-        { title: 'Critical Infrastructure', value: 205 },
+        { title: 'Critical Infrastructure', value: 205 }
     ];
     @observable segmentFilter = '';
 }
