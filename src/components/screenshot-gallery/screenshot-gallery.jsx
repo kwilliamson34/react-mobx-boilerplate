@@ -22,7 +22,7 @@ export class ScreenshotGallery extends React.Component {
     return screenshots.map((node, i) => {
       return (
         <div key={i} className='slide-container'>
-          <figure className='slide-figure img-responsive'>
+          <figure className='img-responsive'>
             <img src={'/images/' + node.path} className='slide-img' alt={'Image for ' + node.description} aria-labelledby='slide-caption' />
           </figure>
           <figcaption className='slide-caption' id='slide-caption'>{node.description}</figcaption>
@@ -32,7 +32,6 @@ export class ScreenshotGallery extends React.Component {
   )};
 
   render() {
-
     return (
       <div className='gallery-container' role='region' aria-label='App screenshot gallery'>
         {this.slides(this.screenshots)}
