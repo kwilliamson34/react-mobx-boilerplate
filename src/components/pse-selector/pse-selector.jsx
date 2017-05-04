@@ -27,12 +27,12 @@ export default class PSESelector extends React.Component {
 			<div className="pse-selector-btn">
 				{(this.headerStore.pse_list.length > 1)
 				?<div className="dropdown btn-group">
-					<button id="user-dropdown" role="button" className="dropdown-toggle btn btn-default" data-toggle="dropdown">{this.headerStore.currentPSEName}</button>
-					<ul role="menu" className="dropdown-menu dropdown-menu-right" aria-labelledby="user-dropdown">
+					<button id="pse-selector" role="button" className="dropdown-toggle btn btn-default" data-toggle="dropdown">{this.headerStore.currentPSEName}</button>
+					<ul role="menu" className="dropdown-menu dropdown-menu-right" aria-labelledby="pse-selector">
 						{this.headerStore.pse_list.map((pse_name, idx) => {
 							return(
 								<li role="presentation" key={idx}>
-									<a href="#" onClick={this.updatePSE.bind(this,idx)}>{pse_name}</a>
+									<a href="#" tabIndex="-1" onClick={this.updatePSE.bind(this,idx)}>{pse_name}</a>
 								</li>
 							)
 						})}
