@@ -16,7 +16,6 @@ export default class ManageAppsPage extends React.Component {
 		super(props);
 		this.cardListStore = this.props.store.cardListStore;
 		this.onButtonClick = this.onButtonClick.bind(this);
-		// this.canLoadMore = this.canLoadMore.bind(this);
 		this.pageId = 'manageAppsPage';
 		this.itemsPerRow = 4;
 	}
@@ -44,7 +43,7 @@ export default class ManageAppsPage extends React.Component {
 	get canLoadMore(){
 		let totalItems = this.cardListStore.filteredSearchResults.length;
 		console.log(totalItems, totalItems > this.props.store.pages[this.pageId] * this.itemsPerRow);
-		return totalItems > 4 && totalItems > (this.props.store.pages[this.pageId] * this.itemsPerRow);
+		return totalItems > this.itemsPerRow  && totalItems > (this.props.store.pages[this.pageId] * this.itemsPerRow);
 	}
 
 	render() {

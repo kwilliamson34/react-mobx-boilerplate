@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types'; // if not @injecting the store, use prop-types
 
 import { observer } from 'mobx-react';
-// import { Button } from 'react-bootstrap-dom';
-// import { inject, observer, PropTypes } from 'mobx-react'; // if @injecting, use mobx PropTypes to get observableArray etc.
 
 import { SummaryCard } from '../summary-card/summary-card.jsx';
 import { AppManagementBlock } from '../app-management-block/app-management-block.jsx';
@@ -17,12 +15,12 @@ export class CardList extends React.Component {
     static propTypes = {
         cards: PropTypes.array.isRequired,
         // cards: PropTypes.observableArray.isRequired, // if using mobx PropTypes, can use observables.
-        title: PropTypes.string,
+        title: PropTypes.string
     }
 
     static defaultProps = {
         cards: [],
-        title: '',
+        title: ''
     }
 
     constructor(props) {
