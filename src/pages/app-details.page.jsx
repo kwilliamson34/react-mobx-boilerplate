@@ -94,7 +94,7 @@ export default class AppDetailsPage extends React.Component {
             </div>
           </div>
         </section>
-        <section className="app-gallery">\
+        <section className="app-gallery">
 					{appDetail.screenshots !== 0 &&
 						<ScreenshotGallery screenshots={appDetail.screenshots} />
 					}

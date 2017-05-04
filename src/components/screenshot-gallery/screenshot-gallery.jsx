@@ -23,49 +23,55 @@ export class ScreenshotGallery extends React.Component {
   constructor(props) {
     super(props);
         this.screenshots = this.props.screenshots;
-        // this.screenshots = [];
   }
 
-  render() {
-
-    let slides = this.screenshots.map((node, i) => {
+  slides = (screenshots) => {
+    return screenshots.map((node, i) => {
       return (
-        <Slide key={i} path={node.path} caption={node.description} />
+        <div key={i} className='slide-container'>
+          <figure className='slide-figure img-responsive'>
+            <img src={'/images/' + node.path} className='slide-img' alt={'Image for ' + node.description} />
+          </figure>
+          <figcaption className='slide-caption'>{node.description}</figcaption>
+        </div>
       )
-    });
-
-    return (
-      <div className="gallery-container">
-        {slides}
-      </div>
-    )
-  }
-}
-
-class Slide extends React.Component {
-
-  static propTypes = {
-    description: PropTypes.string,
-    path: PropTypes.string
-  }
-
-  static defaultProps = {
-    description: '',
-    path: '../../images/app-icon.png'
-  }
+    }
+  )};
 
   render() {
 
     return (
-      <div className="slide-container container-fluid">
-        <figure className='slide-figure img-responsive'>
-          <img src={'/images/' + this.props.path} className='slide-img' alt={'Image for ' + this.props.description} />
-        </figure>
-        <figcaption className='slide-caption'>{this.props.description}</figcaption>
+      <div className='gallery-container'>
+        {this.slides(this.screenshots)}
       </div>
     )
   }
 }
+
+// class Slide extends React.Component {
+//
+//   static propTypes = {
+//     description: PropTypes.string,
+//     path: PropTypes.string
+//   }
+//
+//   static defaultProps = {
+//     description: '',
+//     path: '../../images/app-icon.png'
+//   }
+//
+//   render() {
+//
+//     return (
+//       <div className="slide-container container-fluid">
+//         <figure className='slide-figure img-responsive'>
+//           <img src={'/images/' + this.props.path} className='slide-img' alt={'Image for ' + this.props.description} />
+//         </figure>
+//         <figcaption className='slide-caption'>{this.props.description}</figcaption>
+//       </div>
+//     )
+//   }
+// }
 
 
 // this.screenshots.map((node, i) => {
