@@ -18,8 +18,9 @@ export default class PSESelector extends React.Component {
 		this.headerStore.getLastPSE();
 	}
 
-	updatePSE(val){
-		this.headerStore.updatePSE(val);
+	handleSelect = (event) => {
+		event.preventDefault();
+		this.headerStore.updatePSE(event.currentTarget.getAttribute('data-value'));
 	}
 
 	render() {
@@ -32,7 +33,7 @@ export default class PSESelector extends React.Component {
 						{this.headerStore.pse_list.map((pse_name, idx) => {
 							return(
 								<li role="presentation" key={idx}>
-									<a href="#" tabIndex="-1" onClick={this.updatePSE.bind(this,idx)}>{pse_name}</a>
+									<a href="#" tabIndex="-1" data-value={idx} onClick={this.handleSelect}>{pse_name}</a>
 								</li>
 							)
 						})}

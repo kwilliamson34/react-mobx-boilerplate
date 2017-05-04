@@ -14,7 +14,7 @@ class HeaderStore {
 	}
 
 	@action updatePSE(val) {
-		if(val){
+		if(val>=0){
 			localStorage.setItem("pse-homepage_lastViewedPSE", val);
 			this.currentPSEName = this.pse_list[val];	
 		}
