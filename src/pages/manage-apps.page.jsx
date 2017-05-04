@@ -6,7 +6,6 @@ import TitlePane from '../components/title-pane/title-pane';
 import { CardList } from '../components/card-list/card-list';
 import { SearchForm } from '../components/search/search-form';
 import { Filters } from '../components/filters/filters';
-import { Pagination } from '../components/pagination/pagination';
 
 
 @inject('store')
