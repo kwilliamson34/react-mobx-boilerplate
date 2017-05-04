@@ -16,43 +16,43 @@
   "screenshots": [
     {
       "description": "Image1",
-      "path": "vertical.png"
+      "path": "nji-vertical.png"
     },
     {
       "description": "Image2",
-      "path": "horizontal.png"
+      "path": "nji-tablet-test.png"
     },
     {
       "description": "Image3",
-      "path": "vertical.png"
+      "path": "nji-vertical.png"
     },
     {
       "description": "Image4",
-      "path": "vertical.png"
+      "path": "nji-galaxys8-test.jpg"
     },
     {
       "description": "Image5",
-      "path": "horizontal.png"
+      "path": "nji-horizontal.png"
     },
     {
       "description": "Image6",
-      "path": "vertical.png"
+      "path": "nji-vertical.png"
     },
     {
       "description": "Image7",
-      "path": "horizontal.png"
+      "path": "nji-horizontal.png"
     },
     {
       "description": "Image8",
-      "path": "vertical.png"
+      "path": "nji-vertical.png"
     },
     {
       "description": "Image9",
-      "path": "vertical.png"
+      "path": "nji-vertical.png"
     },
     {
       "description": "Image10",
-      "path": "horizontal.png"
+      "path": "nji-iphone-7-plus-landscape.jpg"
     }
   ]
 }
