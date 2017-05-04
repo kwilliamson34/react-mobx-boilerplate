@@ -31,8 +31,8 @@ export default class PSESelector extends React.Component {
 					})}
 					</DropdownButton>
 				:<div id="pse-selector">
-						<p>{this.headerStore.currentPSEName}</p>
-					</div>
+					<p>{this.headerStore.currentPSEName}</p>
+				</div>
 				}
 			</div>
 		)
