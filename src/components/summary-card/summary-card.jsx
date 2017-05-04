@@ -51,7 +51,7 @@ export class SummaryCard extends React.Component {
     return (
         <div className="card-wrapper">
             <Link to="/app" className="card-focus has-shadow">
-                <div className="card-container center-block">
+                <div className="card-container">
                     {this.display.badge && (
                         <div className="card-badge">
                             <img src='../../images/fn_badge.svg' alt="Endorsed app"/>
