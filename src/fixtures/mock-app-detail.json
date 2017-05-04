@@ -20,7 +20,7 @@
     },
     {
       "description": "Image2",
-      "path": "nji-tablet-test.png"
+      "path": "nji-tablet-horizontal.png"
     },
     {
       "description": "Image3",
@@ -28,11 +28,11 @@
     },
     {
       "description": "Image4",
-      "path": "nji-galaxys8-test.jpg"
+      "path": "nji-tablet-horizontal.png"
     },
     {
       "description": "Image5",
-      "path": "nji-horizontal.png"
+      "path": "nji-vertical.png"
     },
     {
       "description": "Image6",
@@ -40,7 +40,7 @@
     },
     {
       "description": "Image7",
-      "path": "nji-horizontal.png"
+      "path": "nji-vertical.png"
     },
     {
       "description": "Image8",
@@ -52,7 +52,7 @@
     },
     {
       "description": "Image10",
-      "path": "nji-iphone-7-plus-landscape.jpg"
+      "path": "nji-tablet-horizontal.png"
     }
   ]
 }
