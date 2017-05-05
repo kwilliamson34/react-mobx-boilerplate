@@ -10,9 +10,7 @@ import {
 	Rating
 } from '../components/rating/rating';
 import Toggle from '../components/toggle/toggle';
-import {
-	ScreenshotGallery
-} from '../components/screenshot-gallery/screenshot-gallery';
+import ScreenshotGallery from '../components/screenshot-gallery/screenshot-gallery';
 
 //import mock response from services
 const appDetail = require('../fixtures/mock-app-detail.json');
