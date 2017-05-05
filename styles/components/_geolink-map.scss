@@ -1,0 +1,56 @@
+$map-height: 50vh;
+$map-height-min-sm: 500px;
+$map-height-min-xs: 200px;
+
+.geolink-map {
+  width: 100%;
+
+  .map-wrapper {
+    padding: 0;
+    background-color: $fn-grey;
+
+    iframe {
+      width: 100%;
+      height: $map-height;
+      min-height: $map-height-min-sm;
+      border: none;
+
+      body {
+        margin: 0 !important;
+      }
+    }
+  }
+}
+
+/**********************************************/
+/* Phone */
+@media only screen and (min-width : 0px) {
+  .geolink-map {
+    height: $map-height;
+    min-height: $map-height-min-xs;
+
+    .map-wrapper {
+      height: $map-height;
+      min-height: $map-height-min-xs;
+    }
+  }
+}
+/* Tablet */
+@media only screen and (min-width : 768px) {
+  .geolink-map {
+    height: $map-height;
+    min-height: $map-height-min-sm;
+
+    .map-wrapper {
+      height: $map-height;
+      min-height: $map-height-min-sm;
+    }
+  }
+}
+
+/* Desktop */
+@media only screen and (min-width : 992px) {
+  .geolink-widget {
+
+  }
+}

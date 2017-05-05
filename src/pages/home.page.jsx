@@ -2,6 +2,7 @@ import React from 'react';
 
 import TitlePane from '../components/title-pane/title-pane';
 import PlansAndDevices from '../components/plans-and-devices/plans-and-devices';
+import GeolinkMap from '../components/geolink-map/geolink-map';
 
 export default class HomePage extends React.Component {
 
@@ -12,9 +13,7 @@ export default class HomePage extends React.Component {
         <section className="placeholder alert-dropdown">
           Alert Dropdown Component
         </section>
-        <section className="placeholder geolink">
-          <h2>Geolink Map Section</h2>
-        </section>
+        <GeolinkMap/>
         <section className="placeholder news-feed">
           <h2>News feed</h2>
         </section>
