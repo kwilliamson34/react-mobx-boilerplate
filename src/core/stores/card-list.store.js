@@ -73,7 +73,6 @@ class CardListStore {
     }
 
 
-
     //COMPUTEDS
 
     @computed get recommendedCards() {

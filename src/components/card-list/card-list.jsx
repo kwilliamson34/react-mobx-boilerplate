@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types'; // if not @injecting the store, use prop-types
 
 import { observer } from 'mobx-react';
-// import { inject, observer, PropTypes } from 'mobx-react'; // if @injecting, use mobx PropTypes to get observableArray etc.
 
 import { SummaryCard } from '../summary-card/summary-card.jsx';
 import { AppManagementBlock } from '../app-management-block/app-management-block.jsx';
@@ -16,24 +15,15 @@ export class CardList extends React.Component {
     static propTypes = {
         cards: PropTypes.array.isRequired,
         // cards: PropTypes.observableArray.isRequired, // if using mobx PropTypes, can use observables.
-        title: PropTypes.string
+        title: PropTypes.string,
+        canLoadMore: PropTypes.bool,
+        handleButtonClick: PropTypes.func
     }
 
     static defaultProps = {
         cards: [],
         title: ''
     }
-
-    constructor(props) {
-        super(props);
-        // this.state = {
-        //     showFewer: true
-        // }
-    }
-
-    // handleButtonClick = () => {
-    //     this.setState({showFewer: !this.state.showFewer});
-    // }
 
     render() {
         return (
@@ -57,11 +47,11 @@ export class CardList extends React.Component {
                             )
                         })}
                     </div>
-                {/*<button className="btn fn-primary center-block" onClick={this.handleButtonClick}>
-                    Show {(this.state.showFewer)
-                    ? 'More'
-                    : 'Fewer'}
-                </button>*/}
+                    {this.props.canLoadMore &&
+                        (<div className="card-list-load-more">
+                            <button className="btn fn-primary" onClick={this.props.handleButtonClick}>Load More</button>
+                        </div>)
+                    }
                 </div>
             </section>
         );
