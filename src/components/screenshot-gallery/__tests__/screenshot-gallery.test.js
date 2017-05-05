@@ -1,8 +1,6 @@
 jest.unmock('../screenshot-gallery');
 
 import ScreenshotGallery from '../screenshot-gallery';
-import { MemoryRouter } from 'react-router-dom';
-
 
 describe('<ScreenshotGallery />', () => {
 

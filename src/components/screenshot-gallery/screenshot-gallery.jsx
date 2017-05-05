@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
 
 @observer
-export class ScreenshotGallery extends React.Component {
+export default class ScreenshotGallery extends React.Component {
 
   static propTypes = {
     screenshots: PropTypes.array
