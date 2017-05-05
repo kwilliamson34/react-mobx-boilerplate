@@ -1,6 +1,6 @@
 exports[`<CardList /> renders matches previous snapshot 1`] = `
-<div
-  className="card-list-container row">
+<section
+  className="card-list-container col-md-12 col-xs-12">
   <div
     className="container">
     
@@ -9,83 +9,82 @@ exports[`<CardList /> renders matches previous snapshot 1`] = `
       <div
         className="col-md-3 col-xs-4 center-block">
         <a
-          href="/faq"
+          className="card-wrapper"
+          href="/app"
           onClick={[Function anonymous]}>
           <div
-            className="card-wrapper">
+            className="card-container center-block has-shadow">
             <div
-              className="card-container center-block has-shadow"
-              onClick={undefined}>
+              className="card-logo">
+              <img
+                alt="undefined Logo"
+                src={undefined} />
+            </div>
+            <section
+              className="card-info">
               <div
-                className="card-logo">
-                <img
-                  alt="undefined Logo"
-                  src="https://ease.apperian.com/uploads/undefined" />
-              </div>
+                className="card-name" />
               <div
-                className="card-info">
-                <div
-                  className="card-name" />
-                <div
-                  className="card-publisher hidden-sm hidden-xs" />
-              </div>
+                className="card-publisher hidden-xs" />
+            </section>
+            <div
+              className="card-rating">
               <div
-                className="card-rating">
-                <div
-                  className="ratings-container">
+                className="ratings-container">
+                <span
+                  className="ratings-number">
                   <span
-                    className="ratings-number">
-                    <span
-                      className="sr-only">
-                      Rating of
-                    </span>
-                    0
+                    className="sr-only">
+                    Rating of
+                  </span>
+                  0
+                </span>
+                <span
+                  className="ratings-stars">
+                  <span
+                    aria-hidden="true">
+                    <img
+                      alt="Rating Star"
+                      className="ratings-star"
+                      src="/images/star-outline.png" />
                   </span>
                   <span
-                    className="ratings-stars">
-                    <span
-                      aria-hidden="true">
-                      <img
-                        alt="Rating Star"
-                        className="ratings-star"
-                        src="/images/star-outline.png" />
-                    </span>
-                    <span
-                      aria-hidden="true">
-                      <img
-                        alt="Rating Star"
-                        className="ratings-star"
-                        src="/images/star-outline.png" />
-                    </span>
-                    <span
-                      aria-hidden="true">
-                      <img
-                        alt="Rating Star"
-                        className="ratings-star"
-                        src="/images/star-outline.png" />
-                    </span>
-                    <span
-                      aria-hidden="true">
-                      <img
-                        alt="Rating Star"
-                        className="ratings-star"
-                        src="/images/star-outline.png" />
-                    </span>
-                    <span
-                      aria-hidden="true">
-                      <img
-                        alt="Rating Star"
-                        className="ratings-star"
-                        src="/images/star-outline.png" />
-                    </span>
+                    aria-hidden="true">
+                    <img
+                      alt="Rating Star"
+                      className="ratings-star"
+                      src="/images/star-outline.png" />
                   </span>
-                </div>
+                  <span
+                    aria-hidden="true">
+                    <img
+                      alt="Rating Star"
+                      className="ratings-star"
+                      src="/images/star-outline.png" />
+                  </span>
+                  <span
+                    aria-hidden="true">
+                    <img
+                      alt="Rating Star"
+                      className="ratings-star"
+                      src="/images/star-outline.png" />
+                  </span>
+                  <span
+                    aria-hidden="true">
+                    <img
+                      alt="Rating Star"
+                      className="ratings-star"
+                      src="/images/star-outline.png" />
+                  </span>
+                </span>
               </div>
             </div>
           </div>
         </a>
+        <div
+          className="hidden-xs" />
       </div>
     </div>
   </div>
-</div>
+</section>
 `;
