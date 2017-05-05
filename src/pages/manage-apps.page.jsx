@@ -42,7 +42,6 @@ export default class ManageAppsPage extends React.Component {
 
 	get canLoadMore(){
 		let totalItems = this.cardListStore.filteredSearchResults.length;
-		console.log(totalItems, totalItems > this.props.store.pages[this.pageId] * this.itemsPerRow);
 		return totalItems > this.itemsPerRow  && totalItems > (this.props.store.pages[this.pageId] * this.itemsPerRow);
 	}
 

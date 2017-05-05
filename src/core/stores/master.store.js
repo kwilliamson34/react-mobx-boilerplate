@@ -25,11 +25,11 @@ class PSEStore {
   @action registerPage(id){
     if(!this.pages[id]){
       extendObservable(this.pages, {[id]: 1});
-    } 
+    }
   }
 
   @action changePage(id) {
-      this.pages[id]++
+      this.pages[id]++;
   }
 
 

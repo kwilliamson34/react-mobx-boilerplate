@@ -15,23 +15,14 @@ export class CardList extends React.Component {
     static propTypes = {
         cards: PropTypes.array.isRequired,
         // cards: PropTypes.observableArray.isRequired, // if using mobx PropTypes, can use observables.
-        title: PropTypes.string
+        title: PropTypes.string,
+        canLoadMore: PropTypes.bool,
+        handleButtonClick: PropTypes.func
     }
 
     static defaultProps = {
         cards: [],
         title: ''
-    }
-
-    constructor(props) {
-        super(props);
-        this.cards = this.props.cards;
-        this.canLoadMore = this.props.canLoadMore;
-    }
-
-    componentWillReceiveProps(nextProps) {
-        this.cards = nextProps.cards;
-        this.canLoadMore = nextProps.canLoadMore;
     }
 
     render() {
@@ -45,7 +36,7 @@ export class CardList extends React.Component {
                         </h2>)
                     }
                     <div className="card-list-cards row">
-                        {this.cards.map((card, i) =>{
+                        {this.props.cards.map((card, i) =>{
                             return (
                                 <div className="col-md-3 col-xs-4 center-block" key={i} >
                                     <SummaryCard display={card}></SummaryCard>
@@ -56,7 +47,7 @@ export class CardList extends React.Component {
                             )
                         })}
                     </div>
-                    {this.canLoadMore &&
+                    {this.props.canLoadMore &&
                         (<div className="card-list-load-more">
                             <button className="btn fn-primary" onClick={this.props.handleButtonClick}>Load More</button>
                         </div>)
