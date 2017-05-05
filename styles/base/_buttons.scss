@@ -36,6 +36,15 @@ button {
   }
 }
 
+// TODO - find a better solution
+// For links inside buttons, there shouldn't be a box shadow on the text
+a {
+  &.focus,
+  &:focus {
+    box-shadow: none;
+  }
+}
+
 .fn-inverse,
 .fn-primary,
 .fn-secondary {
