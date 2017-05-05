@@ -13,11 +13,6 @@ export class ScreenshotGallery extends React.Component {
     screenshots: []
   }
 
-  constructor(props) {
-    super(props);
-        this.screenshots = this.props.screenshots;
-  }
-
   renderSlides = (screenshots) => {
     return screenshots.map((node, i) => {
       return (
@@ -34,7 +29,7 @@ export class ScreenshotGallery extends React.Component {
   render() {
     return (
       <div className='gallery-container' role='region' aria-label='App screenshot gallery'>
-        {this.renderSlides(this.screenshots)}
+        {this.renderSlides(this.props.screenshots)}
       </div>
     )
   }
