@@ -20,10 +20,12 @@ class ApiService {
     }
 
     getSearchResults(query) {
-        return axios.get(`${base}/apps/admin/search?searchTxt=${query}&${pseid}`)
-            .then((res) => {
-                return utilsService.conditionData(res.data.applications);
-            });
+      let endpoint = query ?
+        `${base}/apps/search?searchTxt=${query}&${pseid}` : `${base}/apps/admin?${pseid}`
+      return axios.get(endpoint)
+        .then((res) => {
+          return utilsService.conditionData(res.data.applications);
+      });
     }
 
     getAppAvailability() {

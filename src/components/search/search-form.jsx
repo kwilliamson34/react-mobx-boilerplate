@@ -26,22 +26,19 @@ export class SearchForm extends React.Component {
     this.store.clear();
   }
 
-  get disabledState() {
-    return this.store.searchButtonIsEnabled ? '' : 'disabled';
-  }
-
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
         <div className="search input-group input-group-lg has-clear">
-          <input ref="input" className="form-control" title="searchQuery" type="text" value={this.store.searchQuery} placeholder="Search Apps" onChange={this.handleInput} />
+          <label className="sr-only" htmlFor="search-box">Search App Catalog</label>
+          <input id="search-box" ref="input" className="form-control" title="searchQuery" type="text" value={this.store.searchQuery} placeholder="Search Apps" onChange={this.handleInput} />
           {(this.store.searchQuery.length > 0) &&
             <span className="icon-close" onClick={this.handleClearClick}></span>
           }
           <span className="input-group-btn">
-            <button className="btn btn-primary" type="submit" disabled={this.disabledState}>
+            <button className="btn btn-primary" type="submit">
               <span className="sr-only">Search</span>
-              <span className="icon-search"/>
+              <span aria-hidden="true" className="icon-search"/>
             </button>
           </span>
         </div>
