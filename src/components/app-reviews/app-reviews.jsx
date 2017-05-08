@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
+import { observable } from 'mobx';
+
+import { Rating } from '../rating/rating.jsx';
 
 @observer
 export default class AppReviews extends React.Component {
@@ -13,13 +16,6 @@ export default class AppReviews extends React.Component {
     reviews: []
 
   }
-  getInitalState() {
-    return {
-      truncate: true,
-      buttonText: 'Show More',
-      showButton: true
-    }
-  }
 
   renderReviews = (reviews) => {
     return reviews.map((node, i) => {
@@ -31,16 +27,19 @@ export default class AppReviews extends React.Component {
           <div className='review-author'>
             {node.author}
           </div>
+          <div className='review-ratings'>
+            <Rating rating={node.rating}></Rating>
+          </div>
           <div className='review-comment'>
-            <TruncateComment text={node.comment} />
+            <TruncateComment text={node.comment} chars={300} />
           </div>
         </div>
       )
     })
   }
 
+  //this conditional should be on app-details page but leave here for now to remind self.
   render() {
-  //recall Katy, might need to put this on front end. Leave it here for now.
   return (
     <div className='reviews-container'>
       {this.props.reviews.length === 0 ? 'There are no reviews. Put one of those functional components in here.' : this.renderReviews(this.props.reviews)}
@@ -54,21 +53,19 @@ export default class AppReviews extends React.Component {
 @observer
 class TruncateComment extends React.Component {
 
-  isTruncated = true;
+  @observable isTruncated = true;
 
-  toggleTruncate = () => {
+  toggleTruncate = (e) => {
+    // e.preventDefault();
     this.isTruncated = this.isTruncated ? false : true;
     console.log('this.isTruncated', this.isTruncated);
   }
 
   truncateText = (comment, chars) => {
 
-    //get the max length comment text, split until the last space, remove the last item to ensure we end on full word, put it back together and add ellipsis;
-    let endPoint = chars + 1;
-    let truncatedComment = comment.substr(0, endPoint).split(' ');
+    let truncatedComment = comment.substr(0, chars + 1).split(' ');
     console.log('truncatedComment       ', truncatedComment);
-    console.log('truncatedComment.length       ', truncatedComment.length);
-    let finalTruncatedComment = truncatedComment.slice(0, truncatedComment.length).join(' ') + String.fromCharCode(8230);
+    let finalTruncatedComment = truncatedComment.slice(0, truncatedComment.length-1).join(' ') + String.fromCharCode(8230);
     console.log('finalTruncatedComment        ', finalTruncatedComment);
 
     return finalTruncatedComment;
@@ -77,12 +74,10 @@ class TruncateComment extends React.Component {
   render() {
     return (
       <div>
-        {this.isTruncated ? this.truncateText(this.props.text, 100) : this.props.text}
+        {this.isTruncated ? this.truncateText(this.props.text, this.props.chars) : this.props.text}
         <button onClick={this.toggleTruncate}>{this.isTruncated ? 'Show More' : 'Show Less'}</button>
       </div>
     )
 
   }
 }
-
-// comment.length =< chars ? this.setState({showButton: false}) : this.setState({showButton: true});
