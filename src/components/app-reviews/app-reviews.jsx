@@ -5,14 +5,13 @@ import { observer } from 'mobx-react';
 @observer
 export default class AppReviews extends React.Component {
 
-
-
   static propTypes = {
     reviews: PropTypes.array
   }
 
   static defaultProps = {
     reviews: []
+
   }
   getInitalState() {
     return {
@@ -20,20 +19,6 @@ export default class AppReviews extends React.Component {
       buttonText: 'Show More',
       showButton: true
     }
-  }
-
-  showMoreText() {
-    this.setState({
-      truncate: false,
-      buttonText: 'Show Less'
-    })
-  }
-
-  showLessText() {
-    this.setState({
-      truncate: true,
-      buttonText: 'Show More'
-    })
   }
 
   renderReviews = (reviews) => {
@@ -47,7 +32,7 @@ export default class AppReviews extends React.Component {
             {node.author}
           </div>
           <div className='review-comment'>
-            <TruncateComment text={node.comment} truncate={this.state.truncate} />
+            <TruncateComment text={node.comment} />
           </div>
         </div>
       )
@@ -66,27 +51,34 @@ export default class AppReviews extends React.Component {
 
 }
 
+@observer
 class TruncateComment extends React.Component {
+
+  isTruncated = true;
+
+  toggleTruncate = () => {
+    this.isTruncated = this.isTruncated ? false : true;
+    console.log('this.isTruncated', this.isTruncated);
+  }
 
   truncateText = (comment, chars) => {
 
-    let endPoint = chars + 1;
     //get the max length comment text, split until the last space, remove the last item to ensure we end on full word, put it back together and add ellipsis;
+    let endPoint = chars + 1;
     let truncatedComment = comment.substr(0, endPoint).split(' ');
     console.log('truncatedComment       ', truncatedComment);
     console.log('truncatedComment.length       ', truncatedComment.length);
-    let finalTruncatedComment = truncatedComment.slice(0, truncatedComment.length).join(' ') + '&hellip;';
-    // let finalTruncatedComment = truncatedComment.slice(0, truncatedComment.length-1);
+    let finalTruncatedComment = truncatedComment.slice(0, truncatedComment.length).join(' ') + String.fromCharCode(8230);
     console.log('finalTruncatedComment        ', finalTruncatedComment);
 
     return finalTruncatedComment;
   }
 
-  // {this.truncateText(this.props.text, 100)}
   render() {
     return (
       <div>
-        {this.props.truncate === true ? this.truncateText(this.props.text, 100) : this.props.text}
+        {this.isTruncated ? this.truncateText(this.props.text, 100) : this.props.text}
+        <button onClick={this.toggleTruncate}>{this.isTruncated ? 'Show More' : 'Show Less'}</button>
       </div>
     )
 
