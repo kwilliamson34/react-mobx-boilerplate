@@ -51,9 +51,10 @@ export default class AppReviews extends React.Component {
 @observer
 class TruncateComment extends React.Component {
 
-  charCount = 300;
-
   @observable isTruncated = true;
+
+  //make this props?
+  charCount = this.props.chars;
 
   toggleTruncate = () => {
     this.isTruncated = this.isTruncated ? false : true;
@@ -61,21 +62,15 @@ class TruncateComment extends React.Component {
 
   truncateText = (comment, chars) => {
 
-    //might want regex on split to catch punctuation as well
+    //might want regex on split to catch punctuation as well, since having a comma or period then an ellipsis looks weird.
     let truncatedComment = comment.substr(0, chars+1).split(' ');
-    let bufferLength = truncatedComment.pop().length;
     let insertionPoint = truncatedComment.slice(0, truncatedComment.length-1).join(' ').length;
     let truncatedText = comment.substr(0, insertionPoint);
     let hiddenText = comment.substr(insertionPoint);
-    let buffer = ' '.repeat(bufferLength);
 
+    //got to be a better way to do this but brain betrays me;
     let hideWhenTruncated = this.isTruncated ? {display: 'none'} : {display: 'initial'};
     let showWhenTruncated = this.isTruncated ? {display: 'initial'} : {display: 'none'};
-
-    console.log('truncatedText    ', truncatedText);
-    console.log('hiddenText     ', hiddenText);
-    console.log('bufferLength     ', bufferLength);
-    console.log('buffer    ', buffer.length);
 
     return (
       <div>
