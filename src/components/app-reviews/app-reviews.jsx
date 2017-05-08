@@ -53,7 +53,6 @@ class TruncateComment extends React.Component {
 
   @observable isTruncated = true;
 
-  //make this props?
   charCount = this.props.chars;
 
   toggleTruncate = () => {
