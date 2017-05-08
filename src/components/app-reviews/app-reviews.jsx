@@ -14,7 +14,6 @@ export default class AppReviews extends React.Component {
 
   static defaultProps = {
     reviews: []
-
   }
 
   renderReviews = (reviews) => {
@@ -42,10 +41,9 @@ export default class AppReviews extends React.Component {
   render() {
   return (
     <div className='reviews-container'>
-      {this.props.reviews.length === 0 ? 'There are no reviews. Put one of those functional components in here.' : this.renderReviews(this.props.reviews)}
+      {this.renderReviews(this.props.reviews)}
     </div>
   )
-
  }
 
 }
@@ -53,29 +51,50 @@ export default class AppReviews extends React.Component {
 @observer
 class TruncateComment extends React.Component {
 
+  charCount = 300;
+
   @observable isTruncated = true;
 
-  toggleTruncate = (e) => {
-    // e.preventDefault();
+  toggleTruncate = () => {
     this.isTruncated = this.isTruncated ? false : true;
-    console.log('this.isTruncated', this.isTruncated);
   }
 
   truncateText = (comment, chars) => {
 
-    let truncatedComment = comment.substr(0, chars + 1).split(' ');
-    console.log('truncatedComment       ', truncatedComment);
-    let finalTruncatedComment = truncatedComment.slice(0, truncatedComment.length-1).join(' ') + String.fromCharCode(8230);
-    console.log('finalTruncatedComment        ', finalTruncatedComment);
+    //might want regex on split to catch punctuation as well
+    let truncatedComment = comment.substr(0, chars+1).split(' ');
+    let bufferLength = truncatedComment.pop().length;
+    let insertionPoint = truncatedComment.slice(0, truncatedComment.length-1).join(' ').length;
+    let truncatedText = comment.substr(0, insertionPoint);
+    let hiddenText = comment.substr(insertionPoint);
+    let buffer = ' '.repeat(bufferLength);
 
-    return finalTruncatedComment;
+    let hideWhenTruncated = this.isTruncated ? {display: 'none'} : {display: 'initial'};
+    let showWhenTruncated = this.isTruncated ? {display: 'initial'} : {display: 'none'};
+
+    console.log('truncatedText    ', truncatedText);
+    console.log('hiddenText     ', hiddenText);
+    console.log('bufferLength     ', bufferLength);
+    console.log('buffer    ', buffer.length);
+
+    return (
+      <div>
+        {truncatedText}
+        <span className='truncation-end-elements' style={showWhenTruncated}>
+          {String.fromCharCode(32, 8230)}
+        </span>
+        <span className='hidden-comment-text' style={hideWhenTruncated}>
+          {hiddenText}
+        </span>
+      </div>
+    );
   }
 
   render() {
     return (
       <div>
-        {this.isTruncated ? this.truncateText(this.props.text, this.props.chars) : this.props.text}
-        <button onClick={this.toggleTruncate}>{this.isTruncated ? 'Show More' : 'Show Less'}</button>
+        {this.truncateText(this.props.text, this.charCount)}
+        <button className='btn-link' onClick={this.toggleTruncate}>{this.isTruncated ? 'SHOW MORE' : 'SHOW LESS'}</button>
       </div>
     )
 
