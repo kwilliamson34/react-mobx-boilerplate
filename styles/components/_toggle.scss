@@ -81,4 +81,16 @@ $toggle-vertical-offset: 4px;
       }
     }
   }
+
+  &.disabled {
+    span.pill {
+      background: $fn-grey;
+      box-shadow: 0 0 0 2px $fn-mdgrey;
+    }
+
+    .checkbox-label:after {
+      background: $fn-grey;
+      box-shadow: 0 3px 3px rgba(0,0,0,.2),0 0 0 2px $fn-mdgrey;
+    }
+  }
 }

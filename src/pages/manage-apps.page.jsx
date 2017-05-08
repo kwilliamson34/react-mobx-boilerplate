@@ -21,7 +21,7 @@ export default class ManageAppsPage extends React.Component {
 	}
 
 	componentDidMount() {
-		this.cardListStore.getHomeCards();
+		this.cardListStore.getAdminApps();
 		if(!this.props.store.pages[this.pageId]){
 			this.props.store.registerPage(this.pageId);
 		}

@@ -12,13 +12,6 @@ class ApiService {
         return axios.get('http://localhost:3000/user');
     }
 
-    getHomeCards() {
-        return axios.get(`${base}/apps?${pseid}`)
-            .then((res) => {
-                return utilsService.conditionData(res.data.applications);
-            });
-    }
-
     getSearchResults(query) {
       let endpoint = query ?
         `${base}/apps/search?searchTxt=${query}&${pseid}` : `${base}/apps/admin?${pseid}`
@@ -28,12 +21,14 @@ class ApiService {
       });
     }
 
-    getAppAvailability() {
-        return axios.get(`${base}/apps/admin/stats?${pseid}`, {
-            headers: {
-                'x-auth-token': '34234'
-            }
-        })
+    getAdminApps() {
+      return axios.get(`${base}/apps/admin?${pseid}`, {
+          headers: {
+              'x-auth-token': '34234'
+          }
+      }).then(res => {
+        return utilsService.conditionData(res.data.applications);
+      });
     }
 
     getAppDetails(appPSK) {
@@ -42,6 +37,16 @@ class ApiService {
           'x-auth-token': '34234'
         }
       });
+    }
+
+    addAppToGroup(appPSK, groupName) {
+      //TODO
+      console.log('Adding app with PSK=' + appPSK + ' to group "' + groupName + '"...');
+    }
+
+    removeAppFromGroup(appPSK, groupName) {
+      //TODO
+      console.log('Removing app with PSK=' + appPSK + ' from group "' + groupName + '"...');
     }
 
 }

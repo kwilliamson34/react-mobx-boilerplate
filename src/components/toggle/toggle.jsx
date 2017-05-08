@@ -20,8 +20,8 @@ class Toggle extends React.Component {
     const inputIdentifier = this.props.id + '-checkbox';
     const labelIdentifier = this.props.id + '-label';
     return (
-      <div className="checkbox-as-toggle">
-        <input className="checkbox" id={inputIdentifier} type="checkbox" defaultChecked={this.props.defaultOn} value={this.props.value} onClick={this.onClick} tabIndex="-1"/>
+      <div className={`checkbox-as-toggle ${this.props.disabled ? 'disabled' : ''}`}>
+        <input className="checkbox" id={inputIdentifier} type="checkbox" defaultChecked={this.props.defaultOn} value={this.props.value || this.props.label} onClick={this.onClick} tabIndex="-1"/>
         <label id={labelIdentifier} htmlFor={inputIdentifier} className="checkbox-label" tabIndex="0" role="button" onKeyUp={this.handleFocusEnter}>
           <span className="sr-only">Toggle:</span>
           <span className="text-label">{this.props.label}</span>
@@ -34,10 +34,11 @@ class Toggle extends React.Component {
 
 Toggle.propTypes = {
   id: PropTypes.string.isRequired,
-  value: PropTypes.bool,
+  value: PropTypes.string,
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func,
-  defaultOn: PropTypes.bool
+  defaultOn: PropTypes.bool,
+  disabled: PropTypes.bool
 }
 
 export default Toggle;

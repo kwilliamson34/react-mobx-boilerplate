@@ -3,23 +3,34 @@ import { apiService } from '../services/api.service';
 
 class AppStore {
 
+  @action getApps() {
+    const success = (res) => {
+      let data = res.data;
+
+      this.apps = data.apps;
+    }
+    const fail = (err) => {
+      console.warn(err);
+    }
+    apiService.getApps().then(success, fail)
+  }
+
   @action getAppAvailability() {
+    const success = (res) => {
+      let data = res.data;
 
-        const success = (res) => {
-          let data = res.data;
-
-          this.newApps = data.new_apps;
-          this.notBlockedApps = data.un_blocked_apps;
-          this.blockedApps = data.blocked_apps;
-          this.notRecApps = data.un_recommended_apps;
-          this.recApps = data.recommended_apps;
-          this.notPushedApps = data.un_pushed_mdm_apps;
-          this.pushedApps = data.pushed_mdm_apps;
-        }
-        const fail = (err) => {
-            console.warn(err);
-        }
-        apiService.getAppAvailability().then(success, fail)
+      this.newApps = data.new_apps;
+      this.notBlockedApps = data.un_blocked_apps;
+      this.blockedApps = data.blocked_apps;
+      this.notRecApps = data.un_recommended_apps;
+      this.recApps = data.recommended_apps;
+      this.notPushedApps = data.un_pushed_mdm_apps;
+      this.pushedApps = data.pushed_mdm_apps;
+    }
+    const fail = (err) => {
+      console.warn(err);
+    }
+    apiService.getAppAvailability().then(success, fail)
   }
 
   @action getAppDetails(appPSK) {
@@ -27,12 +38,13 @@ class AppStore {
       console.log('AppDetailResponse:\n' + res);
     }
     const fail = (err) => {
-        console.warn(err);
+      console.warn(err);
     }
     apiService.getAppDetails(appPSK).then(success, fail);
   }
 
-	// OBSERVABLES
+  // OBSERVABLES
+  @observable apps = '0';
   @observable newApps = '0';
   @observable notBlockedApps = '0';
   @observable blockedApps = '0';

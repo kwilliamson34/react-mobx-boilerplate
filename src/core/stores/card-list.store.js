@@ -9,15 +9,13 @@ const user_segment = {
     LAW_ENFORCEMENT: 200,
     EMERGENCY_MEDICAL: 204,
     DISPATCH: 203,
-    CRITICAL_INFRASTURCUTRE: 205
+    CRITICAL_INFRASTRUCTURE: 205
 };
-
-
 
 class CardListStore {
 
     // ACTIONS
-    @action getHomeCards() {
+    @action getAdminApps() {
         const success = (res) => {
             this.searchResults = res;
             this.shouldShowSearchResults = true;
@@ -26,7 +24,7 @@ class CardListStore {
         const fail = (err) => {
             console.warn(err);
         }
-        return apiService.getHomeCards().then(success, fail)
+        return apiService.getAdminApps().then(success, fail)
     }
 
     @action clear() {
@@ -34,7 +32,6 @@ class CardListStore {
     }
 
     @action getSearchResults = _.debounce(() => {
-
         const success = (response) => {
             this.searchResults = response;
             this.shouldShowSearchResults = true;
@@ -72,9 +69,26 @@ class CardListStore {
         this.platformFilter = value;
     }
 
+    @action changeAppAvailability(appPSK, isAvailable) {
+      const groupName = 'available';
+      if(isAvailable) {
+        apiService.addAppToGroup(appPSK, groupName);
+      } else {
+        apiService.removeAppFromGroup(appPSK, groupName);
+      }
+    }
+
+    @action changeAppRecommended(appPSK, isRecommended) {
+      const groupName = 'recommended';
+      if(isRecommended) {
+        apiService.addAppToGroup(appPSK, groupName);
+      } else {
+        apiService.removeAppFromGroup(appPSK, groupName);
+      }
+    }
+
 
     //COMPUTEDS
-
     @computed get recommendedCards() {
         return this.searchResults.filter((app) => {
             return (app.recommended)
