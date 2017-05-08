@@ -34,12 +34,6 @@ export default class AppReviews extends React.Component {
     })
   }
 
-  truncateText = (comment, chars) => {
-
-    comment.length =< chars ? this.setState({showButton: false})
-    return
-  }
-
   renderReviews = (reviews) => {
     return reviews.map((node, i) => {
       return (
@@ -51,17 +45,14 @@ export default class AppReviews extends React.Component {
             {node.author}
           </div>
           <div className='review-comment'>
-            <TruncateComment text={node.comment} truncate={this.props.truncate} />
+            <TruncateComment text={node.comment} truncate={this.truncate} />
           </div>
         </div>
       )
     })
   }
 
-
   render() {
-
-
   //recall Katy, might need to put this on front end. Leave it here for now.
   return (
     <div className='reviews-container'>
@@ -75,10 +66,24 @@ export default class AppReviews extends React.Component {
 
 class TruncateComment extends React.Component {
 
+  truncateText = (comment, chars) => {
+    // if the text don't need to be truncated, we shouldn't run the truncate function, so this should be elsewhere.
+    comment.length =< chars ? this.setState({showButton: false}) : this.setState({showButton: true});
+
+    let endPoint = chars + 1;
+    //get the max length comment text, split until the last space, remove the last item to ensure we end on full word, put it back together and add ellipsis;
+    let truncatedComment = comment.substr(0, endPoint).split(' ');
+    console.log('truncatedComment       ', truncatedComment);
+    let finalTruncatedComment = truncatedComment.splice(0, truncatedComment.length - 1).join(' ') + '&hellip;';
+    console.log('finalTruncatedComment        ', truncatedComment);
+
+    return finalTruncatedComment;
+  }
+
   render() {
     return (
       <div>
-
+        {this.props.text}
       </div>
     )
 
