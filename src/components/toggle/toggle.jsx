@@ -4,13 +4,17 @@ import $ from 'jquery';
 class Toggle extends React.Component {
   constructor(props) {
     super(props);
-    if(this.props.onClick){
-      this.onClick = this.props.onClick.bind(this);
-    }
     this.state = {
       disabled: false
     }
     this.handleFocusEnter = this.handleFocusEnter.bind(this);
+    this.onClick = this.onClick.bind(this);
+  }
+
+  onClick(event) {
+    if(this.props.onClick && !this.state.disabled) {
+      this.props.onClick(event);
+    }
   }
 
   handleFocusEnter(event) {
@@ -35,6 +39,7 @@ class Toggle extends React.Component {
       <div className={`checkbox-as-toggle ${this.state.disabled ? 'disabled' : ''}`}>
         <input
           ref={ref => this.input = ref}
+          aria-disabled={this.state.disabled}
           className="checkbox"
           id={inputIdentifier}
           type="checkbox"
