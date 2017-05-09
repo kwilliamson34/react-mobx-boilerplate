@@ -1,0 +1,27 @@
+.reviews-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  position: relative;
+}
+
+.individual-review-container {
+  position: relative;
+  margin: 15px 0;
+}
+
+.review-author-and-rating {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid blue;
+}
+
+.review-author {
+  margin-right: 10px;
+}
+
+.load-more-button {
+  align-self: center;
+}

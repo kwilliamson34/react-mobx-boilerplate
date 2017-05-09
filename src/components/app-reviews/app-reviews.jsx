@@ -48,16 +48,18 @@ export default class AppReviews extends React.Component {
 
   renderReviews = (reviews) => {
     return reviews.map((node, i) => {
+      let capitalizedReviewSubject = node.subject.toUpperCase();
       return (
         <div key={i} className='individual-review-container'>
-          <div className='review-subject'>
-            {node.subject}
+          <div className='review-subject'><strong>{capitalizedReviewSubject}</strong></div>
+          <div className='review-author-and-rating'>
+            <div className='review-author'>
+              {node.author}
+            </div>
+            <Rating rating={node.rating} />
           </div>
-          <div className='review-author'>
-            {node.author}
-          </div>
-          <div className='review-ratings'>
-            <Rating rating={node.rating}></Rating>
+          <div className='review-date'>
+            {node.date}
           </div>
           <div className='review-comment'>
             <TruncateComment text={node.comment} />

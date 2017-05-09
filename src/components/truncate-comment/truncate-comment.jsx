@@ -16,7 +16,7 @@ export class TruncateComment extends React.Component {
 
   truncateText = (comment, chars) => {
 
-    //truncated text might end on punctuation, or even HTML tag. Not sure how this will look.
+    //truncated text might end on punctuation, or even HTML tag. Not sure how this will look or if problem. Need regex on final element?
     let splitComment = comment.substr(0, chars+1).split(' ');
     let insertionPoint = splitComment.slice(0, splitComment.length-1).join(' ').length;
     let truncatedText = comment.substr(0, insertionPoint);
@@ -29,23 +29,27 @@ export class TruncateComment extends React.Component {
     return (
       <div className='comment-text-container'>
         <div dangerouslySetInnerHTML={{__html: `${truncatedText}`}} />
-        { this.isTruncated &&
-          <span className='truncation-end-elements'>
-            {String.fromCharCode(32, 8230)}
-          </span>
-        }
-        { this.isTruncated ||
-          <span className='hidden-comment-text'>
-            <div dangerouslySetInnerHTML={{__html: `${hiddenText}`}} />
-          </span>
-        }
+        <div>
+          { this.isTruncated &&
+            <span className='truncation-end-elements'>
+              {String.fromCharCode(32, 8230)}
+            </span>
+          }
+        </div>
+        <div>          
+          { this.isTruncated ||
+            <span className='hidden-comment-text'>
+              <div dangerouslySetInnerHTML={{__html: `${hiddenText}`}} />
+            </span>
+          }
+        </div>
       </div>
     );
   }
 
   render() {
     return (
-      <div>
+      <div className='truncate-comment-container'>
         {this.truncateText(this.props.text, this.charCount)}
         <button className='btn-link' onClick={this.toggleTruncate}>{this.isTruncated ? 'SHOW MORE' : 'SHOW LESS'}</button>
       </div>
