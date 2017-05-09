@@ -21,16 +21,22 @@ export class AppManagementBlock extends React.Component {
     this.handleAvailableClick = this.handleAvailableClick.bind(this);
     this.handleRecommendedClick = this.handleRecommendedClick.bind(this);
     this.cardListStore = this.props.store.cardListStore;
+    this.state = {
+      isRecommended: this.props.app.isRecommended,
+      isAvailable: this.props.app.isAvailable
+    }
   }
 
   handleAvailableClick(event) {
     //update the available state
     this.cardListStore.changeAppAvailability(this.props.app.id, event.target.checked);
+    this.setState({isAvailable: event.target.checked});
 
     //manage the recommended state if necessary
     if(!event.target.checked) {
-      if(this.props.app.isRecommended) {
+      if(this.state.isRecommended) {
         this.cardListStore.changeAppRecommended(this.props.app.id, false);
+        this.setState({isRecommended: false});
       }
       this.recommendedToggle.toggleOffAndDisable();
     } else {
@@ -40,8 +46,9 @@ export class AppManagementBlock extends React.Component {
 
   handleRecommendedClick(event) {
     //update recommended state, only if the app is not blocked
-    if(this.props.app.isAvailable) {
+    if(this.state.isAvailable) {
       this.cardListStore.changeAppRecommended(this.props.app.id, event.target.checked);
+      this.setState({isRecommended: event.target.checked});
     } else {
       event.preventDefault();
     }
