@@ -20,7 +20,6 @@ export default class AppManagementBlock extends React.Component {
     super(props);
     this.handleAvailableClick = this.handleAvailableClick.bind(this);
     this.handleRecommendedClick = this.handleRecommendedClick.bind(this);
-    this.cardListStore = this.props.store.cardListStore;
     this.state = {
       isRecommended: this.props.app.isRecommended,
       isAvailable: this.props.app.isAvailable
@@ -29,13 +28,13 @@ export default class AppManagementBlock extends React.Component {
 
   handleAvailableClick(event) {
     //update the available state
-    this.cardListStore.changeAppAvailability(this.props.app.id, event.target.checked);
+    this.props.store.cardListStore.changeAppAvailability(this.props.app.id, event.target.checked);
     this.setState({isAvailable: event.target.checked});
 
     //manage the recommended state if necessary
     if(!event.target.checked) {
       if(this.state.isRecommended) {
-        this.cardListStore.changeAppRecommended(this.props.app.id, false);
+        this.props.store.cardListStore.changeAppRecommended(this.props.app.id, false);
         this.setState({isRecommended: false});
       }
       this.recommendedToggle.toggleOffAndDisable();
@@ -47,7 +46,7 @@ export default class AppManagementBlock extends React.Component {
   handleRecommendedClick(event) {
     //update recommended state, only if the app is not blocked
     if(this.state.isAvailable) {
-      this.cardListStore.changeAppRecommended(this.props.app.id, event.target.checked);
+      this.props.store.cardListStore.changeAppRecommended(this.props.app.id, event.target.checked);
       this.setState({isRecommended: event.target.checked});
     } else {
       event.preventDefault();
@@ -60,13 +59,13 @@ export default class AppManagementBlock extends React.Component {
         <div className="app-management">
           <Toggle
             label="Available"
-            id={'Avail' + this.props.app.id}
+            id={'Available-' + this.props.app.id}
             defaultOn={this.props.app.isAvailable}
             onClick={this.handleAvailableClick}/>
           <Toggle
             label="Recommended"
             ref={ref => this.recommendedToggle = ref}
-            id={'Recom' + this.props.app.id}
+            id={'Recommended-' + this.props.app.id}
             defaultOn={this.props.app.isRecommended}
             onClick={this.handleRecommendedClick}/>
           <Link to="/mdm">

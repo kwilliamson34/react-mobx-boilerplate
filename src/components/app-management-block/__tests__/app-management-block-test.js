@@ -5,6 +5,7 @@ jest.unmock('../../toggle/toggle');
 
 import AppManagementBlock from '../app-management-block';
 import { MemoryRouter } from 'react-router-dom';
+import ReactDom from 'react-dom';
 
 describe('<AppManagementBlock />', () => {
   let props = {
@@ -13,10 +14,15 @@ describe('<AppManagementBlock />', () => {
       isAvailable: false,
       isRecommended: false,
     },
-    store: {}
+    store: {
+      cardListStore: {
+        changeAppAvailability: jest.fn(),
+        changeAppRecommended: jest.fn()
+      }
+    }
   };
 
-  describe('renders', () => {
+  describe('render', () => {
     test('matches snapshots with all group combinations', () => {
       props.app.isAvailable = false;
       props.app.isRecommended = false;
@@ -58,6 +64,90 @@ describe('<AppManagementBlock />', () => {
       );
       tree = component.toJSON();
       expect(tree).toMatchSnapshot();
+    });
+  });
+
+  describe('UI interaction', () => {
+    test('toggling Available results in a service call', () => {
+      props.app.isAvailable = false;
+      props.app.isRecommended = false;
+      props.app.id = 123;
+
+      let memoryRouterComponent = TestUtils.renderIntoDocument(
+        <MemoryRouter>
+          <AppManagementBlock {...props} />
+        </MemoryRouter>
+      );
+
+      //determine the function to spy on
+      const functionToWatch = memoryRouterComponent.props.children.props.store.cardListStore.changeAppAvailability;
+      expect(functionToWatch).not.toHaveBeenCalled();
+
+      //trigger the action
+      const toggleButton = TestUtils.findAllInRenderedTree(memoryRouterComponent, (inst) => {
+        return ReactDOM.findDOMNode(inst).getAttribute('id') === 'Available-123-checkbox';
+      })[0];
+
+      TestUtils.Simulate.click(toggleButton);
+      expect(functionToWatch).toHaveBeenCalled();
+
+      TestUtils.Simulate.click(toggleButton);
+      expect(functionToWatch).toHaveBeenCalled();
+    });
+
+    test('toggling Recommended results in a service call', () => {
+      props.app.isAvailable = true;
+      props.app.isRecommended = false;
+      props.app.id = 123;
+
+      let memoryRouterComponent = TestUtils.renderIntoDocument(
+        <MemoryRouter>
+          <AppManagementBlock {...props} />
+        </MemoryRouter>
+      );
+
+      //determine the function to spy on
+      const functionToWatch = memoryRouterComponent.props.children.props.store.cardListStore.changeAppRecommended;
+      expect(functionToWatch).not.toHaveBeenCalled();
+
+      //trigger the action
+      const toggleButton = TestUtils.findAllInRenderedTree(memoryRouterComponent, (inst) => {
+        return ReactDOM.findDOMNode(inst).getAttribute('id') === 'Recommended-123-checkbox';
+      })[0];
+
+      TestUtils.Simulate.click(toggleButton);
+      expect(functionToWatch).toHaveBeenCalled();
+
+      TestUtils.Simulate.click(toggleButton);
+      expect(functionToWatch).toHaveBeenCalled();
+    });
+
+    test('toggling Available to Off when Recommended is On results in 2 service calls', () => {
+      props.app.isAvailable = true;
+      props.app.isRecommended = true;
+      props.app.id = 123;
+
+      let memoryRouterComponent = TestUtils.renderIntoDocument(
+        <MemoryRouter>
+          <AppManagementBlock {...props} />
+        </MemoryRouter>
+      );
+
+      //determine the function to spy on
+      const functionToWatch1 = memoryRouterComponent.props.children.props.store.cardListStore.changeAppAvailability;
+      const functionToWatch2 = memoryRouterComponent.props.children.props.store.cardListStore.changeAppRecommended;
+      // expect(functionToWatch1).not.toHaveBeenCalled();
+      // expect(functionToWatch2).not.toHaveBeenCalled();
+
+      //trigger the action
+      const toggleButton = TestUtils.findAllInRenderedTree(memoryRouterComponent, (inst) => {
+        return ReactDOM.findDOMNode(inst).getAttribute('id') === 'Available-123-checkbox';
+      })[0];
+      TestUtils.Simulate.click(toggleButton);
+
+      //assert an outcome
+      expect(functionToWatch1).toHaveBeenCalled();
+      expect(functionToWatch2).toHaveBeenCalled();
     });
   });
 });
