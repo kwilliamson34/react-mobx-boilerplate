@@ -40,7 +40,8 @@ export class TruncateComment extends React.Component {
               truncationEndElements ||
                 <span className='hidden-comment-text'>
                   <span dangerouslySetInnerHTML={{__html: `${hiddenText}`}} />
-                </span>}
+                </span>
+              }
         </p>
       </div>
     );
