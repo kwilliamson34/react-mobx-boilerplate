@@ -40,7 +40,7 @@ export class AppManagementBlock extends React.Component {
                     <Toggle label="Available" value={this.props.app.available} id={'Avail' + this.props.app.id} defaultOn={this.props.app.available} onClick={this.handleToggleClick} />
                     <Toggle label="Recommended" value={this.props.app.recommended} id={'Recom' + this.props.app.id} defaultOn={this.props.app.recommended} onClick={this.handleToggleClick} />
                     <Link to="/mdm">
-                        <Button className="fn-primary">Push to MDM</Button>
+                        <Button className="fn-primary" tabIndex="-1">Push to MDM</Button>
                     </Link>
                 </div>
             </div>

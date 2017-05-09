@@ -1,4 +1,4 @@
-import { action, computed, observable } from 'mobx';
+import { action, computed, observable, extendObservable } from 'mobx';
 //import { apiService } from '../services/api.service';
 
 // import { homeStore } from './home.store';
@@ -22,13 +22,27 @@ class PSEStore {
     this.nameFieldStr = value;
   }
 
+  @action registerPage(id){
+    if(!this.pages[id]){
+      extendObservable(this.pages, {[id]: 1});
+    }
+  }
+
+  @action changePage(id) {
+      this.pages[id]++;
+  }
+
+
   // COMPUTEDS
   @computed get lastNameAdded() {
     return this.names[this.names.length - 1];
   }
 
+
   // OBSERVABLES
   @observable names = [];
+
+  @observable pages = {};
 
 }
 

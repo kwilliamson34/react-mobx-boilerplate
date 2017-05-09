@@ -49,36 +49,38 @@ export class SummaryCard extends React.Component {
 
 	render() {
     return (
-        <Link to="/app" className="card-wrapper">
-            <div className="card-container center-block has-shadow">
-                {this.display.badge && (
-                    <div className="card-badge">
-                        <img src='../../images/fn_badge.svg' alt="Endorsed app"/>
+        <div className="card-wrapper">
+            <Link to="/app/some-app-id-1234" className="card-focus has-shadow">
+                <div className="card-container">
+                    {this.display.badge && (
+                        <div className="card-badge">
+                            <img src='../../images/fn_badge.svg' alt="Endorsed app"/>
+                        </div>
+                    )}
+                    <div className="card-logo">
+                        <img src={this.display.imageUrl} alt={this.display.name + ' Logo'}/>
                     </div>
-                )}
-                <div className="card-logo">
-                    <img src={this.display.imageUrl} alt={this.display.name + ' Logo'}/>
+                    <section className="card-info">
+                        <div className="card-name">
+                            {this.display.name}
+                        </div>
+                        <div className="card-publisher hidden-xs">
+                            {this.display.publisher}
+                        </div>
+                    </section>
+                    <div className="card-rating">
+                        <Rating rating={this.display.rating}></Rating>
+                    </div>
+                    {this.display.platforms && <div className="card-platform">
+                        <span className="sr-only">Hosted at the
+                        </span>{this.display.platforms}
+                        <span className="sr-only">
+                            app store</span>
+                        {/*<img src={'../../images/'+ this.display.platforms +'.svg'} alt={'Hosted at ' + this.display.platform}/>*/}
+                    </div>}
                 </div>
-                <section className="card-info">
-                    <div className="card-name">
-                        {this.display.name}
-                    </div>
-                    <div className="card-publisher hidden-xs">
-                        {this.display.publisher}
-                    </div>
-                </section>
-                <div className="card-rating">
-                    <Rating rating={this.display.rating}></Rating>
-                </div>
-                {this.display.platforms && <div className="card-platform">
-                    <span className="sr-only">Hosted at the
-                    </span>{this.display.platforms}
-                    <span className="sr-only">
-                        app store</span>
-                    {/*<img src={'../../images/'+ this.display.platforms +'.svg'} alt={'Hosted at ' + this.display.platform}/>*/}
-                </div>}
-            </div>
-        </Link>
+            </Link>
+        </div>
     );
   }
 }

@@ -11,13 +11,8 @@ import {
 import ScrollToTop from './core/services/scroll-to-top';
 
 //State Management
-import {
-	Provider,
-	observer
-} from 'mobx-react';
-import {
-	pseMasterStore
-} from './core/stores/master.store';
+import { Provider, observer } from 'mobx-react';
+import { pseMasterStore } from './core/stores/master.store';
 
 //Styles
 import '../styles/app.scss';
@@ -50,17 +45,19 @@ export default class App extends React.Component {
 		const AppHub = ({ match }) => {
 			return(
 				<div id="app-page">
-					<Route path={`${match.url}/:appId`} component={AppDetailsPage} />
-					<Route exact path={match.url} render={() => (
-						<article>
-							<div className="container">
-								<div className="col-xs-12">
-									<h1>Sorry.</h1>
-									<p>We couldn't find the app you were looking for.  <Link to="manage-apps">Go to the App Catalog</Link></p>
+					<Switch>
+						<Route path={`${match.url}/:appId`} component={AppDetailsPage} />
+						<Route exact path={match.url} render={() => (
+							<article>
+								<div className="container">
+									<div className="col-xs-12">
+										<h1>Sorry.</h1>
+										<p>We couldn't find the app you were looking for.  <Link to="manage-apps">Go to the App Catalog</Link></p>
+									</div>
 								</div>
-							</div>
-						</article>
-					)}/>
+							</article>
+						)}/>
+					</Switch>
 				</div>
 			)
 		}

@@ -35,12 +35,6 @@ class CardListStore {
 
     @action getSearchResults = _.debounce(() => {
 
-        if (this.searchQuery === '') {
-            this.searchResults = null;
-            this.shouldShowSearchResults = false;
-            return;
-        }
-
         const success = (response) => {
             this.searchResults = response;
             this.shouldShowSearchResults = true;
@@ -77,7 +71,6 @@ class CardListStore {
     @action changePlatformFilter(value) {
         this.platformFilter = value;
     }
-
 
 
     //COMPUTEDS
