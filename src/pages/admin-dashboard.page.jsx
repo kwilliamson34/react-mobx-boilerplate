@@ -3,6 +3,8 @@ import React from 'react';
 import TitlePane from '../components/title-pane/title-pane';
 import PlansAndDevices from '../components/plans-and-devices/plans-and-devices';
 
+import {Link} from 'react-router-dom';
+
 
 export default class AdminDashboardPage extends React.Component {
   render() {
@@ -12,7 +14,7 @@ export default class AdminDashboardPage extends React.Component {
         <section className="placeholder-long">
           <div className="container">
             <h2>Admin Dashboard</h2>
-            <a href="/manage-apps">Manage Apps</a>
+            <Link to="/manage-apps">Manage Apps</Link>
           </div>
         </section>
         <PlansAndDevices />
