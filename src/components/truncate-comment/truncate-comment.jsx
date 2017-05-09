@@ -26,23 +26,22 @@ export class TruncateComment extends React.Component {
     // let hideWhenTruncated = this.isTruncated ? {display: 'none'} : {display: 'initial'};
     // let showWhenTruncated = this.isTruncated ? {display: 'initial'} : {display: 'none'};
 
+    let truncationEndElements =
+        <span className='truncation-end-elements'>
+          {String.fromCharCode(32, 8230)}
+        </span>
+
+    //wrapping in <p> to keep font style consistent; hacky muck.
     return (
       <div className='comment-text-container'>
-        <div dangerouslySetInnerHTML={{__html: `${truncatedText}`}} />
-        <div>
-          { this.isTruncated &&
-            <span className='truncation-end-elements'>
-              {String.fromCharCode(32, 8230)}
-            </span>
-          }
-        </div>
-        <div>          
-          { this.isTruncated ||
-            <span className='hidden-comment-text'>
-              <div dangerouslySetInnerHTML={{__html: `${hiddenText}`}} />
-            </span>
-          }
-        </div>
+        <p>
+          <span dangerouslySetInnerHTML={{__html: `${truncatedText}`}} />
+            {this.isTruncated &&
+              truncationEndElements ||
+                <span className='hidden-comment-text'>
+                  <span dangerouslySetInnerHTML={{__html: `${hiddenText}`}} />
+                </span>}
+        </p>
       </div>
     );
   }

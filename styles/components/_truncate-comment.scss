@@ -1,5 +1,6 @@
 .truncate-comment-container {
-  display: block;
+  display: flow;
+  position: relative;
 
   button {
     text-decoration: none !important;
@@ -8,6 +9,6 @@
 }
 
 .comment-text-container {
-  display: block;
+  display: inline;
   font-style: normal;
 }
