@@ -70,7 +70,7 @@ class CardListStore {
     }
 
     @action changeAppAvailability(appPSK, isAvailable) {
-      const groupName = 'available';
+      const groupName = 'Available';
       if(isAvailable) {
         apiService.addAppToGroup(appPSK, groupName);
       } else {
@@ -79,7 +79,7 @@ class CardListStore {
     }
 
     @action changeAppRecommended(appPSK, isRecommended) {
-      const groupName = 'recommended';
+      const groupName = 'Recommended';
       if(isRecommended) {
         apiService.addAppToGroup(appPSK, groupName);
       } else {

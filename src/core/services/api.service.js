@@ -4,7 +4,8 @@ import { utilsService } from './utils.service';
 const base = '/api'
 
 // TODO - temp hardcode pending PSEID implementation
-const pseid = 'pse_id=123'
+const pseId = '123';
+const pseIdQueryParam = 'pse_id=' + pseId;
 
 class ApiService {
 
@@ -14,7 +15,7 @@ class ApiService {
 
     getSearchResults(query) {
       let endpoint = query ?
-        `${base}/apps/search?searchTxt=${query}&${pseid}` : `${base}/apps/admin?${pseid}`
+        `${base}/apps/search?searchTxt=${query}&${pseIdQueryParam}` : `${base}/apps/admin?${pseIdQueryParam}`
       return axios.get(endpoint)
         .then((res) => {
           return utilsService.conditionData(res.data.applications);
@@ -22,7 +23,7 @@ class ApiService {
     }
 
     getAdminApps() {
-      return axios.get(`${base}/apps/admin?${pseid}`, {
+      return axios.get(`${base}/apps/admin?${pseIdQueryParam}`, {
           headers: {
               'x-auth-token': '34234'
           }
@@ -39,14 +40,36 @@ class ApiService {
       });
     }
 
-    addAppToGroup(appPSK, groupName) {
-      //TODO
-      console.log('Adding app with PSK=' + appPSK + ' to group "' + groupName + '"...');
+    addAppToGroup(appPsk, groupIdentifier) {
+      console.log('Adding app with appPsk=' + appPsk + ' to groupIdentifier="' + groupIdentifier + '"...');
+      return axios({
+        method: 'post',
+        url: `${base}/app/group`,
+        headers: {
+          'x-auth-token': '34234'
+        },
+        data: {
+          appPsk,
+          groupIdentifier,
+          pseId
+        }
+      });
     }
 
-    removeAppFromGroup(appPSK, groupName) {
-      //TODO
-      console.log('Removing app with PSK=' + appPSK + ' from group "' + groupName + '"...');
+    removeAppFromGroup(appPsk, groupIdentifier) {
+      console.log('Removing app with appPsk=' + appPsk + ' from groupIdentifier="' + groupIdentifier + '"...');
+      return axios({
+        method: 'delete',
+        url: `${base}/app/group`,
+        headers: {
+          'x-auth-token': '34234'
+        },
+        data: {
+          appPsk,
+          groupIdentifier,
+          pseId
+        }
+      });
     }
 
 }
