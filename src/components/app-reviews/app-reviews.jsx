@@ -16,10 +16,39 @@ export default class AppReviews extends React.Component {
     reviews: []
   }
 
+  //if there are no reviews, component will not mount at all; conditional on appDetail page.
+  componentDidMount() {
+    this.loadReviews();
+  }
+
+  paginationCount = 0;
+  numberOfReviewsToLoad = this.props.numberOfReviewsToLoad || 3;
+  showLoadMoreButton = false;
+
+  @observable loadedReviewsArray = [];
+
+  loadReviews = () => {
+    let startingIndex = this.paginationCount * this.numberOfReviewsToLoad;
+    let endingIndex = startingIndex + this.numberOfReviewsToLoad;
+    console.log('allReviews    ', this.props.reviews);
+    this.loadedReviewsArray = this.props.reviews.slice(startingIndex, endingIndex);
+    console.log('this.loadedReviewsArray       ', this.loadedReviewsArray);
+    this.checkIfAllReviewsLoaded(this.loadedReviewsArray, this.props.reviews);
+    this.paginationCount++;
+    console.log('paginationCount     ', this.paginationCount);
+  }
+
+  checkIfAllReviewsLoaded = (visibleReviewsArray, allReviewsArray) => {
+    visibleReviewsArray.length < allReviewsArray.length
+      ? this.showLoadMoreButton = true
+      : this.showLoadMoreButton = false;
+    console.log('showLoadMoreButton     ', this.showLoadMoreButton);
+  }
+
   renderReviews = (reviews) => {
     return reviews.map((node, i) => {
       return (
-        <div key={i} className='review-individual-container'>
+        <div key={i} className='individual-review-container'>
           <div className='review-subject'>
             {node.subject}
           </div>
@@ -37,11 +66,10 @@ export default class AppReviews extends React.Component {
     })
   }
 
-  //this conditional should be on app-details page but leave here for now to remind self.
   render() {
   return (
     <div className='reviews-container'>
-      {this.renderReviews(this.props.reviews)}
+      {this.renderReviews(this.loadedReviewsArray)}
     </div>
   )
  }
@@ -53,7 +81,7 @@ class TruncateComment extends React.Component {
 
   @observable isTruncated = true;
 
-  charCount = this.props.chars;
+  charCount = this.props.chars || 300;
 
   toggleTruncate = () => {
     this.isTruncated = this.isTruncated ? false : true;
@@ -61,7 +89,7 @@ class TruncateComment extends React.Component {
 
   truncateText = (comment, chars) => {
 
-    //might want regex on split to catch punctuation as well, since having a comma or period then an ellipsis looks weird.
+    //might want regex on split to catch punctuation as well, since having a comma or period then an ellipsis looks weird. Prob also need to handle HTML tags so we don't accidentally split a paragraph; that may need to be a separate line checking if the last index is a tag.
     let truncatedComment = comment.substr(0, chars+1).split(' ');
     let insertionPoint = truncatedComment.slice(0, truncatedComment.length-1).join(' ').length;
     let truncatedText = comment.substr(0, insertionPoint);
