@@ -23,7 +23,7 @@ export class AppManagementBlock extends React.Component {
     this.cardListStore = this.props.store.cardListStore;
 
     this.state = {
-      recommendedToggleIsDisabled: !this.props.app.available
+      recommendedToggleIsDisabled: !this.props.app.isAvailable
     }
   }
 
@@ -33,7 +33,7 @@ export class AppManagementBlock extends React.Component {
 
     //manage the recommended state if necessary
     if(!event.target.checked) {
-      if(this.props.app.recommended) {
+      if(this.props.app.isRecommended) {
         this.cardListStore.changeAppRecommended(this.props.app.id, false);
       }
       this.setState({recommendedToggleIsDisabled: true});
@@ -44,7 +44,7 @@ export class AppManagementBlock extends React.Component {
 
   handleRecommendedClick(event) {
     //update recommended state, only if the app is not blocked
-    if(this.props.app.available) {
+    if(this.props.app.isAvailable) {
       this.cardListStore.changeAppRecommended(this.props.app.id, event.target.checked);
     } else {
       event.preventDefault();
@@ -58,13 +58,13 @@ export class AppManagementBlock extends React.Component {
           <Toggle
             label="Available"
             id={'Avail' + this.props.app.id}
-            defaultOn={this.props.app.available}
+            defaultOn={this.props.app.isAvailable}
             onClick={this.handleAvailableClick}/>
           <Toggle
             label="Recommended"
             id={'Recom' + this.props.app.id}
             disabled={this.state.recommendedToggleIsDisabled}
-            defaultOn={this.props.app.recommended}
+            defaultOn={this.props.app.isRecommended}
             onClick={this.handleRecommendedClick}/>
           <Link to="/mdm">
             <Button className="fn-primary" tabIndex="-1">Push to MDM</Button>

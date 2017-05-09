@@ -160,10 +160,8 @@ class CardListStore {
     }
 
     // OBSERVABLES
-
-    // @observable homeCards = [];
     @observable categoryFilter = 'Select Category';
-    @observable segmentFilter = 'Select Fitler';
+    @observable segmentFilter = 'Select Filter';
 
     @observable shouldShowSearchResults = false;
     @observable searchIsVisible = false;
