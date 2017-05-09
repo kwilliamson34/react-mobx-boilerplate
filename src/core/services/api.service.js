@@ -4,7 +4,7 @@ import { utilsService } from './utils.service';
 const base = '/api'
 
 // TODO - temp hardcode pending PSEID implementation
-const pseid = 'pse_id=123'
+const pseid = 'pseId=123'
 
 class ApiService {
 
