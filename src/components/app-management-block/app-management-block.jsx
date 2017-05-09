@@ -21,10 +21,6 @@ export class AppManagementBlock extends React.Component {
     this.handleAvailableClick = this.handleAvailableClick.bind(this);
     this.handleRecommendedClick = this.handleRecommendedClick.bind(this);
     this.cardListStore = this.props.store.cardListStore;
-
-    this.state = {
-      recommendedToggleIsDisabled: !this.props.app.isAvailable
-    }
   }
 
   handleAvailableClick(event) {
@@ -36,9 +32,9 @@ export class AppManagementBlock extends React.Component {
       if(this.props.app.isRecommended) {
         this.cardListStore.changeAppRecommended(this.props.app.id, false);
       }
-      this.setState({recommendedToggleIsDisabled: true});
+      this.recommendedToggle.toggleOffAndDisable();
     } else {
-      this.setState({recommendedToggleIsDisabled: false});
+      this.recommendedToggle.enable();
     }
   }
 
@@ -62,8 +58,8 @@ export class AppManagementBlock extends React.Component {
             onClick={this.handleAvailableClick}/>
           <Toggle
             label="Recommended"
+            ref={ref => this.recommendedToggle = ref}
             id={'Recom' + this.props.app.id}
-            disabled={this.state.recommendedToggleIsDisabled}
             defaultOn={this.props.app.isRecommended}
             onClick={this.handleRecommendedClick}/>
           <Link to="/mdm">

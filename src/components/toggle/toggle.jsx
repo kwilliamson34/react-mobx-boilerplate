@@ -7,6 +7,9 @@ class Toggle extends React.Component {
     if(this.props.onClick){
       this.onClick = this.props.onClick.bind(this);
     }
+    this.state = {
+      disabled: false
+    }
     this.handleFocusEnter = this.handleFocusEnter.bind(this);
   }
 
@@ -16,12 +19,28 @@ class Toggle extends React.Component {
     }
   }
 
+  toggleOffAndDisable() {
+    this.input.checked = false;
+    this.setState({disabled: true});
+  }
+
+  enable() {
+    this.setState({disabled: false});
+  }
+
   render() {
     const inputIdentifier = this.props.id + '-checkbox';
     const labelIdentifier = this.props.id + '-label';
     return (
-      <div className={`checkbox-as-toggle ${this.props.disabled ? 'disabled' : ''}`}>
-        <input className="checkbox" id={inputIdentifier} type="checkbox" defaultChecked={this.props.defaultOn} value={this.props.value || this.props.label} onClick={this.onClick} tabIndex="-1"/>
+      <div className={`checkbox-as-toggle ${this.state.disabled ? 'disabled' : ''}`}>
+        <input
+          ref={ref => this.input = ref}
+          className="checkbox"
+          id={inputIdentifier}
+          type="checkbox"
+          defaultChecked={this.props.defaultOn}
+          value={this.props.value || this.props.label}
+          onClick={this.onClick} tabIndex="-1"/>
         <label id={labelIdentifier} htmlFor={inputIdentifier} className="checkbox-label" tabIndex="0" role="button" onKeyUp={this.handleFocusEnter}>
           <span className="sr-only">Toggle:</span>
           <span className="text-label">{this.props.label}</span>
@@ -37,8 +56,7 @@ Toggle.propTypes = {
   value: PropTypes.string,
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func,
-  defaultOn: PropTypes.bool,
-  disabled: PropTypes.bool
+  defaultOn: PropTypes.bool
 }
 
 export default Toggle;
