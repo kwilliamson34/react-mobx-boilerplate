@@ -17,13 +17,12 @@ import PropTypes from 'prop-types';
             let size = item/max * 100;
             let style = {width:size + '%'}
             return (
-              <div className="bar-wrapper">
+              <div className="bar-wrapper" key={itemIndex+'bar'}>
                 <label>
-                  <img className="ratings-star" src="/images/star-outline.png" alt="Rating Star"/>
                   <span>{(itemIndex - 5)*-1}</span>
                 </label>
-                <div className={'bar'} style={style} key={itemIndex+'bar'}>
-                  <b>{item}</b>
+                <div className="bar" style={style}>
+                  <div className="bar-value">{item}</div>
                 </div>
               </div>
             );
