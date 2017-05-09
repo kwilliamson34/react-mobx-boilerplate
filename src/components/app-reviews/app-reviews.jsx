@@ -2,8 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
 import { observable } from 'mobx';
+import { Button } from 'react-bootstrap';
 
 import { Rating } from '../rating/rating.jsx';
+import { TruncateComment } from '../truncate-comment/truncate-comment';
 
 @observer
 export default class AppReviews extends React.Component {
@@ -16,7 +18,6 @@ export default class AppReviews extends React.Component {
     reviews: []
   }
 
-  //if there are no reviews, component will not mount at all; conditional on appDetail page.
   componentDidMount() {
     this.loadReviews();
   }
@@ -59,14 +60,14 @@ export default class AppReviews extends React.Component {
             <Rating rating={node.rating}></Rating>
           </div>
           <div className='review-comment'>
-            <TruncateComment text={node.comment} chars={300} />
+            <TruncateComment text={node.comment} />
           </div>
         </div>
       )
     })
   }
 
-  loadMoreButton = <button className='load-more-button' onClick={this.loadReviews}>Load More</button>
+  loadMoreButton = <Button className='load-more-button btn fn-primary' onClick={this.loadReviews}>Load More</Button>
 
   render() {
   return (
@@ -77,51 +78,4 @@ export default class AppReviews extends React.Component {
   )
  }
 
-}
-
-@observer
-class TruncateComment extends React.Component {
-
-  @observable isTruncated = true;
-
-  charCount = this.props.chars || 300;
-
-  toggleTruncate = () => {
-    this.isTruncated = this.isTruncated ? false : true;
-  }
-
-  truncateText = (comment, chars) => {
-
-    //might want regex on split to catch punctuation as well, since having a comma or period then an ellipsis looks weird. Prob also need to handle HTML tags so we don't accidentally split a paragraph; that may need to be a separate line checking if the last index is a tag.
-    let truncatedComment = comment.substr(0, chars+1).split(' ');
-    let insertionPoint = truncatedComment.slice(0, truncatedComment.length-1).join(' ').length;
-    let truncatedText = comment.substr(0, insertionPoint);
-    let hiddenText = comment.substr(insertionPoint);
-
-    //got to be a better way to do this but brain betrays me;
-    let hideWhenTruncated = this.isTruncated ? {display: 'none'} : {display: 'initial'};
-    let showWhenTruncated = this.isTruncated ? {display: 'initial'} : {display: 'none'};
-
-    return (
-      <div>
-        {truncatedText}
-        <span className='truncation-end-elements' style={showWhenTruncated}>
-          {String.fromCharCode(32, 8230)}
-        </span>
-        <span className='hidden-comment-text' style={hideWhenTruncated}>
-          {hiddenText}
-        </span>
-      </div>
-    );
-  }
-
-  render() {
-    return (
-      <div>
-        {this.truncateText(this.props.text, this.charCount)}
-        <button className='btn-link' onClick={this.toggleTruncate}>{this.isTruncated ? 'SHOW MORE' : 'SHOW LESS'}</button>
-      </div>
-    )
-
-  }
 }

@@ -20,7 +20,7 @@ export class Rating extends React.Component {
         const stars = [];
         let remaining = rating;
         for( let i = 5 ; i > 0 ; i-- ){
-            if (remaining > 1){
+            if (remaining >= 1){
                 stars.push(this.starTemplate('/images/star.png', stars.length));
                 remaining--;
             } else if (remaining > 0 ){
