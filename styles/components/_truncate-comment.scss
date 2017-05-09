@@ -1,5 +1,10 @@
 .truncate-comment-container {
   display: block;
+
+  button {
+    text-decoration: none !important;
+    border: 0 !important;
+  }
 }
 
 .comment-text-container {

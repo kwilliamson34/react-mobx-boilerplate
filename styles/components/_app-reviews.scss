@@ -15,11 +15,16 @@
   display: inline-flex;
   flex-direction: row;
   align-items: center;
+  color: #909090;
   border: 1px solid blue;
 }
 
 .review-author {
   margin-right: 10px;
+}
+
+.review-date {
+  color: #909090;
 }
 
 .load-more-button {
