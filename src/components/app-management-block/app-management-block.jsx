@@ -9,7 +9,7 @@ import Toggle from '../toggle/toggle.jsx';
 
 @inject('store')
 @observer
-export class AppManagementBlock extends React.Component {
+export default class AppManagementBlock extends React.Component {
 
   static propTypes = {
     store: PropTypes.object.isRequired,

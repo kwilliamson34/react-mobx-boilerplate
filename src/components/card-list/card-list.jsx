@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
 
 import {SummaryCard} from '../summary-card/summary-card.jsx';
-import {AppManagementBlock} from '../app-management-block/app-management-block.jsx';
+import AppManagementBlock from '../app-management-block/app-management-block.jsx';
 
 @observer
 export class CardList extends React.Component {
