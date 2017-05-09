@@ -22,16 +22,16 @@ export default class AppReviews extends React.Component {
   }
 
   paginationCount = 0;
-  numberOfReviewsToLoad = this.props.numberOfReviewsToLoad || 3;
+  numberOfReviewsToLoad = 3;
   showLoadMoreButton = false;
 
   @observable loadedReviewsArray = [];
 
   loadReviews = () => {
-    let startingIndex = this.paginationCount * this.numberOfReviewsToLoad;
-    let endingIndex = startingIndex + this.numberOfReviewsToLoad;
-    console.log('allReviews    ', this.props.reviews);
-    this.loadedReviewsArray = this.props.reviews.slice(startingIndex, endingIndex);
+    console.log('loadReviews triggered');
+    let endingIndex = (this.paginationCount * this.numberOfReviewsToLoad) + this.numberOfReviewsToLoad;
+    console.log('endingIndex      ', endingIndex);
+    this.loadedReviewsArray = this.props.reviews.slice(0, endingIndex);
     console.log('this.loadedReviewsArray       ', this.loadedReviewsArray);
     this.checkIfAllReviewsLoaded(this.loadedReviewsArray, this.props.reviews);
     this.paginationCount++;
@@ -66,10 +66,13 @@ export default class AppReviews extends React.Component {
     })
   }
 
+  loadMoreButton = <button className='load-more-button' onClick={this.loadReviews}>Load More</button>
+
   render() {
   return (
     <div className='reviews-container'>
       {this.renderReviews(this.loadedReviewsArray)}
+      {this.showLoadMoreButton && this.loadMoreButton}
     </div>
   )
  }
