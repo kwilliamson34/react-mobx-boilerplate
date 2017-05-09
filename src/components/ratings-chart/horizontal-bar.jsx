@@ -19,7 +19,7 @@ import PropTypes from 'prop-types';
             return (
               <div className="bar-wrapper" key={itemIndex+'bar'}>
                 <label>
-                  <span>{(itemIndex - 5)*-1}</span>
+                  <span className="ratings-number"><i aria-hidden="true" className="ratings-star mdi  mdi-star"></i>{(itemIndex - 5)*-1}</span>
                 </label>
                 <div className="bar" style={style}>
                   <div className="bar-value">{item}</div>
@@ -38,5 +38,5 @@ HorizontalBar.propTypes = {
 };
 
 HorizontalBar.defaultProps = {
-    data: [190,330,52,290,700]
+    data: [0]
 };

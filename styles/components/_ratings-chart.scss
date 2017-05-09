@@ -1,12 +1,29 @@
-.average-ratings-col {
-    float: left;
-    text-align: center;
+.ratings-chart {
+    position: relative;
+    width: 100%;
+    max-width: 850px;
+    margin: auto;
+    .average-ratings-col {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    .overall-ratings-col {
+        width: 100%;
+    }
 }
 
-.overall-ratings-col {
-    width: 100%;
-    max-width: 500px;
-    float: right;
+.doughnut {
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 10px auto;
+}
+
+.doughnut-text {
+    font-family: 'Roboto';
+    fill: #EB9F02;
+    font-weight: 500;
+    letter-spacing: -12px;
+    text-anchor: middle;
 }
 
 .doughnut-track {
@@ -27,19 +44,28 @@
     fill: rgba(16, 116, 185, 1);
 }
 
-.doughnut {
-    border-radius: 50%;
-    display: block;
-    margin: 0 0 10px 0;
+.ratings-star {
+    color: $fn-mdgrey;
 }
 
-.doughnut-text {
-    font-family: 'Roboto';
-    fill: rgba(233, 158, 39, 1);
-    font-weight: 500;
-    letter-spacing: -7px;
-    text-anchor: middle;
-    font-size: 65px
+.total-reviews {
+    .ratings-container {
+        display: inline-block;
+        margin-right: 5px;
+        .ratings-number {
+            display: none;
+        }
+        .ratings-stars {
+            vertical-align: middle;
+        }
+        .ratings-star {
+            font-size: 2rem;
+            line-height: 20px;
+        }
+    }
+    span {
+        font-size: 16px;
+    }
 }
 
 .horizontal-bar-chart {
@@ -50,22 +76,25 @@
         label {
             position: absolute;
             height: 22px;
-            width: 45px;
-            left: -45px;
+            width: 50px;
+            left: -50px;
             top: 0;
-            color: #4A4A4A;
-            font-family: Roboto;
-            font-size: 17px;
-            line-height: 22px;
-            float:left;
-            &:before {
-              content: '';
-              height: 20px;
-              width: 20px;
-              background: url('/images/star-outline.png');
-              float:left;
-              display: inline-block;
-              margin: 0 5px 0 0;
+            .ratings-number {
+                color: $focus-lightbg;
+                font-family: Roboto;
+                font-size: 17px;
+                line-height: 22px;
+                display: inline-block;
+                position: relative;
+                padding-left: 30px;
+            }
+            .ratings-star {
+                font-size: 22px;
+                line-height: 0px;
+                /* margin-right: 10px; */
+                position: absolute;
+                left: 0;
+                top: 11px;
             }
         }
         .bar {
@@ -84,6 +113,78 @@
                 position: absolute;
                 left: 100%;
                 padding-left: 10px;
+            }
+        }
+    }
+}
+
+
+/*Tablet*/
+
+@media only screen and (min-width: 768px) {
+    .ratings-chart {
+        min-height: 200px;
+        .average-ratings-col {
+            position: absolute;
+            left: 0;
+            top: 0;
+            text-align: center;
+            margin-bottom: 0px;
+        }
+        .overall-ratings-col {
+            padding-left: 205px;
+        }
+    }
+    .horizontal-bar-chart {
+        .bar-wrapper {
+            label {
+                .ratings-number {
+                    font-size: 17px;
+                    line-height: 22px;
+                }
+                .ratings-star {
+                    top: 10px;
+                }
+            }
+            .bar {
+                height: 22px;
+                margin-bottom: 10px;
+                .bar-value {
+                    font-size: 17px;
+                    line-height: 22px;
+                }
+            }
+        }
+    }
+}
+
+
+/* Desktop */
+
+@media only screen and (min-width: 992px) {
+    .ratings-chart {
+        min-height: 250px;
+         margin-bottom: 0px;
+        .overall-ratings-col {
+            padding-left: 260px;
+        }
+    }
+    .horizontal-bar-chart {
+        .bar-wrapper {
+            label {
+                .ratings-number {
+                    line-height: 28px;
+                }
+                .ratings-star {
+                    top: 15px;
+                }
+            }
+            .bar {
+                height: 28px;
+                margin-bottom: 15px;
+                .bar-value {
+                    line-height: 28px;
+                }
             }
         }
     }

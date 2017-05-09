@@ -8,12 +8,21 @@ import { Rating } from '../rating/rating.jsx';
 export default class RatingsChart extends React.Component {
 
     render() {
+        let graphSize = 215;
+        const screenWidth = window.innerWidth;
+
+        if(screenWidth <= 992){
+            graphSize = 165
+        }
 
         return (
             <div className="ratings-chart">
                 <div className="average-ratings-col">
-                    <DoughnutChart rating = {4.1} />
-                    <Rating rating = {5} />
+                    <DoughnutChart rating = {this.props.value} size={graphSize}/>
+                    <div className="total-reviews">
+                        <Rating rating = {this.props.value} />
+                        <span>{this.props.reviewsTotal}</span>
+                    </div>
                 </div>
                 <div className="overall-ratings-col">
                     <HorizontalBar data={ this.props.data }/>
@@ -24,13 +33,13 @@ export default class RatingsChart extends React.Component {
 }
 
 RatingsChart.propTypes = {
-    value: PropTypes.number,        // value the chart should show
-    size: PropTypes.number,         // diameter of chart
-    strokewidth: PropTypes.number   // width of chart line
+    value: PropTypes.number,
+    reviewsTotal: PropTypes.number,
+    data: PropTypes.array
 };
 
 RatingsChart.defaultProps = {
-      value: 3.2,
-      size: 170,
-      strokewidth:15
+      value: 0,
+      reviewsTotal: 0,
+      data: [0]
 }
