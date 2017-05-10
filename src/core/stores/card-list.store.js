@@ -27,6 +27,10 @@ class CardListStore {
         return apiService.getAdminApps().then(success, fail)
     }
 
+    @action getAppByPsk(appPsk){
+      return this.searchResults.filter(app => app.id === appPsk)[0];
+    }
+
     @action clear() {
         this.searchQuery = '';
     }
@@ -70,23 +74,34 @@ class CardListStore {
     }
 
     @action changeAppAvailability(appPSK, isAvailable) {
-      const groupName = 'Available';
+      const appMatch = this.getAppByPsk(appPSK);
+      appMatch.isAvailable = isAvailable;
+
       if(isAvailable) {
-        apiService.addAppToGroup(appPSK, groupName);
+        appMatch.recommendToggleIsDisabled = false;
+        apiService.addAppToGroup(appPSK, 'Available');
       } else {
-        apiService.removeAppFromGroup(appPSK, groupName);
+        appMatch.recommendToggleIsDisabled = true;
+        apiService.removeAppFromGroup(appPSK, 'Available');
+
+        if(appMatch.isRecommended){
+          apiService.removeAppFromGroup(appPSK, 'Recommended');
+        }
       }
     }
 
     @action changeAppRecommended(appPSK, isRecommended) {
-      const groupName = 'Recommended';
-      if(isRecommended) {
-        apiService.addAppToGroup(appPSK, groupName);
-      } else {
-        apiService.removeAppFromGroup(appPSK, groupName);
+      const appMatch = this.getAppByPsk(appPSK);
+      if(appMatch.isAvailable){
+        appMatch.isRecommended = isRecommended;
+
+        if(isRecommended) {
+          apiService.addAppToGroup(appPSK, 'Recommended');
+        } else {
+          apiService.removeAppFromGroup(appPSK, 'Recommended');
+        }
       }
     }
-
 
     //COMPUTEDS
     @computed get recommendedCards() {
@@ -163,10 +178,10 @@ class CardListStore {
     @observable categoryFilter = 'Select Category';
     @observable segmentFilter = 'Select Filter';
 
+    @observable searchResults = [];
     @observable shouldShowSearchResults = false;
     @observable searchIsVisible = false;
     @observable searchQuery = '';
-    @observable searchResults = [];
     @observable isLoading = false;
 
     @observable platforms = [

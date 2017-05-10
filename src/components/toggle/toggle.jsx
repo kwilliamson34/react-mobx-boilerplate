@@ -1,22 +1,17 @@
 import React, {PropTypes} from 'react';
 import $ from 'jquery';
-import {observable} from 'mobx';
 import {observer} from 'mobx-react';
 
 @observer
 class Toggle extends React.Component {
-  /* MobX managed instance state */
-  @observable disabled = null;
-
   constructor(props) {
     super(props);
     this.handleFocusEnter = this.handleFocusEnter.bind(this);
     this.onClick = this.onClick.bind(this);
-    this.disabled = false;
   }
 
   onClick(event) {
-    if(this.disabled) {
+    if(this.props.disabled) {
       event.preventDefault();
     } else {
       if(this.props.onClick) {
@@ -25,29 +20,24 @@ class Toggle extends React.Component {
     }
   }
 
+  doClick() {
+    this.input.click();
+  }
+
   handleFocusEnter(event) {
     if (event.key === 'Enter') {
       $(event.target.parentElement).find('input').click();
     }
   }
 
-  toggleOffAndDisable() {
-    this.input.checked = false;
-    this.disabled = true;
-  }
-
-  enable() {
-    this.disabled = false;
-  }
-
   render() {
     const inputIdentifier = this.props.id + '-checkbox';
     const labelIdentifier = this.props.id + '-label';
     return (
-      <div className={`checkbox-as-toggle ${this.disabled ? 'disabled' : ''}`}>
+      <div className={`checkbox-as-toggle ${this.props.disabled ? 'disabled' : ''}`}>
         <input
           ref={ref => this.input = ref}
-          aria-disabled={this.disabled}
+          aria-disabled={this.props.disabled}
           className="checkbox"
           id={inputIdentifier}
           type="checkbox"
@@ -69,7 +59,8 @@ Toggle.propTypes = {
   value: PropTypes.string,
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func,
-  defaultOn: PropTypes.bool
+  defaultOn: PropTypes.bool,
+  disabled: PropTypes.bool
 }
 
 export default Toggle;
