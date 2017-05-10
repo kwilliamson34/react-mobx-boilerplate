@@ -1,19 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {inject, observer} from 'mobx-react';
+import {observer} from 'mobx-react';
 import {Link} from 'react-router-dom';
 import {Button} from 'react-bootstrap';
 
 import Toggle from '../toggle/toggle.jsx';
 
-@inject('store')
 @observer
 export default class AppManagementBlock extends React.Component {
 
   static propTypes = {
-    store: PropTypes.object.isRequired,
-    app: PropTypes.object.isRequired
+    app: PropTypes.object.isRequired,
+    appManagementActions: PropTypes.object.isRequired
   }
 
   constructor(props) {
@@ -31,14 +30,14 @@ export default class AppManagementBlock extends React.Component {
     }
 
     if(isAvailable !== this.props.app.isAvailable) {
-      this.props.store.cardListStore.changeAppAvailability(this.props.app.id, isAvailable);
+      this.props.appManagementActions.changeAppAvailability(this.props.app.id, isAvailable);
     }
   }
 
   handleRecommendedClick(event) {
     const isRecommended = event.target.checked;
     if(isRecommended !== this.props.app.isRecommended) {
-      this.props.store.cardListStore.changeAppRecommended(this.props.app.id, isRecommended);
+      this.props.appManagementActions.changeAppRecommended(this.props.app.id, isRecommended);
     }
   }
 

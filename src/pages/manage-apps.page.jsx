@@ -66,7 +66,14 @@ export default class ManageAppsPage extends React.Component {
 						</div>
 					</div>
 					<div className="row">
-						<CardList canLoadMore={this.canLoadMore} cards={this.paginatedCards} handleButtonClick={this.onButtonClick}/>
+						<CardList
+							canLoadMore={this.canLoadMore}
+							cards={this.paginatedCards}
+							handleButtonClick={this.onButtonClick}
+							appManagementActions={{
+								changeAppAvailability: this.props.store.cardListStore.changeAppAvailability.bind(this.props.store.cardListStore),
+								changeAppRecommended: this.props.store.cardListStore.changeAppRecommended.bind(this.props.store.cardListStore)
+							}}/>
 					</div>
 				</section>
 			</article>
