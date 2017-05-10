@@ -27,8 +27,12 @@ class CardListStore {
         return apiService.getAdminApps().then(success, fail)
     }
 
-    @action getAppByPsk(appPsk){
-      return this.searchResults.filter(app => app.id === appPsk)[0];
+    @action setCurrentAppId(id){
+      this.currentAppId = id;
+    }
+
+    @action getCurrentAppObject(){
+      this.currentAppObject = this.searchResults.filter(app => app.id === this.currentAppId)[0];
     }
 
     @action clear() {
@@ -74,26 +78,29 @@ class CardListStore {
     }
 
     @action changeAppAvailability(appPSK, isAvailable) {
-      const appMatch = this.getAppByPsk(appPSK);
-      appMatch.isAvailable = isAvailable;
+      this.currentAppId = appPSK;
+      this.getCurrentAppObject();
+      this.currentAppObject.isAvailable = isAvailable;
 
       if(isAvailable) {
-        appMatch.recommendToggleIsDisabled = false;
+        this.currentAppObject.recommendToggleIsDisabled = false;
         apiService.addAppToGroup(appPSK, 'Available');
       } else {
-        appMatch.recommendToggleIsDisabled = true;
+        this.currentAppObject.recommendToggleIsDisabled = true;
         apiService.removeAppFromGroup(appPSK, 'Available');
 
-        if(appMatch.isRecommended){
+        if(this.currentAppObject.isRecommended){
           apiService.removeAppFromGroup(appPSK, 'Recommended');
         }
       }
     }
 
     @action changeAppRecommended(appPSK, isRecommended) {
-      const appMatch = this.getAppByPsk(appPSK);
-      if(appMatch.isAvailable){
-        appMatch.isRecommended = isRecommended;
+      this.currentAppId = appPSK;
+      this.getCurrentAppObject();
+
+      if(this.currentAppObject.isAvailable){
+        this.currentAppObject.isRecommended = isRecommended;
 
         if(isRecommended) {
           apiService.addAppToGroup(appPSK, 'Recommended');
@@ -183,6 +190,8 @@ class CardListStore {
     @observable searchIsVisible = false;
     @observable searchQuery = '';
     @observable isLoading = false;
+    @observable currentAppId = '';
+    @observable currentAppObject = {};
 
     @observable platforms = [
         { title: 'Platform', value: '' },
