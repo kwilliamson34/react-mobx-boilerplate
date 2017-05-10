@@ -27,12 +27,9 @@ class CardListStore {
         return apiService.getAdminApps().then(success, fail)
     }
 
-    @action setCurrentAppId(id){
+    @action setCurrentApp(id){
       this.currentAppId = id;
-    }
-
-    @action getCurrentAppObject(){
-      this.currentAppObject = this.searchResults.filter(app => app.id === this.currentAppId)[0];
+      this.currentAppObject = this.searchResults.filter(app => app.id === id)[0];
     }
 
     @action clear() {
@@ -78,8 +75,7 @@ class CardListStore {
     }
 
     @action changeAppAvailability(appPSK, isAvailable) {
-      this.currentAppId = appPSK;
-      this.getCurrentAppObject();
+      this.setCurrentApp(appPSK);
       this.currentAppObject.isAvailable = isAvailable;
 
       if(isAvailable) {
@@ -96,8 +92,7 @@ class CardListStore {
     }
 
     @action changeAppRecommended(appPSK, isRecommended) {
-      this.currentAppId = appPSK;
-      this.getCurrentAppObject();
+      this.setCurrentApp(appPSK);
 
       if(this.currentAppObject.isAvailable){
         this.currentAppObject.isRecommended = isRecommended;
