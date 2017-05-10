@@ -6,6 +6,7 @@ import { action, computed, observable, extendObservable } from 'mobx';
 import { headerStore } from './header.store';
 import { cardListStore } from './card-list.store';
 import { appStore } from './apps.store';
+import { mpStore } from './external-portal.store';
 
 class PSEStore {
 
@@ -15,6 +16,7 @@ class PSEStore {
     this.headerStore = headerStore;
     this.cardListStore = cardListStore;
     this.appStore = appStore;
+    this.externalContentStore = mpStore;
   }
 
   // ACTIONS

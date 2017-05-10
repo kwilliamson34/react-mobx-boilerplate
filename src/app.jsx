@@ -2,12 +2,7 @@ import 'jquery';
 import 'bootstrap';
 
 import React from 'react';
-import {
-	BrowserRouter as Router,
-	Route,
-	Switch,
-	Link
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import ScrollToTop from './core/services/scroll-to-top';
 
 //State Management
@@ -29,7 +24,9 @@ import AdminDashboardPage from './pages/admin-dashboard.page';
 import ManageAppsPage from './pages/manage-apps.page';
 import AppDetailsPage from './pages/app-details.page';
 import HelpCenterPage from './pages/help-center.page';
-import ShopPlansView from './pages/shop-plans.page';
+import ShopPlansPage from './pages/shop-plans.page';
+import ShopDevicesPage from './pages/shop-devices.page'
+
 
 import NoMatch from './pages/no-match.page';
 
@@ -75,7 +72,8 @@ export default class App extends React.Component {
                         <Route path="/admin" component={AdminDashboardPage} />
                         <Route path="/manage-apps" component={ManageAppsPage}/>
                         <Route path="/help-center" component={HelpCenterPage} />
-                        <Route path="/shop-plans" component={ShopPlansView} />
+                        <Route path="/shop-plans" component={ShopPlansPage} />
+												<Route path="/shop-devices" component={ShopDevicesPage} />
 												<Route path="/app" component={AppHub} />
                         <Route component={NoMatch}/>
 											</Switch>

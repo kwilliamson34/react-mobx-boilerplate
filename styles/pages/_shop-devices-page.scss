@@ -1,0 +1,17 @@
+#shop-devices-page {
+  padding-top: 30px;
+  h1,
+  h2 {
+    text-align: center;
+  }
+  section{
+    padding: 60px 0;
+    text-align: center;
+    &:nth-of-type(odd){
+      background: $fn-ltbluegrey;
+    }
+    .showAll{
+      margin-top: 30px;
+    }
+  }
+}
