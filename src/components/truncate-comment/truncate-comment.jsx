@@ -4,60 +4,63 @@ import { observer } from 'mobx-react';
 import { observable } from 'mobx';
 
 @observer
-export class TruncateComment extends React.Component {
+export default class TruncateComment extends React.Component {
 
+  static propTypes = {
+    keyVal: PropTypes.number.isRequired,
+    charCount: PropTypes.number,
+    text: PropTypes.string
+  }
+
+  static defaultProps = {
+    charCount: 300
+  }
+
+  //temporary workaround until fate of app detail store is determined;
   @observable isTruncated = true;
-
-  charCount = this.props.charCount || 300;
 
   toggleTruncate = () => {
     this.isTruncated = this.isTruncated ? false : true;
+    document.getElementById('Review-' + this.props.keyVal).scrollIntoView();
   }
 
   truncateText = (comment, chars) => {
 
-    //truncated text might end on punctuation, or even HTML tag, which might be a problem. Might need regex on splitComment?
-    let splitComment = comment.substr(0, chars+1).split(' ');
-    let insertionPoint = splitComment.slice(0, splitComment.length-1).join(' ').length;
-    let truncatedText = comment.substr(0, insertionPoint);
-    let hiddenText = comment.substr(insertionPoint);
+    //truncated text might end on punctuation which looks bad with ellipsis, or even HTML tag which would break formatting. Might need regex on splitComment?
+    let splitComment = comment.substr(0, chars + 1).split(' ');
+    let cutoffPoint = splitComment.slice(0, splitComment.length - 1).join(' ').length;
+    let truncatedText = comment.substr(0, cutoffPoint);
+    let initiallyHiddenTextThatWillExpand = comment.substr(cutoffPoint);
 
     let truncateButton =
-    <button className='btn-link truncate-button' aria-haspopup='true' aria-expanded={!this.isTruncated} onClick={this.toggleTruncate}>
-      {this.isTruncated ? 'SHOW MORE ' : 'SHOW LESS '}
-    </button>
+      <button className='btn-link truncate-button' aria-haspopup='true' aria-expanded={ !this.isTruncated } onClick={ this.toggleTruncate }>
+        { this.isTruncated ? 'SHOW MORE ' : 'SHOW LESS ' }
+      </button>
 
-    let truncationEndElements =
-        <span className='truncation-end-elements'>
-          {String.fromCharCode(8230, 32)}
-        </span>
+    let truncatedTextEndsInEllipsis =
+      <span>{ String.fromCharCode(8230, 32) }</span>
 
-    let hiddenTextElements =
-        <span className='hidden-comment-text'>
-          <span dangerouslySetInnerHTML={{__html: `${hiddenText}`}} />
-        </span>
-
-
-    //wrapping in <p> to normalize fonts; can't find a better solution;
     return (
-      <div className='comment-text-container'>
+
+      <div>
         <p>
-          <span dangerouslySetInnerHTML={{__html: `${truncatedText}`}} />
-            {this.isTruncated && truncationEndElements
-              || hiddenTextElements
+          <span dangerouslySetInnerHTML={ {__html: `${truncatedText}`} } />
+            {this.isTruncated && truncatedTextEndsInEllipsis
+              || <span dangerouslySetInnerHTML={ {__html: `${initiallyHiddenTextThatWillExpand}`} } />
             }
         </p>
-        <p>
-          {truncateButton}
-        </p>
+        <p>{ truncateButton }</p>
       </div>
-    );
+
+    )
   }
 
   render() {
+
     return (
+
       <div className='truncate-comment-container' aria-label='Review content'>
-        {this.truncateText(this.props.text, this.charCount)}
+        { this.truncateText(this.props.text, this.props.charCount) }
       </div>
     )
 

@@ -4,6 +4,10 @@
   align-items: stretch;
   justify-content: space-between;
   position: relative;
+
+  .btn {
+    align-self: center;
+  }
 }
 
 .individual-review-container {
@@ -11,33 +15,32 @@
   margin: 15px 0;
 }
 
-.review-author-and-rating {
+.author-and-rating-container {
   display: inline-flex;
   flex-direction: row;
   align-items: center;
   margin: 5px 0;
 
-      .hidden-label {}
+  // thanks Miles!
+  .ratings-container {
+    display: inline-block;
+    margin: 0 5px 0 0;
 
-      .ratings-container {
-        display: inline-block;
-        margin-right: 5px;
+    .ratings-number {
+      display: none;
+    }
 
-          .ratings-number {
-            display: none;
-          }
+    .ratings-stars {
+      vertical-align: middle;
+      margin: 1px 0 0 0;
+    }
 
-          .ratings-stars {
-            vertical-align: middle;
-            margin-top: 1px;
-          }
-
-          .ratings-star {
-            font-size: 2rem;
-            line-height: 20px;
-            max-height: 15px;
-        }
-      }
+    .ratings-star {
+      font-size: 2rem;
+      line-height: 20px;
+      max-height: 15px;
+    }
+  }
 }
 
 .review-subject {
@@ -55,8 +58,4 @@
 .review-date {
   color: $fn-mdgrey;
   font-size: 18px;
-}
-
-.load-more-button {
-  align-self: center;
 }
