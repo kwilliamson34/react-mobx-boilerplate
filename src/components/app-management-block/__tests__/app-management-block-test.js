@@ -14,11 +14,9 @@ describe('<AppManagementBlock />', () => {
       isAvailable: false,
       isRecommended: false,
     },
-    store: {
-      cardListStore: {
-        changeAppAvailability: jest.fn(),
-        changeAppRecommended: jest.fn()
-      }
+    appManagementActions: {
+      changeAppAvailability: jest.fn(),
+      changeAppRecommended: jest.fn()
     }
   };
 
@@ -80,7 +78,7 @@ describe('<AppManagementBlock />', () => {
       );
 
       //determine the function to spy on
-      const functionToWatch = memoryRouterComponent.props.children.props.store.cardListStore.changeAppAvailability;
+      const functionToWatch = memoryRouterComponent.props.children.props.appManagementActions.changeAppAvailability;
       expect(functionToWatch).not.toHaveBeenCalled();
 
       //trigger the action
@@ -88,10 +86,10 @@ describe('<AppManagementBlock />', () => {
         return ReactDOM.findDOMNode(inst).getAttribute('id') === 'Available-123-checkbox';
       })[0];
 
-      TestUtils.Simulate.click(toggleButton);
+      TestUtils.Simulate.click(toggleButton, {'target': {'checked': true}});
       expect(functionToWatch).toHaveBeenCalled();
 
-      TestUtils.Simulate.click(toggleButton);
+      TestUtils.Simulate.click(toggleButton, {'target': {'checked': false}});
       expect(functionToWatch).toHaveBeenCalled();
     });
 
@@ -107,7 +105,7 @@ describe('<AppManagementBlock />', () => {
       );
 
       //determine the function to spy on
-      const functionToWatch = memoryRouterComponent.props.children.props.store.cardListStore.changeAppRecommended;
+      const functionToWatch = memoryRouterComponent.props.children.props.appManagementActions.changeAppRecommended;
       expect(functionToWatch).not.toHaveBeenCalled();
 
       //trigger the action
@@ -115,10 +113,10 @@ describe('<AppManagementBlock />', () => {
         return ReactDOM.findDOMNode(inst).getAttribute('id') === 'Recommended-123-checkbox';
       })[0];
 
-      TestUtils.Simulate.click(toggleButton);
+      TestUtils.Simulate.click(toggleButton, {'target': {'checked': true}});
       expect(functionToWatch).toHaveBeenCalled();
 
-      TestUtils.Simulate.click(toggleButton);
+      TestUtils.Simulate.click(toggleButton, {'target': {'checked': false}});
       expect(functionToWatch).toHaveBeenCalled();
     });
 
@@ -134,16 +132,14 @@ describe('<AppManagementBlock />', () => {
       );
 
       //determine the function to spy on
-      const functionToWatch1 = memoryRouterComponent.props.children.props.store.cardListStore.changeAppAvailability;
-      const functionToWatch2 = memoryRouterComponent.props.children.props.store.cardListStore.changeAppRecommended;
-      // expect(functionToWatch1).not.toHaveBeenCalled();
-      // expect(functionToWatch2).not.toHaveBeenCalled();
+      const functionToWatch1 = memoryRouterComponent.props.children.props.appManagementActions.changeAppAvailability;
+      const functionToWatch2 = memoryRouterComponent.props.children.props.appManagementActions.changeAppRecommended;
 
       //trigger the action
       const toggleButton = TestUtils.findAllInRenderedTree(memoryRouterComponent, (inst) => {
         return ReactDOM.findDOMNode(inst).getAttribute('id') === 'Available-123-checkbox';
       })[0];
-      TestUtils.Simulate.click(toggleButton);
+      TestUtils.Simulate.click(toggleButton, {'target': {'checked': false}});
 
       //assert an outcome
       expect(functionToWatch1).toHaveBeenCalled();
