@@ -1,9 +1,22 @@
 import React from 'react';
-import Toggle from '../toggle/toggle';
+import GeolinkLayerToggle from './geolink-layer-toggle';
 
 // import {geolinkService} from '../../core/services/geolink.service.js';
 
 export default class GeolinkControls extends React.Component {
+
+  static propTypes = {
+    addLayer: React.PropTypes.func.isRequired,
+    removeLayer: React.PropTypes.func.isRequired,
+    searchMap: React.PropTypes.func.isRequired
+  }
+
+  constructor(props) {
+    super(props);
+    this.handleSearchInput = this.handleSearchInput.bind(this);
+    this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
+    this.handleOverlayChange = this.handleOverlayChange.bind(this);
+  }
 
   handleSearchInput() {
 
@@ -13,8 +26,15 @@ export default class GeolinkControls extends React.Component {
 
   }
 
-  handleOverlayChange() {
-
+  handleOverlayChange(event) {
+    if (event.target.type === 'checkbox') {
+      //update tracking in state, and manage layers
+      if(event.target.checked) {
+        this.props.addLayer(event.target.value);
+      } else {
+        this.props.removeLayer(event.target.value);
+      }
+    }
   }
 
   render() {
@@ -35,11 +55,11 @@ export default class GeolinkControls extends React.Component {
 
             <fieldset>
               <legend className="sr-only">Coverage layers</legend>
-              <Toggle value='GTOCOutages' label='GTOC Outages' onClick={this.handleOverlayChange} defaultOn={true}/>
-              <Toggle value='LTEWithPriority' label='LTE with priority/preemption' onClick={this.handleOverlayChange} defaultOn={true}/>
-              <Toggle value='LTEWithoutPriority' label='LTE without priority/preemption' onClick={this.handleOverlayChange} defaultOn={true}/>
-              <Toggle value='3G4G' label='3G/4G' onClick={this.handleOverlayChange} defaultOn={true}/>
-              <Toggle value='2G' label='2G' onClick={this.handleOverlayChange} defaultOn={true}/>
+              <GeolinkLayerToggle value='GTOCOutages' label='GTOC Outages' onClick={this.handleOverlayChange} defaultOn={true}/>
+              <GeolinkLayerToggle value='LTEWithPriority' label='LTE with priority/preemption' onClick={this.handleOverlayChange} defaultOn={true}/>
+              <GeolinkLayerToggle value='LTEWithoutPriority' label='LTE without priority/preemption' onClick={this.handleOverlayChange} defaultOn={true}/>
+              <GeolinkLayerToggle value='3G4G' label='3G/4G' onClick={this.handleOverlayChange} defaultOn={true}/>
+              <GeolinkLayerToggle value='2G' label='2G' onClick={this.handleOverlayChange} defaultOn={true}/>
             </fieldset>
 
           </form>

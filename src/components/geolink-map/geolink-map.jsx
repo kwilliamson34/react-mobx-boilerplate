@@ -35,9 +35,25 @@ export default class GeolinkMap extends React.Component {
               onLoad={() => {/*TODO center the map */}}/>
           </div>
           <div className="col-xs-12 col-sm-12 col-md-4 col-lg-3">
-            <GeolinkControls/>
+            <GeolinkControls
+              addLayer={this.addLayer.bind(this)}
+              removeLayer={this.removeLayer.bind(this)}
+              searchMap={this.searchMap.bind(this)}/>
           </div>
         </section>
       );
+    }
+
+    /* Pass geolink functions to children, maintain control of iframe ref */
+    addLayer(layer) {
+      geolinkService.geolinkTurnLayerOn(this.iframe, layer);
+    }
+
+    removeLayer(layer) {
+      geolinkService.geolinkTurnLayerOff(this.iframe, layer);
+    }
+
+    searchMap(searchValue) {
+      geolinkService.geolinkSearchMap(this.iframe, searchValue);
     }
 }

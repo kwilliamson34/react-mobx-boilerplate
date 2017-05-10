@@ -12,48 +12,39 @@ class GeolinkService {
     }, '*');
   }
 
-  geolinkTurnLayerOn(iframe, {state = '', bandOrIoc = '', indoorOutdoor = ''}) {
+  geolinkTurnLayerOn(iframe, layer) {
     if(!iframe) {
       console.error('No iframe provided!');
       return;
     }
 
-    const fieldName = this.getGeolinkFieldName(bandOrIoc, indoorOutdoor);
-    console.log('Turning ON ' + fieldName + ' for region ' + state + '...');
+    const fieldName = this.getGeolinkFieldName(layer);
+    console.log('Turning ON ' + fieldName);
     iframe.contentWindow.postMessage({
       eventName: 'loadLayer',
       value: fieldName,
-      flag: true,
-      filters: state ? 'State=\'' + state + '\'' : null
+      flag: true
     }, '*');
   }
 
-  geolinkTurnLayerOff(iframe, {state = '', bandOrIoc = '', indoorOutdoor = ''}) {
+  geolinkTurnLayerOff(iframe, layer) {
     if(!iframe) {
       console.error('No iframe provided!');
       return;
     }
 
-    const fieldName = this.getGeolinkFieldName(bandOrIoc, indoorOutdoor);
-    console.log('Turning OFF ' + fieldName + ' for region ' + state + '...');
+    const fieldName = this.getGeolinkFieldName(layer);
+    console.log('Turning OFF ' + fieldName);
     iframe.contentWindow.postMessage({
       eventName: 'loadLayer',
       value: fieldName,
-      flag: false,
-      filters: state ? 'State=\'' + state + '\'' : null
+      flag: false
     }, '*');
   }
 
-  getGeolinkFieldName(bandOrIoc, indoorOutdoor) {
-    return 'FirstNet:Coverage' + bandOrIoc.replace('_', '') + indoorOutdoor;
+  getGeolinkFieldName(layer) {
+    return 'FirstNet:Coverage' + layer;
   }
-
-  getGeolinkStatName(ioc, indoorOutdoor, fieldName) {
-    //insert underscore before digits in ioc name
-    const iocString = ioc.replace(new RegExp('[\d+]', 'g'), new RegExp('_$&', 'g'));
-    return indoorOutdoor + '_' + iocString + '_' + fieldName;
-  }
-
 }
 
 export const geolinkService = new GeolinkService();
