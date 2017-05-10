@@ -8,24 +8,23 @@ const pseId = '123';
 const pseIdQueryParam = 'pseId=' + pseId;
 
 class ApiService {
-
     loadUserData() {
         return axios.get('http://localhost:3000/user');
     }
 
     getSearchResults(query) {
-      let endpoint = query ?
-        `${base}/apps/search?searchTxt=${query}&${pseIdQueryParam}` : `${base}/apps/admin?${pseIdQueryParam}`
-      return axios.get(endpoint)
-        .then((res) => {
-          return utilsService.conditionData(res.data.applications);
+      let endpoint = query
+        ? `${base}/apps/search?searchTxt=${query}&${pseIdQueryParam}`
+        : `${base}/apps/admin?${pseIdQueryParam}`
+      return axios.get(endpoint).then((res) => {
+        return utilsService.conditionData(res.data.applications);
       });
     }
 
     getAdminApps() {
       return axios.get(`${base}/apps/admin?${pseIdQueryParam}`, {
           headers: {
-              'x-auth-token': '34234'
+            'x-auth-token': '34234'
           }
       }).then(res => {
         return utilsService.conditionData(res.data.applications);
