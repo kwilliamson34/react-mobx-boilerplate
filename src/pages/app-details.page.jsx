@@ -111,9 +111,9 @@ export default class AppDetailsPage extends React.Component {
           <div className="container">
             <div className="row">
               <div className="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
-                <h2>Reviews</h2>
+                <h2 aria-label="App Reviews">Reviews</h2>
 								{ appDetail.reviews.length === 0
-									? <div className="content-description">This app does not yet have any reviews.</div>
+									? <div className="content-description">No reviews yet!</div>
 									: <AppReviews reviews={appDetail.reviews} />
 								}
               </div>

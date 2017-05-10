@@ -29,47 +29,47 @@ export default class AppReviews extends React.Component {
   @observable loadedReviewsArray = [];
 
   loadReviews = () => {
-    console.log('loadReviews triggered');
     let endingIndex = (this.paginationCount * this.numberOfReviewsToLoad) + this.numberOfReviewsToLoad;
-    console.log('endingIndex      ', endingIndex);
     this.loadedReviewsArray = this.props.reviews.slice(0, endingIndex);
-    console.log('this.loadedReviewsArray       ', this.loadedReviewsArray);
     this.checkIfAllReviewsLoaded(this.loadedReviewsArray, this.props.reviews);
     this.paginationCount++;
-    console.log('paginationCount     ', this.paginationCount);
   }
 
   checkIfAllReviewsLoaded = (visibleReviewsArray, allReviewsArray) => {
     visibleReviewsArray.length < allReviewsArray.length
       ? this.showLoadMoreButton = true
       : this.showLoadMoreButton = false;
-    console.log('showLoadMoreButton     ', this.showLoadMoreButton);
   }
 
   renderReviews = (reviews) => {
     return reviews.map((node, i) => {
+
+      //also need to normalize date when integrating with service?
       let capitalizedReviewSubject = node.subject.toUpperCase();
+
       return (
         <div key={i} className='individual-review-container'>
-          <div className='review-subject'><strong>{capitalizedReviewSubject}</strong></div>
+          <div className='review-subject' aria-label='Review title'>{capitalizedReviewSubject}</div>
           <div className='review-author-and-rating'>
-            <div className='review-author'>
+            <div className='review-author' aria-label='Review author'>
               {node.author}
             </div>
+            <div className='sr-only'>{'App rated ' + node.rating + ' out of 5'}</div>
             <Rating rating={node.rating} />
           </div>
-          <div className='review-date'>
+          <div className='review-date' aria-label='Review Date'>
             {node.date}
           </div>
-          <div className='review-comment'>
-            <TruncateComment text={node.comment} />
-          </div>
+          <TruncateComment text={node.comment} />
         </div>
       )
     })
   }
 
-  loadMoreButton = <Button className='load-more-button btn fn-primary' onClick={this.loadReviews}>Load More</Button>
+  loadMoreButton =
+    <Button className='load-more-button btn fn-primary' onClick={this.loadReviews}>
+      Load More
+    </Button>
 
   render() {
   return (

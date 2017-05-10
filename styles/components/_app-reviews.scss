@@ -15,15 +15,46 @@
   display: inline-flex;
   flex-direction: row;
   align-items: center;
-  color: #909090;
+  margin: 5px 0;
+
+      .hidden-label {}
+
+      .ratings-container {
+        display: inline-block;
+        margin-right: 5px;
+
+          .ratings-number {
+            display: none;
+          }
+
+          .ratings-stars {
+            vertical-align: middle;
+            margin-top: 1px;
+          }
+
+          .ratings-star {
+            font-size: 2rem;
+            line-height: 20px;
+            max-height: 15px;
+        }
+      }
+}
+
+.review-subject {
+  font-weight: bold;
+  font-size: 18px;
+  color: #303030;
 }
 
 .review-author {
   margin-right: 10px;
+  font-size: 18px;
+  color: $fn-dkgrey;
 }
 
 .review-date {
-  color: #909090;
+  color: $fn-mdgrey;
+  font-size: 18px;
 }
 
 .load-more-button {

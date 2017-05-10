@@ -8,7 +8,7 @@ export class TruncateComment extends React.Component {
 
   @observable isTruncated = true;
 
-  charCount = 300;
+  charCount = this.props.charCount || 300;
 
   toggleTruncate = () => {
     this.isTruncated = this.isTruncated ? false : true;
@@ -16,32 +16,39 @@ export class TruncateComment extends React.Component {
 
   truncateText = (comment, chars) => {
 
-    //truncated text might end on punctuation, or even HTML tag. Not sure how this will look or if problem. Need regex on final element?
+    //truncated text might end on punctuation, or even HTML tag, which might be a problem. Might need regex on splitComment?
     let splitComment = comment.substr(0, chars+1).split(' ');
     let insertionPoint = splitComment.slice(0, splitComment.length-1).join(' ').length;
     let truncatedText = comment.substr(0, insertionPoint);
     let hiddenText = comment.substr(insertionPoint);
 
-    //This seems awkward but I might need it to do the animation.
-    // let hideWhenTruncated = this.isTruncated ? {display: 'none'} : {display: 'initial'};
-    // let showWhenTruncated = this.isTruncated ? {display: 'initial'} : {display: 'none'};
+    let truncateButton =
+    <button className='btn-link truncate-button' aria-haspopup='true' aria-expanded={!this.isTruncated} onClick={this.toggleTruncate}>
+      {this.isTruncated ? 'SHOW MORE ' : 'SHOW LESS '}
+    </button>
 
     let truncationEndElements =
         <span className='truncation-end-elements'>
-          {String.fromCharCode(32, 8230)}
+          {String.fromCharCode(8230, 32)}
         </span>
 
-    //wrapping in <p> to keep font style consistent; hacky muck.
+    let hiddenTextElements =
+        <span className='hidden-comment-text'>
+          <span dangerouslySetInnerHTML={{__html: `${hiddenText}`}} />
+        </span>
+
+
+    //wrapping in <p> to normalize fonts; can't find a better solution;
     return (
       <div className='comment-text-container'>
         <p>
           <span dangerouslySetInnerHTML={{__html: `${truncatedText}`}} />
-            {this.isTruncated &&
-              truncationEndElements ||
-                <span className='hidden-comment-text'>
-                  <span dangerouslySetInnerHTML={{__html: `${hiddenText}`}} />
-                </span>
-              }
+            {this.isTruncated && truncationEndElements
+              || hiddenTextElements
+            }
+        </p>
+        <p>
+          {truncateButton}
         </p>
       </div>
     );
@@ -49,9 +56,8 @@ export class TruncateComment extends React.Component {
 
   render() {
     return (
-      <div className='truncate-comment-container'>
+      <div className='truncate-comment-container' aria-label='Review content'>
         {this.truncateText(this.props.text, this.charCount)}
-        <button className='btn-link' onClick={this.toggleTruncate}>{this.isTruncated ? 'SHOW MORE' : 'SHOW LESS'}</button>
       </div>
     )
 
