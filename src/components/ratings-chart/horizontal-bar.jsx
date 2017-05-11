@@ -2,16 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-  export default class HorizontalBar extends React.Component {
-    constructor(props) {
-      super(props);
-    }
+export default class HorizontalBar extends React.Component {
+	constructor(props) {
+		super(props);
+	}
 
-    render() {
-      const max = Math.max.apply(Math, this.props.data);
+	render() {
+		const max = Math.max.apply(Math, this.props.data);
 
-      return (
-        <div className={'horizontal-bar-chart'}>
+		return (
+			<div className={'horizontal-bar-chart'}>
         {
           this.props.data.map(function (item, itemIndex) {
             let size = item/max * 100;
@@ -19,24 +19,25 @@ import PropTypes from 'prop-types';
             return (
               <div className="bar-wrapper" key={itemIndex+'bar'}>
                 <label>
-                  <span className="ratings-number"><i aria-hidden="true" className="ratings-star mdi  mdi-star"></i>{(itemIndex - 5)*-1}</span>
+                  <span className="ratings-number">
+                    <i aria-hidden="true" className="ratings-star mdi  mdi-star"></i>{(5-itemIndex)}</span>
                 </label>
                 <div className="bar" style={style}>
-                  <div className="bar-value">{item}</div>
+                  <div className="bar-value">{item} <span className="sr-only">{(5-itemIndex)} star reviews submitted</span></div>
                 </div>
               </div>
             );
           })
         }
         </div>
-      );
-    }
-  }
+		);
+	}
+}
 
 HorizontalBar.propTypes = {
-    data: PropTypes.array    // value the chart should show
+	data: PropTypes.array // value the chart should show
 };
 
 HorizontalBar.defaultProps = {
-    data: [0]
+	data: [0]
 };
