@@ -27,8 +27,8 @@ class CardListStore {
         return apiService.getAdminApps().then(success, fail)
     }
 
-    @action setCurrentApp(id){
-      this.currentAppId = id;
+    @action setCurrentApp(psk){
+      this.currentAppPsk = psk;
     }
 
     @action clear() {
@@ -107,7 +107,7 @@ class CardListStore {
     //COMPUTEDS
     @computed get currentApp(){
       return this.searchResults.filter((app) => {
-        return app.id === this.currentAppId
+        return app.psk === this.currentAppPsk
       })[0];
     }
 
@@ -190,7 +190,7 @@ class CardListStore {
     @observable searchIsVisible = false;
     @observable searchQuery = '';
     @observable isLoading = false;
-    @observable currentAppId = '';
+    @observable currentAppPsk = '';
 
     @observable platforms = [
         { title: 'Platform', value: '' },

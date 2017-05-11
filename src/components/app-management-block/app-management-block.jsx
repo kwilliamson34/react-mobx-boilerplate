@@ -30,14 +30,14 @@ export default class AppManagementBlock extends React.Component {
     }
 
     if(isAvailable !== this.props.app.isAvailable) {
-      this.props.appManagementActions.changeAppAvailability(this.props.app.id, isAvailable);
+      this.props.appManagementActions.changeAppAvailability(this.props.app.psk, isAvailable);
     }
   }
 
   handleRecommendedClick(event) {
     const isRecommended = event.target.checked;
     if(isRecommended !== this.props.app.isRecommended) {
-      this.props.appManagementActions.changeAppRecommended(this.props.app.id, isRecommended);
+      this.props.appManagementActions.changeAppRecommended(this.props.app.psk, isRecommended);
     }
   }
 
@@ -47,13 +47,13 @@ export default class AppManagementBlock extends React.Component {
         <div className="app-management">
           <Toggle
             label="Available"
-            id={'Available-' + this.props.app.id}
+            id={'Available-' + this.props.app.psk}
             defaultOn={this.props.app.isAvailable}
             onClick={this.handleAvailableClick}/>
           <Toggle
             label="Recommended"
             ref={ref => this.recommendedToggle = ref}
-            id={'Recommended-' + this.props.app.id}
+            id={'Recommended-' + this.props.app.psk}
             defaultOn={this.props.app.isRecommended}
             disabled={this.props.app.recommendToggleIsDisabled}
             onClick={this.handleRecommendedClick}/>
