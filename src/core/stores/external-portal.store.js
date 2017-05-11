@@ -11,7 +11,7 @@ class ExternalContentStore {
     }
 
     const fail = (res) => {
-      console.log('MPDevice fetch failed');
+      console.log('MPDevice fetch failed\n' + res);
     }
 
     apiService.getMPDevices().then(success, fail);
