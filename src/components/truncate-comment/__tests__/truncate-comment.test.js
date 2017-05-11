@@ -20,18 +20,14 @@ describe('<TruncateComment />', () => {
     });
   });
 
-  describe('Trying to get anything to work as expected at all!', () => {
-    
-  })
-
   describe('It should fail', () => {
-    test('no keyVal as required', () => {
+    test('should throw error', () => {
       const component = renderer.create(
         <TruncateComment text={props.text} />
       );
 
       let tree = component.toJSON();
-      expect(tree).not.toMatchSnapshot();
+      expect(tree).toThrowError(/Warning/);
     });
   });
 });

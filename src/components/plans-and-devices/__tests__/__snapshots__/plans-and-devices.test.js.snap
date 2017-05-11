@@ -1,6 +1,7 @@
 exports[`<PlansAndDevices /> renders matches previous Plans and devices snapshot 1`] = `
 <section
-  className="placeholder mp-links">
+  className="placeholder mp-links"
+  id="PlansAndDevices">
   <div
     className="container pad-header-spacing">
     <h2>
@@ -43,7 +44,7 @@ exports[`<PlansAndDevices /> renders matches previous Plans and devices snapshot
             </p>
             <a
               className="pad-button btn btn-lg btn-default"
-              href="shop-plans"
+              href="/shop-plans"
               onClick={[Function anonymous]}>
               Shop Plans
             </a>

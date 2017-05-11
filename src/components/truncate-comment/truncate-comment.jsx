@@ -26,8 +26,7 @@ export default class TruncateComment extends React.Component {
 
   truncateText = (comment, chars) => {
 
-    //TODO: Comment may need to be normalized to display correctly. Probably need some regex on the last index item in the array currently being used to generate cutoffPoint to ensure no markup is being broken or other formatting errors introduced.  
-
+    //TODO: Comment may need to be normalized to display correctly. Probably need some regex on the last index item in the array currently being used to generate cutoffPoint to ensure no markup is being broken or other formatting errors introduced.
     let splitComment = comment.substr(0, chars + 1).split(' ');
     let cutoffPoint = splitComment.slice(0, splitComment.length - 1).join(' ').length;
     let truncatedText = comment.substr(0, cutoffPoint);
