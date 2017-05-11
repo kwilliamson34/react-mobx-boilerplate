@@ -31,7 +31,7 @@ export default class AppReviews extends React.Component {
   //temporary workaround until fate of app detail store is determined;
   @observable loadedReviewsArray = [];
 
-  loadReviews = () => {
+  loadReviews() {
     let endingIndex = (this.paginationCount * this.props.numberOfReviewsToLoad) + this.props.numberOfReviewsToLoad;
     this.loadedReviewsArray = this.props.reviews.slice(0, endingIndex);
     this.checkIfAllReviewsLoaded(this.loadedReviewsArray, this.props.reviews);
