@@ -1,9 +1,10 @@
-.app-management{
+.app-management {
     width: 100%;
     height: auto;
-    background-color: $fn-grey;
+    background-color: $fn-ltgrey;
     margin: 0 auto;
     padding: 0 15px 15px 15px;
+    border: 1px solid $fn-grey;
 
     button {
         font-size: 1.4rem;

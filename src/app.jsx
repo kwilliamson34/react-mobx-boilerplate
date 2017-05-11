@@ -5,18 +5,14 @@ import React from 'react';
 import {
 	BrowserRouter as Router,
 	Route,
-	Switch
+	Switch,
+	Link
 } from 'react-router-dom';
 import ScrollToTop from './core/services/scroll-to-top';
 
 //State Management
-import {
-	Provider,
-	observer
-} from 'mobx-react';
-import {
-	pseMasterStore
-} from './core/stores/master.store';
+import { Provider, observer } from 'mobx-react';
+import { pseMasterStore } from './core/stores/master.store';
 
 //Styles
 import '../styles/app.scss';
@@ -45,6 +41,27 @@ export default class App extends React.Component {
 	}
 
 	render() {
+
+		const AppHub = ({ match }) => {
+			return(
+				<div id="app-page">
+					<Switch>
+						<Route path={`${match.url}/:appId`} component={AppDetailsPage} />
+						<Route exact path={match.url} render={() => (
+							<article>
+								<div className="container">
+									<div className="col-xs-12">
+										<h1>Sorry.</h1>
+										<p>We couldn't find the app you were looking for.  <Link to="manage-apps">Go to the App Catalog</Link></p>
+									</div>
+								</div>
+							</article>
+						)}/>
+					</Switch>
+				</div>
+			)
+		}
+
 		return (
 			<Router>
         <Provider store={pseMasterStore}>
@@ -53,15 +70,15 @@ export default class App extends React.Component {
                   <a href="#main-content" className="sr-only sr-only-focusable">Skip Navigation</a>
                   <Header/>
                     <main id="main-content">
-                      <Switch>
-                        <Route path="/" exact component={HomePage}/>
-                        <Route path="/admin" exact component={AdminDashboardPage} />
-                        <Route path="/manage-apps" exact component={ManageAppsPage}/>
-                        <Route path="/help-center" exact component={HelpCenterPage} />
-                        <Route path="/shop-plans" exact component={ShopPlansView} />
-                        <Route path="/app" component={AppDetailsPage} />
+											<Switch>
+                        <Route exact path="/" component={HomePage}/>
+                        <Route path="/admin" component={AdminDashboardPage} />
+                        <Route path="/manage-apps" component={ManageAppsPage}/>
+                        <Route path="/help-center" component={HelpCenterPage} />
+                        <Route path="/shop-plans" component={ShopPlansView} />
+												<Route path="/app" component={AppHub} />
                         <Route component={NoMatch}/>
-                      </Switch>
+											</Switch>
                     </main>
                   <Footer/>
               </div>
