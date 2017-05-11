@@ -9,15 +9,13 @@ const user_segment = {
     LAW_ENFORCEMENT: 200,
     EMERGENCY_MEDICAL: 204,
     DISPATCH: 203,
-    CRITICAL_INFRASTURCUTRE: 205
+    CRITICAL_INFRASTRUCTURE: 205
 };
-
-
 
 class CardListStore {
 
     // ACTIONS
-    @action getHomeCards() {
+    @action getAdminApps() {
         const success = (res) => {
             this.searchResults = res;
             this.shouldShowSearchResults = true;
@@ -26,7 +24,11 @@ class CardListStore {
         const fail = (err) => {
             console.warn(err);
         }
-        return apiService.getHomeCards().then(success, fail)
+        return apiService.getAdminApps().then(success, fail)
+    }
+
+    @action setCurrentApp(psk){
+      this.currentAppPsk = psk;
     }
 
     @action clear() {
@@ -34,13 +36,6 @@ class CardListStore {
     }
 
     @action getSearchResults = _.debounce(() => {
-
-        if (this.searchQuery === '') {
-            this.searchResults = null;
-            this.shouldShowSearchResults = false;
-            return;
-        }
-
         const success = (response) => {
             this.searchResults = response;
             this.shouldShowSearchResults = true;
@@ -78,9 +73,43 @@ class CardListStore {
         this.platformFilter = value;
     }
 
+    @action changeAppAvailability(appPSK, isAvailable) {
+      this.setCurrentApp(appPSK);
+      this.currentApp.isAvailable = isAvailable;
 
+      if(isAvailable) {
+        this.currentApp.recommendToggleIsDisabled = false;
+        apiService.addAppToGroup(appPSK, 'Available');
+      } else {
+        this.currentApp.recommendToggleIsDisabled = true;
+        apiService.removeAppFromGroup(appPSK, 'Available');
+
+        if(this.currentApp.isRecommended){
+          apiService.removeAppFromGroup(appPSK, 'Recommended');
+        }
+      }
+    }
+
+    @action changeAppRecommended(appPSK, isRecommended) {
+      this.setCurrentApp(appPSK);
+
+      if(this.currentApp.isAvailable){
+        this.currentApp.isRecommended = isRecommended;
+
+        if(isRecommended) {
+          apiService.addAppToGroup(appPSK, 'Recommended');
+        } else {
+          apiService.removeAppFromGroup(appPSK, 'Recommended');
+        }
+      }
+    }
 
     //COMPUTEDS
+    @computed get currentApp(){
+      return this.searchResults.filter((app) => {
+        return app.psk === this.currentAppPsk
+      })[0];
+    }
 
     @computed get recommendedCards() {
         return this.searchResults.filter((app) => {
@@ -153,16 +182,15 @@ class CardListStore {
     }
 
     // OBSERVABLES
-
-    // @observable homeCards = [];
     @observable categoryFilter = 'Select Category';
-    @observable segmentFilter = 'Select Fitler';
+    @observable segmentFilter = 'Select Filter';
 
+    @observable searchResults = [];
     @observable shouldShowSearchResults = false;
     @observable searchIsVisible = false;
     @observable searchQuery = '';
-    @observable searchResults = [];
     @observable isLoading = false;
+    @observable currentAppPsk = '';
 
     @observable platforms = [
         { title: 'Platform', value: '' },
