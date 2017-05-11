@@ -7,9 +7,7 @@ class ExternalContentStore {
   */
   @action getMPDevices() {
     const success = (res) => {
-      console.log('devicesData: ' + JSON.stringify(res));
       this.devicesData = res;
-
     }
 
     const fail = (res) => {

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { observer, inject } from 'mobx-react';
+import { Link } from 'react-router-dom';
 //const cheerio = require('cheerio');
 
 @inject('store')
@@ -12,14 +13,13 @@ export default class ShopDevicesPage extends React.Component {
     }
 
     componentWillMount() {
-      console.log('mounted: fetch devices now');
       this.mpStore.getMPDevices();
     }
 
+    const
 
     render() {
         return (
-
           <article id="shop-devices-page">
             <div className="container">
               <div className="row">
@@ -37,7 +37,14 @@ export default class ShopDevicesPage extends React.Component {
                     <ul className="mp-content">
                       {this.mpStore.devicesData.phones.map((phone, idx) => {
                         return (
-                          <li key={'phone_'+idx}>{phone.title},{phone.image}</li>
+                          <li key={'phone_'+idx}>
+                            <Link to={'devices/' +phone.url}>
+                            {phone.title}
+                            <div className="card-img-wrapper">
+                              <img src={phone.image} alt={phone.title} />
+                            </div>
+                            </Link>
+                          </li>
                         )
                       })}
                     </ul>
@@ -56,7 +63,14 @@ export default class ShopDevicesPage extends React.Component {
                     <ul className="mp-content">
                       {this.mpStore.devicesData.tablets.map((tablet, idx) => {
                         return (
-                          <li key={'tablet_'+idx}>{tablet.title},{tablet.image}</li>
+                          <li key={'tablet_'+idx}>
+                            <Link to={'devices/' +tablet.url}>
+                            {tablet.title}
+                            <div className="card-img-wrapper">
+                              <img src={tablet.image} alt={tablet.title} />
+                            </div>
+                            </Link>
+                          </li>
                         )
                       })}
                     </ul>
@@ -73,7 +87,14 @@ export default class ShopDevicesPage extends React.Component {
                     <ul className="mp-content">
                       {this.mpStore.devicesData.invehicles.map((iv, idx) => {
                         return (
-                          <li key={'iv_'+idx}>{iv.title},{iv.image}</li>
+                          <li key={'iv_'+idx}>
+                            <Link to={'devices/' +iv.url}>
+                            {iv.title}
+                            <div className="card-img-wrapper">
+                              <img src={iv.image} alt={iv.title} />
+                            </div>
+                            </Link>
+                          </li>
                         )
                       })}
                     </ul>
@@ -90,7 +111,14 @@ export default class ShopDevicesPage extends React.Component {
                     <ul className="mp-content">
                       {this.mpStore.devicesData.accessories.map((accessory, idx) => {
                         return (
-                          <li key={'accessory_'+idx}>{accessory.title},{accessory.image}</li>
+                          <li key={'accessory_'+idx}>
+                            <Link to={'devices/' + accessory.url}>
+                            {accessory.title}
+                            <div className="card-img-wrapper">
+                              <img src={accessory.image} alt={accessory.title} />
+                            </div>
+                            </Link>
+                          </li>
                         )
                       })}
                     </ul>
