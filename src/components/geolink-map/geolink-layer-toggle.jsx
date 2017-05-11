@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import $ from 'jquery';
+import {Checkbox} from 'react-bootstrap';
 
 class GeolinkLayerToggle extends React.Component {
   constructor(props) {
@@ -7,29 +7,15 @@ class GeolinkLayerToggle extends React.Component {
     if(this.props.onClick){
       this.onClick = this.props.onClick.bind(this);
     }
-    this.handleFocusEnter = this.handleFocusEnter.bind(this);
-  }
-
-  handleFocusEnter(event) {
-    if (event.key === 'Enter') {
-      $(event.target.parentElement).find('input').click();
-    }
+    this.onClick = this.props.onClick.bind(this);
   }
 
   render() {
-    const inputIdentifier = this.props.value + '-checkbox';
     return (
-      <div>
-        <input
-          id={inputIdentifier}
-          type="checkbox"
-          value={this.props.value}
-          defaultChecked={this.props.defaultOn}
-          onClick={this.onClick}/>
-        <label htmlFor={inputIdentifier}>
-          {this.props.label}
-        </label>
-      </div>
+      <Checkbox defaultChecked={this.props.defaultOn} value={this.props.value} onClick={this.onClick} >
+        <span className="cr"></span>
+        <span className="layer-label">{this.props.label}</span>
+      </Checkbox>
     )
   }
 }

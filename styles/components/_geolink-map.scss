@@ -26,47 +26,14 @@ $search-border-radius: 4px;
 .geolink-controls {
   min-height: 160px;
 
-  .search-input {
-    input[type='text'] {
-      background: white;
-      color: $fn-dkgrey;
-      border-top-left-radius: $search-border-radius;
-      border-bottom-left-radius: $search-border-radius;
-      border-right: none;
-      height: 40px;
+  .search-input input,
+  .search-input button {
+    height: 48px;
+  }
 
-      &:focus {
-        @include focus();
-      }
-    }
-
-    button {
-      padding: 0 8px !important;
-      border: 0;
-      height: 38px;
-      border-top-right-radius: $search-border-radius;
-      border-bottom-right-radius: $search-border-radius;
-
-      .icon-search {
-        color: #fff;
-        display: block;
-        vertical-align: middle;
-
-        &:before {
-          font-size: 20px;
-          color: $fn-dark;
-        }
-      }
-
-      &:focus {
-        @include focus();
-      }
-
-      &:focus,
-      &:hover {
-        background-color: transparent;
-      }
-    }
+  [class*=' col-']{
+    min-height: 140px;
+    margin: 10px;
   }
 }
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import GeolinkLayerToggle from './geolink-layer-toggle';
 import PropTypes from 'prop-types';
+import {FormGroup, FormControl, InputGroup, ControlLabel, Button} from 'react-bootstrap';
 
 export default class GeolinkControls extends React.Component {
 
@@ -12,6 +13,7 @@ export default class GeolinkControls extends React.Component {
     super(props);
     this.handleSearchInput = this.handleSearchInput.bind(this);
     this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
+    this.handleSearchKeyPress = this.handleSearchKeyPress.bind(this);
     this.toggleNetworkStatus = this.toggleNetworkStatus.bind(this);
     this.toggleTraffic = this.toggleTraffic.bind(this);
     this.toggleWeather = this.toggleWeather.bind(this);
@@ -23,6 +25,13 @@ export default class GeolinkControls extends React.Component {
 
   handleSearchSubmit() {
     this.props.geolinkStore.searchMap();
+  }
+
+  handleSearchKeyPress(event) {
+    if (event.key == 'Enter') {
+      event.preventDefault();
+      this.handleSearchSubmit();
+    }
   }
 
   toggleNetworkStatus(event) {
@@ -53,18 +62,22 @@ export default class GeolinkControls extends React.Component {
     return (
       <section className="geolink-controls">
         <div className="col-xs-12 col-md-4">
-          <form className="search-input">
-            <label htmlFor="location-search">Location</label>
-            <input id="location-search" type="text" onChange={this.handleSearchInput.bind(this)} />
-            <button type="submit" onClick={this.handleSearchSubmit.bind(this)}>
-              <span className='sr-only'>Search for locations</span>
-              <i aria-hidden="true" className="icon-search" alt="search icon"></i>
-            </button>
-          </form>
+          <FormGroup controlId="location" className="search-input">
+            <ControlLabel>Location</ControlLabel>
+            <InputGroup>
+              <FormControl type="text" onChange={this.handleSearchInput} onKeyPress={this.handleSearchKeyPress}/>
+              <InputGroup.Button>
+                <Button type="submit" onClick={this.handleSearchSubmit}>
+                  <span className='sr-only'>Search for locations</span>
+                  <i aria-hidden="true" className="icon-search" alt="search icon"></i>
+                </Button>
+              </InputGroup.Button>
+            </InputGroup>
+          </FormGroup>
         </div>
         <div className="col-xs-12 col-md-4">
           <form>
-            <fieldset>
+            <fieldset className="form-group">
               <legend className="sr-only">Coverage layers</legend>
               <GeolinkLayerToggle value='NetworkStatus' label='Network status' onClick={this.toggleNetworkStatus} defaultOn={true}/>
               <GeolinkLayerToggle value='Traffic' label='Traffic' onClick={this.toggleTraffic} defaultOn={true}/>
