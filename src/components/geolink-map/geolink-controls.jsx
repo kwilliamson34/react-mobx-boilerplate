@@ -39,32 +39,32 @@ export default class GeolinkControls extends React.Component {
 
   render() {
     return (
-      <div className="wrapper">
-        <div className="geolink-controls">
-          <h2 className="as-h4">Filter</h2>
-          <form>
-
+      <section className="geolink-controls">
+        <div className="col-xs-12 col-md-4">
+          <form className="search-input">
             <label htmlFor="location-search">Location</label>
             <input id="location-search" type="text" onChange={this.handleSearchInput.bind(this)} />
             <button type="submit" onClick={this.handleSearchSubmit.bind(this)}>
               <span className='sr-only'>Search for locations</span>
               <i aria-hidden="true" className="icon-search" alt="search icon"></i>
             </button>
-
-            <hr />
-
+          </form>
+        </div>
+        <div className="col-xs-12 col-md-4">
+          <form>
             <fieldset>
               <legend className="sr-only">Coverage layers</legend>
-              <GeolinkLayerToggle value='GTOCOutages' label='GTOC Outages' onClick={this.handleOverlayChange} defaultOn={true}/>
+              <GeolinkLayerToggle value='NetworkStatus' label='GTOC Outages' onClick={this.handleOverlayChange} defaultOn={true}/>
               <GeolinkLayerToggle value='LTEWithPriority' label='LTE with priority/preemption' onClick={this.handleOverlayChange} defaultOn={true}/>
               <GeolinkLayerToggle value='LTEWithoutPriority' label='LTE without priority/preemption' onClick={this.handleOverlayChange} defaultOn={true}/>
               <GeolinkLayerToggle value='3G4G' label='3G/4G' onClick={this.handleOverlayChange} defaultOn={true}/>
               <GeolinkLayerToggle value='2G' label='2G' onClick={this.handleOverlayChange} defaultOn={true}/>
             </fieldset>
-
           </form>
         </div>
-      </div>
+        <div className="col-xs-12 col-md-4">
+        </div>
+      </section>
     )
   }
 }

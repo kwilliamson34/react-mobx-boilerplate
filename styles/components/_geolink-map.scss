@@ -1,13 +1,14 @@
 $map-height: 50vh;
 $map-height-min-sm: 500px;
 $map-height-min-xs: 200px;
+$search-border-radius: 4px;
 
 .geolink-map {
   width: 100%;
 
   .map-wrapper {
     padding: 0;
-    background-color: $fn-grey;
+    background: $fn-grey url("/images/placeholder-image.jpg") no-repeat center;
 
     iframe {
       width: 100%;
@@ -22,9 +23,55 @@ $map-height-min-xs: 200px;
   }
 }
 
+.geolink-controls {
+  min-height: 160px;
+
+  .search-input {
+    input[type='text'] {
+      background: white;
+      color: $fn-dkgrey;
+      border-top-left-radius: $search-border-radius;
+      border-bottom-left-radius: $search-border-radius;
+      border-right: none;
+      height: 40px;
+
+      &:focus {
+        @include focus();
+      }
+    }
+
+    button {
+      padding: 0 8px !important;
+      border: 0;
+      height: 38px;
+      border-top-right-radius: $search-border-radius;
+      border-bottom-right-radius: $search-border-radius;
+
+      .icon-search {
+        color: #fff;
+        display: block;
+        vertical-align: middle;
+
+        &:before {
+          font-size: 20px;
+          color: $fn-dark;
+        }
+      }
+
+      &:focus {
+        @include focus();
+      }
+
+      &:focus,
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+}
+
 /**********************************************/
-/* Phone */
-@media only screen and (min-width : 0px) {
+@media #{$mobile} {
   .geolink-map {
     height: $map-height;
     min-height: $map-height-min-xs;
@@ -35,8 +82,7 @@ $map-height-min-xs: 200px;
     }
   }
 }
-/* Tablet */
-@media only screen and (min-width : 768px) {
+@media #{$tablet} {
   .geolink-map {
     height: $map-height;
     min-height: $map-height-min-sm;

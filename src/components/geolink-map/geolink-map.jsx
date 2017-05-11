@@ -28,18 +28,16 @@ export default class GeolinkMap extends React.Component {
     render() {
       return (
         <section className="geolink-map">
-          <div className="map-wrapper noPadding col-xs-12 col-sm-12 col-md-8 col-lg-9">
+          <div className="map-wrapper noPadding">
             <iframe
               title="Interactive Coverage Map"
               ref={(ref) => this.iframe = ref}
               onLoad={() => {/*TODO center the map */}}/>
           </div>
-          <div className="col-xs-12 col-sm-12 col-md-4 col-lg-3">
-            <GeolinkControls
-              addLayer={this.addLayer.bind(this)}
-              removeLayer={this.removeLayer.bind(this)}
-              searchMap={this.searchMap.bind(this)}/>
-          </div>
+          <GeolinkControls
+            addLayer={this.addLayer.bind(this)}
+            removeLayer={this.removeLayer.bind(this)}
+            searchMap={this.searchMap.bind(this)}/>
         </section>
       );
     }
