@@ -1,38 +1,50 @@
 import React from 'react';
 import GeolinkLayerToggle from './geolink-layer-toggle';
-
-// import {geolinkService} from '../../core/services/geolink.service.js';
+import PropTypes from 'prop-types';
 
 export default class GeolinkControls extends React.Component {
 
   static propTypes = {
-    addLayer: React.PropTypes.func.isRequired,
-    removeLayer: React.PropTypes.func.isRequired,
-    searchMap: React.PropTypes.func.isRequired
+    geolinkStore: PropTypes.object.isRequired
   }
 
   constructor(props) {
     super(props);
     this.handleSearchInput = this.handleSearchInput.bind(this);
     this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
-    this.handleOverlayChange = this.handleOverlayChange.bind(this);
+    this.toggleNetworkStatus = this.toggleNetworkStatus.bind(this);
+    this.toggleTraffic = this.toggleTraffic.bind(this);
+    this.toggleWeather = this.toggleWeather.bind(this);
   }
 
-  handleSearchInput() {
-
+  handleSearchInput(event) {
+    this.props.geolinkStore.updateSearchTerm(event.target.value);
   }
 
   handleSearchSubmit() {
-
+    this.props.geolinkStore.searchMap();
   }
 
-  handleOverlayChange(event) {
+  toggleNetworkStatus(event) {
     if (event.target.type === 'checkbox') {
-      //update tracking in state, and manage layers
       if(event.target.checked) {
-        this.props.addLayer(event.target.value);
+        this.props.geolinkStore.addAllCoverageLayers();
       } else {
-        this.props.removeLayer(event.target.value);
+        this.props.geolinkStore.removeAllCoverageLayers();
+      }
+    }
+  }
+
+  toggleTraffic() {
+    this.props.geolinkStore.toggleTraffic();
+  }
+
+  toggleWeather(event) {
+    if (event.target.type === 'checkbox') {
+      if(event.target.checked) {
+        this.props.geolinkStore.addWeather();
+      } else {
+        this.props.geolinkStore.removeWeather();
       }
     }
   }
@@ -54,11 +66,9 @@ export default class GeolinkControls extends React.Component {
           <form>
             <fieldset>
               <legend className="sr-only">Coverage layers</legend>
-              <GeolinkLayerToggle value='NetworkStatus' label='GTOC Outages' onClick={this.handleOverlayChange} defaultOn={true}/>
-              <GeolinkLayerToggle value='LTEWithPriority' label='LTE with priority/preemption' onClick={this.handleOverlayChange} defaultOn={true}/>
-              <GeolinkLayerToggle value='LTEWithoutPriority' label='LTE without priority/preemption' onClick={this.handleOverlayChange} defaultOn={true}/>
-              <GeolinkLayerToggle value='3G4G' label='3G/4G' onClick={this.handleOverlayChange} defaultOn={true}/>
-              <GeolinkLayerToggle value='2G' label='2G' onClick={this.handleOverlayChange} defaultOn={true}/>
+              <GeolinkLayerToggle value='NetworkStatus' label='Network status' onClick={this.toggleNetworkStatus} defaultOn={true}/>
+              <GeolinkLayerToggle value='Traffic' label='Traffic' onClick={this.toggleTraffic} defaultOn={true}/>
+              <GeolinkLayerToggle value='Weather' label='Weather' onClick={this.toggleWeather} defaultOn={true}/>
             </fieldset>
           </form>
         </div>

@@ -25,7 +25,7 @@
     <div style="height:100vh;width:100%;" ab-map config="{defaultBaseLayerName: 'bingRoadAndBase', scrollWheelZoom: false, center: {'lat':40,'lng':-99,'zoom':4}}"></div>
   </div>
 
-  <script type="@@geolinkScriptType" src="@@geolinkScriptPath/extns/abMapConstantsFNST.js" data-ngmod="appBoardsMap"></script>
+  <script type="@@geolinkScriptType" src="@@geolinkScriptPath/extns/@@geolinkAbMapConstantsFileName" data-ngmod="appBoardsMap"></script>
   <script type="@@geolinkScriptType" src="@@geolinkScriptPath/libs/jquery/jquery.min.js"></script>
   <script type="@@geolinkScriptType" src="@@geolinkScriptPath/libs/amplify/lib/amplify.min.js"></script>
   <script type="@@geolinkScriptType" src="@@geolinkScriptPath/libs/angular/angular.min.js"></script>
@@ -46,8 +46,12 @@
         console.log(e.data);
         if(e.data.filters) {
           amplify.publish(e.data.eventName, e.data.value, e.data.flag, e.data.filters);
-        } else {
+        } else if (e.data.value) {
           amplify.publish(e.data.eventName, e.data.value, e.data.flag);
+        } else if (e.data.options) {
+          amplify.publish(e.data.eventName, e.data.options);
+        } else {
+          amplify.publish(e.data.eventName);
         }
       } else {
         console.error('Geolink access denied (improper cookie). The amplify library has not been loaded and the map will not work.');
