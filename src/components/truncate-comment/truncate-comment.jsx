@@ -26,7 +26,8 @@ export default class TruncateComment extends React.Component {
 
   truncateText = (comment, chars) => {
 
-    //truncated text might end on punctuation which looks bad with ellipsis, or even HTML tag which would break formatting. Might need regex on splitComment?
+    //TODO: Comment may need to be normalized to display correctly. Probably need some regex on the last index item in the array currently being used to generate cutoffPoint to ensure no markup is being broken or other formatting errors introduced.  
+
     let splitComment = comment.substr(0, chars + 1).split(' ');
     let cutoffPoint = splitComment.slice(0, splitComment.length - 1).join(' ').length;
     let truncatedText = comment.substr(0, cutoffPoint);
