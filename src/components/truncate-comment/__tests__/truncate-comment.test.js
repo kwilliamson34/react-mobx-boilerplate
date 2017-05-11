@@ -20,6 +20,10 @@ describe('<TruncateComment />', () => {
     });
   });
 
+  describe('Trying to get anything to work as expected at all!', () => {
+    
+  })
+
   describe('It should fail', () => {
     test('no keyVal as required', () => {
       const component = renderer.create(
@@ -27,7 +31,7 @@ describe('<TruncateComment />', () => {
       );
 
       let tree = component.toJSON();
-      expect(tree).toMatchSnapshot();
+      expect(tree).not.toMatchSnapshot();
     });
   });
 });

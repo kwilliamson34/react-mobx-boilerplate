@@ -18,7 +18,7 @@ describe('<AppReviews />', () => {
   describe('It should render', () => {
     test('matches previous snapshot', () => {
       const component = renderer.create(
-        <AppReviews {...props} />
+        <AppReviews reviews={props.reviews} />
       );
 
       let tree = component.toJSON();
