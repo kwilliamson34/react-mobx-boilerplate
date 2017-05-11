@@ -4,6 +4,11 @@ $toggle-height: 12px;
 $toggle-circle-diameter: 20px;
 $toggle-vertical-offset: 4px;
 
+$toggle-light-grey: $fn-ltgrey;
+$toggle-light-medium-grey: $fn-grey;
+$toggle-dark-medium-grey: #BDBDBD;
+$toggle-dark-grey: #9B9B9B;
+
 .checkbox-as-toggle {
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -34,12 +39,11 @@ $toggle-vertical-offset: 4px;
       left: 0px;
       line-height: 2rem;
       font-size: $fn-label-default-size;
-      font-weight: $fn-bold-weight;
     }
 
     span.pill {
-      background: $fn-mdgrey;
-      box-shadow: 0 0 0 2px $fn-mdgrey;
+      background: $toggle-dark-grey;
+      box-shadow: 0 0 0 2px $toggle-dark-grey;
       height: $toggle-height;
       width: $toggle-width;
       border-radius: $toggle-height;
@@ -48,6 +52,7 @@ $toggle-vertical-offset: 4px;
       right: 0px;
       top: $toggle-vertical-offset;
     }
+
     &:after {
       content: '';
       display: block;
@@ -58,7 +63,7 @@ $toggle-vertical-offset: 4px;
       height: $toggle-circle-diameter;
       width: $toggle-circle-diameter;
       background: white;
-      box-shadow: 0 3px 3px rgba(0,0,0,.2),0 0 0 2px $fn-grey;
+      box-shadow: 0 3px 3px rgba(0,0,0,.2),0 0 0 2px $toggle-dark-medium-grey;
     }
   }
 
@@ -79,6 +84,17 @@ $toggle-vertical-offset: 4px;
           background: $fn-blue;
         }
       }
+    }
+  }
+
+  &.disabled {
+    span.pill {
+      background: $toggle-light-medium-grey;
+      box-shadow: 0 0 0 2px $toggle-light-medium-grey;
+    }
+
+    .checkbox-label:after {
+      background: $toggle-dark-medium-grey;
     }
   }
 }

@@ -1,8 +1,9 @@
 import React from 'react';
 
 import TitlePane from '../components/title-pane/title-pane';
-import AppAvailability from '../components/app-availability/app-availability';
 import PlansAndDevices from '../components/plans-and-devices/plans-and-devices';
+
+import {Link} from 'react-router-dom';
 
 
 export default class AdminDashboardPage extends React.Component {
@@ -13,11 +14,7 @@ export default class AdminDashboardPage extends React.Component {
         <section className="placeholder-long">
           <div className="container">
             <h2>Admin Dashboard</h2>
-            <p>content here</p>
-            <div className="col-sm-12 col-md-6">
-              <h3>Manage App</h3>
-              <AppAvailability />
-            </div>
+            <Link to="/manage-apps">Manage Apps</Link>
           </div>
         </section>
         <PlansAndDevices />
