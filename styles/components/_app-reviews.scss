@@ -44,18 +44,19 @@
 }
 
 .review-subject {
-  font-weight: bold;
-  font-size: 18px;
-  color: #303030;
+  text-transform: uppercase;
+  font-weight: $fn-bold-weight;
+  font-size: $fn-body-default-size;
+  color: $fn-dark;
 }
 
 .review-author {
   margin-right: 10px;
-  font-size: 18px;
-  color: $fn-dkgrey;
+  font-size: $fn-body-default-size;
+  color: $fn-dark;
 }
 
 .review-date {
   color: $fn-mdgrey;
-  font-size: 18px;
+  font-size: $fn-body-default-size;
 }

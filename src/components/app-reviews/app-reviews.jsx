@@ -31,27 +31,19 @@ export default class AppReviews extends React.Component {
   //temporary workaround until fate of app detail store is determined;
   @observable loadedReviewsArray = [];
 
-  loadReviews() {
+  loadReviews = () => {
     let endingIndex = (this.paginationCount * this.props.numberOfReviewsToLoad) + this.props.numberOfReviewsToLoad;
     this.loadedReviewsArray = this.props.reviews.slice(0, endingIndex);
-    this.checkIfAllReviewsLoaded(this.loadedReviewsArray, this.props.reviews);
+    this.showLoadMoreButton = this.loadedReviewsArray < this.props.reviews;
     this.paginationCount++;
-  }
-
-  checkIfAllReviewsLoaded = (visibleReviewsArray, allReviewsArray) => {
-    visibleReviewsArray.length < allReviewsArray.length
-      ? this.showLoadMoreButton = true
-      : this.showLoadMoreButton = false;
   }
 
   renderReviews = (reviews) => {
     return reviews.map((node, i) => {
 
-      let capitalizedReviewSubject = node.subject.toUpperCase();
-
       return (
         <div key={ i } className='individual-review-container' aria-labelledby={ 'Review-' + i }>
-          <div className='review-subject' id={ 'Review-' + i }>{ capitalizedReviewSubject }</div>
+          <div className='review-subject' id={ 'Review-' + i }>{ node.subject }</div>
           <div className='author-and-rating-container'>
             <div className='review-author'>{ node.author }</div>
             <div className='sr-only'>{ 'App rated ' + node.rating + ' out of 5' }</div>

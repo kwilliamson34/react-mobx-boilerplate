@@ -34,19 +34,20 @@ export default class TruncateComment extends React.Component {
 
     let truncateButton =
       <button className='btn-link truncate-button' aria-haspopup='true' aria-expanded={ !this.isTruncated } onClick={ this.toggleTruncate }>
-        { this.isTruncated ? 'SHOW MORE ' : 'SHOW LESS ' }
+        { this.isTruncated ? 'SHOW MORE' : 'SHOW LESS' }
       </button>
 
-    let truncatedTextEndsInEllipsis =
-      <span>{ String.fromCharCode(8230, 32) }</span>
+    let ellipsisSpan =
+      <span>{ String.fromCharCode(8230) }</span>
 
     return (
 
       <div>
         <p>
           <span dangerouslySetInnerHTML={ {__html: `${truncatedText}`} } />
-            {this.isTruncated && truncatedTextEndsInEllipsis
-              || <span dangerouslySetInnerHTML={ {__html: `${initiallyHiddenTextThatWillExpand}`} } />
+            {this.isTruncated
+              ? ellipsisSpan
+              : <span dangerouslySetInnerHTML={ {__html: `${initiallyHiddenTextThatWillExpand}`} } />
             }
         </p>
         <p>{ truncateButton }</p>

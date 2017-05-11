@@ -6,8 +6,8 @@
 
   .truncate-button {
     position: relative;
-    font-weight: bold;
-    font-size: 16px;
+    font-weight: $fn-bold-weight;
+    font-size: $fn-button-default-size;
     line-height: 19px;
     color: $fn-ltblue;
     margin: 20px 0 0 0;
@@ -21,12 +21,14 @@
       font-family: $icon-font;
       content: '\68';
       font-size: 10px;
+      padding: 0 0 0 5px;
     }
     &[aria-expanded='false'] {
       &:after {
         font-family: $icon-font;
         content: '\66';
         font-size: 10px;
+        padding: 0 0 0 5px;
       }
     }
   }
