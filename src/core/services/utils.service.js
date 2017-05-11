@@ -17,24 +17,25 @@ class UtilsService {
                 return true;
             }
         }).map((obj) => {
-            let simplifiedObj = {};
-            simplifiedObj.name = obj.app_name;
-            simplifiedObj.publisher = obj.author;
-            // TODO - move data base url to global endpoints
-            simplifiedObj.imageUrl = 'https://ease.apperian.com/uploads/' + obj.icon_path;
-            simplifiedObj.rating = obj.rating;
-            simplifiedObj.id = obj.id;
-            simplifiedObj.badge = obj.is_endorsed;
-            simplifiedObj.platforms = UtilsService.platform[obj.operating_system];
+            let simplifiedObj = {
+              name: obj.app_name,
+              publisher: obj.author,
+              imageUrl: 'https://ease.apperian.com/uploads/' + obj.icon_path, // TODO - move data base url to global endpoints
+              rating: obj.rating,
+              id: obj.id,
+              isAvailable: obj.isAvailable,
+              isRecommended: obj.isRecommended,
+              badge: obj.is_endorsed,
+              platforms: UtilsService.platform[obj.operating_system],
+              category: [],
+              user_segment: []
+            };
+
             if (obj.custom_metadata) {
                 simplifiedObj.category = obj.custom_metadata.category;
                 simplifiedObj.user_segment = obj.custom_metadata.user_segment;
-            } else {
-                simplifiedObj.category = [];
-                simplifiedObj.user_segment = [];
             }
-            simplifiedObj.available = obj.is_Available === null ? true : obj.is_Available;
-            simplifiedObj.recommended = obj.is_Recommended === null ? false : obj.is_Recommended;
+
             return simplifiedObj;
         })
         return simplifiedObjs;

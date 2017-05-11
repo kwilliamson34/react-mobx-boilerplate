@@ -1,14 +1,15 @@
 .card-list-container {
     padding-bottom: 20px;
+    background-color: white;
 
     .center-block {
         padding-top: 20px;
         padding-bottom: 20px;
     }
 
-    &:nth-of-type(odd) {
-        background-color: #F2F2F2;
-    }
+    // &:nth-of-type(odd) {
+    //     background-color: #F2F2F2;
+    // }
 
     .card-list-title {
         font-size: 28px;
