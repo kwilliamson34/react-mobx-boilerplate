@@ -29,7 +29,6 @@ class CardListStore {
 
     @action setCurrentApp(id){
       this.currentAppId = id;
-      this.currentAppObject = this.searchResults.filter(app => app.id === id)[0];
     }
 
     @action clear() {
@@ -76,16 +75,16 @@ class CardListStore {
 
     @action changeAppAvailability(appPSK, isAvailable) {
       this.setCurrentApp(appPSK);
-      this.currentAppObject.isAvailable = isAvailable;
+      this.currentApp.isAvailable = isAvailable;
 
       if(isAvailable) {
-        this.currentAppObject.recommendToggleIsDisabled = false;
+        this.currentApp.recommendToggleIsDisabled = false;
         apiService.addAppToGroup(appPSK, 'Available');
       } else {
-        this.currentAppObject.recommendToggleIsDisabled = true;
+        this.currentApp.recommendToggleIsDisabled = true;
         apiService.removeAppFromGroup(appPSK, 'Available');
 
-        if(this.currentAppObject.isRecommended){
+        if(this.currentApp.isRecommended){
           apiService.removeAppFromGroup(appPSK, 'Recommended');
         }
       }
@@ -94,8 +93,8 @@ class CardListStore {
     @action changeAppRecommended(appPSK, isRecommended) {
       this.setCurrentApp(appPSK);
 
-      if(this.currentAppObject.isAvailable){
-        this.currentAppObject.isRecommended = isRecommended;
+      if(this.currentApp.isAvailable){
+        this.currentApp.isRecommended = isRecommended;
 
         if(isRecommended) {
           apiService.addAppToGroup(appPSK, 'Recommended');
@@ -106,6 +105,12 @@ class CardListStore {
     }
 
     //COMPUTEDS
+    @computed get currentApp(){
+      return this.searchResults.filter((app) => {
+        return app.id === this.currentAppId
+      })[0];
+    }
+
     @computed get recommendedCards() {
         return this.searchResults.filter((app) => {
             return (app.recommended)
@@ -186,7 +191,6 @@ class CardListStore {
     @observable searchQuery = '';
     @observable isLoading = false;
     @observable currentAppId = '';
-    @observable currentAppObject = {};
 
     @observable platforms = [
         { title: 'Platform', value: '' },
