@@ -23,20 +23,27 @@ export default class AppReviews extends React.Component {
     this.loadReviews();
   }
 
+  constructor(props) {
+    super(props);
+    this.loadReviews = this.loadReviews.bind(this);
+    this.paginationCount = this.paginationCount;
+  }
+
+
   paginationCount = 0;
   showLoadMoreButton = false;
 
   //temporary workaround until fate of app detail store is determined;
   @observable loadedReviewsArray = [];
 
-  loadReviews = () => {
+  loadReviews() {
     let endingIndex = (this.paginationCount * this.props.numberOfReviewsToLoad) + this.props.numberOfReviewsToLoad;
     this.loadedReviewsArray = this.props.reviews.slice(0, endingIndex);
     this.showLoadMoreButton = this.loadedReviewsArray < this.props.reviews;
     this.paginationCount++;
   }
 
-  renderReviews = (reviews) => {
+  renderReviews(reviews) {
     return reviews.map((node, i) => {
 
       return (
