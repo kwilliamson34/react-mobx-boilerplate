@@ -23,10 +23,9 @@ export default class AppReviews extends React.Component {
     this.loadReviews();
   }
 
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.loadReviews = this.loadReviews.bind(this);
-    this.paginationCount = this.paginationCount;
   }
 
 
