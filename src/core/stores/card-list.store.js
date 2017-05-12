@@ -78,10 +78,8 @@ class CardListStore {
       this.currentApp.isAvailable = isAvailable;
 
       if(isAvailable) {
-        this.currentApp.recommendToggleIsDisabled = false;
         apiService.addAppToGroup(appPSK, 'Available');
       } else {
-        this.currentApp.recommendToggleIsDisabled = true;
         apiService.removeAppFromGroup(appPSK, 'Available');
 
         if(this.currentApp.isRecommended){

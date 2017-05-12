@@ -4,6 +4,7 @@ import { action, computed, observable, extendObservable } from 'mobx';
 // import { searchStore } from './search.store';
 import { headerStore } from './header.store';
 import { cardListStore } from './card-list.store';
+import { geolinkStore } from './geolink.store';
 
 class PSEStore {
 
@@ -11,6 +12,7 @@ class PSEStore {
     // this.searchStore = searchStore;
     this.headerStore = headerStore;
     this.cardListStore = cardListStore;
+    this.geolinkStore = geolinkStore;
   }
 
   // ACTIONS
