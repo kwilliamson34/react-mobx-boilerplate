@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
 import { observable } from 'mobx';
 
-import { Button } from 'react-bootstrap';
-
 import { Rating } from '../rating/rating.jsx';
 import TruncateComment from '../truncate-comment/truncate-comment';
 
@@ -57,9 +55,9 @@ export default class AppReviews extends React.Component {
   }
 
   loadMoreButton =
-    <Button className='btn fn-primary' onClick={ this.loadReviews }>
+    <button className='btn fn-primary' onClick={ this.loadReviews }>
       Load More
-    </Button>
+    </button>
 
   render() {
 
