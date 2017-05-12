@@ -1,7 +1,6 @@
 import React from 'react';
 import GeolinkLayerToggle from './geolink-layer-toggle';
 import PropTypes from 'prop-types';
-import {FormGroup, FormControl, InputGroup, ControlLabel, Button} from 'react-bootstrap';
 
 export default class GeolinkControls extends React.Component {
 
@@ -62,22 +61,22 @@ export default class GeolinkControls extends React.Component {
     return (
       <section className="geolink-controls">
         <div className="col-xs-12 col-md-4">
-          <FormGroup controlId="location" className="search-input">
-            <ControlLabel>Location</ControlLabel>
-            <InputGroup>
-              <FormControl type="text" onChange={this.handleSearchInput} onKeyPress={this.handleSearchKeyPress}/>
-              <InputGroup.Button>
-                <Button type="submit" onClick={this.handleSearchSubmit}>
+          <form className="form-group search-input">
+            <label className="control-label">Location</label>
+            <span className="input-group">
+              <input type="text" className="form-control" onChange={this.handleSearchInput} onKeyPress={this.handleSearchKeyPress}/>
+              <span className="input-group-btn">
+                <button type="button" className="btn btn-default" onClick={this.handleSearchSubmit}>
                   <span className='sr-only'>Search for locations</span>
                   <i aria-hidden="true" className="icon-search" alt="search icon"></i>
-                </Button>
-              </InputGroup.Button>
-            </InputGroup>
-          </FormGroup>
+                </button>
+              </span>
+            </span>
+          </form>
         </div>
         <div className="col-xs-12 col-md-4">
-          <form>
-            <fieldset className="form-group">
+          <form className="form-group">
+            <fieldset>
               <legend className="sr-only">Coverage layers</legend>
               <GeolinkLayerToggle value='NetworkStatus' label='Network status' onClick={this.toggleNetworkStatus} defaultOn={true}/>
               <GeolinkLayerToggle value='Traffic' label='Traffic' onClick={this.toggleTraffic} defaultOn={true}/>
