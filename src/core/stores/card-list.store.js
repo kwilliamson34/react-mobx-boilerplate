@@ -102,6 +102,10 @@ class CardListStore {
       }
     }
 
+    @action toggleIsTruncate() {
+      this.currentApp.isTruncated = !this.currentApp.isTruncated;
+    }
+
     //COMPUTEDS
     @computed get currentApp(){
       return this.searchResults.filter((app) => {

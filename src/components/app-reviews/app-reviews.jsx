@@ -11,12 +11,15 @@ export default class AppReviews extends React.Component {
 
   static propTypes = {
     reviews: PropTypes.array,
-    numberOfReviewsToLoad: PropTypes.number
+    numberOfReviewsToLoad: PropTypes.number,
+    isTruncated: PropTypes.bool,
+    toggleIsTruncate: PropTypes.func
   }
 
   static defaultProps = {
     reviews: [],
-    numberOfReviewsToLoad: 3
+    numberOfReviewsToLoad: 3,
+    isTruncated: true
   }
 
   componentDidMount() {
@@ -55,7 +58,7 @@ export default class AppReviews extends React.Component {
             <Rating rating={ node.rating } />
           </div>
           <div className='review-date'>{ node.date }</div>
-          <TruncateComment keyVal={ i } text={ node.comment } />
+          <TruncateComment keyVal={ i } text={ node.comment } isTruncated={this.props.isTruncated} toggleIsTruncate={this.props.toggleIsTruncate} />
         </div>
       )
     })

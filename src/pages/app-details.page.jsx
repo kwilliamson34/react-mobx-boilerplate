@@ -21,13 +21,17 @@ const appDetail = require('../fixtures/mock-app-detail.json');
 export default class AppDetailsPage extends React.Component {
 	constructor(props) {
 		super(props);
-		this.appStore = this.props.store.appStore;
+		// this.appStore = this.props.store.cardListStore;
 	}
 
 	componentDidMount() {
 		//console.log('app_psk: ' + this.props.match.params.appPSK);
 		//this.appStore.getAppDetails(68483);
-		console.log('Service not ready yet for integration');
+		// console.log('Service not ready yet for integration');
+		if (!this.appStore.currentAppPsk) {
+		let psk = this.props.match.params.appId;
+		this.appStore.retrieveAppDetails(psk);
+}
 	}
 
 	render() {
@@ -116,7 +120,7 @@ export default class AppDetailsPage extends React.Component {
 								<RatingsChart value={4.1} reviewsTotal={44} data={[14,22,8,5,2]}/>
 								{ appDetail.reviews.length === 0
 									? <div className="content-description">No reviews yet!</div>
-									: <AppReviews reviews={appDetail.reviews} />
+									: <AppReviews reviews={appDetail.reviews} isTruncated={this.props.store.cardListStore.currentApp.isTruncated} toggleIsTruncate={this.props.store.cardListStore.toggleIsTruncate.bind(this.props.store.cardListStore)} />
 								}
 							</div>
 						</div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
-import { observable } from 'mobx';
+// import { observable } from 'mobx';
 
 @observer
 export default class TruncateComment extends React.Component {
@@ -9,11 +9,14 @@ export default class TruncateComment extends React.Component {
   static propTypes = {
     keyVal: PropTypes.number.isRequired,
     charCount: PropTypes.number,
-    text: PropTypes.string
+    text: PropTypes.string,
+    isTruncated: PropTypes.bool,
+    toggleIsTruncate: PropTypes.func
   }
 
   static defaultProps = {
-    charCount: 300
+    charCount: 300,
+    isTruncated: true
   }
 
   constructor(props) {
@@ -24,10 +27,10 @@ export default class TruncateComment extends React.Component {
   }
 
   //temporary workaround until fate of app detail store is determined;
-  @observable isTruncated = true;
+  // @observable isTruncated = true;
 
   toggleTruncate() {
-    this.isTruncated = this.isTruncated ? false : true;
+    this.props.toggleIsTruncate();
     document.getElementById('Review-' + this.props.keyVal).scrollIntoView();
   }
 
@@ -46,8 +49,6 @@ export default class TruncateComment extends React.Component {
     let cutoffPoint = splitComment.slice(0, splitComment.length - 1).join(' ').length;
     let truncatedText = comment.substr(0, cutoffPoint);
     let initiallyHiddenTextThatWillExpand = comment.substr(cutoffPoint);
-
-
 
     let ellipsisSpan =
       <span>{ String.fromCharCode(8230) }</span>
