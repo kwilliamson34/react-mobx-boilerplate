@@ -26,6 +26,7 @@ export default class AppReviews extends React.Component {
   constructor() {
     super();
     this.loadReviews = this.loadReviews.bind(this);
+    this.loadMoreButton = this.loadMoreButton.bind(this);
   }
 
 
@@ -60,17 +61,21 @@ export default class AppReviews extends React.Component {
     })
   }
 
-  loadMoreButton =
-    <button className='btn fn-primary' onClick={ this.loadReviews }>
-      Load More
-    </button>
+  loadMoreButton() {
+    return (
+      <button className='btn fn-primary' onClick={ this.loadReviews }>
+        Load More
+      </button>
+    )
+  }
+
 
   render() {
 
   return (
     <div className='reviews-container'>
       { this.renderReviews(this.loadedReviewsArray) }
-      { this.showLoadMoreButton && this.loadMoreButton }
+      { this.showLoadMoreButton && this.loadMoreButton() }
     </div>
   )
 
