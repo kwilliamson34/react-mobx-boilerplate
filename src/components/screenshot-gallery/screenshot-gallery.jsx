@@ -35,6 +35,7 @@ export default class ScreenshotGallery extends React.Component {
   )};
 
   render() {
+    console.log('screenshooooooots    ', this.props.screenshots);
     return (
       <div className='gallery-container' role='region' aria-label='App screenshot gallery'>
         {this.renderSlides(this.props.screenshots)}

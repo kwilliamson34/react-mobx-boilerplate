@@ -5,6 +5,8 @@ import {
 	inject
 } from 'mobx-react';
 
+// import { match } from 'react-router-dom';
+
 import TitlePane from '../components/title-pane/title-pane';
 import {
 	Rating
@@ -19,18 +21,44 @@ const appDetail = require('../fixtures/mock-app-detail.json');
 @inject('store')
 @observer
 export default class AppDetailsPage extends React.Component {
+
+
 	constructor(props) {
 		super(props);
-		this.appStore = this.props.store.appStore;
+		this.appStore = this.props.store.cardListStore;
+	}
+
+	componentWillMount() {
+		//check if there is psk. if there is, we're fine.
+		//if not, call action in cardListStore with psk;
+		//in cardListStore, action call apiService.getAppDetails() with psk.
+		//get json res, run through utils.
+		//set observable to be the conditioned res.
+		//
+		if (!this.appStore.currentAppPsk) {
+			let psk = this.props.match.params.appId;
+			console.log('is psk string?   ', typeof psk);
+			this.appStore.retrieveAppDetails(psk);
+		}
+		console.log('psk?     ', this.appStore.currentAppPsk);
+		console.log('params?     ', this.props.match.params.appId);
 	}
 
 	componentDidMount() {
 		// console.log('app_psk: ' + this.props.match.params.appPSK);
-		// this.appStore.getAppDetails(68483);
-		console.log('Service not ready yet for integration');
+		// console.log('appId       ', this.props.match.params.appId);
+		// //62862
+		// this.appStore.setCurrentApp(62862);
+		// this.appStore =
+		// console.log('Service not ready yet for integration');
 	}
+	//
+	// {this.appStore.appDetails.screenshots.mobile.length || this.appStore.appDetails.screenshots.tablet.length &&
+	// 	<ScreenshotGallery screenshots={this.appDetails.screenshots} />
+	// }
 
 	render() {
+		console.log('appDetails   ', this.appStore.appDetails);
 		return (
 			<article id="app-details-page">
         <TitlePane pageTitle="App Details"/>
@@ -95,6 +123,11 @@ export default class AppDetailsPage extends React.Component {
         </section>
         <section className="app-gallery">
 
+
+
+					<ScreenshotGallery screenshots={this.appStore.appDetails.screenshots} />
+
+
         </section>
         <section className="app-description">
           <div className="container">
@@ -143,5 +176,6 @@ export default class AppDetailsPage extends React.Component {
 
 
 AppDetailsPage.propTypes = {
-	store: PropTypes.object
+	store: PropTypes.object,
+	match: PropTypes.object
 };

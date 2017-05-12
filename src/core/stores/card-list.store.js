@@ -104,6 +104,19 @@ class CardListStore {
       }
     }
 
+    @action retrieveAppDetails(psk) {
+      let success = (response) => {
+        console.log('res2     ', response);
+        this.appDetails = response[0];
+      }
+
+      let failure = (error) => {
+        console.warn(error);
+      }
+
+      return apiService.getAppDetails(psk).then(success, failure);
+    }
+
     //COMPUTEDS
     @computed get currentApp(){
       return this.searchResults.filter((app) => {
@@ -191,6 +204,7 @@ class CardListStore {
     @observable searchQuery = '';
     @observable isLoading = false;
     @observable currentAppPsk = '';
+    @observable appDetails = {};
 
     @observable platforms = [
         { title: 'Platform', value: '' },
