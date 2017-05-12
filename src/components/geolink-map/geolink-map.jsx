@@ -11,6 +11,7 @@ export default class GeolinkMap extends React.Component {
 
   constructor(props) {
     super(props);
+    this.loadInitialLayers = this.loadInitialLayers.bind(this);
   }
 
   componentWillMount() {
@@ -21,8 +22,7 @@ export default class GeolinkMap extends React.Component {
       }
     }).then((response) => {
       //TODO point to the script domain specified in configs
-      let html;
-      html = response.data.replace(new RegExp('@@geolinkScriptType', 'g'), 'html'); //text/javascript
+      let html = response.data;
       html = html.replace(new RegExp('@@geolinkScriptPath', 'g'), 'https://geo.stage.att.com/appboard'); //endpoints.geolinkScriptPath);
       html = html.replace(new RegExp('@@geolinkAbMapConstantsFileName', 'g'), 'abMapConstantsFNST.js'); //endpoints.geolinkAbMapConstantsFileName);
 
@@ -36,12 +36,18 @@ export default class GeolinkMap extends React.Component {
     });
   }
 
+  loadInitialLayers() {
+    this.props.geolinkStore.addAllCoverageLayers();
+  }
+
   render() {
     return (
       <section className="geolink-map">
         <div className="map-wrapper">
-          <iframe title="Interactive Coverage Map" ref={(ref) => this.props.geolinkStore.mapIframeRef = ref} onLoad={() => {/*TODO center the map */
-          }}/>
+          <iframe
+            title="Interactive Coverage Map"
+            ref={(ref) => this.props.geolinkStore.mapIframeRef = ref}
+            onLoad={() => this.loadInitialLayers}/>
         </div>
         <GeolinkControls geolinkStore={this.props.geolinkStore}/>
       </section>

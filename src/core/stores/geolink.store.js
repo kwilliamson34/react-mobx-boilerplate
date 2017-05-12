@@ -85,6 +85,7 @@ class GeolinkStore {
     }, '*');
   }
 
+  @observable isGeolinkReady = false;
   @observable mapIframeRef = null;
   @observable searchTerm = '';
 
