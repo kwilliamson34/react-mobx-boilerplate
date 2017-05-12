@@ -60,7 +60,7 @@ export default class GeolinkControls extends React.Component {
   render() {
     return (
       <section className="geolink-controls">
-        <div className="col-xs-12 col-md-4">
+        <div className="col-xs-12 col-sm-4">
           <form className="form-group search-input">
             <label className="control-label">Location</label>
             <span className="input-group">
@@ -74,7 +74,7 @@ export default class GeolinkControls extends React.Component {
             </span>
           </form>
         </div>
-        <div className="col-xs-12 col-md-4">
+        <div className="col-xs-12 col-sm-4">
           <form className="form-group">
             <fieldset>
               <legend className="sr-only">Coverage layers</legend>
@@ -84,7 +84,7 @@ export default class GeolinkControls extends React.Component {
             </fieldset>
           </form>
         </div>
-        <div className="col-xs-12 col-md-4">
+        <div className="col-xs-12 col-sm-4">
           <article>
             <p>TBD Links go here</p>
             <p>TBD Links go here</p>

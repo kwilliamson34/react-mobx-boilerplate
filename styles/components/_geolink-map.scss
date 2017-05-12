@@ -1,20 +1,20 @@
 $map-height: 50vh;
 $map-height-min-sm: 500px;
-$map-height-min-xs: 200px;
 $search-border-radius: 4px;
 
 .geolink-map {
   @extend .clearfix;
   width: 100%;
+  height: $map-height;
 
   .map-wrapper {
+    height: $map-height;
     padding: 0;
     background: $fn-grey url("/images/placeholder-image.jpg") no-repeat center;
 
     iframe {
       width: 100%;
       height: $map-height;
-      min-height: $map-height-min-sm;
       border: none;
 
       body {
@@ -25,7 +25,9 @@ $search-border-radius: 4px;
 }
 
 .geolink-controls {
-  min-height: 160px;
+  min-height: 180px;
+  background-color: $fn-grey;
+  margin-bottom: 20px;
 
   .search-input button,
   .search-input input {
@@ -34,40 +36,50 @@ $search-border-radius: 4px;
 
   [class*=' col-'] {
     padding: 0;
+    background-color: $fn-grey;
 
     article,
     form {
-      min-height: 140px;
       margin: 20px 0;
       padding: 0 40px;
-      border-right: 1px solid grey;
-    }
-
-    article:last-child {
-      border: none;
     }
   }
 }
 /**********************************************/
 @media #{$mobile} {
   .geolink-map {
-    height: $map-height;
-    min-height: $map-height-min-xs;
+    .geolink-controls {
+      [class*=' col-'] {
+        article,
+        form {
+          border-bottom: 1px solid $fn-dkgrey;
+          margin: 0 40px;
+          padding: 20px 0 ;
+        }
 
-    .map-wrapper {
-      height: $map-height;
-      min-height: $map-height-min-xs;
+        article:last-child {
+          border: none;
+        }
+      }
     }
   }
 }
-@media #{$tablet} {
+@media #{$tablet, $desktop} {
   .geolink-map {
-    height: $map-height;
-    min-height: $map-height-min-sm;
+    .geolink-controls {
+      [class*=' col-'] {
+        article,
+        form {
+          min-height: 140px;
+          border-right: 1px solid $fn-dkgrey;
+          margin: 20px 0;
+          padding: 0 40px;
+        }
 
-    .map-wrapper {
-      height: $map-height;
-      min-height: $map-height-min-sm;
+        article:last-child {
+          border: none;
+        }
+      }
     }
   }
 }
