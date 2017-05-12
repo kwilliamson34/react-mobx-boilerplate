@@ -9,6 +9,7 @@ import TitlePane from '../components/title-pane/title-pane';
 import {
 	Rating
 } from '../components/rating/rating';
+import RatingsChart from '../components/ratings-chart/ratings-chart';
 import Toggle from '../components/toggle/toggle';
 import ScreenshotGallery from '../components/screenshot-gallery/screenshot-gallery';
 
@@ -93,9 +94,7 @@ export default class AppDetailsPage extends React.Component {
           </div>
         </section>
         <section className="app-gallery">
-					{this.appStore.screenshots.mobile.length || this.appStore.screenshots.tablet.length &&
-						<ScreenshotGallery screenshots={this.appStore.screenshots} />
-					}
+
         </section>
         <section className="app-description">
           <div className="container">
@@ -116,8 +115,9 @@ export default class AppDetailsPage extends React.Component {
             <div className="row">
               <div className="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
                 <h2>Reviews</h2>
-              </div>
-            </div>
+							</div>
+						</div>
+            <RatingsChart value={4.1} reviewsTotal={44} data={[14,22,8,5,2]}/>
           </div>
         </section>
         <section className="app-developer">
