@@ -1,5 +1,4 @@
 import React, {PropTypes} from 'react';
-import {Checkbox} from 'react-bootstrap';
 
 class GeolinkLayerToggle extends React.Component {
   constructor(props) {
@@ -7,15 +6,17 @@ class GeolinkLayerToggle extends React.Component {
     if(this.props.onClick){
       this.onClick = this.props.onClick.bind(this);
     }
-    this.onClick = this.props.onClick.bind(this);
   }
 
   render() {
     return (
-      <Checkbox defaultChecked={this.props.defaultOn} value={this.props.value} onClick={this.onClick} >
-        <span className="cr"></span>
-        <span className="layer-label">{this.props.label}</span>
-      </Checkbox>
+      <div className="checkbox">
+        <label>
+          <input type="checkbox" value={this.props.value} defaultChecked={this.props.defaultOn} onClick={this.onClick}/>
+          <span className="cr"></span>
+          <span>{this.props.label}</span>
+        </label>
+      </div>
     )
   }
 }
