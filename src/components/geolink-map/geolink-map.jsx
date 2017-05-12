@@ -39,7 +39,7 @@ export default class GeolinkMap extends React.Component {
   render() {
     return (
       <section className="geolink-map">
-        <div className="map-wrapper noPadding">
+        <div className="map-wrapper">
           <iframe title="Interactive Coverage Map" ref={(ref) => this.props.geolinkStore.mapIframeRef = ref} onLoad={() => {/*TODO center the map */
           }}/>
         </div>

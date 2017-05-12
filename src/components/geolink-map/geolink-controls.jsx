@@ -85,6 +85,11 @@ export default class GeolinkControls extends React.Component {
           </form>
         </div>
         <div className="col-xs-12 col-md-4">
+          <article>
+            <p>TBD Links go here</p>
+            <p>TBD Links go here</p>
+            <p>TBD Links go here</p>
+          </article>
         </div>
       </section>
     )
