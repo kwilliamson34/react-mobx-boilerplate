@@ -1,0 +1,84 @@
+$map-height: 500px;
+$search-border-radius: 4px;
+
+.geolink-map {
+  @extend .clearfix;
+  width: 100%;
+  height: $map-height;
+
+  .map-wrapper {
+    height: $map-height;
+    padding: 0;
+    background: $fn-grey url("/images/placeholder-image.jpg") no-repeat center;
+
+    iframe {
+      width: 100%;
+      height: $map-height;
+      border: none;
+
+      body {
+        margin: 0 !important;
+      }
+    }
+  }
+}
+
+.geolink-controls {
+  min-height: 180px;
+  background-color: $fn-ltgrey;
+  margin-bottom: 20px;
+
+  .search-input button,
+  .search-input input {
+    height: 48px;
+  }
+
+  [class*=' col-'] {
+    padding: 0;
+    background-color: $fn-ltgrey;
+
+    article,
+    form {
+      margin: 20px 0;
+      padding: 0 40px;
+    }
+  }
+}
+/**********************************************/
+@media #{$mobile} {
+  .geolink-map {
+    .geolink-controls {
+      [class*=' col-'] {
+        article,
+        form {
+          border-bottom: 2px solid $fn-grey;
+          margin: 0 40px;
+          padding: 20px 0 ;
+        }
+
+        article:last-child {
+          border: none;
+        }
+      }
+    }
+  }
+}
+@media #{$tablet, $desktop} {
+  .geolink-map {
+    .geolink-controls {
+      [class*=' col-'] {
+        article,
+        form {
+          min-height: 140px;
+          border-right: 2px solid $fn-grey;
+          margin: 20px 0;
+          padding: 0 40px;
+        }
+
+        article:last-child {
+          border: none;
+        }
+      }
+    }
+  }
+}
