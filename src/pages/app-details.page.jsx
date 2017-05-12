@@ -58,7 +58,7 @@ export default class AppDetailsPage extends React.Component {
 	// }
 
 	render() {
-		console.log('appDetails   ', this.appStore.appDetails);
+		console.log('appDetails on app details page   ', this.appStore.appDetails);
 		return (
 			<article id="app-details-page">
         <TitlePane pageTitle="App Details"/>

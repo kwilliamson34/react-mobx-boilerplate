@@ -106,6 +106,7 @@ class CardListStore {
       let success = (response) => {
         console.log('res2     ', response);
         this.appDetails = response[0];
+        return this.appDetails;
       }
 
       let failure = (error) => {

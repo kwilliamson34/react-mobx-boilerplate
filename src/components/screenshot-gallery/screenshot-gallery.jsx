@@ -7,8 +7,8 @@ export default class ScreenshotGallery extends React.Component {
 
   static propTypes = {
     screenshots: PropTypes.shape({
-      mobile: PropTypes.array,
-      tablet: PropTypes.array
+      mobile: PropTypes.observableArray,
+      tablet: PropTypes.observableArray
     })
   }
 
@@ -20,13 +20,14 @@ export default class ScreenshotGallery extends React.Component {
   }
 
   renderSlides = (screenshots) => {
-    let screenshotArray = Array.concat(screenshots.mobile, screenshots.tablet);
+    let screenshotArray = [...screenshots.mobile, ...screenshots.tablet];
     console.log('screenshotArray     ', screenshotArray);
     return screenshotArray.map((node, i) => {
+      console.log('node.path     ', node.path);
       return (
         <div key={i} className='slide-container'>
           <figure className='img-responsive'>
-            <img src={'/images/' + node.path} className='slide-img' alt={'Image for ' + node.description} aria-labelledby='slide-caption' />
+            <img src={'https://' + node.path} className='slide-img' alt={'Image for ' + node.description} aria-labelledby='slide-caption' />
           </figure>
           <figcaption className='slide-caption' id='slide-caption'>{node.description}</figcaption>
         </div>
