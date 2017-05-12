@@ -16,6 +16,7 @@ export default class GeolinkControls extends React.Component {
     this.toggleNetwork = this.toggleNetwork.bind(this);
     this.toggleTraffic = this.toggleTraffic.bind(this);
     this.toggleWeather = this.toggleWeather.bind(this);
+    this.toggleAlerts = this.toggleAlerts.bind(this);
   }
 
   handleSearchInput(event) {
@@ -43,8 +44,10 @@ export default class GeolinkControls extends React.Component {
     }
   }
 
-  toggleTraffic() {
-    this.props.geolinkStore.toggleTraffic();
+  toggleTraffic(event) {
+    if (event.target.type === 'checkbox') {
+      this.props.geolinkStore.toggleTraffic();
+    }
   }
 
   toggleWeather(event) {
@@ -54,6 +57,12 @@ export default class GeolinkControls extends React.Component {
       } else {
         this.props.geolinkStore.removeWeather();
       }
+    }
+  }
+
+  toggleAlerts(event){
+    if (event.target.type === 'checkbox') {
+      this.props.geolinkStore.toggleAlerts(event.target.checked);
     }
   }
 
@@ -81,6 +90,7 @@ export default class GeolinkControls extends React.Component {
               <GeolinkLayerToggle value='Network' label='Network' onClick={this.toggleNetwork} defaultOn={true}/>
               <GeolinkLayerToggle value='Traffic' label='Traffic' onClick={this.toggleTraffic} defaultOn={false}/>
               <GeolinkLayerToggle value='Weather' label='Weather' onClick={this.toggleWeather} defaultOn={false}/>
+              <GeolinkLayerToggle value='Alerts' label='Alerts' onClick={this.toggleAlerts} defaultOn={false}/>
             </fieldset>
           </form>
         </div>
