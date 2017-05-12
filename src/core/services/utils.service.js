@@ -29,7 +29,11 @@ class UtilsService {
               badge: obj.is_endorsed,
               platforms: UtilsService.platform[obj.operating_system],
               category: [],
-              user_segment: []
+              user_segment: [],
+              screenshots: {
+                mobile: obj.mobileScreenshots,
+                tablet: obj.tabletScreenshots
+              }
             };
 
             if (obj.custom_metadata) {

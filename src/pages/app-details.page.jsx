@@ -24,8 +24,8 @@ export default class AppDetailsPage extends React.Component {
 	}
 
 	componentDidMount() {
-		//console.log('app_psk: ' + this.props.match.params.appPSK);
-		//this.appStore.getAppDetails(68483);
+		// console.log('app_psk: ' + this.props.match.params.appPSK);
+		// this.appStore.getAppDetails(68483);
 		console.log('Service not ready yet for integration');
 	}
 
@@ -93,8 +93,8 @@ export default class AppDetailsPage extends React.Component {
           </div>
         </section>
         <section className="app-gallery">
-					{appDetail.screenshots !== 0 &&
-						<ScreenshotGallery screenshots={appDetail.screenshots} />
+					{this.appStore.screenshots.mobile.length || this.appStore.screenshots.tablet.length &&
+						<ScreenshotGallery screenshots={this.appStore.screenshots} />
 					}
         </section>
         <section className="app-description">

@@ -6,15 +6,23 @@ import { observer } from 'mobx-react';
 export default class ScreenshotGallery extends React.Component {
 
   static propTypes = {
-    screenshots: PropTypes.array
+    screenshots: PropTypes.shape({
+      mobile: PropTypes.array,
+      tablet: PropTypes.array
+    })
   }
 
   static defaultProps = {
-    screenshots: []
+    screenshots: {
+      mobile: [],
+      tablet: []
+    }
   }
 
   renderSlides = (screenshots) => {
-    return screenshots.map((node, i) => {
+    let screenshotArray = Array.concat(screenshots.mobile, screenshots.tablet);
+    console.log('screenshotArray     ', screenshotArray);
+    return screenshotArray.map((node, i) => {
       return (
         <div key={i} className='slide-container'>
           <figure className='img-responsive'>
