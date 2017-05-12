@@ -9,6 +9,7 @@ import TitlePane from '../components/title-pane/title-pane';
 import {
 	Rating
 } from '../components/rating/rating';
+import RatingsChart from '../components/ratings-chart/ratings-chart';
 import Toggle from '../components/toggle/toggle';
 import AppReviews from '../components/app-reviews/app-reviews';
 
@@ -112,12 +113,13 @@ export default class AppDetailsPage extends React.Component {
             <div className="row">
               <div className="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
                 <h2>Reviews</h2>
+								<RatingsChart value={4.1} reviewsTotal={44} data={[14,22,8,5,2]}/>
 								{ appDetail.reviews.length === 0
 									? <div className="content-description">No reviews yet!</div>
 									: <AppReviews reviews={appDetail.reviews} />
 								}
-              </div>
-            </div>
+							</div>
+						</div>
           </div>
         </section>
         <section className="app-developer">

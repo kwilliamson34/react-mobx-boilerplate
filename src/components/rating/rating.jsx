@@ -12,22 +12,23 @@ export class Rating extends React.Component {
 
     starTemplate(starImage, i) {
         return  (
-            <span key={i} aria-hidden="true" ><img className="ratings-star" src={starImage} alt="Rating Star"/></span>
+            <span key={i} aria-hidden="true" className={starImage}></span>
         )
     }
 
     convertRatingToStars(rating) {
         const stars = [];
         let remaining = rating;
+
         for( let i = 5 ; i > 0 ; i-- ){
             if (remaining >= 1){
-                stars.push(this.starTemplate('/images/star.png', stars.length));
+                stars.push(this.starTemplate('ratings-star mdi  mdi-star', stars.length));
                 remaining--;
             } else if (remaining > 0 ){
-                stars.push(this.starTemplate('/images/star-half.png', stars.length));
+                stars.push(this.starTemplate('ratings-star mdi  mdi-star-half', stars.length));
                 remaining--;
             } else {
-                stars.push(this.starTemplate('/images/star-outline.png', stars.length));
+                stars.push(this.starTemplate('ratings-star mdi  mdi-star-outline', stars.length));
             }
         }
         return stars;
