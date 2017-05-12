@@ -2,6 +2,7 @@ import {
   action,
   observable
 } from 'mobx';
+import axios from 'axios';
 
 const networkLayerNames = [
   'FirstNet:Coverage2G',
@@ -14,6 +15,24 @@ const networkLayerNames = [
 // const outageLayerName = 'FirstNet:GTOCOutages';
 
 class GeolinkStore {
+  @action loadGeolinkHtml() {
+    const success = (response) => {
+      //TODO point to the script domain specified in configs
+      let html = response.data;
+      html = html.replace(new RegExp('@@geolinkScriptPath', 'g'), 'https://geo.stage.att.com/appboard'); //endpoints.geolinkScriptPath);
+      html = html.replace(new RegExp('@@geolinkAbMapConstantsFileName', 'g'), 'abMapConstantsFNST.js'); //endpoints.geolinkAbMapConstantsFileName);
+      this.geolinkHtml = html;
+    }
+    const fail = (err) => {
+      console.warn(err);
+    }
+
+    return axios.get('/maps/geolink.html', {
+      headers: {
+        'X-Frame-Options': 'deny'
+      }
+    }).then(success, fail);
+  }
 
   @action addAllCoverageLayers() {
     networkLayerNames.map(layerName => {
@@ -86,6 +105,7 @@ class GeolinkStore {
   }
 
   @observable isGeolinkReady = false;
+  @observable geolinkHtml = null;
   @observable mapIframeRef = null;
   @observable searchTerm = '';
 

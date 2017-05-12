@@ -1,6 +1,13 @@
 import React, {PropTypes} from 'react';
 
-class GeolinkLayerToggle extends React.Component {
+export default class GeolinkLayerToggle extends React.Component {
+  static propTypes = {
+    value: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    onClick: PropTypes.func,
+    defaultOn: PropTypes.bool
+  }
+
   constructor(props) {
     super(props);
     if(this.props.onClick){
@@ -20,12 +27,3 @@ class GeolinkLayerToggle extends React.Component {
     )
   }
 }
-
-GeolinkLayerToggle.propTypes = {
-  value: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-  onClick: PropTypes.func,
-  defaultOn: PropTypes.bool
-}
-
-export default GeolinkLayerToggle;
