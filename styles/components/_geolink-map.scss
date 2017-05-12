@@ -26,7 +26,7 @@ $search-border-radius: 4px;
 
 .geolink-controls {
   min-height: 180px;
-  background-color: $fn-grey;
+  background-color: $fn-ltgrey;
   margin-bottom: 20px;
 
   .search-input button,
@@ -36,7 +36,7 @@ $search-border-radius: 4px;
 
   [class*=' col-'] {
     padding: 0;
-    background-color: $fn-grey;
+    background-color: $fn-ltgrey;
 
     article,
     form {
@@ -52,7 +52,7 @@ $search-border-radius: 4px;
       [class*=' col-'] {
         article,
         form {
-          border-bottom: 1px solid $fn-dkgrey;
+          border-bottom: 2px solid $fn-grey;
           margin: 0 40px;
           padding: 20px 0 ;
         }
@@ -71,7 +71,7 @@ $search-border-radius: 4px;
         article,
         form {
           min-height: 140px;
-          border-right: 1px solid $fn-dkgrey;
+          border-right: 2px solid $fn-grey;
           margin: 20px 0;
           padding: 0 40px;
         }
