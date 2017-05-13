@@ -43,7 +43,7 @@ class UtilsService {
 
             return simplifiedObj;
         })
-        console.log('in base bro    ', objs);
+        console.log('in base bro    ', simplifiedObjs);
         return simplifiedObjs;
     }
 
