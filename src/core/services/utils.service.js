@@ -10,7 +10,6 @@ class UtilsService {
     }
 
     conditionData(objs) {
-      console.log('in base bro    ', objs);
         let simplifiedObjs = objs.filter((obj) => {
             if (obj.custom_metadata === null || (obj.custom_metadata && (obj.custom_metadata.user_segment === null || (obj.custom_metadata.user_segment && obj.custom_metadata.user_segment.length < 1)))) {
                 return false;
@@ -44,6 +43,7 @@ class UtilsService {
 
             return simplifiedObj;
         })
+        console.log('in base bro    ', objs);
         return simplifiedObjs;
     }
 

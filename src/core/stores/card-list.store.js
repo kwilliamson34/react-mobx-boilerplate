@@ -104,8 +104,8 @@ class CardListStore {
 
     @action retrieveAppDetails(psk) {
       let success = (response) => {
-        console.log('res2     ', response);
         this.appDetails = response[0];
+        console.log('appdetails on cardListStore    ', this.appDetails);
         return this.appDetails;
       }
 

@@ -21,13 +21,11 @@ export default class ScreenshotGallery extends React.Component {
 
   renderSlides = (screenshots) => {
     let screenshotArray = [...screenshots.mobile, ...screenshots.tablet];
-    console.log('screenshotArray     ', screenshotArray);
     return screenshotArray.map((node, i) => {
-      console.log('node.path     ', node.path);
       return (
         <div key={i} className='slide-container'>
           <figure className='img-responsive'>
-            <img src={'https://' + node.path} className='slide-img' alt={'Image for ' + node.description} aria-labelledby='slide-caption' />
+            <img src={node.path} className='slide-img' alt={'Image for ' + node.description} aria-labelledby='slide-caption' />
           </figure>
           <figcaption className='slide-caption' id='slide-caption'>{node.description}</figcaption>
         </div>
@@ -36,7 +34,6 @@ export default class ScreenshotGallery extends React.Component {
   )};
 
   render() {
-    console.log('screenshooooooots    ', this.props.screenshots);
     return (
       <div className='gallery-container' role='region' aria-label='App screenshot gallery'>
         {this.renderSlides(this.props.screenshots)}

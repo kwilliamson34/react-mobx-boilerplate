@@ -37,10 +37,9 @@ class ApiService {
           'x-auth-token': '34234'
         }
       }).then(res => {
-        console.log('res.data---  ', res.data);
         let arrayRes = [];
         arrayRes.push(res.data);
-        console.log('res--     ', utilsService.conditionData(arrayRes));
+        console.log('arrayRes      ', arrayRes);
         return utilsService.conditionData(arrayRes);
       });
     }

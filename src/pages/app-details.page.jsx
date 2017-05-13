@@ -37,25 +37,9 @@ export default class AppDetailsPage extends React.Component {
 		//
 		if (!this.appStore.currentAppPsk) {
 			let psk = this.props.match.params.appId;
-			console.log('is psk string?   ', typeof psk);
 			this.appStore.retrieveAppDetails(psk);
 		}
-		console.log('psk?     ', this.appStore.currentAppPsk);
-		console.log('params?     ', this.props.match.params.appId);
 	}
-
-	componentDidMount() {
-		// console.log('app_psk: ' + this.props.match.params.appPSK);
-		// console.log('appId       ', this.props.match.params.appId);
-		// //62862
-		// this.appStore.setCurrentApp(62862);
-		// this.appStore =
-		// console.log('Service not ready yet for integration');
-	}
-	//
-	// {this.appStore.appDetails.screenshots.mobile.length || this.appStore.appDetails.screenshots.tablet.length &&
-	// 	<ScreenshotGallery screenshots={this.appDetails.screenshots} />
-	// }
 
 	render() {
 		console.log('appDetails on app details page   ', this.appStore.appDetails);
@@ -122,12 +106,9 @@ export default class AppDetailsPage extends React.Component {
           </div>
         </section>
         <section className="app-gallery">
-
-
-
-					<ScreenshotGallery screenshots={this.appStore.appDetails.screenshots} />
-
-
+					{this.appStore.appDetails.screenshots.mobile.length || this.appStore.appDetails.screenshots.tablet.length &&
+						<ScreenshotGallery screenshots={this.appStore.appDetails.screenshots} />
+					}
         </section>
         <section className="app-description">
           <div className="container">
