@@ -106,8 +106,8 @@ export default class AppDetailsPage extends React.Component {
           </div>
         </section>
         <section className="app-gallery">
-					{this.appStore.appDetails.screenshots.mobile.length || this.appStore.appDetails.screenshots.tablet.length &&
-						<ScreenshotGallery screenshots={this.appStore.appDetails.screenshots} />
+					{this.appStore.currentApp.appDetails.screenshots.mobile.length || this.appStore.currentApp.appDetails.screenshots.tablet.length &&
+						<ScreenshotGallery screenshots={this.appStore.currentApp.appDetails.screenshots} />
 					}
         </section>
         <section className="app-description">
