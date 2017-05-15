@@ -34,10 +34,8 @@ export default class AppDetailsPage extends React.Component {
 	}
 
 	componentWillUpdate() {
-		this.showScreenshots = this.appStore.shouldShowScreenshots;
+		this.appStore.shouldShowScreenshots();
 	}
-
-	showScreenshots = true;
 
 	render() {
 		return (
@@ -102,7 +100,7 @@ export default class AppDetailsPage extends React.Component {
             </div>
           </div>
         </section>
-				{this.showScreenshots &&
+				{this.appStore.showScreenshots &&
 					<section className="app-gallery">
 						<ScreenshotGallery screenshots={this.appStore.appDetails.screenshots} />
 					</section>
@@ -157,3 +155,10 @@ AppDetailsPage.propTypes = {
 	store: PropTypes.object,
 	match: PropTypes.object
 };
+
+AppDetailsPage.defaultProps = {
+	screenshots: {
+		mobile: [],
+		tablet: []
+	}
+}

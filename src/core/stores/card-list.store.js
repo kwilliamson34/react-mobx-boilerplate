@@ -114,6 +114,12 @@ class CardListStore {
       return apiService.getAppDetails(appPsk).then(success, failure);
     }
 
+    @action shouldShowScreenshots() {
+        this.showScreenshots =
+          (this.appDetails.screenshots.mobile && this.appDetails.screenshots.mobile.length > 0)
+          || (this.appDetails.screenshots.tablet && this.appDetails.screenshots.tablet.length > 0);
+    }
+
     //COMPUTEDS
     @computed get currentApp(){
       return this.searchResults.filter((app) => {
@@ -149,12 +155,6 @@ class CardListStore {
         return this.searchResults.filter((app) => {
             return (app.user_segment.indexOf(user_segment.DISPATCH) > -1)
         })
-    }
-
-    @computed get shouldShowScreenshots() {
-      return this.appDetails.screenshots.mobile.length && this.appDetails.screenshots.tablet.length
-        ? true
-        : false;
     }
 
     // probably to be deprecated.
@@ -203,6 +203,7 @@ class CardListStore {
 
     @observable searchResults = [];
     @observable shouldShowSearchResults = false;
+    @observable showScreenshots = true;
     @observable searchIsVisible = false;
     @observable searchQuery = '';
     @observable isLoading = false;
