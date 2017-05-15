@@ -207,7 +207,7 @@ class CardListStore {
     @observable searchQuery = '';
     @observable isLoading = false;
     @observable currentAppPsk = '';
-    @observable.ref appDetails = {};
+    @observable appDetails = {};
 
     @observable platforms = [
         { title: 'Platform', value: '' },

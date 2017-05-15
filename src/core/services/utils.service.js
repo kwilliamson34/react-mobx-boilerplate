@@ -17,7 +17,6 @@ class UtilsService {
                 return true;
             }
         }).map((obj) => {
-            console.log('inner obj    ', obj);
             let simplifiedObj = {
               name: obj.app_name,
               publisher: obj.author,
@@ -59,7 +58,6 @@ class UtilsService {
 
             return simplifiedObj;
         })
-        console.log('simplifiedObjs    ', simplifiedObjs);
         return simplifiedObjs;
     }
 

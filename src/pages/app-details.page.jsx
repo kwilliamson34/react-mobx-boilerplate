@@ -5,8 +5,6 @@ import {
 	inject
 } from 'mobx-react';
 
-// import { match } from 'react-router-dom';
-
 import TitlePane from '../components/title-pane/title-pane';
 import {
 	Rating
@@ -30,11 +28,9 @@ export default class AppDetailsPage extends React.Component {
 
 	componentWillMount() {
 		if (!this.appStore.currentAppPsk) {
+			console.log('PSK CHECK TRIGGERED');
 			let psk = this.props.match.params.appId;
 			this.appStore.retrieveAppDetails(psk);
-		}
-		if (!this.appStore.appDetails.screenshots) {
-			this.appStore.retrieveAppDetails(this.appStore.currentAppPsk);
 		}
 	}
 

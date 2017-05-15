@@ -19,6 +19,7 @@ export class SummaryCard extends React.Component {
             imageUrl: PropTypes.string,
             rating: PropTypes.number,
             badge: PropTypes.bool,
+            psk: PropTypes.number,
             platforms: PropTypes.oneOf(['', 'iOS', 'Android'])
         }).isRequired
     }

@@ -21,7 +21,6 @@ export default class ScreenshotGallery extends React.Component {
 
 
   renderSlides = (screenshots) => {
-    console.log('screenshots    ', screenshots);
     let screenshotArray = [...screenshots.mobile, ...screenshots.tablet];
     return screenshotArray.map((node, i) => {
       return (
