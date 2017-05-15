@@ -4,7 +4,7 @@
   "description": "FirstNet PSE Homepage",
   "main": "index.jsx",
   "scripts": {
-    "copyassets": "copyfiles ./images/**/* ./fonts/**/* ./build/",
+    "copyassets": "copyfiles ./images/**/* ./fonts/**/* ./maps/* ./build/",
     "build": "rm -rf build & npm run copyassets & webpack -p --progress",
     "start": "npm run copyassets & webpack-dev-server --open",
     "test": "jest --coverage"

@@ -27,7 +27,6 @@ import Header from './components/header/header';
 import Footer from './components/footer/footer.jsx';
 
 //Pages
-
 import HomePage from './pages/home.page';
 
 //admin
@@ -54,13 +53,11 @@ import NoMatch from './pages/no-match.page';
 
 @observer
 export default class App extends React.Component {
-
 	constructor(props) {
 		super(props);
 	}
 
 	render() {
-
 		const AppHub = ({
 			match
 		}) => {

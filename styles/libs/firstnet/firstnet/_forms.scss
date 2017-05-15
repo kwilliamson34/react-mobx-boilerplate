@@ -130,14 +130,14 @@ legend {
 .radio {
   input[type="radio"] {
     &+ .cr {
-      background: url('/assets/svg/radio-unchecked.svg') no-repeat;
+      background: url('/images/radio-unchecked.svg') no-repeat;
       background-size: 16px 16px;
       background-position: 0 8px;
     }
 
     &:disabled {
       &+ .cr {
-        background: url('/assets/svg/radio-unchecked-disabled.svg') no-repeat;
+        background: url('/images/radio-unchecked-disabled.svg') no-repeat;
         background-size: 16px 16px;
         background-position: 0 8px;
       }
@@ -145,14 +145,14 @@ legend {
 
     &:checked {
       &+ .cr {
-        background: url('/assets/svg/radio-checked.svg') no-repeat;
+        background: url('/images/radio-checked.svg') no-repeat;
         background-size: 16px 16px;
         background-position: 0 8px;
       }
 
       &:disabled {
         &+ .cr {
-          background: url('/assets/svg/radio-checked-disabled.svg') no-repeat;
+          background: url('/images/radio-checked-disabled.svg') no-repeat;
           background-size: 16px 16px;
           background-position: 0 8px;
         }
@@ -164,14 +164,14 @@ legend {
 .checkbox {
   input[type="checkbox"] {
     &+ .cr {
-      background: url('/assets/svg/chkbox.svg') no-repeat;
+      background: url('/images/chkbox.svg') no-repeat;
       background-size: 16px 16px;
       background-position: 0 8px;
     }
 
     &:disabled {
       &+ .cr {
-        background: url('/assets/svg/chkbox-disabled.svg') no-repeat;
+        background: url('/images/chkbox-disabled.svg') no-repeat;
         background-size: 16px 16px;
         background-position: 0 8px;
       }
@@ -179,14 +179,14 @@ legend {
 
     &:checked {
       &+ .cr {
-        background: url('/assets/svg/chkbox-checked.svg') no-repeat;
+        background: url('/images/chkbox-checked.svg') no-repeat;
         background-size: 16px 16px;
         background-position: 0 8px;
       }
 
       &:disabled {
         &+ .cr {
-          background: url('/assets/svg/chkbox-checked-disabled.svg') no-repeat;
+          background: url('/images/chkbox-checked-disabled.svg') no-repeat;
           background-size: 16px 16px;
           background-position: 0 8px;
         }
