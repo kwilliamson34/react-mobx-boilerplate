@@ -102,17 +102,16 @@ class CardListStore {
       }
     }
 
-    @action retrieveAppDetails(psk) {
+    @action retrieveAppDetails(appPsk) {
       let success = (response) => {
-        console.log('appdetails res on cardListStore    ', response);
-        this.currentApp.appDetails = response[0];
+        this.appDetails = response[0];
       }
 
       let failure = (error) => {
         console.warn(error);
       }
 
-      apiService.getAppDetails(psk).then(success, failure);
+      return apiService.getAppDetails(appPsk).then(success, failure);
     }
 
     //COMPUTEDS
@@ -202,7 +201,7 @@ class CardListStore {
     @observable searchQuery = '';
     @observable isLoading = false;
     @observable currentAppPsk = '';
-    // @observable appDetails = {};
+    @observable.ref appDetails = {};
 
     @observable platforms = [
         { title: 'Platform', value: '' },

@@ -36,10 +36,12 @@ export default class AppDetailsPage extends React.Component {
 		//set observable to be the conditioned res.
 		//
 		if (!this.appStore.currentAppPsk) {
+			console.log('psk lookup triggered');
 			let psk = this.props.match.params.appId;
 			this.appStore.retrieveAppDetails(psk);
 		}
 	}
+
 
 	render() {
 		console.log('appDetails on app details page   ', this.appStore.appDetails);
@@ -106,9 +108,7 @@ export default class AppDetailsPage extends React.Component {
           </div>
         </section>
         <section className="app-gallery">
-					{this.appStore.currentApp.appDetails.screenshots.mobile.length || this.appStore.currentApp.appDetails.screenshots.tablet.length &&
-						<ScreenshotGallery screenshots={this.appStore.currentApp.appDetails.screenshots} />
-					}
+					<ScreenshotGallery screenshots={this.appStore.appDetails.screenshots} />
         </section>
         <section className="app-description">
           <div className="container">
