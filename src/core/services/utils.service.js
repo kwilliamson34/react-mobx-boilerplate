@@ -1,6 +1,3 @@
-import _ from 'lodash';
-
-
 class UtilsService {
 
     static platform = {
@@ -24,7 +21,7 @@ class UtilsService {
             let simplifiedObj = {
               name: obj.app_name,
               publisher: obj.author,
-              imageUrl: 'https://ease.apperian.com/uploads/' + obj.icon_path, // TODO - move data base url to global endpoints
+              imageUrl: 'https://ease.apperian.com/uploads/' + obj.icon_path, // TODO - move data base url to global endpoints; see also screenshots below
               rating: obj.rating,
               id: obj.id,
               psk: obj.app_psk,

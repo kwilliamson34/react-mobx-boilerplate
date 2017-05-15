@@ -28,7 +28,7 @@ export default class AppDetailsPage extends React.Component {
 		this.appStore = this.props.store.cardListStore;
 	}
 
-	componentDidMount() {
+	componentWillMount() {
 		//check if there is psk. if there is, we're fine.
 		//if not, call action in cardListStore with psk;
 		//in cardListStore, action call apiService.getAppDetails() with psk.
@@ -42,11 +42,17 @@ export default class AppDetailsPage extends React.Component {
 		}
 	}
 
-	// {this.appStore.appDetails.screenshots.mobile.length || this.appStore.appDetails.screenshots.tablet.length &&
+	componentWillUpdate() {
+		this.showScreenshots = this.appStore.shouldShowScreenshots;
+	}
 
+	showScreenshots = false;
 
 	render() {
+		console.log('RENDERS');
 		console.log('appDetails on app details page   ', this.appStore.appDetails);
+		console.log('this.showScreenshots    ', this.showScreenshots);
+
 		return (
 			<article id="app-details-page">
         <TitlePane pageTitle="App Details"/>
@@ -110,7 +116,9 @@ export default class AppDetailsPage extends React.Component {
           </div>
         </section>
         <section className="app-gallery">
+					{this.showScreenshots &&
 						<ScreenshotGallery screenshots={this.appStore.appDetails.screenshots} />
+					}
         </section>
         <section className="app-description">
           <div className="container">

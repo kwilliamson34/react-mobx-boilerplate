@@ -152,6 +152,12 @@ class CardListStore {
         })
     }
 
+    @computed get shouldShowScreenshots() {
+      return this.appDetails.screenshots.mobile.length && this.appDetails.screenshots.tablet.length
+        ? true
+        : false;
+    }
+
     // probably to be deprecated.
     @computed get searchButtonIsEnabled() {
         return true;
