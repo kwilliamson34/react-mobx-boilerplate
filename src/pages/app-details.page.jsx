@@ -28,15 +28,8 @@ export default class AppDetailsPage extends React.Component {
 		this.appStore = this.props.store.cardListStore;
 	}
 
-	componentWillMount() {
-		//check if there is psk. if there is, we're fine.
-		//if not, call action in cardListStore with psk;
-		//in cardListStore, action call apiService.getAppDetails() with psk.
-		//get json res, run through utils.
-		//set observable to be the conditioned res.
-		//
+	componentDidMount() {
 		if (!this.appStore.currentAppPsk) {
-			console.log('psk lookup triggered');
 			let psk = this.props.match.params.appId;
 			this.appStore.retrieveAppDetails(psk);
 		}
@@ -49,10 +42,6 @@ export default class AppDetailsPage extends React.Component {
 	showScreenshots = false;
 
 	render() {
-		console.log('RENDERS');
-		console.log('appDetails on app details page   ', this.appStore.appDetails);
-		console.log('this.showScreenshots    ', this.showScreenshots);
-
 		return (
 			<article id="app-details-page">
         <TitlePane pageTitle="App Details"/>

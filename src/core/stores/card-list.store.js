@@ -105,7 +105,6 @@ class CardListStore {
     @action retrieveAppDetails(appPsk) {
       let success = (response) => {
         this.appDetails = response[0];
-        console.log('app details on cardlistsotre   ', this.appDetails);
       }
 
       let failure = (error) => {
@@ -208,7 +207,7 @@ class CardListStore {
     @observable searchQuery = '';
     @observable isLoading = false;
     @observable currentAppPsk = '';
-    @observable.ref appDetails = {};
+    @observable appDetails = {};
 
     @observable platforms = [
         { title: 'Platform', value: '' },

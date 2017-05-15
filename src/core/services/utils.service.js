@@ -17,7 +17,6 @@ class UtilsService {
                 return true;
             }
         }).map((obj) => {
-            console.log('OBH     ', obj);
             let simplifiedObj = {
               name: obj.app_name,
               publisher: obj.author,
