@@ -24,17 +24,10 @@ export default class AppDetailsPage extends React.Component {
 	constructor(props) {
 		super(props);
 		this.appStore = this.props.store.cardListStore;
-	}
-
-	componentWillMount() {
 		if (!this.appStore.currentAppPsk) {
 			let psk = this.props.match.params.appId;
 			this.appStore.retrieveAppDetails(psk);
 		}
-	}
-
-	componentWillUpdate() {
-		this.appStore.shouldShowScreenshots();
 	}
 
 	render() {
@@ -155,10 +148,3 @@ AppDetailsPage.propTypes = {
 	store: PropTypes.object,
 	match: PropTypes.object
 };
-
-AppDetailsPage.defaultProps = {
-	screenshots: {
-		mobile: [],
-		tablet: []
-	}
-}

@@ -105,6 +105,7 @@ class CardListStore {
     @action retrieveAppDetails(appPsk) {
       let success = (response) => {
         this.appDetails = response[0];
+        this.shouldShowScreenshots();
       }
 
       let failure = (error) => {
