@@ -102,12 +102,11 @@ export default class AppDetailsPage extends React.Component {
             </div>
           </div>
         </section>
-        <section className="app-gallery">
-					{this.showScreenshots
-						? <ScreenshotGallery screenshots={this.appStore.appDetails.screenshots} />
-						: <div>THERE ARE NO SCREENSHOTS</div>
-					}
-        </section>
+				{this.showScreenshots &&
+					<section className="app-gallery">
+						<ScreenshotGallery screenshots={this.appStore.appDetails.screenshots} />
+					</section>
+				}
         <section className="app-description">
           <div className="container">
             <div className="row">
