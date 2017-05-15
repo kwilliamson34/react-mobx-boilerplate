@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
-// import { observable } from 'mobx';
+import { observable } from 'mobx';
 
 @observer
 export default class TruncateComment extends React.Component {
@@ -9,9 +9,7 @@ export default class TruncateComment extends React.Component {
   static propTypes = {
     keyVal: PropTypes.number.isRequired,
     charCount: PropTypes.number,
-    text: PropTypes.string,
-    isTruncated: PropTypes.bool,
-    toggleIsTruncate: PropTypes.func
+    text: PropTypes.string
   }
 
   static defaultProps = {
@@ -26,11 +24,10 @@ export default class TruncateComment extends React.Component {
     this.truncateButton = this.truncateButton.bind(this);
   }
 
-  //temporary workaround until fate of app detail store is determined;
-  // @observable isTruncated = true;
+  @observable isTruncated = true;
 
   toggleTruncate() {
-    this.props.toggleIsTruncate();
+    this.isTruncated = !this.isTruncated;
     document.getElementById('Review-' + this.props.keyVal).scrollIntoView();
   }
 

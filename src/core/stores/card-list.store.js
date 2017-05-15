@@ -102,10 +102,6 @@ class CardListStore {
       }
     }
 
-    @action toggleIsTruncate() {
-      this.currentApp.isTruncated = !this.currentApp.isTruncated;
-    }
-
     @action retrieveAppDetails(appPsk) {
       let success = (response) => {
         this.appDetails = response[0];
@@ -162,6 +158,10 @@ class CardListStore {
         })
     }
 
+    @computed get toggleIsTruncate() {
+      return this.isTruncate = !this.isTruncated;
+    }
+
     // probably to be deprecated.
     @computed get searchButtonIsEnabled() {
         return true;
@@ -209,6 +209,7 @@ class CardListStore {
     @observable searchResults = [];
     @observable shouldShowSearchResults = false;
     @observable showScreenshots = true;
+    @observable isTruncated = {value: true};
     @observable searchIsVisible = false;
     @observable searchQuery = '';
     @observable isLoading = false;

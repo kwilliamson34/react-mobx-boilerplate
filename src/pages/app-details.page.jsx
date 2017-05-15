@@ -121,7 +121,7 @@ export default class AppDetailsPage extends React.Component {
 								<RatingsChart value={4.1} reviewsTotal={44} data={[14,22,8,5,2]}/>
 								{ appDetail.reviews.length === 0
 									? <div className="content-description">No reviews yet!</div>
-									: <AppReviews reviews={appDetail.reviews} isTruncated={this.props.store.cardListStore.currentApp.isTruncated} toggleIsTruncate={this.props.store.cardListStore.toggleIsTruncate.bind(this.props.store.cardListStore)} />
+									: <AppReviews reviews={appDetail.reviews} />
 								}
 							</div>
 						</div>
