@@ -1,7 +1,6 @@
 import React from 'react';
 
 import TitlePane from '../components/title-pane/title-pane';
-import PlansAndDevices from '../components/plans-and-devices/plans-and-devices';
 
 export default class HomePage extends React.Component {
 
@@ -18,7 +17,6 @@ export default class HomePage extends React.Component {
         <section className="placeholder news-feed">
           <h2>News feed</h2>
         </section>
-        <PlansAndDevices />
       </article>
     )
   }
