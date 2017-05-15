@@ -85,34 +85,34 @@ export default class App extends React.Component {
 
 		return (
 			<Router>
-        <Provider store={pseMasterStore}>
-            <ScrollToTop>
-              <div id="PSE-wrapper">
-                  <a href="#main-content" className="sr-only sr-only-focusable">Skip Navigation</a>
-                  <Header/>
-                    <main id="main-content">
-											<Switch>
-												<Route exact path="/" component={HomePage}/>
-												<Route path="/admin/manage-users" component={ManageUsersPage} />
-												<Route path="/admin/manage-billing" component={ManageBillingPage} />
-												<Route path="/admin/manage-services" component={ManageServicesPage} />
-												<Route path="/admin/manage-apps" component={ManageAppsPage} />
-												<Route path="/admin/manage-push-to-talk" component={ManagePushToTalkPage} />
-												<Route path="/admin/manage-wireless-reports" component={ManageWirelessReportsPage} />
-												<Route path="/admin" component={AdminDashboardPage} />
-												<Route path="/app" component={AppHub} />
-												<Route path="/shop-devices" component={ShopDevicesPage} />
-												<Route path="/shop-specialized" component={ShopSpecializedPage} />
-												<Route path="/shop-solutions" component={ShopSolutionsPage} />
-												<Route path="/help-center" component={HelpCenterPage} />
-												<Route component={NoMatch}/>
-											</Switch>
-                    </main>
-                  <Footer/>
-              </div>
-            </ScrollToTop>
-        </Provider>
-      </Router>
+				<Provider store={pseMasterStore}>
+					<ScrollToTop>
+						<div id="PSE-wrapper">
+							<a href="#main-content" className="sr-only sr-only-focusable">Skip Navigation</a>
+							<Header/>
+							<main id="main-content">
+								<Switch>
+									<Route exact path="/" component={HomePage}/>
+									<Route path="/admin/manage-users" component={ManageUsersPage} />
+									<Route path="/admin/manage-billing" component={ManageBillingPage} />
+									<Route path="/admin/manage-services" component={ManageServicesPage} />
+									<Route path="/admin/manage-apps" component={ManageAppsPage} />
+									<Route path="/admin/manage-push-to-talk" component={ManagePushToTalkPage} />
+									<Route path="/admin/manage-wireless-reports" component={ManageWirelessReportsPage} />
+									<Route path="/admin" component={AdminDashboardPage} />
+									<Route path="/app" component={AppHub} />
+									<Route path="/shop-devices" component={ShopDevicesPage} />
+									<Route path="/shop-specialized" component={ShopSpecializedPage} />
+									<Route path="/shop-solutions" component={ShopSolutionsPage} />
+									<Route path="/help-center" component={HelpCenterPage} />
+									<Route component={NoMatch}/>
+								</Switch>
+							</main>
+							<Footer/>
+						</div>
+					</ScrollToTop>
+				</Provider>
+			</Router>
 		)
 	}
 }
