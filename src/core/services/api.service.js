@@ -39,7 +39,6 @@ class ApiService {
       }).then(res => {
         let arrayRes = [];
         arrayRes.push(res.data);
-        console.log('arrayRes      ', arrayRes);
         return utilsService.conditionData(arrayRes);
       });
     }

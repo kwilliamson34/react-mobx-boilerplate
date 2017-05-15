@@ -28,7 +28,7 @@ export default class AppDetailsPage extends React.Component {
 		this.appStore = this.props.store.cardListStore;
 	}
 
-	componentDidMount() {
+	componentWillMount() {
 		if (!this.appStore.currentAppPsk) {
 			let psk = this.props.match.params.appId;
 			this.appStore.retrieveAppDetails(psk);
@@ -39,7 +39,7 @@ export default class AppDetailsPage extends React.Component {
 		this.showScreenshots = this.appStore.shouldShowScreenshots;
 	}
 
-	showScreenshots = false;
+	showScreenshots = true;
 
 	render() {
 		return (
@@ -105,8 +105,9 @@ export default class AppDetailsPage extends React.Component {
           </div>
         </section>
         <section className="app-gallery">
-					{this.showScreenshots &&
-						<ScreenshotGallery screenshots={this.appStore.appDetails.screenshots} />
+					{this.showScreenshots
+						? <ScreenshotGallery screenshots={this.appStore.appDetails.screenshots} />
+						: <div>THERE ARE NO SCREENSHOTS</div>
 					}
         </section>
         <section className="app-description">
