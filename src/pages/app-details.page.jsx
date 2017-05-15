@@ -33,6 +33,9 @@ export default class AppDetailsPage extends React.Component {
 			let psk = this.props.match.params.appId;
 			this.appStore.retrieveAppDetails(psk);
 		}
+		if (!this.appStore.appDetails.screenshots) {
+			this.appStore.retrieveAppDetails(this.appStore.currentAppPsk);
+		}
 	}
 
 	componentWillUpdate() {
