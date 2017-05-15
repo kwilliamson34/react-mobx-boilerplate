@@ -106,6 +106,25 @@ class CardListStore {
       this.currentApp.isTruncated = !this.currentApp.isTruncated;
     }
 
+    @action retrieveAppDetails(appPsk) {
+      let success = (response) => {
+        this.appDetails = response[0];
+        this.shouldShowScreenshots();
+      }
+
+      let failure = (error) => {
+        console.warn(error);
+      }
+
+      return apiService.getAppDetails(appPsk).then(success, failure);
+    }
+
+    @action shouldShowScreenshots() {
+        this.showScreenshots =
+          (this.appDetails.screenshots.mobile && this.appDetails.screenshots.mobile.length > 0)
+          || (this.appDetails.screenshots.tablet && this.appDetails.screenshots.tablet.length > 0);
+    }
+
     //COMPUTEDS
     @computed get currentApp(){
       return this.searchResults.filter((app) => {
@@ -189,10 +208,12 @@ class CardListStore {
 
     @observable searchResults = [];
     @observable shouldShowSearchResults = false;
+    @observable showScreenshots = true;
     @observable searchIsVisible = false;
     @observable searchQuery = '';
     @observable isLoading = false;
     @observable currentAppPsk = '';
+    @observable appDetails = {};
 
     @observable platforms = [
         { title: 'Platform', value: '' },

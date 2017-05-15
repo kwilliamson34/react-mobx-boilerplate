@@ -20,7 +20,7 @@ class UtilsService {
             let simplifiedObj = {
               name: obj.app_name,
               publisher: obj.author,
-              imageUrl: 'https://ease.apperian.com/uploads/' + obj.icon_path, // TODO - move data base url to global endpoints
+              imageUrl: 'https://ease.apperian.com/uploads/' + obj.icon_path, // TODO - move data base url to global endpoints; see also screenshots below
               rating: obj.rating,
               id: obj.id,
               psk: obj.app_psk,
@@ -29,12 +29,31 @@ class UtilsService {
               badge: obj.is_endorsed,
               platforms: UtilsService.platform[obj.operating_system],
               category: [],
-              user_segment: []
+              user_segment: [],
+              screenshots: {}
             };
 
             if (obj.custom_metadata) {
                 simplifiedObj.category = obj.custom_metadata.category;
                 simplifiedObj.user_segment = obj.custom_metadata.user_segment;
+            }
+
+            if (obj.mobileScreenshots) {
+              simplifiedObj.screenshots.mobile = obj.mobileScreenshots.map((val) => {
+                return {
+                  description: val.description,
+                  path: 'https://ease.apperian.com/uploads/' + val.path
+                }
+              });
+            }
+
+            if (obj.tabletScreenshots) {
+              simplifiedObj.screenshots.tablet = obj.tabletScreenshots.map((val) => {
+                return {
+                  description: val.description,
+                  path: 'https://ease.apperian.com/uploads/' + val.path
+                }
+              });
             }
 
             return simplifiedObj;

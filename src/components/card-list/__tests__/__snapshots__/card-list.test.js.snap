@@ -8,6 +8,7 @@ exports[`<CardList /> renders matches previous snapshot 1`] = `
       className="card-list-cards row">
       <div
         className="col-md-3 col-xs-4 center-block">
+<<<<<<< HEAD
         <div
           className="card-wrapper">
           <a
@@ -29,61 +30,86 @@ exports[`<CardList /> renders matches previous snapshot 1`] = `
                 <div
                   className="card-publisher hidden-xs" />
               </section>
+=======
+        <a
+          className="card-wrapper"
+          href="/app"
+          onClick={[Function anonymous]}>
+          <div
+            className="card-container center-block has-shadow">
+            <div
+              className="card-logo">
+              <img
+                alt="undefined Logo"
+                src={undefined} />
+            </div>
+            <section
+              className="card-info">
               <div
-                className="card-rating">
-                <div
-                  className="ratings-container">
+                className="card-name" />
+              <div
+                className="card-publisher hidden-xs" />
+            </section>
+            <div
+              className="card-rating">
+>>>>>>> 215945416bb4cfa2743de4d3d5863280043f2c2a
+              <div
+                className="ratings-container">
+                <span
+                  className="ratings-number">
                   <span
-                    className="ratings-number">
-                    <span
-                      className="sr-only">
-                      Rating of
-                    </span>
-                    0
+                    className="sr-only">
+                    Rating of
+                  </span>
+                  0
+                </span>
+                <span
+                  className="ratings-stars">
+                  <span
+                    aria-hidden="true">
+                    <img
+                      alt="Rating Star"
+                      className="ratings-star"
+                      src="/images/star-outline.png" />
                   </span>
                   <span
-                    className="ratings-stars">
-                    <span
-                      aria-hidden="true">
-                      <img
-                        alt="Rating Star"
-                        className="ratings-star"
-                        src="/images/star-outline.png" />
-                    </span>
-                    <span
-                      aria-hidden="true">
-                      <img
-                        alt="Rating Star"
-                        className="ratings-star"
-                        src="/images/star-outline.png" />
-                    </span>
-                    <span
-                      aria-hidden="true">
-                      <img
-                        alt="Rating Star"
-                        className="ratings-star"
-                        src="/images/star-outline.png" />
-                    </span>
-                    <span
-                      aria-hidden="true">
-                      <img
-                        alt="Rating Star"
-                        className="ratings-star"
-                        src="/images/star-outline.png" />
-                    </span>
-                    <span
-                      aria-hidden="true">
-                      <img
-                        alt="Rating Star"
-                        className="ratings-star"
-                        src="/images/star-outline.png" />
-                    </span>
+                    aria-hidden="true">
+                    <img
+                      alt="Rating Star"
+                      className="ratings-star"
+                      src="/images/star-outline.png" />
                   </span>
-                </div>
+                  <span
+                    aria-hidden="true">
+                    <img
+                      alt="Rating Star"
+                      className="ratings-star"
+                      src="/images/star-outline.png" />
+                  </span>
+                  <span
+                    aria-hidden="true">
+                    <img
+                      alt="Rating Star"
+                      className="ratings-star"
+                      src="/images/star-outline.png" />
+                  </span>
+                  <span
+                    aria-hidden="true">
+                    <img
+                      alt="Rating Star"
+                      className="ratings-star"
+                      src="/images/star-outline.png" />
+                  </span>
+                </span>
               </div>
             </div>
+<<<<<<< HEAD
           </a>
         </div>
+=======
+          </div>
+        </a>
+>>>>>>> 215945416bb4cfa2743de4d3d5863280043f2c2a
         <div
           className="hidden-xs" />
       </div>

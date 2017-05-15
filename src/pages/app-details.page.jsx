@@ -11,7 +11,11 @@ import {
 } from '../components/rating/rating';
 import RatingsChart from '../components/ratings-chart/ratings-chart';
 import Toggle from '../components/toggle/toggle';
+<<<<<<< HEAD
 import AppReviews from '../components/app-reviews/app-reviews';
+=======
+import ScreenshotGallery from '../components/screenshot-gallery/screenshot-gallery';
+>>>>>>> 215945416bb4cfa2743de4d3d5863280043f2c2a
 
 //import mock response from services
 const appDetail = require('../fixtures/mock-app-detail.json');
@@ -19,19 +23,15 @@ const appDetail = require('../fixtures/mock-app-detail.json');
 @inject('store')
 @observer
 export default class AppDetailsPage extends React.Component {
+
+
 	constructor(props) {
 		super(props);
-		// this.appStore = this.props.store.cardListStore;
-	}
-
-	componentDidMount() {
-		//console.log('app_psk: ' + this.props.match.params.appPSK);
-		//this.appStore.getAppDetails(68483);
-		// console.log('Service not ready yet for integration');
+		this.appStore = this.props.store.cardListStore;
 		if (!this.appStore.currentAppPsk) {
-		let psk = this.props.match.params.appId;
-		this.appStore.retrieveAppDetails(psk);
-}
+			let psk = this.props.match.params.appId;
+			this.appStore.retrieveAppDetails(psk);
+		}
 	}
 
 	render() {
@@ -97,7 +97,11 @@ export default class AppDetailsPage extends React.Component {
             </div>
           </div>
         </section>
-        <section className="app-gallery"></section>
+				{this.appStore.showScreenshots &&
+					<section className="app-gallery">
+						<ScreenshotGallery screenshots={this.appStore.appDetails.screenshots} />
+					</section>
+				}
         <section className="app-description">
           <div className="container">
             <div className="row">
@@ -149,5 +153,6 @@ export default class AppDetailsPage extends React.Component {
 
 
 AppDetailsPage.propTypes = {
-	store: PropTypes.object
+	store: PropTypes.object,
+	match: PropTypes.object
 };

@@ -32,10 +32,14 @@ class ApiService {
     }
 
     getAppDetails(appPSK) {
-      return axios.get(`${base}/app?app_psk=${appPSK}`,{
+      return axios.get(`${base}/app?appPsk=${appPSK}`,{
         headers: {
           'x-auth-token': '34234'
         }
+      }).then(res => {
+        let arrayRes = [];
+        arrayRes.push(res.data);
+        return utilsService.conditionData(arrayRes);
       });
     }
 
