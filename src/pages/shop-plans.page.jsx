@@ -2,9 +2,9 @@ import React from 'react';
 import TitlePane from '../components/title-pane/title-pane';
 
 export default class ShopPlansPage extends React.Component {
-    render() {
-        return (
-          <article id="shop-plans-page">
+	render() {
+		return (
+			<article id="shop-plans-page">
             <TitlePane pageTitle="Plans"/>
             <div className="container">
                 <section className="content-wrapper">
@@ -20,11 +20,11 @@ export default class ShopPlansPage extends React.Component {
                          up to 1000 gigabytes per user per month. Plus, all rate plans include Dynamic Traffic Management at no additional charge.</p>
                         <p>The combination of affordable, flexible pricing, prioritization and preemption capabilities, dedicaed spectrum, 24x7 support and
                          a dedicated app store makes FirstNet both a performance and value leader for public safety.</p>
-                        <button href="#link" className='fn-primary'>Contact Us to Learn More</button>
+                        <button className='fn-primary'>Contact Us to Learn More</button>
                     </div>
                 </section>
             </div>
           </article>
-        )
-    }
+		)
+	}
 }
