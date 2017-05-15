@@ -17,6 +17,7 @@ class UtilsService {
                 return true;
             }
         }).map((obj) => {
+            console.log('inner obj    ', obj);
             let simplifiedObj = {
               name: obj.app_name,
               publisher: obj.author,
@@ -30,20 +31,7 @@ class UtilsService {
               platforms: UtilsService.platform[obj.operating_system],
               category: [],
               user_segment: [],
-              screenshots: {
-                mobile: obj.mobileScreenshots.map((val) => {
-                  return {
-                    description: val.description,
-                    path: 'https://ease.apperian.com/uploads/' + val.path
-                  }
-                }),
-                tablet: obj.tabletScreenshots.map((val) => {
-                  return {
-                    description: val.description,
-                    path: 'https://ease.apperian.com/uploads/' + val.path
-                  }
-                })
-              }
+              screenshots: {}
             };
 
             if (obj.custom_metadata) {
@@ -51,9 +39,27 @@ class UtilsService {
                 simplifiedObj.user_segment = obj.custom_metadata.user_segment;
             }
 
+            if (obj.mobileScreenshots) {
+              simplifiedObj.screenshots.mobile = obj.mobileScreenshots.map((val) => {
+                return {
+                  description: val.description,
+                  path: 'https://ease.apperian.com/uploads/' + val.path
+                }
+              });
+            }
+
+            if (obj.tabletScreenshots) {
+              simplifiedObj.screenshots.tablet = obj.tabletScreenshots.map((val) => {
+                return {
+                  description: val.description,
+                  path: 'https://ease.apperian.com/uploads/' + val.path
+                }
+              });
+            }
+
             return simplifiedObj;
         })
-        console.log('in base bro    ', simplifiedObjs);
+        console.log('simplifiedObjs    ', simplifiedObjs);
         return simplifiedObjs;
     }
 
