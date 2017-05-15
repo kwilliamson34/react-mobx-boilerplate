@@ -31,6 +31,7 @@ export default class AppDetailsPage extends React.Component {
 	}
 
 	render() {
+		console.log('SCREENSHOTS?   ', this.appStore.showScreenshots);
 		return (
 			<article id="app-details-page">
         <TitlePane pageTitle="App Details"/>
