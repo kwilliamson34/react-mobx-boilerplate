@@ -116,7 +116,6 @@ class CardListStore {
 
     //COMPUTEDS
     @computed get currentApp(){
-      console.log('CURRENTAPP TRIGGERS');
       return this.searchResults.filter((app) => {
         return app.psk === this.currentAppPsk
       })[0];
