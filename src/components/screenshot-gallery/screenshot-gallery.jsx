@@ -27,7 +27,7 @@ export default class ScreenshotGallery extends React.Component {
       return (
         <div key={i} className='slide-container'>
           <figure className='img-responsive'>
-            <img src={'https://ease.apperian.com/uploads/' + node.path} className='slide-img' alt={'Image for ' + node.description} aria-labelledby='slide-caption' />
+            <img src={node.path} className='slide-img' alt={'Image for ' + node.description} aria-labelledby='slide-caption' />
           </figure>
           <figcaption className='slide-caption' id='slide-caption'>{node.description}</figcaption>
         </div>

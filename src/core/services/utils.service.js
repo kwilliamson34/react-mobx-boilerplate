@@ -1,3 +1,6 @@
+import _ from 'lodash';
+
+
 class UtilsService {
 
     static platform = {
@@ -17,6 +20,7 @@ class UtilsService {
                 return true;
             }
         }).map((obj) => {
+            console.log('OBH     ', obj);
             let simplifiedObj = {
               name: obj.app_name,
               publisher: obj.author,
@@ -31,8 +35,18 @@ class UtilsService {
               category: [],
               user_segment: [],
               screenshots: {
-                mobile: obj.mobileScreenshots,
-                tablet: obj.tabletScreenshots
+                mobile: obj.mobileScreenshots.map((val) => {
+                  return {
+                    description: val.description,
+                    path: 'https://ease.apperian.com/uploads/' + val.path
+                  }
+                }),
+                tablet: obj.tabletScreenshots.map((val) => {
+                  return {
+                    description: val.description,
+                    path: 'https://ease.apperian.com/uploads/' + val.path
+                  }
+                })
               }
             };
 

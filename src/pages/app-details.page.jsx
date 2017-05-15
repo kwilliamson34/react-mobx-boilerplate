@@ -42,6 +42,8 @@ export default class AppDetailsPage extends React.Component {
 		}
 	}
 
+	// {this.appStore.appDetails.screenshots.mobile.length || this.appStore.appDetails.screenshots.tablet.length &&
+
 
 	render() {
 		console.log('appDetails on app details page   ', this.appStore.appDetails);
@@ -108,9 +110,7 @@ export default class AppDetailsPage extends React.Component {
           </div>
         </section>
         <section className="app-gallery">
-					{this.appStore.appDetails.screenshots.mobile.length || this.appStore.appDetails.screenshots.tablet.length &&
 						<ScreenshotGallery screenshots={this.appStore.appDetails.screenshots} />
-					}
         </section>
         <section className="app-description">
           <div className="container">
