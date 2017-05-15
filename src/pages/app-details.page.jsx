@@ -28,7 +28,6 @@ export default class AppDetailsPage extends React.Component {
 
 	componentWillMount() {
 		if (!this.appStore.currentAppPsk) {
-			console.log('PSK CHECK TRIGGERED');
 			let psk = this.props.match.params.appId;
 			this.appStore.retrieveAppDetails(psk);
 		}
