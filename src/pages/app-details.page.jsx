@@ -11,11 +11,8 @@ import {
 } from '../components/rating/rating';
 import RatingsChart from '../components/ratings-chart/ratings-chart';
 import Toggle from '../components/toggle/toggle';
-<<<<<<< HEAD
 import AppReviews from '../components/app-reviews/app-reviews';
-=======
 import ScreenshotGallery from '../components/screenshot-gallery/screenshot-gallery';
->>>>>>> 215945416bb4cfa2743de4d3d5863280043f2c2a
 
 //import mock response from services
 const appDetail = require('../fixtures/mock-app-detail.json');
