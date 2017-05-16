@@ -44,12 +44,14 @@ export default class AppReviews extends React.Component {
   }
 
   renderReviews(reviews) {
-    let dateOptions = {year: 'numberic', month: 'long', day: 'numeric'};
+    let dateOptions = {year: 'numeric', month: 'long', day: 'numeric'};
 
     return reviews.map((node, i) => {
 
       let authorName = `${node.userFirstName} ${node.userLastName}`;
-      let normalizedDate = node.reviewDate.toLocaleDateString('en-US', dateOptions);
+      let splitDate = node.reviewDate.split('T')[0];
+      let parsedDate = new Date(splitDate);
+      let normalizedDate = parsedDate.toLocaleString('en-US', dateOptions);
 
       return (
         <div key={ i } className='individual-review-container' aria-labelledby={ 'Review-' + node.reviewId }>

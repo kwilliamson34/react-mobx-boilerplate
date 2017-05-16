@@ -48,32 +48,28 @@ export default class TruncateComment extends React.Component {
     let initiallyHiddenTextThatWillExpand = comment.substr(cutoffPoint);
 
     let ellipsisSpan =
-      <span>{ String.fromCharCode(8230) }</span>
+      <span>{String.fromCharCode(8230)}</span>
 
     return (
 
       <div>
         <p>
-          <span dangerouslySetInnerHTML={ {__html: `${truncatedText}`} } />
+          <span dangerouslySetInnerHTML={{__html: `${truncatedText}`}} />
             {this.isTruncated
               ? ellipsisSpan
-              : <span dangerouslySetInnerHTML={ {__html: `${initiallyHiddenTextThatWillExpand}`} } />
+              : <span dangerouslySetInnerHTML={{__html: `${initiallyHiddenTextThatWillExpand}`}} />
             }
         </p>
-        <p>{ this.truncateButton() }</p>
+        <p>{this.truncateButton()}</p>
       </div>
-
     )
   }
 
   render() {
-
     return (
-
       <div className='truncate-comment-container' aria-label='Review content'>
         { this.truncateText(this.props.text, this.props.charCount) }
       </div>
     )
-
   }
 }
