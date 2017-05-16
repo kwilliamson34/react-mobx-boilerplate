@@ -33,7 +33,6 @@ export default class AppReviews extends React.Component {
   paginationCount = 0;
   showLoadMoreButton = false;
 
-  //temporary workaround until fate of app detail store is determined;
   @observable loadedReviewsArray = [];
 
   loadReviews() {
@@ -46,23 +45,24 @@ export default class AppReviews extends React.Component {
   renderReviews(reviews) {
     let dateOptions = {year: 'numeric', month: 'long', day: 'numeric'};
 
+    //TODO: .toLocaleString() may be not supported on mobile. Test if it will revert to parsedDate, or some other option is needed;
     return reviews.map((node, i) => {
 
       let authorName = `${node.userFirstName} ${node.userLastName}`;
-      let splitDate = node.reviewDate.split('T')[0];
-      let parsedDate = new Date(splitDate);
+      //Will parsedDate work with final service return?
+      let parsedDate = new Date(node.reviewDate);
       let normalizedDate = parsedDate.toLocaleString('en-US', dateOptions);
 
       return (
-        <div key={ i } className='individual-review-container' aria-labelledby={ 'Review-' + node.reviewId }>
-          <div className='review-subject' id={ 'Review-' + node.reviewId }>{ node.commentTitle }</div>
+        <div key={ i } className='individual-review-container' aria-labelledby={'Review-' + node.reviewId}>
+          <div className='review-subject' id={ 'Review-' + node.reviewId }>{node.commentTitle}</div>
           <div className='author-and-rating-container'>
-            <div className='review-author'>{ authorName }</div>
-            <div className='sr-only'>{ 'App rated ' + node.rating + ' out of 5' }</div>
-            <Rating rating={ node.reviewStar } />
+            <div className='review-author'>{authorName}</div>
+            <div className='sr-only'>{'App rated ' + node.rating + ' out of 5'}</div>
+            <Rating rating={node.reviewStar} />
           </div>
-          <div className='review-date'>{ normalizedDate }</div>
-          <TruncateComment reviewId={ node.reviewId } text={ node.comment } />
+          <div className='review-date'>{normalizedDate}</div>
+          <TruncateComment sourceId={node.reviewId} text={node.comment} />
         </div>
       )
     })
