@@ -32,7 +32,6 @@ class CardListStore {
       if(!this.searchResults.length) {
         let success = (response) => {
           this.searchResults.push(response[0]);
-          console.log('inner currentApp   ', this.currentApp);
           return this.currentApp;
         }
 
