@@ -56,6 +56,12 @@ module.exports = {
 	resolve: {
 		extensions: ['.js', '.jsx']
 	},
+	node: {
+    console: true,
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty'
+  },
 	module: {
 		rules: [
 			{
@@ -125,6 +131,8 @@ module.exports = {
 		]
 	},
 	plugins: [
+		new webpack.IgnorePlugin(/regenerator|nodent|js-beautify/, /ajv/),
+		
 		new webpack.HotModuleReplacementPlugin(),
 		// enable HMR globally
 

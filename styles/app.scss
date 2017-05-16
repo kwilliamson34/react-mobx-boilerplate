@@ -2,12 +2,10 @@
 @import
   "base/reset";
 
-//Vendor
+//libs
 @import
-  "vendors/bootstrap",
-  "vendors/materialdesignicons/materialdesignicons",
-  "vendors/font-awesome/font-awesome",
-  "vendors/firstnet/firstnet";
+  "libs/bootstrap/bootstrap",
+  "libs/firstnet/firstnet";
 
 //Abstracts
 @import
@@ -25,7 +23,6 @@
   "base/base",
   "base/typography",
   "base/bootstrap-overrides",
-  "base/typography",
   "base/buttons",
   "base/views";
 
@@ -44,10 +41,13 @@
   "components/plans-and-devices/plans-and-devices",
   "components/plans-and-devices/mediaquery",
   "components/products-services",
+  "components/ratings-chart",
   "components/footer/footer",
   "components/footer/mediaquery";
 
 //Pages
 @import
   "pages/pse-pages",
-  "pages/app-details-page";
+  "pages/admin-dashboard-page",
+  "pages/app-details-page",
+  "pages/shop-devices-page";

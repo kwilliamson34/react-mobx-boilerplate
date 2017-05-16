@@ -1,109 +1,77 @@
 import React from 'react';
-import {Button} from 'react-bootstrap';
-import TitlePane from '../components/title-pane/title-pane';
+import PropTypes from 'prop-types';
+import {
+	observer,
+	inject
+} from 'mobx-react';
+import {
+	Link
+} from 'react-router-dom';
 
-export default class ShopPlansView extends React.Component {
-    render() {
-        return (
-          <article id="shop-devices-page">
-            <TitlePane pageTitle="Plans"/>
-            <div className="content-wrapper shop-devices  text-center">
-                <section className="product-row">
-                    <div className="container">
-                        <h2 className="as-h3">FirstNet offers an extensive selection of devices and accessories</h2>
-                        <p>To learn more about our full portfolio, contact a FirstNet Specialist.</p>
-                    </div>
-                </section>
-                <section className="product-row">
-                    <div className="container">
-                        <h1>Phones</h1>
-                        <div className="product-container has-shadow">
-                            <span className="product-label">Apple iPhone 7</span>
-                            <img src="" alt=""></img>
-                        </div>
-                        <div className="product-container has-shadow">
-                            <span className="product-label">Samsung Galaxy S7</span>
-                            <img src="" alt=""></img>
-                        </div>
-                        <div className="product-container has-shadow">
-                            <span className="product-label">LG V20</span>
-                            <img src="" alt=""></img>
-                        </div>
-                        <div className="product-container has-shadow">
-                            <span className="product-label">Kyocera Duraforce PRO</span>
-                            <img src="" alt=""></img>
-                        </div>
-                        <Button href="#link" className='fn-primary'>Explore all smartphones</Button>
-                    </div>
-                </section>
-                <section className="product-row">
-                    <div className="container">
-                        <h1>Tablets</h1>
-                        <div className="product-container has-shadow">
-                            <span className="product-label">Apple iPad Pro (9.7 Inch)</span>
-                            <img src="" alt=""></img>
-                        </div>
-                        <div className="product-container has-shadow">
-                            <span className="product-label">Samsung Galaxy Tab E</span>
-                            <img src="" alt=""></img>
-                        </div>
-                        <div className="product-container has-shadow">
-                            <span className="product-label">LG G Pad X 8.0</span>
-                            <img src="" alt=""></img>
-                        </div>
-                        <div className="product-container has-shadow">
-                            <span className="product-label">AT&T Trek 2 HD</span>
-                            <img src="" alt=""></img>
-                        </div>
-                        <Button href="#link" className='fn-primary'>Explore all tablets</Button>
-                    </div>
-                </section>
-                <section className="product-row">
-                    <div className="container">
-                        <h1>In-Vehicle</h1>
-                        <div className="product-container has-shadow">
-                            <span className="product-label">AT&T Trek 2 HD</span>
-                            <img src="" alt=""></img>
-                        </div>
-                        <div className="product-container has-shadow">
-                            <span className="product-label">Cradlepoint IBR 1100</span>
-                            <img src="" alt=""></img>
-                        </div>
-                        <div className="product-container has-shadow">
-                            <span className="product-label">Sierra Wireless MG90 475x274</span>
-                            <img src="" alt=""></img>
-                        </div>
-                        <div className="product-container has-shadow">
-                            <span className="product-label">CalAmp Fusion</span>
-                            <img src="" alt=""></img>
-                        </div>
-                        <Button href="#link" className='fn-primary'>Explore all In-Vehicle</Button>
-                    </div>
-                </section>
-                <section className="product-row">
-                    <div className="container">
-                        <h1>Accessories</h1>
-                        <div className="product-container has-shadow">
-                            <span className="product-label">AT&T Unite Explore</span>
-                            <img src="" alt=""></img>
-                        </div>
-                        <div className="product-container has-shadow">
-                            <span className="product-label">GumDrop Marine Case</span>
-                            <img src="" alt=""></img>
-                        </div>
-                        <div className="product-container has-shadow">
-                            <span className="product-label">AudioVox Car<br></br>Connection 2.0</span>
-                            <img src="" alt=""></img>
-                        </div>
-                        <div className="product-container has-shadow">
-                            <span className="product-label">ZTE Mobley</span>
-                            <img src="" alt=""></img>
-                        </div>
-                        <Button href="#link" className='fn-primary'>Explore all Accessories</Button>
-                    </div>
-                </section>
+@inject('store')
+@observer
+export default class ShopDevicesPage extends React.Component {
+	constructor(props) {
+		super(props);
+		this.mpStore = this.props.store.externalContentStore;
+	}
+
+	componentWillMount() {
+		this.mpStore.getMPDevices();
+	}
+
+	renderDeviceSection(sectionId, sectionTitle, sectionArray) {
+		return (
+			<section className={'view-' + sectionId}>
+			<div className="container">
+				<div className="row">
+					<div className="col-xs-12 col-sm-8 col-sm-offset-2">
+						<h2>{sectionTitle}</h2>
+						<ul className="mp-content">
+							{sectionArray.map((item, idx) => {
+								return (
+									<li key={sectionId + '_' +idx}>
+										<Link to={'/devices/' +item.url} id={sectionId + '_' +idx}>
+										{item.title}
+										<div className="card-img-wrapper">
+											<img src={item.image} alt={item.title} />
+										</div>
+										</Link>
+									</li>
+								)
+							})}
+						</ul>
+						<div className="row">
+						<button className="fn-primary showAll">Explore All {sectionTitle}</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		)
+	}
+
+	render() {
+		return (
+			<article id="shop-devices-page">
+        <div className="container">
+          <div className="row">
+            <div className="col-xs-12 col-sm-10 col-sm-offset-1 add-padding-bottom-dbl">
+              <h1>Device Catalog</h1>
+              <p>FirstNet offers an extensive selection of devices and accessories. Check out a small selection of our portfolio. To learn more about our full portfolio, contact a FirstNet Specialist.</p>
             </div>
-          </article>
-        )
-    }
+          </div>
+        </div>
+				{this.renderDeviceSection('phone', 'Phones', this.mpStore.devicesData.phones)}
+				{this.renderDeviceSection('tablet', 'Tablets', this.mpStore.devicesData.tablets)}
+				{this.renderDeviceSection('invehicle', 'In-Vehicle', this.mpStore.devicesData.invehicles)}
+				{this.renderDeviceSection('accessories', 'Accessories', this.mpStore.devicesData.accessories)}
+      </article>
+		)
+	}
 }
+
+
+ShopDevicesPage.propTypes = {
+	store: PropTypes.object
+};

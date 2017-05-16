@@ -55,7 +55,7 @@ export default class AppManagementBlock extends React.Component {
             ref={ref => this.recommendedToggle = ref}
             id={'Recommended-' + this.props.app.psk}
             defaultOn={this.props.app.isRecommended}
-            disabled={this.props.app.recommendToggleIsDisabled}
+            disabled={!this.props.app.isAvailable}
             onClick={this.handleRecommendedClick}/>
           <Link to="/mdm">
             <Button className="fn-primary" tabIndex="-1">Push to MDM</Button>
