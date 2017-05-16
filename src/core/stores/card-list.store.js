@@ -27,6 +27,7 @@ class CardListStore {
         return apiService.getAdminApps().then(success, fail)
     }
 
+    //TODO: Ideally should only set PSK. Plan on revising @computed get currentApp to work off proposed allApps array and doing this automatically when allApps has length of 0, rather than making a separate call;
     @action setCurrentApp(psk){
       this.currentAppPsk = psk;
       if(!this.searchResults.length) {
@@ -117,6 +118,7 @@ class CardListStore {
 
     //COMPUTEDS
 
+    //TODO: Revise this and other functions depending on searchResults to work off an allApps array. This will avoid a lot of network traffic.
     @computed get currentApp() {
       return this.searchResults.filter((app) => {
         return this.currentAppPsk == app.psk.toString();
