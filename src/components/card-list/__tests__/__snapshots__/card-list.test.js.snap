@@ -1,117 +1,76 @@
-exports[`<CardList /> renders matches previous snapshot 1`] = `
+exports[`<PlansAndDevices /> renders matches previous Plans and devices snapshot 1`] = `
 <section
-  className="card-list-container col-md-12 col-xs-12">
+  className="placeholder mp-links"
+  id="PlansAndDevices">
   <div
-    className="container">
-    
+    className="container pad-header-spacing">
+    <h2>
+      Shop Plans and Devices
+    </h2>
     <div
-      className="card-list-cards row">
+      className="row">
       <div
-        className="col-md-3 col-xs-4 center-block">
-<<<<<<< HEAD
+        className="col-xs-12 col-md-4 pad-box view-solutions">
         <div
-          className="card-wrapper">
-          <a
-            className="card-focus has-shadow"
-            href="/app/some-app-id-1234"
-            onClick={[Function anonymous]}>
-            <div
-              className="card-container">
-              <div
-                className="card-logo">
-                <img
-                  alt="undefined Logo"
-                  src={undefined} />
-              </div>
-              <section
-                className="card-info">
-                <div
-                  className="card-name" />
-                <div
-                  className="card-publisher hidden-xs" />
-              </section>
-=======
-        <a
-          className="card-wrapper"
-          href="/app"
-          onClick={[Function anonymous]}>
+          className="pad-padding text-left">
           <div
-            className="card-container center-block has-shadow">
-            <div
-              className="card-logo">
-              <img
-                alt="undefined Logo"
-                src={undefined} />
-            </div>
-            <section
-              className="card-info">
-              <div
-                className="card-name" />
-              <div
-                className="card-publisher hidden-xs" />
-            </section>
-            <div
-              className="card-rating">
->>>>>>> 215945416bb4cfa2743de4d3d5863280043f2c2a
-              <div
-                className="ratings-container">
-                <span
-                  className="ratings-number">
-                  <span
-                    className="sr-only">
-                    Rating of
-                  </span>
-                  0
-                </span>
-                <span
-                  className="ratings-stars">
-                  <span
-                    aria-hidden="true">
-                    <img
-                      alt="Rating Star"
-                      className="ratings-star"
-                      src="/images/star-outline.png" />
-                  </span>
-                  <span
-                    aria-hidden="true">
-                    <img
-                      alt="Rating Star"
-                      className="ratings-star"
-                      src="/images/star-outline.png" />
-                  </span>
-                  <span
-                    aria-hidden="true">
-                    <img
-                      alt="Rating Star"
-                      className="ratings-star"
-                      src="/images/star-outline.png" />
-                  </span>
-                  <span
-                    aria-hidden="true">
-                    <img
-                      alt="Rating Star"
-                      className="ratings-star"
-                      src="/images/star-outline.png" />
-                  </span>
-                  <span
-                    aria-hidden="true">
-                    <img
-                      alt="Rating Star"
-                      className="ratings-star"
-                      src="/images/star-outline.png" />
-                  </span>
-                </span>
-              </div>
-            </div>
-<<<<<<< HEAD
-          </a>
-        </div>
-=======
+            className="pad-text imagebox">
+            <h3>
+              Solutions
+            </h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetuer adipiscing elit
+            </p>
+            <a
+              className="pad-button btn btn-lg btn-default"
+              href="view-solutions"
+              onClick={[Function anonymous]}>
+              View Solutions
+            </a>
           </div>
-        </a>
->>>>>>> 215945416bb4cfa2743de4d3d5863280043f2c2a
+        </div>
+      </div>
+      <div
+        className="col-xs-12 col-md-4 pad-box rate-plans">
         <div
-          className="hidden-xs" />
+          className="pad-padding text-left">
+          <div
+            className="pad-text imagebox">
+            <h3>
+              Rate Plans
+            </h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetuer adipiscing elit
+            </p>
+            <a
+              className="pad-button btn btn-lg btn-default"
+              href="/shop-plans"
+              onClick={[Function anonymous]}>
+              Shop Plans
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        className="col-xs-12 col-md-4 pad-box shop-devices">
+        <div
+          className="pad-padding text-left">
+          <div
+            className="pad-text imagebox">
+            <h3>
+              Devices & Accessories
+            </h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetuer adipiscing elit
+            </p>
+            <a
+              className="pad-button btn btn-lg btn-default"
+              href="shop-devices"
+              onClick={[Function anonymous]}>
+              Shop Devices
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>

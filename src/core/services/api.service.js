@@ -6,7 +6,6 @@ const base = '/api'
 
 // TODO - temp hardcode pending PSEID implementation
 const pseId = '123';
-// const pseIdQueryParam = 'pseId=' + pseId;
 
 class ApiService {
     loadUserData() {
