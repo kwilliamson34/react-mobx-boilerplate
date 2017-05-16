@@ -29,18 +29,21 @@ class CardListStore {
 
     @action setCurrentApp(psk){
       this.currentAppPsk = psk;
-      if (!this.searchResults.length) {
+      if(!this.searchResults.length) {
         let success = (response) => {
           this.searchResults.push(response[0]);
+          console.log('inner currentApp   ', this.currentApp);
+          return this.currentApp;
         }
 
         let failure = (error) => {
           console.warn(error);
         }
 
-        apiService.getAppDetails(psk).then(success, failure);
+        return apiService.getAppDetails(psk).then(success, failure);
       }
     }
+
 
     @action clear() {
         this.searchQuery = '';
@@ -113,16 +116,11 @@ class CardListStore {
       }
     }
 
-    @action shouldShowScreenshots() {
-      return (this.currentApp.screenshots.mobile && this.currentApp.screenshots.mobile.length > 0)
-          || (this.currentApp.screenshots.tablet && this.currentApp.screenshots.tablet.length > 0);
-    }
-
     //COMPUTEDS
 
     @computed get currentApp() {
       return this.searchResults.filter((app) => {
-        return app.psk.toString() === this.currentAppPsk;
+        return this.currentAppPsk == app.psk.toString();
       })[0];
     }
 
@@ -200,14 +198,13 @@ class CardListStore {
     @observable categoryFilter = 'Select Category';
     @observable segmentFilter = 'Select Filter';
 
+    @observable screenshots = [];
     @observable searchResults = [];
     @observable shouldShowSearchResults = false;
-    @observable showScreenshots = true;
     @observable searchIsVisible = false;
     @observable searchQuery = '';
     @observable isLoading = false;
     @observable currentAppPsk = '';
-    @observable appDetails = {};
 
     @observable platforms = [
         { title: 'Platform', value: '' },

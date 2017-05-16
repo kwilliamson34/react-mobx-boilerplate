@@ -25,14 +25,20 @@ export default class AppDetailsPage extends React.Component {
 	constructor(props) {
 		super(props);
 		this.appStore = this.props.store.cardListStore;
-		let psk = this.props.match.params.appId;
-		this.appStore.setCurrentApp(psk);
+	}
+
+	componentDidMount() {
+		if (!this.appStore.currentApp) {
+			this.appStore.setCurrentApp(this.props.match.params.appId);
+		}
 	}
 
 	render() {
-		console.log('SCREENSHOTS?   ', this.appStore.showScreenshots);
+
 		return (
-			<article id="app-details-page">
+			<div>
+				{ this.appStore.currentApp &&
+					<article id="app-details-page">
         <TitlePane pageTitle="App Details"/>
         <section className="app-summary">
           <div className="container">
@@ -93,11 +99,11 @@ export default class AppDetailsPage extends React.Component {
             </div>
           </div>
         </section>
-				{this.appStore.showScreenshots &&
-					<section className="app-gallery">
-						<ScreenshotGallery screenshots={this.appStore.appDetails.screenshots} />
-					</section>
-				}
+					{(this.appStore.currentApp.screenshots.mobile.length > 0 || this.appStore.currentApp.screenshots.tablet.length > 0) &&
+						<section className='app-gallery'>
+							<ScreenshotGallery screenshots={this.appStore.currentApp.screenshots} />
+						</section>
+					}
         <section className="app-description">
           <div className="container">
             <div className="row">
@@ -142,7 +148,10 @@ export default class AppDetailsPage extends React.Component {
           </div>
           </div>
         </section>
-      </article>
+				</article>
+
+			}
+		</div>
 		)
 	}
 }
@@ -150,5 +159,6 @@ export default class AppDetailsPage extends React.Component {
 
 AppDetailsPage.propTypes = {
 	store: PropTypes.object,
-	match: PropTypes.object
+	match: PropTypes.object,
+	currentApp: PropTypes.object
 };
