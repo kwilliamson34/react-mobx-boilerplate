@@ -20,7 +20,7 @@ export default class HorizontalBar extends React.Component {
               <div className="bar-wrapper" key={itemIndex+'bar'}>
                 <label>
                   <span className="ratings-number">
-                    <i aria-hidden="true" className="ratings-star mdi  mdi-star"></i>{(5-itemIndex)}</span>
+                    <i aria-hidden="true" className="ratings-star icon-star"></i>{(5-itemIndex)}</span>
                 </label>
                 <div className="bar" style={style}>
                   <div className="bar-value">{item} <span className="sr-only">{(5-itemIndex)} star reviews submitted</span></div>

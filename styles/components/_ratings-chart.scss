@@ -59,8 +59,8 @@
     }
 
     .ratings-star {
-      font-size: 2rem;
-      line-height: 1;
+      // font-size: 2rem;
+      // line-height: 1;
     }
   }
 
@@ -97,7 +97,7 @@
         line-height: 0;
         position: absolute;
         left: 0;
-        top: 11px;
+        top: 0px;
       }
     }
 
@@ -172,7 +172,7 @@
         }
 
         .ratings-star {
-          top: 15px;
+          top: 4px;
         }
       }
 
