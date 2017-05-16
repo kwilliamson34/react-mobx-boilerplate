@@ -23,6 +23,7 @@ export class CardList extends React.Component {
   }
 
   render() {
+    console.log('CARDLIST CURRENTAPP?    ', this.currentApp);
     return (
       <section className="card-list-container col-md-12 col-xs-12">
         <div className="container">

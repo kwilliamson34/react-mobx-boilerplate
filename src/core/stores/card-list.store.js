@@ -29,6 +29,17 @@ class CardListStore {
 
     @action setCurrentApp(psk){
       this.currentAppPsk = psk;
+      if (!this.searchResults.length) {
+        let success = (response) => {
+          this.searchResults.push(response[0]);
+        }
+
+        let failure = (error) => {
+          console.warn(error);
+        }
+
+        apiService.getAppDetails(psk).then(success, failure);
+      }
     }
 
     @action clear() {
@@ -102,29 +113,16 @@ class CardListStore {
       }
     }
 
-    @action retrieveAppDetails(appPsk) {
-      let success = (response) => {
-        this.appDetails = response[0];
-        this.shouldShowScreenshots();
-      }
-
-      let failure = (error) => {
-        console.warn(error);
-      }
-
-      return apiService.getAppDetails(appPsk).then(success, failure);
-    }
-
     @action shouldShowScreenshots() {
-        this.showScreenshots =
-          (this.appDetails.screenshots.mobile && this.appDetails.screenshots.mobile.length > 0)
-          || (this.appDetails.screenshots.tablet && this.appDetails.screenshots.tablet.length > 0);
+      return (this.currentApp.screenshots.mobile && this.currentApp.screenshots.mobile.length > 0)
+          || (this.currentApp.screenshots.tablet && this.currentApp.screenshots.tablet.length > 0);
     }
 
     //COMPUTEDS
-    @computed get currentApp(){
+
+    @computed get currentApp() {
       return this.searchResults.filter((app) => {
-        return app.psk === this.currentAppPsk
+        return app.psk.toString() === this.currentAppPsk;
       })[0];
     }
 

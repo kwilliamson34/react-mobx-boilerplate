@@ -23,7 +23,7 @@ class UtilsService {
               imageUrl: 'https://ease.apperian.com/uploads/' + obj.icon_path, // TODO - move data base url to global endpoints; see also screenshots below
               rating: obj.rating,
               id: obj.id,
-              psk: obj.app_psk,
+              psk: obj.app_psk || obj.psk,
               isAvailable: obj.isAvailable,
               isRecommended: obj.isRecommended,
               badge: obj.is_endorsed,

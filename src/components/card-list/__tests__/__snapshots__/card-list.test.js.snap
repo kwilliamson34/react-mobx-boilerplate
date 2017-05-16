@@ -8,6 +8,29 @@ exports[`<CardList /> renders matches previous snapshot 1`] = `
       className="card-list-cards row">
       <div
         className="col-md-3 col-xs-4 center-block">
+<<<<<<< HEAD
+        <div
+          className="card-wrapper">
+          <a
+            className="card-focus has-shadow"
+            href="/app/some-app-id-1234"
+            onClick={[Function anonymous]}>
+            <div
+              className="card-container">
+              <div
+                className="card-logo">
+                <img
+                  alt="undefined Logo"
+                  src={undefined} />
+              </div>
+              <section
+                className="card-info">
+                <div
+                  className="card-name" />
+                <div
+                  className="card-publisher hidden-xs" />
+              </section>
+=======
         <a
           className="card-wrapper"
           href="/app"
@@ -29,6 +52,7 @@ exports[`<CardList /> renders matches previous snapshot 1`] = `
             </section>
             <div
               className="card-rating">
+>>>>>>> 215945416bb4cfa2743de4d3d5863280043f2c2a
               <div
                 className="ratings-container">
                 <span
@@ -79,8 +103,13 @@ exports[`<CardList /> renders matches previous snapshot 1`] = `
                 </span>
               </div>
             </div>
+<<<<<<< HEAD
+          </a>
+        </div>
+=======
           </div>
         </a>
+>>>>>>> 215945416bb4cfa2743de4d3d5863280043f2c2a
         <div
           className="hidden-xs" />
       </div>
