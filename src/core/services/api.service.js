@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { utilsService } from './utils.service';
+import { externalContentService } from './external-content.service';
 
 const base = '/api'
 
@@ -37,6 +38,13 @@ class ApiService {
           'x-auth-token': '34234'
         }
       });
+    }
+
+    getMPDevices() {
+      return axios.get('http://localhost:8080/marketing/devices')
+        .then( (res) =>{
+          return externalContentService.filterDeviceData(res.data);
+        });
     }
 
     addAppToGroup(appPsk, groupIdentifier) {
