@@ -12,7 +12,6 @@ import {
 import RatingsChart from '../components/ratings-chart/ratings-chart';
 import Toggle from '../components/toggle/toggle';
 import AppReviews from '../components/app-reviews/app-reviews';
-import ScreenshotGallery from '../components/screenshot-gallery/screenshot-gallery';
 
 //import mock response from services
 const appDetail = require('../fixtures/mock-app-detail.json');
@@ -92,11 +91,8 @@ export default class AppDetailsPage extends React.Component {
             </div>
           </div>
         </section>
-				{this.appStore.showScreenshots &&
-					<section className="app-gallery">
-						<ScreenshotGallery screenshots={this.appStore.appDetails.screenshots} />
-					</section>
-				}
+				<section className="app-gallery">
+				</section>
         <section className="app-description">
           <div className="container">
             <div className="row">

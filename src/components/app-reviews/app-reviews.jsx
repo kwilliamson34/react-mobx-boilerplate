@@ -44,18 +44,23 @@ export default class AppReviews extends React.Component {
   }
 
   renderReviews(reviews) {
+    let dateOptions = {year: 'numberic', month: 'long', day: 'numeric'};
+
     return reviews.map((node, i) => {
 
+      let authorName = `${node.userFirstName} ${node.userLastName}`;
+      let normalizedDate = node.reviewDate.toLocaleDateString('en-US', dateOptions);
+
       return (
-        <div key={ i } className='individual-review-container' aria-labelledby={ 'Review-' + i }>
-          <div className='review-subject' id={ 'Review-' + i }>{ node.subject }</div>
+        <div key={ i } className='individual-review-container' aria-labelledby={ 'Review-' + node.reviewId }>
+          <div className='review-subject' id={ 'Review-' + node.reviewId }>{ node.commentTitle }</div>
           <div className='author-and-rating-container'>
-            <div className='review-author'>{ node.author }</div>
+            <div className='review-author'>{ authorName }</div>
             <div className='sr-only'>{ 'App rated ' + node.rating + ' out of 5' }</div>
-            <Rating rating={ node.rating } />
+            <Rating rating={ node.reviewStar } />
           </div>
-          <div className='review-date'>{ node.date }</div>
-          <TruncateComment keyVal={ i } text={ node.comment } />
+          <div className='review-date'>{ normalizedDate }</div>
+          <TruncateComment reviewId={ node.reviewId } text={ node.comment } />
         </div>
       )
     })

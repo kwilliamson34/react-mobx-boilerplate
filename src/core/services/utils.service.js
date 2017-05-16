@@ -30,7 +30,8 @@ class UtilsService {
               platforms: UtilsService.platform[obj.operating_system],
               category: [],
               user_segment: [],
-              screenshots: {}
+              screenshots: {},
+              reviews: obj.reviews
             };
 
             if (obj.custom_metadata) {
