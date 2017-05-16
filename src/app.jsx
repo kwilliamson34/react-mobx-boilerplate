@@ -57,6 +57,12 @@ export default class App extends React.Component {
 			)
 		}
 
+		// if( document.cookie.indexOf("cookiename=") < 0) {
+		// 	alert("Cookie not found, redirecting you.");
+		// 	window.location.replace('http://url');
+		// }
+		console.log(document.cookie)
+
 		return (
 			<Router>
         <Provider store={pseMasterStore}>
