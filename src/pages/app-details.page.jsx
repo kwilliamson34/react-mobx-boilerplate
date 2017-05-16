@@ -35,9 +35,10 @@ export default class AppDetailsPage extends React.Component {
 	render() {
 
 		return (
-			<div>
+			<article id="app-details-page">
+
 				{ this.appStore.currentApp &&
-					<article id="app-details-page">
+				<div>
         <TitlePane pageTitle="App Details"/>
         <section className="app-summary">
           <div className="container">
@@ -143,10 +144,9 @@ export default class AppDetailsPage extends React.Component {
           </div>
           </div>
         </section>
-				</article>
-
+			</div>
 			}
-		</div>
+		</article>
 		)
 	}
 }
