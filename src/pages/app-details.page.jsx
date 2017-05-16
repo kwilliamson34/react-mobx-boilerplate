@@ -25,10 +25,8 @@ export default class AppDetailsPage extends React.Component {
 	constructor(props) {
 		super(props);
 		this.appStore = this.props.store.cardListStore;
-		if (!this.appStore.currentAppPsk) {
-			let psk = this.props.match.params.appId;
-			this.appStore.retrieveAppDetails(psk);
-		}
+		let psk = this.props.match.params.appId;
+		this.appStore.setCurrentApp(psk);
 	}
 
 	render() {
