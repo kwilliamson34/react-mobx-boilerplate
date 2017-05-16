@@ -22,13 +22,13 @@ export class Rating extends React.Component {
 
         for( let i = 5 ; i > 0 ; i-- ){
             if (remaining >= 1){
-                stars.push(this.starTemplate('ratings-star mdi  mdi-star', stars.length));
+                stars.push(this.starTemplate('ratings-star icon-star', stars.length));
                 remaining--;
             } else if (remaining > 0 ){
-                stars.push(this.starTemplate('ratings-star mdi  mdi-star-half', stars.length));
+                stars.push(this.starTemplate('ratings-star icon-star-half-o', stars.length));
                 remaining--;
             } else {
-                stars.push(this.starTemplate('ratings-star mdi  mdi-star-outline', stars.length));
+                stars.push(this.starTemplate('ratings-star icon-star-o', stars.length));
             }
         }
         return stars;
