@@ -26,7 +26,7 @@ export default class ScreenshotGallery extends React.Component {
       return (
         <div key={i} className='slide-container'>
           <figure className='img-responsive'>
-            <img src={node.path} className='slide-img' alt={'Image for ' + node.description} aria-labelledby={'slide-caption-' + i} />
+            <img src={node.path} className='slide-img' alt={node.description} aria-labelledby={'slide-caption-' + i} />
           </figure>
           <figcaption className='slide-caption' id={'slide-caption-' + i}>{node.description}</figcaption>
         </div>
@@ -35,7 +35,7 @@ export default class ScreenshotGallery extends React.Component {
   )};
 
   render() {
-    
+
     return (
       <div className='gallery-container' role='region' aria-label='App screenshot gallery'>
         {this.renderSlides(this.props.screenshots)}
