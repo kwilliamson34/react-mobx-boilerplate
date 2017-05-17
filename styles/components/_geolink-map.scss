@@ -9,7 +9,6 @@ $search-border-radius: 4px;
   .map-wrapper {
     height: $map-height;
     padding: 0;
-    background: $fn-grey url("/images/placeholder-image.jpg") no-repeat center;
 
     iframe {
       width: 100%;
@@ -31,6 +30,14 @@ $search-border-radius: 4px;
   .search-input button,
   .search-input input {
     height: 48px;
+  }
+
+  .search-input input {
+    background-color: white;
+  }
+
+  .checkbox label {
+    padding-left: 0;
   }
 
   [class*=' col-'] {
