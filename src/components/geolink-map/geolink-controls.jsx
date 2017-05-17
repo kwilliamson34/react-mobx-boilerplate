@@ -37,9 +37,9 @@ export default class GeolinkControls extends React.Component {
   toggleNetwork(event) {
     if (event.target.type === 'checkbox') {
       if(event.target.checked) {
-        this.props.geolinkStore.addAllCoverageLayers();
+        this.props.geolinkStore.addAllNetworkLayers();
       } else {
-        this.props.geolinkStore.removeAllCoverageLayers();
+        this.props.geolinkStore.removeAllNetworkLayers();
       }
     }
   }

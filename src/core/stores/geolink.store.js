@@ -34,13 +34,13 @@ class GeolinkStore {
     }).then(success, fail);
   }
 
-  @action addAllCoverageLayers() {
+  @action addAllNetworkLayers() {
     networkLayerNames.map(layerName => {
       this.addLayer(layerName);
     });
   }
 
-  @action removeAllCoverageLayers() {
+  @action removeAllNetworkLayers() {
     networkLayerNames.map(layerName => {
       this.removeLayer(layerName);
     });
