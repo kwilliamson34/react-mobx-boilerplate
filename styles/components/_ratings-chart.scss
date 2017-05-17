@@ -8,6 +8,18 @@
     margin-bottom: 30px;
     vertical-align: middle;
   }
+
+  .overall-ratings-col {
+    .zero-reviews {
+      position: absolute;
+      right: 0;
+      top: 40%;
+      margin-right: 15px;
+      color: $fn-dark;
+      font-size: $fn-h3-default-size;
+      text-align: center;
+    }
+  }
 }
 
 .doughnut {
@@ -59,8 +71,8 @@
     }
 
     .ratings-star {
-      font-size: 2rem;
-      line-height: 1;
+      // font-size: 2rem;
+      // line-height: 1;
     }
   }
 
@@ -97,7 +109,7 @@
         line-height: 0;
         position: absolute;
         left: 0;
-        top: 11px;
+        top: 0px;
       }
     }
 
@@ -120,6 +132,7 @@
       }
     }
   }
+
 }
 /*Tablet*/
 @media #{$tablet} {
@@ -172,7 +185,7 @@
         }
 
         .ratings-star {
-          top: 15px;
+          top: 4px;
         }
       }
 

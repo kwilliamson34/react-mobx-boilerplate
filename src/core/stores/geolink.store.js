@@ -34,13 +34,13 @@ class GeolinkStore {
     }).then(success, fail);
   }
 
-  @action addAllCoverageLayers() {
+  @action addAllNetworkLayers() {
     networkLayerNames.map(layerName => {
       this.addLayer(layerName);
     });
   }
 
-  @action removeAllCoverageLayers() {
+  @action removeAllNetworkLayers() {
     networkLayerNames.map(layerName => {
       this.removeLayer(layerName);
     });
@@ -85,22 +85,56 @@ class GeolinkStore {
 
   @action addWeather() {
     console.log('Adding weather layer/animation');
-    const options = {
-      opacity: .7
-    };
     this.mapIframeRef.contentWindow.postMessage({
       eventName: 'loadRadar',
-      options: options
+      options: {
+        opacity: .7
+      }
     }, '*');
-    /*TODO Evaluate weather the "animate weather" event is needed
-    once the map is visible and we know what the baseline weather
-    display is. */
+
+    //Additional weather evants
+    // this.mapIframeRef.contentWindow.postMessage({
+    //   eventName: 'showHurricane',
+    //   flag: true
+    // }, '*');
+    // this.mapIframeRef.contentWindow.postMessage({
+    //   eventName: 'loadLayer',
+    //   value: '1184FF', //Flash flood
+    //   flag: true
+    // }, '*');
+    // this.mapIframeRef.contentWindow.postMessage({
+    //   eventName: 'loadLayer',
+    //   value: '1187STW', //Thunder storm
+    //   flag: true
+    // }, '*');
+    // this.mapIframeRef.contentWindow.postMessage({
+    //   eventName: 'loadLayer',
+    //   value: '1188TW', //Tornado
+    //   flag: true
+    // }, '*');
+
+    //Weather layer animation
+    this.mapIframeRef.contentWindow.postMessage({
+      eventName: 'animateRadar',
+      options: {
+        frameSpeed: 1500 //milliseconds
+      }
+    }, '*');
   }
 
   @action removeWeather() {
     console.log('Removing weather layer/animation');
     this.mapIframeRef.contentWindow.postMessage({
       eventName: 'removeRadar'
+    }, '*');
+  }
+
+  @action toggleAlerts(turnOn) {
+    console.log('Toggling alerts layer');
+    this.mapIframeRef.contentWindow.postMessage({
+      eventName: 'loadLayer',
+      value: 'FirstNet:GTOCOutages',
+      flag: turnOn
     }, '*');
   }
 

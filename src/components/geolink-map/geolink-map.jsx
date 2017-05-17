@@ -8,12 +8,9 @@ export default class GeolinkMap extends React.Component {
     geolinkStore: PropTypes.object.isRequired
   }
 
-  constructor(props) {
-    super(props);
-    this.loadInitialLayers = this.loadInitialLayers.bind(this);
-  }
-
   componentWillMount() {
+    window.iframeLoaded = this.setDefaults.bind(this);
+
     this.props.geolinkStore.loadGeolinkHtml().then(() => {
       //write the html into the iframe
       var doc = document.getElementsByTagName('iframe')[0].contentWindow.document;
@@ -23,8 +20,22 @@ export default class GeolinkMap extends React.Component {
     });
   }
 
-  loadInitialLayers() {
-    this.props.geolinkStore.addAllCoverageLayers();
+  componentWillUnmount() {
+    window.iframeLoaded = null;
+  }
+
+  setDefaults() {
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition(position => {
+        const searchTerm = position.coords.latitude + ', ' + position.coords.longitude;
+        this.props.geolinkStore.updateSearchTerm(searchTerm);
+        this.props.geolinkStore.searchMap();
+      });
+    } else {
+      console.warn('Geolocation is not allowed by the browser.');
+    }
+
+    this.props.geolinkStore.addAllNetworkLayers();
   }
 
   render() {
@@ -33,8 +44,7 @@ export default class GeolinkMap extends React.Component {
         <div className="map-wrapper">
           <iframe
             title="Interactive Coverage Map"
-            ref={(ref) => this.props.geolinkStore.mapIframeRef = ref}
-            onLoad={() => this.loadInitialLayers}/>
+            ref={(ref) => this.props.geolinkStore.mapIframeRef = ref}/>
         </div>
         <GeolinkControls geolinkStore={this.props.geolinkStore}/>
       </section>

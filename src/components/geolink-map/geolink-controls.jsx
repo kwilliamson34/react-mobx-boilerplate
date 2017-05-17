@@ -16,6 +16,7 @@ export default class GeolinkControls extends React.Component {
     this.toggleNetwork = this.toggleNetwork.bind(this);
     this.toggleTraffic = this.toggleTraffic.bind(this);
     this.toggleWeather = this.toggleWeather.bind(this);
+    this.toggleAlerts = this.toggleAlerts.bind(this);
   }
 
   handleSearchInput(event) {
@@ -36,15 +37,17 @@ export default class GeolinkControls extends React.Component {
   toggleNetwork(event) {
     if (event.target.type === 'checkbox') {
       if(event.target.checked) {
-        this.props.geolinkStore.addAllCoverageLayers();
+        this.props.geolinkStore.addAllNetworkLayers();
       } else {
-        this.props.geolinkStore.removeAllCoverageLayers();
+        this.props.geolinkStore.removeAllNetworkLayers();
       }
     }
   }
 
-  toggleTraffic() {
-    this.props.geolinkStore.toggleTraffic();
+  toggleTraffic(event) {
+    if (event.target.type === 'checkbox') {
+      this.props.geolinkStore.toggleTraffic();
+    }
   }
 
   toggleWeather(event) {
@@ -57,14 +60,20 @@ export default class GeolinkControls extends React.Component {
     }
   }
 
+  toggleAlerts(event){
+    if (event.target.type === 'checkbox') {
+      this.props.geolinkStore.toggleAlerts(event.target.checked);
+    }
+  }
+
   render() {
     return (
       <section className="geolink-controls">
         <div className="col-xs-12 col-sm-4">
           <form className="form-group search-input">
-            <label className="control-label">Location</label>
+            <label htmlFor="geo-search" className="control-label">Location</label>
             <span className="input-group">
-              <input type="text" className="form-control" onChange={this.handleSearchInput} onKeyPress={this.handleSearchKeyPress}/>
+              <input id="geo-search" type="text" className="form-control" onChange={this.handleSearchInput} onKeyPress={this.handleSearchKeyPress}/>
               <span className="input-group-btn">
                 <button type="button" className="btn btn-default" onClick={this.handleSearchSubmit}>
                   <span className='sr-only'>Search for locations</span>
@@ -81,6 +90,7 @@ export default class GeolinkControls extends React.Component {
               <GeolinkLayerToggle value='Network' label='Network' onClick={this.toggleNetwork} defaultOn={true}/>
               <GeolinkLayerToggle value='Traffic' label='Traffic' onClick={this.toggleTraffic} defaultOn={false}/>
               <GeolinkLayerToggle value='Weather' label='Weather' onClick={this.toggleWeather} defaultOn={false}/>
+              <GeolinkLayerToggle value='Alerts' label='Alerts' onClick={this.toggleAlerts} defaultOn={false}/>
             </fieldset>
           </form>
         </div>
