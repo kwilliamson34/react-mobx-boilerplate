@@ -43,7 +43,12 @@ export default class RatingsChart extends React.Component {
           </div>
           <div className="col-xs-12 col-sm-8 col-md-8 col-lg-7 overall-ratings-col">
             <HorizontalBar data={this.props.data} />
-          </div>
+						{this.props.data.reduce((x, y) => x + y) === 0 &&
+							<div className="zero-reviews">
+								No Reviews Yet!
+							</div>
+						}
+					</div>
         </div>
       </div>
 		);

@@ -6,6 +6,7 @@ import TitlePane from '../components/title-pane/title-pane';
 import { Rating } from '../components/rating/rating';
 import RatingsChart from '../components/ratings-chart/ratings-chart';
 import Toggle from '../components/toggle/toggle';
+import AppReviews from '../components/app-reviews/app-reviews';
 import ScreenshotGallery from '../components/screenshot-gallery/screenshot-gallery';
 
 //import mock response from services
@@ -116,6 +117,11 @@ export default class AppDetailsPage extends React.Component {
               <div className="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
                 <h2>Reviews</h2>
 								<RatingsChart value={this.appStore.currentApp.rating} reviewsTotal={this.appStore.currentApp.reviews_count} data={[14,22,8,5,2]}/>
+								{appDetail.reviews.length > 0 &&
+									<div className="app-reviews">
+										<AppReviews reviews={appDetail.reviews} />
+									</div>
+								}
 							</div>
 						</div>
           </div>
