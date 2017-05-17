@@ -19,6 +19,7 @@ export class SummaryCard extends React.Component {
             imageUrl: PropTypes.string,
             rating: PropTypes.number,
             badge: PropTypes.bool,
+            psk: PropTypes.number,
             platforms: PropTypes.oneOf(['', 'iOS', 'Android'])
         }).isRequired
     }
@@ -50,7 +51,7 @@ export class SummaryCard extends React.Component {
 	render() {
     return (
         <div className="card-wrapper">
-            <Link to="/app/some-app-id-1234" className="card-focus has-shadow">
+            <Link to={'/app/' + this.props.display.psk} className="card-focus has-shadow">
                 <div className="card-container">
                     {this.display.badge && (
                         <div className="card-badge">

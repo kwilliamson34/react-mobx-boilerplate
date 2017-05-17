@@ -27,9 +27,23 @@ class CardListStore {
         return apiService.getAdminApps().then(success, fail)
     }
 
+    //TODO: Ideally should only set PSK. Plan on revising @computed get currentApp to work off proposed allApps array and doing this automatically when allApps has length of 0, rather than making a separate call;
     @action setCurrentApp(psk){
       this.currentAppPsk = psk;
+      if(!this.searchResults.length) {
+        let success = (response) => {
+          this.searchResults.push(response[0]);
+          return this.currentApp;
+        }
+
+        let failure = (error) => {
+          console.warn(error);
+        }
+
+        return apiService.getAppDetails(psk).then(success, failure);
+      }
     }
+
 
     @action clear() {
         this.searchQuery = '';
@@ -103,9 +117,11 @@ class CardListStore {
     }
 
     //COMPUTEDS
-    @computed get currentApp(){
+
+    //TODO: Revise this and other functions depending on searchResults to work off an allApps array. This will avoid a lot of network traffic.
+    @computed get currentApp() {
       return this.searchResults.filter((app) => {
-        return app.psk === this.currentAppPsk
+        return this.currentAppPsk == app.psk.toString();
       })[0];
     }
 
@@ -183,6 +199,7 @@ class CardListStore {
     @observable categoryFilter = 'Select Category';
     @observable segmentFilter = 'Select Filter';
 
+    @observable screenshots = [];
     @observable searchResults = [];
     @observable shouldShowSearchResults = false;
     @observable searchIsVisible = false;
