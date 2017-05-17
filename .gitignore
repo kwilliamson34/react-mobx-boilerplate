@@ -12,7 +12,6 @@ coverage/
 coverage
 coverage/
 coverage/*
-*__snapshots__*
 
 #Strange settings files
 .vscode/

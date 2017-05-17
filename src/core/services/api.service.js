@@ -6,7 +6,6 @@ const base = '/api'
 
 // TODO - temp hardcode pending PSEID implementation
 const pseId = '123';
-const pseIdQueryParam = 'pseId=' + pseId;
 
 class ApiService {
     loadUserData() {
@@ -15,15 +14,15 @@ class ApiService {
 
     getSearchResults(query) {
       let endpoint = query
-        ? `${base}/apps/search?searchTxt=${query}&${pseIdQueryParam}`
-        : `${base}/apps/admin?${pseIdQueryParam}`
+        ? `${base}/apps/search?searchTxt=${query}&pseId=${pseId}`
+        : `${base}/apps/admin?pseid=${pseId}`
       return axios.get(endpoint).then((res) => {
         return utilsService.conditionData(res.data.applications);
       });
     }
 
     getAdminApps() {
-      return axios.get(`${base}/apps/admin?${pseIdQueryParam}`, {
+      return axios.get(`${base}/apps/admin?pseId=${pseId}`, {
           headers: {
             'x-auth-token': '34234'
           }
@@ -33,10 +32,14 @@ class ApiService {
     }
 
     getAppDetails(appPSK) {
-      return axios.get(`${base}/app?app_psk=${appPSK}`,{
+      return axios.get(`${base}/app?appPsk=${appPSK}&pseId=${pseId}`,{
         headers: {
           'x-auth-token': '34234'
         }
+      }).then(res => {
+        let arrayRes = [];
+        arrayRes.push(res.data);
+        return utilsService.conditionData(arrayRes);
       });
     }
 

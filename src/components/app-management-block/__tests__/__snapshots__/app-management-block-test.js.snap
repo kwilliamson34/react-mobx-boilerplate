@@ -1,0 +1,323 @@
+exports[`<AppManagementBlock /> render matches snapshots with all group combinations 1`] = `
+<div>
+  <div
+    className="app-management">
+    <div
+      className="checkbox-as-toggle ">
+      <input
+        aria-disabled={undefined}
+        className="checkbox"
+        defaultChecked={false}
+        id="Available-undefined-checkbox"
+        onClick={[Function bound onClick]}
+        tabIndex="-1"
+        type="checkbox"
+        value="Available" />
+      <label
+        className="checkbox-label"
+        htmlFor="Available-undefined-checkbox"
+        id="Available-undefined-label"
+        onKeyUp={[Function bound handleFocusEnter]}
+        role="button"
+        tabIndex="0">
+        <span
+          className="sr-only">
+          Toggle:
+        </span>
+        <span
+          className="text-label">
+          Available
+        </span>
+        <span
+          aria-hidden={true}
+          className="pill" />
+      </label>
+    </div>
+    <div
+      className="checkbox-as-toggle ">
+      <input
+        aria-disabled={undefined}
+        className="checkbox"
+        defaultChecked={false}
+        id="Recommended-undefined-checkbox"
+        onClick={[Function bound onClick]}
+        tabIndex="-1"
+        type="checkbox"
+        value="Recommended" />
+      <label
+        className="checkbox-label"
+        htmlFor="Recommended-undefined-checkbox"
+        id="Recommended-undefined-label"
+        onKeyUp={[Function bound handleFocusEnter]}
+        role="button"
+        tabIndex="0">
+        <span
+          className="sr-only">
+          Toggle:
+        </span>
+        <span
+          className="text-label">
+          Recommended
+        </span>
+        <span
+          aria-hidden={true}
+          className="pill" />
+      </label>
+    </div>
+    <a
+      href="/mdm"
+      onClick={[Function anonymous]}>
+      <button
+        className="fn-primary btn btn-default"
+        disabled={false}
+        tabIndex="-1"
+        type="button">
+        Push to MDM
+      </button>
+    </a>
+  </div>
+</div>
+`;
+
+exports[`<AppManagementBlock /> render matches snapshots with all group combinations 2`] = `
+<div>
+  <div
+    className="app-management">
+    <div
+      className="checkbox-as-toggle ">
+      <input
+        aria-disabled={undefined}
+        className="checkbox"
+        defaultChecked={true}
+        id="Available-undefined-checkbox"
+        onClick={[Function bound onClick]}
+        tabIndex="-1"
+        type="checkbox"
+        value="Available" />
+      <label
+        className="checkbox-label"
+        htmlFor="Available-undefined-checkbox"
+        id="Available-undefined-label"
+        onKeyUp={[Function bound handleFocusEnter]}
+        role="button"
+        tabIndex="0">
+        <span
+          className="sr-only">
+          Toggle:
+        </span>
+        <span
+          className="text-label">
+          Available
+        </span>
+        <span
+          aria-hidden={true}
+          className="pill" />
+      </label>
+    </div>
+    <div
+      className="checkbox-as-toggle ">
+      <input
+        aria-disabled={undefined}
+        className="checkbox"
+        defaultChecked={false}
+        id="Recommended-undefined-checkbox"
+        onClick={[Function bound onClick]}
+        tabIndex="-1"
+        type="checkbox"
+        value="Recommended" />
+      <label
+        className="checkbox-label"
+        htmlFor="Recommended-undefined-checkbox"
+        id="Recommended-undefined-label"
+        onKeyUp={[Function bound handleFocusEnter]}
+        role="button"
+        tabIndex="0">
+        <span
+          className="sr-only">
+          Toggle:
+        </span>
+        <span
+          className="text-label">
+          Recommended
+        </span>
+        <span
+          aria-hidden={true}
+          className="pill" />
+      </label>
+    </div>
+    <a
+      href="/mdm"
+      onClick={[Function anonymous]}>
+      <button
+        className="fn-primary btn btn-default"
+        disabled={false}
+        tabIndex="-1"
+        type="button">
+        Push to MDM
+      </button>
+    </a>
+  </div>
+</div>
+`;
+
+exports[`<AppManagementBlock /> render matches snapshots with all group combinations 3`] = `
+<div>
+  <div
+    className="app-management">
+    <div
+      className="checkbox-as-toggle ">
+      <input
+        aria-disabled={undefined}
+        className="checkbox"
+        defaultChecked={true}
+        id="Available-undefined-checkbox"
+        onClick={[Function bound onClick]}
+        tabIndex="-1"
+        type="checkbox"
+        value="Available" />
+      <label
+        className="checkbox-label"
+        htmlFor="Available-undefined-checkbox"
+        id="Available-undefined-label"
+        onKeyUp={[Function bound handleFocusEnter]}
+        role="button"
+        tabIndex="0">
+        <span
+          className="sr-only">
+          Toggle:
+        </span>
+        <span
+          className="text-label">
+          Available
+        </span>
+        <span
+          aria-hidden={true}
+          className="pill" />
+      </label>
+    </div>
+    <div
+      className="checkbox-as-toggle ">
+      <input
+        aria-disabled={undefined}
+        className="checkbox"
+        defaultChecked={true}
+        id="Recommended-undefined-checkbox"
+        onClick={[Function bound onClick]}
+        tabIndex="-1"
+        type="checkbox"
+        value="Recommended" />
+      <label
+        className="checkbox-label"
+        htmlFor="Recommended-undefined-checkbox"
+        id="Recommended-undefined-label"
+        onKeyUp={[Function bound handleFocusEnter]}
+        role="button"
+        tabIndex="0">
+        <span
+          className="sr-only">
+          Toggle:
+        </span>
+        <span
+          className="text-label">
+          Recommended
+        </span>
+        <span
+          aria-hidden={true}
+          className="pill" />
+      </label>
+    </div>
+    <a
+      href="/mdm"
+      onClick={[Function anonymous]}>
+      <button
+        className="fn-primary btn btn-default"
+        disabled={false}
+        tabIndex="-1"
+        type="button">
+        Push to MDM
+      </button>
+    </a>
+  </div>
+</div>
+`;
+
+exports[`<AppManagementBlock /> render matches snapshots with all group combinations 4`] = `
+<div>
+  <div
+    className="app-management">
+    <div
+      className="checkbox-as-toggle ">
+      <input
+        aria-disabled={undefined}
+        className="checkbox"
+        defaultChecked={false}
+        id="Available-undefined-checkbox"
+        onClick={[Function bound onClick]}
+        tabIndex="-1"
+        type="checkbox"
+        value="Available" />
+      <label
+        className="checkbox-label"
+        htmlFor="Available-undefined-checkbox"
+        id="Available-undefined-label"
+        onKeyUp={[Function bound handleFocusEnter]}
+        role="button"
+        tabIndex="0">
+        <span
+          className="sr-only">
+          Toggle:
+        </span>
+        <span
+          className="text-label">
+          Available
+        </span>
+        <span
+          aria-hidden={true}
+          className="pill" />
+      </label>
+    </div>
+    <div
+      className="checkbox-as-toggle ">
+      <input
+        aria-disabled={undefined}
+        className="checkbox"
+        defaultChecked={true}
+        id="Recommended-undefined-checkbox"
+        onClick={[Function bound onClick]}
+        tabIndex="-1"
+        type="checkbox"
+        value="Recommended" />
+      <label
+        className="checkbox-label"
+        htmlFor="Recommended-undefined-checkbox"
+        id="Recommended-undefined-label"
+        onKeyUp={[Function bound handleFocusEnter]}
+        role="button"
+        tabIndex="0">
+        <span
+          className="sr-only">
+          Toggle:
+        </span>
+        <span
+          className="text-label">
+          Recommended
+        </span>
+        <span
+          aria-hidden={true}
+          className="pill" />
+      </label>
+    </div>
+    <a
+      href="/mdm"
+      onClick={[Function anonymous]}>
+      <button
+        className="fn-primary btn btn-default"
+        disabled={false}
+        tabIndex="-1"
+        type="button">
+        Push to MDM
+      </button>
+    </a>
+  </div>
+</div>
+`;

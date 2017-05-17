@@ -1,40 +1,43 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import $ from 'jquery';
-import {observer} from 'mobx-react';
+import {
+	observer
+} from 'mobx-react';
 
 @observer
 class Toggle extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleFocusEnter = this.handleFocusEnter.bind(this);
-    this.onClick = this.onClick.bind(this);
-  }
+	constructor(props) {
+		super(props);
+		this.handleFocusEnter = this.handleFocusEnter.bind(this);
+		this.onClick = this.onClick.bind(this);
+	}
 
-  onClick(event) {
-    if(this.props.disabled) {
-      event.preventDefault();
-    } else {
-      if(this.props.onClick) {
-        this.props.onClick(event);
-      }
-    }
-  }
+	onClick(event) {
+		if (this.props.disabled) {
+			event.preventDefault();
+		} else {
+			if (this.props.onClick) {
+				this.props.onClick(event);
+			}
+		}
+	}
 
-  doClick() {
-    this.input.click();
-  }
+	doClick() {
+		this.input.click();
+	}
 
-  handleFocusEnter(event) {
-    if (event.key === 'Enter') {
-      $(event.target.parentElement).find('input').click();
-    }
-  }
+	handleFocusEnter(event) {
+		if (event.key === 'Enter') {
+			$(event.target.parentElement).find('input').click();
+		}
+	}
 
-  render() {
-    const inputIdentifier = this.props.id + '-checkbox';
-    const labelIdentifier = this.props.id + '-label';
-    return (
-      <div className={`checkbox-as-toggle ${this.props.disabled ? 'disabled' : ''}`}>
+	render() {
+		const inputIdentifier = this.props.id + '-checkbox';
+		const labelIdentifier = this.props.id + '-label';
+		return (
+			<div className={`checkbox-as-toggle ${this.props.disabled ? 'disabled' : ''}`}>
         <input
           ref={ref => this.input = ref}
           aria-disabled={this.props.disabled}
@@ -50,17 +53,17 @@ class Toggle extends React.Component {
           <span className="pill" aria-hidden={true}></span>
         </label>
       </div>
-    )
-  }
+		)
+	}
 }
 
 Toggle.propTypes = {
-  id: PropTypes.string.isRequired,
-  value: PropTypes.string,
-  label: PropTypes.string.isRequired,
-  onClick: PropTypes.func,
-  defaultOn: PropTypes.bool,
-  disabled: PropTypes.bool
+	id: PropTypes.string.isRequired,
+	value: PropTypes.string,
+	label: PropTypes.string.isRequired,
+	onClick: PropTypes.func,
+	defaultOn: PropTypes.bool,
+	disabled: PropTypes.bool
 }
 
 export default Toggle;
