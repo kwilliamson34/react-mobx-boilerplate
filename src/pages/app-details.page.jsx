@@ -124,7 +124,7 @@ export default class AppDetailsPage extends React.Component {
             <div className="row">
               <div className="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
                 <h2>Reviews</h2>
-								<RatingsChart value={0} reviewsTotal={0} data={[0,0,0,0,0]}/>
+								<RatingsChart value={4.1} reviewsTotal={44} data={[14,22,8,5,2]}/>
 								{appDetail.reviews.length
 									?
 									<div className="app-reviews">
