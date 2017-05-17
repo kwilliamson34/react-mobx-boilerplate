@@ -117,7 +117,7 @@ class GeolinkStore {
     this.mapIframeRef.contentWindow.postMessage({
       eventName: 'animateRadar',
       options: {
-        frameSpeed: 600 //milliseconds
+        frameSpeed: 1500 //milliseconds
       }
     }, '*');
   }
