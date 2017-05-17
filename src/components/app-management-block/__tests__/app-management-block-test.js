@@ -1,7 +1,7 @@
 jest.unmock('../app-management-block');
 
 // unmocking because we want to test all the way down the chain.
-jest.unmock('../../toggle/toggle');
+jest.unmock('../../toggle/checkbox');
 
 import AppManagementBlock from '../app-management-block';
 import { MemoryRouter } from 'react-router-dom';
@@ -10,7 +10,7 @@ import ReactDom from 'react-dom';
 describe('<AppManagementBlock />', () => {
   let props = {
     app: {
-      id: 123,
+      psk: 123,
       isAvailable: false,
       isRecommended: false,
     },
@@ -69,7 +69,6 @@ describe('<AppManagementBlock />', () => {
     test('toggling Available results in a service call', () => {
       props.app.isAvailable = false;
       props.app.isRecommended = false;
-      props.app.id = 123;
 
       let memoryRouterComponent = TestUtils.renderIntoDocument(
         <MemoryRouter>
@@ -82,21 +81,21 @@ describe('<AppManagementBlock />', () => {
       expect(functionToWatch).not.toHaveBeenCalled();
 
       //trigger the action
-      const toggleButton = TestUtils.findAllInRenderedTree(memoryRouterComponent, (inst) => {
-        return ReactDOM.findDOMNode(inst).getAttribute('id') === 'Available-123-checkbox';
+      const idToFind = 'Available-' + props.app.psk;
+      const checkbox = TestUtils.findAllInRenderedTree(memoryRouterComponent, (inst) => {
+        return ReactDOM.findDOMNode(inst).getAttribute('id') == idToFind;
       })[0];
 
-      TestUtils.Simulate.click(toggleButton, {'target': {'checked': true}});
+      TestUtils.Simulate.change(checkbox, {'target': {'checked': true}});
       expect(functionToWatch).toHaveBeenCalled();
 
-      TestUtils.Simulate.click(toggleButton, {'target': {'checked': false}});
+      TestUtils.Simulate.change(checkbox, {'target': {'checked': false}});
       expect(functionToWatch).toHaveBeenCalled();
     });
 
     test('toggling Recommended results in a service call', () => {
       props.app.isAvailable = true;
       props.app.isRecommended = false;
-      props.app.id = 123;
 
       let memoryRouterComponent = TestUtils.renderIntoDocument(
         <MemoryRouter>
@@ -109,21 +108,21 @@ describe('<AppManagementBlock />', () => {
       expect(functionToWatch).not.toHaveBeenCalled();
 
       //trigger the action
-      const toggleButton = TestUtils.findAllInRenderedTree(memoryRouterComponent, (inst) => {
-        return ReactDOM.findDOMNode(inst).getAttribute('id') === 'Recommended-123-checkbox';
+      const idToFind = 'Recommended-' + props.app.psk;
+      const checkbox = TestUtils.findAllInRenderedTree(memoryRouterComponent, (inst) => {
+        return ReactDOM.findDOMNode(inst).getAttribute('id') == idToFind;
       })[0];
 
-      TestUtils.Simulate.click(toggleButton, {'target': {'checked': true}});
+      TestUtils.Simulate.click(checkbox, {'target': {'checked': true}});
       expect(functionToWatch).toHaveBeenCalled();
 
-      TestUtils.Simulate.click(toggleButton, {'target': {'checked': false}});
+      TestUtils.Simulate.click(checkbox, {'target': {'checked': false}});
       expect(functionToWatch).toHaveBeenCalled();
     });
 
     test('toggling Available to Off when Recommended is On results in 2 service calls', () => {
       props.app.isAvailable = true;
       props.app.isRecommended = true;
-      props.app.id = 123;
 
       let memoryRouterComponent = TestUtils.renderIntoDocument(
         <MemoryRouter>
@@ -136,10 +135,11 @@ describe('<AppManagementBlock />', () => {
       const functionToWatch2 = memoryRouterComponent.props.children.props.appManagementActions.changeAppRecommended;
 
       //trigger the action
-      const toggleButton = TestUtils.findAllInRenderedTree(memoryRouterComponent, (inst) => {
-        return ReactDOM.findDOMNode(inst).getAttribute('id') === 'Available-123-checkbox';
+      const idToFind = 'Available-' + props.app.psk;
+      const checkbox = TestUtils.findAllInRenderedTree(memoryRouterComponent, (inst) => {
+        return ReactDOM.findDOMNode(inst).getAttribute('id') == idToFind;
       })[0];
-      TestUtils.Simulate.click(toggleButton, {'target': {'checked': false}});
+      TestUtils.Simulate.click(checkbox, {'target': {'checked': false}});
 
       //assert an outcome
       expect(functionToWatch1).toHaveBeenCalled();
