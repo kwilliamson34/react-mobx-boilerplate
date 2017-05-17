@@ -1,3 +1,47 @@
+.sample-breadcrumbs {
+    height: 16px;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 16px;
+    color: #1071BC;
+    text-transform: uppercase;
+    margin-bottom: 55px;
+    button {
+        border: 0px;
+        background: none;
+        text-transform: uppercase;
+    }
+    span {
+        color: $fn-dkgrey;
+    }
+}
+
+.modal-backdrop.in{
+  opacity: .8;
+}
+
+.modal {
+  .modal-dialog {
+    width: 90%;
+    max-width: 980px;
+     margin: auto;
+    .modal-content{
+      border-radius: 0px;
+      margin-top: 15%;
+      padding: 60px 100px;
+      h4{
+        margin-bottom: 30px;
+      }
+      .btn {
+        margin-top: 80px;
+      }
+      
+    }
+
+  }
+}
+
+
 .mdm-form {
     margin-top: 45px;
     margin-bottom: 90px;
@@ -130,3 +174,37 @@ legend {
 .error {
     color: $fn-red!important;
 }
+/**********************************************/
+
+@media #{$mobile} {
+    .modal {
+        .modal-dialog {
+            .modal-content {
+                padding: 15px 25px;
+                h4 {
+                    margin-bottom: 20px;
+                }
+                .btn {
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+}
+
+@media #{$tablet} {
+    .modal {
+        .modal-dialog {
+            .modal-content {
+                padding: 30px 50px;
+                h4 {
+                    margin-bottom: 20px;
+                }
+                .btn {
+                    margin-top: 40px;
+                }
+            }
+        }
+    }
+}
+

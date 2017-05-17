@@ -39,7 +39,7 @@ class MDMStore {
     }
 
     validateUpdateForm() {
-      console.log(this.mdm,this.endpoint,this.apiKey)
+        this.formHasChanged = true;
         if (this.mdm && this.endpoint && this.apiKey) {
             this.formIsValid = true;
         }
@@ -52,7 +52,6 @@ class MDMStore {
       } else {
         this.showExitModal = false;
       }
-      console.log(this.showExitModal)
     }
 
     @action setMDMConfiguration() {
@@ -95,6 +94,7 @@ class MDMStore {
     @observable mdmErrorMessages = '';
     @observable apiKeyErrorMessages = '';
     @observable formIsValid = false;
+    @observable formHasChanged = false;
     @observable showExitModal = false;
 
 }

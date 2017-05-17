@@ -10,22 +10,24 @@ export default class ConfigureMDM extends React.Component {
   constructor(props){
     super(props);
     this.MDMStore = this.props.store.mdmStore;
-    // this.onUnload = this.onUnload.bind(this); // if you need to bind callback to this
     }
 
-  // onUnload(event) { // the method that will be used for both add and remove event
-  //     event.returnValue = "Hellooww"
-  // }
+  componentWillMount() {
+    this.MDMStore.getMDMConfiguration();
+  }
 
-  // componentWillMount() {
-  //   this.MDMStore.getMDMConfiguration();
+  // TODO
+  // componentDidUpdate() {
+  //   if(this.MDMStore.formHasChanged){
+  //      window.addEventListener("beforeunload", function (event) {
+  //           event.returnValue = "unsaved data"
+  //       });
+  //    }
   // }
 
   // componentWillUnmount() {
-  //     console.log("hellooww")
   //     window.removeEventListener("beforeunload", this.onUnload)
   // }
-
 
   validateMDM = (event) => {
     this.MDMStore.validateMDM(event.target.value);
@@ -56,33 +58,31 @@ export default class ConfigureMDM extends React.Component {
     this.MDMStore.setMDMConfiguration();
   }
 
-  toggleModal() {
-    // this.MDMStore.showExitModal = false;
-  }
-
-  toggleModal = (event) => {
-    event.preventDefault();
-    console.log("boo")
-    this.MDMStore.toggleExitModal();
+  toggleExitModal = (event) => {
+    if(!this.MDMStore.formHasChanged && !this.MDMStore.showExitModal){
+      event.preventDefault();
+    } else {
+      this.MDMStore.toggleExitModal();
+    }
   }
 
   render() {
     return (
       <article id="configure-mdm-page">
           <div className="container">
-              <div className="breadcrumbs">
-                <button onClick={this.toggleModal}>Administration Dashboard</button>
+              <div className="sample-breadcrumbs">
+                <button href="/admin" onClick={this.toggleExitModal}>Administration Dashboard</button>
                 <b>></b>
-                <button onClick={this.toggleModal}>Manage Apps</button>
+                <button href="/manage-apps" onClick={this.toggleExitModal}>Manage Apps</button>
                 <b>></b>
-                <span>Configure MDM</span>
+                <span> Configure MDM</span>
               </div>
               <div className="col-xs-12 text-center">
                   <h1 className="as-h2">Configure Mobile Device Management (MDM)</h1>
               </div>
               <div className="row no-gutters">
-                  <section className="col-xs-12 col-lg-8">
-                      <div className="mdm-form fn-form col-md-offset-2 col-xs-12 col-md-8 col-md">
+                  <section className="col-xs-12 col-lg-10 col-lg-offset-1">
+                      <div className="mdm-form col-md-offset-2 col-xs-12 col-md-8 col-md">
                           <form onSubmit={this.handleSubmit} noValidate id="configure-mdm-form">
                               <FormGroup name="regionValue" controlId="regionValue" validationState={this.MDMStore.mdmErrorMessages.length ? 'error' : null}>
                                   <ControlLabel>Your MDM<span className="required-asterisks"> *</span></ControlLabel>
@@ -112,19 +112,18 @@ export default class ConfigureMDM extends React.Component {
                   </section>
               </div>
           </div>
-            <Modal show={this.MDMStore.showExitModal} onHide={this.toggleModal}>
-             <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
-          </Modal.Header>
-              <Modal.Body>
-            <h4>Unsaved changes</h4>
-            <p>Your form changes will not be saved if you navigate away from this page.</p>
-            <Modal.Footer>
-              <Button onClick={this.toggleModal}>Stay on Page</Button>
-              <Button onClick={this.toggleModal}>Discard Changes</Button>
-              </Modal.Footer>
-            </Modal.Body>
-            </Modal>
+          <Modal show={this.MDMStore.showExitModal} onHide={this.toggleExitModal}>
+            <div className="row no-gutters">
+              <div className="col-xs-12">
+                <h4 className="as-h2">Unsaved changes</h4>
+                <p>Your form changes will not be saved if you navigate away from this page.</p>
+              </div>
+              <div className="col-xs-12 text-center">
+                <Button className='fn-primary' onClick={this.toggleExitModal}>Stay on Page</Button>
+                <Button className='fn-secondary' href='/admin'>Discard Changes</Button>
+              </div>
+            </div>
+          </Modal>
       </article>
     )
   }

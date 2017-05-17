@@ -52,16 +52,13 @@ import HelpCenterPage from './pages/help-center.page';
 
 import NoMatch from './pages/no-match.page';
 
+
 @observer
 export default class App extends React.Component {
 	constructor(props) {
 		super(props);
 	}
-
-	routerTest() {
-		console.log('blaasdf')
-	}
-
+  previousLocation = this.props.location
 	render() {
 		const AppHub = ({
 			match
@@ -100,9 +97,7 @@ export default class App extends React.Component {
 									<Route path="/admin/manage-billing" component={ManageBillingPage} />
 									<Route path="/admin/manage-services" component={ManageServicesPage} />
 									<Route path="/admin/manage-apps" component={ManageAppsPage} />
-									<Route onLeave={this.routerTest()}>
-										<Route path="/admin/configure-mdm" component={ConfigureMDM} />
-									</Route>
+									<Route path="/admin/configure-mdm" component={ConfigureMDM} />
 									<Route path="/admin/manage-push-to-talk" component={ManagePushToTalkPage} />
 									<Route path="/admin/manage-wireless-reports" component={ManageWirelessReportsPage} />
 									<Route path="/admin" component={AdminDashboardPage} />
