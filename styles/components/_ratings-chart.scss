@@ -8,6 +8,18 @@
     margin-bottom: 30px;
     vertical-align: middle;
   }
+
+  .overall-ratings-col {
+    .zero-reviews {
+      position: absolute;
+      right: 0;
+      top: 40%;
+      margin-right: 15px;
+      color: $fn-dark;
+      font-size: $fn-h3-default-size;
+      text-align: center;
+    }
+  }
 }
 
 .doughnut {
@@ -120,6 +132,7 @@
       }
     }
   }
+
 }
 /*Tablet*/
 @media #{$tablet} {

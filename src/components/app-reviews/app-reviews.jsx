@@ -29,7 +29,6 @@ export default class AppReviews extends React.Component {
     this.loadMoreButton = this.loadMoreButton.bind(this);
   }
 
-
   paginationCount = 0;
   showLoadMoreButton = false;
 
