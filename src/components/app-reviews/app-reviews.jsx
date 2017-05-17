@@ -49,12 +49,12 @@ export default class AppReviews extends React.Component {
     return reviews.map((node, i) => {
 
       let authorName = `${node.userFirstName} ${node.userLastName}`;
-      //Will parsedDate work with final service return?
+      //parsedDate is working off of example data only; check that it will work with final version.
       let parsedDate = new Date(node.reviewDate);
       let normalizedDate = parsedDate.toLocaleString('en-US', dateOptions);
 
       return (
-        <div key={ i } className='individual-review-container' aria-labelledby={'Review-' + node.reviewId}>
+        <div key={i} className='individual-review-container' aria-labelledby={'Review-' + node.reviewId}>
           <div className='review-subject' id={ 'Review-' + node.reviewId }>{node.commentTitle}</div>
           <div className='author-and-rating-container'>
             <div className='review-author'>{authorName}</div>
