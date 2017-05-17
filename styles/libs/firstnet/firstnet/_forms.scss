@@ -169,7 +169,8 @@ legend {
       background-position: 0 8px;
     }
 
-    &:disabled {
+    &:disabled,
+    &.disabled {
       &+ .cr {
         background: url('/images/chkbox-disabled.svg') no-repeat;
         background-size: 16px 16px;
@@ -184,7 +185,8 @@ legend {
         background-position: 0 8px;
       }
 
-      &:disabled {
+      &:disabled,
+      &.disabled {
         &+ .cr {
           background: url('/images/chkbox-checked-disabled.svg') no-repeat;
           background-size: 16px 16px;

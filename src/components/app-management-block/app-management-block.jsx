@@ -1,14 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import {
-	observer
-} from 'mobx-react';
-import {
-	Link
-} from 'react-router-dom';
-
-import Toggle from '../toggle/toggle.jsx';
+import {observer} from 'mobx-react';
+import {Link} from 'react-router-dom';
+import Checkbox from '../toggle/checkbox.jsx';
 
 @observer
 export default class AppManagementBlock extends React.Component {
@@ -48,12 +42,12 @@ export default class AppManagementBlock extends React.Component {
 		return (
 			<div>
         <div className="app-management">
-          <Toggle
+          <Checkbox
             label="Available"
             id={'Available-' + this.props.app.psk}
             defaultOn={this.props.app.isAvailable}
             onClick={this.handleAvailableClick}/>
-          <Toggle
+          <Checkbox
             label="Recommended"
             ref={ref => this.recommendedToggle = ref}
             id={'Recommended-' + this.props.app.psk}
