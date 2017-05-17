@@ -1,14 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-	observer,
-	inject
-} from 'mobx-react';
+import { observer, inject } from 'mobx-react';
 
 import TitlePane from '../components/title-pane/title-pane';
-import {
-	Rating
-} from '../components/rating/rating';
+import { Rating } from '../components/rating/rating';
 import RatingsChart from '../components/ratings-chart/ratings-chart';
 import Toggle from '../components/toggle/toggle';
 import ScreenshotGallery from '../components/screenshot-gallery/screenshot-gallery';
@@ -20,16 +15,13 @@ const appDetail = require('../fixtures/mock-app-detail.json');
 @observer
 export default class AppDetailsPage extends React.Component {
 
-
 	constructor(props) {
 		super(props);
 		this.appStore = this.props.store.cardListStore;
 	}
 
 	componentDidMount() {
-		if (!this.appStore.currentApp) {
-			this.appStore.setCurrentApp(this.props.match.params.appId);
-		}
+		this.appStore.setCurrentApp(this.props.match.params.appId);
 	}
 
 	render() {
@@ -45,15 +37,15 @@ export default class AppDetailsPage extends React.Component {
             <div className="row">
               <div className="col-xs-4 col-sm-3 col-md-3 appicon-wrapper">
                 <div className="app-icon">
-                  <img src={appDetail.icon_path} alt={appDetail.appName} />
+                  <img src={this.appStore.currentApp.imageUrl} alt={this.appStore.currentApp.app_name} />
                 </div>
               </div>
               <div className="col-xs-8 col-sm-9 app-title">
-                <h1>{appDetail.appName}</h1>
+                <h1>{this.appStore.currentApp.app_name}</h1>
               </div>
               <div className="col-xs-8 col-sm-5 col-lg-6 app-meta">
                 <div className="visible-xs">
-                  {appDetail.endorsement &&
+                  {this.appStore.currentApp.endorsement &&
                     <div className="endorsed">FirstNet Endorsed</div>
                   }
                   <span className="sr-only">Average Rating</span>
@@ -61,36 +53,36 @@ export default class AppDetailsPage extends React.Component {
                     src="/images/star.png"
                     alt="Rating Star"
                     aria-hidden="true" />
-                    {appDetail.avgRevRating}
-                    ({appDetail.reviewCount} <span className="sr-only">Reviews Completed</span>)
-                  &nbsp;<span aria-hidden="true">V</span><span className="sr-only">Version </span> {appDetail.versionNum}
+                    {this.appStore.currentApp.rating}
+                    ({this.appStore.currentApp.reviews_count} <span className="sr-only">Reviews Completed</span>)
+                  &nbsp;<span aria-hidden="true">V</span><span className="sr-only">Version </span> {this.appStore.currentApp.version.version_num}
                   &nbsp;<span className="sr-only">Filesize</span> {appDetail.filesize}
                 </div>
                 <div className="hidden-xs">
                   <ul>
-                    <li>{appDetail.author}</li>
+                    <li>{this.appStore.currentApp.author}</li>
                     <li>
-                      Version: <strong>{appDetail.versionNum}</strong><br />
-                      Released: <strong>{appDetail.releaseDate}</strong>
+                      Version: <strong>{this.appStore.currentApp.version.version_num}</strong><br />
+                      Released: <strong>{this.appStore.currentApp.version.releaseDate}</strong>
                     </li>
                     <li>
-                      {appDetail.endorsement &&
+                      {this.appStore.currentApp.endorsement &&
                         <div className="endorsed">FirstNet Endorsed</div>
                       }
 											<span className="card-rating">
-												<Rating rating={appDetail.avgRevRating} />
-											</span> ({appDetail.reviewCount}<span className="sr-only">Reviews Completed</span>)
+												<Rating rating={this.appStore.currentApp.rating} />
+											</span> ({this.appStore.currentApp.reviews_count}<span className="sr-only">Reviews Completed</span>)
                     </li>
-                    <li>Platform<br /><strong>{appDetail.platform}</strong></li>
+                    <li>Platform<br /><strong>{this.appStore.currentApp.platforms}</strong></li>
                   </ul>
                 </div>
               </div>
                 <div className="col-xs-12 col-sm-4 col-lg-3 app-actions">
                   <div>
-                    <Toggle id="toggle-available" label="Available" defaultOn={appDetail.isAvailable} />
+                    <Toggle id="toggle-available" label="Available" defaultOn={this.appStore.currentApp.isAvailable} />
                   </div>
                   <div>
-                    <Toggle id="toggle-recommended" label="Recommended" defaultOn={appDetail.isRecommended} />
+                    <Toggle id="toggle-recommended" label="Recommended" defaultOn={this.appStore.currentApp.isRecommended} />
                   </div>
                   <div>
                     <button type="button" className="fn-primary">Push to MDM</button>
@@ -123,7 +115,7 @@ export default class AppDetailsPage extends React.Component {
             <div className="row">
               <div className="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
                 <h2>Reviews</h2>
-								<RatingsChart value={4.1} reviewsTotal={44} data={[14,22,8,5,2]}/>
+								<RatingsChart value={this.appStore.currentApp.rating} reviewsTotal={this.appStore.currentApp.reviews_count} data={[14,22,8,5,2]}/>
 							</div>
 						</div>
           </div>
@@ -135,10 +127,10 @@ export default class AppDetailsPage extends React.Component {
               <h2>About the Developer</h2>
               <div
                 className="dev-description"
-                dangerouslySetInnerHTML={{ __html: appDetail.devDescription}}>
+                dangerouslySetInnerHTML={{ __html: this.appStore.currentApp.custom_metadata.developer_description}}>
               </div>
               <div className="developer-website">
-              <a href={appDetail.devWebsite} className="fn-primary" target="_blank" rel="noopener noreferrer">Visit Developer Website</a>
+              <a href={this.appStore.currentApp.custom_metadata.developer_website} className="fn-primary" target="_blank" rel="noopener noreferrer">Visit Developer Website</a>
               </div>
             </div>
           </div>
