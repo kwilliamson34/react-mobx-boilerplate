@@ -1,0 +1,67 @@
+exports[`<GeolinkControls /> renders matches previous snapshot 1`] = `
+<section
+  className="geolink-controls">
+  <div
+    className="col-xs-12 col-sm-4">
+    <form
+      className="form-group search-input">
+      <label
+        className="control-label"
+        htmlFor="geo-search">
+        Location
+      </label>
+      <span
+        className="input-group">
+        <input
+          className="form-control"
+          id="geo-search"
+          onChange={[Function bound handleSearchInput]}
+          onKeyPress={[Function bound handleSearchKeyPress]}
+          type="text" />
+        <span
+          className="input-group-btn">
+          <button
+            className="btn btn-default"
+            onClick={[Function bound handleSearchSubmit]}
+            type="button">
+            <span
+              className="sr-only">
+              Search for locations
+            </span>
+            <i
+              alt="search icon"
+              aria-hidden="true"
+              className="icon-search" />
+          </button>
+        </span>
+      </span>
+    </form>
+  </div>
+  <div
+    className="col-xs-12 col-sm-4">
+    <form
+      className="form-group">
+      <fieldset>
+        <legend
+          className="sr-only">
+          Coverage layers
+        </legend>
+      </fieldset>
+    </form>
+  </div>
+  <div
+    className="col-xs-12 col-sm-4">
+    <article>
+      <p>
+        TBD Links go here
+      </p>
+      <p>
+        TBD Links go here
+      </p>
+      <p>
+        TBD Links go here
+      </p>
+    </article>
+  </div>
+</section>
+`;

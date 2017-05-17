@@ -1,0 +1,10 @@
+exports[`<GeolinkMap /> renders matches previous snapshot 1`] = `
+<section
+  className="geolink-map">
+  <div
+    className="map-wrapper">
+    <iframe
+      title="Interactive Coverage Map" />
+  </div>
+</section>
+`;
