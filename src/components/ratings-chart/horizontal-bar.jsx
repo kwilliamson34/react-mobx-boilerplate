@@ -10,11 +10,13 @@ export default class HorizontalBar extends React.Component {
 	render() {
 		const max = Math.max.apply(Math, this.props.data);
 
+
 		return (
 			<div className={'horizontal-bar-chart'}>
         {
           this.props.data.map(function (item, itemIndex) {
-            let size = item/max * 100;
+						let size = 1;
+						if (item > 0) size = item/max * 100;
             let style = {width:size + '%'}
             return (
               <div className="bar-wrapper" key={itemIndex+'bar'}>
