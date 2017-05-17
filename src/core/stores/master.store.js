@@ -19,6 +19,9 @@ import {
 import {
 	geolinkStore
 } from './geolink.store';
+import {
+	mdmStore
+} from './mdm.store';
 
 class PSEStore {
 
@@ -28,6 +31,7 @@ class PSEStore {
 		this.cardListStore = cardListStore;
 		this.externalContentStore = mpStore;
 		this.geolinkStore = geolinkStore;
+		this.mdmStore = mdmStore;
 	}
 
 	// ACTIONS
