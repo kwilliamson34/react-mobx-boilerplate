@@ -12,6 +12,7 @@ import {
 import RatingsChart from '../components/ratings-chart/ratings-chart';
 import Toggle from '../components/toggle/toggle';
 import AppReviews from '../components/app-reviews/app-reviews';
+import ScreenshotGallery from '../components/screenshot-gallery/screenshot-gallery';
 
 //import mock response from services
 const appDetail = require('../fixtures/mock-app-detail.json');
@@ -24,13 +25,21 @@ export default class AppDetailsPage extends React.Component {
 	constructor(props) {
 		super(props);
 		this.appStore = this.props.store.cardListStore;
-		let psk = this.props.match.params.appId;
-		this.appStore.setCurrentApp(psk);
+	}
+
+	componentDidMount() {
+		if (!this.appStore.currentApp) {
+			this.appStore.setCurrentApp(this.props.match.params.appId);
+		}
 	}
 
 	render() {
+
 		return (
 			<article id="app-details-page">
+
+				{ this.appStore.currentApp &&
+				<div>
         <TitlePane pageTitle="App Details"/>
         <section className="app-summary">
           <div className="container">
@@ -91,8 +100,11 @@ export default class AppDetailsPage extends React.Component {
             </div>
           </div>
         </section>
-				<section className="app-gallery">
-				</section>
+					{(this.appStore.currentApp.screenshots.mobile.length > 0 || this.appStore.currentApp.screenshots.tablet.length > 0) &&
+						<section className='app-gallery'>
+							<ScreenshotGallery screenshots={this.appStore.currentApp.screenshots} />
+						</section>
+					}
         <section className="app-description">
           <div className="container">
             <div className="row">
@@ -113,10 +125,6 @@ export default class AppDetailsPage extends React.Component {
               <div className="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
                 <h2>Reviews</h2>
 								<RatingsChart value={4.1} reviewsTotal={44} data={[14,22,8,5,2]}/>
-								{ appDetail.reviews.length === 0
-									? <div className="content-description">No reviews yet!</div>
-									: <AppReviews reviews={appDetail.reviews} />
-								}
 							</div>
 						</div>
           </div>
@@ -137,7 +145,9 @@ export default class AppDetailsPage extends React.Component {
           </div>
           </div>
         </section>
-      </article>
+			</div>
+			}
+		</article>
 		)
 	}
 }
@@ -145,5 +155,6 @@ export default class AppDetailsPage extends React.Component {
 
 AppDetailsPage.propTypes = {
 	store: PropTypes.object,
-	match: PropTypes.object
+	match: PropTypes.object,
+	currentApp: PropTypes.object
 };
