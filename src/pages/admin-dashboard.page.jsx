@@ -82,7 +82,7 @@ export default class AdminDashboardPage extends React.Component {
 							<nav>
 								<ul>
 									<li className="col-xs-12 col-md-6 col-lg-12">
-										<Link to="/shop-devices" className="dashboard-card has-shadow">
+										<Link to="/shop-devices-rates" className="dashboard-card has-shadow">
 											<div className="desc">
 												<h3>Shop standard devices &amp; rate plans</h3>
 												<p>Add a new device, provision an existing device, add a rate plan, feature(s) and accessories</p>
@@ -91,7 +91,7 @@ export default class AdminDashboardPage extends React.Component {
 										</Link>
 									</li>
 									<li className="col-xs-12 col-md-6 col-lg-12">
-										<Link to="/shop-specialized" className="dashboard-card has-shadow">
+										<Link to="/shop-specialized-devices" className="dashboard-card has-shadow">
 											<div className="desc">
 												<h3>Shop specialized devices</h3>
 												<p>Purchase reggedized devices, vehicle routers, etc.</p>

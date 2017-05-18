@@ -3,13 +3,13 @@ import React from 'react';
 export default class ShopSpecializedPage extends React.Component {
 	render() {
 		return (
-			<article id="shop-specialized-page">
+			<article id="shop-devices-rates-page">
         <div className="container">
           <div className="col-xs-12">
-            <h1>Specialized</h1>
+            <h1>Shop Standard Devices &amp; Rate Plans</h1>
           </div>
           <section className="content-wrapper">
-            <h2>Tools</h2>
+            <h2>This page will go somewhere else.</h2>
           </section>
         </div>
       </article>
