@@ -26,8 +26,12 @@ export default class Checkbox extends React.Component {
 		}
 	}
 
-	doClick() {
-		this.input.click();
+	turnOn() {
+		this.input.checked = true;
+	}
+
+	turnOff() {
+		this.input.checked = false;
 	}
 
 	render() {

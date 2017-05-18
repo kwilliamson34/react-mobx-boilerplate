@@ -24,7 +24,7 @@ export default class AppManagementBlock extends React.Component {
 
 			//turn dependent toggle off if necessary
 			if (!isAvailable && this.props.app.isRecommended) {
-				this.recommendedToggle.doClick();
+				this.recommendedToggle.turnOff();
 			}
 
 			if (isAvailable !== this.props.app.isAvailable) {
