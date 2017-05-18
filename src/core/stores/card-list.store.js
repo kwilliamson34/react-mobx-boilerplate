@@ -27,13 +27,30 @@ class CardListStore {
 		return apiService.getAdminApps().then(success, fail)
 	}
 
-	//TODO: Search results runs thro
-	@action setCurrentApp(psk) {
+
+	//TODO: Ideally should only set PSK. Plan on revising @computed get currentApp to work off proposed allApps array and doing this automatically when allApps has length of 0, rather than making a separate call;
+	@action setCurrentApp(psk){
+    this.currentAppPsk = psk;
+    if(!this.searchResults.length) {
+      let success = (response) => {
+        this.searchResults.push(response[0]);
+        return this.currentApp;
+      }
+
+      let failure = (error) => {
+        console.warn(error);
+      }
+
+      return apiService.getAppDetails(psk).then(success, failure);
+    }
+	}
+
+	@action getAppDetailByPSK(psk) {
 		this.currentAppPsk = psk;
 
 		let success = (response) => {
-			this.searchResults.push(response[0]);
-			return this.currentApp;
+			this.appDetailObj = response[0];
+			this.detailsFetched = true;
 		}
 
 		let failure = (error) => {
@@ -43,6 +60,7 @@ class CardListStore {
 		apiService.getAppDetails(psk).then(success, failure);
 
 	}
+
 
 
 	@action clear() {
@@ -191,11 +209,7 @@ class CardListStore {
 	}
 
 	@computed get isFiltered() {
-		if (this.categoryFilter !== '' || this.segmentFilter !== '' || this.platformFilter !== '') {
-			return true;
-		} else {
-			return false;
-		}
+		return (this.categoryFilter || this.segmentFilter || this.platformFilter)
 	}
 
 	// OBSERVABLES
@@ -209,6 +223,8 @@ class CardListStore {
 	@observable searchQuery = '';
 	@observable isLoading = false;
 	@observable currentAppPsk = '';
+	@observable appDetailObj = {};
+	@observable detailsFetched = false;
 
 	@observable platforms = [{
 			title: 'Platform',

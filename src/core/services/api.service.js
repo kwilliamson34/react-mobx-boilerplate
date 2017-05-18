@@ -39,7 +39,7 @@ class ApiService {
       }).then(res => {
         let arrayRes = [];
         arrayRes.push(res.data);
-        return utilsService.conditionData(arrayRes);
+        return arrayRes;
       });
     }
 
