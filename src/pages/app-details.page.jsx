@@ -20,7 +20,7 @@ export default class AppDetailsPage extends React.Component {
 		this.appStore = this.props.store.cardListStore;
 	}
 
-	componentDidMount() {
+	componentWillMount() {
 		this.appStore.getAppDetailByPSK(this.props.match.params.appId);
 	}
 
