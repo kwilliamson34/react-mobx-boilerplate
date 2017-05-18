@@ -1,0 +1,131 @@
+exports[`<Checkbox /> renders matches previous snapshot 1`] = `
+<div
+  className="checkbox ">
+  <label>
+    <input
+      aria-disabled={undefined}
+      className=""
+      defaultChecked={undefined}
+      id={undefined}
+      onChange={[Function bound onChange]}
+      type="checkbox"
+      value="testVal" />
+    <span
+      className="cr" />
+    <span
+      className="layer-label">
+      testLabel
+    </span>
+  </label>
+</div>
+`;
+
+exports[`<Checkbox /> renders matches previous snapshot 2`] = `
+<div
+  className="checkbox ">
+  <label>
+    <input
+      aria-disabled={undefined}
+      className=""
+      defaultChecked={true}
+      id={undefined}
+      onChange={[Function bound onChange]}
+      type="checkbox"
+      value="testVal" />
+    <span
+      className="cr" />
+    <span
+      className="layer-label">
+      testLabel
+    </span>
+  </label>
+</div>
+`;
+
+exports[`<Checkbox /> renders matches previous snapshot 3`] = `
+<div
+  className="checkbox ">
+  <label>
+    <input
+      aria-disabled={undefined}
+      className=""
+      defaultChecked={false}
+      id={undefined}
+      onChange={[Function bound onChange]}
+      type="checkbox"
+      value="testVal" />
+    <span
+      className="cr" />
+    <span
+      className="layer-label">
+      testLabel
+    </span>
+  </label>
+</div>
+`;
+
+exports[`<Checkbox /> renders matches previous snapshot 4`] = `
+<div
+  className="checkbox ">
+  <label>
+    <input
+      aria-disabled={undefined}
+      className=""
+      defaultChecked={false}
+      id={undefined}
+      onChange={[Function bound onChange]}
+      type="checkbox"
+      value="testVal" />
+    <span
+      className="cr" />
+    <span
+      className="layer-label">
+      testLabel
+    </span>
+  </label>
+</div>
+`;
+
+exports[`<Checkbox /> renders matches previous snapshot 5`] = `
+<div
+  className="checkbox disabled">
+  <label>
+    <input
+      aria-disabled={true}
+      className="disabled"
+      defaultChecked={false}
+      id={undefined}
+      onChange={[Function bound onChange]}
+      type="checkbox"
+      value="testVal" />
+    <span
+      className="cr" />
+    <span
+      className="layer-label">
+      testLabel
+    </span>
+  </label>
+</div>
+`;
+
+exports[`<Checkbox /> renders matches previous snapshot 6`] = `
+<div
+  className="checkbox ">
+  <label>
+    <input
+      aria-disabled={false}
+      className=""
+      defaultChecked={false}
+      id={undefined}
+      onChange={[Function bound onChange]}
+      type="checkbox"
+      value="testVal" />
+    <span
+      className="cr" />
+    <span
+      className="layer-label">
+      testLabel
+    </span>
+  </label>
+</div>
+`;
