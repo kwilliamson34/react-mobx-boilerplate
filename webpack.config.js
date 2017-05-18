@@ -43,7 +43,8 @@ module.exports = {
 		publicPath: '/',
 		proxy: {
 			'/api': {
-				target: 'http://pse-qa.sapientfirst.net'
+				target: 'https://pse-qa.sapientfirst.net',
+				secure: false
 			}
 		}
 	},
