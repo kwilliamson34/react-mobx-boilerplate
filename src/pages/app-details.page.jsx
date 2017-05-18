@@ -5,9 +5,9 @@ import { observer, inject } from 'mobx-react';
 import TitlePane from '../components/title-pane/title-pane';
 import { Rating } from '../components/rating/rating';
 import RatingsChart from '../components/ratings-chart/ratings-chart';
-import Toggle from '../components/toggle/toggle';
 import AppReviews from '../components/app-reviews/app-reviews';
 import ScreenshotGallery from '../components/screenshot-gallery/screenshot-gallery';
+import AppManagementBlock from '../components/app-management-block/app-management-block';
 
 //import mock response from services
 const appDetail = require('../fixtures/mock-app-detail.json');
@@ -78,17 +78,10 @@ export default class AppDetailsPage extends React.Component {
                   </ul>
                 </div>
               </div>
-                <div className="col-xs-12 col-sm-4 col-lg-3 app-actions">
-                  <div>
-                    <Toggle id="toggle-available" label="Available" defaultOn={this.appStore.currentApp.isAvailable} />
-                  </div>
-                  <div>
-                    <Toggle id="toggle-recommended" label="Recommended" defaultOn={this.appStore.currentApp.isRecommended} />
-                  </div>
-                  <div>
-                    <button type="button" className="fn-primary">Push to MDM</button>
-                  </div>
-                </div>
+							<AppManagementBlock app={this.appStore.currentApp} appManagementActions={{
+								changeAppAvailability: this.appStore.changeAppAvailability.bind(this.appStore),
+								changeAppRecommended: this.appStore.changeAppRecommended.bind(this.appStore)
+							}}/>
             </div>
           </div>
         </section>

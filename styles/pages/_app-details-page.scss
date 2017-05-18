@@ -57,10 +57,14 @@
   }
 
   .app-ratings {
-
     padding: 70px 0 50px;
     background: $fn-white;
+  }
 
+  .app-management {
+    float: right;
+    background-color: transparent;
+    border: none;
   }
 
   .developer-website {
