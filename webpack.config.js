@@ -49,7 +49,8 @@ module.exports = {
 		publicPath: '/',
 		proxy: {
 			'/api': {
-				target: 'http://pse-qa.sapientfirst.net'
+				target: 'https://pse-qa.sapientfirst.net',
+				secure: false
 			}
 		}
 	},
@@ -132,7 +133,7 @@ module.exports = {
 	},
 	plugins: [
 		new webpack.IgnorePlugin(/regenerator|nodent|js-beautify/, /ajv/),
-		
+
 		new webpack.HotModuleReplacementPlugin(),
 		// enable HMR globally
 
