@@ -6,12 +6,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const precss = require("precss");
 const autoprefixer = require("autoprefixer");
 
-const PATHS = {
-	app: path.join(__dirname, 'app'),
-	build: path.join(__dirname, 'build'),
-	hotStatic: '/static/'
-};
-
 module.exports = {
 	context: path.resolve(__dirname, 'src'),
 	entry: [
