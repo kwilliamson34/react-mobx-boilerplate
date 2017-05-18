@@ -57,6 +57,10 @@ export default class App extends React.Component {
 		super(props);
 	}
 
+	componentWillMount() {
+		pseMasterStore.validateUser();
+	}
+
 	render() {
 		const AppHub = ({
 			match
@@ -79,12 +83,6 @@ export default class App extends React.Component {
 				</div>
 			)
 		}
-
-		// if( document.cookie.indexOf("cookiename=") < 0) {
-		// 	alert("Cookie not found, redirecting you.");
-		// 	window.location.replace('http://url');
-		// }
-		console.log(document.cookie)
 
 		return (
 			<Router>

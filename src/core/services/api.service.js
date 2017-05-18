@@ -8,8 +8,10 @@ const base = '/api'
 const pseId = '123';
 
 class ApiService {
-    loadUserData() {
-        return axios.get('http://localhost:3000/user');
+    validateUserData() {
+        return axios.get(`${base}/user/profile`, {
+          withCredentials: true
+      });
     }
 
     getSearchResults(query) {
