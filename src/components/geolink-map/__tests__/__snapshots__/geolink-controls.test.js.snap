@@ -46,6 +46,82 @@ exports[`<GeolinkControls /> renders matches previous snapshot 1`] = `
           className="sr-only">
           Coverage layers
         </legend>
+        <div
+          className="checkbox ">
+          <label>
+            <input
+              aria-disabled={undefined}
+              className=""
+              defaultChecked={false}
+              id="network-toggle"
+              onChange={[Function bound onChange]}
+              type="checkbox"
+              value="Network" />
+            <span
+              className="cr" />
+            <span
+              className="layer-label">
+              Network
+            </span>
+          </label>
+        </div>
+        <div
+          className="checkbox ">
+          <label>
+            <input
+              aria-disabled={undefined}
+              className=""
+              defaultChecked={true}
+              id="traffic-toggle"
+              onChange={[Function bound onChange]}
+              type="checkbox"
+              value="Traffic" />
+            <span
+              className="cr" />
+            <span
+              className="layer-label">
+              Traffic
+            </span>
+          </label>
+        </div>
+        <div
+          className="checkbox ">
+          <label>
+            <input
+              aria-disabled={undefined}
+              className=""
+              defaultChecked={true}
+              id="weather-toggle"
+              onChange={[Function bound onChange]}
+              type="checkbox"
+              value="Weather" />
+            <span
+              className="cr" />
+            <span
+              className="layer-label">
+              Weather
+            </span>
+          </label>
+        </div>
+        <div
+          className="checkbox ">
+          <label>
+            <input
+              aria-disabled={undefined}
+              className=""
+              defaultChecked={false}
+              id="alerts-toggle"
+              onChange={[Function bound onChange]}
+              type="checkbox"
+              value="Alerts" />
+            <span
+              className="cr" />
+            <span
+              className="layer-label">
+              Alerts
+            </span>
+          </label>
+        </div>
       </fieldset>
     </form>
   </div>
@@ -53,13 +129,20 @@ exports[`<GeolinkControls /> renders matches previous snapshot 1`] = `
     className="col-xs-12 col-sm-4">
     <article>
       <p>
-        TBD Links go here
+        Report coverage issue
       </p>
-      <p>
-        TBD Links go here
+      <p
+        className="as-link red">
+        Emergency 1-800-GET-HELP
       </p>
-      <p>
-        TBD Links go here
+      <p
+        className="as-link">
+        Non-emergency
+      </p>
+      <hr />
+      <p
+        className="as-link">
+        Subscribe to Network Alerts
       </p>
     </article>
   </div>
