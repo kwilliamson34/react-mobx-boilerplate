@@ -57,7 +57,7 @@ class MDMStore {
     @action setMDMConfiguration() {
         if (this.formIsValid) {
             let locationObj = {
-                'pse_id': 'string',
+                'pseId': 'string',
                 'mdm': this.mdm,
                 'endpoint': this.endpoint,
                 'apiKey': this.apiKey
