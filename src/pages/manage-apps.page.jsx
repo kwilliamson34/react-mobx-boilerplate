@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {inject, observer} from 'mobx-react';
+import {Link} from 'react-router-dom';
 
 import TitlePane from '../components/title-pane/title-pane';
 import { CardList } from '../components/card-list/card-list';
@@ -49,6 +50,13 @@ export default class ManageAppsPage extends React.Component {
 		return (
 			<article id="manage-apps-page">
 				<TitlePane pageTitle="Manage Apps" />
+				<div className="container">
+					<div className="row">
+						<div className="col-xs-12 text-right add-margin-vertical">
+							<Link to="/admin/configure-mdm" className="fn-primary">Configure MDM</Link>
+						</div>
+					</div>
+				</div>
 				<section className="">
 					<div className="container manage-apps">
 						<div className="row">
