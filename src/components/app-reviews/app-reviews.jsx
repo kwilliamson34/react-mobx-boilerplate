@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
 import { observable } from 'mobx';
 
-import { Rating } from '../rating/rating.jsx';
+import { Rating } from '../rating/rating';
 import TruncateComment from '../truncate-comment/truncate-comment';
 
 @observer
@@ -27,6 +27,7 @@ export default class AppReviews extends React.Component {
     super();
     this.loadReviews = this.loadReviews.bind(this);
     this.loadMoreButton = this.loadMoreButton.bind(this);
+    this.renderReviews = this.renderReviews.bind(this);
   }
 
   paginationCount = 0;
@@ -80,8 +81,8 @@ export default class AppReviews extends React.Component {
 
   return (
     <div className='reviews-container'>
-      { this.renderReviews(this.loadedReviewsArray) }
-      { this.showLoadMoreButton && this.loadMoreButton() }
+      {this.renderReviews(this.loadedReviewsArray)}
+      {this.showLoadMoreButton && this.loadMoreButton()}
     </div>
   )
 

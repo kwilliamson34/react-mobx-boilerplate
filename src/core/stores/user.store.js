@@ -1,6 +1,5 @@
 import { observable, action, computed } from 'mobx';
 import { apiService } from '../services/api.service';
-import _ from 'lodash';
 
 class UserStore {
 
@@ -12,8 +11,8 @@ class UserStore {
             this.initUserObject(usr_tkn);
             this.checkPermissions();
         }
-        const fail = (err) => {
-            window.location.replace("https://oidc.stage.flogin.att.com/isam/oidc/endpoint/amapp-runtime-SSPRS/authorize?response_type=id_token+token&client_id=m11635&state=FWpMHzl61gXfcnMmwkp4&&scope=openid&nonce=dsZHN5kvm2a4cVIA0ZdN&response_mode=form_post");
+        const fail = () => {
+            window.location.replace('https://oidc.stage.flogin.att.com/isam/oidc/endpoint/amapp-runtime-SSPRS/authorize?response_type=id_token+token&client_id=m11635&state=FWpMHzl61gXfcnMmwkp4&&scope=openid&nonce=dsZHN5kvm2a4cVIA0ZdN&response_mode=form_post');
         }
         return apiService.validateUserData(this.user_token).then(success, fail);
     }
@@ -35,7 +34,7 @@ class UserStore {
 	}
 
     initUserObject(tk_response) {
-        let tk_array = tk_response.split(".");
+        let tk_array = tk_response.split('.');
         let user_obj = JSON.parse(window.atob(tk_array[1]));
 
         this.user = user_obj;

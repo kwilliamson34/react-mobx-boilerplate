@@ -4,7 +4,6 @@ import {
 	observable,
 	extendObservable
 } from 'mobx';
-import { apiService } from '../services/api.service';
 
 // import { searchStore } from './search.store';
 import {
@@ -19,6 +18,9 @@ import {
 import {
 	geolinkStore
 } from './geolink.store';
+import {
+	mdmStore
+} from './mdm.store';
 
 class PSEStore {
 
@@ -28,6 +30,7 @@ class PSEStore {
 		this.cardListStore = cardListStore;
 		this.externalContentStore = mpStore;
 		this.geolinkStore = geolinkStore;
+		this.mdmStore = mdmStore;
 	}
 
 	// ACTIONS

@@ -20,8 +20,12 @@ class ApiService {
     getSearchResults(query, user_token) {
       let endpoint = query
         ? `${base}/apps/admin/search?searchTxt=${query}&pseId=${pseId}`
-        : `${base}/apps/admin?pseid=${pseId}`
-      return axios.get(endpoint).then((res) => {
+        : `${base}/apps/admin?pseId=${pseId}`
+      return axios.get(endpoint, {
+          headers: {
+            'x-auth-token': user_token
+          }
+        }).then((res) => {
         return utilsService.conditionData(res.data.applications);
       });
     }
