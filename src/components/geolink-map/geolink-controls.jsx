@@ -1,5 +1,5 @@
 import React from 'react';
-import GeolinkLayerToggle from './geolink-layer-toggle';
+import Checkbox from '../toggle/checkbox';
 import PropTypes from 'prop-types';
 
 export default class GeolinkControls extends React.Component {
@@ -16,6 +16,7 @@ export default class GeolinkControls extends React.Component {
     this.toggleNetwork = this.toggleNetwork.bind(this);
     this.toggleTraffic = this.toggleTraffic.bind(this);
     this.toggleWeather = this.toggleWeather.bind(this);
+    this.toggleAlerts = this.toggleAlerts.bind(this);
   }
 
   handleSearchInput(event) {
@@ -36,15 +37,17 @@ export default class GeolinkControls extends React.Component {
   toggleNetwork(event) {
     if (event.target.type === 'checkbox') {
       if(event.target.checked) {
-        this.props.geolinkStore.addAllCoverageLayers();
+        this.props.geolinkStore.addAllNetworkLayers();
       } else {
-        this.props.geolinkStore.removeAllCoverageLayers();
+        this.props.geolinkStore.removeAllNetworkLayers();
       }
     }
   }
 
-  toggleTraffic() {
-    this.props.geolinkStore.toggleTraffic();
+  toggleTraffic(event) {
+    if (event.target.type === 'checkbox') {
+      this.props.geolinkStore.toggleTraffic();
+    }
   }
 
   toggleWeather(event) {
@@ -57,14 +60,20 @@ export default class GeolinkControls extends React.Component {
     }
   }
 
+  toggleAlerts(event){
+    if (event.target.type === 'checkbox') {
+      this.props.geolinkStore.toggleAlerts(event.target.checked);
+    }
+  }
+
   render() {
     return (
       <section className="geolink-controls">
         <div className="col-xs-12 col-sm-4">
           <form className="form-group search-input">
-            <label className="control-label">Location</label>
+            <label htmlFor="geo-search" className="control-label">Location</label>
             <span className="input-group">
-              <input type="text" className="form-control" onChange={this.handleSearchInput} onKeyPress={this.handleSearchKeyPress}/>
+              <input id="geo-search" type="text" className="form-control" onChange={this.handleSearchInput} onKeyPress={this.handleSearchKeyPress}/>
               <span className="input-group-btn">
                 <button type="button" className="btn btn-default" onClick={this.handleSearchSubmit}>
                   <span className='sr-only'>Search for locations</span>
@@ -78,17 +87,20 @@ export default class GeolinkControls extends React.Component {
           <form className="form-group">
             <fieldset>
               <legend className="sr-only">Coverage layers</legend>
-              <GeolinkLayerToggle value='Network' label='Network' onClick={this.toggleNetwork} defaultOn={true}/>
-              <GeolinkLayerToggle value='Traffic' label='Traffic' onClick={this.toggleTraffic} defaultOn={false}/>
-              <GeolinkLayerToggle value='Weather' label='Weather' onClick={this.toggleWeather} defaultOn={false}/>
+              <Checkbox id='network-toggle' value='Network' label='Network' onChange={this.toggleNetwork} defaultOn={false}/>
+              <Checkbox id='traffic-toggle' value='Traffic' label='Traffic' onChange={this.toggleTraffic} defaultOn={true}/>
+              <Checkbox id='weather-toggle' value='Weather' label='Weather' onChange={this.toggleWeather} defaultOn={true}/>
+              <Checkbox id='alerts-toggle' value='Alerts' label='Alerts' onChange={this.toggleAlerts} defaultOn={false}/>
             </fieldset>
           </form>
         </div>
         <div className="col-xs-12 col-sm-4">
           <article>
-            <p>TBD Links go here</p>
-            <p>TBD Links go here</p>
-            <p>TBD Links go here</p>
+            <p>Report coverage issue</p>
+            <p className="as-link red">Emergency 1-800-GET-HELP</p>
+            <p className="as-link">Non-emergency</p>
+            <hr/>
+            <p className="as-link">Subscribe to Network Alerts</p>
           </article>
         </div>
       </section>

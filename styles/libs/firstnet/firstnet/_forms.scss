@@ -66,9 +66,9 @@ select {
     padding: 0 0.75em;
     color: black;
     font-weight: $fn-bold-weight;
-    background: $fn-ltgrey url('/assets/svg/DownArrow.svg') no-repeat;
+    background: $fn-ltgrey url('/images/DownArrow.svg') no-repeat;
     background-size: 14px 14px;
-    background-position: 96% 48%;
+    background-position: 90% 48%;
   }
 }
 
@@ -112,16 +112,17 @@ legend {
   .cr {
     position: relative;
     display: inline-block;
-    width: 16px;
-    height: 32px;
+    width: 20px;
+    height: 20px;
     float: left;
-    margin-right: 0.5em;
+    margin: 8px 8px 8px 2px;
   }
   //keyboard-only fallback
   input[type="radio"],
   input[type="checkbox"] {
     @include sr-only;
     &:focus +.cr {
+      margin: 6px 10px 10px 0;
       @include focus();
     }
   }
@@ -132,14 +133,14 @@ legend {
     &+ .cr {
       background: url('/images/radio-unchecked.svg') no-repeat;
       background-size: 16px 16px;
-      background-position: 0 8px;
+      background-position: 0 0;
     }
 
     &:disabled {
       &+ .cr {
         background: url('/images/radio-unchecked-disabled.svg') no-repeat;
         background-size: 16px 16px;
-        background-position: 0 8px;
+        background-position: 0 0;
       }
     }
 
@@ -147,14 +148,14 @@ legend {
       &+ .cr {
         background: url('/images/radio-checked.svg') no-repeat;
         background-size: 16px 16px;
-        background-position: 0 8px;
+        background-position: 0 0;
       }
 
       &:disabled {
         &+ .cr {
           background: url('/images/radio-checked-disabled.svg') no-repeat;
           background-size: 16px 16px;
-          background-position: 0 8px;
+          background-position: 0 0;
         }
       }
     }
@@ -166,14 +167,15 @@ legend {
     &+ .cr {
       background: url('/images/chkbox.svg') no-repeat;
       background-size: 16px 16px;
-      background-position: 0 8px;
+      background-position: 0 0;
     }
 
-    &:disabled {
+    &:disabled,
+    &.disabled {
       &+ .cr {
         background: url('/images/chkbox-disabled.svg') no-repeat;
         background-size: 16px 16px;
-        background-position: 0 8px;
+        background-position: 0 0;
       }
     }
 
@@ -181,14 +183,15 @@ legend {
       &+ .cr {
         background: url('/images/chkbox-checked.svg') no-repeat;
         background-size: 16px 16px;
-        background-position: 0 8px;
+        background-position: 0 0;
       }
 
-      &:disabled {
+      &:disabled,
+      &.disabled {
         &+ .cr {
           background: url('/images/chkbox-checked-disabled.svg') no-repeat;
           background-size: 16px 16px;
-          background-position: 0 8px;
+          background-position: 0 0;
         }
       }
     }

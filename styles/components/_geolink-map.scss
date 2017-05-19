@@ -9,7 +9,6 @@ $search-border-radius: 4px;
   .map-wrapper {
     height: $map-height;
     padding: 0;
-    background: $fn-grey url("/images/placeholder-image.jpg") no-repeat center;
 
     iframe {
       width: 100%;
@@ -24,13 +23,20 @@ $search-border-radius: 4px;
 }
 
 .geolink-controls {
-  min-height: 180px;
   background-color: $fn-ltgrey;
   margin-bottom: 20px;
 
   .search-input button,
   .search-input input {
     height: 48px;
+  }
+
+  .search-input input {
+    background-color: white;
+  }
+
+  .checkbox label {
+    padding-left: 0;
   }
 
   [class*=' col-'] {
@@ -42,6 +48,16 @@ $search-border-radius: 4px;
       margin: 20px 0;
       padding: 0 40px;
     }
+  }
+
+  p.as-link {
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  hr {
+    border-color: $fn-grey;
+    border-width: 2px;
   }
 }
 /**********************************************/
@@ -69,7 +85,7 @@ $search-border-radius: 4px;
       [class*=' col-'] {
         article,
         form {
-          min-height: 140px;
+          min-height: 200px;
           border-right: 2px solid $fn-grey;
           margin: 20px 0;
           padding: 0 40px;

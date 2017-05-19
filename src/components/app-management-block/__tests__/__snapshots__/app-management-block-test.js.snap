@@ -1,0 +1,219 @@
+exports[`<AppManagementBlock /> render matches snapshots with all group combinations 1`] = `
+<div>
+  <div
+    className="app-management">
+    <div
+      className="checkbox ">
+      <label>
+        <input
+          aria-disabled={undefined}
+          className=""
+          defaultChecked={false}
+          id="Available-123"
+          onChange={[Function bound onChange]}
+          type="checkbox"
+          value="Available" />
+        <span
+          className="cr" />
+        <span
+          className="layer-label">
+          Available
+        </span>
+      </label>
+    </div>
+    <div
+      className="checkbox disabled">
+      <label>
+        <input
+          aria-disabled={true}
+          className="disabled"
+          defaultChecked={false}
+          id="Recommended-123"
+          onChange={[Function bound onChange]}
+          type="checkbox"
+          value="Recommended" />
+        <span
+          className="cr" />
+        <span
+          className="layer-label">
+          Recommended
+        </span>
+      </label>
+    </div>
+    <a
+      href="/mdm"
+      onClick={[Function anonymous]}>
+      <button
+        className="fn-primary"
+        tabIndex="-1">
+        Push to MDM
+      </button>
+    </a>
+  </div>
+</div>
+`;
+
+exports[`<AppManagementBlock /> render matches snapshots with all group combinations 2`] = `
+<div>
+  <div
+    className="app-management">
+    <div
+      className="checkbox ">
+      <label>
+        <input
+          aria-disabled={undefined}
+          className=""
+          defaultChecked={true}
+          id="Available-123"
+          onChange={[Function bound onChange]}
+          type="checkbox"
+          value="Available" />
+        <span
+          className="cr" />
+        <span
+          className="layer-label">
+          Available
+        </span>
+      </label>
+    </div>
+    <div
+      className="checkbox ">
+      <label>
+        <input
+          aria-disabled={false}
+          className=""
+          defaultChecked={false}
+          id="Recommended-123"
+          onChange={[Function bound onChange]}
+          type="checkbox"
+          value="Recommended" />
+        <span
+          className="cr" />
+        <span
+          className="layer-label">
+          Recommended
+        </span>
+      </label>
+    </div>
+    <a
+      href="/mdm"
+      onClick={[Function anonymous]}>
+      <button
+        className="fn-primary"
+        tabIndex="-1">
+        Push to MDM
+      </button>
+    </a>
+  </div>
+</div>
+`;
+
+exports[`<AppManagementBlock /> render matches snapshots with all group combinations 3`] = `
+<div>
+  <div
+    className="app-management">
+    <div
+      className="checkbox ">
+      <label>
+        <input
+          aria-disabled={undefined}
+          className=""
+          defaultChecked={true}
+          id="Available-123"
+          onChange={[Function bound onChange]}
+          type="checkbox"
+          value="Available" />
+        <span
+          className="cr" />
+        <span
+          className="layer-label">
+          Available
+        </span>
+      </label>
+    </div>
+    <div
+      className="checkbox ">
+      <label>
+        <input
+          aria-disabled={false}
+          className=""
+          defaultChecked={true}
+          id="Recommended-123"
+          onChange={[Function bound onChange]}
+          type="checkbox"
+          value="Recommended" />
+        <span
+          className="cr" />
+        <span
+          className="layer-label">
+          Recommended
+        </span>
+      </label>
+    </div>
+    <a
+      href="/mdm"
+      onClick={[Function anonymous]}>
+      <button
+        className="fn-primary"
+        tabIndex="-1">
+        Push to MDM
+      </button>
+    </a>
+  </div>
+</div>
+`;
+
+exports[`<AppManagementBlock /> render matches snapshots with all group combinations 4`] = `
+<div>
+  <div
+    className="app-management">
+    <div
+      className="checkbox ">
+      <label>
+        <input
+          aria-disabled={undefined}
+          className=""
+          defaultChecked={false}
+          id="Available-123"
+          onChange={[Function bound onChange]}
+          type="checkbox"
+          value="Available" />
+        <span
+          className="cr" />
+        <span
+          className="layer-label">
+          Available
+        </span>
+      </label>
+    </div>
+    <div
+      className="checkbox disabled">
+      <label>
+        <input
+          aria-disabled={true}
+          className="disabled"
+          defaultChecked={true}
+          id="Recommended-123"
+          onChange={[Function bound onChange]}
+          type="checkbox"
+          value="Recommended" />
+        <span
+          className="cr" />
+        <span
+          className="layer-label">
+          Recommended
+        </span>
+      </label>
+    </div>
+    <a
+      href="/mdm"
+      onClick={[Function anonymous]}>
+      <button
+        className="fn-primary"
+        tabIndex="-1">
+        Push to MDM
+      </button>
+    </a>
+  </div>
+</div>
+`;

@@ -40,8 +40,8 @@ import AdminDashboardPage from './pages/admin-dashboard.page';
 import ConfigureMDM from './pages/configure-mdm.page';
 
 //MP pages
-import ShopDevicesPage from './pages/shop-devices.page'
-import ShopSpecializedPage from './pages/shop-specialized.page';
+import ShopDevicesPage from './pages/shop-devices-rates.page'
+import ShopSpecializedDevicesPage from './pages/shop-specialized-devices.page';
 import ShopSolutionsPage from './pages/shop-solutions.page';
 
 //content pages
@@ -102,8 +102,8 @@ export default class App extends React.Component {
 									<Route path="/admin/manage-wireless-reports" component={ManageWirelessReportsPage} />
 									<Route path="/admin" component={AdminDashboardPage} />
 									<Route path="/app" component={AppHub} />
-									<Route path="/shop-devices" component={ShopDevicesPage} />
-									<Route path="/shop-specialized" component={ShopSpecializedPage} />
+									<Route path="/shop-devices-rates" component={ShopDevicesPage} />
+									<Route path="/shop-specialized-devices" component={ShopSpecializedDevicesPage} />
 									<Route path="/shop-solutions" component={ShopSolutionsPage} />
 									<Route path="/help-center" component={HelpCenterPage} />
 									<Route component={NoMatch}/>

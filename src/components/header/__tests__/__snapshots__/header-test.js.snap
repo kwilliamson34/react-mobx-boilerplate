@@ -1,0 +1,683 @@
+exports[`<PSEHeader /> render matches snapshot when header store is not initialized 1`] = `
+<header
+  className="fnnav pse"
+  role="banner">
+  <div
+    className="fnnav__mainbar">
+    <div
+      className="container">
+      <div
+        className="row">
+        <div
+          className="fnnav__header">
+          <div
+            className="fnnav__brand">
+            <a
+              href="/"
+              onClick={[Function anonymous]}>
+              <img
+                alt="FirstNet Logo"
+                src="/images/logo-FirstNet-local-control.svg" />
+              <span
+                className="sr-only">
+                Go Home
+              </span>
+            </a>
+          </div>
+          <button
+            aria-expanded={undefined}
+            aria-haspopup="true"
+            className="navbar-toggle"
+            onClick={[Function anonymous]}
+            type="button">
+            <span
+              className="sr-only">
+              Toggle navigation
+            </span>
+            <span
+              className="icon-bar" />
+            <span
+              className="icon-bar" />
+            <span
+              className="icon-bar" />
+          </button>
+        </div>
+        <nav
+          aria-hidden={true}
+          aria-label="Main Menu"
+          id="main-menu">
+          <ul
+            className="fnnav__main">
+            <li
+              className="mainnav-item blue"
+              role="presentation">
+              <button
+                aria-expanded="false"
+                aria-haspopup="true"
+                className="btnSubmenu"
+                data-target="#pse-profile-nav"
+                data-toggle="collapse">
+                <span
+                  className="sr-only">
+                  Expand Section Navigation
+                </span>
+              </button>
+              <a
+                href="#profile"
+                id="pse-profile">
+                <i
+                  aria-hidden="true"
+                  className="icon-profile" />
+                Lois Lane
+              </a>
+              <ul
+                aria-labelledby="pse-profile"
+                className="collapse"
+                id="pse-profile-nav">
+                <li
+                  role="presentation">
+                  <a
+                    href="#manage-account"
+                    onClick={[Function anonymous]}>
+                    Manage My Account
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    href="#change-password"
+                    onClick={[Function anonymous]}>
+                    Change Password
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    href="#config-location"
+                    onClick={[Function anonymous]}>
+                    Configure Location
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    href="#config-news"
+                    onClick={[Function anonymous]}>
+                    Configure News
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    href="#config-mdm"
+                    onClick={[Function anonymous]}>
+                    Configure MDM
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    href="#log-out"
+                    onClick={[Function anonymous]}>
+                    <i
+                      aria-hidden="true"
+                      className="icon-logout" />
+                    Log Out
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li
+              className="mainnav-item"
+              role="presentation">
+              <button
+                aria-expanded="false"
+                aria-haspopup="true"
+                className="btnSubmenu"
+                data-target="#pse-admin-nav"
+                data-toggle="collapse">
+                <span
+                  className="sr-only">
+                  Expand Section Navigation
+                </span>
+              </button>
+              <a
+                href="/admin"
+                id="linkBtn-admin"
+                onClick={[Function anonymous]}
+                role="button">
+                Administration Dashboard
+              </a>
+              <ul
+                aria-labelledby="linkBtn-admin"
+                className="collapse"
+                id="pse-admin-nav">
+                <li
+                  role="presentation">
+                  <a
+                    href="/manage-apps"
+                    onClick={[Function anonymous]}>
+                    Manage Apps
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li
+              className="mainnav-item"
+              role="presentation">
+              <button
+                aria-expanded="false"
+                aria-haspopup="true"
+                className="btnSubmenu"
+                data-target="#pse-helpcenter-nav"
+                data-toggle="collapse">
+                <span
+                  className="sr-only">
+                  Expand Section Navigation
+                </span>
+              </button>
+              <a
+                href="/help-center"
+                id="linkBtn-help-center"
+                onClick={[Function anonymous]}>
+                Help Center
+              </a>
+              <ul
+                aria-labelledby="linkBtn-help-center"
+                className="collapse"
+                id="pse-helpcenter-nav">
+                <li
+                  role="presentation">
+                  <a
+                    href="#faq"
+                    onClick={[Function anonymous]}>
+                    FAQ
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    href="#provide-feedback"
+                    onClick={[Function anonymous]}>
+                    Provide Feedback
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    href="#contact-us"
+                    onClick={[Function anonymous]}>
+                    Contact Us
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li
+              className="mainnav-item pse-selector"
+              role="presentation" />
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <div
+    className="pageMask hidden-md hidden-lg"
+    onClick={[Function anonymous]} />
+</header>
+`;
+
+exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
+<header
+  className="fnnav pse"
+  role="banner">
+  <div
+    className="fnnav__mainbar">
+    <div
+      className="container">
+      <div
+        className="row">
+        <div
+          className="fnnav__header">
+          <div
+            className="fnnav__brand">
+            <a
+              href="/"
+              onClick={[Function anonymous]}>
+              <img
+                alt="FirstNet Logo"
+                src="/images/logo-FirstNet-local-control.svg" />
+              <span
+                className="sr-only">
+                Go Home
+              </span>
+            </a>
+          </div>
+          <button
+            aria-expanded={false}
+            aria-haspopup="true"
+            className="navbar-toggle"
+            onClick={[Function anonymous]}
+            type="button">
+            <span
+              className="sr-only">
+              Toggle navigation
+            </span>
+            <span
+              className="icon-bar" />
+            <span
+              className="icon-bar" />
+            <span
+              className="icon-bar" />
+          </button>
+        </div>
+        <nav
+          aria-hidden={true}
+          aria-label="Main Menu"
+          id="main-menu">
+          <ul
+            className="fnnav__main">
+            <li
+              className="mainnav-item blue"
+              role="presentation">
+              <button
+                aria-expanded="false"
+                aria-haspopup="true"
+                className="btnSubmenu"
+                data-target="#pse-profile-nav"
+                data-toggle="collapse">
+                <span
+                  className="sr-only">
+                  Expand Section Navigation
+                </span>
+              </button>
+              <a
+                href="#profile"
+                id="pse-profile">
+                <i
+                  aria-hidden="true"
+                  className="icon-profile" />
+                Lois Lane
+              </a>
+              <ul
+                aria-labelledby="pse-profile"
+                className="collapse"
+                id="pse-profile-nav">
+                <li
+                  role="presentation">
+                  <a
+                    href="#manage-account"
+                    onClick={[Function anonymous]}>
+                    Manage My Account
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    href="#change-password"
+                    onClick={[Function anonymous]}>
+                    Change Password
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    href="#config-location"
+                    onClick={[Function anonymous]}>
+                    Configure Location
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    href="#config-news"
+                    onClick={[Function anonymous]}>
+                    Configure News
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    href="#config-mdm"
+                    onClick={[Function anonymous]}>
+                    Configure MDM
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    href="#log-out"
+                    onClick={[Function anonymous]}>
+                    <i
+                      aria-hidden="true"
+                      className="icon-logout" />
+                    Log Out
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li
+              className="mainnav-item"
+              role="presentation">
+              <button
+                aria-expanded="false"
+                aria-haspopup="true"
+                className="btnSubmenu"
+                data-target="#pse-admin-nav"
+                data-toggle="collapse">
+                <span
+                  className="sr-only">
+                  Expand Section Navigation
+                </span>
+              </button>
+              <a
+                href="/admin"
+                id="linkBtn-admin"
+                onClick={[Function anonymous]}
+                role="button">
+                Administration Dashboard
+              </a>
+              <ul
+                aria-labelledby="linkBtn-admin"
+                className="collapse"
+                id="pse-admin-nav">
+                <li
+                  role="presentation">
+                  <a
+                    href="/manage-apps"
+                    onClick={[Function anonymous]}>
+                    Manage Apps
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li
+              className="mainnav-item"
+              role="presentation">
+              <button
+                aria-expanded="false"
+                aria-haspopup="true"
+                className="btnSubmenu"
+                data-target="#pse-helpcenter-nav"
+                data-toggle="collapse">
+                <span
+                  className="sr-only">
+                  Expand Section Navigation
+                </span>
+              </button>
+              <a
+                href="/help-center"
+                id="linkBtn-help-center"
+                onClick={[Function anonymous]}>
+                Help Center
+              </a>
+              <ul
+                aria-labelledby="linkBtn-help-center"
+                className="collapse"
+                id="pse-helpcenter-nav">
+                <li
+                  role="presentation">
+                  <a
+                    href="#faq"
+                    onClick={[Function anonymous]}>
+                    FAQ
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    href="#provide-feedback"
+                    onClick={[Function anonymous]}>
+                    Provide Feedback
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    href="#contact-us"
+                    onClick={[Function anonymous]}>
+                    Contact Us
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li
+              className="mainnav-item pse-selector"
+              role="presentation" />
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <div
+    className="pageMask hidden-md hidden-lg"
+    onClick={[Function anonymous]} />
+</header>
+`;
+
+exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
+<header
+  className="fnnav pse"
+  role="banner">
+  <div
+    className="fnnav__mainbar open">
+    <div
+      className="container">
+      <div
+        className="row">
+        <div
+          className="fnnav__header">
+          <div
+            className="fnnav__brand">
+            <a
+              href="/"
+              onClick={[Function anonymous]}>
+              <img
+                alt="FirstNet Logo"
+                src="/images/logo-FirstNet-local-control.svg" />
+              <span
+                className="sr-only">
+                Go Home
+              </span>
+            </a>
+          </div>
+          <button
+            aria-expanded={true}
+            aria-haspopup="true"
+            className="navbar-toggle"
+            onClick={[Function anonymous]}
+            type="button">
+            <span
+              className="sr-only">
+              Toggle navigation
+            </span>
+            <span
+              className="icon-bar" />
+            <span
+              className="icon-bar" />
+            <span
+              className="icon-bar" />
+          </button>
+        </div>
+        <nav
+          aria-hidden={false}
+          aria-label="Main Menu"
+          id="main-menu">
+          <ul
+            className="fnnav__main">
+            <li
+              className="mainnav-item blue"
+              role="presentation">
+              <button
+                aria-expanded="false"
+                aria-haspopup="true"
+                className="btnSubmenu"
+                data-target="#pse-profile-nav"
+                data-toggle="collapse">
+                <span
+                  className="sr-only">
+                  Expand Section Navigation
+                </span>
+              </button>
+              <a
+                href="#profile"
+                id="pse-profile">
+                <i
+                  aria-hidden="true"
+                  className="icon-profile" />
+                Lois Lane
+              </a>
+              <ul
+                aria-labelledby="pse-profile"
+                className="collapse"
+                id="pse-profile-nav">
+                <li
+                  role="presentation">
+                  <a
+                    href="#manage-account"
+                    onClick={[Function anonymous]}>
+                    Manage My Account
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    href="#change-password"
+                    onClick={[Function anonymous]}>
+                    Change Password
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    href="#config-location"
+                    onClick={[Function anonymous]}>
+                    Configure Location
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    href="#config-news"
+                    onClick={[Function anonymous]}>
+                    Configure News
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    href="#config-mdm"
+                    onClick={[Function anonymous]}>
+                    Configure MDM
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    href="#log-out"
+                    onClick={[Function anonymous]}>
+                    <i
+                      aria-hidden="true"
+                      className="icon-logout" />
+                    Log Out
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li
+              className="mainnav-item"
+              role="presentation">
+              <button
+                aria-expanded="false"
+                aria-haspopup="true"
+                className="btnSubmenu"
+                data-target="#pse-admin-nav"
+                data-toggle="collapse">
+                <span
+                  className="sr-only">
+                  Expand Section Navigation
+                </span>
+              </button>
+              <a
+                href="/admin"
+                id="linkBtn-admin"
+                onClick={[Function anonymous]}
+                role="button">
+                Administration Dashboard
+              </a>
+              <ul
+                aria-labelledby="linkBtn-admin"
+                className="collapse"
+                id="pse-admin-nav">
+                <li
+                  role="presentation">
+                  <a
+                    href="/manage-apps"
+                    onClick={[Function anonymous]}>
+                    Manage Apps
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li
+              className="mainnav-item"
+              role="presentation">
+              <button
+                aria-expanded="false"
+                aria-haspopup="true"
+                className="btnSubmenu"
+                data-target="#pse-helpcenter-nav"
+                data-toggle="collapse">
+                <span
+                  className="sr-only">
+                  Expand Section Navigation
+                </span>
+              </button>
+              <a
+                href="/help-center"
+                id="linkBtn-help-center"
+                onClick={[Function anonymous]}>
+                Help Center
+              </a>
+              <ul
+                aria-labelledby="linkBtn-help-center"
+                className="collapse"
+                id="pse-helpcenter-nav">
+                <li
+                  role="presentation">
+                  <a
+                    href="#faq"
+                    onClick={[Function anonymous]}>
+                    FAQ
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    href="#provide-feedback"
+                    onClick={[Function anonymous]}>
+                    Provide Feedback
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    href="#contact-us"
+                    onClick={[Function anonymous]}>
+                    Contact Us
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li
+              className="mainnav-item pse-selector"
+              role="presentation" />
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <div
+    className="pageMask hidden-md hidden-lg"
+    onClick={[Function anonymous]} />
+</header>
+`;
