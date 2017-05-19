@@ -120,7 +120,7 @@ export default class AppDetailsPage extends React.Component {
             <div className="row">
               <div className="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
                 <h2>Reviews</h2>
-								<RatingsChart value={this.appStore.appDetailObj.rating} reviewsTotal={this.appStore.appDetailObj.reviews_count} data={[14,22,8,5,2]}/>
+								<RatingsChart value={this.appStore.appDetailObj.rating} reviewsTotal={this.appStore.appDetailObj.reviews_count} reviews={this.appStore.appDetailObj.reviews}/>
 								{appDetail.reviews.length > 0 &&
 									<div className="app-reviews">
 										<AppReviews reviews={appDetail.reviews} />
