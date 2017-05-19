@@ -19,7 +19,7 @@ export default class AdminDashboardPage extends React.Component {
 								<nav>
 									<ul>
 										<li className="col-xs-12 col-sm-6">
-											<Link to="/admin/manage-users" className="dashboard-card has-shadow">
+											<Link to="/admin/manage-users" className="dashboard-card manage-users has-shadow">
 												<div className="desc">
 													<h3>Manage users</h3>
 													<p>Add, edit and remove users.</p>
@@ -28,7 +28,7 @@ export default class AdminDashboardPage extends React.Component {
 											</Link>
 										</li>
 										<li className="col-xs-12 col-sm-6">
-											<Link to="/admin/manage-billing" className="dashboard-card has-shadow">
+											<Link to="/admin/manage-billing" className="dashboard-card manage-billing has-shadow">
 												<div className="desc">
 													<h3>Manage billing</h3>
 													<p>View &amp; pay bills, update info</p>
@@ -37,7 +37,7 @@ export default class AdminDashboardPage extends React.Component {
 											</Link>
 										</li>
 										<li  className="col-xs-12 col-sm-6">
-											<Link to="/admin/manage-services" className="dashboard-card has-shadow">
+											<Link to="/admin/manage-services" className="dashboard-card manage-services has-shadow">
 												<div className="desc">
 													<h3>Manage services</h3>
 													<p>Assign or remove device, change rate plans &amp; features</p>
@@ -46,7 +46,7 @@ export default class AdminDashboardPage extends React.Component {
 											</Link>
 										</li>
 										<li className="col-xs-12 col-sm-6">
-											<Link to="/admin/manage-apps" className="dashboard-card has-shadow">
+											<Link to="/admin/manage-apps" className="dashboard-card manage-apps has-shadow">
 												<div className="desc">
 													<h3>Manage apps</h3>
 													<p>Push an app to your Mobile Device Management(MDM) solution, recommend apps, block apps</p>
@@ -55,7 +55,7 @@ export default class AdminDashboardPage extends React.Component {
 											</Link>
 										</li>
 										<li className="col-xs-12 col-sm-6">
-											<Link to="/admin/manage-push-talk" className="dashboard-card has-shadow">
+											<Link to="/admin/manage-push-talk" className="dashboard-card manage-push-talk has-shadow">
 												<div className="desc">
 													<h3>Manage push-to-talk</h3>
 													<p>Create and remove talk groups, add and remove users from talk groups</p>
@@ -64,7 +64,7 @@ export default class AdminDashboardPage extends React.Component {
 											</Link>
 										</li>
 										<li className="col-xs-12 col-sm-6">
-											<Link to="/admin/view-wireless-reports" className="dashboard-card has-shadow">
+											<Link to="/admin/view-wireless-reports" className="dashboard-card manage-wireless-reports has-shadow">
 												<div className="desc">
 													<h3>View wireless reports</h3>
 													<p>View device inventory, rate plan summary, early termination fees, upgrade eligibility, device unlock eligibility</p>
@@ -82,7 +82,7 @@ export default class AdminDashboardPage extends React.Component {
 							<nav>
 								<ul>
 									<li className="col-xs-12 col-md-6 col-lg-12">
-										<Link to="/shop-devices-rates" className="dashboard-card has-shadow">
+										<Link to="/shop-devices-rates" className="dashboard-card shop-devices-rates has-shadow">
 											<div className="desc">
 												<h3>Shop standard devices &amp; rate plans</h3>
 												<p>Add a new device, provision an existing device, add a rate plan, feature(s) and accessories</p>
@@ -91,7 +91,7 @@ export default class AdminDashboardPage extends React.Component {
 										</Link>
 									</li>
 									<li className="col-xs-12 col-md-6 col-lg-12">
-										<Link to="/shop-specialized-devices" className="dashboard-card has-shadow">
+										<Link to="/shop-specialized-devices" className="dashboard-card shop-specialized-devices has-shadow">
 											<div className="desc">
 												<h3>Shop specialized devices</h3>
 												<p>Purchase reggedized devices, vehicle routers, etc.</p>
@@ -100,7 +100,7 @@ export default class AdminDashboardPage extends React.Component {
 										</Link>
 									</li>
 									<li className="col-xs-12 col-md-6 col-lg-12">
-										<Link to="/shop-solutions" className="dashboard-card has-shadow">
+										<Link to="/shop-solutions" className="dashboard-card shop-solutions has-shadow">
 											<div className="desc">
 												<h3>Shop public safety solutions</h3>
 												<p>Browse public safety solutions and choose which are best for your organization</p>
