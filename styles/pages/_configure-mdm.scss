@@ -1,0 +1,38 @@
+.sample-breadcrumbs {
+  height: 16px;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 16px;
+  color: #1071BC;
+  text-transform: uppercase;
+  margin-bottom: 55px;
+
+  button {
+    border: 0;
+    background: none;
+    text-transform: uppercase;
+  }
+
+  span {
+    color: $fn-dkgrey;
+  }
+}
+
+.mdm-form {
+  margin-top: 45px;
+  margin-bottom: 90px;
+  .form-group{
+    margin-bottom: 30px;
+  }
+  .msgBlock {
+    font-weight: $fn-medium-weight;
+    font-size: $fn-label-default-size;
+    line-height: 16px;
+  }
+
+  .btn {
+    min-width: 200px;
+    height: 40px;
+    line-height: 40px;
+  }
+}

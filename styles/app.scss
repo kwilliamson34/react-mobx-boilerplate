@@ -22,10 +22,12 @@
 @import
   "base/base",
   "base/typography",
+  "base/forms",
   "base/bootstrap-overrides",
   "base/buttons",
   "base/views",
-  "base/forms";
+  "base/forms",
+  "base/modals";
 
 //Components
 @import
@@ -54,4 +56,5 @@
   "pages/pse-pages",
   "pages/admin-dashboard-page",
   "pages/app-details-page",
+  "pages/configure-mdm",
   "pages/shop-devices-page";

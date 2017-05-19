@@ -2,22 +2,12 @@ import 'jquery';
 import 'bootstrap';
 
 import React from 'react';
-import {
-	BrowserRouter as Router,
-	Route,
-	Switch,
-	Link
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import ScrollToTop from './core/services/scroll-to-top';
 
 //State Management
-import {
-	Provider,
-	observer
-} from 'mobx-react';
-import {
-	pseMasterStore
-} from './core/stores/master.store';
+import { Provider, observer } from 'mobx-react';
+import { pseMasterStore } from './core/stores/master.store';
 
 //Styles
 import '../styles/app.scss';
@@ -37,6 +27,7 @@ import ManageAppsPage from './pages/manage-apps.page';
 import ManagePushToTalkPage from './pages/manage-push-to-talk.page';
 import ManageWirelessReportsPage from './pages/manage-wireless-reports.page';
 import AdminDashboardPage from './pages/admin-dashboard.page';
+import ConfigureMDM from './pages/configure-mdm.page';
 
 //MP pages
 import ShopDevicesPage from './pages/shop-devices-rates.page'
@@ -51,12 +42,13 @@ import HelpCenterPage from './pages/help-center.page';
 
 import NoMatch from './pages/no-match.page';
 
+
 @observer
 export default class App extends React.Component {
 	constructor(props) {
 		super(props);
 	}
-
+	
 	render() {
 		const AppHub = ({
 			match
@@ -80,6 +72,7 @@ export default class App extends React.Component {
 			)
 		}
 
+
 		return (
 			<Router>
 				<Provider store={pseMasterStore}>
@@ -94,6 +87,7 @@ export default class App extends React.Component {
 									<Route path="/admin/manage-billing" component={ManageBillingPage} />
 									<Route path="/admin/manage-services" component={ManageServicesPage} />
 									<Route path="/admin/manage-apps" component={ManageAppsPage} />
+									<Route path="/admin/configure-mdm" component={ConfigureMDM} />
 									<Route path="/admin/manage-push-to-talk" component={ManagePushToTalkPage} />
 									<Route path="/admin/manage-wireless-reports" component={ManageWirelessReportsPage} />
 									<Route path="/admin" component={AdminDashboardPage} />

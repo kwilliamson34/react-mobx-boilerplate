@@ -1,0 +1,59 @@
+.modal-backdrop.in {
+  opacity: 0.8;
+}
+
+.modal {
+  .modal-dialog {
+    width: 90%;
+    max-width: 980px;
+    margin: auto;
+
+    .modal-content {
+      border-radius: 0;
+      margin-top: 15%;
+      padding: 60px 100px;
+
+      h4 {
+        margin-bottom: 30px;
+      }
+
+      .btn {
+        margin-top: 80px;
+      }
+    }
+  }
+}
+@media #{$mobile} {
+  .modal {
+    .modal-dialog {
+      .modal-content {
+        padding: 15px 25px;
+
+        h4 {
+          margin-bottom: 20px;
+        }
+
+        .btn {
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+}
+@media #{$tablet} {
+  .modal {
+    .modal-dialog {
+      .modal-content {
+        padding: 30px 50px;
+
+        h4 {
+          margin-bottom: 20px;
+        }
+
+        .btn {
+          margin-top: 40px;
+        }
+      }
+    }
+  }
+}
