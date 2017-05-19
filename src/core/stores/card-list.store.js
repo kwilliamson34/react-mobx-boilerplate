@@ -76,7 +76,6 @@ class CardListStore {
 
 		const failure = (error) => {
 			console.warn(error);
-			console.log('searchResults  ', this.searchResults);
 			this.searchResults = [];
 			this.finishLoading();
 		}
