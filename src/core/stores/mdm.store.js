@@ -18,7 +18,7 @@ class MDMStore {
     @action validateEndPoint(endpoint) {
         if (!endpoint.length) {
             endpoint = '';
-            this.endPointErrorMessages = 'Please enter a valid API key.';
+            this.endPointErrorMessages = 'Please enter a valid endpoint.';
         } else {
           this.endPointErrorMessages = '';
         }
