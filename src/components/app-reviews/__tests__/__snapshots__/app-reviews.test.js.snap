@@ -1,0 +1,4 @@
+exports[`<AppReviews /> renders matches previous snapshot 1`] = `
+<div
+  className="reviews-container" />
+`;

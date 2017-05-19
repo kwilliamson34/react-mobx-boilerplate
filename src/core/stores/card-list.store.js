@@ -76,6 +76,7 @@ class CardListStore {
 
 		const failure = (error) => {
 			console.warn(error);
+			console.log('searchResults  ', this.searchResults);
 			this.searchResults = [];
 			this.finishLoading();
 		}
@@ -209,7 +210,7 @@ class CardListStore {
 	}
 
 	@computed get isFiltered() {
-		return (this.categoryFilter || this.segmentFilter || this.platformFilter)
+		return (this.searchQuery !== '')
 	}
 
 	// OBSERVABLES
