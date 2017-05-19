@@ -10,15 +10,7 @@ import TruncateComment from '../truncate-comment/truncate-comment';
 export default class AppReviews extends React.Component {
 
   static propTypes = {
-    reviews: PropTypes.arrayOf(PropTypes.shape({
-      commentTitle: PropTypes.string,
-      userFirstName: PropTypes.string,
-      userLastName: PropTypes.string,
-      reviewStar: PropTypes.number,
-      reviewId: PropTypes.string,
-      reviewDate: PropTypes.string,
-      comment: PropTypes.string
-    })),
+    reviews: PropTypes.array,
     numberOfReviewsToLoad: PropTypes.number
   }
 
