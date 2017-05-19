@@ -15,53 +15,23 @@ const user_segment = {
 class CardListStore {
 
 	// ACTIONS
-	@action getAdminApps() {
-		const success = (res) => {
-			this.searchResults = res;
-			this.shouldShowSearchResults = true;
-			return this.searchResults;
+	@action fetchCardList() {
+		if(!this.searchResults.length) {
+			const success = (res) => {
+				this.searchResults = res;
+				this.shouldShowSearchResults = true;
+				return this.searchResults;
+			}
+			const fail = (err) => {
+				console.warn(err);
+			}
+			return apiService.getAdminApps().then(success, fail)
 		}
-		const fail = (err) => {
-			console.warn(err);
-		}
-		return apiService.getAdminApps().then(success, fail)
 	}
 
-
-	//TODO: Ideally should only set PSK. Plan on revising @computed get currentApp to work off proposed allApps array and doing this automatically when allApps has length of 0, rather than making a separate call;
 	@action setCurrentApp(psk){
     this.currentAppPsk = psk;
-    if(!this.searchResults.length) {
-      let success = (response) => {
-        this.searchResults.push(response[0]);
-        return this.currentApp;
-      }
-
-      let failure = (error) => {
-        console.warn(error);
-      }
-
-      return apiService.getAppDetails(psk).then(success, failure);
-    }
 	}
-
-	@action getAppDetailByPSK(psk) {
-		this.currentAppPsk = psk;
-
-		let success = (response) => {
-			this.appDetailObj = response[0];
-			this.detailsFetched = true;
-		}
-
-		let failure = (error) => {
-			console.warn(error);
-		}
-
-		apiService.getAppDetails(psk).then(success, failure);
-
-	}
-
-
 
 	@action clear() {
 		this.searchQuery = '';
@@ -108,39 +78,8 @@ class CardListStore {
 		this.platformFilter = value;
 	}
 
-	@action changeAppAvailability(appPSK, isAvailable) {
-		this.setCurrentApp(appPSK);
-		this.currentApp.isAvailable = isAvailable;
-
-		if (isAvailable) {
-			apiService.addAppToGroup(appPSK, 'Available');
-		} else {
-			apiService.removeAppFromGroup(appPSK, 'Available');
-
-			if (this.currentApp.isRecommended) {
-				apiService.removeAppFromGroup(appPSK, 'Recommended');
-			}
-		}
-	}
-
-	@action changeAppRecommended(appPSK, isRecommended) {
-		this.setCurrentApp(appPSK);
-
-		if (this.currentApp.isAvailable) {
-			this.currentApp.isRecommended = isRecommended;
-
-			if (isRecommended) {
-				apiService.addAppToGroup(appPSK, 'Recommended');
-			} else {
-				apiService.removeAppFromGroup(appPSK, 'Recommended');
-			}
-		}
-	}
-
 	//COMPUTEDS
-
-	//TODO: Revise this and other functions depending on searchResults to work off an allApps array. This will avoid a lot of network traffic.
-	@computed get currentApp() {
+	@computed get currentCard() {
 		return this.searchResults.filter((app) => {
 			return this.currentAppPsk == app.psk.toString();
 		})[0];
@@ -216,15 +155,12 @@ class CardListStore {
 	@observable categoryFilter = 'Select Category';
 	@observable segmentFilter = 'Select Filter';
 
-	@observable screenshots = [];
 	@observable searchResults = [];
+	@observable currentAppPsk = '';
 	@observable shouldShowSearchResults = false;
 	@observable searchIsVisible = false;
 	@observable searchQuery = '';
 	@observable isLoading = false;
-	@observable currentAppPsk = '';
-	@observable appDetailObj = {};
-	@observable detailsFetched = false;
 
 	@observable platforms = [{
 			title: 'Platform',

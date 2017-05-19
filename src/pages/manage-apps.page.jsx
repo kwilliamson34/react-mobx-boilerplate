@@ -16,13 +16,15 @@ export default class ManageAppsPage extends React.Component {
 	constructor(props) {
 		super(props);
 		this.cardListStore = this.props.store.cardListStore;
+		this.appCatalogStore = this.props.store.appCatalogStore;
 		this.onButtonClick = this.onButtonClick.bind(this);
 		this.pageId = 'manageAppsPage';
 		this.itemsPerRow = 4;
 	}
 
 	componentDidMount() {
-		this.cardListStore.getAdminApps();
+		this.cardListStore.fetchCardList();
+		this.appCatalogStore.fetchAppCatalog();
 		if(!this.props.store.pages[this.pageId]){
 			this.props.store.registerPage(this.pageId);
 		}
@@ -74,14 +76,13 @@ export default class ManageAppsPage extends React.Component {
 						</div>
 					</div>
 					<div className="row">
-						<CardList
+						{this.appCatalogStore.allApps.length && this.cardListStore.searchResults.length && <CardList
 							canLoadMore={this.canLoadMore}
 							cards={this.paginatedCards}
 							handleButtonClick={this.onButtonClick}
-							appManagementActions={{
-								changeAppAvailability: this.props.store.cardListStore.changeAppAvailability.bind(this.props.store.cardListStore),
-								changeAppRecommended: this.props.store.cardListStore.changeAppRecommended.bind(this.props.store.cardListStore)
-							}}/>
+							changeAppAvailability={this.appCatalogStore.changeAppAvailability.bind(this.appCatalogStore)}
+							changeAppRecommended={this.appCatalogStore.changeAppRecommended.bind(this.appCatalogStore)}
+							getMatchingApp={this.appCatalogStore.getMatchingApp.bind(this.appCatalogStore)}/>}
 					</div>
 				</section>
 			</article>
