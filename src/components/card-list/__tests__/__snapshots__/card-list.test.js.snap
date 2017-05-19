@@ -1,3 +1,77 @@
+exports[`<CardList /> renders matches previous snapshot 1`] = `
+<section
+  className="card-list-container col-md-12 col-xs-12">
+  <div
+    className="container">
+    
+    <div
+      className="card-list-cards row">
+      <div
+        className="col-md-3 col-xs-4 center-block">
+        <div
+          className="card-wrapper">
+          <a
+            className="card-focus has-shadow"
+            href="/app/undefined"
+            onClick={[Function anonymous]}>
+            <div
+              className="card-container">
+              <div
+                className="card-logo">
+                <img
+                  alt="undefined Logo"
+                  src={undefined} />
+              </div>
+              <section
+                className="card-info">
+                <div
+                  className="card-name" />
+                <div
+                  className="card-publisher hidden-xs" />
+              </section>
+              <div
+                className="card-rating">
+                <div
+                  className="ratings-container">
+                  <span
+                    className="ratings-number">
+                    <span
+                      className="sr-only">
+                      Rating of
+                    </span>
+                    0
+                  </span>
+                  <span
+                    className="ratings-stars">
+                    <span
+                      aria-hidden="true"
+                      className="ratings-star icon-star-o" />
+                    <span
+                      aria-hidden="true"
+                      className="ratings-star icon-star-o" />
+                    <span
+                      aria-hidden="true"
+                      className="ratings-star icon-star-o" />
+                    <span
+                      aria-hidden="true"
+                      className="ratings-star icon-star-o" />
+                    <span
+                      aria-hidden="true"
+                      className="ratings-star icon-star-o" />
+                  </span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div
+          className="hidden-xs" />
+      </div>
+    </div>
+  </div>
+</section>
+`;
+
 exports[`<PlansAndDevices /> renders matches previous Plans and devices snapshot 1`] = `
 <section
   className="placeholder mp-links"
