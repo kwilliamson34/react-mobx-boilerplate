@@ -19,6 +19,10 @@ import {
 	pseMasterStore
 } from './core/stores/master.store';
 
+import {
+	userStore
+} from './core/stores/user.store';
+
 //Styles
 import '../styles/app.scss';
 
@@ -60,7 +64,7 @@ export default class App extends React.Component {
 	}
 
 	componentWillMount() {
-		pseMasterStore.validateUser();
+		userStore.validateUser();
 	}
 
 	render() {
@@ -86,7 +90,7 @@ export default class App extends React.Component {
 			)
 		}
 
-		return pseMasterStore.authentic_user ? (
+		return userStore.authentic_user ? (
 			<Router>
 				<Provider store={pseMasterStore}>
 					<ScrollToTop>

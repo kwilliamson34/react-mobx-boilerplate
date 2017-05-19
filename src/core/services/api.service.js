@@ -8,16 +8,16 @@ const base = '/api'
 const pseId = '123';
 
 class ApiService {
-    validateUserData() {
+    validateUserData(user_token) {
         return axios.get(`${base}/user/profile`, {
           withCredentials: true,
           headers: {
-            'x-auth-token': '34234'
+            'x-auth-token': user_token
           }
       });
     }
 
-    getSearchResults(query) {
+    getSearchResults(query, user_token) {
       let endpoint = query
         ? `${base}/apps/admin/search?searchTxt=${query}&pseId=${pseId}`
         : `${base}/apps/admin?pseid=${pseId}`
@@ -26,20 +26,20 @@ class ApiService {
       });
     }
 
-    getAdminApps() {
+    getAdminApps(user_token) {
       return axios.get(`${base}/apps/admin?pseId=${pseId}`, {
           headers: {
-            'x-auth-token': '34234'
+            'x-auth-token': user_token
           }
       }).then(res => {
         return utilsService.conditionData(res.data.applications);
       });
     }
 
-    getAppDetails(appPSK) {
+    getAppDetails(appPSK, user_token) {
       return axios.get(`${base}/app?appPsk=${appPSK}&pseId=${pseId}`,{
         headers: {
-          'x-auth-token': '34234'
+          'x-auth-token': user_token
         }
       }).then(res => {
         let arrayRes = [];
@@ -55,13 +55,13 @@ class ApiService {
         });
     }
 
-    addAppToGroup(appPsk, groupIdentifier) {
+    addAppToGroup(appPsk, groupIdentifier, user_token) {
       console.log('Adding app with appPsk=' + appPsk + ' to groupIdentifier="' + groupIdentifier + '"...');
       return axios({
         method: 'post',
         url: `${base}/app/group`,
         headers: {
-          'x-auth-token': '34234'
+          'x-auth-token': user_token
         },
         data: {
           appPsk,
@@ -71,13 +71,13 @@ class ApiService {
       });
     }
 
-    removeAppFromGroup(appPsk, groupIdentifier) {
+    removeAppFromGroup(appPsk, groupIdentifier, user_token) {
       console.log('Removing app with appPsk=' + appPsk + ' from groupIdentifier="' + groupIdentifier + '"...');
       return axios({
         method: 'delete',
         url: `${base}/app/group`,
         headers: {
-          'x-auth-token': '34234'
+          'x-auth-token': user_token
         },
         data: {
           appPsk,
