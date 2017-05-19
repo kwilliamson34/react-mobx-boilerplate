@@ -1,5 +1,4 @@
 import { action, observable } from 'mobx';
-import { apiService } from '../services/api.service';
 
 class MDMStore {
 
@@ -56,12 +55,12 @@ class MDMStore {
 
     @action setMDMConfiguration() {
         if (this.formIsValid) {
-            let locationObj = {
-                'pseId': 'string',
-                'mdm': this.mdm,
-                'endpoint': this.endpoint,
-                'apiKey': this.apiKey
-            }
+            // let locationObj = {
+            //     'pseId': 'string',
+            //     'mdm': this.mdm,
+            //     'endpoint': this.endpoint,
+            //     'apiKey': this.apiKey
+            // }
 
             // TODO
             // apiService.updatePSELocation(locationObj)
