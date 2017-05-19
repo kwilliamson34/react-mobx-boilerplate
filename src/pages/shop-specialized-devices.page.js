@@ -10,7 +10,7 @@ import {
 
 @inject('store')
 @observer
-export default class ShopDevicesPage extends React.Component {
+export default class ShopSpecializedDevicesPage extends React.Component {
 	constructor(props) {
 		super(props);
 		this.mpStore = this.props.store.externalContentStore;
@@ -53,11 +53,11 @@ export default class ShopDevicesPage extends React.Component {
 
 	render() {
 		return (
-			<article id="shop-devices-page">
+			<article id="shop-specialized-devices-page">
         <div className="container">
           <div className="row">
             <div className="col-xs-12 col-sm-10 col-sm-offset-1 add-padding-bottom-dbl">
-              <h1>Device Catalog</h1>
+              <h1>Specialized Devices Catalog</h1>
               <p>FirstNet offers an extensive selection of devices and accessories. Check out a small selection of our portfolio. To learn more about our full portfolio, contact a FirstNet Specialist.</p>
             </div>
           </div>
@@ -72,6 +72,6 @@ export default class ShopDevicesPage extends React.Component {
 }
 
 
-ShopDevicesPage.propTypes = {
+ShopSpecializedDevicesPage.propTypes = {
 	store: PropTypes.object
 };

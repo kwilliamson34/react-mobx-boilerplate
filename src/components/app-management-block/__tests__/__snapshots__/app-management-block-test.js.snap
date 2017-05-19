@@ -3,75 +3,49 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
   <div
     className="app-management">
     <div
-      className="checkbox-as-toggle ">
-      <input
-        aria-disabled={undefined}
-        className="checkbox"
-        defaultChecked={false}
-        id="Available-undefined-checkbox"
-        onClick={[Function bound onClick]}
-        tabIndex="-1"
-        type="checkbox"
-        value="Available" />
-      <label
-        className="checkbox-label"
-        htmlFor="Available-undefined-checkbox"
-        id="Available-undefined-label"
-        onKeyUp={[Function bound handleFocusEnter]}
-        role="button"
-        tabIndex="0">
+      className="checkbox ">
+      <label>
+        <input
+          aria-disabled={undefined}
+          className=""
+          defaultChecked={false}
+          id="Available-123"
+          onChange={[Function bound onChange]}
+          type="checkbox"
+          value="Available" />
         <span
-          className="sr-only">
-          Toggle:
-        </span>
+          className="cr" />
         <span
-          className="text-label">
+          className="layer-label">
           Available
         </span>
-        <span
-          aria-hidden={true}
-          className="pill" />
       </label>
     </div>
     <div
-      className="checkbox-as-toggle ">
-      <input
-        aria-disabled={undefined}
-        className="checkbox"
-        defaultChecked={false}
-        id="Recommended-undefined-checkbox"
-        onClick={[Function bound onClick]}
-        tabIndex="-1"
-        type="checkbox"
-        value="Recommended" />
-      <label
-        className="checkbox-label"
-        htmlFor="Recommended-undefined-checkbox"
-        id="Recommended-undefined-label"
-        onKeyUp={[Function bound handleFocusEnter]}
-        role="button"
-        tabIndex="0">
+      className="checkbox disabled">
+      <label>
+        <input
+          aria-disabled={true}
+          className="disabled"
+          defaultChecked={false}
+          id="Recommended-123"
+          onChange={[Function bound onChange]}
+          type="checkbox"
+          value="Recommended" />
         <span
-          className="sr-only">
-          Toggle:
-        </span>
+          className="cr" />
         <span
-          className="text-label">
+          className="layer-label">
           Recommended
         </span>
-        <span
-          aria-hidden={true}
-          className="pill" />
       </label>
     </div>
     <a
       href="/mdm"
       onClick={[Function anonymous]}>
       <button
-        className="fn-primary btn btn-default"
-        disabled={false}
-        tabIndex="-1"
-        type="button">
+        className="fn-primary"
+        tabIndex="-1">
         Push to MDM
       </button>
     </a>
@@ -84,75 +58,49 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
   <div
     className="app-management">
     <div
-      className="checkbox-as-toggle ">
-      <input
-        aria-disabled={undefined}
-        className="checkbox"
-        defaultChecked={true}
-        id="Available-undefined-checkbox"
-        onClick={[Function bound onClick]}
-        tabIndex="-1"
-        type="checkbox"
-        value="Available" />
-      <label
-        className="checkbox-label"
-        htmlFor="Available-undefined-checkbox"
-        id="Available-undefined-label"
-        onKeyUp={[Function bound handleFocusEnter]}
-        role="button"
-        tabIndex="0">
+      className="checkbox ">
+      <label>
+        <input
+          aria-disabled={undefined}
+          className=""
+          defaultChecked={true}
+          id="Available-123"
+          onChange={[Function bound onChange]}
+          type="checkbox"
+          value="Available" />
         <span
-          className="sr-only">
-          Toggle:
-        </span>
+          className="cr" />
         <span
-          className="text-label">
+          className="layer-label">
           Available
         </span>
-        <span
-          aria-hidden={true}
-          className="pill" />
       </label>
     </div>
     <div
-      className="checkbox-as-toggle ">
-      <input
-        aria-disabled={undefined}
-        className="checkbox"
-        defaultChecked={false}
-        id="Recommended-undefined-checkbox"
-        onClick={[Function bound onClick]}
-        tabIndex="-1"
-        type="checkbox"
-        value="Recommended" />
-      <label
-        className="checkbox-label"
-        htmlFor="Recommended-undefined-checkbox"
-        id="Recommended-undefined-label"
-        onKeyUp={[Function bound handleFocusEnter]}
-        role="button"
-        tabIndex="0">
+      className="checkbox ">
+      <label>
+        <input
+          aria-disabled={false}
+          className=""
+          defaultChecked={false}
+          id="Recommended-123"
+          onChange={[Function bound onChange]}
+          type="checkbox"
+          value="Recommended" />
         <span
-          className="sr-only">
-          Toggle:
-        </span>
+          className="cr" />
         <span
-          className="text-label">
+          className="layer-label">
           Recommended
         </span>
-        <span
-          aria-hidden={true}
-          className="pill" />
       </label>
     </div>
     <a
       href="/mdm"
       onClick={[Function anonymous]}>
       <button
-        className="fn-primary btn btn-default"
-        disabled={false}
-        tabIndex="-1"
-        type="button">
+        className="fn-primary"
+        tabIndex="-1">
         Push to MDM
       </button>
     </a>
@@ -165,75 +113,49 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
   <div
     className="app-management">
     <div
-      className="checkbox-as-toggle ">
-      <input
-        aria-disabled={undefined}
-        className="checkbox"
-        defaultChecked={true}
-        id="Available-undefined-checkbox"
-        onClick={[Function bound onClick]}
-        tabIndex="-1"
-        type="checkbox"
-        value="Available" />
-      <label
-        className="checkbox-label"
-        htmlFor="Available-undefined-checkbox"
-        id="Available-undefined-label"
-        onKeyUp={[Function bound handleFocusEnter]}
-        role="button"
-        tabIndex="0">
+      className="checkbox ">
+      <label>
+        <input
+          aria-disabled={undefined}
+          className=""
+          defaultChecked={true}
+          id="Available-123"
+          onChange={[Function bound onChange]}
+          type="checkbox"
+          value="Available" />
         <span
-          className="sr-only">
-          Toggle:
-        </span>
+          className="cr" />
         <span
-          className="text-label">
+          className="layer-label">
           Available
         </span>
-        <span
-          aria-hidden={true}
-          className="pill" />
       </label>
     </div>
     <div
-      className="checkbox-as-toggle ">
-      <input
-        aria-disabled={undefined}
-        className="checkbox"
-        defaultChecked={true}
-        id="Recommended-undefined-checkbox"
-        onClick={[Function bound onClick]}
-        tabIndex="-1"
-        type="checkbox"
-        value="Recommended" />
-      <label
-        className="checkbox-label"
-        htmlFor="Recommended-undefined-checkbox"
-        id="Recommended-undefined-label"
-        onKeyUp={[Function bound handleFocusEnter]}
-        role="button"
-        tabIndex="0">
+      className="checkbox ">
+      <label>
+        <input
+          aria-disabled={false}
+          className=""
+          defaultChecked={true}
+          id="Recommended-123"
+          onChange={[Function bound onChange]}
+          type="checkbox"
+          value="Recommended" />
         <span
-          className="sr-only">
-          Toggle:
-        </span>
+          className="cr" />
         <span
-          className="text-label">
+          className="layer-label">
           Recommended
         </span>
-        <span
-          aria-hidden={true}
-          className="pill" />
       </label>
     </div>
     <a
       href="/mdm"
       onClick={[Function anonymous]}>
       <button
-        className="fn-primary btn btn-default"
-        disabled={false}
-        tabIndex="-1"
-        type="button">
+        className="fn-primary"
+        tabIndex="-1">
         Push to MDM
       </button>
     </a>
@@ -246,75 +168,49 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
   <div
     className="app-management">
     <div
-      className="checkbox-as-toggle ">
-      <input
-        aria-disabled={undefined}
-        className="checkbox"
-        defaultChecked={false}
-        id="Available-undefined-checkbox"
-        onClick={[Function bound onClick]}
-        tabIndex="-1"
-        type="checkbox"
-        value="Available" />
-      <label
-        className="checkbox-label"
-        htmlFor="Available-undefined-checkbox"
-        id="Available-undefined-label"
-        onKeyUp={[Function bound handleFocusEnter]}
-        role="button"
-        tabIndex="0">
+      className="checkbox ">
+      <label>
+        <input
+          aria-disabled={undefined}
+          className=""
+          defaultChecked={false}
+          id="Available-123"
+          onChange={[Function bound onChange]}
+          type="checkbox"
+          value="Available" />
         <span
-          className="sr-only">
-          Toggle:
-        </span>
+          className="cr" />
         <span
-          className="text-label">
+          className="layer-label">
           Available
         </span>
-        <span
-          aria-hidden={true}
-          className="pill" />
       </label>
     </div>
     <div
-      className="checkbox-as-toggle ">
-      <input
-        aria-disabled={undefined}
-        className="checkbox"
-        defaultChecked={true}
-        id="Recommended-undefined-checkbox"
-        onClick={[Function bound onClick]}
-        tabIndex="-1"
-        type="checkbox"
-        value="Recommended" />
-      <label
-        className="checkbox-label"
-        htmlFor="Recommended-undefined-checkbox"
-        id="Recommended-undefined-label"
-        onKeyUp={[Function bound handleFocusEnter]}
-        role="button"
-        tabIndex="0">
+      className="checkbox disabled">
+      <label>
+        <input
+          aria-disabled={true}
+          className="disabled"
+          defaultChecked={true}
+          id="Recommended-123"
+          onChange={[Function bound onChange]}
+          type="checkbox"
+          value="Recommended" />
         <span
-          className="sr-only">
-          Toggle:
-        </span>
+          className="cr" />
         <span
-          className="text-label">
+          className="layer-label">
           Recommended
         </span>
-        <span
-          aria-hidden={true}
-          className="pill" />
       </label>
     </div>
     <a
       href="/mdm"
       onClick={[Function anonymous]}>
       <button
-        className="fn-primary btn btn-default"
-        disabled={false}
-        tabIndex="-1"
-        type="button">
+        className="fn-primary"
+        tabIndex="-1">
         Push to MDM
       </button>
     </a>

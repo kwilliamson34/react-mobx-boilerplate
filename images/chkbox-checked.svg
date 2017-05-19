@@ -1,8 +1,14 @@
-
-<svg width="16px" height="16px" viewBox="0 1 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44 (41411) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 2</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
-    <rect id="Check-Background" stroke="none" fill="#01568E" fill-rule="evenodd" x="0" y="1" width="16" height="16" rx="2"></rect>
-    <polygon id="Rectangle-34" stroke="none" fill="#FFFFFF" fill-rule="evenodd" points="6.33333333 13 2.83563232 9.5 4.32623291 8.00726318 6.33333333 10.0280762 11.6595662 4.67392985 13.1483765 6.12194824"></polygon>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Checkbox-/-Checked" transform="translate(0.000000, -2.000000)">
+            <g id="Group-2" transform="translate(0.000000, 2.000000)">
+                <rect id="Check-Background" fill="#1071BC" x="0" y="0" width="16" height="16" rx="2"></rect>
+                <polygon id="Rectangle-34" fill="#FFFFFF" points="6.33333333 12 2.83563232 8.5 4.32623291 7.00726318 6.33333333 9.02807617 11.6595662 3.67392985 13.1483765 5.12194824"></polygon>
+            </g>
+        </g>
+    </g>
 </svg>

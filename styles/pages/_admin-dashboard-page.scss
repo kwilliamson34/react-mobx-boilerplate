@@ -1,5 +1,5 @@
 #admin-dashboard-page {
-  padding-bottom: 60px;
+  padding-bottom: 70px;
   h1{
     margin-bottom: 3rem
   }
@@ -15,42 +15,86 @@
 
   .dashboard-card {
     display: block;
-    background: $fn-white;
     position: relative;
     border: 1px solid $fn-dkgrey;
-    padding-top: 57.6%;
+    padding-top: 220px;
     margin: 15px 0;
     color: $fn-dkgrey;
-
+    transition: all .3s ease-in-out;
+    background-color: $fn-white;
+    background-repeat: no-repeat;
+    background-position:  bottom 20px right 20px;
+    &.manage-apps{
+      background-image: url('/images/manage-apps.png');
+    }
+    &.manage-users{
+      background-image: url('/images/manage-users.png');
+    }
+    &.manage-billing{
+      background-image: url('/images/manage-billing.png');
+    }
+    &.manage-services{
+      background-image: url('/images/manage-services.png');
+    }
+    &.manage-wireless-reports{
+      background-image: url('/images/wireless-reports.png');
+    }
+    &.manage-push-talk{
+      background-image: url('/images/push-to-talk.png');
+    }
+    &.shop-devices-rates{
+      background-image: url('/images/important-devices.png');
+    }
+    &.shop-specialized-devices{
+      background-image: url('/images/specialized-devices.png');
+    }
+    &.shop-solutions{
+      background-image: url('/images/solutions.png');
+    }
     .desc {
       position: absolute;
-      top: 15px;
-      left: 15px;
-      width: calc(100% - 30px);
+      top: 20px;
+      left: 20px;
+      width: calc(100% - 40px);
 
       h3 {
+        font-size: $fn-h3-default-size;
+        font-weight: $fn-normal-weight;
         margin-bottom: 1rem;
       }
 
       p {
-        font-size: 1.6rem;
+        font-size: $fn-label-default-size;
         font-weight: $fn-normal-weight;
       }
     }
 
     > span {
       position: absolute;
-      bottom: 15px;
-      left: 15px;
-      font-size: 1.6rem;
+      bottom: 20px;
+      left: 20px;
+      font-size: $fn-label-default-size;
       text-transform: uppercase;
       color: $fn-ltblue;
-
       &:after {
         display: inline-block;
+        font-size: 1.2rem;
         margin-left: 10px;
-        content: '⟩';
+        vertical-align: -1px;
+        content: "\67";
+        text-transform: none;
+        font-family: $icon-font;
       }
     }
+    &:hover,
+    &:focus{
+      transform: scale(1.05);
+      h3,
+      > span{
+        text-decoration: underline;
+      }
+    }
+
+
   }
 }

@@ -16,7 +16,7 @@ class ApiService {
 
     getSearchResults(query) {
       let endpoint = query
-        ? `${base}/apps/search?searchTxt=${query}&pseId=${pseId}`
+        ? `${base}/apps/admin/search?searchTxt=${query}&pseId=${pseId}`
         : `${base}/apps/admin?pseid=${pseId}`
       return axios.get(endpoint).then((res) => {
         return utilsService.conditionData(res.data.applications);
@@ -41,7 +41,7 @@ class ApiService {
       }).then(res => {
         let arrayRes = [];
         arrayRes.push(res.data);
-        return utilsService.conditionData(arrayRes);
+        return arrayRes;
       });
     }
 

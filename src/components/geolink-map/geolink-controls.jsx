@@ -1,5 +1,5 @@
 import React from 'react';
-import GeolinkLayerToggle from './geolink-layer-toggle';
+import Checkbox from '../toggle/checkbox';
 import PropTypes from 'prop-types';
 
 export default class GeolinkControls extends React.Component {
@@ -87,18 +87,20 @@ export default class GeolinkControls extends React.Component {
           <form className="form-group">
             <fieldset>
               <legend className="sr-only">Coverage layers</legend>
-              <GeolinkLayerToggle value='Network' label='Network' onClick={this.toggleNetwork} defaultOn={true}/>
-              <GeolinkLayerToggle value='Traffic' label='Traffic' onClick={this.toggleTraffic} defaultOn={false}/>
-              <GeolinkLayerToggle value='Weather' label='Weather' onClick={this.toggleWeather} defaultOn={false}/>
-              <GeolinkLayerToggle value='Alerts' label='Alerts' onClick={this.toggleAlerts} defaultOn={false}/>
+              <Checkbox id='network-toggle' value='Network' label='Network' onChange={this.toggleNetwork} defaultOn={false}/>
+              <Checkbox id='traffic-toggle' value='Traffic' label='Traffic' onChange={this.toggleTraffic} defaultOn={true}/>
+              <Checkbox id='weather-toggle' value='Weather' label='Weather' onChange={this.toggleWeather} defaultOn={true}/>
+              <Checkbox id='alerts-toggle' value='Alerts' label='Alerts' onChange={this.toggleAlerts} defaultOn={false}/>
             </fieldset>
           </form>
         </div>
         <div className="col-xs-12 col-sm-4">
           <article>
-            <p>TBD Links go here</p>
-            <p>TBD Links go here</p>
-            <p>TBD Links go here</p>
+            <p>Report coverage issue</p>
+            <p className="as-link red">Emergency 1-800-GET-HELP</p>
+            <p className="as-link">Non-emergency</p>
+            <hr/>
+            <p className="as-link">Subscribe to Network Alerts</p>
           </article>
         </div>
       </section>

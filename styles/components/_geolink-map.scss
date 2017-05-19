@@ -23,7 +23,6 @@ $search-border-radius: 4px;
 }
 
 .geolink-controls {
-  min-height: 180px;
   background-color: $fn-ltgrey;
   margin-bottom: 20px;
 
@@ -49,6 +48,16 @@ $search-border-radius: 4px;
       margin: 20px 0;
       padding: 0 40px;
     }
+  }
+
+  p.as-link {
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  hr {
+    border-color: $fn-grey;
+    border-width: 2px;
   }
 }
 /**********************************************/
@@ -76,7 +85,7 @@ $search-border-radius: 4px;
       [class*=' col-'] {
         article,
         form {
-          min-height: 140px;
+          min-height: 200px;
           border-right: 2px solid $fn-grey;
           margin: 20px 0;
           padding: 0 40px;

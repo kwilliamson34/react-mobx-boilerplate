@@ -1,14 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import {
-	observer
-} from 'mobx-react';
-import {
-	Link
-} from 'react-router-dom';
-
-import Toggle from '../toggle/toggle.jsx';
+import {observer} from 'mobx-react';
+import {Link} from 'react-router-dom';
+import Checkbox from '../toggle/checkbox.jsx';
 
 @observer
 export default class AppManagementBlock extends React.Component {
@@ -25,22 +19,26 @@ export default class AppManagementBlock extends React.Component {
 	}
 
 	handleAvailableClick(event) {
-		const isAvailable = event.target.checked;
+		if(event.target.type === 'checkbox') {
+			const isAvailable = event.target.checked;
 
-		//turn dependent toggle off if necessary
-		if (!isAvailable && this.props.app.isRecommended) {
-			this.recommendedToggle.doClick();
-		}
+			//turn dependent toggle off if necessary
+			if (!isAvailable && this.props.app.isRecommended) {
+				this.recommendedToggle.turnOff();
+			}
 
-		if (isAvailable !== this.props.app.isAvailable) {
-			this.props.appManagementActions.changeAppAvailability(this.props.app.psk, isAvailable);
+			if (isAvailable !== this.props.app.isAvailable) {
+				this.props.appManagementActions.changeAppAvailability(this.props.app.psk, isAvailable);
+			}
 		}
 	}
 
 	handleRecommendedClick(event) {
-		const isRecommended = event.target.checked;
-		if (isRecommended !== this.props.app.isRecommended) {
-			this.props.appManagementActions.changeAppRecommended(this.props.app.psk, isRecommended);
+		if(event.target.type === 'checkbox') {
+			const isRecommended = event.target.checked;
+			if (isRecommended !== this.props.app.isRecommended) {
+				this.props.appManagementActions.changeAppRecommended(this.props.app.psk, isRecommended);
+			}
 		}
 	}
 
@@ -48,18 +46,18 @@ export default class AppManagementBlock extends React.Component {
 		return (
 			<div>
         <div className="app-management">
-          <Toggle
+          <Checkbox
             label="Available"
             id={'Available-' + this.props.app.psk}
             defaultOn={this.props.app.isAvailable}
-            onClick={this.handleAvailableClick}/>
-          <Toggle
+            onChange={this.handleAvailableClick}/>
+          <Checkbox
             label="Recommended"
             ref={ref => this.recommendedToggle = ref}
             id={'Recommended-' + this.props.app.psk}
             defaultOn={this.props.app.isRecommended}
             disabled={!this.props.app.isAvailable}
-            onClick={this.handleRecommendedClick}/>
+            onChange={this.handleRecommendedClick}/>
           <Link to="/mdm">
             <button className="fn-primary" tabIndex="-1">Push to MDM</button>
           </Link>
