@@ -81,7 +81,7 @@ class CardListStore {
 		}
 
 		this.isLoading = true;
-		apiService.getSearchResults(this.searchQuery)
+		apiService.getSearchResults(encodeURIComponent(this.searchQuery))
 			.then(success, failure)
 	}, 500, {
 		leading: true,
