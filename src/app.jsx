@@ -2,22 +2,12 @@ import 'jquery';
 import 'bootstrap';
 
 import React from 'react';
-import {
-	BrowserRouter as Router,
-	Route,
-	Switch,
-	Link
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import ScrollToTop from './core/services/scroll-to-top';
 
 //State Management
-import {
-	Provider,
-	observer
-} from 'mobx-react';
-import {
-	pseMasterStore
-} from './core/stores/master.store';
+import { Provider, observer } from 'mobx-react';
+import { pseMasterStore } from './core/stores/master.store';
 
 //Styles
 import '../styles/app.scss';
@@ -58,7 +48,7 @@ export default class App extends React.Component {
 	constructor(props) {
 		super(props);
 	}
-  previousLocation = this.props.location
+	
 	render() {
 		const AppHub = ({
 			match
