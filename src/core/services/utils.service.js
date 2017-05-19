@@ -37,8 +37,14 @@ class UtilsService {
 							tablet: []
 						}
 					}
+					if (obj.custom_metadata) {
+						simplifiedObj.category = obj.custom_metadata.category;
+						simplifiedObj.user_segment = obj.custom_metadata.user_segment;
+					}
+
 					return simplifiedObj;
 				})
+
 			return simplifiedObjs;
 	}
 
