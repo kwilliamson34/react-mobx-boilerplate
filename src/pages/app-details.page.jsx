@@ -37,7 +37,6 @@ export default class AppDetailsPage extends React.Component {
 	}
 
 	render() {
-		console.log('appDetailObj    ', this.appStore.appDetailObj);
 
 		return (
 			<article id="app-details-page">
