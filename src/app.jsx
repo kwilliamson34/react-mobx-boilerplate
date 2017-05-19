@@ -51,6 +51,8 @@ import HelpCenterPage from './pages/help-center.page';
 
 import NoMatch from './pages/no-match.page';
 
+import { UnauthenticUser } from './pages/unauth-user.page.jsx';
+
 @observer
 export default class App extends React.Component {
 	constructor(props) {
@@ -84,7 +86,7 @@ export default class App extends React.Component {
 			)
 		}
 
-		return (
+		return pseMasterStore.authentic_user ? (
 			<Router>
 				<Provider store={pseMasterStore}>
 					<ScrollToTop>
@@ -110,10 +112,13 @@ export default class App extends React.Component {
 								</Switch>
 							</main>
 							<Footer/>
+							<Route path="/unauthorized_user" component={HelpCenterPage} />
 						</div>
 					</ScrollToTop>
 				</Provider>
 			</Router>
-		)
+		) : (
+			<UnauthenticUser />
+		);
 	}
 }

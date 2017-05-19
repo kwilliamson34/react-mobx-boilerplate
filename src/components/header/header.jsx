@@ -77,7 +77,7 @@ export default class PSEHeader extends React.Component {
 																				<Link to="#config-mdm">Configure MDM</Link>
 																		</li>
 																		<li role="presentation">
-																				<Link to="#log-out">
+																				<Link to="https://fcontent.stage.att.com/dynamic/iamLRR/LrrController?IAM_OP=logout">
 																					<i className="icon-logout" aria-hidden="true"></i>Log Out
 																				</Link>
 																		</li>

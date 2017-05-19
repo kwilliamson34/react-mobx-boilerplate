@@ -10,7 +10,10 @@ const pseId = '123';
 class ApiService {
     validateUserData() {
         return axios.get(`${base}/user/profile`, {
-          withCredentials: true
+          withCredentials: true,
+          headers: {
+            'x-auth-token': '34234'
+          }
       });
     }
 
