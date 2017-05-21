@@ -251,6 +251,10 @@ $fn-mobile-item-height: 60px;
 @media only screen and (min-width : 992px) {
     $fn-primary-nav-height: 94px;
 
+    header{
+      border-top: 5px solid $fn-yellow;
+    }
+
     .fnnav__utility {
         display: block;
     }
@@ -279,6 +283,3 @@ $fn-mobile-item-height: 60px;
         }
     }
 }
-@import "pse-selector";
-@import "utility-nav";
-@import "weather-widget";

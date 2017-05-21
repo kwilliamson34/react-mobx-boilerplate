@@ -1,11 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-
-import UtilityNav from './utility-nav';
-import PSESelector from '../pse-selector/pse-selector';
-
-import WeatherWidget from '../weather-widget/weather-widget';
+import { Link, NavLink } from 'react-router-dom';
 
 import {observer,inject} from 'mobx-react';
 
@@ -25,7 +20,6 @@ export default class PSEHeader extends React.Component {
 		var mainbarClass = (this.headerStore.mainMenuIsOpen) ? 'fnnav__mainbar open' : 'fnnav__mainbar';
 		return (
 			<header className="fnnav pse" role="banner">
-				<UtilityNav/>
 				<div className={mainbarClass}>
 						<div className="container">
 								<div className="row">
@@ -46,7 +40,6 @@ export default class PSEHeader extends React.Component {
 														<span className='icon-bar'></span>
 														<span className='icon-bar'></span>
 												</button>
-												<WeatherWidget />
 										</div>
 										<nav id="main-menu" aria-label="Main Menu" aria-hidden={!this.headerStore.mainMenuIsOpen}>
 												<ul className="fnnav__main">
@@ -91,12 +84,30 @@ export default class PSEHeader extends React.Component {
 																	aria-expanded="false">
 																		<span className="sr-only">Expand Section Navigation</span>
 																</button>
-																<Link id="linkBtn-admin" role="button" to="/admin">Administration Dashboard</Link>
+																<NavLink id="linkBtn-admin" role="button" to="/admin">Administration Dashboard</NavLink>
 																<ul id="pse-admin-nav" className="collapse" aria-labelledby="linkBtn-admin">
-																		<li role="presentation">
-																				<Link to="/manage-apps">Manage Apps</Link>
-																		</li>
+																	<li role="presentation">
+																		<NavLink to="/manage-users">Manage Users</NavLink>
+																	</li>
+																	<li role="presentation">
+																		<NavLink to="/manage-billing">Manage Billing</NavLink>
+																	</li>
+																	<li role="presentation">
+																		<NavLink to="/manage-services">Manage Services</NavLink>
+																	</li>
+																	<li role="presentation">
+																		<NavLink to="/manage-apps">Manage Apps</NavLink>
+																	</li>
+																	<li role="presentation">
+																		<NavLink to="/manage-push-talk">Manage push-to-talk</NavLink>
+																	</li>
+																	<li role="presentation">
+																		<NavLink to="/view-wireless-reports">View wireless reports</NavLink>
+																	</li>
 																</ul>
+														</li>
+														<li className="mainnav-item" role="presentation">
+																<NavLink id="linkBtn-admin" role="button" to="/network-status">Network Status</NavLink>
 														</li>
 														<li className="mainnav-item" role="presentation">
 																<button className="btnSubmenu"
@@ -106,21 +117,24 @@ export default class PSEHeader extends React.Component {
 																	aria-expanded="false">
 																		<span className="sr-only">Expand Section Navigation</span>
 																</button>
-																<Link id="linkBtn-help-center" to="/help-center">Help Center</Link>
+																<NavLink id="linkBtn-help-center" to="/help-center">Help Center</NavLink>
 																<ul id="pse-helpcenter-nav" className="collapse" aria-labelledby="linkBtn-help-center">
 																		<li role="presentation">
-																				<Link to="#faq">FAQ</Link>
+																				<NavLink to="#faq">FAQ</NavLink>
 																		</li>
 																		<li role="presentation">
-																				<Link to="#provide-feedback">Provide Feedback</Link>
+																				<NavLink to="#provide-feedback">Provide Feedback</NavLink>
 																		</li>
 																		<li role="presentation">
-																				<Link to="#contact-us">Contact Us</Link>
+																				<NavLink to="#contact-us">Contact Us</NavLink>
 																		</li>
 																</ul>
 														</li>
-														<li className="mainnav-item pse-selector" role="presentation">
+														{/* <li className="mainnav-item pse-selector" role="presentation">
 																<PSESelector/>
+														</li> */}
+														<li className="mainnav-item" role="presentation">
+
 														</li>
 												</ul>
 										</nav>
