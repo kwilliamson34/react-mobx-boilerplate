@@ -1,11 +1,12 @@
 footer{
   border-top: 5px solid $fn-black;
+  .logoRow{
+    padding: 30px 15px;
+  }
   .footer-main{
     background: $fn-ltgrey;
     padding-bottom: 60px;
-    .logoRow{
-      padding: 60px 0;
-    }
+
 
     h2, .sitemap-hdr{
       color: $fn-black;
@@ -36,7 +37,7 @@ footer{
       i{
         display: inline-block;
         margin-right: 10px;
-        color: $fn-grey;
+        color: $fn-social-grey;
         &:before{
           font-size: 2.4rem;
           vertical-align: middle;
@@ -55,33 +56,90 @@ footer{
         font-size: 1.2rem;
         padding: 0 10px;
       }
-      &:not(:last-child){
-        border-right: 1px solid $fn-blue;
-      }
     }
   }
 }
 /* mobile */
 @media only screen and (min-width : 0px) {
-
-}
-
-/*Tablet*/
-@media only screen and (min-width : 768px) {
-
-}
-
-/* Desktop */
-@media only screen and (min-width : 992px) {
   .footer-main{
     .is-flex > div{
       padding:15px 45px;
       &:not(:last-child){
-        border-right: 1px solid $fn-grey;
+        border-right: 0;
+        nav{border-bottom: 1px solid $fn-grey;}
       }
     }
   }
+  .social-links-list{
+    li{
+      display:inline-block;
+    }
+    a{
+      margin-right: 45px;
+      > span{display:none;}
+    }
+  }
   .footer-sub{
-    text-align: right;
+    .sub-links{text-align: center}
+    li{
+      margin-bottom: 30px;
+      &:nth-child(1),
+      &:nth-child(4){
+        border-right: 1px solid $fn-blue;
+      }
+    }
+  }
+}
+
+/*Tablet*/
+@media only screen and (min-width : 768px) {
+  .footer-main{
+    .is-flex > div{
+      padding:15px 45px;
+      &:not(:last-child){
+        border-right: 0;
+      }
+    }
+    nav{
+      border-bottom: 1px solid $fn-grey;
+    }
+  }
+  .social-links-list{
+    li{
+      display:block;
+    }
+    a{
+      margin-right: 10px;
+      > span{display:inline;}
+    }
+  }
+  .footer-sub{
+    .sub-links{text-align: right}
+    li{
+      margin-bottom: 0;
+
+      &:not(:last-child){
+        border-right: none;
+      }
+    }
+  }
+}
+
+/* Desktop */
+@media only screen and (min-width : 992px) {
+  footer{
+    .logoRow{
+      padding: 60px 30px;
+    }
+  }
+  .footer-main{
+    .is-flex > div{
+      padding:15px 45px;
+      nav{border-bottom: none;}
+      &:not(:last-child){
+        border-right: 1px solid $fn-grey;
+        nav{border-bottom: none;}
+      }
+    }
   }
 }

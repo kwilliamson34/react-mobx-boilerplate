@@ -21,7 +21,7 @@ export default class NetworkStatusPage extends React.Component {
 
 	render() {
 		return (
-			<article id="network-page">
+			<article id="network-page" className="content-wrapper">
         {this.props.store.geolinkStore.isGeolinkReady &&
 					<GeolinkMap geolinkStore={this.props.store.geolinkStore}/>}
         {/*The following iframe is required to kick of the loading

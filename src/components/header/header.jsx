@@ -76,7 +76,7 @@ export default class PSEHeader extends React.Component {
 																		</li>
 																</ul>
 														</li>
-														<li className="mainnav-item" role="presentation">
+														<li className="mainnav-item desktop-textlink" role="presentation">
 																<button className="btnSubmenu"
 																	data-toggle="collapse"
 																	data-target="#pse-admin-nav"
@@ -84,30 +84,30 @@ export default class PSEHeader extends React.Component {
 																	aria-expanded="false">
 																		<span className="sr-only">Expand Section Navigation</span>
 																</button>
-																<NavLink id="linkBtn-admin" role="button" to="/admin">Administration Dashboard</NavLink>
+																<NavLink id="linkBtn-admin" to="/admin" activeClassName="active">Administration</NavLink>
 																<ul id="pse-admin-nav" className="collapse" aria-labelledby="linkBtn-admin">
 																	<li role="presentation">
-																		<NavLink to="/manage-users">Manage Users</NavLink>
+																		<NavLink to="/admin/manage-users">Manage Users</NavLink>
 																	</li>
 																	<li role="presentation">
-																		<NavLink to="/manage-billing">Manage Billing</NavLink>
+																		<NavLink to="/admin/manage-billing">Manage Billing</NavLink>
 																	</li>
 																	<li role="presentation">
-																		<NavLink to="/manage-services">Manage Services</NavLink>
+																		<NavLink to="/admin/manage-services">Manage Services</NavLink>
 																	</li>
 																	<li role="presentation">
-																		<NavLink to="/manage-apps">Manage Apps</NavLink>
+																		<NavLink to="/admin/manage-apps">Manage Apps</NavLink>
 																	</li>
 																	<li role="presentation">
-																		<NavLink to="/manage-push-talk">Manage push-to-talk</NavLink>
+																		<NavLink to="/admin/manage-push-talk">Manage push-to-talk</NavLink>
 																	</li>
 																	<li role="presentation">
-																		<NavLink to="/view-wireless-reports">View wireless reports</NavLink>
+																		<NavLink to="/admin/view-wireless-reports">View wireless reports</NavLink>
 																	</li>
 																</ul>
 														</li>
-														<li className="mainnav-item" role="presentation">
-																<NavLink id="linkBtn-admin" role="button" to="/network-status">Network Status</NavLink>
+														<li className="mainnav-item desktop-textlink" role="presentation">
+																<NavLink id="linkBtn-networkStatus" to="/network-status" activeClassName="active">Network Status</NavLink>
 														</li>
 														<li className="mainnav-item" role="presentation">
 																<button className="btnSubmenu"
@@ -117,25 +117,29 @@ export default class PSEHeader extends React.Component {
 																	aria-expanded="false">
 																		<span className="sr-only">Expand Section Navigation</span>
 																</button>
-																<NavLink id="linkBtn-help-center" to="/help-center">Help Center</NavLink>
+																<NavLink id="linkBtn-help-center" activeClassName="active" to="/help-center">Help Center</NavLink>
 																<ul id="pse-helpcenter-nav" className="collapse" aria-labelledby="linkBtn-help-center">
 																		<li role="presentation">
-																				<NavLink to="#faq">FAQ</NavLink>
+																				<NavLink to="#faq" activeClassName="active">FAQ</NavLink>
 																		</li>
 																		<li role="presentation">
-																				<NavLink to="#provide-feedback">Provide Feedback</NavLink>
+																				<NavLink to="#provide-feedback" activeClassName="active">Provide Feedback</NavLink>
 																		</li>
 																		<li role="presentation">
-																				<NavLink to="#contact-us">Contact Us</NavLink>
+																				<NavLink to="#contact-us" activeClassName="active">Contact Us</NavLink>
 																		</li>
 																</ul>
 														</li>
 														{/* <li className="mainnav-item pse-selector" role="presentation">
 																<PSESelector/>
 														</li> */}
-														<li className="mainnav-item" role="presentation">
-
+														<li className="desktop-iconItem">
+															<NavLink to="/user" activeClassName="active">
+																<i className="icon-profile" aria-label="Go to User Dashboard"></i>
+															</NavLink>
 														</li>
+														<li className="desktop-iconItem">
+															<NavLink to="/help-center" activeClassName="active"><i className="icon-help" aria-label="Go to Help Center"></i></NavLink></li>
 												</ul>
 										</nav>
 								</div>

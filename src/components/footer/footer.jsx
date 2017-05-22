@@ -64,7 +64,7 @@ export default class Footer extends React.Component {
 						<div className="col-xs-12 col-md-3">
 							<nav className="social-nav"  aria-describedby="social-links">
 								<h2 id="social-links">Follow Us</h2>
-								<ul>
+								<ul className="social-links-list">
 									<li role="presentation">
 										<a href="https://www.facebook.com/firstnetgov/" className="fn-social-icon fb" target="_blank" rel="noopener noreferrer">
 										<i aria-hidden="true" className="icon-facebook"></i>
@@ -118,9 +118,10 @@ export default class Footer extends React.Component {
 				<div className="row">
 					<div className="col-xs-12">
 						<nav>
-							<ul>
+							<ul className="sub-links">
 								<li role="presentation"><Link to="/?privacy">Privacy Policy</Link></li>
 								<li role="presentation"><Link to="/?">Terms &amp; Conditions</Link></li>
+								<br className="visible-xs-inline-block" />
 								<li role="presentation"><Link to="/?">Accessibility</Link></li>
 								<li role="presentation"><a href="https://www.firstnet.gov/" target="_blank" rel="noopener noreferrer">FirstNet.gov</a></li>
 							</ul>

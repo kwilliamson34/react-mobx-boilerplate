@@ -2,7 +2,7 @@ $fn-mobile-item-height: 60px;
 
 .fnnav {
     @extend .clearfix;
-
+    border-bottom: 1px solid $fn-grey;
     &__mainbar {
         background: $fn-white;
         color: $fn-dkgrey;
@@ -204,6 +204,9 @@ $fn-mobile-item-height: 60px;
         top: $fn-primary-nav-height;
         left: -100vw;
     }
+    .desktop-iconItem{
+      display: none;
+    }
 }
 
 /*Tablet*/
@@ -246,13 +249,17 @@ $fn-mobile-item-height: 60px;
             border-bottom: 1px solid $fn-grey;
         }
     }
+    .desktop-iconItem{
+      display: none;
+    }
 }
 /* Desktop */
 @media only screen and (min-width : 992px) {
     $fn-primary-nav-height: 94px;
 
-    header{
+    .fnnav{
       border-top: 5px solid $fn-yellow;
+      border-bottom: 5px solid $fn-ltblue;
     }
 
     .fnnav__utility {
@@ -266,8 +273,95 @@ $fn-mobile-item-height: 60px;
             width: 970px;
         }
     }
+    .fnnav__header{
+      display: inline-block;
+      float:left;
+    }
+.fnnav__main{
+  position: relative;
+  top: auto;
+  left: auto;
+  float: right;
+  width: auto;
+  height:auto;
+  padding: 0;
+  max-width: auto;
+  text-align: right;
+  .mainnav-item{
+    clear:none;
+    padding: 0;
+    &:not(.desktop-textlink){
+      display: none;
+    }
+  }
+  .desktop-iconItem{
+    display: inline-block;
+    float: left;
+    background: $fn-white;
+    > a{
+      display: block;
+      width: 60px;
+      line-height: $fn-primary-nav-height;
+      border-left: 1px solid $fn-grey;
+      height: $fn-primary-nav-height;
+      text-align: center;
+      color: $fn-dkgrey;
+      padding: 0;
+      &:hover{
+        text-decoration: none;
+        background: $fn-ltgrey;
+      }
+      &:focus{
+        outline: 2px solid $fn-orange;
+        text-decoration: none;
+      }
+    }
+    &:last-child{
+      > a{
+        border-right: 1px solid $fn-grey;
+      }
 
-    .fnnav__main,
+    }
+  }
+  .desktop-textlink{
+    display: inline-block;
+    float: left;
+
+    >button{display: none;}
+    >a{
+      font-weight: $fn-normal-weight;
+      border-bottom: none;
+      height: $fn-primary-nav-height;
+      line-height:$fn-primary-nav-height;
+      color: $fn-black;
+      padding: 0 30px;
+      &:focus{
+        outline: 2px solid $fn-orange;
+        text-decoration: none;
+      }
+      &.active{
+        position: relative;
+        font-weight: $fn-medium-weight;
+        color: $fn-ltblue;
+        &:after {
+          position: absolute;
+          content: "";
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: 0 auto;
+          width: 0;
+          height: 0;
+          border-left: 8px solid transparent;
+          border-right: 8px solid transparent;
+          border-bottom: 8px solid $fn-ltblue;
+        }
+      }
+    }
+
+  }
+
+}
     .navbar-toggle {
         display: none;
     }
