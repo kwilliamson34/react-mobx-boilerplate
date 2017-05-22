@@ -19,7 +19,6 @@ class CardListStore {
 		if(!this.searchResults.length) {
 			const success = (res) => {
 				this.searchResults = res;
-				this.shouldShowSearchResults = true;
 				return this.searchResults;
 			}
 			const fail = (err) => {
@@ -40,7 +39,6 @@ class CardListStore {
 	@action getSearchResults = _.debounce(() => {
 		const success = (response) => {
 			this.searchResults = response;
-			this.shouldShowSearchResults = true;
 			this.finishLoading();
 		}
 
@@ -157,8 +155,6 @@ class CardListStore {
 
 	@observable searchResults = [];
 	@observable currentAppPsk = '';
-	@observable shouldShowSearchResults = false;
-	@observable searchIsVisible = false;
 	@observable searchQuery = '';
 	@observable isLoading = false;
 
