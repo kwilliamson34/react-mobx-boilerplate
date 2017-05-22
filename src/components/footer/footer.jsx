@@ -33,8 +33,8 @@ export default class Footer extends React.Component {
 					<div className="row is-flex">
 						<div className="col-xs-12 col-md-3">
 							<nav aria-describedby="sitemap">
-								<a href="" onClick={this.handleSitemapClick} className="sitemap-hdr" role="button" aria-haspopup="true" aria-expanded={this.state.sitemapExpanded}>Sitemap</a>
-								<ul id="sitemap" className="sitemap-links">
+								<a id="sitemap" href="" onClick={this.handleSitemapClick} className="sitemap-hdr" role="button" aria-haspopup="true" aria-expanded={this.state.sitemapExpanded}>Sitemap</a>
+								<ul className="sitemap-links">
 									<li role="presentation">
 										<Link to="/admin">PSE Administration</Link>
 									</li>
