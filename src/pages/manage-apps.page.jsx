@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import {inject, observer} from 'mobx-react';
 import {Link} from 'react-router-dom';
 
-import TitlePane from '../components/title-pane/title-pane';
 import { CardList } from '../components/card-list/card-list';
 import { SearchForm } from '../components/search/search-form';
 import { Filters } from '../components/filters/filters';

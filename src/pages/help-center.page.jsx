@@ -1,7 +1,5 @@
 import React from 'react';
 
-import TitlePane from '../components/title-pane/title-pane';
-
 export default class HelpCenterPage extends React.Component {
   render() {
     return (
