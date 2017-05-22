@@ -61,7 +61,7 @@ export default class App extends React.Component {
 							<article>
 								<div className="container">
 									<div className="col-xs-12">
-										<h1>Sorry.</h1>
+										<h1 className="as-h2">Sorry.</h1>
 										<p>We couldn't find the app you were looking for.  <Link to="manage-apps">Go to the App Catalog</Link></p>
 									</div>
 								</div>

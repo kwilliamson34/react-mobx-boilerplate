@@ -49,7 +49,6 @@ export default class ManageAppsPage extends React.Component {
 	render() {
 		return (
 			<article id="manage-apps-page">
-				<TitlePane pageTitle="Manage Apps" />
 				<div className="container">
 					<div className="row">
 						<div className="col-xs-12 text-right add-margin-vertical">
@@ -61,7 +60,7 @@ export default class ManageAppsPage extends React.Component {
 					<div className="container manage-apps">
 						<div className="row">
 							<div className="col-md-3">
-								<h2>Manage Apps</h2>
+								<h1 className="as-h2">Manage Apps</h1>
 							</div>
 							<div className="col-md-9 row">
 								<div className="col-md-6">
