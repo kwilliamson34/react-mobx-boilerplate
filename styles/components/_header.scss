@@ -315,6 +315,11 @@ $fn-mobile-item-height: 60px;
         outline: 2px solid $fn-orange;
         text-decoration: none;
       }
+      &.active{
+        text-decoration: none;
+        background: $fn-ltblue;
+        color: $fn-white;
+      }
     }
     &:last-child{
       > a{
