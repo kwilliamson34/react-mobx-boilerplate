@@ -7,8 +7,17 @@ export default class Footer extends React.Component {
 
 	constructor(props) {
 		super(props);
+		this.state={
+			sitemapExpanded: false
+		}
+		this.handleSitemapClick = this.handleSitemapClick.bind(this);
 	}
-
+	handleSitemapClick(e){
+		e.preventDefault();
+		this.setState({
+			sitemapExpanded: !this.state.sitemapExpanded
+		});
+	}
 	render() {
 		return (
 			<footer>
@@ -24,8 +33,8 @@ export default class Footer extends React.Component {
 					<div className="row is-flex">
 						<div className="col-xs-12 col-md-3">
 							<nav aria-describedby="sitemap">
-								<a href="/" className="sitemap-hdr" role="button" aria-haspopup="true" aria-expanded="true">Sitemap</a>
-								<ul>
+								<a href="" onClick={this.handleSitemapClick} className="sitemap-hdr" role="button" aria-haspopup="true" aria-expanded={this.state.sitemapExpanded}>Sitemap</a>
+								<ul className="sitemap-links">
 									<li role="presentation">
 										<Link to="/admin">PSE Administration</Link>
 									</li>
@@ -96,7 +105,7 @@ export default class Footer extends React.Component {
 						</div>
 						<div className="col-xs-12 col-md-3">
 							<nav aria-describedby="helpLinks">
-								<h2 id="helpLinks">Help</h2>
+								<h2 id="helpLinks" className="help-hdr">Help</h2>
 								<ul>
 									<li role="presentation">
 										Chat

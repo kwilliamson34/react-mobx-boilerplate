@@ -6,8 +6,6 @@ footer{
   .footer-main{
     background: $fn-ltgrey;
     padding-bottom: 60px;
-
-
     h2, .sitemap-hdr{
       color: $fn-black;
       font-size: 1.8rem;
@@ -15,10 +13,6 @@ footer{
       text-transform: uppercase;
       font-weight: $fn-medium-weight;
       letter-spacing: 2.65px;
-    }
-    .sitemap-hdr{
-      margin-bottom: 1.6rem;
-      display:block;
     }
     ul{
       margin-top: 40px;
@@ -59,11 +53,62 @@ footer{
     }
   }
 }
+.sitemap-links{
+  overflow: hidden;
+  transition: all $fn-animation-duration ease;
+}
+
+.sitemap-hdr{
+  position: relative;
+  margin-bottom: 1.6rem;
+  display:block;
+  padding-left: 30px;
+  &:before {
+    content: '\68';
+    position: absolute;
+    display: inline-block;
+    left: 0;
+    top: 0;
+    font-family: $icon-font;
+    text-transform: none;
+    transition: all $fn-animation-duration ease;
+  }
+  &[aria-expanded='true']{
+    &:before{
+      transform: rotate(-180deg);
+    }
+    + .sitemap-links{
+      max-height: 0;
+    }
+  }
+
+  //sitemap expanded
+  &[aria-expanded='false']{
+    &:before{
+      transform: rotate(0);
+    }
+     + .sitemap-links{
+       max-height: 700px;
+     }
+
+  }
+}
+.help-hdr{
+  display: block;
+  position:relative;
+  &:before{
+    content: '\61';
+    text-transform:none;
+    font-family: $icon-font;
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+}
 /* mobile */
 @media only screen and (min-width : 0px) {
   .footer-main{
     .is-flex > div{
-      padding:15px 45px;
+      padding:15px 30px;
       &:not(:last-child){
         border-right: 0;
         nav{border-bottom: 1px solid $fn-grey;}
@@ -95,22 +140,16 @@ footer{
 @media only screen and (min-width : 768px) {
   .footer-main{
     .is-flex > div{
-      padding:15px 45px;
+      padding:15px 30px;
+nav{border-bottom: 0;}
       &:not(:last-child){
         border-right: 0;
+
+        nav{border-bottom: 1px solid $fn-grey;}
       }
     }
     nav{
       border-bottom: 1px solid $fn-grey;
-    }
-  }
-  .social-links-list{
-    li{
-      display:block;
-    }
-    a{
-      margin-right: 10px;
-      > span{display:inline;}
     }
   }
   .footer-sub{
@@ -119,7 +158,7 @@ footer{
       margin-bottom: 0;
 
       &:not(:last-child){
-        border-right: none;
+        border-right: 1px solid $fn-blue;
       }
     }
   }
@@ -132,9 +171,25 @@ footer{
       padding: 60px 30px;
     }
   }
+  .sitemap-hdr{
+    padding: 0;
+    pointer-events: none;
+    &:before{
+      content:'';
+      display:none;
+    }
+  }
+  .social-links-list{
+    li{
+      display:block;
+    }
+    a{
+      > span{display:inline;}
+    }
+  }
   .footer-main{
     .is-flex > div{
-      padding:15px 45px;
+      padding:15px 30px;
       nav{border-bottom: none;}
       &:not(:last-child){
         border-right: 1px solid $fn-grey;
@@ -142,4 +197,5 @@ footer{
       }
     }
   }
+
 }
