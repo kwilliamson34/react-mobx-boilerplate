@@ -57,7 +57,7 @@ export default class ShopSpecializedDevicesPage extends React.Component {
         <div className="container">
           <div className="row">
             <div className="col-xs-12 col-sm-10 col-sm-offset-1 add-padding-bottom-dbl">
-              <h1>Specialized Devices Catalog</h1>
+              <h1 className="as-h2">Specialized Devices Catalog</h1>
               <p>FirstNet offers an extensive selection of devices and accessories. Check out a small selection of our portfolio. To learn more about our full portfolio, contact a FirstNet Specialist.</p>
             </div>
           </div>

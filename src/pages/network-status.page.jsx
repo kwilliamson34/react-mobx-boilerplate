@@ -1,16 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-	inject,
-	observer
-} from 'mobx-react';
+import { inject,	observer } from 'mobx-react';
 
-import TitlePane from '../components/title-pane/title-pane';
 import GeolinkMap from '../components/geolink-map/geolink-map';
 
 @inject('store')
 @observer
-export default class HomePage extends React.Component {
+export default class NetworkStatusPage extends React.Component {
+
 	static propTypes = {
 		store: PropTypes.object.isRequired
 	}
@@ -24,15 +21,9 @@ export default class HomePage extends React.Component {
 
 	render() {
 		return (
-			<article id="home-page">
-        <TitlePane pageTitle="PSE Home Page"/>
-        <section className="placeholder alert-dropdown">
-          Alert Dropdown Component
-        </section>
-        {this.props.store.geolinkStore.isGeolinkReady && <GeolinkMap geolinkStore={this.props.store.geolinkStore}/>}
-        <section className="placeholder news-feed">
-          <h2>News feed</h2>
-        </section>
+			<article id="network-page" className="content-wrapper">
+        {this.props.store.geolinkStore.isGeolinkReady &&
+					<GeolinkMap geolinkStore={this.props.store.geolinkStore}/>}
         {/*The following iframe is required to kick of the loading
           of geolink scripts. */}
         <iframe
