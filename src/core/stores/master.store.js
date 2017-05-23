@@ -7,27 +7,19 @@ import {
 //import { apiService } from '../services/api.service';
 
 // import { searchStore } from './search.store';
-import {
-	headerStore
-} from './header.store';
-import {
-	cardListStore
-} from './card-list.store';
-import {
-	mpStore
-} from './external-portal.store';
-import {
-	geolinkStore
-} from './geolink.store';
-import {
-	mdmStore
-} from './mdm.store';
+import {headerStore} from './header.store';
+import {appCatalogStore} from './app-catalog.store';
+import {cardListStore} from './card-list.store';
+import {mpStore} from './external-portal.store';
+import {geolinkStore} from './geolink.store';
+import {mdmStore} from './mdm.store';
 
 class PSEStore {
 
 	constructor() {
 		// this.searchStore = searchStore;
 		this.headerStore = headerStore;
+		this.appCatalogStore = appCatalogStore;
 		this.cardListStore = cardListStore;
 		this.externalContentStore = mpStore;
 		this.geolinkStore = geolinkStore;
@@ -51,18 +43,14 @@ class PSEStore {
 		this.pages[id]++;
 	}
 
-
 	// COMPUTEDS
 	@computed get lastNameAdded() {
 		return this.names[this.names.length - 1];
 	}
 
-
 	// OBSERVABLES
 	@observable names = [];
-
 	@observable pages = {};
-
 }
 
 export const pseMasterStore = new PSEStore();

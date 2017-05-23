@@ -2,7 +2,7 @@ import 'jquery';
 import 'bootstrap';
 
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link, Redirect } from 'react-router-dom';
 import ScrollToTop from './core/services/scroll-to-top';
 
 //State Management
@@ -17,7 +17,7 @@ import Header from './components/header/header';
 import Footer from './components/footer/footer.jsx';
 
 //Pages
-import HomePage from './pages/home.page';
+import NetworkStatusPage from './pages/network-status.page';
 
 //admin
 import ManageUsersPage from './pages/manage-users.page';
@@ -48,7 +48,7 @@ export default class App extends React.Component {
 	constructor(props) {
 		super(props);
 	}
-	
+
 	render() {
 		const AppHub = ({
 			match
@@ -56,12 +56,12 @@ export default class App extends React.Component {
 			return (
 				<div id="app-page">
 					<Switch>
-						<Route path={`${match.url}/:appId`} component={AppDetailsPage} />
+						<Route path={`${match.url}/:appPsk`} component={AppDetailsPage} />
 						<Route exact path={match.url} render={() => (
 							<article>
 								<div className="container">
 									<div className="col-xs-12">
-										<h1>Sorry.</h1>
+										<h1 className="as-h2">Sorry.</h1>
 										<p>We couldn't find the app you were looking for.  <Link to="manage-apps">Go to the App Catalog</Link></p>
 									</div>
 								</div>
@@ -72,6 +72,12 @@ export default class App extends React.Component {
 			)
 		}
 
+		//redirect until new landing is figured out
+		const TempHomePage = () => {
+			return (
+				<Redirect to="/admin" />
+			)
+		}
 
 		return (
 			<Router>
@@ -82,7 +88,8 @@ export default class App extends React.Component {
 							<Header/>
 							<main id="main-content">
 								<Switch>
-									<Route exact path="/" component={HomePage}/>
+									<Route exact path="/" component={TempHomePage}/>
+									<Route path="/network-status" component={NetworkStatusPage}/>
 									<Route path="/admin/manage-users" component={ManageUsersPage} />
 									<Route path="/admin/manage-billing" component={ManageBillingPage} />
 									<Route path="/admin/manage-services" component={ManageServicesPage} />

@@ -6,7 +6,6 @@ exports[`<RatingsChart /> renders matches snapshot for ratings-chart 1`] = `
     className="sr-only"
     id="chart-info">
     This app has 
-    44
      reviews with an average rating of 
     4.1
     .
@@ -17,13 +16,16 @@ exports[`<RatingsChart /> renders matches snapshot for ratings-chart 1`] = `
       className="col-xs-12 col-sm-4 col-md-4 col-lg-3 col-lg-offset-1 average-ratings-col">
       <div
         className="total-reviews">
-        <span>
-          44
-        </span>
+        <span />
       </div>
     </div>
     <div
-      className="col-xs-12 col-sm-8 col-md-8 col-lg-7 overall-ratings-col" />
+      className="col-xs-12 col-sm-8 col-md-8 col-lg-7 overall-ratings-col">
+      <div
+        className="zero-reviews">
+        No Reviews Yet!
+      </div>
+    </div>
   </div>
 </div>
 `;
@@ -36,7 +38,6 @@ exports[`<RatingsChart /> renders matches snapshot for ratings-chart when only o
     className="sr-only"
     id="chart-info">
     This app has 
-    1
      reviews with an average rating of 
     3
     .
@@ -47,13 +48,16 @@ exports[`<RatingsChart /> renders matches snapshot for ratings-chart when only o
       className="col-xs-12 col-sm-4 col-md-4 col-lg-3 col-lg-offset-1 average-ratings-col">
       <div
         className="total-reviews">
-        <span>
-          1
-        </span>
+        <span />
       </div>
     </div>
     <div
-      className="col-xs-12 col-sm-8 col-md-8 col-lg-7 overall-ratings-col" />
+      className="col-xs-12 col-sm-8 col-md-8 col-lg-7 overall-ratings-col">
+      <div
+        className="zero-reviews">
+        No Reviews Yet!
+      </div>
+    </div>
   </div>
 </div>
 `;
@@ -66,7 +70,6 @@ exports[`<RatingsChart /> renders matches snapshot for ratings-chart when zeroes
     className="sr-only"
     id="chart-info">
     This app has 
-    0
      reviews with an average rating of 
     0
     .
@@ -77,13 +80,16 @@ exports[`<RatingsChart /> renders matches snapshot for ratings-chart when zeroes
       className="col-xs-12 col-sm-4 col-md-4 col-lg-3 col-lg-offset-1 average-ratings-col">
       <div
         className="total-reviews">
-        <span>
-          0
-        </span>
+        <span />
       </div>
     </div>
     <div
-      className="col-xs-12 col-sm-8 col-md-8 col-lg-7 overall-ratings-col" />
+      className="col-xs-12 col-sm-8 col-md-8 col-lg-7 overall-ratings-col">
+      <div
+        className="zero-reviews">
+        No Reviews Yet!
+      </div>
+    </div>
   </div>
 </div>
 `;
