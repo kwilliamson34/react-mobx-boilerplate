@@ -28,9 +28,6 @@ class SearchStore {
       console.warn(error);
       this.searchResults = [];
       this.finishLoading();
-      if (error.status === 401) {
-          userStore.validateUser();
-      }
     }
 
     this.isLoading = true;

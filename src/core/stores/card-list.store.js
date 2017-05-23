@@ -24,9 +24,6 @@ class CardListStore {
 		}
         const fail = (err) => {
             console.warn(err);
-            if (err.status === 401) {
-                userStore.validateUser();
-            }
         }
 		return apiService.getAdminApps().then(success, fail)
 	}
@@ -43,9 +40,6 @@ class CardListStore {
 
 			let failure = (error) => {
 				console.warn(error);
-				if (error.status === 401) {
-					userStore.validateUser();
-				}
 			}
 
 			return apiService.getAppDetails(psk).then(success, failure);
@@ -63,9 +57,6 @@ class CardListStore {
 
         let failure = (error) => {
             console.warn(error);
-            if (error.status === 401) {
-                userStore.validateUser();
-            }
         }
 
 		apiService.getAppDetails(psk).then(success, failure);
@@ -89,9 +80,6 @@ class CardListStore {
             console.warn(error);
             this.searchResults = [];
             this.finishLoading();
-            if (error.status === 401) {
-                userStore.validateUser();
-            }
         }
 
 		this.isLoading = true;

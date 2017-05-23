@@ -2,17 +2,32 @@ import axios from 'axios';
 import { utilsService } from './utils.service';
 import { externalContentService } from './external-content.service';
 
+import { userStore } from '../stores/user.store';
+
 const base = '/api'
 
 // TODO - temp hardcode pending PSEID implementation
 const pseId = '123';
 
+axios.interceptors.response.use(undefined, err => {
+  if (err.response.status === 401 && err.config.url !== '/api/user/profile') {
+    userStore.validateUser();
+  }
+})
+
+
 class ApiService {
-    validateUserData(user_token) {
-        return axios.get(`${base}/user/profile`, {
-          withCredentials: true,
-          headers: {
-            'x-auth-token': user_token
+
+    validateUserData() {
+      return axios.get(`${base}/user/profile`, {
+        withCredentials: true,
+        headers: {
+          'Authorization': null
+        }
+      }).then(function(resp) {
+        axios.config.headers.Authorization = 'Bearer ' + resp.data;
+          if (resp.response.status === 401) {
+            throw new Error('response of 401')
           }
       });
     }
@@ -23,7 +38,7 @@ class ApiService {
         : `${base}/apps/admin?pseId=${pseId}`
       return axios.get(endpoint, {
           headers: {
-            'x-auth-token': user_token
+            'Authorization': 'Bearer'+user_token
           }
         }).then((res) => {
         return utilsService.conditionData(res.data.applications);
@@ -33,7 +48,7 @@ class ApiService {
     getAdminApps(user_token) {
       return axios.get(`${base}/apps/admin?pseId=${pseId}`, {
           headers: {
-            'x-auth-token': user_token
+            'Authorization': 'Bearer'+user_token
           }
       }).then(res => {
         return utilsService.conditionData(res.data.applications);
@@ -43,7 +58,7 @@ class ApiService {
     getAppDetails(appPSK, user_token) {
       return axios.get(`${base}/app?appPsk=${appPSK}&pseId=${pseId}`,{
         headers: {
-          'x-auth-token': user_token
+          'Authorization': 'Bearer'+user_token
         }
       }).then(res => {
         let arrayRes = [];
@@ -65,7 +80,7 @@ class ApiService {
         method: 'post',
         url: `${base}/app/group`,
         headers: {
-          'x-auth-token': user_token
+          'Authorization': 'Bearer'+user_token
         },
         data: {
           appPsk,
@@ -81,7 +96,7 @@ class ApiService {
         method: 'delete',
         url: `${base}/app/group`,
         headers: {
-          'x-auth-token': user_token
+          'Authorization': 'Bearer'+user_token
         },
         data: {
           appPsk,
