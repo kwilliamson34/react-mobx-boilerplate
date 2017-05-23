@@ -56,7 +56,7 @@ export default class App extends React.Component {
 			return (
 				<div id="app-page">
 					<Switch>
-						<Route path={`${match.url}/:appId`} component={AppDetailsPage} />
+						<Route path={`${match.url}/:appPsk`} component={AppDetailsPage} />
 						<Route exact path={match.url} render={() => (
 							<article>
 								<div className="container">

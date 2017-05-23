@@ -17,16 +17,22 @@ export default class AppDetailsPage extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.appStore = this.props.store.cardListStore;
+		this.appStore = this.props.store.appCatalogStore;
 	}
 
 	componentWillMount() {
-		this.appStore.getAppDetailByPSK(this.props.match.params.appId);
+		if(this.appStore.allApps.length) {
+			this.updateCurrentApp();
+		} else {
+			this.appStore.fetchAppCatalog().then(() => {
+				this.updateCurrentApp();
+			});
+		}
 	}
 
-	componentWillUnmount(){
-		this.appStore.detailsFetched = false;
-		this.appStore.appDetailObj = {};
+	updateCurrentApp() {
+		const psk = this.props.match.params.appPsk;
+		this.appStore.fetchAppDetailByPsk(psk);
 	}
 
 	formatDate(dateStr){
@@ -37,26 +43,25 @@ export default class AppDetailsPage extends React.Component {
 	}
 
 	render() {
-
 		return (
 			<article id="app-details-page">
-				{ this.appStore.detailsFetched &&
+				{ this.appStore.currentAppObject && this.appStore.currentAppObject.detailsFetched &&
 				<div>
         <section className="app-summary">
           <div className="container">
             <div className="row">
               <div className="col-xs-4 col-sm-3 col-md-3 appicon-wrapper">
                 <div className="app-icon">
-                  <img src={appDetail.imgBaseURL + this.appStore.appDetailObj.icon_path} alt={this.appStore.appDetailObj.app_name} />
+                  <img src={appDetail.imgBaseURL + this.appStore.currentAppObject.icon_path} alt={this.appStore.currentAppObject.app_name} />
                 </div>
               </div>
               <div className="col-xs-8 col-sm-9 app-title">
-                <h1>{this.appStore.appDetailObj.app_name}</h1>
+                <h1>{this.appStore.currentAppObject.app_name}</h1>
               </div>
               <div className="col-xs-8 col-sm-5 col-lg-6 app-meta">
                 <div className="visible-xs">
-									<div>{this.appStore.appDetailObj.version.author}</div>
-                  {this.appStore.appDetailObj.endorsement &&
+									<div>{this.appStore.currentAppObject.version.author}</div>
+                  {this.appStore.currentAppObject.endorsement &&
                     <div className="endorsed">FirstNet Endorsed</div>
                   }
                   <span className="sr-only">Average Rating</span>
@@ -64,41 +69,44 @@ export default class AppDetailsPage extends React.Component {
                     src="/images/star.png"
                     alt="Rating Star"
                     aria-hidden="true" />
-                    {this.appStore.appDetailObj.rating}
-                    ({this.appStore.appDetailObj.reviews_count} <span className="sr-only">Reviews Completed</span>)
-                  &nbsp;<span aria-hidden="true">V</span><span className="sr-only">Version </span> {this.appStore.appDetailObj.version.version_num}
+                    {this.appStore.currentAppObject.rating}
+                    ({this.appStore.currentAppObject.reviews_count} <span className="sr-only">Reviews Completed</span>)
+                  &nbsp;<span aria-hidden="true">V</span><span className="sr-only">Version </span> {this.appStore.currentAppObject.version.version_num}
                 </div>
                 <div className="hidden-xs">
                   <ul>
-                    <li>{this.appStore.appDetailObj.version.author}</li>
+                    <li>{this.appStore.currentAppObject.version.author}</li>
                     <li>
-                      Version: <strong>{this.appStore.appDetailObj.version.version_num}</strong><br />
-                      Released: <strong>{this.formatDate(this.appStore.appDetailObj.version.release_date)}</strong>
+                      Version: <strong>{this.appStore.currentAppObject.version.version_num}</strong><br />
+                      Released: <strong>{this.formatDate(this.appStore.currentAppObject.version.release_date)}</strong>
                     </li>
                     <li>
-                      {this.appStore.appDetailObj.endorsement &&
+                      {this.appStore.currentAppObject.endorsement &&
                         <div className="endorsed">FirstNet Endorsed</div>
                       }
 											<span className="card-rating">
-												<Rating rating={this.appStore.appDetailObj.rating} />
-											</span> ({this.appStore.appDetailObj.reviews_count}<span className="sr-only">Reviews Completed</span>)
+												<Rating rating={this.appStore.currentAppObject.rating} />
+											</span> ({this.appStore.currentAppObject.reviews_count}<span className="sr-only">Reviews Completed</span>)
                     </li>
-										{this.appStore.appDetailObj.platform &&
-											<li>Platform<br /><strong>{this.appStore.appDetailObj.platform}</strong></li>
+										{this.appStore.currentAppObject.platform &&
+											<li>Platform<br /><strong>{this.appStore.currentAppObject.platform}</strong></li>
 										}
                   </ul>
                 </div>
               </div>
-							<AppManagementBlock app={this.appStore.appDetailObj} appManagementActions={{
-								changeAppAvailability: this.appStore.changeAppAvailability.bind(this.appStore),
-								changeAppRecommended: this.appStore.changeAppRecommended.bind(this.appStore)
-							}}/>
+							{this.appStore.currentAppObject && this.appStore.currentAppObject.psk &&
+								<AppManagementBlock
+									psk={this.appStore.currentAppObject.psk}
+									getMatchingApp={this.appStore.getMatchingApp.bind(this.appStore)}
+									changeAppAvailability={this.appStore.changeAppAvailability.bind(this.appStore)}
+									changeAppRecommended={this.appStore.changeAppRecommended.bind(this.appStore)}/>
+							}
             </div>
           </div>
         </section>
-					{(this.appStore.appDetailObj.tabletScreenshots.length > 0 || this.appStore.appDetailObj.mobileScreenshots.length > 0) &&
+					{(this.appStore.currentAppObject.tabletScreenshots.length > 0 || this.appStore.currentAppObject.mobileScreenshots.length > 0) &&
 						<section className='app-gallery'>
-							<ScreenshotGallery detailObj={this.appStore.appDetailObj} />
+							<ScreenshotGallery detailObj={this.appStore.currentAppObject} />
 						</section>
 					}
         <section className="app-description">
@@ -108,7 +116,7 @@ export default class AppDetailsPage extends React.Component {
                 <h2>Description</h2>
                 <p
                   className="content-description"
-                  dangerouslySetInnerHTML={{ __html: this.appStore.appDetailObj.short_description}}>
+                  dangerouslySetInnerHTML={{ __html: this.appStore.currentAppObject.short_description}}>
                 </p>
                 {/* <a href="#show-more">Show More <span className="sr-only">about this app</span></a> */}
               </div>
@@ -120,7 +128,7 @@ export default class AppDetailsPage extends React.Component {
             <div className="row">
               <div className="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
                 <h2>Reviews</h2>
-								<RatingsChart value={this.appStore.appDetailObj.rating} reviewsTotal={this.appStore.appDetailObj.reviews_count} reviews={this.appStore.appDetailObj.reviews}/>
+								<RatingsChart value={this.appStore.currentAppObject.rating} reviewsTotal={this.appStore.currentAppObject.reviews_count} reviews={this.appStore.appDetailObj.reviews}/>
 								{appDetail.reviews.length > 0 &&
 									<div className="app-reviews">
 										<AppReviews reviews={appDetail.reviews} />
@@ -137,10 +145,10 @@ export default class AppDetailsPage extends React.Component {
               <h2>About the Developer</h2>
               <p
                 className="dev-description"
-                dangerouslySetInnerHTML={{ __html: this.appStore.appDetailObj.custom_metadata.developer_description}}>
+                dangerouslySetInnerHTML={{ __html: this.appStore.currentAppObject.custom_metadata.developer_description}}>
               </p>
               <div className="developer-website">
-              <a href={this.appStore.appDetailObj.custom_metadata.developer_website} className="fn-primary" target="_blank" rel="noopener noreferrer">Visit Developer Website</a>
+              <a href={this.appStore.currentAppObject.custom_metadata.developer_website} className="fn-primary" target="_blank" rel="noopener noreferrer">Visit Developer Website</a>
               </div>
             </div>
           </div>
@@ -158,5 +166,5 @@ export default class AppDetailsPage extends React.Component {
 AppDetailsPage.propTypes = {
 	store: PropTypes.object,
 	match: PropTypes.object,
-	currentApp: PropTypes.object
+	currentAppObject: PropTypes.object
 };

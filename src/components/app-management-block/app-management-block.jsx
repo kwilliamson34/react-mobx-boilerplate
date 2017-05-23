@@ -8,8 +8,10 @@ import Checkbox from '../toggle/checkbox.jsx';
 export default class AppManagementBlock extends React.Component {
 
 	static propTypes = {
-		app: PropTypes.object.isRequired,
-		appManagementActions: PropTypes.object.isRequired
+		psk: PropTypes.number.isRequired,
+		getMatchingApp: PropTypes.func.isRequired,
+		changeAppAvailability: PropTypes.func.isRequired,
+		changeAppRecommended: PropTypes.func.isRequired
 	}
 
 	constructor(props) {
@@ -20,48 +22,59 @@ export default class AppManagementBlock extends React.Component {
 
 	handleAvailableClick(event) {
 		if(event.target.type === 'checkbox') {
+			//get the latest matching app object
+			this.matchingApp = this.props.getMatchingApp(this.props.psk);
+			
 			const isAvailable = event.target.checked;
 
 			//turn dependent toggle off if necessary
-			if (!isAvailable && this.props.app.isRecommended) {
+			if (!isAvailable && this.matchingApp.isRecommended) {
 				this.recommendedToggle.turnOff();
 			}
 
-			if (isAvailable !== this.props.app.isAvailable) {
-				this.props.appManagementActions.changeAppAvailability(this.props.app.psk, isAvailable);
+			if (isAvailable !== this.matchingApp.isAvailable) {
+				this.props.changeAppAvailability(this.props.psk, isAvailable);
 			}
 		}
 	}
 
 	handleRecommendedClick(event) {
 		if(event.target.type === 'checkbox') {
+			//get the latest matching app object
+			this.matchingApp = this.props.getMatchingApp(this.props.psk);
+
 			const isRecommended = event.target.checked;
-			if (isRecommended !== this.props.app.isRecommended) {
-				this.props.appManagementActions.changeAppRecommended(this.props.app.psk, isRecommended);
+
+			if (isRecommended !== this.matchingApp.isRecommended) {
+				this.props.changeAppRecommended(this.props.psk, isRecommended);
 			}
 		}
 	}
 
 	render() {
+		//get the latest matching app object
+		this.matchingApp = this.props.getMatchingApp(this.props.psk);
+
 		return (
 			<div>
-        <div className="app-management">
+				{this.matchingApp && <div className="app-management">
           <Checkbox
             label="Available"
-            id={'Available-' + this.props.app.psk}
-            defaultOn={this.props.app.isAvailable}
+						ref={ref => this.availableToggle = ref}
+            id={'Available-' + this.props.psk}
+            defaultOn={this.matchingApp.isAvailable}
             onChange={this.handleAvailableClick}/>
           <Checkbox
             label="Recommended"
             ref={ref => this.recommendedToggle = ref}
-            id={'Recommended-' + this.props.app.psk}
-            defaultOn={this.props.app.isRecommended}
-            disabled={!this.props.app.isAvailable}
+            id={'Recommended-' + this.props.psk}
+            defaultOn={this.matchingApp.isRecommended}
+            disabled={!this.matchingApp.isAvailable}
             onChange={this.handleRecommendedClick}/>
           <Link to="/mdm">
             <button className="fn-primary" tabIndex="-1">Push to MDM</button>
           </Link>
-        </div>
+				</div>}
       </div>
 		);
 	}

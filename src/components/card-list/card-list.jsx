@@ -14,7 +14,9 @@ export class CardList extends React.Component {
     title: PropTypes.string,
     canLoadMore: PropTypes.bool,
     handleButtonClick: PropTypes.func,
-    appManagementActions: PropTypes.object.isRequired
+    changeAppAvailability: PropTypes.func.isRequired,
+    changeAppRecommended: PropTypes.func.isRequired,
+    getMatchingApp: PropTypes.func.isRequired
   }
 
   static defaultProps = {
@@ -38,7 +40,11 @@ export class CardList extends React.Component {
                 <div className="col-md-3 col-xs-4 center-block" key={i}>
                   <SummaryCard display={card}/>
                   <div className="hidden-xs">
-                    <AppManagementBlock app={card} appManagementActions={this.props.appManagementActions}/>
+                    <AppManagementBlock
+                      psk={card.psk}
+                      getMatchingApp={this.props.getMatchingApp}
+                      changeAppAvailability={this.props.changeAppAvailability}
+                      changeAppRecommended={this.props.changeAppRecommended}/>
                   </div>
                 </div>
               )
