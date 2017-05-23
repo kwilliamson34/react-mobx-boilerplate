@@ -27,16 +27,16 @@ export default class GeolinkMap extends React.Component {
   setDefaults() {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition(position => {
-        const searchTerm = position.coords.latitude + ', ' + position.coords.longitude;
-        this.props.geolinkStore.updateSearchTerm(searchTerm);
+        const defaultSearchTerm = position.coords.latitude + ', ' + position.coords.longitude;
+        this.props.geolinkStore.updateDefaultSearchTerm(defaultSearchTerm);
+        this.props.geolinkStore.updateSearchTerm(defaultSearchTerm);
         this.props.geolinkStore.searchMap();
       });
     } else {
       console.warn('Geolocation is not allowed by the browser.');
     }
 
-    this.props.geolinkStore.toggleTraffic();
-    this.props.geolinkStore.addWeather();
+    this.props.geolinkStore.addAllNetworkLayers();
   }
 
   render() {

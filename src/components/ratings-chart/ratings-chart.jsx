@@ -9,13 +9,17 @@ export default class RatingsChart extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			graphSize: 215
+			graphSize: 215,
+			value: 0,
+			reviewsTotal: 0,
+			sortedReviews: [0,0,0,0,0]
 		}
 	}
 
 	componentDidMount() {
 		this.updateGraphSize();
 		window.addEventListener('resize', this.updateGraphSize.bind(this));
+		this.sortRatingData();
 	}
 
 	componentWillUnmount() {
@@ -29,28 +33,43 @@ export default class RatingsChart extends React.Component {
 		})
 	}
 
+	sortRatingData(){
+		let rev = this.props.reviews;
+		let value = this.props.value ? this.props.value : 0;
+		let reviewsTotal = rev.length
+		let sortedReviews = this.state.sortedReviews;
+
+		for (let i = 0; i < reviewsTotal; i++) {
+			let starRating = 5 - rev[i].reviewStar;
+			sortedReviews[starRating]++;
+		}
+		this.setState({
+			value: value,
+			reviewsTotal: reviewsTotal,
+			sortedReviews: sortedReviews
+		})
+	}
+
 	render() {
 		return (
 			<div className="ratings-chart" aria-describedby="chart-info">
-        <div id="chart-info" className="sr-only">This app has {this.props.reviewsTotal} reviews with an average rating of {this.props.value}.</div>
-        <div className="row is-flex">
-          <div className="col-xs-12 col-sm-4 col-md-4 col-lg-3 col-lg-offset-1 average-ratings-col">
-            <DoughnutChart rating={this.props.value} size={this.state.graphSize}/>
-            <div className="total-reviews">
-              <Rating rating={this.props.value} />
-              <span>{this.props.reviewsTotal}</span>
-            </div>
-          </div>
-          <div className="col-xs-12 col-sm-8 col-md-8 col-lg-7 overall-ratings-col">
-            <HorizontalBar data={this.props.data} />
-						{this.props.data.reduce((x, y) => x + y) === 0 &&
-							<div className="zero-reviews">
-								No Reviews Yet!
-							</div>
+				<div id="chart-info" className="sr-only">This app has {this.state.reviewsTotal} reviews with an average rating of {this.state.value}.</div>
+				<div className="row is-flex">
+					<div className="col-xs-12 col-sm-4 col-md-4 col-lg-3 col-lg-offset-1 average-ratings-col">
+						<DoughnutChart rating={this.state.value} size={this.state.graphSize}/>
+						<div className="total-reviews">
+							<Rating rating={this.state.value} />
+							<span>{this.state.reviewsTotal}</span>
+						</div>
+					</div>
+					<div className="col-xs-12 col-sm-8 col-md-8 col-lg-7 overall-ratings-col">
+						<HorizontalBar data={this.state.sortedReviews} />
+						{this.state.sortedReviews.reduce((x, y) => x + y) === 0 &&
+							<div className="zero-reviews">No Reviews Yet!</div>
 						}
 					</div>
-        </div>
-      </div>
+				</div>
+			</div>
 		);
 	}
 }
@@ -58,11 +77,12 @@ export default class RatingsChart extends React.Component {
 RatingsChart.propTypes = {
 	value: PropTypes.number,
 	reviewsTotal: PropTypes.number,
-	data: PropTypes.array
+	data: PropTypes.array,
+	reviews: PropTypes.object
 };
 
 RatingsChart.defaultProps = {
 	value: 0,
 	reviewsTotal: 0,
-	data: [0]
+	reviews: {}
 }

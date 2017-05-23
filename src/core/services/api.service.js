@@ -19,48 +19,34 @@ axios.interceptors.response.use(undefined, err => {
 class ApiService {
 
     validateUserData() {
+      axios.defaults.headers.common = {};
       return axios.get(`${base}/user/profile`, {
-        withCredentials: true,
-        headers: {
-          'Authorization': null
-        }
+        withCredentials: true
       }).then(function(resp) {
-        axios.config.headers.Authorization = 'Bearer ' + resp.data;
-          if (resp.response.status === 401) {
-            throw new Error('response of 401')
-          }
+        if(resp.data){
+          axios.defaults.headers.common['Authorization'] = 'Bearer ' + resp.data;
+        }
+        return resp;
       });
     }
 
-    getSearchResults(query, user_token) {
+    getSearchResults(query) {
       let endpoint = query
         ? `${base}/apps/admin/search?searchTxt=${query}&pseId=${pseId}`
         : `${base}/apps/admin?pseId=${pseId}`
-      return axios.get(endpoint, {
-          headers: {
-            'Authorization': 'Bearer'+user_token
-          }
-        }).then((res) => {
+      return axios.get(endpoint).then((res) => {
         return utilsService.conditionData(res.data.applications);
       });
     }
 
-    getAdminApps(user_token) {
-      return axios.get(`${base}/apps/admin?pseId=${pseId}`, {
-          headers: {
-            'Authorization': 'Bearer'+user_token
-          }
-      }).then(res => {
+    getAdminApps() {
+      return axios.get(`${base}/apps/admin?pseId=${pseId}`).then(res => {
         return utilsService.conditionData(res.data.applications);
       });
     }
 
-    getAppDetails(appPSK, user_token) {
-      return axios.get(`${base}/app?appPsk=${appPSK}&pseId=${pseId}`,{
-        headers: {
-          'Authorization': 'Bearer'+user_token
-        }
-      }).then(res => {
+    getAppDetails(appPSK) {
+      return axios.get(`${base}/app?appPsk=${appPSK}&pseId=${pseId}`).then(res => {
         let arrayRes = [];
         arrayRes.push(res.data);
         return arrayRes;
@@ -74,14 +60,11 @@ class ApiService {
         });
     }
 
-    addAppToGroup(appPsk, groupIdentifier, user_token) {
+    addAppToGroup(appPsk, groupIdentifier) {
       console.log('Adding app with appPsk=' + appPsk + ' to groupIdentifier="' + groupIdentifier + '"...');
       return axios({
         method: 'post',
         url: `${base}/app/group`,
-        headers: {
-          'Authorization': 'Bearer'+user_token
-        },
         data: {
           appPsk,
           groupIdentifier,
@@ -90,14 +73,11 @@ class ApiService {
       });
     }
 
-    removeAppFromGroup(appPsk, groupIdentifier, user_token) {
+    removeAppFromGroup(appPsk, groupIdentifier) {
       console.log('Removing app with appPsk=' + appPsk + ' from groupIdentifier="' + groupIdentifier + '"...');
       return axios({
         method: 'delete',
         url: `${base}/app/group`,
-        headers: {
-          'Authorization': 'Bearer'+user_token
-        },
         data: {
           appPsk,
           groupIdentifier,

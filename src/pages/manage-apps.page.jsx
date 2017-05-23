@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import {inject, observer} from 'mobx-react';
 import {Link} from 'react-router-dom';
 
-import TitlePane from '../components/title-pane/title-pane';
 import { CardList } from '../components/card-list/card-list';
 import { SearchForm } from '../components/search/search-form';
 import { Filters } from '../components/filters/filters';
@@ -16,13 +15,15 @@ export default class ManageAppsPage extends React.Component {
 	constructor(props) {
 		super(props);
 		this.cardListStore = this.props.store.cardListStore;
+		this.appCatalogStore = this.props.store.appCatalogStore;
 		this.onButtonClick = this.onButtonClick.bind(this);
 		this.pageId = 'manageAppsPage';
 		this.itemsPerRow = 4;
 	}
 
 	componentDidMount() {
-		this.cardListStore.getAdminApps();
+		this.cardListStore.fetchCardList();
+		this.appCatalogStore.fetchAppCatalog();
 		if(!this.props.store.pages[this.pageId]){
 			this.props.store.registerPage(this.pageId);
 		}
@@ -49,7 +50,6 @@ export default class ManageAppsPage extends React.Component {
 	render() {
 		return (
 			<article id="manage-apps-page">
-				<TitlePane pageTitle="Manage Apps" />
 				<div className="container">
 					<div className="row">
 						<div className="col-xs-12 text-right add-margin-vertical">
@@ -61,7 +61,7 @@ export default class ManageAppsPage extends React.Component {
 					<div className="container manage-apps">
 						<div className="row">
 							<div className="col-md-3">
-								<h2>Manage Apps</h2>
+								<h1 className="as-h2">Manage Apps</h1>
 							</div>
 							<div className="col-md-9 row">
 								<div className="col-md-6">
@@ -74,14 +74,13 @@ export default class ManageAppsPage extends React.Component {
 						</div>
 					</div>
 					<div className="row">
-						<CardList
+						{this.appCatalogStore.allApps.length && this.cardListStore.searchResults.length && <CardList
 							canLoadMore={this.canLoadMore}
 							cards={this.paginatedCards}
 							handleButtonClick={this.onButtonClick}
-							appManagementActions={{
-								changeAppAvailability: this.props.store.cardListStore.changeAppAvailability.bind(this.props.store.cardListStore),
-								changeAppRecommended: this.props.store.cardListStore.changeAppRecommended.bind(this.props.store.cardListStore)
-							}}/>
+							changeAppAvailability={this.appCatalogStore.changeAppAvailability.bind(this.appCatalogStore)}
+							changeAppRecommended={this.appCatalogStore.changeAppRecommended.bind(this.appCatalogStore)}
+							getMatchingApp={this.appCatalogStore.getMatchingApp.bind(this.appCatalogStore)}/>}
 					</div>
 				</section>
 			</article>

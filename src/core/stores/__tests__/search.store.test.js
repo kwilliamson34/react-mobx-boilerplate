@@ -57,15 +57,4 @@ describe("SearchStore", () => {
     test("calculates empty result set size", () => {
       expect(store.numSearchResults).toBe(0);
     });
-
-    test("search displays", () => {
-      store.searchIconClick();
-      expect(store.searchIsVisible).toBe(true);
-    });
-
-    test("search hides", () => {
-      store.handleClose();
-      expect(store.searchIsVisible).toBe(false);
-    });
-
 });

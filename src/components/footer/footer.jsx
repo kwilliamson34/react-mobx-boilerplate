@@ -1,116 +1,145 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {
+	Link
+} from 'react-router-dom';
 
 export default class Footer extends React.Component {
 
 	constructor(props) {
 		super(props);
+		this.state={
+			sitemapExpanded: false
+		}
+		this.handleSitemapClick = this.handleSitemapClick.bind(this);
 	}
-
+	handleSitemapClick(e){
+		e.preventDefault();
+		this.setState({
+			sitemapExpanded: !this.state.sitemapExpanded
+		});
+	}
 	render() {
 		return (
-			<footer id="pse-footer" className="footer-bar">
-				<div className="footer-height footer-top">
-					<div className="row footer-row">
-						<div className="col-xs-12 col-md-10 col-md-offset-1">
-							<div className="clear-image-box footer-logo">
-								<Link to="/" className="clear-image-box">
-									<img alt="FirstNet Local Control Home" src="/images/logo-FirstNet-local-control.svg" className="footer-logo-size" />
-								</Link>
-							</div>
+			<footer>
+			<div className="footer-main">
+				<div className="container">
+					<div className="row">
+						<div className="col-xs-12 logoRow">
+							<Link to="/">
+								<img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Local Control Home" />
+							</Link>
 						</div>
 					</div>
-					<div className="row footer-row is-flex">
-						<div className="col-md-4 col-md-offset-1 col-xs-12 col-sm-12">
-							<span className="hidden-md hidden-lg hidden-xl"><hr className="footer-separator"/></span>
-							<h2 className="footer-menu-header">FIRSTNET PORTALS</h2>
-							<nav id="footer-portals-menu" aria-label="Firstnet Portals Menu">
-								<ul className="footer-menu-ul">
-									<li role="presentation"><a href="http://www.firstnet.com/appstore" target="_blank" rel="noopener noreferrer">FIRSTNET APP STORE</a></li>
-									<li role="presentation"><a href="http://www.firstnet.gov" target="_blank" rel="noopener noreferrer">FIRSTNET.GOV</a></li>
-									<li role="presentation"><a href="http://www.firstnet.com" target="_blank" rel="noopener noreferrer">FIRSTNET.COM</a></li>
-								</ul>
-							</nav>
-						</div>
-						<div className="col-md-3 col-sm-12 col-xs-12">
-							<span className="hidden-md hidden-lg hidden-xl"><hr className="footer-separator"/></span>
-							<h2 className="footer-menu-header">FOLLOW US</h2>
-							<nav id="footer-social-menu" aria-label="Social Menu">
-								<ul className="footer-menu-ul">
-									<li className="footer-menu-social" role="presentation">
-										<a href="https://www.facebook.com/firstnetgov/" aria-label="facebook" target="_blank" rel="noopener noreferrer">
-										<span className="fa-stack fa-1x footer-icon-menu-spacing" aria-hidden="true">
-											<span className="fa fa-circle fa-stack-2x footer-icon-background" aria-hidden="true" />
-											<span className="fa fa-facebook fa-stack-1x footer-icon-foreground" aria-hidden="true" />
-										</span>
-										<span className="hidden-xs hidden-sm" aria-hidden="true">FACEBOOK</span></a>
+					<div className="row is-flex">
+						<div className="col-xs-12 col-md-3">
+							<nav aria-describedby="sitemap">
+								<a id="sitemap" href="" onClick={this.handleSitemapClick} className="sitemap-hdr" role="button" aria-haspopup="true" aria-expanded={this.state.sitemapExpanded}>Sitemap</a>
+								<ul className="sitemap-links">
+									<li role="presentation">
+										<Link to="/admin">PSE Administration</Link>
 									</li>
-									<li className="footer-menu-social" role="presentation">
-										<a href="https://twitter.com/FirstNetGov" aria-label="twitter" target="_blank" rel="noopener noreferrer">
-										<span className="fa-stack fa-1x footer-icon-menu-spacing" aria-hidden="true">
-											<span className="fa fa-circle fa-stack-2x footer-icon-background" aria-hidden="true" />
-											<span className="fa fa-twitter fa-stack-1x footer-icon-foreground" aria-hidden="true" />
-										</span>
-										<span className="hidden-xs hidden-sm" aria-hidden="true">TWITTER</span></a>
+									<li role="presentation">
+										<Link to="/admin/manage-apps">Manage Apps</Link>
 									</li>
-									<li className="footer-menu-social" role="presentation">
-										<a href="https://firstnetgov.tumblr.com/" aria-label="tumblr" target="_blank" rel="noopener noreferrer">										<span className="fa-stack fa-1x footer-icon-menu-spacing" aria-hidden="true">
-											<span className="fa fa-circle fa-stack-2x footer-icon-background" aria-hidden="true" />
-											<span className="fa fa-tumblr fa-stack-1x footer-icon-foreground" aria-hidden="true" />
-										</span>
-										<span className="hidden-xs hidden-sm" aria-hidden="true">TUMBLR</span></a>
+									<li role="presentation">
+										<Link to="/shop-specialized-devices">Product Catalog</Link>
 									</li>
-									<li className="footer-menu-social" role="presentation">
-										<a href="https://www.youtube.com/user/FirstNetGov" aria-label="youtube" target="_blank" rel="noopener noreferrer">
-										<span className="fa-stack fa-1x footer-icon-menu-spacing" aria-hidden="true">
-											<span className="fa fa-circle fa-stack-2x footer-icon-background" aria-hidden="true" />
-											<span className="fa fa-youtube fa-stack-1x footer-icon-foreground" aria-hidden="true" />
-										</span>
-										<span className="hidden-xs hidden-sm" aria-hidden="true">YOUTUBE</span></a>
+									<li role="presentation">
+										<Link to="/network-status">Network Status</Link>
 									</li>
 								</ul>
 							</nav>
 						</div>
-						<div className="col-md-4 col-xs-12 col-sm-12 footer-styling-mobile">
-							<h2 className="footer-menu-header"><span className="fa fa-question-circle footer-icon-menu-spacing" aria-hidden="true" /> GET HELP</h2>
-							<nav id="footer-help-menu" aria-label="Help Menu">
-								<ul className="footer-menu-ul">
-									<li className="footer-help-menu-spacing" role="presentation">
-										<Link to="/faq">FAQ</Link>
+						<div className="col-xs-12 col-md-3">
+							<nav id=""  aria-describedby="firstnet-sites">
+								<h2 id="firstnet-sites">Firstnet Sites</h2>
+								<ul>
+									<li role="presentation">
+										<a href="http://firstnet.com/" target="_blank" rel="noopener noreferrer">
+										FirstNet.com</a>
 									</li>
-									<li className="footer-help-menu-spacing" role="presentation">
-										<Link to="/feedback">PROVIDE FEEDBACK</Link>
+									<li role="presentation">
+										<a href="http://firstnet.com/" target="_blank" rel="noopener noreferrer">
+									Developer Portal</a></li>
+									<li role="presentation">
+										<a href="http://firstnet.com/" target="_blank" rel="noopener noreferrer">
+									App Control</a></li>
+									<li role="presentation">
+										<a href="http://firstnet.com/" target="_blank" rel="noopener noreferrer">
+									App Store</a></li>
+								</ul>
+							</nav>
+						</div>
+						<div className="col-xs-12 col-md-3">
+							<nav className="social-nav"  aria-describedby="social-links">
+								<h2 id="social-links">Follow Us</h2>
+								<ul className="social-links-list">
+									<li role="presentation">
+										<a href="https://www.facebook.com/firstnetgov/" className="fn-social-icon fb" target="_blank" rel="noopener noreferrer">
+										<i aria-hidden="true" className="icon-facebook"></i>
+                    <span className="title">Facebook</span>
+									</a>
+                  </li>
+									<li role="presentation">
+										<a href="https://www.linkedin.com/company/first-responder-network-authority-firstnet-" className="fn-social-icon linkedin" target="_blank" rel="noopener noreferrer">
+										<i aria-hidden="true" className="icon-linkedin"></i>
+										<span className="title">LinkedIn</span>
+									</a>
 									</li>
-									<li className="footer-help-menu-spacing" role="presentation">
-										<Link to="/contact">CONTACT US</Link>
+									<li role="presentation"><a href="https://twitter.com/FirstNetGov" className="fn-social-icon twitter" target="_blank" rel="noopener noreferrer">
+                    <i aria-hidden="true" className="icon-twitter"></i>
+                    <span className="title">Twitter</span>
+                  </a></li>
+									<li role="presentation">
+										<a href="https://firstnetgov.tumblr.com/" className="fn-social-icon tumblr" target="_blank" rel="noopener noreferrer">
+										<i aria-hidden="true" className="icon-tumblr"></i>
+										<span className="title">Tumblr</span>
+									</a>
+									</li>
+									<li role="presentation"><a href="https://www.youtube.com/user/FirstNetGov" className="fn-social-icon youtube" target="_blank" rel="noopener noreferrer">
+                    <i aria-hidden="true" className="icon-youtube"></i>
+                    <span className="title">YouTube</span>
+                  </a></li>
+								</ul>
+							</nav>
+						</div>
+						<div className="col-xs-12 col-md-3">
+							<nav aria-describedby="helpLinks">
+								<h2 id="helpLinks" className="help-hdr">Help</h2>
+								<ul>
+									<li role="presentation">
+										Chat
+									</li>
+									<li role="presentation">
+										Community Feedback
+									</li>
+									<li role="presentation">
+										AT&amp;T Customer<br />Service: <a href="tel:800-600-8000">800-600-8000</a>
 									</li>
 								</ul>
 							</nav>
 						</div>
 					</div>
 				</div>
-				<div className="row footer-bottom">
-					<div className="col-xs-12 col-sm-8 col-md-10 footer-text-links">
-						<nav id="sublinks" aria-label="Sublinks">
-							<ul className="footer-small-links">
-								<li role="presentation"> <a href="https://www.commerce.gov/" target="_blank" rel="noopener noreferrer">Commerce.gov</a> </li>
-								<li role="presentation"> <Link to="/privacy">Privacy&nbsp;Policy</Link> </li>
-								<li role="presentation"> <Link to="/policies">Web&nbsp;Policies</Link> </li>
-								<li role="presentation"> <Link to="/accessibility">Accessibility</Link> </li>
-								<li role="presentation"> <a href="https://www.usa.gov/" target="_blank" rel="noopener noreferrer">USA.gov</a> </li>
+			</div>
+			<div className="footer-sub">
+				<div className="container">
+				<div className="row">
+					<div className="col-xs-12">
+						<nav>
+							<ul className="sub-links">
+								<li role="presentation"><Link to="/?privacy">Privacy Policy</Link></li>
+								<li role="presentation"><Link to="/?">Terms &amp; Conditions</Link></li>
+								<br className="visible-xs-inline-block" />
+								<li role="presentation"><Link to="/?">Accessibility</Link></li>
+								<li role="presentation"><a href="https://www.firstnet.gov/" target="_blank" rel="noopener noreferrer">FirstNet.gov</a></li>
 							</ul>
 						</nav>
 					</div>
-					<div className="col-xs-12 col-sm-4 col-md-2 footer-text-images">
-						<a href="https://www.commerce.gov/" target="_blank" rel="noopener noreferrer" className="clear-image-box">
-							<img src="/images/dept_of_commerce_1.png" className="footer-commerce-logo" alt="Logo - US Department of Commerce"/>
-						</a>
-						<a href="https://www.ntia.doc.gov/" target="_blank" rel="noopener noreferrer" className="clear-image-box">
-							<img src="/images/dept_of_commerce_2.png" className="footer-commerce-logo" alt="Logo - National Telecommunications And Information Administration"/>
-						</a>
-					</div>
 				</div>
-			</footer>
+				</div>
+			</div>
+		</footer>
 		);
 	}
 

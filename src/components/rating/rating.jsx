@@ -35,12 +35,13 @@ export class Rating extends React.Component {
     }
 
     render() {
-        let stars = this.convertRatingToStars(this.props.rating)
+        let rating = this.props.rating ? this.props.rating : 0;
+        let stars = this.convertRatingToStars(rating)
         return (
             <div className="ratings-container">
                 <span className="ratings-number">
                     <span className="sr-only">Rating of</span>
-                    {this.props.rating}
+                    {rating}
                 </span>
                 <span className="ratings-stars">
                     {stars.map((star) => {
@@ -53,7 +54,7 @@ export class Rating extends React.Component {
 }
 
 Rating.propTypes = {
-    rating: PropTypes.number.isRequired
+    rating: PropTypes.number
 };
 
 Rating.defaultProps = {

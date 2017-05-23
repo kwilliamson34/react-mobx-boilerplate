@@ -14,13 +14,11 @@ class SearchStore {
     if(this.searchQuery === ''){
       console.log("clear")
       this.searchResults = null;
-      this.shouldShowSearchResults = false;
       return;
     }
 
     const success = (response) => {
       this.searchResults = response;
-      this.shouldShowSearchResults = true;
       this.finishLoading();
     }
 
@@ -48,7 +46,6 @@ class SearchStore {
     return true;
   }
 
-  @observable shouldShowSearchResults = false;
   @observable searchQuery = '';
   @observable searchResults = null;
   @observable isLoading = false;

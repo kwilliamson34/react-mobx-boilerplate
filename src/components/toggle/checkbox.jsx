@@ -34,6 +34,10 @@ export default class Checkbox extends React.Component {
 		this.input.checked = false;
 	}
 
+	isChecked() {
+		return this.input.checked;
+	}
+
 	render() {
 		return (
 			<div className={`checkbox ${this.props.disabled ? 'disabled' : ''}`}>

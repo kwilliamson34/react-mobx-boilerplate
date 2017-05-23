@@ -32,7 +32,7 @@
 //Components
 @import
   "components/header",
-  "components/title-pane",
+  "components/footer",
   "components/card-list",
   "components/summary-card",
   "components/search",
@@ -43,13 +43,8 @@
   "components/app-reviews",
   "components/truncate-comment",
   "components/geolink-map",
-  "components/plans-and-devices/plans-and-devices",
-  "components/plans-and-devices/mediaquery",
-  "components/products-services",
   "components/screenshot-gallery",
-  "components/ratings-chart",
-  "components/footer/footer",
-  "components/footer/mediaquery";
+  "components/ratings-chart";
 
 //Pages
 @import

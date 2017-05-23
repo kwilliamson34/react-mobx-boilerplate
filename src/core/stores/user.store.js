@@ -27,7 +27,6 @@ class UserStore {
     initUserObject(tk_response) {
         let tk_array = tk_response.split('.');
         let user_obj = JSON.parse(window.atob(tk_array[1]));
-
         this.user = user_obj;
     }
 

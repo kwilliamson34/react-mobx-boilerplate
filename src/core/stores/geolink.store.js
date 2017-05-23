@@ -68,11 +68,15 @@ class GeolinkStore {
     this.searchTerm = searchTerm;
   }
 
+  @action updateDefaultSearchTerm(defaultSearchTerm) {
+    this.defaultSearchTerm = defaultSearchTerm;
+  }
+
   @action searchMap() {
     console.log('Searching map for ' + this.searchTerm + '...');
     this.mapIframeRef.contentWindow.postMessage({
       eventName: 'doMapGeocode',
-      value: this.searchTerm
+      value: this.searchTerm || this.defaultSearchTerm
     }, '*');
   }
 
@@ -142,6 +146,7 @@ class GeolinkStore {
   @observable geolinkHtml = null;
   @observable mapIframeRef = null;
   @observable searchTerm = '';
+  @observable defaultSearchTerm = '';
 
 }
 
