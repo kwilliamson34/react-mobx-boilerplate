@@ -37,7 +37,6 @@ export default class AppDetailsPage extends React.Component {
 	}
 
 	render() {
-
 		return (
 			<article id="app-details-page">
 				{ this.appStore.detailsFetched &&
