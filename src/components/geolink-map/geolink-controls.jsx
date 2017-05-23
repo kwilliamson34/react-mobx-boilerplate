@@ -87,9 +87,9 @@ export default class GeolinkControls extends React.Component {
           <form className="form-group">
             <fieldset>
               <legend className="sr-only">Coverage layers</legend>
-              <Checkbox id='network-toggle' value='Network' label='Network' onChange={this.toggleNetwork} defaultOn={false}/>
-              <Checkbox id='traffic-toggle' value='Traffic' label='Traffic' onChange={this.toggleTraffic} defaultOn={true}/>
-              <Checkbox id='weather-toggle' value='Weather' label='Weather' onChange={this.toggleWeather} defaultOn={true}/>
+              <Checkbox id='network-toggle' value='Network' label='Network' onChange={this.toggleNetwork} defaultOn={true}/>
+              <Checkbox id='traffic-toggle' value='Traffic' label='Traffic' onChange={this.toggleTraffic} defaultOn={false}/>
+              <Checkbox id='weather-toggle' value='Weather' label='Weather' onChange={this.toggleWeather} defaultOn={false}/>
               <Checkbox id='alerts-toggle' value='Alerts' label='Alerts' onChange={this.toggleAlerts} defaultOn={false}/>
             </fieldset>
           </form>

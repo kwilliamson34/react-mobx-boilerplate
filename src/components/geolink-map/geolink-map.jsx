@@ -36,8 +36,7 @@ export default class GeolinkMap extends React.Component {
       console.warn('Geolocation is not allowed by the browser.');
     }
 
-    this.props.geolinkStore.toggleTraffic();
-    this.props.geolinkStore.addWeather();
+    this.props.geolinkStore.addAllNetworkLayers();
   }
 
   render() {
