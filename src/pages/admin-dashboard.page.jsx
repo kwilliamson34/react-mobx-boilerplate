@@ -94,7 +94,7 @@ export default class AdminDashboardPage extends React.Component {
 										<Link to="/shop-specialized-devices" className="dashboard-card shop-specialized-devices has-shadow">
 											<div className="desc">
 												<h3>Shop specialized devices</h3>
-												<p>Purchase reggedized devices, vehicle routers, etc.</p>
+												<p>Purchase ruggedized devices, vehicle routers, etc.</p>
 											</div>
 											<span>Shop Specialized</span>
 										</Link>
