@@ -60,6 +60,7 @@ class AppCatalogStore {
 			apiService.removeAppFromGroup(appPSK, 'Available');
 
 			if (this.currentAppObject.isRecommended) {
+				this.currentAppObject.isRecommended = false;
 				apiService.removeAppFromGroup(appPSK, 'Recommended');
 			}
 		}

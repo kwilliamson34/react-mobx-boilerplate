@@ -33,7 +33,7 @@ export default class TruncateComment extends React.Component {
 
   truncateButton() {
     return (
-      <button className='btn-link truncate-button' aria-haspopup='true' aria-expanded={ !this.isTruncated } onClick={ this.toggleTruncate }>
+      <button className='btn-link truncate-button' aria-haspopup='true' aria-expanded={ !this.isTruncated } onClick={ this.toggleTruncate } >
         { this.isTruncated ? 'SHOW MORE' : 'SHOW LESS' }
       </button>
     )
@@ -41,9 +41,19 @@ export default class TruncateComment extends React.Component {
 
   truncateText(comment, chars) {
 
-    //TODO: Comment may need to be normalized to display correctly. Probably need some regex on the last index item in the array currently being used to generate cutoffPoint to ensure no markup is being broken or other formatting errors introduced.
-    let splitComment = comment.substr(0, chars + 1).split(' ');
-    let cutoffPoint = splitComment.slice(0, splitComment.length - 1).join(' ').length;
+    //TODO: Comment may need to be normalized to display correctly. Probably need some regex on the last index item in the array currently being used to generate cutoffPoint, to ensure no markup is being broken or other formatting errors introduced.
+    let splitComment = [];
+    let cutoffPoint = comment.length;
+    let showEllipsis = false;
+    let showTruncateButton = false;
+
+    if (comment.length > chars) {
+      splitComment = comment.substr(0, chars + 1).split(' ');
+      cutoffPoint = splitComment.slice(0, splitComment.length - 1).join(' ').length;
+      showEllipsis = true;
+      showTruncateButton = true;
+    }
+
     let truncatedText = comment.substr(0, cutoffPoint);
     let initiallyHiddenTextThatWillExpand = comment.substr(cutoffPoint);
 
@@ -56,11 +66,11 @@ export default class TruncateComment extends React.Component {
         <p>
           <span dangerouslySetInnerHTML={{__html: `${truncatedText}`}} />
             {this.isTruncated
-              ? ellipsisSpan
+              ? (showEllipsis && ellipsisSpan)
               : <span dangerouslySetInnerHTML={{__html: `${initiallyHiddenTextThatWillExpand}`}} />
             }
         </p>
-        <p>{this.truncateButton()}</p>
+        <p>{showTruncateButton && this.truncateButton()}</p>
       </div>
     )
   }

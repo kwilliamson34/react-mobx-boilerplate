@@ -129,10 +129,8 @@ export default class AppDetailsPage extends React.Component {
               <div className="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
                 <h2>Reviews</h2>
 								<RatingsChart value={this.appStore.currentAppObject.rating} reviewsTotal={this.appStore.currentAppObject.reviews_count} reviews={this.appStore.currentAppObject.reviews}/>
-								{appDetail.reviews.length > 0 &&
-									<div className="app-reviews">
-										<AppReviews reviews={appDetail.reviews} />
-									</div>
+								{this.appStore.currentAppObject.reviews.length > 0 &&
+									<AppReviews reviews={this.appStore.currentAppObject.reviews} />
 								}
 							</div>
 						</div>
