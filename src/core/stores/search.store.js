@@ -1,6 +1,5 @@
 import { observable, action, computed } from 'mobx';
 import { apiService } from '../services/api.service';
-import { userStore } from './user.store';
 import _ from 'lodash';
 
 class SearchStore {
@@ -29,7 +28,7 @@ class SearchStore {
     }
 
     this.isLoading = true;
-    apiService.getSearchResults(this.searchQuery, userStore.user_token )
+    apiService.getSearchResults(this.searchQuery)
       .then(success, failure)
   }, 500, { leading: true, trailing: false });
 

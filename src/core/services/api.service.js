@@ -8,25 +8,39 @@ const base = '/api'
 
 // TODO - temp hardcode pending PSEID implementation
 const pseId = '123';
+let user_token = '';
 
-axios.interceptors.response.use(undefined, err => {
-  if (err.response.status === 401 && err.config.url !== '/api/user/profile') {
-    userStore.validateUser();
+
+axios.interceptors.request.use(request => {
+  if (request.url !== `${base}/user/profile`) {
+    console.log('user token',user_token)
+    request.headers['Authorization'] = `Bearer ${user_token}`;
   }
+  return request;
+})
+
+axios.interceptors.response.use((response) => {
+  if(response.config.url == `${base}/user/profile`){
+    user_token = response.data
+  }
+  return response;
+}, (error) => {
+    let response = error.response;
+    let old_req = response.config;
+
+  if (response.status === 401 && old_req.url !== `${base}/user/profile`) {
+    userStore.validateUser();
+    return axios(old_req);
+  }
+  throw error;
 })
 
 
 class ApiService {
 
     validateUserData() {
-      axios.defaults.headers.common = {};
       return axios.get(`${base}/user/profile`, {
         withCredentials: true
-      }).then(function(resp) {
-        if(resp.data){
-          axios.defaults.headers.common['Authorization'] = 'Bearer ' + resp.data;
-        }
-        return resp;
       });
     }
 
