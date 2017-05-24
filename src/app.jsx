@@ -9,9 +9,7 @@ import ScrollToTop from './core/services/scroll-to-top';
 import { Provider, observer } from 'mobx-react';
 import { pseMasterStore } from './core/stores/master.store';
 
-import {
-	userStore
-} from './core/stores/user.store';
+import { userStore } from './core/stores/user.store';
 
 //Styles
 import '../styles/app.scss';
@@ -80,7 +78,7 @@ export default class App extends React.Component {
 				</div>
 			)
 		}
-		
+
 		//redirect until new landing is figured out
 		const TempHomePage = () => {
 			return (
@@ -116,7 +114,6 @@ export default class App extends React.Component {
 								</Switch>
 							</main>
 							<Footer/>
-							<Route path="/unauthorized_user" component={HelpCenterPage} />
 						</div>
 					</ScrollToTop>
 				</Provider>

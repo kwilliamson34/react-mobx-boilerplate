@@ -11,8 +11,11 @@ class UserStore {
             this.checkPermissions();
         }
         const fail = (err) => {
-            if(err.response.status === 401){
+            if(err.response.status === 401) {
                 window.location.replace('https://oidc.stage.flogin.att.com/isam/oidc/endpoint/amapp-runtime-SSPRS/authorize?response_type=id_token+token&client_id=m11635&state=FWpMHzl61gXfcnMmwkp4&&scope=openid&nonce=dsZHN5kvm2a4cVIA0ZdN&response_mode=form_post');
+            } else {
+                console.warn(err);
+                this.service_error = true;
             }
         }
         return apiService.validateUserData().then(success, fail);
@@ -34,6 +37,7 @@ class UserStore {
 
 	@observable user = {};
 	@observable authentic_user = false;
+    @observable service_error = false;
 }
 
 export const userStore = new UserStore();
