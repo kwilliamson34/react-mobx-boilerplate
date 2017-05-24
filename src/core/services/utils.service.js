@@ -35,7 +35,8 @@ class UtilsService {
 						screenshots: {
 							mobile: [],
 							tablet: []
-						}
+						},
+						reviews: obj.reviews
 					}
 					if (obj.custom_metadata) {
 						simplifiedObj.category = obj.custom_metadata.category;
