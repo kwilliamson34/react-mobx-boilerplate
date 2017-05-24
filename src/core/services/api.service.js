@@ -13,7 +13,6 @@ let user_token = '';
 
 axios.interceptors.request.use(request => {
   if (request.url !== `${base}/user/profile`) {
-    console.log('user token',user_token)
     request.headers['Authorization'] = `Bearer ${user_token}`;
   }
   return request;
@@ -39,7 +38,7 @@ axios.interceptors.response.use((response) => {
 class ApiService {
 
     validateUserData() {
-      return axios.get(`${base}/user/profile`, {
+      return axios.get(`${base}/user/proile`, {
         withCredentials: true
       });
     }

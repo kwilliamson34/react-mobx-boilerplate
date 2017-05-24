@@ -10,8 +10,10 @@ class UserStore {
             this.initUserObject(usr_tkn);
             this.checkPermissions();
         }
-        const fail = () => {
-            window.location.replace('https://oidc.stage.flogin.att.com/isam/oidc/endpoint/amapp-runtime-SSPRS/authorize?response_type=id_token+token&client_id=m11635&state=FWpMHzl61gXfcnMmwkp4&&scope=openid&nonce=dsZHN5kvm2a4cVIA0ZdN&response_mode=form_post');
+        const fail = (err) => {
+            if(err.response.status === 401){
+                window.location.replace('https://oidc.stage.flogin.att.com/isam/oidc/endpoint/amapp-runtime-SSPRS/authorize?response_type=id_token+token&client_id=m11635&state=FWpMHzl61gXfcnMmwkp4&&scope=openid&nonce=dsZHN5kvm2a4cVIA0ZdN&response_mode=form_post');
+            }
         }
         return apiService.validateUserData().then(success, fail);
     }
