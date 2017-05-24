@@ -56,7 +56,7 @@ export default class AppDetailsPage extends React.Component {
                 </div>
               </div>
               <div className="col-xs-8 col-sm-9 app-title">
-                <h1>{this.appStore.currentAppObject.app_name}</h1>
+                <h1>{this.appStore.currentAppObject.app_name || this.appStore.currentAppObject.version.author /*TODO remove when name is not null*/}</h1>
               </div>
               <div className="col-xs-8 col-sm-5 col-lg-6 app-meta">
                 <div className="visible-xs">
@@ -70,27 +70,21 @@ export default class AppDetailsPage extends React.Component {
                     alt="Rating Star"
                     aria-hidden="true" />
                     {this.appStore.currentAppObject.rating}
-                    ({this.appStore.currentAppObject.reviews_count} <span className="sr-only">Reviews Completed</span>)
+                    ({this.appStore.currentAppObject.reviews_count}<span className="sr-only">&nbsp;Reviews Completed</span>)
                   &nbsp;<span aria-hidden="true">V</span><span className="sr-only">Version </span> {this.appStore.currentAppObject.version.version_num}
                 </div>
                 <div className="hidden-xs">
                   <ul>
                     <li>{this.appStore.currentAppObject.version.author}</li>
-                    <li>
-                      Version: <strong>{this.appStore.currentAppObject.version.version_num}</strong><br />
-                      Released: <strong>{this.formatDate(this.appStore.currentAppObject.version.release_date)}</strong>
-                    </li>
-                    <li>
-                      {this.appStore.currentAppObject.endorsement &&
-                        <div className="endorsed">FirstNet Endorsed</div>
-                      }
+                    <li><strong>Version:&nbsp;</strong>{this.appStore.currentAppObject.version.version_num}</li>
+                    <li>{this.appStore.currentAppObject.endorsement && <div className="endorsed">FirstNet Endorsed</div>}</li>
+										<li><strong>Released:&nbsp;</strong>{this.formatDate(this.appStore.currentAppObject.version.release_date)}</li>
+										<li>
 											<span className="card-rating">
 												<Rating rating={this.appStore.currentAppObject.rating} />
 											</span> ({this.appStore.currentAppObject.reviews_count}<span className="sr-only">Reviews Completed</span>)
                     </li>
-										{this.appStore.currentAppObject.platform &&
-											<li>Platform<br /><strong>{this.appStore.currentAppObject.platform}</strong></li>
-										}
+										<li><strong>Platform:&nbsp;</strong>{this.appStore.currentAppObject.platform}</li>
                   </ul>
                 </div>
               </div>
