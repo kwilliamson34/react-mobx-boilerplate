@@ -1,10 +1,11 @@
 $map-height: 500px;
 $search-border-radius: 4px;
-
+#network-page{
+  padding-top: 0;
+}
 .geolink-map {
   @extend .clearfix;
   width: 100%;
-  height: $map-height;
 
   .map-wrapper {
     height: $map-height;
@@ -23,6 +24,7 @@ $search-border-radius: 4px;
 }
 
 .geolink-controls {
+  @extend .clearfix;
   background-color: $fn-ltgrey;
   margin-bottom: 20px;
 
