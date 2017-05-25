@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
 
+const imgBaseURL = 'https://ease.apperian.com/uploads/';
+
 @observer
 export default class ScreenshotGallery extends React.Component {
   constructor(props){
@@ -9,16 +11,19 @@ export default class ScreenshotGallery extends React.Component {
   }
 
   static propTypes = {
-    screenshots: PropTypes.object.isRequired
+    detailObj: PropTypes.object.isRequired
   }
 
   renderSlides = () => {
-    let screenshotArray = [...this.props.screenshots.mobileScreenshots, ...this.props.screenshots.tabletScreenshots];
+    let screenshotArray = [...this.props.detailObj.mobileScreenshots, ...this.props.detailObj.tabletScreenshots];
+
     return screenshotArray.map((node, i) => {
+      let imgPath = imgBaseURL + node.path;
+      
       return (
         <div key={i} className='slide-container'>
           <figure className='img-responsive'>
-            <img src={node.path} className='slide-img' alt={node.description} aria-labelledby={'slide-caption-' + i} />
+            <img src={imgPath} className='slide-img' alt={node.description} aria-labelledby={'slide-caption-' + i} />
           </figure>
           <figcaption className='slide-caption' id={'slide-caption-' + i}>{node.description}</figcaption>
         </div>
