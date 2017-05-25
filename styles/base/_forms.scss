@@ -9,3 +9,15 @@
     }
   }
 }
+
+label,
+.as-label,
+.form-group-title {
+  font-size: $fn-label-default-size;
+  font-weight: $fn-medium-weight;
+  line-height: 2;
+}
+
+.form-group-title {
+  text-transform: uppercase;
+}

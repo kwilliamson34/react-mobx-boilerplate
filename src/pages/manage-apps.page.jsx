@@ -60,17 +60,9 @@ export default class ManageAppsPage extends React.Component {
 				<section className="">
 					<div className="container manage-apps">
 						<div className="row">
-							<div className="col-md-3">
-								<h1 className="as-h2">Manage Apps</h1>
-							</div>
-							<div className="col-md-9 row">
-								<div className="col-md-6">
-									<Filters store={this.cardListStore} />
-								</div>
-								<div className="col-md-6">
-									<SearchForm store={this.cardListStore} />
-								</div>
-							</div>
+							<h1 className="as-h2">Manage Apps</h1>
+							<SearchForm store={this.cardListStore} />
+							<Filters store={this.cardListStore} />
 						</div>
 					</div>
 					<div className="row">

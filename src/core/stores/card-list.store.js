@@ -159,7 +159,7 @@ class CardListStore {
 	@observable isLoading = false;
 
 	@observable platforms = [{
-			title: 'Platform',
+			title: 'All Platforms',
 			value: ''
 		},
 		{
@@ -174,7 +174,7 @@ class CardListStore {
 	@observable platformFilter = '';
 
 	@observable categories = [{
-			title: 'Category',
+			title: 'All Categories',
 			value: ''
 		},
 		{
@@ -229,7 +229,7 @@ class CardListStore {
 	@observable categoryFilter = '';
 
 	@observable segments = [{
-			title: 'Segment',
+			title: 'All Segments',
 			value: ''
 		},
 		{
