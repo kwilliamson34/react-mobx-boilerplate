@@ -48,8 +48,6 @@ export default class AppDetailsPage extends React.Component {
 
 	render() {
 
-		console.log('appObject   ', this.appStore.currentAppObject);
-
 		return (
 			<article id="app-details-page">
 				{ this.appStore.currentAppObject && this.appStore.currentAppObject.detailsFetched &&
