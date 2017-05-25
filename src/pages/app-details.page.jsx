@@ -93,7 +93,7 @@ export default class AppDetailsPage extends React.Component {
 									psk={this.appStore.currentAppObject.app_psk}
 									getMatchingApp={this.appStore.getMatchingApp.bind(this.appStore)}
 									changeAppAvailability={this.appStore.changeAppAvailability.bind(this.appStore)}
-									changeAppRecommended={this.appStore.changeAppRecommended.bind(this.appStore)}/>
+									changeAppRecommended={this.appStore.changeAppRecommended.bind(this.appStore)} />
 							}
             </div>
           </div>

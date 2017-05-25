@@ -17,7 +17,7 @@ class AppCatalogStore {
 
 	@action setCurrentApp(psk){
 		this.currentAppObject = this.allApps.filter((app) => {
-			return psk.toString() == app.psk.toString();
+			return psk.toString() == app.app_psk.toString();
 		})[0];
 	}
 
@@ -25,9 +25,11 @@ class AppCatalogStore {
 		if(!this.allApps) {
 			console.log('fetchAppCatalog has not been called yet!');
 		}
+
 		return this.allApps.filter((app) => {
-			return psk.toString() == app.psk.toString();
+			return psk.toString() == app.app_psk.toString();
 		})[0];
+
 	}
 
 	@action fetchAppDetailByPsk(psk) {

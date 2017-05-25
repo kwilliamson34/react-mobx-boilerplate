@@ -41,7 +41,7 @@ export class CardList extends React.Component {
                   <SummaryCard display={card}/>
                   <div className="hidden-xs">
                     <AppManagementBlock
-                      psk={card.psk}
+                      psk={card.app_psk}
                       getMatchingApp={this.props.getMatchingApp}
                       changeAppAvailability={this.props.changeAppAvailability}
                       changeAppRecommended={this.props.changeAppRecommended}/>
