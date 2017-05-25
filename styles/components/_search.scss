@@ -32,9 +32,10 @@
       vertical-align: bottom;
 
       button {
-        background-color: inherit;
+        background-color: white;
         border-color: $input-outline;
         height: 48px;
+        margin-right: 0;
 
         .icon-search:before {
           color: $fn-dkgrey;

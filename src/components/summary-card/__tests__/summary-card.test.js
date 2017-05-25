@@ -11,7 +11,7 @@ describe('<SummaryCard />', () => {
       imageUrl: '../../images/app-icon.png',
       rating: 3.5,
       badge: true,
-      platforms: 'Apple',
+      operatingSystem: 'ANDROID',
     }
   };
 
@@ -32,7 +32,7 @@ describe('<SummaryCard />', () => {
         imageUrl: '../../images/app-icon.png',
         rating: 1.5,
         badge: false,
-        platforms: 'Android',
+        operatingSystem: 'ANDROID',
       }
     };
 

@@ -50,33 +50,31 @@ export default class ManageAppsPage extends React.Component {
 	render() {
 		return (
 			<article id="manage-apps-page">
-				<div className="container">
+				<div className="container header">
 					<div className="row">
-						<div className="col-xs-12 text-right add-margin-vertical">
-							<Link to="/admin/configure-mdm" className="fn-primary">Configure MDM</Link>
-						</div>
+						<h1 className="as-h2">Manage Apps</h1>
+						<Link to="/admin/configure-mdm" className="fn-primary">Configure MDM</Link>
 					</div>
 				</div>
-				<section className="">
-					<div className="container manage-apps">
+				<div className="manage-apps-form">
+					<div className="container">
 						<div className="row">
-							<h1 className="as-h2">Manage Apps</h1>
 							<SearchForm store={this.cardListStore} />
 							<Filters store={this.cardListStore} />
 						</div>
 					</div>
-					<div className="row">
-						{this.appCatalogStore.allApps.length && this.cardListStore.searchResults.length &&
-							<CardList
-								canLoadMore={this.canLoadMore}
-								cards={this.paginatedCards}
-								handleButtonClick={this.onButtonClick}
-								changeAppAvailability={this.appCatalogStore.changeAppAvailability.bind(this.appCatalogStore)}
-								changeAppRecommended={this.appCatalogStore.changeAppRecommended.bind(this.appCatalogStore)}
-								getMatchingApp={this.appCatalogStore.getMatchingApp.bind(this.appCatalogStore)}/>
-						}
-					</div>
-				</section>
+				</div>
+				<div className="row">
+					{this.appCatalogStore.allApps.length && this.cardListStore.searchResults.length &&
+						<CardList
+							canLoadMore={this.canLoadMore}
+							cards={this.paginatedCards}
+							handleButtonClick={this.onButtonClick}
+							changeAppAvailability={this.appCatalogStore.changeAppAvailability.bind(this.appCatalogStore)}
+							changeAppRecommended={this.appCatalogStore.changeAppRecommended.bind(this.appCatalogStore)}
+							getMatchingApp={this.appCatalogStore.getMatchingApp.bind(this.appCatalogStore)}/>
+					}
+				</div>
 			</article>
 		)
 	}

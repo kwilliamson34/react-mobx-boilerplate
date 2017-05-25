@@ -135,7 +135,7 @@ class CardListStore {
 			}
 			let platformCheck = () => {
 				if (this.platformFilter) {
-					return app.platforms === this.platformFilter;
+					return app.operatingSystem.toUpperCase() === this.platformFilter.toUpperCase();
 				} else {
 					return true;
 				}
@@ -163,11 +163,11 @@ class CardListStore {
 		},
 		{
 			title: 'iOS',
-			value: 'iOS'
+			value: 'IOS'
 		},
 		{
 			title: 'Android',
-			value: 'Android'
+			value: 'ANDROID'
 		}
 	];
 	@observable platformFilter = '';

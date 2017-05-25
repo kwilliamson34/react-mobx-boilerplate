@@ -21,9 +21,9 @@ export class Filters extends React.Component {
     this.store.changeSegmentFilter(event.target.value);
   }
 
-  // handlePlatformChange = (event) => {
-  //   this.store.changePlatformFilter(event.target.value);
-  // }
+  handlePlatformChange = (event) => {
+    this.store.changePlatformFilter(event.target.value);
+  }
 
   render() {
     return (

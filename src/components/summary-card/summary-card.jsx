@@ -20,7 +20,7 @@ export class SummaryCard extends React.Component {
             rating: PropTypes.number,
             badge: PropTypes.bool,
             app_psk: PropTypes.number,
-            platforms: PropTypes.oneOf(['', 'iOS', 'Android'])
+            operatingSystem: PropTypes.oneOf(['', 'IOS', 'ANDROID'])
         }).isRequired
     }
 
@@ -31,7 +31,7 @@ export class SummaryCard extends React.Component {
             imageUrl: '../../images/app-icon.png',
             rating: 0,
             badge: '',
-            platforms: ''
+            operatingSystem: ''
         }
         // events: {
         //     link: '#'
@@ -72,12 +72,10 @@ export class SummaryCard extends React.Component {
                     <div className="card-rating">
                         <Rating rating={this.display.rating}></Rating>
                     </div>
-                    {this.display.platforms && <div className="card-platform">
-                        <span className="sr-only">Hosted at the
-                        </span>{this.display.platforms}
-                        <span className="sr-only">
-                            app store</span>
-                        {/*<img src={'../../images/'+ this.display.platforms +'.svg'} alt={'Hosted at ' + this.display.platform}/>*/}
+                    {this.display.operatingSystem && <div className="card-platform">
+                        <span className="sr-only">&nbsp;Hosted at the</span>
+                        <span style={{textTransform: 'uppercase'}}>{this.display.operatingSystem}</span>
+                        <span className="sr-only">&nbsp;app store</span>
                     </div>}
                 </div>
             </Link>
