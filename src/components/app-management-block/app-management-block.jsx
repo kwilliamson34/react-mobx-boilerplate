@@ -62,13 +62,13 @@ export default class AppManagementBlock extends React.Component {
             label="Available"
 						ref={ref => this.availableToggle = ref}
             id={'Available-' + this.props.psk}
-            defaultOn={this.matchingApp.isAvailable}
+            checked={this.matchingApp.isAvailable}
             onChange={this.handleAvailableClick}/>
           <Checkbox
             label="Recommended"
             ref={ref => this.recommendedToggle = ref}
             id={'Recommended-' + this.props.psk}
-            defaultOn={this.matchingApp.isRecommended}
+            checked={this.matchingApp.isRecommended}
             disabled={!this.matchingApp.isAvailable}
             onChange={this.handleRecommendedClick}/>
           <Link to="/mdm">

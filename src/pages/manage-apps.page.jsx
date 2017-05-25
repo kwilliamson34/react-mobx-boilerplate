@@ -66,13 +66,15 @@ export default class ManageAppsPage extends React.Component {
 						</div>
 					</div>
 					<div className="row">
-						{this.appCatalogStore.allApps.length && this.cardListStore.searchResults.length && <CardList
-							canLoadMore={this.canLoadMore}
-							cards={this.paginatedCards}
-							handleButtonClick={this.onButtonClick}
-							changeAppAvailability={this.appCatalogStore.changeAppAvailability.bind(this.appCatalogStore)}
-							changeAppRecommended={this.appCatalogStore.changeAppRecommended.bind(this.appCatalogStore)}
-							getMatchingApp={this.appCatalogStore.getMatchingApp.bind(this.appCatalogStore)}/>}
+						{this.appCatalogStore.allApps.length && this.cardListStore.searchResults.length &&
+							<CardList
+								canLoadMore={this.canLoadMore}
+								cards={this.paginatedCards}
+								handleButtonClick={this.onButtonClick}
+								changeAppAvailability={this.appCatalogStore.changeAppAvailability.bind(this.appCatalogStore)}
+								changeAppRecommended={this.appCatalogStore.changeAppRecommended.bind(this.appCatalogStore)}
+								getMatchingApp={this.appCatalogStore.getMatchingApp.bind(this.appCatalogStore)}/>
+						}
 					</div>
 				</section>
 			</article>
