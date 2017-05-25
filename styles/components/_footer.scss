@@ -27,6 +27,46 @@ footer{
       a{
         font-weight: $fn-normal-weight;
         color: $fn-dkgrey;
+
+        &.fb {
+          &:hover {
+            i {
+              color: $fn-facebook;
+            }
+          }
+        }
+
+        &.youtube {
+          &:hover {
+            i {
+              color: $fn-youtube;
+            }
+          }
+        }
+
+        &.twitter {
+          &:hover {
+            i {
+              color: $fn-twitter;
+            }
+          }
+        }
+
+        &.linkedin {
+          &:hover {
+            i {
+              color: $fn-linkedin;
+            }
+          }
+        }
+
+        &.tumblr {
+          &:hover {
+            i {
+              color: $fn-tumblr;
+            }
+          }
+        }
       }
       i{
         display: inline-block;
