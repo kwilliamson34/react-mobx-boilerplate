@@ -30,6 +30,10 @@ export default class AppDetailsPage extends React.Component {
 		}
 	}
 
+	componentWillUpdate() {
+		this.appStore.createScreenshotArray();
+	}
+
 	updateCurrentApp() {
 		const psk = this.props.match.params.appPsk;
 		this.appStore.fetchAppDetailByPsk(psk);
@@ -43,6 +47,9 @@ export default class AppDetailsPage extends React.Component {
 	}
 
 	render() {
+
+		console.log('appObject   ', this.appStore.currentAppObject);
+
 		return (
 			<article id="app-details-page">
 				{ this.appStore.currentAppObject && this.appStore.currentAppObject.detailsFetched &&
@@ -100,7 +107,7 @@ export default class AppDetailsPage extends React.Component {
         </section>
 					{(this.appStore.currentAppObject.tabletScreenshots.length > 0 || this.appStore.currentAppObject.mobileScreenshots.length > 0) &&
 						<section className='app-gallery'>
-							<ScreenshotGallery detailObj={this.appStore.currentAppObject} />
+							<ScreenshotGallery screenshots={this.appStore.screenshots} />
 						</section>
 					}
         <section className="app-description">

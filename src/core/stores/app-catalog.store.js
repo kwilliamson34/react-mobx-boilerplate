@@ -1,6 +1,8 @@
 import { action, observable } from 'mobx';
 import { apiService } from '../services/api.service';
 
+const imgBaseURL = 'https://ease.apperian.com/uploads/';
+
 class AppCatalogStore {
 
 	// ACTIONS
@@ -83,10 +85,38 @@ class AppCatalogStore {
 		}
 	}
 
+	@action createScreenshotArray () {
+		if (this.currentAppObject.mobileScreenshots) {
+			var mobileSS = [];
+			mobileSS =  this.currentAppObject.mobileScreenshots.map((ss) => {
+				return {
+					description: ss.description,
+					path: imgBaseURL + ss.path
+				}
+			});
+			this.screenshots.mobileScreenshots = mobileSS;
+		}
+
+		if (this.currentAppObject.tabletScreenshots) {
+			var tabletSS = [];
+			tabletSS =  this.currentAppObject.tabletScreenshots.map((ss) => {
+				return {
+					description: ss.description,
+					path: imgBaseURL + ss.path
+				}
+			});
+			this.screenshots.tabletScreenshots = tabletSS;
+		}
+
+	}
+
 	// OBSERVABLES
 	@observable allApps = [];
 	@observable currentAppObject = {};
-	@observable screenshots = [];
+	@observable screenshots = {
+		mobileScreenshots: [],
+		tabletScreenshots: []
+	};
 }
 
 export const appCatalogStore = new AppCatalogStore();
