@@ -29,13 +29,16 @@ export class SearchForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <div className="search input-group input-group-lg has-clear">
+        <div className="search input-group has-clear">
           <label htmlFor="search-box" className="form-group-title">Search<span className="sr-only">&nbsp;App Catalog</span></label>
-          <input id="search-box" ref="input" className="form-control" title="searchQuery" type="text" value={this.store.searchQuery} placeholder="Search Apps" onChange={this.handleInput} />
+          <input id="search-box" ref="input" className="form-control" title="searchQuery" type="text" value={this.store.searchQuery} onChange={this.handleInput} />
           {(this.store.searchQuery.length > 0) &&
-            <span className="icon-close" onClick={this.handleClearClick}></span>
+            <button className="btn clear-btn" type="button" onClick={this.handleClearClick}>
+              <span className="sr-only">Clear</span>
+              <span aria-hidden="true" className="icon-close"/>
+            </button>
           }
-          <span className="input-group-btn">
+          <span className="input-group-btn search-btn">
             <button className="btn btn-primary" type="submit">
               <span className="sr-only">Search</span>
               <span aria-hidden="true" className="icon-search"/>
