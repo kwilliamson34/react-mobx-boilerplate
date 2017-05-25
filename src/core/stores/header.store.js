@@ -7,6 +7,10 @@ class HeaderStore {
 		this.mainMenuIsOpen = !this.mainMenuIsOpen;
 	}
 
+	@action toggleFooterSitemap() {
+		this.footerSitemapExpanded = !this.footerSitemapExpanded;
+	}
+
 	@action getLastPSE() {
 		let storedPSE = localStorage.getItem('pse-homepage_lastViewedPSE');
 
@@ -21,6 +25,7 @@ class HeaderStore {
 	}
 
 	@observable mainMenuIsOpen = false;
+	@observable footerSitemapExpanded = false;
 	@observable currentPSEName = 'Fire & Rescue Station 32';
 	@observable pse_list = ['Fire & Rescue Station 32','Fire Station 12','Fire & Rescue Station 24','Fire Station 6','Fire Station 10']
 
