@@ -140,7 +140,7 @@ export default class AppDetailsPage extends React.Component {
                 dangerouslySetInnerHTML={{ __html: this.appStore.currentAppObject.custom_metadata.developer_description}}>
               </p>
               <div className="developer-website">
-              <a href={this.appStore.currentAppObject.custom_metadata.developer_website} className="fn-primary" target="_blank" rel="noopener noreferrer">Visit Developer Website</a>
+              <a href={'http://' + this.appStore.currentAppObject.custom_metadata.developer_website} className="fn-primary" target="_blank" rel="noopener noreferrer">Visit Developer Website <i className="icon-external-site" aria-hidden="true"></i></a>
               </div>
             </div>
           </div>
