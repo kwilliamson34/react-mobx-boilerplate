@@ -75,6 +75,13 @@ class CardListStore {
 		this.platformFilter = value;
 	}
 
+	@action resetFilters() {
+		this.searchQuery = '';
+		this.categoryFilter = '';
+		this.segmentFilter = '';
+		this.platformFilter = '';
+	}
+
 	//COMPUTEDS
 	@computed get currentCard() {
 		return this.searchResults.filter((app) => {

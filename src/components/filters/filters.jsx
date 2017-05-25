@@ -25,6 +25,10 @@ export class Filters extends React.Component {
     this.store.changePlatformFilter(event.target.value);
   }
 
+  resetFilters = (event) => {
+    this.store.resetFilters();
+  }
+
   render() {
     return (
       <div>
@@ -63,6 +67,7 @@ export class Filters extends React.Component {
                 </select>
               </div>
             </div>
+            <button className="btn fn-primary reset-filters-button" onClick={this.resetFilters}>Reset Filters</button>
           </div>
         </section>
       </div>
