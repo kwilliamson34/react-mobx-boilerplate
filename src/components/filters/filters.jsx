@@ -11,6 +11,7 @@ export class Filters extends React.Component {
   constructor(props) {
     super(props);
     this.store = this.props.store;
+    this.filterRefs = [];
   }
 
   handleCategoryChange = (event) => {
@@ -27,6 +28,24 @@ export class Filters extends React.Component {
 
   resetFilters = (event) => {
     this.store.resetFilters();
+
+    Object.keys(this.filterRefs).forEach((key) => {
+      this.filterRefs[key].value = '';
+    });
+  }
+
+  renderSelect({id, label, initialValue, changeHandler, optionsArray}) {
+    const component = (
+      <div>
+        <label htmlFor={id}>{label}</label>
+        <select id={id} ref={ref => this.filterRefs[id] = ref} className="form-control" selected={initialValue} onChange={changeHandler}>
+          {optionsArray.map((option, index) => {
+            return <option value={option.value} key={index}>{option.title}</option>
+          })}
+        </select>
+      </div>
+    );
+    return component;
   }
 
   render() {
@@ -39,32 +58,35 @@ export class Filters extends React.Component {
             </div>
             <div className="col-md-4 col-xs-12">
               <div className="form-group">
-                <label htmlFor="category-filter">Category</label>
-                <select id="category-filter" className="form-control" selected={this.store.categoryFilter} onChange={this.handleCategoryChange}>
-                  {this.store.categories.map((category, index) => {
-                    return <option value={category.value} key={index}>{category.title}</option>
-                  })}
-                </select>
+                {this.renderSelect({
+                  id: 'category-filter',
+                  label: 'Category',
+                  initialValue: this.store.categoryFilter,
+                  changeHandler: this.handleCategoryChange,
+                  optionsArray: this.store.categories
+                })}
               </div>
             </div>
             <div className="col-md-4 col-xs-12">
               <div className="form-group">
-                <label htmlFor="segment-filter">Segment</label>
-                <select id="segment-filter" className="form-control" selected={this.store.segmentFilter} onChange={this.handleSegmentChange}>
-                  {this.store.segments.map((segment, index) => {
-                    return <option value={segment.value} key={index}>{segment.title}</option>
-                  })}
-                </select>
+                {this.renderSelect({
+                  id: 'segment-filter',
+                  label: 'Segment',
+                  initialValue: this.store.segmentFilter,
+                  changeHandler: this.handleSegmentChange,
+                  optionsArray: this.store.segments
+                })}
               </div>
             </div>
             <div className="col-md-4 col-xs-12">
               <div className="form-group">
-                <label htmlFor="platform-filter">Platform</label>
-                <select id="platform-filter" className="form-control" selected={this.store.platformFilter} onChange={this.handlePlatformChange}>
-                  {this.store.platforms.map((platform, index) => {
-                    return <option value={platform.value} key={index}>{platform.title}</option>
-                  })}
-                </select>
+                {this.renderSelect({
+                  id: 'platform-filter',
+                  label: 'Platform',
+                  initialValue: this.store.platformFilter,
+                  changeHandler: this.handlePlatformChange,
+                  optionsArray: this.store.platforms
+                })}
               </div>
             </div>
             <button className="btn fn-primary reset-filters-button" onClick={this.resetFilters}>Reset Filters</button>

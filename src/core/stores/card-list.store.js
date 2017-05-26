@@ -76,7 +76,6 @@ class CardListStore {
 	}
 
 	@action resetFilters() {
-		this.searchQuery = '';
 		this.categoryFilter = '';
 		this.segmentFilter = '';
 		this.platformFilter = '';
