@@ -11,7 +11,6 @@ export class Filters extends React.Component {
   constructor(props) {
     super(props);
     this.store = this.props.store;
-    this.filterRefs = [];
   }
 
   handleCategoryChange = (event) => {
@@ -28,17 +27,13 @@ export class Filters extends React.Component {
 
   resetFilters = () => {
     this.store.resetFilters();
-
-    Object.keys(this.filterRefs).forEach((key) => {
-      this.filterRefs[key].value = '';
-    });
   }
 
   renderSelect({id, label, initialValue, changeHandler, optionsArray}) {
     const component = (
       <div>
         <label htmlFor={id}>{label}</label>
-        <select id={id} ref={ref => this.filterRefs[id] = ref} className="form-control" selected={initialValue} onChange={changeHandler}>
+        <select id={id} ref={ref => this.store.addFilterElementRef(id, ref)} className="form-control" selected={initialValue} onChange={changeHandler}>
           {optionsArray.map((option, index) => {
             return <option value={option.value} key={index}>{option.title}</option>
           })}

@@ -11,9 +11,12 @@ export class CardList extends React.Component {
 
   static propTypes = {
     cards: PropTypes.array.isRequired,
+    numPagesShown: PropTypes.number,
+    itemsPerPage: PropTypes.number.isRequired,
+    isLoading: PropTypes.bool,
     title: PropTypes.string,
-    canLoadMore: PropTypes.bool,
-    handleButtonClick: PropTypes.func,
+    handleLoadMoreClick: PropTypes.func,
+    handleViewAllAppsClick: PropTypes.func,
     changeAppAvailability: PropTypes.func.isRequired,
     changeAppRecommended: PropTypes.func.isRequired,
     getMatchingApp: PropTypes.func.isRequired
@@ -22,6 +25,15 @@ export class CardList extends React.Component {
   static defaultProps = {
     cards: [],
     title: ''
+  }
+
+  get canLoadMore() {
+    let totalItems = this.props.cards.length;
+    return totalItems > this.props.itemsPerPage && totalItems > (this.props.numPagesShown * this.props.itemsPerPage);
+  }
+
+  get showNoResultsBlock() {
+    return this.props.cards.length <= 0 && !this.props.isLoading;
   }
 
   render() {
@@ -50,12 +62,29 @@ export class CardList extends React.Component {
               )
             })}
           </div>
-          {this.props.canLoadMore && (
+          {this.canLoadMore && this.props.handleLoadMoreClick &&
             <div className="card-list-load-more">
-              <button className="btn fn-primary" onClick={this.props.handleButtonClick}>Load More</button>
+              <button className="btn fn-primary" onClick={this.props.handleLoadMoreClick}>Load More</button>
             </div>
-          )}
+          }
         </div>
+
+        {this.props.isLoading &&
+          <div className="container loading">
+            <h2>Loading...</h2>
+          </div>
+        }
+
+        {this.showNoResultsBlock &&
+          <div className="container no-results">
+            <h2>No Results</h2>
+            <p>There are no results to display. Please retry your search.</p>
+            {this.props.handleViewAllAppsClick &&
+              <button type="button" className="btn fn-primary" onClick={this.props.handleViewAllAppsClick}>View All Apps</button>
+            }
+          </div>
+        }
+
       </section>
     );
   }

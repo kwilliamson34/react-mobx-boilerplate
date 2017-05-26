@@ -76,10 +76,24 @@ class CardListStore {
 		this.platformFilter = value;
 	}
 
+	@action addFilterElementRef(id, ref) {
+		this.filterElementRefs[id] = ref;
+	}
+
 	@action resetFilters() {
 		this.categoryFilter = '';
 		this.segmentFilter = '';
 		this.platformFilter = '';
+
+		Object.keys(this.filterElementRefs).forEach((key) => {
+			this.filterElementRefs[key].value = '';
+		});
+	}
+
+	@action restoreOriginalList() {
+		this.resetFilters();
+		this.clearSearchQuery();
+		this.fetchCardList();
 	}
 
 	//COMPUTEDS
@@ -171,6 +185,7 @@ class CardListStore {
 	@observable searchQuery = '';
 	@observable isLoading = false;
 	@observable searchHasBeenApplied = false;
+	@observable filterElementRefs = [];
 
 	@observable platforms = [{
 			title: 'All Platforms',

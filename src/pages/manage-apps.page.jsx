@@ -16,8 +16,6 @@ export default class ManageAppsPage extends React.Component {
 		super(props);
 		this.cardListStore = this.props.store.cardListStore;
 		this.appCatalogStore = this.props.store.appCatalogStore;
-		this.onButtonClick = this.onButtonClick.bind(this);
-		this.clearSearchAndFilter = this.clearSearchAndFilter.bind(this);
 		this.pageId = 'manageAppsPage';
 		this.itemsPerPage = 20;
 	}
@@ -30,35 +28,17 @@ export default class ManageAppsPage extends React.Component {
 		}
 	}
 
-	onButtonClick() {
+	handleLoadMoreClick = () => {
 		this.props.store.changePage(this.pageId);
 	}
 
-	clearSearchAndFilter() {
-		// Clear the form
-		this.cardListStore.clearSearchQuery();
-		this.filterForm.resetFilters();
-
-		// Re-retrieve the original app list
-		this.cardListStore.fetchCardList();
-	}
-
-	paginate(cards, page){
-		let totalCards = this.props.store.pages[page] * this.itemsPerPage;
-		return cards.slice(0, totalCards);
+	handleViewAllAppsClick = () => {
+		this.cardListStore.restoreOriginalList();
 	}
 
 	get paginatedCards() {
-		return this.paginate(this.cardListStore.filteredSearchResults, this.pageId)
-	}
-
-	get canLoadMore() {
-		let totalItems = this.cardListStore.filteredSearchResults.length;
-		return totalItems > this.itemsPerPage  && totalItems > (this.props.store.pages[this.pageId] * this.itemsPerPage);
-	}
-
-	get showNoResultsBlock() {
-		return this.cardListStore.filteredSearchResults.length <= 0;
+		let totalCards = this.props.store.pages[this.pageId] * this.itemsPerPage;
+		return this.cardListStore.filteredSearchResults.slice(0, totalCards);
 	}
 
 	render() {
@@ -84,27 +64,16 @@ export default class ManageAppsPage extends React.Component {
 					</div>
 				</div>
 				<div className="row">
-					{this.appCatalogStore.allApps.length && this.cardListStore.searchResults.length &&
-						<CardList
-							canLoadMore={this.canLoadMore}
-							cards={this.paginatedCards}
-							handleButtonClick={this.onButtonClick}
-							changeAppAvailability={this.appCatalogStore.changeAppAvailability.bind(this.appCatalogStore)}
-							changeAppRecommended={this.appCatalogStore.changeAppRecommended.bind(this.appCatalogStore)}
-							getMatchingApp={this.appCatalogStore.getMatchingApp.bind(this.appCatalogStore)}/>
-					}
-					{(this.cardListStore.isLoading || this.appCatalogStore.isLoading) && <div>
-						<div className="container loading">
-							<h2>Loading...</h2>
-						</div>
-					</div>}
-					{this.showNoResultsBlock && !this.cardListStore.isLoading && !this.appCatalogStore.isLoading && <div>
-						<div className="container no-results">
-							<h2>No Results</h2>
-							<p>There are no results to display. Please retry your search.</p>
-							<button type="button" className="btn fn-primary" onClick={this.clearSearchAndFilter}>View All Apps</button>
-						</div>
-					</div>}
+					<CardList
+						cards={this.paginatedCards}
+						numPagesShown={this.props.store.pages[this.pageId]}
+						itemsPerPage={this.itemsPerPage}
+						isLoading={this.cardListStore.isLoading || this.appCatalogStore.isLoading}
+						handleLoadMoreClick={this.handleLoadMoreClick}
+						handleViewAllAppsClick={this.handleViewAllAppsClick}
+						changeAppAvailability={this.appCatalogStore.changeAppAvailability.bind(this.appCatalogStore)}
+						changeAppRecommended={this.appCatalogStore.changeAppRecommended.bind(this.appCatalogStore)}
+						getMatchingApp={this.appCatalogStore.getMatchingApp.bind(this.appCatalogStore)}/>
 				</div>
 			</article>
 		)
