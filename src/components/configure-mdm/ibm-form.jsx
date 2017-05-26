@@ -110,7 +110,7 @@ export class IBMForm extends React.Component {
 				</div>
 
 				<div className="form-group text-center">
-					<button aria-labelledby="configure-mdm-form" aria-disabled={!this.store.formIsValid} type="submit" className='fn-primary'>Submit</button>
+					<button aria-labelledby="configure-mdm-form" aria-disabled={!this.store.formIsValid || this.props.connectionSet} type="submit" className='fn-primary'>Submit</button>
 				</div>
 			</form>
 		);
