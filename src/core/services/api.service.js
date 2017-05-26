@@ -44,7 +44,7 @@ class ApiService {
     }
 
     getMPDevices() {
-      return axios.get('http://localhost:8080/marketing/devices')
+      return axios.get(`${base}/marketing/devices`)
         .then( (res) =>{
           return externalContentService.filterDeviceData(res.data);
         });
