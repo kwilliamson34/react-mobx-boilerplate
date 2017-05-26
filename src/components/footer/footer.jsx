@@ -1,11 +1,15 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-
+import PropTypes from 'prop-types';
 import {observer,inject} from 'mobx-react';
 
 @inject('store')
 @observer
 export default class Footer extends React.Component {
+	
+	static propTypes = {
+		store: PropTypes.object
+	}
 
 	constructor(props) {
 		super(props);
