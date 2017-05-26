@@ -60,6 +60,7 @@ export default class ManageAppsPage extends React.Component {
 					<div className="container">
 						<div className="row">
 							<SearchForm store={this.cardListStore} />
+							<hr/>
 							<Filters store={this.cardListStore} />
 						</div>
 					</div>
