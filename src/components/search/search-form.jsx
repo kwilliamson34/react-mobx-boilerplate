@@ -23,13 +23,13 @@ export class SearchForm extends React.Component {
   }
 
   handleClearClick = () => {
-    this.store.clear();
+    this.store.clearSearchQuery();
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div className="search input-group has-clear">
+      <form className="search-form" onSubmit={this.handleSubmit}>
+        <div className="search-input input-group has-clear">
           <label htmlFor="search-box" className="form-group-title">Search<span className="sr-only">&nbsp;App Catalog</span></label>
           <input id="search-box" ref="input" className="form-control" title="searchQuery" type="text" value={this.store.searchQuery} onChange={this.handleInput} />
           {(this.store.searchQuery.length > 0) &&
@@ -45,6 +45,7 @@ export class SearchForm extends React.Component {
             </button>
           </span>
         </div>
+        <p>{this.store.searchResultsCountLabel}</p>
       </form>
     );
   }

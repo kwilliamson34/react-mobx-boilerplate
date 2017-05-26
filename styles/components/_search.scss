@@ -1,65 +1,62 @@
-.search {
-  padding: 10px 0 0;
-
-  &.has-clear {
-    position: relative;
+.search-form {
+  p {
+    margin: 1rem 0;
   }
 
-  &.input-group {
-    .form-control {
-      height: 48px;
-      padding-right: 35px !important;
-      border-top-left-radius: 4px !important;
-      border-bottom-left-radius: 4px !important;
+  .search-input {
+    padding: 10px 0 0;
+
+    &.has-clear {
+      position: relative;
     }
 
-    .clear-btn {
-      position: absolute;
-      right: 52px;
-      height: 48px;
-      z-index: 2;
-      background-color: transparent;
-      bottom: 0;
-
-      .icon-close {
-        font-size: 14px;
-        color: $fn-dkgrey;
-      }
-    }
-
-    .search-btn {
-      padding: 0;
-      vertical-align: bottom;
-
-      button {
-        background-color: white;
-        border-color: $input-outline;
+    &.input-group {
+      .form-control {
         height: 48px;
-        margin-right: 0;
+        padding-right: 35px !important;
+        border-top-left-radius: 4px !important;
+        border-bottom-left-radius: 4px !important;
+      }
 
-        .icon-search:before {
+      .clear-btn {
+        position: absolute;
+        right: 52px;
+        height: 48px;
+        z-index: 2;
+        background-color: transparent;
+        bottom: 0;
+
+        .icon-close {
+          font-size: 14px;
           color: $fn-dkgrey;
         }
       }
 
-      &:focus{
-        @include focus();
+      .search-btn {
+        padding: 0;
+        vertical-align: bottom;
+
+        button {
+          background-color: white;
+          border-color: $input-outline;
+          height: 48px;
+          margin-right: 0;
+
+          .icon-search:before {
+            color: $fn-dkgrey;
+          }
+        }
+
+        &:focus{
+          @include focus();
+        }
       }
     }
-  }
 
-  .feedback {
-    font-size: 1.2rem;
-    line-height: 14px;
-    margin: 10px 0px;
+    .feedback {
+      font-size: 1.2rem;
+      line-height: 14px;
+      margin: 10px 0px;
+    }
   }
-}
-
-.no-results {
-  text-align: center;
-  font-size: 14px;
-  border-radius: 2px;
-  border: 1px solid $fn-black;
-  padding: 20px;
-  margin: 10px 0px;
 }

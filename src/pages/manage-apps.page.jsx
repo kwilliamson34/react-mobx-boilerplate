@@ -17,8 +17,9 @@ export default class ManageAppsPage extends React.Component {
 		this.cardListStore = this.props.store.cardListStore;
 		this.appCatalogStore = this.props.store.appCatalogStore;
 		this.onButtonClick = this.onButtonClick.bind(this);
+		this.clearSearchAndFilter = this.clearSearchAndFilter.bind(this);
 		this.pageId = 'manageAppsPage';
-		this.itemsPerRow = 4;
+		this.itemsPerPage = 8;
 	}
 
 	componentDidMount() {
@@ -33,18 +34,31 @@ export default class ManageAppsPage extends React.Component {
 		this.props.store.changePage(this.pageId);
 	}
 
+	clearSearchAndFilter() {
+		// Clear the form
+		this.cardListStore.clearSearchQuery();
+		this.filterForm.resetFilters();
+
+		// Re-retrieve the original app list
+		this.cardListStore.fetchCardList();
+	}
+
 	paginate(cards, page){
-		let totalCards = this.props.store.pages[page] * this.itemsPerRow;
+		let totalCards = this.props.store.pages[page] * this.itemsPerPage;
 		return cards.slice(0, totalCards);
 	}
 
-	get paginatedCards(){
+	get paginatedCards() {
 		return this.paginate(this.cardListStore.filteredSearchResults, this.pageId)
 	}
 
-	get canLoadMore(){
+	get canLoadMore() {
 		let totalItems = this.cardListStore.filteredSearchResults.length;
-		return totalItems > this.itemsPerRow  && totalItems > (this.props.store.pages[this.pageId] * this.itemsPerRow);
+		return totalItems > this.itemsPerPage  && totalItems > (this.props.store.pages[this.pageId] * this.itemsPerPage);
+	}
+
+	get showNoResultsBlock() {
+		return this.cardListStore.filteredSearchResults.length <= 0;
 	}
 
 	render() {
@@ -61,7 +75,7 @@ export default class ManageAppsPage extends React.Component {
 						<div className="row">
 							<SearchForm store={this.cardListStore} />
 							<hr/>
-							<Filters store={this.cardListStore} />
+							<Filters ref={ref => this.filterForm = ref} store={this.cardListStore} />
 						</div>
 					</div>
 				</div>
@@ -75,6 +89,18 @@ export default class ManageAppsPage extends React.Component {
 							changeAppRecommended={this.appCatalogStore.changeAppRecommended.bind(this.appCatalogStore)}
 							getMatchingApp={this.appCatalogStore.getMatchingApp.bind(this.appCatalogStore)}/>
 					}
+					{(this.cardListStore.isLoading || this.appCatalogStore.isLoading) && <div>
+						<div className="container loading">
+							<h2>Loading...</h2>
+						</div>
+					</div>}
+					{this.showNoResultsBlock && !this.cardListStore.isLoading && !this.appCatalogStore.isLoading && <div>
+						<div className="container no-results">
+							<h2>No Results</h2>
+							<p>There are no results to display. Please retry your search.</p>
+							<button type="button" className="btn fn-primary" onClick={this.clearSearchAndFilter}>View All Apps</button>
+						</div>
+					</div>}
 				</div>
 			</article>
 		)

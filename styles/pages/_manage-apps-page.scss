@@ -14,12 +14,12 @@
     border-top: 1px solid $fn-grey;
     border-bottom: 1px solid $fn-grey;
     margin-top: 2rem;
-    margin-bottom: 2rem;
-    padding: 1rem 0;
+    padding: 1rem 0 0;
 
     hr {
       border-color: $fn-grey;
       border-width: 2px;
+      margin: 1.5rem 0;
     }
 
     section.filters {
@@ -42,5 +42,12 @@
         text-decoration: underline;
       }
     }
+  }
+
+  .no-results,
+  .loading {
+    text-align: center;
+    margin: 8rem auto;
+    padding: 0;
   }
 }

@@ -19,11 +19,14 @@ class CardListStore {
 		if(!this.searchResults.length) {
 			const success = (res) => {
 				this.searchResults = res;
+				this.isLoading = false;
 				return this.searchResults;
 			}
 			const fail = (err) => {
 				console.warn(err);
+				this.isLoading = false;
 			}
+			this.isLoading = true;
 			return apiService.getAdminApps().then(success, fail)
 		}
 	}
@@ -32,20 +35,22 @@ class CardListStore {
     this.currentAppPsk = psk;
 	}
 
-	@action clear() {
+	@action clearSearchQuery() {
 		this.searchQuery = '';
+		this.searchHasBeenApplied = false;
 	}
 
 	@action getSearchResults = _.debounce(() => {
 		const success = (response) => {
 			this.searchResults = response;
-			this.finishLoading();
+			this.isLoading = false;
+			this.searchHasBeenApplied = true;
 		}
 
 		const failure = (error) => {
 			console.warn(error);
 			this.searchResults = [];
-			this.finishLoading();
+			this.isLoading = false;
 		}
 
 		this.isLoading = true;
@@ -54,10 +59,6 @@ class CardListStore {
 		leading: true,
 		trailing: false
 	});
-
-	@action finishLoading() {
-		this.isLoading = false;
-	}
 
 	@action handleInput(value) {
 		this.searchQuery = value;
@@ -150,6 +151,13 @@ class CardListStore {
 		})
 	}
 
+	@computed get searchResultsCountLabel() {
+		if(!this.isLoading && this.searchHasBeenApplied) {
+			const count = this.searchResults.length;
+			return `${count} Result${count === 1 ? '' : 's'}`
+		}
+	}
+
 	@computed get isFiltered() {
 		return (this.categoryFilter || this.segmentFilter || this.platformFilter)
 	}
@@ -162,6 +170,7 @@ class CardListStore {
 	@observable currentAppPsk = '';
 	@observable searchQuery = '';
 	@observable isLoading = false;
+	@observable searchHasBeenApplied = false;
 
 	@observable platforms = [{
 			title: 'All Platforms',

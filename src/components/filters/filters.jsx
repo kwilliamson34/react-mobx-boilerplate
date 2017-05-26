@@ -26,7 +26,7 @@ export class Filters extends React.Component {
     this.store.changePlatformFilter(event.target.value);
   }
 
-  resetFilters = (event) => {
+  resetFilters = () => {
     this.store.resetFilters();
 
     Object.keys(this.filterRefs).forEach((key) => {
