@@ -82,7 +82,7 @@ export default class ConfigureMDM extends React.Component {
                           {this.showErrorMessages(this.store.mdmErrorMessages)}
 
                             <select id="mdm"
-                              className={this.store.regionValue=='' ? 'form-control placeholder': 'form-control'}
+                              className={mdm_provider ==='' ? 'form-control placeholder': 'form-control'}
                               onChange={this.updateMDM}
                               onBlur={this.updateMDM}
                               value={mdm_provider}
