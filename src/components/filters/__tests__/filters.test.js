@@ -12,7 +12,8 @@ describe('<Filters />', () => {
       changePlatformFilter: jest.fn(),
       categories: [],
       segments: [],
-      platforms: []
+      platforms: [],
+      addFilterElementRef: jest.fn()
     }
   };
 
