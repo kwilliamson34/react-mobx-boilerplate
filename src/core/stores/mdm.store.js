@@ -2,46 +2,49 @@ import { action, observable } from 'mobx';
 
 class MDMStore {
 
-    @action validateMDM(mdmProvider) {
+    @action updateMDM(mdmProvider) {
 
         if (!mdmProvider.length) {
             mdmProvider = '';
-            this.mdmErrorMessages = 'Please select MDM.';
+            this.mdmErrorMessages = 'Please select your MDM Provider.';
         } else {
-          this.mdmErrorMessages = '';
+            this.mdmErrorMessages = '';
         }
-        this.mdm = mdmProvider;
-        this.validateUpdateForm();
+
+        this.mdmProvider = mdmProvider;
+        this.formIsValid = false;
     }
 
-    @action validateEndPoint(endpoint) {
-        if (!endpoint.length) {
-            endpoint = '';
-            this.endPointErrorMessages = 'Please enter a valid endpoint.';
-        } else {
-          this.endPointErrorMessages = '';
-        }
-        this.endpoint = endpoint;
-        this.validateUpdateForm();
+    @action updateInput(id,value) {
+        this[this.mdmProvider].set(id,value);
     }
 
-    @action validateKey(apiKey) {
+     @action updateForm(form) {
+        let inputs = form.querySelectorAll('input, select');
+        let values = this[this.mdmProvider].values();
 
-        if (!apiKey.length) {
-            apiKey = '';
-            this.apiKeyErrorMessages = 'Please enter a valid API key.';
-        } else {
-          this.apiKeyErrorMessages = '';
+        let validForm =  validForm = inputs.length === values.length && values.indexOf('') === -1 ? true : false;
+
+        if(this.currentMDM.values() !== this[this.mdmProvider].values()){
+            this.formHasChanged = true;
         }
-        this.apiKey = apiKey;
-        this.validateUpdateForm();
+
+        this.formIsValid = validForm;
     }
 
-    validateUpdateForm() {
-        this.formHasChanged = true;
-        if (this.mdm && this.endpoint && this.apiKey) {
-            this.formIsValid = true;
-        }
+    @action submitForm() {
+        console.log('submit!')
+
+        this.currentMDM = this[this.mdmProvider];
+
+    }
+
+    @action breakMDMConnection() {
+        console.log('break')
+        this.currentMDM.clear();
+        this.airWatchForm.clear();
+        this.ibmForm.clear();
+        this.mobileIronForm.clear();
     }
 
 
@@ -86,12 +89,16 @@ class MDMStore {
     }
 
     // OBSERVABLES
-    @observable apiKey = '';
-    @observable mdm = '';
-    @observable endpoint = '';
-    @observable endPointErrorMessages = '';
+    @observable mdmProvider = '';
     @observable mdmErrorMessages = '';
-    @observable apiKeyErrorMessages = '';
+
+    @observable currentMDM = observable.map({});
+
+    @observable airWatchForm = observable.map({});
+    @observable ibmForm = observable.map({});
+    @observable mobileIronForm = observable.map({});
+
+
     @observable formIsValid = false;
     @observable formHasChanged = false;
     @observable showExitModal = false;

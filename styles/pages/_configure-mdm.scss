@@ -18,11 +18,28 @@
   }
 }
 
+.break-mdm-btn{
+  float: right;
+}
+
+#configure-mdm-page {
+  h1{
+    margin: 30px 0;
+  }
+}
+
 .mdm-form {
-  margin-top: 45px;
   margin-bottom: 90px;
+  .mdm-description{
+    font-size: $fn-label-default-size;
+    line-height: 20px;
+    margin-bottom: 30px;
+  }
   .form-group{
     margin-bottom: 30px;
+    .help-text {
+      padding-left: 10px;
+    }
   }
   .msgBlock {
     font-weight: $fn-medium-weight;
