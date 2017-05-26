@@ -11,6 +11,11 @@ import { MobileIronForm } from '../components/configure-mdm/mobile-iron-form';
 @inject('store')
 @observer
 export default class ConfigureMDM extends React.Component {
+
+  static propTypes = {
+    store: PropTypes.object
+  }
+
 	constructor(props) {
 		super(props);
 		this.store = this.props.store.mdmStore;
@@ -19,7 +24,6 @@ export default class ConfigureMDM extends React.Component {
 	updateMDM = (event) => {
 		this.store.updateMDM(event.target.value);
 	}
-
 
   showErrorMessages = (messages) => {
     let jsx = '';
@@ -68,6 +72,7 @@ export default class ConfigureMDM extends React.Component {
             <div className="col-xs-12 text-center">
                 <h1 className="as-h2">Configure Mobile Device Management (MDM)</h1>
             </div>
+
             <div className="row no-gutters">
                 <section className="col-xs-12 col-lg-10 col-lg-offset-1">
                     <div className="mdm-form col-md-offset-2 col-xs-12 col-md-8 col-md">
@@ -131,7 +136,3 @@ export default class ConfigureMDM extends React.Component {
 		)
 	}
 }
-
-ConfigureMDM.propTypes = {
-	store: PropTypes.object
-};

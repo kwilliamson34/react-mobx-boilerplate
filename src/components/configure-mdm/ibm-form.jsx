@@ -51,6 +51,7 @@ export class IBMForm extends React.Component {
 						<option value="TBD">Service will provide...</option>
 					</select>
 				</div>
+				
 				<div className={this.store.ibmForm.get('ibm_billingID') === '' ? 'form-group has-feedback has-error' : 'form-group has-feedback'}>
 					<label className="control-label" htmlFor="ibm_billingID">Billing ID<span className="required-asterisks"> *</span></label>
 					<p className="help-text">Help text.</p>
