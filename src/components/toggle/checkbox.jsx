@@ -7,7 +7,7 @@ export default class Checkbox extends React.Component {
 		value: PropTypes.string,
 		label: PropTypes.string.isRequired,
 		onChange: PropTypes.func,
-		defaultOn: PropTypes.bool,
+		checked: PropTypes.bool,
 		disabled: PropTypes.bool
 	}
 
@@ -49,7 +49,7 @@ export default class Checkbox extends React.Component {
 						aria-disabled={this.props.disabled}
 						className={`${this.props.disabled ? 'disabled' : ''}`}
 						value={this.props.value || this.props.label}
-						defaultChecked={this.props.defaultOn}
+						checked={this.props.checked || false /*checked must always have a value so this can be a controlled component*/}
 						onChange={this.onChange}/>
 					<span className="cr"></span>
 					<span className="layer-label">{this.props.label}</span>
