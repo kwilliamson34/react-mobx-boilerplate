@@ -51,8 +51,8 @@ exports[`<GeolinkControls /> renders matches previous snapshot 1`] = `
           <label>
             <input
               aria-disabled={undefined}
+              checked={false}
               className=""
-              defaultChecked={false}
               id="network-toggle"
               onChange={[Function bound onChange]}
               type="checkbox"
@@ -70,8 +70,8 @@ exports[`<GeolinkControls /> renders matches previous snapshot 1`] = `
           <label>
             <input
               aria-disabled={undefined}
+              checked={false}
               className=""
-              defaultChecked={true}
               id="traffic-toggle"
               onChange={[Function bound onChange]}
               type="checkbox"
@@ -89,8 +89,8 @@ exports[`<GeolinkControls /> renders matches previous snapshot 1`] = `
           <label>
             <input
               aria-disabled={undefined}
+              checked={false}
               className=""
-              defaultChecked={true}
               id="weather-toggle"
               onChange={[Function bound onChange]}
               type="checkbox"
@@ -108,8 +108,8 @@ exports[`<GeolinkControls /> renders matches previous snapshot 1`] = `
           <label>
             <input
               aria-disabled={undefined}
+              checked={false}
               className=""
-              defaultChecked={false}
               id="alerts-toggle"
               onChange={[Function bound onChange]}
               type="checkbox"

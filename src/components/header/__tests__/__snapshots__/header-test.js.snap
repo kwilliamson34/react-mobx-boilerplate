@@ -128,7 +128,7 @@ exports[`<PSEHeader /> render matches snapshot when header store is not initiali
               </ul>
             </li>
             <li
-              className="mainnav-item"
+              className="mainnav-item desktop-textlink"
               role="presentation">
               <button
                 aria-expanded="false"
@@ -142,11 +142,12 @@ exports[`<PSEHeader /> render matches snapshot when header store is not initiali
                 </span>
               </button>
               <a
+                className={undefined}
                 href="/admin"
                 id="linkBtn-admin"
                 onClick={[Function anonymous]}
-                role="button">
-                Administration Dashboard
+                style={undefined}>
+                Administration
               </a>
               <ul
                 aria-labelledby="linkBtn-admin"
@@ -155,12 +156,76 @@ exports[`<PSEHeader /> render matches snapshot when header store is not initiali
                 <li
                   role="presentation">
                   <a
-                    href="/manage-apps"
-                    onClick={[Function anonymous]}>
+                    className={undefined}
+                    href="/admin/manage-users"
+                    onClick={[Function anonymous]}
+                    style={undefined}>
+                    Manage Users
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    className={undefined}
+                    href="/admin/manage-billing"
+                    onClick={[Function anonymous]}
+                    style={undefined}>
+                    Manage Billing
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    className={undefined}
+                    href="/admin/manage-services"
+                    onClick={[Function anonymous]}
+                    style={undefined}>
+                    Manage Services
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    className={undefined}
+                    href="/admin/manage-apps"
+                    onClick={[Function anonymous]}
+                    style={undefined}>
                     Manage Apps
                   </a>
                 </li>
+                <li
+                  role="presentation">
+                  <a
+                    className={undefined}
+                    href="/admin/manage-push-talk"
+                    onClick={[Function anonymous]}
+                    style={undefined}>
+                    Manage push-to-talk
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    className={undefined}
+                    href="/admin/view-wireless-reports"
+                    onClick={[Function anonymous]}
+                    style={undefined}>
+                    View wireless reports
+                  </a>
+                </li>
               </ul>
+            </li>
+            <li
+              className="mainnav-item desktop-textlink"
+              role="presentation">
+              <a
+                className={undefined}
+                href="/network-status"
+                id="linkBtn-networkStatus"
+                onClick={[Function anonymous]}
+                style={undefined}>
+                Network Status
+              </a>
             </li>
             <li
               className="mainnav-item"
@@ -177,9 +242,11 @@ exports[`<PSEHeader /> render matches snapshot when header store is not initiali
                 </span>
               </button>
               <a
+                className={undefined}
                 href="/help-center"
                 id="linkBtn-help-center"
-                onClick={[Function anonymous]}>
+                onClick={[Function anonymous]}
+                style={undefined}>
                 Help Center
               </a>
               <ul
@@ -189,32 +256,59 @@ exports[`<PSEHeader /> render matches snapshot when header store is not initiali
                 <li
                   role="presentation">
                   <a
+                    className={undefined}
                     href="#faq"
-                    onClick={[Function anonymous]}>
+                    onClick={[Function anonymous]}
+                    style={undefined}>
                     FAQ
                   </a>
                 </li>
                 <li
                   role="presentation">
                   <a
+                    className={undefined}
                     href="#provide-feedback"
-                    onClick={[Function anonymous]}>
+                    onClick={[Function anonymous]}
+                    style={undefined}>
                     Provide Feedback
                   </a>
                 </li>
                 <li
                   role="presentation">
                   <a
+                    className={undefined}
                     href="#contact-us"
-                    onClick={[Function anonymous]}>
+                    onClick={[Function anonymous]}
+                    style={undefined}>
                     Contact Us
                   </a>
                 </li>
               </ul>
             </li>
             <li
-              className="mainnav-item pse-selector"
-              role="presentation" />
+              className="desktop-iconItem">
+              <a
+                className={undefined}
+                href="/user"
+                onClick={[Function anonymous]}
+                style={undefined}>
+                <i
+                  aria-label="Go to User Dashboard"
+                  className="icon-profile" />
+              </a>
+            </li>
+            <li
+              className="desktop-iconItem">
+              <a
+                className={undefined}
+                href="/help-center"
+                onClick={[Function anonymous]}
+                style={undefined}>
+                <i
+                  aria-label="Go to Help Center"
+                  className="icon-help" />
+              </a>
+            </li>
           </ul>
         </nav>
       </div>
@@ -356,7 +450,7 @@ exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
               </ul>
             </li>
             <li
-              className="mainnav-item"
+              className="mainnav-item desktop-textlink"
               role="presentation">
               <button
                 aria-expanded="false"
@@ -370,11 +464,12 @@ exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
                 </span>
               </button>
               <a
+                className={undefined}
                 href="/admin"
                 id="linkBtn-admin"
                 onClick={[Function anonymous]}
-                role="button">
-                Administration Dashboard
+                style={undefined}>
+                Administration
               </a>
               <ul
                 aria-labelledby="linkBtn-admin"
@@ -383,12 +478,76 @@ exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
                 <li
                   role="presentation">
                   <a
-                    href="/manage-apps"
-                    onClick={[Function anonymous]}>
+                    className={undefined}
+                    href="/admin/manage-users"
+                    onClick={[Function anonymous]}
+                    style={undefined}>
+                    Manage Users
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    className={undefined}
+                    href="/admin/manage-billing"
+                    onClick={[Function anonymous]}
+                    style={undefined}>
+                    Manage Billing
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    className={undefined}
+                    href="/admin/manage-services"
+                    onClick={[Function anonymous]}
+                    style={undefined}>
+                    Manage Services
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    className={undefined}
+                    href="/admin/manage-apps"
+                    onClick={[Function anonymous]}
+                    style={undefined}>
                     Manage Apps
                   </a>
                 </li>
+                <li
+                  role="presentation">
+                  <a
+                    className={undefined}
+                    href="/admin/manage-push-talk"
+                    onClick={[Function anonymous]}
+                    style={undefined}>
+                    Manage push-to-talk
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    className={undefined}
+                    href="/admin/view-wireless-reports"
+                    onClick={[Function anonymous]}
+                    style={undefined}>
+                    View wireless reports
+                  </a>
+                </li>
               </ul>
+            </li>
+            <li
+              className="mainnav-item desktop-textlink"
+              role="presentation">
+              <a
+                className={undefined}
+                href="/network-status"
+                id="linkBtn-networkStatus"
+                onClick={[Function anonymous]}
+                style={undefined}>
+                Network Status
+              </a>
             </li>
             <li
               className="mainnav-item"
@@ -405,9 +564,11 @@ exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
                 </span>
               </button>
               <a
+                className={undefined}
                 href="/help-center"
                 id="linkBtn-help-center"
-                onClick={[Function anonymous]}>
+                onClick={[Function anonymous]}
+                style={undefined}>
                 Help Center
               </a>
               <ul
@@ -417,32 +578,59 @@ exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
                 <li
                   role="presentation">
                   <a
+                    className={undefined}
                     href="#faq"
-                    onClick={[Function anonymous]}>
+                    onClick={[Function anonymous]}
+                    style={undefined}>
                     FAQ
                   </a>
                 </li>
                 <li
                   role="presentation">
                   <a
+                    className={undefined}
                     href="#provide-feedback"
-                    onClick={[Function anonymous]}>
+                    onClick={[Function anonymous]}
+                    style={undefined}>
                     Provide Feedback
                   </a>
                 </li>
                 <li
                   role="presentation">
                   <a
+                    className={undefined}
                     href="#contact-us"
-                    onClick={[Function anonymous]}>
+                    onClick={[Function anonymous]}
+                    style={undefined}>
                     Contact Us
                   </a>
                 </li>
               </ul>
             </li>
             <li
-              className="mainnav-item pse-selector"
-              role="presentation" />
+              className="desktop-iconItem">
+              <a
+                className={undefined}
+                href="/user"
+                onClick={[Function anonymous]}
+                style={undefined}>
+                <i
+                  aria-label="Go to User Dashboard"
+                  className="icon-profile" />
+              </a>
+            </li>
+            <li
+              className="desktop-iconItem">
+              <a
+                className={undefined}
+                href="/help-center"
+                onClick={[Function anonymous]}
+                style={undefined}>
+                <i
+                  aria-label="Go to Help Center"
+                  className="icon-help" />
+              </a>
+            </li>
           </ul>
         </nav>
       </div>
@@ -584,7 +772,7 @@ exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
               </ul>
             </li>
             <li
-              className="mainnav-item"
+              className="mainnav-item desktop-textlink"
               role="presentation">
               <button
                 aria-expanded="false"
@@ -598,11 +786,12 @@ exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
                 </span>
               </button>
               <a
+                className={undefined}
                 href="/admin"
                 id="linkBtn-admin"
                 onClick={[Function anonymous]}
-                role="button">
-                Administration Dashboard
+                style={undefined}>
+                Administration
               </a>
               <ul
                 aria-labelledby="linkBtn-admin"
@@ -611,12 +800,76 @@ exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
                 <li
                   role="presentation">
                   <a
-                    href="/manage-apps"
-                    onClick={[Function anonymous]}>
+                    className={undefined}
+                    href="/admin/manage-users"
+                    onClick={[Function anonymous]}
+                    style={undefined}>
+                    Manage Users
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    className={undefined}
+                    href="/admin/manage-billing"
+                    onClick={[Function anonymous]}
+                    style={undefined}>
+                    Manage Billing
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    className={undefined}
+                    href="/admin/manage-services"
+                    onClick={[Function anonymous]}
+                    style={undefined}>
+                    Manage Services
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    className={undefined}
+                    href="/admin/manage-apps"
+                    onClick={[Function anonymous]}
+                    style={undefined}>
                     Manage Apps
                   </a>
                 </li>
+                <li
+                  role="presentation">
+                  <a
+                    className={undefined}
+                    href="/admin/manage-push-talk"
+                    onClick={[Function anonymous]}
+                    style={undefined}>
+                    Manage push-to-talk
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    className={undefined}
+                    href="/admin/view-wireless-reports"
+                    onClick={[Function anonymous]}
+                    style={undefined}>
+                    View wireless reports
+                  </a>
+                </li>
               </ul>
+            </li>
+            <li
+              className="mainnav-item desktop-textlink"
+              role="presentation">
+              <a
+                className={undefined}
+                href="/network-status"
+                id="linkBtn-networkStatus"
+                onClick={[Function anonymous]}
+                style={undefined}>
+                Network Status
+              </a>
             </li>
             <li
               className="mainnav-item"
@@ -633,9 +886,11 @@ exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
                 </span>
               </button>
               <a
+                className={undefined}
                 href="/help-center"
                 id="linkBtn-help-center"
-                onClick={[Function anonymous]}>
+                onClick={[Function anonymous]}
+                style={undefined}>
                 Help Center
               </a>
               <ul
@@ -645,32 +900,59 @@ exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
                 <li
                   role="presentation">
                   <a
+                    className={undefined}
                     href="#faq"
-                    onClick={[Function anonymous]}>
+                    onClick={[Function anonymous]}
+                    style={undefined}>
                     FAQ
                   </a>
                 </li>
                 <li
                   role="presentation">
                   <a
+                    className={undefined}
                     href="#provide-feedback"
-                    onClick={[Function anonymous]}>
+                    onClick={[Function anonymous]}
+                    style={undefined}>
                     Provide Feedback
                   </a>
                 </li>
                 <li
                   role="presentation">
                   <a
+                    className={undefined}
                     href="#contact-us"
-                    onClick={[Function anonymous]}>
+                    onClick={[Function anonymous]}
+                    style={undefined}>
                     Contact Us
                   </a>
                 </li>
               </ul>
             </li>
             <li
-              className="mainnav-item pse-selector"
-              role="presentation" />
+              className="desktop-iconItem">
+              <a
+                className={undefined}
+                href="/user"
+                onClick={[Function anonymous]}
+                style={undefined}>
+                <i
+                  aria-label="Go to User Dashboard"
+                  className="icon-profile" />
+              </a>
+            </li>
+            <li
+              className="desktop-iconItem">
+              <a
+                className={undefined}
+                href="/help-center"
+                onClick={[Function anonymous]}
+                style={undefined}>
+                <i
+                  aria-label="Go to Help Center"
+                  className="icon-help" />
+              </a>
+            </li>
           </ul>
         </nav>
       </div>

@@ -4,15 +4,18 @@ import PSEHeader from '../header';
 import { MemoryRouter } from 'react-router-dom';
 
 describe('<PSEHeader />', () => {
+    let props = {
+        store: {
+            headerStore: {
+                mainMenuIsOpen: false,
+                getLastPSE: jest.fn(),
+                toggleMainMenu: jest.fn()
+            }
+        }
+    };
+
     describe('render', () => {
         test('matches snapshot when menu is closed', () => {
-          let props = {
-              store: {
-                  headerStore: {
-                      mainMenuIsOpen: false
-                  }
-              }
-          };
           const component = renderer.create(
               <MemoryRouter>
                   <PSEHeader {...props} />
@@ -23,13 +26,7 @@ describe('<PSEHeader />', () => {
         });
 
         test('matches snapshot when menu is open', () => {
-          let props = {
-              store: {
-                  headerStore: {
-                      mainMenuIsOpen: true
-                  }
-              }
-          };
+          props.store.headerStore.mainMenuIsOpen = true;
           const component = renderer.create(
               <MemoryRouter>
                 <PSEHeader {...props} />
@@ -40,11 +37,7 @@ describe('<PSEHeader />', () => {
         });
 
         test('matches snapshot when header store is not initialized', () => {
-          let props = {
-              store: {
-                headerStore: {}
-              }
-          };
+          props.store.headerStore = {};
           const component = renderer.create(
               <MemoryRouter>
                   <PSEHeader {...props} />
@@ -58,14 +51,6 @@ describe('<PSEHeader />', () => {
     describe('user interaction', () => {
       test('calls handler when toggle button is clicked', () => {
         //render the component into DOM to allow UI simulation
-        let props = {
-            store: {
-                headerStore: {
-                    mainMenuIsOpen: true,
-                    toggleMainMenu: jest.fn()
-                }
-            }
-        };
         let memoryRouterComponent = TestUtils.renderIntoDocument(
           <MemoryRouter>
             <PSEHeader {...props} />
