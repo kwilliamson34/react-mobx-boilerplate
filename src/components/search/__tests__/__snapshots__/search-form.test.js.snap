@@ -1,8 +1,9 @@
 exports[`<SearchForm /> gives correct feedback when loaded 1`] = `
 <form
+  className="search-form"
   onSubmit={[Function anonymous]}>
   <div
-    className="search input-group has-clear">
+    className="search-input input-group has-clear">
     <label
       className="form-group-title"
       htmlFor="search-box">
@@ -46,14 +47,16 @@ exports[`<SearchForm /> gives correct feedback when loaded 1`] = `
       </button>
     </span>
   </div>
+  <p />
 </form>
 `;
 
 exports[`<SearchForm /> gives correct feedback when loading 1`] = `
 <form
+  className="search-form"
   onSubmit={[Function anonymous]}>
   <div
-    className="search input-group has-clear">
+    className="search-input input-group has-clear">
     <label
       className="form-group-title"
       htmlFor="search-box">
@@ -97,14 +100,16 @@ exports[`<SearchForm /> gives correct feedback when loading 1`] = `
       </button>
     </span>
   </div>
+  <p />
 </form>
 `;
 
 exports[`<SearchForm /> matches previous snapshot 1`] = `
 <form
+  className="search-form"
   onSubmit={[Function anonymous]}>
   <div
-    className="search input-group has-clear">
+    className="search-input input-group has-clear">
     <label
       className="form-group-title"
       htmlFor="search-box">
@@ -136,14 +141,16 @@ exports[`<SearchForm /> matches previous snapshot 1`] = `
       </button>
     </span>
   </div>
+  <p />
 </form>
 `;
 
 exports[`<SearchForm /> matches previous snapshot 2`] = `
 <form
+  className="search-form"
   onSubmit={[Function anonymous]}>
   <div
-    className="search input-group has-clear">
+    className="search-input input-group has-clear">
     <label
       className="form-group-title"
       htmlFor="search-box">
@@ -187,5 +194,6 @@ exports[`<SearchForm /> matches previous snapshot 2`] = `
       </button>
     </span>
   </div>
+  <p />
 </form>
 `;
