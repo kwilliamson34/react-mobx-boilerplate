@@ -34,7 +34,7 @@ export class CardList extends React.Component {
               <span className="sr-only">List</span>
             </h2>
           )}
-          <div className="card-list-cards row">
+          <div className="row">
             {this.props.cards.map((card, i) => {
               return (
                 <div className="col-md-3 col-xs-4 center-block" key={i}>
