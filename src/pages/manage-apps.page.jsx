@@ -65,18 +65,14 @@ export default class ManageAppsPage extends React.Component {
 		return (
 			<article id="manage-apps-page">
 				<div className="container header">
-					<div className="row">
-						<h1 className="as-h2">Manage Apps</h1>
-						<Link to="/admin/configure-mdm" className="fn-primary">Configure MDM</Link>
-					</div>
+					<h1 className="as-h2">Manage Apps</h1>
+					<Link to="/admin/configure-mdm" className="fn-primary">Configure MDM</Link>
 				</div>
 				<div className="manage-apps-form">
 					<div className="container">
-						<div className="row">
-							<SearchForm store={this.cardListStore} />
-							<hr/>
-							<Filters ref={ref => this.filterForm = ref} store={this.cardListStore} />
-						</div>
+						<SearchForm store={this.cardListStore} />
+						<hr/>
+						<Filters ref={ref => this.filterForm = ref} store={this.cardListStore} />
 					</div>
 				</div>
 				<div className="row">
