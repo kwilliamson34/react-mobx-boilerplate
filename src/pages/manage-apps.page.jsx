@@ -19,7 +19,7 @@ export default class ManageAppsPage extends React.Component {
 		this.onButtonClick = this.onButtonClick.bind(this);
 		this.clearSearchAndFilter = this.clearSearchAndFilter.bind(this);
 		this.pageId = 'manageAppsPage';
-		this.itemsPerPage = 8;
+		this.itemsPerPage = 20;
 	}
 
 	componentDidMount() {
