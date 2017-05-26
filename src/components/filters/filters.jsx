@@ -50,49 +50,47 @@ export class Filters extends React.Component {
 
   render() {
     return (
-      <div>
-        <section className="filters">
-          <div className="row">
-            <div className="col-xs-12">
-              <span className="form-group-title">Filter</span>
-            </div>
-            <div className="col-md-4 col-xs-12">
-              <div className="form-group">
-                {this.renderSelect({
-                  id: 'category-filter',
-                  label: 'Category',
-                  initialValue: this.store.categoryFilter,
-                  changeHandler: this.handleCategoryChange,
-                  optionsArray: this.store.categories
-                })}
-              </div>
-            </div>
-            <div className="col-md-4 col-xs-12">
-              <div className="form-group">
-                {this.renderSelect({
-                  id: 'segment-filter',
-                  label: 'Segment',
-                  initialValue: this.store.segmentFilter,
-                  changeHandler: this.handleSegmentChange,
-                  optionsArray: this.store.segments
-                })}
-              </div>
-            </div>
-            <div className="col-md-4 col-xs-12">
-              <div className="form-group">
-                {this.renderSelect({
-                  id: 'platform-filter',
-                  label: 'Platform',
-                  initialValue: this.store.platformFilter,
-                  changeHandler: this.handlePlatformChange,
-                  optionsArray: this.store.platforms
-                })}
-              </div>
-            </div>
-            <button className="btn fn-primary reset-filters-button" onClick={this.resetFilters}>Reset Filters</button>
+      <section className="filters">
+        <div className="row">
+          <div className="col-xs-12">
+            <span className="form-group-title">Filter</span>
           </div>
-        </section>
-      </div>
+          <div className="col-md-4 col-xs-12">
+            <div className="form-group">
+              {this.renderSelect({
+                id: 'category-filter',
+                label: 'Category',
+                initialValue: this.store.categoryFilter,
+                changeHandler: this.handleCategoryChange,
+                optionsArray: this.store.categories
+              })}
+            </div>
+          </div>
+          <div className="col-md-4 col-xs-12">
+            <div className="form-group">
+              {this.renderSelect({
+                id: 'segment-filter',
+                label: 'Segment',
+                initialValue: this.store.segmentFilter,
+                changeHandler: this.handleSegmentChange,
+                optionsArray: this.store.segments
+              })}
+            </div>
+          </div>
+          <div className="col-md-4 col-xs-12">
+            <div className="form-group">
+              {this.renderSelect({
+                id: 'platform-filter',
+                label: 'Platform',
+                initialValue: this.store.platformFilter,
+                changeHandler: this.handlePlatformChange,
+                optionsArray: this.store.platforms
+              })}
+            </div>
+          </div>
+          <button className="btn fn-primary reset-filters-button" onClick={this.resetFilters}>Reset Filters</button>
+        </div>
+      </section>
     );
   }
 }

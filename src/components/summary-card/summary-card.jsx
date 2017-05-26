@@ -56,7 +56,7 @@ export class SummaryCard extends React.Component {
               <Rating rating={this.props.display.rating}></Rating>
             </div>
             {this.props.display.operatingSystem && <div className="card-platform">
-              <span className="sr-only">&nbsp;Hosted at the</span>
+              <span className="sr-only">Hosted at the&nbsp;</span>
               {this.props.display.operatingSystem}
               <span className="sr-only">&nbsp;app store</span>
             </div>}
