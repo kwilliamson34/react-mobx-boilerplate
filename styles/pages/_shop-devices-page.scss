@@ -1,5 +1,6 @@
 #shop-specialized-devices-page {
   padding-top: 30px;
+  padding-bottom: 40px;
   h1,
   h2 {
     text-align: center;
@@ -21,13 +22,12 @@
     > li{
       display: flex;
       flex-direction: row;
-      width:24%;
-      margin: 0 .5%;
+      width:99%;
+      margin: 0 .5% 30px;
 
       a{
         width: 100%;
         height: 250px;
-        pointer-events: none;
         display:block;
         border: 1px solid $fn-dkgrey;
         padding: 15px;
@@ -56,6 +56,26 @@
           max-height: 180px;
           vertical-align:middle;
         }
+      }
+    }
+  }
+}
+
+@media #{$tablet} {
+  #shop-specialized-devices-page{
+    .mp-content{
+      > li{
+        width: 48%;
+        margin: 0 1% 2%;
+      }
+    }
+  }
+}
+@media #{$desktop} {
+  #shop-specialized-devices-page{
+    .mp-content{
+      > li{
+        width: 24%;
       }
     }
   }

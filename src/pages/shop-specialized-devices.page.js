@@ -25,13 +25,13 @@ export default class ShopSpecializedDevicesPage extends React.Component {
 			<section className={'view-' + sectionId}>
 			<div className="container">
 				<div className="row">
-					<div className="col-xs-12 col-sm-8 col-sm-offset-2">
+					<div className="col-xs-offset-2 col-xs-8 col-sm-offset-2 col-sm-8 col-md-offset-1 col-md-10">
 						<h2>{sectionTitle}</h2>
 						<ul className="mp-content">
 							{sectionArray.map((item, idx) => {
 								return (
 									<li key={sectionId + '_' +idx}>
-										<Link to={'/devices/' +item.url} id={sectionId + '_' +idx}>
+										<Link to={item.url} id={sectionId + '_' +idx}>
 										{item.title}
 										<div className="card-img-wrapper">
 											<img src={item.image} alt={item.title} />
@@ -41,9 +41,9 @@ export default class ShopSpecializedDevicesPage extends React.Component {
 								)
 							})}
 						</ul>
-						<div className="row">
-						<button className="fn-primary showAll">Explore All {sectionTitle}</button>
-						</div>
+					</div>
+					<div className="row">
+					<button className="fn-primary showAll">Explore All {sectionTitle}</button>
 					</div>
 				</div>
 			</div>
@@ -56,9 +56,10 @@ export default class ShopSpecializedDevicesPage extends React.Component {
 			<article id="shop-specialized-devices-page">
         <div className="container">
           <div className="row">
-            <div className="col-xs-12 col-sm-10 col-sm-offset-1 add-padding-bottom-dbl">
+            <div className="col-xs-12 col-sm-10 col-sm-offset-1 add-padding-bottom-dbl text-center">
               <h1 className="as-h2">Specialized Devices Catalog</h1>
-              <p>FirstNet offers an extensive selection of devices and accessories. Check out a small selection of our portfolio. To learn more about our full portfolio, contact a FirstNet Specialist.</p>
+							<h2 className="as-h3">FirstNet offers an extensive selection of devices and accessories</h2>
+              <p>To learn more about our full portfolio, contact a FirstNet Specialist.</p>
             </div>
           </div>
         </div>
