@@ -1,4 +1,4 @@
-const CONFIG = {
+const config = {
   httpProtocol: 'https://',
   ssoCrack: 'https://localhost:8443/oauth/validate',
   haloLogin: 'https://oidc.flogin.att.com/isam/oidc/endpoint/amapp-runtime-SSPRS/authorize?response_type=id_token+token&client_id=m11635&state=FWpMHzl61gXfcnMmwkp4&&scope=openid&nonce=dsZHN5kvm2a4cVIA0ZdN&response_mode=form_post',
@@ -8,4 +8,4 @@ const CONFIG = {
   geolinkAbMapConstants: 'abMapConstantsFN.js'
 }
 
-export default CONFIG
+export default config
