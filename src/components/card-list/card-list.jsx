@@ -36,55 +36,50 @@ export class CardList extends React.Component {
     return this.props.cards.length <= 0 && !this.props.isLoading;
   }
 
+  renderCard(card, i) {
+    return (
+      <div className="col-md-3 col-xs-4 center-block" key={i}>
+        <SummaryCard display={card}/>
+        <div className="hidden-xs">
+          <AppManagementBlock
+            psk={card.app_psk}
+            getMatchingApp={this.props.getMatchingApp}
+            changeAppAvailability={this.props.changeAppAvailability}
+            changeAppRecommended={this.props.changeAppRecommended}/>
+        </div>
+      </div>
+    )
+  }
+
   render() {
+    const hideCardList = (this.props.isLoading || this.showNoResultsBlock);
     return (
       <section className="card-list-container col-md-12 col-xs-12">
-        <div className="container">
-          {this.props.title && (
-            <h2 className="card-list-title">
-              {this.props.title}
-              <span className="sr-only">List</span>
-            </h2>
-          )}
-          <div className="row">
-            {this.props.cards.map((card, i) => {
-              return (
-                <div className="col-md-3 col-xs-4 center-block" key={i}>
-                  <SummaryCard display={card}/>
-                  <div className="hidden-xs">
-                    <AppManagementBlock
-                      psk={card.app_psk}
-                      getMatchingApp={this.props.getMatchingApp}
-                      changeAppAvailability={this.props.changeAppAvailability}
-                      changeAppRecommended={this.props.changeAppRecommended}/>
+        <div className={`container ${hideCardList && 'card-list-substitute'}`}>
+          {this.props.isLoading
+            ? <h2>Loading...</h2>
+            : <div className="row">
+                {this.props.cards.map((card, i) => {
+                  return this.renderCard(card, i)
+                })}
+                {this.canLoadMore && this.props.handleLoadMoreClick &&
+                  <div className="card-list-load-more">
+                    <button className="btn fn-primary" onClick={this.props.handleLoadMoreClick}>Load More</button>
                   </div>
-                </div>
-              )
-            })}
-          </div>
-          {this.canLoadMore && this.props.handleLoadMoreClick &&
-            <div className="card-list-load-more">
-              <button className="btn fn-primary" onClick={this.props.handleLoadMoreClick}>Load More</button>
+                }
+              </div>
+          }
+
+          {this.showNoResultsBlock &&
+            <div>
+              <h2>No Results</h2>
+              <p>There are no results to display. Please retry your search.</p>
+              {this.props.handleViewAllAppsClick &&
+                <button type="button" className="btn fn-primary" onClick={this.props.handleViewAllAppsClick}>View All Apps</button>
+              }
             </div>
           }
         </div>
-
-        {this.props.isLoading &&
-          <div className="container loading">
-            <h2>Loading...</h2>
-          </div>
-        }
-
-        {this.showNoResultsBlock &&
-          <div className="container no-results">
-            <h2>No Results</h2>
-            <p>There are no results to display. Please retry your search.</p>
-            {this.props.handleViewAllAppsClick &&
-              <button type="button" className="btn fn-primary" onClick={this.props.handleViewAllAppsClick}>View All Apps</button>
-            }
-          </div>
-        }
-
       </section>
     );
   }

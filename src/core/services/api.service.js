@@ -38,7 +38,7 @@ axios.interceptors.response.use((response) => {
 class ApiService {
 
     validateUserData() {
-      return axios.get(`${base}/user/proile`, {
+      return axios.get(`${base}/user/profile`, {
         withCredentials: true
       });
     }
