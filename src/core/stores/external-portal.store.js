@@ -19,7 +19,7 @@ class ExternalContentStore {
 
   @action getPublicSafetySolutions() {
     const success = (res) => {
-      this.solutionsArray = res;
+      this.cellsArray = res;
     }
 
     const fail = (res) => {
@@ -35,7 +35,7 @@ class ExternalContentStore {
     invehicles: [],
     accessories: []
   };
-  @observable solutionsArray = [];
+  @observable cellsArray = [];
 
 
 }

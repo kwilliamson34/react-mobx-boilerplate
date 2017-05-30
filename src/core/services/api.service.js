@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { utilsService } from './utils.service';
 import { externalContentService } from './external-content.service';
+import { externalSolutionsService} from './external-solutions.service';
 
 import { userStore } from '../stores/user.store';
 
@@ -76,15 +77,7 @@ class ApiService {
     getPublicSafetySolutions() {
       return axios.get(`${base}/marketing/solutions`)
         .then((res) => {
-          const cellSelectors = [
-            '.bs-region[class*=bs-region--row_3_container-cell_0]',
-            '.bs-region[class*=bs-region--row_3_container-cell_1]',
-            '.bs-region[class*=bs-region--row_3_container-cell_2]',
-            '.bs-region[class*=bs-region--row_3_container-cell_3]',
-            '.bs-region[class*=bs-region--row_3_container-cell_4]'
-          ];
-
-          return externalContentService.filterPSSCells(res.data, cellSelectors);
+          return externalSolutionsService.filterPSSCells(res.data);
         })
     }
 
