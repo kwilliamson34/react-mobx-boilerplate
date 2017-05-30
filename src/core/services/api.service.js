@@ -27,7 +27,7 @@ axios.interceptors.response.use((response) => {
     let response = error.response;
     let old_req = response.config;
 
-  if (response.status === 401 && old_req.url !== `${base}/user/profile`) {
+  if ((response.status === 403 || response.status === 401) && old_req.url !== `${base}/user/profile`) {
     userStore.validateUser();
     return axios(old_req);
   }
