@@ -12,7 +12,7 @@ module.exports = {
 		'react-hot-loader/patch',
 		// activate HMR for React
 
-		'webpack-dev-server/client?http://localhost:3030',
+		'webpack-dev-server/client?https://localhost:8443',
 		// bundle the client for webpack-dev-server
 		// and connect to the provided endpoint
 
@@ -33,7 +33,8 @@ module.exports = {
 	},
 	devtool: 'eval',
 	devServer: {
-		port: 3030,
+		https: true,
+		port: 8443,
 		historyApiFallback: true,
 		hot: true,
 
@@ -43,6 +44,10 @@ module.exports = {
 		publicPath: '/',
 		proxy: {
 			'/api': {
+				target: 'https://pse-qa.sapientfirst.net',
+				secure: false
+			},
+			'/oauth/validate': {
 				target: 'https://pse-qa.sapientfirst.net',
 				secure: false
 			}
