@@ -1,8 +1,6 @@
-import {
-  action,
-  observable
-} from 'mobx';
+import {action, observable} from 'mobx';
 import axios from 'axios';
+import config from 'config';
 
 const networkLayerNames = [
   'FirstNet:Coverage2G',
@@ -19,8 +17,8 @@ class GeolinkStore {
     const success = (response) => {
       //TODO point to the script domain specified in configs
       let html = response.data;
-      html = html.replace(new RegExp('@@geolinkScriptPath', 'g'), 'https://geo.stage.att.com/appboard'); //endpoints.geolinkScriptPath);
-      html = html.replace(new RegExp('@@geolinkAbMapConstantsFileName', 'g'), 'abMapConstantsFNST.js'); //endpoints.geolinkAbMapConstantsFileName);
+      html = html.replace(new RegExp('@@geolinkScriptPath', 'g'), config.geolinkScripts);
+      html = html.replace(new RegExp('@@geolinkAbMapConstantsFileName', 'g'), config.geolinkAbMapConstants);
       this.geolinkHtml = html;
     }
     const fail = (err) => {

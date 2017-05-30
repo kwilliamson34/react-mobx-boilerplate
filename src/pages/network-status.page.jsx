@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { inject,	observer } from 'mobx-react';
-
+import config from 'config';
 import GeolinkMap from '../components/geolink-map/geolink-map';
 
 @inject('store')
@@ -28,7 +28,7 @@ export default class NetworkStatusPage extends React.Component {
           of geolink scripts. */}
         <iframe
           id="geolink_static_assets"
-          src="https://geo.stage.att.com/appboard/libs/jquery/jquery.min.js"
+          src={config.geolinkScripts + '/libs/jquery/jquery.min.js'}
           style={{width: 0, height: 0, border: 'none'}}>
         </iframe>
       </article>
