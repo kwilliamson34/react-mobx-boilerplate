@@ -35,9 +35,12 @@ class MDMStore {
     @action submitForm() {
         console.log('submit!')
 
-        this.beingSubmitted = true;
-
-        this.currentMDM = this[this.mdmProvider];
+        if(this.formIsValid){
+            this.beingSubmitted = true;
+            this.currentMDM = this[this.mdmProvider];
+        } else {
+            this.alert_msgs.push({type:'error',headline:'Error: ',message:'Please correct the errors below.'});
+        }
 
     }
 
@@ -50,7 +53,11 @@ class MDMStore {
         this.mobileIronForm.clear();
         this.mdmProvider = '';
 
-        this.alert_msg = 'SUCCESS';
+        this.alert_msgs.push({type:'success',headline:'Success! ',message:'The connection to MDM has been broken.'});
+    }
+
+    @action removeAlert(idx) {
+        this.alert_msgs.splice(idx, 1);
     }
 
 
@@ -104,7 +111,7 @@ class MDMStore {
     @observable ibmForm = observable.map({});
     @observable mobileIronForm = observable.map({});
 
-    @observable alert_msg = '';
+    @observable alert_msgs = [];
     @observable formIsValid = false;
     @observable beingSubmitted = false;
 

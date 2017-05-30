@@ -1,0 +1,13 @@
+
+
+.alert{
+	color:white;
+	border-radius: 4px;
+	padding: 15px;
+	&.alert-error{
+		background-color: $fn-red;
+	}
+	&.alert-success{
+		background-color: $fn-green;
+	}
+}

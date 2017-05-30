@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { inject,	observer} from 'mobx-react';
 import { Link } from 'react-router-dom';
 
+import { MDMAlerts } from '../components/configure-mdm/mdm-alerts';
+
 import { AirWatchForm } from '../components/configure-mdm/air-watch-form';
 import { IBMForm } from '../components/configure-mdm/ibm-form';
 import { MobileIronForm } from '../components/configure-mdm/mobile-iron-form';
@@ -77,13 +79,7 @@ export default class ConfigureMDM extends React.Component {
                 <section className="col-xs-12 col-lg-10 col-lg-offset-1">
                     <div className="mdm-form col-md-offset-2 col-xs-12 col-md-8 col-md">
 
-                      {this.store.alert_msg &&
-                        <div role="alert" className={`alert alert-${this.store.alert_msg === 'ERROR' ? 'danger' : 'success'}`}>
-                          <button type="button" className="close"><span aria-hidden="true">×</span><span className="sr-only">Close alert</span></button>
-                          {this.store.alert_msg === 'ERROR' && <p><strong>Error:</strong> Please correct the errors below.</p>}
-                          {this.store.alert_msg === 'SUCCESS' && <p><strong>Success!</strong> The connection to MDM has been broken.</p>}
-                        </div>
-                      }
+                    {this.store.alert_msgs && <MDMAlerts store = {this.store}/>}
 
                         {isConfigured && <p className="mdm-description">Only one MDM can be configured at a time. To configure a new MDM, the existing connection must be broken. Once the existing connection is broken, a new one can be configured.</p>}
                         <div className={this.store.mdmErrorMessages.length ? 'form-group has-feedback has-error' : 'form-group has-feedback'}>
