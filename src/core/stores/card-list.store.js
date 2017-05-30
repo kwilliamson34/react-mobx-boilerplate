@@ -32,7 +32,7 @@ class CardListStore {
 	}
 
 	@action setCurrentApp(psk){
-    this.currentAppPsk = psk;
+		this.currentAppPsk = psk;
 	}
 
 	@action clearSearchQuery() {

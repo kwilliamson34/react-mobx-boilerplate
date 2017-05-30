@@ -4,7 +4,6 @@ import {
 	observable,
 	extendObservable
 } from 'mobx';
-//import { apiService } from '../services/api.service';
 
 import {headerStore} from './header.store';
 import {appCatalogStore} from './app-catalog.store';

@@ -1,6 +1,6 @@
 jest.unmock('../footer');
 
-import { Footer } from '../footer';
+import Footer from '../footer';
 import { MemoryRouter } from 'react-router-dom';
 
 describe('<Footer />', () => {
