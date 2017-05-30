@@ -10,8 +10,8 @@ class ExternalSolutionsService {
 
     function retrieveFields(cell){
       return {
-        title: $(cell).find('.field--name-field-title').text(),
-        description: $(cell).find('.field--name-field-description').text(),
+        title: $(cell).find('.card__title').text(),
+        description: $(cell).find('.card__description').find('p').text(),
         imgPath: $(cell).find('.card__image-inner img').attr('src'),
         url: $(cell).find('.atoms__link-field').attr('href')
       }
