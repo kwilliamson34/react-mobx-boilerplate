@@ -12,10 +12,9 @@ class UserStore {
             this.checkPermissions();
         }
         const fail = (err) => {
-            if(err.response.status === 401) {
+            if(err.response.status === 403 || err.response.status === 401) {
                 window.location.replace(config.haloLogin);
             } else {
-                this.authentic_user = true;
                 console.warn(err);
                 this.service_error = true;
             }
