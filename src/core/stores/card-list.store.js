@@ -29,7 +29,7 @@ class CardListStore {
 	}
 
 	@action setCurrentApp(psk){
-    this.currentAppPsk = psk;
+		this.currentAppPsk = psk;
 	}
 
 	@action clear() {
@@ -42,15 +42,14 @@ class CardListStore {
 			this.finishLoading();
 		}
 
-		const failure = (error) => {
-			console.warn(error);
-			this.searchResults = [];
-			this.finishLoading();
-		}
+        const failure = (error) => {
+            console.warn(error);
+            this.searchResults = [];
+            this.finishLoading();
+        }
 
 		this.isLoading = true;
-		apiService.getSearchResults(encodeURIComponent(this.searchQuery))
-			.then(success, failure)
+		apiService.getSearchResults(encodeURIComponent(this.searchQuery)).then(success, failure)
 	}, 500, {
 		leading: true,
 		trailing: false

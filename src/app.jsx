@@ -9,6 +9,8 @@ import ScrollToTop from './core/services/scroll-to-top';
 import { Provider, observer } from 'mobx-react';
 import { pseMasterStore } from './core/stores/master.store';
 
+import { userStore } from './core/stores/user.store';
+
 //Styles
 import '../styles/app.scss';
 
@@ -40,13 +42,22 @@ import AppDetailsPage from './pages/app-details.page';
 //Help section
 import HelpCenterPage from './pages/help-center.page';
 
+import PrivacyPage from './pages/privacy.page';
+import TermsOfServicePage from './pages/terms.page';
+import AccessibilityPage from './pages/accessibility.page';
+
 import NoMatch from './pages/no-match.page';
 
+import { UnauthenticUser } from './pages/unauth-user.page.jsx';
 
 @observer
 export default class App extends React.Component {
 	constructor(props) {
 		super(props);
+	}
+
+	componentWillMount() {
+		userStore.validateUser();
 	}
 
 	render() {
@@ -79,7 +90,7 @@ export default class App extends React.Component {
 			)
 		}
 
-		return (
+		return userStore.authentic_user ? (
 			<Router>
 				<Provider store={pseMasterStore}>
 					<ScrollToTop>
@@ -103,6 +114,9 @@ export default class App extends React.Component {
 									<Route path="/shop-specialized-devices" component={ShopSpecializedDevicesPage} />
 									<Route path="/shop-solutions" component={ShopSolutionsPage} />
 									<Route path="/help-center" component={HelpCenterPage} />
+									<Route path="/privacy" component={PrivacyPage}/>
+									<Route path="/terms" component={TermsOfServicePage}/>
+									<Route path="/accessibility" component={AccessibilityPage}/>
 									<Route component={NoMatch}/>
 								</Switch>
 							</main>
@@ -111,6 +125,8 @@ export default class App extends React.Component {
 					</ScrollToTop>
 				</Provider>
 			</Router>
-		)
+		) : (
+			<UnauthenticUser />
+		);
 	}
 }
