@@ -54,9 +54,7 @@ export default class App extends React.Component {
 	}
 
 	render() {
-		const AppHub = ({
-			match
-		}) => {
+		const AppHub = ({match}) => {
 			return (
 				<div id="app-page">
 					<Switch>
@@ -73,6 +71,33 @@ export default class App extends React.Component {
 						)}/>
 					</Switch>
 				</div>
+			)
+		}
+
+		const ShopSpecializedDevices = ({match}) => {
+			return(
+				<article id="shop-specialized-devices-page">
+					<Switch>
+						<Route path={`${match.url}/:deviceCategory/:deviceId`} render={({match})=> (
+								<div className="container">
+									<div className="row">
+										<div className="col-xs-12"><h1>Device Id: {match.params.deviceId}</h1>
+										<h2>Category: {match.params.deviceCategory}</h2></div>
+									</div>
+								</div>
+						)} />
+						<Route path={`${match.url}/:deviceCategory`} render={({match})=>(
+								<div className="container">
+									<div className="row">
+										<div className="col-xs-12">
+											<h1>Category: {match.params.deviceCategory}</h1>
+										</div>
+									</div>
+								</div>
+						)} />
+						<Route path={match.url} component={ShopSpecializedDevicesPage} />
+					</Switch>
+				</article>
 			)
 		}
 
@@ -104,7 +129,7 @@ export default class App extends React.Component {
 									<Route path="/admin" component={AdminDashboardPage} />
 									<Route path="/app" component={AppHub} />
 									<Route path="/shop-devices-rates" component={ShopDevicesPage} />
-									<Route path="/shop-specialized-devices" component={ShopSpecializedDevicesPage} />
+									<Route path="/shop-specialized-devices" component={ShopSpecializedDevices} />
 									<Route path="/shop-solutions" component={ShopSolutionsPage} />
 									<Route path="/help-center" component={HelpCenterPage} />
 									<Route path="/privacy" component={PrivacyPage}/>
