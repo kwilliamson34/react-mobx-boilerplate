@@ -76,9 +76,23 @@ class ApiService {
     getPublicSafetySolutions() {
       return axios.get(`${base}/marketing/solutions`)
         .then((res) => {
-          return res.data;
+          const cellSelectors = [
+            '.bs-region[class*=bs-region--row_3_container-cell_0]',
+            '.bs-region[class*=bs-region--row_3_container-cell_1]',
+            '.bs-region[class*=bs-region--row_3_container-cell_2]',
+            '.bs-region[class*=bs-region--row_3_container-cell_3]',
+            '.bs-region[class*=bs-region--row_3_container-cell_4]'
+          ];
+
+          return externalContentService.filterPSSCells(res.data, cellSelectors);
         })
     }
+
+    getPSSTools() {
+
+    }
+
+
 
     addAppToGroup(appPsk, groupIdentifier) {
       console.log('Adding app with appPsk=' + appPsk + ' to groupIdentifier="' + groupIdentifier + '"...');

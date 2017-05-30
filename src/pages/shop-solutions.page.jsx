@@ -21,6 +21,7 @@ export default class ShopSolutionsPage extends React.Component {
   }
 
   render() {
+    console.log('solutionsArray    ', this.solutionsStore.solutionsArray);
     return (
       <article id="shop-solutions-page">
         <section className="content-wrapper">

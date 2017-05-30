@@ -19,7 +19,7 @@ class ExternalContentStore {
 
   @action getPublicSafetySolutions() {
     const success = (res) => {
-      console.log('someHuckingData    ', res);
+      this.solutionsArray = res;
     }
 
     const fail = (res) => {
@@ -35,6 +35,7 @@ class ExternalContentStore {
     invehicles: [],
     accessories: []
   };
+  @observable solutionsArray = [];
 
 
 }
