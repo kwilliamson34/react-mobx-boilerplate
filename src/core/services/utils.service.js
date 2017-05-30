@@ -12,7 +12,7 @@ class UtilsService {
 					let simplifiedObj = {
 						name: obj.app_name,
 						publisher: obj.author,
-						imageUrl: config.apperianUpload + obj.icon_path,
+						imageUrl: config.apperianUploads + obj.icon_path,
 						rating: obj.rating,
 						id: obj.id,
 						app_psk: obj.app_psk,

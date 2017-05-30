@@ -17,7 +17,7 @@ export default class ScreenshotGallery extends React.Component {
     let screenshotArray = [...this.props.detailObj.mobileScreenshots, ...this.props.detailObj.tabletScreenshots];
 
     return screenshotArray.map((node, i) => {
-      let imgPath = config.apperianUpload + node.path;
+      let imgPath = config.apperianUploads + node.path;
       return (
         <div key={i} className='slide-container'>
           <figure className='img-responsive'>
