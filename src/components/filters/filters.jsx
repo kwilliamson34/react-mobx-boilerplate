@@ -21,47 +21,75 @@ export class Filters extends React.Component {
     this.store.changeSegmentFilter(event.target.value);
   }
 
-  // handlePlatformChange = (event) => {
-  //   this.store.changePlatformFilter(event.target.value);
-  // }
+  handlePlatformChange = (event) => {
+    this.store.changePlatformFilter(event.target.value);
+  }
+
+  resetFilters = () => {
+    this.store.resetFilters();
+  }
+
+  renderSelect({id, label, initialValue, changeHandler, optionsArray}) {
+    const component = (
+      <div>
+        <label htmlFor={id}>{label}</label>
+        <select id={id} ref={ref => this.store.addFilterElementRef(id, ref)} className="form-control" selected={initialValue} onChange={changeHandler}>
+          {optionsArray.map((option, index) => {
+            return <option value={option.value} key={index}>{option.title}</option>
+          })}
+        </select>
+      </div>
+    );
+    return component;
+  }
 
   render() {
     return (
-      <div>
-        <section className="filters">
-          <div className="row">
-            <div className="filter-title col-md-2">Filter</div>
-            <div className="col-md-5 col-xs-12">
-              <div className="form-group">
-                <span className="sr-only"><label htmlFor="category-filter">Category</label></span>
-                <select id="category-filter" className="form-control" selected={this.store.categoryFilter} onChange={this.handleCategoryChange}>
-                  {this.store.categories.map((category, index) => {
-                    return <option value={category.value} key={index}>{category.title}</option>
-                  })}
-                </select>
-              </div>
-            </div>
-            <div className="col-md-5 col-xs-12">
-              <div className="form-group">
-                <span className="sr-only"><label htmlFor="segment-filter">Segment</label></span>
-                <select id="segment-filter" className="form-control" selected={this.store.segmentFilter} onChange={this.handleSegmentChange}>
-                  {this.store.segments.map((segment, index) => {
-                    return <option value={segment.value} key={index}>{segment.title}</option>
-                  })}
-                </select>
-              </div>
-            </div>
-            {/*<div className="form-group col-md-3 hidden-xs hidden-sm">
-              <span className="sr-only"><label htmlFor="platform-filter">Platform</label></span>
-              <select id="platform-filter" className="form-control" selected={this.store.platformFilter} onChange={this.handlePlatformChange}>
-                {this.store.platforms.map((platform, index) => {
-                  return <option value={platform.value} key={index}>{platform.title}</option>
-                })}
-              </select>
-            </div>*/}
+      <section className="filters">
+        <div className="row">
+          <div className="col-xs-12">
+            <span className="form-group-title">Filter</span>
           </div>
-        </section>
-      </div>
+          <div className="col-md-4 col-xs-12">
+            <div className="form-group">
+              {this.renderSelect({
+                id: 'category-filter',
+                label: 'Category',
+                initialValue: this.store.categoryFilter,
+                changeHandler: this.handleCategoryChange,
+                optionsArray: this.store.categories
+              })}
+            </div>
+          </div>
+          <div className="col-md-4 col-xs-12">
+            <div className="form-group">
+              {this.renderSelect({
+                id: 'segment-filter',
+                label: 'Segment',
+                initialValue: this.store.segmentFilter,
+                changeHandler: this.handleSegmentChange,
+                optionsArray: this.store.segments
+              })}
+            </div>
+          </div>
+          <div className="col-md-4 col-xs-12">
+            <div className="form-group">
+              {this.renderSelect({
+                id: 'platform-filter',
+                label: 'Platform',
+                initialValue: this.store.platformFilter,
+                changeHandler: this.handlePlatformChange,
+                optionsArray: this.store.platforms
+              })}
+            </div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-xs-12 text-right">
+            <button className="btn fn-primary reset-filters-button" onClick={this.resetFilters}>Reset Filters</button>
+          </div>
+        </div>
+      </section>
     );
   }
 }
