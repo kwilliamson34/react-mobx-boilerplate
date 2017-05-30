@@ -35,31 +35,22 @@ export default class AdminDashboardPage extends React.Component {
               </div>
               <nav>
                 <ul>
-                  <li className="col-xs-12 col-sm-6">
+                  <li className="col-xs-12">
                     <NewTabLink to={this.linkStore.manageUsersLink} className="dashboard-card manage-users has-shadow">
                       <div className="desc">
                         <h3>Manage users</h3>
-                        <p>Add, edit and remove users.</p>
+                        <p>Add, edit and remove users</p>
                       </div>
                       <span>Manage Users</span>
                     </NewTabLink>
                   </li>
                   <li className="col-xs-12 col-sm-6">
-                    <NewTabLink to={this.linkStore.manageBillingLink} className="dashboard-card manage-billing has-shadow">
+                    <NewTabLink to={this.linkStore.manageServicesLink} className="dashboard-card manage-services has-shadow">
                       <div className="desc">
-                        <h3>Manage billing</h3>
-                        <p>View &amp; pay bills, update info</p>
+                        <h3>Manage services & billing</h3>
+                        <p>Assign or remove device, change rate plans &amp; features, view & pay bills, update info</p>
                       </div>
-                      <span>Manage Billing</span>
-                    </NewTabLink>
-                  </li>
-                  <li className="col-xs-12 col-sm-6">
-                    <NewTabLink to={this.linkStore.manageUsersLink} className="dashboard-card manage-services has-shadow">
-                      <div className="desc">
-                        <h3>Manage services</h3>
-                        <p>Assign or remove device, change rate plans &amp; features</p>
-                      </div>
-                      <span>Manage Services</span>
+                      <span>Manage services & billing</span>
                     </NewTabLink>
                   </li>
                   <li className="col-xs-12 col-sm-6">

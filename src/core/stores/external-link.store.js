@@ -25,7 +25,6 @@ class ExternalLinkStore {
   };
 
   @observable manageUsersLink = 'https://profilemgt.firstnet.att.com/ebiz/firstnet/index.jsp';
-  @observable manageBillingLink = 'https://wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn';
   @observable manageServicesLink = 'https://wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn';
   @observable managePushToTalkKodiakLink = 'https://wgp.eptt.kodiaknetworks.com/cat/view/catui';
   @observable managePushToTalkMotorolaLink = 'https://firstnet.att.com/ptt_upm';
