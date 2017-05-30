@@ -38,6 +38,8 @@ import ShopSolutionsPage from './pages/shop-solutions.page';
 
 //content pages
 import AppDetailsPage from './pages/app-details.page';
+import SolutionsDetailTemplate from './pages/solutions-details.page';
+import SolutionsCategoryTemplate from './pages/solutions-category.page';
 
 //Help section
 import HelpCenterPage from './pages/help-center.page';
@@ -90,25 +92,17 @@ export default class App extends React.Component {
 			)
 		}
 
+		//you create a TEMPLATE page;
+
 		const ShopSolutionsHub = ({match}) => {
-			return(
-				<div id="shop-solutions-hub-page">
+			return (
+				<article id="shop-solutions-hub-page">
 					<Switch>
+						<Route path={`${match.url}/:solutionCategory/:solutionDetail`} component={SolutionsDetailTemplate} />
+						<Route path={`${match.url}/:solutionCategory`} component={SolutionsCategoryTemplate} />
 						<Route path={match.url} component={ShopSolutionsPage} />
-						<Route path={`${match.url}/:solutionCategory`} component={SolutionsCategoryPage} />
-						<Route path={`${match.url}/:solutionCategory/:solutionDetail`} component={SolutionsDetailPage} />
-						<Route exact path={match.url} render={() => (
-								<article>
-									<div className="container">
-										<div className="col-xs-12">
-											<h1 className="as-h2">Sorry.</h1>
-											<p>We couldn't find the solution you were looking for. <Link to="solutions">Go to the Solutions page</Link></p>
-										</div>
-									</div>
-								</article>
-							)}/>
 					</Switch>
-				</div>
+				</article>
 			)
 		}
 
