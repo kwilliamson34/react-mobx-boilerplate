@@ -52,7 +52,6 @@ export default class ShopSpecializedDevicesPage extends React.Component {
 	}
 
 	render() {
-		console.log('HUDFHDFHDB    ', this.mpStore.devicesData);
 		return (
 			<article id="shop-specialized-devices-page">
         <div className="container">

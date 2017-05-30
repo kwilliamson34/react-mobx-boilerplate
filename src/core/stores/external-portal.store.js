@@ -17,6 +17,18 @@ class ExternalContentStore {
     apiService.getMPDevices().then(success, fail);
   }
 
+  @action getPublicSafetySolutions() {
+    const success = (res) => {
+      console.log('someHuckingData    ', res);
+    }
+
+    const fail = (res) => {
+      console.log('getPublicSafetySolutions fetch failed\n' + res);
+    }
+
+    apiService.getPublicSafetySolutions().then(success, fail);
+  }
+
   @observable devicesData = {
     phones: [],
     tablets: [],
