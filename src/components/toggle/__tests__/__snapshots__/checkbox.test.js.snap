@@ -4,8 +4,8 @@ exports[`<Checkbox /> renders matches previous snapshot 1`] = `
   <label>
     <input
       aria-disabled={undefined}
+      checked={false}
       className=""
-      defaultChecked={undefined}
       id={undefined}
       onChange={[Function bound onChange]}
       type="checkbox"
@@ -26,8 +26,8 @@ exports[`<Checkbox /> renders matches previous snapshot 2`] = `
   <label>
     <input
       aria-disabled={undefined}
+      checked={false}
       className=""
-      defaultChecked={true}
       id={undefined}
       onChange={[Function bound onChange]}
       type="checkbox"
@@ -48,8 +48,8 @@ exports[`<Checkbox /> renders matches previous snapshot 3`] = `
   <label>
     <input
       aria-disabled={undefined}
+      checked={false}
       className=""
-      defaultChecked={false}
       id={undefined}
       onChange={[Function bound onChange]}
       type="checkbox"
@@ -70,8 +70,8 @@ exports[`<Checkbox /> renders matches previous snapshot 4`] = `
   <label>
     <input
       aria-disabled={undefined}
+      checked={false}
       className=""
-      defaultChecked={false}
       id={undefined}
       onChange={[Function bound onChange]}
       type="checkbox"
@@ -92,8 +92,8 @@ exports[`<Checkbox /> renders matches previous snapshot 5`] = `
   <label>
     <input
       aria-disabled={true}
+      checked={false}
       className="disabled"
-      defaultChecked={false}
       id={undefined}
       onChange={[Function bound onChange]}
       type="checkbox"
@@ -114,8 +114,8 @@ exports[`<Checkbox /> renders matches previous snapshot 6`] = `
   <label>
     <input
       aria-disabled={false}
+      checked={false}
       className=""
-      defaultChecked={false}
       id={undefined}
       onChange={[Function bound onChange]}
       type="checkbox"

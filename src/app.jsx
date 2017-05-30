@@ -42,6 +42,10 @@ import AppDetailsPage from './pages/app-details.page';
 //Help section
 import HelpCenterPage from './pages/help-center.page';
 
+import PrivacyPage from './pages/privacy.page';
+import TermsOfServicePage from './pages/terms.page';
+import AccessibilityPage from './pages/accessibility.page';
+
 import NoMatch from './pages/no-match.page';
 
 import { UnauthenticUser } from './pages/unauth-user.page.jsx';
@@ -110,6 +114,9 @@ export default class App extends React.Component {
 									<Route path="/shop-specialized-devices" component={ShopSpecializedDevicesPage} />
 									<Route path="/shop-solutions" component={ShopSolutionsPage} />
 									<Route path="/help-center" component={HelpCenterPage} />
+									<Route path="/privacy" component={PrivacyPage}/>
+									<Route path="/terms" component={TermsOfServicePage}/>
+									<Route path="/accessibility" component={AccessibilityPage}/>
 									<Route component={NoMatch}/>
 								</Switch>
 							</main>

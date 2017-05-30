@@ -25,7 +25,7 @@ class UtilsService {
 						imageUrl: UtilsService.imgBaseURL + obj.icon_path,
 						rating: obj.rating,
 						id: obj.id,
-						psk: obj.app_psk,
+						app_psk: obj.app_psk,
 						isAvailable: obj.isAvailable,
 						isRecommended: obj.isRecommended,
 						badge: obj.is_endorsed,

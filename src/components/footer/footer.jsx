@@ -1,22 +1,25 @@
 import React from 'react';
-import {
-	Link
-} from 'react-router-dom';
+import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
+import {observer,inject} from 'mobx-react';
 
+@inject('store')
+@observer
 export default class Footer extends React.Component {
+	
+	static propTypes = {
+		store: PropTypes.object
+	}
 
 	constructor(props) {
 		super(props);
-		this.state={
-			sitemapExpanded: false
-		}
+		this.headerStore = this.props.store.headerStore;
 		this.handleSitemapClick = this.handleSitemapClick.bind(this);
 	}
+
 	handleSitemapClick(e){
 		e.preventDefault();
-		this.setState({
-			sitemapExpanded: !this.state.sitemapExpanded
-		});
+		this.headerStore.toggleFooterSitemap();
 	}
 	render() {
 		return (
@@ -33,7 +36,12 @@ export default class Footer extends React.Component {
 					<div className="row is-flex">
 						<div className="col-xs-12 col-md-3">
 							<nav aria-describedby="sitemap">
-								<a id="sitemap" href="" onClick={this.handleSitemapClick} className="sitemap-hdr" role="button" aria-haspopup="true" aria-expanded={this.state.sitemapExpanded}>Sitemap</a>
+								<a id="sitemap" href=""
+									onClick={this.handleSitemapClick}
+									className="sitemap-hdr"
+									role="button"
+									aria-haspopup="true"
+									aria-expanded={this.headerStore.footerSitemapExpanded}>Sitemap</a>
 								<ul className="sitemap-links">
 									<li role="presentation">
 										<Link to="/admin">PSE Administration</Link>
@@ -128,10 +136,10 @@ export default class Footer extends React.Component {
 					<div className="col-xs-12">
 						<nav>
 							<ul className="sub-links">
-								<li role="presentation"><Link to="/?privacy">Privacy Policy</Link></li>
-								<li role="presentation"><Link to="/?">Terms &amp; Conditions</Link></li>
+								<li role="presentation"><Link to="/privacy">Privacy Policy</Link></li>
+								<li role="presentation"><Link to="/terms">Terms &amp; Conditions</Link></li>
 								<br className="visible-xs-inline-block" />
-								<li role="presentation"><Link to="/?">Accessibility</Link></li>
+								<li role="presentation"><Link to="/accessibility">Accessibility</Link></li>
 								<li role="presentation"><a href="https://www.firstnet.gov/" target="_blank" rel="noopener noreferrer">FirstNet.gov</a></li>
 							</ul>
 						</nav>

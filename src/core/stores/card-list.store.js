@@ -49,8 +49,7 @@ class CardListStore {
         }
 
 		this.isLoading = true;
-		apiService.getSearchResults(encodeURIComponent(this.searchQuery))
-			.then(success, failure)
+		apiService.getSearchResults(encodeURIComponent(this.searchQuery)).then(success, failure)
 	}, 500, {
 		leading: true,
 		trailing: false

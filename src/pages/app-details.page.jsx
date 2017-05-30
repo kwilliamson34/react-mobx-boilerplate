@@ -88,12 +88,12 @@ export default class AppDetailsPage extends React.Component {
                   </ul>
                 </div>
               </div>
-							{this.appStore.currentAppObject && this.appStore.currentAppObject.psk &&
+							{this.appStore.currentAppObject && this.appStore.currentAppObject.app_psk &&
 								<AppManagementBlock
-									psk={this.appStore.currentAppObject.psk}
+									psk={this.appStore.currentAppObject.app_psk}
 									getMatchingApp={this.appStore.getMatchingApp.bind(this.appStore)}
 									changeAppAvailability={this.appStore.changeAppAvailability.bind(this.appStore)}
-									changeAppRecommended={this.appStore.changeAppRecommended.bind(this.appStore)}/>
+									changeAppRecommended={this.appStore.changeAppRecommended.bind(this.appStore)} />
 							}
             </div>
           </div>
@@ -140,7 +140,7 @@ export default class AppDetailsPage extends React.Component {
                 dangerouslySetInnerHTML={{ __html: this.appStore.currentAppObject.custom_metadata.developer_description}}>
               </p>
               <div className="developer-website">
-              <a href={this.appStore.currentAppObject.custom_metadata.developer_website} className="fn-primary" target="_blank" rel="noopener noreferrer">Visit Developer Website</a>
+              <a href={'http://' + this.appStore.currentAppObject.custom_metadata.developer_website} className="fn-primary" target="_blank" rel="noopener noreferrer">Visit Developer Website <i className="icon-external-site" aria-hidden="true"></i></a>
               </div>
             </div>
           </div>
