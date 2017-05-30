@@ -8,7 +8,8 @@ import { observer, inject } from 'mobx-react';
 export default class ShopSolutionsPage extends React.Component {
 
   static propTypes = {
-    store: PropTypes.object
+    store: PropTypes.object,
+    match: PropTypes.object
   }
 
   constructor(props) {
@@ -17,7 +18,7 @@ export default class ShopSolutionsPage extends React.Component {
   }
 
   componentWillMount() {
-    this.solutionsStore.getPublicSafetySolutions();
+    this.solutionsStore.getPSSCells(this.props.match.path);
   }
 
   render() {

@@ -90,6 +90,28 @@ export default class App extends React.Component {
 			)
 		}
 
+		const ShopSolutionsHub = ({match}) => {
+			return(
+				<div id="shop-solutions-hub-page">
+					<Switch>
+						<Route path={match.url} component={ShopSolutionsPage} />
+						<Route path={`${match.url}/:solutionCategory`} component={SolutionsCategoryPage} />
+						<Route path={`${match.url}/:solutionCategory/:solutionDetail`} component={SolutionsDetailPage} />
+						<Route exact path={match.url} render={() => (
+								<article>
+									<div className="container">
+										<div className="col-xs-12">
+											<h1 className="as-h2">Sorry.</h1>
+											<p>We couldn't find the solution you were looking for. <Link to="solutions">Go to the Solutions page</Link></p>
+										</div>
+									</div>
+								</article>
+							)}/>
+					</Switch>
+				</div>
+			)
+		}
+
 		return userStore.authentic_user ? (
 			<Router>
 				<Provider store={pseMasterStore}>
@@ -112,7 +134,7 @@ export default class App extends React.Component {
 									<Route path="/app" component={AppHub} />
 									<Route path="/shop-devices-rates" component={ShopDevicesPage} />
 									<Route path="/shop-specialized-devices" component={ShopSpecializedDevicesPage} />
-									<Route path="/shop-solutions" component={ShopSolutionsPage} />
+									<Route path="/solutions" component={ShopSolutionsHub} />
 									<Route path="/help-center" component={HelpCenterPage} />
 									<Route path="/privacy" component={PrivacyPage}/>
 									<Route path="/terms" component={TermsOfServicePage}/>

@@ -17,7 +17,7 @@ class ExternalContentStore {
     apiService.getMPDevices().then(success, fail);
   }
 
-  @action getPSSCells() {
+  @action getPSSCells(queryString) {
     const success = (res) => {
       this.cellsArray = res;
     }
@@ -26,7 +26,7 @@ class ExternalContentStore {
       console.log('getPublicSafetySolutions fetch failed\n' + res);
     }
 
-    apiService.getPSSCells().then(success, fail);
+    apiService.getPSSCells(queryString).then(success, fail);
   }
 
   @observable devicesData = {
