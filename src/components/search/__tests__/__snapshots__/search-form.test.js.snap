@@ -3,7 +3,7 @@ exports[`<SearchForm /> gives correct feedback when loaded 1`] = `
   className="search-form"
   onSubmit={[Function anonymous]}>
   <div
-    className="search-input input-group has-clear">
+    className="search-input input-group">
     <label
       className="form-group-title"
       htmlFor="search-box">
@@ -18,7 +18,7 @@ exports[`<SearchForm /> gives correct feedback when loaded 1`] = `
       id="search-box"
       onChange={[Function anonymous]}
       title="searchQuery"
-      type="text"
+      type="search"
       value="test search" />
     <button
       className="btn clear-btn"
@@ -56,7 +56,7 @@ exports[`<SearchForm /> gives correct feedback when loading 1`] = `
   className="search-form"
   onSubmit={[Function anonymous]}>
   <div
-    className="search-input input-group has-clear">
+    className="search-input input-group">
     <label
       className="form-group-title"
       htmlFor="search-box">
@@ -71,7 +71,7 @@ exports[`<SearchForm /> gives correct feedback when loading 1`] = `
       id="search-box"
       onChange={[Function anonymous]}
       title="searchQuery"
-      type="text"
+      type="search"
       value="test search" />
     <button
       className="btn clear-btn"
@@ -109,7 +109,7 @@ exports[`<SearchForm /> matches previous snapshot 1`] = `
   className="search-form"
   onSubmit={[Function anonymous]}>
   <div
-    className="search-input input-group has-clear">
+    className="search-input input-group">
     <label
       className="form-group-title"
       htmlFor="search-box">
@@ -124,7 +124,7 @@ exports[`<SearchForm /> matches previous snapshot 1`] = `
       id="search-box"
       onChange={[Function anonymous]}
       title="searchQuery"
-      type="text"
+      type="search"
       value="" />
     <span
       className="input-group-btn search-btn">
@@ -150,7 +150,7 @@ exports[`<SearchForm /> matches previous snapshot 2`] = `
   className="search-form"
   onSubmit={[Function anonymous]}>
   <div
-    className="search-input input-group has-clear">
+    className="search-input input-group">
     <label
       className="form-group-title"
       htmlFor="search-box">
@@ -165,7 +165,7 @@ exports[`<SearchForm /> matches previous snapshot 2`] = `
       id="search-box"
       onChange={[Function anonymous]}
       title="searchQuery"
-      type="text"
+      type="search"
       value="test search" />
     <button
       className="btn clear-btn"
