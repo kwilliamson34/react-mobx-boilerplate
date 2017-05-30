@@ -51,7 +51,6 @@ class GeolinkStore {
   }
 
   @action toggleNetwork() {
-    console.log('Toggling network layers');
     this.showNetworkLayer = !this.showNetworkLayer;
     if(this.showWeatherLayer) {
       this.addAllNetworkLayers();
@@ -91,7 +90,6 @@ class GeolinkStore {
   }
 
   @action toggleTraffic() {
-    console.log('Toggling traffic');
     this.showTrafficLayer = !this.showTrafficLayer;
     this.mapIframeRef.contentWindow.postMessage({
       eventName: 'toggleTraffic'
@@ -99,7 +97,6 @@ class GeolinkStore {
   }
 
   @action toggleWeather() {
-    console.log('Toggling weather layer/animation');
     this.showWeatherLayer = !this.showWeatherLayer;
     if(this.showWeatherLayer) {
       this.addWeather();
@@ -132,7 +129,6 @@ class GeolinkStore {
   }
 
   @action toggleAlerts() {
-    console.log('Toggling alerts layer');
     this.showAlertLayer = !this.showAlertLayer;
     this.mapIframeRef.contentWindow.postMessage({
       eventName: 'loadLayer',
