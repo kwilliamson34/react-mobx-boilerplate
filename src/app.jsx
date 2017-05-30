@@ -38,8 +38,8 @@ import ShopSolutionsPage from './pages/shop-solutions.page';
 
 //content pages
 import AppDetailsPage from './pages/app-details.page';
-import SolutionsDetailTemplate from './pages/solutions-details.page';
-import SolutionsCategoryTemplate from './pages/solutions-category.page';
+import SolutionsDetailTemplate from './pages/solutions-details.template';
+import SolutionsCategoryTemplate from './pages/solutions-category.template';
 
 //Help section
 import HelpCenterPage from './pages/help-center.page';
@@ -91,8 +91,6 @@ export default class App extends React.Component {
 				<Redirect to="/admin" />
 			)
 		}
-
-		//you create a TEMPLATE page;
 
 		const ShopSolutionsHub = ({match}) => {
 			return (
