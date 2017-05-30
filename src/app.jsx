@@ -30,10 +30,13 @@ import ManagePushToTalkPage from './pages/manage-push-to-talk.page';
 import ManageWirelessReportsPage from './pages/manage-wireless-reports.page';
 import AdminDashboardPage from './pages/admin-dashboard.page';
 import ConfigureMDM from './pages/configure-mdm.page';
+import ShopDevicesPage from './pages/shop-devices-rates.page';
 
 //MP pages
-import ShopDevicesPage from './pages/shop-devices-rates.page'
-import ShopSpecializedDevicesPage from './pages/shop-specialized-devices.page';
+import DevicesLandingPage from './pages/devices.page';
+import DeviceCategoryTemplate from './pages/device-category.template';
+import DeviceDetailTemplate from './pages/device-detail.template';
+
 import ShopSolutionsPage from './pages/shop-solutions.page';
 
 //content pages
@@ -81,28 +84,13 @@ export default class App extends React.Component {
 			)
 		}
 
-		const ShopSpecializedDevices = ({match}) => {
+		const SpecializedDevices = ({match}) => {
 			return(
-				<article id="shop-specialized-devices-page">
+				<article id="specialized-devices-page">
 					<Switch>
-						<Route path={`${match.url}/:deviceCategory/:deviceId`} render={({match})=> (
-								<div className="container">
-									<div className="row">
-										<div className="col-xs-12"><h1>Device Id: {match.params.deviceId}</h1>
-										<h2>Category: {match.params.deviceCategory}</h2></div>
-									</div>
-								</div>
-						)} />
-						<Route path={`${match.url}/:deviceCategory`} render={({match})=>(
-								<div className="container">
-									<div className="row">
-										<div className="col-xs-12">
-											<h1>Category: {match.params.deviceCategory}</h1>
-										</div>
-									</div>
-								</div>
-						)} />
-						<Route path={match.url} component={ShopSpecializedDevicesPage} />
+						<Route path={`${match.url}/:deviceCategory/:deviceId`} component={DeviceDetailTemplate} />
+						<Route path={`${match.url}/:deviceCategory`} component={DeviceCategoryTemplate} />
+						<Route path={match.url} component={DevicesLandingPage} />
 					</Switch>
 				</article>
 			)
@@ -136,8 +124,8 @@ export default class App extends React.Component {
 									<Route path="/admin" component={AdminDashboardPage} />
 									<Route path="/app" component={AppHub} />
 									<Route path="/shop-devices-rates" component={ShopDevicesPage} />
-									<Route path="/shop-specialized-devices" component={ShopSpecializedDevices} />
-									<Route path="/shop-solutions" component={ShopSolutionsPage} />
+									<Route path="/devices" component={SpecializedDevices} />
+									<Route path="/solutions" component={ShopSolutionsPage} />
 									<Route path="/help-center" component={HelpCenterPage} />
 									<Route path="/privacy" component={PrivacyPage}/>
 									<Route path="/terms" component={TermsOfServicePage}/>

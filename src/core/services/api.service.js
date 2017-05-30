@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { utilsService } from './utils.service';
-import { externalContentService } from './external-content.service';
+import { externalDeviceContentService } from './external-device-content.service';
 
 import { userStore } from '../stores/user.store';
 
@@ -69,7 +69,14 @@ class ApiService {
     getMPDevices() {
       return axios.get(`${base}/marketing/devices`)
         .then( (res) =>{
-          return externalContentService.filterDeviceData(res.data);
+          return externalDeviceContentService.filterDeviceLandingPageData(res.data);
+        });
+    }
+
+    getMPDeviceDetail(deviceLink) {
+      return axios.get(`${base}/marketing${deviceLink}`)
+        .then( (res) =>{
+          return externalDeviceContentService.filterDeviceDetail(res.data);
         });
     }
 

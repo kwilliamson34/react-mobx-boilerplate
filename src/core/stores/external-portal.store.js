@@ -1,4 +1,4 @@
-import { action, observable } from 'mobx';
+import { action, observable, computed } from 'mobx';
 import { apiService } from '../services/api.service';
 
 class ExternalContentStore {
@@ -17,13 +17,27 @@ class ExternalContentStore {
     apiService.getMPDevices().then(success, fail);
   }
 
+  @action getMPDeviceDetail(deviceLink){
+    apiService.getMPDeviceDetail(deviceLink).then(success, fail);
+  } 
+
+  //COMPUTEDS
+  @computed get deviceCategoryNum() {
+    let deviceCategories = ['phones', 'tablets', 'invehicle', 'accessories'];
+    let categoryIndex = deviceCategories.indexOf(this.currentCategory);
+    return (categoryIndex >= 0)? categoryIndex + 1 : 0;
+  }
+
+  //OBSERVABLES
   @observable devicesData = {
     phones: [],
     tablets: [],
-    invehicles: [],
+    invehicle: [],
     accessories: []
   };
 
+  @observable currentCategory = '';
+  @observable currentDeviceId = '';
 
 }
 
