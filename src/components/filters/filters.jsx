@@ -83,7 +83,11 @@ export class Filters extends React.Component {
               })}
             </div>
           </div>
-          <button className="btn fn-primary reset-filters-button" onClick={this.resetFilters}>Reset Filters</button>
+        </div>
+        <div className="row">
+          <div className="col-xs-12 text-right">
+            <button className="btn fn-primary reset-filters-button" onClick={this.resetFilters}>Reset Filters</button>
+          </div>
         </div>
       </section>
     );
