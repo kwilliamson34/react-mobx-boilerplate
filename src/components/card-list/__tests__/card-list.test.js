@@ -16,7 +16,7 @@ describe('<CardList />', () => {
                 imageUrl: '../../images/app-icon.png',
                 rating: 0,
                 badge: '',
-                platforms: '',
+                operatingSystem: '',
             },
             events: {
                 link: '#'

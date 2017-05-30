@@ -4,9 +4,7 @@ import {
 	observable,
 	extendObservable
 } from 'mobx';
-//import { apiService } from '../services/api.service';
 
-// import { searchStore } from './search.store';
 import {headerStore} from './header.store';
 import {appCatalogStore} from './app-catalog.store';
 import {cardListStore} from './card-list.store';
@@ -17,7 +15,6 @@ import {mdmStore} from './mdm.store';
 class PSEStore {
 
 	constructor() {
-		// this.searchStore = searchStore;
 		this.headerStore = headerStore;
 		this.appCatalogStore = appCatalogStore;
 		this.cardListStore = cardListStore;
