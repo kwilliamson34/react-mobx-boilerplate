@@ -6,6 +6,8 @@
   "scripts": {
     "copyassets": "copyfiles ./images/**/* ./fonts/**/* ./maps/* ./build/",
     "build": "rm -rf build & npm run copyassets & webpack -p --progress",
+    "build-stage": "rm -rf build & npm run copyassets & webpack -p --progress --env=stage",
+    "build-prod": "rm -rf build & npm run copyassets & webpack -p --progress --env=prod",
     "start": "npm run copyassets & webpack-dev-server --open",
     "test": "jest --coverage"
   },

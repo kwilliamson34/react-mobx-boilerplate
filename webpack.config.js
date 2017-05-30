@@ -13,6 +13,7 @@ let env = 'dev';
 if (args.env) {
   env = args.env;
 }
+console.log('Built for the \x1b[34m' + env + '\x1b[30m environment');
 
 module.exports = {
 	context: path.resolve(__dirname, 'src'),
