@@ -23,7 +23,7 @@ class MDMStore {
         let inputs = form.querySelectorAll('input, select');
         let values = this[this.mdmProvider].values();
 
-        let validForm =  validForm = inputs.length === values.length && values.indexOf('') === -1 ? true : false;
+        let validForm = (inputs.length === values.length) && (values.indexOf('') === -1) ? true : false;
 
         if(this.currentMDM.values() !== this[this.mdmProvider].values()){
             this.formHasChanged = true;
@@ -35,16 +35,22 @@ class MDMStore {
     @action submitForm() {
         console.log('submit!')
 
+        this.beingSubmitted = true;
+
         this.currentMDM = this[this.mdmProvider];
 
     }
 
     @action breakMDMConnection() {
         console.log('break')
+
         this.currentMDM.clear();
         this.airWatchForm.clear();
         this.ibmForm.clear();
         this.mobileIronForm.clear();
+        this.mdmProvider = '';
+
+        this.alert_msg = 'SUCCESS';
     }
 
 
@@ -98,8 +104,11 @@ class MDMStore {
     @observable ibmForm = observable.map({});
     @observable mobileIronForm = observable.map({});
 
-
+    @observable alert_msg = '';
     @observable formIsValid = false;
+    @observable beingSubmitted = false;
+
+
     @observable formHasChanged = false;
     @observable showExitModal = false;
 

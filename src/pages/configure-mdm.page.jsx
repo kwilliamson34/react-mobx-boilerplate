@@ -68,7 +68,7 @@ export default class ConfigureMDM extends React.Component {
 		return (
 			<article id="configure-mdm-page">
         <div className="container">
-          <button data-toggle="modal" data-target="#breakConnectionModal" className= "break-mdm-btn fn-primary" aria-labelledby="break-mdm-connection" aria-disabled={!isConfigured}>Break Connection</button>
+            {isConfigured && <button data-toggle="modal" data-target="#breakConnectionModal" className= "break-mdm-btn fn-primary" aria-labelledby="break-mdm-connection" aria-disabled={!isConfigured}>Break Connection</button>}
             <div className="col-xs-12 text-center">
                 <h1 className="as-h2">Configure Mobile Device Management (MDM)</h1>
             </div>
@@ -76,7 +76,16 @@ export default class ConfigureMDM extends React.Component {
             <div className="row no-gutters">
                 <section className="col-xs-12 col-lg-10 col-lg-offset-1">
                     <div className="mdm-form col-md-offset-2 col-xs-12 col-md-8 col-md">
-                        <p className="mdm-description">Only one MDM can be configured at a time. To configure a new MDM, the existing connection must be broken. Once the existing connection is broken, a new one can be configured.</p>
+
+                      {this.store.alert_msg &&
+                        <div role="alert" className={`alert alert-${this.store.alert_msg === 'ERROR' ? 'danger' : 'success'}`}>
+                          <button type="button" className="close"><span aria-hidden="true">×</span><span className="sr-only">Close alert</span></button>
+                          {this.store.alert_msg === 'ERROR' && <p><strong>Error:</strong> Please correct the errors below.</p>}
+                          {this.store.alert_msg === 'SUCCESS' && <p><strong>Success!</strong> The connection to MDM has been broken.</p>}
+                        </div>
+                      }
+
+                        {isConfigured && <p className="mdm-description">Only one MDM can be configured at a time. To configure a new MDM, the existing connection must be broken. Once the existing connection is broken, a new one can be configured.</p>}
                         <div className={this.store.mdmErrorMessages.length ? 'form-group has-feedback has-error' : 'form-group has-feedback'}>
                           <label className="control-label" htmlFor="mdm">Your MDM<span className="required-asterisks"> *</span></label>
                           {this.showErrorMessages(this.store.mdmErrorMessages)}

@@ -21,3 +21,11 @@ label,
 .form-group-title {
   text-transform: uppercase;
 }
+
+.form-group .msgBlock.error-list {
+  margin: 5px 0 10px;
+}
+
+.required-asterisks{
+  color: $fn-red;
+}
