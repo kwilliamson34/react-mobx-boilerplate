@@ -29,7 +29,7 @@ class UtilsService {
 						isAvailable: obj.isAvailable,
 						isRecommended: obj.isRecommended,
 						badge: obj.is_endorsed,
-						platforms: UtilsService.platform[obj.operating_system],
+						operatingSystem: obj.operating_system,
 						category: [],
 						user_segment: [],
 						screenshots: {
