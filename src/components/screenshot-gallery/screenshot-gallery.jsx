@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
-
-const imgBaseURL = 'https://ease.apperian.com/uploads/';
+import config from 'config';
+const imgBaseURL = config.apperianUpload;
 
 @observer
 export default class ScreenshotGallery extends React.Component {
@@ -19,7 +19,7 @@ export default class ScreenshotGallery extends React.Component {
 
     return screenshotArray.map((node, i) => {
       let imgPath = imgBaseURL + node.path;
-      
+
       return (
         <div key={i} className='slide-container'>
           <figure className='img-responsive'>
