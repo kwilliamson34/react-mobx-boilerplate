@@ -1,11 +1,20 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import NewTabLink from '../components/link/new-tab-link';
+import {observer, inject} from 'mobx-react';
+import PropTypes from 'prop-types';
 
+@inject('store')
+@observer
 export default class AdminDashboardPage extends React.Component {
+	static propTypes = {
+		store: PropTypes.object
+	}
+
 	constructor(props){
 		super(props);
 		this.showPushToTalkModal = this.showPushToTalkModal.bind(this);
+		this.linkStore = this.props.store.externalLinkStore;
 	}
 
 	showPushToTalkModal() {
@@ -27,7 +36,7 @@ export default class AdminDashboardPage extends React.Component {
 								<nav>
 									<ul>
 										<li className="col-xs-12 col-sm-6">
-											<NewTabLink to="https://profilemgt.firstnet.att.com/ebiz/firstnet/index.jsp" className="dashboard-card manage-users has-shadow">
+											<NewTabLink to={this.linkStore.manageUsersLink} className="dashboard-card manage-users has-shadow">
 												<div className="desc">
 													<h3>Manage users</h3>
 													<p>Add, edit and remove users.</p>
@@ -36,7 +45,7 @@ export default class AdminDashboardPage extends React.Component {
 											</NewTabLink>
 										</li>
 										<li className="col-xs-12 col-sm-6">
-											<NewTabLink to="TODO" className="dashboard-card manage-billing has-shadow">
+											<NewTabLink to={this.linkStore.manageBillingLink} className="dashboard-card manage-billing has-shadow">
 												<div className="desc">
 													<h3>Manage billing</h3>
 													<p>View &amp; pay bills, update info</p>
@@ -45,7 +54,7 @@ export default class AdminDashboardPage extends React.Component {
 											</NewTabLink>
 										</li>
 										<li  className="col-xs-12 col-sm-6">
-											<NewTabLink to="https://wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn" className="dashboard-card manage-services has-shadow">
+											<NewTabLink to={this.linkStore.manageUsersLink} className="dashboard-card manage-services has-shadow">
 												<div className="desc">
 													<h3>Manage services</h3>
 													<p>Assign or remove device, change rate plans &amp; features</p>
@@ -72,7 +81,7 @@ export default class AdminDashboardPage extends React.Component {
 											</button>
 										</li>
 										<li className="col-xs-12 col-sm-6">
-											<NewTabLink to="https://www.wireless.att.com/businesscare/menu/index.jsp?subject=Reports&wtLinkName=Reports&wtLinkLoc=S1&&wtLinkType=InventoryReport" className="dashboard-card manage-wireless-reports has-shadow">
+											<NewTabLink to={this.linkStore.viewWirelessReportsLink} className="dashboard-card manage-wireless-reports has-shadow">
 												<div className="desc">
 													<h3>View wireless reports</h3>
 													<p>View device inventory, rate plan summary, early termination fees, upgrade eligibility, device unlock eligibility</p>
@@ -90,7 +99,7 @@ export default class AdminDashboardPage extends React.Component {
 							<nav>
 								<ul>
 									<li className="col-xs-12 col-md-6 col-lg-12">
-										<NewTabLink to="TODO" className="dashboard-card shop-devices-rates has-shadow">
+										<NewTabLink to={this.linkStore.shopStandardDevicesLink} className="dashboard-card shop-devices-rates has-shadow">
 											<div className="desc">
 												<h3>Shop standard devices &amp; rate plans</h3>
 												<p>Add a new device, provision an existing device, add a rate plan, feature(s) and accessories</p>
