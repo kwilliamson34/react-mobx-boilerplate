@@ -7,6 +7,7 @@
     "copyassets": "copyfiles ./images/**/* ./fonts/**/* ./maps/* ./build/",
     "build": "rm -rf build & npm run copyassets & webpack -p --progress",
     "start": "npm run copyassets & webpack-dev-server --open",
+    "dev": "npm run copyassets & webpack-dev-server --open --env=dev",
     "test": "jest --coverage"
   },
   "license": "ISC",
