@@ -7,11 +7,14 @@ class AppCatalogStore {
 	@action fetchAppCatalog() {
 		const success = (res) => {
 			this.allApps = res;
+			this.isLoading = false;
 			return this.allApps;
 		}
 		const fail = (err) => {
 			console.warn(err);
+			this.isLoading = false;
 		}
+		this.isLoading = true;
 		return apiService.getAdminApps().then(success, fail)
 	}
 
@@ -41,12 +44,15 @@ class AppCatalogStore {
 			newAppObject.detailsFetched = true;
 			this.allApps.push(newAppObject);
 			this.currentAppObject = newAppObject;
+			this.isLoading = false;
 		}
 
 		let failure = (error) => {
 			console.warn(error);
+			this.isLoading = false;
 		}
 
+		this.isLoading = true;
 		return apiService.getAppDetails(psk).then(success, failure);
 	}
 
@@ -87,6 +93,7 @@ class AppCatalogStore {
 	@observable allApps = [];
 	@observable currentAppObject = {};
 	@observable screenshots = [];
+	@observable isLoading;
 }
 
 export const appCatalogStore = new AppCatalogStore();

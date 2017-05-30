@@ -74,8 +74,8 @@ class ApiService {
         });
     }
 
-    getPublicSafetySolutions() {
-      return axios.get(`${base}/marketing/solutions`)
+    getPSSCells(queryString) {
+      return axios.get(`${base}/marketing/${queryString}`)
         .then((res) => {
           return externalSolutionsService.filterPSSCells(res.data);
         })

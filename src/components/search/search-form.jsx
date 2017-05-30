@@ -23,25 +23,29 @@ export class SearchForm extends React.Component {
   }
 
   handleClearClick = () => {
-    this.store.clear();
+    this.store.clearSearchQuery();
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div className="search input-group input-group-lg has-clear">
-          <label className="sr-only" htmlFor="search-box">Search App Catalog</label>
-          <input id="search-box" ref="input" className="form-control" title="searchQuery" type="text" value={this.store.searchQuery} placeholder="Search Apps" onChange={this.handleInput} />
+      <form className="search-form" onSubmit={this.handleSubmit}>
+        <div className="search-input input-group">
+          <label htmlFor="search-box" className="form-group-title">Search<span className="sr-only">&nbsp;App Catalog</span></label>
+          <input id="search-box" type="search" ref="input" className="form-control" title="searchQuery" value={this.store.searchQuery} onChange={this.handleInput} />
           {(this.store.searchQuery.length > 0) &&
-            <span className="icon-close" onClick={this.handleClearClick}></span>
+            <button className="btn clear-btn" type="button" onClick={this.handleClearClick}>
+              <span className="sr-only">Clear</span>
+              <span aria-hidden="true" className="icon-close"/>
+            </button>
           }
-          <span className="input-group-btn">
+          <span className="input-group-btn search-btn">
             <button className="btn btn-primary" type="submit">
               <span className="sr-only">Search</span>
               <span aria-hidden="true" className="icon-search"/>
             </button>
           </span>
         </div>
+        <p>{this.store.searchResultsCountLabel}</p>
       </form>
     );
   }
