@@ -16,9 +16,8 @@ export default class ManageAppsPage extends React.Component {
 		super(props);
 		this.cardListStore = this.props.store.cardListStore;
 		this.appCatalogStore = this.props.store.appCatalogStore;
-		this.onButtonClick = this.onButtonClick.bind(this);
 		this.pageId = 'manageAppsPage';
-		this.itemsPerRow = 4;
+		this.itemsPerPage = 20;
 	}
 
 	componentDidMount() {
@@ -29,62 +28,53 @@ export default class ManageAppsPage extends React.Component {
 		}
 	}
 
-	onButtonClick() {
+	handleLoadMoreClick = () => {
 		this.props.store.changePage(this.pageId);
 	}
 
-	paginate(cards, page){
-		let totalCards = this.props.store.pages[page] * this.itemsPerRow;
-		return cards.slice(0, totalCards);
+	handleViewAllAppsClick = () => {
+		this.cardListStore.restoreOriginalList();
 	}
 
-	get paginatedCards(){
-		return this.paginate(this.cardListStore.filteredSearchResults, this.pageId)
-	}
-
-	get canLoadMore(){
-		let totalItems = this.cardListStore.filteredSearchResults.length;
-		return totalItems > this.itemsPerRow  && totalItems > (this.props.store.pages[this.pageId] * this.itemsPerRow);
+	get paginatedCards() {
+		let totalCards = this.props.store.pages[this.pageId] * this.itemsPerPage;
+		return this.cardListStore.filteredSearchResults.slice(0, totalCards);
 	}
 
 	render() {
 		return (
 			<article id="manage-apps-page">
-				<div className="container">
+				<div className="container header">
 					<div className="row">
-						<div className="col-xs-12 text-right add-margin-vertical">
+						<div className="col-xs-12">
+							<h1 className="as-h2">Manage Apps</h1>
 							<Link to="/admin/configure-mdm" className="fn-primary">Configure MDM</Link>
 						</div>
 					</div>
 				</div>
-				<section className="">
-					<div className="container manage-apps">
+				<div className="manage-apps-form">
+					<div className="container">
 						<div className="row">
-							<div className="col-md-3">
-								<h1 className="as-h2">Manage Apps</h1>
-							</div>
-							<div className="col-md-9 row">
-								<div className="col-md-6">
-									<Filters store={this.cardListStore} />
-								</div>
-								<div className="col-md-6">
-									<SearchForm store={this.cardListStore} />
-								</div>
+							<div className="col-xs-12">
+								<SearchForm store={this.cardListStore} />
+								<hr/>
+								<Filters ref={ref => this.filterForm = ref} store={this.cardListStore} />
 							</div>
 						</div>
 					</div>
-					<div className="row">
-						{this.appCatalogStore.allApps.length && this.cardListStore.searchResults.length &&
-							<CardList
-								canLoadMore={this.canLoadMore}
-								cards={this.paginatedCards}
-								handleButtonClick={this.onButtonClick}
-								changeAppAvailability={this.appCatalogStore.changeAppAvailability.bind(this.appCatalogStore)}
-								changeAppRecommended={this.appCatalogStore.changeAppRecommended.bind(this.appCatalogStore)}
-								getMatchingApp={this.appCatalogStore.getMatchingApp.bind(this.appCatalogStore)}/>
-						}
-					</div>
-				</section>
+				</div>
+				<div className="row">
+					<CardList
+						cards={this.paginatedCards}
+						numPagesShown={this.props.store.pages[this.pageId]}
+						itemsPerPage={this.itemsPerPage}
+						isLoading={this.cardListStore.isLoading || this.appCatalogStore.isLoading}
+						handleLoadMoreClick={this.handleLoadMoreClick}
+						handleViewAllAppsClick={this.handleViewAllAppsClick}
+						changeAppAvailability={this.appCatalogStore.changeAppAvailability.bind(this.appCatalogStore)}
+						changeAppRecommended={this.appCatalogStore.changeAppRecommended.bind(this.appCatalogStore)}
+						getMatchingApp={this.appCatalogStore.getMatchingApp.bind(this.appCatalogStore)}/>
+				</div>
 			</article>
 		)
 	}
