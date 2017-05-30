@@ -41,10 +41,10 @@ export default class UtilityNav extends React.Component {
                                                 <Link to="/profile/configure-mdm">Configure MDM</Link>
                                             </li>
                                             <li role="presentation">
-                                                <Link to="/logout">
+                                                <a href="https://fcontent.stage.att.com/dynamic/iamLRR/LrrController?IAM_OP=logout">
                                                     <i aria-hidden="true" className="icon-logout"></i>
                                                     Log Out
-                                                </Link>
+                                                </a>
                                             </li>
                                         </ul>
                                     </div>

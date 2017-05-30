@@ -2,10 +2,9 @@ exports[`<CardList /> renders matches previous snapshot 1`] = `
 <section
   className="card-list-container col-md-12 col-xs-12">
   <div
-    className="container">
-    
+    className="container false">
     <div
-      className="card-list-cards row">
+      className="row">
       <div
         className="col-md-3 col-xs-4 center-block">
         <div

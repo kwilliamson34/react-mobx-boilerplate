@@ -19,33 +19,38 @@ class CardListStore {
 		if(!this.searchResults.length) {
 			const success = (res) => {
 				this.searchResults = res;
+				this.isLoading = false;
 				return this.searchResults;
 			}
 			const fail = (err) => {
 				console.warn(err);
+				this.isLoading = false;
 			}
+			this.isLoading = true;
 			return apiService.getAdminApps().then(success, fail)
 		}
 	}
 
 	@action setCurrentApp(psk){
-    this.currentAppPsk = psk;
+		this.currentAppPsk = psk;
 	}
 
-	@action clear() {
+	@action clearSearchQuery() {
 		this.searchQuery = '';
+		this.searchHasBeenApplied = false;
 	}
 
 	@action getSearchResults = _.debounce(() => {
 		const success = (response) => {
 			this.searchResults = response;
-			this.finishLoading();
+			this.isLoading = false;
+			this.searchHasBeenApplied = true;
 		}
 
 		const failure = (error) => {
 			console.warn(error);
 			this.searchResults = [];
-			this.finishLoading();
+			this.isLoading = false;
 		}
 
 		this.isLoading = true;
@@ -54,10 +59,6 @@ class CardListStore {
 		leading: true,
 		trailing: false
 	});
-
-	@action finishLoading() {
-		this.isLoading = false;
-	}
 
 	@action handleInput(value) {
 		this.searchQuery = value;
@@ -73,6 +74,26 @@ class CardListStore {
 
 	@action changePlatformFilter(value) {
 		this.platformFilter = value;
+	}
+
+	@action addFilterElementRef(id, ref) {
+		this.filterElementRefs[id] = ref;
+	}
+
+	@action resetFilters() {
+		this.categoryFilter = '';
+		this.segmentFilter = '';
+		this.platformFilter = '';
+
+		Object.keys(this.filterElementRefs).forEach((key) => {
+			this.filterElementRefs[key].value = '';
+		});
+	}
+
+	@action restoreOriginalList() {
+		this.resetFilters();
+		this.clearSearchQuery();
+		this.fetchCardList();
 	}
 
 	//COMPUTEDS
@@ -135,13 +156,20 @@ class CardListStore {
 			}
 			let platformCheck = () => {
 				if (this.platformFilter) {
-					return app.platforms === this.platformFilter;
+					return app.operatingSystem.toUpperCase() === this.platformFilter.toUpperCase();
 				} else {
 					return true;
 				}
 			}
 			return (categoryCheck() && segmentCheck() && platformCheck())
 		})
+	}
+
+	@computed get searchResultsCountLabel() {
+		if(!this.isLoading && this.searchHasBeenApplied) {
+			const count = this.searchResults.length;
+			return `${count} Result${count === 1 ? '' : 's'}`
+		}
 	}
 
 	@computed get isFiltered() {
@@ -156,24 +184,26 @@ class CardListStore {
 	@observable currentAppPsk = '';
 	@observable searchQuery = '';
 	@observable isLoading = false;
+	@observable searchHasBeenApplied = false;
+	@observable filterElementRefs = [];
 
 	@observable platforms = [{
-			title: 'Platform',
+			title: 'All Platforms',
 			value: ''
 		},
 		{
 			title: 'iOS',
-			value: 'iOS'
+			value: 'IOS'
 		},
 		{
 			title: 'Android',
-			value: 'Android'
+			value: 'ANDROID'
 		}
 	];
 	@observable platformFilter = '';
 
 	@observable categories = [{
-			title: 'Category',
+			title: 'All Categories',
 			value: ''
 		},
 		{
@@ -228,7 +258,7 @@ class CardListStore {
 	@observable categoryFilter = '';
 
 	@observable segments = [{
-			title: 'Segment',
+			title: 'All Segments',
 			value: ''
 		},
 		{

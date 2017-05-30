@@ -9,6 +9,8 @@ import ScrollToTop from './core/services/scroll-to-top';
 import { Provider, observer } from 'mobx-react';
 import { pseMasterStore } from './core/stores/master.store';
 
+import { userStore } from './core/stores/user.store';
+
 //Styles
 import '../styles/app.scss';
 
@@ -46,11 +48,16 @@ import AccessibilityPage from './pages/accessibility.page';
 
 import NoMatch from './pages/no-match.page';
 
+import { UnauthenticUser } from './pages/unauth-user.page.jsx';
 
 @observer
 export default class App extends React.Component {
 	constructor(props) {
 		super(props);
+	}
+
+	componentWillMount() {
+		userStore.validateUser();
 	}
 
 	render() {
@@ -108,7 +115,7 @@ export default class App extends React.Component {
 			)
 		}
 
-		return (
+		return userStore.authentic_user ? (
 			<Router>
 				<Provider store={pseMasterStore}>
 					<ScrollToTop>
@@ -143,6 +150,8 @@ export default class App extends React.Component {
 					</ScrollToTop>
 				</Provider>
 			</Router>
-		)
+		) : (
+			<UnauthenticUser />
+		);
 	}
 }
