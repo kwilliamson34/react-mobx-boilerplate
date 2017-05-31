@@ -66,7 +66,7 @@ class ApiService {
       });
     }
 
-    getMPDevices() {
+    getMarketingPortalDevices() {
       return axios.get(`${base}/marketing/devices`)
         .then( (res) =>{
           return externalContentService.filterDeviceData(res.data);
