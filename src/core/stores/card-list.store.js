@@ -18,6 +18,7 @@ class CardListStore {
 	@action fetchCardList() {
 		if(!this.searchResults.length) {
 			const success = (res) => {
+				this.originalCardList = res;
 				this.searchResults = res;
 				this.isLoading = false;
 				return this.searchResults;
@@ -93,7 +94,7 @@ class CardListStore {
 	@action restoreOriginalList() {
 		this.resetFilters();
 		this.clearSearchQuery();
-		this.fetchCardList();
+		this.searchResults = this.originalCardList;
 	}
 
 	//COMPUTEDS
@@ -180,6 +181,7 @@ class CardListStore {
 	@observable categoryFilter = 'Select Category';
 	@observable segmentFilter = 'Select Filter';
 
+	@observable originalCardList = [];
 	@observable searchResults = [];
 	@observable currentAppPsk = '';
 	@observable searchQuery = '';
