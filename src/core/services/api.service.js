@@ -81,6 +81,13 @@ class ApiService {
         })
     }
 
+    getPSSHeaderImg(queryString) {
+      return axios.get(`${base}/marketing${queryString}`)
+        .then((res) => {
+          return externalSolutionsService.filterPSSHeaderImg(res.data);
+        })
+    }
+
     getPSSDetails(queryString) {
       return axios.get(`${base}/marketing${queryString}`)
         .then((res) => {

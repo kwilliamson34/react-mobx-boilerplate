@@ -25,11 +25,16 @@ class ExternalSolutionsService {
     return cellArray;
   }
 
-  filterPSSDetails(htmlNode) {
+  filterPSSHeaderImg(htmlNode) {
     const $ = cheerio.load(htmlNode);
-
-    
+    return $('.title-large').css('background-image');
   }
+
+  // filterPSSDetails(htmlNode) {
+  //   const $ = cheerio.load(htmlNode);
+  //
+  //
+  // }
 
 }
 

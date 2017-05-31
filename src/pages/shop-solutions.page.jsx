@@ -14,15 +14,18 @@ export default class ShopSolutionsPage extends React.Component {
 
   constructor(props) {
     super(props);
-    this.externalStore = this.props.store.externalContentStore;
+    this.externalStore = this.props.store.externalLinkStore;
   }
 
   componentWillMount() {
     this.externalStore.getPSSCells(this.props.match.url);
+    this.externalStore.getHeaderImg(this.props.match.url);
   }
 
   render() {
     console.log('cellsArray landingPage   ', this.externalStore.cellsArray);
+    console.log('headerImg landingPage   ', this.externalStore.headerImg);
+
     return (
       <article id="shop-solutions-page">
         <section className="content-wrapper">
@@ -31,11 +34,7 @@ export default class ShopSolutionsPage extends React.Component {
             <div className="col-xs-12"><h1 className="as-h2">Solutions</h1></div>
           </div>
           <div className="row">
-            <div className="col-xs-12"><p>{this.externalStore.cellsArray.map((mug) => {
-                return(
-                  <div>{mug.title}</div>
-                )
-              })}</p></div>
+            <div className="col-xs-12"><p>Hello there {String.fromCharCode(8230)}</p></div>
           </div>
         </div>
         </section>
