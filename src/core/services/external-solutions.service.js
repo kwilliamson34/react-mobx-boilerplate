@@ -25,6 +25,12 @@ class ExternalSolutionsService {
     return cellArray;
   }
 
+  filterPSSDetails(htmlNode) {
+    const $ = cheerio.load(htmlNode);
+
+    
+  }
+
 }
 
 export const externalSolutionsService = new ExternalSolutionsService();

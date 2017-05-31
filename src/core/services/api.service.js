@@ -81,6 +81,13 @@ class ApiService {
         })
     }
 
+    getPSSDetails(queryString) {
+      return axios.get(`${base}/marketing${queryString}`)
+        .then((res) => {
+          return externalSolutionsService.filterPSSDetails(res.data);
+        })
+    }
+
     addAppToGroup(appPsk, groupIdentifier) {
       console.log('Adding app with appPsk=' + appPsk + ' to groupIdentifier="' + groupIdentifier + '"...');
       return axios({
