@@ -2,6 +2,10 @@ import cheerio from 'cheerio';
 
 class ExternalDeviceContentService {
 
+    cleanupDrupalTextReturn(str) {
+      return (str)? str.replace(/(\r\n|\n|\r|\t)/gm,'').trim() : '';
+    }
+
     filterDeviceLandingData(htmlNode) {
         let devicesObj = {
           phones: [],
@@ -52,12 +56,44 @@ class ExternalDeviceContentService {
 
     filterDeviceCategoryData(htmlNode){
       let $ = cheerio.load(htmlNode);
-      return {title: 'hi'}
+      let self = this;
+      let categoryObj = {};
+      categoryObj.title = this.cleanupDrupalTextReturn( $('.region-title').text() );
+      categoryObj.intro = this.cleanupDrupalTextReturn( $('.region-description').html() );
+      categoryObj.items = [];
+      let cards = $('.molecules__image-card');
+      cards.each(function(){
+        let cardImg = $(this).find('.card__image-inner img');
+        categoryObj.items.push({
+          url: $(this).find('.atoms__link-field').attr('href'),
+          title: self.cleanupDrupalTextReturn($(this).find('.card__title .atoms__text-field').text()),
+          image: cardImg.attr('src'),
+          alt: cardImg.attr('alt')
+        });
+      });
+      return categoryObj;
     }
 
     filterDeviceDetailData(htmlNode){
       let $ = cheerio.load(htmlNode);
-      return {title: 'hi'}
+      let self = this;
+      console.log(htmlNode);
+      let deviceDtl = {};
+        deviceDtl.deviceName = this.cleanupDrupalTextReturn( $('.article__title div.atoms__text-field').text() );
+        let dtlImg = $('.fnmp__device-detail .article__image > img');
+        deviceDtl.deviceImg = dtlImg.attr('src');
+        deviceDtl.deviceImgAlt = dtlImg.attr('alt');
+        deviceDtl.features = [];
+
+        //phones
+        console.log('>> ' + $('.fnmp__device-detail li.atoms__list-item').length );
+        let featuresList = $('.article__features li.atoms__list-item');
+        featuresList.each(function(){
+          deviceDtl.features.push( self.cleanupDrupalTextReturn( $(this).html() ) );
+        });
+        deviceDtl.terms = this.cleanupDrupalTextReturn($('.article__tnc .atoms__text-field').html() );
+
+      return deviceDtl;
     }
 
 }

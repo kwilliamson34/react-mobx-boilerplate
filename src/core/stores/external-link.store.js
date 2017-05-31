@@ -17,7 +17,8 @@ class ExternalLinkStore {
 
   @action getDeviceCategoryItems() {
     const success = (res) => {
-      this.currentCategoryItems = res;
+      this.currentCategoryData = res;
+      console.log(JSON.stringify(res));
     }
     const fail = (res) => {
       console.log('MPDevice fetch failed\n' + res);
@@ -28,6 +29,7 @@ class ExternalLinkStore {
   @action getDeviceDetail(devicePath) {
     const success = (res) => {
       this.currentDeviceDetail = res;
+      console.log(JSON.stringify(res));
     }
     const fail = (res) => {
       console.log('MPDevice fetch failed\n' + res);
@@ -37,7 +39,7 @@ class ExternalLinkStore {
 
   //COMPUTEDS
   @computed get deviceCategoryNum() {
-    let deviceCategories = ['phones', 'tablets', 'invehicle', 'accessories'];
+    let deviceCategories = ['phones', 'tablets', 'in-vehicle', 'accessories'];
     let categoryIndex = deviceCategories.indexOf(this.currentCategory);
     return (categoryIndex >= 0)? categoryIndex + 1 : 0;
   }
@@ -49,8 +51,15 @@ class ExternalLinkStore {
     invehicle: [],
     accessories: []
   };
-  @observable currentCategoryItems = [];
+
+  @observable currentCategory = '';
+  @observable currentCategoryData = {
+    title: '',
+    intro: '',
+    items: []
+  };
   @observable currentDeviceDetail = {};
+
   @observable manageUsersLink = 'https://profilemgt.firstnet.att.com/ebiz/firstnet/index.jsp';
   @observable manageServicesLink = 'https://wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn';
   @observable managePushToTalkKodiakLink = 'https://wgp.eptt.kodiaknetworks.com/cat/view/catui';
