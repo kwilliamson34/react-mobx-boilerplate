@@ -4,12 +4,18 @@ npm install
 
 json-server src/fixtures/server-data.json
 
-npm start
+npm start -- --env=[dev|stage|prod]
+OR
+npm run dev
+
+Note: The default environment is prod, if no environment is specified. This is to minimize the security risk of a missing environment variable on a production server as the PSE solution scales.
+
+## Build For Stage/Production
+
+npm run build -- --env=[stage|prod]
 
 
-
-Login Local Stuff
-
+## Local Login Process
 
 1. Go to https://localhost:8443. You will be redirected to the Halo login.
 
