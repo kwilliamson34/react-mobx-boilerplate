@@ -24,7 +24,7 @@ export default class ShopSolutionsPage extends React.Component {
 
   renderCells(cellsArray) {
 
-    return cellsArray.map((cell, i) => {
+    return cellsArray.map((cell) => {
 
       return (
         <li key={cell.title} className="col-xs-12 col-sm-6 has-shadow">
