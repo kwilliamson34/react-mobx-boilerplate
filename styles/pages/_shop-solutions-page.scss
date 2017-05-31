@@ -1,0 +1,32 @@
+.solutions-cell {
+  display: block;
+  position: relative;
+  border: 1px solid $fn-dkgrey;
+  padding-top: 220px;
+  margin: 15px 0;
+  color: $fn-dkgrey;
+  background-color: $fn-white;
+  width: calc(100%-40px);
+  text-align: left;
+
+  .img {
+    width: 100%;
+  }
+}
+
+.pssheader-main {
+  position: relative;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+  background-position: center;
+  background-color: $fn-black;
+  min-height: 370px;
+  color: $fn-white;
+
+  .pssheader-main-contents {
+    position: relative;
+    margin: 0 15%;
+    padding: 60px 0 30px 0;
+  }
+}

@@ -24,17 +24,21 @@ export default class ShopSolutionsPage extends React.Component {
 
   renderCells(cellsArray) {
 
-    //TODO: Crude method to cut out final cell (next generation 911) from the cell array coming down from marketing portal. This cell is going away from marketing portal.
+    //TODO: crude slice job to cut next-gen-911, which is going away from marketing portal. remove after that happens.
     let cutArray = cellsArray.slice(0, 4);
 
     return cutArray.map((cell) => {
 
       return (
-        <li key={cell.title} className="col-xs-12 col-sm-6 has-shadow">
+        <li key={cell.title} className="col-xs-12 col-sm-6 has-shadow solutions-cell">
+          <Link to={cell.url}>
           <img src={cell.imgPath} alt=""/>
-          <div>{cell.title}</div>
-          <div>{cell.description}</div>
-          <Link to={cell.url} title={cell.title}>Learn More ></Link>
+          <div className="cell-desc">
+            <h2>{cell.title}</h2>
+            <p>{cell.description}</p>
+            <span>Learn More</span>
+          </div>
+          </Link>
         </li>
       )
     })
@@ -47,14 +51,14 @@ export default class ShopSolutionsPage extends React.Component {
     return (
       <article id="shop-solutions-page">
         <section className="content-wrapper">
-        <div className="container">
-          <div className="row">
-            <section className="col-xs-12 pssheader-large" style={{backgroundImage: this.externalStore.headerImg}}>
+          <section className="pssheader-main" style={{backgroundImage: this.externalStore.headerImg}}>
+            <div className="pssheader-main-contents">
               <h1 className="as-h2">Solutions</h1>
               <p>Innovative communication and collaboration technologies help public safety improve decision making</p>
-            </section>
-          </div>
-          <div className="row">
+            </div>
+          </section>
+        <div className="container">
+          <div className="row no-gutters">
             <section className="col-xs-12 solutions-promo">
               <h1 className="as-h2">For Public Safety, By Public Safety</h1>
               <p>
@@ -68,7 +72,7 @@ export default class ShopSolutionsPage extends React.Component {
               </p>
             </section>
             <section className="col-xs-12 col-lg-8">
-              <div className="col-xs-12">
+              <div className="col-xs-12 solutions-cell-container">
                 <ul>
                   {this.externalStore.cellsArray.length > 0
                     && this.renderCells(this.externalStore.cellsArray)}
