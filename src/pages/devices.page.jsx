@@ -48,7 +48,7 @@ export default class DevicesLandingPage extends React.Component {
 
 	render() {
 		return (
-			<article id="shop-specialized-devices-page">
+			<div className="devices-landing">
         <div className="container">
           <div className="row">
             <div className="col-xs-12 col-sm-10 col-sm-offset-1 add-padding-bottom-dbl text-center">
@@ -62,7 +62,7 @@ export default class DevicesLandingPage extends React.Component {
 				{this.renderDeviceSection('tablet', 'Tablets', this.externalLinkStore.devicesData.tablets)}
 				{this.renderDeviceSection('invehicle', 'In-Vehicle', this.externalLinkStore.devicesData.invehicle)}
 				{this.renderDeviceSection('accessories', 'Accessories', this.externalLinkStore.devicesData.accessories)}
-      </article>
+      </div>
 		)
 	}
 }

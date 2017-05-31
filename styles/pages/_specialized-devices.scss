@@ -1,21 +1,54 @@
-#specialized-devices-page {
-  padding-top: 30px;
-  padding-bottom: 40px;
+#specialized-devices {
   h1,
   h2 {
-    text-align: center;
     margin-bottom: 1.6rem;
   }
-  section{
-    padding: 60px 0;
-    text-align: center;
-    &:nth-of-type(odd){
-      background: $fn-ltbluegrey;
-    }
-    .showAll{
-      margin-top: 30px;
+
+  .devices-landing{
+    padding-top: 30px;
+    padding-bottom: 40px;
+
+    section{
+      padding: 60px 0;
+
+      &:nth-of-type(odd){
+        background: $fn-ltbluegrey;
+      }
+
+      .showAll{
+        margin-top: 30px;
+      }
     }
   }
+
+  .device-detail{
+    .detail-block{
+      .feature-list{
+        list-style: disc;
+        li{
+          margin-bottom: 1.6rem;
+          font-size: $fn-body-default-size;
+        }
+      }
+    }
+    .terms-block{
+      padding: 50px 0 100px;
+      background: $fn-ltbluegrey;
+      font-size: $fn-small-text-default-size;
+      ol{
+        list-style:decimal;
+        margin-bottom: 30px;
+        li{
+          line-height: 1.6;
+          margin-bottom: 1rem;
+        }
+      }
+      p{
+        font-size: inherit;
+      }
+    }
+  }
+
   .mp-content{
     display: flex;
     flex-wrap: wrap;
@@ -62,7 +95,7 @@
 }
 
 @media #{$tablet} {
-  #specialized-devices-page{
+  #specialized-device{
     .mp-content{
       > li{
         width: 48%;
@@ -72,7 +105,7 @@
   }
 }
 @media #{$desktop} {
-  #specialized-devices-page{
+  #specialized-devices{
     .mp-content{
       > li{
         width: 24%;

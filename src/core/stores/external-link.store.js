@@ -58,7 +58,12 @@ class ExternalLinkStore {
     intro: '',
     items: []
   };
-  @observable currentDeviceDetail = {};
+  @observable currentDeviceDetail = {
+    features: [],
+    deviceName: '',
+    deviceImg: '',
+    deviceImgAlt: ''
+  };
 
   @observable manageUsersLink = 'https://profilemgt.firstnet.att.com/ebiz/firstnet/index.jsp';
   @observable manageServicesLink = 'https://wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn';

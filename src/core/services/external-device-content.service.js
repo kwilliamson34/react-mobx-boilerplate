@@ -77,21 +77,17 @@ class ExternalDeviceContentService {
     filterDeviceDetailData(htmlNode){
       let $ = cheerio.load(htmlNode);
       let self = this;
-      console.log(htmlNode);
       let deviceDtl = {};
-        deviceDtl.deviceName = this.cleanupDrupalTextReturn( $('.article__title div.atoms__text-field').text() );
-        let dtlImg = $('.fnmp__device-detail .article__image > img');
-        deviceDtl.deviceImg = dtlImg.attr('src');
-        deviceDtl.deviceImgAlt = dtlImg.attr('alt');
-        deviceDtl.features = [];
-
-        //phones
-        console.log('>> ' + $('.fnmp__device-detail li.atoms__list-item').length );
-        let featuresList = $('.article__features li.atoms__list-item');
-        featuresList.each(function(){
-          deviceDtl.features.push( self.cleanupDrupalTextReturn( $(this).html() ) );
-        });
-        deviceDtl.terms = this.cleanupDrupalTextReturn($('.article__tnc .atoms__text-field').html() );
+      deviceDtl.deviceName = this.cleanupDrupalTextReturn( $('.article__title div.atoms__text-field').text() );
+      let dtlImg = $('.fnmp__device-detail .article__image > img');
+      deviceDtl.deviceImg = dtlImg.attr('src');
+      deviceDtl.deviceImgAlt = dtlImg.attr('alt');
+      deviceDtl.features = [];
+      let featuresList = $('.article__features li.atoms__list-item');
+      featuresList.each(function(){
+        deviceDtl.features.push( self.cleanupDrupalTextReturn( $(this).html() ) );
+      });
+      deviceDtl.terms = this.cleanupDrupalTextReturn($('.article__tnc .atoms__text-field').html() );
 
       return deviceDtl;
     }

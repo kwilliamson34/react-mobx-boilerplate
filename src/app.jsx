@@ -86,7 +86,7 @@ export default class App extends React.Component {
 
 		const SpecializedDevices = ({match}) => {
 			return(
-				<article id="specialized-devices-page">
+				<article id="specialized-devices">
 					<Switch>
 						<Route path={`${match.url}/:deviceCategory/:deviceId`} component={DeviceDetailTemplate} />
 						<Route path={`${match.url}/:deviceCategory`} component={DeviceCategoryTemplate} />

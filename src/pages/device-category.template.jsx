@@ -2,12 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {observer, inject} from 'mobx-react';
 import {Link} from 'react-router-dom';
+
 @inject('store')
 @observer
 export default class DeviceCategoryTemplate extends React.Component {
 
 	static propTypes = {
-    match: PropTypes.object
+    match: PropTypes.object,
+		store: PropTypes.object
   }
 
 	constructor(props) {
@@ -20,15 +22,15 @@ export default class DeviceCategoryTemplate extends React.Component {
 		this.externalLinkStore.getDeviceCategoryItems();
 	}
 
-
-
 	render() {
 		return (
+			<section className="device-category">
         <div className="container">
           <div className="row">
             <div className="col-xs-12 col-sm-10 col-sm-offset-1 add-padding-bottom-dbl text-center">
               <h1 className="as-h2">{this.externalLinkStore.currentCategoryData.title}</h1>
-							<div dangerouslySetInnerHTML={{ __html: this.externalLinkStore.currentCategoryData.intro}}>
+							<div
+								dangerouslySetInnerHTML={{ __html: this.externalLinkStore.currentCategoryData.intro}}></div>
             </div>
           </div>
 					<div className="row">
@@ -50,11 +52,7 @@ export default class DeviceCategoryTemplate extends React.Component {
 						</div>
 					</div>
         </div>
+			</section>
 		)
 	}
 }
-
-
-DeviceCategoryTemplate.propTypes = {
-	store: PropTypes.object
-};
