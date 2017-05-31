@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-
+import config from 'config';
 import PSESelector from '../pse-selector/pse-selector';
 
 export default class UtilityNav extends React.Component {
@@ -41,10 +41,10 @@ export default class UtilityNav extends React.Component {
                                                 <Link to="/profile/configure-mdm">Configure MDM</Link>
                                             </li>
                                             <li role="presentation">
-                                                <Link to="/logout">
+                                                <a href={config.haloLogout}>
                                                     <i aria-hidden="true" className="icon-logout"></i>
                                                     Log Out
-                                                </Link>
+                                                </a>
                                             </li>
                                         </ul>
                                     </div>

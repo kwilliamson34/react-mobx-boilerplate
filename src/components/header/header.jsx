@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, NavLink } from 'react-router-dom';
-
+import config from 'config';
 import {observer,inject} from 'mobx-react';
 
 @inject('store')
@@ -70,9 +70,9 @@ export default class PSEHeader extends React.Component {
 																				<Link to="#config-mdm">Configure MDM</Link>
 																		</li>
 																		<li role="presentation">
-																				<Link to="#log-out">
+																				<a href={config.haloLogout}>
 																					<i className="icon-logout" aria-hidden="true"></i>Log Out
-																				</Link>
+																				</a>
 																		</li>
 																</ul>
 														</li>

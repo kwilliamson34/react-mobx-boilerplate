@@ -5,6 +5,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const precss = require("precss");
 const autoprefixer = require("autoprefixer");
+const args = require('minimist')(process.argv.slice(2));
+const allowedEnvs = ['dev', 'stage', 'prod'];
+
+// Set the correct environment
+let env = 'prod';
+if (args.env) {
+  env = args.env;
+}
+console.log('Built for the \x1b[34m' + env + '\x1b[30m environment');
 
 module.exports = {
 	context: path.resolve(__dirname, 'src'),
@@ -12,7 +21,7 @@ module.exports = {
 		'react-hot-loader/patch',
 		// activate HMR for React
 
-		'webpack-dev-server/client?http://localhost:3030',
+		'webpack-dev-server/client?https://localhost:8443',
 		// bundle the client for webpack-dev-server
 		// and connect to the provided endpoint
 
@@ -33,7 +42,8 @@ module.exports = {
 	},
 	devtool: 'eval',
 	devServer: {
-		port: 3030,
+		https: true,
+		port: 8443,
 		historyApiFallback: true,
 		hot: true,
 
@@ -45,11 +55,18 @@ module.exports = {
 			'/api': {
 				target: 'https://pse-qa.sapientfirst.net',
 				secure: false
+			},
+			'/oauth/validate': {
+				target: 'https://pse-qa.sapientfirst.net',
+				secure: false
 			}
 		}
 	},
 	resolve: {
-		extensions: ['.js', '.jsx']
+		extensions: ['.js', '.jsx'],
+		alias: {
+      config: path.join(__dirname, `config/${env}.endpoints.js`),
+    },
 	},
 	node: {
     console: true,

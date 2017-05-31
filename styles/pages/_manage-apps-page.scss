@@ -1,0 +1,51 @@
+#manage-apps-page {
+  .header {
+    h1 {
+      display: inline-block;
+    }
+
+    a {
+      float: right;
+    }
+  }
+
+  .manage-apps-form {
+    background-color: $fn-ltbluegrey;
+    border-top: 1px solid $fn-grey;
+    border-bottom: 1px solid $fn-grey;
+    margin-top: 2rem;
+    padding: 1rem 0 0;
+
+    hr {
+      border-color: $fn-grey;
+      border-width: 2px;
+      margin: 1.5rem 0;
+    }
+
+    section.filters {
+      padding-top: 0;
+    }
+
+    .reset-filters-button {
+      margin-top: 1rem;
+      border: none;
+      padding: 0;
+
+      &:active,
+      &:focus,
+      &:hover {
+        outline: 2px solid $focus-lightbg;
+        box-shadow: none;
+        background: transparent !important;
+        color: $fn-ltblue;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .card-list-substitute {
+    text-align: center;
+    margin: 8rem auto;
+    padding: 0;
+  }
+}
