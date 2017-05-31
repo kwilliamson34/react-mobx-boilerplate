@@ -31,7 +31,7 @@ export default class ShopSolutionsPage extends React.Component {
           <img src={cell.imgPath} alt=""/>
           <div>{cell.title}</div>
           <div>{cell.description}</div>
-          <Link to={cell.url}>Learn More ></Link>
+          <Link to={cell.url} title={cell.title}>Learn More ></Link>
         </li>
       )
     })
