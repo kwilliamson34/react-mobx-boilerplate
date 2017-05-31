@@ -23,22 +23,35 @@ class ExternalLinkStore {
     }
 
     const fail = (res) => {
-      console.log('getPublicSafetySolutions fetch failed\n' + res);
+      console.log('getPSSCells fetch failed\n' + res);
     }
 
     apiService.getPSSCells(queryString).then(success, fail);
   }
 
-  @action getHeaderImg(queryString) {
+  @action getPSSHeaderImg(queryString) {
     const success = (res) => {
       this.headerImg = res;
     }
 
     const fail = (res) => {
-      console.log('getPublicSafetySolutions fetch failed\n' + res);
+      console.log('getPSSHeaderImg fetch failed\n' + res);
     }
 
     apiService.getPSSHeaderImg(queryString).then(success, fail);
+  }
+
+  @action getPSSDetails(queryString) {
+    const success = (res) => {
+      console.log('RES   ', res);
+      this.pssDetails = res;
+    }
+
+    const fail = (res) => {
+      console.log('getPSSDetails fetch failed\n' + res);
+    }
+
+    apiService.getPSSDetails(queryString).then(success, fail);
   }
 
   @observable devicesData = {
@@ -50,6 +63,7 @@ class ExternalLinkStore {
 
   @observable cellsArray = [];
   @observable headerImg = '';
+  @observable pssDetails = {};
 
   @observable manageUsersLink = 'https://profilemgt.firstnet.att.com/ebiz/firstnet/index.jsp';
   @observable manageServicesLink = 'https://wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn';

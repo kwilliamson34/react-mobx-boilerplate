@@ -14,10 +14,18 @@ export default class SolutionsDetailsTemplate extends React.Component {
 
   constructor(props) {
     super(props);
-    this.externalStore = this.props.store.externalContentStore;
+    this.externalStore = this.props.store.externalLinkStore;
+  }
+
+  componentWillMount() {
+    this.externalStore.getPSSDetails(this.props.match.url);
+    this.externalStore.getPSSHeaderImg(this.props.match.url);
   }
 
   render() {
+    console.log('headerImg details   ', this.externalStore.headerImg);
+    console.log('pssDetails    ', this.externalStore.pssDetails);
+
     return (
       <article id="shop-solutions-page">
         <section className="content-wrapper">

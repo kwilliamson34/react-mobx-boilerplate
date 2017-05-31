@@ -19,7 +19,7 @@ export default class ShopSolutionsPage extends React.Component {
 
   componentWillMount() {
     this.externalStore.getPSSCells(this.props.match.url);
-    this.externalStore.getHeaderImg(this.props.match.url);
+    this.externalStore.getPSSHeaderImg(this.props.match.url);
   }
 
   renderCells(cellsArray) {
