@@ -26,12 +26,12 @@ export default class DeviceDetailTemplate extends React.Component {
 			<section className="device-detail">
 				<div className="container detail-block">
 					<div className="row is-flex">
-						<div className="col-xs-10 col-xs-offset-1 col-sm-offset-1 col-sm-4 col-md-offset-1 col-md-4 col-lg-offset-1 col-lg-3 debug">
+						<div className="col-xs-10 col-xs-offset-1 col-sm-offset-1 col-sm-4 col-md-offset-1 col-md-4 col-lg-offset-1 col-lg-3">
 							<img
 								className="img-responsive"
 								src={this.externalLinkStore.currentDeviceDetail.deviceImg} alt={this.externalLinkStore.currentDeviceDetail.deviceImgAlt} />
 						</div>
-						<div className="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-6 col-md-offset-0 col-lg-7 debug">
+						<div className="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-6 col-md-offset-0 col-lg-7">
 							<h1 className="as-h2">{this.externalLinkStore.currentDeviceDetail.deviceName}</h1>
 							<ul className="feature-list">
 								{this.externalLinkStore.currentDeviceDetail.features.map((feature, idx) => {
