@@ -7,11 +7,11 @@ import {observer, inject} from 'mobx-react';
 export default class DeviceDetailTemplate extends React.Component {
 	constructor(props) {
 		super(props);
-		this.mpStore = this.props.store.externalContentStore;
+		this.externalLinkStore = this.props.store.externalLinkStore;
 	}
 
 	componentWillMount() {
-		//this.mpStore.getMPDevices();
+		this.externalLinkStore.getMarketingPortalDeviceDetail();
 	}
 
 	render() {

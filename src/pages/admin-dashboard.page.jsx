@@ -100,7 +100,7 @@ export default class AdminDashboardPage extends React.Component {
                     </NewTabLink>
                   </li>
                   <li className="col-xs-12 col-md-6 col-lg-12">
-                    <Link to="/shop-specialized-devices" className="dashboard-card shop-specialized-devices has-shadow">
+                    <Link to="/devices" className="dashboard-card shop-specialized-devices has-shadow">
                       <div className="desc">
                         <h3>Shop specialized devices</h3>
                         <p>Purchase ruggedized devices, vehicle routers, etc.</p>

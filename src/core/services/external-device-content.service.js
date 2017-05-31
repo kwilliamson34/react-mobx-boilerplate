@@ -2,14 +2,14 @@ import cheerio from 'cheerio';
 
 class ExternalDeviceContentService {
 
-    filterDeviceLandingPageData(htmlNode) {
+    filterDeviceLandingData(htmlNode) {
         let devicesObj = {
           phones: [],
           tablets: [],
           invehicle: [],
           accessories: []
         }
-        const $ = cheerio.load(htmlNode);
+        let $ = cheerio.load(htmlNode);
         const deviceRegions = [
           {
             section: devicesObj.phones,
@@ -50,6 +50,15 @@ class ExternalDeviceContentService {
         return devicesObj;
     }
 
+    filterDeviceCategoryData(htmlNode){
+      let $ = cheerio.load(htmlNode);
+      return {title: 'hi'}
+    }
+
+    filterDeviceDetailData(htmlNode){
+      let $ = cheerio.load(htmlNode);
+      return {title: 'hi'}
+    }
 
 }
 

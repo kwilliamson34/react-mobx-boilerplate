@@ -8,11 +8,11 @@ import {Link} from 'react-router-dom';
 export default class DevicesLandingPage extends React.Component {
 	constructor(props) {
 		super(props);
-		this.mpStore = this.props.store.externalContentStore;
+		this.externalLinkStore = this.props.store.externalLinkStore;
 	}
 
 	componentWillMount() {
-		this.mpStore.getMPDevices();
+		this.externalLinkStore.getMarketingPortalDevices();
 	}
 
 	renderDeviceSection(sectionId, sectionTitle, sectionArray) {
@@ -58,10 +58,10 @@ export default class DevicesLandingPage extends React.Component {
             </div>
           </div>
         </div>
-				{this.renderDeviceSection('phone', 'Phones', this.mpStore.devicesData.phones)}
-				{this.renderDeviceSection('tablet', 'Tablets', this.mpStore.devicesData.tablets)}
-				{this.renderDeviceSection('invehicle', 'In-Vehicle', this.mpStore.devicesData.invehicle)}
-				{this.renderDeviceSection('accessories', 'Accessories', this.mpStore.devicesData.accessories)}
+				{this.renderDeviceSection('phone', 'Phones', this.externalLinkStore.devicesData.phones)}
+				{this.renderDeviceSection('tablet', 'Tablets', this.externalLinkStore.devicesData.tablets)}
+				{this.renderDeviceSection('invehicle', 'In-Vehicle', this.externalLinkStore.devicesData.invehicle)}
+				{this.renderDeviceSection('accessories', 'Accessories', this.externalLinkStore.devicesData.accessories)}
       </article>
 		)
 	}

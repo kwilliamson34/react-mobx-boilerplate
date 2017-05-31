@@ -69,14 +69,21 @@ class ApiService {
     getMarketingPortalDevices() {
       return axios.get(`${base}/marketing/devices`)
         .then( (res) =>{
-          return externalDeviceContentService.filterDeviceLandingPageData(res.data);
+          return externalDeviceContentService.filterDeviceLandingData(res.data);
         });
     }
 
-    getMPDeviceDetail(deviceLink) {
+    getDeviceCategory(categoryNum) {
+      return axios.get(`${base}/marketing/devices/${categoryNum}`)
+        .then( (res) =>{
+          return externalDeviceContentService.filterDeviceCategoryData(res.data);
+        });
+    }
+
+    getDeviceDetail(deviceLink) {
       return axios.get(`${base}/marketing${deviceLink}`)
         .then( (res) =>{
-          return externalDeviceContentService.filterDeviceDetail(res.data);
+          return externalDeviceContentService.filterDeviceDetailData(res.data);
         });
     }
 
