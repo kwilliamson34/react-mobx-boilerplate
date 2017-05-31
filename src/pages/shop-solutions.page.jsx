@@ -24,7 +24,10 @@ export default class ShopSolutionsPage extends React.Component {
 
   renderCells(cellsArray) {
 
-    return cellsArray.map((cell) => {
+    //TODO: Crude method to cut out final cell (next generation 911) from the cell array coming down from marketing portal. This cell is going away from marketing portal.
+    let cutArray = cellsArray.slice(0, 4);
+
+    return cutArray.map((cell) => {
 
       return (
         <li key={cell.title} className="col-xs-12 col-sm-6 has-shadow">

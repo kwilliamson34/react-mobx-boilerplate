@@ -43,7 +43,6 @@ class ExternalLinkStore {
 
   @action getPSSDetails(queryString) {
     const success = (res) => {
-      console.log('RES   ', res);
       this.pssDetails = res;
     }
 

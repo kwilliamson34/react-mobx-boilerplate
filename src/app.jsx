@@ -96,8 +96,7 @@ export default class App extends React.Component {
 			return (
 				<article id="shop-solutions-hub-page">
 					<Switch>
-						<Route path={`${match.url}/:solutionCategory/:solutionDetail`} component={SolutionsDetailTemplate} />
-						<Route exact path={`${match.url}/next-generation-9-1-1`} component={SolutionsDetailTemplate} />
+]						<Route path={`${match.url}/:solutionCategory/:solutionDetail`} component={SolutionsDetailTemplate} />
 						<Route path={`${match.url}/:solutionCategory`} component={SolutionsCategoryTemplate} />
 						<Route path={match.url} component={ShopSolutionsPage} />
 					</Switch>
