@@ -8,7 +8,7 @@ import {
 import {headerStore} from './header.store';
 import {appCatalogStore} from './app-catalog.store';
 import {cardListStore} from './card-list.store';
-import {mpStore} from './external-portal.store';
+import {externalLinkStore} from './external-link.store';
 import {geolinkStore} from './geolink.store';
 import {mdmStore} from './mdm.store';
 
@@ -18,7 +18,7 @@ class PSEStore {
 		this.headerStore = headerStore;
 		this.appCatalogStore = appCatalogStore;
 		this.cardListStore = cardListStore;
-		this.externalContentStore = mpStore;
+		this.externalLinkStore = externalLinkStore;
 		this.geolinkStore = geolinkStore;
 		this.mdmStore = mdmStore;
 	}

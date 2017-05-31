@@ -1,9 +1,10 @@
 #admin-dashboard-page {
-  
+
   padding-bottom: 70px;
-  h1{
+  h1 {
     margin-bottom: 3rem
   }
+
   h2 {
     text-transform: none;
     margin-bottom: 0;
@@ -25,6 +26,9 @@
     background-color: $fn-white;
     background-repeat: no-repeat;
     background-position:  bottom 20px right 20px;
+    width: 100%;
+    text-align: left;
+
     &.manage-apps{
       background-image: url('/images/manage-apps.png');
     }
@@ -52,6 +56,7 @@
     &.shop-solutions{
       background-image: url('/images/solutions.png');
     }
+    
     .desc {
       position: absolute;
       top: 20px;

@@ -1,23 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-	observer,
-	inject
-} from 'mobx-react';
-import {
-	Link
-} from 'react-router-dom';
+import {observer, inject} from 'mobx-react';
+import {Link} from 'react-router-dom';
 
 @inject('store')
 @observer
 export default class ShopSpecializedDevicesPage extends React.Component {
 	constructor(props) {
 		super(props);
-		this.mpStore = this.props.store.externalContentStore;
+		this.externalLinkStore = this.props.store.externalLinkStore;
 	}
 
 	componentWillMount() {
-		this.mpStore.getMPDevices();
+		this.externalLinkStore.getMarketingPortalDevices();
 	}
 
 	renderDeviceSection(sectionId, sectionTitle, sectionArray) {
@@ -62,10 +57,10 @@ export default class ShopSpecializedDevicesPage extends React.Component {
             </div>
           </div>
         </div>
-				{this.renderDeviceSection('phone', 'Phones', this.mpStore.devicesData.phones)}
-				{this.renderDeviceSection('tablet', 'Tablets', this.mpStore.devicesData.tablets)}
-				{this.renderDeviceSection('invehicle', 'In-Vehicle', this.mpStore.devicesData.invehicles)}
-				{this.renderDeviceSection('accessories', 'Accessories', this.mpStore.devicesData.accessories)}
+				{this.renderDeviceSection('phone', 'Phones', this.externalLinkStore.devicesData.phones)}
+				{this.renderDeviceSection('tablet', 'Tablets', this.externalLinkStore.devicesData.tablets)}
+				{this.renderDeviceSection('invehicle', 'In-Vehicle', this.externalLinkStore.devicesData.invehicles)}
+				{this.renderDeviceSection('accessories', 'Accessories', this.externalLinkStore.devicesData.accessories)}
       </article>
 		)
 	}
