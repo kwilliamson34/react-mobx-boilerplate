@@ -27,11 +27,19 @@ export default class SolutionsCategoryTemplate extends React.Component {
     return cellsArray.map((cell) => {
 
       return (
-        <li key={cell.title} className="col-xs-12 col-sm-6 has-shadow">
-          <img src={cell.imgPath} alt=""/>
-          <div>{cell.title}</div>
-          <div>{cell.description}</div>
-          <Link to={cell.url} title={cell.title}>Learn More ></Link>
+        <li key={cell.title} className="col-xs-12 col-sm-6 col-md-4 solutions-cell">
+          <div className="cell-contents has-shadow">
+            <Link to={cell.url}>
+              <div className="cell-img">
+                <img src={cell.imgPath} alt={'Image for ' + cell.title}/>
+              </div>
+              <div className="cell-description">
+                <h3 className="cell-title">{cell.title}</h3>
+                <div className="cell-desc">{cell.description}</div>
+                <div className="cell-more">Learn More</div>
+              </div>
+            </Link>
+          </div>
         </li>
       )
     })
@@ -41,33 +49,30 @@ export default class SolutionsCategoryTemplate extends React.Component {
     console.log('cellsArray categoryPage    ', this.externalStore.cellsArray);
     console.log('headerImg landingPage   ', this.externalStore.headerImg);
 
-    //TODO: style normalized title to have initial caps in css.
     let normalizedTitle = this.props.match.params.solutionCategory.split('-').join(' ');
 
-
     return (
-      <article id="shop-solutions-page">
+      <article id="solutions-category-page">
         <section className="content-wrapper">
-        <div className="container">
-          <div className="row">
-            <section className="col-xs-12 pssheader-small" style={{backgroundImage: this.externalStore.headerImg}}>
+          <section className="pssheader-small" style={{backgroundImage: this.externalStore.headerImg}}>
+            <div className="pssheader-small-contents">
               <h1 className="as-h2">{normalizedTitle}</h1>
-            </section>
-          </div>
-          <div className="row">
-            <section className="col-xs-12 col-lg-8">
-              <div className="col-xs-12">
+            </div>
+          </section>
+          <div className="container">
+            <section>
+              <nav>
                 <ul>
                   {this.externalStore.cellsArray.length > 0
                     && this.renderCells(this.externalStore.cellsArray)}
                 </ul>
-              </div>
+              </nav>
             </section>
           </div>
-        </div>
         </section>
       </article>
     )
+
   }
 
 }
