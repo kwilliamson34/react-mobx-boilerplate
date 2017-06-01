@@ -26,6 +26,10 @@ label,
   margin: 5px 0 10px;
 }
 
+.form-group .control-label {
+    text-transform: none;
+}
+
 .required-asterisks{
   color: $fn-red;
 }
