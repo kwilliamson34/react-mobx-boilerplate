@@ -41,14 +41,13 @@ export default class DeviceCategoryTemplate extends React.Component {
 		return (
 			<section className="device-category">
 				<BreadcrumbNav links={crumbs} />
-        <div className="container">
-          <div className="row">
-            <div className="col-xs-12 catalog-header">
-              <h1 className="as-h2">{this.externalLinkStore.currentCategoryData.title}</h1>
-							<div
-								dangerouslySetInnerHTML={{ __html: this.externalLinkStore.currentCategoryData.intro}}></div>
-            </div>
-          </div>
+				<div className="container">
+					<div className="row">
+						<div className="col-xs-12 catalog-header">
+							<h1 className="as-h2">{this.externalLinkStore.currentCategoryData.title}</h1>
+							<div dangerouslySetInnerHTML={{ __html: this.externalLinkStore.currentCategoryData.intro}}></div>
+						</div>
+					</div>
 					<div className="row">
 						<div className="col-xs-offset-2 col-xs-8 col-sm-12 col-sm-offset-0 col-md-offset-1 col-md-10">
 							<ul className="mp-content">
@@ -67,7 +66,7 @@ export default class DeviceCategoryTemplate extends React.Component {
 							</ul>
 						</div>
 					</div>
-        </div>
+				</div>
 			</section>
 		)
 	}

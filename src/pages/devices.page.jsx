@@ -65,20 +65,20 @@ export default class DevicesLandingPage extends React.Component {
 		return (
 			<div className="devices-landing">
 				<BreadcrumbNav links={crumbs} />
-        <div className="container">
-          <div className="row">
-            <div className="col-xs-12 col-sm-10 col-sm-offset-1 catalog-header">
-              <h1 className="as-h2">Specialized Devices Catalog</h1>
+				<div className="container">
+					<div className="row">
+						<div className="col-xs-12 col-sm-10 col-sm-offset-1 catalog-header">
+							<h1 className="as-h2">Specialized Devices Catalog</h1>
 							<h2 className="as-h3">FirstNet offers an extensive selection of devices and accessories</h2>
-              <p>To learn more about our full portfolio, contact a FirstNet Specialist.</p>
-            </div>
-          </div>
-        </div>
+							<p>To learn more about our full portfolio, contact a FirstNet Specialist.</p>
+						</div>
+					</div>
+				</div>
 				{this.renderDeviceSection('phone', 'Phones', this.externalLinkStore.devicesData.phones)}
 				{this.renderDeviceSection('tablet', 'Tablets', this.externalLinkStore.devicesData.tablets)}
 				{this.renderDeviceSection('invehicle', 'In-Vehicle', this.externalLinkStore.devicesData.invehicle)}
 				{this.renderDeviceSection('accessories', 'Accessories', this.externalLinkStore.devicesData.accessories)}
-      </div>
+			</div>
 		)
 	}
 }
