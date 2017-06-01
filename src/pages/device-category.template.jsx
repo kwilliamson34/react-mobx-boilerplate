@@ -20,6 +20,7 @@ export default class DeviceCategoryTemplate extends React.Component {
 	}
 
 	componentWillMount() {
+		//User has navigated to a different category page so will make request for new category
 		if(this.externalLinkStore.currentCategory != this.props.match.params.deviceCategory){
 			this.externalLinkStore.currentCategory = this.props.match.params.deviceCategory;
 			this.externalLinkStore.getDeviceCategoryItems();
@@ -55,10 +56,10 @@ export default class DeviceCategoryTemplate extends React.Component {
 									return (
 										<li key={idx}>
 											<Link to={item.url}>
-											{item.title}
-											<div className="card-img-wrapper">
-												<img src={item.image} alt={item.alt} />
-											</div>
+												{item.title}
+												<div className="card-img-wrapper">
+													<img src={item.image} alt={item.alt} />
+												</div>
 											</Link>
 										</li>
 									)

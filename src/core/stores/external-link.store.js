@@ -22,7 +22,9 @@ class ExternalLinkStore {
     const fail = (res) => {
       console.log('Device Category Items fetch failed\n' + res);
     }
-    apiService.getDeviceCategory(this.deviceCategoryNum).then(success, fail);
+    if(this.deviceCategoryNum){
+      apiService.getDeviceCategory(this.deviceCategoryNum).then(success, fail);
+    }
   }
 
   @action getDeviceDetail(devicePath) {
@@ -40,7 +42,7 @@ class ExternalLinkStore {
   @computed get deviceCategoryNum() {
     let deviceCategories = ['phones', 'tablets', 'in-vehicle', 'accessories'];
     let categoryIndex = deviceCategories.indexOf(this.currentCategory);
-    return (categoryIndex >= 0)? categoryIndex + 1 : 0;
+    return (categoryIndex >= 0)? categoryIndex + 1 : undefined;
   }
 
 

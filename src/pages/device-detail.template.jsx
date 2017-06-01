@@ -19,6 +19,7 @@ export default class DeviceDetailTemplate extends React.Component {
 	}
 
 	componentWillMount() {
+		//checking if the user was on this page previously, eliminating need for new request
 		if(this.props.match.url != this.externalLinkStore.currentDeviceDetail.path){
 			this.externalLinkStore.getDeviceDetail(this.props.match.url);
 		}
@@ -57,15 +58,14 @@ export default class DeviceDetailTemplate extends React.Component {
 							<ul className="feature-list">
 								{this.externalLinkStore.currentDeviceDetail.features.map((feature, idx) => {
 									return (
-										<li key={idx}
-											dangerouslySetInnerHTML={{ __html: feature}} />
+										<li key={idx} dangerouslySetInnerHTML={{ __html: feature}} />
 									)
 								})}
 							</ul>
 						</div>
 					</div>
 				</div>
-				{(this.externalLinkStore.currentDeviceDetail.terms !== '') &&
+				{(this.externalLinkStore.currentDeviceDetail.terms) &&
 					<div className="terms-block">
 						<div className="container">
 							<div className="row">
