@@ -37,11 +37,13 @@ class MDMStore {
 
         if(this.formIsValid){
             this.beingSubmitted = true;
-            this.currentMDM = this[this.mdmProvider];
+            // this.currentMDM = this[this.mdmProvider];
+            this.currentMDM.merge(this.airWatchForm);
+            this.currentMDM.merge(this.ibmForm);
+            this.currentMDM.merge(this.mobileIronForm);
         } else {
             this.alert_msgs.push({type:'error',headline:'Error: ',message:'Please correct the errors below.'});
         }
-
     }
 
     @action breakMDMConnection() {
@@ -107,9 +109,29 @@ class MDMStore {
 
     @observable currentMDM = observable.map({});
 
-    @observable airWatchForm = observable.map({});
-    @observable ibmForm = observable.map({});
-    @observable mobileIronForm = observable.map({});
+    @observable airWatchForm = observable.map({
+        aw_hostName: undefined,
+        aw_password: undefined,
+        aw_tenantCode: undefined,
+        aw_userName: undefined
+    });
+
+    @observable ibmForm = observable.map({
+        ibm_appAccessKey: undefined,
+        ibm_appID: undefined,
+        ibm_appVersion: undefined,
+        ibm_billingID: undefined,
+        ibm_password: undefined,
+        ibm_platformID: undefined,
+        ibm_rootURL: undefined,
+        ibm_userName: undefined
+    });
+    @observable mobileIronForm = observable.map({
+        mi_hostName: undefined,
+        mi_password: undefined,
+        mi_userName: undefined
+    });
+
 
     @observable alert_msgs = [];
     @observable formIsValid = false;

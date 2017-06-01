@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { inject,	observer} from 'mobx-react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 import { MDMAlerts } from '../components/configure-mdm/mdm-alerts';
 
@@ -12,16 +12,29 @@ import { MobileIronForm } from '../components/configure-mdm/mobile-iron-form';
 
 @inject('store')
 @observer
-export default class ConfigureMDM extends React.Component {
+
+export default withRouter(class ConfigureMDM extends React.Component {
 
   static propTypes = {
-    store: PropTypes.object
+    store: PropTypes.object,
+    history: PropTypes.object
   }
 
 	constructor(props) {
 		super(props);
 		this.store = this.props.store.mdmStore;
+    this.history = this.props.history;
 	}
+
+  componentWillUnmount() {
+    if(this.store.formHasChanged){
+      console.log('Exit Modal')
+      this.store.showExitModal = true;
+      this.history.goBack();
+      // this.history.replace('/admin/configure-mdm');
+    }
+  }
+
 
 	updateMDM = (event) => {
 		this.store.updateMDM(event.target.value);
@@ -30,14 +43,7 @@ export default class ConfigureMDM extends React.Component {
   showErrorMessages = (messages) => {
     let jsx = '';
     if (messages.length) {
-      jsx = (
-        <div className="msgBlock error error-list"
-        role="alert"
-        aria-live = "assertive"
-        key={messages}>
-        <span>{messages}</span>
-        </div>
-      );
+      jsx = (<div className="msgBlock error error-list" role="alert" aria-live = "assertive" key={messages}><span>{messages}</span></div>);
     }
     return jsx;
   }
@@ -48,6 +54,8 @@ export default class ConfigureMDM extends React.Component {
   }
 
 	render() {
+
+    console.log(this.store.formHasChanged,this.store.showExitModal)
 
     let mdm_provider = this.store.currentMDM.get('mdmProvider') || this.store.mdmProvider;
     let isConfigured = this.store.currentMDM.entries().length ? true : false;
@@ -104,22 +112,24 @@ export default class ConfigureMDM extends React.Component {
             </div>
         </div>
 
-        <div className="modal fade" id="exitModal" ref="modal">
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="row no-gutters">
-                <div className="col-xs-12">
-                  <h4 className="as-h2">Unsaved changes</h4>
-                  <p>Your form changes will not be saved if you navigate away from this page.</p>
-                </div>
-                <div className="col-xs-12 text-center">
-                  <button className='fn-primary' data-dismiss="modal">Stay on Page</button>
-                  <Link className='fn-secondary' to='/admin'>Discard Changes</Link>
+        {this.store.showExitModal &&
+          <div className="modal fade in" id="exitModal" ref="modal">
+            <div className="modal-dialog">
+              <div className="modal-content">
+                <div className="row no-gutters">
+                  <div className="col-xs-12">
+                    <h4 className="as-h2">Unsaved changes</h4>
+                    <p>Your form changes will not be saved if you navigate away from this page.</p>
+                  </div>
+                  <div className="col-xs-12 text-center">
+                    <button className='fn-primary' data-dismiss="modal">Stay on Page</button>
+                    <Link className='fn-secondary' to='/admin'>Discard Changes</Link>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        }
 
         <div className="modal fade" id="breakConnectionModal" ref="modal">
           <div className="modal-dialog">
@@ -140,4 +150,4 @@ export default class ConfigureMDM extends React.Component {
       </article>
 		)
 	}
-}
+});

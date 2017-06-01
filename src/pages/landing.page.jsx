@@ -6,15 +6,11 @@ import {observer} from 'mobx-react';
 
 
 @observer
-export class UnauthenticUser extends React.Component {
+export class LandingPage extends React.Component {
 
 	constructor(props) {
 		super(props);
 	}
-
-	// Browser Events
-
-	// JSX Rendering Functions
 
 	render () {
 		let title = '';
@@ -28,9 +24,8 @@ export class UnauthenticUser extends React.Component {
 			body_content = 'Unfortunately, you do not have permission to view this page. If you think this is in error, please contact your site administrator, or continue to one of the FirstNet Sites below:';
 		}
 		
-		return(
-			<section className="unauth-page">
-				<div className="unauth-container">
+		return userStore.invalid_user || userStore.service_error ? (
+			<section className="unauth-page"><div className="unauth-container">
 					<h1>{title}</h1>
 					<p>{body_content}</p>
 					<a href="http://www.firstnet.com/appstore">App Store</a>
@@ -38,6 +33,8 @@ export class UnauthenticUser extends React.Component {
 					<a href="http://www.firstnet.com/localcontrol">Local Control</a>
 				</div>
 			</section>
+		) : (
+			<div>Authenticating User...</div>
 		);
 	}
 

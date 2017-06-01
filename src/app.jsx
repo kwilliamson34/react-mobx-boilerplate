@@ -3,6 +3,7 @@ import 'bootstrap';
 
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Link, Redirect } from 'react-router-dom';
+
 import ScrollToTop from './core/services/scroll-to-top';
 
 //State Management
@@ -48,7 +49,7 @@ import AccessibilityPage from './pages/accessibility.page';
 
 import NoMatch from './pages/no-match.page';
 
-import { UnauthenticUser } from './pages/unauth-user.page.jsx';
+import { LandingPage } from './pages/landing.page.jsx';
 
 @observer
 export default class App extends React.Component {
@@ -61,6 +62,8 @@ export default class App extends React.Component {
 	}
 
 	render() {
+
+		
 		const AppHub = ({
 			match
 		}) => {
@@ -90,7 +93,7 @@ export default class App extends React.Component {
 			)
 		}
 
-		return userStore.authentic_user ? (
+		return userStore.user.id ? (
 			<Router>
 				<Provider store={pseMasterStore}>
 					<ScrollToTop>
@@ -105,6 +108,7 @@ export default class App extends React.Component {
 									<Route path="/admin/manage-billing" component={ManageBillingPage} />
 									<Route path="/admin/manage-services" component={ManageServicesPage} />
 									<Route path="/admin/manage-apps" component={ManageAppsPage} />
+									<Route path="/admin/configure-mdm/exit-modal" component={ConfigureMDM} />
 									<Route path="/admin/configure-mdm" component={ConfigureMDM} />
 									<Route path="/admin/manage-push-to-talk" component={ManagePushToTalkPage} />
 									<Route path="/admin/manage-wireless-reports" component={ManageWirelessReportsPage} />
@@ -126,7 +130,7 @@ export default class App extends React.Component {
 				</Provider>
 			</Router>
 		) : (
-			<UnauthenticUser />
+			<LandingPage />
 		);
 	}
 }

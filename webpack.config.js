@@ -5,6 +5,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const precss = require("precss");
 const autoprefixer = require("autoprefixer");
+const args = require('minimist')(process.argv.slice(2));
+const allowedEnvs = ['dev', 'stage', 'prod'];
+
+// Set the correct environment
+let env = 'prod';
+if (args.env) {
+  env = args.env;
+}
+console.log('Built for the \x1b[34m' + env + '\x1b[30m environment');
 
 module.exports = {
 	context: path.resolve(__dirname, 'src'),
@@ -54,7 +63,10 @@ module.exports = {
 		}
 	},
 	resolve: {
-		extensions: ['.js', '.jsx']
+		extensions: ['.js', '.jsx'],
+		alias: {
+      config: path.join(__dirname, `config/${env}.endpoints.js`),
+    },
 	},
 	node: {
     console: true,

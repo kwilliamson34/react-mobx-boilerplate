@@ -33,3 +33,6 @@ label,
 .required-asterisks{
   color: $fn-red;
 }
+select::-ms-expand {
+  display: none;
+}
