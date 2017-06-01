@@ -30,15 +30,19 @@ export default class ShopSolutionsPage extends React.Component {
     return cutArray.map((cell) => {
 
       return (
-        <li key={cell.title} className="col-xs-12 col-sm-6 has-shadow solutions-cell">
-          <Link to={cell.url}>
-          <img src={cell.imgPath} alt=""/>
-          <div className="cell-desc">
-            <h2>{cell.title}</h2>
-            <p>{cell.description}</p>
-            <span>Learn More</span>
+        <li key={cell.title} className="col-xs-12 col-sm-6 col-md-4 solutions-cell">
+          <div className="cell-contents has-shadow">
+            <Link to={cell.url}>
+              <div className="cell-img">
+                <img src={cell.imgPath} alt={"Image for " + cell.title}/>
+              </div>
+              <div className="cell-description">
+                <h3 className="cell-title">{cell.title}</h3>
+                <div className="cell-desc">{cell.description}</div>
+                <div className="cell-more">Learn More</div>
+              </div>
+            </Link>
           </div>
-          </Link>
         </li>
       )
     })
@@ -58,9 +62,9 @@ export default class ShopSolutionsPage extends React.Component {
             </div>
           </section>
         <div className="container">
-          <div className="row no-gutters">
-            <section className="col-xs-12 solutions-promo">
-              <h1 className="as-h2">For Public Safety, By Public Safety</h1>
+          <div>
+            <section className="col-sm-12 intro-block">
+              <h2>For Public Safety, By Public Safety</h2>
               <p>
                 The FirstNet Applications Store and Solutions Catalog offers enhanced technologies to complement public safety's fundamental services and applications. Current solutions include applications that are designed to improve workflow and communication, enhance device and connection security, and enable public safety organizations to scale departmental capabilities by utilizing cloud and IP-based services.
               </p>
@@ -71,13 +75,13 @@ export default class ShopSolutionsPage extends React.Component {
                 Contact a FirstNet Specialist to learn more about FirstNet Solutions and pricing details.
               </p>
             </section>
-            <section className="col-xs-12 col-lg-8">
-              <div className="col-xs-12 solutions-cell-container">
+            <section>
+              <nav>
                 <ul>
                   {this.externalStore.cellsArray.length > 0
                     && this.renderCells(this.externalStore.cellsArray)}
                 </ul>
-              </div>
+              </nav>
             </section>
           </div>
         </div>
