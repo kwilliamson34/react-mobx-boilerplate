@@ -7,6 +7,7 @@
     position: relative;
     box-sizing: border-box;
     margin: 15px 0;
+    height: 380px;
 
     .cell-contents {
       color: $fn-dkgrey;
@@ -56,11 +57,10 @@
         font-size: $fn-landing-body-default-size;
         line-height: 20px;
 
-
       }
       .cell-more {
         width: 100%;
-        position: absolute;
+        position: relative;
         bottom: 1px;
         height: 40px;
         padding-left: 20px;

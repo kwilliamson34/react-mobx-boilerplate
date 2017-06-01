@@ -50,6 +50,7 @@ export default class Checkbox extends React.Component {
 						className={`${this.props.disabled ? 'disabled' : ''}`}
 						value={this.props.value || this.props.label}
 						checked={this.props.checked || false /*checked must always have a value so this can be a controlled component*/}
+						data-checked={this.props.checked || false /*custom DOM prop included for automated testing*/}
 						onChange={this.onChange}/>
 					<span className="cr"></span>
 					<span className="layer-label">{this.props.label}</span>

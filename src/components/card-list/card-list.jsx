@@ -57,7 +57,7 @@ export class CardList extends React.Component {
       <section className="card-list-container col-md-12 col-xs-12">
         <div className={`container ${hideCardList && 'card-list-substitute'}`}>
           {this.props.isLoading
-            ? <h2>Loading...</h2>
+            ? <h2>Loading&hellip;</h2>
             : <div className="row">
                 {this.props.cards.map((card, i) => {
                   return this.renderCard(card, i)

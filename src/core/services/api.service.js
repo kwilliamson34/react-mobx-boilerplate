@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { utilsService } from './utils.service';
-import { externalContentService } from './external-content.service';
+
 import { externalSolutionsService} from './external-solutions.service';
+import { externalDeviceContentService } from './external-device-content.service';
 
 import { userStore } from '../stores/user.store';
 
@@ -70,7 +71,21 @@ class ApiService {
     getMarketingPortalDevices() {
       return axios.get(`${base}/marketing/devices`)
         .then( (res) =>{
-          return externalContentService.filterDeviceData(res.data);
+          return externalDeviceContentService.filterDeviceLandingData(res.data);
+        });
+    }
+
+    getDeviceCategory(categoryNum) {
+      return axios.get(`${base}/marketing/devices/${categoryNum}`)
+        .then( (res) =>{
+          return externalDeviceContentService.filterDeviceCategoryData(res.data);
+        });
+    }
+
+    getDeviceDetail(deviceLink) {
+      return axios.get(`${base}/marketing${deviceLink}`)
+        .then( (res) =>{
+          return externalDeviceContentService.filterDeviceDetailData(res.data);
         });
     }
 

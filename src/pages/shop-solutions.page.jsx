@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { observer, inject } from 'mobx-react';
 import { Link } from 'react-router-dom';
 
+// import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
+
 @inject('store')
 @observer
 export default class ShopSolutionsPage extends React.Component {
@@ -34,7 +36,7 @@ export default class ShopSolutionsPage extends React.Component {
           <div className="cell-contents has-shadow">
             <Link to={cell.url}>
               <div className="cell-img">
-                <img src={cell.imgPath} alt={"Image for " + cell.title}/>
+                <img src={cell.imgPath} alt={'Image for ' + cell.title}/>
               </div>
               <div className="cell-description">
                 <h3 className="cell-title">{cell.title}</h3>
