@@ -32,10 +32,6 @@ class CardListStore {
 		}
 	}
 
-	@action setCurrentApp(psk){
-		this.currentAppPsk = psk;
-	}
-
 	@action clearSearchQuery() {
 		this.searchQuery = '';
 		this.searchHasBeenApplied = false;
@@ -61,7 +57,7 @@ class CardListStore {
 		trailing: false
 	});
 
-	@action handleInput(value) {
+	@action handleSearchInput(value) {
 		this.searchQuery = value;
 	}
 
@@ -98,12 +94,6 @@ class CardListStore {
 	}
 
 	//COMPUTEDS
-	@computed get currentCard() {
-		return this.searchResults.filter((app) => {
-			return this.currentAppPsk == app.psk.toString();
-		})[0];
-	}
-
 	@computed get recommendedCards() {
 		return this.searchResults.filter((app) => {
 			return (app.recommended)
@@ -132,11 +122,6 @@ class CardListStore {
 		return this.searchResults.filter((app) => {
 			return (app.user_segment.indexOf(user_segment.DISPATCH) > -1)
 		})
-	}
-
-	// probably to be deprecated.
-	@computed get searchButtonIsEnabled() {
-		return true;
 	}
 
 	@computed get filteredSearchResults() {
@@ -173,17 +158,9 @@ class CardListStore {
 		}
 	}
 
-	@computed get isFiltered() {
-		return (this.categoryFilter || this.segmentFilter || this.platformFilter)
-	}
-
 	// OBSERVABLES
-	@observable categoryFilter = 'Select Category';
-	@observable segmentFilter = 'Select Filter';
-
 	@observable originalCardList = [];
 	@observable searchResults = [];
-	@observable currentAppPsk = '';
 	@observable searchQuery = '';
 	@observable isLoading = false;
 	@observable searchHasBeenApplied = false;
