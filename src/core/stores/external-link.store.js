@@ -18,10 +18,9 @@ class ExternalLinkStore {
   @action getDeviceCategoryItems() {
     const success = (res) => {
       this.currentCategoryData = res;
-      console.log(JSON.stringify(res));
     }
     const fail = (res) => {
-      console.log('MPDevice fetch failed\n' + res);
+      console.log('Device Category Items fetch failed\n' + res);
     }
     apiService.getDeviceCategory(this.deviceCategoryNum).then(success, fail);
   }
@@ -29,10 +28,10 @@ class ExternalLinkStore {
   @action getDeviceDetail(devicePath) {
     const success = (res) => {
       this.currentDeviceDetail = res;
-      console.log(JSON.stringify(res));
+      this.currentDeviceDetail.path = devicePath;
     }
     const fail = (res) => {
-      console.log('MPDevice fetch failed\n' + res);
+      console.log('MPDevice Detail fetch failed\n' + res);
     }
     apiService.getDeviceDetail(devicePath).then(success, fail);
   }
@@ -59,6 +58,7 @@ class ExternalLinkStore {
     items: []
   };
   @observable currentDeviceDetail = {
+    path: '',
     features: [],
     deviceName: '',
     deviceImg: '',
