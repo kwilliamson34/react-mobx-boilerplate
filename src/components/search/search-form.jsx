@@ -14,7 +14,7 @@ export class SearchForm extends React.Component {
   }
 
   handleInput = (event) => {
-    this.store.handleInput(event.target.value)
+    this.store.handleSearchInput(event.target.value)
   }
 
   handleSubmit = (event) => {
