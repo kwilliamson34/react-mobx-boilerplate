@@ -12,7 +12,6 @@ import { MobileIronForm } from '../components/configure-mdm/mobile-iron-form';
 
 @inject('store')
 @observer
-
 export default withRouter(class ConfigureMDM extends React.Component {
 
   static propTypes = {
@@ -31,10 +30,12 @@ export default withRouter(class ConfigureMDM extends React.Component {
       console.log('Exit Modal')
       this.store.showExitModal = true;
       this.history.goBack();
-      // this.history.replace('/admin/configure-mdm');
     }
   }
 
+	updateMDM = (event) => {
+		this.store.updateMDM(event.target.value);
+	}
   updateForm = (event) => {
     event.preventDefault();
     this.store.updateForm(event.target, document.getElementById('configure-mdm-form'))
@@ -44,9 +45,6 @@ export default withRouter(class ConfigureMDM extends React.Component {
     this.store.submitForm(event.target)
   }
 
-	updateMDM = (event) => {
-		this.store.updateMDM(event.target.value);
-	}
 
   showErrorMessages = (messages) => {
     let jsx = '';
@@ -54,6 +52,17 @@ export default withRouter(class ConfigureMDM extends React.Component {
       jsx = (<div className="msgBlock error error-list" role="alert" aria-live = "assertive" key={messages}><span>{messages}</span></div>);
     }
     return jsx;
+  }
+
+  toggleExitModal = (event) => {
+    event.preventDefault();
+    this.store.toggleExitModal()
+  }
+
+  discardFormChanges = (event) => {
+    event.preventDefault();
+    this.store.discardFormChanges()
+    this.history.replace('/admin/manage-apps');
   }
 
   breakMDMConnection = (event) => {
@@ -64,9 +73,11 @@ export default withRouter(class ConfigureMDM extends React.Component {
 	render() {
 
     let mdm_provider = this.store.currentMDMForm.get('mdmProvider') || this.store.mdmProvider;
-    let isConfigured = this.store.mdmObject.entries().length ? true : false;
-    let formData = isConfigured ? this.store.mdmObject.toJS() : this.store.currentMDMForm.toJS();
     let mdm_form = null;
+
+    let isConfigured = this.store.pseMDMObject.entries().length ? true : false;
+    let formData = isConfigured ? this.store.pseMDMObject.toJS() : this.store.currentMDMForm.toJS();
+    
 
     switch(mdm_provider) {
       case 'airWatchForm':
@@ -127,6 +138,29 @@ export default withRouter(class ConfigureMDM extends React.Component {
             </div>
         </div>
 
+        {this.store.showExitModal &&
+        <div>
+          <div id="exitModal" className="modal fade in" ref="exit modal">
+            <div className="modal-dialog">
+              <div className="modal-content">
+                <div className="row no-gutters">
+                  <div className="col-xs-12">
+                    <h4 className="as-h2">Unsaved changes</h4>
+                    <p>Your form changes will not be saved if you navigate away from this page.</p>
+                  </div>
+                  <div className="col-xs-12 text-center">
+                    <button className='fn-primary' onClick={this.toggleExitModal}>Stay on Page</button>
+                    <button className='fn-secondary' onClick={this.discardFormChanges}>Discard Changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="modal-backdrop fade in" ></div>
+        </div>}
+
+
+        {isConfigured &&
         <div className="modal fade" id="breakConnectionModal" ref="modal">
           <div className="modal-dialog">
             <div className="modal-content">
@@ -142,7 +176,7 @@ export default withRouter(class ConfigureMDM extends React.Component {
               </div>
             </div>
           </div>
-        </div>
+        </div>}
       </article>
 		)
 	}

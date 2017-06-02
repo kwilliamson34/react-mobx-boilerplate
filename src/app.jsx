@@ -18,7 +18,6 @@ import '../styles/app.scss';
 //Common Components
 import Header from './components/header/header';
 import Footer from './components/footer/footer.jsx';
-import Modal from './components/common/modal.jsx';
 
 
 //Pages
@@ -139,16 +138,6 @@ export default class App extends React.Component {
 								</Switch>
 							</main>
 							<Footer/>
-							<Modal show={pseMasterStore.mdmStore.showExitModal}>
-								<div className="col-xs-12">
-									<h4 className="as-h2">Unsaved changes</h4>
-									<p>Your form changes will not be saved if you navigate away from this page.</p>
-								</div>
-								<div className="col-xs-12 text-center">
-									<button className='fn-primary' onClick={pseMasterStore.mdmStore.toggleExitModal()}>Stay on Page</button>
-									<button className='fn-secondary' onClick={pseMasterStore.mdmStore.discardFormChanges()}>Discard Changes</button>
-								</div>
-							</Modal>
 						</div>
 					</ScrollToTop>
 				</Provider>

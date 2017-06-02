@@ -54,7 +54,7 @@ class MDMStore {
         if(this.formIsValid){
             this.beingSubmitted = true;
             for (let i = 0; i < inputs.length; i++) {
-                this.mdmObject.set(inputs[i].id,inputs[i].value);
+                this.pseMDMObject.set(inputs[i].id,inputs[i].value);
             }
         } else {
             this.alert_msgs.push({type:'error', headline:'Error: ',message:'Please correct the errors below.'});
@@ -65,7 +65,7 @@ class MDMStore {
     @action breakMDMConnection() {
         console.log('break')
 
-        this.mdmObject.clear();
+        this.pseMDMObject.clear();
         this.resetMDMForm();
         this.alert_msgs.push({type:'success', headline:'Success! ',message:'The connection to MDM has been broken.'});
     }
@@ -85,7 +85,6 @@ class MDMStore {
         this.formHasChanged = false;
         this.showExitModal = false;
         this.resetMDMForm();
-        window.location.href = '/admin';
     }
 
     // Services
@@ -145,7 +144,7 @@ class MDMStore {
     });
 
     // will be global mdm object
-    @observable mdmObject = observable.map({});
+    @observable pseMDMObject = observable.map({});
 
     @observable alert_msgs = [];
     @observable formIsValid = false;

@@ -1,5 +1,6 @@
 import {observable, action} from 'mobx';
 import {apiService} from '../services/api.service';
+import config from 'config';
 
 class UserStore {
 
@@ -11,13 +12,12 @@ class UserStore {
             this.checkPermissions();
         }
         const fail = (err) => {
-            console.log(err)
-            // if(err.response.status === 403 || err.response.status === 401) {
-            //     window.location.replace(config.haloLogin);
-            // } else {
-            //     console.warn(err);
-            //     this.service_error = true;
-            // }
+            if(err.response.status === 403 || err.response.status === 401) {
+                window.location.replace(config.haloLogin);
+            } else {
+                console.warn(err);
+                this.service_error = true;
+            }
         }
         return apiService.validateUserData().then(success, fail);
     }
@@ -41,7 +41,7 @@ class UserStore {
         exp : 0,
         firstName : '',
         iat : 0,
-        id : '',
+        id : 'asdf',
         iss : '',
         t : '',
         lastName : '',
