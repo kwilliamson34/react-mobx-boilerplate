@@ -28,9 +28,29 @@
           text-decoration: underline;
         }
       }
+
+      .cell-more {
+        width: 100%;
+        position: absolute;
+        bottom: 1px;
+        height: 40px;
+        padding-left: 20px;
+        font-size: $fn-landing-body-default-size;
+        font-weight: $fn-medium-weight;
+        text-transform: uppercase;
+        color: $fn-ltblue;
+
+        &:after {
+          display: inline-block;
+          font-size: 1.2rem;
+          margin-left: 10px;
+          vertical-align: -1px;
+          content: "\67";
+          text-transform: none;
+          font-family: $icon-font;
+        }
+      }
     }
-
-
 
     .cell-img-wrapper {
 
@@ -59,7 +79,6 @@
         line-height: 20px;
 
       }
-
     }
   }
 

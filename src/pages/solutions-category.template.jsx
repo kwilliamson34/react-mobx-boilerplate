@@ -27,7 +27,7 @@ export default class SolutionsCategoryTemplate extends React.Component {
     return cellsArray.map((cell) => {
 
       return (
-        <li key={cell.title} className="col-xs-12 col-sm-6 col-md-4 solutions-cell">
+        <div key={cell.title} className="col-xs-12 col-sm-6 col-md-4 solutions-cell">
           <div className="cell-wrapper has-shadow">
             <Link to={cell.url}>
               <div className="cell-img-wrapper">
@@ -36,11 +36,11 @@ export default class SolutionsCategoryTemplate extends React.Component {
               <div className="cell-contents-wrapper">
                 <h3 className="cell-title">{cell.title}</h3>
                 <div className="cell-desc">{cell.description}</div>
-                <div className="cell-more">Learn More</div>
               </div>
+              <div className="cell-more">Learn More</div>
             </Link>
           </div>
-        </li>
+        </div>
       )
     })
   }
@@ -62,10 +62,8 @@ export default class SolutionsCategoryTemplate extends React.Component {
           <div className="container">
             <section className="cell-wrapper">
               <nav>
-                <ul>
-                  {this.externalStore.cellsArray.length > 0
-                    && this.renderCells(this.externalStore.cellsArray)}
-                </ul>
+                {this.externalStore.cellsArray.length > 0
+                  && this.renderCells(this.externalStore.cellsArray)}
               </nav>
             </section>
           </div>
