@@ -68,7 +68,7 @@ export default class SolutionsCategoryTemplate extends React.Component {
     return (
       <article id="solutions-category-page">
         <BreadcrumbNav links={crumbs} />
-        <section className="content-wrapper container">
+        <section className="content-wrapper">
           <section className="pssheader small" style={{backgroundImage: this.externalStore.solutionHeaderImg}}>
             <div className="pssheader-contents">
               <h1 className="as-h2">{normalizedTitle}</h1>
