@@ -38,6 +38,43 @@ class ExternalLinkStore {
     apiService.getDeviceDetail(devicePath).then(success, fail);
   }
 
+  @action getSolutionCards(queryString) {
+    const success = (res) => {
+      this.solutionCards = res;
+    }
+
+    const fail = (res) => {
+      console.log('getSolutionCards fetch failed\n' + res);
+    }
+
+    apiService.getSolutionCards(queryString).then(success, fail);
+  }
+
+  @action getSolutionHeaderImg(queryString) {
+    const success = (res) => {
+      this.solutionHeaderImg = res;
+    }
+
+    const fail = (res) => {
+      console.log('getPSSHeaderImg fetch failed\n' + res);
+    }
+
+    apiService.getSolutionHeaderImg(queryString).then(success, fail);
+  }
+
+  // @action getPSSDetails(queryString) {
+  //   const success = (res) => {
+  //     this.solutionDetails = res;
+  //   }
+  //
+  //   const fail = (res) => {
+  //     console.log('getPSSDetails fetch failed\n' + res);
+  //   }
+  //
+  //   apiService.getPSSDetails(queryString).then(success, fail);
+  // }
+
+
   //COMPUTEDS
   @computed get deviceCategoryNum() {
     let deviceCategories = ['phones', 'tablets', 'in-vehicle', 'accessories'];
@@ -45,13 +82,16 @@ class ExternalLinkStore {
     return (categoryIndex >= 0)? categoryIndex + 1 : undefined;
   }
 
-
   @observable devicesData = {
     phones: [],
     tablets: [],
     invehicle: [],
     accessories: []
   };
+
+  @observable solutionCards = [];
+  @observable solutionHeaderImg = '';
+  // @observable solutionDetails = {};
 
   @observable currentCategory = '';
   @observable currentCategoryData = {
@@ -73,6 +113,7 @@ class ExternalLinkStore {
   @observable managePushToTalkMotorolaLink = 'https://firstnet.att.com/ptt_upm';
   @observable viewWirelessReportsLink = 'https://www.wireless.att.com/businesscare/menu/index.jsp?subject=Reports&wtLinkName=Reports&wtLinkLoc=S1&&wtLinkType=InventoryReport';
   @observable shopStandardDevicesLink = '';
+
 }
 
 export const externalLinkStore = new ExternalLinkStore();

@@ -41,6 +41,8 @@ import ShopSolutionsPage from './pages/shop-solutions.page';
 
 //content pages
 import AppDetailsPage from './pages/app-details.page';
+// import SolutionsDetailTemplate from './pages/solutions-details.template';
+import SolutionsCategoryTemplate from './pages/solutions-category.template';
 
 //Help section
 import HelpCenterPage from './pages/help-center.page';
@@ -103,6 +105,17 @@ export default class App extends React.Component {
 			)
 		}
 
+		const ShopSolutionsHub = ({match}) => {
+			return (
+				<article id="solutions-hub-page">
+					<Switch>
+						<Route path={`${match.url}/:solutionCategory`} component={SolutionsCategoryTemplate} />
+						<Route path={match.url} component={ShopSolutionsPage} />
+					</Switch>
+				</article>
+			)
+		}
+
 		return userStore.authentic_user ? (
 			<Router>
 				<Provider store={pseMasterStore}>
@@ -124,8 +137,8 @@ export default class App extends React.Component {
 									<Route path="/admin" component={AdminDashboardPage} />
 									<Route path="/app" component={AppHub} />
 									<Route path="/shop-devices-rates" component={ShopDevicesPage} />
+									<Route path="/solutions" component={ShopSolutionsHub} />
 									<Route path="/devices" component={SpecializedDevices} />
-									<Route path="/solutions" component={ShopSolutionsPage} />
 									<Route path="/help-center" component={HelpCenterPage} />
 									<Route path="/privacy" component={PrivacyPage}/>
 									<Route path="/terms" component={TermsOfServicePage}/>

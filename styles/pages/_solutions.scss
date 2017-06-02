@@ -1,0 +1,135 @@
+#solutions-hub-page {
+  padding: 0 0 70px 0;
+
+
+  .solutions-card {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    margin: 15px 0;
+    min-height: 380px;
+
+    .card-wrapper {
+      text-align: left;
+      width: 100%;
+
+      > a {
+        text-decoration: none;
+      }
+
+      &:hover {
+        & .card-title {
+          text-decoration: underline;
+        }
+
+        & .learn-more {
+          text-decoration: underline;
+        }
+      }
+
+      .learn-more {
+        width: 100%;
+        position: absolute;
+        bottom: 1px;
+        height: 40px;
+        padding-left: 20px;
+        font-size: $fn-landing-body-default-size;
+        font-weight: $fn-medium-weight;
+        text-transform: uppercase;
+        color: $fn-ltblue;
+
+        &:after {
+          display: inline-block;
+          font-size: 1.2rem;
+          margin-left: 10px;
+          vertical-align: -1px;
+          content: "\67";
+          text-transform: none;
+          font-family: $icon-font;
+        }
+      }
+    }
+
+    .card-img-wrapper {
+
+      > img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .card-contents-wrapper {
+      color: $fn-dkgrey;
+
+      .card-title {
+        width: 100%;
+        padding: 30px 10px 10px 20px;
+        letter-spacing: 0.38px;
+        line-height: 30px;
+
+      }
+      .card-desc {
+        height: 100px;
+        width: 100%;
+        padding: 0 20px;
+        font-size: $fn-landing-body-default-size;
+        font-weight: $fn-normal-weight;
+        line-height: 20px;
+
+      }
+    }
+  }
+
+  .pssheader {
+    position: relative;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center;
+    background-color: $fn-black;
+    color: $fn-white;
+
+    .pssheader-contents {
+      position: relative;
+      margin: 0 15%;
+      padding: 60px 0 30px 0;
+
+      > h1 {
+        line-height: 58px;
+        text-transform: capitalize;
+      }
+
+      > p {
+        font-weight: $fn-medium-weight;
+        font-size: $fn-body-default-size;
+        line-height: 30px;
+        margin-bottom: 10px;
+        width: 65%;
+      }
+    }
+
+
+    & .main {
+      min-height: 370px;
+    }
+
+    & .small {
+      min-height: 190px;
+    }
+  }
+
+  .intro-block {
+    display: block;
+    padding: 20px 40px;
+
+    > h2 {
+      text-align: center;
+      padding: 20px 0;
+    }
+  }
+}
+
+@media #{$tablet} {
+
+
+}

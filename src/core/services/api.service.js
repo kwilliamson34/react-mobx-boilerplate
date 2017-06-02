@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { utilsService } from './utils.service';
+
+import { externalSolutionsService} from './external-solutions.service';
 import { externalDeviceContentService } from './external-device-content.service';
 
 import { userStore } from '../stores/user.store';
@@ -86,6 +88,28 @@ class ApiService {
           return externalDeviceContentService.filterDeviceDetailData(res.data);
         });
     }
+
+    getSolutionCards(queryString) {
+      return axios.get(`${base}/marketing${queryString}`)
+        .then((res) => {
+          return externalSolutionsService.filterSolutionCards(res.data);
+        })
+    }
+
+    getSolutionHeaderImg(queryString) {
+      return axios.get(`${base}/marketing${queryString}`)
+        .then((res) => {
+          return externalSolutionsService.filterSolutionHeaderImg(res.data);
+        })
+    }
+
+    // getPSSDetails(queryString) {
+    //   console.log('queryString   ', queryString);
+    //   return axios.get(`${base}/marketing${queryString}`)
+    //     .then((res) => {
+    //       return externalSolutionsService.filterPSSDetails(res.data);
+    //     })
+    // }
 
     addAppToGroup(appPsk, groupIdentifier) {
       console.log('Adding app with appPsk=' + appPsk + ' to groupIdentifier="' + groupIdentifier + '"...');
