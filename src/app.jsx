@@ -104,40 +104,40 @@ export default class App extends React.Component {
 		}
 
 		return userStore.authentic_user
-			? <Router>
-					<Provider store={pseMasterStore}>
-						<ScrollToTop>
-							<div id="PSE-wrapper">
-								<a href="#main-content" className="sr-only sr-only-focusable">Skip Navigation</a>
-								<Header/>
-								<main id="main-content">
-									<Switch>
-										<Route exact path="/" component={TempHomePage}/>
-										<Route path="/network-status" component={NetworkStatusPage}/>
-										<Route path="/admin/manage-users" component={ManageUsersPage} />
-										<Route path="/admin/manage-billing" component={ManageBillingPage} />
-										<Route path="/admin/manage-services" component={ManageServicesPage} />
-										<Route path="/admin/manage-apps" component={ManageAppsPage} />
-										<Route path="/admin/configure-mdm" component={ConfigureMDM} />
-										<Route path="/admin/manage-push-to-talk" component={ManagePushToTalkPage} />
-										<Route path="/admin/manage-wireless-reports" component={ManageWirelessReportsPage} />
-										<Route path="/admin" component={AdminDashboardPage} />
-										<Route path="/app" component={AppHub} />
-										<Route path="/shop-devices-rates" component={ShopDevicesPage} />
-										<Route path="/devices" component={SpecializedDevices} />
-										<Route path="/solutions" component={ShopSolutionsPage} />
-										<Route path="/help-center" component={HelpCenterPage} />
-										<Route path="/privacy" component={PrivacyPage}/>
-										<Route path="/terms" component={TermsOfServicePage}/>
-										<Route path="/accessibility" component={AccessibilityPage}/>
-										<Route component={NoMatch}/>
-									</Switch>
-								</main>
-								<Footer/>
-							</div>
-						</ScrollToTop>
-					</Provider>
-				</Router>
-		: <ErrorPage />
+		  ? <Router>
+		      <Provider store={pseMasterStore}>
+		        <ScrollToTop>
+		          <div id="PSE-wrapper">
+		            <a href="#main-content" className="sr-only sr-only-focusable">Skip Navigation</a>
+		            <Header/>
+		            <main id="main-content">
+		              <Switch>
+		                <Route exact path="/" component={TempHomePage}/>
+		                <Route path="/network-status" component={NetworkStatusPage}/>
+		                <Route path="/admin/manage-users" component={ManageUsersPage}/>
+		                <Route path="/admin/manage-billing" component={ManageBillingPage}/>
+		                <Route path="/admin/manage-services" component={ManageServicesPage}/>
+		                <Route path="/admin/manage-apps" component={ManageAppsPage}/>
+		                <Route path="/admin/configure-mdm" component={ConfigureMDM}/>
+		                <Route path="/admin/manage-push-to-talk" component={ManagePushToTalkPage}/>
+		                <Route path="/admin/manage-wireless-reports" component={ManageWirelessReportsPage}/>
+		                <Route path="/admin" component={AdminDashboardPage}/>
+		                <Route path="/app" component={AppHub}/>
+		                <Route path="/shop-devices-rates" component={ShopDevicesPage}/>
+		                <Route path="/devices" component={SpecializedDevices}/>
+		                <Route path="/solutions" component={ShopSolutionsPage}/>
+		                <Route path="/help-center" component={HelpCenterPage}/>
+		                <Route path="/privacy" component={PrivacyPage}/>
+		                <Route path="/terms" component={TermsOfServicePage}/>
+		                <Route path="/accessibility" component={AccessibilityPage}/>
+		                <Route component={NoMatch}/>
+		              </Switch>
+		            </main>
+		            <Footer/>
+		          </div>
+		        </ScrollToTop>
+		      </Provider>
+		    </Router>
+		  : <ErrorPage/>
 	}
 }
