@@ -41,7 +41,7 @@ class UserStore {
         exp : 0,
         firstName : '',
         iat : 0,
-        id : 'asdf',
+        id : '',
         iss : '',
         t : '',
         lastName : '',
