@@ -41,7 +41,7 @@ import ShopSolutionsPage from './pages/shop-solutions.page';
 
 //content pages
 import AppDetailsPage from './pages/app-details.page';
-// import SolutionsDetailTemplate from './pages/solutions-details.template';
+import SolutionsDetailTemplate from './pages/solutions-details.template';
 import SolutionsCategoryTemplate from './pages/solutions-category.template';
 
 //Help section
@@ -109,6 +109,7 @@ export default class App extends React.Component {
 			return (
 				<article id="solutions-hub-page">
 					<Switch>
+						<Route path={`${match.url}/:solutionCategory/:solutionDetail`} component={SolutionsDetailTemplate} />
 						<Route path={`${match.url}/:solutionCategory`} component={SolutionsCategoryTemplate} />
 						<Route path={match.url} component={ShopSolutionsPage} />
 					</Switch>
