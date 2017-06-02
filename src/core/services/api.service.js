@@ -113,6 +113,14 @@ class ApiService {
       });
     }
 
+    setMDMConfiguration(mdmConfig) {
+      return axios({
+        method: 'post',
+        url: `${base}/app/group`,
+        data: mdmConfig
+      });
+    }
+
 }
 
 export const apiService = new ApiService();

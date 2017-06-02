@@ -1,7 +1,7 @@
 import { action, observable } from 'mobx';
+import {apiService} from '../services/api.service';
 
 class MDMStore {
-
 
     // Form Functions
     @action updateMDM(mdmProvider) {
@@ -50,29 +50,38 @@ class MDMStore {
         console.log('submit!')
 
         let inputs = form.querySelectorAll('input, select');
+        let mdmConfig = {};
 
         if(this.formIsValid){
             this.beingSubmitted = true;
             for (let i = 0; i < inputs.length; i++) {
-                this.pseMDMObject.set(inputs[i].id,inputs[i].value);
+                mdmConfig[inputs[i].id] = inputs[i].value;
             }
+            this.setMDMConfiguration(mdmConfig)
         } else {
-            this.alert_msgs.push({type:'error', headline:'Error: ',message:'Please correct the errors below.'});
+            this.alert_msgs.push({type:'error', headline:'Error: ', message:'Please correct the errors below.'});
         }
     }
+
 
     // Break MDM
     @action breakMDMConnection() {
         console.log('break')
 
         this.pseMDMObject.clear();
+        this.hasBeenSubmitted = false;
         this.resetMDMForm();
-        this.alert_msgs.push({type:'success', headline:'Success! ',message:'The connection to MDM has been broken.'});
+        this.alert_msgs.push({type:'success', headline:'Success! ', message:'The connection to MDM has been broken.'});
     }
+
 
     // MDM Alerts
     @action removeAlert(idx) {
         this.alert_msgs.splice(idx, 1);
+    }
+
+    @action clearAlerts() {
+        this.alert_msgs = [];
     }
 
 
@@ -87,28 +96,22 @@ class MDMStore {
         this.resetMDMForm();
     }
 
+
     // Services
-    @action setMDMConfiguration() {
-        if (this.formIsValid) {
-            // let locationObj = {
-            //     'pseId': 'string',
-            //     'mdm': this.mdm,
-            //     'endpoint': this.endpoint,
-            //     'apiKey': this.apiKey
-            // }
-
-            // TODO
-            // apiService.updatePSELocation(locationObj)
-            //     .then((response) => {
-            //         window.location.href = '/admin';
-            //     })
-            //     .catch((error) => {
-            //         console.warn(error);
-            //     });
-        } else {
-            console.warn('Not Valid')
+    @action setMDMConfiguration(mdmConfig) {
+        const success = (res) => {
+            this.beingSubmitted = false;
+            this.hasBeenSubmitted = true;
+            this.pseMDMObject.merge(mdmConfig);
+            this.alert_msgs = [];
+            this.alert_msgs.push({type:'success', headline:'Success! ', message:'A new connection has been established with MDM.'});
         }
-
+        const fail = (err) => {
+            console.warn(err);
+            this.beingSubmitted = false;
+            this.alert_msgs.push({type:'error', headline:'Error: ', message:'There was an error establishing a connection with MDM.'});
+        }
+        return apiService.setMDMConfiguration(mdmConfig).then(success, success);
     }
 
     @action getMDMConfiguration() {
@@ -119,6 +122,7 @@ class MDMStore {
         // return apiService.getPSELocation().then(success, fail)
 
     }
+
 
     // OBSERVABLES
     @observable mdmProvider = '';
@@ -143,12 +147,12 @@ class MDMStore {
 
     });
 
-    // will be global mdm object
+    // TODO - will be global mdm object from PSE
     @observable pseMDMObject = observable.map({});
-
-    @observable alert_msgs = [];
+    @observable alert_msgs = [{headline:'Note. ', message:'Configure MDM to push apps to the system.'}];
     @observable formIsValid = false;
     @observable beingSubmitted = false;
+    @observable hasBeenSubmitted = false;
 
 
     @observable formHasChanged = false;

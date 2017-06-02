@@ -4,10 +4,30 @@
 	color:white;
 	border-radius: 4px;
 	padding: 15px;
+	background-color: $fn-ltblue;
+	p {
+		font-size: 14px;
+		line-height: 16px;
+	}
+	.close_btn {
+		padding: 0;
+	    cursor: pointer;
+	    background: transparent;
+	    border: 0;
+	    -webkit-appearance: none;
+	    float: right;
+	    font-size: 14px;
+	}
 	&.alert-error{
 		background-color: $fn-red;
 	}
 	&.alert-success{
 		background-color: $fn-green;
+	}
+}
+
+#manage-apps-page {
+	.alert {
+		margin-top:30px;
 	}
 }

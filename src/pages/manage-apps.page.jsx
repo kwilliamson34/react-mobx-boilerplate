@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom';
 import { CardList } from '../components/card-list/card-list';
 import { SearchForm } from '../components/search/search-form';
 import { Filters } from '../components/filters/filters';
+import { MDMAlerts } from '../components/configure-mdm/mdm-alerts';
 
 
 @inject('store')
@@ -16,6 +17,7 @@ export default class ManageAppsPage extends React.Component {
 		super(props);
 		this.cardListStore = this.props.store.cardListStore;
 		this.appCatalogStore = this.props.store.appCatalogStore;
+		this.mdmStore = this.props.store.mdmStore;
 		this.pageId = 'manageAppsPage';
 		this.itemsPerPage = 20;
 	}
@@ -49,6 +51,13 @@ export default class ManageAppsPage extends React.Component {
 						<div className="col-xs-12">
 							<h1 className="as-h2">Manage Apps</h1>
 							<Link to="/admin/configure-mdm" className="fn-primary">Configure MDM</Link>
+						</div>
+					</div>
+				</div>
+				<div className="container">
+					<div className="row">
+						<div className="col-xs-12">
+							{this.mdmStore.alert_msgs && <MDMAlerts store = {this.mdmStore}/>}
 						</div>
 					</div>
 				</div>
