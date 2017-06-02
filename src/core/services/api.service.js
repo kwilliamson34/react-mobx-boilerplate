@@ -103,13 +103,13 @@ class ApiService {
         })
     }
 
-    getPSSDetails(queryString) {
-      console.log('queryString   ', queryString);
-      return axios.get(`${base}/marketing${queryString}`)
-        .then((res) => {
-          return externalSolutionsService.filterPSSDetails(res.data);
-        })
-    }
+    // getPSSDetails(queryString) {
+    //   console.log('queryString   ', queryString);
+    //   return axios.get(`${base}/marketing${queryString}`)
+    //     .then((res) => {
+    //       return externalSolutionsService.filterPSSDetails(res.data);
+    //     })
+    // }
 
     addAppToGroup(appPsk, groupIdentifier) {
       console.log('Adding app with appPsk=' + appPsk + ' to groupIdentifier="' + groupIdentifier + '"...');

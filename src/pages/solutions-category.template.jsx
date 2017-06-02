@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { observer, inject } from 'mobx-react';
 import { Link } from 'react-router-dom';
 
+import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
+
 @inject('store')
 @observer
 export default class SolutionsCategoryTemplate extends React.Component {
@@ -47,10 +49,25 @@ export default class SolutionsCategoryTemplate extends React.Component {
 
   render() {
 
-    let normalizedTitle = this.props.match.params.solutionCategory.split('-').join(' ');
+    const currentCategory = this.props.match.params.solutionCategory;
+    const normalizedTitle = currentCategory.split('-').join(' ');
+
+    const crumbs = [
+      {	pageHref: '/admin',
+        pageTitle: 'Administration Dashboard'
+      },
+      {	pageHref: '/solutions',
+        pageTitle: 'Public Safety Solutions'
+      },
+      {	pageHref: `/${currentCategory}`,
+        pageTitle: normalizedTitle
+      }
+    ];
+
 
     return (
       <article id="solutions-category-page">
+        <BreadcrumbNav links={crumbs} />
         <section className="content-wrapper">
           <section className="pssheader small" style={{backgroundImage: this.externalStore.headerImg}}>
             <div className="pssheader-contents">
@@ -70,5 +87,4 @@ export default class SolutionsCategoryTemplate extends React.Component {
     )
 
   }
-
 }
