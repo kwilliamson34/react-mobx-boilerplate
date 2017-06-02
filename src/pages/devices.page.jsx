@@ -64,8 +64,8 @@ export default class DevicesLandingPage extends React.Component {
 		];
 		return (
 			<div className="devices-landing">
-				<BreadcrumbNav links={crumbs} />
 				<div className="container">
+					<BreadcrumbNav links={crumbs} />
 					<div className="row">
 						<div className="col-xs-12 col-sm-10 col-sm-offset-1 catalog-header">
 							<h1 className="as-h2">Specialized Devices Catalog</h1>

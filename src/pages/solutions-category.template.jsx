@@ -37,7 +37,7 @@ export default class SolutionsCategoryTemplate extends React.Component {
                 <h3 className="cell-title">{cell.title}</h3>
                 <div className="cell-desc">{cell.description}</div>
               </div>
-              <div className="cell-more">Learn More</div>
+              <div className="learn-more">Learn More</div>
             </Link>
           </div>
         </div>
@@ -46,16 +46,14 @@ export default class SolutionsCategoryTemplate extends React.Component {
   }
 
   render() {
-    console.log('cellsArray categoryPage    ', this.externalStore.cellsArray);
-    console.log('headerImg landingPage   ', this.externalStore.headerImg);
 
     let normalizedTitle = this.props.match.params.solutionCategory.split('-').join(' ');
 
     return (
       <article id="solutions-category-page">
         <section className="content-wrapper">
-          <section className="pssheader-small" style={{backgroundImage: this.externalStore.headerImg}}>
-            <div className="pssheader-small-contents">
+          <section className="pssheader small" style={{backgroundImage: this.externalStore.headerImg}}>
+            <div className="pssheader-contents">
               <h1 className="as-h2">{normalizedTitle}</h1>
             </div>
           </section>

@@ -1,4 +1,4 @@
-#shop-solutions-page {
+#solutions-hub-page {
   padding-bottom: 70px;
 
   .solutions-cell {
@@ -10,7 +10,6 @@
     max-width: 380px;
 
     .cell-wrapper {
-
       > a {
         text-decoration: none;
       }
@@ -25,7 +24,7 @@
         }
       }
 
-      .cell-more {
+      .learn-more {
         width: 100%;
         position: absolute;
         bottom: 1px;
@@ -78,25 +77,25 @@
     }
   }
 
-  .pssheader-main {
+  .pssheader {
     position: relative;
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover;
     background-position: center;
     background-color: $fn-black;
-    min-height: 370px;
     color: $fn-white;
 
-    .pssheader-main-contents {
+    .pssheader-contents {
       position: relative;
       margin: 0 15%;
       padding: 60px 0 30px 0;
 
       > h1 {
         line-height: 58px;
-
+        text-transform: capitalize;
       }
+
       > p {
         font-weight: $fn-medium-weight;
         font-size: $fn-body-default-size;
@@ -104,6 +103,15 @@
         margin-bottom: 10px;
         width: 65%;
       }
+    }
+
+
+    & .main {
+      min-height: 370px;
+    }
+
+    & .small {
+      min-height: 190px;
     }
   }
 
@@ -117,3 +125,51 @@
     }
   }
 }
+
+  // .pssheader-main {
+  //   position: relative;
+  //   background-repeat: no-repeat;
+  //   background-attachment: scroll;
+  //   background-size: cover;
+  //   background-position: center;
+  //   background-color: $fn-black;
+  //   min-height: 370px;
+  //   color: $fn-white;
+  //
+  //   .pssheader-main-contents {
+  //     position: relative;
+  //     margin: 0 15%;
+  //     padding: 60px 0 30px 0;
+  //
+  //     }
+  //     > p {
+  //       font-weight: $fn-medium-weight;
+  //       font-size: $fn-body-default-size;
+  //       line-height: 30px;
+  //       margin-bottom: 10px;
+  //       width: 65%;
+  //     }
+  //   }
+  // }
+  //
+  // .pssheader-small {
+  //   position: relative;
+  //   background-repeat: no-repeat;
+  //   background-attachment: scroll;
+  //   background-size: cover;
+  //   background-position: center;
+  //   background-color: $fn-black;
+  //   min-height: 190px;
+  //   color: $fn-white;
+  //
+  //   .pssheader-small-contents {
+  //     position: relative;
+  //     margin: 0 15%;
+  //     padding: 60px 0 30px 0;
+  //
+  //     > h1 {
+  //       line-height: 58px;
+  //       text-transform: capitalize;
+  //     }
+  //   }
+  // }

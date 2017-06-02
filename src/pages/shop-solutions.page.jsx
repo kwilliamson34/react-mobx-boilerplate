@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { observer, inject } from 'mobx-react';
 import { Link } from 'react-router-dom';
 
-// import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
+import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 
 @inject('store')
 @observer
@@ -42,7 +42,7 @@ export default class ShopSolutionsPage extends React.Component {
                 <h3 className="cell-title">{cell.title}</h3>
                 <div className="cell-desc">{cell.description}</div>
               </div>
-              <div className="cell-more">Learn More</div>
+              <div className="learn-more">Learn More</div>
             </Link>
           </div>
         </div>
@@ -51,14 +51,22 @@ export default class ShopSolutionsPage extends React.Component {
   }
 
   render() {
-    console.log('cellsArray landingPage   ', this.externalStore.cellsArray);
-    console.log('headerImg landingPage   ', this.externalStore.headerImg);
+
+    const crumbs = [
+      {	pageHref: '/admin',
+        pageTitle: 'Administration Dashboard'
+      },
+      {	pageHref: '/solutions',
+        pageTitle: 'Public Safety Solutions'
+      }
+    ];
 
     return (
       <article id="shop-solutions-page">
+        <BreadcrumbNav links={crumbs} />
         <section className="content-wrapper">
-          <section className="pssheader-main" style={{backgroundImage: this.externalStore.headerImg}}>
-            <div className="pssheader-main-contents">
+          <section className="pssheader main" style={{backgroundImage: this.externalStore.headerImg}}>
+            <div className="pssheader-contents">
               <h1 className="as-h2">Solutions</h1>
               <p>Innovative communication and collaboration technologies help public safety improve decision making</p>
             </div>
