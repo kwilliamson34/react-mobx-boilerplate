@@ -1,14 +1,11 @@
-@media #{$tablet}{
-    .card-list-container{
-        padding-left: 50px;
-        padding-right: 50px;
-        .card-wrapper {
-            margin: 20px 0px 0;
+@media #{$tablet} {
+  .card-list-container {
+    .card-wrapper {
+      margin: 20px 0 0;
 
-            &:focus {
-            margin: 20px 0px 0;
-            }
-        }
+      &:focus {
+        margin: 20px 0 0;
+      }
     }
-
+  }
 }

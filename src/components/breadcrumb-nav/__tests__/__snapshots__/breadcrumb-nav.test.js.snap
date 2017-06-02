@@ -1,0 +1,57 @@
+exports[`<BreadcrumbNav /> renders a breadcrumb of links matches previous snapshot 1`] = `
+<nav
+  aria-label="You are here:"
+  className="breadcrumb-nav xs-hidden">
+  <div
+    className="container">
+    <div
+      className="row">
+      <div
+        className="col-xs-12">
+        <ol>
+          <li>
+            <a
+              href="/link1"
+              onClick={[Function anonymous]}>
+              Link Level 1
+              <span
+                aria-hidden="true"
+                className="icon-arrowRight" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="/link1/link2"
+              onClick={[Function anonymous]}>
+              Link Level 2
+              <span
+                aria-hidden="true"
+                className="icon-arrowRight" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="/link1/link2/link3"
+              onClick={[Function anonymous]}>
+              Link Level 3
+              <span
+                aria-hidden="true"
+                className="icon-arrowRight" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="/link1/link2/link3/link4"
+              onClick={[Function anonymous]}>
+              Link Level 4
+              <span
+                aria-hidden="true"
+                className="icon-arrowRight" />
+            </a>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</nav>
+`;

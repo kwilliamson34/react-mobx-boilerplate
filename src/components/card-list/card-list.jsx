@@ -54,32 +54,30 @@ export class CardList extends React.Component {
   render() {
     const hideCardList = (this.props.isLoading || this.showNoResultsBlock);
     return (
-      <section className="card-list-container col-md-12 col-xs-12">
-        <div className={`container ${hideCardList && 'card-list-substitute'}`}>
-          {this.props.isLoading
-            ? <h2>Loading...</h2>
-            : <div className="row">
-                {this.props.cards.map((card, i) => {
-                  return this.renderCard(card, i)
-                })}
-                {this.canLoadMore && this.props.handleLoadMoreClick &&
-                  <div className="card-list-load-more">
-                    <button className="btn fn-primary" onClick={this.props.handleLoadMoreClick}>Load More</button>
-                  </div>
-                }
-              </div>
-          }
-
-          {this.showNoResultsBlock &&
-            <div>
-              <h2>No Results</h2>
-              <p>There are no results to display. Please retry your search.</p>
-              {this.props.handleViewAllAppsClick &&
-                <button type="button" className="btn fn-primary" onClick={this.props.handleViewAllAppsClick}>View All Apps</button>
+      <section className={`card-list-container col-md-12 col-xs-12 ${hideCardList && 'card-list-substitute'}`}>
+        {this.props.isLoading
+          ? <h2>Loading&hellip;</h2>
+          : <div className="row">
+              {this.props.cards.map((card, i) => {
+                return this.renderCard(card, i)
+              })}
+              {this.canLoadMore && this.props.handleLoadMoreClick &&
+                <div className="card-list-load-more">
+                  <button className="btn fn-primary" onClick={this.props.handleLoadMoreClick}>Load More</button>
+                </div>
               }
             </div>
-          }
-        </div>
+        }
+
+        {this.showNoResultsBlock &&
+          <div>
+            <h2>No Results</h2>
+            <p>There are no results to display. Please retry your search.</p>
+            {this.props.handleViewAllAppsClick &&
+              <button type="button" className="btn fn-primary" onClick={this.props.handleViewAllAppsClick}>View All Apps</button>
+            }
+          </div>
+        }
       </section>
     );
   }

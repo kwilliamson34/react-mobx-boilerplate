@@ -32,6 +32,31 @@ class GeolinkStore {
     }).then(success, fail);
   }
 
+  @action updateSearchTerm(searchTerm) {
+    this.searchTerm = searchTerm;
+  }
+
+  @action updateDefaultSearchTerm(defaultSearchTerm) {
+    this.defaultSearchTerm = defaultSearchTerm;
+  }
+
+  @action searchMap() {
+    console.log('Searching map for ' + this.searchTerm + '...');
+    this.mapIframeRef.contentWindow.postMessage({
+      eventName: 'doMapGeocode',
+      value: this.searchTerm || this.defaultSearchTerm
+    }, '*');
+  }
+
+  @action toggleNetwork() {
+    this.showNetworkLayer = !this.showNetworkLayer;
+    if(this.showWeatherLayer) {
+      this.addAllNetworkLayers();
+    } else {
+      this.removeAllNetworkLayers();
+    }
+  }
+
   @action addAllNetworkLayers() {
     networkLayerNames.map(layerName => {
       this.addLayer(layerName);
@@ -62,58 +87,29 @@ class GeolinkStore {
     }, '*');
   }
 
-  @action updateSearchTerm(searchTerm) {
-    this.searchTerm = searchTerm;
-  }
-
-  @action updateDefaultSearchTerm(defaultSearchTerm) {
-    this.defaultSearchTerm = defaultSearchTerm;
-  }
-
-  @action searchMap() {
-    console.log('Searching map for ' + this.searchTerm + '...');
-    this.mapIframeRef.contentWindow.postMessage({
-      eventName: 'doMapGeocode',
-      value: this.searchTerm || this.defaultSearchTerm
-    }, '*');
-  }
-
   @action toggleTraffic() {
-    console.log('Toggling traffic');
+    this.showTrafficLayer = !this.showTrafficLayer;
     this.mapIframeRef.contentWindow.postMessage({
       eventName: 'toggleTraffic'
     }, '*');
   }
 
+  @action toggleWeather() {
+    this.showWeatherLayer = !this.showWeatherLayer;
+    if(this.showWeatherLayer) {
+      this.addWeather();
+    } else {
+      this.removeWeather();
+    }
+  }
+
   @action addWeather() {
-    console.log('Adding weather layer/animation');
     this.mapIframeRef.contentWindow.postMessage({
       eventName: 'loadRadar',
       options: {
         opacity: .7
       }
     }, '*');
-
-    //Additional weather evants
-    // this.mapIframeRef.contentWindow.postMessage({
-    //   eventName: 'showHurricane',
-    //   flag: true
-    // }, '*');
-    // this.mapIframeRef.contentWindow.postMessage({
-    //   eventName: 'loadLayer',
-    //   value: '1184FF', //Flash flood
-    //   flag: true
-    // }, '*');
-    // this.mapIframeRef.contentWindow.postMessage({
-    //   eventName: 'loadLayer',
-    //   value: '1187STW', //Thunder storm
-    //   flag: true
-    // }, '*');
-    // this.mapIframeRef.contentWindow.postMessage({
-    //   eventName: 'loadLayer',
-    //   value: '1188TW', //Tornado
-    //   flag: true
-    // }, '*');
 
     //Weather layer animation
     this.mapIframeRef.contentWindow.postMessage({
@@ -125,18 +121,17 @@ class GeolinkStore {
   }
 
   @action removeWeather() {
-    console.log('Removing weather layer/animation');
     this.mapIframeRef.contentWindow.postMessage({
       eventName: 'removeRadar'
     }, '*');
   }
 
-  @action toggleAlerts(turnOn) {
-    console.log('Toggling alerts layer');
+  @action toggleAlerts() {
+    this.showAlertLayer = !this.showAlertLayer;
     this.mapIframeRef.contentWindow.postMessage({
       eventName: 'loadLayer',
       value: 'FirstNet:GTOCOutages',
-      flag: turnOn
+      flag: this.showAlertLayer
     }, '*');
   }
 
@@ -146,6 +141,10 @@ class GeolinkStore {
   @observable searchTerm = '';
   @observable defaultSearchTerm = '';
 
+  @observable showNetworkLayer = true;
+  @observable showWeatherLayer = false;
+  @observable showTrafficLayer = false;
+  @observable showAlertLayer = false;
 }
 
 export const geolinkStore = new GeolinkStore();
