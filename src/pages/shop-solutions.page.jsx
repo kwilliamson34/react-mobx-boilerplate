@@ -26,23 +26,23 @@ export default class ShopSolutionsPage extends React.Component {
 
   renderCells(cellsArray) {
 
-    //TODO: crude slice job to cut next-gen-911, which is going away from marketing portal. remove after that happens.
+    //TODO: crude slice job to cut next-gen-911, which is going away from marketing portal. remove after that.
     let cutArray = cellsArray.slice(0, 4);
 
     return cutArray.map((cell) => {
 
       return (
         <li key={cell.title} className="col-xs-12 col-sm-6 col-md-4 solutions-cell">
-          <div className="cell-contents has-shadow">
+          <div className="cell-wrapper has-shadow">
             <Link to={cell.url}>
-              <div className="cell-img">
+              <div className="cell-img-wrapper">
                 <img src={cell.imgPath} alt={'Image for ' + cell.title}/>
               </div>
-              <div className="cell-description">
+              <div className="cell-contents-wrapper">
                 <h3 className="cell-title">{cell.title}</h3>
                 <div className="cell-desc">{cell.description}</div>
-                <div className="cell-more">Learn More</div>
               </div>
+              <div className="cell-more">Learn More</div>
             </Link>
           </div>
         </li>
@@ -77,7 +77,7 @@ export default class ShopSolutionsPage extends React.Component {
                 Contact a FirstNet Specialist to learn more about FirstNet Solutions and pricing details.
               </p>
             </section>
-            <section>
+            <section className="cell-wrapper">
               <nav>
                 <ul>
                   {this.externalStore.cellsArray.length > 0
