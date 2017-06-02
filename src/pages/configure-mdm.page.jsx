@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { inject,	observer} from 'mobx-react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import { MDMAlerts } from '../components/configure-mdm/mdm-alerts';
 
@@ -35,6 +35,14 @@ export default withRouter(class ConfigureMDM extends React.Component {
     }
   }
 
+  updateForm = (event) => {
+    event.preventDefault();
+    this.store.updateForm(event.target, document.getElementById('configure-mdm-form'))
+  }
+  handleSubmit = (event) => {
+    event.preventDefault();
+    this.store.submitForm(event.target)
+  }
 
 	updateMDM = (event) => {
 		this.store.updateMDM(event.target.value);
@@ -55,21 +63,20 @@ export default withRouter(class ConfigureMDM extends React.Component {
 
 	render() {
 
-    console.log(this.store.formHasChanged,this.store.showExitModal)
-
-    let mdm_provider = this.store.currentMDM.get('mdmProvider') || this.store.mdmProvider;
-    let isConfigured = this.store.currentMDM.entries().length ? true : false;
+    let mdm_provider = this.store.currentMDMForm.get('mdmProvider') || this.store.mdmProvider;
+    let isConfigured = this.store.mdmObject.entries().length ? true : false;
+    let formData = isConfigured ? this.store.mdmObject.toJS() : this.store.currentMDMForm.toJS();
     let mdm_form = null;
 
     switch(mdm_provider) {
       case 'airWatchForm':
-        mdm_form = <AirWatchForm store={this.store} connectionSet={isConfigured} formData={isConfigured ? this.store.currentMDM.toJS() : this.store.airWatchForm.toJS()}/>;
+        mdm_form = <AirWatchForm store={this.store} connectionSet={isConfigured} formData={formData}/>;
         break;
       case 'ibmForm':
-        mdm_form = <IBMForm store={this.store} connectionSet={isConfigured} formData={isConfigured ? this.store.currentMDM.toJS() : this.store.ibmForm.toJS()}/>;
+        mdm_form = <IBMForm store={this.store} connectionSet={isConfigured} formData={formData}/>;
         break;
       case 'mobileIronForm':
-        mdm_form = <MobileIronForm store={this.store} connectionSet={isConfigured} formData={isConfigured ? this.store.currentMDM.toJS() : this.store.mobileIronForm.toJS()}/>;
+        mdm_form = <MobileIronForm store={this.store} connectionSet={isConfigured} formData={formData}/>;
         break;
       default:
         mdm_form = null;
@@ -106,30 +113,19 @@ export default withRouter(class ConfigureMDM extends React.Component {
                               <option value="mobileIronForm">MobileIron</option>
                             </select>
                         </div>
-                        {mdm_form}
+                        <form id="configure-mdm-form" onSubmit={this.handleSubmit} noValidate onBlur={this.updateForm}>
+                          {mdm_form}
+                          <div className="form-group text-center">
+                            <button aria-labelledby="configure-mdm-form" aria-disabled={!this.store.formIsValid || isConfigured || this.store.beingSubmitted} type="submit" className='fn-primary'>
+                            {this.store.beingSubmitted && <i className="icon-profile" aria-label="Still Submitting Form"></i>}
+                            <span>Submit</span>{this.store.beingSubmitted && <span>ting...</span>}
+                            </button>
+                          </div>
+                        </form>
                     </div>
                 </section>
             </div>
         </div>
-
-        {this.store.showExitModal &&
-          <div className="modal fade in" id="exitModal" ref="modal">
-            <div className="modal-dialog">
-              <div className="modal-content">
-                <div className="row no-gutters">
-                  <div className="col-xs-12">
-                    <h4 className="as-h2">Unsaved changes</h4>
-                    <p>Your form changes will not be saved if you navigate away from this page.</p>
-                  </div>
-                  <div className="col-xs-12 text-center">
-                    <button className='fn-primary' data-dismiss="modal">Stay on Page</button>
-                    <Link className='fn-secondary' to='/admin'>Discard Changes</Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        }
 
         <div className="modal fade" id="breakConnectionModal" ref="modal">
           <div className="modal-dialog">

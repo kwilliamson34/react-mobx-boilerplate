@@ -2,6 +2,8 @@ import { action, observable } from 'mobx';
 
 class MDMStore {
 
+
+    // Form Functions
     @action updateMDM(mdmProvider) {
 
         if (!mdmProvider.length) {
@@ -15,62 +17,78 @@ class MDMStore {
         this.formIsValid = false;
     }
 
-    @action updateInput(id,value) {
-        this[this.mdmProvider].set(id,value);
-    }
+     @action updateForm(input, form) {
 
-     @action updateForm(form) {
         let inputs = form.querySelectorAll('input, select');
-        let values = this[this.mdmProvider].values();
+        let validForm = true;
 
-        let validForm = (inputs.length === values.length) && (values.indexOf('') === -1) ? true : false;
+        this.formHasChanged = true;
+        this.currentMDMForm.set(input.id,input.value);
 
-        if(this.currentMDM.values() !== this[this.mdmProvider].values()){
-            this.formHasChanged = true;
+        for (let i = 0; i < inputs.length; i++) {
+            if (inputs[i].value === '') { validForm = false }
         }
 
         this.formIsValid = validForm;
     }
 
-    @action submitForm() {
-        console.log('submit!')
+    @action resetMDMForm() {
+        const keys = this.currentMDMForm.keys();
 
-        if(this.formIsValid){
-            this.beingSubmitted = true;
-            // this.currentMDM = this[this.mdmProvider];
-            this.currentMDM.merge(this.airWatchForm);
-            this.currentMDM.merge(this.ibmForm);
-            this.currentMDM.merge(this.mobileIronForm);
-        } else {
-            this.alert_msgs.push({type:'error',headline:'Error: ',message:'Please correct the errors below.'});
+        this.mdmProvider = '';
+        this.formIsValid = false;
+        this.beingSubmitted = false;
+        this.formHasChanged = false;
+        this.showExitModal = false;
+
+        for (let i = 0; i < keys.length; i++) {
+            this.currentMDMForm.set(keys[i],undefined);
         }
     }
 
+    @action submitForm(form) {
+        console.log('submit!')
+
+        let inputs = form.querySelectorAll('input, select');
+
+        if(this.formIsValid){
+            this.beingSubmitted = true;
+            for (let i = 0; i < inputs.length; i++) {
+                this.mdmObject.set(inputs[i].id,inputs[i].value);
+            }
+        } else {
+            this.alert_msgs.push({type:'error', headline:'Error: ',message:'Please correct the errors below.'});
+        }
+    }
+
+    // Break MDM
     @action breakMDMConnection() {
         console.log('break')
 
-        this.currentMDM.clear();
-        this.airWatchForm.clear();
-        this.ibmForm.clear();
-        this.mobileIronForm.clear();
-        this.mdmProvider = '';
-
-        this.alert_msgs.push({type:'success',headline:'Success! ',message:'The connection to MDM has been broken.'});
+        this.mdmObject.clear();
+        this.resetMDMForm();
+        this.alert_msgs.push({type:'success', headline:'Success! ',message:'The connection to MDM has been broken.'});
     }
 
+    // MDM Alerts
     @action removeAlert(idx) {
         this.alert_msgs.splice(idx, 1);
     }
 
 
+    // MDM Modals
     @action toggleExitModal() {
-      if(!this.showExitModal){
-        this.showExitModal = true;
-      } else {
-        this.showExitModal = false;
-      }
+      this.showExitModal = this.showExitModal ? false : true;
     }
 
+    @action discardFormChanges() {
+        this.formHasChanged = false;
+        this.showExitModal = false;
+        this.resetMDMForm();
+        window.location.href = '/admin';
+    }
+
+    // Services
     @action setMDMConfiguration() {
         if (this.formIsValid) {
             // let locationObj = {
@@ -107,16 +125,11 @@ class MDMStore {
     @observable mdmProvider = '';
     @observable mdmErrorMessages = '';
 
-    @observable currentMDM = observable.map({});
-
-    @observable airWatchForm = observable.map({
+    @observable currentMDMForm = observable.map({
         aw_hostName: undefined,
         aw_password: undefined,
         aw_tenantCode: undefined,
-        aw_userName: undefined
-    });
-
-    @observable ibmForm = observable.map({
+        aw_userName: undefined,
         ibm_appAccessKey: undefined,
         ibm_appID: undefined,
         ibm_appVersion: undefined,
@@ -124,14 +137,15 @@ class MDMStore {
         ibm_password: undefined,
         ibm_platformID: undefined,
         ibm_rootURL: undefined,
-        ibm_userName: undefined
-    });
-    @observable mobileIronForm = observable.map({
+        ibm_userName: undefined,
         mi_hostName: undefined,
         mi_password: undefined,
         mi_userName: undefined
+
     });
 
+    // will be global mdm object
+    @observable mdmObject = observable.map({});
 
     @observable alert_msgs = [];
     @observable formIsValid = false;

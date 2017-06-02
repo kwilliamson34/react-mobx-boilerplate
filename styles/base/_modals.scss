@@ -1,9 +1,15 @@
-.modal-backdrop.in {
-  opacity: 0.8;
-  display: block;
+.modal-backdrop {
+  display: none;
+  &.in {
+    opacity: 0.8;
+    display: block;
+  }
 }
 
 .modal {
+  &.in{
+    display: block;
+  }
   .modal-dialog {
     width: 90%;
     max-width: 980px;
