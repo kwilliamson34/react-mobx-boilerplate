@@ -1,4 +1,4 @@
-import { action, observable } from 'mobx';
+import { action, observable, computed } from 'mobx';
 import { apiService } from '../services/api.service';
 
 class ExternalLinkStore {
@@ -9,19 +9,62 @@ class ExternalLinkStore {
     const success = (res) => {
       this.devicesData = res;
     }
-
     const fail = (res) => {
       console.log('MPDevice fetch failed\n' + res);
     }
-
     apiService.getMarketingPortalDevices().then(success, fail);
   }
+
+  @action getDeviceCategoryItems() {
+    const success = (res) => {
+      this.currentCategoryData = res;
+    }
+    const fail = (res) => {
+      console.log('Device Category Items fetch failed\n' + res);
+    }
+    if(this.deviceCategoryNum){
+      apiService.getDeviceCategory(this.deviceCategoryNum).then(success, fail);
+    }
+  }
+
+  @action getDeviceDetail(devicePath) {
+    const success = (res) => {
+      this.currentDeviceDetail = res;
+      this.currentDeviceDetail.path = devicePath;
+    }
+    const fail = (res) => {
+      console.log('MPDevice Detail fetch failed\n' + res);
+    }
+    apiService.getDeviceDetail(devicePath).then(success, fail);
+  }
+
+  //COMPUTEDS
+  @computed get deviceCategoryNum() {
+    let deviceCategories = ['phones', 'tablets', 'in-vehicle', 'accessories'];
+    let categoryIndex = deviceCategories.indexOf(this.currentCategory);
+    return (categoryIndex >= 0)? categoryIndex + 1 : undefined;
+  }
+
 
   @observable devicesData = {
     phones: [],
     tablets: [],
-    invehicles: [],
+    invehicle: [],
     accessories: []
+  };
+
+  @observable currentCategory = '';
+  @observable currentCategoryData = {
+    title: '',
+    intro: '',
+    items: []
+  };
+  @observable currentDeviceDetail = {
+    path: '',
+    features: [],
+    deviceName: '',
+    deviceImg: '',
+    deviceImgAlt: ''
   };
 
   @observable manageUsersLink = 'https://profilemgt.firstnet.att.com/ebiz/firstnet/index.jsp';

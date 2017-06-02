@@ -1,0 +1,17 @@
+exports[`<NewTabLink /> renders matches previous snapshot 1`] = `
+<a
+  className="new-tab-link undefined"
+  href="http://example.com"
+  rel="noopener noreferrer"
+  target="_blank" />
+`;
+
+exports[`<NewTabLink /> renders renders children inside link 1`] = `
+<a
+  className="new-tab-link undefined"
+  href="http://example.com"
+  rel="noopener noreferrer"
+  target="_blank">
+  <div />
+</a>
+`;

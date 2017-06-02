@@ -33,10 +33,13 @@ import ManagePushToTalkPage from './pages/manage-push-to-talk.page';
 import ManageWirelessReportsPage from './pages/manage-wireless-reports.page';
 import AdminDashboardPage from './pages/admin-dashboard.page';
 import ConfigureMDM from './pages/configure-mdm.page';
+import ShopDevicesPage from './pages/shop-devices-rates.page';
 
 //MP pages
-import ShopDevicesPage from './pages/shop-devices-rates.page'
-import ShopSpecializedDevicesPage from './pages/shop-specialized-devices.page';
+import DevicesLandingPage from './pages/devices.page';
+import DeviceCategoryTemplate from './pages/device-category.template';
+import DeviceDetailTemplate from './pages/device-detail.template';
+
 import ShopSolutionsPage from './pages/shop-solutions.page';
 
 //content pages
@@ -65,10 +68,7 @@ export default class App extends React.Component {
 
 	render() {
 
-		
-		const AppHub = ({
-			match
-		}) => {
+		const AppHub = ({match}) => {
 			return (
 				<div id="app-page">
 					<Switch>
@@ -85,6 +85,18 @@ export default class App extends React.Component {
 						)}/>
 					</Switch>
 				</div>
+			)
+		}
+
+		const SpecializedDevices = ({match}) => {
+			return(
+				<article id="specialized-devices">
+					<Switch>
+						<Route path={`${match.url}/:deviceCategory/:deviceId`} component={DeviceDetailTemplate} />
+						<Route path={`${match.url}/:deviceCategory`} component={DeviceCategoryTemplate} />
+						<Route path={match.url} component={DevicesLandingPage} />
+					</Switch>
+				</article>
 			)
 		}
 
@@ -117,8 +129,8 @@ export default class App extends React.Component {
 									<Route path="/admin" component={AdminDashboardPage} />
 									<Route path="/app" component={AppHub} />
 									<Route path="/shop-devices-rates" component={ShopDevicesPage} />
-									<Route path="/shop-specialized-devices" component={ShopSpecializedDevicesPage} />
-									<Route path="/shop-solutions" component={ShopSolutionsPage} />
+									<Route path="/devices" component={SpecializedDevices} />
+									<Route path="/solutions" component={ShopSolutionsPage} />
 									<Route path="/help-center" component={HelpCenterPage} />
 									<Route path="/privacy" component={PrivacyPage}/>
 									<Route path="/terms" component={TermsOfServicePage}/>
