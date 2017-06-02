@@ -64,7 +64,7 @@ export default class ShopSolutionsPage extends React.Component {
     return (
       <article id="shop-solutions-page">
         <BreadcrumbNav links={crumbs} />
-        <section className="content-wrapper">
+        <section className="content-wrapper container">
           <section className="pssheader main" style={{backgroundImage: this.externalStore.solutionHeaderImg}}>
             <div className="pssheader-contents">
               <h1 className="as-h2">Solutions</h1>
