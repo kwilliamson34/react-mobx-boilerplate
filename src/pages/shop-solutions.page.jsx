@@ -71,9 +71,9 @@ export default class ShopSolutionsPage extends React.Component {
               <p>Innovative communication and collaboration technologies help public safety improve decision making</p>
             </div>
           </section>
-        <div className="container">
+        <div>
           <div>
-            <section className="col-sm-12 intro-block">
+            <section className="intro-block">
               <h2>For Public Safety, By Public Safety</h2>
               <p>
                 The FirstNet Applications Store and Solutions Catalog offers enhanced technologies to complement public safety's fundamental services and applications. Current solutions include applications that are designed to improve workflow and communication, enhance device and connection security, and enable public safety organizations to scale departmental capabilities by utilizing cloud and IP-based services.
@@ -85,7 +85,7 @@ export default class ShopSolutionsPage extends React.Component {
                 Contact a FirstNet Specialist to learn more about FirstNet Solutions and pricing details.
               </p>
             </section>
-            <section className="card-wrapper">
+            <section className="card-wrapper container">
               <nav>
                 {this.externalStore.solutionCards.length > 0
                   && this.renderCards(this.externalStore.solutionCards)}
