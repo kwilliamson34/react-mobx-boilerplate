@@ -38,19 +38,19 @@ class ExternalLinkStore {
     apiService.getDeviceDetail(devicePath).then(success, fail);
   }
 
-  @action getPSSCells(queryString) {
+  @action getSolutionCells(queryString) {
     const success = (res) => {
       this.cellsArray = res;
     }
 
     const fail = (res) => {
-      console.log('getPSSCells fetch failed\n' + res);
+      console.log('getSolutionCells fetch failed\n' + res);
     }
 
-    apiService.getPSSCells(queryString).then(success, fail);
+    apiService.getSolutionCells(queryString).then(success, fail);
   }
 
-  @action getPSSHeaderImg(queryString) {
+  @action getSolutionHeaderImg(queryString) {
     const success = (res) => {
       this.headerImg = res;
     }
@@ -59,12 +59,12 @@ class ExternalLinkStore {
       console.log('getPSSHeaderImg fetch failed\n' + res);
     }
 
-    apiService.getPSSHeaderImg(queryString).then(success, fail);
+    apiService.getSolutionHeaderImg(queryString).then(success, fail);
   }
 
   // @action getPSSDetails(queryString) {
   //   const success = (res) => {
-  //     this.pssDetails = res;
+  //     this.solutionDetails = res;
   //   }
   //
   //   const fail = (res) => {
@@ -89,9 +89,9 @@ class ExternalLinkStore {
     accessories: []
   };
 
-  @observable cellsArray = [];
-  @observable headerImg = '';
-  @observable pssDetails = {};
+  @observable solutionCells = [];
+  @observable solutionHeaderImg = '';
+  // @observable solutionDetails = {};
 
   @observable currentCategory = '';
   @observable currentCategoryData = {

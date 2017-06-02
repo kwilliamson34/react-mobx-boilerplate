@@ -20,8 +20,8 @@ export default class SolutionsCategoryTemplate extends React.Component {
   }
 
   componentWillMount() {
-    this.externalStore.getPSSCells(this.props.match.url);
-    this.externalStore.getPSSHeaderImg(this.props.match.url);
+    this.externalStore.getSolutionCells(this.props.match.url);
+    this.externalStore.getSolutionHeaderImg(this.props.match.url);
   }
 
   renderCells(cellsArray) {
@@ -77,8 +77,8 @@ export default class SolutionsCategoryTemplate extends React.Component {
           <div className="container">
             <section className="cell-wrapper">
               <nav>
-                {this.externalStore.cellsArray.length > 0
-                  && this.renderCells(this.externalStore.cellsArray)}
+                {this.externalStore.solutionCells.length > 0
+                  && this.renderCells(this.externalStore.solutionCells)}
               </nav>
             </section>
           </div>
