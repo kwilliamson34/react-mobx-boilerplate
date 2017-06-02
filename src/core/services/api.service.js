@@ -89,17 +89,17 @@ class ApiService {
         });
     }
 
-    getSolutionCells(queryString) {
+    getSolutionCards(queryString) {
       return axios.get(`${base}/marketing${queryString}`)
         .then((res) => {
-          return externalSolutionsService.filterPSSCells(res.data);
+          return externalSolutionsService.filterSolutionCards(res.data);
         })
     }
 
     getSolutionHeaderImg(queryString) {
       return axios.get(`${base}/marketing${queryString}`)
         .then((res) => {
-          return externalSolutionsService.filterPSSHeaderImg(res.data);
+          return externalSolutionsService.filterSolutionHeaderImg(res.data);
         })
     }
 

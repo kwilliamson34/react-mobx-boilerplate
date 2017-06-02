@@ -38,21 +38,21 @@ class ExternalLinkStore {
     apiService.getDeviceDetail(devicePath).then(success, fail);
   }
 
-  @action getSolutionCells(queryString) {
+  @action getSolutionCards(queryString) {
     const success = (res) => {
-      this.cellsArray = res;
+      this.solutionCards = res;
     }
 
     const fail = (res) => {
-      console.log('getSolutionCells fetch failed\n' + res);
+      console.log('getSolutionCards fetch failed\n' + res);
     }
 
-    apiService.getSolutionCells(queryString).then(success, fail);
+    apiService.getSolutionCards(queryString).then(success, fail);
   }
 
   @action getSolutionHeaderImg(queryString) {
     const success = (res) => {
-      this.headerImg = res;
+      this.solutionHeaderImg = res;
     }
 
     const fail = (res) => {
@@ -89,7 +89,7 @@ class ExternalLinkStore {
     accessories: []
   };
 
-  @observable solutionCells = [];
+  @observable solutionCards = [];
   @observable solutionHeaderImg = '';
   // @observable solutionDetails = {};
 
@@ -113,8 +113,6 @@ class ExternalLinkStore {
   @observable managePushToTalkMotorolaLink = 'https://firstnet.att.com/ptt_upm';
   @observable viewWirelessReportsLink = 'https://www.wireless.att.com/businesscare/menu/index.jsp?subject=Reports&wtLinkName=Reports&wtLinkLoc=S1&&wtLinkType=InventoryReport';
   @observable shopStandardDevicesLink = '';
-
-
 
 }
 

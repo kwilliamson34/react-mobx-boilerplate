@@ -1,7 +1,7 @@
 #solutions-hub-page {
   padding: 0 0 70px 0;
 
-  .solutions-cell {
+  .solutions-card {
     display: flex;
     flex-wrap: wrap;
     position: relative;
@@ -9,17 +9,19 @@
     min-height: 380px;
     max-width: 380px;
 
-    .cell-wrapper {
+    .card-wrapper {
+      text-align: left;
+
       > a {
         text-decoration: none;
       }
 
       &:hover {
-        & .cell-title {
+        & .card-title {
           text-decoration: underline;
         }
 
-        & .cell-more {
+        & .learn-more {
           text-decoration: underline;
         }
       }
@@ -47,7 +49,7 @@
       }
     }
 
-    .cell-img-wrapper {
+    .card-img-wrapper {
 
       > img {
         width: 100%;
@@ -55,17 +57,17 @@
       }
     }
 
-    .cell-contents-wrapper {
+    .card-contents-wrapper {
       color: $fn-dkgrey;
 
-      .cell-title {
+      .card-title {
         width: 100%;
         padding: 30px 10px 10px 20px;
         letter-spacing: 0.38px;
         line-height: 30px;
 
       }
-      .cell-desc {
+      .card-desc {
         height: 100px;
         width: 100%;
         padding: 0 20px;

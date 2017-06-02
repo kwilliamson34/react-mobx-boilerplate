@@ -2,30 +2,30 @@ import cheerio from 'cheerio';
 
 class ExternalSolutionsService {
 
-  filterPSSCells(htmlNode) {
+  filterSolutionCards(htmlNode) {
     const $ = cheerio.load(htmlNode);
 
-    let cellArray = [];
+    let cardArray = [];
     let regions = $('.molecules__image-card').get();
 
-    function retrieveFields(cell){
+    function retrieveFields(card){
       return {
-        title: $(cell).find('.card__title').text(),
-        description: $(cell).find('.card__description').find('p').text(),
-        imgPath: $(cell).find('.card__image-inner img').attr('src'),
-        url: $(cell).find('.atoms__link-field').attr('href')
+        title: $(card).find('.card__title').text(),
+        description: $(card).find('.card__description').find('p').text(),
+        imgPath: $(card).find('.card__image-inner img').attr('src'),
+        url: $(card).find('.atoms__link-field').attr('href')
       }
     }
 
-    regions.forEach((cell) => {
-      let cellData = retrieveFields(cell);
-      cellArray.push(cellData);
+    regions.forEach((card) => {
+      let cardData = retrieveFields(card);
+      cardArray.push(cardData);
     });
 
-    return cellArray;
+    return cardArray;
   }
 
-  filterPSSHeaderImg(htmlNode) {
+  filterSolutionHeaderImg(htmlNode) {
     const $ = cheerio.load(htmlNode);
     return $('.title-large').css('background-image');
   }

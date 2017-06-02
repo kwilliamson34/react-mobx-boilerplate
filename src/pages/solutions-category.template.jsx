@@ -20,24 +20,24 @@ export default class SolutionsCategoryTemplate extends React.Component {
   }
 
   componentWillMount() {
-    this.externalStore.getSolutionCells(this.props.match.url);
+    this.externalStore.getSolutionCards(this.props.match.url);
     this.externalStore.getSolutionHeaderImg(this.props.match.url);
   }
 
-  renderCells(cellsArray) {
+  renderCards(cardsArray) {
 
-    return cellsArray.map((cell) => {
+    return cardsArray.map((card) => {
 
       return (
-        <div key={cell.title} className="col-xs-12 col-sm-6 col-md-4 solutions-cell">
-          <div className="cell-wrapper has-shadow">
-            <Link to={cell.url}>
-              <div className="cell-img-wrapper">
-                <img src={cell.imgPath} alt={'Image for ' + cell.title}/>
+        <div key={card.title} className="col-xs-12 col-sm-6 col-md-4 solutions-card">
+          <div className="card-wrapper has-shadow">
+            <Link to={card.url}>
+              <div className="card-img-wrapper">
+                <img src={card.imgPath} alt={'Image for ' + card.title}/>
               </div>
-              <div className="cell-contents-wrapper">
-                <h3 className="cell-title">{cell.title}</h3>
-                <div className="cell-desc">{cell.description}</div>
+              <div className="card-contents-wrapper">
+                <h3 className="card-title">{card.title}</h3>
+                <div className="card-desc">{card.description}</div>
               </div>
               <div className="learn-more">Learn More</div>
             </Link>
@@ -69,16 +69,16 @@ export default class SolutionsCategoryTemplate extends React.Component {
       <article id="solutions-category-page">
         <BreadcrumbNav links={crumbs} />
         <section className="content-wrapper">
-          <section className="pssheader small" style={{backgroundImage: this.externalStore.headerImg}}>
+          <section className="pssheader small" style={{backgroundImage: this.externalStore.solutionHeaderImg}}>
             <div className="pssheader-contents">
               <h1 className="as-h2">{normalizedTitle}</h1>
             </div>
           </section>
           <div className="container">
-            <section className="cell-wrapper">
+            <section className="card-wrapper">
               <nav>
-                {this.externalStore.solutionCells.length > 0
-                  && this.renderCells(this.externalStore.solutionCells)}
+                {this.externalStore.solutionCards.length > 0
+                  && this.renderCards(this.externalStore.solutionCards)}
               </nav>
             </section>
           </div>
