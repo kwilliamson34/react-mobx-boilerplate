@@ -1,4 +1,5 @@
-import { action, observable } from 'mobx';
+import {action, observable} from 'mobx';
+// import {utilsService} from '../services/utils.service';
 
 class MDMStore {
 
@@ -67,8 +68,8 @@ class MDMStore {
             //     .then((response) => {
             //         window.location.href = '/admin';
             //     })
-            //     .catch((error) => {
-            //         console.warn(error);
+            //     .catch((err) => {
+            //         utilsService.handleError(err);
             //     });
         } else {
             console.warn('Not Valid')
@@ -79,7 +80,7 @@ class MDMStore {
     @action getMDMConfiguration() {
         // const success = (res) => {}
         // const fail = (err) => {
-        //     console.warn(err);
+        //     utilsService.handleError(err);
         // }
         // return apiService.getPSELocation().then(success, fail)
 
