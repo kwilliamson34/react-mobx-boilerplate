@@ -1,34 +1,29 @@
-
-
-.unauth-page{
+.error-page {
 	position: absolute;
 	top: 0;
-	left:0;
-	width:100%;
-	height:100%;
-	padding:0;
-	margin:0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
 	background: $fn-grey;
 	padding: 12% 0;
 }
 
-.unauth-container{
+.error-container {
 	width: 90%;
 	max-width: 980px;
-	margin:auto;
+	margin: auto;
 	padding: 15px 25px;
 	background: $fn-white;
 	line-height: 30px;
-	a{
+
+	a {
 		display: table;
 	}
 }
-
-
 @media #{$tablet,$desktop} {
-
-	.unauth-container{
+	.error-container {
 		padding: 60px 100px;
 	}
-
 }
