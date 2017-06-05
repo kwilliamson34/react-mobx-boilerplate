@@ -1,9 +1,4 @@
 import {action, computed, observable, extendObservable} from 'mobx';
-import {RouterStore, syncHistoryWithStore} from 'mobx-react-router';
-import createBrowserHistory from 'history/createBrowserHistory';
-const browserHistory = createBrowserHistory();
-const routerStore = new RouterStore();
-const history = syncHistoryWithStore(browserHistory, routerStore);
 
 import {headerStore} from './header.store';
 import {appCatalogStore} from './app-catalog.store';
@@ -23,13 +18,6 @@ class PSEStore {
 		this.geolinkStore = geolinkStore;
 		this.mdmStore = mdmStore;
 		this.userStore = userStore;
-		this.routerStore = routerStore;
-
-		//store the newly initialized router history
-		this.routerStore.history = history;
-		history.listen(location => {
-			this.updateLocation(location.pathname);
-		});
 	}
 
 	// ACTIONS
@@ -61,7 +49,6 @@ class PSEStore {
 	// OBSERVABLES
 	@observable names = [];
 	@observable pages = {};
-	@observable location = '';
 }
 
 export const pseMasterStore = new PSEStore();
