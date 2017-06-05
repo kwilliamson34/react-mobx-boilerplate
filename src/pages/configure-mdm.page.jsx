@@ -28,7 +28,8 @@ export default withRouter(class ConfigureMDM extends React.Component {
 
   componentWillMount() {
     this.store.clearAlerts();
-    this.hasBeenSubmitted = false;
+    this.store.hasBeenSubmitted = false;
+    this.store.getMDMConfiguration();
   }
 
   componentDidUpdate() {
@@ -89,7 +90,7 @@ export default withRouter(class ConfigureMDM extends React.Component {
 
     let mdm_provider = this.store.currentMDMForm.get('mdmProvider') || this.store.mdmProvider;
     let mdm_form = null;
-    
+
     this.isConfigured = this.store.pseMDMObject.entries().length ? true : false;
     // let isConfigured = this.store.pseMDMObject.entries().length ? true : false;
     let formData = this.isConfigured ? this.store.pseMDMObject.toJS() : this.store.currentMDMForm.toJS();
@@ -158,6 +159,9 @@ export default withRouter(class ConfigureMDM extends React.Component {
           <div id="exitModal" className="modal fade in" ref="exit modal">
             <div className="modal-dialog">
               <div className="modal-content">
+                <button type="button" className="btn close-modal icon-close" onClick={this.toggleExitModal}>
+                  <span className="sr-only">close window</span>
+                </button>
                 <div className="row no-gutters">
                   <div className="col-xs-12">
                     <h4 className="as-h2">Unsaved changes</h4>
@@ -179,6 +183,9 @@ export default withRouter(class ConfigureMDM extends React.Component {
         <div className="modal fade" id="breakConnectionModal" ref="modal">
           <div className="modal-dialog">
             <div className="modal-content">
+              <button type="button" className="btn close-modal icon-close" data-dismiss="modal">
+                <span className="sr-only">close window</span>
+              </button>
               <div className="row no-gutters">
                 <div className="col-xs-12">
                   <h4 className="as-h2">Confirm break connection</h4>

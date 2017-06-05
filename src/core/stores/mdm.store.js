@@ -50,7 +50,25 @@ class MDMStore {
         console.log('submit!')
 
         let inputs = form.querySelectorAll('input, select');
-        let mdmConfig = {};
+        let mdmConfig = {
+                aw_hostName: undefined,
+                aw_password: undefined,
+                aw_tenantCode: undefined,
+                aw_userName: undefined,
+                ibm_appAccessKey: undefined,
+                ibm_appID: undefined,
+                ibm_appVersion: undefined,
+                ibm_billingID: undefined,
+                ibm_password: undefined,
+                ibm_platformID: undefined,
+                ibm_rootURL: undefined,
+                ibm_userName: undefined,
+                mi_hostName: undefined,
+                mi_password: undefined,
+                mi_userName: undefined
+            };
+
+        this.clearAlerts();
 
         if(this.formIsValid){
             this.beingSubmitted = true;
@@ -66,8 +84,6 @@ class MDMStore {
 
     // Break MDM
     @action breakMDMConnection() {
-        console.log('break')
-
         this.pseMDMObject.clear();
         this.hasBeenSubmitted = false;
         this.resetMDMForm();
@@ -99,7 +115,7 @@ class MDMStore {
 
     // Services
     @action setMDMConfiguration(mdmConfig) {
-        const success = (res) => {
+        const success = () => {
             this.beingSubmitted = false;
             this.hasBeenSubmitted = true;
             this.pseMDMObject.merge(mdmConfig);
@@ -111,16 +127,47 @@ class MDMStore {
             this.beingSubmitted = false;
             this.alert_msgs.push({type:'error', headline:'Error: ', message:'There was an error establishing a connection with MDM.'});
         }
-        return apiService.setMDMConfiguration(mdmConfig).then(success, success);
+        return apiService.setMDMConfiguration(mdmConfig).then(success, fail);
     }
 
     @action getMDMConfiguration() {
+        // TODO Service integration
+
         // const success = (res) => {}
         // const fail = (err) => {
         //     console.warn(err);
         // }
         // return apiService.getPSELocation().then(success, fail)
 
+        const serviceResponse = {
+            aw_hostName: 'This is a Sample Server Response',
+            aw_password: 'fasl;dfkjsa;fklj',
+            aw_tenantCode: 'This is a Sample Server Response',
+            aw_userName: 'This is a Sample Server Response',
+            ibm_appAccessKey: undefined,
+            ibm_appID: undefined,
+            ibm_appVersion: undefined,
+            ibm_billingID: undefined,
+            ibm_password: undefined,
+            ibm_platformID: undefined,
+            ibm_rootURL: undefined,
+            ibm_userName: undefined,
+            mi_hostName: undefined,
+            mi_password: undefined,
+            mi_userName: undefined
+        }
+
+        this.pseMDMObject.merge(serviceResponse);
+
+        if(this.pseMDMObject.get('aw_hostName')){
+            this.mdmProvider = 'airWatchForm'
+        }
+        if(this.pseMDMObject.get('ibm_appAccessKey')){
+            this.mdmProvider = 'ibmForm'
+        }
+        if(this.pseMDMObject.get('mi_hostName')){
+            this.mdmProvider = 'mobileIronForm'
+        }
     }
 
 
@@ -128,27 +175,11 @@ class MDMStore {
     @observable mdmProvider = '';
     @observable mdmErrorMessages = '';
 
-    @observable currentMDMForm = observable.map({
-        aw_hostName: undefined,
-        aw_password: undefined,
-        aw_tenantCode: undefined,
-        aw_userName: undefined,
-        ibm_appAccessKey: undefined,
-        ibm_appID: undefined,
-        ibm_appVersion: undefined,
-        ibm_billingID: undefined,
-        ibm_password: undefined,
-        ibm_platformID: undefined,
-        ibm_rootURL: undefined,
-        ibm_userName: undefined,
-        mi_hostName: undefined,
-        mi_password: undefined,
-        mi_userName: undefined
-
-    });
+    @observable currentMDMForm = observable.map({});
 
     // TODO - will be global mdm object from PSE
     @observable pseMDMObject = observable.map({});
+
     @observable alert_msgs = [{headline:'Note. ', message:'Configure MDM to push apps to the system.'}];
     @observable formIsValid = false;
     @observable beingSubmitted = false;

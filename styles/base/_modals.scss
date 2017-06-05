@@ -25,7 +25,14 @@
       }
 
       .btn {
-        margin-top: 80px;
+        margin: 80px 10px 0;
+      }
+      .close-modal{
+        position:absolute;
+        top:32px;
+        right:25px;
+        margin:0;
+
       }
     }
   }
