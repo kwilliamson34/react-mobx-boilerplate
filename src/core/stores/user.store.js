@@ -12,11 +12,17 @@ class UserStore {
       this.userValidationDone = true;
     }
     const fail = (err) => {
-      if(err.response.status === 403 || err.response.status === 401) {
+      if(err.response.status === 401) {
         this.auth_error = true;
 
         //Redirect to Halo
         window.location.replace(config.haloLogin);
+      } else if (err.response.status === 403){
+        //Show unathorized error page
+        window.location.replace('/error/unauthorized');
+      } else {
+        //Show generic error page
+        window.location.replace('/error');
       }
       this.userValidationDone = true;
     }
