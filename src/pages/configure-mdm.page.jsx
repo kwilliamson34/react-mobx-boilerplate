@@ -33,7 +33,6 @@ export default withRouter(class ConfigureMDM extends React.Component {
   }
 
   componentDidUpdate() {
-    
     if(this.store.hasBeenSubmitted){
       this.history.replace('/admin/manage-apps');
     }
@@ -63,11 +62,9 @@ export default withRouter(class ConfigureMDM extends React.Component {
 
 
   showMDMProviderError = (messages) => {
-    let jsx = '';
     if (messages.length) {
-      jsx = (<div className="msgBlock error error-list" role="alert" aria-live = "assertive" key={messages}><span>{messages}</span></div>);
+      return (<div className="msgBlock error error-list" role="alert" aria-live = "assertive" key={messages}><span>{messages}</span></div>);
     }
-    return jsx;
   }
 
   toggleExitModal = (event) => {
@@ -84,6 +81,57 @@ export default withRouter(class ConfigureMDM extends React.Component {
   breakMDMConnection = (event) => {
     event.preventDefault();
     this.store.breakMDMConnection()
+  }
+
+  renderExitModal = () => {
+    return (
+      <div>
+        <div id="exitModal" className="modal fade in" ref="exit modal">
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <button type="button" className="btn close-modal icon-close" onClick={this.toggleExitModal}>
+                <span className="sr-only">close window</span>
+              </button>
+              <div className="row no-gutters">
+                <div className="col-xs-12">
+                  <h4 className="as-h2">Unsaved changes</h4>
+                  <p>Your form changes will not be saved if you navigate away from this page.</p>
+                </div>
+                <div className="col-xs-12 text-center">
+                  <button className='fn-primary' onClick={this.toggleExitModal}>Stay on Page</button>
+                  <button className='fn-secondary' onClick={this.discardFormChanges}>Discard Changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="modal-backdrop fade in" ></div>
+      </div>
+    )
+  }
+
+  renderBreakConnectionModal = () => {
+    return (
+      <div className="modal fade" id="breakConnectionModal" ref="modal">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <button type="button" className="btn close-modal icon-close" data-dismiss="modal">
+              <span className="sr-only">close window</span>
+            </button>
+            <div className="row no-gutters">
+              <div className="col-xs-12">
+                <h4 className="as-h2">Confirm break connection</h4>
+                <p>This cannot be undone. If you break this application’s connection to MDM, you will have to re-configure it using this form to establish a new connection.</p>
+              </div>
+              <div className="col-xs-12 text-center">
+                <button className='fn-primary' data-dismiss="modal">Keep Connection</button>
+                <button className='fn-secondary' data-dismiss="modal" onClick={this.breakMDMConnection}>Break Connection</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
   }
 
 	render() {
@@ -154,51 +202,9 @@ export default withRouter(class ConfigureMDM extends React.Component {
             </div>
         </div>
 
-        {this.store.showExitModal &&
-        <div>
-          <div id="exitModal" className="modal fade in" ref="exit modal">
-            <div className="modal-dialog">
-              <div className="modal-content">
-                <button type="button" className="btn close-modal icon-close" onClick={this.toggleExitModal}>
-                  <span className="sr-only">close window</span>
-                </button>
-                <div className="row no-gutters">
-                  <div className="col-xs-12">
-                    <h4 className="as-h2">Unsaved changes</h4>
-                    <p>Your form changes will not be saved if you navigate away from this page.</p>
-                  </div>
-                  <div className="col-xs-12 text-center">
-                    <button className='fn-primary' onClick={this.toggleExitModal}>Stay on Page</button>
-                    <button className='fn-secondary' onClick={this.discardFormChanges}>Discard Changes</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="modal-backdrop fade in" ></div>
-        </div>}
+        {this.store.showExitModal && this.renderExitModal()}
+        {this.isConfigured && this.renderBreakConnectionModal()}
 
-
-        {this.isConfigured &&
-        <div className="modal fade" id="breakConnectionModal" ref="modal">
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <button type="button" className="btn close-modal icon-close" data-dismiss="modal">
-                <span className="sr-only">close window</span>
-              </button>
-              <div className="row no-gutters">
-                <div className="col-xs-12">
-                  <h4 className="as-h2">Confirm break connection</h4>
-                  <p>This cannot be undone. If you break this application’s connection to MDM, you will have to re-configure it using this form to establish a new connection.</p>
-                </div>
-                <div className="col-xs-12 text-center">
-                  <button className='fn-primary' data-dismiss="modal">Keep Connection</button>
-                  <button className='fn-secondary' data-dismiss="modal" onClick={this.breakMDMConnection}>Break Connection</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>}
       </article>
 		)
 	}
