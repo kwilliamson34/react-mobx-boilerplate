@@ -1,6 +1,7 @@
 import {action, observable} from 'mobx';
 import axios from 'axios';
 import config from 'config';
+import {utilsService} from '../services/utils.service';
 
 const networkLayerNames = [
   'FirstNet:Coverage2G',
@@ -22,7 +23,7 @@ class GeolinkStore {
       this.geolinkHtml = html;
     }
     const fail = (err) => {
-      console.warn(err);
+      utilsService.handleError(err);
     }
 
     return axios.get('/maps/geolink.html', {

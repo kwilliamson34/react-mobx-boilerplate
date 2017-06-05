@@ -10,9 +10,9 @@
   }
 }
 
-label,
 .as-label,
-.form-group-title {
+.form-group-title,
+label {
   font-size: $fn-label-default-size;
   font-weight: $fn-medium-weight;
   line-height: 2;
@@ -22,6 +22,22 @@ label,
   text-transform: uppercase;
 }
 
+/* Remove native caret from select menu in IE */
 select::-ms-expand {
   display: none;
+}
+
+/* Remove blue highlight from select menu in IE */
+select::-ms-value {
+  background: transparent;
+}
+
+/* Remove dotted outline from select menu in Firefox */
+@-moz-document url-prefix() {
+  select,
+  select:-moz-focusring,
+  select::-moz-focus-inner {
+    color: transparent;
+    text-shadow: 0 0 0 #000 !important;
+  }
 }
