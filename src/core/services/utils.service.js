@@ -1,4 +1,5 @@
-import {pseMasterStore} from '../stores/master.store';
+import {userStore} from '../stores/user.store';
+import {history} from './history.service';
 import config from 'config';
 
 class UtilsService {
@@ -39,21 +40,21 @@ class UtilsService {
     switch (err.response.status) {
       case 401:
         console.log('Received 401 Unauthenticated response, retrying user validation...');
-        pseMasterStore.userStore.validateUser();
+        userStore.validateUser();
         break;
       case 403:
         console.log('Received 403 Forbidden response, redirecting to error page...');
-        pseMasterStore.routerStore.history.replace('/error');
+        history.replace('/error');
         break;
       case 500:
         console.log('Received 500 Internal Error response, redirecting to error page...');
         console.warn(err);
-        pseMasterStore.routerStore.history.replace('/error');
+        history.replace('/error');
         break;
       default:
         console.log('Received ' + err.response.status + ' response, redirecting to error page...');
         console.warn(err);
-        pseMasterStore.routerStore.history.replace('/error');
+        history.replace('/error');
         break;
     }
   }

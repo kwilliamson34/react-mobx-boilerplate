@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {observer, inject} from 'mobx-react';
+import {history} from '../core/services/history.service';
 
 @inject('store')
 @observer
@@ -13,7 +14,6 @@ export default class ErrorPage extends React.Component {
   constructor(props) {
     super(props)
     this.userStore = this.props.store.userStore;
-    this.routerStore = this.props.store.routerStore;
   }
 
   render() {
@@ -51,7 +51,7 @@ export default class ErrorPage extends React.Component {
           <a href="http://www.firstnet.com/localcontrol">Local Control</a>
         </section>}
         {showLinkToGoBack && <section>
-          <a href="#" onClick={() => {this.routerStore.history.go(-1)}}>Go Back</a>
+          <a href="#" onClick={() => {history.go(-1)}}>Go Back</a>
         </section>}
         </div>
       </section>
