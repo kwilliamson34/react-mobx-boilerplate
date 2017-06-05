@@ -1,15 +1,10 @@
-import 'jquery';
-import 'bootstrap';
-
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Link, Redirect } from 'react-router-dom';
-import ScrollToTop from './core/services/scroll-to-top';
+import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 //State Management
-import { Provider, observer } from 'mobx-react';
-import { pseMasterStore } from './core/stores/master.store';
-
-import { userStore } from './core/stores/user.store';
+import {Provider, observer} from 'mobx-react';
+import {pseMasterStore} from './core/stores/master.store';
 
 //Styles
 import '../styles/app.scss';
@@ -17,11 +12,13 @@ import '../styles/app.scss';
 //Common Components
 import Header from './components/header/header';
 import Footer from './components/footer/footer.jsx';
+import ScrollToTop from './core/services/scroll-to-top';
 
 //Pages
 import NetworkStatusPage from './pages/network-status.page';
+import ErrorPage from './pages/error.page.jsx';
 
-//admin
+//Admin pages
 import ManageUsersPage from './pages/manage-users.page';
 import ManageBillingPage from './pages/manage-billing.page';
 import ManageServicesPage from './pages/manage-services.page';
@@ -32,112 +29,101 @@ import AdminDashboardPage from './pages/admin-dashboard.page';
 import ConfigureMDM from './pages/configure-mdm.page';
 import ShopDevicesPage from './pages/shop-devices-rates.page';
 
-//MP pages
+//Marketing Portal pages
 import DevicesLandingPage from './pages/devices.page';
 import DeviceCategoryTemplate from './pages/device-category.template';
 import DeviceDetailTemplate from './pages/device-detail.template';
-
 import ShopSolutionsPage from './pages/shop-solutions.page';
 
-//content pages
+//Content pages
 import AppDetailsPage from './pages/app-details.page';
 
 //Help section
 import HelpCenterPage from './pages/help-center.page';
 
+//Footer pages
 import PrivacyPage from './pages/privacy.page';
 import TermsOfServicePage from './pages/terms.page';
 import AccessibilityPage from './pages/accessibility.page';
 
-import NoMatch from './pages/no-match.page';
-
-import { ErrorPage } from './pages/error.page.jsx';
-
 @observer
 export default class App extends React.Component {
-	constructor(props) {
-		super(props);
-	}
+  static props = {
+    routing: PropTypes.obj
+  }
 
-	componentWillMount() {
-		userStore.validateUser();
-	}
+  componentWillMount() {
+    pseMasterStore.userStore.validateUser();
+  }
 
-	render() {
-		const AppHub = ({match}) => {
-			return (
-				<div id="app-page">
-					<Switch>
-						<Route path={`${match.url}/:appPsk`} component={AppDetailsPage} />
-						<Route exact path={match.url} render={() => (
-							<article>
-								<div className="container">
-									<div className="col-xs-12">
-										<h1 className="as-h2">Sorry.</h1>
-										<p>We couldn't find the app you were looking for.  <Link to="manage-apps">Go to the App Catalog</Link></p>
-									</div>
-								</div>
-							</article>
-						)}/>
-					</Switch>
-				</div>
-			)
-		}
+  getSpecializedDevicesComponent = ({match}) => {
+    return (
+      <article id="specialized-devices">
+        <Switch>
+          <Route path={`${match.url}/:deviceCategory/:deviceId`} component={DeviceDetailTemplate}/>
+          <Route path={`${match.url}/:deviceCategory`} component={DeviceCategoryTemplate}/>
+          <Route path={match.url} component={DevicesLandingPage}/>
+        </Switch>
+      </article>
+    )
+  }
 
-		const SpecializedDevices = ({match}) => {
-			return(
-				<article id="specialized-devices">
-					<Switch>
-						<Route path={`${match.url}/:deviceCategory/:deviceId`} component={DeviceDetailTemplate} />
-						<Route path={`${match.url}/:deviceCategory`} component={DeviceCategoryTemplate} />
-						<Route path={match.url} component={DevicesLandingPage} />
-					</Switch>
-				</article>
-			)
-		}
+  getMainLayoutComponent = () => {
+    return (
+      <ScrollToTop>
+        <div id="PSE-wrapper">
+          <a href="#main-content" className="sr-only sr-only-focusable">Skip Navigation</a>
+          <Header/>
+          <main id="main-content">
+            <Switch>
+              <Route exact path="/" component={AdminDashboardPage /*TODO replace with landing page*/}/>
+              <Route path="/network-status" component={NetworkStatusPage}/>
+              <Route path="/admin/manage-users" component={ManageUsersPage}/>
+              <Route path="/admin/manage-billing" component={ManageBillingPage}/>
+              <Route path="/admin/manage-services" component={ManageServicesPage}/>
+              <Route path="/admin/manage-apps" component={ManageAppsPage}/>
+              <Route path="/admin/configure-mdm" component={ConfigureMDM}/>
+              <Route path="/admin/manage-push-to-talk" component={ManagePushToTalkPage}/>
+              <Route path="/admin/manage-wireless-reports" component={ManageWirelessReportsPage}/>
+              <Route path="/admin" component={AdminDashboardPage}/>
+              <Route path="/app/:appPsk" component={AppDetailsPage/*TODO redirect to error/404 if psk has no match*/}/>
+              <Route path="/shop-devices-rates" component={ShopDevicesPage}/>
+              <Route path="/devices" component={this.getSpecializedDevicesComponent}/>
+              <Route path="/solutions" component={ShopSolutionsPage}/>
+              <Route path="/help-center" component={HelpCenterPage}/>
+              <Route path="/privacy" component={PrivacyPage}/>
+              <Route path="/terms" component={TermsOfServicePage}/>
+              <Route path="/accessibility" component={AccessibilityPage}/>
+              <Route component={() => <Redirect to="/error/404"/>}/>
+            </Switch>
+          </main>
+          <Footer/>
+        </div>
+      </ScrollToTop>
+    )
+  }
 
-		//redirect until new landing is figured out
-		const TempHomePage = () => {
-			return (
-				<Redirect to="/admin" />
-			)
-		}
+  getPlainLayoutComponent = () => {
+    return (
+      <Switch>
+        <Route exact path="/error/404" component={() => <ErrorPage cause="404"/>}/>
+        <Route exact path="/error/loading" component={() => <ErrorPage cause="loading"/>}/>
+        <Route path="/error" component={ErrorPage}/>
+        <Route component={() => <Redirect to="/error/404"/>}/>
+      </Switch>
+    )
+  }
 
-		return userStore.authentic_user
-		  ? <Router>
-		      <Provider store={pseMasterStore}>
-		        <ScrollToTop>
-		          <div id="PSE-wrapper">
-		            <a href="#main-content" className="sr-only sr-only-focusable">Skip Navigation</a>
-		            <Header/>
-		            <main id="main-content">
-		              <Switch>
-		                <Route exact path="/" component={TempHomePage}/>
-		                <Route path="/network-status" component={NetworkStatusPage}/>
-		                <Route path="/admin/manage-users" component={ManageUsersPage}/>
-		                <Route path="/admin/manage-billing" component={ManageBillingPage}/>
-		                <Route path="/admin/manage-services" component={ManageServicesPage}/>
-		                <Route path="/admin/manage-apps" component={ManageAppsPage}/>
-		                <Route path="/admin/configure-mdm" component={ConfigureMDM}/>
-		                <Route path="/admin/manage-push-to-talk" component={ManagePushToTalkPage}/>
-		                <Route path="/admin/manage-wireless-reports" component={ManageWirelessReportsPage}/>
-		                <Route path="/admin" component={AdminDashboardPage}/>
-		                <Route path="/app" component={AppHub}/>
-		                <Route path="/shop-devices-rates" component={ShopDevicesPage}/>
-		                <Route path="/devices" component={SpecializedDevices}/>
-		                <Route path="/solutions" component={ShopSolutionsPage}/>
-		                <Route path="/help-center" component={HelpCenterPage}/>
-		                <Route path="/privacy" component={PrivacyPage}/>
-		                <Route path="/terms" component={TermsOfServicePage}/>
-		                <Route path="/accessibility" component={AccessibilityPage}/>
-		                <Route component={NoMatch}/>
-		              </Switch>
-		            </main>
-		            <Footer/>
-		          </div>
-		        </ScrollToTop>
-		      </Provider>
-		    </Router>
-		  : <ErrorPage/>
-	}
+  render() {
+    return (
+      <Router history={pseMasterStore.routerStore.history}>
+        {pseMasterStore.userStore.userValidationDone && <Provider store={pseMasterStore}>
+          <Switch>
+            <Route path="/error" component={this.getPlainLayoutComponent}/>
+            <Route component={this.getMainLayoutComponent}/>
+          </Switch>
+        </Provider>}
+      </Router>
+    )
+  }
 }

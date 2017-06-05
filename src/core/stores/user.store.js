@@ -9,12 +9,14 @@ class UserStore {
 
       this.initUserObject(usr_tkn);
       this.checkPermissions();
+      this.userValidationDone = true;
     }
     const fail = (err) => {
       utilsService.handleError(err);
       if(err.response.status !== 403 && err.response.status !== 401) {
         this.service_error = true;
       }
+      this.userValidationDone = true;
     }
     return apiService.validateUserData().then(success, fail);
   }
@@ -34,6 +36,7 @@ class UserStore {
   }
 
   @observable user = {};
+  @observable userValidationDone = false;
   @observable authentic_user = false;
   @observable service_error = false;
 }

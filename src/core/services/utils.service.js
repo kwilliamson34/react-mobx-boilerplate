@@ -1,4 +1,5 @@
 import config from 'config';
+import {pseMasterStore} from '../stores/master.store';
 
 class UtilsService {
   conditionData(objs) {
@@ -35,9 +36,9 @@ class UtilsService {
         window.location.replace(config.haloLogin);
         break;
       case 403:
-        console.log('Received 403 Forbidden response, redirecting to Halo...');
-        //TODO design and build an Unauthorized error page, redirect there using react router
-        window.location.replace(config.haloLogin);
+        console.log('Received 403 Forbidden response, redirecting to error page...');
+        pseMasterStore.routerStore.history.push('/error');
+        pseMasterStore.routerStore.history.goForward();
         break;
       case 500:
         if (err.message.indexOf('Bearer token is invalid' > -1)) {
