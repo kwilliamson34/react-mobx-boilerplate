@@ -127,9 +127,65 @@
       padding: 20px 0;
     }
   }
+
+  .details-wrapper {
+    display: block;
+    text-align: left;
+  }
+
+  .purchasing-info {
+    & dl {
+      width: 100%;
+      overflow: hidden;
+      background: $fn-white;
+      padding: 0;
+      margin: 0;
+      font-size: $fn-body-default-size;
+      line-height: 24px;
+      -webkit-column-count: 2;
+      -moz-column-count: 2;
+      column-count: 2;
+
+      dt {
+        float: left;
+        width: 50%;
+        padding: 0;
+        margin: 0;
+        font-weight: $fn-medium-weight;
+
+        &::after {
+          content: ": ";
+        }
+
+      }
+
+      dd {
+        float: left;
+        width: 50%;
+        padding: 0;
+        margin: 0 0 25px 0;
+        font-weight: $fn-normal-weight;
+
+        &:nth-child(6) {
+          margin: 0;
+        }
+
+        > a {
+          font-weight: $fn-normal-weight;
+        }
+      }
+    }
+  }
 }
 
-@media #{$tablet} {
-
-
+@media #{$mobile} {
+  #solutions-hub-page {
+    .purchasing-info {
+      & dl {
+        -webkit-column-count: 1;
+        -moz-column-count: 1;
+        column-count: 1;
+      }
+    }
+  }
 }
