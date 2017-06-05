@@ -105,12 +105,12 @@ class MDMStore {
 
     // MDM Modals
     @action toggleExitModal() {
-      this.showExitModal = this.showExitModal ? false : true;
+        this.showExitModal = !this.showExitModal;
     }
 
     // MDM Modals
     @action togglebreakMDMConnection() {
-      this.showbreakMDMConnection = this.showbreakMDMConnection ? false : true;
+        this.showbreakMDMConnection = !this.showbreakMDMConnection;
     }
 
     @action discardFormChanges() {

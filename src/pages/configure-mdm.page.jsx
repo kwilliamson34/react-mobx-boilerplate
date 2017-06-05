@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { inject,	observer} from 'mobx-react';
-import { withRouter } from 'react-router-dom';
+
+import {history} from '../core/services/history.service';
 
 import { MDMAlerts } from '../components/configure-mdm/mdm-alerts';
 
@@ -12,36 +13,33 @@ import { MobileIronForm } from '../components/configure-mdm/mobile-iron-form';
 
 @inject('store')
 @observer
-export default withRouter(class ConfigureMDM extends React.Component {
+export default class ConfigureMDM extends React.Component {
 
   static propTypes = {
-    store: PropTypes.object,
-    history: PropTypes.object
+    store: PropTypes.object
   }
 
 	constructor(props) {
 		super(props);
 		this.store = this.props.store.mdmStore;
-    this.history = this.props.history;
     this.isConfigured = false;
 	}
 
   componentWillMount() {
     this.store.clearAlerts();
     this.store.hasBeenSubmitted = false;
-    this.store.getMDMConfiguration();
   }
 
   componentDidUpdate() {
     if(this.store.hasBeenSubmitted){
-      this.history.replace('/admin/manage-apps');
+      history.replace('/admin/manage-apps');
     }
   }
 
   componentWillUnmount() {
     if(this.store.formHasChanged && !this.store.hasBeenSubmitted){
       this.store.showExitModal = true;
-      this.history.goBack();
+      history.goBack();
     }
   }
 
@@ -69,8 +67,8 @@ export default withRouter(class ConfigureMDM extends React.Component {
 
   discardFormChanges = (event) => {
     event.preventDefault();
-    this.store.discardFormChanges()
-    this.history.replace('/admin/manage-apps');
+    this.store.discardFormChanges();
+    history.replace('/admin/manage-apps');
   }
 
   breakMDMConnection = (event) => {
@@ -85,7 +83,7 @@ export default withRouter(class ConfigureMDM extends React.Component {
 
   togglebreakMDMConnection = (event) => {
     event.preventDefault();
-    this.store.togglebreakMDMConnection()
+    this.store.togglebreakMDMConnection();
   }
 
   renderExitModal = () => {
@@ -184,7 +182,7 @@ export default withRouter(class ConfigureMDM extends React.Component {
                           <label className="control-label" htmlFor="mdm">Your MDM<span className="required-asterisks"> *</span></label>
                           {this.showMDMProviderError(this.store.mdmErrorMessages)}
                             <select id="mdm"
-                              className={mdm_provider ==='' ? 'form-control placeholder': 'form-control'}
+                              className={`form-control ${mdm_provider ==='' && 'placeholder'}`}
                               onChange={this.updateMDM}
                               onBlur={this.updateMDM}
                               value={mdm_provider}
@@ -216,4 +214,4 @@ export default withRouter(class ConfigureMDM extends React.Component {
       </article>
 		)
 	}
-});
+}
