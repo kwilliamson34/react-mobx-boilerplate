@@ -1,6 +1,7 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 import PropTypes from 'prop-types';
+import {history} from './core/services/history.service';
 
 //State Management
 import {Provider, observer} from 'mobx-react';
@@ -116,7 +117,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <Router history={pseMasterStore.routerStore.history}>
+      <Router history={history}>
         {pseMasterStore.userStore.userValidationDone && <Provider store={pseMasterStore}>
           <Switch>
             <Route path="/error" component={this.getPlainLayoutComponent}/>
