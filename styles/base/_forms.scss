@@ -27,6 +27,11 @@ select::-ms-expand {
   display: none;
 }
 
+/* Remove blue highlight from select menu in IE */
+select::-ms-value {
+  background: transparent;
+}
+
 /* Remove dotted outline from select menu in Firefox */
 @-moz-document url-prefix() {
   select,
