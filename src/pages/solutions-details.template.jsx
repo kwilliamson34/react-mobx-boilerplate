@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { observer, inject } from 'mobx-react';
+import { observer } from 'mobx-react';
 
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 
@@ -29,19 +29,16 @@ const mockDetailPage = {
 //   purchasing: {}
 // }
 
-// @inject('store')
 @observer
 export default class SolutionsDetailsTemplate extends React.Component {
 
   static propTypes = {
-    // store: PropTypes.object,
     match: PropTypes.object
   }
 
   constructor(props) {
     super(props);
     this.renderPurchasingInfo = this.renderPurchasingInfo.bind(this);
-    console.log('MATCH  ', this.props.match);
   }
 
   renderPurchasingInfo() {
@@ -51,7 +48,7 @@ export default class SolutionsDetailsTemplate extends React.Component {
 
     return (
       <section className="purchasing-info">
-        <h2 className="as-h3">For Purchasing</h2>
+        <h2>For Purchasing</h2>
         <hr/>
         <dl role="list">
           <dt>Contact</dt>
@@ -68,7 +65,7 @@ export default class SolutionsDetailsTemplate extends React.Component {
           </dd>
           <dt>Company</dt>
           <dd>
-            <a href={mockDetailPage.purchasing.url}>{mockDetailPage.purchasing.company}</a>
+            {mockDetailPage.purchasing.company}
           </dd>
           <dt>Website</dt>
           <dd>
@@ -99,27 +96,31 @@ export default class SolutionsDetailsTemplate extends React.Component {
       },
       {	pageHref: `/${this.props.match.params.solutionDetail}`,
         pageTitle: solutionDetail
-      },
+      }
     ];
 
     return (
       <article id="solutions-details-page">
         <BreadcrumbNav links={crumbs} />
         <div className="container">
-        <section className="details-wrapper">
+        <section className="details-wrapper col-lg-10">
           <div className="row">
             <div className="col-xs-12">
               <h1 className="as-h2">{mockDetailPage.title}</h1>
               <h2 className="as-h3">{mockDetailPage.subtitle}</h2>
               <p>{mockDetailPage.description}</p>
-              </div>
-            <figure className="img-wrapper">
-              <img src={mockDetailPage.imagePath} alt={"Image for " + mockDetailPage.title}/>
+            </div>
+            <figure className="details-img-wrapper">
+              <img src={mockDetailPage.imagePath} alt={'Image for ' + mockDetailPage.title}/>
               <figcaption>{mockDetailPage.caption}</figcaption>
             </figure>
           </div>
         </section>
-        {shouldRenderPurchasingInfo && this.renderPurchasingInfo()}
+        <div className="col-xs-12 col-lg-10">
+          <div className="row">
+            {shouldRenderPurchasingInfo && this.renderPurchasingInfo()}
+          </div>
+        </div>
       </div>
       </article>
     )

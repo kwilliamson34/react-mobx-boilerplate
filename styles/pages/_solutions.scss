@@ -80,6 +80,8 @@
     }
   }
 
+
+  //Design says header element will probably soon be eliminated.
   .pssheader {
     position: relative;
     background-repeat: no-repeat;
@@ -131,9 +133,31 @@
   .details-wrapper {
     display: block;
     text-align: left;
+
+    h1, h2, p {
+      padding: 20px 0;
+    }
+
+    .details-img-wrapper {
+      width: 100%;
+      padding-left: 15px;
+
+      > img {
+        width: 100%;
+        object-fit: cover;
+      }
+
+      > figcaption {
+        font-weight: $fn-normal-weight;
+        font-size: $fn-body-default-size;
+        margin: 10px 0 50px 0;
+      }
+    }
   }
 
   .purchasing-info {
+    padding-left: 15px;
+
     & dl {
       width: 100%;
       overflow: hidden;
@@ -142,13 +166,18 @@
       margin: 0;
       font-size: $fn-body-default-size;
       line-height: 24px;
-      -webkit-column-count: 2;
-      -moz-column-count: 2;
-      column-count: 2;
+      // column-count: 2;
+      // -webkit-column-count: 2;
+      // -moz-column-count: 2;
+      columns: 2;
+      -moz-columns: 2;
+      -webkit-column-gap: 100px;
+      -moz-column-gap: 100px;
+      column-gap: 100px;
 
       dt {
         float: left;
-        width: 50%;
+        width: 30%;
         padding: 0;
         margin: 0;
         font-weight: $fn-medium-weight;
@@ -161,7 +190,7 @@
 
       dd {
         float: left;
-        width: 50%;
+        width: 70%;
         padding: 0;
         margin: 0 0 25px 0;
         font-weight: $fn-normal-weight;
@@ -185,6 +214,18 @@
         -webkit-column-count: 1;
         -moz-column-count: 1;
         column-count: 1;
+
+        dt {
+          width: 10%;
+        }
+
+        dd {
+          width: 90%;
+          padding: 0 20px 0 100px;
+          &:nth-child(6) {
+            margin: 0 0 25px 0;
+          }
+        }
       }
     }
   }
