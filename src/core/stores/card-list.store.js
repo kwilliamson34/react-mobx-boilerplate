@@ -45,14 +45,14 @@ class CardListStore {
 			this.searchHasBeenApplied = true;
 		}
 
-		const failure = (err) => {
+		const fail = (err) => {
 			utilsService.handleError(err);
 			this.searchResults = [];
 			this.isLoading = false;
 		}
 
 		this.isLoading = true;
-		apiService.getSearchResults(encodeURIComponent(this.searchQuery)).then(success, failure)
+		apiService.getSearchResults(encodeURIComponent(this.searchQuery)).then(success, fail)
 	}, 500, {
 		leading: true,
 		trailing: false
