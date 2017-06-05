@@ -1,5 +1,6 @@
-import { action, computed, observable } from 'mobx';
-import { apiService } from '../services/api.service';
+import {action, computed, observable} from 'mobx';
+import {apiService} from '../services/api.service';
+import {utilsService} from '../services/utils.service';
 import _ from 'lodash';
 
 // Category Mapping
@@ -24,7 +25,7 @@ class CardListStore {
 				return this.searchResults;
 			}
 			const fail = (err) => {
-				console.warn(err);
+				utilsService.handleError(err);
 				this.isLoading = false;
 			}
 			this.isLoading = true;
@@ -44,14 +45,14 @@ class CardListStore {
 			this.searchHasBeenApplied = true;
 		}
 
-		const failure = (error) => {
-			console.warn(error);
+		const fail = (err) => {
+			utilsService.handleError(err);
 			this.searchResults = [];
 			this.isLoading = false;
 		}
 
 		this.isLoading = true;
-		apiService.getSearchResults(encodeURIComponent(this.searchQuery)).then(success, failure)
+		apiService.getSearchResults(encodeURIComponent(this.searchQuery)).then(success, fail)
 	}, 500, {
 		leading: true,
 		trailing: false

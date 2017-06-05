@@ -1,6 +1,7 @@
 import { action, observable } from 'mobx';
 import {apiService} from '../services/api.service';
 
+
 class MDMStore {
 
     // Form Functions
@@ -86,6 +87,7 @@ class MDMStore {
     @action breakMDMConnection() {
         this.pseMDMObject.clear();
         this.hasBeenSubmitted = false;
+        this.showbreakMDMConnection = false;
         this.resetMDMForm();
         this.alert_msgs.push({type:'success', headline:'Success! ', message:'The connection to MDM has been broken.'});
     }
@@ -106,12 +108,16 @@ class MDMStore {
       this.showExitModal = this.showExitModal ? false : true;
     }
 
+    // MDM Modals
+    @action togglebreakMDMConnection() {
+      this.showbreakMDMConnection = this.showbreakMDMConnection ? false : true;
+    }
+
     @action discardFormChanges() {
         this.formHasChanged = false;
         this.showExitModal = false;
         this.resetMDMForm();
     }
-
 
     // Services
     @action setMDMConfiguration(mdmConfig) {
@@ -135,7 +141,7 @@ class MDMStore {
 
         // const success = (res) => {}
         // const fail = (err) => {
-        //     console.warn(err);
+        //     utilsService.handleError(err);
         // }
         // return apiService.getPSELocation().then(success, fail)
 
@@ -188,6 +194,7 @@ class MDMStore {
 
     @observable formHasChanged = false;
     @observable showExitModal = false;
+    @observable showbreakMDMConnection = false;
 
 }
 

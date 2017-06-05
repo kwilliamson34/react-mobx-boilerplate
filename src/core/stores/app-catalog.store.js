@@ -1,5 +1,6 @@
-import { action, observable } from 'mobx';
-import { apiService } from '../services/api.service';
+import {action, observable} from 'mobx';
+import {apiService} from '../services/api.service';
+import {utilsService} from '../services/utils.service';
 
 class AppCatalogStore {
 
@@ -11,7 +12,7 @@ class AppCatalogStore {
 			return this.allApps;
 		}
 		const fail = (err) => {
-			console.warn(err);
+			utilsService.handleError(err);
 			this.isLoading = false;
 		}
 		this.isLoading = true;
@@ -47,8 +48,8 @@ class AppCatalogStore {
 			this.isLoading = false;
 		}
 
-		let failure = (error) => {
-			console.warn(error);
+		let failure = (err) => {
+			utilsService.handleError(err);
 			this.isLoading = false;
 		}
 

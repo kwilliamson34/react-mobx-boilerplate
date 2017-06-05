@@ -67,11 +67,6 @@ export default withRouter(class ConfigureMDM extends React.Component {
     }
   }
 
-  toggleExitModal = (event) => {
-    event.preventDefault();
-    this.store.toggleExitModal()
-  }
-
   discardFormChanges = (event) => {
     event.preventDefault();
     this.store.discardFormChanges()
@@ -83,10 +78,20 @@ export default withRouter(class ConfigureMDM extends React.Component {
     this.store.breakMDMConnection()
   }
 
+  toggleExitModal = (event) => {
+    event.preventDefault();
+    this.store.toggleExitModal()
+  }
+
+  togglebreakMDMConnection = (event) => {
+    event.preventDefault();
+    this.store.togglebreakMDMConnection()
+  }
+
   renderExitModal = () => {
     return (
       <div>
-        <div id="exitModal" className="modal fade in" ref="exit modal">
+        <div id="exitModal" className="modal fade in">
           <div className="modal-dialog">
             <div className="modal-content">
               <button type="button" className="btn close-modal icon-close" onClick={this.toggleExitModal}>
@@ -112,24 +117,27 @@ export default withRouter(class ConfigureMDM extends React.Component {
 
   renderBreakConnectionModal = () => {
     return (
-      <div className="modal fade" id="breakConnectionModal" ref="modal">
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <button type="button" className="btn close-modal icon-close" data-dismiss="modal">
-              <span className="sr-only">close window</span>
-            </button>
-            <div className="row no-gutters">
-              <div className="col-xs-12">
-                <h4 className="as-h2">Confirm break connection</h4>
-                <p>This cannot be undone. If you break this application’s connection to MDM, you will have to re-configure it using this form to establish a new connection.</p>
-              </div>
-              <div className="col-xs-12 text-center">
-                <button className='fn-primary' data-dismiss="modal">Keep Connection</button>
-                <button className='fn-secondary' data-dismiss="modal" onClick={this.breakMDMConnection}>Break Connection</button>
+      <div>
+        <div id="breakConnectionModal" className="modal fade in">
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <button type="button" className="btn close-modal icon-close" onClick={this.togglebreakMDMConnection}>
+                <span className="sr-only">close window</span>
+              </button>
+              <div className="row no-gutters">
+                <div className="col-xs-12">
+                  <h4 className="as-h2">Confirm break connection</h4>
+                  <p>This cannot be undone. If you break this application’s connection to MDM, you will have to re-configure it using this form to establish a new connection.</p>
+                </div>
+                <div className="col-xs-12 text-center">
+                  <button className='fn-primary' onClick={this.togglebreakMDMConnection}>Keep Connection</button>
+                  <button className='fn-secondary' onClick={this.breakMDMConnection}>Break Connection</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <div className="modal-backdrop fade in" ></div>
       </div>
     )
   }
@@ -140,7 +148,7 @@ export default withRouter(class ConfigureMDM extends React.Component {
     let mdm_form = null;
 
     this.isConfigured = this.store.pseMDMObject.entries().length ? true : false;
-    // let isConfigured = this.store.pseMDMObject.entries().length ? true : false;
+
     let formData = this.isConfigured ? this.store.pseMDMObject.toJS() : this.store.currentMDMForm.toJS();
 
     switch(mdm_provider) {
@@ -160,7 +168,7 @@ export default withRouter(class ConfigureMDM extends React.Component {
 		return (
 			<article id="configure-mdm-page">
         <div className="container">
-            {this.isConfigured && <button data-toggle="modal" data-target="#breakConnectionModal" className= "break-mdm-btn fn-primary" aria-labelledby="break-mdm-connection" aria-disabled={!this.isConfigured}>Break Connection</button>}
+            {this.isConfigured && <button onClick={this.togglebreakMDMConnection} className= "break-mdm-btn fn-primary" aria-labelledby="break-mdm-connection" aria-disabled={!this.isConfigured}>Break Connection</button>}
             <div className="col-xs-12 text-center">
                 <h1 className="as-h2">Configure Mobile Device Management (MDM)</h1>
             </div>
@@ -203,7 +211,7 @@ export default withRouter(class ConfigureMDM extends React.Component {
         </div>
 
         {this.store.showExitModal && this.renderExitModal()}
-        {this.isConfigured && this.renderBreakConnectionModal()}
+        {(this.isConfigured &&this.store.showbreakMDMConnection) && this.renderBreakConnectionModal()}
 
       </article>
 		)
