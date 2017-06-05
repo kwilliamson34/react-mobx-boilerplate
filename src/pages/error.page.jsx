@@ -25,9 +25,9 @@ export default class ErrorPage extends React.Component {
     if (this.userStore.auth_error) {
       title = 'Service Issue.';
       body_content = 'This page is experiencing an issue. Try again later, or continue to one of the FirstNet Sites below:';
-    } else if (!this.userStore.authentic_user || this.props.cause === 'timeout') {
+    } else if (!this.userStore.authentic_user || this.props.cause === 'unauthorized') {
       title = 'Content Unavailable.';
-      body_content = 'We are unable to display the content for this page. It could be that your session has timed out or you do not have access to this page.<br/>If you think this is in error, please contact your site administrator, or continue to one of the FirstNet Sites below:';
+      body_content = 'We are unable to display the content for this page. It could be that your session has timed out or you do not have access to this page.<br/><br/>If you think this is in error, please contact your site administrator, or continue to one of the FirstNet Sites below:';
     } else if (this.props.cause === '404') {
       title = "We're Sorry.";
       body_content = 'The page you were looking for could not be found.';

@@ -51,8 +51,9 @@ class UtilsService {
         pseMasterStore.routerStore.history.replace('/error');
         break;
       default:
-        console.log('Received ' + err.response.status + ' response, no special handling required.');
+        console.log('Received ' + err.response.status + ' response, redirecting to error page...');
         console.warn(err);
+        pseMasterStore.routerStore.history.replace('/error');
         break;
     }
   }
