@@ -62,17 +62,17 @@ class ExternalLinkStore {
     apiService.getSolutionHeaderImg(queryString).then(success, fail);
   }
 
-  // @action getPSSDetails(queryString) {
-  //   const success = (res) => {
-  //     this.solutionDetails = res;
-  //   }
-  //
-  //   const fail = (res) => {
-  //     console.log('getPSSDetails fetch failed\n' + res);
-  //   }
-  //
-  //   apiService.getPSSDetails(queryString).then(success, fail);
-  // }
+  @action getSolutionDetails(queryString) {
+    const success = (res) => {
+      this.solutionDetails = res;
+    }
+
+    const fail = (res) => {
+      console.log('getPSSDetails fetch failed\n' + res);
+    }
+
+    apiService.getSolutionDetails(queryString).then(success, fail);
+  }
 
 
   //COMPUTEDS
@@ -91,7 +91,7 @@ class ExternalLinkStore {
 
   @observable solutionCards = [];
   @observable solutionHeaderImg = '';
-  // @observable solutionDetails = {};
+  @observable solutionDetails = {};
 
   @observable currentCategory = '';
   @observable currentCategoryData = {
