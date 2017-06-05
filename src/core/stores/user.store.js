@@ -1,6 +1,6 @@
 import {observable, action} from 'mobx';
 import {apiService} from '../services/api.service';
-import {utilsService} from '../services/utils.service';
+import config from 'config';
 
 class UserStore {
   @action validateUser() {
@@ -12,9 +12,11 @@ class UserStore {
       this.userValidationDone = true;
     }
     const fail = (err) => {
-      utilsService.handleError(err);
-      if(err.response.status !== 403 && err.response.status !== 401) {
-        this.service_error = true;
+      if(err.response.status === 403 || err.response.status === 401) {
+        this.auth_error = true;
+
+        //Redirect to Halo
+        window.location.replace(config.haloLogin);
       }
       this.userValidationDone = true;
     }
@@ -38,7 +40,7 @@ class UserStore {
   @observable user = {};
   @observable userValidationDone = false;
   @observable authentic_user = false;
-  @observable service_error = false;
+  @observable auth_error = false;
 }
 
 export const userStore = new UserStore();
