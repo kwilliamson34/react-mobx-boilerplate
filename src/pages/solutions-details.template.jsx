@@ -27,25 +27,25 @@ export default class SolutionsDetailsTemplate extends React.Component {
       <section className="purchasing-info">
         <h2>For Purchasing</h2>
         <hr/>
-        <dl role="list">
-          <dt>Contact</dt>
+        <dl role="presentation">
+          <dt role="presentation">Contact</dt>
           <dd>
             {mockDetailPage.purchasing.contact}
           </dd>
-          <dt>Phone</dt>
-          <dd>
+          <dt role="presentation">Phone</dt>
+          <dd role="link">
             <a href={`tel:+1${mockDetailPage.purchasing.phone}`}>{mockDetailPage.purchasing.phone}</a>
           </dd>
-          <dt>Email</dt>
-          <dd>
+          <dt role="presentation">Email</dt>
+          <dd role="link">
             <a href={`mailto:${mockDetailPage.purchasing.email}`}>{mockDetailPage.purchasing.email}</a>
           </dd>
-          <dt>Company</dt>
+          <dt role="presentation">Company</dt>
           <dd>
             {mockDetailPage.purchasing.company}
           </dd>
-          <dt>Website</dt>
-          <dd>
+          <dt role="presentation">Website</dt>
+          <dd role="link">
             <a href={mockDetailPage.purchasing.url}>{cutUrl}</a>
           </dd>
         </dl>
