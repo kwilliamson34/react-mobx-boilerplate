@@ -63,17 +63,19 @@ export default class ManageAppsPage extends React.Component {
 						</div>
 					</div>
 				</div>
-				<div className="row">
-					<CardList
-						cards={this.paginatedCards}
-						numPagesShown={this.props.store.pages[this.pageId]}
-						itemsPerPage={this.itemsPerPage}
-						isLoading={this.cardListStore.isLoading || this.appCatalogStore.isLoading}
-						handleLoadMoreClick={this.handleLoadMoreClick}
-						handleViewAllAppsClick={this.handleViewAllAppsClick}
-						changeAppAvailability={this.appCatalogStore.changeAppAvailability.bind(this.appCatalogStore)}
-						changeAppRecommended={this.appCatalogStore.changeAppRecommended.bind(this.appCatalogStore)}
-						getMatchingApp={this.appCatalogStore.getMatchingApp.bind(this.appCatalogStore)}/>
+				<div className="container">
+					<div className="row">
+						<CardList
+							cards={this.paginatedCards}
+							numPagesShown={this.props.store.pages[this.pageId]}
+							itemsPerPage={this.itemsPerPage}
+							isLoading={this.cardListStore.isLoading || this.appCatalogStore.isLoading}
+							handleLoadMoreClick={this.handleLoadMoreClick}
+							handleViewAllAppsClick={this.handleViewAllAppsClick}
+							changeAppAvailability={this.appCatalogStore.changeAppAvailability.bind(this.appCatalogStore)}
+							changeAppRecommended={this.appCatalogStore.changeAppRecommended.bind(this.appCatalogStore)}
+							getMatchingApp={this.appCatalogStore.getMatchingApp.bind(this.appCatalogStore)}/>
+					</div>
 				</div>
 			</article>
 		)
