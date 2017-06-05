@@ -22,11 +22,7 @@ export default class ErrorPage extends React.Component {
     let showLinksforOtherPortals = true;
     let showLinkToGoBack = false;
 
-    if (this.props.cause === 'loading') {
-      title = 'Loading...'; //TODO add loading animation
-      body_content = '';
-      showLinksforOtherPortals = false;
-    } else if (this.userStore.service_error) {
+    if (this.userStore.service_error) {
       title = 'Service Issue.';
       body_content = 'This page is experiencing an issue. Try again later, or continue to one of the FirstNet Sites below:';
     } else if (!this.userStore.authentic_user || this.props.cause === 'timeout') {
