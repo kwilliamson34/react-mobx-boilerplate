@@ -230,3 +230,13 @@
     }
   }
 }
+
+@media #{$desktop} {
+  #solutions-hub-page {
+    .purchasing-info {
+      & dl {
+        max-height: 125px;
+      }
+    }
+  }
+}
