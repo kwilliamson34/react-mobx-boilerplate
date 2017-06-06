@@ -97,7 +97,7 @@ export default class ConfigureMDM extends React.Component {
               </button>
               <div className="row no-gutters">
                 <div className="col-xs-12">
-                  <h4 className="as-h2">Unsaved changes</h4>
+                  <h1 className="as-h2">Unsaved changes</h1>
                   <p>Your form changes will not be saved if you navigate away from this page.</p>
                 </div>
                 <div className="col-xs-12 text-center">
@@ -124,7 +124,7 @@ export default class ConfigureMDM extends React.Component {
               </button>
               <div className="row no-gutters">
                 <div className="col-xs-12">
-                  <h4 className="as-h2">Confirm break connection</h4>
+                  <h1 className="as-h2">Confirm break connection</h1>
                   <p>This cannot be undone. If you break this application’s connection to MDM, you will have to re-configure it using this form to establish a new connection.</p>
                 </div>
                 <div className="col-xs-12 text-center">
@@ -198,8 +198,12 @@ export default class ConfigureMDM extends React.Component {
                           {mdm_form}
                           <div className="form-group text-center">
                             <button id="mdm_submit_btn" aria-labelledby="configure-mdm-form" aria-disabled={!this.store.formIsValid || this.isConfigured || this.store.beingSubmitted} type="submit" className='fn-primary'>
-                            {this.store.beingSubmitted && <i className="icon-profile" aria-label="Still Submitting Form"></i>}
-                            <span>Submit</span>{this.store.beingSubmitted && <span>ting...</span>}
+                            {this.store.beingSubmitted
+                              ? <span>
+                                  <i className="icon-profile" aria-label="Still Submitting Form"></i>
+                                  &nbsp;&nbsp;Submitting&hellip;
+                                </span>
+                              : <span>Submit</span>}
                             </button>
                           </div>
                         </form>

@@ -6,7 +6,6 @@ class MDMStore {
 
     // Form Functions
     @action updateMDM(mdmProvider) {
-
         if (!mdmProvider.length) {
             mdmProvider = '';
             this.mdmErrorMessages = 'Please select your MDM Provider.';
@@ -19,7 +18,6 @@ class MDMStore {
     }
 
      @action updateForm(input, form) {
-
         let inputs = form.querySelectorAll('input, select');
         let validForm = true;
 
@@ -48,27 +46,8 @@ class MDMStore {
     }
 
     @action submitForm(form) {
-        console.log('submit!')
-
         let inputs = form.querySelectorAll('input, select');
-        let mdmConfig = {
-                aw_hostName: undefined,
-                aw_password: undefined,
-                aw_tenantCode: undefined,
-                aw_userName: undefined,
-                ibm_appAccessKey: undefined,
-                ibm_appID: undefined,
-                ibm_appVersion: undefined,
-                ibm_billingID: undefined,
-                ibm_password: undefined,
-                ibm_platformID: undefined,
-                ibm_rootURL: undefined,
-                ibm_userName: undefined,
-                mi_hostName: undefined,
-                mi_password: undefined,
-                mi_userName: undefined
-            };
-
+        let mdmConfig = {};
         this.clearAlerts();
 
         if(this.formIsValid){
@@ -78,7 +57,11 @@ class MDMStore {
             }
             this.setMDMConfiguration(mdmConfig)
         } else {
-            this.alert_msgs.push({type:'error', headline:'Error: ', message:'Please correct the errors below.'});
+            this.alert_msgs.push({
+              type: 'error',
+              headline: 'Error: ',
+              message: 'Please correct the errors below.'
+            });
         }
     }
 
@@ -89,7 +72,13 @@ class MDMStore {
         this.hasBeenSubmitted = false;
         this.showbreakMDMConnection = false;
         this.resetMDMForm();
-        this.alert_msgs.push({type:'success', headline:'Success! ', message:'The connection to MDM has been broken.'});
+        this.alert_msgs.push({
+          type: 'success',
+          headline: 'Success! ',
+          message: 'The connection to MDM has been broken.'
+        });
+
+        //TODO persist the breakage to the server
     }
 
 
@@ -126,18 +115,26 @@ class MDMStore {
             this.hasBeenSubmitted = true;
             this.pseMDMObject.merge(mdmConfig);
             this.alert_msgs = [];
-            this.alert_msgs.push({type:'success', headline:'Success! ', message:'A new connection has been established with MDM.'});
+            this.alert_msgs.push({
+              type: 'success',
+              headline: 'Success! ',
+              message: 'A new connection has been established with MDM.'
+            });
         }
         const fail = (err) => {
             console.warn(err);
             this.beingSubmitted = false;
-            this.alert_msgs.push({type:'error', headline:'Error: ', message:'There was an error establishing a connection with MDM.'});
+            this.alert_msgs.push({
+              type: 'error',
+              headline: 'Error: ',
+              message: 'There was an error establishing a connection with MDM.'
+            });
         }
         return apiService.setMDMConfiguration(mdmConfig).then(success, fail);
     }
 
     @action getMDMConfiguration() {
-        // TODO Service integration
+        // TODO Complete service integration
 
         // const success = (res) => {}
         // const fail = (err) => {
@@ -162,7 +159,6 @@ class MDMStore {
             mi_password: undefined,
             mi_userName: undefined
         }
-
         this.pseMDMObject.merge(serviceResponse);
 
         if(this.pseMDMObject.get('aw_hostName')){
@@ -176,26 +172,18 @@ class MDMStore {
         }
     }
 
-
     // OBSERVABLES
     @observable mdmProvider = '';
     @observable mdmErrorMessages = '';
-
     @observable currentMDMForm = observable.map({});
-
-    // TODO - will be global mdm object from PSE
-    @observable pseMDMObject = observable.map({});
-
+    @observable pseMDMObject = observable.map({}); // TODO - will be global mdm object from PSE
     @observable alert_msgs = [{headline:'Note. ', message:'Configure MDM to push apps to the system.'}];
     @observable formIsValid = false;
     @observable beingSubmitted = false;
     @observable hasBeenSubmitted = false;
-
-
     @observable formHasChanged = false;
     @observable showExitModal = false;
     @observable showbreakMDMConnection = false;
-
 }
 
 export const mdmStore = new MDMStore();
