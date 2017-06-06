@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
+import {Router, Route, Switch, Redirect} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {history} from './core/services/history.service';
 
@@ -38,6 +38,8 @@ import ShopSolutionsPage from './pages/shop-solutions.page';
 
 //Content pages
 import AppDetailsPage from './pages/app-details.page';
+import SolutionsDetailTemplate from './pages/solutions-details.template';
+import SolutionsCategoryTemplate from './pages/solutions-category.template';
 
 //Help section
 import HelpCenterPage from './pages/help-center.page';
@@ -49,6 +51,7 @@ import AccessibilityPage from './pages/accessibility.page';
 
 @observer
 export default class App extends React.Component {
+
   static props = {
     routing: PropTypes.obj
   }
@@ -68,6 +71,18 @@ export default class App extends React.Component {
       </article>
     )
   }
+
+	getPublicSafetySolutionsComponent = ({match}) => {
+		return (
+			<article id="solutions-hub-page">
+				<Switch>
+					<Route path={`${match.url}/:solutionCategory/:solutionDetail`} component={SolutionsDetailTemplate} />
+					<Route path={`${match.url}/:solutionCategory`} component={SolutionsCategoryTemplate} />
+					<Route path={match.url} component={ShopSolutionsPage} />
+				</Switch>
+			</article>
+		)
+	}
 
   getMainLayoutComponent = () => {
     return (
@@ -90,7 +105,7 @@ export default class App extends React.Component {
               <Route path="/app/:appPsk" component={AppDetailsPage/*TODO redirect to error/404 if psk has no match*/}/>
               <Route path="/shop-devices-rates" component={ShopDevicesPage}/>
               <Route path="/devices" component={this.getSpecializedDevicesComponent}/>
-              <Route path="/solutions" component={ShopSolutionsPage}/>
+              <Route path="/solutions" component={this.getPublicSafetySolutionsComponent}/>
               <Route path="/help-center" component={HelpCenterPage}/>
               <Route path="/privacy" component={PrivacyPage}/>
               <Route path="/terms" component={TermsOfServicePage}/>

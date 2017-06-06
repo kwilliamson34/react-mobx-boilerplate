@@ -42,7 +42,7 @@ export default class AdminDashboardPage extends React.Component {
                         <h3>Manage users</h3>
                         <p>Add, edit and remove users</p>
                       </div>
-                      <span>Manage Users</span>
+                      <span>Manage Users <i className="icon-arrowRight" aria-hidden="true"></i></span>
                     </NewTabLink>
                   </li>
                   <li className="col-xs-12 col-sm-6">
@@ -51,7 +51,7 @@ export default class AdminDashboardPage extends React.Component {
                         <h3>Manage services & billing</h3>
                         <p>Assign or remove device, change rate plans &amp; features, view & pay bills, update info</p>
                       </div>
-                      <span>Manage services & billing</span>
+                      <span>Manage services & billing <i className="icon-arrowRight" aria-hidden="true"></i></span>
                     </NewTabLink>
                   </li>
                   <li className="col-xs-12 col-sm-6">
@@ -60,7 +60,7 @@ export default class AdminDashboardPage extends React.Component {
                         <h3>Manage apps</h3>
                         <p>Push an app to your Mobile Device Management(MDM) solution, recommend apps, block apps</p>
                       </div>
-                      <span>Manage apps</span>
+                      <span>Manage apps <i className="icon-arrowRight" aria-hidden="true"></i></span>
                     </Link>
                   </li>
                   <li className="col-xs-12 col-sm-6">
@@ -69,7 +69,7 @@ export default class AdminDashboardPage extends React.Component {
                         <h3>Manage push-to-talk</h3>
                         <p>Create and remove talk groups, add and remove users from talk groups</p>
                       </div>
-                      <span>Manage Push-to-Talk</span>
+                      <span>Manage Push-to-Talk <i className="icon-arrowRight" aria-hidden="true"></i></span>
                     </button>
                   </li>
                   <li className="col-xs-12 col-sm-6">
@@ -78,7 +78,7 @@ export default class AdminDashboardPage extends React.Component {
                         <h3>View wireless reports</h3>
                         <p>View device inventory, rate plan summary, early termination fees, upgrade eligibility, device unlock eligibility</p>
                       </div>
-                      <span>View Wireless Reports</span>
+                      <span>View Wireless Reports <i className="icon-arrowRight" aria-hidden="true"></i></span>
                     </NewTabLink>
                   </li>
                 </ul>
@@ -96,7 +96,7 @@ export default class AdminDashboardPage extends React.Component {
                         <h3>Shop standard devices &amp; rate plans</h3>
                         <p>Add a new device, provision an existing device, add a rate plan, feature(s) and accessories</p>
                       </div>
-                      <span>Shop Devices &amp; Plans</span>
+                      <span>Shop Devices &amp; Plans <i className="icon-arrowRight" aria-hidden="true"></i></span>
                     </NewTabLink>
                   </li>
                   <li className="col-xs-12 col-md-6 col-lg-12">
@@ -105,16 +105,16 @@ export default class AdminDashboardPage extends React.Component {
                         <h3>Shop specialized devices</h3>
                         <p>Purchase ruggedized devices, vehicle routers, etc.</p>
                       </div>
-                      <span>Shop Specialized</span>
+                      <span>Shop Specialized <i className="icon-arrowRight" aria-hidden="true"></i></span>
                     </Link>
                   </li>
                   <li className="col-xs-12 col-md-6 col-lg-12">
-                    <Link to="/shop-solutions" className="dashboard-card shop-solutions has-shadow">
+                    <Link to="/solutions" className="dashboard-card shop-solutions has-shadow">
                       <div className="desc">
                         <h3>Shop public safety solutions</h3>
                         <p>Browse public safety solutions and choose which are best for your organization</p>
                       </div>
-                      <span>Shop Solutions</span>
+                      <span>Shop Solutions <i className="icon-arrowRight" aria-hidden="true"></i></span>
                     </Link>
                   </li>
                 </ul>
