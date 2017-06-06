@@ -58,6 +58,8 @@
 }
 
 .total-reviews {
+  padding-left: 20px;
+
   .ratings-container {
     display: inline-block;
     margin-right: 5px;
@@ -78,6 +80,8 @@
 
   span {
     font-size: 1.6rem;
+    color: $fn-mdgrey;
+    vertical-align: top;
   }
 }
 
