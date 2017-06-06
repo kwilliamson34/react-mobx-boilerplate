@@ -1,5 +1,7 @@
 import { action, observable, computed } from 'mobx';
 import { apiService } from '../services/api.service';
+import { utilsService } from '../services/utils.service';
+
 
 class ExternalLinkStore {
   /*
@@ -10,7 +12,7 @@ class ExternalLinkStore {
       this.devicesData = res;
     }
     const fail = (res) => {
-      console.log('MPDevice fetch failed\n' + res);
+      utilsService.handleError(res);
     }
     apiService.getMarketingPortalDevices().then(success, fail);
   }
@@ -20,7 +22,7 @@ class ExternalLinkStore {
       this.currentCategoryData = res;
     }
     const fail = (res) => {
-      console.log('Device Category Items fetch failed\n' + res);
+      utilsService.handleError(res);
     }
     if(this.deviceCategoryNum){
       apiService.getDeviceCategory(this.deviceCategoryNum).then(success, fail);
@@ -33,7 +35,7 @@ class ExternalLinkStore {
       this.currentDeviceDetail.path = devicePath;
     }
     const fail = (res) => {
-      console.log('MPDevice Detail fetch failed\n' + res);
+      utilsService.handleError(res);
     }
     apiService.getDeviceDetail(devicePath).then(success, fail);
   }
@@ -44,7 +46,7 @@ class ExternalLinkStore {
     }
 
     const fail = (res) => {
-      console.log('getSolutionCards fetch failed\n' + res);
+      utilsService.handleError(res);
     }
 
     apiService.getSolutionCards(queryString).then(success, fail);
@@ -56,7 +58,7 @@ class ExternalLinkStore {
     }
 
     const fail = (res) => {
-      console.log('getPSSHeaderImg fetch failed\n' + res);
+      utilsService.handleError(res);
     }
 
     apiService.getSolutionHeaderImg(queryString).then(success, fail);
