@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import config from 'config';
 import {observer, inject} from 'mobx-react';
 import {Link} from 'react-router-dom';
 
@@ -58,7 +59,7 @@ export default class DeviceCategoryTemplate extends React.Component {
 											<Link to={item.url}>
 												{item.title}
 												<div className="card-img-wrapper">
-													<img src={item.image} alt={item.alt} />
+													<img src={config.mktgPortalImgBaseUrl + item.image} alt={item.alt} />
 												</div>
 											</Link>
 										</li>
