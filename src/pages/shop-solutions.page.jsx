@@ -25,7 +25,7 @@ export default class ShopSolutionsPage extends React.Component {
                 <h3 className="card-title">{card.title}</h3>
                 <div className="card-desc">{card.description}</div>
               </div>
-              <div className="learn-more">Learn More</div>
+              <div className="learn-more">Learn More<i className="icon-arrowRight" aria-hidden="true" /></div>
             </Link>
           </div>
         </div>
