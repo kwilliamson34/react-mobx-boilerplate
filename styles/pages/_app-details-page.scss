@@ -60,19 +60,11 @@
   .app-description,
   .app-developer {
     padding: 70px 0 50px;
-
-    & h2 {
-      padding-bottom: 30px;
-    }
   }
 
   .app-ratings {
     padding: 70px 0 50px;
     background: $fn-white;
-
-    & h2 {
-      padding-bottom: 50px;
-    }
   }
 
   .app-management {
@@ -91,7 +83,7 @@
 }
 /* mobile */
 @media only screen and (min-width : 0px) {
-  .app-details-page {
+  #app-details-page {
     .app-summary {
       h1 {
         font-size: 2.4rem;
@@ -141,15 +133,28 @@
         }
       }
     }
-
     .developer-website {
       text-align: left;
     }
+
+    .app-description,
+    .app-developer {
+      & h2 {
+        padding-bottom: 20px;
+      }
+    }
+
+    .app-ratings {
+      & h2 {
+        padding-bottom: 20px;
+      }
+    }
   }
 }
+
 /*Tablet*/
 @media only screen and (min-width : 768px) {
-  .app-details-page {
+  #app-details-page {
     .app-summary {
       h1 {
         font-size: 3rem;
@@ -187,11 +192,23 @@
         }
       }
     }
+    .app-description,
+    .app-developer {
+      & h2 {
+        padding-bottom: 30px;
+      }
+    }
+
+    .app-ratings {
+      & h2 {
+        padding-bottom: 50px;
+      }
+    }
   }
 }
 /* Desktop */
 @media only screen and (min-width : 992px) {
-  .app-details-page {
+  #app-details-page {
     .app-summary {
       font-size: $fn-body-default-size;
 
