@@ -5,7 +5,8 @@ const config = {
   haloLogout: 'https://fcontent.stage.att.com/dynamic/iamLRR/LrrController?IAM_OP=logout',
   apperianUploads: 'https://ease.apperian.com/uploads/',
   geolinkScripts: 'https://geo.stage.att.com/appBoard',
-  geolinkAbMapConstants: 'abMapConstantsFNST.js'
+  geolinkAbMapConstants: 'abMapConstantsFNST.js',
+  mktgPortalImgBaseUrl: 'https://www.firstnet.ws'
 }
 
 export default config
