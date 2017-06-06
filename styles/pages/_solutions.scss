@@ -1,0 +1,230 @@
+#solutions-hub-page {
+  padding: 0 0 70px 0;
+
+  .all-cards-wrapper {
+
+    .solutions-card {
+      display: flex;
+      flex-wrap: wrap;
+      position: relative;
+      margin: 15px 0;
+      min-height: 380px;
+
+      .card-wrapper {
+        text-align: left;
+        width: 100%;
+
+        > a {
+          text-decoration: none;
+        }
+
+        &:hover {
+          & .card-title {
+            text-decoration: underline;
+          }
+
+          & .learn-more {
+            text-decoration: underline;
+          }
+        }
+
+        .learn-more {
+          width: 100%;
+          position: absolute;
+          bottom: 1px;
+          height: 40px;
+          padding-left: 20px;
+          font-size: $fn-landing-body-default-size;
+          font-weight: $fn-medium-weight;
+          text-transform: uppercase;
+          color: $fn-ltblue;
+
+          i {
+            display: inline-block;
+            font-size: 1.2rem;
+            margin-left: 5px;
+            vertical-align: -1px;
+          }
+        }
+      }
+
+      .card-img-wrapper {
+
+        > img {
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .card-contents-wrapper {
+        color: $fn-dkgrey;
+
+        .card-title {
+          width: 100%;
+          height: 100%;
+          padding: 30px 10px 10px 20px;
+          letter-spacing: 0.38px;
+          line-height: 30px;
+
+        }
+        .card-desc {
+          height: 100%;
+          width: 100%;
+          padding: 0 20px;
+          font-size: $fn-landing-body-default-size;
+          font-weight: $fn-normal-weight;
+          line-height: 20px;
+
+        }
+      }
+    }
+  }
+
+  .intro-block {
+    display: block;
+    padding: 20px 40px;
+    text-align: left;
+
+    > h1 {
+      padding: 20px 0;
+      line-height: 58px;
+      text-transform: capitalize;
+
+      &.centered {
+        text-align: center;
+      }
+    }
+  }
+
+  .details-wrapper {
+    display: block;
+    text-align: left;
+
+    h1, h2, p {
+      padding: 20px 0;
+    }
+
+    .details-img-wrapper {
+      width: 100%;
+      padding-left: 15px;
+
+      > img {
+        width: 100%;
+        object-fit: cover;
+      }
+
+      > figcaption {
+        font-weight: $fn-normal-weight;
+        font-size: $fn-body-default-size;
+        margin: 10px 0 50px 0;
+      }
+    }
+  }
+
+  .purchasing-info {
+    padding-left: 15px;
+
+    & dl {
+      width: 100%;
+      overflow: hidden;
+      background: $fn-white;
+      padding: 0;
+      margin: 0;
+      font-size: $fn-body-default-size;
+      line-height: 24px;
+      column-count: 2;
+      -webkit-column-count: 2;
+      -moz-column-count: 2;
+      -webkit-column-gap: 100px;
+      -moz-column-gap: 100px;
+      column-gap: 100px;
+
+      dt {
+        float: left;
+        width: 30%;
+        padding: 0;
+        margin: 0;
+        font-weight: $fn-medium-weight;
+
+        &::after {
+          content: ": ";
+        }
+      }
+
+      dd {
+        float: left;
+        width: 70%;
+        padding: 0;
+        margin: 0 0 25px 0;
+        font-weight: $fn-normal-weight;
+
+        &:nth-child(6) {
+          margin: 0;
+        }
+
+        > a {
+          font-weight: $fn-normal-weight;
+        }
+      }
+    }
+  }
+}
+
+@media #{$mobile} {
+  #solutions-hub-page {
+    .purchasing-info {
+      & dl {
+        -webkit-column-count: 1;
+        -moz-column-count: 1;
+        column-count: 1;
+
+        dt {
+          width: 10%;
+        }
+
+        dd {
+          width: 90%;
+          padding: 0 20px 0 100px;
+          &:nth-child(6) {
+            margin: 0 0 25px 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media #{$desktop} {
+  #solutions-hub-page {
+    
+    .purchasing-info {
+      & dl {
+        max-height: 125px;
+      }
+    }
+  }
+}
+
+@media #{$tablet} {
+  #solutions-hub-page {
+
+    .solutions-card {
+      max-width: 480px;
+    }
+
+    .purchasing-info {
+      & dl {
+        max-height: 125px;
+      }
+    }
+  }
+}
+
+@media #{$mobile} {
+  #solutions-hub-page {
+
+    .solutions-card {
+      max-width: 480px;
+    }
+  }
+}
