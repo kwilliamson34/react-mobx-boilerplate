@@ -30,33 +30,33 @@
     text-align: left;
 
     &.manage-apps{
-      background-image: url('/images/manage-apps.png');
+      background-image: url('/images/manage-apps.svg');
     }
     &.manage-users{
-      background-image: url('/images/manage-users.png');
+      background-image: url('/images/manage-users.svg');
     }
     &.manage-billing{
-      background-image: url('/images/manage-billing.png');
+      background-image: url('/images/manage-billing.svg');
     }
     &.manage-services{
-      background-image: url('/images/manage-services.png');
+      background-image: url('/images/manage-services.svg');
     }
     &.manage-wireless-reports{
-      background-image: url('/images/wireless-reports.png');
+      background-image: url('/images/wireless-reports.svg');
     }
     &.manage-push-talk{
-      background-image: url('/images/push-to-talk.png');
+      background-image: url('/images/push-to-talk.svg');
     }
     &.shop-devices-rates{
-      background-image: url('/images/important-devices.png');
+      background-image: url('/images/important-devices.svg');
     }
     &.shop-specialized-devices{
-      background-image: url('/images/specialized-devices.png');
+      background-image: url('/images/specialized-devices.svg');
     }
     &.shop-solutions{
-      background-image: url('/images/solutions.png');
+      background-image: url('/images/solutions.svg');
     }
-    
+
     .desc {
       position: absolute;
       top: 20px;
