@@ -34,10 +34,10 @@ export default class DevicesLandingPage extends React.Component {
 								{sectionArray.map((item, idx) => {
 									return (
 										<li key={sectionId + '_' +idx}>
-											<Link to={config.mktgPortalImgBaseUrl + item.url} id={sectionId + '_' +idx}>
+											<Link to={item.url} id={sectionId + '_' +idx}>
 											{item.title}
 											<div className="card-img-wrapper">
-												<img src={item.image} alt={item.title} />
+												<img src={config.mktgPortalImgBaseUrl + item.image} alt={item.title} />
 											</div>
 											</Link>
 										</li>
