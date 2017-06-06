@@ -22,6 +22,7 @@ export default class DeviceDetailTemplate extends React.Component {
 	componentWillMount() {
 		//checking if the user was on this page previously, eliminating need for new request
 		if(this.props.match.url != this.externalLinkStore.currentDeviceDetail.path){
+			this.externalLinkStore.resetDeviceDetail();
 			this.externalLinkStore.getDeviceDetail(this.props.match.url);
 		}
 	}
