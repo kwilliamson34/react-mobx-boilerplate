@@ -82,14 +82,12 @@
       font-size: $fn-label-default-size;
       text-transform: uppercase;
       color: $fn-ltblue;
-      &:after {
+      i{
+        font-size: 1.2rem;
         display: inline-block;
         font-size: 1.2rem;
-        margin-left: 10px;
+        margin-left: 5px;
         vertical-align: -1px;
-        content: "\67";
-        text-transform: none;
-        font-family: $icon-font;
       }
     }
     &:hover,
