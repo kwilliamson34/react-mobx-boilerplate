@@ -65,6 +65,24 @@ class ExternalLinkStore {
   }
 
 
+  @action resetCategoryData() {
+    this.currentCategoryData = {
+      title: '',
+      intro: '',
+      items: []
+    };
+  }
+
+  @action resetDeviceDetail() {
+    this.currentDeviceDetail  = {
+      path: '',
+      features: [],
+      deviceName: '',
+      deviceImg: '',
+      deviceImgAlt: ''
+    };
+  }
+
   //COMPUTEDS
   @computed get deviceCategoryNum() {
     let deviceCategories = ['phones', 'tablets', 'in-vehicle', 'accessories'];

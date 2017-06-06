@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import config from 'config';
 import {observer, inject} from 'mobx-react';
 
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
@@ -21,6 +22,7 @@ export default class DeviceDetailTemplate extends React.Component {
 	componentWillMount() {
 		//checking if the user was on this page previously, eliminating need for new request
 		if(this.props.match.url != this.externalLinkStore.currentDeviceDetail.path){
+			this.externalLinkStore.resetDeviceDetail();
 			this.externalLinkStore.getDeviceDetail(this.props.match.url);
 		}
 	}
@@ -51,7 +53,7 @@ export default class DeviceDetailTemplate extends React.Component {
 						<div className="col-xs-10 col-xs-offset-1 col-sm-offset-1 col-sm-4 col-md-offset-1 col-md-4 col-lg-offset-1 col-lg-3">
 							<img
 								className="img-responsive"
-								src={this.externalLinkStore.currentDeviceDetail.deviceImg} alt={this.externalLinkStore.currentDeviceDetail.deviceImgAlt} />
+								src={config.mktgPortalImgBaseUrl + this.externalLinkStore.currentDeviceDetail.deviceImg} alt={this.externalLinkStore.currentDeviceDetail.deviceImgAlt} />
 						</div>
 						<div className="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-6 col-md-offset-0 col-lg-7">
 							<h1 className="as-h2 hidden-xs">{this.externalLinkStore.currentDeviceDetail.deviceName}</h1>
