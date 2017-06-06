@@ -13,12 +13,7 @@ export default class SolutionsDetailsTemplate extends React.Component {
     match: PropTypes.object
   }
 
-  constructor(props) {
-    super(props);
-    this.renderPurchasingInfo = this.renderPurchasingInfo.bind(this);
-  }
-
-  renderPurchasingInfo() {
+  renderPurchasingInfo = () => {
 
     //TODO: Design calls for truncated url sans everything before the domain name. Below assumes all the URLs will have a www., which feels presumptuous; if so, write more.
     const cutUrl = mockDetailPage.purchasing.url.split('www.')[1];

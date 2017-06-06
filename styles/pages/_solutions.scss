@@ -88,12 +88,16 @@
   .intro-block {
     display: block;
     padding: 20px 40px;
+    text-align: left;
 
     > h1 {
-      text-align: left;
       padding: 20px 0;
       line-height: 58px;
       text-transform: capitalize;
+
+      &.centered {
+        text-align: center;
+      }
     }
   }
 
@@ -150,7 +154,6 @@
         &::after {
           content: ": ";
         }
-
       }
 
       dd {
@@ -227,6 +230,5 @@
     .solutions-card {
       max-width: 480px;
     }
-
   }
 }

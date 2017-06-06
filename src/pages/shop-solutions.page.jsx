@@ -10,13 +10,7 @@ const mockCategoryCards = require('../fixtures/mock-solutions-cards.json');
 @observer
 export default class ShopSolutionsPage extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.renderCards = this.renderCards.bind(this);
-  }
-
-
-  renderCards(cardsArray) {
+  renderCards = (cardsArray) => {
 
     return cardsArray.map((card) => {
 
@@ -25,7 +19,7 @@ export default class ShopSolutionsPage extends React.Component {
           <div className="card-wrapper has-shadow">
             <Link to={card.url}>
               <div className="card-img-wrapper">
-                <img src={card.imgPath} alt={'Image for ' + card.title}/>
+                <img src={card.imgPath} alt={card.title}/>
               </div>
               <div className="card-contents-wrapper">
                 <h3 className="card-title">{card.title}</h3>
@@ -38,9 +32,6 @@ export default class ShopSolutionsPage extends React.Component {
       )
     })
   }
-
-  // <h1 className="as-h2">Solutions</h1>
-  // <p>Innovative communication and collaboration technologies help public safety improve decision making</p>
 
   render() {
 

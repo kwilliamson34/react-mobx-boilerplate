@@ -14,14 +14,9 @@ export default class SolutionsCategoryTemplate extends React.Component {
     match: PropTypes.object
   }
 
-  constructor(props) {
-    super(props);
-    this.renderCards = this.renderCards.bind(this);
-  }
+  renderCards = (cardsArray) => {
 
-  renderCards(cardsArray) {
-
-    //TODO: hardcoded temp url to single mocked details page. In fact, going to /solutions/anything/anything takes you to identical category and details mocked pages.
+    //TODO: hardcoded temp url to single mocked details page. We were relying on marketing portal's routing structure to make ours work, so we'll need a new way to create the query strings after we get the new API.
     const tempUrl = `${this.props.match.url}/advanced-solution`;
 
     return cardsArray.map((card) => {
@@ -31,7 +26,7 @@ export default class SolutionsCategoryTemplate extends React.Component {
           <div className="card-wrapper has-shadow">
             <Link to={tempUrl}>
               <div className="card-img-wrapper">
-                <img src={card.imgPath} alt={'Image for ' + card.title}/>
+                <img src={card.imgPath} alt={card.title}/>
               </div>
               <div className="card-contents-wrapper">
                 <h3 className="card-title">{card.title}</h3>
@@ -67,7 +62,7 @@ export default class SolutionsCategoryTemplate extends React.Component {
         <BreadcrumbNav links={crumbs} />
         <div className="container">
           <section className="intro-block">
-            <h1 className="as-h2">{categoryTitle}</h1>
+            <h1 className="as-h2 centered">{categoryTitle}</h1>
           </section>
           <section className="all-cards-wrapper text-center">
             <nav className="center-block">
