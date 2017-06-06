@@ -80,8 +80,6 @@
     }
   }
 
-
-
   .intro-block {
     display: block;
     padding: 20px 40px;
@@ -198,6 +196,7 @@
 
 @media #{$desktop} {
   #solutions-hub-page {
+    
     .purchasing-info {
       & dl {
         max-height: 125px;
