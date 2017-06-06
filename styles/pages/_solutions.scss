@@ -80,53 +80,15 @@
     }
   }
 
-
-  //Design says header element will probably soon be eliminated.
-  .pssheader {
-    position: relative;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-size: cover;
-    background-position: center;
-    background-color: $fn-black;
-    color: $fn-white;
-
-    .pssheader-contents {
-      position: relative;
-      margin: 0 15%;
-      padding: 60px 0 30px 0;
-
-      > h1 {
-        line-height: 58px;
-        text-transform: capitalize;
-      }
-
-      > p {
-        font-weight: $fn-medium-weight;
-        font-size: $fn-body-default-size;
-        line-height: 30px;
-        margin-bottom: 10px;
-        width: 65%;
-      }
-    }
-
-
-    & .main {
-      min-height: 370px;
-    }
-
-    & .small {
-      min-height: 190px;
-    }
-  }
-
   .intro-block {
     display: block;
     padding: 20px 40px;
 
-    > h2 {
+    > h1 {
       text-align: center;
       padding: 20px 0;
+      line-height: 58px;
+      text-transform: capitalize;
     }
   }
 

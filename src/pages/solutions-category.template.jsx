@@ -1,37 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { observer, inject } from 'mobx-react';
+import { observer } from 'mobx-react';
 import { Link } from 'react-router-dom';
 
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 
-@inject('store')
+const mockCategoryCards = require('../fixtures/mock-solutions-cards.json');
+
 @observer
 export default class SolutionsCategoryTemplate extends React.Component {
 
   static propTypes = {
-    store: PropTypes.object,
     match: PropTypes.object
   }
 
   constructor(props) {
     super(props);
-    this.externalStore = this.props.store.externalLinkStore;
-  }
-
-  componentWillMount() {
-    this.externalStore.getSolutionCards(this.props.match.url);
-    this.externalStore.getSolutionHeaderImg(this.props.match.url);
+    this.renderCards = this.renderCards.bind(this);
   }
 
   renderCards(cardsArray) {
+
+    //TODO: hardcoded temp url to single mocked details page. In fact, going to /solutions/anything/anything takes you to identical category and details mocked pages.
+    const tempUrl = `${this.props.match.url}/advanced-solution`;
 
     return cardsArray.map((card) => {
 
       return (
         <div key={card.title} className="col-xs-12 col-sm-6 col-md-4 solutions-card">
           <div className="card-wrapper has-shadow">
-            <Link to={card.url}>
+            <Link to={tempUrl}>
               <div className="card-img-wrapper">
                 <img src={card.imgPath} alt={'Image for ' + card.title}/>
               </div>
@@ -49,8 +47,7 @@ export default class SolutionsCategoryTemplate extends React.Component {
 
   render() {
 
-    const currentCategory = this.props.match.params.solutionCategory;
-    const normalizedTitle = currentCategory.split('-').join(' ');
+    const categoryTitle = this.props.match.params.solutionCategory.split('-').join(' ');
 
     const crumbs = [
       {	pageHref: '/admin',
@@ -59,8 +56,8 @@ export default class SolutionsCategoryTemplate extends React.Component {
       {	pageHref: '/solutions',
         pageTitle: 'Public Safety Solutions'
       },
-      {	pageHref: `/${currentCategory}`,
-        pageTitle: normalizedTitle
+      {	pageHref: `/${this.props.match.params.solutionCategory}`,
+        pageTitle: categoryTitle
       }
     ];
 
@@ -68,21 +65,17 @@ export default class SolutionsCategoryTemplate extends React.Component {
     return (
       <article id="solutions-category-page">
         <BreadcrumbNav links={crumbs} />
-        <section className="content-wrapper">
-          <section className="pssheader small" style={{backgroundImage: this.externalStore.solutionHeaderImg}}>
-            <div className="pssheader-contents">
-              <h1 className="as-h2">{normalizedTitle}</h1>
-            </div>
+        <div className="container">
+          <section className="intro-block">
+            <h1 className="as-h2">{categoryTitle}</h1>
           </section>
-          <div className="container">
-            <section className="card-wrapper">
-              <nav>
-                {this.externalStore.solutionCards.length > 0
-                  && this.renderCards(this.externalStore.solutionCards)}
-              </nav>
-            </section>
-          </div>
-        </section>
+          <section className="card-wrapper">
+            <nav>
+              {mockCategoryCards.cards.length > 0
+                && this.renderCards(mockCategoryCards.cards)}
+            </nav>
+          </section>
+        </div>
       </article>
     )
 

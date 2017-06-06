@@ -1,0 +1,30 @@
+{
+  "largeHeroUrl": "https://www-dev.firstnet.ws/sites/default/files/images/blocks/Solutions_0.png",
+  "smallHeroUrl": "https://www-dev.firstnet.ws/sites/default/files/images/content/banner/Tools_0.png",
+  "cards": [
+    {
+      "title": "Advanced Logistics",
+      "description": "Better, faster, more",
+      "imgPath": "https://www-dev.firstnet.ws/sites/default/files/images/blocks/5.Solutions_Tools%20Workforce%20Manager%20img_2200.jpg",
+      "url": "/solutions/advanced-logistics"
+    },
+    {
+      "title": "Tools",
+      "description": "Work for your community",
+      "imgPath": "https://www-dev.firstnet.ws/sites/default/files/images/blocks/5.Solutions_Tools%20Workforce%20Manager%20img_2200.jpg",
+      "url": "/solutions/tools"
+    },
+    {
+      "title": "Responsive Apps",
+      "description": "Get it done, rapidly",
+      "imgPath": "https://www-dev.firstnet.ws/sites/default/files/images/blocks/5.Solutions_Tools%20Workforce%20Manager%20img_2200.jpg",
+      "url": "/solutions/responsive-apps"
+    },
+    {
+      "title": "Next Generation Communication",
+      "description": "You can hear me now",
+      "imgPath": "https://www-dev.firstnet.ws/sites/default/files/images/blocks/5.Solutions_Tools%20Workforce%20Manager%20img_2200.jpg",
+      "url": "/solutions/next-generation-communication"
+    }
+  ]
+}
