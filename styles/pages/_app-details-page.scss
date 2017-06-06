@@ -57,7 +57,13 @@
     background: $fn-white;
   }
 
-  .app-description,
+  .app-description {
+    padding: 70px 0 50px;
+
+    & h2 {
+      padding-bottom: 30px;
+    }
+  }
   .app-developer {
     padding: 70px 0 50px;
   }
