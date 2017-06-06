@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import config from 'config';
 import {observer, inject} from 'mobx-react';
 import {Link} from 'react-router-dom';
 
@@ -22,6 +23,7 @@ export default class DeviceCategoryTemplate extends React.Component {
 	componentWillMount() {
 		//User has navigated to a different category page so will make request for new category
 		if(this.externalLinkStore.currentCategory != this.props.match.params.deviceCategory){
+			this.externalLinkStore.resetCategoryData();
 			this.externalLinkStore.currentCategory = this.props.match.params.deviceCategory;
 			this.externalLinkStore.getDeviceCategoryItems();
 		}
@@ -58,7 +60,7 @@ export default class DeviceCategoryTemplate extends React.Component {
 											<Link to={item.url}>
 												{item.title}
 												<div className="card-img-wrapper">
-													<img src={item.image} alt={item.alt} />
+													<img src={config.mktgPortalImgBaseUrl + item.image} alt={item.alt} />
 												</div>
 											</Link>
 										</li>

@@ -7,6 +7,7 @@ import RatingsChart from '../components/ratings-chart/ratings-chart';
 import AppReviews from '../components/app-reviews/app-reviews';
 import ScreenshotGallery from '../components/screenshot-gallery/screenshot-gallery';
 import AppManagementBlock from '../components/app-management-block/app-management-block';
+import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 
 //import mock response from services
 const appDetail = require('../fixtures/mock-app-detail.json');
@@ -43,8 +44,20 @@ export default class AppDetailsPage extends React.Component {
 	}
 
 	render() {
+		const crumbs = [
+			{	pageHref: '/admin',
+				pageTitle: 'Administration Dashboard'
+			},
+			{	pageHref: '/admin/manage-apps',
+				pageTitle: 'Manage Apps'
+			},
+			{	pageHref: '/app/' + (this.appStore.currentAppObject ? this.appStore.currentAppObject.app_psk : ''),
+				pageTitle: this.appStore.currentAppObject ? this.appStore.currentAppObject.app_name : ''
+			}
+		];
 		return (
 			<article id="app-details-page">
+				<BreadcrumbNav links={crumbs}/>
 				{ this.appStore.currentAppObject && this.appStore.currentAppObject.detailsFetched &&
 				<div>
         <section className="app-summary">

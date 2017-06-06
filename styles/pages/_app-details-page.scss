@@ -1,5 +1,9 @@
 #app-details-page {
-  background: $fn-grey;
+  background: $fn-ltbluegrey;
+
+  .breadcrumb-nav {
+    background: white;
+  }
 
   .appicon-wrapper {
     padding-left: 30px;
