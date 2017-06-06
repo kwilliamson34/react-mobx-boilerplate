@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import {inject, observer} from 'mobx-react';
 import {Link} from 'react-router-dom';
 
-import { CardList } from '../components/card-list/card-list';
-import { SearchForm } from '../components/search/search-form';
-import { Filters } from '../components/filters/filters';
-
+import {CardList} from '../components/card-list/card-list';
+import {SearchForm} from '../components/search/search-form';
+import {Filters} from '../components/filters/filters';
+import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 
 @inject('store')
 @observer
@@ -42,8 +42,17 @@ export default class ManageAppsPage extends React.Component {
 	}
 
 	render() {
+		const crumbs = [
+			{	pageHref: '/admin',
+				pageTitle: 'Administration Dashboard'
+			},
+			{	pageHref: '/admin/manage-apps',
+				pageTitle: 'Manage Apps'
+			}
+		];
 		return (
 			<article id="manage-apps-page">
+				<BreadcrumbNav links={crumbs}/>
 				<div className="container header">
 					<div className="row">
 						<div className="col-xs-12">
