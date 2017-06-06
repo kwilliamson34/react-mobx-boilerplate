@@ -21,7 +21,7 @@ export default class ShopSolutionsPage extends React.Component {
     return cardsArray.map((card) => {
 
       return (
-        <div key={card.title} className="col-xs-12 col-sm-6 col-md-4 solutions-card">
+        <div key={card.title} className="col-xs-12 col-sm-6 col-md-6 col-lg-4 solutions-card">
           <div className="card-wrapper has-shadow">
             <Link to={card.url}>
               <div className="card-img-wrapper">
@@ -56,7 +56,7 @@ export default class ShopSolutionsPage extends React.Component {
     return (
       <article id="shop-solutions-page">
         <BreadcrumbNav links={crumbs} />
-          <div className="container">
+          <div className="container center-block">
             <section className="intro-block col-xs-12">
               <h1 className="as-h2">For Public Safety, By Public Safety</h1>
               <p>
@@ -69,7 +69,7 @@ export default class ShopSolutionsPage extends React.Component {
                 Contact a FirstNet Specialist to learn more about FirstNet Solutions and pricing details.
               </p>
             </section>
-            <section className="card-wrapper container">
+            <section className="all-cards-wrapper">
               <nav>
                 {mockCategoryCards.cards.length > 0
                   && this.renderCards(mockCategoryCards.cards)}

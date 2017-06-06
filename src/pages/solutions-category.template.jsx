@@ -27,7 +27,7 @@ export default class SolutionsCategoryTemplate extends React.Component {
     return cardsArray.map((card) => {
 
       return (
-        <div key={card.title} className="col-xs-12 col-sm-6 col-md-4 solutions-card">
+        <div key={card.title} className="col-xs-12 col-sm-6 col-md-6 col-lg-4 solutions-card">
           <div className="card-wrapper has-shadow">
             <Link to={tempUrl}>
               <div className="card-img-wrapper">
@@ -69,7 +69,7 @@ export default class SolutionsCategoryTemplate extends React.Component {
           <section className="intro-block">
             <h1 className="as-h2">{categoryTitle}</h1>
           </section>
-          <section className="card-wrapper">
+          <section className="all-cards-wrapper">
             <nav>
               {mockCategoryCards.cards.length > 0
                 && this.renderCards(mockCategoryCards.cards)}
