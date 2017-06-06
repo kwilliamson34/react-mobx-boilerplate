@@ -1,15 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { inject,	observer} from 'mobx-react';
-
+import {inject, observer} from 'mobx-react';
 import {history} from '../core/services/history.service';
 
-import { MDMAlerts } from '../components/configure-mdm/mdm-alerts';
-
-import { AirWatchForm } from '../components/configure-mdm/air-watch-form';
-import { IBMForm } from '../components/configure-mdm/ibm-form';
-import { MobileIronForm } from '../components/configure-mdm/mobile-iron-form';
-
+import {MDMAlerts} from '../components/configure-mdm/mdm-alerts';
+import {AirWatchForm} from '../components/configure-mdm/air-watch-form';
+import {IBMForm} from '../components/configure-mdm/ibm-form';
+import {MobileIronForm} from '../components/configure-mdm/mobile-iron-form';
 
 @inject('store')
 @observer
@@ -53,11 +50,11 @@ export default class ConfigureMDM extends React.Component {
       this.store.updateForm(event.target, document.getElementById('configure-mdm-form'))
     }
   }
+
   handleSubmit = (event) => {
     event.preventDefault();
     this.store.submitForm(event.target)
   }
-
 
   showMDMProviderError = (messages) => {
     if (messages.length) {
