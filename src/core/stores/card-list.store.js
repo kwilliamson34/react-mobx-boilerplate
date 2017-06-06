@@ -127,7 +127,7 @@ class CardListStore {
 		return this.searchResults.filter((app) => {
 			let categoryCheck = () => {
 				if (this.categoryFilter) {
-					const matches = app.category.filter(category => {
+					let matches = app.category.filter(category => {
 						return category.toUpperCase() === this.categoryFilter.toUpperCase()
 					});
 					return matches.length > 0;
@@ -137,7 +137,7 @@ class CardListStore {
 			}
 			let segmentCheck = () => {
 				if (this.segmentFilter) {
-					const matches = app.user_segment.filter(segment => {
+					let matches = app.user_segment.filter(segment => {
 						return segment.toUpperCase() === this.segmentFilter.toUpperCase()
 					});
 					return matches.length > 0;
