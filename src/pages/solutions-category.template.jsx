@@ -69,8 +69,8 @@ export default class SolutionsCategoryTemplate extends React.Component {
           <section className="intro-block">
             <h1 className="as-h2">{categoryTitle}</h1>
           </section>
-          <section className="all-cards-wrapper">
-            <nav>
+          <section className="all-cards-wrapper text-center">
+            <nav className="center-block">
               {mockCategoryCards.cards.length > 0
                 && this.renderCards(mockCategoryCards.cards)}
             </nav>

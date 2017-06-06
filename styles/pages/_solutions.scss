@@ -2,8 +2,6 @@
   padding: 0 0 70px 0;
 
   .all-cards-wrapper {
-    float: none;
-    margin: 0 auto;
 
     .solutions-card {
       display: flex;
@@ -93,7 +91,7 @@
     padding: 20px 40px;
 
     > h1 {
-      text-align: center;
+      text-align: left;
       padding: 20px 0;
       line-height: 58px;
       text-transform: capitalize;
