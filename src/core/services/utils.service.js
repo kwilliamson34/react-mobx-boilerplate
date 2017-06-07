@@ -4,6 +4,10 @@ import config from 'config';
 
 class UtilsService {
   conditionData(objs) {
+    if(!objs || !objs.length) {
+      return [];
+    }
+
     let simplifiedObjectList = objs.filter(obj => {
       //only process objects that have valid metadata
       return obj.custom_metadata && obj.custom_metadata.user_segment && obj.custom_metadata.user_segment.length > 0;
