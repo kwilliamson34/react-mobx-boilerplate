@@ -1,12 +1,12 @@
-footer{
+footer {
   border-top: 5px solid $fn-black;
-  .logoRow{
-    padding: 30px 15px;
-  }
-  .footer-main{
+
+  .footer-main {
     background: $fn-ltgrey;
     padding-bottom: 60px;
-    h2, .sitemap-hdr{
+
+    .sitemap-hdr,
+    h2 {
       color: $fn-black;
       font-size: 1.8rem;
       line-height: 1.12;
@@ -14,17 +14,20 @@ footer{
       font-weight: $fn-medium-weight;
       letter-spacing: 2.65px;
     }
-    ul{
-      margin-top: 40px;
+
+    ul {
+      margin-top: 30px;
     }
-    li{
+
+    li {
       text-transform: uppercase;
       font-size: 1.6rem;
       font-weight: $fn-normal-weight;
       color: $fn-dkgrey;
-      margin-bottom: 24px;
+      margin-bottom: 15px;
       line-height: 1.4;
-      a{
+
+      a {
         font-weight: $fn-normal-weight;
         color: $fn-dkgrey;
 
@@ -68,24 +71,29 @@ footer{
           }
         }
       }
-      i{
+
+      i {
         display: inline-block;
         margin-right: 10px;
         color: $fn-social-grey;
-        &:before{
+
+        &:before {
           font-size: 2.4rem;
-          vertical-align: middle;
+          vertical-align: bottom;
         }
       }
     }
   }
-  .footer-sub{
+
+  .footer-sub {
     background: $fn-white;
     padding: 30px 0;
     border-top: 1px solid $fn-grey;
-    li{
+
+    li {
       display: inline-block;
-      a{
+
+      a {
         font-weight: $fn-normal-weight;
         font-size: 1.2rem;
         padding: 0 10px;
@@ -93,16 +101,18 @@ footer{
     }
   }
 }
-.sitemap-links{
+
+.sitemap-links {
   overflow: hidden;
   transition: all $fn-animation-duration ease;
 }
 
-.sitemap-hdr{
+.sitemap-hdr {
   position: relative;
   margin-bottom: 1.6rem;
-  display:block;
+  display: block;
   padding-left: 30px;
+
   &:before {
     content: '\68';
     position: absolute;
@@ -113,129 +123,204 @@ footer{
     text-transform: none;
     transition: all $fn-animation-duration ease;
   }
-  &[aria-expanded='true']{
-    &:before{
+
+  &[aria-expanded='false'] {
+    &:before {
       transform: rotate(-180deg);
     }
-    + .sitemap-links{
+
+    + .sitemap-links {
       max-height: 0;
     }
   }
-
   //sitemap expanded
-  &[aria-expanded='false']{
-    &:before{
+  &[aria-expanded='true'] {
+    &:before {
       transform: rotate(0);
     }
-     + .sitemap-links{
-       max-height: 700px;
-     }
 
+    + .sitemap-links {
+      max-height: 700px;
+    }
   }
 }
-.help-hdr{
+
+.help-hdr {
   display: block;
-  position:relative;
-  &:before{
+  position: relative;
+
+  &:before {
     content: '\61';
-    text-transform:none;
+    text-transform: none;
     font-family: $icon-font;
     vertical-align: middle;
     margin-right: 5px;
   }
 }
+
+.help-link-block {
+  margin-left: 25px;
+}
 /* mobile */
 @media only screen and (min-width : 0px) {
-  .footer-main{
-    .is-flex > div{
-      padding:15px 30px;
-      &:not(:last-child){
-        border-right: 0;
-        nav{border-bottom: 1px solid $fn-grey;}
+  footer {
+    .logoRow {
+      padding: 30px 15px;
+
+      img {
+        width: 100%;
+        max-width: 290px;
       }
     }
   }
-  .social-links-list{
-    li{
-      display:inline-block;
-    }
-    a{
-      margin-right: 45px;
-      > span{display:none;}
+
+  .footer-main {
+    .is-flex > div {
+      padding: 15px 30px;
+
+      &:not(:last-child) {
+        border-right: 0;
+
+        nav {
+          border-bottom: 1px solid $fn-grey;
+        }
+      }
     }
   }
-  .footer-sub{
-    .sub-links{text-align: center}
-    li{
+
+  .social-links-list {
+    li {
+      display: inline-block;
+    }
+
+    a {
+      margin-right: 45px;
+
+      > span {
+        display: none;
+      }
+    }
+  }
+
+  .footer-sub {
+    .sub-links {
+      text-align: center;
+    }
+
+    li {
       margin-bottom: 30px;
+
       &:nth-child(1),
-      &:nth-child(4){
+      &:nth-child(4) {
         border-right: 1px solid $fn-blue;
       }
     }
   }
 }
-
 /*Tablet*/
 @media only screen and (min-width : 768px) {
-  .footer-main{
-    .is-flex > div{
-      padding:15px 30px;
-nav{border-bottom: 0;}
-      &:not(:last-child){
-        border-right: 0;
+  footer {
+    .logoRow {
+      padding: 30px 15px;
 
-        nav{border-bottom: 1px solid $fn-grey;}
+      img {
+        max-width: 460px;
       }
     }
-    nav{
+  }
+
+  .footer-main {
+    .is-flex > div {
+      padding: 15px 30px;
+
+      nav {
+        border-bottom: 0;
+      }
+
+      &:not(:last-child) {
+        border-right: 0;
+
+        nav {
+          border-bottom: 1px solid $fn-grey;
+          padding-bottom: 15px;
+        }
+      }
+    }
+
+    nav {
       border-bottom: 1px solid $fn-grey;
     }
   }
-  .footer-sub{
-    .sub-links{text-align: right}
-    li{
+
+  .footer-sub {
+    .sub-links {
+      text-align: right;
+    }
+
+    li {
       margin-bottom: 0;
 
-      &:not(:last-child){
+      &:not(:last-child) {
         border-right: 1px solid $fn-blue;
       }
     }
   }
 }
-
 /* Desktop */
 @media only screen and (min-width : 992px) {
-  footer{
-    .logoRow{
-      padding: 60px 30px;
-    }
-  }
-  .sitemap-hdr{
-    padding: 0;
-    pointer-events: none;
-    &:before{
-      content:'';
-      display:none;
-    }
-  }
-  .social-links-list{
-    li{
-      display:block;
-    }
-    a{
-      > span{display:inline;}
-    }
-  }
-  .footer-main{
-    .is-flex > div{
-      padding:15px 30px;
-      nav{border-bottom: none;}
-      &:not(:last-child){
-        border-right: 1px solid $fn-grey;
-        nav{border-bottom: none;}
+  footer {
+    .logoRow {
+      padding: 60px 15px;
+
+      img {
+        max-width: 460px;
       }
     }
   }
 
+  .sitemap-hdr {
+    padding: 0;
+    pointer-events: none;
+
+    &:before {
+      content: '';
+      display: none;
+    }
+    &[aria-expanded]{
+      + .sitemap-links {
+        max-height: 700px;
+      }
+    }
+
+  }
+
+  .social-links-list {
+    li {
+      display: block;
+    }
+
+    a {
+      > span {
+        display: inline;
+      }
+    }
+  }
+
+  .footer-main {
+    .is-flex > div {
+      padding: 15px 30px;
+
+      nav {
+        border-bottom: none;
+      }
+
+      &:not(:last-child) {
+        border-right: 1px solid $fn-grey;
+
+        nav {
+          border-bottom: none;
+        }
+      }
+    }
+  }
 }

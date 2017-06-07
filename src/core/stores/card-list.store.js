@@ -185,7 +185,6 @@ class CardListStore {
 		}
 	];
 	@observable platformFilter = '';
-
 	@observable categories = [
     {title: 'All Categories', value: ''},
     {title: 'Public Safety (Communication) Tools', value: 'PUBLIC SAFETY (COMMUNICATION)TOOLS'},
