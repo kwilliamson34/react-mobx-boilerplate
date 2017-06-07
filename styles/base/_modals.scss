@@ -27,7 +27,7 @@
       }
 
       .btn {
-        margin: 80px 10px 0;
+        margin: 60px 10px 0;
       }
 
       .close-modal {
@@ -48,13 +48,15 @@
   .modal {
     .modal-dialog {
       .modal-content {
-        padding: 15px 25px;
+        padding: 20px 30px;
 
         h1 {
           margin-bottom: 20px;
+          font-size: $fn-h2-default-size;
         }
 
-        .btn {
+        .fn-primary,
+        .fn-secondary {
           margin-top: 20px;
         }
       }
@@ -71,7 +73,8 @@
           margin-bottom: 20px;
         }
 
-        .btn {
+        .fn-primary,
+        .fn-secondary {
           margin-top: 40px;
         }
       }
