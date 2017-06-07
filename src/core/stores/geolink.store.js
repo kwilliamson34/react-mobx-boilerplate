@@ -136,6 +136,13 @@ class GeolinkStore {
     }, '*');
   }
 
+  @action resetLayerToggles() {
+    this.showNetworkLayer = true;
+    this.showWeatherLayer = false;
+    this.showTrafficLayer = false;
+    this.showAlertLayer = false;
+  }
+
   @observable isGeolinkReady = false;
   @observable geolinkHtml = null;
   @observable mapIframeRef = null;
