@@ -1,0 +1,2047 @@
+exports[`<IBMForm /> renders displays an error when any field is empty 1`] = `
+<div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="ibm_rootURL">
+      Root URL
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid root URL.
+      </span>
+    </div>
+    <select
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="ibm_rootURL">
+      <option
+        hidden={true}
+        value="">
+        Select Root URL
+      </option>
+      <option
+        value="TBD">
+        Service will provide...
+      </option>
+    </select>
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_billingID">
+      Billing ID
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="ibm_billingID"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_userName">
+      MaaS360 User Name
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="ibm_userName"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_password">
+      MaaS360 Password
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="ibm_password"
+      type="password" />
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_platformID">
+      Platform ID
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <select
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="ibm_platformID">
+      <option
+        hidden={true}
+        value="">
+        Select Platform ID
+      </option>
+      <option
+        value="3">
+        3
+      </option>
+    </select>
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_appID">
+      App ID
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="ibm_appID"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_appVersion">
+      App Version
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <select
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="ibm_appVersion">
+      <option
+        hidden={true}
+        value="">
+        Select App Version
+      </option>
+      <option
+        value="1.0">
+        1.0
+      </option>
+    </select>
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_appAccessKey">
+      App Access Key
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="ibm_appAccessKey"
+      type="text" />
+  </div>
+</div>
+`;
+
+exports[`<IBMForm /> renders displays an error when any field is empty 2`] = `
+<div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="ibm_rootURL">
+      Root URL
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid root URL.
+      </span>
+    </div>
+    <select
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="ibm_rootURL">
+      <option
+        hidden={true}
+        value="">
+        Select Root URL
+      </option>
+      <option
+        value="TBD">
+        Service will provide...
+      </option>
+    </select>
+  </div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="ibm_billingID">
+      Billing ID
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid billing ID.
+      </span>
+    </div>
+    <input
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="ibm_billingID"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_userName">
+      MaaS360 User Name
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="ibm_userName"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_password">
+      MaaS360 Password
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="ibm_password"
+      type="password" />
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_platformID">
+      Platform ID
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <select
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="ibm_platformID">
+      <option
+        hidden={true}
+        value="">
+        Select Platform ID
+      </option>
+      <option
+        value="3">
+        3
+      </option>
+    </select>
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_appID">
+      App ID
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="ibm_appID"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_appVersion">
+      App Version
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <select
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="ibm_appVersion">
+      <option
+        hidden={true}
+        value="">
+        Select App Version
+      </option>
+      <option
+        value="1.0">
+        1.0
+      </option>
+    </select>
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_appAccessKey">
+      App Access Key
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="ibm_appAccessKey"
+      type="text" />
+  </div>
+</div>
+`;
+
+exports[`<IBMForm /> renders displays an error when any field is empty 3`] = `
+<div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="ibm_rootURL">
+      Root URL
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid root URL.
+      </span>
+    </div>
+    <select
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="ibm_rootURL">
+      <option
+        hidden={true}
+        value="">
+        Select Root URL
+      </option>
+      <option
+        value="TBD">
+        Service will provide...
+      </option>
+    </select>
+  </div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="ibm_billingID">
+      Billing ID
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid billing ID.
+      </span>
+    </div>
+    <input
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="ibm_billingID"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="ibm_userName">
+      MaaS360 User Name
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid user name.
+      </span>
+    </div>
+    <input
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="ibm_userName"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_password">
+      MaaS360 Password
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="ibm_password"
+      type="password" />
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_platformID">
+      Platform ID
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <select
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="ibm_platformID">
+      <option
+        hidden={true}
+        value="">
+        Select Platform ID
+      </option>
+      <option
+        value="3">
+        3
+      </option>
+    </select>
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_appID">
+      App ID
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="ibm_appID"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_appVersion">
+      App Version
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <select
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="ibm_appVersion">
+      <option
+        hidden={true}
+        value="">
+        Select App Version
+      </option>
+      <option
+        value="1.0">
+        1.0
+      </option>
+    </select>
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_appAccessKey">
+      App Access Key
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="ibm_appAccessKey"
+      type="text" />
+  </div>
+</div>
+`;
+
+exports[`<IBMForm /> renders displays an error when any field is empty 4`] = `
+<div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="ibm_rootURL">
+      Root URL
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid root URL.
+      </span>
+    </div>
+    <select
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="ibm_rootURL">
+      <option
+        hidden={true}
+        value="">
+        Select Root URL
+      </option>
+      <option
+        value="TBD">
+        Service will provide...
+      </option>
+    </select>
+  </div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="ibm_billingID">
+      Billing ID
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid billing ID.
+      </span>
+    </div>
+    <input
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="ibm_billingID"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="ibm_userName">
+      MaaS360 User Name
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid user name.
+      </span>
+    </div>
+    <input
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="ibm_userName"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="ibm_password">
+      MaaS360 Password
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid password.
+      </span>
+    </div>
+    <input
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="ibm_password"
+      type="password" />
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_platformID">
+      Platform ID
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <select
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="ibm_platformID">
+      <option
+        hidden={true}
+        value="">
+        Select Platform ID
+      </option>
+      <option
+        value="3">
+        3
+      </option>
+    </select>
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_appID">
+      App ID
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="ibm_appID"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_appVersion">
+      App Version
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <select
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="ibm_appVersion">
+      <option
+        hidden={true}
+        value="">
+        Select App Version
+      </option>
+      <option
+        value="1.0">
+        1.0
+      </option>
+    </select>
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_appAccessKey">
+      App Access Key
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="ibm_appAccessKey"
+      type="text" />
+  </div>
+</div>
+`;
+
+exports[`<IBMForm /> renders displays an error when any field is empty 5`] = `
+<div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="ibm_rootURL">
+      Root URL
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid root URL.
+      </span>
+    </div>
+    <select
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="ibm_rootURL">
+      <option
+        hidden={true}
+        value="">
+        Select Root URL
+      </option>
+      <option
+        value="TBD">
+        Service will provide...
+      </option>
+    </select>
+  </div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="ibm_billingID">
+      Billing ID
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid billing ID.
+      </span>
+    </div>
+    <input
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="ibm_billingID"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="ibm_userName">
+      MaaS360 User Name
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid user name.
+      </span>
+    </div>
+    <input
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="ibm_userName"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="ibm_password">
+      MaaS360 Password
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid password.
+      </span>
+    </div>
+    <input
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="ibm_password"
+      type="password" />
+  </div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="ibm_platformID">
+      Platform ID
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid platform ID.
+      </span>
+    </div>
+    <select
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="ibm_platformID">
+      <option
+        hidden={true}
+        value="">
+        Select Platform ID
+      </option>
+      <option
+        value="3">
+        3
+      </option>
+    </select>
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_appID">
+      App ID
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="ibm_appID"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_appVersion">
+      App Version
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <select
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="ibm_appVersion">
+      <option
+        hidden={true}
+        value="">
+        Select App Version
+      </option>
+      <option
+        value="1.0">
+        1.0
+      </option>
+    </select>
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_appAccessKey">
+      App Access Key
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="ibm_appAccessKey"
+      type="text" />
+  </div>
+</div>
+`;
+
+exports[`<IBMForm /> renders displays an error when any field is empty 6`] = `
+<div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="ibm_rootURL">
+      Root URL
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid root URL.
+      </span>
+    </div>
+    <select
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="ibm_rootURL">
+      <option
+        hidden={true}
+        value="">
+        Select Root URL
+      </option>
+      <option
+        value="TBD">
+        Service will provide...
+      </option>
+    </select>
+  </div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="ibm_billingID">
+      Billing ID
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid billing ID.
+      </span>
+    </div>
+    <input
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="ibm_billingID"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="ibm_userName">
+      MaaS360 User Name
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid user name.
+      </span>
+    </div>
+    <input
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="ibm_userName"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="ibm_password">
+      MaaS360 Password
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid password.
+      </span>
+    </div>
+    <input
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="ibm_password"
+      type="password" />
+  </div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="ibm_platformID">
+      Platform ID
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid platform ID.
+      </span>
+    </div>
+    <select
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="ibm_platformID">
+      <option
+        hidden={true}
+        value="">
+        Select Platform ID
+      </option>
+      <option
+        value="3">
+        3
+      </option>
+    </select>
+  </div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="ibm_appID">
+      App ID
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid app ID.
+      </span>
+    </div>
+    <input
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="ibm_appID"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_appVersion">
+      App Version
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <select
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="ibm_appVersion">
+      <option
+        hidden={true}
+        value="">
+        Select App Version
+      </option>
+      <option
+        value="1.0">
+        1.0
+      </option>
+    </select>
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_appAccessKey">
+      App Access Key
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="ibm_appAccessKey"
+      type="text" />
+  </div>
+</div>
+`;
+
+exports[`<IBMForm /> renders displays an error when any field is empty 7`] = `
+<div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="ibm_rootURL">
+      Root URL
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid root URL.
+      </span>
+    </div>
+    <select
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="ibm_rootURL">
+      <option
+        hidden={true}
+        value="">
+        Select Root URL
+      </option>
+      <option
+        value="TBD">
+        Service will provide...
+      </option>
+    </select>
+  </div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="ibm_billingID">
+      Billing ID
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid billing ID.
+      </span>
+    </div>
+    <input
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="ibm_billingID"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="ibm_userName">
+      MaaS360 User Name
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid user name.
+      </span>
+    </div>
+    <input
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="ibm_userName"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="ibm_password">
+      MaaS360 Password
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid password.
+      </span>
+    </div>
+    <input
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="ibm_password"
+      type="password" />
+  </div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="ibm_platformID">
+      Platform ID
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid platform ID.
+      </span>
+    </div>
+    <select
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="ibm_platformID">
+      <option
+        hidden={true}
+        value="">
+        Select Platform ID
+      </option>
+      <option
+        value="3">
+        3
+      </option>
+    </select>
+  </div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="ibm_appID">
+      App ID
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid app ID.
+      </span>
+    </div>
+    <input
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="ibm_appID"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="ibm_appVersion">
+      App Version
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid app version.
+      </span>
+    </div>
+    <select
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="ibm_appVersion">
+      <option
+        hidden={true}
+        value="">
+        Select App Version
+      </option>
+      <option
+        value="1.0">
+        1.0
+      </option>
+    </select>
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_appAccessKey">
+      App Access Key
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="ibm_appAccessKey"
+      type="text" />
+  </div>
+</div>
+`;
+
+exports[`<IBMForm /> renders displays an error when any field is empty 8`] = `
+<div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="ibm_rootURL">
+      Root URL
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid root URL.
+      </span>
+    </div>
+    <select
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="ibm_rootURL">
+      <option
+        hidden={true}
+        value="">
+        Select Root URL
+      </option>
+      <option
+        value="TBD">
+        Service will provide...
+      </option>
+    </select>
+  </div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="ibm_billingID">
+      Billing ID
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid billing ID.
+      </span>
+    </div>
+    <input
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="ibm_billingID"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="ibm_userName">
+      MaaS360 User Name
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid user name.
+      </span>
+    </div>
+    <input
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="ibm_userName"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="ibm_password">
+      MaaS360 Password
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid password.
+      </span>
+    </div>
+    <input
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="ibm_password"
+      type="password" />
+  </div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="ibm_platformID">
+      Platform ID
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid platform ID.
+      </span>
+    </div>
+    <select
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="ibm_platformID">
+      <option
+        hidden={true}
+        value="">
+        Select Platform ID
+      </option>
+      <option
+        value="3">
+        3
+      </option>
+    </select>
+  </div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="ibm_appID">
+      App ID
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid app ID.
+      </span>
+    </div>
+    <input
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="ibm_appID"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="ibm_appVersion">
+      App Version
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid app version.
+      </span>
+    </div>
+    <select
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="ibm_appVersion">
+      <option
+        hidden={true}
+        value="">
+        Select App Version
+      </option>
+      <option
+        value="1.0">
+        1.0
+      </option>
+    </select>
+  </div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="ibm_appAccessKey">
+      App Access Key
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid app access key.
+      </span>
+    </div>
+    <input
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="ibm_appAccessKey"
+      type="text" />
+  </div>
+</div>
+`;
+
+exports[`<IBMForm /> renders matches previous snapshot 1`] = `
+<div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_rootURL">
+      Root URL
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <select
+      className="form-control"
+      defaultValue={undefined}
+      disabled={false}
+      id="ibm_rootURL">
+      <option
+        hidden={true}
+        value="">
+        Select Root URL
+      </option>
+      <option
+        value="TBD">
+        Service will provide...
+      </option>
+    </select>
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_billingID">
+      Billing ID
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={false}
+      id="ibm_billingID"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_userName">
+      MaaS360 User Name
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={false}
+      id="ibm_userName"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_password">
+      MaaS360 Password
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={false}
+      id="ibm_password"
+      type="password" />
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_platformID">
+      Platform ID
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <select
+      className="form-control"
+      defaultValue={undefined}
+      disabled={false}
+      id="ibm_platformID">
+      <option
+        hidden={true}
+        value="">
+        Select Platform ID
+      </option>
+      <option
+        value="3">
+        3
+      </option>
+    </select>
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_appID">
+      App ID
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={false}
+      id="ibm_appID"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_appVersion">
+      App Version
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <select
+      className="form-control"
+      defaultValue={undefined}
+      disabled={false}
+      id="ibm_appVersion">
+      <option
+        hidden={true}
+        value="">
+        Select App Version
+      </option>
+      <option
+        value="1.0">
+        1.0
+      </option>
+    </select>
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_appAccessKey">
+      App Access Key
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={false}
+      id="ibm_appAccessKey"
+      type="text" />
+  </div>
+</div>
+`;
+
+exports[`<IBMForm /> renders matches previous snapshot 2`] = `
+<div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_rootURL">
+      Root URL
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <select
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="ibm_rootURL">
+      <option
+        hidden={true}
+        value="">
+        Select Root URL
+      </option>
+      <option
+        value="TBD">
+        Service will provide...
+      </option>
+    </select>
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_billingID">
+      Billing ID
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="ibm_billingID"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_userName">
+      MaaS360 User Name
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="ibm_userName"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_password">
+      MaaS360 Password
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="ibm_password"
+      type="password" />
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_platformID">
+      Platform ID
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <select
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="ibm_platformID">
+      <option
+        hidden={true}
+        value="">
+        Select Platform ID
+      </option>
+      <option
+        value="3">
+        3
+      </option>
+    </select>
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_appID">
+      App ID
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="ibm_appID"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_appVersion">
+      App Version
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <select
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="ibm_appVersion">
+      <option
+        hidden={true}
+        value="">
+        Select App Version
+      </option>
+      <option
+        value="1.0">
+        1.0
+      </option>
+    </select>
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="ibm_appAccessKey">
+      App Access Key
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="ibm_appAccessKey"
+      type="text" />
+  </div>
+</div>
+`;
