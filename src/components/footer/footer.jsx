@@ -6,7 +6,7 @@ import {observer,inject} from 'mobx-react';
 @inject('store')
 @observer
 export default class Footer extends React.Component {
-	
+
 	static propTypes = {
 		store: PropTypes.object
 	}
@@ -21,8 +21,10 @@ export default class Footer extends React.Component {
 		e.preventDefault();
 		this.headerStore.toggleFooterSitemap();
 	}
+
 	render() {
 		return (
+
 			<footer>
 			<div className="footer-main">
 				<div className="container">
@@ -114,15 +116,15 @@ export default class Footer extends React.Component {
 						<div className="col-xs-12 col-md-3">
 							<nav aria-describedby="helpLinks">
 								<h2 id="helpLinks" className="help-hdr">Help</h2>
-								<ul>
+								<ul className="help-link-block">
 									<li role="presentation">
 										Chat
 									</li>
 									<li role="presentation">
-										Community Feedback
+										Give Us Feedback
 									</li>
 									<li role="presentation">
-										AT&amp;T Customer<br />Service: <a href="tel:800-600-8000">800-600-8000</a>
+										AT&amp;T Customer Service:<br className="visible-xs-inline-block visible-md-inline-block" />&nbsp;<a href="tel:800-600-8000">800-600-8000</a>
 									</li>
 								</ul>
 							</nav>
