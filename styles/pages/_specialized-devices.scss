@@ -3,11 +3,12 @@
 
   h1,
   h2 {
-    margin-bottom: 1.6rem;
+    margin-bottom: 2rem;
   }
 
   .breadcrumb-nav {
     margin-bottom: 30px;
+    display: none;
   }
 
   .catalog-header {
@@ -43,6 +44,8 @@
 
       .img-responsive {
         width: 100%;
+        margin-bottom: 30px;
+        max-width: 480px;
       }
 
       .feature-list {
@@ -127,8 +130,12 @@
     }
   }
 }
+
 @media #{$tablet} {
   #specialized-devices {
+    .breadcrumb-nav {
+      display: block;
+    }
     .catalog-header {
       text-align: center;
     }
@@ -144,6 +151,9 @@
 }
 @media #{$desktop} {
   #specialized-devices {
+    .breadcrumb-nav {
+      display: block;
+    }
     .catalog-header {
       text-align: center;
     }
