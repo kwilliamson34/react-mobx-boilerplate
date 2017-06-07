@@ -1,8 +1,17 @@
-.modal-backdrop.in {
-  opacity: 0.8;
+.modal-backdrop {
+  display: none;
+
+  &.in {
+    opacity: 0.8;
+    display: block;
+  }
 }
 
 .modal {
+  &.in {
+    display: block;
+  }
+
   .modal-dialog {
     width: 90%;
     max-width: 980px;
@@ -13,12 +22,24 @@
       margin-top: 15%;
       padding: 60px 100px;
 
-      h4 {
+      h1 {
         margin-bottom: 30px;
       }
 
       .btn {
-        margin-top: 80px;
+        margin: 80px 10px 0;
+      }
+
+      .close-modal {
+        position: absolute;
+        top: 32px;
+        right: 25px;
+        margin: 0;
+
+        //TODO add special hover and focus styling to this button
+        &:focus {
+          color: $fn-black;
+        }
       }
     }
   }
@@ -29,7 +50,7 @@
       .modal-content {
         padding: 15px 25px;
 
-        h4 {
+        h1 {
           margin-bottom: 20px;
         }
 
@@ -46,7 +67,7 @@
       .modal-content {
         padding: 30px 50px;
 
-        h4 {
+        h1 {
           margin-bottom: 20px;
         }
 

@@ -3,16 +3,6 @@ import {apiService} from '../services/api.service';
 import {utilsService} from '../services/utils.service';
 import _ from 'lodash';
 
-// Category Mapping
-const user_segment = {
-	RECOMMENDED: 1,
-	FIRE_RESCUE: 201,
-	LAW_ENFORCEMENT: 200,
-	EMERGENCY_MEDICAL: 204,
-	DISPATCH: 203,
-	CRITICAL_INFRASTRUCTURE: 205
-};
-
 class CardListStore {
 
 	// ACTIONS
@@ -103,25 +93,33 @@ class CardListStore {
 
 	@computed get fireCards() {
 		return this.searchResults.filter((app) => {
-			return (app.user_segment.indexOf(user_segment.FIRE_RESCUE) > -1)
+			return app.user_segment.filter(segment => {
+				return segment.toUpperCase() === 'FIRE & RESCUE'
+			}).length > 0;
 		})
 	}
 
 	@computed get lawCards() {
 		return this.searchResults.filter((app) => {
-			return (app.user_segment.indexOf(user_segment.LAW_ENFORCEMENT) > -1)
+			return app.user_segment.filter(segment => {
+				return segment.toUpperCase() === 'LAW ENFORCEMENT'
+			}).length > 0;
 		})
 	}
 
 	@computed get emergencyCards() {
 		return this.searchResults.filter((app) => {
-			return (app.user_segment.indexOf(user_segment.EMERGENCY_MEDICAL) > -1)
+			return app.user_segment.filter(segment => {
+				return segment.toUpperCase() === 'EMERGENCY MEDICAL'
+			}).length > 0;
 		})
 	}
 
 	@computed get dispatchCards() {
 		return this.searchResults.filter((app) => {
-			return (app.user_segment.indexOf(user_segment.DISPATCH) > -1)
+			return app.user_segment.filter(segment => {
+				return segment.toUpperCase() === 'HAZMAT DISPATCH'
+			}).length > 0;
 		})
 	}
 
@@ -129,14 +127,20 @@ class CardListStore {
 		return this.searchResults.filter((app) => {
 			let categoryCheck = () => {
 				if (this.categoryFilter) {
-					return app.category.indexOf(+this.categoryFilter) > -1
+					let matches = app.category.filter(category => {
+						return category.toUpperCase() === this.categoryFilter.toUpperCase()
+					});
+					return matches.length > 0;
 				} else {
 					return true;
 				}
 			}
 			let segmentCheck = () => {
 				if (this.segmentFilter) {
-					return app.user_segment.indexOf(+this.segmentFilter) > -1
+					let matches = app.user_segment.filter(segment => {
+						return segment.toUpperCase() === this.segmentFilter.toUpperCase()
+					});
+					return matches.length > 0;
 				} else {
 					return true;
 				}
@@ -182,89 +186,31 @@ class CardListStore {
 	];
 	@observable platformFilter = '';
 
-	@observable categories = [{
-			title: 'All Categories',
-			value: ''
-		},
-		{
-			title: 'Public Safety (Communication) Tools',
-			value: 100
-		},
-		{
-			title: 'Device Security',
-			value: 101
-		},
-		{
-			title: 'Secure Connections',
-			value: 102
-		},
-		{
-			title: 'Cloud Solutions',
-			value: 103
-		},
-		{
-			title: 'Next Gen 9-1-1',
-			value: 104
-		},
-		{
-			title: 'CAD Solutions',
-			value: 105
-		},
-		{
-			title: 'Video Surveillance',
-			value: 106
-		},
-		{
-			title: 'In Building Coverage & Mapping',
-			value: 107
-		},
-		{
-			title: 'Situational Awareness & Detection',
-			value: 108
-		},
-		{
-			title: 'Cyber Security & Fraud Detection',
-			value: 109
-		},
-		{
-			title: 'Forensic Intelligence',
-			value: 110
-		},
-		{
-			title: 'Public Safety Community',
-			value: 111
-		}
-	];
+	@observable categories = [
+    {title: 'All Categories', value: ''},
+    {title: 'Public Safety (Communication) Tools', value: 'PUBLIC SAFETY (COMMUNICATION)TOOLS'},
+    {title: 'Device Security', value: 'DEVICE SECURITY'},
+    {title: 'Secure Connections', value: 'SECURE CONNECTIONS'},
+    {title: 'Cloud Solutions', value: 'CLOUD SOLUTIONS'},
+    {title: 'Next Gen 9-1-1', value: 'NEXT GEN 9-1-1'},
+    {title: 'CAD Solutions', value: 'CAD SOLUTIONS'},
+    {title: 'Video Surveillance', value: 'VIDEO SURVEILLANCE'},
+    {title: 'In Building Coverage & Mapping', value: 'IN BUILDING COVERAGE & MAPPING'},
+    {title: 'Situational Awareness & Detection', value: 'SITUATIONAL AWARENESS & DETECTION'},
+    {title: 'Cyber Security & Fraud Detection', value: 'CYBER SECURITY & FRAUD DETECTION'},
+    {title: 'Forensic Intelligence', value: 'FORENSIC INTELLIGENCE'},
+    {title: 'Public Safety Community', value: 'PUBLIC SAFETY COMMUNITY'}
+  ];
 	@observable categoryFilter = '';
 
-	@observable segments = [{
-			title: 'All Segments',
-			value: ''
-		},
-		{
-			title: 'Law Enforcement',
-			value: 200
-		},
-		{
-			title: 'Fire & Rescue',
-			value: 201
-		},
-		{
-			title: 'Emergency Medical',
-			value: 202
-		},
-		{
-			title: 'Hazmat Dispatch',
-			value: 203
-		},
-		{
-			title: 'Emergency Management',
-			value: 204
-		},
-		{
-			title: 'Critical Infrastructure',
-			value: 205
-		}
+	@observable segments = [
+		{title: 'All Segments', value: ''},
+		{title: 'Law Enforcement', value: 'LAW ENFORCEMENT'},
+		{title: 'Fire & Rescue', value: 'FIRE & RESCUE'},
+		{title: 'Emergency Medical', value: 'EMERGENCY MEDICAL'},
+		{title: 'Hazmat Dispatch', value: 'HAZMAT DISPATCH'},
+		{title: 'Emergency Management', value: 'EMERGENCY MANAGEMENT'},
+		{title: 'Critical Infrastructure', value: 'CRITICAL INFRASTRUCTURE'}
 	];
 	@observable segmentFilter = '';
 }

@@ -58,6 +58,7 @@ export default class App extends React.Component {
 
   componentWillMount() {
     pseMasterStore.userStore.validateUser();
+    pseMasterStore.mdmStore.getMDMConfiguration();
   }
 
   getSpecializedDevicesComponent = ({match}) => {

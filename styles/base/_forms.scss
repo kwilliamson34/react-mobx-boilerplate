@@ -22,6 +22,18 @@ label {
   text-transform: uppercase;
 }
 
+.form-group .msgBlock.error-list {
+  margin: 5px 0 10px;
+}
+
+.form-group .control-label {
+    text-transform: none;
+}
+
+.required-asterisks{
+  color: $fn-red;
+}
+
 /* Remove native caret from select menu in IE */
 select::-ms-expand {
   display: none;
@@ -41,3 +53,4 @@ select::-ms-value {
     text-shadow: 0 0 0 #000 !important;
   }
 }
+
