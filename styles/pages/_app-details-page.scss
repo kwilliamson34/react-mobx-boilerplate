@@ -67,13 +67,9 @@
   }
 
   .app-management {
-    float: left;
+    float: right;
     background-color: transparent;
     border: none;
-
-    & div:first-child label {
-      padding-top: 0;
-    }
   }
 
   .developer-website {
@@ -84,193 +80,38 @@
     }
   }
 }
-/* mobile */
-@media only screen and (min-width : 0px) {
+
+@media #{$mobile, $tablet} {
   #app-details-page {
-    .app-summary {
-      h1 {
-        // font-size: 2.4rem;
-        margin-bottom: 0;
-      }
-
-      > .container {
-        background: $fn-white;
-        padding: 4rem 2rem;
-      }
-
-      .appicon-wrapper {
-
-        .app-icon {
-          min-width: 48px;
-
-          img {
-            max-width: 100%;
-          }
-        }
-      }
-
-      .endorsed {
-        margin-bottom: 15px;
-      }
-
-      .app-title {
-        padding: 0 30px 0 0;
-      }
-
-      .app-meta {
-        padding: 0 15px 0 0;
-      }
-
-      .app-actions {
-        margin-top: 30px;
-
-        > div {
-          border-top: 1px solid $fn-dkgrey;
-          padding: 15px 30px;
-
-          &:last-child {
-            border-top: 1px solid $fn-dkgrey;
-            text-align: center;
-
-            button.fn-primary {
-              width: 100%;
-            }
-          }
-        }
-      }
-    }
-    .developer-website {
-      text-align: left;
-    }
-
     .app-description,
     .app-developer {
-      & h2 {
-        padding-bottom: 20px;
+      h2 {
+        padding-bottom: 2rem;
+      }
+    }
+
+    .app-ratings {
+      h2 {
+        padding-bottom: 2rem;
+      }
+    }
+  }
+}
+
+
+@media #{$desktop} {
+  #app-details-page {
+    .app-description,
+    .app-developer {
+      h2 {
+        padding-bottom: 3rem;
       }
     }
 
     .app-ratings {
       & h2 {
-        padding-bottom: 20px;
+        padding-bottom: 5rem;
       }
     }
   }
 }
-
-/*Tablet*/
-@media only screen and (min-width : 768px) {
-  #app-details-page {
-    .app-summary {
-
-      h1 {
-        // font-size: 3rem;
-        margin-bottom: 0.5rem;
-      }
-
-      .appicon-wrapper {
-        text-align: right;
-
-        img {
-          max-width: 150px;
-        }
-      }
-
-      .app-title {
-        padding: 0 30px 0 0;
-      }
-
-      .endorsed {
-        margin-bottom: 0;
-      }
-
-      .app-actions {
-        margin-top: 0;
-
-        > div {
-          border-top: 0;
-          padding: 0 15px 10px;
-
-          &:last-child {
-            border-top: 0;
-            text-align: center;
-
-            button.fn-primary {
-              width: auto;
-              padding: 0 1.5rem;
-            }
-          }
-        }
-      }
-    }
-    .app-description,
-    .app-developer {
-      & h2 {
-        padding-bottom: 30px;
-      }
-    }
-
-    .app-ratings {
-      & h2 {
-        padding-bottom: 50px;
-      }
-    }
-  }
-}
-/* Desktop */
-@media only screen and (min-width : 992px) {
-  #app-details-page {
-    .app-summary {
-      font-size: $fn-landing-body-default-size;
-
-      > .container {
-        background: $fn-white;
-        padding-top: 30px;
-        padding-bottom: 30px;
-      }
-
-      h1 {
-        // font-size: 5.3rem;
-        margin-bottom: 1.6rem;
-      }
-
-      .appicon-wrapper {
-        padding: 30px;
-        text-align: center;
-
-        img {
-          max-width: 200px;
-        }
-      }
-
-      .app-actions {
-        margin-top: 0;
-
-        > div {
-          border-top: 0;
-          padding: 5px 15px 10px;
-
-          &:last-child {
-            border-top: 0;
-            text-align: center;
-
-            button.fn-primary {
-              width: auto;
-              padding: 0 4rem;
-            }
-          }
-        }
-      }
-
-      .app-title {
-        padding: 15px 30px 0 0;
-      }
-    }
-
-    .developer-website {
-      text-align: center;
-    }
-  }
-}
-/* LG */
-@media only screen and (min-width : 1200px) {}
