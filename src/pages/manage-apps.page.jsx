@@ -13,6 +13,10 @@ import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 @observer
 export default class ManageAppsPage extends React.Component {
 
+	static propTypes = {
+		store: PropTypes.object
+	}
+
 	constructor(props) {
 		super(props);
 		this.cardListStore = this.props.store.cardListStore;
@@ -84,6 +88,7 @@ export default class ManageAppsPage extends React.Component {
 				<div className="container">
 					<div className="row">
 						<CardList
+							filteredAppsCount={this.cardListStore.filteredSearchResults.length}
 							cards={this.paginatedCards}
 							numPagesShown={this.props.store.pages[this.pageId]}
 							itemsPerPage={this.itemsPerPage}
@@ -99,7 +104,3 @@ export default class ManageAppsPage extends React.Component {
 		)
 	}
 }
-
-ManageAppsPage.propTypes = {
-	store: PropTypes.object
-};
