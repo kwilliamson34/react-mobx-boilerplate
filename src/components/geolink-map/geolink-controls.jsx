@@ -12,51 +12,46 @@ export default class GeolinkControls extends React.Component {
   constructor(props) {
     super(props);
     this.geoStore = this.props.geolinkStore;
-
-    this.handleSearchInput = this.handleSearchInput.bind(this);
-    this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
-    this.handleSearchKeyPress = this.handleSearchKeyPress.bind(this);
-
-    this.toggleNetwork = this.toggleNetwork.bind(this);
-    this.toggleTraffic = this.toggleTraffic.bind(this);
-    this.toggleWeather = this.toggleWeather.bind(this);
-    this.toggleAlerts = this.toggleAlerts.bind(this);
   }
 
-  handleSearchInput(event) {
+  componentWillMount() {
+    this.geoStore.resetLayerToggles();
+  }
+
+  handleSearchInput = (event) => {
     this.geoStore.updateSearchTerm(event.target.value);
   }
 
-  handleSearchSubmit() {
+  handleSearchSubmit = () => {
     this.geoStore.searchMap();
   }
 
-  handleSearchKeyPress(event) {
+  handleSearchKeyPress = (event) => {
     if (event.key == 'Enter') {
       event.preventDefault();
       this.handleSearchSubmit();
     }
   }
 
-  toggleNetwork(event) {
+  toggleNetwork = (event) => {
     if (event.target.type === 'checkbox') {
       this.geoStore.toggleNetwork();
     }
   }
 
-  toggleTraffic(event) {
+  toggleTraffic = (event) => {
     if (event.target.type === 'checkbox') {
       this.geoStore.toggleTraffic();
     }
   }
 
-  toggleWeather(event) {
+  toggleWeather = (event) => {
     if (event.target.type === 'checkbox') {
       this.geoStore.toggleWeather();
     }
   }
 
-  toggleAlerts(event){
+  toggleAlerts = (event) => {
     if (event.target.type === 'checkbox') {
       this.geoStore.toggleAlerts();
     }
