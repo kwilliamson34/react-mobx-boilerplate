@@ -126,7 +126,6 @@ class CardListStore {
 	@computed get filteredSearchResults() {
 		return this.searchResults.filter((app) => {
 			let categoryCheck = () => {
-				console.log('fewferfer' + this.categoryFilter);
 				if (this.categoryFilter) {
 					let matches = app.category.filter(category => {
 						return category.toUpperCase() === this.categoryFilter.toUpperCase()
