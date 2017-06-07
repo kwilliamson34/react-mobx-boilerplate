@@ -68,9 +68,13 @@
   }
 
   .app-management {
-    float: right;
+    float: left;
     background-color: transparent;
     border: none;
+
+    & div:first-child label {
+      padding-top: 0;
+    }
   }
 
   .developer-website {
