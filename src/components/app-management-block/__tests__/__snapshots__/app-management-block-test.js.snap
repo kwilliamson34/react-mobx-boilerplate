@@ -7,8 +7,9 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
       <label>
         <input
           aria-disabled={undefined}
+          checked={false}
           className=""
-          defaultChecked={false}
+          data-checked={false}
           id="Available-123"
           onChange={[Function bound onChange]}
           type="checkbox"
@@ -26,8 +27,9 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
       <label>
         <input
           aria-disabled={true}
+          checked={false}
           className="disabled"
-          defaultChecked={false}
+          data-checked={false}
           id="Recommended-123"
           onChange={[Function bound onChange]}
           type="checkbox"
@@ -41,13 +43,10 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
       </label>
     </div>
     <a
+      className="fn-primary"
       href="/mdm"
       onClick={[Function anonymous]}>
-      <button
-        className="fn-primary"
-        tabIndex="-1">
-        Push to MDM
-      </button>
+      Push to MDM
     </a>
   </div>
 </div>
@@ -62,8 +61,9 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
       <label>
         <input
           aria-disabled={undefined}
+          checked={true}
           className=""
-          defaultChecked={true}
+          data-checked={true}
           id="Available-123"
           onChange={[Function bound onChange]}
           type="checkbox"
@@ -81,8 +81,9 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
       <label>
         <input
           aria-disabled={false}
+          checked={false}
           className=""
-          defaultChecked={false}
+          data-checked={false}
           id="Recommended-123"
           onChange={[Function bound onChange]}
           type="checkbox"
@@ -96,13 +97,10 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
       </label>
     </div>
     <a
+      className="fn-primary"
       href="/mdm"
       onClick={[Function anonymous]}>
-      <button
-        className="fn-primary"
-        tabIndex="-1">
-        Push to MDM
-      </button>
+      Push to MDM
     </a>
   </div>
 </div>
@@ -117,8 +115,9 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
       <label>
         <input
           aria-disabled={undefined}
+          checked={true}
           className=""
-          defaultChecked={true}
+          data-checked={true}
           id="Available-123"
           onChange={[Function bound onChange]}
           type="checkbox"
@@ -136,8 +135,9 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
       <label>
         <input
           aria-disabled={false}
+          checked={true}
           className=""
-          defaultChecked={true}
+          data-checked={true}
           id="Recommended-123"
           onChange={[Function bound onChange]}
           type="checkbox"
@@ -151,13 +151,10 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
       </label>
     </div>
     <a
+      className="fn-primary"
       href="/mdm"
       onClick={[Function anonymous]}>
-      <button
-        className="fn-primary"
-        tabIndex="-1">
-        Push to MDM
-      </button>
+      Push to MDM
     </a>
   </div>
 </div>
@@ -172,8 +169,9 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
       <label>
         <input
           aria-disabled={undefined}
+          checked={false}
           className=""
-          defaultChecked={false}
+          data-checked={false}
           id="Available-123"
           onChange={[Function bound onChange]}
           type="checkbox"
@@ -191,8 +189,9 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
       <label>
         <input
           aria-disabled={true}
+          checked={true}
           className="disabled"
-          defaultChecked={true}
+          data-checked={true}
           id="Recommended-123"
           onChange={[Function bound onChange]}
           type="checkbox"
@@ -206,13 +205,10 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
       </label>
     </div>
     <a
+      className="fn-primary"
       href="/mdm"
       onClick={[Function anonymous]}>
-      <button
-        className="fn-primary"
-        tabIndex="-1">
-        Push to MDM
-      </button>
+      Push to MDM
     </a>
   </div>
 </div>
