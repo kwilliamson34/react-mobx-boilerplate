@@ -160,6 +160,7 @@
 @media only screen and (min-width : 768px) {
   #app-details-page {
     .app-summary {
+
       h1 {
         font-size: 3rem;
         margin-bottom: 0.5rem;
@@ -169,7 +170,7 @@
         text-align: right;
 
         img {
-          max-width: 150px;
+          max-width: 100px;
         }
       }
 
