@@ -95,14 +95,17 @@
 
       > .container {
         background: $fn-white;
-        padding: 4rem 0;
+        padding: 4rem 2rem;
       }
 
       .appicon-wrapper {
-        text-align: right;
 
-        img {
-          max-width: 120px;
+        .app-icon {
+          min-width: 48px;
+
+          img {
+            max-width: 100%;
+          }
         }
       }
 
