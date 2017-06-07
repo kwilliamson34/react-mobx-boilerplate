@@ -124,7 +124,7 @@ export default class Footer extends React.Component {
 										Give Us Feedback
 									</li>
 									<li role="presentation">
-										AT&amp;T Customer Service:<br className="visible-xs-inline-block visible-md-inline-block" /><a href="tel:800-600-8000">800-600-8000</a>
+										AT&amp;T Customer Service:<br className="visible-xs-inline-block visible-md-inline-block" /> <a href="tel:800-600-8000">800-600-8000</a>
 									</li>
 								</ul>
 							</nav>
