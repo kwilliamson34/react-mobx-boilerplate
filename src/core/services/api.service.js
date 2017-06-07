@@ -42,7 +42,7 @@ class ApiService {
     getSearchResults(query) {
       let endpoint = query
         ? `${base}/apps/admin/search?searchTxt=${query}&pseId=${userStore.pseId}`
-        : `${base}/apps/admin?pseId=${pseId}`
+        : `${base}/apps/admin?pseId=${userStore.pseId}`
       return axios.get(endpoint).then((res) => {
         return utilsService.conditionData(res.data.applications);
       });
@@ -131,6 +131,13 @@ class ApiService {
       });
     }
 
+    breakMDMConfiguration() {
+      //TODO
+      return axios({
+        method: 'delete',
+        url: `${base}/pse/mdm`
+      });
+    }
 }
 
 export const apiService = new ApiService();

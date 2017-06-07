@@ -70,6 +70,7 @@ class MDMStore {
 
     // Break MDM
     @action breakMDMConnection() {
+      const success = () => {
         this.pseMDMObject.clear();
         this.hasBeenSubmitted = false;
         this.showbreakMDMConnection = false;
@@ -79,8 +80,20 @@ class MDMStore {
           headline: 'Success! ',
           message: 'The connection to MDM has been broken.'
         });
-
-        //TODO persist the breakage to the server
+      }
+      const fail = (err) => {
+        console.warn(err);
+        this.pseMDMObject.clear();
+        this.hasBeenSubmitted = true;
+        this.showbreakMDMConnection = true;
+        this.resetMDMForm();
+        this.alert_msgs.push({
+          type: 'error',
+          headline: 'Error: ',
+          message: 'There was an error breaking the connection with MDM.'
+        });
+      }
+      return apiService.breakMDMConfiguration().then(success, fail);
     }
 
 
