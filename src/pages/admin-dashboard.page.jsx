@@ -46,14 +46,14 @@ export default class AdminDashboardPage extends React.Component {
                   <ul className="ptt-providers">
                     <li>
                       <label htmlFor="ATT_PTT">AT&T Enhanced Push-to-Talk</label>
-                      <button type="button" id="ATT_PTT" className={this.linkStore.pushToTalkProvider === 'ATT' ? 'active' : ''} onClick={this.setPushToTalkProvider.bind(this, 'ATT')}>
-                        <div><img src="/images/attlogo.png" alt="AT&T logo"></img></div>
+                      <button type="button" id="ATT_PTT" className={this.linkStore.pushToTalkProvider === 'ATT' ? 'ptt-provider active' : 'ptt-provider'} onClick={this.setPushToTalkProvider.bind(this, 'ATT')}>
+                        <img src="/images/attlogo.png" alt="AT&T logo" />
                       </button>
                     </li>
                     <li>
                       <label htmlFor="FN_PTT">FirstNet Enhanced Push-to-Talk</label>
-                      <button type="button" id="FN_PTT" className={this.linkStore.pushToTalkProvider === 'FN' ? 'active' : ''} onClick={this.setPushToTalkProvider.bind(this, 'FN')}>
-                        <div><img src="/images/firstnetlogo.png" alt="FirstNet logo"></img></div>
+                      <button type="button" id="FN_PTT" className={this.linkStore.pushToTalkProvider === 'FN' ? 'ptt-provider active' : 'ptt-provider'} onClick={this.setPushToTalkProvider.bind(this, 'FN')}>
+                        <img src="/images/firstnetlogo.png" alt="FirstNet logo" />
                       </button>
                     </li>
                   </ul>
