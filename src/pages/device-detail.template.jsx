@@ -64,6 +64,39 @@ export default class DeviceDetailTemplate extends React.Component {
 									)
 								})}
 							</ul>
+
+							<div className="col-xs-12">
+								<h2 className="as-h3">For Purchasing</h2>
+							</div>
+							<div className="col-xs-12">
+								<ul className="purchase-options-list">
+									<li>
+										<span className="label">Contact:</span>
+										<span className="">Lucius Fox</span>
+									</li>
+									<li>
+										<span className="label">Contact:</span>
+										<span className="">Lucius Fox</span>
+									</li>
+									<li>
+										<span className="label">Contact:</span>
+										<span className="">Lucius Fox</span>
+									</li>
+									<li>
+										<span className="label">Contact:</span>
+										<span className="">Lucius Fox</span>
+									</li>
+									<li>
+										<span className="label">Contact:</span>
+										<span className="">Lucius Fox</span>
+									</li>
+									<li>
+										<span className="label">Contact:</span>
+										<span className="">Lucius Fox</span>
+									</li>
+								</ul>
+							</div>
+
 						</div>
 					</div>
 				</div>

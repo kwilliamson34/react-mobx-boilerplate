@@ -23,7 +23,6 @@ export default class Footer extends React.Component {
 	}
 
 	render() {
-		console.log('render happening');
 		return (
 
 			<footer>
@@ -44,7 +43,7 @@ export default class Footer extends React.Component {
 									className="sitemap-hdr"
 									role="button"
 									aria-haspopup="true"
-									aria-expanded={this.headerStore.footerSitemapExpanded}>Sitemap {this.headerStore.footerSitemapExpanded.toString()}</a>
+									aria-expanded={this.headerStore.footerSitemapExpanded}>Sitemap</a>
 								<ul className="sitemap-links">
 									<li role="presentation">
 										<Link to="/admin">PSE Administration</Link>

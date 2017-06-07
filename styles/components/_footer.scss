@@ -286,6 +286,12 @@ footer {
       content: '';
       display: none;
     }
+    &[aria-expanded]{
+      + .sitemap-links {
+        max-height: 700px;
+      }
+    }
+
   }
 
   .social-links-list {

@@ -58,6 +58,14 @@
           font-size: $fn-body-default-size;
         }
       }
+      h2{margin-top: 30px;}
+      .purchase-options-list{
+        .label{
+          font-size: 1.4rem;
+          color: $fn-black;
+
+        }
+      }
     }
 
     .terms-block {

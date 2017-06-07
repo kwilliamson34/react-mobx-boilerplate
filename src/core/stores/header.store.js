@@ -31,15 +31,11 @@ class HeaderStore {
 		}
 		if(this.windowDimensions.width > 991){
 			this.currentBreakpoint = 'desktop';
-			this.footerSitemapExpanded = true;
 		}else if(this.windowDimensions.width >= 768){
 			this.currentBreakpoint = 'tablet';
-			this.footerSitemapExpanded = false;
 		}else{
 			this.currentBreakpoint = 'mobile';
-			this.footerSitemapExpanded = false;
 		}
-		console.log('>> ' + this.footerSitemapExpanded);
 	}
 
 	@observable windowDimensions = {
