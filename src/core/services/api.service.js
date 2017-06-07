@@ -1,6 +1,7 @@
 import axios from 'axios';
 import {utilsService} from './utils.service';
 import {externalDeviceContentService} from './external-device-content.service';
+import {externalSolutionsService} from './external-solutions.service';
 import {userStore} from '../stores/user.store';
 
 const base = '/api'
@@ -80,6 +81,20 @@ class ApiService {
         .then( (res) =>{
           return externalDeviceContentService.filterDeviceDetailData(res.data);
         });
+    }
+
+    getSolutionCards(queryString) {
+      return axios.get(`${base}/marketing${queryString}`)
+        .then((res) => {
+          return externalSolutionsService.filterSolutionCards(res.data);
+        })
+    }
+
+    getSolutionHeaderImg(queryString) {
+      return axios.get(`${base}/marketing${queryString}`)
+        .then((res) => {
+          return externalSolutionsService.filterSolutionHeaderImg(res.data);
+        })
     }
 
     addAppToGroup(appPsk, groupIdentifier) {

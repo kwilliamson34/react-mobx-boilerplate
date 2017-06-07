@@ -1,5 +1,7 @@
 import { action, observable, computed } from 'mobx';
 import { apiService } from '../services/api.service';
+import { utilsService } from '../services/utils.service';
+
 
 class ExternalLinkStore {
   /*
@@ -10,7 +12,7 @@ class ExternalLinkStore {
       this.devicesData = res;
     }
     const fail = (res) => {
-      console.log('MPDevice fetch failed\n' + res);
+      utilsService.handleError(res);
     }
     apiService.getMarketingPortalDevices().then(success, fail);
   }
@@ -20,7 +22,7 @@ class ExternalLinkStore {
       this.currentCategoryData = res;
     }
     const fail = (res) => {
-      console.log('Device Category Items fetch failed\n' + res);
+      utilsService.handleError(res);
     }
     if(this.deviceCategoryNum){
       apiService.getDeviceCategory(this.deviceCategoryNum).then(success, fail);
@@ -33,9 +35,52 @@ class ExternalLinkStore {
       this.currentDeviceDetail.path = devicePath;
     }
     const fail = (res) => {
-      console.log('MPDevice Detail fetch failed\n' + res);
+      utilsService.handleError(res);
     }
     apiService.getDeviceDetail(devicePath).then(success, fail);
+  }
+
+  @action getSolutionCards(queryString) {
+    const success = (res) => {
+      this.solutionCards = res;
+    }
+
+    const fail = (res) => {
+      utilsService.handleError(res);
+    }
+
+    apiService.getSolutionCards(queryString).then(success, fail);
+  }
+
+  @action getSolutionHeaderImg(queryString) {
+    const success = (res) => {
+      this.solutionHeaderImg = res;
+    }
+
+    const fail = (res) => {
+      utilsService.handleError(res);
+    }
+
+    apiService.getSolutionHeaderImg(queryString).then(success, fail);
+  }
+
+
+  @action resetCategoryData() {
+    this.currentCategoryData = {
+      title: '',
+      intro: '',
+      items: []
+    };
+  }
+
+  @action resetDeviceDetail() {
+    this.currentDeviceDetail  = {
+      path: '',
+      features: [],
+      deviceName: '',
+      deviceImg: '',
+      deviceImgAlt: ''
+    };
   }
 
   //COMPUTEDS
@@ -45,13 +90,15 @@ class ExternalLinkStore {
     return (categoryIndex >= 0)? categoryIndex + 1 : undefined;
   }
 
-
   @observable devicesData = {
     phones: [],
     tablets: [],
     invehicle: [],
     accessories: []
   };
+
+  @observable solutionCards = [];
+  @observable solutionHeaderImg = '';
 
   @observable currentCategory = '';
   @observable currentCategoryData = {
@@ -73,6 +120,7 @@ class ExternalLinkStore {
   @observable managePushToTalkMotorolaLink = 'https://firstnet.att.com/ptt_upm';
   @observable viewWirelessReportsLink = 'https://www.wireless.att.com/businesscare/menu/index.jsp?subject=Reports&wtLinkName=Reports&wtLinkLoc=S1&&wtLinkType=InventoryReport';
   @observable shopStandardDevicesLink = '';
+
 }
 
 export const externalLinkStore = new ExternalLinkStore();
