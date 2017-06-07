@@ -1,6 +1,6 @@
-import { action, observable } from 'mobx';
+import {action, observable} from 'mobx';
 import {apiService} from '../services/api.service';
-
+import {userStore} from './user.store';
 
 class MDMStore {
 
@@ -47,7 +47,9 @@ class MDMStore {
 
     @action submitForm(form) {
         let inputs = form.querySelectorAll('input, select');
-        let mdmConfig = {};
+        let mdmConfig = {
+          pse_id: userStore.pseId
+        };
         this.clearAlerts();
 
         if(this.formIsValid){

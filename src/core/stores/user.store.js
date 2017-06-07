@@ -62,6 +62,7 @@ class UserStore {
   @observable userValidationDone = false;
   @observable authentic_user = false;
   @observable auth_error = false;
+  @observable pseId = '123'; //TODO temporarily hardcoded
 }
 
 export const userStore = new UserStore();
