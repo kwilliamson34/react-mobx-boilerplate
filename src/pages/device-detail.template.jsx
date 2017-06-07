@@ -64,35 +64,37 @@ export default class DeviceDetailTemplate extends React.Component {
 									)
 								})}
 							</ul>
-
-							<div className="col-xs-12">
-								<h2 className="as-h3">For Purchasing</h2>
-							</div>
-							<div className="col-xs-12">
+						</div>
+					</div>
+					<div className="row">
+						<div
+							className="
+							col-xs-10 col-xs-offset-1
+							col-sm-offset-1 col-sm-10
+							col-md-6 col-md-offset-5
+							col-lg-7 col-lg-offset-4">
+							<h2 className="as-h3">For Purchasing</h2>
+							<div>
 								<ul className="purchase-options-list">
 									<li>
-										<span className="label">Contact:</span>
-										<span className="">Lucius Fox</span>
+										<strong>Contact:</strong>
+										<span>Lucius Fox</span>
 									</li>
 									<li>
-										<span className="label">Contact:</span>
-										<span className="">Lucius Fox</span>
+										<strong>Phone:</strong>
+										<a href="tel:18005882300">800-588-2300</a>
 									</li>
 									<li>
-										<span className="label">Contact:</span>
-										<span className="">Lucius Fox</span>
+										<strong>Email:</strong>
+										<a href="mailto:lfox@samsung.com">lfox@samsung.com</a>
 									</li>
 									<li>
-										<span className="label">Contact:</span>
-										<span className="">Lucius Fox</span>
+										<strong>Company:</strong>
+										<span>Samsung</span>
 									</li>
 									<li>
-										<span className="label">Contact:</span>
-										<span className="">Lucius Fox</span>
-									</li>
-									<li>
-										<span className="label">Contact:</span>
-										<span className="">Lucius Fox</span>
+										<strong>Website:</strong>
+										<a href="http://samsung.com/">samsung.com</a>
 									</li>
 								</ul>
 							</div>

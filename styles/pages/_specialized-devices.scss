@@ -38,6 +38,22 @@
   }
 
   .device-detail {
+    .purchase-options-list {
+      @extend .clearfix;
+
+      li {
+        font-size: $fn-body-default-size;
+        float: left;
+        width: 100%;
+        margin-bottom: 30px;
+
+        strong {
+          display: inline-block;
+          width: 35%;
+        }
+      }
+    }
+
     .detail-block {
       padding-top: 50px;
       padding-bottom: 100px;
@@ -58,13 +74,11 @@
           font-size: $fn-body-default-size;
         }
       }
-      h2{margin-top: 30px;}
-      .purchase-options-list{
-        .label{
-          font-size: 1.4rem;
-          color: $fn-black;
 
-        }
+      h2 {
+        margin-top: 30px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid $fn-grey;
       }
     }
 
@@ -138,12 +152,12 @@
     }
   }
 }
-
 @media #{$tablet} {
   #specialized-devices {
     .breadcrumb-nav {
       display: block;
     }
+
     .catalog-header {
       text-align: center;
     }
@@ -162,6 +176,7 @@
     .breadcrumb-nav {
       display: block;
     }
+
     .catalog-header {
       text-align: center;
     }
@@ -171,6 +186,30 @@
         width: 23%;
         min-width: auto;
         margin: 0 1% 3%;
+      }
+    }
+  }
+}
+
+@media #{$tablet, $wide} {
+  #specialized-devices {
+    .device-detail {
+      .purchase-options-list {
+        li {
+          width: 50%;
+        }
+      }
+    }
+  }
+}
+
+@media #{$normal} {
+  #specialized-devices {
+    .device-detail {
+      .purchase-options-list {
+        li {
+          width: 100%;
+        }
       }
     }
   }
