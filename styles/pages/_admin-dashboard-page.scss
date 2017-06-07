@@ -1,8 +1,8 @@
 #admin-dashboard-page {
-
   padding-bottom: 70px;
+
   h1 {
-    margin-bottom: 3rem
+    margin-bottom: 3rem;
   }
 
   h2 {
@@ -22,38 +22,46 @@
     padding-top: 220px;
     margin: 15px 0;
     color: $fn-dkgrey;
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     background-color: $fn-white;
     background-repeat: no-repeat;
-    background-position:  bottom 20px right 20px;
+    background-position: bottom 20px right 20px;
     width: 100%;
     text-align: left;
 
-    &.manage-apps{
+    &.manage-apps {
       background-image: url('/images/manage-apps.svg');
     }
-    &.manage-users{
+
+    &.manage-users {
       background-image: url('/images/manage-users.svg');
     }
-    &.manage-billing{
+
+    &.manage-billing {
       background-image: url('/images/manage-billing.svg');
     }
-    &.manage-services{
+
+    &.manage-services {
       background-image: url('/images/manage-services.svg');
     }
-    &.manage-wireless-reports{
+
+    &.manage-wireless-reports {
       background-image: url('/images/wireless-reports.svg');
     }
-    &.manage-push-talk{
+
+    &.manage-push-talk {
       background-image: url('/images/push-to-talk.svg');
     }
-    &.shop-devices-rates{
+
+    &.shop-devices-rates {
       background-image: url('/images/important-devices.svg');
     }
-    &.shop-specialized-devices{
+
+    &.shop-specialized-devices {
       background-image: url('/images/specialized-devices.svg');
     }
-    &.shop-solutions{
+
+    &.shop-solutions {
       background-image: url('/images/solutions.svg');
     }
 
@@ -82,7 +90,8 @@
       font-size: $fn-label-default-size;
       text-transform: uppercase;
       color: $fn-ltblue;
-      i{
+
+      i {
         font-size: 1.2rem;
         display: inline-block;
         font-size: 1.2rem;
@@ -90,15 +99,83 @@
         vertical-align: -1px;
       }
     }
-    &:hover,
-    &:focus{
+
+    &:focus,
+    &:hover {
       transform: scale(1.05);
-      h3,
-      > span{
+
+      > span,
+      h3 {
         text-decoration: underline;
       }
     }
+  }
 
+  .modal {
+    .ptt-modal-actions {
+      button {
+        min-width: 250px;
+      }
+    }
 
+    ul.ptt-providers {
+      display: flex;
+      justify-content: center;
+      margin-top: 3rem;
+
+      li {
+        display: inline-block;
+        padding: 0 3rem;
+
+        label,
+        button {
+          display: block;
+          text-align: center;
+        }
+
+        label {
+          margin-bottom: 1rem;
+        }
+
+        button {
+          width: 200px;
+          height: 150px;
+          border: 1px solid $fn-mdgrey;
+          background-color: white;
+          padding: 0;
+          display: inline-block;
+
+          div {
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+
+            img {
+              display: inline-block;
+              width: 100%;
+              padding: 1rem;
+              vertical-align: middle;
+            }
+          }
+
+          &.active,
+          &:focus {
+            @include focus();
+          }
+        }
+      }
+
+      li + li {
+        button:before {
+          /* pseudo-element for divider line */
+          content: '';
+          position: absolute;
+          height: 150px;
+          border-left: 1px solid $fn-mdgrey;
+          content: '';
+          margin-left: -3rem;
+        }
+      }
+    }
   }
 }

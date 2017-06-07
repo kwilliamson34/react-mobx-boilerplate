@@ -83,11 +83,28 @@ class ExternalLinkStore {
     };
   }
 
+  @action togglePushToTalkModal() {
+    this.showPushToTalkModal = !this.showPushToTalkModal;
+  }
+
+  @action setPushToTalkProvider(providerCode) {
+    this.pushToTalkProvider = providerCode;
+  }
+
   //COMPUTEDS
   @computed get deviceCategoryNum() {
     let deviceCategories = ['phones', 'tablets', 'in-vehicle', 'accessories'];
     let categoryIndex = deviceCategories.indexOf(this.currentCategory);
     return (categoryIndex >= 0)? categoryIndex + 1 : undefined;
+  }
+
+  @computed get pushToTalkLink() {
+    if(this.pushToTalkProvider === "ATT") {
+      return this.managePushToTalkKodiakLink;
+    } else if(this.pushToTalkProvider === "FN") {
+      return this.managePushToTalkMotorolaLink;
+    }
+    return '';
   }
 
   @observable devicesData = {
@@ -121,6 +138,8 @@ class ExternalLinkStore {
   @observable viewWirelessReportsLink = 'https://www.wireless.att.com/businesscare/menu/index.jsp?subject=Reports&wtLinkName=Reports&wtLinkLoc=S1&&wtLinkType=InventoryReport';
   @observable shopStandardDevicesLink = '';
 
+  @observable showPushToTalkModal = false;
+  @observable pushToTalkProvider = '';
 }
 
 export const externalLinkStore = new ExternalLinkStore();

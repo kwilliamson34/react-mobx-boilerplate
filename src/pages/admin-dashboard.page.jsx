@@ -14,12 +14,61 @@ export default class AdminDashboardPage extends React.Component {
 
   constructor(props) {
     super(props);
-    this.showPushToTalkModal = this.showPushToTalkModal.bind(this);
     this.linkStore = this.props.store.externalLinkStore;
   }
 
-  showPushToTalkModal() {
-    //TODO launch the modal to choose push-to-talk provider
+  togglePushToTalkModal = (event) => {
+    event.preventDefault();
+    this.linkStore.togglePushToTalkModal();
+  }
+
+  setPushToTalkProvider = (provider) => {
+    this.linkStore.setPushToTalkProvider(provider);
+  }
+
+  goToPushToTalkLink = () => {
+    //Open link in new tab
+    window.open(this.linkStore.pushToTalkLink,'_blank');
+  }
+
+  renderPushToTalkModal = () => {
+    return (
+      <div>
+        <div id="exitModal" className="modal fade in">
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <button type="button" className="btn close-modal icon-close" onClick={this.togglePushToTalkModal}>
+                <span className="sr-only">close window</span>
+              </button>
+              <div className="row no-gutters">
+                <div className="col-xs-12">
+                  <h1 className="as-h2">Choose push-to-talk provider</h1>
+                  <ul className="ptt-providers">
+                    <li>
+                      <label htmlFor="ATT_PTT">AT&T Enhanced Push-to-Talk</label>
+                      <button type="button" id="ATT_PTT" className={this.linkStore.pushToTalkProvider === 'ATT' ? 'active' : ''} onClick={this.setPushToTalkProvider.bind(this, 'ATT')}>
+                        <div><img src="/images/attlogo.png" alt="AT&T logo"></img></div>
+                      </button>
+                    </li>
+                    <li>
+                      <label htmlFor="FN_PTT">FirstNet Enhanced Push-to-Talk</label>
+                      <button type="button" id="FN_PTT" className={this.linkStore.pushToTalkProvider === 'FN' ? 'active' : ''} onClick={this.setPushToTalkProvider.bind(this, 'FN')}>
+                        <div><img src="/images/firstnetlogo.png" alt="FirstNet logo"></img></div>
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+                <div className="col-xs-12 text-center ptt-modal-actions">
+                  <button className='fn-primary' onClick={this.goToPushToTalkLink}>Get Push-To-Talk</button>
+                  <button className='fn-secondary' onClick={this.togglePushToTalkModal}>Return to Dashboard</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="modal-backdrop fade in"></div>
+      </div>
+    )
   }
 
   render() {
@@ -64,7 +113,7 @@ export default class AdminDashboardPage extends React.Component {
                     </Link>
                   </li>
                   <li className="col-xs-12 col-sm-6">
-                    <button className="dashboard-card manage-push-talk has-shadow as-link" onClick={this.showPushToTalkModal}>
+                    <button className="dashboard-card manage-push-talk has-shadow as-link" onClick={this.togglePushToTalkModal}>
                       <div className="desc">
                         <h3>Manage push-to-talk</h3>
                         <p>Create and remove talk groups, add and remove users from talk groups</p>
@@ -122,6 +171,8 @@ export default class AdminDashboardPage extends React.Component {
             </aside>
           </div>
         </div>
+
+        {this.linkStore.showPushToTalkModal && this.renderPushToTalkModal()}
       </article>
     )
   }
