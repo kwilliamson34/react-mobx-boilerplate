@@ -10,6 +10,7 @@ import AppManagementBlock from '../app-management-block/app-management-block.jsx
 export class CardList extends React.Component {
 
   static propTypes = {
+    filteredAppsCount: PropTypes.number.isRequired,
     cards: PropTypes.array.isRequired,
     numPagesShown: PropTypes.number,
     itemsPerPage: PropTypes.number.isRequired,
@@ -28,7 +29,7 @@ export class CardList extends React.Component {
   }
 
   get canLoadMore() {
-    let totalItems = this.props.cards.length;
+    let totalItems = this.props.filteredAppsCount;
     return totalItems > this.props.itemsPerPage && totalItems > (this.props.numPagesShown * this.props.itemsPerPage);
   }
 
