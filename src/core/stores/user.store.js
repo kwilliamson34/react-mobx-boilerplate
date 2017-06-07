@@ -14,7 +14,6 @@ class UserStore {
     const fail = (err) => {
       if(err.response.status === 401) {
         this.auth_error = true;
-
         //Redirect to Halo
         window.location.replace(config.haloLogin);
       } else if (err.response.status === 403){
@@ -43,10 +42,27 @@ class UserStore {
     this.user = user_obj;
   }
 
-  @observable user = {};
+
+  @observable user = {
+      aud : '',
+      authorizations : [],
+      email : '',
+      exp : 0,
+      firstName : '',
+      iat : 0,
+      id : '',
+      iss : '',
+      t : '',
+      lastName : '',
+      roles : [],
+      sub : '',
+      username : ''
+  };
+
   @observable userValidationDone = false;
   @observable authentic_user = false;
   @observable auth_error = false;
+  @observable pseId = '123'; //TODO temporarily hardcoded
 }
 
 export const userStore = new UserStore();

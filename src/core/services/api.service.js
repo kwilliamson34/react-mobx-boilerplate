@@ -1,17 +1,11 @@
 import axios from 'axios';
-import { utilsService } from './utils.service';
-
-import { externalSolutionsService} from './external-solutions.service';
-import { externalDeviceContentService } from './external-device-content.service';
-
-import { userStore } from '../stores/user.store';
+import {utilsService} from './utils.service';
+import {externalDeviceContentService} from './external-device-content.service';
+import {externalSolutionsService} from './external-solutions.service';
+import {userStore} from '../stores/user.store';
 
 const base = '/api'
-
-// TODO - temp hardcode pending PSEID implementation
-const pseId = '123';
 let user_token = '';
-
 
 axios.interceptors.request.use(request => {
   if (request.url !== `${base}/user/profile`) {
@@ -47,21 +41,21 @@ class ApiService {
 
     getSearchResults(query) {
       let endpoint = query
-        ? `${base}/apps/admin/search?searchTxt=${query}&pseId=${pseId}`
-        : `${base}/apps/admin?pseId=${pseId}`
+        ? `${base}/apps/admin/search?searchTxt=${query}&pseId=${userStore.pseId}`
+        : `${base}/apps/admin?pseId=${userStore.pseId}`
       return axios.get(endpoint).then((res) => {
         return utilsService.conditionData(res.data.applications);
       });
     }
 
     getAdminApps() {
-      return axios.get(`${base}/apps/admin?pseId=${pseId}`).then(res => {
+      return axios.get(`${base}/apps/admin?pseId=${userStore.pseId}`).then(res => {
         return utilsService.conditionData(res.data.applications);
       });
     }
 
     getAppDetails(appPSK) {
-      return axios.get(`${base}/app?appPsk=${appPSK}&pseId=${pseId}`).then(res => {
+      return axios.get(`${base}/app?appPsk=${appPSK}&pseId=${userStore.pseId}`).then(res => {
         let arrayRes = [];
         arrayRes.push(res.data);
         return arrayRes;
@@ -111,7 +105,7 @@ class ApiService {
         data: {
           appPsk,
           groupIdentifier,
-          pseId
+          pseId: userStore.pseId
         }
       });
     }
@@ -124,11 +118,26 @@ class ApiService {
         data: {
           appPsk,
           groupIdentifier,
-          pseId
+          pseId: userStore.pseId
         }
       });
     }
 
+    setMDMConfiguration(mdmConfig) {
+      return axios({
+        method: 'post',
+        url: `${base}/pse/mdm`,
+        data: mdmConfig
+      });
+    }
+
+    breakMDMConfiguration() {
+      //TODO
+      return axios({
+        method: 'delete',
+        url: `${base}/pse/mdm`
+      });
+    }
 }
 
 export const apiService = new ApiService();
