@@ -1,0 +1,541 @@
+exports[`<AirWatchForm /> renders displays an error when any field is empty 1`] = `
+<div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="aw_hostName">
+      Host
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid host name.
+      </span>
+    </div>
+    <input
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="aw_hostName"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="aw_tenantCode">
+      Tenant Code
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="aw_tenantCode"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="aw_userName">
+      AirWatch User Name
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="aw_userName"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="aw_password">
+      AirWatch Password
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="aw_password"
+      type="password" />
+  </div>
+</div>
+`;
+
+exports[`<AirWatchForm /> renders displays an error when any field is empty 2`] = `
+<div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="aw_hostName">
+      Host
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid host name.
+      </span>
+    </div>
+    <input
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="aw_hostName"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="aw_tenantCode">
+      Tenant Code
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid tenant code.
+      </span>
+    </div>
+    <input
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="aw_tenantCode"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="aw_userName">
+      AirWatch User Name
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="aw_userName"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="aw_password">
+      AirWatch Password
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="aw_password"
+      type="password" />
+  </div>
+</div>
+`;
+
+exports[`<AirWatchForm /> renders displays an error when any field is empty 3`] = `
+<div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="aw_hostName">
+      Host
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid host name.
+      </span>
+    </div>
+    <input
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="aw_hostName"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="aw_tenantCode">
+      Tenant Code
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid tenant code.
+      </span>
+    </div>
+    <input
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="aw_tenantCode"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="aw_userName">
+      AirWatch User Name
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid user name.
+      </span>
+    </div>
+    <input
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="aw_userName"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="aw_password">
+      AirWatch Password
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="aw_password"
+      type="password" />
+  </div>
+</div>
+`;
+
+exports[`<AirWatchForm /> renders displays an error when any field is empty 4`] = `
+<div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="aw_hostName">
+      Host
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid host name.
+      </span>
+    </div>
+    <input
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="aw_hostName"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="aw_tenantCode">
+      Tenant Code
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid tenant code.
+      </span>
+    </div>
+    <input
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="aw_tenantCode"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="aw_userName">
+      AirWatch User Name
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid user name.
+      </span>
+    </div>
+    <input
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="aw_userName"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback has-error">
+    <label
+      className="control-label"
+      htmlFor="aw_password">
+      AirWatch Password
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <div
+      aria-live="assertive"
+      className="msgBlock error error-list"
+      role="alert">
+      <span>
+        Please enter a valid password.
+      </span>
+    </div>
+    <input
+      className="form-control"
+      defaultValue=""
+      disabled={true}
+      id="aw_password"
+      type="password" />
+  </div>
+</div>
+`;
+
+exports[`<AirWatchForm /> renders matches previous snapshot 1`] = `
+<div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="aw_hostName">
+      Host
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={false}
+      id="aw_hostName"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="aw_tenantCode">
+      Tenant Code
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={false}
+      id="aw_tenantCode"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="aw_userName">
+      AirWatch User Name
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={false}
+      id="aw_userName"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="aw_password">
+      AirWatch Password
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={false}
+      id="aw_password"
+      type="password" />
+  </div>
+</div>
+`;
+
+exports[`<AirWatchForm /> renders matches previous snapshot 2`] = `
+<div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="aw_hostName">
+      Host
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="aw_hostName"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="aw_tenantCode">
+      Tenant Code
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="aw_tenantCode"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="aw_userName">
+      AirWatch User Name
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="aw_userName"
+      type="text" />
+  </div>
+  <div
+    className="form-group has-feedback">
+    <label
+      className="control-label"
+      htmlFor="aw_password">
+      AirWatch Password
+      <span
+        className="required-asterisks">
+         *
+      </span>
+    </label>
+    <input
+      className="form-control"
+      defaultValue={undefined}
+      disabled={true}
+      id="aw_password"
+      type="password" />
+  </div>
+</div>
+`;
