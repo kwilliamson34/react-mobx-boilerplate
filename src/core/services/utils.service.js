@@ -40,6 +40,13 @@ class UtilsService {
     return simplifiedObjectList;
   }
 
+  getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(window.location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+  }
+
   handleError(err) {
     switch (err.response.status) {
       case 401:
