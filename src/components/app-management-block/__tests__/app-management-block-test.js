@@ -9,21 +9,25 @@ import ReactDom from 'react-dom';
 
 describe('<AppManagementBlock />', () => {
   let props = {
-    app: {
-      psk: 123,
-      isAvailable: false,
-      isRecommended: false,
-    },
-    appManagementActions: {
-      changeAppAvailability: jest.fn(),
-      changeAppRecommended: jest.fn()
+    psk: 123,
+    changeAppAvailability: jest.fn(),
+    changeAppRecommended: jest.fn(),
+    getMatchingApp: () => {
+      return {
+        isAvailable: false,
+        isRecommended: false
+      }
     }
   };
 
   describe('render', () => {
     test('matches snapshots with all group combinations', () => {
-      props.app.isAvailable = false;
-      props.app.isRecommended = false;
+      props.getMatchingApp = () => {
+        return {
+          isAvailable: false,
+          isRecommended: false
+        }
+      }
       let component = renderer.create(
         <MemoryRouter>
           <AppManagementBlock { ...props }/>
@@ -32,8 +36,12 @@ describe('<AppManagementBlock />', () => {
       let tree = component.toJSON();
       expect(tree).toMatchSnapshot();
 
-      props.app.isAvailable = true;
-      props.app.isRecommended = false;
+      props.getMatchingApp = () => {
+        return {
+          isAvailable: true,
+          isRecommended: false
+        }
+      }
       component = renderer.create(
         <MemoryRouter>
           <AppManagementBlock { ...props }/>
@@ -42,8 +50,12 @@ describe('<AppManagementBlock />', () => {
       tree = component.toJSON();
       expect(tree).toMatchSnapshot();
 
-      props.app.isAvailable = true;
-      props.app.isRecommended = true;
+      props.getMatchingApp = () => {
+        return {
+          isAvailable: true,
+          isRecommended: true
+        }
+      }
       component = renderer.create(
         <MemoryRouter>
           <AppManagementBlock { ...props }/>
@@ -53,8 +65,12 @@ describe('<AppManagementBlock />', () => {
       expect(tree).toMatchSnapshot();
 
       //this case is not allowed by the service, but testing anyway
-      props.app.isAvailable = false;
-      props.app.isRecommended = true;
+      props.getMatchingApp = () => {
+        return {
+          isAvailable: false,
+          isRecommended: true
+        }
+      }
       component = renderer.create(
         <MemoryRouter>
           <AppManagementBlock { ...props }/>
@@ -67,8 +83,12 @@ describe('<AppManagementBlock />', () => {
 
   describe('UI interaction', () => {
     test('toggling Available results in a service call', () => {
-      props.app.isAvailable = false;
-      props.app.isRecommended = false;
+      props.getMatchingApp = () => {
+        return {
+          isAvailable: false,
+          isRecommended: false
+        }
+      }
 
       let memoryRouterComponent = TestUtils.renderIntoDocument(
         <MemoryRouter>
@@ -77,25 +97,30 @@ describe('<AppManagementBlock />', () => {
       );
 
       //determine the function to spy on
-      const functionToWatch = memoryRouterComponent.props.children.props.appManagementActions.changeAppAvailability;
+      const functionToWatch = memoryRouterComponent.props.children.props.changeAppAvailability;
       expect(functionToWatch).not.toHaveBeenCalled();
 
       //trigger the action
-      const idToFind = 'Available-' + props.app.psk;
+      const idToFind = 'Available-' + props.psk;
       const checkbox = TestUtils.findAllInRenderedTree(memoryRouterComponent, (inst) => {
+        console.log(ReactDOM.findDOMNode(inst).getAttribute('checked'));
         return ReactDOM.findDOMNode(inst).getAttribute('id') == idToFind;
       })[0];
 
-      TestUtils.Simulate.change(checkbox, {'target': {'checked': true}});
+      TestUtils.Simulate.change(checkbox, {'target': {'checked': true, 'target': 'checkbox'}});
       expect(functionToWatch).toHaveBeenCalled();
 
-      TestUtils.Simulate.change(checkbox, {'target': {'checked': false}});
+      TestUtils.Simulate.change(checkbox, {'target': {'checked': false, 'target': 'checkbox'}});
       expect(functionToWatch).toHaveBeenCalled();
     });
 
     test('toggling Recommended results in a service call', () => {
-      props.app.isAvailable = true;
-      props.app.isRecommended = false;
+      props.getMatchingApp = () => {
+        return {
+          isAvailable: true,
+          isRecommended: false
+        }
+      }
 
       let memoryRouterComponent = TestUtils.renderIntoDocument(
         <MemoryRouter>
@@ -104,25 +129,29 @@ describe('<AppManagementBlock />', () => {
       );
 
       //determine the function to spy on
-      const functionToWatch = memoryRouterComponent.props.children.props.appManagementActions.changeAppRecommended;
+      const functionToWatch = memoryRouterComponent.props.children.props.changeAppRecommended;
       expect(functionToWatch).not.toHaveBeenCalled();
 
       //trigger the action
-      const idToFind = 'Recommended-' + props.app.psk;
+      const idToFind = 'Recommended-' + props.psk;
       const checkbox = TestUtils.findAllInRenderedTree(memoryRouterComponent, (inst) => {
         return ReactDOM.findDOMNode(inst).getAttribute('id') == idToFind;
       })[0];
 
-      TestUtils.Simulate.click(checkbox, {'target': {'checked': true}});
+      TestUtils.Simulate.click(checkbox, {'target': {'checked': true, 'target': 'checkbox'}});
       expect(functionToWatch).toHaveBeenCalled();
 
-      TestUtils.Simulate.click(checkbox, {'target': {'checked': false}});
+      TestUtils.Simulate.click(checkbox, {'target': {'checked': false, 'target': 'checkbox'}});
       expect(functionToWatch).toHaveBeenCalled();
     });
 
     test('toggling Available to Off when Recommended is On results in 2 service calls', () => {
-      props.app.isAvailable = true;
-      props.app.isRecommended = true;
+      props.getMatchingApp = () => {
+        return {
+          isAvailable: true,
+          isRecommended: true
+        }
+      }
 
       let memoryRouterComponent = TestUtils.renderIntoDocument(
         <MemoryRouter>
@@ -131,15 +160,15 @@ describe('<AppManagementBlock />', () => {
       );
 
       //determine the function to spy on
-      const functionToWatch1 = memoryRouterComponent.props.children.props.appManagementActions.changeAppAvailability;
-      const functionToWatch2 = memoryRouterComponent.props.children.props.appManagementActions.changeAppRecommended;
+      const functionToWatch1 = memoryRouterComponent.props.children.props.changeAppAvailability;
+      const functionToWatch2 = memoryRouterComponent.props.children.props.changeAppRecommended;
 
       //trigger the action
-      const idToFind = 'Available-' + props.app.psk;
+      const idToFind = 'Available-' + props.psk;
       const checkbox = TestUtils.findAllInRenderedTree(memoryRouterComponent, (inst) => {
         return ReactDOM.findDOMNode(inst).getAttribute('id') == idToFind;
       })[0];
-      TestUtils.Simulate.click(checkbox, {'target': {'checked': false}});
+      TestUtils.Simulate.click(checkbox, {'target': {'checked': false, 'target': 'checkbox'}});
 
       //assert an outcome
       expect(functionToWatch1).toHaveBeenCalled();

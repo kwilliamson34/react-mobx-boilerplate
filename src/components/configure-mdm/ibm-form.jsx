@@ -2,9 +2,6 @@ import React from 'react';
 import { observer } from 'mobx-react';
 import PropTypes from 'prop-types';
 
-
-
-
 @observer
 export class IBMForm extends React.Component {
 	static propTypes = {
@@ -28,7 +25,6 @@ export class IBMForm extends React.Component {
 	}
 
 	render() {
-
 		return (
 			<div>
 				<div className={this.inputHasError('ibm_rootURL') ? 'form-group has-feedback has-error' : 'form-group has-feedback'}>
@@ -42,7 +38,7 @@ export class IBMForm extends React.Component {
 						<option value="TBD">Service will provide...</option>
 					</select>
 				</div>
-				
+
 				<div className={this.inputHasError('ibm_billingID') ? 'form-group has-feedback has-error' : 'form-group has-feedback'}>
 					<label className="control-label" htmlFor="ibm_billingID">Billing ID<span className="required-asterisks"> *</span></label>
 					{this.inputHasError('ibm_billingID') && <div className="msgBlock error error-list" role="alert" aria-live = "assertive"><span>Please enter a valid billing ID.</span></div>}

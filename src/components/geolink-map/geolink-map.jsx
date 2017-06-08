@@ -9,7 +9,7 @@ export default class GeolinkMap extends React.Component {
   }
 
   componentWillMount() {
-    window.iframeLoaded = this.setDefaults.bind(this);
+    window.iframeLoaded = this.setDefaults;
 
     this.props.geolinkStore.loadGeolinkHtml().then(() => {
       //write the html into the iframe
@@ -24,7 +24,7 @@ export default class GeolinkMap extends React.Component {
     window.iframeLoaded = null;
   }
 
-  setDefaults() {
+  setDefaults = () => {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition(position => {
         const defaultSearchTerm = position.coords.latitude + ', ' + position.coords.longitude;

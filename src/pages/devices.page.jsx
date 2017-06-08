@@ -69,7 +69,7 @@ export default class DevicesLandingPage extends React.Component {
 				<div className="container">
 					<div className="row">
 						<div className="col-xs-12 col-sm-10 col-sm-offset-1 catalog-header">
-							<h1 className="as-h2">Specialized Devices Catalog</h1>
+							<h1 className="as-h2">Specialized Devices</h1>
 							<h2 className="as-h3">FirstNet offers an extensive selection of devices and accessories</h2>
 							<p>To learn more about our full portfolio, contact a FirstNet Specialist.</p>
 						</div>

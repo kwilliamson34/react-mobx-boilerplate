@@ -9,14 +9,13 @@ import { MemoryRouter } from 'react-router-dom';
 describe('<GeolinkControls />', () => {
   let props = {
     geolinkStore: {
-      addAllNetworkLayers: jest.fn(),
-      removeAllNetworkLayers: jest.fn(),
+      toggleNetwork: jest.fn(),
       toggleTraffic: jest.fn(),
       toggleAlerts: jest.fn(),
-      addWeather: jest.fn(),
-      removeWeather: jest.fn(),
+      toggleWeather: jest.fn(),
       updateSearchTerm: jest.fn(),
-      searchMap: jest.fn()
+      searchMap: jest.fn(),
+      resetLayerToggles: jest.fn()
     }
   }
 
@@ -33,10 +32,8 @@ describe('<GeolinkControls />', () => {
       let component = TestUtils.renderIntoDocument(<GeolinkControls {...props} />);
 
       //determine the function to spy on
-      const functionToWatch1 = component.props.geolinkStore.addAllNetworkLayers;
-      const functionToWatch2 = component.props.geolinkStore.removeAllNetworkLayers;
-      expect(functionToWatch1).not.toHaveBeenCalled();
-      expect(functionToWatch2).not.toHaveBeenCalled();
+      const functionToWatch = component.props.geolinkStore.toggleNetwork;
+      expect(functionToWatch).not.toHaveBeenCalled();
 
       //trigger the action
       const checkbox = TestUtils.findAllInRenderedTree(component, (inst) => {
@@ -44,20 +41,18 @@ describe('<GeolinkControls />', () => {
       })[0];
 
       TestUtils.Simulate.change(checkbox, {'target': {'checked': true, 'type': 'checkbox'}});
-      expect(functionToWatch1).toHaveBeenCalled();
+      expect(functionToWatch).toHaveBeenCalled();
 
       TestUtils.Simulate.change(checkbox, {'target': {'checked': false, 'type': 'checkbox'}});
-      expect(functionToWatch2).toHaveBeenCalled();
+      expect(functionToWatch).toHaveBeenCalled();
     });
 
     test('toggling weather checkbox results in geolink store action calls', () => {
       let component = TestUtils.renderIntoDocument(<GeolinkControls {...props} />);
 
       //determine the function to spy on
-      const functionToWatch1 = component.props.geolinkStore.addWeather;
-      const functionToWatch2 = component.props.geolinkStore.removeWeather;
-      expect(functionToWatch1).not.toHaveBeenCalled();
-      expect(functionToWatch2).not.toHaveBeenCalled();
+      const functionToWatch = component.props.geolinkStore.toggleWeather;
+      expect(functionToWatch).not.toHaveBeenCalled();
 
       //trigger the action
       const checkbox = TestUtils.findAllInRenderedTree(component, (inst) => {
@@ -65,10 +60,10 @@ describe('<GeolinkControls />', () => {
       })[0];
 
       TestUtils.Simulate.change(checkbox, {'target': {'checked': true, 'type': 'checkbox'}});
-      expect(functionToWatch1).toHaveBeenCalled();
+      expect(functionToWatch).toHaveBeenCalled();
 
       TestUtils.Simulate.change(checkbox, {'target': {'checked': false, 'type': 'checkbox'}});
-      expect(functionToWatch2).toHaveBeenCalled();
+      expect(functionToWatch).toHaveBeenCalled();
     });
 
     test('toggling alerts checkbox results in geolink store action calls', () => {
