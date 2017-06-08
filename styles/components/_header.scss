@@ -413,7 +413,7 @@ $fn-mobile-item-height: 60px;
   border: 0;
   background: $fn-ltgrey;
   text-align: center;
-  display: flex;
+  display: none;
   flex-wrap: wrap;
   padding: 3rem calc((100% - 960px)/2);
   justify-content: flex-end;

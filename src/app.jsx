@@ -86,6 +86,21 @@ export default class App extends React.Component {
 		)
 	}
 
+  getLandingPage = () => {
+    //TODO: Temporarily using @observable authentic_user in lieu of actual authorization check
+    const userIsAdmin = pseMasterStore.userStore.authentic_user;
+
+    return (
+      <Switch>
+        {
+          userIsAdmin
+          ? <Redirect to="/admin" />
+          : <Redirect to="/network-status" />
+        }
+      </Switch>
+    )
+  }
+
   getMainLayoutComponent = () => {
     return (
       <ScrollToTop>
@@ -94,7 +109,7 @@ export default class App extends React.Component {
           <Header/>
           <main id="main-content">
             <Switch>
-              <Route exact path="/" component={AdminDashboardPage /*TODO replace with landing page*/}/>
+              <Route exact path="/" component={this.getLandingPage}/> /*TODO replace with landing page*/
               <Route path="/network-status" component={NetworkStatusPage}/>
               <Route path="/admin/manage-users" component={ManageUsersPage}/>
               <Route path="/admin/manage-billing" component={ManageBillingPage}/>
