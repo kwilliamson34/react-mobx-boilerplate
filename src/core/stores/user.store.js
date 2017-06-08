@@ -4,10 +4,8 @@ import config from 'config';
 
 class UserStore {
   @action revalidateUser() {
-    console.log('validating user...');
     const success = (res) => {
-      this.api_token = res.data;
-      this.initUserObject(this.api_token);
+      this.initUserObject(res.data);
     }
 
     const fail = (err) => {
