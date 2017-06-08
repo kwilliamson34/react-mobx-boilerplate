@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {Link, NavLink, withRouter} from 'react-router-dom';
 import config from 'config';
 import {observer, inject} from 'mobx-react';
+import 'bootstrap';
 
 @inject('store')
 @withRouter
@@ -91,7 +92,9 @@ export default class PSEHeader extends React.Component {
 																		<span className="sr-only">Expand Section Navigation</span>
 																</button>
 																<NavLink id="linkBtn-admin" to="/admin" activeClassName="active">Administration</NavLink>
-																<ul id="pse-admin-nav" className="collapse" aria-labelledby="linkBtn-admin">
+																<ul id="pse-admin-nav"
+																	className="header-submenu collapse"
+																	aria-labelledby="linkBtn-admin">
 																	<li role="presentation">
 																		<NavLink to="/admin/manage-users">Manage Users</NavLink>
 																	</li>
@@ -124,7 +127,7 @@ export default class PSEHeader extends React.Component {
 																		<span className="sr-only">Expand Section Navigation</span>
 																</button>
 																<NavLink id="linkBtn-help-center" activeClassName="active" to="/help-center">Help Center</NavLink>
-																<ul id="pse-helpcenter-nav" className="collapse" aria-labelledby="linkBtn-help-center">
+																<ul id="pse-helpcenter-nav" role="menu" className="collapse" aria-labelledby="linkBtn-help-center">
 																	<li role="presentation">
 																		<NavLink to="#faq" activeClassName="active">FAQ</NavLink>
 																	</li>
@@ -137,39 +140,43 @@ export default class PSEHeader extends React.Component {
 																</ul>
 														</li>
 														{/* Desktop Only Buttons */}
-														<li className="desktop-iconItem">
+														<li className="desktop-iconItem dropdown">
 															<button
+																id="profile-header-dropdown"
 																type="button"
 																className="dropdown-toggle"
-																data-toggle="dropdown"
-																aria-haspopup="true"
-																aria-expanded="false">
+																data-toggle="dropdown">
 																<i className="icon-profile" aria-label="Go to User Dashboard"></i>
 															</button>
 
-															<ul id="pse-profile-nav" className="dropdown-menu" aria-labelledby="linkBtn-help-center">
+															<ul id="pse-profile-nav"
+																role="menu"
+																className="dropdown-menu dropdown-menu-right" aria-labelledby="profile-header-dropdown">
 																<li role="presentation">
-																	<NavLink to="#faq" activeClassName="active">FAQ</NavLink>
+																	<NavLink to="#faq" activeClassName="active">Manage My Account</NavLink>
 																</li>
 																<li role="presentation">
-																	<NavLink to="#provide-feedback" activeClassName="active">Provide Feedback</NavLink>
+																	<a href={config.haloLogout}>
+																		<i className="icon-logout" aria-hidden="true"></i>Log Out
+																	</a>
 																</li>
 															</ul>
 														</li>
 
-														<li className="desktop-iconItem">
+														<li className="desktop-iconItem dropdown">
+															<div></div>
 															<button
+																id="help-header-dropdown"
 																type="button"
 																className="dropdown-toggle"
-																data-toggle="dropdown"
-																aria-haspopup="true"
-																aria-expanded="false">
+																data-toggle="dropdown">
 																<i className="icon-help" aria-label="Go to Help Center"></i>
 															</button>
 
 															<ul id="pse-help-nav"
-																className="dropdown-menu"
-																aria-labelledby="linkBtn-help-center">
+																role="menu"
+																className="dropdown-menu dropdown-menu-right"
+																aria-labelledby="help-header-dropdown">
 																	<li role="presentation">
 																			<NavLink to="#faq" activeClassName="active">FAQ</NavLink>
 																	</li>
@@ -177,7 +184,7 @@ export default class PSEHeader extends React.Component {
 																			<NavLink to="#faq" activeClassName="active">Give Us Feedback</NavLink>
 																	</li>
 																	<li role="presentation">
-																		AT&T CUSTOMER SERVICE: <a href="tel:800-600-8000">800-600-8000</a>
+																		<a href="tel:800-600-8000" className="tel-cell">AT&T CUSTOMER SERVICE: <br /><span>800-600-8000</span></a>
 																	</li>
 															</ul>
 														</li>

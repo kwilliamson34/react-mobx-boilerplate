@@ -2,9 +2,10 @@
     &.open {
         .dropdown-toggle {
             box-shadow: none;
-            background: $fn-white;
-            color: $fn-dkgrey;
+            background: $fn-ltblue;
+            color: $fn-white;
             border-color: none;
+            outline:none;
         }
 
         .dropdown-item,
@@ -33,7 +34,7 @@
             &:hover {
                 background: $fn-ltgrey;
             }
-            a {
+            > a{
                 line-height: 3.4;
                 font-size: $fn-label-default-size;
                 text-transform: uppercase;
@@ -41,10 +42,16 @@
                 color: $fn-dkgrey;
                 padding-left: 30px;
                 border: 2px solid transparent;
+                &.tel-cell{
+                  line-height: 1.4;
+                  padding: 1.2rem 3rem;
+                }
                 i{
                   margin-right: 10px;
                 }
+
             }
+
         }
     }
 }
