@@ -1,16 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, NavLink } from 'react-router-dom';
+import {Link, NavLink, withRouter} from 'react-router-dom';
 import config from 'config';
-import {observer,inject} from 'mobx-react';
+import {observer, inject} from 'mobx-react';
 
 @inject('store')
+@withRouter
 @observer
 export default class PSEHeader extends React.Component {
 	constructor(props) {
 		super(props);
 		this.headerStore = this.props.store.headerStore;
-		window.addEventListener('resize',this.headerStore.updateWindowDimensions);
+		window.addEventListener('resize', this.headerStore.updateWindowDimensions);
 	}
 
 	componentWillMount() {
@@ -115,7 +116,7 @@ export default class PSEHeader extends React.Component {
 																<NavLink id="linkBtn-networkStatus" to="/network-status" activeClassName="active">Network Status</NavLink>
 														</li>
 														<li className="mainnav-item" role="presentation">
-																<button className="btnSubmenu"
+																<button
 																	data-toggle="collapse"
 																	data-target="#pse-helpcenter-nav"
 																	aria-haspopup="true"
@@ -124,27 +125,62 @@ export default class PSEHeader extends React.Component {
 																</button>
 																<NavLink id="linkBtn-help-center" activeClassName="active" to="/help-center">Help Center</NavLink>
 																<ul id="pse-helpcenter-nav" className="collapse" aria-labelledby="linkBtn-help-center">
-																		<li role="presentation">
-																				<NavLink to="#faq" activeClassName="active">FAQ</NavLink>
+																	<li role="presentation">
+																		<NavLink to="#faq" activeClassName="active">FAQ</NavLink>
+																	</li>
+																	<li role="presentation">
+																		<NavLink to="#provide-feedback" activeClassName="active">Provide Feedback</NavLink>
 																		</li>
 																		<li role="presentation">
-																				<NavLink to="#provide-feedback" activeClassName="active">Provide Feedback</NavLink>
-																		</li>
-																		<li role="presentation">
-																				<NavLink to="#contact-us" activeClassName="active">Contact Us</NavLink>
+																			<NavLink to="#contact-us" activeClassName="active">Contact Us</NavLink>
 																		</li>
 																</ul>
 														</li>
-														{/* <li className="mainnav-item pse-selector" role="presentation">
-																<PSESelector/>
-														</li> */}
+														{/* Desktop Only Buttons */}
 														<li className="desktop-iconItem">
-															<NavLink to="/user" activeClassName="active">
+															<button
+																type="button"
+																className="dropdown-toggle"
+																data-toggle="dropdown"
+																aria-haspopup="true"
+																aria-expanded="false">
 																<i className="icon-profile" aria-label="Go to User Dashboard"></i>
-															</NavLink>
+															</button>
+
+															<ul id="pse-profile-nav" className="dropdown-menu" aria-labelledby="linkBtn-help-center">
+																<li role="presentation">
+																	<NavLink to="#faq" activeClassName="active">FAQ</NavLink>
+																</li>
+																<li role="presentation">
+																	<NavLink to="#provide-feedback" activeClassName="active">Provide Feedback</NavLink>
+																</li>
+															</ul>
 														</li>
+
 														<li className="desktop-iconItem">
-															<NavLink to="/help-center" activeClassName="active"><i className="icon-help" aria-label="Go to Help Center"></i></NavLink></li>
+															<button
+																type="button"
+																className="dropdown-toggle"
+																data-toggle="dropdown"
+																aria-haspopup="true"
+																aria-expanded="false">
+																<i className="icon-help" aria-label="Go to Help Center"></i>
+															</button>
+
+															<ul id="pse-help-nav"
+																className="dropdown-menu"
+																aria-labelledby="linkBtn-help-center">
+																	<li role="presentation">
+																			<NavLink to="#faq" activeClassName="active">FAQ</NavLink>
+																	</li>
+																	<li role="presentation">
+																			<NavLink to="#faq" activeClassName="active">Give Us Feedback</NavLink>
+																	</li>
+																	<li role="presentation">
+																		AT&T CUSTOMER SERVICE: <a href="tel:800-600-8000">800-600-8000</a>
+																	</li>
+															</ul>
+														</li>
 												</ul>
 										</nav>
 								</div>

@@ -298,8 +298,10 @@ $fn-mobile-item-height: 60px;
     display: inline-block;
     float: left;
     background: $fn-white;
-    > a{
+    > button{
       display: block;
+      background: $fn-white;
+      border: 0;
       width: 60px;
       line-height: $fn-primary-nav-height;
       border-left: 1px solid $fn-grey;
@@ -311,18 +313,17 @@ $fn-mobile-item-height: 60px;
         text-decoration: none;
         background: $fn-ltgrey;
       }
-      &:focus{
-        outline: 2px solid $fn-orange;
-        text-decoration: none;
-      }
-      &.active{
+      &.active,
+      &:focus,
+      &:active{
+        outline: none;
         text-decoration: none;
         background: $fn-ltblue;
         color: $fn-white;
       }
     }
     &:last-child{
-      > a{
+      > button{
         border-right: 1px solid $fn-grey;
       }
 

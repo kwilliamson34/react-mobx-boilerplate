@@ -49,6 +49,7 @@ import PrivacyPage from './pages/privacy.page';
 import TermsOfServicePage from './pages/terms.page';
 import AccessibilityPage from './pages/accessibility.page';
 
+
 @observer
 export default class App extends React.Component {
 
