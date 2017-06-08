@@ -92,20 +92,16 @@ export default class PSEHeader extends React.Component {
 																		<span className="sr-only">Expand Section Navigation</span>
 																</button>
 																<NavLink id="linkBtn-admin" to="/admin" activeClassName="active">Administration</NavLink>
+																<div className="header-submenu is-flex">
 																<ul id="pse-admin-nav"
-																	className="header-submenu collapse"
+																	className="collapse"
 																	aria-labelledby="linkBtn-admin">
+																	<strong className="visible-md-block visible-lg-block">Manage</strong>
 																	<li role="presentation">
-																		<NavLink to="/admin/manage-users">Manage Users</NavLink>
+																		<NavLink to="/admin/manage-users"><i className="icon-external-site" aria-hidden="true" />Manage Users</NavLink>
 																	</li>
 																	<li role="presentation">
-																		<NavLink to="/admin/manage-billing">Manage Billing</NavLink>
-																	</li>
-																	<li role="presentation">
-																		<NavLink to="/admin/manage-services">Manage Services</NavLink>
-																	</li>
-																	<li role="presentation">
-																		<NavLink to="/admin/manage-apps">Manage Apps</NavLink>
+																		<NavLink to="/admin/manage-billing">Manage Services &amp; Billing</NavLink>
 																	</li>
 																	<li role="presentation">
 																		<NavLink to="/admin/manage-push-talk">Manage push-to-talk</NavLink>
@@ -114,6 +110,23 @@ export default class PSEHeader extends React.Component {
 																		<NavLink to="/admin/view-wireless-reports">View wireless reports</NavLink>
 																	</li>
 																</ul>
+																	<ul id="pse-aside-nav"
+																		className="collapse"
+																		aria-labelledby="linkBtn-admin">
+																		<strong className="visible-md-block visible-lg-block">Shop</strong>
+																	<li>
+																		<NavLink to="/shop-devices-rates">Rate Plans &amp; Standard Devices</NavLink>
+																	</li>
+																	<li>
+																		<NavLink to="/devices">Specialized Devices</NavLink>
+																	</li>
+																	<li>
+																		<NavLink to="/solutions">Public Safety Solutions</NavLink>
+																	</li>
+
+
+																</ul>
+															</div>
 														</li>
 														<li className="mainnav-item desktop-textlink" role="presentation">
 																<NavLink id="linkBtn-networkStatus" to="/network-status" activeClassName="active">Network Status</NavLink>
@@ -154,6 +167,9 @@ export default class PSEHeader extends React.Component {
 																className="dropdown-menu dropdown-menu-right" aria-labelledby="profile-header-dropdown">
 																<li role="presentation">
 																	<NavLink to="#faq" activeClassName="active">Manage My Account</NavLink>
+																</li>
+																<li role="presentation">
+																	<NavLink to="#faq" activeClassName="active">Manage My Profile</NavLink>
 																</li>
 																<li role="presentation">
 																	<a href={config.haloLogout}>
