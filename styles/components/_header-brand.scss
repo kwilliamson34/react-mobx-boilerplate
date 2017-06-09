@@ -1,0 +1,36 @@
+.fnnav__brand {
+  display: inline-block;
+
+  > a {
+    display: block;
+    height: 100%;
+    width: calc(100vw - 51px);
+
+    &:focus {
+      @include focus();
+    }
+  }
+
+  img {
+    vertical-align: middle;
+    width: 100%;
+    max-width: 330px;
+  }
+}
+@media #{$tablet} {
+  .fnnav__brand {
+    width: calc(100% - 146px);
+
+    > a {
+      margin: 16px auto;
+    }
+  }
+}
+@media #{$desktop} {
+  .fnnav__brand {
+    height: 94px;
+    > a {
+      margin: 24px auto;
+    }
+  }
+}

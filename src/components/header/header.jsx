@@ -30,6 +30,7 @@ export default class PSEHeader extends React.Component {
 				<div className={mainbarClass}>
 						<div className="container">
 								<div className="row">
+									<div className="col-xs-12">
 										<div className="fnnav__header">
 											<div className="fnnav__brand">
 													<Link to="/">
@@ -83,7 +84,9 @@ export default class PSEHeader extends React.Component {
 																		</li>
 																</ul>
 														</li>
-														<li className="mainnav-item desktop-textlink" role="presentation">
+														<li id="btn-admin"
+															className="mainnav-item desktop-textlink"
+															role="presentation">
 																<button className="btnSubmenu"
 																	data-toggle="collapse"
 																	data-target="#pse-admin-nav"
@@ -101,13 +104,19 @@ export default class PSEHeader extends React.Component {
 																		<NavLink to="/admin/manage-users"><i className="icon-external-site" aria-hidden="true" />Manage Users</NavLink>
 																	</li>
 																	<li role="presentation">
-																		<NavLink to="/admin/manage-billing">Manage Services &amp; Billing</NavLink>
+																		<NavLink to="/admin/manage-apps">Manage Apps</NavLink>
 																	</li>
 																	<li role="presentation">
-																		<NavLink to="/admin/manage-push-talk">Manage push-to-talk</NavLink>
+																		<NavLink to="/admin/manage-billing">
+																		<i className="icon-external-site" aria-hidden="true" />Manage Services &amp; Billing</NavLink>
 																	</li>
 																	<li role="presentation">
-																		<NavLink to="/admin/view-wireless-reports">View wireless reports</NavLink>
+																		<NavLink to="/admin/manage-push-talk">
+																		<i className="icon-external-site" aria-hidden="true" />Manage push-to-talk</NavLink>
+																	</li>
+																	<li role="presentation">
+																		<NavLink to="/admin/view-wireless-reports">
+																		<i className="icon-external-site" aria-hidden="true" />View wireless reports</NavLink>
 																	</li>
 																</ul>
 																	<ul id="pse-aside-nav"
@@ -115,7 +124,8 @@ export default class PSEHeader extends React.Component {
 																		aria-labelledby="linkBtn-admin">
 																		<strong className="visible-md-block visible-lg-block">Shop</strong>
 																	<li>
-																		<NavLink to="/shop-devices-rates">Rate Plans &amp; Standard Devices</NavLink>
+																		<NavLink to="/shop-devices-rates">
+																		<i className="icon-external-site" aria-hidden="true" />Rate Plans &amp; Standard Devices</NavLink>
 																	</li>
 																	<li>
 																		<NavLink to="/devices">Specialized Devices</NavLink>
@@ -123,14 +133,13 @@ export default class PSEHeader extends React.Component {
 																	<li>
 																		<NavLink to="/solutions">Public Safety Solutions</NavLink>
 																	</li>
-
-
 																</ul>
 															</div>
 														</li>
 														<li className="mainnav-item desktop-textlink" role="presentation">
 																<NavLink id="linkBtn-networkStatus" to="/network-status" activeClassName="active">Network Status</NavLink>
 														</li>
+														{/* following only appears in mobile */}
 														<li className="mainnav-item" role="presentation">
 																<button
 																	data-toggle="collapse"
@@ -166,9 +175,6 @@ export default class PSEHeader extends React.Component {
 																role="menu"
 																className="dropdown-menu dropdown-menu-right" aria-labelledby="profile-header-dropdown">
 																<li role="presentation">
-																	<NavLink to="#faq" activeClassName="active">Manage My Account</NavLink>
-																</li>
-																<li role="presentation">
 																	<NavLink to="#faq" activeClassName="active">Manage My Profile</NavLink>
 																</li>
 																<li role="presentation">
@@ -178,7 +184,6 @@ export default class PSEHeader extends React.Component {
 																</li>
 															</ul>
 														</li>
-
 														<li className="desktop-iconItem dropdown">
 															<div></div>
 															<button
@@ -206,6 +211,7 @@ export default class PSEHeader extends React.Component {
 														</li>
 												</ul>
 										</nav>
+									</div>
 								</div>
 						</div>
 				</div>
