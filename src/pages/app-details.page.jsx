@@ -44,9 +44,7 @@ export default class AppDetailsPage extends React.Component {
 	}
 
 	render() {
-
-		console.log('this.appStore.currentAppObject    ', this.appStore.currentAppObject);
-
+		
 		const crumbs = [
 			{	pageHref: '/admin',
 				pageTitle: 'Administration Dashboard'
