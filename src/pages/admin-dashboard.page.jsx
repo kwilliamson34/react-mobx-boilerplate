@@ -24,7 +24,6 @@ export default class AdminDashboardPage extends React.Component {
 
   setPushToTalkProvider = (provider) => {
     this.linkStore.setPushToTalkProvider(provider);
-    console.log('PROVIDER    ', provider);
   }
 
   goToPushToTalkLink = () => {
