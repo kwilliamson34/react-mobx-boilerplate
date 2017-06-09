@@ -8,33 +8,42 @@ export default class ShowMoreOrLess extends React.Component {
 
   //take in element, charLimit, textBlock, styles on everything that can be styled, esp the button.
   //make the ellipsis a configurable symbol.
+  //what to do with sourceId?
+  //we need them to be able to add as many classes and additional attributes as they want.
 
   static propTypes = {
-    sourceId: PropTypes.string.isRequired,
     charLimit: PropTypes.number,
-    text: PropTypes.string
+    isInitiallyTruncated: PropTypes.bool,
+    text: PropTypes.string,
+    wrappingElement: PropTypes.string,
+    cutoffSymbol: PropTypes.string,
+    returnToId: PropTypes.string
   }
 
   static defaultProps = {
     charLimit: 300,
-    isTruncated: true
+    isInitiallyTruncated: true,
+    text: '',
+    wrappingElement: 'div',
+    cutoffSymbol: '8230',
+    returnToId: null
   }
 
   constructor(props) {
     super(props);
-    this.toggleTruncate = this.toggleTruncate.bind(this);
-    this.truncateText = this.truncateText.bind(this);
-    this.truncateButton = this.truncateButton.bind(this);
+    // this.toggleTruncate = this.toggleTruncate.bind(this);
+    // this.truncateText = this.truncateText.bind(this);
+    // this.truncateButton = this.truncateButton.bind(this);
   }
 
   @observable isTruncated = true;
 
-  toggleTruncate() {
+  toggleTruncate = () => {
     this.isTruncated = !this.isTruncated;
-    document.getElementById('Review-' + this.props.sourceId).scrollIntoView();
+    if (this.props.returnToId !== null) document.getElementById(this.props.returnToId).scrollIntoView();
   }
 
-  truncateButton() {
+  truncateButton = () => {
     return (
       <button className='btn-link truncate-button' aria-haspopup='true' aria-expanded={ !this.isTruncated } onClick={ this.toggleTruncate } >
         { this.isTruncated ? 'SHOW MORE' : 'SHOW LESS' }
@@ -42,7 +51,9 @@ export default class ShowMoreOrLess extends React.Component {
     )
   }
 
-  truncateText(comment, chars) {
+  generateCutoff = (symbol) => <span>{String.fromCharCode({symbol})}</span>;
+
+  truncateText = (comment, chars) => {
 
     //TODO: Comment may need to be normalized to display correctly. Probably need some regex on the last index item in the array currently being used to generate cutoffPoint, to ensure no markup is being broken or other formatting errors introduced.
     let splitComment = [];
@@ -53,15 +64,14 @@ export default class ShowMoreOrLess extends React.Component {
     if (comment.length > chars) {
       splitComment = comment.substr(0, chars + 1).split(' ');
       cutoffPoint = splitComment.slice(0, splitComment.length - 1).join(' ').length;
-      showEllipsis = true;
+      isCutoff = true;
       showTruncateButton = true;
     }
 
     let truncatedText = comment.substr(0, cutoffPoint);
     let initiallyHiddenTextThatWillExpand = comment.substr(cutoffPoint);
 
-    let ellipsisSpan =
-      <span>{String.fromCharCode(8230)}</span>
+    let cutoffSpan = this.generateCutoff();
 
     return (
 
@@ -69,7 +79,7 @@ export default class ShowMoreOrLess extends React.Component {
         <p>
           <span dangerouslySetInnerHTML={{__html: `${truncatedText}`}} />
             {this.isTruncated
-              ? (showEllipsis && ellipsisSpan)
+              ? (isCutoff && cuttoffSpan)
               : <span dangerouslySetInnerHTML={{__html: `${initiallyHiddenTextThatWillExpand}`}} />
             }
         </p>
@@ -80,7 +90,7 @@ export default class ShowMoreOrLess extends React.Component {
 
   render() {
     return (
-      <div className='truncate-comment-container' aria-label='Review content'>
+      <div className='show-more-or-less-container'>
         { this.truncateText(this.props.text, this.props.charLimit) }
       </div>
     )
