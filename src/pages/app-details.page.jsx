@@ -44,6 +44,9 @@ export default class AppDetailsPage extends React.Component {
 	}
 
 	render() {
+
+		console.log('this.appStore.currentAppObject    ', this.appStore.currentAppObject);
+
 		const crumbs = [
 			{	pageHref: '/admin',
 				pageTitle: 'Administration Dashboard'
@@ -123,7 +126,7 @@ export default class AppDetailsPage extends React.Component {
                 <h2>Description</h2>
                 <p
                   className="content-description"
-                  dangerouslySetInnerHTML={{ __html: this.appStore.currentAppObject.short_description}}>
+                  dangerouslySetInnerHTML={{ __html: this.appStore.currentAppObject.long_description}}>
                 </p>
                 {/* <a href="#show-more">Show More <span className="sr-only">about this app</span></a> */}
               </div>
