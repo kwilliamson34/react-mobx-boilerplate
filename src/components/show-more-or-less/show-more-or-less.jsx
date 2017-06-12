@@ -43,6 +43,8 @@ export default class ShowMoreOrLess extends React.Component {
     // this.truncateButton = this.truncateButton.bind(this);
   }
 
+  isCutoff = false;
+  // showTruncateButton = false;
   @observable isTruncated = true;
 
   toggleTruncate = () => {
@@ -58,122 +60,223 @@ export default class ShowMoreOrLess extends React.Component {
     )
   }
 
-  //going to need some logic to stop it if there's no cutoff. Basically need to continue to full charLength and compare.
-  //we're splitting a word, which is no good.
-  //going to need to add the tags right on to the end of the truncated block and then remove them. they can't just sit empty inside a span. kind of a pain.
-
-
-  findCutoffPoint = (array, charLimit) => {
-
-    let charLength = 0;
-    let totalLength = 0;
-    let cutoffPoint = 0;
-
-    for (var i = 0; i < array.length; ++i) {
-
-      if (htmlRegex.test(array[i])) {
-        totalLength += array[i].length;
-      }
-      else {
-        if (charLength + array[i].length < charLimit) {
-          charLength += array[i].length;
-          totalLength = totalLength + array[i].length;
-        }
-        else if (charLength + array[i].length === charLimit) {
-          totalLength += array[i].length;
-          cutoffPoint = totalLength;
-          return cutoffPoint;
-        }
-        else if (charLength + array[i].length > charLimit) {
-          cutoffPoint = totalLength;
-          return cutoffPoint;
-        }
-        else {
-          console.log('findCutoffPoint error');
-        }
-      }
-      // console.log('i  ', i);
-      // console.log('array[i]  ', array[i]);
-      // console.log('charLength  ', charLength);
-      // console.log('totalLength  ', totalLength);
-      // console.log('cutoffPoint  ', cutoffPoint);
-    }
+  splitText = (text) => {
+    return text.match(splitEverythingRegex);
   }
 
-  generateCutoff = (truncatedText, cutoffSymbol) => {
-    console.log('generateCutoff triggered');
-
-    let htmlTags = truncatedText.match(htmlRegexGlobal);
-    console.log('htmlTags   ', htmlTags);
-
-    //https://osric.com/chris/accidental-developer/2012/11/balancing-tags-in-html-and-xhtml-excerpts/
-
-    let stack = [];
-    let endElements = '';
-
-    for (let tag in htmlTags) {
-      if (htmlTags[tag].search('/') <= 0) {
-        stack.push(htmlTags[tag]);
-      }
-      else if (htmlTags[tag].search('/') == 1) {
-        stack.pop();
+  getRawText = (text) => {
+    return text.replace(htmlRegexGlobal, (element) => {
+      //we'll need to add all the elements that inherently add a space. Why? Because perfection.
+      if (element === '<li>') {
+        return ' ';
       }
       else {
-        //needs test
-        console.log('self closing tag  ', htmlTags[tag]);
+        return '';
+      }
+    });
+  }
+
+  reformText = (text, charLimit) => {
+
+    //split text into array of tags and words
+    let splitText = this.splitText(text);
+    console.log('splitText   ', splitText);
+
+    let rawTextLength = this.getRawText(text).length;
+    console.log('text.length   ', text.length);
+    console.log('rawTextLength   ', rawTextLength);
+
+    let reformedText = '<span>';
+
+    let charLength = 0;
+    let cutoffReached = false;
+
+    while (splitText.length > 0) {
+      let element = splitText.shift();
+
+      if (htmlRegex.test(element)) {
+        reformedText += element;
+      }
+      else if (!this.cutoffReached) {
+        //we've not reached cutoff. Let's find it.
+        if (charLength + element.length < charLimit) {
+          //adding this text element won't exceed charLimit. Add it and continue.
+          charLength += element.length;
+          reformedText += element + ' ';
+        }
+        else if (charLength + element.length === charLimit) {
+          //this is the final element before cutoff. Add it to the string, then add the ending elements IF we need to truncate the comment.
+          charLength += element.length;
+          reformedText += element;
+
+          if (charLength < rawTextLength) {
+            //edge case: might be only one more word before rawTextLength reached. We might need to track index and building in a buffer.
+            reformedText += this.endingTruncateElements();
+            this.isCutoff = true;
+            this.cutoffReached = true;
+          }
+          else if (charLength === rawTextLength) {
+            //text has ended, but we need to continue the loop to close out tags.
+            reformedText += '</span>';
+            this.isCutoff = false;
+            this.cutoffReached = true;
+          }
+          else {
+            console.log('reformText error at else if (charLength + element.length === charLimit)');
+          }
+        }
+        else if (charLength + element.length > charLimit) {
+          //we've passed the cutoffPoint. this is where things get difficult.
+          if (charLength + element.length < rawTextLength) {
+            //there remains text after adding this element. add the elements before this word.
+            reformedText += this.endingTruncateElements();
+            reformedText += element;
+            this.isCutoff = true;
+            this.cutoffReached = true;
+          }
+          else if (charLength + element.length === rawTextLength) {
+            //if we add the element, this equals rawTextLength. This means we're at the last text element, so rather than cutoff with one word remaining, we'll close out here.
+            reformedText += element;
+            reformedText += '</span>';
+            this.isCutoff = false;
+            this.cutoffReached = true;
+          }
+          else {
+            console.log('reformText error at else if (charLength + element.length > charLimit)');
+          }
+        }
+      }
+      else if (this.cutoffReached) {
+        //add all other text.
+        reformedText += element + ' ';
       }
     }
-
-    while (stack.length > 0) {
-      let endTag = stack.pop();
-      //might need massaging to grab all inline styles already in string, assuming we want them (might not);
-      endTag = endTag.substr(1, endTag.search(/[ >]/));
-      endElements += `</${endTag}`;
-    }
-
-    console.log('endElements   ', endElements);
-
-    let finalEndElements = String.fromCharCode(cutoffSymbol) + endElements;
-
-    return (
-      <span dangerouslySetInnerHTML={{__html: `${finalEndElements}`}} />
-    )
-  };
+    //while loop ends, close out the span.
+    reformedText += '</span>';
+    return reformedText;
+  }
 
   truncateText = (text, charLimit) => {
 
-    //temp. needs to be conditional on charLength in this.findCutoffPoint
-    let isCutoff = true;
-    let showTruncateButton = true;
-
-    console.log('text.length   ', text.length);
-
-    let splitText = text.match(splitEverythingRegex);
-    console.log('splitText    ', splitText);
-
-    let cutoffPoint = this.findCutoffPoint(splitText, this.props.charLimit);
-
-    let truncatedBlock = text.substr(0, cutoffPoint);
-    console.log('truncatedBlock   ', truncatedBlock);
-    let hiddenBlock = text.substr(cutoffPoint);
-    console.log('hiddenBlock   ', hiddenBlock);
-
-    let cutoffElements = this.generateCutoff(truncatedBlock, this.props.cutoffSymbol);
-
-    return (
-      <div>
-        <p>
-          <span dangerouslySetInnerHTML={{__html: `${truncatedBlock}`}} />
-            {this.isTruncated
-              ? (isCutoff && cutoffElements)
-              : <span dangerouslySetInnerHTML={{__html: `${hiddenBlock}`}} />
-            }
-        </p>
-        <p>{showTruncateButton && this.truncateButton()}</p>
-      </div>
-    )
+    let reformedText = this.reformText(text, charLimit);
+    console.log('reformedText   ', reformedText);
 
   }
+
+
+
+
+  // findCutoffPoint = (array, charLimit) => {
+  //
+  //   let charLength = 0;
+  //   let totalLength = 0;
+  //   let cutoffPoint = 0;
+  //
+  //   for (var i = 0; i < array.length; ++i) {
+  //
+  //     if (htmlRegex.test(array[i])) {
+  //       totalLength += array[i].length;
+  //     }
+  //     else {
+  //       if (charLength + array[i].length < charLimit) {
+  //         charLength += array[i].length;
+  //         totalLength = totalLength + array[i].length;
+  //       }
+  //       else if (charLength + array[i].length === charLimit) {
+  //         totalLength += array[i].length;
+  //         cutoffPoint = totalLength;
+  //         return cutoffPoint;
+  //       }
+  //       else if (charLength + array[i].length > charLimit) {
+  //         cutoffPoint = totalLength;
+  //         return cutoffPoint;
+  //       }
+  //       else {
+  //         console.log('findCutoffPoint error');
+  //       }
+  //     }
+  //     // console.log('i  ', i);
+  //     // console.log('array[i]  ', array[i]);
+  //     // console.log('charLength  ', charLength);
+  //     // console.log('totalLength  ', totalLength);
+  //     // console.log('cutoffPoint  ', cutoffPoint);
+  //   }
+  // }
+
+  // generateCutoff = (truncatedText, cutoffSymbol) => {
+  //   console.log('generateCutoff triggered');
+  //
+  //   let htmlTags = truncatedText.match(htmlRegexGlobal);
+  //   console.log('htmlTags   ', htmlTags);
+  //
+  //   //https://osric.com/chris/accidental-developer/2012/11/balancing-tags-in-html-and-xhtml-excerpts/
+  //
+  //   let stack = [];
+  //   let endElements = '';
+  //
+  //   for (let tag in htmlTags) {
+  //     if (htmlTags[tag].search('/') <= 0) {
+  //       stack.push(htmlTags[tag]);
+  //     }
+  //     else if (htmlTags[tag].search('/') == 1) {
+  //       stack.pop();
+  //     }
+  //     else {
+  //       //needs test
+  //       console.log('self closing tag  ', htmlTags[tag]);
+  //     }
+  //   }
+  //
+  //   while (stack.length > 0) {
+  //     let endTag = stack.pop();
+  //     //might need massaging to grab all inline styles already in string, assuming we want them (might not);
+  //     endTag = endTag.substr(1, endTag.search(/[ >]/));
+  //     endElements += `</${endTag}`;
+  //   }
+  //
+  //   console.log('endElements   ', endElements);
+  //
+  //   let finalEndElements = String.fromCharCode(cutoffSymbol) + endElements;
+  //
+  //   return (
+  //     <span dangerouslySetInnerHTML={{__html: `${finalEndElements}`}} />
+  //   )
+  // };
+  //
+  // truncateText = (text, charLimit) => {
+  //
+  //   //temp. needs to be conditional on charLength in this.findCutoffPoint
+  //   let isCutoff = true;
+  //   let showTruncateButton = true;
+  //
+  //   console.log('text.length   ', text.length);
+  //
+  //   let splitText = text.match(splitEverythingRegex);
+  //   console.log('splitText    ', splitText);
+  //
+  //   let cutoffPoint = this.findCutoffPoint(splitText, this.props.charLimit);
+  //
+  //   let truncatedBlock = text.substr(0, cutoffPoint);
+  //   console.log('truncatedBlock   ', truncatedBlock);
+  //   let hiddenBlock = text.substr(cutoffPoint);
+  //   console.log('hiddenBlock   ', hiddenBlock);
+  //
+  //   let cutoffElements = this.generateCutoff(truncatedBlock, this.props.cutoffSymbol);
+  //
+  //   return (
+  //     <div>
+  //       <p>
+  //         <span dangerouslySetInnerHTML={{__html: `${truncatedBlock}`}} />
+  //           {this.isTruncated
+  //             ? (isCutoff && cutoffElements)
+  //             : <span dangerouslySetInnerHTML={{__html: `${hiddenBlock}`}} />
+  //           }
+  //       </p>
+  //       <p>{showTruncateButton && this.truncateButton()}</p>
+  //     </div>
+  //   )
+  //
+  // }
 
   // truncateText = (text, charLimit) => {
   //
