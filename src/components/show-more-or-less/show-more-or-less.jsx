@@ -119,6 +119,7 @@ export default class ShowMoreOrLess extends React.Component {
         stack.pop();
       }
       else {
+        //needs test
         console.log('self closing tag  ', htmlTags[tag]);
       }
     }
