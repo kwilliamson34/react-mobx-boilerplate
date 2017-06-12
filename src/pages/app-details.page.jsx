@@ -9,6 +9,8 @@ import ScreenshotGallery from '../components/screenshot-gallery/screenshot-galle
 import AppManagementBlock from '../components/app-management-block/app-management-block';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 
+import ShowMoreOrLess from '../components/show-more-or-less/show-more-or-less';
+
 //import mock response from services
 const appDetail = require('../fixtures/mock-app-detail.json');
 
@@ -121,11 +123,7 @@ export default class AppDetailsPage extends React.Component {
             <div className="row">
               <div className="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
                 <h2>Description</h2>
-                <p
-                  className="content-description"
-                  dangerouslySetInnerHTML={{ __html: this.appStore.currentAppObject.short_description}}>
-                </p>
-                {/* <a href="#show-more">Show More <span className="sr-only">about this app</span></a> */}
+                <ShowMoreOrLess text={appDetail.long_description} />
               </div>
             </div>
           </div>

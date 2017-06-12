@@ -2,7 +2,7 @@
    "imgBaseURL": "https://ease.apperian.com/uploads/",
   "icon_path": "/images/appicon-placeholder.png",
   "appName": "Mobile Iron",
-  "appLongDescription": "<p>MobileIron’s Mobile@Work securely connects your Android device to your company network so that you can easily access email and other work resources.</p><ul><li>Purpose-built for Mobile IT with millions of users globally</li><li>Complete separation of corporate and personal data</li><li>500+ of Global 2000 customers</li><li>More than 97% customer support satisfaction rate</li></ul>",
+  "long_description": "<p>MobileIron’s Mobile@Work securely <i>connects</i> your Android device to your company network so that you can easily access email and other work resources.</p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim <i>veniam, quis nostrud exercitation</i> ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><ul><li>Purpose-built for Mobile IT with millions of users globally</li><li>Complete separation of corporate and personal data</li><li>500+ of Global 2000 customers</li><li>More than 97% customer support satisfaction rate</li></ul>",
   "author": "AT&T",
   "endorsement": true,
   "reviewCount": 44,
