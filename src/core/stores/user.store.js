@@ -3,32 +3,36 @@ import {apiService} from '../services/api.service';
 import config from 'config';
 
 class UserStore {
-  @action validateUser() {
+  @action revalidateUser() {
     const success = (res) => {
-      let usr_tkn = res.data;
-
-      this.initUserObject(usr_tkn);
-      this.checkPermissions();
-      this.userValidationDone = true;
+      this.initUserObject(res.data);
     }
+
     const fail = (err) => {
       if(err.response.status === 401) {
-        this.auth_error = true;
+
         //Redirect to Halo
         window.location.replace(config.haloLogin);
-      } else if (err.response.status === 403){
-        //Show unathorized error page
-        window.location.replace('/error/unauthorized');
-      } else {
-        //Show generic error page
-        window.location.replace('/error');
+      } else if (err.response.status === 403) {
+        //this is not an authorized user for anything
+        this.authentic_user = false;
+        this.userValidationDone = true;
       }
-      this.userValidationDone = true;
     }
+
     return apiService.validateUserData().then(success, fail);
   }
 
-  @action checkPermissions() {
+  @action initUserObject(tk_response) {
+    let tk_array = tk_response.split('.');
+    let user_obj = JSON.parse(window.atob(tk_array[1]));
+    this.condtionUserObj(user_obj);
+    this.api_token = tk_response;
+    this.checkPermissions();
+    this.userValidationDone = true;
+  }
+
+  checkPermissions() {
     if (this.user.roles.indexOf('G_FN_ADM') !== -1) {
       this.authentic_user = true;
     } else {
@@ -36,33 +40,20 @@ class UserStore {
     }
   }
 
-  initUserObject(tk_response) {
-    let tk_array = tk_response.split('.');
-    let user_obj = JSON.parse(window.atob(tk_array[1]));
-    this.user = user_obj;
+  condtionUserObj(userInfo) {
+    this.user.uid = userInfo.id;
+    this.user.email = userInfo.email;
+    this.user.firstName = userInfo.firstName;
+    this.user.lastName = userInfo.lastName;
+    this.user.roles = userInfo.roles;
+    this.user.username = userInfo.username;
+    this.user.pse = Object.keys(userInfo.authorizations[0])[0];
   }
 
-
-  @observable user = {
-      aud : '',
-      authorizations : [],
-      email : '',
-      exp : 0,
-      firstName : '',
-      iat : 0,
-      id : '',
-      iss : '',
-      t : '',
-      lastName : '',
-      roles : [],
-      sub : '',
-      username : ''
-  };
-
+  @observable user = {};
+  @observable api_token;
   @observable userValidationDone = false;
   @observable authentic_user = false;
-  @observable auth_error = false;
-  @observable pseId = '123'; //TODO temporarily hardcoded
 }
 
 export const userStore = new UserStore();
