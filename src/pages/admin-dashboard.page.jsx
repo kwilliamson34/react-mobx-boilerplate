@@ -27,13 +27,11 @@ export default class AdminDashboardPage extends React.Component {
   }
 
   goToPushToTalkLink = () => {
-    //Open link in new tab
-    //temp hardcode, waiting on fate of solutions store.
-    // window.open(this.linkStore.pushToTalkLink,'_blank');
-    // window.open("/solutions/category/push-to-talk",'_blank');
+    this.linkStore.togglePushToTalkModal();
   }
 
   renderPushToTalkModal = () => {
+
     return (
       <div>
         <div id="exitModal" className="modal fade in">
