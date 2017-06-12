@@ -66,7 +66,7 @@ export default class ShowMoreOrLess extends React.Component {
 
   getRawText = (text) => {
     return text.replace(htmlRegexGlobal, (element) => {
-      //we'll need to add all the elements that inherently add a space. Why? Because perfection.
+      //we'll need to add all the elements that inherently add a space. Why? Because it MUST BE PERFECT.
       if (element === '<li>') {
         return ' ';
       }
@@ -74,6 +74,10 @@ export default class ShowMoreOrLess extends React.Component {
         return '';
       }
     });
+  }
+
+  endingTruncateElements = () => {
+    return `</span>${String.fromCharCode(this.props.cutoffSymbol)}<span className="truncateHidden">`;
   }
 
   reformText = (text, charLimit) => {
