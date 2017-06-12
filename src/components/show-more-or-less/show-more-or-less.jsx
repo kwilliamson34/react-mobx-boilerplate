@@ -45,7 +45,7 @@ export default class ShowMoreOrLess extends React.Component {
 
   isCutoff = false;
   // showTruncateButton = false;
-  @observable isTruncated = true;
+  @observable isTruncated = false;
 
   toggleTruncate = () => {
     this.isTruncated = !this.isTruncated;
@@ -76,8 +76,9 @@ export default class ShowMoreOrLess extends React.Component {
     });
   }
 
-  endingTruncateElements = () => {
-    return `</span>${String.fromCharCode(this.props.cutoffSymbol)}<span className="truncateHidden">`;
+  endingTruncateElements = (cutoffSymbolCode) => {
+    let displayWhenTruncated = this.isTruncated ? 'block' : 'none';
+    return `</span><span style="display: ${displayWhenTruncated}">${String.fromCharCode(cutoffSymbolCode)}</span><span style="display: ${displayWhenTruncated}">`;
   }
 
   reformText = (text, charLimit) => {
@@ -133,7 +134,7 @@ export default class ShowMoreOrLess extends React.Component {
           //we've passed the cutoffPoint. this is where things get difficult.
           if (charLength + element.length < rawTextLength) {
             //there remains text after adding this element. add the elements before this word.
-            reformedText += this.endingTruncateElements();
+            reformedText += this.endingTruncateElements(this.props.cutoffSymbol);
             reformedText += element;
             this.isCutoff = true;
             this.cutoffReached = true;
@@ -155,7 +156,7 @@ export default class ShowMoreOrLess extends React.Component {
         reformedText += element + ' ';
       }
     }
-    //while loop ends, close out the span.
+    //when while-loop ends, close out the span.
     reformedText += '</span>';
     return reformedText;
   }
@@ -165,6 +166,7 @@ export default class ShowMoreOrLess extends React.Component {
     let reformedText = this.reformText(text, charLimit);
     console.log('reformedText   ', reformedText);
 
+    return reformedText;
   }
 
 
@@ -336,10 +338,15 @@ export default class ShowMoreOrLess extends React.Component {
   // }
 
   render() {
+    const insertHtml = this.truncateText(this.props.text, this.props.charLimit);
+
     return React.createElement(
       this.props.wrappingElement,
-      {className: this.props.wrappingClassName},
-      this.truncateText(this.props.text, this.props.charLimit)
+      {
+        className: this.props.wrappingClassName,
+        dangerouslySetInnerHTML: {__html: insertHtml}
+      },
+      null
     );
   }
 }
