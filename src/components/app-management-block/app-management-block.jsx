@@ -8,7 +8,7 @@ import Checkbox from '../toggle/checkbox.jsx';
 export default class AppManagementBlock extends React.Component {
 
   static propTypes = {
-    psk: PropTypes.number.isRequired,
+    psk: PropTypes.string.isRequired,
     getMatchingApp: PropTypes.func.isRequired,
     changeAppAvailability: PropTypes.func.isRequired,
     changeAppRecommended: PropTypes.func.isRequired
