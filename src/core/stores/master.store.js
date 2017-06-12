@@ -20,6 +20,10 @@ class PSEStore {
 		this.userStore = userStore;
 	}
 
+	getUser() {
+		return this.userStore.user;
+	}
+
 	// ACTIONS
 	@action updateLocation(hash) {
 		this.location = hash;
@@ -44,6 +48,10 @@ class PSEStore {
 	// COMPUTEDS
 	@computed get lastNameAdded() {
 		return this.names[this.names.length - 1];
+	}
+
+	@computed get isLoggedIn() {
+		return this.userStore.authentic_user;
 	}
 
 	// OBSERVABLES
