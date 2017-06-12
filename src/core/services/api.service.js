@@ -41,21 +41,21 @@ class ApiService {
 
     getSearchResults(query) {
       let endpoint = query
-        ? `${base}/apps/admin/search?searchTxt=${query}&pseId=${userStore.user.pseId}`
-        : `${base}/apps/admin?pseId=${userStore.user.pseId}`
+        ? `${base}/apps/admin/search?searchTxt=${query}&pseId=${userStore.user.pse}`
+        : `${base}/apps/admin?pseId=${userStore.user.pse}`
       return axios.get(endpoint).then((res) => {
         return utilsService.conditionData(res.data.applications);
       });
     }
 
     getAdminApps() {
-      return axios.get(`${base}/apps/admin?pseId=${userStore.user.pseId}`).then(res => {
+      return axios.get(`${base}/apps/admin?pseId=${userStore.user.pse}`).then(res => {
         return utilsService.conditionData(res.data.applications);
       });
     }
 
     getAppDetails(appPSK) {
-      return axios.get(`${base}/app?appPsk=${appPSK}&pseId=${userStore.user.pseId}`).then(res => {
+      return axios.get(`${base}/app?appPsk=${appPSK}&pseId=${userStore.user.pse}`).then(res => {
         let arrayRes = [];
         arrayRes.push(res.data);
         return arrayRes;
@@ -105,7 +105,7 @@ class ApiService {
         data: {
           appPsk,
           groupIdentifier,
-          pseId: userStore.user.pseId
+          pseId: userStore.user.pse
         }
       });
     }
@@ -118,7 +118,7 @@ class ApiService {
         data: {
           appPsk,
           groupIdentifier,
-          pseId: userStore.user.pseId
+          pseId: userStore.user.pse
         }
       });
     }
