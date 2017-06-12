@@ -46,6 +46,7 @@ export default class AppDetailsPage extends React.Component {
 	}
 
 	render() {
+		
 		const crumbs = [
 			{	pageHref: '/admin',
 				pageTitle: 'Administration Dashboard'
@@ -123,7 +124,15 @@ export default class AppDetailsPage extends React.Component {
             <div className="row">
               <div className="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
                 <h2>Description</h2>
+<<<<<<< HEAD
                 <ShowMoreOrLess text={appDetail.long_description} />
+=======
+                <p
+                  className="content-description"
+                  dangerouslySetInnerHTML={{ __html: this.appStore.currentAppObject.long_description}}>
+                </p>
+                {/* <a href="#show-more">Show More <span className="sr-only">about this app</span></a> */}
+>>>>>>> c4633382a129c37ee317b01339758eb9f57ad442
               </div>
             </div>
           </div>

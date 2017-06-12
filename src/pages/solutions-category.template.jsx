@@ -51,7 +51,7 @@ export default class SolutionsCategoryTemplate extends React.Component {
       {	pageHref: '/solutions',
         pageTitle: 'Public Safety Solutions'
       },
-      {	pageHref: `/${this.props.match.params.solutionCategory}`,
+      {	pageHref: `/${this.props.match.url}`,
         pageTitle: categoryTitle
       }
     ];
