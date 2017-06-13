@@ -135,7 +135,7 @@ export default class AdminDashboardPage extends React.Component {
             </section>
             <aside className="col-xs-12 col-lg-4 shop-actions">
               <div className="col-xs-12">
-                <h2 className="as-h4">Shop</h2>
+                <h2 className="as-h4">Purchasing and Provisioning</h2>
               </div>
               <nav>
                 <ul>
