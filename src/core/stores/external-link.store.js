@@ -136,7 +136,7 @@ class ExternalLinkStore {
   @observable managePushToTalkKodiakLink = 'https://wgp.eptt.kodiaknetworks.com/cat/view/catui';
   @observable managePushToTalkMotorolaLink = 'https://firstnet.att.com/ptt_upm';
   @observable viewWirelessReportsLink = 'https://www.wireless.att.com/businesscare/menu/index.jsp?subject=Reports&wtLinkName=Reports&wtLinkLoc=S1&&wtLinkType=InventoryReport';
-  @observable shopStandardDevicesLink = '';
+  @observable shopStandardDevicesLink = 'https://wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn';
 
   @observable showPushToTalkModal = false;
   @observable pushToTalkProvider = '';

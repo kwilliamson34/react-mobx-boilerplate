@@ -24,14 +24,15 @@ export default class AdminDashboardPage extends React.Component {
 
   setPushToTalkProvider = (provider) => {
     this.linkStore.setPushToTalkProvider(provider);
+    this.linkStore.togglePushToTalkModal();
   }
 
   goToPushToTalkLink = () => {
-    //Open link in new tab
-    window.open(this.linkStore.pushToTalkLink,'_blank');
+    this.linkStore.togglePushToTalkModal();
   }
 
   renderPushToTalkModal = () => {
+
     return (
       <div>
         <div id="exitModal" className="modal fade in">
@@ -45,21 +46,27 @@ export default class AdminDashboardPage extends React.Component {
                   <h1 className="as-h2">Choose push-to-talk provider</h1>
                   <ul className="ptt-providers">
                     <li>
-                      <label htmlFor="ATT_PTT">AT&T Enhanced Push-to-Talk</label>
-                      <button type="button" id="ATT_PTT" className={this.linkStore.pushToTalkProvider === 'ATT' ? 'ptt-provider active' : 'ptt-provider'} onClick={this.setPushToTalkProvider.bind(this, 'ATT')}>
-                        <img src="/images/attlogo.png" alt="AT&T logo" />
-                      </button>
+                      <NewTabLink to={this.linkStore.managePushToTalkKodiakLink}>
+                        <label htmlFor="ATT_PTT">AT&T Enhanced Push-to-Talk</label>
+                        <button type="button" id="ATT_PTT" className={this.linkStore.pushToTalkProvider === 'ATT' ? 'ptt-provider active' : 'ptt-provider'} onClick={this.setPushToTalkProvider.bind(this, 'ATT')}>
+                          <img src="/images/attlogo.png" alt="AT&T logo" />
+                        </button>
+                      </NewTabLink>
                     </li>
                     <li>
-                      <label htmlFor="FN_PTT">FirstNet Enhanced Push-to-Talk</label>
-                      <button type="button" id="FN_PTT" className={this.linkStore.pushToTalkProvider === 'FN' ? 'ptt-provider active' : 'ptt-provider'} onClick={this.setPushToTalkProvider.bind(this, 'FN')}>
-                        <img src="/images/firstnetlogo.png" alt="FirstNet logo" />
-                      </button>
+                      <NewTabLink to={this.linkStore.managePushToTalkMotorolaLink}>
+                        <label htmlFor="FN_PTT">FirstNet Enhanced Push-to-Talk</label>
+                        <button type="button" id="FN_PTT" className={this.linkStore.pushToTalkProvider === 'FN' ? 'ptt-provider active' : 'ptt-provider'} onClick={this.setPushToTalkProvider.bind(this, 'FN')}>
+                          <img src="/images/firstnetlogo.png" alt="FirstNet logo" />
+                        </button>
+                      </NewTabLink>
                     </li>
                   </ul>
                 </div>
                 <div className="col-xs-12 text-center ptt-modal-actions">
-                  <button className='fn-primary' onClick={this.goToPushToTalkLink}>Get Push-To-Talk</button>
+                  <Link to="/solutions/push-to-talk/push-to-talk">
+                    <button className='fn-primary' onClick={this.goToPushToTalkLink}>Get Push-To-Talk</button>
+                  </Link>
                   <button className='fn-secondary' onClick={this.togglePushToTalkModal}>Return to Dashboard</button>
                 </div>
               </div>
