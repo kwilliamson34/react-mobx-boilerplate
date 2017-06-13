@@ -184,7 +184,7 @@ export default class PSEHeader extends React.Component {
 																	<NavLink to="#faq" activeClassName="active">Manage My Profile</NavLink>
 																</li>
 																<li role="presentation">
-																	<a href={config.haloLogout}>
+																	<a href="#" onClick={this.onLogout}>
 																		<i className="icon-logout" aria-hidden="true"></i>Log Out
 																	</a>
 																</li>
