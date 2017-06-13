@@ -32,6 +32,15 @@ class UserStore {
     this.userValidationDone = true;
   }
 
+  @action logoutUser() {
+    apiService.logoutUser().then(() => {
+      window.location.replace(config.haloLogout);
+    }).catch((err) => {
+      console.error('Received error on logout: ', err);
+      window.location.replace(config.haloLogout); //go to halo logout anyway
+    });
+  }
+
   checkPermissions() {
     if (this.user.roles.indexOf('G_FN_ADM') !== -1) {
       this.authentic_user = true;

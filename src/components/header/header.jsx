@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, NavLink } from 'react-router-dom';
-import config from 'config';
 import {observer,inject} from 'mobx-react';
 
 @inject('store')
@@ -10,6 +9,7 @@ export default class PSEHeader extends React.Component {
 	constructor(props) {
 		super(props);
 		this.headerStore = this.props.store.headerStore;
+		this.userStore = this.props.store.userStore;
 		window.addEventListener('resize',this.headerStore.updateWindowDimensions);
 	}
 
@@ -19,6 +19,11 @@ export default class PSEHeader extends React.Component {
 
 	toggleMainMenu = () => {
 		this.headerStore.toggleMainMenu();
+	}
+
+	onLogout = (event) => {
+		event.preventDefault();
+		this.userStore.logoutUser();
 	}
 
 	render() {
@@ -75,7 +80,7 @@ export default class PSEHeader extends React.Component {
 																				<Link to="#config-mdm">Configure MDM</Link>
 																		</li>
 																		<li role="presentation">
-																				<a href={config.haloLogout}>
+																				<a href="#" onClick={this.onLogout}>
 																					<i className="icon-logout" aria-hidden="true"></i>Log Out
 																				</a>
 																		</li>

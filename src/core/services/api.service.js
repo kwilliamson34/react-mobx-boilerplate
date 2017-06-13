@@ -3,12 +3,13 @@ import {utilsService} from './utils.service';
 import {externalDeviceContentService} from './external-device-content.service';
 import {externalSolutionsService} from './external-solutions.service';
 import {userStore} from '../stores/user.store';
+import config from 'config';
 
-const base = '/api'
+const base = config.apiBase;
 let user_token = '';
 
 axios.interceptors.request.use(request => {
-  if (request.url !== `${base}/user/profile`) {
+  if (request.url !== `${base}/user/profile` && request.url !== `${base}/user/logout`) {
     request.headers['Authorization'] = `Bearer ${user_token}`;
   }
   return request;
@@ -35,6 +36,12 @@ class ApiService {
 
     validateUserData() {
       return axios.get(`${base}/user/profile`, {
+        withCredentials: true
+      });
+    }
+
+    logoutUser() {
+      return axios.get(`${base}/user/logout`, {
         withCredentials: true
       });
     }
