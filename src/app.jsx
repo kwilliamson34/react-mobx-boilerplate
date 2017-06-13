@@ -46,6 +46,7 @@ import SolutionsCategoryTemplate from './pages/solutions-category.template';
 
 //Help section
 import HelpCenterPage from './pages/help-center.page';
+import FaqPage from './pages/faq.page';
 
 //Footer pages
 import PrivacyPage from './pages/privacy.page';
@@ -121,6 +122,7 @@ export default class App extends React.Component {
               <Route path="/devices" component={this.getSpecializedDevicesComponent}/>
               <Route path="/solutions" component={this.getPublicSafetySolutionsComponent}/>
               <Route path="/help-center" component={HelpCenterPage}/>
+              <Route path="/faq" component={FaqPage}/>
               <Route path="/privacy" component={PrivacyPage}/>
               <Route path="/terms" component={TermsOfServicePage}/>
               <Route path="/accessibility" component={AccessibilityPage}/>
