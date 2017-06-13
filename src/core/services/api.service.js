@@ -6,28 +6,27 @@ import {userStore} from '../stores/user.store';
 import config from 'config';
 
 const base = config.apiBase;
-let user_token = '';
 
 axios.interceptors.request.use(request => {
   if (request.url !== `${base}/user/profile` && request.url !== `${base}/user/logout`) {
-    request.headers['Authorization'] = `Bearer ${user_token}`;
+    request.headers['Authorization'] = `Bearer ${userStore.api_token}`;
   }
   return request;
 })
 
 axios.interceptors.response.use((response) => {
-  if(response.config.url == `${base}/user/profile`){
-    user_token = response.data
-  }
   return response;
 }, (error) => {
+
+  if(error.response) {
     let response = error.response;
     let old_req = response.config;
 
-  if ((response.status === 403 || response.status === 401) && old_req.url !== `${base}/user/profile`) {
-    userStore.validateUser();
-    return axios(old_req);
+    if (response.status === 401 && old_req.url !== `${base}/user/profile`) {
+      return userStore.revalidateUser().then(() => axios(old_req));
+    }
   }
+
   throw error;
 })
 
