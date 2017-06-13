@@ -99,9 +99,9 @@ class ExternalLinkStore {
   }
 
   @computed get pushToTalkLink() {
-    if(this.pushToTalkProvider === "ATT") {
+    if(this.pushToTalkProvider === 'ATT') {
       return this.managePushToTalkKodiakLink;
-    } else if(this.pushToTalkProvider === "FN") {
+    } else if(this.pushToTalkProvider === 'FN') {
       return this.managePushToTalkMotorolaLink;
     }
     return '';

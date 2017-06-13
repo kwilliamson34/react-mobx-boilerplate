@@ -58,7 +58,7 @@ class UserStore {
     this.user.username = userInfo.username;
     //this.user.pse = Object.keys(userInfo.authorizations[0])[0];
     //TODO: This is hardcoded and needs to be removed!
-    this.user.pse = '123';
+    this.user.pseId = '123';
   }
 
   @observable user = {};
