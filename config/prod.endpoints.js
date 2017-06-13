@@ -6,7 +6,8 @@ const config = {
   apperianUploads: 'https://ease.apperian.com/uploads/',
   geolinkScripts: 'https://geo.att.com/appBoard',
   geolinkAbMapConstants: 'abMapConstantsFN.js',
-  mktgPortalImgBaseUrl: 'https://www.firstnet.ws'
+  mktgPortalImgBaseUrl: 'https://www.firstnet.ws',
+  apiBase: '/api'
 }
 
 export default config
