@@ -46,7 +46,7 @@ export default class AdminDashboardPage extends React.Component {
                   <h1 className="as-h2">Choose push-to-talk provider</h1>
                   <ul className="ptt-providers">
                     <li>
-                      <NewTabLink to={this.linkStore.managePushToTalkKodiakLink}>
+                      <NewTabLink to={this.linkStore.managePushToTalkMotorolaLink}>
                         <label htmlFor="ATT_PTT">AT&T Enhanced Push-to-Talk</label>
                         <button type="button" id="ATT_PTT" className={this.linkStore.pushToTalkProvider === 'ATT' ? 'ptt-provider active' : 'ptt-provider'} onClick={this.setPushToTalkProvider.bind(this, 'ATT')}>
                           <img src="/images/attlogo.png" alt="AT&T logo" />
@@ -54,7 +54,7 @@ export default class AdminDashboardPage extends React.Component {
                       </NewTabLink>
                     </li>
                     <li>
-                      <NewTabLink to={this.linkStore.managePushToTalkMotorolaLink}>
+                      <NewTabLink to={this.linkStore.managePushToTalkKodiakLink}>
                         <label htmlFor="FN_PTT">FirstNet Enhanced Push-to-Talk</label>
                         <button type="button" id="FN_PTT" className={this.linkStore.pushToTalkProvider === 'FN' ? 'ptt-provider active' : 'ptt-provider'} onClick={this.setPushToTalkProvider.bind(this, 'FN')}>
                           <img src="/images/firstnetlogo.png" alt="FirstNet logo" />
