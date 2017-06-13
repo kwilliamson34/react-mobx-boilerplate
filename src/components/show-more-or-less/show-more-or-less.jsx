@@ -144,6 +144,7 @@ export default class ShowMoreOrLess extends React.Component {
           else if (charCount + element.length === rawTextLength) {
             //if we add the element, this equals rawTextLength. This means we're at the last text element, so rather than cutoff with one word remaining, we'll close out here.
             truncateBlock += element;
+            wholeBlock += element;
             this.isCutoff = false;
             cutoffReached = true;
           }
@@ -152,9 +153,9 @@ export default class ShowMoreOrLess extends React.Component {
           }
         }
       }
-      else if (this.cutoffReached) {
+      else if (cutoffReached) {
         //add all other text. Not even sure we need this.
-        hiddenBlock += element + ' ';
+        wholeBlock += element + ' ';
       }
       else {
         console.log('reformText while-loop error');
@@ -163,7 +164,7 @@ export default class ShowMoreOrLess extends React.Component {
     //when while-loop ends, close out the span.
     return {
       truncateBlock: truncateBlock,
-      hiddenBlock: hiddenBlock
+      wholeBlock: wholeBlock
     };
   }
 
