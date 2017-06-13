@@ -91,74 +91,80 @@ export default class ShowMoreOrLess extends React.Component {
     console.log('text.length   ', text.length);
     console.log('rawTextLength   ', rawTextLength);
 
-    let reformedText = '<span>';
+    let truncateBlock = '';
+    let wholeBlock = ''
 
-    let charLength = 0;
+    let charCount = 0;
     let cutoffReached = false;
 
     while (splitText.length > 0) {
       let element = splitText.shift();
 
       if (htmlRegex.test(element)) {
-        reformedText += element;
+        wholeBlock += element;
+        if (!cutoffReached) truncateBlock += element;
       }
-      else if (!this.cutoffReached) {
+      else if (!cutoffReached) {
         //we've not reached cutoff. Let's find it.
-        if (charLength + element.length < charLimit) {
+        if (charCount + element.length < charLimit) {
           //adding this text element won't exceed charLimit. Add it and continue.
-          charLength += element.length;
-          reformedText += element + ' ';
+          charCount += element.length;
+          truncateBlock += element + ' ';
+          wholeBlock += element + ' ';
         }
-        else if (charLength + element.length === charLimit) {
-          //this is the final element before cutoff. Add it to the string, then add the ending elements IF we need to truncate the comment.
-          charLength += element.length;
-          reformedText += element;
+        else if (charCount + element.length === charLimit) {
+          //this is the final element before cutoff. Add it to the string, then check if we need to truncate the comment;
+          charCount += element.length;
+          truncateBlock += element + ' ';
+          wholeBlock += element + ' ';
 
-          if (charLength < rawTextLength) {
-            //edge case: might be only one more word before rawTextLength reached. We might need to track index and building in a buffer.
-            reformedText += this.endingTruncateElements();
+          if (charCount < rawTextLength) {
+            //there's text still to go. the comment will truncate.
+            //edge case: what if there's only one (or a very few) words left in the block? would look silly. might need to track index and build in a buffer.
             this.isCutoff = true;
-            this.cutoffReached = true;
+            cutoffReached = true;
           }
-          else if (charLength === rawTextLength) {
+          else if (charCount === rawTextLength) {
             //text has ended, but we need to continue the loop to close out tags.
-            reformedText += '</span>';
             this.isCutoff = false;
-            this.cutoffReached = true;
+            cutoffReached = true;
           }
           else {
-            console.log('reformText error at else if (charLength + element.length === charLimit)');
+            console.log('reformText error at: else if (charCount + element.length === charLimit)');
           }
         }
-        else if (charLength + element.length > charLimit) {
+        else if (charCount + element.length > charLimit) {
           //we've passed the cutoffPoint. this is where things get difficult.
-          if (charLength + element.length < rawTextLength) {
+          if (charCount + element.length < rawTextLength) {
             //there remains text after adding this element. add the elements before this word.
-            reformedText += this.endingTruncateElements(this.props.cutoffSymbol);
-            reformedText += element;
+            wholeBlock += element;
             this.isCutoff = true;
-            this.cutoffReached = true;
+            cutoffReached = true;
           }
-          else if (charLength + element.length === rawTextLength) {
+          else if (charCount + element.length === rawTextLength) {
             //if we add the element, this equals rawTextLength. This means we're at the last text element, so rather than cutoff with one word remaining, we'll close out here.
-            reformedText += element;
-            reformedText += '</span>';
+            truncateBlock += element;
             this.isCutoff = false;
-            this.cutoffReached = true;
+            cutoffReached = true;
           }
           else {
-            console.log('reformText error at else if (charLength + element.length > charLimit)');
+            console.log('reformText error at: else if (charCount + element.length > charLimit)');
           }
         }
       }
       else if (this.cutoffReached) {
-        //add all other text.
-        reformedText += element + ' ';
+        //add all other text. Not even sure we need this.
+        hiddenBlock += element + ' ';
+      }
+      else {
+        console.log('reformText while-loop error');
       }
     }
     //when while-loop ends, close out the span.
-    reformedText += '</span>';
-    return reformedText;
+    return {
+      truncateBlock: truncateBlock,
+      hiddenBlock: hiddenBlock
+    };
   }
 
   truncateText = (text, charLimit) => {
