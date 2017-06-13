@@ -52,7 +52,10 @@ export default class Footer extends React.Component {
 										<Link to="/admin/manage-apps">Manage Apps</Link>
 									</li>
 									<li role="presentation">
-										<Link to="/shop-specialized-devices">Product Catalog</Link>
+										<Link to="/devices">Specialized Device Catalog</Link>
+									</li>
+									<li role="presentation">
+										<Link to="/solutions">Solutions Catalog</Link>
 									</li>
 									<li role="presentation">
 										<Link to="/network-status">Network Status</Link>

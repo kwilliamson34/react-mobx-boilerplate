@@ -62,14 +62,13 @@ export class CardList extends React.Component {
               {this.props.cards.map((card, i) => {
                 return this.renderCard(card, i)
               })}
-              {this.canLoadMore && this.props.handleLoadMoreClick &&
-                <div className="card-list-load-more">
-                  <button className="btn fn-primary" onClick={this.props.handleLoadMoreClick}>Load More</button>
-                </div>
-              }
             </div>
         }
-
+        {this.props.isLoading || this.canLoadMore && this.props.handleLoadMoreClick &&
+          <div className="card-list-load-more">
+            <button className="btn fn-primary" onClick={this.props.handleLoadMoreClick}>Load More</button>
+          </div>
+        }
         {this.showNoResultsBlock &&
           <div>
             <h2>No Results</h2>

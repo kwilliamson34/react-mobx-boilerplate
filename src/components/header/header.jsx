@@ -12,7 +12,8 @@ export default class PSEHeader extends React.Component {
 	constructor(props) {
 		super(props);
 		this.headerStore = this.props.store.headerStore;
-		window.addEventListener('resize', this.headerStore.updateWindowDimensions);
+		this.userStore = this.props.store.userStore;
+		window.addEventListener('resize',this.headerStore.updateWindowDimensions);
 	}
 
 	componentWillMount() {
@@ -21,6 +22,11 @@ export default class PSEHeader extends React.Component {
 
 	toggleMainMenu = () => {
 		this.headerStore.toggleMainMenu();
+	}
+
+	onLogout = (event) => {
+		event.preventDefault();
+		this.userStore.logoutUser();
 	}
 
 	render() {
@@ -78,7 +84,7 @@ export default class PSEHeader extends React.Component {
 																				<Link to="#config-mdm">Configure MDM</Link>
 																		</li>
 																		<li role="presentation">
-																				<a href={config.haloLogout}>
+																				<a href="#" onClick={this.onLogout}>
 																					<i className="icon-logout" aria-hidden="true"></i>Log Out
 																				</a>
 																		</li>

@@ -7,6 +7,9 @@ import {history} from './core/services/history.service';
 import {Provider, observer} from 'mobx-react';
 import {pseMasterStore} from './core/stores/master.store';
 
+//Utilities
+import {utilsService} from './core/services/utils.service';
+
 //Styles
 import '../styles/app.scss';
 
@@ -58,8 +61,18 @@ export default class App extends React.Component {
   }
 
   componentWillMount() {
-    pseMasterStore.userStore.validateUser();
+
+    //TODO: This needs to wait until user auth is complete
     pseMasterStore.mdmStore.getMDMConfiguration();
+
+    //check for URL token parameter
+		const urlToken = utilsService.getUrlParameter('token');
+		if(urlToken && urlToken.length > 0) {
+			pseMasterStore.userStore.initUserObject(urlToken);
+		} else {
+			//get token the long way
+			pseMasterStore.userStore.revalidateUser();
+		}
   }
 
   getSpecializedDevicesComponent = ({match}) => {
@@ -147,15 +160,28 @@ export default class App extends React.Component {
     )
   }
 
+  getSessionDependentContent() {
+    return pseMasterStore.userStore.userValidationDone ? (
+			pseMasterStore.isLoggedIn ? (
+				<Switch>
+					<Route path="/error" component={this.getPlainLayoutComponent}/>
+					<Route component={this.getMainLayoutComponent}/>
+				</Switch>
+			) : (
+				<ErrorPage cause="unauthorized" />
+			)
+		) : (
+			<p>Securing Session...</p>
+		);
+  }
+
+
   render() {
     return (
       <Router history={history}>
-        {pseMasterStore.userStore.userValidationDone && <Provider store={pseMasterStore}>
-          <Switch>
-            <Route path="/error" component={this.getPlainLayoutComponent}/>
-            <Route component={this.getMainLayoutComponent}/>
-          </Switch>
-        </Provider>}
+        <Provider store={pseMasterStore} user={pseMasterStore.getUser()}>
+          {this.getSessionDependentContent()}
+        </Provider>
       </Router>
     )
   }

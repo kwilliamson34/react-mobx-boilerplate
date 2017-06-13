@@ -50,7 +50,7 @@ export default class SolutionsDetailsTemplate extends React.Component {
 
   render() {
 
-    //TODO: Probably temporary; section should not render if there is no purchasing info, but we don't yet know what that will look like.
+    //TODO: API will apparently return contact info with empty strings if that field is missing. Check with design for what to do if some but not all contact info is missing (leave that field blank?) If all contact info is missing, section should not render; probably we will need to loop over the keys and check for empty strings.
     const shouldRenderPurchasingInfo = Object.keys(mockDetailPage.purchasing).length !== 0;
 
     const solutionCategory = this.props.match.params.solutionCategory.split('-').join(' ');
@@ -63,10 +63,10 @@ export default class SolutionsDetailsTemplate extends React.Component {
       {	pageHref: '/solutions',
         pageTitle: 'Public Safety Solutions'
       },
-      {	pageHref: `/${this.props.match.params.solutionCategory}`,
+      {	pageHref: `/solutions/${this.props.match.params.solutionCategory}`,
         pageTitle: solutionCategory
       },
-      {	pageHref: `/${this.props.match.params.solutionDetail}`,
+      {	pageHref: `/${this.props.match.url}`,
         pageTitle: solutionDetail
       }
     ];
