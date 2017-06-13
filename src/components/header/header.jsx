@@ -127,10 +127,10 @@ export default class PSEHeader extends React.Component {
 																	aria-expanded="false">
 																		<span className="sr-only">Expand Section Navigation</span>
 																</button>
-																<NavLink id="linkBtn-help-center" activeClassName="active" to="/faq">Help Center</NavLink>
+																<NavLink id="linkBtn-help-center" activeClassName="active" to="/help-center">Help Center</NavLink>
 																<ul id="pse-helpcenter-nav" className="collapse" aria-labelledby="linkBtn-help-center">
 																		<li role="presentation">
-																				<NavLink to="/faq" activeClassName="active">FAQ</NavLink>
+																				<NavLink to="#faq" activeClassName="active">FAQ</NavLink>
 																		</li>
 																		<li role="presentation">
 																				<NavLink to="#provide-feedback" activeClassName="active">Provide Feedback</NavLink>
@@ -149,10 +149,7 @@ export default class PSEHeader extends React.Component {
 															</NavLink>
 														</li>
 														<li className="desktop-iconItem">
-															<NavLink to="/faq" activeClassName="active">
-																<i className="icon-help" aria-label="Go to Frequently Asked Questions"></i>
-															</NavLink>
-														</li>
+															<NavLink to="/help-center" activeClassName="active"><i className="icon-help" aria-label="Go to Help Center"></i></NavLink></li>
 												</ul>
 										</nav>
 								</div>

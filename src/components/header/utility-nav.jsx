@@ -50,9 +50,9 @@ export default class UtilityNav extends React.Component {
                                     </div>
                                 </li>
                                 <li>
-                                    <Link to="/faq">
+                                    <Link to="/help-center">
                                         <i aria-hidden="true" className="icon-help"></i>
-                                        <span className="sr-only">Go to Frequently Asked Questions</span>
+                                        <span className="sr-only">Go to Help Center</span>
                                     </Link>
                                 </li>
                             </ul>
