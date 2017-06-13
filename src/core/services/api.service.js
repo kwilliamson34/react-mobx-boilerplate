@@ -3,30 +3,30 @@ import {utilsService} from './utils.service';
 import {externalDeviceContentService} from './external-device-content.service';
 import {externalSolutionsService} from './external-solutions.service';
 import {userStore} from '../stores/user.store';
+import config from 'config';
 
-const base = '/api'
-let user_token = '';
+const base = config.apiBase;
 
 axios.interceptors.request.use(request => {
-  if (request.url !== `${base}/user/profile`) {
-    request.headers['Authorization'] = `Bearer ${user_token}`;
+  if (request.url !== `${base}/user/profile` && request.url !== `${base}/user/logout`) {
+    request.headers['Authorization'] = `Bearer ${userStore.api_token}`;
   }
   return request;
 })
 
 axios.interceptors.response.use((response) => {
-  if(response.config.url == `${base}/user/profile`){
-    user_token = response.data
-  }
   return response;
 }, (error) => {
+
+  if(error.response) {
     let response = error.response;
     let old_req = response.config;
 
-  if ((response.status === 403 || response.status === 401) && old_req.url !== `${base}/user/profile`) {
-    userStore.validateUser();
-    return axios(old_req);
+    if (response.status === 401 && old_req.url !== `${base}/user/profile`) {
+      return userStore.revalidateUser().then(() => axios(old_req));
+    }
   }
+
   throw error;
 })
 
@@ -39,23 +39,29 @@ class ApiService {
       });
     }
 
+    logoutUser() {
+      return axios.get(`${base}/user/logout`, {
+        withCredentials: true
+      });
+    }
+
     getSearchResults(query) {
       let endpoint = query
-        ? `${base}/apps/admin/search?searchTxt=${query}&pseId=${userStore.user.pseId}`
-        : `${base}/apps/admin?pseId=${userStore.user.pseId}`
+        ? `${base}/apps/admin/search?searchTxt=${query}&pseId=${userStore.user.pse}`
+        : `${base}/apps/admin?pseId=${userStore.user.pse}`
       return axios.get(endpoint).then((res) => {
         return utilsService.conditionData(res.data.applications);
       });
     }
 
     getAdminApps() {
-      return axios.get(`${base}/apps/admin?pseId=${userStore.user.pseId}`).then(res => {
+      return axios.get(`${base}/apps/admin?pseId=${userStore.user.pse}`).then(res => {
         return utilsService.conditionData(res.data.applications);
       });
     }
 
     getAppDetails(appPSK) {
-      return axios.get(`${base}/app?appPsk=${appPSK}&pseId=${userStore.user.pseId}`).then(res => {
+      return axios.get(`${base}/app?appPsk=${appPSK}&pseId=${userStore.user.pse}`).then(res => {
         let arrayRes = [];
         arrayRes.push(res.data);
         return arrayRes;
@@ -105,7 +111,7 @@ class ApiService {
         data: {
           appPsk,
           groupIdentifier,
-          pseId: userStore.user.pseId
+          pseId: userStore.user.pse
         }
       });
     }
@@ -118,7 +124,7 @@ class ApiService {
         data: {
           appPsk,
           groupIdentifier,
-          pseId: userStore.user.pseId
+          pseId: userStore.user.pse
         }
       });
     }
