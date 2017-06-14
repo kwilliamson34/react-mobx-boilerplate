@@ -9,7 +9,7 @@ import {Rating} from '../rating/rating.jsx';
 export class SummaryCard extends React.Component {
 
   static propTypes = {
-    cardId: PropTypes.string,
+    shouldFocus: PropTypes.bool,
     display: PropTypes.shape({
       name: PropTypes.string, //name
       publisher: PropTypes.string, //author
@@ -32,10 +32,15 @@ export class SummaryCard extends React.Component {
     }
   }
 
+  componentDidMount() {
+    if (this.props.shouldFocus) this.refs.div.children[0].focus();
+  }
+
+
   render() {
     return (
-      <div className="card-wrapper">
-        <Link to={'/app/' + this.props.display.app_psk} className="card-focus has-shadow" id={this.props.cardId}>
+      <div className="card-wrapper" ref="div">
+        <Link to={'/app/' + this.props.display.app_psk} className="card-focus has-shadow">
           <div className="card-container">
             {this.props.display.badge && (
               <div className="card-badge">

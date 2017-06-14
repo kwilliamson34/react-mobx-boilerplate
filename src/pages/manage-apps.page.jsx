@@ -36,19 +36,12 @@ export default class ManageAppsPage extends React.Component {
 
 	handleLoadMoreClick = () => {
 		this.props.store.changePage(this.pageId);
-		this.handleFocusChange((this.props.store.pages[this.pageId] -1) * this.itemsPerPage);
+		document.getElementById('card-list-load-more-btn').blur();
+		this.cardListStore.setIdToFocus((this.props.store.pages[this.pageId] - 1) * this.itemsPerPage);
 	}
 
 	handleViewAllAppsClick = () => {
 		this.cardListStore.restoreOriginalList();
-	}
-
-	handleFocusChange = () => {
-		document.getElementById('card-list-load-more-btn').blur();
-		// document.getElementById(`card-${targetId}`).focus();
-		// document.getElementById(`card-${targetId}`).blur();
-		document.getElementById('card-19').focus();
-		// document.getElementById('card-19').blur();
 	}
 
 	get paginatedCards() {
@@ -103,6 +96,7 @@ export default class ManageAppsPage extends React.Component {
 							numPagesShown={this.props.store.pages[this.pageId]}
 							itemsPerPage={this.itemsPerPage}
 							isLoading={this.cardListStore.isLoading || this.appCatalogStore.isLoading}
+							idToFocus={this.cardListStore.idToFocus}
 							handleLoadMoreClick={this.handleLoadMoreClick}
 							handleViewAllAppsClick={this.handleViewAllAppsClick}
 							changeAppAvailability={this.appCatalogStore.changeAppAvailability.bind(this.appCatalogStore)}

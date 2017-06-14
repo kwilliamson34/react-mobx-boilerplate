@@ -84,6 +84,10 @@ class CardListStore {
 		this.searchResults = this.originalCardList;
 	}
 
+	@action setIdToFocus(targetId) {
+		this.idToFocus = targetId;
+	}
+
 	//COMPUTEDS
 	@computed get recommendedCards() {
 		return this.searchResults.filter((app) => {
@@ -170,6 +174,7 @@ class CardListStore {
 	@observable isLoading = false;
 	@observable searchHasBeenApplied = false;
 	@observable filterElementRefs = [];
+	@observable idToFocus = null;
 
 	@observable platforms = [{
 			title: 'All Platforms',
