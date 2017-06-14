@@ -43,9 +43,9 @@ export default class ShowMoreOrLess extends React.Component {
     // this.truncateButton = this.truncateButton.bind(this);
   }
 
-  isCutoff = false;
+  isCutoff = true;
   // showTruncateButton = false;
-  @observable isTruncated = false;
+  @observable isTruncated = true;
 
   toggleTruncate = () => {
     this.isTruncated = !this.isTruncated;
@@ -66,7 +66,7 @@ export default class ShowMoreOrLess extends React.Component {
 
   getRawText = (text) => {
     return text.replace(htmlRegexGlobal, (element) => {
-      //we'll need to add all the elements that inherently add a space. Why? Because it MUST BE PERFECT.
+      //we'll eventually need to add all the elements that inherently add a space. Why? Because it MUST BE PERFECT.
       if (element === '<li>') {
         return ' ';
       }
@@ -76,10 +76,10 @@ export default class ShowMoreOrLess extends React.Component {
     });
   }
 
-  endingTruncateElements = (cutoffSymbolCode) => {
-    let displayWhenTruncated = this.isTruncated ? 'block' : 'none';
-    return `</span><span style="display: ${displayWhenTruncated}">${String.fromCharCode(cutoffSymbolCode)}</span><span style="display: ${displayWhenTruncated}">`;
-  }
+  // endingTruncateElements = (cutoffSymbolCode) => {
+  //   let displayWhenTruncated = this.isTruncated ? 'block' : 'none';
+  //   return `</span><span style="display: ${displayWhenTruncated}">${String.fromCharCode(cutoffSymbolCode)}</span><span style="display: ${displayWhenTruncated}">`;
+  // }
 
   reformText = (text, charLimit) => {
 
@@ -154,7 +154,7 @@ export default class ShowMoreOrLess extends React.Component {
         }
       }
       else if (cutoffReached) {
-        //add all other text. Not even sure we need this.
+        //add all other text to the wholeBlock
         wholeBlock += element + ' ';
       }
       else {
@@ -168,12 +168,61 @@ export default class ShowMoreOrLess extends React.Component {
     };
   }
 
-  truncateText = (text, charLimit) => {
+  generateEndElements = (truncateBlock, cutoffSymbol) => {
 
-    let reformedText = this.reformText(text, charLimit);
-    console.log('reformedText   ', reformedText);
+    let htmlTags = truncateBlock.match(htmlRegexGlobal);
+    console.log('htmlTags   ', htmlTags);
 
-    return reformedText;
+    let elementStack = [];
+    let endElements = '';
+
+    for (let tag in htmlTags) {
+      if (htmlTags[tag].search('/') <= 0) {
+        elementStack.push(htmlTags[tag]);
+      }
+      else if (htmlTags[tag].search('/') == 1) {
+        elementStack.pop();
+      }
+      else {
+        //needs test
+        console.log('self closing tag  ', htmlTags[tag]);
+      }
+    }
+
+    while (elementStack.length > 0) {
+      let endTag = elementStack.pop();
+      endTag = endTag.substr(1, endTag.search(/[ >]/));
+      endElements += `</${endTag}`;
+    }
+
+    console.log('endElements   ', endElements);
+
+    let symbolAndEndElements = String.fromCharCode(cutoffSymbol) + endElements;
+
+    let finalTruncateBlock = truncateBlock + symbolAndEndElements;
+    console.log('finalTruncateBlock   ', finalTruncateBlock);
+
+    return finalTruncateBlock;
+  };
+
+  truncateText = (text) => {
+
+    let reformedTextObject = this.reformText(text, this.props.charLimit);
+
+    let truncateBlockWithEndElements = this.generateEndElements(reformedTextObject.truncateBlock, this.props.cutoffSymbol);
+    console.log('truncateBlockWithEndElements   ', truncateBlockWithEndElements);
+
+    let wholeBlock = reformedTextObject.wholeBlock;
+
+    return (
+      <span>
+        {this.isCutoff && this.isTruncated
+          ? <span dangerouslySetInnerHTML={{__html: `${truncateBlockWithEndElements}`}} />
+          : <span dangerouslySetInnerHTML={{__html: `${wholeBlock}`}} />
+        }
+        {this.isCutoff && this.truncateButton()}
+      </span>
+    )
   }
 
 
@@ -216,45 +265,6 @@ export default class ShowMoreOrLess extends React.Component {
   //   }
   // }
 
-  // generateCutoff = (truncatedText, cutoffSymbol) => {
-  //   console.log('generateCutoff triggered');
-  //
-  //   let htmlTags = truncatedText.match(htmlRegexGlobal);
-  //   console.log('htmlTags   ', htmlTags);
-  //
-  //   //https://osric.com/chris/accidental-developer/2012/11/balancing-tags-in-html-and-xhtml-excerpts/
-  //
-  //   let stack = [];
-  //   let endElements = '';
-  //
-  //   for (let tag in htmlTags) {
-  //     if (htmlTags[tag].search('/') <= 0) {
-  //       stack.push(htmlTags[tag]);
-  //     }
-  //     else if (htmlTags[tag].search('/') == 1) {
-  //       stack.pop();
-  //     }
-  //     else {
-  //       //needs test
-  //       console.log('self closing tag  ', htmlTags[tag]);
-  //     }
-  //   }
-  //
-  //   while (stack.length > 0) {
-  //     let endTag = stack.pop();
-  //     //might need massaging to grab all inline styles already in string, assuming we want them (might not);
-  //     endTag = endTag.substr(1, endTag.search(/[ >]/));
-  //     endElements += `</${endTag}`;
-  //   }
-  //
-  //   console.log('endElements   ', endElements);
-  //
-  //   let finalEndElements = String.fromCharCode(cutoffSymbol) + endElements;
-  //
-  //   return (
-  //     <span dangerouslySetInnerHTML={{__html: `${finalEndElements}`}} />
-  //   )
-  // };
   //
   // truncateText = (text, charLimit) => {
   //
@@ -345,15 +355,12 @@ export default class ShowMoreOrLess extends React.Component {
   // }
 
   render() {
-    const insertHtml = this.truncateText(this.props.text, this.props.charLimit);
+    const insertHtml = this.truncateText(this.props.text);
 
     return React.createElement(
       this.props.wrappingElement,
-      {
-        className: this.props.wrappingClassName,
-        dangerouslySetInnerHTML: {__html: insertHtml}
-      },
-      null
+      this.props.wrappingClassName,
+      insertHtml
     );
   }
 }
