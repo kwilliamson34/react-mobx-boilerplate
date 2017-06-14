@@ -20,7 +20,9 @@ export default class UtilityNav extends React.Component {
                                 </li>
                                 <li>
                                     <div className="dropdown btn-group">
-                                        <button id="user-dropdown" role="button" className="dropdown-toggle btn btn-default" data-toggle="dropdown">
+                                        <button id="user-dropdown"
+                                          role="button"
+                                          className="dropdown-toggle btn btn-default" data-toggle="dropdown">
                                             <i aria-hidden="true" className="icon-profile"></i>
                                             <span className="sr-only">Profile Dropdown</span>
                                         </button>
