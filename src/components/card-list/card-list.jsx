@@ -15,6 +15,7 @@ export class CardList extends React.Component {
     numPagesShown: PropTypes.number,
     itemsPerPage: PropTypes.number.isRequired,
     isLoading: PropTypes.bool,
+    idToFocus: PropTypes.number,
     title: PropTypes.string,
     handleLoadMoreClick: PropTypes.func,
     handleViewAllAppsClick: PropTypes.func,
@@ -40,7 +41,7 @@ export class CardList extends React.Component {
   renderCard(card, i) {
     return (
       <div className="col-md-3 col-xs-4 center-block" key={i}>
-        <SummaryCard display={card}/>
+        <SummaryCard display={card} shouldFocus={i === this.props.idToFocus}/>
         <div className="hidden-xs">
           <AppManagementBlock
             psk={card.app_psk}
@@ -66,7 +67,7 @@ export class CardList extends React.Component {
         }
         {this.props.isLoading || this.canLoadMore && this.props.handleLoadMoreClick &&
           <div className="card-list-load-more">
-            <button className="btn fn-primary" onClick={this.props.handleLoadMoreClick}>Load More</button>
+            <button id="card-list-load-more-btn" className="btn fn-primary" onClick={this.props.handleLoadMoreClick}>Load More</button>
           </div>
         }
         {this.showNoResultsBlock &&
