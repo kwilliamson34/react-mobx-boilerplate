@@ -75,7 +75,14 @@
   border-right: 1px solid $fn-grey;
   text-align: center;
   background: $fn-white;
-
+  z-index:100;
+  &[aria-expanded=true]{
+    background: $fn-blue;
+    color: $fn-white;
+    .icon-bar {
+      background: $fn-white;
+    }
+  }
   &:focus {
     @include focus();
   }

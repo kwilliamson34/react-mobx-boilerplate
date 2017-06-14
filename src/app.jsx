@@ -46,6 +46,9 @@ import SolutionsCategoryTemplate from './pages/solutions-category.template';
 
 //Help section
 import HelpCenterPage from './pages/help-center.page';
+import FAQPage from './pages/faq.page';
+import FeedbackPage from './pages/feedback.page';
+import ManageProfilePage from './pages/manage-profile.page';
 
 //Footer pages
 import PrivacyPage from './pages/privacy.page';
@@ -133,6 +136,9 @@ export default class App extends React.Component {
               <Route path="/admin/manage-wireless-reports" component={ManageWirelessReportsPage}/>
               <Route path="/admin" component={AdminDashboardPage}/>
               <Route path="/app/:appPsk" component={AppDetailsPage/*TODO redirect to error/404 if psk has no match*/}/>
+              <Route path="/manage-profile" component={ManageProfilePage}/>
+              <Route path="/feedback" component={FeedbackPage}/>
+              <Route path="/faq" component={FAQPage}/>
               <Route path="/shop-devices-rates" component={ShopDevicesPage}/>
               <Route path="/devices" component={this.getSpecializedDevicesComponent}/>
               <Route path="/solutions" component={this.getPublicSafetySolutionsComponent}/>

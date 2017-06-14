@@ -3,8 +3,8 @@
 
   > a {
     display: block;
-    width: calc(100vw - 51px);
-
+    width: 100%;
+    text-align: center;
     &:focus {
       @include focus();
     }
@@ -16,13 +16,23 @@
     max-width: 330px;
   }
 }
+
+@media #{$mobile} {
+  .fnnav__brand {
+    width: calc(100% - 98px);
+    height: 49px;
+    > a {
+      margin: 10px auto;
+    }
+  }
+}
+
 @media #{$tablet} {
   .fnnav__brand {
-
-
+  width: calc(100% - 146px);
+  height: 98px;
     > a {
-      margin: 16px auto;
-      width: calc(100% - 146px);
+      margin: 27px auto;
     }
   }
 }
@@ -32,7 +42,7 @@
     height: 94px;
     > a {
       margin: 27px auto;
-      width: 100%;
+      text-align: left;
     }
   }
 }
