@@ -36,16 +36,26 @@ export default class ManageAppsPage extends React.Component {
 
 	handleLoadMoreClick = () => {
 		this.props.store.changePage(this.pageId);
+		this.handleFocusChange((this.props.store.pages[this.pageId] -1) * this.itemsPerPage);
 	}
 
 	handleViewAllAppsClick = () => {
 		this.cardListStore.restoreOriginalList();
 	}
 
+	handleFocusChange = () => {
+		document.getElementById('card-list-load-more-btn').blur();
+		// document.getElementById(`card-${targetId}`).focus();
+		// document.getElementById(`card-${targetId}`).blur();
+		document.getElementById('card-19').focus();
+		// document.getElementById('card-19').blur();
+	}
+
 	get paginatedCards() {
 		let totalCards = this.props.store.pages[this.pageId] * this.itemsPerPage;
 		return this.cardListStore.filteredSearchResults.slice(0, totalCards);
 	}
+
 
 	render() {
 		const crumbs = [

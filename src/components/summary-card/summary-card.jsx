@@ -9,6 +9,7 @@ import {Rating} from '../rating/rating.jsx';
 export class SummaryCard extends React.Component {
 
   static propTypes = {
+    cardId: PropTypes.string,
     display: PropTypes.shape({
       name: PropTypes.string, //name
       publisher: PropTypes.string, //author
@@ -34,7 +35,7 @@ export class SummaryCard extends React.Component {
   render() {
     return (
       <div className="card-wrapper">
-        <Link to={'/app/' + this.props.display.app_psk} className="card-focus has-shadow">
+        <Link to={'/app/' + this.props.display.app_psk} className="card-focus has-shadow" id={this.props.cardId}>
           <div className="card-container">
             {this.props.display.badge && (
               <div className="card-badge">

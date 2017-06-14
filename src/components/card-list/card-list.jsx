@@ -40,7 +40,7 @@ export class CardList extends React.Component {
   renderCard(card, i) {
     return (
       <div className="col-md-3 col-xs-4 center-block" key={i}>
-        <SummaryCard display={card}/>
+        <SummaryCard display={card} cardId={`card-${i}`}/>
         <div className="hidden-xs">
           <AppManagementBlock
             psk={card.app_psk}
@@ -66,7 +66,7 @@ export class CardList extends React.Component {
         }
         {this.props.isLoading || this.canLoadMore && this.props.handleLoadMoreClick &&
           <div className="card-list-load-more">
-            <button className="btn fn-primary" onClick={this.props.handleLoadMoreClick}>Load More</button>
+            <button id="card-list-load-more-btn" className="btn fn-primary" onClick={this.props.handleLoadMoreClick}>Load More</button>
           </div>
         }
         {this.showNoResultsBlock &&
