@@ -3,7 +3,6 @@
 
   > a {
     display: block;
-    height: 100%;
     width: calc(100vw - 51px);
 
     &:focus {
@@ -19,18 +18,21 @@
 }
 @media #{$tablet} {
   .fnnav__brand {
-    width: calc(100% - 146px);
+
 
     > a {
       margin: 16px auto;
+      width: calc(100% - 146px);
     }
   }
 }
 @media #{$desktop} {
   .fnnav__brand {
+    width: 100%;
     height: 94px;
     > a {
-      margin: 24px auto;
+      margin: 27px auto;
+      width: 100%;
     }
   }
 }
