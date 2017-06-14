@@ -121,7 +121,7 @@ export default class Footer extends React.Component {
 								<h2 id="helpLinks" className="help-hdr">Help</h2>
 								<ul className="help-link-block">
 									<li role="presentation">
-										Chat
+										FAQ
 									</li>
 									<li role="presentation">
 										Give Us Feedback
