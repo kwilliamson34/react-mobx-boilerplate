@@ -36,6 +36,8 @@ export default class ManageAppsPage extends React.Component {
 
 	handleLoadMoreClick = () => {
 		this.props.store.changePage(this.pageId);
+		document.getElementById('card-list-load-more-btn').blur();
+		this.cardListStore.setIdToFocus((this.props.store.pages[this.pageId] - 1) * this.itemsPerPage);
 	}
 
 	handleViewAllAppsClick = () => {
@@ -46,6 +48,7 @@ export default class ManageAppsPage extends React.Component {
 		let totalCards = this.props.store.pages[this.pageId] * this.itemsPerPage;
 		return this.cardListStore.filteredSearchResults.slice(0, totalCards);
 	}
+
 
 	render() {
 		const crumbs = [
@@ -93,6 +96,7 @@ export default class ManageAppsPage extends React.Component {
 							numPagesShown={this.props.store.pages[this.pageId]}
 							itemsPerPage={this.itemsPerPage}
 							isLoading={this.cardListStore.isLoading || this.appCatalogStore.isLoading}
+							idToFocus={this.cardListStore.idToFocus}
 							handleLoadMoreClick={this.handleLoadMoreClick}
 							handleViewAllAppsClick={this.handleViewAllAppsClick}
 							changeAppAvailability={this.appCatalogStore.changeAppAvailability.bind(this.appCatalogStore)}
