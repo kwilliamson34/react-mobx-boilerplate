@@ -23,7 +23,8 @@ a {
   background: white;
   box-shadow: 0 0 6px 0 rgba(0,0,0,0.12), 0 4px 2px 0 rgba(0,0,0,0.05);
   opacity: 1.0;
-  transition: opacity 0.3s ease-in;
+  visibility: visible;
+  transition: visibility 0s, opacity 0.3s ease-in;
   i {
     color: $fn-dkgrey;
   }
@@ -40,6 +41,7 @@ a {
     }
   }
   &.faded{
+    visibility: hidden;
     opacity: 0;
   }
 }

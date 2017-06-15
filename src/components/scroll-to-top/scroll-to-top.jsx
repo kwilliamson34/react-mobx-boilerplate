@@ -27,32 +27,23 @@ class ScrollToTop extends React.Component {
 
   componentDidMount() {
     window.addEventListener('scroll', () => {
-      var bodyRect = document.body.getBoundingClientRect(),
-          footerElem = document.getElementById('pse-footer').getBoundingClientRect(),
-          footerOffset   = footerElem.top - bodyRect.top;
-      console.log('================================');
-      console.log('scrollTop: ' + window.pageYOffset);
-      console.log('body: ' + footerOffset);
-      console.log('footerElemTop: ' + footerElem.top);
-      console.log('footerOffset: ' + footerOffset);
-      console.log('bodyRect: ' + bodyRect.top);
-      console.log('================================');
-      let topPos = window.pageYOffset;
+      let body = document.body,
+          html = document.documentElement,
+          docHeight = Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight ),
+          topPos = document.documentElement.scrollTop || document.body.scrollTop,
+          footerHeight = document.getElementById('pse-footer').offsetHeight;
 
-      if(topPos > this.headerStore.backToTopOffset && topPos < footerOffset
-      ){
+      if(topPos > (window.innerHeight * 3) && topPos < (docHeight - footerHeight - window.innerHeight) ){
         this.headerStore.showBackToTop();
-      }else{
+      } else {
         this.headerStore.hideBackToTop();
       }
-
     });
   }
 
   componentWillUnmount() {
     if (this.props.onWindowScroll) window.removeEventListener('scroll');
   }
-
 
   scrollTopFocus() {
     window.scrollTo(0, 0);
