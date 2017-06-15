@@ -162,7 +162,7 @@ class CardListStore {
 
 	@computed get searchResultsCountLabel() {
 		if(!this.isLoading && this.searchHasBeenApplied) {
-			const count = this.searchResults.length;
+			let count = this.filteredSearchResults.length;
 			return `${count} Result${count === 1 ? '' : 's'}`
 		}
 	}
