@@ -208,7 +208,7 @@ class CardListStore {
 	@observable categoryFilter = '';
 
 	@observable segments = [
-		{title: 'All Segments', value: ''},
+		{title: 'All Branches/Disciplines', value: ''},
 		{title: 'Law Enforcement', value: 'LAW ENFORCEMENT'},
 		{title: 'Fire & Rescue', value: 'FIRE & RESCUE'},
 		{title: 'Emergency Medical', value: 'EMERGENCY MEDICAL'},
