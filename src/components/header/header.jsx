@@ -1,8 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {Link, NavLink, withRouter} from 'react-router-dom';
 import NewTabLink from '../link/new-tab-link';
-import {observer, inject} from 'mobx-react';
+import {observer, inject, PropTypes} from 'mobx-react';
 import 'bootstrap';
 
 @inject('store')
@@ -11,8 +10,8 @@ import 'bootstrap';
 export default class PSEHeader extends React.Component {
 
 	static propTypes = {
-		store: PropTypes.object
-	}
+    store: PropTypes.observableObject.isRequired
+  }
 
 	constructor(props) {
 		super(props);

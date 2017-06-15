@@ -1,6 +1,7 @@
 import { action, observable } from 'mobx';
 //import { apiService } from '../services/api.service';
 
+
 class HeaderStore {
 
 	@action toggleMainMenu() {
@@ -24,6 +25,8 @@ class HeaderStore {
 		}
 	}
 
+
+
 	@action updateWindowDimensions() {
 		this.windowDimensions = {
 			width: window.innerWidth,
@@ -38,6 +41,17 @@ class HeaderStore {
 		}
 	}
 
+	@action showBackToTop() {
+		this.showBackToTopBtn = true;
+	}
+
+	@action hideBackToTop() {
+		this.showBackToTopBtn = false;
+	}
+	@observable backToTopOffset = 1800;
+	@observable showBackToTopBtn = false;
+
+
 	@observable windowDimensions = {
 		width: window.innerWidth,
 		height: window.innerHeight
@@ -46,6 +60,8 @@ class HeaderStore {
 	@observable currentBreakpoint = '';
 	@observable mainMenuIsOpen = false;
 	@observable footerSitemapExpanded = false;
+
+
 
 	@observable currentPSEName = 'Fire & Rescue Station 32';
 	@observable pse_list = ['Fire & Rescue Station 32','Fire Station 12','Fire & Rescue Station 24','Fire Station 6','Fire Station 10']

@@ -16,7 +16,7 @@ import '../styles/app.scss';
 //Common Components
 import Header from './components/header/header';
 import Footer from './components/footer/footer.jsx';
-import ScrollToTop from './core/services/scroll-to-top';
+import ScrollToTop from './components/scroll-to-top/scroll-to-top';
 
 //Pages
 import NetworkStatusPage from './pages/network-status.page';
@@ -120,12 +120,11 @@ export default class App extends React.Component {
   getMainLayoutComponent = () => {
     return (
       <ScrollToTop>
-        <div id="PSE-wrapper">
-          <a href="#main-content" className="sr-only sr-only-focusable">Skip Navigation</a>
-          <Header/>
+        <a href="#main-content" className="sr-only sr-only-focusable">Skip Navigation</a>
+        <Header/>
           <main id="main-content">
             <Switch>
-              <Route exact path="/" component={this.getLandingPage}/> /*TODO replace with landing page*/
+              <Route exact path="/" component={this.getLandingPage}/>
               <Route path="/network-status" component={NetworkStatusPage}/>
               <Route path="/admin/manage-users" component={ManageUsersPage}/>
               <Route path="/admin/manage-billing" component={ManageBillingPage}/>
@@ -150,7 +149,6 @@ export default class App extends React.Component {
             </Switch>
           </main>
           <Footer/>
-        </div>
       </ScrollToTop>
     )
   }
@@ -180,7 +178,6 @@ export default class App extends React.Component {
 			<p>Securing Session...</p>
 		);
   }
-
 
   render() {
     return (
