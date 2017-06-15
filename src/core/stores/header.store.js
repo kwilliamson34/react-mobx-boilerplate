@@ -48,7 +48,7 @@ class HeaderStore {
 	@action hideBackToTop() {
 		this.showBackToTopBtn = false;
 	}
-	@observable backToTopOffset = 1800;
+	
 	@observable showBackToTopBtn = false;
 
 
