@@ -25,22 +25,6 @@ class HeaderStore {
 		}
 	}
 
-
-
-	@action updateWindowDimensions() {
-		this.windowDimensions = {
-			width: window.innerWidth,
-			height: window.innerHeight
-		}
-		if(this.windowDimensions.width > 991){
-			this.currentBreakpoint = 'desktop';
-		}else if(this.windowDimensions.width >= 768){
-			this.currentBreakpoint = 'tablet';
-		}else{
-			this.currentBreakpoint = 'mobile';
-		}
-	}
-
 	@action showBackToTop() {
 		this.showBackToTopBtn = true;
 	}
@@ -48,20 +32,12 @@ class HeaderStore {
 	@action hideBackToTop() {
 		this.showBackToTopBtn = false;
 	}
-	
+
 	@observable showBackToTopBtn = false;
 
-
-	@observable windowDimensions = {
-		width: window.innerWidth,
-		height: window.innerHeight
-  };
-
-	@observable currentBreakpoint = '';
+	@observable documentHeight = '';
 	@observable mainMenuIsOpen = false;
 	@observable footerSitemapExpanded = false;
-
-
 
 	@observable currentPSEName = 'Fire & Rescue Station 32';
 	@observable pse_list = ['Fire & Rescue Station 32','Fire Station 12','Fire & Rescue Station 24','Fire Station 6','Fire Station 10']

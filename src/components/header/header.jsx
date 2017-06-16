@@ -18,11 +18,6 @@ export default class PSEHeader extends React.Component {
 		this.headerStore = this.props.store.headerStore;
 		this.userStore = this.props.store.userStore;
 		this.linkStore = this.props.store.externalLinkStore;
-		window.addEventListener('resize',this.headerStore.updateWindowDimensions);
-	}
-
-	componentWillMount() {
-		this.headerStore.updateWindowDimensions();
 	}
 
 	toggleMainMenu = () => {
