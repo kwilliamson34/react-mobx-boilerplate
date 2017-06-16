@@ -158,57 +158,61 @@ export default class ShowMoreOrLess extends React.Component {
     };
   }
 
-  generateEndElements = (truncateBlock, cutoffSymbol) => {
+  generateEndElements = () => {
+    return String.fromCharCode(this.props.cutoffSymbol);
+  }
 
-    let htmlTags = truncateBlock.match(htmlRegexGlobal);
-    console.log('htmlTags   ', htmlTags);
-
-    let elementStack = [];
-    let endElements = '';
-
-    for (let tag in htmlTags) {
-      if (htmlTags[tag].search('/') <= 0) {
-        elementStack.push(htmlTags[tag]);
-      }
-      else if (htmlTags[tag].search('/') == 1) {
-        elementStack.pop();
-      }
-      else {
-        //needs test
-        console.log('self closing tag  ', htmlTags[tag]);
-      }
-    }
-
-    while (elementStack.length > 0) {
-      let endTag = elementStack.pop();
-      endTag = endTag.substr(1, endTag.search(/[ >]/));
-      endElements += `</${endTag}`;
-    }
-
-    console.log('endElements   ', endElements);
-
-    let symbolAndEndElements = String.fromCharCode(cutoffSymbol) + endElements;
-
-    let finalTruncateBlock = truncateBlock + symbolAndEndElements;
-    console.log('finalTruncateBlock   ', finalTruncateBlock);
-
-    return finalTruncateBlock;
-  };
+  // generateEndElements = (truncateBlock, cutoffSymbol) => {
+  //
+  //   let htmlTags = truncateBlock.match(htmlRegexGlobal);
+  //   console.log('htmlTags   ', htmlTags);
+  //
+  //   let elementStack = [];
+  //   let endElements = '';
+  //
+  //   for (let tag in htmlTags) {
+  //     if (htmlTags[tag].search('/') <= 0) {
+  //       elementStack.push(htmlTags[tag]);
+  //     }
+  //     else if (htmlTags[tag].search('/') == 1) {
+  //       elementStack.pop();
+  //     }
+  //     else {
+  //       //needs test
+  //       console.log('self closing tag  ', htmlTags[tag]);
+  //     }
+  //   }
+  //
+  //   while (elementStack.length > 0) {
+  //     let endTag = elementStack.pop();
+  //     endTag = endTag.substr(1, endTag.search(/[ >]/));
+  //     endElements += `</${endTag}`;
+  //   }
+  //
+  //   console.log('endElements   ', endElements);
+  //
+  //   let symbolAndEndElements = String.fromCharCode(cutoffSymbol) + endElements;
+  //
+  //   let finalTruncateBlock = truncateBlock + symbolAndEndElements;
+  //   console.log('finalTruncateBlock   ', finalTruncateBlock);
+  //
+  //   return finalTruncateBlock;
+  // };
 
   truncateText = (text) => {
 
     let reformedTextObject = this.reformText(text, this.props.charLimit);
 
-    let truncateBlockWithEndElements = this.generateEndElements(reformedTextObject.truncateBlock, this.props.cutoffSymbol);
-    console.log('truncateBlockWithEndElements   ', truncateBlockWithEndElements);
-
+    // let truncateBlockWithEndElements = this.generateEndElements(reformedTextObject.truncateBlock, this.props.cutoffSymbol);
+    // console.log('truncateBlockWithEndElements   ', truncateBlockWithEndElements);
     let wholeBlock = reformedTextObject.wholeBlock;
+    let finalTruncateBlock = reformedTextObject.truncateBlock + this.generateEndElements();
 
     return (
       <span>
         {this.shouldTruncate
           ? this.isTruncated
-            ? <span dangerouslySetInnerHTML={{__html: `${truncateBlockWithEndElements}`}} />
+            ? <span dangerouslySetInnerHTML={{__html: `${finalTruncateBlock}`}} />
             : <span dangerouslySetInnerHTML={{__html: `${wholeBlock}`}} />
           : <span dangerouslySetInnerHTML={{__html: `${wholeBlock}`}} />
         }
