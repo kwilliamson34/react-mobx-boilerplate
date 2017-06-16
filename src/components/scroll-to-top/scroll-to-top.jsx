@@ -7,6 +7,7 @@ import _ from 'lodash';
 @inject('store')
 @observer
 class ScrollToTop extends React.Component {
+
 	static propTypes = {
 		store: PropTypes.object.isRequired,
 		children: PropTypes.node,
@@ -17,14 +18,14 @@ class ScrollToTop extends React.Component {
 	constructor(props) {
 		super(props);
 		this.headerStore = this.props.store.headerStore;
-    this.state = {
-      body: document.body,
-      html: document.documentElement,
-      documentHeight: null,
-      footerHeight: null,
-      viewportHeight: null,
-      viewportWidth: null
-    }
+		this.state = {
+			body: document.body,
+			html: document.documentElement,
+			documentHeight: null,
+			footerHeight: null,
+			viewportHeight: null,
+			viewportWidth: null
+		}
 	}
 
 	componentDidUpdate(prevProps) {
@@ -35,57 +36,53 @@ class ScrollToTop extends React.Component {
 	}
 
 	componentDidMount() {
-    this.updateWindowDimensions();
-
-    window.addEventListener(
+		this.updateWindowDimensions();
+		window.addEventListener(
 			'resize',
 			_.debounce(this.updateWindowDimensions, 200, { leading: true, trailing: false })
 		);
-
 		window.addEventListener(
 			'scroll',
 			_.debounce(this.manageBackToTopVisibility, 50, { leading: true, trailing: false })
 		);
-
 	}
-
 	componentWillUnmount() {
 		if (this.props.onWindowScroll) {
-      window.removeEventListener('scroll');
-      window.removeEventListener('resize');
-    }
+			window.removeEventListener('scroll');
+			window.removeEventListener('resize');
+		}
 	}
 
-  updateWindowDimensions = () => {
-    this.setState({
-      documentHeight: this.getDocumentHeight(),
-      footerHeight: document.getElementById('pse-footer').offsetHeight,
-      viewportHeight: window.innerHeight,
-      viewportWidth: window.innerWidth
-    });
-  }
+	updateWindowDimensions = () => {
+		this.setState({
+			documentHeight: this.getDocumentHeight(),
+			footerHeight: document.getElementById('pse-footer').offsetHeight,
+			viewportHeight: window.innerHeight,
+			viewportWidth: window.innerWidth
+		});
+	}
 
-  getDocumentHeight() {
-    return Math.max(
-      this.state.body.scrollHeight,
-      this.state.body.offsetHeight,
-      this.state.html.clientHeight,
-      this.state.html.scrollHeight,
-      this.state.html.offsetHeight
-    );
-  }
+	getDocumentHeight() {
+		return Math.max(
+			this.state.body.scrollHeight,
+			this.state.body.offsetHeight,
+			this.state.html.clientHeight,
+			this.state.html.scrollHeight,
+			this.state.html.offsetHeight
+		);
+	}
 
-  manageBackToTopVisibility = () => {
-    let topPos = this.state.html.scrollTop || this.state.body.scrollTop;
-    if (
-      topPos > this.state.viewportHeight * 3 &&
-      topPos < this.state.documentHeight - this.state.footerHeight - this.state.viewportHeight
-    ) {
-      this.headerStore.showBackToTop();
-    } else {
-      this.headerStore.hideBackToTop();
-    }
-  }
+	manageBackToTopVisibility = () => {
+		let topPos = this.state.html.scrollTop || this.state.body.scrollTop;
+		if (
+			topPos > this.state.viewportHeight * 3 &&
+			topPos < this.state.documentHeight - this.state.footerHeight - this.state.viewportHeight
+		) {
+			this.headerStore.showBackToTop();
+		} else {
+			this.headerStore.hideBackToTop();
+		}
+	}
 
 	scrollTopFocus() {
 		window.scrollTo(0, 0);
@@ -93,7 +90,7 @@ class ScrollToTop extends React.Component {
 		this.headerStore.hideBackToTop();
 	}
 
-	handleBackToTopClick = event => {
+	handleBackToTopClick = (event) => {
 		event.preventDefault();
 		this.scrollTopFocus();
 	};
