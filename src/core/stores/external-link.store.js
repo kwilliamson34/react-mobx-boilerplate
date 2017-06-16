@@ -2,7 +2,6 @@ import { action, observable, computed } from 'mobx';
 import { apiService } from '../services/api.service';
 import { utilsService } from '../services/utils.service';
 
-
 class ExternalLinkStore {
   /*
   ** Retrieve Devices from Marketing Portal
