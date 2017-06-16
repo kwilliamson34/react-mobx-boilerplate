@@ -46,11 +46,15 @@ import SolutionsCategoryTemplate from './pages/solutions-category.template';
 
 //Help section
 import HelpCenterPage from './pages/help-center.page';
+import FAQPage from './pages/faq.page';
+import FeedbackPage from './pages/feedback.page';
+import ManageProfilePage from './pages/manage-profile.page';
 
 //Footer pages
 import PrivacyPage from './pages/privacy.page';
 import TermsOfServicePage from './pages/terms.page';
 import AccessibilityPage from './pages/accessibility.page';
+
 
 @observer
 export default class App extends React.Component {
@@ -98,6 +102,21 @@ export default class App extends React.Component {
 		)
 	}
 
+  getLandingPage = () => {
+    //TODO: Temporarily using @observable authentic_user in lieu of actual authorization check
+    const userIsAdmin = pseMasterStore.userStore.authentic_user;
+
+    return (
+      <Switch>
+        {
+          userIsAdmin
+          ? <Redirect to="/admin" />
+          : <Redirect to="/network-status" />
+        }
+      </Switch>
+    )
+  }
+
   getMainLayoutComponent = () => {
     return (
       <ScrollToTop>
@@ -106,7 +125,7 @@ export default class App extends React.Component {
           <Header/>
           <main id="main-content">
             <Switch>
-              <Route exact path="/" component={AdminDashboardPage /*TODO replace with landing page*/}/>
+              <Route exact path="/" component={this.getLandingPage}/> /*TODO replace with landing page*/
               <Route path="/network-status" component={NetworkStatusPage}/>
               <Route path="/admin/manage-users" component={ManageUsersPage}/>
               <Route path="/admin/manage-billing" component={ManageBillingPage}/>
@@ -117,6 +136,9 @@ export default class App extends React.Component {
               <Route path="/admin/manage-wireless-reports" component={ManageWirelessReportsPage}/>
               <Route path="/admin" component={AdminDashboardPage}/>
               <Route path="/app/:appPsk" component={AppDetailsPage/*TODO redirect to error/404 if psk has no match*/}/>
+              <Route path="/manage-profile" component={ManageProfilePage}/>
+              <Route path="/feedback" component={FeedbackPage}/>
+              <Route path="/faq" component={FAQPage}/>
               <Route path="/shop-devices-rates" component={ShopDevicesPage}/>
               <Route path="/devices" component={this.getSpecializedDevicesComponent}/>
               <Route path="/solutions" component={this.getPublicSafetySolutionsComponent}/>

@@ -42,6 +42,7 @@ select::-ms-expand {
 /* Remove blue highlight from select menu in IE */
 select::-ms-value {
   background: transparent;
+  color: $fn-black;
 }
 
 /* Remove dotted outline from select menu in Firefox */
@@ -53,4 +54,3 @@ select::-ms-value {
     text-shadow: 0 0 0 #000 !important;
   }
 }
-

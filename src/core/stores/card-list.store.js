@@ -84,6 +84,10 @@ class CardListStore {
 		this.searchResults = this.originalCardList;
 	}
 
+	@action setIdToFocus(targetId) {
+		this.idToFocus = targetId;
+	}
+
 	//COMPUTEDS
 	@computed get recommendedCards() {
 		return this.searchResults.filter((app) => {
@@ -158,7 +162,7 @@ class CardListStore {
 
 	@computed get searchResultsCountLabel() {
 		if(!this.isLoading && this.searchHasBeenApplied) {
-			const count = this.searchResults.length;
+			const count = this.filteredSearchResults.length;
 			return `${count} Result${count === 1 ? '' : 's'}`
 		}
 	}
@@ -170,6 +174,7 @@ class CardListStore {
 	@observable isLoading = false;
 	@observable searchHasBeenApplied = false;
 	@observable filterElementRefs = [];
+	@observable idToFocus = null;
 
 	@observable platforms = [{
 			title: 'All Platforms',
@@ -203,7 +208,7 @@ class CardListStore {
 	@observable categoryFilter = '';
 
 	@observable segments = [
-		{title: 'All Segments', value: ''},
+		{title: 'All Branches/Disciplines', value: ''},
 		{title: 'Law Enforcement', value: 'LAW ENFORCEMENT'},
 		{title: 'Fire & Rescue', value: 'FIRE & RESCUE'},
 		{title: 'Emergency Medical', value: 'EMERGENCY MEDICAL'},
