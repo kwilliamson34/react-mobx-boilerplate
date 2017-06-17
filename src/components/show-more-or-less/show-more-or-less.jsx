@@ -3,13 +3,6 @@ import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
 import { observable } from 'mobx';
 
-const exOne = '<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>'
-
-const exTwo = '<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p><ul><li>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</li><li>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</li><li>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</li><li>Pellentesque fermentum dolor. Aliquam quam lectus, facilisis auctor, ultrices ut, elementum vulputate, nunc.</li></ul>'
-
-const exThree = '<h1>HTML Ipsum Presents</h1><p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum<br /> tortor<br /> quam,<br /> feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. <strong>Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi,</strong> condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p><h2>Header Level 2</h2><ol><li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li><li>Aliquam tincidunt mauris eu risus.</li></ol><blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p></blockquote><h3>Header Level 3</h3><ul><li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li><li>Aliquam tincidunt mauris eu risus.</li></ul>';
-
-
 const htmlRegex = /<\/?\w+((\s+\w+(\s*=\s*(?:".*?"|'.*?'|[\^'">\s]+))?)+\s*|\s*)\/?>/;
 const htmlRegexGlobal = /<\/?\w+((\s+\w+(\s*=\s*(?:".*?"|'.*?'|[\^'">\s]+))?)+\s*|\s*)\/?>/g;
 const splitEverythingRegex = /<[^>]+>|[^<>\s]+/g;
@@ -39,12 +32,27 @@ export default class ShowMoreOrLess extends React.Component {
     returnToId: null
   }
 
-  shouldTruncate = true;
+  constructor(props) {
+    super(props);
+    this.nodes = this.props.children.props.children;
+  }
+
+  componentWillMount() {
+    this.checkIfShouldTruncate(this.nodes, this.props.charLimit);
+  }
+
+  shouldTruncate = false;
   @observable isTruncated = true;
 
   toggleTruncate = () => {
     this.isTruncated = !this.isTruncated;
     if (this.props.returnToId !== null) document.getElementById(this.props.returnToId).scrollIntoView();
+  }
+
+  checkIfShouldTruncate = (nodes, charLimit) => {
+    //check to see if this should truncate at all;
+    let rawTextLength = this.getRawText(nodes).length;
+    this.shouldTruncate = charLimit <= rawTextLength;
   }
 
   truncateButton = () => {
@@ -56,12 +64,20 @@ export default class ShowMoreOrLess extends React.Component {
   }
 
   splitText = (text) => {
-    return text.match(splitEverythingRegex);
+    let splitArray = text.match(splitEverythingRegex);
+    let modifiedArray = [];
+    splitArray.forEach((element) => {
+      htmlRegex.test(element)
+        ? modifiedArray.push(element)
+        : modifiedArray.push(element + ' ')
+    });
+    console.log('modifiedArray   ', modifiedArray);
+    return modifiedArray;
   }
 
   getRawText = (text) => {
     return text.replace(htmlRegexGlobal, (element) => {
-      //we'll eventually need to add all the elements that inherently add a space. Why? Because it MUST BE PERFECT.
+      //why have we done this? can't recall. pretty sure there's a reason, but might be solved better by CSS?
       if (element === '<li>') {
         return ' ';
       }
@@ -71,148 +87,58 @@ export default class ShowMoreOrLess extends React.Component {
     });
   }
 
-  reformText = (text, charLimit) => {
+  generateEndElements = (cutoffSymbol) => {
+    return String.fromCharCode(cutoffSymbol);
+  }
 
-    //split text into array of tags and words
-    let splitText = this.splitText(text);
-    console.log('splitText   ', splitText);
-
-    let rawTextLength = this.getRawText(text).length;
-    console.log('text.length   ', text.length);
-    console.log('rawTextLength   ', rawTextLength);
-
-    let truncateBlock = '';
-    let wholeBlock = ''
-
+  generateTruncateBlock = (array, charLimit) => {
     let charCount = 0;
     let cutoffReached = false;
 
-    while (splitText.length > 0) {
-      let element = splitText.shift();
+    let truncateBlock = '';
 
+    for (var i = 0; i < array.length && !cutoffReached; i++) {
+      let element = array[i];
       if (htmlRegex.test(element)) {
-        wholeBlock += element;
-        if (!cutoffReached) truncateBlock += element;
-      }
-      else if (!cutoffReached) {
-        //we've not reached cutoff. Let's find it.
-        if (charCount + element.length < charLimit) {
-          //adding this text element won't exceed charLimit. Add it and continue.
-          charCount += element.length;
-          truncateBlock += element + ' ';
-          wholeBlock += element + ' ';
-        }
-        else if (charCount + element.length === charLimit) {
-          //this is the final element before cutoff. Add it to the string, then check if we need to truncate the comment;
-          charCount += element.length;
-          truncateBlock += element + ' ';
-          wholeBlock += element + ' ';
-
-          if (charCount < rawTextLength) {
-            //there's text still to go. the comment will truncate.
-            //edge case: what if there's only one (or a very few) words left in the block? would look silly. might need to track index and build in a buffer.
-            this.shouldTruncate = true;
-            cutoffReached = true;
-          }
-          else if (charCount === rawTextLength) {
-            //text has ended, but we need to continue the loop to close out tags.
-            this.shouldTruncate = false;
-            cutoffReached = true;
-          }
-          else {
-            console.log('reformText error at: else if (charCount + element.length === charLimit)');
-          }
-        }
-        else if (charCount + element.length > charLimit) {
-          //we've passed the cutoffPoint. this is where things get difficult.
-          if (charCount + element.length < rawTextLength) {
-            //there remains text after adding this element. add the elements before this word.
-            wholeBlock += element;
-            this.shouldTruncate = true;
-            cutoffReached = true;
-          }
-          else if (charCount + element.length === rawTextLength) {
-            //if we add the element, this equals rawTextLength. This means we're at the last text element, so rather than cutoff with one word remaining, we'll close out here.
-            truncateBlock += element;
-            wholeBlock += element;
-            this.shouldTruncate = false;
-            cutoffReached = true;
-          }
-          else {
-            console.log('reformText error at: else if (charCount + element.length > charLimit)');
-          }
-        }
-      }
-      else if (cutoffReached) {
-        //add all other text to the wholeBlock
-        wholeBlock += element + ' ';
+        truncateBlock += element;
       }
       else {
-        console.log('reformText while-loop error');
+        if (charCount + element.length < charLimit) {
+          charCount += element.length
+          truncateBlock += element;
+        }
+        if (charCount + element.length === charLimit) {
+          truncateBlock += element;
+          cutoffReached = true;
+        }
+        if (charCount + element.length > charLimit) {
+          cutoffReached = true;
+        }
       }
     }
-    //when while-loop ends, close out the span.
-    return {
-      truncateBlock: truncateBlock,
-      wholeBlock: wholeBlock
-    };
+
+    return truncateBlock + this.generateEndElements(this.props.cutoffSymbol);
   }
 
-  generateEndElements = () => {
-    return String.fromCharCode(this.props.cutoffSymbol);
-  }
+  truncate = (nodes) => {
 
-  // generateEndElements = (truncateBlock, cutoffSymbol) => {
-  //
-  //   let htmlTags = truncateBlock.match(htmlRegexGlobal);
-  //   console.log('htmlTags   ', htmlTags);
-  //
-  //   let elementStack = [];
-  //   let endElements = '';
-  //
-  //   for (let tag in htmlTags) {
-  //     if (htmlTags[tag].search('/') <= 0) {
-  //       elementStack.push(htmlTags[tag]);
-  //     }
-  //     else if (htmlTags[tag].search('/') == 1) {
-  //       elementStack.pop();
-  //     }
-  //     else {
-  //       //needs test
-  //       console.log('self closing tag  ', htmlTags[tag]);
-  //     }
-  //   }
-  //
-  //   while (elementStack.length > 0) {
-  //     let endTag = elementStack.pop();
-  //     endTag = endTag.substr(1, endTag.search(/[ >]/));
-  //     endElements += `</${endTag}`;
-  //   }
-  //
-  //   console.log('endElements   ', endElements);
-  //
-  //   let symbolAndEndElements = String.fromCharCode(cutoffSymbol) + endElements;
-  //
-  //   let finalTruncateBlock = truncateBlock + symbolAndEndElements;
-  //   console.log('finalTruncateBlock   ', finalTruncateBlock);
-  //
-  //   return finalTruncateBlock;
-  // };
+    console.log('nodes   ', nodes);
+    console.log('this.shouldTruncate   ', this.shouldTruncate);
 
-  truncateText = (text) => {
+    //split text into array of tags and words; the words will have spaces after them.
+    let splitText = this.splitText(nodes);
+    console.log('splitText   ', splitText);
 
-    let reformedTextObject = this.reformText(text, this.props.charLimit);
-
-    // let truncateBlockWithEndElements = this.generateEndElements(reformedTextObject.truncateBlock, this.props.cutoffSymbol);
-    // console.log('truncateBlockWithEndElements   ', truncateBlockWithEndElements);
-    let wholeBlock = reformedTextObject.wholeBlock;
-    let finalTruncateBlock = reformedTextObject.truncateBlock + this.generateEndElements();
+    let truncateBlock = this.shouldTruncate ? this.generateTruncateBlock(splitText, this.props.charLimit) : 'If you are seeing this, an error has occurred.';
+    let wholeBlock = splitText.join('');
+    console.log('truncateBlock   ', truncateBlock);
+    console.log('wholeBlock   ', wholeBlock);
 
     return (
       <span>
         {this.shouldTruncate
           ? this.isTruncated
-            ? <span dangerouslySetInnerHTML={{__html: `${finalTruncateBlock}`}} />
+            ? <span dangerouslySetInnerHTML={{__html: `${truncateBlock}`}} />
             : <span dangerouslySetInnerHTML={{__html: `${wholeBlock}`}} />
           : <span dangerouslySetInnerHTML={{__html: `${wholeBlock}`}} />
         }
@@ -223,13 +149,9 @@ export default class ShowMoreOrLess extends React.Component {
 
   render() {
     return React.createElement(
-      this.props.wrappingElement,
-      {className: this.props.wrappingClassName},
-      this.truncateText(exThree)
+      this.props.children.type,
+      {className: this.props.children.props.className},
+      this.truncate(this.nodes)
     );
   }
 }
-
-//more than one wrappingClassName
-//make it a wrapping component.
-//change shouldTruncate to initial check
