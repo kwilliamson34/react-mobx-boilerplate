@@ -4,7 +4,7 @@ import { observer } from 'mobx-react';
 import { observable } from 'mobx';
 
 import { Rating } from '../rating/rating';
-import TruncateComment from '../truncate-comment/truncate-comment';
+import ShowMoreOrLess from '../show-more-or-less/show-more-or-less';
 
 @observer
 export default class AppReviews extends React.Component {
@@ -52,9 +52,10 @@ export default class AppReviews extends React.Component {
       //parsedDate is working off of example data only; check that it will work with final version.
       let parsedDate = new Date(node.reviewDate);
       let normalizedDate = parsedDate.toLocaleString('en-US', dateOptions);
+      let reviewId = 'Review-' + node.reviewId;
 
       return (
-        <div key={i} className='individual-review-container' aria-labelledby={'Review-' + node.reviewId}>
+        <div key={i} className='individual-review-container' aria-labelledby={reviewId}>
           <div className='review-subject' id={ 'Review-' + node.reviewId }>{node.commentTitle}</div>
           <div className='author-and-rating-container'>
             <div className='review-author'>{authorName}</div>
@@ -62,7 +63,11 @@ export default class AppReviews extends React.Component {
             <Rating rating={node.reviewStar} />
           </div>
           <div className='review-date'>{normalizedDate}</div>
-          <TruncateComment sourceId={node.reviewId} text={node.comment} />
+          <ShowMoreOrLess returnToId={reviewId} charLimit={300}>
+            <p className='truncate-comment-container'>
+              {node.comment}
+            </p>
+          </ShowMoreOrLess>
         </div>
       )
     })

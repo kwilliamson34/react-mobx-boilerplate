@@ -12,22 +12,13 @@ export default class ShowMoreOrLess extends React.Component {
 
   static propTypes = {
     charLimit: PropTypes.number,
-    isInitiallyTruncated: PropTypes.bool,
-    text: PropTypes.string,
-    wrappingElement: PropTypes.string,
-    wrappingClassName: PropTypes.string,
-    buttonClassName: PropTypes.string,
     cutoffSymbol: PropTypes.string,
-    returnToId: PropTypes.string
+    returnToId: PropTypes.string,
+    children: PropTypes.object
   }
 
   static defaultProps = {
     charLimit: 300,
-    isInitiallyTruncated: true,
-    text: '',
-    wrappingElement: 'div',
-    wrappingClassName: 'show-more-or-less-container',
-    buttonClassName: 'truncate-button',
     cutoffSymbol: '8230', //ellipsis
     returnToId: null
   }
@@ -35,6 +26,7 @@ export default class ShowMoreOrLess extends React.Component {
   constructor(props) {
     super(props);
     this.nodes = this.props.children.props.children;
+    console.log(this.props.children);
   }
 
   componentWillMount() {
@@ -57,8 +49,8 @@ export default class ShowMoreOrLess extends React.Component {
 
   truncateButton = () => {
     return (
-      <button className='btn-link truncate-button' aria-haspopup='true' aria-expanded={ !this.isTruncated } onClick={ this.toggleTruncate } >
-        { this.isTruncated ? 'SHOW MORE' : 'SHOW LESS' }<i className={this.isTruncated ? 'icon-arrowDown' : 'icon-arrowUp'} aria-hidden='true' />
+      <button className='btn-link truncate-button' aria-haspopup='true' aria-expanded={!this.isTruncated} onClick={this.toggleTruncate} >
+        {this.isTruncated ? 'SHOW MORE' : 'SHOW LESS'}<i className={this.isTruncated ? 'icon-arrowDown' : 'icon-arrowUp'} aria-hidden='true' />
       </button>
     )
   }
@@ -76,15 +68,7 @@ export default class ShowMoreOrLess extends React.Component {
   }
 
   getRawText = (text) => {
-    return text.replace(htmlRegexGlobal, (element) => {
-      //why have we done this? can't recall. pretty sure there's a reason, but might be solved better by CSS?
-      if (element === '<li>') {
-        return ' ';
-      }
-      else {
-        return '';
-      }
-    });
+    return text.replace(htmlRegexGlobal, '');
   }
 
   generateEndElements = (cutoffSymbol) => {
@@ -150,7 +134,10 @@ export default class ShowMoreOrLess extends React.Component {
   render() {
     return React.createElement(
       this.props.children.type,
-      {className: this.props.children.props.className},
+      {
+        className: this.props.children.props.className,
+        id: this.props.children.props.id
+      },
       this.truncate(this.nodes)
     );
   }
