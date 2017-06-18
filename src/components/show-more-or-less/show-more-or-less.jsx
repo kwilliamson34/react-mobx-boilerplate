@@ -26,14 +26,11 @@ export default class ShowMoreOrLess extends React.Component {
   constructor(props) {
     super(props);
     this.nodeString = this.props.children.props.children;
-    console.log(this.props.children);
   }
 
   componentWillMount() {
-    //doing as much as possible here to reduce render effort.
     this.shouldTruncate = this.checkIfShouldTruncate(this.nodeString, this.props.charLimit);
     this.renderNodeBlocks = this.generateNodeBlocks(this.nodeString);
-    console.log('this.shouldTruncate   ', this.shouldTruncate);
   }
 
   shouldTruncate = false;
@@ -66,7 +63,6 @@ export default class ShowMoreOrLess extends React.Component {
         ? modifiedArray.push(element)
         : modifiedArray.push(element + ' ')
     });
-    console.log('modifiedArray   ', modifiedArray);
     return modifiedArray;
   }
 
@@ -116,7 +112,6 @@ export default class ShowMoreOrLess extends React.Component {
     if (array.reduce((x, y) => {
       return x + (htmlRegex.test(y) ? 0 : 1)
     }, 0) === 1) {
-      console.log('Edge case 1 triggered');
       truncateBlock = this.getRawText(this.nodeString).substr(0, charLimit);
     }
     //If no edge cases have triggered.
@@ -128,16 +123,13 @@ export default class ShowMoreOrLess extends React.Component {
   }
 
   generateNodeBlocks = (nodeString) => {
-    console.log('nodeString   ', nodeString);
-
     let returnBlocks = {
       truncateBlock: '',
       wholeBlock: ''
     };
 
-    //split text into array of tags and words; the words will have spaces after them.
     let nodeArray = this.splitNodeString(nodeString);
-    console.log('nodeArray   ', nodeArray);
+    returnBlocks.wholeBlock = nodeArray.join('');
 
     if (this.shouldTruncate) {
       returnBlocks.truncateBlock = this.generateTruncateBlock(nodeArray, this.props.charLimit) + this.generateEndElements(this.props.cutoffSymbol);
@@ -146,12 +138,7 @@ export default class ShowMoreOrLess extends React.Component {
       returnBlocks.truncateBlock = 'If this text is visible, an error has occurred.'
     }
 
-    returnBlocks.wholeBlock = nodeArray.join('');
-
-    console.log('returnBlocks   ', returnBlocks);
-
     return returnBlocks;
-
   }
 
   renderNodes = (wholeBlock, truncateBlock) => {
