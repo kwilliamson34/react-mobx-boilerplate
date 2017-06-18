@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { observer } from 'mobx-react';
-import { observable } from 'mobx';
+import {observer} from 'mobx-react';
+import {observable} from 'mobx';
 
 const htmlRegex = /<\/?\w+((\s+\w+(\s*=\s*(?:".*?"|'.*?'|[\^'">\s]+))?)+\s*|\s*)\/?>/;
 const htmlRegexGlobal = /<\/?\w+((\s+\w+(\s*=\s*(?:".*?"|'.*?'|[\^'">\s]+))?)+\s*|\s*)\/?>/g;
@@ -74,7 +74,7 @@ export default class ShowMoreOrLess extends React.Component {
     return String.fromCharCode(number);
   }
 
-  generateTruncateBlockValid = (array, charLimit) => {
+  generateRegularTruncateBlock = (array, charLimit) => {
     let charCount = 0;
     let cutoffReached = false;
 
@@ -116,7 +116,7 @@ export default class ShowMoreOrLess extends React.Component {
     }
     //If no edge cases have triggered.
     else {
-      truncateBlock = this.generateTruncateBlockValid(array, charLimit);
+      truncateBlock = this.generateRegularTruncateBlock(array, charLimit);
     }
 
     return truncateBlock;
