@@ -25,15 +25,19 @@ export default class ShowMoreOrLess extends React.Component {
 
   constructor(props) {
     super(props);
-    this.nodes = this.props.children.props.children;
+    this.nodeString = this.props.children.props.children;
     console.log(this.props.children);
   }
 
   componentWillMount() {
-    this.checkIfShouldTruncate(this.nodes, this.props.charLimit);
+    //doing as much as possible here to reduce render effort.
+    this.shouldTruncate = this.checkIfShouldTruncate(this.nodeString, this.props.charLimit);
+    this.renderNodeBlocks = this.generateNodeBlocks(this.nodeString);
+    console.log('this.shouldTruncate   ', this.shouldTruncate);
   }
 
   shouldTruncate = false;
+  renderNodeBlocks = null;
   @observable isTruncated = true;
 
   toggleTruncate = () => {
@@ -41,10 +45,9 @@ export default class ShowMoreOrLess extends React.Component {
     if (this.props.returnToId !== null) document.getElementById(this.props.returnToId).scrollIntoView();
   }
 
-  checkIfShouldTruncate = (nodes, charLimit) => {
-    //check to see if this should truncate at all;
-    let rawTextLength = this.getRawText(nodes).length;
-    this.shouldTruncate = charLimit <= rawTextLength;
+  checkIfShouldTruncate = (nodeString, charLimit) => {
+    let rawTextLength = this.getRawText(nodeString).length;
+    return charLimit <= rawTextLength;
   }
 
   truncateButton = () => {
@@ -55,10 +58,10 @@ export default class ShowMoreOrLess extends React.Component {
     )
   }
 
-  splitText = (text) => {
-    let splitArray = text.match(splitEverythingRegex);
+  splitNodeString = (string) => {
+    let splitStringArray = string.match(splitEverythingRegex);
     let modifiedArray = [];
-    splitArray.forEach((element) => {
+    splitStringArray.forEach((element) => {
       htmlRegex.test(element)
         ? modifiedArray.push(element)
         : modifiedArray.push(element + ' ')
@@ -67,15 +70,15 @@ export default class ShowMoreOrLess extends React.Component {
     return modifiedArray;
   }
 
-  getRawText = (text) => {
-    return text.replace(htmlRegexGlobal, '');
+  getRawText = (string) => {
+    return string.replace(htmlRegexGlobal, '');
   }
 
-  generateEndElements = (cutoffSymbol) => {
-    return String.fromCharCode(cutoffSymbol);
+  generateEndElements = (number) => {
+    return String.fromCharCode(number);
   }
 
-  generateTruncateBlock = (array, charLimit) => {
+  generateTruncateBlockValid = (array, charLimit) => {
     let charCount = 0;
     let cutoffReached = false;
 
@@ -91,33 +94,67 @@ export default class ShowMoreOrLess extends React.Component {
           charCount += element.length
           truncateBlock += element;
         }
-        if (charCount + element.length === charLimit) {
+        else if (charCount + element.length === charLimit) {
           truncateBlock += element;
           cutoffReached = true;
         }
-        if (charCount + element.length > charLimit) {
+        else if (charCount + element.length > charLimit) {
           cutoffReached = true;
         }
       }
     }
 
-    return truncateBlock + this.generateEndElements(this.props.cutoffSymbol);
+    return truncateBlock;
   }
 
-  truncate = (nodes) => {
+  generateTruncateBlock = (array, charLimit) => {
+    let truncateBlock = '';
 
-    console.log('nodes   ', nodes);
-    console.log('this.shouldTruncate   ', this.shouldTruncate);
+    //Edge case 1: The user has entered one big string with no spaces.
+      //Test: The number of elements in the array that are not HTML is 1. We've already determined that the text length of this array is in excess of the charLimit, so this one text element must exceed the charLimit;
+      //Resolution: truncateBlock must be generated straight from the raw text. wholeBlock will be fine.
+    if (array.reduce((x, y) => {
+      return x + (htmlRegex.test(y) ? 0 : 1)
+    }, 0) === 1) {
+      console.log('Edge case 1 triggered');
+      truncateBlock = this.getRawText(this.nodeString).substr(0, charLimit);
+    }
+    //If no edge cases have triggered.
+    else {
+      truncateBlock = this.generateTruncateBlockValid(array, charLimit);
+    }
+
+    return truncateBlock;
+  }
+
+  generateNodeBlocks = (nodeString) => {
+    console.log('nodeString   ', nodeString);
+
+    let returnBlocks = {
+      truncateBlock: '',
+      wholeBlock: ''
+    };
 
     //split text into array of tags and words; the words will have spaces after them.
-    let splitText = this.splitText(nodes);
-    console.log('splitText   ', splitText);
+    let nodeArray = this.splitNodeString(nodeString);
+    console.log('nodeArray   ', nodeArray);
 
-    let truncateBlock = this.shouldTruncate ? this.generateTruncateBlock(splitText, this.props.charLimit) : 'If you are seeing this, an error has occurred.';
-    let wholeBlock = splitText.join('');
-    console.log('truncateBlock   ', truncateBlock);
-    console.log('wholeBlock   ', wholeBlock);
+    if (this.shouldTruncate) {
+      returnBlocks.truncateBlock = this.generateTruncateBlock(nodeArray, this.props.charLimit) + this.generateEndElements(this.props.cutoffSymbol);
+    }
+    else {
+      returnBlocks.truncateBlock = 'If this text is visible, an error has occurred.'
+    }
 
+    returnBlocks.wholeBlock = nodeArray.join('');
+
+    console.log('returnBlocks   ', returnBlocks);
+
+    return returnBlocks;
+
+  }
+
+  renderNodes = (wholeBlock, truncateBlock) => {
     return (
       <span>
         {this.shouldTruncate
@@ -138,7 +175,7 @@ export default class ShowMoreOrLess extends React.Component {
         className: this.props.children.props.className,
         id: this.props.children.props.id
       },
-      this.truncate(this.nodes)
+      this.renderNodes(this.renderNodeBlocks.wholeBlock, this.renderNodeBlocks.truncateBlock)
     );
   }
 }
