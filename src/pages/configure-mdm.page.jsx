@@ -190,7 +190,7 @@ export default class ConfigureMDM extends React.Component {
                             <button id="mdm_submit_btn" aria-labelledby="configure-mdm-form" aria-disabled={!this.store.formIsValid || this.isConfigured || this.store.beingSubmitted} type="submit" className='fn-primary'>
                             {this.store.beingSubmitted
                               ? <span>
-                                  <i className="icon-profile" aria-label="Still Submitting Form"></i>
+                                  <i className="icon-reload" aria-label="Still Submitting Form"></i>
                                   &nbsp;&nbsp;Submitting&hellip;
                                 </span>
                               : <span>Submit</span>}

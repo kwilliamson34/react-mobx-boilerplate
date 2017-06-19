@@ -132,7 +132,7 @@ class ApiService {
     setMDMConfiguration(mdmConfig) {
       return axios({
         method: 'post',
-        url: `${base}/pse/mdm`,
+        url: `${base}/pse/mdmBla`,
         data: mdmConfig
       });
     }
