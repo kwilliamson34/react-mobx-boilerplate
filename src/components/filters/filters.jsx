@@ -65,7 +65,7 @@ export class Filters extends React.Component {
             <div className="form-group">
               {this.renderSelect({
                 id: 'segment-filter',
-                label: 'Segment',
+                label: 'Branch/Discipline',
                 initialValue: this.store.segmentFilter,
                 changeHandler: this.handleSegmentChange,
                 optionsArray: this.store.segments

@@ -8,7 +8,7 @@ import { FaqMain } from '../components/faq/faq-main.jsx';
 
 @inject('store')
 @observer
-export default class FaqPage extends React.Component {
+export default class FAQPage extends React.Component {
 
 	static propTypes = {
 		store: PropTypes.object.isRequired
@@ -32,5 +32,4 @@ export default class FaqPage extends React.Component {
 			</article>
 		);
 	}
-
 }

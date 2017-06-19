@@ -1,5 +1,4 @@
 .card-list-container {
-    padding-bottom: 20px;
     background-color: white;
 
     .center-block {
@@ -41,4 +40,17 @@
         box-shadow: 0 0 20px 0 rgba(182, 182, 182, 0.50);
     }
 }
+
 @import 'card-list-lg';
+
+@media #{$tablet, $mobile} {
+  .card-list-container {
+    padding-bottom: 13rem;
+  }
+}
+
+@media #{$desktop} {
+  .card-list-container {
+    padding-bottom: 8rem;
+  }
+}

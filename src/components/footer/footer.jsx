@@ -121,10 +121,10 @@ export default class Footer extends React.Component {
 								<h2 id="helpLinks" className="help-hdr">Help</h2>
 								<ul className="help-link-block">
 									<li role="presentation">
-										Chat
+										<Link to="/faq">FAQ</Link>
 									</li>
 									<li role="presentation">
-										Give Us Feedback
+										<Link to="/feedback">Give Us Feedback</Link>
 									</li>
 									<li role="presentation">
 										AT&amp;T Customer Service:<br className="visible-xs-inline-block visible-md-inline-block" />&nbsp;<a href="tel:800-600-8000">800-600-8000</a>
