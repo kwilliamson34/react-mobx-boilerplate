@@ -30,11 +30,11 @@ export default class ShowMoreOrLess extends React.Component {
 
   componentWillMount() {
     this.shouldTruncate = this.checkIfShouldTruncate(this.nodeString, this.props.charLimit);
-    this.renderNodeBlocks = this.generateNodeBlocks(this.nodeString);
+    this.nodesToRender = this.separateNodes(this.nodeString);
   }
 
   shouldTruncate = false;
-  renderNodeBlocks = null;
+  nodesToRender = null;
   @observable isTruncated = true;
 
   toggleTruncate = () => {
@@ -110,11 +110,11 @@ export default class ShowMoreOrLess extends React.Component {
       //Test: The number of elements in the array that are not HTML is 1. We've already determined that the text length of this array is in excess of the charLimit, so this one text element must exceed the charLimit;
       //Resolution: truncateBlock must be generated straight from the raw text. wholeBlock will be fine.
     if (array.reduce((x, y) => {
-      return x + (htmlRegex.test(y) ? 0 : 1)
-    }, 0) === 1) {
-      truncateBlock = this.getRawText(this.nodeString).substr(0, charLimit);
+        return x + (htmlRegex.test(y) ? 0 : 1)
+      }, 0) === 1) {
+        truncateBlock = this.getRawText(this.nodeString).substr(0, charLimit);
     }
-    //If no edge cases have triggered.
+    //If no edge cases have triggered:
     else {
       truncateBlock = this.generateRegularTruncateBlock(array, charLimit);
     }
@@ -122,7 +122,7 @@ export default class ShowMoreOrLess extends React.Component {
     return truncateBlock;
   }
 
-  generateNodeBlocks = (nodeString) => {
+  separateNodes = (nodeString) => {
     let returnBlocks = {
       truncateBlock: '',
       wholeBlock: ''
@@ -162,7 +162,7 @@ export default class ShowMoreOrLess extends React.Component {
         className: this.props.children.props.className,
         id: this.props.children.props.id
       },
-      this.renderNodes(this.renderNodeBlocks.wholeBlock, this.renderNodeBlocks.truncateBlock)
+      this.renderNodes(this.nodesToRender.wholeBlock, this.nodesToRender.truncateBlock)
     );
   }
 }
