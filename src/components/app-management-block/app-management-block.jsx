@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
-import {Link} from 'react-router-dom';
 import Checkbox from '../toggle/checkbox.jsx';
 
 @observer
@@ -11,7 +10,8 @@ export default class AppManagementBlock extends React.Component {
     psk: PropTypes.string.isRequired,
     getMatchingApp: PropTypes.func.isRequired,
     changeAppAvailability: PropTypes.func.isRequired,
-    changeAppRecommended: PropTypes.func.isRequired
+    changeAppRecommended: PropTypes.func.isRequired,
+    mdmIsConfigured: PropTypes.bool.isRequired
   }
 
   constructor(props) {
@@ -69,7 +69,9 @@ export default class AppManagementBlock extends React.Component {
 						checked={this.matchingApp.isRecommended}
 						disabled={!this.matchingApp.isAvailable}
 						onChange={this.handleRecommendedClick}/>
-          <Link to="/mdm" className="fn-primary">Push to MDM</Link>
+          <button id={'Push-' + this.props.psk} aria-disabled={!this.props.mdmIsConfigured} className='fn-primary'>
+            <span>Push to MDM</span>
+          </button>
         </div>}
       </div>
     );
