@@ -20,11 +20,13 @@ export default class FeedbackPage extends React.Component {
     this.feedbackStore.submitForm(e.target);
   }
 
-  hasError = (id) => {
-    this.feedbackStore.findError(id);
+  handleChange = (e) => {
+    e.preventDefault();
+    this.feedbackStore.changeValue(e.target);
   }
 
   render() {
+
     return (
       <article id='help-center-page'>
         <section className='content-wrapper'>
@@ -35,16 +37,20 @@ export default class FeedbackPage extends React.Component {
 
           <div className='row'>
             <section>
-              <form id='feedback-form'
-                noValidate
-                onSubmit={this.handleSubmit}>
-                <div className={this.hasError('title') ? 'form-group has-error' : 'form-group'}>
-                  <label className='control-label' htmlFor='feedback-title'>Title<span className='required-asterisks'> *</span></label>
-                  <input type='text' id='feedback-title' className='form-control'/>
+              <form id='feedback-form' onSubmit={this.handleSubmit}>
+                <div className={this.feedbackStore.hasErrors.title ? 'form-group has-error' : 'form-group'}>
+                  <label className='control-label' htmlFor='feedback-title'>Title<span className='required-asterisks'> *</span></label><br />
+                  {this.feedbackStore.hasErrors.title &&
+                    <label className='control-label' htmlFor="feedback-title"><span>Please title your feedback</span></label>
+                  }
+                  <input type='text' id='feedback-title' maxLength="250" className='form-control' onChange={this.handleChange}/>
                 </div>
-                <div className={this.hasError('topic') ? 'form-group has-error' : 'form-group'}>
+                <div className={this.feedbackStore.hasErrors.topic ? 'form-group has-error' : 'form-group'}>
                   <label className='control-label' htmlFor='feedback-topic'>Topic<span className='required-asterisks'> *</span></label>
-                  <select id='feedback-topic' className='form-control'>
+                    {this.feedbackStore.hasErrors.topic &&
+                      <label className='control-label' htmlFor="feedback-topic"><span>Please select a topic</span></label>
+                    }
+                  <select id='feedback-topic' className='form-control' onChange={this.handleChange}>
                     <option value='' hidden>Select Feedback Topic</option>
                     <option value='System Performance'>System Performance</option>
                     <option value='App Management'>App Management</option>
@@ -55,21 +61,24 @@ export default class FeedbackPage extends React.Component {
                     <option value='Other'>Other</option>
                   </select>
                 </div>
-                <div className={this.hasError('details') ? 'form-group has-error' : 'form-group'}>
-                  <label className='control-label' htmlFor='feedback-details'>Details<span className='required-asterisks'> *</span></label>
-                  <input type='text' id='feedback-details' className='form-control'/>
+                <div className={this.feedbackStore.hasErrors.details ? 'form-group has-error' : 'form-group'}>
+                  <label className='control-label' htmlFor='feedback-details'>Details<span className='required-asterisks'> *</span></label><br />
+                    {this.feedbackStore.hasErrors.details &&
+                      <label className='control-label' htmlFor="feedback-details"><span>Please summarize your feedback</span></label>
+                    }
+                  <input type='text' id='feedback-details' maxLength="10000" className='form-control' onChange={this.handleChange}/>
                 </div>
                 <div>
                   <p>
                     Want to be contacted about your feedback? Leave your email below so that we can follow up with you about your comments!
                   </p>
                 </div>
-                <div className={this.hasError('email') ? 'form-group has-error' : 'form-group'}>
+                <div className='form-group'>
                   <label className='control-label' htmlFor='feedback-email'>Email (Optional)</label>
-                  <input type='text' id='feedback-email' className='form-control'/>
+                  <input type='email' id='feedback-email' className='form-control' onChange={this.handleChange}/>
                 </div>
                 <div className='form-group text-center'>
-                  <button type='submit' id='feedback-submit-btn' className='fn-primary' aria-labelledby='feedback-form'>
+                  <button type='submit' id='feedback-submit-btn' className={this.feedbackStore.requiredFieldsEntered ? 'fn-primary' : 'fn-primary disabled'} aria-labelledby='feedback-form'>
                     Submit Feedback
                   </button>
                 </div>
