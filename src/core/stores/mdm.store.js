@@ -125,16 +125,27 @@ class MDMStore {
 
     // Services
     @action setMDMConfiguration(mdmConfig) {
-        const success = () => {
+        const success = (resp) => {
+            let messageObj = resp.data;
+
             this.beingSubmitted = false;
-            this.hasBeenSubmitted = true;
-            this.pseMDMObject.merge(mdmConfig);
             this.alert_msgs = [];
-            this.alert_msgs.push({
-              type: 'success',
-              headline: 'Success! ',
-              message: 'A new connection has been established with MDM.'
-            });
+
+            if(!messageObj.error){
+                this.hasBeenSubmitted = true;
+                this.pseMDMObject.merge(mdmConfig);
+                this.alert_msgs.push({
+                  type: 'success',
+                  headline: 'Success! ',
+                  message: messageObj.message
+                });
+            } else {
+                this.alert_msgs.push({
+                  type: 'error',
+                  headline: 'Error: ',
+                  message: messageObj.error
+                });
+            }
         }
         const fail = (err) => {
             console.warn(err);
@@ -157,23 +168,8 @@ class MDMStore {
         // }
         // return apiService.getPSELocation().then(success, fail)
 
-        const serviceResponse = {
-            aw_hostName: 'This is a Sample Server Response',
-            aw_password: 'fasl;dfkjsa;fklj',
-            aw_tenantCode: 'This is a Sample Server Response',
-            aw_userName: 'This is a Sample Server Response',
-            ibm_appAccessKey: undefined,
-            ibm_appID: undefined,
-            ibm_appVersion: undefined,
-            ibm_billingID: undefined,
-            ibm_password: undefined,
-            ibm_platformID: undefined,
-            ibm_rootURL: undefined,
-            ibm_userName: undefined,
-            mi_hostName: undefined,
-            mi_password: undefined,
-            mi_userName: undefined
-        }
+        const serviceResponse = {}
+
         this.pseMDMObject.merge(serviceResponse);
 
         if(this.pseMDMObject.get('aw_hostName')){
@@ -189,7 +185,6 @@ class MDMStore {
 
     // OBSERVABLES
     @observable mdmProvider = '';
-    @observable mdmErrorMessages = '';
     @observable currentMDMForm = observable.map({});
     @observable pseMDMObject = observable.map({}); // TODO - will be global mdm object from PSE
     @observable alert_msgs = [{headline:'Note. ', message:'Configure MDM to push apps to the system.'}];

@@ -56,12 +56,6 @@ export default class ConfigureMDM extends React.Component {
     this.store.submitForm(event.target)
   }
 
-  showMDMProviderError = (messages) => {
-    if (messages.length) {
-      return (<div className="msgBlock error error-list" role="alert" aria-live = "assertive" key={messages}><span>{messages}</span></div>);
-    }
-  }
-
   discardFormChanges = (event) => {
     event.preventDefault();
     this.store.discardFormChanges();
@@ -175,9 +169,8 @@ export default class ConfigureMDM extends React.Component {
                     {this.store.alert_msgs && <MDMAlerts store = {this.store}/>}
 
                         {this.isConfigured && <p className="mdm-description">Only one MDM can be configured at a time. To configure a new MDM, the existing connection must be broken. Once the existing connection is broken, a new one can be configured.</p>}
-                        <div className={this.store.mdmErrorMessages.length ? 'form-group has-feedback has-error' : 'form-group has-feedback'}>
+                        <div className='form-group has-feedback'>
                           <label className="control-label" htmlFor="mdm">Your MDM<span className="required-asterisks"> *</span></label>
-                          {this.showMDMProviderError(this.store.mdmErrorMessages)}
                             <select id="mdm"
                               className={`form-control ${mdm_provider ==='' && 'placeholder'}`}
                               onChange={this.updateMDM}
