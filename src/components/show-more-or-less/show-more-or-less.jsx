@@ -44,7 +44,7 @@ export default class ShowMoreOrLess extends React.Component {
 
   checkIfShouldTruncate = (nodeString, charLimit) => {
     let rawTextLength = this.getRawText(nodeString).length;
-    return charLimit <= rawTextLength;
+    return charLimit < rawTextLength;
   }
 
   truncateButton = () => {
