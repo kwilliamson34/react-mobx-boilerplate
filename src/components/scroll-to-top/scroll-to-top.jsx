@@ -31,7 +31,7 @@ class ScrollToTop extends React.Component {
 	componentDidUpdate(prevProps) {
 		if (this.props.location !== prevProps.location) {
 			this.scrollTopFocus();
-      this.updateWindowDimensions();
+			this.updateWindowDimensions();
 		}
 	}
 
