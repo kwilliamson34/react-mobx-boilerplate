@@ -66,14 +66,16 @@ class MDMStore {
 
         this.clearAlerts();
 
+        for (let i = 0; i < inputs.length; i++) {
+            if(inputs[i].id !== 'mdm'){
+                mdmConfig[inputs[i].id] = inputs[i].value;
+            }
+        }
+        this.currentMDMForm.merge(mdmConfig);
+        
         if (this.formIsValid) {
             this.beingSubmitted = true;
-            for (let i = 0; i < inputs.length; i++) {
-                if(inputs[i].id !== 'mdm'){
-                    mdmConfig[inputs[i].id] = inputs[i].value;
-                }
-            }
-            this.setMDMConfiguration(mdmConfig)
+            this.setMDMConfiguration(mdmConfig);
         } else {
             this.alert_msgs.push({
                 type: 'error',
@@ -92,13 +94,11 @@ class MDMStore {
         this.alert_msgs = [];
     }
 
-
     // MDM Modals
     @action toggleExitModal() {
         this.showExitModal = !this.showExitModal;
     }
 
-    // MDM Modals
     @action togglebreakMDMConnection() {
         this.showbreakMDMConnection = !this.showbreakMDMConnection;
     }
