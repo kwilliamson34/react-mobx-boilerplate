@@ -1,20 +1,35 @@
 import React from 'react';
+import { observer, inject } from 'mobx-react';
+import { PropTypes } from 'prop-types';
 
+import { FaqImageTop } from '../components/faq/faq-image-top.jsx';
+import { FaqImageBottom } from '../components/faq/faq-image-bottom.jsx';
+import { FaqMain } from '../components/faq/faq-main.jsx';
+
+@inject('store')
+@observer
 export default class FAQPage extends React.Component {
-  render() {
-    return (
-      <article id="help-center-page">
-        <section className="content-wrapper">
-        <div className="container">
-          <div className="row">
-            <div className="col-xs-12"><h1 className="as-h2">Frequently Asked Questions</h1></div>
-          </div>
-          <div className="row">
-            <div className="col-xs-12"><p>Content Here</p></div>
-          </div>
-        </div>
-        </section>
-      </article>
-    )
-  }
+
+	static propTypes = {
+		store: PropTypes.object.isRequired
+	}
+
+	constructor(props) {
+		super(props);
+		this.store = this.props.store.contentStore;
+		console.log(this.store);
+	}
+
+	render () {
+
+		return(
+			<article className="faq-article">
+				<section className="faq-page">
+					<FaqImageTop />
+					<FaqMain store={this.store} />
+					<FaqImageBottom />
+				</section>
+			</article>
+		);
+	}
 }
