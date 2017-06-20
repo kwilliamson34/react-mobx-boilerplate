@@ -134,10 +134,8 @@ class ApiService {
     }
 
     setMDMConfiguration(mdmConfig) {
-
-      mdmConfig.pse_id = userStore.user.pse
-      console.log(mdmConfig);
-
+      mdmConfig.pse_id = userStore.user.pse;
+      
       return axios({
         method: 'post',
         url: `${base}/pse/mdm`,
