@@ -114,8 +114,6 @@ class MDMStore {
         const success = (resp) => {
             const serviceResponse = resp.data;
 
-            console.log(serviceResponse);
-
             this.pseMDMObject.merge(serviceResponse);
 
             switch (serviceResponse.mdm_type) {
