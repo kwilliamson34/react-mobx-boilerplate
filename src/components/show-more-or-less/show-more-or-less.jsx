@@ -64,32 +64,43 @@ export default class ShowMoreOrLess extends React.Component {
   }
 
   generateRegularTruncateBlock = (array, charLimit) => {
-    let charCount = 0;
-    let cutoffReached = false;
+    for (var i = 0; i < array.length; i++) {
+    if (charCount + element.length > charLimit) { break }
 
-    let truncateBlock = '';
+    let element = array[i];
+    let isHtmlElement = htmlRegex.test(element)
 
-    for (var i = 0; i < array.length && !cutoffReached; i++) {
-      let element = array[i];
-      if (htmlRegex.test(element)) {
-        truncateBlock += element;
-      }
-      else {
-        if (charCount + element.length < charLimit) {
-          charCount += element.length
-          truncateBlock += element;
-        }
-        else if (charCount + element.length === charLimit) {
-          truncateBlock += element;
-          cutoffReached = true;
-        }
-        else if (charCount + element.length > charLimit) {
-          cutoffReached = true;
-        }
-      }
+    truncateBlock += element;
+
+    if (!isHtmlElement) { charCount += element.length }
+
     }
-
-    return truncateBlock;
+    // let charCount = 0;
+    // let cutoffReached = false;
+    //
+    // let truncateBlock = '';
+    //
+    // for (var i = 0; i < array.length && !cutoffReached; i++) {
+    //   let element = array[i];
+    //   if (htmlRegex.test(element)) {
+    //     truncateBlock += element;
+    //   }
+    //   else {
+    //     if (charCount + element.length < charLimit) {
+    //       charCount += element.length
+    //       truncateBlock += element;
+    //     }
+    //     else if (charCount + element.length === charLimit) {
+    //       truncateBlock += element;
+    //       cutoffReached = true;
+    //     }
+    //     else if (charCount + element.length > charLimit) {
+    //       cutoffReached = true;
+    //     }
+    //   }
+    // }
+    //
+    // return truncateBlock;
   }
 
   generateTruncateBlock = (array, charLimit) => {
