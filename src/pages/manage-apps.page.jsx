@@ -26,6 +26,10 @@ export default class ManageAppsPage extends React.Component {
 		this.itemsPerPage = 20;
 	}
 
+	componentWillMount() {
+		this.mdmStore.getMDMConfiguration();
+	}
+
 	componentDidMount() {
 		this.cardListStore.fetchCardList();
 		this.appCatalogStore.fetchAppCatalog();

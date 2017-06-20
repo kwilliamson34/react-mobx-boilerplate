@@ -64,10 +64,6 @@ export default class App extends React.Component {
   }
 
   componentWillMount() {
-
-    //TODO: This needs to wait until user auth is complete
-    pseMasterStore.mdmStore.getMDMConfiguration();
-
     //check for URL token parameter
 		const urlToken = utilsService.getUrlParameter('token');
 		if(urlToken && urlToken.length > 0) {

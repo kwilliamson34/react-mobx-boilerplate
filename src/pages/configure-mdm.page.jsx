@@ -25,6 +25,7 @@ export default class ConfigureMDM extends React.Component {
   componentWillMount() {
     this.store.clearAlerts();
     this.store.hasBeenSubmitted = false;
+    this.store.getMDMConfiguration();
   }
 
   componentDidUpdate() {
