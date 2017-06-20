@@ -5,16 +5,15 @@ import {userStore} from './user.store';
 class FeedbackStore {
 
   @action submitForm(form) {
-    const inputs = form.querySelectorAll('input, select');
+    const inputs = form.querySelectorAll('input, select, textarea');
     console.log('inputs   ', inputs);
     for (var i = 0; i < inputs.length && inputs[i].id !== 'feedback-email'; i++) {
       this.hasErrors[inputs[i].id.replace('feedback-', '')] = inputs[i].value === '';
     }
     if (this.formIsValid) {
-      //awaiting service integration;
+      //TODO: awaiting service integration;
       console.log('Form submitted!  ', this.feedbackObject);
       this.hasBeenSubmitted = true;
-      this.resetFeedbackForm();
     }
   }
 
@@ -37,6 +36,13 @@ class FeedbackStore {
     Object.keys(this.feedbackObject).forEach((v) => this.feedbackObject[v] = '');
     Object.keys(this.hasErrors).forEach((v) => this.hasErrors[v] = false);
   }
+
+  // @action validateForm() {
+  //   let inputs = Object.keys(this.feedbackObject);
+  //   for (var i = 0; i < inputs.length && inputs[i].id !== 'email'; i++) {
+  //     this.hasErrors[inputs[i]] = inputs[i] === '';
+  //   }
+  // }
 
   @computed get formIsValid() {
     return Object.keys(this.hasErrors).every((v) => this.hasErrors[v] === false);

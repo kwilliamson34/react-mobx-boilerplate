@@ -47,13 +47,19 @@ export default class FeedbackPage extends React.Component {
   handleChange = (e) => {
     e.preventDefault();
     this.feedbackStore.changeValue(e.target);
-    // console.log('handleChange   ', this.feedbackStore.requiredFieldsEntered);
   }
+
+  // //TODO: julia wants errors to show up on blur. prob have to pass all the events in again.
+  // validateForm = (e) => {
+  //   e.preventDefault();
+  //   console.log('triggered blur');
+  //   this.feedbackStore.validateForm();
+  // }
 
   renderExitModal = () => {
     return (
       <div>
-        <div id="exitModal" className="modal fade in">
+        <div id="customer-feedback-exit-modal" className="modal fade in">
           <div className="modal-dialog">
             <div className="modal-content">
               <button type="button" className="btn close-modal icon-close" onClick={this.toggleExitModal}>
@@ -77,32 +83,44 @@ export default class FeedbackPage extends React.Component {
     )
   }
 
-  render() {
-    // console.log('render', this.feedbackStore.requiredFieldsEntered);
+  renderSuccessPage = () => {
     return (
-      <article id='help-center-page'>
-        <section className='content-wrapper'>
-        <div className='container'>
-          <div className='row text-center'>
-            <div className='col-xs-12'><h1 className='as-h2'>Give Us Feedback</h1></div>
+      <div>
+        <div id="customer-feedback-success">
+          <div className="success-content">
+            <h2>Thanks for your feedback!</h2>
+            <p>We appreciate you taking the time to provide your thoughts about this site. Your comments will help us to improve our tools going forward.</p>
+            <button className='fn-primary' onClick={this.discardFormChanges}>Return Home</button>
           </div>
+        </div>
+      </div>
+    )
+  }
 
+  renderFeedbackForm = () => {
+    return (
+      <div className='container'>
+          <div className='row text-center'>
+            <div className='col-xs-12'>
+              <h1>Give Us Feedback</h1>
+            </div>
+          </div>
           <div className='row'>
             <section>
-              <form id='feedback-form' onSubmit={this.handleSubmit}>
+              <form className="feedback-form col-md-offset-3 col-xs-12 col-md-6 col-md" onSubmit={this.handleSubmit}>
                 <div className={this.feedbackStore.hasErrors.title ? 'form-group has-error' : 'form-group'}>
                   <label className='control-label' htmlFor='feedback-title'>Title<span className='required-asterisks'> *</span></label><br />
                   {this.feedbackStore.hasErrors.title &&
                     <label className='control-label' htmlFor="feedback-title"><span>Please title your feedback</span></label>
                   }
-                  <input type='text' id='feedback-title' maxLength="250" className='form-control' value={this.feedbackStore.feedbackObject.title} onChange={this.handleChange}/>
+                  <input type='text' id='feedback-title' maxLength="250" className='form-control input-lg' value={this.feedbackStore.feedbackObject.title} onChange={this.handleChange}/>
                 </div>
                 <div className={this.feedbackStore.hasErrors.topic ? 'form-group has-error' : 'form-group'}>
-                  <label className='control-label' htmlFor='feedback-topic'>Topic<span className='required-asterisks'> *</span></label>
-                    {this.feedbackStore.hasErrors.topic &&
-                      <label className='control-label' htmlFor="feedback-topic"><span>Please select a topic</span></label>
-                    }
-                  <select id='feedback-topic' className='form-control' value={this.feedbackStore.feedbackObject.topic} onChange={this.handleChange}>
+                  <label className='control-label' htmlFor='feedback-topic'>Topic<span className='required-asterisks'> *</span></label><br />
+                  {this.feedbackStore.hasErrors.topic &&
+                    <label className='control-label' htmlFor="feedback-topic"><span>Please select a topic</span></label>
+                  }
+                  <select id='feedback-topic' className='form-control form-control-lg' value={this.feedbackStore.feedbackObject.topic} onChange={this.handleChange}>
                     <option value='' hidden>Select Feedback Topic</option>
                     <option value='System Performance'>System Performance</option>
                     <option value='App Management'>App Management</option>
@@ -115,10 +133,10 @@ export default class FeedbackPage extends React.Component {
                 </div>
                 <div className={this.feedbackStore.hasErrors.details ? 'form-group has-error' : 'form-group'}>
                   <label className='control-label' htmlFor='feedback-details'>Details<span className='required-asterisks'> *</span></label><br />
-                    {this.feedbackStore.hasErrors.details &&
-                      <label className='control-label' htmlFor="feedback-details"><span>Please summarize your feedback</span></label>
-                    }
-                  <input type='text' id='feedback-details' maxLength="10000" className='form-control' value={this.feedbackStore.feedbackObject.details} onChange={this.handleChange}/>
+                  {this.feedbackStore.hasErrors.details &&
+                    <label className='control-label' htmlFor="feedback-details"><span>Please summarize your feedback</span></label>
+                  }
+                  <textarea type='text' id='feedback-details' maxLength="10000" className='form-control' rows="5" value={this.feedbackStore.feedbackObject.details} onChange={this.handleChange}/>
                 </div>
                 <div>
                   <p>
@@ -127,19 +145,30 @@ export default class FeedbackPage extends React.Component {
                 </div>
                 <div className='form-group'>
                   <label className='control-label' htmlFor='feedback-email'>Email (Optional)</label>
-                  <input type='email' id='feedback-email' className='form-control' value={this.feedbackStore.feedbackObject.email} onChange={this.handleChange}/>
+                  <input type='email' id='feedback-email' className='form-control input-lg' value={this.feedbackStore.feedbackObject.email} onChange={this.handleChange}/>
                 </div>
                 <div className='form-group text-center'>
-                  <button type='submit' id='feedback-submit-btn' className={this.feedbackStore.requiredFieldsEntered ? 'fn-primary' : 'fn-primary disabled'} aria-labelledby='feedback-form'>
+                  <button type='submit' className={this.feedbackStore.requiredFieldsEntered ? 'fn-primary' : 'fn-primary disabled'} aria-labelledby='feedback-form'>
                     Submit Feedback
                   </button>
                 </div>
               </form>
             </section>
           </div>
-        </div>
+      </div>
+    )
+  }
+
+  render() {
+    return (
+      <article id='customer-feedback-page'>
+        <section className='content-wrapper'>
+          {this.feedbackStore.hasBeenSubmitted
+            ? this.renderSuccessPage()
+            : this.renderFeedbackForm()
+          }
+          {this.feedbackStore.showExitModal && this.renderExitModal()}
         </section>
-        {this.feedbackStore.showExitModal && this.renderExitModal()}
       </article>
     )
   }
