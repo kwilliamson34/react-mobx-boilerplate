@@ -17,14 +17,14 @@ class ScrollToTop extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.headerStore = this.props.store.headerStore;
 		this.state = {
 			body: document.body,
 			html: document.documentElement,
 			documentHeight: null,
 			footerHeight: null,
 			viewportHeight: null,
-			viewportWidth: null
+			viewportWidth: null,
+			showBackToTopBtn: false
 		}
 	}
 
@@ -46,7 +46,7 @@ class ScrollToTop extends React.Component {
 			_.debounce(this.manageBackToTopVisibility, 50, { leading: true, trailing: false })
 		);
 	}
-	
+
 	componentWillUnmount() {
 		if (this.props.onWindowScroll) {
 			window.removeEventListener('scroll');
@@ -79,16 +79,16 @@ class ScrollToTop extends React.Component {
 			topPos > this.state.viewportHeight * 3 &&
 			topPos < this.state.documentHeight - this.state.footerHeight - this.state.viewportHeight
 		) {
-			this.headerStore.showBackToTop();
+			this.setState({ showBackToTopBtn: true});
 		} else {
-			this.headerStore.hideBackToTop();
+			this.setState({ showBackToTopBtn: false});
 		}
 	}
 
 	scrollTopFocus() {
 		window.scrollTo(0, 0);
 		this.rootAnchor.focus();
-		this.headerStore.hideBackToTop();
+		this.setState({ showBackToTopBtn: false});
 	}
 
 	handleBackToTopClick = (event) => {
@@ -113,7 +113,7 @@ class ScrollToTop extends React.Component {
 					id="btn-back-top"
 					href="#root"
 					className={
-						this.headerStore.showBackToTopBtn
+						this.state.showBackToTopBtn
 							? 'back-to-top'
 							: 'back-to-top faded'
 					}

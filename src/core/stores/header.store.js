@@ -25,17 +25,6 @@ class HeaderStore {
 		}
 	}
 
-	@action showBackToTop() {
-		this.showBackToTopBtn = true;
-	}
-
-	@action hideBackToTop() {
-		this.showBackToTopBtn = false;
-	}
-
-	@observable showBackToTopBtn = false;
-
-	@observable documentHeight = '';
 	@observable mainMenuIsOpen = false;
 	@observable footerSitemapExpanded = false;
 
