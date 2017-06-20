@@ -1,15 +1,17 @@
 import { action, observable, computed } from 'mobx';
 import { apiService } from '../services/api.service';
 import { utilsService } from '../services/utils.service';
+import {history} from '../services/history.service';
+import {externalDeviceContentService} from '../services/external-device-content.service';
 
 
 class ExternalLinkStore {
   /*
   ** Retrieve Devices from Marketing Portal
   */
-  @action getMarketingPortalDevices() {
+  @action getDeviceLandingData() {
     const success = (res) => {
-      this.devicesData = res;
+      this.devicesData = externalDeviceContentService.filterDeviceLandingData(res);
     }
     const fail = (res) => {
       utilsService.handleError(res);
@@ -19,25 +21,30 @@ class ExternalLinkStore {
 
   @action getDeviceCategoryItems() {
     const success = (res) => {
-      this.currentCategoryData = res;
+      this.currentCategoryData = externalDeviceContentService.filterDeviceCategoryItems(res, this.currentCategory);
+      console.log('this.currentCategoryData   ', this.currentCategoryData);
     }
     const fail = (res) => {
       utilsService.handleError(res);
     }
-    if(this.deviceCategoryNum){
-      apiService.getDeviceCategory(this.deviceCategoryNum).then(success, fail);
+    if(this.deviceCategoryIsValid){
+      apiService.getMarketingPortalDevices().then(success, fail);
+    } else {
+      history.replace('/devices');
     }
   }
 
   @action getDeviceDetail(devicePath) {
     const success = (res) => {
+      let detail = filterDeviceCategoryData(res, devicePath);
+
       this.currentDeviceDetail = res;
       this.currentDeviceDetail.path = devicePath;
     }
     const fail = (res) => {
       utilsService.handleError(res);
     }
-    apiService.getDeviceDetail(devicePath).then(success, fail);
+    apiService.getMarketingPortalDevices().then(success, fail);
   }
 
   @action getSolutionCards(queryString) {
@@ -92,10 +99,10 @@ class ExternalLinkStore {
   }
 
   //COMPUTEDS
-  @computed get deviceCategoryNum() {
+  @computed get deviceCategoryIsValid() {
     let deviceCategories = ['phones', 'tablets', 'in-vehicle', 'accessories'];
     let categoryIndex = deviceCategories.indexOf(this.currentCategory);
-    return (categoryIndex >= 0)? categoryIndex + 1 : undefined;
+    return categoryIndex >= 0;
   }
 
   @computed get pushToTalkLink() {

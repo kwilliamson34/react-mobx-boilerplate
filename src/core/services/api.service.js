@@ -69,9 +69,10 @@ class ApiService {
     }
 
     getMarketingPortalDevices() {
-      return axios.get(`${base}/marketing/devices`)
-        .then( (res) =>{
-          return externalDeviceContentService.filterDeviceLandingData(res.data);
+      return axios.get(`${base}/marketing/api/devices?_format=json`)
+        .then((res) =>{
+          console.log('res.data   ', res.data);
+          return res.data;
         });
     }
 
