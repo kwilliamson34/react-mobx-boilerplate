@@ -46,6 +46,7 @@ class ScrollToTop extends React.Component {
 			_.debounce(this.manageBackToTopVisibility, 50, { leading: true, trailing: false })
 		);
 	}
+	
 	componentWillUnmount() {
 		if (this.props.onWindowScroll) {
 			window.removeEventListener('scroll');
