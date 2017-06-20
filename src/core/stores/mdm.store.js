@@ -113,11 +113,12 @@ class MDMStore {
     @action getMDMConfiguration() {
         const success = (resp) => {
             const serviceResponse = resp.data;
+
             console.log(serviceResponse);
 
             this.pseMDMObject.merge(serviceResponse);
 
-            switch (serviceResponse.mdmType) {
+            switch (serviceResponse.mdm_type) {
                 case 'AIRWATCH':
                     this.mdmProvider = 'airWatchForm'
                     break;
@@ -128,10 +129,9 @@ class MDMStore {
                     this.mdmProvider = 'mobileIronForm'
                     break;
                 default:
-                    this.alert_msgs.push({
-                        headline: 'Note. ',
-                        message: 'Configure MDM to push apps to the system.'
-                    });
+                    if(!this.alert_msgs.length){
+                        this.alert_msgs.push({ headline: 'Note. ', message: 'Configure MDM to push apps to the system.'});
+                    }
             }
         }
 
@@ -150,13 +150,15 @@ class MDMStore {
     @action setMDMConfiguration(mdmConfig) {
         const success = (resp) => {
             let messageObj = resp.data;
-
+            this.showExitModal = false;
             this.beingSubmitted = false;
             this.alert_msgs = [];
 
             if (!messageObj.error) {
                 this.hasBeenSubmitted = true;
+
                 this.pseMDMObject.merge(mdmConfig);
+                this.pseMDMObject.set('mdm_type','configured');
                 this.alert_msgs.push({
                     type: 'success',
                     headline: 'Success! ',

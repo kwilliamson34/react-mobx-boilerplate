@@ -141,7 +141,7 @@ export default class ConfigureMDM extends React.Component {
     let mdm_provider = this.store.currentMDMForm.get('mdmProvider') || this.store.mdmProvider;
     let mdm_form = null;
 
-    this.isConfigured = this.store.pseMDMObject.entries().length ? true : false;
+    this.isConfigured = this.store.pseMDMObject.get('mdm_type') ? true : false;
 
     let formData = this.isConfigured ? this.store.pseMDMObject.toJS() : this.store.currentMDMForm.toJS();
 
@@ -185,7 +185,7 @@ export default class ConfigureMDM extends React.Component {
                               onBlur={this.updateMDM}
                               value={mdm_provider}
                               disabled={this.isConfigured}>
-                              <option value="" hidden>Select MDM</option>
+                              <option value="">Select MDM</option>
                               <option value="airWatchForm">Airwatch</option>
                               <option value="ibmForm">IBM Maas 360</option>
                               <option value="mobileIronForm">MobileIron</option>
