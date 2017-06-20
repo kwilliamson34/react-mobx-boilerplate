@@ -5,7 +5,7 @@ import {observable} from 'mobx';
 
 const htmlRegex = /<\/?\w+((\s+\w+(\s*=\s*(?:".*?"|'.*?'|[\^'">\s]+))?)+\s*|\s*)\/?>/;
 const htmlRegexGlobal = /<\/?\w+((\s+\w+(\s*=\s*(?:".*?"|'.*?'|[\^'">\s]+))?)+\s*|\s*)\/?>/g;
-const splitEverythingRegex = /<[^>]+>|[^<>\s]+/g;
+const splitEverythingRegex = /<[^>]*>|\s?[^<>\s]+\s?/g;
 
 @observer
 export default class ShowMoreOrLess extends React.Component {
@@ -53,17 +53,6 @@ export default class ShowMoreOrLess extends React.Component {
         {this.isTruncated ? 'SHOW MORE' : 'SHOW LESS'}<i className={this.isTruncated ? 'icon-arrowDown' : 'icon-arrowUp'} aria-hidden='true' />
       </button>
     )
-  }
-
-  splitNodeString = (string) => {
-    let splitStringArray = string.match(splitEverythingRegex);
-    let modifiedArray = [];
-    splitStringArray.forEach((element) => {
-      htmlRegex.test(element)
-        ? modifiedArray.push(element)
-        : modifiedArray.push(element + ' ')
-    });
-    return modifiedArray;
   }
 
   getRawText = (string) => {
@@ -128,7 +117,8 @@ export default class ShowMoreOrLess extends React.Component {
       wholeBlock: ''
     };
 
-    let nodeArray = this.splitNodeString(nodeString);
+    let nodeArray = nodeString.match(splitEverythingRegex);
+    console.log('nodeArray   ', nodeArray);
     returnBlocks.wholeBlock = nodeArray.join('');
 
     if (this.shouldTruncate) {
