@@ -64,15 +64,16 @@ export default class ShowMoreOrLess extends React.Component {
   }
 
   generateRegularTruncateBlock = (array, charLimit) => {
+    
     for (var i = 0; i < array.length; i++) {
-    if (charCount + element.length > charLimit) { break }
+      if (charCount + element.length > charLimit) { break }
 
-    let element = array[i];
-    let isHtmlElement = htmlRegex.test(element)
+      let element = array[i];
+      let isHtmlElement = htmlRegex.test(element)
 
-    truncateBlock += element;
+      truncateBlock += element;
 
-    if (!isHtmlElement) { charCount += element.length }
+      if (!isHtmlElement) { charCount += element.length }
 
     }
     // let charCount = 0;
