@@ -1,8 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {Link, NavLink, withRouter} from 'react-router-dom';
 import NewTabLink from '../link/new-tab-link';
-import {observer, inject} from 'mobx-react';
+import {observer, inject, PropTypes} from 'mobx-react';
 import 'bootstrap';
 
 @inject('store')
@@ -11,19 +10,14 @@ import 'bootstrap';
 export default class PSEHeader extends React.Component {
 
 	static propTypes = {
-		store: PropTypes.object
-	}
+    store: PropTypes.observableObject.isRequired
+  }
 
 	constructor(props) {
 		super(props);
 		this.headerStore = this.props.store.headerStore;
 		this.userStore = this.props.store.userStore;
 		this.linkStore = this.props.store.externalLinkStore;
-		window.addEventListener('resize',this.headerStore.updateWindowDimensions);
-	}
-
-	componentWillMount() {
-		this.headerStore.updateWindowDimensions();
 	}
 
 	toggleMainMenu = () => {
