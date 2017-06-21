@@ -49,15 +49,6 @@ class GeolinkStore {
     }, '*');
   }
 
-  @action toggleNetwork() {
-    this.showNetworkLayer = !this.showNetworkLayer;
-    if(this.showWeatherLayer) {
-      this.addAllNetworkLayers();
-    } else {
-      this.removeAllNetworkLayers();
-    }
-  }
-
   @action addAllNetworkLayers() {
     networkLayerNames.map(layerName => {
       this.addLayer(layerName);
@@ -88,6 +79,15 @@ class GeolinkStore {
     }, '*');
   }
 
+  @action toggleNetwork() {
+    this.showNetworkLayer = !this.showNetworkLayer;
+    if(this.showNetworkLayer) {
+      this.addAllNetworkLayers();
+    } else {
+      this.removeAllNetworkLayers();
+    }
+  }
+  
   @action toggleTraffic() {
     this.showTrafficLayer = !this.showTrafficLayer;
     this.mapIframeRef.contentWindow.postMessage({
