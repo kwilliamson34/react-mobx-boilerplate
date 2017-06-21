@@ -2,7 +2,7 @@
   padding: 0;
 
   h1 {
-    margin: 3rem 0;
+    margin: 6rem 0;
   }
 
   p {
@@ -11,7 +11,7 @@
   }
 
   .form-group {
-    margin: 3rem 0;
+    margin-bottom: 3rem;
 
     label {
       font-weight: $fn-medium-weight;
@@ -22,8 +22,11 @@
     }
 
     select {
-      font-weight: $fn-normal-weight;
       height: 4.6rem;
+    }
+
+    .form-control {
+      font-weight: $fn-medium-weight;
     }
   }
 
@@ -69,6 +72,7 @@
     .success-content {
       background: $fn-white;
       margin: 10rem 20rem;
+      padding-bottom: 0;
       background: $fn-white;
       line-height: 3rem;
 
@@ -90,10 +94,11 @@
   }
 }
 
-@media #{$mobile} {
+@media #{$mobile, $tablet} {
   #customer-feedback-page {
+
     h1 {
-      margin: 0;
+      margin: 3rem 0;
     }
   }
 }

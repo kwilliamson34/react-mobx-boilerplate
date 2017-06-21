@@ -64,9 +64,7 @@ class FeedbackStore {
 
   @computed get formHasEntries() {
     let formHasEntries = false;
-    for (let key in this.feedbackObject) {
-      if (this.feedbackObject[key].length && key !== 'email') formHasEntries = true;
-    }
+    if (this.feedbackObject.title.length && this.feedbackObject.details.length) formHasEntries = true;
     return formHasEntries;
   }
 

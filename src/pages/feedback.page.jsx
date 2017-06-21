@@ -58,7 +58,6 @@ export default class FeedbackPage extends React.Component {
     history.replace('/admin/');
   }
 
-  // //TODO: julia wants errors to show up on blur. prob have to pass all the events in again.
   validateInput = (e) => {
     e.preventDefault();
     console.log('triggered blur');
@@ -96,7 +95,7 @@ export default class FeedbackPage extends React.Component {
     return (
       <div>
         <div id="customer-feedback-success">
-          <div className="success-content col-xs-6 col-md-8 col-md-offset-4">
+          <div className="success-content col-xs-10 col-md-8 col-md-offset-4">
             <h1>Thanks for your feedback!</h1>
             <p>We appreciate you taking the time to provide your thoughts about this site. Your comments will help us to improve our tools going forward.</p>
             <button className='fn-primary' onClick={this.discardFormChanges}>Return Home</button>
