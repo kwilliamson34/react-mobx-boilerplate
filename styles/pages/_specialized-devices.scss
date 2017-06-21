@@ -110,6 +110,10 @@
     align-content: flex-start;
     justify-content: center;
 
+    &.left {
+      justify-content: flex-start;
+    }
+
     > li {
       flex-direction: row;
       width: 51%;

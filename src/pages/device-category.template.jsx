@@ -25,7 +25,13 @@ export default class DeviceCategoryTemplate extends React.Component {
 		if(this.externalLinkStore.currentCategory != this.props.match.params.deviceCategory){
 			this.externalLinkStore.resetCategoryData();
 			this.externalLinkStore.currentCategory = this.props.match.params.deviceCategory;
-			this.externalLinkStore.getDeviceCategoryItems();
+			if (this.externalLinkStore.allSpecializedDevices.length) {
+				this.externalLinkStore.getDeviceCategoryData();
+			}
+			else {
+				this.externalLinkStore.fetchDevicesData()
+				.then(() => this.externalLinkStore.getDeviceCategoryData());
+			}
 		}
 	}
 
@@ -53,7 +59,7 @@ export default class DeviceCategoryTemplate extends React.Component {
 					</div>
 					<div className="row">
 						<div className="col-xs-offset-2 col-xs-8 col-sm-12 col-sm-offset-0 col-md-offset-1 col-md-10">
-							<ul className="mp-content">
+							<ul className="mp-content left">
 								{this.externalLinkStore.currentCategoryData.items.map((item, idx) => {
 									let itemRoute = encodeURIComponent(item.device_title).replace(/%20/g, '+');
 									return (

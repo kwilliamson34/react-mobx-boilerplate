@@ -2,7 +2,12 @@ import cheerio from 'cheerio';
 
 class ExternalDeviceContentService {
 
+	filterDeviceData(array) {
+		return array.filter((device) => device.device_is_specialized === '1');
+	}
+
 	filterDeviceLandingData(array) {
+		console.log('array?   ', array);
 		const devicesObj = {
 			phones: [],
 			tablets: [],
@@ -11,17 +16,15 @@ class ExternalDeviceContentService {
 		}
 
 		array.forEach((obj) => {
-			if (obj.device_is_specialized === '1') {
-				let category = obj.device_category.replace('-', '').toLowerCase();
-				devicesObj[category].push(obj);
-			}
+			let category = obj.device_category.replace('-', '').toLowerCase();
+			devicesObj[category].push(obj);
 		});
 
 		console.log('devicesObj   ', devicesObj);
 		return devicesObj;
 	}
 
-	filterDeviceCategoryItems(array, category) {
+	filterDeviceCategoryData(array, category) {
 
 		const allTitles = {
 			accessories: 'Accessories to complement handsets, laptops, vehicles and premium devices',
@@ -38,7 +41,7 @@ class ExternalDeviceContentService {
 		}
 
 		const items = array.filter((ele) => {
-			return ele.device_is_specialized === '1' && category.toLowerCase() == ele.device_category.toLowerCase();
+			return category.toLowerCase() == ele.device_category.toLowerCase();
 		});
 
 		const _category = category.replace('-', '').toLowerCase();
@@ -48,10 +51,6 @@ class ExternalDeviceContentService {
 			intro: allIntros[_category],
 			items: items
 		}
-	}
-
-	filterDeviceCategoryData(array, device) {
-		
 	}
 
 	// cleanupDrupalTextReturn(str) {

@@ -1,6 +1,6 @@
-import { action, observable, computed } from 'mobx';
-import { apiService } from '../services/api.service';
-import { utilsService } from '../services/utils.service';
+import {action, observable, computed} from 'mobx';
+import {apiService} from '../services/api.service';
+import {utilsService} from '../services/utils.service';
 import {history} from '../services/history.service';
 import {externalDeviceContentService} from '../services/external-device-content.service';
 
@@ -9,32 +9,30 @@ class ExternalLinkStore {
   /*
   ** Retrieve Devices from Marketing Portal
   */
-  @action getDeviceLandingData() {
+  @action fetchDevicesData() {
     const success = (res) => {
-      this.devicesData = externalDeviceContentService.filterDeviceLandingData(res);
+      this.allSpecializedDevices = externalDeviceContentService.filterDeviceData(res);
     }
     const fail = (res) => {
       utilsService.handleError(res);
     }
-    apiService.getMarketingPortalDevices().then(success, fail);
+    return apiService.getMarketingPortalDevices().then(success, fail);
   }
 
-  @action getDeviceCategoryItems() {
-    const success = (res) => {
-      this.currentCategoryData = externalDeviceContentService.filterDeviceCategoryItems(res, this.currentCategory);
-      console.log('this.currentCategoryData   ', this.currentCategoryData);
-    }
-    const fail = (res) => {
-      utilsService.handleError(res);
-    }
+  @action getDeviceLandingData() {
+    let _devicesData = externalDeviceContentService.filterDeviceLandingData(this.allSpecializedDevices);
+    this.devicesData = _devicesData;
+  }
+
+  @action getDeviceCategoryData() {
     if(this.deviceCategoryIsValid){
-      apiService.getMarketingPortalDevices().then(success, fail);
+      this.currentCategoryData = externalDeviceContentService.filterDeviceCategoryData(this.allSpecializedDevices, this.currentCategory);
     } else {
       history.replace('/devices');
     }
   }
 
-  @action getDeviceDetail(devicePath) {
+  @action getDeviceDetailData(devicePath) {
     const success = (res) => {
       let detail = filterDeviceCategoryData(res, devicePath);
 
@@ -113,6 +111,8 @@ class ExternalLinkStore {
     }
     return '';
   }
+
+  @observable allSpecializedDevices = [];
 
   @observable devicesData = {
     phones: [],
