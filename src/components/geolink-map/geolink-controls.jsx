@@ -60,10 +60,10 @@ export default class GeolinkControls extends React.Component {
 	render() {
 		return (
 			<section className="geolink-controls">
-				<div className="container-fluid">
+				<div className="container">
 					<form className="form-group search-input">
 						<div className="row is-flex">
-							<div className="col-xs-12 col-sm-4">
+							<div className="col-xs-12 col-sm-offset-1 col-sm-6 col-md-offset-0 col-md-4 map-search ">
 								<h2 className="as-h5">Search</h2>
 								<fieldset>
 									<label htmlFor="geo-search" className="control-label">
@@ -93,14 +93,14 @@ export default class GeolinkControls extends React.Component {
 									</span>
 								</fieldset>
 							</div>
-							<div className="col-xs-12 col-sm-4">
+							<div className="col-xs-12 col-sm-4 col-md-4 map-layers">
 								<h2 className="as-h5">Layers</h2>
-								<fieldset>
+								<fieldset className="coverage-layers">
 									<legend className="sr-only">Coverage layers</legend>
 									<Checkbox
 										id="network-toggle"
 										value="Network"
-										label="Network"
+										label="FirstNet Coverage"
 										onChange={this.toggleNetwork}
 										checked={this.geoStore.showNetworkLayer}
 									/>
@@ -127,7 +127,7 @@ export default class GeolinkControls extends React.Component {
 									/>
 								</fieldset>
 							</div>
-							<div className="col-xs-12 col-sm-4">
+							<div className="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-4 report-coverage-issue">
 								<h2 className="as-h5">Report coverage issue</h2>
 								<div className="emergency-numbers">
 									<p className="emergency">
@@ -143,12 +143,12 @@ export default class GeolinkControls extends React.Component {
 						</div>
 					</form>
 					<div className="row">
-						<div className="col-xs-12">
+						<div className="hidden-xs hidden-sm col-md-12">
 							<hr />
 						</div>
 					</div>
 					<div className="row is-flex">
-						<div className="col-xs-12 col-sm-4">
+						<div className="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-4">
 							<h2 className="as-h5">FirstNet Coverage</h2>
 							<div className="key-labels">
 								<span>4G LTE</span>
@@ -160,7 +160,7 @@ export default class GeolinkControls extends React.Component {
 								<img src="/images/spectrum-gradient.svg" alt="" />
 							</div>
 						</div>
-						<div className="col-xs-12 col-sm-4">
+						<div className="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-4">
 							<h2 className="as-h5">Weather</h2>
 							<div className="key-labels">
 								<span>Light Rain</span>
@@ -172,19 +172,27 @@ export default class GeolinkControls extends React.Component {
 								<img src="/images/precip-gradient.svg" alt="" />
 							</div>
 						</div>
-						<div className="col-xs-12 col-sm-4">
+						<div className="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-4">
 							<h2 className="as-h5">Traffic</h2>
-							<div className="key-labels traffic">
-								<span>Fast</span>
-								<span>Slow</span>
-							</div>
-							<div className="traffic-legend">
-								<div />
-								<div />
-								<div />
-							</div>
+							<div className="traffic-legend-wrapper ">
+								<div className="traffic-bars ">
+									<div className="key-labels traffic">
+										<span>Fast</span>
+										<span>Slow</span>
+									</div>
+									<div className="traffic-legend">
+										<div></div>
+										<div></div>
+										<div></div>
+									</div>
+								</div>
+								<div className="hazards-legend">
+									<span>Construction<br /><i className="icon-warning construction" aria-hidden="true" /></span>
+									<span>Vehicle Incident<br /><i className="icon-warning incident" aria-hidden="true" /></span>
+								</div>
 						</div>
 					</div>
+				</div>
 				</div>
 			</section>
 		);
