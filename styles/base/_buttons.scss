@@ -17,12 +17,14 @@ a {
   border-radius: 50%;
   border: 2px solid transparent;
   z-index: 75;
-  display: none;
+  display: inline-block;
   text-decoration: none;
   color: $fn-dkgrey;
   background: white;
   box-shadow: 0 0 6px 0 rgba(0,0,0,0.12), 0 4px 2px 0 rgba(0,0,0,0.05);
-
+  opacity: 1.0;
+  visibility: visible;
+  transition: visibility 0s, opacity 0.3s ease-in;
   i {
     color: $fn-dkgrey;
   }
@@ -37,6 +39,10 @@ a {
     i {
       color: white;
     }
+  }
+  &.faded{
+    visibility: hidden;
+    opacity: 0;
   }
 }
 /* XS */

@@ -7,6 +7,7 @@ import {MDMAlerts} from '../components/configure-mdm/mdm-alerts';
 import {AirWatchForm} from '../components/configure-mdm/air-watch-form';
 import {IBMForm} from '../components/configure-mdm/ibm-form';
 import {MobileIronForm} from '../components/configure-mdm/mobile-iron-form';
+import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 
 @inject('store')
 @observer
@@ -25,6 +26,7 @@ export default class ConfigureMDM extends React.Component {
   componentWillMount() {
     this.store.clearAlerts();
     this.store.hasBeenSubmitted = false;
+    this.store.getMDMConfiguration();
   }
 
   componentDidUpdate() {
@@ -137,10 +139,25 @@ export default class ConfigureMDM extends React.Component {
 
 	render() {
 
+    const crumbs = [
+      {
+        pageHref: '/admin',
+        pageTitle: 'Administration Dashboard'
+      },
+      {
+        pageHref: '/admin/manage-apps',
+        pageTitle: 'Manage Apps'
+      },
+      {
+        pageHref: '/admin/configure-mdm',
+        pageTitle: 'Configure MDM'
+      }
+    ];
+
     let mdm_provider = this.store.currentMDMForm.get('mdmProvider') || this.store.mdmProvider;
     let mdm_form = null;
 
-    this.isConfigured = this.store.pseMDMObject.entries().length ? true : false;
+    this.isConfigured = this.store.pseMDMObject.get('mdm_type') ? true : false;
 
     let formData = this.isConfigured ? this.store.pseMDMObject.toJS() : this.store.currentMDMForm.toJS();
 
@@ -160,7 +177,8 @@ export default class ConfigureMDM extends React.Component {
 
 		return (
 			<article id="configure-mdm-page">
-        <div className="container">
+        <BreadcrumbNav links={crumbs}/>
+        <div className="mdm-form-wrapper container">
             {this.isConfigured && <button onClick={this.togglebreakMDMConnection} className= "break-mdm-btn fn-primary" aria-labelledby="break-mdm-connection" aria-disabled={!this.isConfigured}>Break Connection</button>}
             <div className="col-xs-12 text-center">
                 <h1 className="as-h2">Configure Mobile Device Management (MDM)</h1>
@@ -184,7 +202,7 @@ export default class ConfigureMDM extends React.Component {
                               onBlur={this.updateMDM}
                               value={mdm_provider}
                               disabled={this.isConfigured}>
-                              <option value="" hidden>Select MDM</option>
+                              <option value="">Select MDM</option>
                               <option value="airWatchForm">Airwatch</option>
                               <option value="ibmForm">IBM Maas 360</option>
                               <option value="mobileIronForm">MobileIron</option>

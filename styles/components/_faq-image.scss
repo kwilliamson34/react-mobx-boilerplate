@@ -1,0 +1,41 @@
+.faq-bottom-image,
+.faq-top-image {
+    h1 { 
+        color: $fn-white;
+        padding-left:60px;
+    }
+    p { 
+        padding-bottom: 20px; 
+        color: $fn-white;
+        z-index: 3;
+    }
+    p:last-of-type {
+        padding-bottom: 0;         
+    }
+    div.faq-header-box {
+        padding-top:40px;
+        padding-bottom:70px;
+    }
+
+}
+.faq-top-image {
+    div.image-box{ 
+        background: url(/images/header-bg-police-officer.jpg) no-repeat;
+        background-position: 75%;
+        background-size: cover;
+    }
+}
+
+.faq-bottom-image {
+    div.image-box{ 
+        background: url(/images/featured-bg-equipment.jpg) no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    div.faq-header-box {
+        padding-top:40px;
+        padding-bottom:50px;
+        max-width: 550px;
+    }
+}

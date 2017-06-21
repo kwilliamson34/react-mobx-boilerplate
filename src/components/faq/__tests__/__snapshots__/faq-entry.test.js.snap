@@ -1,0 +1,29 @@
+exports[`<FaqEntry /> render testing matches snapshot 1`] = `
+<article
+  className="faq-entry">
+  <h3>
+    Sample Question
+  </h3>
+  <div
+    className="faq-entry-content"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Sampl..."
+      }
+    } />
+  <div
+    className="faq-entry-content-button">
+    <div
+      aria-hidden="true"
+      className="show-more-link open">
+      <a
+        className="toggle-button"
+        href="#"
+        onClick={[Function bound bound toggleText]}
+        role="button">
+        Show more
+      </a>
+    </div>
+  </div>
+</article>
+`;
