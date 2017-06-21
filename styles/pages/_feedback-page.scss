@@ -97,7 +97,16 @@
   }
 }
 
-@media #{$mobile, $tablet} {
+@media #{$tablet} {
+  #customer-feedback-page {
+
+    h1 {
+      margin: 3rem 0;
+    }
+  }
+}
+
+@media #{$mobile} {
   #customer-feedback-page {
 
     h1 {
@@ -106,7 +115,7 @@
 
     #customer-feedback-success {
       .success-content {
-        top: 0;
+        top: 5%;
         left: 0;
         width: 100%;
       }
