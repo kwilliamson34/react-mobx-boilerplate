@@ -88,5 +88,12 @@
       }
     }
   }
+}
 
+@media #{$mobile} {
+  #customer-feedback-page {
+    h1 {
+      margin: 0;
+    }
+  }
 }

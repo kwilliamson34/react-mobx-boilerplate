@@ -125,14 +125,14 @@ export default class FeedbackPage extends React.Component {
       <section className='content-wrapper'>
         <div className='container'>
             <div className='row text-center'>
-              <div className='col-md-offset-3 col-xs-12 col-sm-offset-3 col-sm-8 col-md-6 col-md'>
+              <div className='col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8 col-lg-offset-1 col-lg-10'>
                 <h1>Give Us Feedback</h1>
               </div>
             </div>
             <div className='row'>
 
               <section>
-                <form className="feedback-form col-md-offset-3 col-xs-12 col-sm-offset-3 col-sm-8 col-md-6 col-md" onSubmit={this.handleSubmit}>
+                <form className="feedback-form col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8 col-lg-offset-1 col-lg-10" onSubmit={this.handleSubmit}>
                   {this.feedbackStore.showAlertBar && this.renderAlertBar()}
                   <div className={this.feedbackStore.hasErrors.title ? 'form-group has-error' : 'form-group'}>
                     <label className='control-label' htmlFor='feedback-title'>Title<span className='required-asterisks'> *</span></label><br />
