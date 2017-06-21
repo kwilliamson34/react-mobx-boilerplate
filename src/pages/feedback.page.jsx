@@ -59,11 +59,11 @@ export default class FeedbackPage extends React.Component {
   }
 
   // //TODO: julia wants errors to show up on blur. prob have to pass all the events in again.
-  // validateForm = (e) => {
-  //   e.preventDefault();
-  //   console.log('triggered blur');
-  //   this.feedbackStore.validateForm();
-  // }
+  validateInput = (e) => {
+    e.preventDefault();
+    console.log('triggered blur');
+    this.feedbackStore.validateInput(e.target);
+  }
 
   renderExitModal = () => {
     return (
@@ -139,14 +139,14 @@ export default class FeedbackPage extends React.Component {
                     {this.feedbackStore.hasErrors.title &&
                       <label className='control-label' htmlFor="feedback-title"><span>Please title your feedback</span></label>
                     }
-                    <input type='text' id='feedback-title' maxLength="250" className='form-control input-lg' value={this.feedbackStore.feedbackObject.title} onChange={this.handleChange}/>
+                    <input type='text' id='feedback-title' maxLength="250" className='form-control input-lg' value={this.feedbackStore.feedbackObject.title} onChange={this.handleChange} onBlur={this.validateInput}/>
                   </div>
                   <div className={this.feedbackStore.hasErrors.topic ? 'form-group has-error' : 'form-group'}>
                     <label className='control-label' htmlFor='feedback-topic'>Topic<span className='required-asterisks'> *</span></label><br />
                     {this.feedbackStore.hasErrors.topic &&
                       <label className='control-label' htmlFor="feedback-topic"><span>Please select a topic</span></label>
                     }
-                    <select id='feedback-topic' className='form-control' value={this.feedbackStore.feedbackObject.topic} onChange={this.handleChange}>
+                    <select id='feedback-topic' className='form-control form-control-lg' value={this.feedbackStore.feedbackObject.topic} onChange={this.handleChange} onBlur={this.validateInput}>
                       <option value='' hidden>Select Feedback Topic</option>
                       <option value='System Performance'>System Performance</option>
                       <option value='App Management'>App Management</option>
@@ -161,7 +161,7 @@ export default class FeedbackPage extends React.Component {
                     {this.feedbackStore.hasErrors.details &&
                       <label className='control-label' htmlFor="feedback-details"><span>Please summarize your feedback</span></label>
                     }
-                    <textarea type='text' id='feedback-details' maxLength="10000" className='form-control' rows="7" value={this.feedbackStore.feedbackObject.details} onChange={this.handleChange}/>
+                    <textarea type='text' id='feedback-details' maxLength="10000" className='form-control' rows="7" value={this.feedbackStore.feedbackObject.details} onChange={this.handleChange} onBlur={this.validateInput}/>
                   </div>
                   <div>
                     <p>
