@@ -1,8 +1,10 @@
 $map-height: 500px;
 $search-border-radius: 4px;
-#network-page{
+
+#network-page {
   padding-top: 0;
 }
+
 .geolink-map {
   @extend .clearfix;
   width: 100%;
@@ -40,21 +42,30 @@ $search-border-radius: 4px;
   .checkbox label {
     padding-left: 0;
   }
-  .emergency-numbers{
+
+  .emergency-numbers {
     text-transform: uppercase;
-    p{
+
+    > div {
       font-size: $fn-landing-body-default-size;
       font-weight: $fn-medium-weight;
+      line-height: 1.6;
+      margin-bottom: 15px;
     }
-    .emergency,
-    .emergency a{
-      color: $fn-red;
 
+    .emergency,
+    .emergency a {
+      color: $fn-red;
     }
+
     .non-emergency,
-    .non-emergency a
-    {
+    .non-emergency a {
       color: $fn-ltblue;
+    }
+
+    + p {
+      font-size: $fn-label-default-size;
+      margin-bottom: 0;
     }
   }
 
@@ -63,71 +74,81 @@ $search-border-radius: 4px;
     border-width: 1px;
   }
 
-  .key-labels{
-    span{
-      display:inline-block;
-      float:left;
+  .key-labels {
+    span {
+      display: inline-block;
+      float: left;
       width: 25%;
       text-align: center;
       font-size: $fn-label-default-size;
       padding-bottom: 10px;
-      &:first-child{
+
+      &:first-child {
         text-align: left;
       }
-      &:last-child{
-        text-align: right;
-      }
     }
-    &.traffic{
-      span{
+
+    &.traffic {
+      span {
         width: 50%;
       }
     }
   }
-  .weather-legend,
-  .coverage-legend{
-    img{
+
+  .coverage-legend,
+  .weather-legend {
+    img {
       width: 100%;
       height: 23px;
     }
   }
-  .traffic-legend-wrapper{
+
+  .traffic-legend-wrapper {
     @extend .clearfix;
   }
-  .traffic-legend{
+
+  .traffic-legend {
     @extend .clearfix;
     padding: 6px 0;
-    div{
+
+    div {
       width: 32%;
-      float:left;
+      float: left;
       height: 10px;
       margin: 0 1%;
-      &:first-child{
+
+      &:first-child {
         margin-left: 0;
         background: $fn-green;
       }
+
       &:nth-child(2) {
         background: $fn-yellow;
       }
-      &:last-child{
+
+      &:last-child {
         margin-right: 0;
         background: $fn-map-red;
       }
     }
   }
-  .hazards-legend{
-    span{
+
+  .hazards-legend {
+    span {
       display: block;
       font-size: $fn-label-default-size;
     }
-    i{
+
+    i {
       display: inline-block;
       padding-top: 10px;
       font-size: 2rem;
-      &.construction{
+
+      &.construction {
         color: $fn-yellow;
       }
-      &.incident{
+
+      &.incident {
         color: $fn-map-red;
       }
     }
@@ -137,23 +158,47 @@ $search-border-radius: 4px;
 @media #{$mobile} {
   .geolink-map {
     .geolink-controls {
-      [class*='col-']{
-        margin-bottom: 45px;
+      [class*='col-'] {
+        margin-bottom: 30px;
         padding-left: 30px;
         padding-right: 30px;
       }
-      .emergency-numbers{
-        p{
-          width: 100%;
-          float:left;
+
+      .map-search {
+        padding-right: 30px;
+      }
+
+      .map-layers {
+        fieldset {
+          padding-left: 15px;
+        }
+
+        h2 {
+          padding-left: 0;
         }
       }
-      .coverage-layers{
-        border-bottom: 2px solid $fn-grey;
+
+      .report-coverage-issue {
+        padding-bottom: 0;
+        margin-bottom: 0;
       }
-      .hazards-legend{
+
+      .emergency-numbers {
+        > div {
+          width: 100%;
+          float: left;
+        }
+      }
+
+      .coverage-layers {
+        border-bottom: 1px solid $fn-grey;
+        padding-bottom: 30px;
+      }
+
+      .hazards-legend {
         margin-top: 15px;
-        span{
+
+        span {
           width: 50%;
           float: left;
         }
@@ -161,49 +206,61 @@ $search-border-radius: 4px;
     }
   }
 }
-
-@media #{$tablet}{
+@media #{$tablet} {
   .geolink-map {
     .geolink-controls {
-      [class*='col-']{
+      [class*='col-'] {
         margin-bottom: 30px;
       }
-      .map-search{
+
+      .map-search {
         padding-right: 30px;
       }
-      .map-layers{
-        padding-left: 30px;
+
+      .map-layers {
+        fieldset {
+          padding-left: 30px;
+          padding-right: 30px;
+        }
+
+        h2 {
+          padding-left: 15px;
+        }
       }
 
-      .report-coverage-issue{
+      .report-coverage-issue {
         border-top: 1px solid $fn-grey;
         border-bottom: 1px solid $fn-grey;
         padding-top: 30px;
         padding-bottom: 30px;
       }
-      .emergency-numbers{
-        p{
+
+      .emergency-numbers {
+        > div {
           width: 50%;
-          float:left;
+          float: left;
         }
       }
-      .coverage-layers{
+
+      .coverage-layers {
         border-left: 1px solid $fn-grey;
         border-right: 0;
         padding-left: 20px;
         margin: 0 -15px;
       }
 
-      .traffic-bars{
+      .traffic-bars {
         width: 60%;
         float: left;
         padding-right: 15px;
       }
-      .hazards-legend{
-        width:40%;
+
+      .hazards-legend {
+        width: 40%;
         float: left;
         padding-left: 15px;
-        span{
+
+        span {
           width: 50%;
           float: left;
         }
@@ -211,34 +268,52 @@ $search-border-radius: 4px;
     }
   }
 }
-
 @media #{$desktop} {
   .geolink-map {
     .geolink-controls {
-      [class*='col-']{
+      [class*='col-'] {
         margin-bottom: 0;
         padding-left: 40px;
         padding-right: 40px;
       }
-      .emergency-numbers{
-        p{
-          width: 100%;
-          float:left;
+
+      .map-search {
+        padding-right: 15px;
+      }
+
+      .map-layers {
+        fieldset {
+          padding-left: 40px;
+        }
+
+        h2 {
+          padding-left: 0;
         }
       }
-      .coverage-layers{
+
+      .emergency-numbers {
+        > div {
+          width: 100%;
+          float: left;
+        }
+      }
+
+      .coverage-layers {
         border-bottom: 0;
         border-left: 1px solid $fn-grey;
         border-right: 1px solid $fn-grey;
         margin: 0 -40px;
         padding-left: 40px;
       }
-      .traffic-bars{
+
+      .traffic-bars {
         width: 100%;
       }
-      .hazards-legend{
+
+      .hazards-legend {
         margin-top: 15px;
-        span{
+
+        span {
           width: 50%;
           float: left;
         }

@@ -130,20 +130,21 @@ export default class GeolinkControls extends React.Component {
 							<div className="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-4 report-coverage-issue">
 								<h2 className="as-h5">Report coverage issue</h2>
 								<div className="emergency-numbers">
-									<p className="emergency">
+									<div className="emergency">
 										Emergency:<br />
 										<a href="tel:1-800-XXX-XXXX">1-800-GET-HELP</a>
-									</p>
-									<p className="non-emergency">
+									</div>
+									<div className="non-emergency">
 										Non-emergency:<br />
 										<a href="tel:1-800-XXX-XXXX">1-800-XXX-XXXX</a>
-									</p>
+									</div>
 								</div>
+								<p>Subscribe to GTOC Alerts by contacting your state POC.</p>
 							</div>
 						</div>
 					</form>
 					<div className="row">
-						<div className="hidden-xs hidden-sm col-md-12">
+						<div className="col-xs-12 hidden-sm col-md-12">
 							<hr />
 						</div>
 					</div>
