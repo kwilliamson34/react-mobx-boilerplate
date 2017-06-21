@@ -40,16 +40,6 @@ class ExternalLinkStore {
     } else {
       history.replace('/error');
     }
-    // const success = (res) => {
-    //   let detail = filterDeviceCategoryData(res, devicePath);
-    //
-    //   this.currentDeviceDetail = res;
-    //   this.currentDeviceDetail.path = devicePath;
-    // }
-    // const fail = (res) => {
-    //   utilsService.handleError(res);
-    // }
-    // apiService.getMarketingPortalDevices().then(success, fail);
   }
 
   @action fetchDeviceDetails(devicePath) {
@@ -148,10 +138,11 @@ class ExternalLinkStore {
   };
   @observable currentDeviceDetail = {
     path: '',
-    features: [],
+    features: '',
     deviceName: '',
     deviceImg: '',
-    deviceImgAlt: ''
+    deviceImgAlt: '',
+    contactInfo: []
   };
 
   @observable manageUsersLink = 'https://profilemgt.firstnet.att.com/ebiz/firstnet/index.jsp';

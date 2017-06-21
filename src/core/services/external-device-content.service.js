@@ -53,6 +53,24 @@ class ExternalDeviceContentService {
 		}
 	}
 
+	filterDeviceDetailData(device) {
+		let _contactInfo = [];
+		Object.keys(device).forEach((p) => {
+			if (p.includes('contact_')) {
+				_contactInfo.push(device[p]);
+			}
+		});
+		return {
+			path: encodeURIComponent(device.device_title).replace(/%20/g, '+'),
+			features: device.device_features,
+			deviceName: device.device_title,
+			deviceImg: device.device_image_url,
+			deviceAlt: device.device_image_alt,
+			terms: device.device_tnc.length > 0 ? device.device_tnc : null,
+			contactInfo: _contactInfo
+		}
+	}
+
 	// cleanupDrupalTextReturn(str) {
 	// 	return (str) ? str.replace(/(\r\n|\n|\r|\t)/gm, '').trim() : '';
 	// }
