@@ -65,10 +65,6 @@ export default class App extends React.Component {
   }
 
   componentWillMount() {
-
-    //TODO: This needs to wait until user auth is complete
-    pseMasterStore.mdmStore.getMDMConfiguration();
-
     //check for URL token parameter
 		const urlToken = utilsService.getUrlParameter('token');
 		if(urlToken && urlToken.length > 0) {
@@ -163,6 +159,7 @@ export default class App extends React.Component {
       <Switch>
         <Route exact path="/error/404" component={() => <ErrorPage cause="404"/>}/>
         <Route exact path="/error/unauthorized" component={() => <ErrorPage cause="unauthorized"/>}/>
+        <Route exact path="/error/unavailable" component={() => <ErrorPage cause="410"/>}/>
         <Route path="/error" component={ErrorPage}/>
         <Route component={() => <Redirect to="/error/404"/>}/>
       </Switch>
