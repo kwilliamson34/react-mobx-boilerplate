@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="100%" preserveAspectRatio="none" height="23px" viewBox="0 0 342 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>precip green</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="100%" y1="49.999997%" x2="0%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#D767C9" offset="0%"></stop>
+            <stop stop-color="#D767C9" offset="6.48448316%"></stop>
+            <stop stop-color="#42D8E0" offset="33.6311752%"></stop>
+            <stop stop-color="#D0021B" offset="50.2917792%"></stop>
+            <stop stop-color="#FDEE3C" offset="72.2850538%"></stop>
+            <stop stop-color="#008740" offset="94.005641%"></stop>
+            <stop stop-color="#008740" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Network-Status-v8" transform="translate(-559.000000, -1268.000000)" stroke="#FFFFFF" stroke-width="2" fill="url(#linearGradient-1)">
+            <g id="weather-legend" transform="translate(560.000000, 1243.000000)">
+                <rect id="precip-green" x="0" y="26" width="340" height="21" rx="10.5"></rect>
+            </g>
+        </g>
+    </g>
+</svg>
