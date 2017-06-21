@@ -1,31 +1,15 @@
-.sample-breadcrumbs {
-  height: 16px;
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 16px;
-  color: #1071BC;
-  text-transform: uppercase;
-  margin-bottom: 55px;
-
-  button {
-    border: 0;
-    background: none;
-    text-transform: uppercase;
+#configure-mdm-page {
+  padding-top:0;
+  h1 {
+    margin: 30px 0;
   }
-
-  span {
-    color: $fn-dkgrey;
+  .mdm-form-wrapper {
+    padding-top: 30px;
   }
 }
 
 .break-mdm-btn {
   float: right;
-}
-
-#configure-mdm-page {
-  h1 {
-    margin: 30px 0;
-  }
 }
 
 .mdm-form {

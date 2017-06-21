@@ -30,13 +30,7 @@ export class IBMForm extends React.Component {
 				<div className={this.inputHasError('ibm_rootURL') ? 'form-group has-feedback has-error' : 'form-group has-feedback'}>
 					<label className="control-label" htmlFor="ibm_rootURL">Root URL<span className="required-asterisks"> *</span></label>
 					{this.inputHasError('ibm_rootURL') && <div className="msgBlock error error-list" role="alert" aria-live = "assertive"><span>Please enter a valid root URL.</span></div>}
-					<select id="ibm_rootURL"
-					className='form-control'
-					disabled={this.props.connectionSet}
-					defaultValue={this.props.formData.ibm_rootURL}>
-						<option value="" hidden>Select Root URL</option>
-						<option value="TBD">Service will provide...</option>
-					</select>
+					<input id="ibm_rootURL" type="text" className="form-control" disabled={this.props.connectionSet} defaultValue={this.props.formData.ibm_rootURL}/>
 				</div>
 
 				<div className={this.inputHasError('ibm_billingID') ? 'form-group has-feedback has-error' : 'form-group has-feedback'}>
