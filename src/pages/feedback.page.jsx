@@ -18,7 +18,7 @@ export default class FeedbackPage extends React.Component {
   }
 
   componentWillMount() {
-    this.feedbackStore.hasBeenSubmitted = false;
+    this.feedbackStore.hasBeenSubmitted = true;
     this.feedbackStore.feedbackObject.email = this.userStore.user.email;
   }
 
@@ -37,9 +37,14 @@ export default class FeedbackPage extends React.Component {
     this.feedbackStore.submitForm(e.target);
   }
 
-  handleChange = (e) => {
+  handleOnChange = (e) => {
     e.preventDefault();
     this.feedbackStore.changeValue(e.target);
+  }
+
+  validateOnBlur = (e) => {
+    e.preventDefault();
+    this.feedbackStore.validateInput(e.target);
   }
 
   toggleExitModal = (e) => {
@@ -56,12 +61,6 @@ export default class FeedbackPage extends React.Component {
     e.preventDefault();
     this.feedbackStore.discardFormChanges();
     history.replace('/admin/');
-  }
-
-  validateInput = (e) => {
-    e.preventDefault();
-    console.log('triggered blur');
-    this.feedbackStore.validateInput(e.target);
   }
 
   renderExitModal = () => {
@@ -95,7 +94,7 @@ export default class FeedbackPage extends React.Component {
     return (
       <div>
         <div id="customer-feedback-success">
-          <div className="success-content col-xs-10 col-md-8 col-md-offset-4">
+          <div className="success-content">
             <h1>Thanks for your feedback!</h1>
             <p>We appreciate you taking the time to provide your thoughts about this site. Your comments will help us to improve our tools going forward.</p>
             <button className='fn-primary' onClick={this.discardFormChanges}>Return Home</button>
@@ -124,28 +123,28 @@ export default class FeedbackPage extends React.Component {
       <section className='content-wrapper'>
         <div className='container'>
             <div className='row text-center'>
-              <div className='col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8 col-lg-offset-1 col-lg-10'>
+              <div className='col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6'>
                 <h1>Give Us Feedback</h1>
               </div>
             </div>
             <div className='row'>
 
               <section>
-                <form className="feedback-form col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8 col-lg-offset-1 col-lg-10" onSubmit={this.handleSubmit}>
+                <form className="feedback-form col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6" onSubmit={this.handleSubmit}>
                   {this.feedbackStore.showAlertBar && this.renderAlertBar()}
                   <div className={this.feedbackStore.hasErrors.title ? 'form-group has-error' : 'form-group'}>
                     <label className='control-label' htmlFor='feedback-title'>Title<span className='required-asterisks'> *</span></label><br />
                     {this.feedbackStore.hasErrors.title &&
                       <label className='control-label' htmlFor="feedback-title"><span>Please title your feedback</span></label>
                     }
-                    <input type='text' id='feedback-title' maxLength="250" className='form-control input-lg' value={this.feedbackStore.feedbackObject.title} onChange={this.handleChange} onBlur={this.validateInput}/>
+                    <input type='text' id='feedback-title' maxLength="250" className='form-control input-lg' value={this.feedbackStore.feedbackObject.title} onChange={this.handleOnChange} onBlur={this.validateOnBlur}/>
                   </div>
                   <div className={this.feedbackStore.hasErrors.topic ? 'form-group has-error' : 'form-group'}>
                     <label className='control-label' htmlFor='feedback-topic'>Topic<span className='required-asterisks'> *</span></label><br />
                     {this.feedbackStore.hasErrors.topic &&
                       <label className='control-label' htmlFor="feedback-topic"><span>Please select a topic</span></label>
                     }
-                    <select id='feedback-topic' className='form-control form-control-lg' value={this.feedbackStore.feedbackObject.topic} onChange={this.handleChange} onBlur={this.validateInput}>
+                    <select id='feedback-topic' className='form-control form-control-lg' value={this.feedbackStore.feedbackObject.topic} onChange={this.handleOnChange} onBlur={this.validateOnBlur}>
                       <option value='' hidden>Select Feedback Topic</option>
                       <option value='System Performance'>System Performance</option>
                       <option value='App Management'>App Management</option>
@@ -160,7 +159,7 @@ export default class FeedbackPage extends React.Component {
                     {this.feedbackStore.hasErrors.details &&
                       <label className='control-label' htmlFor="feedback-details"><span>Please summarize your feedback</span></label>
                     }
-                    <textarea type='text' id='feedback-details' maxLength="10000" className='form-control' rows="7" value={this.feedbackStore.feedbackObject.details} onChange={this.handleChange} onBlur={this.validateInput}/>
+                    <textarea type='text' id='feedback-details' maxLength="10000" className='form-control' rows="7" value={this.feedbackStore.feedbackObject.details} onChange={this.handleOnChange} onBlur={this.validateOnBlur}/>
                   </div>
                   <div>
                     <p>
@@ -169,7 +168,7 @@ export default class FeedbackPage extends React.Component {
                   </div>
                   <div className='form-group'>
                     <label className='control-label' htmlFor='feedback-email'>Email (Optional)</label>
-                    <input type='email' id='feedback-email' className='form-control input-lg' value={this.feedbackStore.feedbackObject.email} onChange={this.handleChange}/>
+                    <input type='email' id='feedback-email' className='form-control input-lg' value={this.feedbackStore.feedbackObject.email} onChange={this.handleOnChange}/>
                   </div>
                   <div className='form-group text-center'>
                     <button type='submit' className={this.feedbackStore.requiredFieldsEntered ? 'feedback-btn fn-primary' : 'feedback-btn fn-primary disabled'} aria-labelledby='feedback-form'>
