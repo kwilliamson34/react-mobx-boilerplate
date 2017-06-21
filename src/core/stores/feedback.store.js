@@ -14,6 +14,10 @@ class FeedbackStore {
       //TODO: awaiting service integration;
       console.log('Form submitted!  ', this.feedbackObject);
       this.hasBeenSubmitted = true;
+      this.clearFeedbackForm();
+    }
+    else {
+      this.showAlertBar = true;
     }
   }
 
@@ -25,14 +29,18 @@ class FeedbackStore {
       this.showExitModal = !this.showExitModal;
   }
 
-  @action discardFormChanges() {
-      this.showExitModal = false;
-      this.resetFeedbackForm();
+  @action toggleAlertBar() {
+    this.showAlertBar = !this.showAlertBar;
   }
 
-  @action resetFeedbackForm() {
+  @action discardFormChanges() {
+      this.showExitModal = false;
+      this.hasBeenSubmitted = false;
+      this.clearFeedbackForm();
+  }
+
+  @action clearFeedbackForm() {
     this.showExitModal = false;
-    this.hasBeenSubmitted = false;
     Object.keys(this.feedbackObject).forEach((v) => this.feedbackObject[v] = '');
     Object.keys(this.hasErrors).forEach((v) => this.hasErrors[v] = false);
   }
@@ -59,12 +67,13 @@ class FeedbackStore {
   @computed get formHasEntries() {
     let formHasEntries = false;
     for (let key in this.feedbackObject) {
-      if (this.feedbackObject[key].length) formHasEntries = true;
+      if (this.feedbackObject[key].length && key !== 'email') formHasEntries = true;
     }
     return formHasEntries;
   }
 
   @observable showExitModal = false;
+  @observable showAlertBar = false;
   @observable hasBeenSubmitted = false;
   @observable feedbackObject = {
     title: '',

@@ -24,8 +24,11 @@ export default class FeedbackPage extends React.Component {
 
   componentWillUnmount() {
     if (this.feedbackStore.formHasEntries && !this.feedbackStore.hasBeenSubmitted) {
-      this.feedbackStore.showExitModal = true;
-      history.goBack();
+        this.feedbackStore.showExitModal = true;
+        history.goBack();
+      }
+    if (this.feedbackStore.hasBeenSubmitted === true) {
+      this.feedbackStore.hasBeenSubmitted = false;
     }
   }
 
@@ -44,13 +47,16 @@ export default class FeedbackPage extends React.Component {
     this.feedbackStore.toggleExitModal()
   }
 
+  toggleAlertBar = (e) => {
+    e.preventDefault();
+    this.feedbackStore.toggleAlertBar();
+  }
+
   discardFormChanges = (e) => {
     e.preventDefault();
-    console.log('triggered discard');
     this.feedbackStore.discardFormChanges();
     history.replace('/admin/');
   }
-
 
   // //TODO: julia wants errors to show up on blur. prob have to pass all the events in again.
   // validateForm = (e) => {
@@ -100,18 +106,34 @@ export default class FeedbackPage extends React.Component {
     )
   }
 
+  renderAlertBar = () => {
+    return (
+      <div>
+        <div role="alert" className="alert alert-error">
+          <button type="button" className="close_btn" onClick={this.toggleAlertBar}>
+            <span aria-hidden="true">X</span>
+            <span className="sr-only">Close alert</span>
+          </button>
+          <p><strong>Error: </strong>Please correct the errors below</p>
+        </div>
+      </div>
+    )
+  }
+
   renderFeedbackForm = () => {
     return (
       <section className='content-wrapper'>
         <div className='container'>
             <div className='row text-center'>
-              <div className='col-xs-12'>
+              <div className='col-md-offset-3 col-xs-12 col-sm-offset-3 col-sm-8 col-md-6 col-md'>
                 <h1>Give Us Feedback</h1>
               </div>
             </div>
             <div className='row'>
+
               <section>
-                <form className="feedback-form col-md-offset-3 col-xs-12 col-md-6 col-md" onSubmit={this.handleSubmit}>
+                <form className="feedback-form col-md-offset-3 col-xs-12 col-sm-offset-3 col-sm-8 col-md-6 col-md" onSubmit={this.handleSubmit}>
+                  {this.feedbackStore.showAlertBar && this.renderAlertBar()}
                   <div className={this.feedbackStore.hasErrors.title ? 'form-group has-error' : 'form-group'}>
                     <label className='control-label' htmlFor='feedback-title'>Title<span className='required-asterisks'> *</span></label><br />
                     {this.feedbackStore.hasErrors.title &&
@@ -124,7 +146,7 @@ export default class FeedbackPage extends React.Component {
                     {this.feedbackStore.hasErrors.topic &&
                       <label className='control-label' htmlFor="feedback-topic"><span>Please select a topic</span></label>
                     }
-                    <select id='feedback-topic' className='form-control form-control-lg' value={this.feedbackStore.feedbackObject.topic} onChange={this.handleChange}>
+                    <select id='feedback-topic' className='form-control' value={this.feedbackStore.feedbackObject.topic} onChange={this.handleChange}>
                       <option value='' hidden>Select Feedback Topic</option>
                       <option value='System Performance'>System Performance</option>
                       <option value='App Management'>App Management</option>
@@ -139,18 +161,19 @@ export default class FeedbackPage extends React.Component {
                     {this.feedbackStore.hasErrors.details &&
                       <label className='control-label' htmlFor="feedback-details"><span>Please summarize your feedback</span></label>
                     }
-                    <textarea type='text' id='feedback-details' maxLength="10000" className='form-control' rows="5" value={this.feedbackStore.feedbackObject.details} onChange={this.handleChange}/>
+                    <textarea type='text' id='feedback-details' maxLength="10000" className='form-control' rows="7" value={this.feedbackStore.feedbackObject.details} onChange={this.handleChange}/>
                   </div>
                   <div>
                     <p>
-                      Your feedback will help us improve your experience. We cannot respond directly to feedback comments, but can follow up with you if you leave your email below. For immediate help, please contact us directly at <a href="tel:1800XXXXXX">1-800-XXX-XXX</a>.                    </p>
+                      Your feedback will help us improve your experience. We cannot respond directly to feedback comments, but can follow up with you if you leave your email below. For immediate help, please contact us directly at <a href="tel:1800XXXXXX">1-800-XXX-XXX</a>.
+                    </p>
                   </div>
                   <div className='form-group'>
                     <label className='control-label' htmlFor='feedback-email'>Email (Optional)</label>
                     <input type='email' id='feedback-email' className='form-control input-lg' value={this.feedbackStore.feedbackObject.email} onChange={this.handleChange}/>
                   </div>
                   <div className='form-group text-center'>
-                    <button type='submit' className={this.feedbackStore.requiredFieldsEntered ? 'fn-primary' : 'fn-primary disabled'} aria-labelledby='feedback-form'>
+                    <button type='submit' className={this.feedbackStore.requiredFieldsEntered ? 'feedback-btn fn-primary' : 'feedback-btn fn-primary disabled'} aria-labelledby='feedback-form'>
                       Submit Feedback
                     </button>
                   </div>

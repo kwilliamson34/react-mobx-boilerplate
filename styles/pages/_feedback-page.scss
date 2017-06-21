@@ -5,7 +5,31 @@
     margin: 3rem 0;
   }
 
-  button {
+  p {
+    color: $fn-dark;
+    font-size: $fn-label-default-size;
+  }
+
+  .form-group {
+    margin: 3rem 0;
+
+    label {
+      font-weight: $fn-medium-weight;
+
+      ~ label {
+        font-weight: $fn-normal-weight;
+      }
+    }
+
+    select {
+      font-weight: $fn-normal-weight;
+      //control-group-lg not working.
+      height: 4.6rem;
+      border-color: #b7b7b7;
+    }
+  }
+
+  .feedback-btn {
     margin: 3rem 0 6rem 0;
 
     &.disabled {
@@ -16,18 +40,23 @@
     }
   }
 
-  p {
-    color: $fn-dark;
-    font-size: $fn-label-default-size;
+  .alert {
+    p {
+      color: $fn-white;
+    }
   }
 
-  .form-group {
-    margin: 3rem 0;
-  }
-//form-control-lg not working on select
+  #customer-feedback-exit-modal {
+    text-align: center;
 
-  #feedback-details {
-    height: 14rem;
+    p {
+      font-size: $fn-body-default-size;
+      padding-bottom: 6rem;
+    }
+
+    button {
+      margin: 0 1rem;
+    }
   }
 
   #customer-feedback-success {
