@@ -25,7 +25,7 @@ export default class Footer extends React.Component {
 	render() {
 		return (
 
-			<footer>
+			<footer id="pse-footer">
 			<div className="footer-main">
 				<div className="container">
 					<div className="row">

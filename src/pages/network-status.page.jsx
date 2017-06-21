@@ -22,16 +22,16 @@ export default class NetworkStatusPage extends React.Component {
 	render() {
 		return (
 			<article id="network-page" className="content-wrapper">
-        {this.props.store.geolinkStore.isGeolinkReady &&
-					<GeolinkMap geolinkStore={this.props.store.geolinkStore}/>}
-        {/*The following iframe is required to kick of the loading
-          of geolink scripts. */}
-        <iframe
-          id="geolink_static_assets"
-          src={config.geolinkScripts + '/libs/jquery/jquery.min.js'}
-          style={{width: 0, height: 0, border: 'none'}}>
-        </iframe>
-      </article>
+				<h1 className="sr-only">Network Status</h1>
+				<iframe
+					id="geolink_static_assets"
+					src={config.geolinkScripts + '/libs/jquery/jquery.min.js'}
+					style={{width: 0, height: 0, padding: 0, margin: 0, border: '0 none'}}>
+				</iframe>
+				{this.props.store.geolinkStore.isGeolinkReady &&
+					<GeolinkMap geolinkStore={this.props.store.geolinkStore}/>
+				}
+			</article>
 		)
 	}
 }

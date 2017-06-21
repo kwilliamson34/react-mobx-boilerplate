@@ -1,0 +1,74 @@
+exports[`<FaqMain /> Render testing Matches snapshot 1`] = `
+<article
+  className="container">
+  <div
+    className="row">
+    <div
+      className="faq-header col-xs-12 col-sm-10 col-sm-offset-1">
+      <div
+        className="hidden-xs">
+        <div
+          className="faq-category-tabs">
+          <ul>
+            <li>
+              <a
+                className="active"
+                href="#"
+                onClick={[Function bound bound updateCategoryByTab]}>
+                ALL
+              </a>
+            </li>
+            <li>
+              <a
+                className="category-tab-button"
+                href="#"
+                onClick={[Function bound bound updateCategoryByTab]}>
+                LOREM IPSUM 1 
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        className="hidden-sm hidden-md hidden-lg">
+        <div
+          className="faq-category-select">
+          <form>
+            <div>
+              FILTER
+            </div>
+            <label
+              htmlFor="faqCategory">
+              Category
+            </label>
+            <select
+              className="form-control"
+              id="faqCategory"
+              onChange={[Function bound bound updateCategoryBySelect]}
+              value="ALL">
+              <option
+                value="ALL">
+                All Categories
+              </option>
+              <option
+                value="LOREM IPSUM 1">
+                Lorem Ipsum 1
+                 
+              </option>
+            </select>
+          </form>
+        </div>
+      </div>
+      <div
+        className="horizontal-line-header">
+        <h2
+          className="header-title">
+          ALL
+        </h2>
+      </div>
+      <div
+        className="faq-entry-list" />
+    </div>
+  </div>
+</article>
+`;

@@ -2,9 +2,9 @@ $icon-font: 'firstnet-icons';
 @font-face {
   font-family: 'firstnet-icons';
   src: url('/fonts/firstnet-icons/firstnet-icons.eot');
-  src: url('/fonts/firstnet-icons/firstnet-icons.eot?#iefix') format('embedded-opentype'), 
-    url('/fonts/firstnet-icons/firstnet-icons.woff') format('woff'), 
-    url('/fonts/firstnet-icons/firstnet-icons.ttf') format('truetype'), 
+  src: url('/fonts/firstnet-icons/firstnet-icons.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/firstnet-icons/firstnet-icons.woff') format('woff'),
+    url('/fonts/firstnet-icons/firstnet-icons.ttf') format('truetype'),
     url('/fonts/firstnet-icons/firstnet-icons.svg#firstnet-icons') format('svg');
   font-weight: $fn-normal-weight;
   font-size: 2.0rem;
@@ -77,13 +77,27 @@ $icon-font: 'firstnet-icons';
 .icon-phone:before {
   content: "\4d";
 }
-.icon-icon-error:before {
+.icon-error:before {
   content: "\4e";
 }
 .icon-upload:before {
   content: "\4f";
 }
-
+.icon-apple:before {
+  content: "\50";
+}
+.icon-android:before {
+  content: "\51";
+}
+.icon-calendar:before {
+  content: "\52";
+}
+.icon-reload:before {
+  content: "\53";
+}
+.icon-warning:before {
+  content: "\54";
+}
 .icon-help:before {
   content: "\61";
 }

@@ -25,6 +25,7 @@ export default class ConfigureMDM extends React.Component {
   componentWillMount() {
     this.store.clearAlerts();
     this.store.hasBeenSubmitted = false;
+    this.store.getMDMConfiguration();
   }
 
   componentDidUpdate() {
@@ -39,6 +40,8 @@ export default class ConfigureMDM extends React.Component {
       history.goBack();
     }
   }
+
+  // Configure MDM Form Functions
 
 	updateMDM = (event) => {
 		this.store.updateMDM(event.target.value);
@@ -55,6 +58,8 @@ export default class ConfigureMDM extends React.Component {
     event.preventDefault();
     this.store.submitForm(event.target)
   }
+
+  // MDM Modals Functions
 
   discardFormChanges = (event) => {
     event.preventDefault();
@@ -136,7 +141,7 @@ export default class ConfigureMDM extends React.Component {
     let mdm_provider = this.store.currentMDMForm.get('mdmProvider') || this.store.mdmProvider;
     let mdm_form = null;
 
-    this.isConfigured = this.store.pseMDMObject.entries().length ? true : false;
+    this.isConfigured = this.store.pseMDMObject.get('mdm_type') ? true : false;
 
     let formData = this.isConfigured ? this.store.pseMDMObject.toJS() : this.store.currentMDMForm.toJS();
 
@@ -166,9 +171,12 @@ export default class ConfigureMDM extends React.Component {
                 <section className="col-xs-12 col-lg-10 col-lg-offset-1">
                     <div className="mdm-form col-md-offset-2 col-xs-12 col-md-8 col-md">
 
-                    {this.store.alert_msgs && <MDMAlerts store = {this.store}/>}
+                      {this.store.alert_msgs && <MDMAlerts store = {this.store}/>}
 
+                      <form id="configure-mdm-form" onSubmit={this.handleSubmit} noValidate onBlur={this.updateForm}>
+                        
                         {this.isConfigured && <p className="mdm-description">Only one MDM can be configured at a time. To configure a new MDM, the existing connection must be broken. Once the existing connection is broken, a new one can be configured.</p>}
+                        
                         <div className='form-group has-feedback'>
                           <label className="control-label" htmlFor="mdm">Your MDM<span className="required-asterisks"> *</span></label>
                             <select id="mdm"
@@ -177,26 +185,26 @@ export default class ConfigureMDM extends React.Component {
                               onBlur={this.updateMDM}
                               value={mdm_provider}
                               disabled={this.isConfigured}>
-                              <option value="" hidden>Select MDM</option>
+                              <option value="">Select MDM</option>
                               <option value="airWatchForm">Airwatch</option>
                               <option value="ibmForm">IBM Maas 360</option>
                               <option value="mobileIronForm">MobileIron</option>
                             </select>
                         </div>
-
-                        <form id="configure-mdm-form" onSubmit={this.handleSubmit} noValidate onBlur={this.updateForm}>
-                          {mdm_form}
-                          <div className="form-group text-center">
-                            <button id="mdm_submit_btn" aria-labelledby="configure-mdm-form" aria-disabled={!this.store.formIsValid || this.isConfigured || this.store.beingSubmitted} type="submit" className='fn-primary'>
-                            {this.store.beingSubmitted
-                              ? <span>
-                                  <i className="icon-profile" aria-label="Still Submitting Form"></i>
-                                  &nbsp;&nbsp;Submitting&hellip;
-                                </span>
-                              : <span>Submit</span>}
-                            </button>
-                          </div>
-                        </form>
+                        
+                        {mdm_form}
+                        
+                        <div className="form-group text-center">
+                          <button id="mdm_submit_btn" aria-labelledby="configure-mdm-form" aria-disabled={!this.store.formIsValid || this.isConfigured || this.store.beingSubmitted} type="submit" className='fn-primary'>
+                          {this.store.beingSubmitted
+                            ? <span>
+                                <i className="icon-reload" aria-label="Still Submitting Form"></i>
+                                &nbsp;&nbsp;Submitting&hellip;
+                              </span>
+                            : <span>Submit</span>}
+                          </button>
+                        </div>
+                      </form>
                     </div>
                 </section>
             </div>

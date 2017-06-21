@@ -26,6 +26,10 @@ export default class ManageAppsPage extends React.Component {
 		this.itemsPerPage = 20;
 	}
 
+	componentWillMount() {
+		this.mdmStore.getMDMConfiguration();
+	}
+
 	componentDidMount() {
 		this.cardListStore.fetchCardList();
 		this.appCatalogStore.fetchAppCatalog();
@@ -101,7 +105,8 @@ export default class ManageAppsPage extends React.Component {
 							handleViewAllAppsClick={this.handleViewAllAppsClick}
 							changeAppAvailability={this.appCatalogStore.changeAppAvailability.bind(this.appCatalogStore)}
 							changeAppRecommended={this.appCatalogStore.changeAppRecommended.bind(this.appCatalogStore)}
-							getMatchingApp={this.appCatalogStore.getMatchingApp.bind(this.appCatalogStore)}/>
+							getMatchingApp={this.appCatalogStore.getMatchingApp.bind(this.appCatalogStore)}
+							mdmIsConfigured={this.mdmStore.pseMDMObject.get('mdm_type') ? true : false}/>
 					</div>
 				</div>
 			</article>
