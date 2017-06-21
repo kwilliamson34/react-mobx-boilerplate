@@ -129,7 +129,13 @@ class ApiService {
       });
     }
 
+    getMDMConfiguration() {
+      return axios.get(`${base}/pse/mdm?pseId=${userStore.user.pse}`);
+    }
+
     setMDMConfiguration(mdmConfig) {
+      mdmConfig.pse_id = userStore.user.pse;
+      
       return axios({
         method: 'post',
         url: `${base}/pse/mdm`,
@@ -138,11 +144,7 @@ class ApiService {
     }
 
     breakMDMConfiguration() {
-      //TODO
-      return axios({
-        method: 'delete',
-        url: `${base}/pse/mdm`
-      });
+      return axios.delete(`${base}/pse/mdm/${userStore.user.pse}`);
     }
 }
 
