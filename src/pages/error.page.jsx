@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {observer, inject} from 'mobx-react';
+import { Link } from 'react-router-dom';
 import {history} from '../core/services/history.service';
 
 @inject('store')
@@ -21,6 +22,7 @@ export default class ErrorPage extends React.Component {
     let body_content = '';
     let showLinksforOtherPortals = true;
     let showLinkToGoBack = false;
+    let showLinkToGoHome = false;
 
     if (this.userStore.auth_error) {
       title = 'Service Issue.';
@@ -33,6 +35,11 @@ export default class ErrorPage extends React.Component {
       body_content = 'The page you were looking for could not be found.';
       showLinksforOtherPortals = false;
       showLinkToGoBack = true;
+    } else if (this.props.cause === '410') {
+      title = 'App Unavailable';
+      body_content = 'The app you requested is no longer available.';
+      showLinksforOtherPortals = false;
+      showLinkToGoHome = true;
     } else {
       title = 'We\'re Sorry.';
       body_content = 'This page is experiencing an issue. Try again later, or continue to one of the FirstNet Sites below:';
@@ -45,14 +52,23 @@ export default class ErrorPage extends React.Component {
           <p dangerouslySetInnerHTML={{
             __html: body_content
           }}></p>
-        {showLinksforOtherPortals && <section>
-          <a href="http://www.firstnet.com/appstore">App Store</a>
-          <a href="http://www.firstnet.com/developerconsole">Deleveloper Console</a>
-          <a href="http://www.firstnet.com/localcontrol">Local Control</a>
-        </section>}
-        {showLinkToGoBack && <section>
-          <a href="#" onClick={() => {history.go(-1)}}>Go Back</a>
-        </section>}
+        {showLinksforOtherPortals &&
+          <section>
+            <a href="http://www.firstnet.com/appstore">App Store</a>
+            <a href="http://www.firstnet.com/developerconsole">Deleveloper Console</a>
+            <a href="http://www.firstnet.com/localcontrol">Local Control</a>
+          </section>
+        }
+        {showLinkToGoBack &&
+          <section>
+            <a href="#" onClick={() => {history.go(-1)}}>Go Back</a>
+          </section>
+        }
+        {showLinkToGoHome &&
+          <section className="text-center">
+            <Link to="/" className="fn-primary">Return to Home Page</Link>
+          </section>
+        }
         </div>
       </section>
     );
