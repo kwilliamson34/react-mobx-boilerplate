@@ -13,6 +13,7 @@ class MDMStore {
         }
 
         this.mdmProvider = mdmProvider;
+        this.clearAlerts();
         this.formIsValid = false;
     }
 
@@ -77,10 +78,12 @@ class MDMStore {
             this.beingSubmitted = true;
             this.setMDMConfiguration(mdmConfig);
         } else {
+            let error_msg = inputs.length > 1 ? 'Please correct the errors below.' : 'Please  select an MDM';
+
             this.alert_msgs.push({
                 type: 'error',
                 headline: 'Error: ',
-                message: 'Please correct the errors below.'
+                message: error_msg
             });
         }
     }
