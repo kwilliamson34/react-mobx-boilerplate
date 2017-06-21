@@ -30,6 +30,7 @@ class UserStore {
     this.api_token = tk_response;
     this.checkPermissions();
     this.userValidationDone = true;
+    this.authentic_user = true;
   }
 
   @action logoutUser() {
@@ -42,10 +43,12 @@ class UserStore {
   }
 
   checkPermissions() {
+    console.log(this.user)
     if (this.user.roles.indexOf('G_FN_ADM') !== -1) {
-      this.authentic_user = true;
+      console.log('isAdmin')
+      this.isAdmin = true;
     } else {
-      this.authentic_user = false;
+      this.isAdmin = false;
     }
   }
 
@@ -66,6 +69,7 @@ class UserStore {
   @observable api_token;
   @observable userValidationDone = false;
   @observable authentic_user = false;
+  @observable isAdmin = false;
 }
 
 export const userStore = new UserStore();

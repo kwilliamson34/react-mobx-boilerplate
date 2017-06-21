@@ -14,6 +14,7 @@ export default class Footer extends React.Component {
 	constructor(props) {
 		super(props);
 		this.headerStore = this.props.store.headerStore;
+		this.user = this.props.store.userStore;
 		this.handleSitemapClick = this.handleSitemapClick.bind(this);
 	}
 
@@ -45,18 +46,22 @@ export default class Footer extends React.Component {
 									aria-haspopup="true"
 									aria-expanded={this.headerStore.footerSitemapExpanded}>Sitemap</a>
 								<ul className="sitemap-links">
-									<li role="presentation">
-										<Link to="/admin">PSE Administration</Link>
-									</li>
-									<li role="presentation">
-										<Link to="/admin/manage-apps">Manage Apps</Link>
-									</li>
-									<li role="presentation">
-										<Link to="/devices">Specialized Device Catalog</Link>
-									</li>
-									<li role="presentation">
-										<Link to="/solutions">Solutions Catalog</Link>
-									</li>
+									{this.user.isAdmin &&
+									<div>
+										<li role="presentation">
+											<Link to="/admin">PSE Administration</Link>
+										</li>
+										<li role="presentation">
+											<Link to="/admin/manage-apps">Manage Apps</Link>
+										</li>
+										<li role="presentation">
+											<Link to="/devices">Specialized Device Catalog</Link>
+										</li>
+										<li role="presentation">
+											<Link to="/solutions">Solutions Catalog</Link>
+										</li>
+									</div>
+									}
 									<li role="presentation">
 										<Link to="/network-status">Network Status</Link>
 									</li>

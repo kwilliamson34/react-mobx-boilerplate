@@ -31,7 +31,7 @@ import ManagePushToTalkPage from './pages/manage-push-to-talk.page';
 import ManageWirelessReportsPage from './pages/manage-wireless-reports.page';
 import AdminDashboardPage from './pages/admin-dashboard.page';
 import ConfigureMDM from './pages/configure-mdm.page';
-import ShopDevicesPage from './pages/shop-devices-rates.page';
+// import ShopDevicesPage from './pages/shop-devices-rates.page';
 
 //Marketing Portal pages
 import DevicesLandingPage from './pages/devices.page';
@@ -105,8 +105,7 @@ export default class App extends React.Component {
 
   getLandingPage = () => {
     //TODO: Temporarily using @observable authentic_user in lieu of actual authorization check
-    const userIsAdmin = pseMasterStore.userStore.authentic_user;
-
+    const userIsAdmin = pseMasterStore.userStore.isAdmin;
     return (
       <Switch>
         {
@@ -123,35 +122,39 @@ export default class App extends React.Component {
       <ScrollToTop>
         <a href="#main-content" className="sr-only sr-only-focusable">Skip Navigation</a>
         <Header/>
-          <main id="main-content">
-            <Switch>
-              <Route exact path="/" component={this.getLandingPage}/>
-              <Route path="/network-status" component={NetworkStatusPage}/>
-              <Route path="/admin/manage-users" component={ManageUsersPage}/>
-              <Route path="/admin/manage-billing" component={ManageBillingPage}/>
-              <Route path="/admin/manage-services" component={ManageServicesPage}/>
-              <Route path="/admin/manage-apps" component={ManageAppsPage}/>
-              <Route path="/admin/configure-mdm" component={ConfigureMDM}/>
-              <Route path="/admin/manage-push-to-talk" component={ManagePushToTalkPage}/>
-              <Route path="/admin/manage-wireless-reports" component={ManageWirelessReportsPage}/>
-              <Route path="/admin" component={AdminDashboardPage}/>
-              <Route path="/app/:appPsk" component={AppDetailsPage/*TODO redirect to error/404 if psk has no match*/}/>
-              <Route path="/manage-profile" component={ManageProfilePage}/>
-              <Route path="/feedback" component={FeedbackPage}/>
-              <Route path="/faq" component={FAQPage}/>
-              <Route path="/shop-devices-rates" component={ShopDevicesPage}/>
-              <Route path="/devices" component={this.getSpecializedDevicesComponent}/>
-              <Route path="/solutions" component={this.getPublicSafetySolutionsComponent}/>
-              <Route path="/help-center" component={HelpCenterPage}/>
-              <Route path="/faq" component={FAQPage}/>
-              <Route path="/privacy" component={PrivacyPage}/>
-              <Route path="/terms" component={TermsOfServicePage}/>
-              <Route path="/accessibility" component={AccessibilityPage}/>
-              <Route component={() => <Redirect to="/error/404"/>}/>
-            </Switch>
-          </main>
-          <Footer/>
+        <main id="main-content">
+          <Switch>
+            <Route exact path="/" component={this.getLandingPage}/>
+            <Route component={this.getAdminRoutes}/>
+            <Route path="/network-status" component={NetworkStatusPage}/>
+            <Route path="/manage-profile" component={ManageProfilePage}/>
+            <Route path="/feedback" component={FeedbackPage}/>
+            <Route path="/faq" component={FAQPage}/>
+            <Route path="/help-center" component={HelpCenterPage}/>
+            <Route path="/privacy" component={PrivacyPage}/>
+            <Route path="/terms" component={TermsOfServicePage}/>
+            <Route path="/accessibility" component={AccessibilityPage}/>
+            <Route component={() => <Redirect to="/error/404"/>}/>
+          </Switch>
+        </main>
+        <Footer/>
       </ScrollToTop>
+      );
+  }
+
+  getAdminRoutes = () => {
+    return (
+      <Switch>
+        <Route path="/admin/manage-users" component={ManageUsersPage}/>
+        <Route path="/admin/manage-billing" component={ManageBillingPage}/>
+        <Route path="/admin/manage-services" component={ManageServicesPage}/>
+        <Route path="/admin/manage-apps" component={ManageAppsPage}/>
+        <Route path="/admin/configure-mdm" component={ConfigureMDM}/>
+        <Route path="/admin/manage-push-to-talk" component={ManagePushToTalkPage}/>
+        <Route path="/admin/manage-wireless-reports" component={ManageWirelessReportsPage}/>
+        <Route path="/admin" component={AdminDashboardPage}/>
+        <Route path="/app/:appPsk" component={AppDetailsPage/*TODO redirect to error/404 if psk has no match*/}/>
+      </Switch>
     )
   }
 
