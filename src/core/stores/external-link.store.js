@@ -33,16 +33,32 @@ class ExternalLinkStore {
   }
 
   @action getDeviceDetailData(devicePath) {
-    const success = (res) => {
-      let detail = filterDeviceCategoryData(res, devicePath);
+    let device = this.fetchDeviceDetails(devicePath);
+    console.log('device     ', device);
+    if (device.length === 1) {
+      this.currentDeviceDetail = externalDeviceContentService.filterDeviceDetailData(device[0]);
+    } else {
+      history.replace('/error');
+    }
+    // const success = (res) => {
+    //   let detail = filterDeviceCategoryData(res, devicePath);
+    //
+    //   this.currentDeviceDetail = res;
+    //   this.currentDeviceDetail.path = devicePath;
+    // }
+    // const fail = (res) => {
+    //   utilsService.handleError(res);
+    // }
+    // apiService.getMarketingPortalDevices().then(success, fail);
+  }
 
-      this.currentDeviceDetail = res;
-      this.currentDeviceDetail.path = devicePath;
-    }
-    const fail = (res) => {
-      utilsService.handleError(res);
-    }
-    apiService.getMarketingPortalDevices().then(success, fail);
+  @action fetchDeviceDetails(devicePath) {
+    console.log('devicePath', devicePath);
+    return this.allSpecializedDevices.filter((device) => {
+      let _devicePath = encodeURIComponent(device.device_title).replace(/%20/g, '+');
+      console.log('_devicePath', _devicePath);
+      return  _devicePath === devicePath;
+    })
   }
 
   @action getSolutionCards(queryString) {

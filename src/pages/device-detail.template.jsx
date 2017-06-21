@@ -21,9 +21,14 @@ export default class DeviceDetailTemplate extends React.Component {
 
 	componentWillMount() {
 		//checking if the user was on this page previously, eliminating need for new request
-		if(this.props.match.url != this.externalLinkStore.currentDeviceDetail.path){
+		if(this.props.match.params.deviceId != this.externalLinkStore.currentDeviceDetail.path){
 			this.externalLinkStore.resetDeviceDetail();
-			this.externalLinkStore.getDeviceDetail(this.props.match.url);
+			if (this.externalLinkStore.allSpecializedDevices.length) {
+				this.externalLinkStore.getDeviceDetailData(this.props.match.params.deviceId);
+			} else {
+				this.externalLinkStore.fetchDevicesData()
+				.then(() => this.externalLinkStore.getDeviceDetailData(this.props.match.params.deviceId));
+			}
 		}
 	}
 
