@@ -67,24 +67,28 @@ class MDMStore {
 
         this.clearAlerts();
 
-        for (let i = 0; i < inputs.length; i++) {
-            if(inputs[i].id !== 'mdm'){
+        if(inputs.length > 1 ) {
+            for (let i = 0; i < inputs.length; i++) {
                 mdmConfig[inputs[i].id] = inputs[i].value;
             }
+
+            this.currentMDMForm.merge(mdmConfig);
         }
-        this.currentMDMForm.merge(mdmConfig);
+
         
         if (this.formIsValid) {
             this.beingSubmitted = true;
             this.setMDMConfiguration(mdmConfig);
         } else {
-            let error_msg = inputs.length > 1 ? 'Please correct the errors below.' : 'Please  select an MDM';
+            if(!this.pseMDMObject.get('mdm_type')){
+                let error_msg = inputs.length > 1 ? 'Please correct the errors below.' : 'Please  select an MDM';
 
-            this.alert_msgs.push({
-                type: 'error',
-                headline: 'Error: ',
-                message: error_msg
-            });
+                this.alert_msgs.push({
+                    type: 'error',
+                    headline: 'Error: ',
+                    message: error_msg
+                });
+            }
         }
     }
 
