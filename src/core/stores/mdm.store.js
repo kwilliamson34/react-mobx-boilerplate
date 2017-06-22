@@ -69,7 +69,9 @@ class MDMStore {
 
         if(inputs.length > 1 ) {
             for (let i = 0; i < inputs.length; i++) {
-                mdmConfig[inputs[i].id] = inputs[i].value;
+                if(inputs[i].id !== 'mdm') {
+                    mdmConfig[inputs[i].id] = inputs[i].value;
+                }
             }
 
             this.currentMDMForm.merge(mdmConfig);
@@ -156,6 +158,7 @@ class MDMStore {
         const success = (resp) => {
             let messageObj = resp.data;
             this.showExitModal = false;
+            this.formHasChanged = false;
             this.beingSubmitted = false;
             this.alert_msgs = [];
 
@@ -175,6 +178,20 @@ class MDMStore {
                     headline: 'Error: ',
                     message: messageObj.error
                 });
+
+                if(messageObj.error.toLowerCase().includes('credentials')){
+                    const credFields = {
+                        aw_password: '',
+                        aw_userName: '',
+                        ibm_password: '',
+                        ibm_userName: '',
+                        mi_password: '',
+                        mi_userName: ''
+                    };
+                    console.log(this.currentMDMForm.toJS())
+                    this.currentMDMForm.merge(credFields);
+                    console.log(this.currentMDMForm.toJS())
+                }
             }
         }
         const fail = (err) => {

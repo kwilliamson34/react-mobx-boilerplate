@@ -190,7 +190,7 @@ export default class ConfigureMDM extends React.Component {
 
                       {this.store.alert_msgs && <MDMAlerts store = {this.store}/>}
 
-                      <form id="configure-mdm-form" onSubmit={this.handleSubmit} noValidate onBlur={this.updateForm}>
+                      <form id="configure-mdm-form" onSubmit={this.handleSubmit} noValidate onChange={this.updateForm} onBlur={this.updateForm}>
                         
                         {this.isConfigured && <p className="mdm-description">Only one MDM can be configured at a time. To configure a new MDM, the existing connection must be broken. Once the existing connection is broken, a new one can be configured.</p>}
                         
@@ -204,7 +204,7 @@ export default class ConfigureMDM extends React.Component {
                               disabled={this.isConfigured}>
                               <option value="">Select MDM</option>
                               <option value="airWatchForm">Airwatch</option>
-                              <option value="ibmForm">IBM Maas 360</option>
+                              <option value="ibmForm">IBM MaaS360</option>
                               <option value="mobileIronForm">MobileIron</option>
                             </select>
                         </div>
