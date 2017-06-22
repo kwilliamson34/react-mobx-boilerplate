@@ -161,8 +161,6 @@ export default class ConfigureMDM extends React.Component {
 
     let formData = this.isConfigured ? this.store.pseMDMObject.toJS() : this.store.currentMDMForm.toJS();
 
-    console.log(formData)
-
     switch(mdm_provider) {
       case 'airWatchForm':
         mdm_form = <AirWatchForm store={this.store} connectionSet={this.isConfigured} formData={formData}/>;
