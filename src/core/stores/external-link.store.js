@@ -38,15 +38,14 @@ class ExternalLinkStore {
     if (device.length === 1) {
       this.currentDeviceDetail = externalDeviceContentService.filterDeviceDetailData(device[0]);
     } else {
+      console.log('THIS IS THE ERROR');
       history.replace('/error');
     }
   }
 
   @action fetchDeviceDetails(devicePath) {
-    console.log('devicePath', devicePath);
     return this.allSpecializedDevices.filter((device) => {
       let _devicePath = encodeURIComponent(device.device_title).replace(/%20/g, '+');
-      console.log('_devicePath', _devicePath);
       return  _devicePath === devicePath;
     })
   }
@@ -142,7 +141,7 @@ class ExternalLinkStore {
     deviceName: '',
     deviceImg: '',
     deviceImgAlt: '',
-    contactInfo: []
+    contactInfo: {}
   };
 
   @observable manageUsersLink = 'https://profilemgt.firstnet.att.com/ebiz/firstnet/index.jsp';

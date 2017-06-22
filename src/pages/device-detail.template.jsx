@@ -4,8 +4,7 @@ import config from 'config';
 import {observer, inject} from 'mobx-react';
 
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
-
-const testContactInfo = []
+import PurchasingInfo from '../components/purchasing-info/purchasing-info';
 
 @inject('store')
 @observer
@@ -32,6 +31,12 @@ export default class DeviceDetailTemplate extends React.Component {
 				.then(() => this.externalLinkStore.getDeviceDetailData(this.props.match.params.deviceId));
 			}
 		}
+	}
+
+	showPurchasingInfo = (contactInfo) => {
+		let showPurchasingInfo = true;
+		if (Object.keys(contactInfo).every((p) => contactInfo[p] === '')) showPurchasingInfo = false;
+		return showPurchasingInfo;
 	}
 
 	render() {
@@ -67,41 +72,9 @@ export default class DeviceDetailTemplate extends React.Component {
 							<div className="feature-list" dangerouslySetInnerHTML={{__html: this.externalLinkStore.currentDeviceDetail.features}}></div>
 						</div>
 					</div>
-					<div className="row">
-						<div
-							className="
-							col-xs-10 col-xs-offset-1
-							col-sm-offset-1 col-sm-10
-							col-md-6 col-md-offset-5
-							col-lg-7 col-lg-offset-4">
-							<h2 className="as-h3">For Purchasing</h2>
-							<div>
-								<ul className="purchase-options-list">
-									<li>
-										<strong>Contact:</strong>
-										<span>Lucius Fox</span>
-									</li>
-									<li>
-										<strong>Phone:</strong>
-										<a href="tel:18005882300">800-588-2300</a>
-									</li>
-									<li>
-										<strong>Email:</strong>
-										<a href="mailto:lfox@samsung.com">lfox@samsung.com</a>
-									</li>
-									<li>
-										<strong>Company:</strong>
-										<span>Samsung</span>
-									</li>
-									<li>
-										<strong>Website:</strong>
-										<a href="http://samsung.com/">samsung.com</a>
-									</li>
-								</ul>
-							</div>
-
-						</div>
-					</div>
+					{this.externalLinkStore.currentDeviceDetail.contactInfo && this.showPurchasingInfo(this.externalLinkStore.currentDeviceDetail.contactInfo) &&
+						<PurchasingInfo contactInfo={this.externalLinkStore.currentDeviceDetail.contactInfo} />
+					}
 				</div>
 				{(this.externalLinkStore.currentDeviceDetail.terms) &&
 					<div className="terms-block">
