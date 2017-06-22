@@ -5,6 +5,8 @@ import {observer, inject} from 'mobx-react';
 
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 
+const testContactInfo = []
+
 @inject('store')
 @observer
 export default class DeviceDetailTemplate extends React.Component {

@@ -54,12 +54,22 @@ class ExternalDeviceContentService {
 	}
 
 	filterDeviceDetailData(device) {
+		let test = {
+			contact_name: "Don Johnson",
+			contact_company: "Fast 'n Hot Speedboats'",
+			contact_phone: "1-555-IAM-VICE",
+			contact_email: "don_the_heat@hotmail.com",
+			contact_website: "http://www.fastnhotspeedboats.com",
+		}
+
 		let _contactInfo = [];
-		Object.keys(device).forEach((p) => {
+		Object.keys(test).forEach((p) => {
+			console.log(p);
 			if (p.includes('contact_')) {
-				_contactInfo.push(device[p]);
+				_contactInfo.push({`${p}`: test[p]});
 			}
 		});
+		console.log('_contactInfo   ', _contactInfo);
 		return {
 			path: encodeURIComponent(device.device_title).replace(/%20/g, '+'),
 			features: device.device_features,
