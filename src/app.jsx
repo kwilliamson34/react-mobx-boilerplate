@@ -121,7 +121,15 @@ export default class App extends React.Component {
         <main id="main-content">
           <Switch>
             <Route exact path="/" component={this.getLandingPage}/>
-            <Route component={this.getAdminRoutes}/>
+            <Route path="/admin/manage-users" component={this.getAdminRoutes(ManageUsersPage)}/>
+            <Route path="/admin/manage-billing" component={this.getAdminRoutes(ManageBillingPage)}/>
+            <Route path="/admin/manage-services" component={this.getAdminRoutes(ManageServicesPage)}/>
+            <Route path="/admin/manage-apps" component={this.getAdminRoutes(ManageAppsPage)}/>
+            <Route path="/admin/configure-mdm" component={this.getAdminRoutes(ConfigureMDM)}/>
+            <Route path="/admin/manage-push-to-talk" component={this.getAdminRoutes(ManagePushToTalkPage)}/>
+            <Route path="/admin/manage-wireless-reports" component={this.getAdminRoutes(ManageWirelessReportsPage)}/>
+            <Route path="/admin" component={this.getAdminRoutes(AdminDashboardPage)}/>
+            <Route path="/app/:appPsk" component={this.getAdminRoutes(AppDetailsPage)/*TODO redirect to error/404 if psk has no match*/}/>
             <Route path="/network-status" component={NetworkStatusPage}/>
             <Route path="/manage-profile" component={ManageProfilePage}/>
             <Route path="/feedback" component={FeedbackPage}/>
@@ -138,20 +146,9 @@ export default class App extends React.Component {
       );
   }
 
-  getAdminRoutes = () => {
-    return (
-      <Switch>
-        <Route path="/admin/manage-users" component={ManageUsersPage}/>
-        <Route path="/admin/manage-billing" component={ManageBillingPage}/>
-        <Route path="/admin/manage-services" component={ManageServicesPage}/>
-        <Route path="/admin/manage-apps" component={ManageAppsPage}/>
-        <Route path="/admin/configure-mdm" component={ConfigureMDM}/>
-        <Route path="/admin/manage-push-to-talk" component={ManagePushToTalkPage}/>
-        <Route path="/admin/manage-wireless-reports" component={ManageWirelessReportsPage}/>
-        <Route path="/admin" component={AdminDashboardPage}/>
-        <Route path="/app/:appPsk" component={AppDetailsPage/*TODO redirect to error/404 if psk has no match*/}/>
-      </Switch>
-    )
+  getAdminRoutes = (component) => {
+    let roleBasedRoutes = pseMasterStore.userStore.isAdmin ? component : () => <Redirect to="/error/unauthorized"/>;
+    return roleBasedRoutes;
   }
 
   getPlainLayoutComponent = () => {
