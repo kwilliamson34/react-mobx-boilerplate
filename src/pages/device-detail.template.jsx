@@ -54,6 +54,7 @@ export default class DeviceDetailTemplate extends React.Component {
 				pageTitle: this.externalLinkStore.currentDeviceDetail.deviceName
 			}
 		];
+		console.log('DEVICE   ', this.externalLinkStore.currentDeviceDetail);
 		return (
 			<section className="device-detail">
 				<BreadcrumbNav links={crumbs} />
@@ -65,7 +66,8 @@ export default class DeviceDetailTemplate extends React.Component {
 						<div className="col-xs-10 col-xs-offset-1 col-sm-offset-1 col-sm-4 col-md-offset-1 col-md-4 col-lg-offset-1 col-lg-3">
 							<img
 								className="img-responsive"
-								src={this.externalLinkStore.currentDeviceDetail.deviceImg} alt={this.externalLinkStore.currentDeviceDetail.deviceImgAlt} />
+								src={this.externalLinkStore.currentDeviceDetail.deviceImg}
+								alt={this.externalLinkStore.currentDeviceDetail.deviceImgAlt} />
 						</div>
 						<div className="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-6 col-md-offset-0 col-lg-7">
 							<h1 className="as-h2 hidden-xs">{this.externalLinkStore.currentDeviceDetail.deviceName}</h1>
