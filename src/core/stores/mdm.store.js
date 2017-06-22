@@ -74,12 +74,12 @@ class MDMStore {
                 }
             }
 
-            this.currentMDMForm.merge(mdmConfig);
         }
 
         
         if (this.formIsValid) {
             this.beingSubmitted = true;
+            // this.currentMDMForm.merge(mdmConfig);
             this.setMDMConfiguration(mdmConfig);
         } else {
             if(!this.pseMDMObject.get('mdm_type')){
@@ -136,9 +136,7 @@ class MDMStore {
                     this.mdmProvider = 'mobileIronForm'
                     break;
                 default:
-                    if(!this.alert_msgs.length){
-                        this.alert_msgs.push({ headline: 'Note. ', message: 'Configure MDM to push apps to the system.'});
-                    }
+                    this.mdmProvider = ''
             }
         }
 
@@ -180,17 +178,29 @@ class MDMStore {
                 });
 
                 if(messageObj.error.toLowerCase().includes('credentials')){
-                    const credFields = {
-                        aw_password: '',
-                        aw_userName: '',
-                        ibm_password: '',
-                        ibm_userName: '',
-                        mi_password: '',
-                        mi_userName: ''
-                    };
-                    console.log(this.currentMDMForm.toJS())
+                    let credFields = {};
+
+                    switch (this.mdmProvider) {
+                        case 'airWatchForm':
+                            credFields = {
+                                aw_password: '',
+                                aw_userName: ''
+                            }
+                            break;
+                        case 'ibmForm':
+                            credFields = {
+                                ibm_password: '',
+                                ibm_userName: ''
+                            }
+                            break;
+                        case 'mobileIronForm':
+                            credFields = {
+                                mi_password: '',
+                                mi_userName: ''
+                            }
+                            break;
+                    }
                     this.currentMDMForm.merge(credFields);
-                    console.log(this.currentMDMForm.toJS())
                 }
             }
         }

@@ -36,7 +36,7 @@ export default class ConfigureMDM extends React.Component {
   }
 
   componentWillUnmount() {
-    if(this.store.formHasChanged && !this.store.hasBeenSubmitted){
+    if(this.store.formHasChanged && !this.store.hasBeenSubmitted && this.store.mdmProvider){
       this.store.showExitModal = true;
       history.goBack();
     }
@@ -160,6 +160,8 @@ export default class ConfigureMDM extends React.Component {
     this.isConfigured = this.store.pseMDMObject.get('mdm_type') ? true : false;
 
     let formData = this.isConfigured ? this.store.pseMDMObject.toJS() : this.store.currentMDMForm.toJS();
+
+    console.log(formData)
 
     switch(mdm_provider) {
       case 'airWatchForm':
