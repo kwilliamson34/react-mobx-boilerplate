@@ -214,6 +214,11 @@ class MDMStore {
         return apiService.breakMDMConfiguration().then(success, fail);
     }
 
+    @action pushToMDM(psk) {
+        console.log(psk + 'was pushed to MDM')
+    }
+
+
     // OBSERVABLES
     @observable mdmProvider = '';
     @observable currentMDMForm = observable.map({});

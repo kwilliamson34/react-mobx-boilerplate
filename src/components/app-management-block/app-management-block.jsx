@@ -11,13 +11,18 @@ export default class AppManagementBlock extends React.Component {
     getMatchingApp: PropTypes.func.isRequired,
     changeAppAvailability: PropTypes.func.isRequired,
     changeAppRecommended: PropTypes.func.isRequired,
-    mdmIsConfigured: PropTypes.bool.isRequired
+    mdmIsConfigured: PropTypes.bool.isRequired,
+    pushToMDM: PropTypes.func.isRequired
   }
 
   constructor(props) {
     super(props);
     this.handleAvailableClick = this.handleAvailableClick.bind(this);
     this.handleRecommendedClick = this.handleRecommendedClick.bind(this);
+    this.handlePushToMDM = this.handlePushToMDM.bind(this);
+    this.state = {
+      pushingToMDM:false
+    }
   }
 
   handleAvailableClick(event) {
@@ -51,9 +56,21 @@ export default class AppManagementBlock extends React.Component {
     }
   }
 
+  handlePushToMDM(event) {
+    event.preventDefault();
+    if(this.props.mdmIsConfigured){
+      this.props.pushToMDM(this.props.psk);
+      this.setState({
+        pushingToMDM: true
+      });
+    }
+  }
+
   render() {
     //get the latest matching app object
     this.matchingApp = this.props.getMatchingApp(this.props.psk);
+
+    console.log(this.state.pushingToMDM)
 
     return (
       <div>
@@ -69,8 +86,14 @@ export default class AppManagementBlock extends React.Component {
 						checked={this.matchingApp.isRecommended}
 						disabled={!this.matchingApp.isAvailable}
 						onChange={this.handleRecommendedClick}/>
-          <button id={'Push-' + this.props.psk} aria-disabled={!this.props.mdmIsConfigured} className='fn-primary'>
-            <span>Push to MDM</span>
+          <button id={'Push-' + this.props.psk} onClick={this.handlePushToMDM} aria-disabled={!this.props.mdmIsConfigured} className='fn-primary'>
+            {this.state.pushingToMDM
+              ? <span>
+                  <i className="icon-reload" aria-label="Still Submitting Form"></i>
+                  &nbsp;&nbsp;Submitting&hellip;
+                </span>
+              : <span>Push to MDM</span>
+            }
           </button>
         </div>}
       </div>
