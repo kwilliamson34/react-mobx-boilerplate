@@ -17,67 +17,6 @@ export default class AdminDashboardPage extends React.Component {
     this.linkStore = this.props.store.externalLinkStore;
   }
 
-  togglePushToTalkModal = (event) => {
-    event.preventDefault();
-    this.linkStore.togglePushToTalkModal();
-  }
-
-  setPushToTalkProvider = (provider) => {
-    this.linkStore.setPushToTalkProvider(provider);
-    this.linkStore.togglePushToTalkModal();
-  }
-
-  goToPushToTalkLink = () => {
-    this.linkStore.togglePushToTalkModal();
-  }
-
-  renderPushToTalkModal = () => {
-
-    return (
-      <div>
-        <div id="exitModal" className="modal fade in">
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <button type="button" className="btn close-modal icon-close" onClick={this.togglePushToTalkModal}>
-                <span className="sr-only">close window</span>
-              </button>
-              <div className="row no-gutters">
-                <div className="col-xs-12">
-                  <h1 className="as-h2">Choose push-to-talk provider</h1>
-                  <ul className="ptt-providers">
-                    <li>
-                      <NewTabLink to={this.linkStore.managePushToTalkKodiakLink}>
-                        <label htmlFor="ATT_PTT">AT&T Enhanced Push-to-Talk</label>
-                        <button type="button" id="ATT_PTT" className={this.linkStore.pushToTalkProvider === 'ATT' ? 'ptt-provider active' : 'ptt-provider'} onClick={this.setPushToTalkProvider.bind(this, 'ATT')}>
-                          <img src="/images/attlogo.png" alt="AT&T logo" />
-                        </button>
-                      </NewTabLink>
-                    </li>
-                    <li>
-                      <NewTabLink to={this.linkStore.managePushToTalkMotorolaLink}>
-                        <label htmlFor="FN_PTT">FirstNet Enhanced Push-to-Talk</label>
-                        <button type="button" id="FN_PTT" className={this.linkStore.pushToTalkProvider === 'FN' ? 'ptt-provider active' : 'ptt-provider'} onClick={this.setPushToTalkProvider.bind(this, 'FN')}>
-                          <img src="/images/firstnetlogo.png" alt="FirstNet logo" />
-                        </button>
-                      </NewTabLink>
-                    </li>
-                  </ul>
-                </div>
-                <div className="col-xs-12 text-center ptt-modal-actions">
-                  <Link to="/solutions/push-to-talk/push-to-talk">
-                    <button className='fn-primary' onClick={this.goToPushToTalkLink}>Get Push-To-Talk</button>
-                  </Link>
-                  <button className='fn-secondary' onClick={this.togglePushToTalkModal}>Return to Dashboard</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="modal-backdrop fade in"></div>
-      </div>
-    )
-  }
-
   render() {
     return (
       <article id="admin-dashboard-page">
@@ -101,11 +40,11 @@ export default class AdminDashboardPage extends React.Component {
                       <span>Manage Users <i className="icon-arrowRight" aria-hidden="true"></i></span>
                     </NewTabLink>
                   </li>
-                  <li className="col-xs-12 col-sm-6">
+                  <li className="col-xs-12">
                     <NewTabLink to={this.linkStore.manageServicesLink} className="dashboard-card manage-services has-shadow">
                       <div className="desc">
                         <h3>Manage services & billing</h3>
-                        <p>Assign or remove device, change rate plans &amp; features, view & pay bills, update info</p>
+                        <p>Assign or remove devices, change rate plans &amp; features, view & pay bills, update information, manage push-to-talk</p>
                       </div>
                       <span>Manage services & billing <i className="icon-arrowRight" aria-hidden="true"></i></span>
                     </NewTabLink>
@@ -118,15 +57,6 @@ export default class AdminDashboardPage extends React.Component {
                       </div>
                       <span>Manage apps <i className="icon-arrowRight" aria-hidden="true"></i></span>
                     </Link>
-                  </li>
-                  <li className="col-xs-12 col-sm-6">
-                    <button className="dashboard-card manage-push-talk has-shadow as-link" onClick={this.togglePushToTalkModal}>
-                      <div className="desc">
-                        <h3>Manage push-to-talk</h3>
-                        <p>Create and remove talk groups, add and remove users from talk groups</p>
-                      </div>
-                      <span>Manage Push-to-Talk <i className="icon-arrowRight" aria-hidden="true"></i></span>
-                    </button>
                   </li>
                   <li className="col-xs-12 col-sm-6">
                     <NewTabLink to={this.linkStore.viewWirelessReportsLink} className="dashboard-card manage-wireless-reports has-shadow">
@@ -178,8 +108,6 @@ export default class AdminDashboardPage extends React.Component {
             </aside>
           </div>
         </div>
-
-        {this.linkStore.showPushToTalkModal && this.renderPushToTalkModal()}
       </article>
     )
   }
