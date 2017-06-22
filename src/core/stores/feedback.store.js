@@ -7,18 +7,21 @@ class FeedbackStore {
   @action submitForm(form) {
     const inputs = form.querySelectorAll('input, select, textarea');
     console.log('inputs   ', inputs);
-    for (var i = 0; i < inputs.length && inputs[i].id !== 'feedback-email'; i++) {
-      this.hasErrors[inputs[i].id.replace('feedback-', '')] = inputs[i].value === '';
+    this.showAlertBar = false;
+    this.hasBeenSubmitted = false;
+    for (var i = 0; i < inputs.length && inputs[i].id !== 'feedback_email'; i++) {
+      this.hasErrors[inputs[i].id] = inputs[i].value === '';
     }
     if (this.formIsValid) {
-      //TODO: awaiting service integration;
       console.log('Form submitted!  ', this.feedbackObject);
-      apiService.submitCustomerFeedbackForm(this.feedbackObject)
-      .then((res) => {
-        console.log('RES.DATA    ', res.data);
-        this.hasBeenSubmitted = true;
-      })
-      // this.clearFeedbackForm();
+      // apiService.submitCustomerFeedbackForm(this.feedbackObject)
+      // .then((res) => {
+      //   console.log('RES.DATA    ', res.data);
+        this.clearFeedbackForm();
+      // })
+      // .catch((res) => {
+      //   utilsService.handleError(res);
+      // })
     }
     else {
       this.showAlertBar = true;
@@ -26,16 +29,19 @@ class FeedbackStore {
   }
 
   @action changeValue(input) {
-    this.feedbackObject[input.id.replace('feedback-', '')] = input.value;
+    this.feedbackObject[input.id] = input.value;
   }
 
   @action validateInput(input) {
-    let id = input.id.replace('feedback-', '');
-    this.hasErrors[id] = this.feedbackObject[id].length === 0;
+    this.hasErrors[input.id] = this.feedbackObject[input.id].length === 0;
   }
 
   @action toggleExitModal() {
       this.showExitModal = !this.showExitModal;
+  }
+
+  @action toggleHasBeenSubmitted() {
+    this.hasBeenSubmitted = !this.hasBeenSubmitted;
   }
 
   @action toggleAlertBar() {
@@ -44,31 +50,43 @@ class FeedbackStore {
 
   @action discardFormChanges() {
       this.showExitModal = false;
-      this.hasBeenSubmitted = false;
       this.clearFeedbackForm();
   }
 
   @action clearFeedbackForm() {
+    console.log('FORM CLEAARED');
     this.showExitModal = false;
-    Object.keys(this.feedbackObject).forEach((v) => this.feedbackObject[v] = '');
-    Object.keys(this.hasErrors).forEach((v) => this.hasErrors[v] = false);
+    this.hasBeenSubmitted = false;
+    for (let prop in this.feedbackObject) {
+      this.feedbackObject[prop] = '';
+    }
+    for (let prop in this.hasErrors) {
+      this.hasErrors[prop] = false;
+    }
+    // Object.keys(this.feedbackObject).forEach((v) => this.feedbackObject[v] = '');
+    // Object.keys(this.hasErrors).forEach((v) => this.hasErrors[v] = false);
   }
 
   @computed get formIsValid() {
-    return Object.keys(this.hasErrors).every((v) => this.hasErrors[v] === false);
+    for (let prop in this.hasErrors) {
+      if (this.hasErrors[prop]) {
+        return false;
+      }
+    }
+    return true;
   }
 
   @computed get requiredFieldsEntered() {
     let requiredFieldsEntered = true;
-    for (let key in this.feedbackObject) {
-      if (key !== 'email' && !this.feedbackObject[key].length) requiredFieldsEntered = false;
+    for (let prop in this.feedbackObject) {
+      if (prop !== 'feedback_email' && !this.feedbackObject[prop].length) requiredFieldsEntered = false;
     }
     return requiredFieldsEntered;
   }
 
   @computed get formHasEntries() {
     let formHasEntries = false;
-    if (this.feedbackObject.title.length && this.feedbackObject.details.length) formHasEntries = true;
+    if (this.feedbackObject.feedback_title.length || this.feedbackObject.feedback_details.length) formHasEntries = true;
     return formHasEntries;
   }
 
@@ -76,15 +94,15 @@ class FeedbackStore {
   @observable showAlertBar = false;
   @observable hasBeenSubmitted = false;
   @observable feedbackObject = {
-    title: '',
-    details: '',
-    topic: '',
-    email: ''
+    feedback_title: '',
+    feedback_details: '',
+    feedback_topic: '',
+    feedback_email: userStore.user.email
   };
   @observable hasErrors = {
-    title: false,
-    details: false,
-    topic: false
+    feedback_title: false,
+    feedback_details: false,
+    feedback_topic: false
   };
 }
 
