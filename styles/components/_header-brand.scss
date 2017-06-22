@@ -5,9 +5,6 @@
     display: block;
     width: 100%;
     text-align: center;
-    &:focus {
-      @include focus();
-    }
   }
 
   img {

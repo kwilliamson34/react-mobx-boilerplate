@@ -91,13 +91,12 @@ export default class PSEHeader extends React.Component {
   }
 
 	render() {
-		var mainbarClass = (this.headerStore.mainMenuIsOpen) ? 'fnnav__mainbar open' : 'fnnav__mainbar';
+		//var mainbarClass = (this.headerStore.mainMenuIsOpen) ? 'fnnav__mainbar open' : 'fnnav__mainbar';
+		var mainbarClass = 'fnnav__mainbar open';
 		return (
 			<header className="fnnav pse" role="banner">
 				<div className={mainbarClass}>
 						<div className="container">
-								<div className="row">
-									<div className="col-xs-12">
 										<div className="fnnav__header">
 											<div className="fnnav__brand">
 													<Link to="/">
@@ -118,7 +117,7 @@ export default class PSEHeader extends React.Component {
 										</div>
 										<nav id="main-menu" aria-label="Main Menu" aria-hidden={!this.headerStore.mainMenuIsOpen}>
 												<ul className="fnnav__main">
-														<li className="mainnav-item blue" role="presentation">
+														<li className="mainnav-item yellow" role="presentation">
 																<button className="btnSubmenu"
 																	data-toggle="collapse"
 																	data-target="#pse-profile-nav"
@@ -127,29 +126,30 @@ export default class PSEHeader extends React.Component {
 																		<span className="sr-only">Expand Section Navigation</span>
 																</button>
 																<a id="pse-profile" href="/manage-profile">
-																		<i className="icon-profile" aria-hidden="true" ></i>Lois Lane</a>
+																	<div className="multi-line-item">
+																		<div className="profile-display">
+																			<i className="icon-profile" aria-hidden="true"></i>
+																				{this.userStore.user.firstName + ' ' +  this.userStore.user.lastName}
+																				<div>Seattle Fire Department Engine 110</div>
+																		</div>
+																	</div>
+																</a>
 																<ul id="pse-profile-nav" className="collapse" aria-labelledby="pse-profile">
 																		<li role="presentation">
 																				<Link to="/manage-profile">Manage My Profile</Link>
-																		</li>
-																		<li role="presentation">
-																				<a href="#" onClick={this.onLogout}>
-																					<i className="icon-logout" aria-hidden="true"></i>Log Out
-																				</a>
 																		</li>
 																</ul>
 														</li>
 														<li id="btn-admin"
 															className="mainnav-item desktop-textlink"
 															role="presentation">
-																{/* hiding for demo and until tablet/mobile comps are updated */}
-																{/* <button className="btnSubmenu"
+																<button className="btnSubmenu"
 																	data-toggle="collapse"
 																	data-target="#pse-admin-nav"
 																	aria-haspopup="true"
 																	aria-expanded="false">
-																		<span className="sr-only">Expand Section Navigation</span>
-																</button> */}
+																		<span className="sr-only">Expand Administration Navigation</span>
+																</button>
 																<NavLink id="linkBtn-admin" to="/admin" activeClassName="active">Administration</NavLink>
 																<div className="header-submenu is-flex">
 																<ul id="pse-admin-nav"
@@ -178,7 +178,7 @@ export default class PSEHeader extends React.Component {
 																	<ul id="pse-aside-nav"
 																		className="collapse"
 																		aria-labelledby="linkBtn-admin">
-																		<strong className="visible-md-block visible-lg-block">Shop</strong>
+																			<strong className="visible-md-block visible-lg-block">Shop</strong>
 																	<li>
 																		<NewTabLink to={this.linkStore.shopStandardDevicesLink}>
 																		<i className="icon-external-site" aria-hidden="true" />Rate Plans &amp; Standard Devices</NewTabLink>
@@ -195,16 +195,45 @@ export default class PSEHeader extends React.Component {
 														<li id="hdr-network-status" className="mainnav-item desktop-textlink" role="presentation">
 																<NavLink id="linkBtn-networkStatus" to="/network-status" activeClassName="active">Network Status</NavLink>
 														</li>
-														{/* following only appears in mobile */}
-														<li className="mainnav-item grey" role="presentation">
-																<NavLink activeClassName="active" to="/faq">FAQ</NavLink>
+														<li className="mainnav-item grey">
+															<button className="btnSubmenu"
+																data-toggle="collapse"
+																data-target="#pse-help-menu"
+																aria-haspopup="true"
+																aria-expanded="false">
+																	<span className="sr-only">Expand Administration Navigation</span>
+															</button>
+															<a id="pse-profile" href="/manage-profile">
+																	<i className="icon-help" aria-hidden="true"></i> Help
+															</a>
+															<ul
+																id="pse-help-menu"
+																className="collapse"
+																aria-labelledby="linkBtn-admin">
+																<li>
+																	<NavLink activeClassName="active" to="/faq">FAQ</NavLink>
+																</li>
+																<li>
+																		<NavLink activeClassName="active" to="/feedback">Give Us FeedBack</NavLink>
+																</li>
+																<li>
+																		<a href="tel:800-600-8000">
+																			<div className="multi-line-item">
+																				AT&T CUSTOMER SERVICE: <phone>800-600-8000</phone>
+																		</div></a>
+																</li>
+															</ul>
 														</li>
-														<li className="mainnav-item grey" role="presentation">
-																<NavLink activeClassName="active" to="/feedback">Give Us FeedBack</NavLink>
+
+
+
+														<li className="mainnav-item grey logout" role="presentation">
+																<a href="#" onClick={this.onLogout}>
+																	<i className="icon-logout" aria-hidden="true"></i>Log Out
+																</a>
 														</li>
-														<li className="mainnav-item grey" role="presentation">
-																<a href="tel:800-600-8000">AT&T CUSTOMER SERVICE: <span>800-600-8000</span></a>
-														</li>
+
+
 														{/* Desktop Only Buttons */}
 														<li className="desktop-iconItem dropdown">
 															<button
@@ -253,8 +282,6 @@ export default class PSEHeader extends React.Component {
 														</li>
 												</ul>
 										</nav>
-									</div>
-								</div>
 						</div>
 				</div>
 				<div className="pageMask hidden-md hidden-lg" onClick={this.toggleMainMenu} />
