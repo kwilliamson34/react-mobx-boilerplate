@@ -18,7 +18,7 @@ export default class FeedbackPage extends React.Component {
   }
 
   componentWillMount() {
-    this.feedbackStore.hasBeenSubmitted = true;
+    this.feedbackStore.hasBeenSubmitted = false;
     this.feedbackStore.feedbackObject.email = this.userStore.user.email;
   }
 

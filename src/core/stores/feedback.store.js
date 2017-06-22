@@ -13,7 +13,11 @@ class FeedbackStore {
     if (this.formIsValid) {
       //TODO: awaiting service integration;
       console.log('Form submitted!  ', this.feedbackObject);
-      this.hasBeenSubmitted = true;
+      apiService.submitCustomerFeedbackForm(this.feedbackObject)
+      .then((res) => {
+        console.log('RES.DATA    ', res.data);
+        this.hasBeenSubmitted = true;
+      })
       // this.clearFeedbackForm();
     }
     else {
