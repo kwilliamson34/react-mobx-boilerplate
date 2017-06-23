@@ -108,7 +108,7 @@ export default class FeedbackPage extends React.Component {
   renderAlertBar = () => {
     return (
       <div>
-        <div role="alert" className="alert alert-error">
+        <div role="alert" className="alert alert-error" aria-live="assertive" aria-atomic="true">
           <button type="button" className="close_btn" onClick={this.toggleAlertBar}>
             <span aria-hidden="true" className="icon-close" />
             <span className="sr-only">Close alert</span>
