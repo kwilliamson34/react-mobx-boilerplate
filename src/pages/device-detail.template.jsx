@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import config from 'config';
 import {observer, inject} from 'mobx-react';
 
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
@@ -34,8 +33,12 @@ export default class DeviceDetailTemplate extends React.Component {
 	}
 
 	showPurchasingInfo = (contactInfo) => {
-		let showPurchasingInfo = true;
-		if (Object.keys(contactInfo).every((p) => contactInfo[p] === '')) showPurchasingInfo = false;
+		let showPurchasingInfo = false;
+		for (let key in contactInfo) {
+			if (contactInfo[key] !== '') {
+				showPurchasingInfo = true;
+			}
+		}
 		return showPurchasingInfo;
 	}
 
@@ -54,7 +57,6 @@ export default class DeviceDetailTemplate extends React.Component {
 				pageTitle: this.externalLinkStore.currentDeviceDetail.deviceName
 			}
 		];
-		console.log('DEVICE   ', this.externalLinkStore.currentDeviceDetail);
 		return (
 			<section className="device-detail">
 				<BreadcrumbNav links={crumbs} />
