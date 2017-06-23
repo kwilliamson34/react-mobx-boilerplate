@@ -1,29 +1,33 @@
 import {action, observable, computed} from 'mobx';
 import {apiService} from '../services/api.service';
 import {userStore} from './user.store';
+import { utilsService } from '../services/utils.service';
 
 class FeedbackStore {
 
   @action submitForm(form) {
     const inputs = form.querySelectorAll('input, select, textarea');
-    console.log('inputs   ', inputs);
     this.showAlertBar = false;
     this.hasBeenSubmitted = false;
     for (var i = 0; i < inputs.length && inputs[i].id !== 'feedback_email'; i++) {
       this.hasErrors[inputs[i].id] = inputs[i].value === '';
     }
     if (this.formIsValid) {
-      console.log('Form submitted!  ', this.feedbackObject);
-      // apiService.submitCustomerFeedbackForm(this.feedbackObject)
-      // .then((res) => {
-      //   console.log('RES.DATA    ', res.data);
+      let data = {};
+      for (let key in this.feedbackObject) {
+        data[key.replace('feedback_', '')] = this.feedbackObject[key];
+      }
+      const success = () => {
+        this.hasBeenSubmitted = true;
         this.clearFeedbackForm();
-      // })
-      // .catch((res) => {
-      //   utilsService.handleError(res);
-      // })
-    }
-    else {
+      }
+      const failure = (res) => {
+        utilsService.handleError(res);
+        this.showExitModal = false;
+      }
+      apiService.submitCustomerFeedbackForm(data)
+      .then(success, failure);
+    } else {
       this.showAlertBar = true;
     }
   }
@@ -54,22 +58,24 @@ class FeedbackStore {
   }
 
   @action clearFeedbackForm() {
-    console.log('FORM CLEAARED');
     this.showExitModal = false;
-    this.hasBeenSubmitted = false;
-    for (let prop in this.feedbackObject) {
-      this.feedbackObject[prop] = '';
+    for (let key in this.feedbackObject) {
+      this.feedbackObject[key] = '';
     }
-    for (let prop in this.hasErrors) {
-      this.hasErrors[prop] = false;
+    for (let key in this.hasErrors) {
+      this.hasErrors[key] = false;
     }
-    // Object.keys(this.feedbackObject).forEach((v) => this.feedbackObject[v] = '');
-    // Object.keys(this.hasErrors).forEach((v) => this.hasErrors[v] = false);
+  }
+
+  @action setDefaultEmail() {
+    if (this.feedbackObject.feedback_email === '') {
+      this.feedbackObject.feedback_email = userStore.user.email;
+    }
   }
 
   @computed get formIsValid() {
-    for (let prop in this.hasErrors) {
-      if (this.hasErrors[prop]) {
+    for (let key in this.hasErrors) {
+      if (this.hasErrors[key]) {
         return false;
       }
     }
@@ -78,8 +84,8 @@ class FeedbackStore {
 
   @computed get requiredFieldsEntered() {
     let requiredFieldsEntered = true;
-    for (let prop in this.feedbackObject) {
-      if (prop !== 'feedback_email' && !this.feedbackObject[prop].length) requiredFieldsEntered = false;
+    for (let key in this.feedbackObject) {
+      if (key !== 'feedback_email' && !this.feedbackObject[key].length) requiredFieldsEntered = false;
     }
     return requiredFieldsEntered;
   }

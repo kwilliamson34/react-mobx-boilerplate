@@ -16,8 +16,11 @@ export default class FeedbackPage extends React.Component {
     this.feedbackStore = this.props.store.feedbackStore;
   }
 
+  componentWillMount() {
+    this.feedbackStore.setDefaultEmail();
+  }
+
   componentWillUnmount() {
-    console.log('modal   ', this.feedbackStore.formHasEntries);
     if (this.feedbackStore.formHasEntries && !this.feedbackStore.hasBeenSubmitted) {
         this.feedbackStore.toggleExitModal();
         history.goBack();
@@ -55,6 +58,9 @@ export default class FeedbackPage extends React.Component {
   discardFormChanges = (e) => {
     e.preventDefault();
     this.feedbackStore.clearFeedbackForm();
+    if (this.feedbackStore.hasBeenSubmitted) {
+      this.feedbackStore.toggleHasBeenSubmitted();
+    }
     history.replace('/');
   }
 
@@ -104,7 +110,7 @@ export default class FeedbackPage extends React.Component {
       <div>
         <div role="alert" className="alert alert-error">
           <button type="button" className="close_btn" onClick={this.toggleAlertBar}>
-            <span aria-hidden="true">X</span>
+            <span aria-hidden="true" className="icon-close" />
             <span className="sr-only">Close alert</span>
           </button>
           <p><strong>Error: </strong>Please correct the errors below</p>
