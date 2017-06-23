@@ -131,7 +131,7 @@ export default class FeedbackPage extends React.Component {
             <div className='row'>
 
               <section>
-                <form className="feedback-form col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6" onSubmit={this.handleSubmit}>
+                <form className="feedback-form col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6" noValidate onSubmit={this.handleSubmit}>
                   {this.feedbackStore.showAlertBar && this.renderAlertBar()}
                   <div className={this.feedbackStore.hasErrors.feedback_title ? 'form-group has-error' : 'form-group'}>
                     <label className='control-label' htmlFor='feedback_title'>Title<span className='required-asterisks'> *</span></label><br />
@@ -163,13 +163,16 @@ export default class FeedbackPage extends React.Component {
                     <textarea type='text' id='feedback_details' className='form-control' rows="7" value={this.feedbackStore.feedbackObject.feedback_details.substr(0, 10001)} onChange={this.handleOnChange} onBlur={this.handleOnBlur}/>
                   </div>
                   <div>
-                    <p>
+                    <p className="feedback-text">
                       Your feedback will help us improve your experience. We cannot respond directly to feedback comments, but can follow up with you if you leave your email below. For immediate help, please contact us directly at <a href="tel:+18005747000">1-800-574-7000</a>.
                     </p>
                   </div>
-                  <div className='form-group'>
+                  <div className={this.feedbackStore.hasErrors.feedback_email ? 'form-group has-error' : 'form-group'}>
                     <label className='control-label' htmlFor='feedback_email'>Email (Optional)</label>
-                    <input type='email' id='feedback_email' className='form-control input-lg' value={this.feedbackStore.feedbackObject.feedback_email} onChange={this.handleOnChange}/>
+                      {this.feedbackStore.hasErrors.feedback_email &&
+                        <label className='control-label' htmlFor="feedback_email"><span>Please enter a valid email address</span></label>
+                      }
+                    <input type='email' id='feedback_email' className='form-control input-lg' value={this.feedbackStore.feedbackObject.feedback_email} onChange={this.handleOnChange} onBlur={this.handleOnBlur} />
                   </div>
                   <div className='form-group text-center'>
                     <button type='submit' className={this.feedbackStore.requiredFieldsEntered ? 'feedback-btn fn-primary' : 'feedback-btn fn-primary disabled'} aria-labelledby='feedback-form'>

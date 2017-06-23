@@ -3,15 +3,23 @@ import {apiService} from '../services/api.service';
 import {userStore} from './user.store';
 import { utilsService } from '../services/utils.service';
 
+const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
 class FeedbackStore {
 
   @action submitForm(form) {
     const inputs = form.querySelectorAll('input, select, textarea');
     this.showAlertBar = false;
     this.hasBeenSubmitted = false;
-    for (var i = 0; i < inputs.length && inputs[i].id !== 'feedback_email'; i++) {
-      this.hasErrors[inputs[i].id] = inputs[i].value === '';
+    console.log(this.hasErrors);
+    for (var i = 0; i < inputs.length; ++i) {
+      if (inputs[i].id !== 'feedback_email') {
+        this.hasErrors[inputs[i].id] = inputs[i].value === '';
+      } else if (inputs[i].id === 'feedback_email') {
+        this.hasErrors[inputs[i].id] = inputs[i].value.length > 0 ? !emailRegex.test(inputs[i].value) : false;
+      }
     }
+    console.log(this.hasErrors);
     if (this.formIsValid) {
       let data = {};
       for (let key in this.feedbackObject) {
@@ -37,7 +45,11 @@ class FeedbackStore {
   }
 
   @action validateInput(input) {
-    this.hasErrors[input.id] = this.feedbackObject[input.id].length === 0;
+    if (input.id !== 'feedback_email') {
+      this.hasErrors[input.id] = this.feedbackObject[input.id].length === 0;
+    } else if (input.id === 'feedback_email') {
+      this.hasErrors[input.id] = input.value.length > 0 ? !emailRegex.test(input.value) : false;
+    }
   }
 
   @action toggleExitModal() {
@@ -108,7 +120,8 @@ class FeedbackStore {
   @observable hasErrors = {
     feedback_title: false,
     feedback_details: false,
-    feedback_topic: false
+    feedback_topic: false,
+    feedback_email: false
   };
 }
 

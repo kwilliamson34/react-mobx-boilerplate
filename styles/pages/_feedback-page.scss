@@ -5,7 +5,7 @@
     margin: 6rem 0;
   }
 
-  p {
+  .feedback-text {
     color: $fn-dark;
     font-size: $fn-label-default-size;
   }
@@ -51,7 +51,6 @@
     text-align: center;
 
     p {
-      font-size: $fn-body-default-size;
       padding-bottom: 6rem;
     }
 
