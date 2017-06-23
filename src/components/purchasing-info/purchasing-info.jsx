@@ -5,8 +5,14 @@ import {observer} from 'mobx-react';
 @observer
 export default class PurchasingInfo extends React.Component {
 
-  static PropTypes = {
-    contactInfo: PropTypes.object
+  static propTypes = {
+    contactInfo: PropTypes.shape({
+      contact_name: PropTypes.string,
+      contact_phone: PropTypes.string,
+      contact_email: PropTypes.string,
+      contact_company: PropTypes.string,
+      contact_website: PropTypes.string
+    })
   }
 
   cutContactWebsite = (url) => {
@@ -23,7 +29,7 @@ export default class PurchasingInfo extends React.Component {
           col-sm-offset-1 col-sm-10
           col-md-6 col-md-offset-5
           col-lg-7 col-lg-offset-4">
-          <h2 className="as-h3">For Purchasing</h2>
+          <h2>For Purchasing</h2>
           <div>
             <ul className="purchase-options-list">
               {this.props.contactInfo.contact_name !== '' &&

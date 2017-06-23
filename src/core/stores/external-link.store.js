@@ -34,11 +34,9 @@ class ExternalLinkStore {
 
   @action getDeviceDetailData(devicePath) {
     let device = this.fetchDeviceDetails(devicePath);
-    console.log('device     ', device);
     if (device.length === 1) {
       this.currentDeviceDetail = externalDeviceContentService.filterDeviceDetailData(device[0]);
     } else {
-      console.log('THIS IS THE ERROR');
       history.replace('/error');
     }
   }
