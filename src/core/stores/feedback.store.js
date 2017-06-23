@@ -11,7 +11,6 @@ class FeedbackStore {
     const inputs = form.querySelectorAll('input, select, textarea');
     this.showAlertBar = false;
     this.hasBeenSubmitted = false;
-    console.log(this.hasErrors);
     for (var i = 0; i < inputs.length; ++i) {
       if (inputs[i].id !== 'feedback_email') {
         this.hasErrors[inputs[i].id] = inputs[i].value === '';
@@ -19,7 +18,6 @@ class FeedbackStore {
         this.hasErrors[inputs[i].id] = inputs[i].value.length > 0 ? !emailRegex.test(inputs[i].value) : false;
       }
     }
-    console.log(this.hasErrors);
     if (this.formIsValid) {
       let data = {};
       for (let key in this.feedbackObject) {
