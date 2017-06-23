@@ -62,11 +62,6 @@ class FeedbackStore {
     this.showAlertBar = !this.showAlertBar;
   }
 
-  @action discardFormChanges() {
-      this.showExitModal = false;
-      this.clearFeedbackForm();
-  }
-
   @action clearFeedbackForm() {
     this.showExitModal = false;
     for (let key in this.feedbackObject) {
