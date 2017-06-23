@@ -24,10 +24,14 @@ export default class ManageAppsPage extends React.Component {
 		this.mdmStore = this.props.store.mdmStore;
 		this.pageId = 'manageAppsPage';
 		this.itemsPerPage = 20;
+		this.mdmIsConfigured = this.mdmStore.pseMDMObject.get('mdm_type') ? true : false
 	}
 
 	componentWillMount() {
 		this.mdmStore.getMDMConfiguration();
+		if(!this.mdmIsConfigured && this.mdmStore.alert_msgs.length === 0){
+			this.mdmStore.alert_msgs.push({ headline: 'Note. ', message: 'Configure MDM to push apps to the system.'});
+		}
 	}
 
 	componentDidMount() {
@@ -106,7 +110,7 @@ export default class ManageAppsPage extends React.Component {
 							changeAppAvailability={this.appCatalogStore.changeAppAvailability.bind(this.appCatalogStore)}
 							changeAppRecommended={this.appCatalogStore.changeAppRecommended.bind(this.appCatalogStore)}
 							getMatchingApp={this.appCatalogStore.getMatchingApp.bind(this.appCatalogStore)}
-							mdmIsConfigured={this.mdmStore.pseMDMObject.get('mdm_type') ? true : false}/>
+							mdmIsConfigured={this.mdmIsConfigured}/>
 					</div>
 				</div>
 			</article>
