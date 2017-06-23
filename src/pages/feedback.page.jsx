@@ -35,9 +35,9 @@ export default class FeedbackPage extends React.Component {
     this.feedbackStore.submitForm(e.target);
   }
 
-  handleOnChange = (e) => {
+  handleOnChange = (e, num) => {
     e.preventDefault();
-    this.feedbackStore.changeValue(e.target);
+    this.feedbackStore.changeValue(e.target, num);
   }
 
   handleOnBlur = (e) => {
@@ -138,14 +138,14 @@ export default class FeedbackPage extends React.Component {
                     {this.feedbackStore.hasErrors.feedback_title &&
                       <label className='control-label' htmlFor="feedback_title"><span>Please title your feedback</span></label>
                     }
-                    <input type='text' id='feedback_title' className='form-control input-lg' value={this.feedbackStore.feedbackObject.feedback_title.substr(0, 251)} onChange={this.handleOnChange} onBlur={this.handleOnBlur}/>
+                    <input type='text' id='feedback_title' className='form-control input-lg' value={this.feedbackStore.feedbackObject.feedback_title} onChange={(e) => this.handleOnChange(e, 250)} onBlur={this.handleOnBlur}/>
                   </div>
                   <div className={this.feedbackStore.hasErrors.feedback_topic ? 'form-group has-error' : 'form-group'}>
                     <label className='control-label' htmlFor='feedback_topic'>Topic<span className='required-asterisks'> *</span></label><br />
                     {this.feedbackStore.hasErrors.feedback_topic &&
                       <label className='control-label' htmlFor="feedback_topic"><span>Please select a topic</span></label>
                     }
-                    <select id='feedback_topic' className='form-control form-control-lg' value={this.feedbackStore.feedbackObject.feedback_topic} onChange={this.handleOnChange} onBlur={this.handleOnBlur}>
+                    <select id='feedback_topic' className='form-control form-control-lg' value={this.feedbackStore.feedbackObject.feedback_topic} onChange={(e) => this.handleOnChange(e, 10000)} onBlur={this.handleOnBlur}>
                       <option value='' hidden>Select Feedback Topic</option>
                       <option value='System Performance'>System Performance</option>
                       <option value='App Management'>App Management</option>
@@ -160,7 +160,7 @@ export default class FeedbackPage extends React.Component {
                     {this.feedbackStore.hasErrors.feedback_details &&
                       <label className='control-label' htmlFor="feedback_details"><span>Please summarize your feedback</span></label>
                     }
-                    <textarea type='text' id='feedback_details' className='form-control' rows="7" value={this.feedbackStore.feedbackObject.feedback_details.substr(0, 10001)} onChange={this.handleOnChange} onBlur={this.handleOnBlur}/>
+                    <textarea type='text' id='feedback_details' className='form-control' rows="7" value={this.feedbackStore.feedbackObject.feedback_details} onChange={(e) => this.handleOnChange(e, 10000)} onBlur={this.handleOnBlur}/>
                   </div>
                   <div>
                     <p className="feedback-text">
@@ -172,7 +172,7 @@ export default class FeedbackPage extends React.Component {
                       {this.feedbackStore.hasErrors.feedback_email &&
                         <label className='control-label' htmlFor="feedback_email"><span>Please enter a valid email address</span></label>
                       }
-                    <input type='email' id='feedback_email' className='form-control input-lg' value={this.feedbackStore.feedbackObject.feedback_email} onChange={this.handleOnChange} onBlur={this.handleOnBlur} />
+                    <input type='email' id='feedback_email' className='form-control input-lg' value={this.feedbackStore.feedbackObject.feedback_email} onChange={(e) => this.handleOnChange(e, 10000)} onBlur={this.handleOnBlur} />
                   </div>
                   <div className='form-group text-center'>
                     <button type='submit' className={this.feedbackStore.requiredFieldsEntered ? 'feedback-btn fn-primary' : 'feedback-btn fn-primary disabled'} aria-labelledby='feedback-form'>

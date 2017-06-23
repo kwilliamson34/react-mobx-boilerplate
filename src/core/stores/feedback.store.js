@@ -38,8 +38,8 @@ class FeedbackStore {
     }
   }
 
-  @action changeValue(input) {
-    this.feedbackObject[input.id] = input.value;
+  @action changeValue(input, num) {
+    this.feedbackObject[input.id] = input.value.substr(0, num);
   }
 
   @action validateInput(input) {
