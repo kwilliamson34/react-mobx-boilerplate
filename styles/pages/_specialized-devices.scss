@@ -38,21 +38,6 @@
   }
 
   .device-detail {
-    .purchase-options-list {
-      @extend .clearfix;
-
-      li {
-        font-size: $fn-body-default-size;
-        float: left;
-        width: 100%;
-        margin-bottom: 30px;
-
-        strong {
-          display: inline-block;
-          width: 35%;
-        }
-      }
-    }
 
     .detail-block {
       padding-top: 50px;
@@ -65,13 +50,16 @@
       }
 
       .feature-list {
-        list-style: disc !important;
         margin-left: 15px;
 
-        li {
-          margin-bottom: 1.6rem;
-          line-height: 1.6;
-          font-size: $fn-body-default-size;
+        ul {
+          list-style: disc;
+
+          li {
+            margin-bottom: 1.6rem;
+            line-height: 1.6;
+            font-size: $fn-body-default-size;
+          }
         }
       }
 

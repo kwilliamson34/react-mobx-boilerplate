@@ -16,7 +16,7 @@ export default class PurchasingInfo extends React.Component {
   render() {
     console.log('this.props.contactInfo   ', this.props.contactInfo);
     return(
-      <div className="row">
+      <div id="purchasing-info" className="row">
         <div
           className="
           col-xs-10 col-xs-offset-1
