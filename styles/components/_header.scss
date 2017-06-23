@@ -3,7 +3,6 @@ $fn-mobile-item-height: 60px;
 .fnnav {
   @extend .clearfix;
   border-top: 5px solid $fn-yellow;
-  border-bottom: 1px solid $fn-grey;
 
   &__mainbar {
     background: $fn-white;
@@ -70,6 +69,13 @@ $fn-mobile-item-height: 60px;
   &#hdr-network-status {
     > a {
       border-bottom: 0 none;
+    }
+  }
+
+  &.expanded{
+    background: $focus-darkbg;
+    > a{
+      border-bottom: 1px solid $fn-mdgrey;
     }
   }
 
@@ -168,7 +174,7 @@ $fn-mobile-item-height: 60px;
         border: 0;
       }
     }
-    
+
     > ul{
       border-bottom: 1px solid $fn-white;
     }
@@ -283,7 +289,6 @@ $fn-mobile-item-height: 60px;
   $fn-primary-nav-height: 94px;
 
   .fnnav {
-    border-top: 5px solid $fn-yellow;
     border-bottom: 5px solid $fn-ltblue;
   }
 
@@ -313,7 +318,7 @@ $fn-mobile-item-height: 60px;
     left: auto;
     float: right;
     width: 550px;
-    height: auto;
+    height: $fn-primary-nav-height;
     padding: 0;
     max-width: 550px;
     text-align: right;
@@ -410,6 +415,11 @@ $fn-mobile-item-height: 60px;
     display: none;
   }
 
+  #linkBtn-admin:focus + .header-submenu,
+  #btn-admin:hover .header-submenu {
+    display: flex;
+  }
+
   .header-submenu {
     position: absolute;
     top: 99px;
@@ -477,10 +487,7 @@ $fn-mobile-item-height: 60px;
     }
   }
 
-  #btn-admin:focus .header-submenu,
-  #btn-admin:hover .header-submenu {
-    display: flex;
-  }
+
 }
 @media only screen and (min-width : 1200px) {
   .fnnav__mainbar {
