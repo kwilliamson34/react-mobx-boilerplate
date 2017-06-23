@@ -7,6 +7,7 @@ import {MDMAlerts} from '../components/configure-mdm/mdm-alerts';
 import {AirWatchForm} from '../components/configure-mdm/air-watch-form';
 import {IBMForm} from '../components/configure-mdm/ibm-form';
 import {MobileIronForm} from '../components/configure-mdm/mobile-iron-form';
+import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 
 @inject('store')
 @observer
@@ -35,7 +36,7 @@ export default class ConfigureMDM extends React.Component {
   }
 
   componentWillUnmount() {
-    if(this.store.formHasChanged && !this.store.hasBeenSubmitted){
+    if(this.store.formHasChanged && !this.store.hasBeenSubmitted && this.store.mdmProvider){
       this.store.showExitModal = true;
       history.goBack();
     }
@@ -138,6 +139,21 @@ export default class ConfigureMDM extends React.Component {
 
 	render() {
 
+    const crumbs = [
+      {
+        pageHref: '/admin',
+        pageTitle: 'Administration Dashboard'
+      },
+      {
+        pageHref: '/admin/manage-apps',
+        pageTitle: 'Manage Apps'
+      },
+      {
+        pageHref: '/admin/configure-mdm',
+        pageTitle: 'Configure MDM'
+      }
+    ];
+
     let mdm_provider = this.store.currentMDMForm.get('mdmProvider') || this.store.mdmProvider;
     let mdm_form = null;
 
@@ -161,7 +177,8 @@ export default class ConfigureMDM extends React.Component {
 
 		return (
 			<article id="configure-mdm-page">
-        <div className="container">
+        <BreadcrumbNav links={crumbs}/>
+        <div className="mdm-form-wrapper container">
             {this.isConfigured && <button onClick={this.togglebreakMDMConnection} className= "break-mdm-btn fn-primary" aria-labelledby="break-mdm-connection" aria-disabled={!this.isConfigured}>Break Connection</button>}
             <div className="col-xs-12 text-center">
                 <h1 className="as-h2">Configure Mobile Device Management (MDM)</h1>
@@ -173,7 +190,7 @@ export default class ConfigureMDM extends React.Component {
 
                       {this.store.alert_msgs && <MDMAlerts store = {this.store}/>}
 
-                      <form id="configure-mdm-form" onSubmit={this.handleSubmit} noValidate onBlur={this.updateForm}>
+                      <form id="configure-mdm-form" onSubmit={this.handleSubmit} noValidate onChange={this.updateForm} onBlur={this.updateForm}>
                         
                         {this.isConfigured && <p className="mdm-description">Only one MDM can be configured at a time. To configure a new MDM, the existing connection must be broken. Once the existing connection is broken, a new one can be configured.</p>}
                         
@@ -187,7 +204,7 @@ export default class ConfigureMDM extends React.Component {
                               disabled={this.isConfigured}>
                               <option value="">Select MDM</option>
                               <option value="airWatchForm">Airwatch</option>
-                              <option value="ibmForm">IBM Maas 360</option>
+                              <option value="ibmForm">IBM MaaS360</option>
                               <option value="mobileIronForm">MobileIron</option>
                             </select>
                         </div>

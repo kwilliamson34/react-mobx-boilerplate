@@ -13,6 +13,7 @@ class MDMStore {
         }
 
         this.mdmProvider = mdmProvider;
+        this.clearAlerts();
         this.formIsValid = false;
     }
 
@@ -66,22 +67,30 @@ class MDMStore {
 
         this.clearAlerts();
 
-        for (let i = 0; i < inputs.length; i++) {
-            if(inputs[i].id !== 'mdm'){
-                mdmConfig[inputs[i].id] = inputs[i].value;
+        if(inputs.length > 1 ) {
+            for (let i = 0; i < inputs.length; i++) {
+                if(inputs[i].id !== 'mdm') {
+                    mdmConfig[inputs[i].id] = inputs[i].value;
+                }
             }
+
         }
-        this.currentMDMForm.merge(mdmConfig);
+
         
         if (this.formIsValid) {
             this.beingSubmitted = true;
+            // this.currentMDMForm.merge(mdmConfig);
             this.setMDMConfiguration(mdmConfig);
         } else {
-            this.alert_msgs.push({
-                type: 'error',
-                headline: 'Error: ',
-                message: 'Please correct the errors below.'
-            });
+            if(!this.pseMDMObject.get('mdm_type')){
+                let error_msg = inputs.length > 1 ? 'Please correct the errors below.' : 'Please  select an MDM';
+
+                this.alert_msgs.push({
+                    type: 'error',
+                    headline: 'Error: ',
+                    message: error_msg
+                });
+            }
         }
     }
 
@@ -127,9 +136,7 @@ class MDMStore {
                     this.mdmProvider = 'mobileIronForm'
                     break;
                 default:
-                    if(!this.alert_msgs.length){
-                        this.alert_msgs.push({ headline: 'Note. ', message: 'Configure MDM to push apps to the system.'});
-                    }
+                    this.mdmProvider = ''
             }
         }
 
@@ -149,6 +156,7 @@ class MDMStore {
         const success = (resp) => {
             let messageObj = resp.data;
             this.showExitModal = false;
+            this.formHasChanged = false;
             this.beingSubmitted = false;
             this.alert_msgs = [];
 
@@ -168,6 +176,32 @@ class MDMStore {
                     headline: 'Error: ',
                     message: messageObj.error
                 });
+
+                if(messageObj.error.toLowerCase().includes('credentials')){
+                    let credFields = {};
+
+                    switch (this.mdmProvider) {
+                        case 'airWatchForm':
+                            credFields = {
+                                aw_password: '',
+                                aw_userName: ''
+                            }
+                            break;
+                        case 'ibmForm':
+                            credFields = {
+                                ibm_password: '',
+                                ibm_userName: ''
+                            }
+                            break;
+                        case 'mobileIronForm':
+                            credFields = {
+                                mi_password: '',
+                                mi_userName: ''
+                            }
+                            break;
+                    }
+                    this.currentMDMForm.merge(credFields);
+                }
             }
         }
         const fail = (err) => {
