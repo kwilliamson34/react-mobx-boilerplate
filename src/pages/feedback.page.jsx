@@ -138,7 +138,7 @@ export default class FeedbackPage extends React.Component {
                     {this.feedbackStore.hasErrors.feedback_title &&
                       <label className='control-label' htmlFor="feedback_title"><span>Please title your feedback</span></label>
                     }
-                    <input type='text' id='feedback_title' maxLength="250" className='form-control input-lg' value={this.feedbackStore.feedbackObject.feedback_title} onChange={this.handleOnChange} onBlur={this.handleOnBlur}/>
+                    <input type='text' id='feedback_title' className='form-control input-lg' value={this.feedbackStore.feedbackObject.feedback_title.substr(0, 251)} onChange={this.handleOnChange} onBlur={this.handleOnBlur}/>
                   </div>
                   <div className={this.feedbackStore.hasErrors.feedback_topic ? 'form-group has-error' : 'form-group'}>
                     <label className='control-label' htmlFor='feedback_topic'>Topic<span className='required-asterisks'> *</span></label><br />
@@ -160,7 +160,7 @@ export default class FeedbackPage extends React.Component {
                     {this.feedbackStore.hasErrors.feedback_details &&
                       <label className='control-label' htmlFor="feedback_details"><span>Please summarize your feedback</span></label>
                     }
-                    <textarea type='text' id='feedback_details' maxLength="10000" className='form-control' rows="7" value={this.feedbackStore.feedbackObject.feedback_details} onChange={this.handleOnChange} onBlur={this.handleOnBlur}/>
+                    <textarea type='text' id='feedback_details' className='form-control' rows="7" value={this.feedbackStore.feedbackObject.feedback_details.substr(0, 10001)} onChange={this.handleOnChange} onBlur={this.handleOnBlur}/>
                   </div>
                   <div>
                     <p>
