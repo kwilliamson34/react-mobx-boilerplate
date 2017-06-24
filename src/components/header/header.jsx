@@ -41,8 +41,7 @@ export default class PSEHeader extends React.Component {
 	};
 
 	render() {
-		//var mainbarClass = (this.headerStore.mainMenuIsOpen) ? 'fnnav__mainbar open' : 'fnnav__mainbar';
-		var mainbarClass = 'fnnav__mainbar open';
+		var mainbarClass = (this.headerStore.mainMenuIsOpen) ? 'fnnav__mainbar open' : 'fnnav__mainbar';
 		return (
 			<header className="fnnav pse" role="banner">
 				<div className={mainbarClass}>
@@ -77,10 +76,9 @@ export default class PSEHeader extends React.Component {
 								<li className="mainnav-item yellow" role="presentation">
 									<button
 										className="btnSubmenu"
-										data-toggle="collapse"
-										data-target="#pse-profile-nav"
+										onClick={this.toggleProfileSubMenu}
 										aria-haspopup="true"
-										aria-expanded="false">
+										aria-expanded={this.headerStore.profileSubMenuIsOpen}>
 										<span className="sr-only">Expand Section Navigation</span>
 									</button>
 									<a id="pse-profile" href="/manage-profile">
@@ -96,7 +94,11 @@ export default class PSEHeader extends React.Component {
 									</a>
 									<ul
 										id="pse-profile-nav"
-										className="collapse"
+										className={
+											this.headerStore.profileSubMenuIsOpen
+												? 'collapse in'
+												: 'collapse'
+										}
 										aria-labelledby="pse-profile">
 										<li role="presentation">
 											<Link to="/manage-profile">Manage My Profile</Link>
@@ -111,22 +113,21 @@ export default class PSEHeader extends React.Component {
 											: 'mainnav-item desktop-textlink'
 									}
 									role="presentation">
+									<button
+										className="btnSubmenu"
+										onClick={this.toggleAdminSubMenu}
+										aria-haspopup="true"
+										aria-expanded={this.headerStore.adminSubMenuIsOpen}>
+										<span className="sr-only">
+											Expand Administration Navigation
+										</span>
+									</button>
 									<NavLink
 										id="linkBtn-admin"
 										to="/admin"
 										activeClassName="active">
 										Administration
 									</NavLink>
-									<button
-										className="btnSubmenu"
-										onClick={this.toggleAdminSubMenu}
-										aria-haspopup="true"
-										aria-controls="admin-submenu"
-										aria-expanded={this.headerStore.adminSubMenuIsOpen}>
-										<span className="sr-only">
-											Expand Administration Navigation
-										</span>
-									</button>
 									<div id="admin-submenu" className="header-submenu">
 										<ul
 											id="pse-admin-nav"
@@ -176,7 +177,7 @@ export default class PSEHeader extends React.Component {
 											}
 											aria-labelledby="linkBtn-admin">
 											<strong className="visible-md-block visible-lg-block">
-												Shop
+												Purchasing &amp; Provisioning
 											</strong>
 											<li>
 												<NewTabLink to={this.linkStore.shopStandardDevicesLink}>
@@ -211,10 +212,9 @@ export default class PSEHeader extends React.Component {
 								<li className="mainnav-item grey">
 									<button
 										className="btnSubmenu"
-										data-toggle="collapse"
-										data-target="#pse-help-menu"
+										onClick={this.toggleHelpSubMenu}
 										aria-haspopup="true"
-										aria-expanded="false">
+										aria-expanded={this.headerStore.helpSubMenuIsOpen}>
 										<span className="sr-only">
 											Expand Administration Navigation
 										</span>
@@ -224,7 +224,11 @@ export default class PSEHeader extends React.Component {
 									</a>
 									<ul
 										id="pse-help-menu"
-										className="collapse"
+										className={
+											this.headerStore.helpSubMenuIsOpen
+												? 'collapse in'
+												: 'collapse'
+										}
 										aria-labelledby="linkBtn-admin">
 										<li>
 											<NavLink activeClassName="active" to="/faq">FAQ</NavLink>
@@ -237,7 +241,7 @@ export default class PSEHeader extends React.Component {
 										<li>
 											<a href="tel:800-600-8000">
 												<div className="multi-line-item">
-													AT&T CUSTOMER SERVICE: <phone>800-600-8000</phone>
+													AT&amp;T Customer Service: <phone><i className="icon-phone-number" aria-hidden="true"></i>800-600-8000</phone>
 												</div>
 											</a>
 										</li>
@@ -255,7 +259,8 @@ export default class PSEHeader extends React.Component {
 									<button
 										id="profile-header-dropdown"
 										type="button"
-										className="dropdown-toggle"
+
+										className={(this.props.location.pathname === '/manage-profile')? 'dropdown-toggle active':'dropdown-toggle'}
 										data-toggle="dropdown">
 										<i
 											className="icon-profile"
@@ -270,7 +275,7 @@ export default class PSEHeader extends React.Component {
 										aria-labelledby="profile-header-dropdown">
 										<li role="presentation">
 											<NavLink to="/manage-profile" activeClassName="active">
-												Manage My Profile
+												<i className="icon-settings" aria-hidden="true"></i>Manage My Profile
 											</NavLink>
 										</li>
 										<li role="presentation">
@@ -303,7 +308,7 @@ export default class PSEHeader extends React.Component {
 										</li>
 										<li role="presentation">
 											<a href="tel:800-600-8000" className="tel-cell">
-												AT&T CUSTOMER SERVICE: <br /><span>800-600-8000</span>
+												AT&amp;T Customer Service: <br /><span><i className="icon-phone-number" aria-hidden="true"></i>800-600-8000</span>
 											</a>
 										</li>
 									</ul>
