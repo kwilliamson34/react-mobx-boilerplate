@@ -37,8 +37,8 @@ $fn-mobile-item-height: 60px;
   font-size: 14px;
   background: $fn-white;
 
-   > a,
-  > span {
+   > span,
+  > a {
     display: block;
     height: $fn-mobile-item-height;
     line-height: $fn-mobile-item-height;
@@ -99,8 +99,8 @@ $fn-mobile-item-height: 60px;
     }
   }
 
-   > ul,
-  .header-submenu > ul {
+  .header-submenu > ul,
+  > ul {
     max-height: 500px;
     overflow: hidden;
     padding: 0 30px;
@@ -132,9 +132,9 @@ $fn-mobile-item-height: 60px;
     background: $fn-yellow;
     color: $fn-dkgrey;
 
-     > a,
+     > ul a,
     .btnSubmenu:before,
-    > ul a {
+    > a {
       color: $fn-dkgrey;
     }
 
@@ -145,27 +145,27 @@ $fn-mobile-item-height: 60px;
       border-bottom: 1px solid $mobile-border-yellow;
     }
 
-    .btnSubmenu{
+    .btnSubmenu {
       margin: 5px 0;
+
       &[aria-expanded=false] + a {
         border-bottom: 0;
       }
     }
-
   }
 
   &.grey {
     background: $fn-dkgrey;
     border: 0;
 
-     > a,
      > ul a,
-    .btnSubmenu {
+    .btnSubmenu,
+    > a {
       color: $fn-white;
     }
 
-    > a,
-    > ul {
+     > ul,
+    > a {
       border-bottom: 1px solid $mobile-border-dkgrey;
     }
 
@@ -174,8 +174,6 @@ $fn-mobile-item-height: 60px;
         border: 0;
       }
     }
-
-
   }
 
   .multi-line-item {
@@ -204,6 +202,7 @@ $fn-mobile-item-height: 60px;
     white-space: nowrap;
   }
 }
+
 .pageMask {
   position: fixed;
   top: 5px;
@@ -217,7 +216,6 @@ $fn-mobile-item-height: 60px;
 /* mobile */
 @media only screen and (min-width : 0px) {
   $fn-primary-nav-height: 60px;
-
 
   .fnnav {
     border-bottom: 1px solid $fn-grey;
@@ -272,7 +270,6 @@ $fn-mobile-item-height: 60px;
 @media only screen and (min-width : 768px) {
   $fn-primary-nav-height: 98px;
 
-
   .fnnav {
     border-bottom: 1px solid $fn-grey;
   }
@@ -318,8 +315,8 @@ $fn-mobile-item-height: 60px;
 @media only screen and (min-width : 992px) {
   $fn-primary-nav-height: 94px;
 
-  .pageMask{
-    display:none;
+  .pageMask {
+    display: none;
   }
 
   .fnnav {
@@ -462,6 +459,7 @@ $fn-mobile-item-height: 60px;
     &.expanded {
       background: $fn-white;
     }
+
     .header-submenu {
       position: absolute;
       top: 99px;

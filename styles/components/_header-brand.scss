@@ -1,8 +1,9 @@
 .fnnav__brand {
   display: inline-block;
-  z-index:100;
+  z-index: 100;
   position: relative;
   background: $fn-white;
+
   > a {
     display: block;
     width: 100%;
@@ -14,22 +15,22 @@
     width: 100%;
   }
 }
-
 @media #{$mobile} {
   .fnnav__brand {
     width: calc(100% - 49px);
     height: 49px;
+
     > a {
       margin: 16px auto;
       max-width: 220px;
     }
   }
 }
-
 @media #{$tablet} {
   .fnnav__brand {
-  width: calc(100% - 73px);
-  height: 98px;
+    width: calc(100% - 73px);
+    height: 98px;
+
     > a {
       margin: 24px auto 0;
       max-width: 440px;
@@ -40,6 +41,7 @@
   .fnnav__brand {
     width: 100%;
     height: 94px;
+
     > a {
       margin: 24px auto;
       text-align: left;

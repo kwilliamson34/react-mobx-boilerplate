@@ -9,7 +9,8 @@ import 'bootstrap';
 @observer
 export default class PSEHeader extends React.Component {
 	static propTypes = {
-		store: PropTypes.observableObject.isRequired
+		store: PropTypes.observableObject.isRequired,
+		location: PropTypes.object
 	};
 
 	constructor(props) {
@@ -259,7 +260,6 @@ export default class PSEHeader extends React.Component {
 									<button
 										id="profile-header-dropdown"
 										type="button"
-
 										className={(this.props.location.pathname === '/manage-profile')? 'dropdown-toggle active':'dropdown-toggle'}
 										data-toggle="dropdown">
 										<i
@@ -289,7 +289,7 @@ export default class PSEHeader extends React.Component {
 									<button
 										id="help-header-dropdown"
 										type="button"
-										className="dropdown-toggle"
+										className={(this.props.location.pathname === '/faq' || this.props.location.pathname === '/feedback')? 'dropdown-toggle active':'dropdown-toggle'}
 										data-toggle="dropdown">
 										<i className="icon-help" aria-label="Go to Help Center" />
 									</button>
