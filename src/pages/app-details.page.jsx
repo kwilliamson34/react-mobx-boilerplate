@@ -14,6 +14,10 @@ import ShowMoreOrLess from '../components/show-more-or-less/show-more-or-less';
 //import mock response from services
 const appDetail = require('../fixtures/mock-app-detail.json');
 
+const exThree = '<h1>HTML Ipsum Presents</h1><p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum<br /> tortor<br /> quam,<br /> feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. <strong>Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi,</strong> condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p><h2>Header Level 2</h2><ol><li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li><li>Aliquam tincidunt mauris eu risus.</li></ol><blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p></blockquote><h3>Header Level 3</h3><ul><li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li><li>Aliquam tincidunt mauris eu risus.</li></ul>';
+
+const exShort = 'Hubble bubble';
+
 @inject('store')
 @observer
 export default class AppDetailsPage extends React.Component {
@@ -124,10 +128,8 @@ export default class AppDetailsPage extends React.Component {
             <div className="row">
               <div className="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
                 <h2 id="app-details-description">Description</h2>
-                <ShowMoreOrLess returnToId="app-details-description" charLimit={500}>
-									<div className="content-description">
-										{this.appStore.currentAppObject.long_description}
-									</div>
+                <ShowMoreOrLess addClasses="content-description" returnToId="app-details-description" charLimit={500}>
+										{exThree}
 								</ShowMoreOrLess>
               </div>
             </div>
