@@ -53,9 +53,9 @@ a {
 button {
   &[aria-disabled="true"],
   &[disabled] {
-    background-color: #E1E1E1 !important;
-    color: #909090 !important;
-    border: 1px solid #E1E1E1 !important;
+    background-color: $fn-grey !important;
+    color: $fn-mdgrey !important;
+    border: 1px solid $fn-grey !important;
     pointer-events: none;
   }
 }
