@@ -122,7 +122,7 @@ class ExternalLinkStore {
     deviceImgAlt: ''
   };
 
-  @observable manageUsersLink = 'https://profilemgt.firstnet.att.com/ebiz/firstnet/index.jsp';
+  @observable manageUsersLink = 'https://test-profilemgt.firstnet.att.com/ebiz/firstnet/';
   @observable manageServicesLink = 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn';
   @observable viewWirelessReportsLink = 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn?requestedPage=downloadReports';
   @observable shopStandardDevicesLink = 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn';
