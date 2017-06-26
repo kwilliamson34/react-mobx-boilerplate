@@ -45,6 +45,22 @@ a {
     opacity: 0;
   }
 }
+
+/* Use aria-disabled to style a button to appear disabled, so it's also 
+   conveyed to screen readers while letting SC users focus on it. 
+   The "true" string is required.
+*/
+button {
+  &[aria-disabled="true"],
+  &[disabled] {
+    background-color: #E1E1E1 !important;
+    color: #909090 !important;
+    border: 1px solid #E1E1E1 !important;
+    pointer-events: none;
+  }
+}
+
+
 /* XS */
 @media only screen and (min-width : 320px) {
   .back-to-top{
