@@ -240,9 +240,9 @@ export default class PSEHeader extends React.Component {
 											</NavLink>
 										</li>
 										<li>
-											<a href="tel:800-600-8000">
+											<a href="tel:800-574-7000">
 												<div className="multi-line-item">
-													AT&amp;T Customer Service: <phone><i className="icon-phone-number" aria-hidden="true"></i>800-600-8000</phone>
+													AT&amp;T Customer Service: <phone><i className="icon-phone-number" aria-hidden="true"></i>800-574-7000</phone>
 												</div>
 											</a>
 										</li>
@@ -307,8 +307,8 @@ export default class PSEHeader extends React.Component {
 											</NavLink>
 										</li>
 										<li role="presentation">
-											<a href="tel:800-600-8000" className="tel-cell">
-												AT&amp;T Customer Service: <br /><span><i className="icon-phone-number" aria-hidden="true"></i>800-600-8000</span>
+											<a href="tel:800-574-7000" className="tel-cell">
+												AT&amp;T Customer Service: <br /><span><i className="icon-phone-number" aria-hidden="true"></i>800-574-7000</span>
 											</a>
 										</li>
 									</ul>
