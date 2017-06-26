@@ -66,7 +66,7 @@ export default class ConfigureMDM extends React.Component {
 
   discardFormChanges = (event) => {
     event.preventDefault();
-    this.store.discardFormChanges();
+    this.store.resetMDMForm();
     history.replace('/admin/manage-apps');
   }
 
@@ -157,7 +157,7 @@ export default class ConfigureMDM extends React.Component {
       }
     ];
 
-    let mdm_provider = this.store.currentMDMForm.get('mdmProvider') || this.store.mdmProvider;
+    let mdm_provider = this.store.mdmProvider;
     let mdm_form = null;
 
     this.isConfigured = this.store.pseMDMObject.get('mdm_type') ? true : false;
@@ -177,11 +177,6 @@ export default class ConfigureMDM extends React.Component {
       default:
         mdm_form = null;
     }
-
-    // if(this.store.showbreakMDMConnection){
-    //       console.log(document.getElementById("breakConnectionModal"))
-    //   document.getElementById("breakConnectionModal").focus();
-    // }
 
 		return (
 			<article id="configure-mdm-page">
@@ -207,7 +202,6 @@ export default class ConfigureMDM extends React.Component {
                             <select id="mdm"
                               className={`form-control ${mdm_provider ==='' && 'placeholder'}`}
                               onChange={this.updateMDM}
-                              onBlur={this.updateMDM}
                               value={mdm_provider}
                               disabled={this.isConfigured}>
                               <option value="">Select MDM</option>
