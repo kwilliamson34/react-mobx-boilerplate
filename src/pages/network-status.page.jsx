@@ -26,7 +26,7 @@ export default class NetworkStatusPage extends React.Component {
 				<iframe
 					id="geolink_static_assets"
 					src={config.geolinkScripts + '/libs/jquery/jquery.min.js'}
-					style={{width: 0, height: 0, padding: 0, margin: 0, border: '0 none'}}>
+					style={{width: 0, height: 0, padding: 0, margin: 0, border: '0 none',position: 'absolute',top:'0',left:0}}>
 				</iframe>
 				{this.props.store.geolinkStore.isGeolinkReady &&
 					<GeolinkMap geolinkStore={this.props.store.geolinkStore}/>
