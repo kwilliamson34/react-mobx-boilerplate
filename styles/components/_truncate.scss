@@ -1,8 +1,7 @@
 .truncate-container {
   display: block;
   position: relative;
-  overflow: hidden;
-  word-break: break-all;
+  overflow-wrap: break-word;
   margin-top: 10px;
 
   .truncate-button {
@@ -29,9 +28,11 @@
     p {
       margin: 0;
 
-    }
-    > ul li {
-      list-style: disc;
+      ul, ol {
+        list-style: disc;
+        margin: 10px 0 10px 50px;
+        line-height: 1.75;
+      }
     }
   }
 }
