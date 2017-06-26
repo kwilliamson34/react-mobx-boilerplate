@@ -72,7 +72,7 @@ export default class AdminDashboardPage extends React.Component {
             </section>
             <aside className="col-xs-12 col-lg-4 shop-actions">
               <div className="col-xs-12">
-                <h2 className="as-h4">Purchasing and Provisioning</h2>
+                <h2 className="as-h4">Purchasing &amp; Provisioning</h2>
               </div>
               <nav>
                 <ul>
@@ -91,7 +91,7 @@ export default class AdminDashboardPage extends React.Component {
                         <h3>Shop specialized devices</h3>
                         <p>Purchase ruggedized devices, vehicle routers, etc.</p>
                       </div>
-                      <span>Shop Specialized <i className="icon-arrowRight" aria-hidden="true"></i></span>
+                      <span>Shop Specialized Devices<i className="icon-arrowRight" aria-hidden="true"></i></span>
                     </Link>
                   </li>
                   <li className="col-xs-12 col-md-6 col-lg-12">
@@ -100,7 +100,7 @@ export default class AdminDashboardPage extends React.Component {
                         <h3>Shop public safety solutions</h3>
                         <p>Browse public safety solutions and choose which are best for your organization</p>
                       </div>
-                      <span>Shop Solutions <i className="icon-arrowRight" aria-hidden="true"></i></span>
+                      <span>Shop Public Safety Solutions <i className="icon-arrowRight" aria-hidden="true"></i></span>
                     </Link>
                   </li>
                 </ul>

@@ -13,7 +13,7 @@ export default class GeolinkMap extends React.Component {
 
     this.props.geolinkStore.loadGeolinkHtml().then(() => {
       //write the html into the iframe
-      var doc = document.getElementsByTagName('iframe')[0].contentWindow.document;
+      var doc = this.props.geolinkStore.mapIframeRef.contentWindow.document;
       doc.open();
       doc.write(this.props.geolinkStore.geolinkHtml);
       doc.close();
@@ -44,6 +44,7 @@ export default class GeolinkMap extends React.Component {
       <section className="geolink-map">
         <div className="map-wrapper">
           <iframe
+            id="coverage-map"
             title="Interactive Coverage Map"
             ref={(ref) => this.props.geolinkStore.mapIframeRef = ref}/>
         </div>

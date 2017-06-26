@@ -136,8 +136,6 @@ class ApiService {
     setMDMConfiguration(mdmConfig) {
       mdmConfig.pse_id = userStore.user.pse;
 
-      console.log(mdmConfig)
-      
       return axios({
         method: 'post',
         url: `${base}/pse/mdm`,
@@ -147,6 +145,14 @@ class ApiService {
 
     breakMDMConfiguration() {
       return axios.delete(`${base}/pse/mdm/${userStore.user.pse}`);
+    }
+
+    submitCustomerFeedbackForm(feedbackObject) {
+      return axios({
+        method: 'post',
+        url: `${base}/customerfeedback`,
+        data: feedbackObject
+      });
     }
 }
 
