@@ -25,11 +25,13 @@
     }
   }
 
-  // > p {
-  //   margin: 0;
-  //
-  //   > ul, ol {
-  //     list-style: disc;
-  //   }
-  // }
+  .truncate-contents {
+    p {
+      margin: 0;
+
+    }
+    > ul li {
+      list-style: disc;
+    }
+  }
 }

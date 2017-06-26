@@ -78,7 +78,7 @@ export default class ShowMoreOrLess extends React.Component {
 
       let isHtmlElement = singleHtmlRegex.test(element);
       truncateBlock += element;
-      
+
       if (!isHtmlElement) {
         charCount += element.length
       };
@@ -125,7 +125,7 @@ export default class ShowMoreOrLess extends React.Component {
 
   renderNodes = (wholeBlock, truncateBlock) => {
     return (
-      <span>
+      <span className="truncate-contents">
         {this.shouldTruncate && this.isTruncated
           ? <p dangerouslySetInnerHTML={{__html: `${truncateBlock}`}} />
           : <p dangerouslySetInnerHTML={{__html: `${wholeBlock}`}} />
