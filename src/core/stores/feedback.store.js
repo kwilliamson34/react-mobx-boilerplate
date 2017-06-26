@@ -35,7 +35,6 @@ class FeedbackStore {
       .then(success, failure);
     } else {
       this.showAlertBar = true;
-      this.submissionAttempted = true;
     }
   }
 
@@ -68,6 +67,7 @@ class FeedbackStore {
 
   @action clearFeedbackForm() {
     this.showExitModal = false;
+    this.showAlertBar = false;
     for (let key in this.feedbackObject) {
       this.feedbackObject[key] = '';
     }
