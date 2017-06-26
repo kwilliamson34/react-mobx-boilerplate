@@ -61,7 +61,7 @@ class ApiService {
     }
 
     getAppDetails(appPSK) {
-      return axios.get(`${base}/app?appPsk=${appPSK}&pseId=${userStore.user.pse}`).then(res => {
+      return axios.get(`${base}/app/admin?appPsk=${appPSK}&pseId=${userStore.user.pse}`).then(res => {
         let arrayRes = [];
         arrayRes.push(res.data);
         return arrayRes;
