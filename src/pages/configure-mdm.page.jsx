@@ -58,6 +58,8 @@ export default class ConfigureMDM extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.store.submitForm(event.target)
+    window.scrollTo(0, 0);
+    document.getElementById('mdm-alerts').focus();
   }
 
   // MDM Modals Functions
@@ -76,6 +78,7 @@ export default class ConfigureMDM extends React.Component {
   toggleExitModal = (event) => {
     event.preventDefault();
     this.store.toggleExitModal()
+    document.getElementById('exitModal').focus();
   }
 
   togglebreakMDMConnection = (event) => {
@@ -86,7 +89,7 @@ export default class ConfigureMDM extends React.Component {
   renderExitModal = () => {
     return (
       <div>
-        <div id="exitModal" className="modal fade in">
+        <div id="exitModal" className="modal fade in" tabIndex="1">
           <div className="modal-dialog">
             <div className="modal-content">
               <button type="button" className="btn close-modal icon-close" onClick={this.toggleExitModal}>
@@ -112,8 +115,8 @@ export default class ConfigureMDM extends React.Component {
 
   renderBreakConnectionModal = () => {
     return (
-      <div>
-        <div id="breakConnectionModal" className="modal fade in">
+      <div id="breakConnectionModal" >
+        <div className="modal fade in" tabIndex="1">
           <div className="modal-dialog">
             <div className="modal-content">
               <button type="button" className="btn close-modal icon-close" onClick={this.togglebreakMDMConnection}>
@@ -175,6 +178,11 @@ export default class ConfigureMDM extends React.Component {
         mdm_form = null;
     }
 
+    // if(this.store.showbreakMDMConnection){
+    //       console.log(document.getElementById("breakConnectionModal"))
+    //   document.getElementById("breakConnectionModal").focus();
+    // }
+
 		return (
 			<article id="configure-mdm-page">
         <BreadcrumbNav links={crumbs}/>
@@ -228,7 +236,7 @@ export default class ConfigureMDM extends React.Component {
         </div>
 
         {this.store.showExitModal && this.renderExitModal()}
-        {(this.isConfigured &&this.store.showbreakMDMConnection) && this.renderBreakConnectionModal()}
+        {(this.isConfigured && this.store.showbreakMDMConnection) && this.renderBreakConnectionModal()}
 
       </article>
 		)
