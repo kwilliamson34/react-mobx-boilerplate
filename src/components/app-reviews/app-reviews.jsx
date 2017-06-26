@@ -4,7 +4,7 @@ import { observer } from 'mobx-react';
 import { observable } from 'mobx';
 
 import { Rating } from '../rating/rating';
-import TruncateComment from '../truncate-comment/truncate-comment';
+import Truncate from '../truncate/truncate';
 
 @observer
 export default class AppReviews extends React.Component {
@@ -62,7 +62,9 @@ export default class AppReviews extends React.Component {
             <Rating rating={node.reviewStar} />
           </div>
           <div className='review-date'>{normalizedDate}</div>
-          <TruncateComment sourceId={node.reviewId} text={node.comment} />
+          <Truncate returnToId={'Review-' + node.reviewId} charLimit={300} className='truncate-container'>
+            {node.comment}
+          </Truncate>
         </div>
       )
     })

@@ -1,0 +1,35 @@
+.truncate-container {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  word-break: break-all;
+  margin-top: 10px;
+
+  .truncate-button {
+    position: relative;
+    font-weight: $fn-bold-weight;
+    font-size: $fn-button-default-size;
+    float: left;
+    line-height: 1.25;
+    color: $fn-ltblue;
+    margin-top: 20px;
+    text-decoration: none !important;
+    border: 0 !important;
+
+    &:focus {
+      @include focus();
+    }
+
+    i {
+      padding-left: 5px;
+    }
+  }
+
+  // > p {
+  //   margin: 0;
+  //
+  //   > ul, ol {
+  //     list-style: disc;
+  //   }
+  // }
+}

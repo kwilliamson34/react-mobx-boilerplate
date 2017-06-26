@@ -9,7 +9,7 @@ import ScreenshotGallery from '../components/screenshot-gallery/screenshot-galle
 import AppManagementBlock from '../components/app-management-block/app-management-block';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 
-import ShowMoreOrLess from '../components/show-more-or-less/show-more-or-less';
+import Truncate from '../components/truncate/truncate';
 
 //import mock response from services
 const appDetail = require('../fixtures/mock-app-detail.json');
@@ -17,6 +17,8 @@ const appDetail = require('../fixtures/mock-app-detail.json');
 const exThree = '<h1>HTML Ipsum Presents</h1><p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum<br /> tortor<br /> quam,<br /> feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. <strong>Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi,</strong> condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p><h2>Header Level 2</h2><ol><li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li><li>Aliquam tincidunt mauris eu risus.</li></ol><blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p></blockquote><h3>Header Level 3</h3><ul><li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li><li>Aliquam tincidunt mauris eu risus.</li></ul>';
 
 const exShort = 'Hubble bubble';
+
+const exList = '<ul><li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li><li>Aliquam tincidunt mauris eu risus.</li><li>Vestibulum auctor dapibus neque.</li></ul>'
 
 @inject('store')
 @observer
@@ -128,9 +130,9 @@ export default class AppDetailsPage extends React.Component {
             <div className="row">
               <div className="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
                 <h2 id="app-details-description">Description</h2>
-                <ShowMoreOrLess addClasses="content-description" returnToId="app-details-description" charLimit={500}>
-										{exThree}
-								</ShowMoreOrLess>
+                <Truncate className="truncate-container" returnToId="app-details-description" charLimit={500}>
+										{exList}
+								</Truncate>
               </div>
             </div>
           </div>
@@ -142,7 +144,7 @@ export default class AppDetailsPage extends React.Component {
                 <h2>Reviews</h2>
 								<RatingsChart value={this.appStore.currentAppObject.rating} reviewsTotal={this.appStore.currentAppObject.reviews_count} reviews={this.appStore.currentAppObject.reviews}/>
 								{this.appStore.currentAppObject.reviews.length > 0 &&
-									<AppReviews reviews={this.appStore.currentAppObject.reviews} />
+									<AppReviews reviews={appDetail.reviews} />
 								}
 							</div>
 						</div>

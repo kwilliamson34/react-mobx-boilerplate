@@ -12,7 +12,7 @@ export default class ShowMoreOrLess extends React.Component {
 
   static propTypes = {
     wrappingElement: PropTypes.string,
-    addClasses: PropTypes.string,
+    className: PropTypes.string,
     charLimit: PropTypes.number,
     returnToId: PropTypes.string,
     cutoffSymbol: PropTypes.string,
@@ -21,7 +21,6 @@ export default class ShowMoreOrLess extends React.Component {
 
   static defaultProps = {
     wrappingElement: 'div',
-    addClasses: '',
     charLimit: 300,
     cutoffSymbol: '8230', //ellipsis
     returnToId: null,
@@ -30,7 +29,6 @@ export default class ShowMoreOrLess extends React.Component {
 
   constructor(props) {
     super(props);
-    console.log('CHULDRUN    ', this.props.children);
     this.stringToTruncate = this.props.children;
     this.shouldTruncate = false;
     this.truncationElements = null;
@@ -79,9 +77,8 @@ export default class ShowMoreOrLess extends React.Component {
       if (charCount + element.length > charLimit) break;
 
       let isHtmlElement = singleHtmlRegex.test(element);
-
       truncateBlock += element;
-
+      
       if (!isHtmlElement) {
         charCount += element.length
       };
@@ -89,7 +86,7 @@ export default class ShowMoreOrLess extends React.Component {
     return truncateBlock;
   }
 
-  generateTruncateBlock = (array, charLimit) => {
+  findTruncateBlock = (array, charLimit) => {
     let truncateBlock = '';
 
     //Edge case: The user has entered one big string with no spaces.
@@ -115,14 +112,12 @@ export default class ShowMoreOrLess extends React.Component {
     };
 
     let splitArray = stringToTruncate.match(splitAllElementsRegex);
-    console.log('splitArray   ', splitArray);
     returnBlocks.wholeBlock = splitArray.join('');
 
     if (this.shouldTruncate) {
-      returnBlocks.truncateBlock = this.generateTruncateBlock(splitArray, this.props.charLimit) + this.generateEndElements(this.props.cutoffSymbol);
-    }
-    else {
-      returnBlocks.truncateBlock = console.error('Truncation component has failed to generate truncated text.');
+      returnBlocks.truncateBlock = this.findTruncateBlock(splitArray, this.props.charLimit) + this.generateEndElements(this.props.cutoffSymbol);
+    } else {
+      returnBlocks.truncateBlock = console.error('Truncation component has failed.');
     }
 
     return returnBlocks;
@@ -132,8 +127,8 @@ export default class ShowMoreOrLess extends React.Component {
     return (
       <span>
         {this.shouldTruncate && this.isTruncated
-          ? <span dangerouslySetInnerHTML={{__html: `${truncateBlock}`}} />
-          : <span dangerouslySetInnerHTML={{__html: `${wholeBlock}`}} />
+          ? <p dangerouslySetInnerHTML={{__html: `${truncateBlock}`}} />
+          : <p dangerouslySetInnerHTML={{__html: `${wholeBlock}`}} />
         }
         {this.shouldTruncate && this.truncateButton()}
       </span>
@@ -144,7 +139,7 @@ export default class ShowMoreOrLess extends React.Component {
     return React.createElement(
       this.props.wrappingElement,
       {
-        className: this.props.addClasses
+        className: this.props.className
       },
       this.renderNodes(this.truncationElements.wholeBlock, this.truncationElements.truncateBlock)
     );
