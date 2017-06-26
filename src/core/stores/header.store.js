@@ -1,5 +1,5 @@
 import { action, observable } from 'mobx';
-//import { apiService } from '../services/api.service';
+import config from 'config';
 
 
 class HeaderStore {
@@ -58,6 +58,7 @@ class HeaderStore {
 		}
 	}
 
+	@observable ATTSupportPhone = config.attCustomerSupportPhone || '800-574-7000';
 	@observable mainMenuIsOpen = false;
 	@observable footerSitemapExpanded = false;
 
