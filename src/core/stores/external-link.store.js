@@ -2,7 +2,6 @@ import { action, observable, computed } from 'mobx';
 import { apiService } from '../services/api.service';
 import { utilsService } from '../services/utils.service';
 
-
 class ExternalLinkStore {
   /*
   ** Retrieve Devices from Marketing Portal
@@ -83,14 +82,6 @@ class ExternalLinkStore {
     };
   }
 
-  @action togglePushToTalkModal() {
-    this.showPushToTalkModal = !this.showPushToTalkModal;
-  }
-
-  @action setPushToTalkProvider(providerCode) {
-    this.pushToTalkProvider = providerCode;
-  }
-
   //COMPUTEDS
   @computed get deviceCategoryNum() {
     let deviceCategories = ['phones', 'tablets', 'in-vehicle', 'accessories'];
@@ -133,13 +124,8 @@ class ExternalLinkStore {
 
   @observable manageUsersLink = 'https://profilemgt.firstnet.att.com/ebiz/firstnet/index.jsp';
   @observable manageServicesLink = 'https://wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn';
-  @observable managePushToTalkKodiakLink = 'https://wgp.eptt.kodiaknetworks.com/cat/view/catui';
-  @observable managePushToTalkMotorolaLink = 'https://firstnet.att.com/ptt_upm';
   @observable viewWirelessReportsLink = 'https://www.wireless.att.com/businesscare/menu/index.jsp?subject=Reports&wtLinkName=Reports&wtLinkLoc=S1&&wtLinkType=InventoryReport';
   @observable shopStandardDevicesLink = 'https://wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn';
-
-  @observable showPushToTalkModal = false;
-  @observable pushToTalkProvider = '';
 }
 
 export const externalLinkStore = new ExternalLinkStore();

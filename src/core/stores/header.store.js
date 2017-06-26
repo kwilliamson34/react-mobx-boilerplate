@@ -1,6 +1,7 @@
 import { action, observable } from 'mobx';
 //import { apiService } from '../services/api.service';
 
+
 class HeaderStore {
 
 	@action toggleMainMenu() {
@@ -24,26 +25,6 @@ class HeaderStore {
 		}
 	}
 
-	@action updateWindowDimensions() {
-		this.windowDimensions = {
-			width: window.innerWidth,
-			height: window.innerHeight
-		}
-		if(this.windowDimensions.width > 991){
-			this.currentBreakpoint = 'desktop';
-		}else if(this.windowDimensions.width >= 768){
-			this.currentBreakpoint = 'tablet';
-		}else{
-			this.currentBreakpoint = 'mobile';
-		}
-	}
-
-	@observable windowDimensions = {
-		width: window.innerWidth,
-		height: window.innerHeight
-  };
-
-	@observable currentBreakpoint = '';
 	@observable mainMenuIsOpen = false;
 	@observable footerSitemapExpanded = false;
 

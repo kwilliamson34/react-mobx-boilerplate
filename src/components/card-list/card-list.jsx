@@ -21,7 +21,8 @@ export class CardList extends React.Component {
     handleViewAllAppsClick: PropTypes.func,
     changeAppAvailability: PropTypes.func.isRequired,
     changeAppRecommended: PropTypes.func.isRequired,
-    getMatchingApp: PropTypes.func.isRequired
+    getMatchingApp: PropTypes.func.isRequired,
+    mdmIsConfigured: PropTypes.bool.isRequired
   }
 
   static defaultProps = {
@@ -47,7 +48,8 @@ export class CardList extends React.Component {
             psk={card.app_psk}
             getMatchingApp={this.props.getMatchingApp}
             changeAppAvailability={this.props.changeAppAvailability}
-            changeAppRecommended={this.props.changeAppRecommended}/>
+            changeAppRecommended={this.props.changeAppRecommended}
+            mdmIsConfigured={this.props.mdmIsConfigured}/>
         </div>
       </div>
     )

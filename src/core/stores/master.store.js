@@ -3,8 +3,10 @@ import {action, computed, observable, extendObservable} from 'mobx';
 import {headerStore} from './header.store';
 import {appCatalogStore} from './app-catalog.store';
 import {cardListStore} from './card-list.store';
+import {contentStore} from './content.store';
 import {externalLinkStore} from './external-link.store';
 import {geolinkStore} from './geolink.store';
+import {feedbackStore} from './feedback.store';
 import {mdmStore} from './mdm.store';
 import {userStore} from './user.store';
 
@@ -13,9 +15,11 @@ class PSEStore {
 		//attach all child stores
 		this.headerStore = headerStore;
 		this.appCatalogStore = appCatalogStore;
+		this.contentStore = contentStore;
 		this.cardListStore = cardListStore;
 		this.externalLinkStore = externalLinkStore;
 		this.geolinkStore = geolinkStore;
+		this.feedbackStore = feedbackStore;
 		this.mdmStore = mdmStore;
 		this.userStore = userStore;
 	}
