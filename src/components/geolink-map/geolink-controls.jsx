@@ -100,7 +100,7 @@ export default class GeolinkControls extends React.Component {
 									<Checkbox
 										id="network-toggle"
 										value="Network"
-										label="FirstNet Coverage"
+										label="Network"
 										onChange={this.toggleNetwork}
 										checked={this.geoStore.showNetworkLayer}
 									/>
@@ -139,7 +139,6 @@ export default class GeolinkControls extends React.Component {
 										<a href="tel:1-800-XXX-XXXX">1-800-XXX-XXXX</a>
 									</div>
 								</div>
-								<p>Subscribe to GTOC Alerts by contacting your state POC.</p>
 							</div>
 						</div>
 					</form>
@@ -150,7 +149,7 @@ export default class GeolinkControls extends React.Component {
 					</div>
 					<div className="row is-flex">
 						<div className="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-4">
-							<h2 className="as-h5">FirstNet Coverage</h2>
+							<h2 className="as-h5">Network</h2>
 							<div className="key-labels">
 								<span>4G LTE</span>
 								<span>4G</span>
