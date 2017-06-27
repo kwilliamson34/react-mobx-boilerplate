@@ -43,8 +43,7 @@ class UserStore {
   }
 
   checkPermissions() {
-    console.log(this.user)
-    if (this.user.roles.indexOf('G_FN_ADM') !== -1) {
+    if (this.user.roles.indexOf('G_FN_AsDM') !== -1) {
       console.log('isAdmin')
       this.isAdmin = true;
     } else {
