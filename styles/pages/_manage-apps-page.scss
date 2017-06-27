@@ -2,7 +2,7 @@
   padding-top: 0;
 
   .header {
-    padding-top: 30px; 
+    padding-top: 30px;
 
     h1 {
       display: inline-block;
@@ -51,5 +51,108 @@
     text-align: center;
     margin: 8rem auto;
     padding: 0;
+  }
+
+  .loading-container {
+    text-align: center;
+    h2{
+      font-size: 3.6rem;
+      i{
+        transform: rotate(-90deg);
+        margin-right: 5px;
+        font-size: 3.6rem;
+      }
+      margin-bottom: 60px;
+    }
+    .ghost-container {
+      display: flex;
+      justify-content: space-between;
+      margin: 0 auto;
+      height: 490px;
+      overflow:hidden;
+      text-align: center;
+
+      .app-ghost {
+        display: inline-block;
+        position: relative;
+        width: 225px;
+        height: 490px;
+        background: $fn-ltbluegrey;
+        border: 1px solid $fn-grey;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 50px;
+          right: 0;
+          left: 0;
+          width: 130px;
+          height: 130px;
+          margin: 0 auto;
+          border: 1px solid $fn-grey;
+          background: $fn-white;
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 20px;
+          right: 0;
+          left: 0;
+          width: 185px;
+          height: 48px;
+          margin: 0 auto;
+          border: 1px solid $fn-grey;
+          border-radius: 24px;
+          background: $fn-white;
+        }
+
+        > div {
+          position: absolute;
+          top: 236px;
+          left: 20px;
+          width: 130px;
+          height: 14px;
+          border-radius: 5px;
+          border: 1px solid $fn-grey;
+          background: $fn-white;
+
+          &:before {
+            content: '';
+            position: absolute;
+            display: block;
+            top: 94px;
+            left: 0;
+            width: 130px;
+            height: 14px;
+            border-radius: 5px;
+            border: 1px solid $fn-grey;
+            background: $fn-white;
+          }
+
+          &:after {
+            content: '';
+            position: absolute;
+            display: block;
+            top: 45px;
+            left: 0;
+            width: 80px;
+            height: 14px;
+            border-radius: 5px;
+            border: 1px solid $fn-grey;
+            background: $fn-white;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media #{$desktop} {
+  #manage-apps-page {
+    .ghost-container{
+      width: 970px;
+      margin: 0 auto;
+    }
   }
 }
