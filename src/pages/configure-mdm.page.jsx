@@ -89,7 +89,7 @@ export default class ConfigureMDM extends React.Component {
   renderExitModal = () => {
     return (
       <div>
-        <div id="exitModal" className="modal fade in" tabIndex="1">
+        <div id="exitModal" className="modal fade in">
           <div className="modal-dialog">
             <div className="modal-content">
               <button type="button" className="btn close-modal icon-close" onClick={this.toggleExitModal}>
@@ -116,7 +116,7 @@ export default class ConfigureMDM extends React.Component {
   renderBreakConnectionModal = () => {
     return (
       <div id="breakConnectionModal" >
-        <div className="modal fade in" tabIndex="1">
+        <div className="modal fade in">
           <div className="modal-dialog">
             <div className="modal-content">
               <button type="button" className="btn close-modal icon-close" onClick={this.togglebreakMDMConnection}>
