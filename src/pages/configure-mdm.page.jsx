@@ -29,7 +29,7 @@ export default class ConfigureMDM extends React.Component {
     this.store.hasBeenSubmitted = false;
     this.store.getMDMConfiguration();
     if(this.store.showExitModal){
-      this.store.interceptedRoute = this.pathHistory[this.pathHistory.length-2];
+      this.store.interceptedRoute = this.pathHistory[this.pathHistory.length - 2];
     }
   }
 
@@ -71,6 +71,7 @@ export default class ConfigureMDM extends React.Component {
   discardFormChanges = (event) => {
     event.preventDefault();
     this.store.resetMDMForm();
+    // this.store.clearAlerts();
     history.replace(this.store.interceptedRoute);
   }
 
@@ -195,7 +196,7 @@ export default class ConfigureMDM extends React.Component {
                 <section className="col-xs-12 col-lg-10 col-lg-offset-1">
                     <div className="mdm-form col-md-offset-2 col-xs-12 col-md-8 col-md">
 
-                      {this.store.alert_msgs && <MDMAlerts store = {this.store}/>}
+                      {this.store.form_alerts && <MDMAlerts store = {this.store} page = "mdm_form"/>}
 
                       <form id="configure-mdm-form" onSubmit={this.handleSubmit} noValidate onChange={this.updateForm} onBlur={this.updateForm}>
                         

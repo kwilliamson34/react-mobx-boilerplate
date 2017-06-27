@@ -70,16 +70,13 @@ class MDMStore {
             }
         }
 
-        
         if (this.formIsValid) {
             this.beingSubmitted = true;
-            // this.currentMDMForm.merge(mdmConfig);
             this.setMDMConfiguration(mdmConfig);
         } else {
             if(!this.pseMDMObject.get('mdm_type')){
                 let error_msg = inputs.length > 1 ? 'Please correct the errors below.' : 'Please  select an MDM';
-
-                this.alert_msgs.push({
+                this.form_alerts.push({
                     type: 'error',
                     headline: 'Error: ',
                     message: error_msg
@@ -89,12 +86,21 @@ class MDMStore {
     }
 
     // MDM Alerts
-    @action removeAlert(idx) {
-        this.alert_msgs.splice(idx, 1);
+    @action removeAlert(page, idx) {
+        switch (page) {
+          case 'mdm_form':
+              this.form_alerts.splice(idx, 1);
+              break;
+          case 'manage_apps':
+              this.app_alerts.splice(idx, 1);
+              break;
+        }
+        
     }
 
     @action clearAlerts() {
-        this.alert_msgs = [];
+        this.form_alerts = [];
+        this.app_alerts = [];
     }
 
     // MDM Modals
@@ -128,7 +134,7 @@ class MDMStore {
 
         const fail = (err) => {
             console.warn(err);
-            this.alert_msgs.push({
+            this.form_alerts.push({
                 type: 'error',
                 headline: 'Error: ',
                 message: 'Unable to reach MDM Service.'
@@ -142,7 +148,7 @@ class MDMStore {
         const success = (resp) => {
             let messageObj = resp.data;
             this.beingSubmitted = false;
-            this.alert_msgs = [];
+            this.form_alerts = [];
 
             if (!messageObj.error) {
                 this.showExitModal = false;
@@ -151,13 +157,13 @@ class MDMStore {
 
                 this.pseMDMObject.merge(mdmConfig);
                 this.pseMDMObject.set('mdm_type','configured');
-                this.alert_msgs.push({
+                this.app_alerts.push({
                     type: 'success',
                     headline: 'Success! ',
                     message: messageObj.message
                 });
             } else {
-                this.alert_msgs.push({
+                this.form_alerts.push({
                     type: 'error',
                     headline: 'Error: ',
                     message: messageObj.error
@@ -193,7 +199,7 @@ class MDMStore {
         const fail = (err) => {
             console.warn(err);
             this.beingSubmitted = false;
-            this.alert_msgs.push({
+            this.form_alerts.push({
                 type: 'error',
                 headline: 'Error: ',
                 message: 'There was an error establishing a connection with MDM.'
@@ -208,7 +214,7 @@ class MDMStore {
             this.hasBeenSubmitted = false;
             this.showbreakMDMConnection = false;
             this.resetMDMForm();
-            this.alert_msgs.push({
+            this.form_alerts.push({
                 type: 'success',
                 headline: 'Success! ',
                 message: 'The connection to MDM has been broken.'
@@ -218,7 +224,7 @@ class MDMStore {
             console.warn(err);
             this.hasBeenSubmitted = true;
             this.showbreakMDMConnection = false;
-            this.alert_msgs.push({
+            this.form_alerts.push({
                 type: 'error',
                 headline: 'Error: ',
                 message: 'There was an error breaking the connection with MDM.'
@@ -231,7 +237,8 @@ class MDMStore {
     @observable mdmProvider = '';
     @observable currentMDMForm = observable.map({});
     @observable pseMDMObject = observable.map({}); // TODO - will be global mdm object from PSE
-    @observable alert_msgs = [];
+    @observable form_alerts = [];
+    @observable app_alerts = [];
     @observable formIsValid = false;
     @observable beingSubmitted = false;
     @observable hasBeenSubmitted = false;
