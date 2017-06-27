@@ -193,6 +193,7 @@ footer {
 
         nav {
           border-bottom: 1px solid $fn-grey;
+          padding-bottom: 15px;
         }
       }
     }
@@ -268,7 +269,7 @@ footer {
     }
 
     li {
-      margin-bottom: 0;
+      margin-bottom: 30px;
 
       &:not(:last-child) {
         border-right: 1px solid $fn-blue;
