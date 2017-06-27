@@ -68,7 +68,6 @@ class MDMStore {
                     mdmConfig[inputs[i].id] = inputs[i].value;
                 }
             }
-
         }
 
         
@@ -142,12 +141,12 @@ class MDMStore {
     @action setMDMConfiguration(mdmConfig) {
         const success = (resp) => {
             let messageObj = resp.data;
-            this.showExitModal = false;
-            this.formHasChanged = false;
             this.beingSubmitted = false;
             this.alert_msgs = [];
 
             if (!messageObj.error) {
+                this.showExitModal = false;
+                this.formHasChanged = false;
                 this.hasBeenSubmitted = true;
 
                 this.pseMDMObject.merge(mdmConfig);
@@ -239,6 +238,7 @@ class MDMStore {
     @observable formHasChanged = false;
     @observable showExitModal = false;
     @observable showbreakMDMConnection = false;
+    @observable interceptedRoute = '';
 }
 
 export const mdmStore = new MDMStore();

@@ -61,6 +61,7 @@ class PSEStore {
 	// OBSERVABLES
 	@observable names = [];
 	@observable pages = {};
+	@observable pathHistory = [];
 }
 
 export const pseMasterStore = new PSEStore();

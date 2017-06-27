@@ -19,6 +19,7 @@ export default class ConfigureMDM extends React.Component {
 
 	constructor(props) {
 		super(props);
+    this.pathHistory = this.props.store.pathHistory;
 		this.store = this.props.store.mdmStore;
     this.isConfigured = false;
 	}
@@ -27,6 +28,9 @@ export default class ConfigureMDM extends React.Component {
     this.store.clearAlerts();
     this.store.hasBeenSubmitted = false;
     this.store.getMDMConfiguration();
+    if(this.store.showExitModal){
+      this.store.interceptedRoute = this.pathHistory[this.pathHistory.length-2];
+    }
   }
 
   componentDidUpdate() {
@@ -67,7 +71,7 @@ export default class ConfigureMDM extends React.Component {
   discardFormChanges = (event) => {
     event.preventDefault();
     this.store.resetMDMForm();
-    history.replace('/admin/manage-apps');
+    history.replace(this.store.interceptedRoute);
   }
 
   breakMDMConnection = (event) => {
