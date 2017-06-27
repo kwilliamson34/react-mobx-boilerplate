@@ -66,9 +66,9 @@ export class CardList extends React.Component {
                 <h2><i className="icon-reload"></i>Loading apps&hellip;</h2>
                 <div className="ghost-container">
                   <div className="app-ghost"><div></div></div>
-                  <div className="app-ghost"><div></div></div>
-                  <div className="app-ghost"><div></div></div>
-                  <div className="app-ghost"><div></div></div>
+                  <div className="app-ghost hidden-xs"><div></div></div>
+                  <div className="app-ghost hidden-xs"><div></div></div>
+                  <div className="app-ghost hidden-xs hidden-sm"><div></div></div>
                 </div>
               </div>
             </div>
