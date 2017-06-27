@@ -2,7 +2,7 @@
   padding-top: 0;
 
   .header {
-    padding-top: 30px; 
+    padding-top: 30px;
 
     h1 {
       display: inline-block;
@@ -48,8 +48,16 @@
   }
 
   .card-list-substitute {
+    h2 {
+      margin-bottom: 30px;
+    }
+
+    p {
+      margin-bottom: 60px;
+    }
+
     text-align: center;
-    margin: 8rem auto;
+    margin: 100px auto;
     padding: 0;
   }
 }
