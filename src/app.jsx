@@ -31,6 +31,7 @@ import ManagePushToTalkPage from './pages/manage-push-to-talk.page';
 import ManageWirelessReportsPage from './pages/manage-wireless-reports.page';
 import AdminDashboardPage from './pages/admin-dashboard.page';
 import ConfigureMDM from './pages/configure-mdm.page';
+import ShopDevicesPage from './pages/shop-devices-rates.page';
 
 //Marketing Portal pages
 import DevicesLandingPage from './pages/devices.page';
