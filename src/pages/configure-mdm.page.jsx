@@ -19,6 +19,7 @@ export default class ConfigureMDM extends React.Component {
 
 	constructor(props) {
 		super(props);
+    this.pathHistory = this.props.store.pathHistory;
 		this.store = this.props.store.mdmStore;
     this.isConfigured = false;
 	}
@@ -27,6 +28,9 @@ export default class ConfigureMDM extends React.Component {
     this.store.clearAlerts();
     this.store.hasBeenSubmitted = false;
     this.store.getMDMConfiguration();
+    if(this.store.showExitModal){
+      this.store.interceptedRoute = this.pathHistory[this.pathHistory.length-2];
+    }
   }
 
   componentDidUpdate() {
@@ -58,14 +62,16 @@ export default class ConfigureMDM extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.store.submitForm(event.target)
+    window.scrollTo(0, 0);
+    document.getElementById('mdm-alerts').focus();
   }
 
   // MDM Modals Functions
 
   discardFormChanges = (event) => {
     event.preventDefault();
-    this.store.discardFormChanges();
-    history.replace('/admin/manage-apps');
+    this.store.resetMDMForm();
+    history.replace(this.store.interceptedRoute);
   }
 
   breakMDMConnection = (event) => {
@@ -76,6 +82,7 @@ export default class ConfigureMDM extends React.Component {
   toggleExitModal = (event) => {
     event.preventDefault();
     this.store.toggleExitModal()
+    document.getElementById('exitModal').focus();
   }
 
   togglebreakMDMConnection = (event) => {
@@ -112,8 +119,8 @@ export default class ConfigureMDM extends React.Component {
 
   renderBreakConnectionModal = () => {
     return (
-      <div>
-        <div id="breakConnectionModal" className="modal fade in">
+      <div id="breakConnectionModal" >
+        <div className="modal fade in">
           <div className="modal-dialog">
             <div className="modal-content">
               <button type="button" className="btn close-modal icon-close" onClick={this.togglebreakMDMConnection}>
@@ -154,7 +161,7 @@ export default class ConfigureMDM extends React.Component {
       }
     ];
 
-    let mdm_provider = this.store.currentMDMForm.get('mdmProvider') || this.store.mdmProvider;
+    let mdm_provider = this.store.mdmProvider;
     let mdm_form = null;
 
     this.isConfigured = this.store.pseMDMObject.get('mdm_type') ? true : false;
@@ -199,7 +206,6 @@ export default class ConfigureMDM extends React.Component {
                             <select id="mdm"
                               className={`form-control ${mdm_provider ==='' && 'placeholder'}`}
                               onChange={this.updateMDM}
-                              onBlur={this.updateMDM}
                               value={mdm_provider}
                               disabled={this.isConfigured}>
                               <option value="">Select MDM</option>
@@ -228,7 +234,7 @@ export default class ConfigureMDM extends React.Component {
         </div>
 
         {this.store.showExitModal && this.renderExitModal()}
-        {(this.isConfigured &&this.store.showbreakMDMConnection) && this.renderBreakConnectionModal()}
+        {(this.isConfigured && this.store.showbreakMDMConnection) && this.renderBreakConnectionModal()}
 
       </article>
 		)

@@ -29,9 +29,6 @@ export default class ManageAppsPage extends React.Component {
 
 	componentWillMount() {
 		this.mdmStore.getMDMConfiguration();
-		if(!this.mdmIsConfigured && this.mdmStore.alert_msgs.length === 0){
-			this.mdmStore.alert_msgs.push({ headline: 'Note. ', message: 'Configure MDM to push apps to the system.'});
-		}
 	}
 
 	componentDidMount() {

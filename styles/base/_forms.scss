@@ -31,8 +31,44 @@ label {
 }
 
 .required-asterisks{
-  color: $fn-red;
+  color: $fn-alert-red;
 }
+
+.form-control {
+    line-height: 48px;
+    height: 48px;
+}
+
+select {
+  &.form-control {
+
+    line-height: 48px;
+    height: 48px;
+  }
+}
+
+/****** ERROR STATE ******/
+.form-group.has-error {
+  .control-label {
+    color: $fn-alert-red !important;
+  }
+
+  .form-control {
+    border-color: $fn-alert-red !important;
+  }
+}
+
+.form-group {
+  .msgBlock.error-list {
+    margin:  0 0 .6rem 0;
+    padding-left: 10px;
+  }
+}
+
+.error {
+  color: $fn-alert-red !important;
+}
+
 
 /* Remove native caret from select menu in IE */
 select::-ms-expand {
