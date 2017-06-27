@@ -2,7 +2,7 @@
   padding-top: 0;
 
   .header {
-    padding-top: 30px; 
+    padding-top: 30px;
 
     h1 {
       display: inline-block;
@@ -19,6 +19,10 @@
     border-bottom: 1px solid $fn-grey;
     margin-top: 2rem;
     padding: 1rem 0 0;
+
+    .search-form .control-label {
+      text-transform: uppercase;
+    }
 
     hr {
       border-color: $fn-grey;

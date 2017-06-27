@@ -11,7 +11,6 @@
 }
 
 .as-label,
-.form-group-title,
 label {
   font-size: $fn-label-default-size;
   font-weight: $fn-medium-weight;
@@ -19,7 +18,11 @@ label {
 }
 
 .form-group-title {
+  font-size: $fn-label-default-size;
   text-transform: uppercase;
+  padding-left: 10px;
+  font-weight: $fn-bold-weight;
+  line-height: 2;
 }
 
 .form-group .msgBlock.error-list {
