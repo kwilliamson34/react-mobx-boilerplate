@@ -5,15 +5,9 @@ class MDMStore {
 
     // Form Functions
     @action updateMDM(mdmProvider) {
-        if (!mdmProvider.length) {
-            mdmProvider = '';
-            this.mdmErrorMessages = 'Please select your MDM Provider.';
-        } else {
-            this.mdmErrorMessages = '';
-        }
-
-        this.mdmProvider = mdmProvider;
+        this.resetMDMForm();
         this.clearAlerts();
+        this.mdmProvider = mdmProvider;
         this.formIsValid = false;
     }
 
@@ -39,6 +33,7 @@ class MDMStore {
         this.beingSubmitted = false;
         this.formHasChanged = false;
         this.showExitModal = false;
+        this.showbreakMDMConnection = false;
 
         for (let i = 0; i < keys.length; i++) {
             this.currentMDMForm.set(keys[i], undefined);
@@ -73,7 +68,6 @@ class MDMStore {
                     mdmConfig[inputs[i].id] = inputs[i].value;
                 }
             }
-
         }
 
         
@@ -112,12 +106,6 @@ class MDMStore {
         this.showbreakMDMConnection = !this.showbreakMDMConnection;
     }
 
-    @action discardFormChanges() {
-        this.formHasChanged = false;
-        this.showExitModal = false;
-        this.resetMDMForm();
-    }
-
     // Services
     @action getMDMConfiguration() {
         const success = (resp) => {
@@ -135,8 +123,6 @@ class MDMStore {
                 case 'MOBILE_IRON':
                     this.mdmProvider = 'mobileIronForm'
                     break;
-                default:
-                    this.mdmProvider = ''
             }
         }
 
@@ -155,12 +141,12 @@ class MDMStore {
     @action setMDMConfiguration(mdmConfig) {
         const success = (resp) => {
             let messageObj = resp.data;
-            this.showExitModal = false;
-            this.formHasChanged = false;
             this.beingSubmitted = false;
             this.alert_msgs = [];
 
             if (!messageObj.error) {
+                this.showExitModal = false;
+                this.formHasChanged = false;
                 this.hasBeenSubmitted = true;
 
                 this.pseMDMObject.merge(mdmConfig);
@@ -252,6 +238,7 @@ class MDMStore {
     @observable formHasChanged = false;
     @observable showExitModal = false;
     @observable showbreakMDMConnection = false;
+    @observable interceptedRoute = '';
 }
 
 export const mdmStore = new MDMStore();

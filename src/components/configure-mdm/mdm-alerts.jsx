@@ -14,7 +14,7 @@ export class MDMAlerts extends React.Component {
 
   render() {
     return (
-      <div className="alerts-wrapper">
+      <div id="mdm-alerts" className="alerts-wrapper" tabIndex="1">
         {this.props.store.alert_msgs.map((alert, idx) => {
           return (
             <div role="alert" aria-live="assertive" className={`alert alert-${alert.type}`} key={idx}>
