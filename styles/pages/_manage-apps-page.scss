@@ -20,6 +20,10 @@
     margin-top: 2rem;
     padding: 1rem 0 0;
 
+    .search-form .control-label {
+      text-transform: uppercase;
+    }
+
     hr {
       border-color: $fn-grey;
       border-width: 2px;
