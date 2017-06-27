@@ -1,7 +1,7 @@
 import {action, observable, computed} from 'mobx';
 import {apiService} from '../services/api.service';
 import {userStore} from './user.store';
-import { utilsService } from '../services/utils.service';
+import {utilsService} from '../services/utils.service';
 
 const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
@@ -48,6 +48,9 @@ class FeedbackStore {
     } else if (input.id === 'feedback_email') {
       this.hasErrors[input.id] = input.value.length > 0 ? !emailRegex.test(input.value) : false;
     }
+    if (this.showAlertBar && this.requiredFieldsEntered) {
+      this.toggleAlertBar();
+    }
   }
 
   @action toggleExitModal() {
@@ -64,6 +67,7 @@ class FeedbackStore {
 
   @action clearFeedbackForm() {
     this.showExitModal = false;
+    this.showAlertBar = false;
     for (let key in this.feedbackObject) {
       this.feedbackObject[key] = '';
     }
