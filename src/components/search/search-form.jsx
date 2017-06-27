@@ -45,7 +45,6 @@ export class SearchForm extends React.Component {
             </button>
           </span>
         </div>
-        <p>{this.store.searchResultsCountLabel}</p>
       </form>
     );
   }
