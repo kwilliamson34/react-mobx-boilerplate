@@ -51,7 +51,7 @@ class UtilsService {
     switch (err.response.status) {
       case 401:
         console.log('Received 401 Unauthenticated response, retrying user validation...');
-        userStore.validateUser();
+        userStore.revalidateUser();
         break;
       case 403:
         console.log('Received 403 Forbidden response, redirecting to error page...');

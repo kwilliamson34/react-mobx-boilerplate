@@ -7,11 +7,9 @@ npm install
 json-server src/fixtures/server-data.json
 ```
 
-`npm start -- --env=[dev|stage|prod]`
-OR
-`npm run dev`
+`npm start`
 
-**Note:** The default environment is prod, if no environment is specified. This is to minimize the security risk of a missing environment variable on a production server as the PSE solution scales.
+**Note:** The default environment for all build commands is prod, if no environment is specified using `-- --env=[dev|stage|prod]`. This is to minimize the security risk of a missing environment variable on a production server as the PSE solution scales. However, `npm start` specifies the dev environment.
 
 
 ### Build for stage/production

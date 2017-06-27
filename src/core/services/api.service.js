@@ -61,7 +61,7 @@ class ApiService {
     }
 
     getAppDetails(appPSK) {
-      return axios.get(`${base}/app?appPsk=${appPSK}&pseId=${userStore.user.pse}`).then(res => {
+      return axios.get(`${base}/app/admin?appPsk=${appPSK}&pseId=${userStore.user.pse}`).then(res => {
         let arrayRes = [];
         arrayRes.push(res.data);
         return arrayRes;
@@ -135,7 +135,7 @@ class ApiService {
 
     setMDMConfiguration(mdmConfig) {
       mdmConfig.pse_id = userStore.user.pse;
-      
+
       return axios({
         method: 'post',
         url: `${base}/pse/mdm`,
@@ -145,6 +145,14 @@ class ApiService {
 
     breakMDMConfiguration() {
       return axios.delete(`${base}/pse/mdm/${userStore.user.pse}`);
+    }
+
+    submitCustomerFeedbackForm(feedbackObject) {
+      return axios({
+        method: 'post',
+        url: `${base}/customerfeedback`,
+        data: feedbackObject
+      });
     }
 }
 

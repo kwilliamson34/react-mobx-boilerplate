@@ -17,55 +17,55 @@ $fn-white: #FFFFFF;
 $fn-bordergrey: #d8d8d8;
 
 //form colors
-$input-placeholder-color: #d5d5d5;
-$input-bgcolor: $fn-ltgrey;
-$input-outline: #b7b7b7;
-$input-outline-disabled: #d8d8d8;
+$input-placeholder-color: #d5d5d5 !default;
+$input-bgcolor: $fn-ltgrey !default;
+$input-outline: #b7b7b7 !default;
+$input-outline-disabled: #d8d8d8 !default;
 
 //tables
-$table-header-bg: black;
+$table-header-bg: black !default;
 
 //button colors
-$primary-button-color: $fn-ltblue;
+$primary-button-color: $fn-ltblue !default;
 
 //link colors
-$active-link-color: $fn-ltblue;
-$inactive-link-color: $fn-blue;
+$active-link-color: $fn-ltblue !default;
+$inactive-link-color: $fn-blue !default;
 
 //focus halo colors
-$focus-lightbg: #4A4A4A;
-$focus-darkbg: #e4e4e4;
+$focus-lightbg: #4A4A4A !default;
+$focus-darkbg: #e4e4e4 !default;
 
 //social colors
-$fn-social-grey: #9b9b9b;
-$fn-facebook: #3b5998;
-$fn-twitter: #00aced;
-$fn-tumblr: #32506d;
-$fn-youtube: #bb0000;
-$fn-linkedin: #007bb6;
+$fn-social-grey: #9b9b9b !default;
+$fn-facebook: #3b5998 !default;
+$fn-twitter: #00aced !default;
+$fn-tumblr: #32506d !default;
+$fn-youtube: #bb0000 !default;
+$fn-linkedin: #007bb6 !default;
 
 //font size
-$fn-h1-default-size: 4.8rem; //48px
-$fn-h2-default-size: 4rem; //40px
-$fn-h3-default-size: 2.8rem; //28px
-$fn-h4-default-size: 2rem; //20px
-$fn-intro-default-size: 2rem; //20px
-$fn-body-default-size: 1.8rem; //18px
-$fn-landing-body-default-size: 1.6rem; //16px
-$fn-label-default-size: 1.4rem; //14px
-$fn-button-default-size: 1.4rem; //14px
-$fn-small-text-default-size: 1.2rem; //12px
+$fn-h1-default-size: 4.8rem !default; //48px
+$fn-h2-default-size: 4rem !default; //40px
+$fn-h3-default-size: 2.8rem !default; //28px
+$fn-h4-default-size: 2rem !default; //20px
+$fn-intro-default-size: 2rem !default; //20px
+$fn-body-default-size: 1.8rem !default; //18px
+$fn-landing-body-default-size: 1.6rem !default; //16px
+$fn-label-default-size: 1.4rem !default; //14px
+$fn-button-default-size: 1.4rem !default; //14px
+$fn-small-text-default-size: 1.2rem !default; //12px
 
 //font weight
-$fn-bold-weight: 700;
-$fn-medium-weight: 500;
-$fn-normal-weight: 400;
-$fn-light-weight: 300;
+$fn-bold-weight: 700 !default;
+$fn-medium-weight: 500 !default;
+$fn-normal-weight: 400 !default;
+$fn-light-weight: 300 !default;
 
 //cards
-$fn-card-height-tall: 600px;
-$fn-card-height-medium: 450px;
-$fn-card-height-short: 320px;
-$fn-card-height-extra-short: 180px;
+$fn-card-height-tall: 600px !default;
+$fn-card-height-medium: 450px !default;
+$fn-card-height-short: 320px !default;
+$fn-card-height-extra-short: 180px !default;
 
-$fn-animation-duration: 0.3s;
+$fn-animation-duration: 0.3s !default;

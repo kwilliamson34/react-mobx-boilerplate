@@ -24,6 +24,7 @@ export default class ManageAppsPage extends React.Component {
 		this.mdmStore = this.props.store.mdmStore;
 		this.pageId = 'manageAppsPage';
 		this.itemsPerPage = 20;
+		this.mdmIsConfigured = this.mdmStore.pseMDMObject.get('mdm_type') ? true : false
 	}
 
 	componentWillMount() {
@@ -77,7 +78,7 @@ export default class ManageAppsPage extends React.Component {
 				<div className="container">
 					<div className="row">
 						<div className="col-xs-12">
-							{this.mdmStore.alert_msgs && <MDMAlerts store = {this.mdmStore}/>}
+							{this.mdmStore.app_alerts && <MDMAlerts store = {this.mdmStore} page = "manage_apps"/>}
 						</div>
 					</div>
 				</div>
@@ -106,7 +107,7 @@ export default class ManageAppsPage extends React.Component {
 							changeAppAvailability={this.appCatalogStore.changeAppAvailability.bind(this.appCatalogStore)}
 							changeAppRecommended={this.appCatalogStore.changeAppRecommended.bind(this.appCatalogStore)}
 							getMatchingApp={this.appCatalogStore.getMatchingApp.bind(this.appCatalogStore)}
-							mdmIsConfigured={this.mdmStore.pseMDMObject.get('mdm_type') ? true : false}/>
+							mdmIsConfigured={this.mdmIsConfigured}/>
 					</div>
 				</div>
 			</article>

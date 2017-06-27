@@ -19,6 +19,7 @@ export default class ConfigureMDM extends React.Component {
 
 	constructor(props) {
 		super(props);
+    this.pathHistory = this.props.store.pathHistory;
 		this.store = this.props.store.mdmStore;
     this.isConfigured = false;
 	}
@@ -27,6 +28,9 @@ export default class ConfigureMDM extends React.Component {
     this.store.clearAlerts();
     this.store.hasBeenSubmitted = false;
     this.store.getMDMConfiguration();
+    if(this.store.showExitModal){
+      this.store.interceptedRoute = this.pathHistory[this.pathHistory.length - 2];
+    }
   }
 
   componentDidUpdate() {
@@ -36,7 +40,7 @@ export default class ConfigureMDM extends React.Component {
   }
 
   componentWillUnmount() {
-    if(this.store.formHasChanged && !this.store.hasBeenSubmitted){
+    if(this.store.formHasChanged && !this.store.hasBeenSubmitted && this.store.mdmProvider){
       this.store.showExitModal = true;
       history.goBack();
     }
@@ -58,14 +62,17 @@ export default class ConfigureMDM extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.store.submitForm(event.target)
+    window.scrollTo(0, 0);
+    document.getElementById('mdm-alerts').focus();
   }
 
   // MDM Modals Functions
 
   discardFormChanges = (event) => {
     event.preventDefault();
-    this.store.discardFormChanges();
-    history.replace('/admin/manage-apps');
+    this.store.resetMDMForm();
+    // this.store.clearAlerts();
+    history.replace(this.store.interceptedRoute);
   }
 
   breakMDMConnection = (event) => {
@@ -76,6 +83,7 @@ export default class ConfigureMDM extends React.Component {
   toggleExitModal = (event) => {
     event.preventDefault();
     this.store.toggleExitModal()
+    document.getElementById('exitModal').focus();
   }
 
   togglebreakMDMConnection = (event) => {
@@ -112,8 +120,8 @@ export default class ConfigureMDM extends React.Component {
 
   renderBreakConnectionModal = () => {
     return (
-      <div>
-        <div id="breakConnectionModal" className="modal fade in">
+      <div id="breakConnectionModal" >
+        <div className="modal fade in">
           <div className="modal-dialog">
             <div className="modal-content">
               <button type="button" className="btn close-modal icon-close" onClick={this.togglebreakMDMConnection}>
@@ -154,7 +162,7 @@ export default class ConfigureMDM extends React.Component {
       }
     ];
 
-    let mdm_provider = this.store.currentMDMForm.get('mdmProvider') || this.store.mdmProvider;
+    let mdm_provider = this.store.mdmProvider;
     let mdm_form = null;
 
     this.isConfigured = this.store.pseMDMObject.get('mdm_type') ? true : false;
@@ -188,9 +196,9 @@ export default class ConfigureMDM extends React.Component {
                 <section className="col-xs-12 col-lg-10 col-lg-offset-1">
                     <div className="mdm-form col-md-offset-2 col-xs-12 col-md-8 col-md">
 
-                      {this.store.alert_msgs && <MDMAlerts store = {this.store}/>}
+                      {this.store.form_alerts && <MDMAlerts store = {this.store} page = "mdm_form"/>}
 
-                      <form id="configure-mdm-form" onSubmit={this.handleSubmit} noValidate onBlur={this.updateForm}>
+                      <form id="configure-mdm-form" onSubmit={this.handleSubmit} noValidate onChange={this.updateForm} onBlur={this.updateForm}>
                         
                         {this.isConfigured && <p className="mdm-description">Only one MDM can be configured at a time. To configure a new MDM, the existing connection must be broken. Once the existing connection is broken, a new one can be configured.</p>}
                         
@@ -199,12 +207,11 @@ export default class ConfigureMDM extends React.Component {
                             <select id="mdm"
                               className={`form-control ${mdm_provider ==='' && 'placeholder'}`}
                               onChange={this.updateMDM}
-                              onBlur={this.updateMDM}
                               value={mdm_provider}
                               disabled={this.isConfigured}>
                               <option value="">Select MDM</option>
                               <option value="airWatchForm">Airwatch</option>
-                              <option value="ibmForm">IBM Maas 360</option>
+                              <option value="ibmForm">IBM MaaS360</option>
                               <option value="mobileIronForm">MobileIron</option>
                             </select>
                         </div>
@@ -228,7 +235,7 @@ export default class ConfigureMDM extends React.Component {
         </div>
 
         {this.store.showExitModal && this.renderExitModal()}
-        {(this.isConfigured &&this.store.showbreakMDMConnection) && this.renderBreakConnectionModal()}
+        {(this.isConfigured && this.store.showbreakMDMConnection) && this.renderBreakConnectionModal()}
 
       </article>
 		)

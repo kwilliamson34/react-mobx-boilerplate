@@ -28,9 +28,9 @@ export class SearchForm extends React.Component {
 
   render() {
     return (
-      <form className="search-form" onSubmit={this.handleSubmit}>
+      <form className="search-form form-group" onSubmit={this.handleSubmit}>
         <div className="search-input input-group">
-          <label htmlFor="search-box" className="form-group-title">Search<span className="sr-only">&nbsp;App Catalog</span></label>
+          <label htmlFor="search-box" className="control-label">Search<span className="sr-only">&nbsp;App Catalog</span></label>
           <input id="search-box" type="search" ref="input" className="form-control" title="searchQuery" value={this.store.searchQuery} onChange={this.handleInput} />
           {(this.store.searchQuery.length > 0) &&
             <button className="btn clear-btn" type="button" onClick={this.handleClearClick}>

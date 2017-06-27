@@ -55,7 +55,7 @@ export default class ErrorPage extends React.Component {
         {showLinksforOtherPortals &&
           <section>
             <a href="http://www.firstnet.com/appstore">App Store</a>
-            <a href="http://www.firstnet.com/developerconsole">Deleveloper Console</a>
+            <a href="http://www.firstnet.com/developerconsole">Developer Console</a>
             <a href="http://www.firstnet.com/localcontrol">Local Control</a>
           </section>
         }
