@@ -78,7 +78,7 @@ export default class ManageAppsPage extends React.Component {
 				<div className="container">
 					<div className="row">
 						<div className="col-xs-12">
-							{this.mdmStore.alert_msgs && <MDMAlerts store = {this.mdmStore}/>}
+							{this.mdmStore.app_alerts && <MDMAlerts store = {this.mdmStore} page = "manage_apps"/>}
 						</div>
 					</div>
 				</div>
