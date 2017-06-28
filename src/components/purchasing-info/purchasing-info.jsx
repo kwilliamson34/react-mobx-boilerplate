@@ -20,7 +20,6 @@ export default class PurchasingInfo extends React.Component {
   }
 
   render() {
-    console.log('this.props.contactInfo   ', this.props.contactInfo);
     return(
       <div id="purchasing-info" className="row">
         <div

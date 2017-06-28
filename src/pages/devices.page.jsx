@@ -53,7 +53,7 @@ export default class DevicesLandingPage extends React.Component {
 							</ul>
 						</div>
 						{
-							sectionArray.length > 4 &&
+							sectionArray.length > devicesPerRow &&
 							<div className="row">
 								<Link to={'/devices/' + sectionTitle.toLowerCase()} className="fn-primary showAll">Explore All {sectionTitle}</Link>
 							</div>

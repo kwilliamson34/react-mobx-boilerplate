@@ -23,7 +23,7 @@ class ExternalLinkStore {
     this.devicesData = _devicesData;
   }
 
-  @action getDeviceCategoryData() {
+  @action fetchAndShowDeviceCategory() {
     if(this.deviceCategoryIsValid){
       this.currentCategoryData = externalDeviceContentService.filterDeviceCategoryData(this.allSpecializedDevices, this.currentCategory);
     } else {
@@ -31,10 +31,11 @@ class ExternalLinkStore {
     }
   }
 
-  @action getDeviceDetailData(devicePath) {
+  @action fetchAndShowDeviceDetails(devicePath) {
     let device = this.fetchDeviceDetails(devicePath);
     if (device.length === 1) {
       this.currentDeviceDetail = externalDeviceContentService.filterDeviceDetailData(device[0]);
+      this.currentPurchasingInfo = externalDeviceContentService.filterDevicePurchasingInfo(device[0]);
     } else {
       history.replace('/error');
     }
@@ -106,6 +107,16 @@ class ExternalLinkStore {
     return '';
   }
 
+  @computed get showPurchasingInfo() {
+    let showPurchasingInfo = false;
+    for (let key in this.currentPurchasingInfo) {
+      if (this.currentPurchasingInfo[key] !== '') {
+        showPurchasingInfo = true;
+      }
+    }
+    return showPurchasingInfo;
+  }
+
   @observable allSpecializedDevices = [];
 
   @observable devicesData = {
@@ -129,9 +140,10 @@ class ExternalLinkStore {
     features: '',
     deviceName: '',
     deviceImg: '',
-    deviceImgAlt: '',
-    contactInfo: {}
+    deviceImgAlt: ''
   };
+  @observable currentPurchasingInfo: {};
+
 
   @observable manageUsersLink = 'https://test-profilemgt.firstnet.att.com/ebiz/firstnet/';
   @observable manageServicesLink = 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn';

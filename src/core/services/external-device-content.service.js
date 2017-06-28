@@ -52,16 +52,18 @@ class ExternalDeviceContentService {
 	}
 
 	filterDeviceDetailData(device) {
-		let _contactInfo = _.pick(device, Object.keys(device).filter((p) => p.includes('contact_')));
 		return {
 			path: encodeURIComponent(device.device_title).replace(/%20/g, '+'),
 			features: device.device_features,
 			deviceName: device.device_title,
 			deviceImg: device.device_image_url,
 			deviceImgAlt: device.device_image_alt,
-			terms: 		device.device_tnc.length > 0 ? device.device_tnc : null,
-			contactInfo: _contactInfo
+			terms: device.device_tnc.length > 0 ? device.device_tnc : null
 		}
+	}
+
+	filterDevicePurchasingInfo(device) {
+		return _.pick(device, Object.keys(device).filter((p) => p.includes('contact_')));
 	}
 }
 

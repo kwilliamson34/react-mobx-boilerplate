@@ -25,11 +25,11 @@ export default class DeviceCategoryTemplate extends React.Component {
 			this.externalLinkStore.resetCategoryData();
 			this.externalLinkStore.currentCategory = this.props.match.params.deviceCategory;
 			if (this.externalLinkStore.allSpecializedDevices.length) {
-				this.externalLinkStore.getDeviceCategoryData();
+				this.externalLinkStore.fetchAndShowDeviceCategory();
 			}
 			else {
 				this.externalLinkStore.fetchDevicesData()
-				.then(() => this.externalLinkStore.getDeviceCategoryData());
+				.then(() => this.externalLinkStore.fetchAndShowDeviceCategory());
 			}
 		}
 	}

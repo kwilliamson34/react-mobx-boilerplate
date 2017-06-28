@@ -24,22 +24,12 @@ export default class DeviceDetailTemplate extends React.Component {
 		if(this.props.match.params.deviceId != this.externalLinkStore.currentDeviceDetail.path){
 			this.externalLinkStore.resetDeviceDetail();
 			if (this.externalLinkStore.allSpecializedDevices.length) {
-				this.externalLinkStore.getDeviceDetailData(this.props.match.params.deviceId);
+				this.externalLinkStore.fetchAndShowDeviceDetails(this.props.match.params.deviceId);
 			} else {
 				this.externalLinkStore.fetchDevicesData()
-				.then(() => this.externalLinkStore.getDeviceDetailData(this.props.match.params.deviceId));
+				.then(() => this.externalLinkStore.fetchAndShowDeviceDetails(this.props.match.params.deviceId));
 			}
 		}
-	}
-
-	showPurchasingInfo = (contactInfo) => {
-		let showPurchasingInfo = false;
-		for (let key in contactInfo) {
-			if (contactInfo[key] !== '') {
-				showPurchasingInfo = true;
-			}
-		}
-		return showPurchasingInfo;
 	}
 
 	render() {
@@ -76,8 +66,8 @@ export default class DeviceDetailTemplate extends React.Component {
 							<div className="feature-list" dangerouslySetInnerHTML={{__html: this.externalLinkStore.currentDeviceDetail.features}}></div>
 						</div>
 					</div>
-					{this.externalLinkStore.currentDeviceDetail.contactInfo && this.showPurchasingInfo(this.externalLinkStore.currentDeviceDetail.contactInfo) &&
-						<PurchasingInfo contactInfo={this.externalLinkStore.currentDeviceDetail.contactInfo} />
+					{this.externalLinkStore.currentPurchasingInfo && this.externalLinkStore.showPurchasingInfo &&
+						<PurchasingInfo contactInfo={this.externalLinkStore.currentPurchasingInfo} />
 					}
 				</div>
 				{(this.externalLinkStore.currentDeviceDetail.terms) &&
