@@ -75,7 +75,7 @@ export default class AppDetailsPage extends React.Component {
               <div className="col-xs-8 col-sm-5 col-lg-6 app-meta">
                 <div className="visible-xs">
 									<div>{this.appStore.currentAppObject.version.author}</div>
-                  {this.appStore.currentAppObject.endorsement &&
+                  {this.appStore.currentAppObject.isEndorsed &&
                     <div className="endorsed">FirstNet Endorsed</div>
                   }
                   <span className="sr-only">Average Rating</span>
@@ -91,7 +91,7 @@ export default class AppDetailsPage extends React.Component {
                   <ul>
                     <li>{this.appStore.currentAppObject.version.author}</li>
                     <li><strong>Version:&nbsp;</strong>{this.appStore.currentAppObject.version.version_num}</li>
-                    <li>{this.appStore.currentAppObject.endorsement && <div className="endorsed">FirstNet Endorsed</div>}</li>
+                    <li>{this.appStore.currentAppObject.isEndorsed && <div className="endorsed">FirstNet Endorsed</div>}</li>
 										<li><strong>Released:&nbsp;</strong>{this.formatDate(this.appStore.currentAppObject.version.release_date)}</li>
 										<li>
 											<span className="card-rating">

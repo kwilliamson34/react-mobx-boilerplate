@@ -3,7 +3,7 @@ import {history} from './history.service';
 import config from 'config';
 
 class UtilsService {
-  conditionData(objs) {
+  mapAppsToCards(objs) {
     if(!objs || !objs.length) {
       return [];
     }
