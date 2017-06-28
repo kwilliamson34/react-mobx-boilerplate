@@ -1,51 +1,32 @@
 @media #{$desktop} {
-    .card-container {
-        width: 215px;
-        height: 325px;
+  .card-container {
+    width: 100%;
+    height: 375px;
 
-        .card-badge {
-            top: 2rem;
-            left: 1.5rem;
+    .card-badge {
+      top: 1rem;
+      left: 1rem;
 
-            img {
-                height: 2.8rem;
-            }
-        }
-
-        .card-logo {
-            img {
-                width: 70%;
-                top: 15%; // ~50px of 325px;
-                left: 15%; // ~35px of 215pxpx;
-            }
-        }
-
-        .card-info {
-            // @include paragraph-text();
-            font-size: 2rem;
-            margin: 0 1.5rem;
-        }
-
-        .card-publisher {
-            font-size: 1.4rem;
-        }
-
-        .card-rating {
-            font-size: 1.6rem;
-            bottom: 1.5rem;
-            left: 1.5rem;
-            color: $fn-dkgrey;
-
-            .ratings-star {
-                height: 1.3rem;
-            }
-        }
-
-        .card-platform {
-            color: $fn-dkgrey;
-            bottom: 1.6rem;
-            right: 2rem;
-            font-size: 1.6rem;
-        }
+      img {
+        height: 2.8rem;
+      }
     }
+
+    .card-name {
+      font-size: 2rem;
+    }
+
+    .card-info {
+      font-size: 2rem;
+    }
+
+    .card-rating {
+      font-size: 1.6rem;
+      color: $fn-dkgrey;
+    }
+
+    .card-platform {
+      font-size: 1.6rem;
+    }
+  }
 }
