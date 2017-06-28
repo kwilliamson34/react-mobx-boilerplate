@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+import config from 'config';
 
 import {observer} from 'mobx-react';
 import {Rating} from '../rating/rating.jsx';
@@ -150,7 +151,7 @@ export class AppDetailBanner extends React.Component {
           <div className="row">
             <div className="col-xs-4 col-sm-3 col-md-3 appicon-wrapper">
               <div className="app-icon">
-                <img src={'https://ease.apperian.com/uploads/' + this.data.icon_path} alt={this.data.app_name}/>
+                <img src={config.apperianUploads + this.data.icon_path} alt={this.data.app_name}/>
               </div>
               <div className="hidden-sm hidden-md hidden-lg">
                 {this.rating()}
