@@ -1,10 +1,10 @@
 import React from 'react';
 
-export class FaqImageTop extends React.Component {
+export class FaqHeaderTop extends React.Component {
 
 	render() {
 		return (
-            <div className="faq-top-image">
+            <div className="faq-top-header">
                 <div className="image-box">
                     <div className="container">
                         <div className="row">

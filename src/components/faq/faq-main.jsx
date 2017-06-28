@@ -78,8 +78,7 @@ export class FaqMain extends React.Component {
                         <div className="hidden-sm hidden-md hidden-lg">
                             <div className="faq-category-select">
                                 <form>
-                                    <div>FILTER</div>
-                                    <label htmlFor="faqCategory">Category</label>
+                                    <label htmlFor="faqCategory">FILTER BY CATEGORY</label>
                                     <select id="faqCategory" className="form-control" onChange={this.updateCategoryBySelect.bind(this)} value={this.props.store.faqCategoryFilter}>
                                         <option value="ALL">All Categories</option>
                                         {topicList}

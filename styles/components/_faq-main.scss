@@ -12,9 +12,9 @@ article.faq-article {
             height: 20px; 
             border-bottom: 2px solid $fn-dkgrey; 
             text-align: left; 
-            padding-top: 30px;
-            padding-bottom: 8px;
-            margin-bottom:30px;
+            padding-top: 60px;
+            margin-bottom:52px;
+            padding-bottom:8px;
         }
         .header-title {
             background-color: $fn-white; 
@@ -25,13 +25,14 @@ article.faq-article {
             line-height: 2.4rem;
             font-weight: $fn-bold-weight;
             position: absolute;
+            text-transform: uppercase;
         }
     }
 
     article.faq-entry {
         margin-top: 0;
         h3 {
-            padding-bottom: 14px;
+            padding-bottom: 20px;
             color: $fn-dark;
         }
         div.faq-entry-content {
@@ -40,7 +41,7 @@ article.faq-article {
             padding-left: 20px;
             padding-right: 20px;
             padding-top: 20px;
-            padding-bottom: 20px;
+            padding-bottom: 10px;
             color: $fn-dark;
             margin-left: 0;
             margin-right: 0;
@@ -52,17 +53,25 @@ article.faq-article {
             margin-left: 0;
             margin-right: 0;
         }
+        div.faq-entry-content-button-hidden {
+            background-color: $fn-ltgrey;
+            padding-bottom: 20px;
+        }
+        div.faq-entry-content-button-hidden > .show-more-link {
+            display:none;
+        }
         p {
             padding-top:1.6rem;
             color: $fn-dark;
             font-size: 1.6rem;
+            margin-bottom: 0;
         }
         p:first-child {
             padding-top:0;
             color: $fn-dark;
         }
-        padding-top: 14px;
-        padding-bottom: 14px;
+        padding-top: 30px;
+        padding-bottom: 30px;
         width: 100%;
         border-bottom: 2px solid $fn-grey;
 
@@ -98,9 +107,12 @@ article.faq-article {
             }
         }
     }
+    article.faq-entry:last-of-type {
+        border-bottom: 0;
+    }
     
     .faq-category-tabs {
-        margin-top: 50px;
+        margin-top: 30px;
 
         ul {
             list-style: none;
@@ -141,15 +153,11 @@ article.faq-article {
     }
 
     .faq-category-select {
-        div {
-            font-size:1.4rem;
-            font-weight: $fn-medium-weight;
-            padding-top:12px;
-        }
         label {
+            padding-top:20px;
             font-size:1.4rem;
             margin-bottom: 5px;
-            margin-top: 12px;
+            margin-top: 10px;
             padding-left:4px;
             font-weight: $fn-medium-weight;
         }        

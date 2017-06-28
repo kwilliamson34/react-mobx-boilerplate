@@ -1,15 +1,15 @@
-jest.unmock('../faq-image-top');
+jest.unmock('../faq-header-top');
 
-import { FaqImageTop } from '../faq-image-top.jsx';
+import { FaqHeaderTop } from '../faq-header-top.jsx';
 import { MemoryRouter } from 'react-router-dom';
 
-describe('<FaqImageTop />', () => {
+describe('<FaqHeaderTop />', () => {
 
   describe('render testing', () => {
     test('matches snapshot', () => {
         const component = renderer.create(
             <MemoryRouter>
-                <FaqImageTop />
+                <FaqHeaderTop />
             </MemoryRouter>
         );
       let tree = component.toJSON();

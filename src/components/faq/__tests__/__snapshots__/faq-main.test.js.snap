@@ -34,12 +34,9 @@ exports[`<FaqMain /> Render testing Matches snapshot 1`] = `
         <div
           className="faq-category-select">
           <form>
-            <div>
-              FILTER
-            </div>
             <label
               htmlFor="faqCategory">
-              Category
+              FILTER BY CATEGORY
             </label>
             <select
               className="form-control"
