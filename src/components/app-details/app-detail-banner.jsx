@@ -39,8 +39,7 @@ export class AppDetailBanner extends React.Component {
         </span>
         {this.data.reviews_count > 0 && <span className="app-reviews-count hidden-xs">
           ({this.data.reviews_count})
-        </span>
-}
+        </span>}
       </div>
     )
   }
@@ -77,7 +76,7 @@ export class AppDetailBanner extends React.Component {
   }
 
   endorsement() {
-    if (this.data.custom_metadata.app_type === "ENDORSED") {
+    if (this.data.custom_metadata.app_type === 'ENDORSED') {
       return (
         <div className="endorsed app-details">FirstNet Endorsed</div>
       )
@@ -140,7 +139,6 @@ export class AppDetailBanner extends React.Component {
   }
 
   render() {
-    console.log(this.data);
     return (
       <section className="app-summary">
         <div className="container">

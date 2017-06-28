@@ -22,7 +22,7 @@ class UtilsService {
           app_psk: obj.app_psk,
           isAvailable: obj.isAvailable,
           isRecommended: obj.isRecommended,
-          badge: obj.isEndorsed,
+          badge: obj.custom_metadata.app_type === 'ENDORSED',
           operatingSystem: obj.operating_system,
           category: obj.custom_metadata.category,
           user_segment: obj.custom_metadata.user_segment,
