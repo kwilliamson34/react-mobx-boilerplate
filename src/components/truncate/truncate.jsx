@@ -123,7 +123,7 @@ export default class ShowMoreOrLess extends React.Component {
       <span className="truncate-contents">
         {this.shouldTruncate && this.isTruncated
           ? <p dangerouslySetInnerHTML={{__html: `${truncatedBlock}`}} />
-        : <p dangerouslySetInnerHTML={{__html: `${everythingBlock}`}} />
+          : <p dangerouslySetInnerHTML={{__html: `${everythingBlock}`}} />
         }
         {this.shouldTruncate && this.truncateButton()}
       </span>
