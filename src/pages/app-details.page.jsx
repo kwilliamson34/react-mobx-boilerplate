@@ -14,8 +14,6 @@ import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 //import mock response from services
 const appDetail = require('../fixtures/mock-app-detail.json');
 
-const exDial = 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <ul><li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li><li>Aliquam tincidunt mauris eu risus.</li><li>Vestibulum auctor dapibus neque.</li></ul>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adiisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-
 @inject('store')
 @observer
 export default class AppDetailsPage extends React.Component {
@@ -126,8 +124,8 @@ export default class AppDetailsPage extends React.Component {
             <div className="row">
               <div className="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
                 <h2 id="app-details-description">Description</h2>
-                <Truncate className="truncate-container" returnToId="app-details-description" charLimit={400}>
-										{this.appStore.currentAppObject.long_description}
+                <Truncate className="truncate-container" returnToId="app-details-description" charLimit={550}>
+										{appDetail.long_description}
 								</Truncate>
               </div>
             </div>
@@ -140,7 +138,7 @@ export default class AppDetailsPage extends React.Component {
                 <h2>Reviews</h2>
 								<RatingsChart value={this.appStore.currentAppObject.rating} reviewsTotal={this.appStore.currentAppObject.reviews_count} reviews={this.appStore.currentAppObject.reviews}/>
 								{this.appStore.currentAppObject.reviews.length > 0 &&
-									<AppReviews reviews={this.appStore.currentAppObject.reviews} />
+									<AppReviews reviews={appDetail.reviews} />
 								}
 							</div>
 						</div>

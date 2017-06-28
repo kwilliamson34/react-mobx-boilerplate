@@ -36,39 +36,54 @@ export default class ShowMoreOrLess extends React.Component {
 
   componentWillMount() {
     this.shouldTruncate = this.checkIfShouldTruncate(this.stringToTruncate, this.props.charLimit);
-    this.truncationElements = this.generateTruncationElements(this.stringToTruncate);
+    this.showEverythingBlock = this.generateEverythingBlock(this.stringToTruncate);
+    this.showTruncatedBlock = this.generateTruncatedBlock(this.stringToTruncate, this.props.charLimit);
   }
 
   @observable isTruncated = true;
-
-  toggleTruncate = () => {
-    this.isTruncated = !this.isTruncated;
-    if (this.props.returnToId !== null) document.getElementById(this.props.returnToId).scrollIntoView();
-  }
 
   checkIfShouldTruncate = (stringToTruncate, charLimit) => {
     let rawTextLength = this.getRawText(stringToTruncate).length;
     return charLimit < rawTextLength;
   }
 
-  truncateButton = () => {
-    return (
-      <button className='btn-link truncate-button' aria-haspopup='true' aria-expanded={!this.isTruncated} onClick={this.toggleTruncate} >
-        {this.isTruncated ? 'SHOW MORE' : 'SHOW LESS'}<i className={this.isTruncated ? 'icon-arrowDown' : 'icon-arrowUp'} aria-hidden='true' />
-      </button>
-    )
-  }
-
   getRawText = (string) => {
     return string.replace(globalHtmlRegex, '');
   }
 
-  generateEndElements = (number) => {
-    return String.fromCharCode(number);
+  generateEverythingBlock = (stringToTruncate) => {
+    //This is a precaution to normalize the showEverythingBlock with the showTruncatedBlock. Might not ultimately be necessary.
+    let splitArray = stringToTruncate.match(splitAllElementsRegex);
+    return splitArray.join('');
+  }
+
+  generateTruncatedBlock = (stringToTruncate, charLimit) => {
+    let splitArray = stringToTruncate.match(splitAllElementsRegex);
+    return this.shouldTruncate
+      ? this.findTruncateBlock(splitArray, charLimit) + this.generateEndElements(this.props.cutoffSymbol)
+      : 'Error';
+  }
+
+  findTruncateBlock = (splitArray, charLimit) => {
+    let truncateBlock = '';
+
+    //Edge case: The user has entered one big string with no spaces.
+      //Test: The number of elements in the array that are not HTML is 1. We've already determined that the text length of this array is in excess of the charLimit, so this one text element must exceed the charLimit;
+      //Resolution: truncateBlock must be generated straight from the raw text. wholeBlock will generate normally.
+    if (splitArray.reduce((x, y) => {
+        return x + (singleHtmlRegex.test(y) ? 0 : 1)
+      }, 0) === 1) {
+        truncateBlock = this.getRawText(this.stringToTruncate).substr(0, charLimit);
+    }
+    //If no edge cases have triggered:
+    else {
+      truncateBlock = this.generateRegularTruncateBlock(splitArray, charLimit);
+    }
+
+    return truncateBlock;
   }
 
   generateRegularTruncateBlock = (array, charLimit) => {
-
     let charCount = 0;
     let truncateBlock = '';
 
@@ -86,49 +101,29 @@ export default class ShowMoreOrLess extends React.Component {
     return truncateBlock;
   }
 
-  findTruncateBlock = (array, charLimit) => {
-    let truncateBlock = '';
-
-    //Edge case: The user has entered one big string with no spaces.
-      //Test: The number of elements in the array that are not HTML is 1. We've already determined that the text length of this array is in excess of the charLimit, so this one text element must exceed the charLimit;
-      //Resolution: truncateBlock must be generated straight from the raw text. wholeBlock will generate normally.
-    if (array.reduce((x, y) => {
-        return x + (singleHtmlRegex.test(y) ? 0 : 1)
-      }, 0) === 1) {
-        truncateBlock = this.getRawText(this.stringToTruncate).substr(0, charLimit);
-    }
-    //If no edge cases have triggered:
-    else {
-      truncateBlock = this.generateRegularTruncateBlock(array, charLimit);
-    }
-
-    return truncateBlock;
+  generateEndElements = (number) => {
+    return String.fromCharCode(number);
   }
 
-  generateTruncationElements = (stringToTruncate) => {
-    let returnBlocks = {
-      truncateBlock: '',
-      wholeBlock: ''
-    };
-
-    let splitArray = stringToTruncate.match(splitAllElementsRegex);
-    returnBlocks.wholeBlock = splitArray.join('');
-
-    if (this.shouldTruncate) {
-      returnBlocks.truncateBlock = this.findTruncateBlock(splitArray, this.props.charLimit) + this.generateEndElements(this.props.cutoffSymbol);
-    } else {
-      returnBlocks.truncateBlock = console.error('Truncation component has failed.');
-    }
-
-    return returnBlocks;
+  truncateButton = () => {
+    return (
+      <button className='btn-link truncate-button' aria-haspopup='true' aria-expanded={!this.isTruncated} onClick={this.toggleTruncate} >
+        {this.isTruncated ? 'SHOW MORE' : 'SHOW LESS'}<i className={this.isTruncated ? 'icon-arrowDown' : 'icon-arrowUp'} aria-hidden='true' />
+      </button>
+    )
   }
 
-  renderNodes = (wholeBlock, truncateBlock) => {
+  toggleTruncate = () => {
+    this.isTruncated = !this.isTruncated;
+    if (this.props.returnToId !== null) document.getElementById(this.props.returnToId).scrollIntoView();
+  }
+
+  renderNodes = (everythingBlock, truncatedBlock) => {
     return (
       <span className="truncate-contents">
         {this.shouldTruncate && this.isTruncated
-          ? <p dangerouslySetInnerHTML={{__html: `${truncateBlock}`}} />
-          : <p dangerouslySetInnerHTML={{__html: `${wholeBlock}`}} />
+          ? <p dangerouslySetInnerHTML={{__html: `${truncatedBlock}`}} />
+        : <p dangerouslySetInnerHTML={{__html: `${everythingBlock}`}} />
         }
         {this.shouldTruncate && this.truncateButton()}
       </span>
@@ -141,7 +136,7 @@ export default class ShowMoreOrLess extends React.Component {
       {
         className: this.props.className
       },
-      this.renderNodes(this.truncationElements.wholeBlock, this.truncationElements.truncateBlock)
+      this.renderNodes(this.showEverythingBlock, this.showTruncatedBlock)
     );
   }
 }
