@@ -74,6 +74,13 @@ class ApiService {
         });
     }
 
+    getMarketingPortalSolutionsDetails() {
+      return axios.get(`${base}/marketing/api/solutions?_format=json`)
+        .then((res) =>{
+          return res.data;
+        });
+    }
+
     getSolutionCards(queryString) {
       return axios.get(`${base}/marketing${queryString}`)
         .then((res) => {

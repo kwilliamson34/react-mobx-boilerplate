@@ -48,6 +48,16 @@ class ExternalLinkStore {
     })
   }
 
+  @action fetchSolutionsData() {
+    const success = (res) => {
+      console.log('RESSSSSS     ', res);
+    }
+    const fail = (res) => {
+      utilsService.handleError(res);
+    }
+    return apiService.getMarketingPortalSolutionsDetails().then(success, fail);
+  }
+
   @action getSolutionCards(queryString) {
     const success = (res) => {
       this.solutionCards = res;
@@ -118,6 +128,7 @@ class ExternalLinkStore {
   }
 
   @observable allSpecializedDevices = [];
+  @observable allSolutionDetails = [];
 
   @observable devicesData = {
     phones: [],

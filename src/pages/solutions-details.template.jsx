@@ -1,57 +1,40 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { observer } from 'mobx-react';
+import {observer, inject} from 'mobx-react';
 
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
+import PurchasingInfo from '../components/purchasing-info/purchasing-info';
 
 const mockDetailPage = require('../fixtures/mock-solutions-detail.json');
 
+@inject('store')
 @observer
 export default class SolutionsDetailsTemplate extends React.Component {
 
   static propTypes = {
+    store: PropTypes.object,
     match: PropTypes.object
   }
 
-  renderPurchasingInfo = () => {
+  constructor(props) {
+    super(props);
+    this.externalLinkStore = this.props.store.externalLinkStore;
+  }
 
-    //TODO: Design calls for truncated url sans everything before the domain name. Below assumes all the URLs will have a www., which feels presumptuous; if so, write more.
-    const cutUrl = mockDetailPage.purchasing.url.split('www.')[1];
-
-    return (
-      <section className="purchasing-info">
-        <h2>For Purchasing</h2>
-        <hr/>
-        <dl role="presentation">
-          <dt role="presentation">Contact</dt>
-          <dd>
-            {mockDetailPage.purchasing.contact}
-          </dd>
-          <dt role="presentation">Phone</dt>
-          <dd role="link">
-            <a href={`tel:+1${mockDetailPage.purchasing.phone}`}>{mockDetailPage.purchasing.phone}</a>
-          </dd>
-          <dt role="presentation">Email</dt>
-          <dd role="link">
-            <a href={`mailto:${mockDetailPage.purchasing.email}`}>{mockDetailPage.purchasing.email}</a>
-          </dd>
-          <dt role="presentation">Company</dt>
-          <dd>
-            {mockDetailPage.purchasing.company}
-          </dd>
-          <dt role="presentation">Website</dt>
-          <dd role="link">
-            <a href={mockDetailPage.purchasing.url}>{cutUrl}</a>
-          </dd>
-        </dl>
-      </section>
-    )
+  componentWillMount() {
+    //checking if the user was on this page previously, eliminating need for new request
+    if (this.props.match.params.solutionDetail != this.externalLinkStore.currentSolutionDetail.path){
+      this.externalLinkStore.resetSolutionDetail();
+      if (this.externalLinkStore.allSolutionDetails.length) {
+        this.externalLinkStore.fetchAndShowSolutionDetails(this.props.match.params.solutionDetail);
+      } else {
+        this.externalLinkStore.fetchSolutionDetails()
+        .then(() => this.externalLinkStore.fetchAndShowSolutionDetails(this.props.match.params.solutionDetail));
+      }
+    }
   }
 
   render() {
-
-    //TODO: API will apparently return contact info with empty strings if that field is missing. Check with design for what to do if some but not all contact info is missing (leave that field blank?) If all contact info is missing, section should not render; probably we will need to loop over the keys and check for empty strings.
-    const shouldRenderPurchasingInfo = Object.keys(mockDetailPage.purchasing).length !== 0;
 
     const solutionCategory = this.props.match.params.solutionCategory.split('-').join(' ');
     const solutionDetail = this.props.match.params.solutionDetail.split('-').join(' ');
@@ -88,11 +71,6 @@ export default class SolutionsDetailsTemplate extends React.Component {
             </figure>
           </div>
         </section>
-        <div className="col-xs-12 col-lg-10">
-          <div className="row">
-            {shouldRenderPurchasingInfo && this.renderPurchasingInfo()}
-          </div>
-        </div>
       </div>
       </article>
     )

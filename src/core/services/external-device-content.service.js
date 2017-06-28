@@ -1,7 +1,6 @@
 import _ from 'lodash';
 
 class ExternalDeviceContentService {
-
 	filterDeviceData(array) {
 		return array.filter((device) => device.device_is_specialized === '1');
 	}
