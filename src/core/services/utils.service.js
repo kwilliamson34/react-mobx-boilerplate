@@ -73,6 +73,18 @@ class UtilsService {
         break;
     }
   }
+
+  properCaseOS(operating_system) {
+		let os;
+		if (operating_system === 'IOS') {
+			os = 'iOS';
+		} else if (operating_system === 'ANDROID') {
+			os = 'Android';
+		} else {
+			os = operating_system;
+		}
+		return os;
+	}
 }
 
 export const utilsService = new UtilsService();
