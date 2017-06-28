@@ -6,21 +6,7 @@
     background: white;
   }
 
-  .appicon-wrapper {
 
-    .app-icon {
-      min-width: 48px;
-
-      img {
-        width: 100%;
-      }
-    }
-  }
-
-  .endorsed {
-    color: $fn-ltblue;
-    font-weight: $fn-medium-weight;
-  }
 
   .app-summary {
     padding: 30px 0;
@@ -30,26 +16,6 @@
       border: 1px solid rgba(182, 182, 182, 0.50);
       box-shadow: 0 2px 2px 0 rgba(182, 182, 182, 0.50);
       padding: 4rem 2rem;
-    }
-    .ratings-container{
-      display: inline-block;
-    }
-    .ratings-star{
-      height: 1.6rem;
-    }
-    .ratings-number {
-      display: none;
-    }
-
-    .app-meta {
-      ul {
-        > li {
-          width: 50%;
-          float: left;
-          margin-bottom: 10px;
-          line-height: 1.6;
-        }
-      }
     }
   }
 
@@ -71,6 +37,8 @@
     float: right;
     background-color: transparent;
     border: none;
+    width: auto;
+    float: left;
   }
 
   .developer-website {

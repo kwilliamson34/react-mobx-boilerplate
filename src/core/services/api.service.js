@@ -50,13 +50,13 @@ class ApiService {
         ? `${base}/apps/admin/search?searchTxt=${query}&pseId=${userStore.user.pse}`
         : `${base}/apps/admin?pseId=${userStore.user.pse}`
       return axios.get(endpoint).then((res) => {
-        return utilsService.conditionData(res.data.applications);
+        return utilsService.mapAppsToCards(res.data.applications);
       });
     }
 
     getAdminApps() {
       return axios.get(`${base}/apps/admin?pseId=${userStore.user.pse}`).then(res => {
-        return utilsService.conditionData(res.data.applications);
+        return utilsService.mapAppsToCards(res.data.applications);
       });
     }
 

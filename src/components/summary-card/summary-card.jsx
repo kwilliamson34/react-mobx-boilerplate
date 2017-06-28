@@ -11,7 +11,7 @@ export class SummaryCard extends React.Component {
   static propTypes = {
     shouldFocus: PropTypes.bool,
     display: PropTypes.shape({
-      name: PropTypes.string, //name
+      name: PropTypes.string,
       publisher: PropTypes.string, //author
       imageUrl: PropTypes.string,
       rating: PropTypes.number,
@@ -59,7 +59,7 @@ export class SummaryCard extends React.Component {
               </div>
             </section>
             <div className="card-rating">
-              <Rating rating={this.props.display.rating}></Rating>
+              <Rating rating={this.props.display.rating} showRatingNumber={true}></Rating>
             </div>
             {this.props.display.operatingSystem && <div className="card-platform">
               <span className="sr-only">Hosted at the&nbsp;</span>
