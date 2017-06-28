@@ -106,99 +106,101 @@ export default class PSEHeader extends React.Component {
 										</li>
 									</ul>
 								</li>
-								<li
-									id="btn-admin"
-									className={
-										this.headerStore.adminSubMenuIsOpen
-											? 'mainnav-item desktop-textlink expanded'
-											: 'mainnav-item desktop-textlink'
-									}
-									role="presentation">
-									<button
-										className="btnSubmenu"
-										onClick={this.toggleAdminSubMenu}
-										aria-haspopup="true"
-										aria-expanded={this.headerStore.adminSubMenuIsOpen}>
-										<span className="sr-only">
-											Expand Administration Navigation
-										</span>
-									</button>
-									<NavLink
-										id="linkBtn-admin"
-										to="/admin"
-										activeClassName="active">
-										Administration
-									</NavLink>
-									<div id="admin-submenu" className="header-submenu">
-										<ul
-											id="pse-admin-nav"
-											className={
-												this.headerStore.adminSubMenuIsOpen
-													? 'collapse in'
-													: 'collapse'
-											}
-											aria-labelledby="linkBtn-admin">
-											<strong className="visible-md-block visible-lg-block">
-												Manage
-											</strong>
-											<li role="presentation">
-												<NewTabLink to={this.linkStore.manageUsersLink}>
-													<i
-														className="icon-external-site"
-														aria-hidden="true"
-													/>Manage Users
-												</NewTabLink>
-											</li>
-											<li role="presentation">
-												<NavLink to="/admin/manage-apps">Manage Apps</NavLink>
-											</li>
-											<li role="presentation">
-												<NewTabLink to={this.linkStore.manageServicesLink}>
-													<i
-														className="icon-external-site"
-														aria-hidden="true"
-													/>Manage Services &amp; Billing
-												</NewTabLink>
-											</li>
-											<li role="presentation">
-												<NewTabLink to={this.linkStore.viewWirelessReportsLink}>
-													<i
-														className="icon-external-site"
-														aria-hidden="true"
-													/>View wireless reports
-												</NewTabLink>
-											</li>
-										</ul>
-										<ul
-											id="pse-aside-nav"
-											className={
-												this.headerStore.adminSubMenuIsOpen
-													? 'collapse in'
-													: 'collapse'
-											}
-											aria-labelledby="linkBtn-admin">
-											<strong className="visible-md-block visible-lg-block">
-												Purchasing &amp; Provisioning
-											</strong>
-											<li>
-												<NewTabLink to={this.linkStore.shopStandardDevicesLink}>
-													<i
-														className="icon-external-site"
-														aria-hidden="true"
-													/>Rate Plans &amp; Standard Devices
-												</NewTabLink>
-											</li>
-											<li>
-												<NavLink to="/devices">Specialized Devices</NavLink>
-											</li>
-											<li>
-												<NavLink to="/solutions">
-													Public Safety Solutions
-												</NavLink>
-											</li>
-										</ul>
-									</div>
-								</li>
+								{this.userStore.isAdmin &&
+									<li
+										id="btn-admin"
+										className={
+											this.headerStore.adminSubMenuIsOpen
+												? 'mainnav-item desktop-textlink expanded'
+												: 'mainnav-item desktop-textlink'
+										}
+										role="presentation">
+										<button
+											className="btnSubmenu"
+											onClick={this.toggleAdminSubMenu}
+											aria-haspopup="true"
+											aria-expanded={this.headerStore.adminSubMenuIsOpen}>
+											<span className="sr-only">
+												Expand Administration Navigation
+											</span>
+										</button>
+											<NavLink
+												id="linkBtn-admin"
+												to="/admin"
+												activeClassName="active">
+												Administration
+											</NavLink>
+										<div id="admin-submenu" className="header-submenu">
+											<ul
+												id="pse-admin-nav"
+												className={
+													this.headerStore.adminSubMenuIsOpen
+														? 'collapse in'
+														: 'collapse'
+												}
+												aria-labelledby="linkBtn-admin">
+												<strong className="visible-md-block visible-lg-block">
+													Manage
+												</strong>
+												<li role="presentation">
+													<NewTabLink to={this.linkStore.manageUsersLink}>
+														<i
+															className="icon-external-site"
+															aria-hidden="true"
+														/>Manage Users
+													</NewTabLink>
+												</li>
+												<li role="presentation">
+													<NavLink to="/admin/manage-apps">Manage Apps</NavLink>
+												</li>
+												<li role="presentation">
+													<NewTabLink to={this.linkStore.manageServicesLink}>
+														<i
+															className="icon-external-site"
+															aria-hidden="true"
+														/>Manage Services &amp; Billing
+													</NewTabLink>
+												</li>
+												<li role="presentation">
+													<NewTabLink to={this.linkStore.viewWirelessReportsLink}>
+														<i
+															className="icon-external-site"
+															aria-hidden="true"
+														/>View wireless reports
+													</NewTabLink>
+												</li>
+											</ul>
+											<ul
+												id="pse-aside-nav"
+												className={
+													this.headerStore.adminSubMenuIsOpen
+														? 'collapse in'
+														: 'collapse'
+												}
+												aria-labelledby="linkBtn-admin">
+												<strong className="visible-md-block visible-lg-block">
+													Purchasing &amp; Provisioning
+												</strong>
+												<li>
+													<NewTabLink to={this.linkStore.shopStandardDevicesLink}>
+														<i
+															className="icon-external-site"
+															aria-hidden="true"
+														/>Rate Plans &amp; Standard Devices
+													</NewTabLink>
+												</li>
+												<li>
+													<NavLink to="/devices">Specialized Devices</NavLink>
+												</li>
+												<li>
+													<NavLink to="/solutions">
+														Public Safety Solutions
+													</NavLink>
+												</li>
+											</ul>
+										</div>
+									</li>
+								}
 								<li
 									id="hdr-network-status"
 									className="mainnav-item desktop-textlink"

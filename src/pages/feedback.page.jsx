@@ -13,6 +13,7 @@ export default class FeedbackPage extends React.Component {
 
   constructor(props) {
     super(props);
+    this.userStore = this.props.store.userStore;
     this.feedbackStore = this.props.store.feedbackStore;
   }
 
@@ -148,10 +149,10 @@ export default class FeedbackPage extends React.Component {
                     <select id='feedback_topic' className='form-control form-control-lg' value={this.feedbackStore.feedbackObject.feedback_topic} onChange={(e) => this.handleOnChange(e, 10000)} onBlur={this.handleOnBlur}>
                       <option value='' hidden>Select Feedback Topic</option>
                       <option value='System Performance'>System Performance</option>
-                      <option value='App Management'>App Management</option>
+                      {this.userStore.isAdmin && <option value='App Management'>App Management</option> }
                       <option value='Network Status'>Network Status</option>
-                      <option value='Purchasing and Provisioning'>Purchasing & Provisioning</option>
-                      <option value='Account Management'>Account Management</option>
+                      {this.userStore.isAdmin && <option value='Purchasing and Provisioning'>Purchasing & Provisioning</option>}
+                      {this.userStore.isAdmin && <option value='Account Management'>Account Management</option>}
                       <option value='Other'>Other</option>
                     </select>
                   </div>
