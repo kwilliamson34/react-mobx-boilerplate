@@ -73,10 +73,6 @@ export default class App extends React.Component {
 			//get token the long way
 			pseMasterStore.userStore.revalidateUser();
 		}
-
-    history.listen((location) => {
-      pseMasterStore.pathHistory.push(location.pathname)
-    });
   }
 
   getSpecializedDevicesComponent = ({match}) => {

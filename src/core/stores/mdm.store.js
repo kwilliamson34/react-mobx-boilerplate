@@ -6,15 +6,19 @@ class MDMStore {
 
 
     getBrowserCloseAlert = (event) => {
-        if(!this.formHasChanged){
-            return;
-        } else {
+        if(this.mdmProvider !== '' && this.formHasChanged){
             event.returnValue = true;
+        } else {
+            return;
         }
     };
 
     checkForChanges = () => {
-        return this.formHasChanged;
+        let blockExit = false;
+        if(this.mdmProvider !== '' && this.formHasChanged){
+            blockExit = true;
+        }
+        return blockExit;
     };
 
     // Form Functions
@@ -31,9 +35,9 @@ class MDMStore {
 
         this.formHasChanged = true;
         this.currentMDMForm.set(input.id, input.value);
-
+    
         for (let i = 0; i < inputs.length; i++) {
-            if (inputs[i].value === '') { validForm = false }
+            if (inputs.length <= 1 || inputs[i].value === '') { validForm = false }
         }
 
         this.formIsValid = validForm;
@@ -52,6 +56,8 @@ class MDMStore {
         for (let i = 0; i < keys.length; i++) {
             this.currentMDMForm.set(keys[i], undefined);
         }
+
+        console.log(this.formIsValid)
     }
 
     @action submitForm(form) {
@@ -143,7 +149,7 @@ class MDMStore {
                 return true;
             } else {
                 console.log('block')
-                this.toggleExitModal();
+                this.showExitModal = true;
                 return false;
             }
 
@@ -252,7 +258,6 @@ class MDMStore {
         const success = () => {
             this.pseMDMObject.clear();
             this.hasBeenSubmitted = false;
-            this.showbreakMDMConnection = false;
             this.resetMDMForm();
             this.form_alerts.push({
                 type: 'success',
@@ -263,7 +268,6 @@ class MDMStore {
         const fail = (err) => {
             console.warn(err);
             this.hasBeenSubmitted = true;
-            this.showbreakMDMConnection = false;
             this.form_alerts.push({
                 type: 'error',
                 headline: 'Error: ',
@@ -276,7 +280,7 @@ class MDMStore {
     // OBSERVABLES
     @observable mdmProvider = '';
     @observable currentMDMForm = observable.map({});
-    @observable pseMDMObject = observable.map({}); // TODO - will be global mdm object from PSE
+    @observable pseMDMObject = observable.map({});
     @observable form_alerts = [];
     @observable app_alerts = [];
     @observable formIsValid = false;

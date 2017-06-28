@@ -21,7 +21,6 @@ export default class ConfigureMDM extends React.Component {
 
 	constructor(props) {
 		super(props);
-    this.pathHistory = this.props.store.pathHistory;
 		this.store = this.props.store.mdmStore;
     this.isConfigured = false;
 	}
@@ -40,6 +39,7 @@ export default class ConfigureMDM extends React.Component {
   }
 
   componentWillUnmount() {
+    this.clearModals();
     this.store.disableSaveDialogs();
   }
 
@@ -73,12 +73,13 @@ export default class ConfigureMDM extends React.Component {
 
   breakMDMConnection = (event) => {
     event.preventDefault();
-    this.store.breakMDMConnection()
+    this.store.breakMDMConnection();
+    this.togglebreakMDMConnection(event);
   }
 
   toggleExitModal = (event) => {
     event.preventDefault();
-    this.store.toggleExitModal()
+    this.store.toggleExitModal();
   }
 
   togglebreakMDMConnection = (event) => {
@@ -86,7 +87,13 @@ export default class ConfigureMDM extends React.Component {
     this.store.togglebreakMDMConnection();
   }
 
-  renderExitModal = () => {
+  renderExitModal = (showExitModal) => {
+    if(showExitModal){
+      $('#exitModal').modal({backdrop:'static'});
+    } else {
+       $('#exitModal').modal('hide');
+       $('#exitModal').data('bs.modal',null);
+    }
     return (
         <div id="exitModal" className="modal fade" tabIndex="-1" role="dialog" aria-labelledby="modal-title">
           <div className="modal-dialog">
@@ -110,7 +117,13 @@ export default class ConfigureMDM extends React.Component {
     )
   }
 
-  renderBreakConnectionModal = () => {
+  renderBreakConnectionModal = (showbreakMDMConnection) => {
+    if(showbreakMDMConnection){
+      $('#breakConnectionModal').modal({backdrop:'static'});
+    } else {
+       $('#breakConnectionModal').modal('hide');
+       $('#breakConnectionModal').data('bs.modal',null);
+    }
     return (
         <div id="breakConnectionModal"  className="modal fade" tabIndex="-1" role="dialog" aria-labelledby="modal-title">
           <div className="modal-dialog">
@@ -124,14 +137,19 @@ export default class ConfigureMDM extends React.Component {
                   <p>This cannot be undone. If you break this application’s connection to MDM, you will have to re-configure it using this form to establish a new connection.</p>
                 </div>
                 <div className="col-xs-12 text-center">
-                  <button className='fn-primary fill' onClick={this.togglebreakMDMConnection}>Keep Connection</button>
-                  <button className='fn-primary' onClick={this.breakMDMConnection}>Break Connection</button>
+                  <button className='fn-primary' onClick={this.togglebreakMDMConnection}>Keep Connection</button>
+                  <button className='fn-secondary' onClick={this.breakMDMConnection}>Break Connection</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
     )
+  }
+
+  clearModals = () => {
+    $('.modal-backdrop, #exitModal, #breakConnectionModal').remove();
+    $('body').removeClass('modal-open');
   }
 
 	render() {
@@ -170,18 +188,6 @@ export default class ConfigureMDM extends React.Component {
         break;
       default:
         mdm_form = null;
-    }
-
-    if(this.store.showbreakMDMConnection){
-      $('#breakConnectionModal').modal('show')
-    } else {
-       $('#breakConnectionModal').modal('hide')
-    }
-
-    if(this.store.showExitModal){
-      $('#exitModal').modal('show')
-    } else {
-       $('#exitModal').modal('hide')
     }
 
 		return (
@@ -235,8 +241,8 @@ export default class ConfigureMDM extends React.Component {
             </div>
         </div>
 
-        {this.renderExitModal()}
-        {this.renderBreakConnectionModal()}
+        {this.renderExitModal(this.store.showExitModal)}
+        {this.renderBreakConnectionModal(this.store.showbreakMDMConnection)}
 
       </article>
 		)
