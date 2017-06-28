@@ -7,7 +7,8 @@ const config = {
   geolinkScripts: 'https://geo.stage.att.com/appBoard',
   geolinkAbMapConstants: 'abMapConstantsFNST.js',
   mktgPortalImgBaseUrl: 'https://www.firstnet.ws',
-  apiBase: '/api'
+  apiBase: '/api',
+  attCustomerSupportPhone: '800-574-7000'
 }
 
 export default config

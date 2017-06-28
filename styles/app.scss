@@ -1,12 +1,14 @@
+//Import variables first. They will pre-empt the variables included in the
+//firstnet lib marked as !default.
+@import "abstracts/variables";
+
 //libs
 @import
   "libs/bootstrap/bootstrap",
   "libs/firstnet/firstnet";
 
-//Abstracts
-@import
-  "abstracts/variables",
-  "abstracts/utils";
+//Utils
+@import "abstracts/utils";
 
 //Mixins
 @import
@@ -55,4 +57,5 @@
   "pages/configure-mdm",
   "pages/specialized-devices",
   "pages/solutions",
+  "pages/feedback-page",
   "pages/manage-apps-page";

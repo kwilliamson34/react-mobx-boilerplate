@@ -29,9 +29,6 @@ export default class ManageAppsPage extends React.Component {
 
 	componentWillMount() {
 		this.mdmStore.getMDMConfiguration();
-		if(!this.mdmIsConfigured && this.mdmStore.alert_msgs.length === 0){
-			this.mdmStore.alert_msgs.push({ headline: 'Note. ', message: 'Configure MDM to push apps to the system.'});
-		}
 	}
 
 	componentDidMount() {
@@ -81,7 +78,7 @@ export default class ManageAppsPage extends React.Component {
 				<div className="container">
 					<div className="row">
 						<div className="col-xs-12">
-							{this.mdmStore.alert_msgs && <MDMAlerts store = {this.mdmStore}/>}
+							{this.mdmStore.app_alerts && <MDMAlerts store = {this.mdmStore} page = "manage_apps"/>}
 						</div>
 					</div>
 				</div>
@@ -93,6 +90,13 @@ export default class ManageAppsPage extends React.Component {
 								<hr/>
 								<Filters ref={ref => this.filterForm = ref} store={this.cardListStore} />
 							</div>
+						</div>
+					</div>
+				</div>
+				<div className="container">
+					<div className="row">
+						<div className="col-xs-12">
+							<h2 className="as-h3 results-count">{this.cardListStore.resultsCountLabel}</h2>
 						</div>
 					</div>
 				</div>
