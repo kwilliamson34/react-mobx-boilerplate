@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import config from 'config';
 import {observer,inject} from 'mobx-react';
 import {Link} from 'react-router-dom';
 
@@ -20,10 +19,16 @@ export default class DevicesLandingPage extends React.Component {
 	}
 
 	componentWillMount() {
-		this.externalLinkStore.getMarketingPortalDevices();
+		if (this.externalLinkStore.allSpecializedDevices.length) {
+			this.externalLinkStore.getDeviceLandingData();
+		} else {
+			this.externalLinkStore.fetchDevicesData()
+			.then(() => this.externalLinkStore.getDeviceLandingData());
+		}
 	}
 
 	renderDeviceSection(sectionId, sectionTitle, sectionArray) {
+		const devicesPerRow = 4;
 		return (
 			<section className={'view-' + sectionId}>
 				<div className="container">
@@ -32,12 +37,14 @@ export default class DevicesLandingPage extends React.Component {
 							<h2>{sectionTitle}</h2>
 							<ul className="mp-content">
 								{sectionArray.map((item, idx) => {
+									if (idx >= devicesPerRow) return;
+									let itemRoute = encodeURIComponent(item.device_title).replace(/%20/g, '+');
 									return (
 										<li key={sectionId + '_' +idx}>
-											<Link to={item.url} id={sectionId + '_' +idx}>
-											{item.title}
+											<Link to={`/devices/${sectionTitle.toLowerCase()}/${itemRoute}`} id={sectionId + '_' +idx}>
+											{item.device_title}
 											<div className="card-img-wrapper">
-												<img src={config.mktgPortalImgBaseUrl + item.image} alt={item.title} />
+												<img src={item.device_image_url} alt={item.device_image_alt} />
 											</div>
 											</Link>
 										</li>
@@ -45,9 +52,12 @@ export default class DevicesLandingPage extends React.Component {
 								})}
 							</ul>
 						</div>
-						<div className="row">
-						<Link to={'/devices/' + sectionTitle.toLowerCase()} className="fn-primary showAll">Explore All {sectionTitle}</Link>
-						</div>
+						{
+							sectionArray.length > devicesPerRow &&
+							<div className="row">
+								<Link to={'/devices/' + sectionTitle.toLowerCase()} className="fn-primary showAll">Explore All {sectionTitle}</Link>
+							</div>
+						}
 					</div>
 				</div>
 			</section>

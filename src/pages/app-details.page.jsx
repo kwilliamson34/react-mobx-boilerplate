@@ -7,6 +7,7 @@ import RatingsChart from '../components/ratings-chart/ratings-chart';
 import AppReviews from '../components/app-reviews/app-reviews';
 import ScreenshotGallery from '../components/screenshot-gallery/screenshot-gallery';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
+import Truncate from '../components/truncate/truncate';
 
 @inject('store')
 @observer
@@ -77,10 +78,9 @@ export default class AppDetailsPage extends React.Component {
               <div className="row">
                 <div className="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
                   <h2>Description</h2>
-                  <p className="content-description" dangerouslySetInnerHTML={{
-                    __html: this.appStore.currentAppObject.long_description
-                  }}></p>
-                  {/* <a href="#show-more">Show More <span className="sr-only">about this app</span></a> */}
+                  <Truncate className="truncate-container" returnToId="app-details-description" charLimit={550}>
+                    {this.appStore.currentAppObject.long_description}
+                  </Truncate>
                 </div>
               </div>
             </div>

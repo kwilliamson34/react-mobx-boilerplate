@@ -1,0 +1,32 @@
+#purchasing-info {
+
+  h2 {
+    font-size: 36px;
+    font-weight: $fn-normal-weight;
+  }
+
+  .purchase-options-list {
+    @extend .clearfix;
+
+    li {
+      font-size: $fn-body-default-size;
+      float: left;
+      width: 100%;
+      margin-bottom: 30px;
+
+      a, span {
+        font-weight: $fn-normal-weight;
+
+        &:last-of-type {
+          width: 100%;
+        }
+      }
+
+      strong {
+        display: inline-block;
+        font-weight: $fn-medium-weight;
+        width: 35%;
+      }
+    }
+  }
+}
