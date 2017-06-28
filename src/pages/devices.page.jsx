@@ -28,7 +28,7 @@ export default class DevicesLandingPage extends React.Component {
 	}
 
 	renderDeviceSection(sectionId, sectionTitle, sectionArray) {
-		let renderArray = sectionArray.slice(0, 4);
+		const devicesPerRow = 4;
 		return (
 			<section className={'view-' + sectionId}>
 				<div className="container">
@@ -36,7 +36,8 @@ export default class DevicesLandingPage extends React.Component {
 						<div className="col-xs-offset-2 col-xs-8 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
 							<h2>{sectionTitle}</h2>
 							<ul className="mp-content">
-								{renderArray.map((item, idx) => {
+								{sectionArray.map((item, idx) => {
+									if (idx >= devicesPerRow) return;
 									let itemRoute = encodeURIComponent(item.device_title).replace(/%20/g, '+');
 									return (
 										<li key={sectionId + '_' +idx}>
