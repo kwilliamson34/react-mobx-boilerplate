@@ -11,7 +11,7 @@ export class SummaryCard extends React.Component {
   static propTypes = {
     shouldFocus: PropTypes.bool,
     display: PropTypes.shape({
-      name: PropTypes.string, //name
+      name: PropTypes.string,
       publisher: PropTypes.string, //author
       imageUrl: PropTypes.string,
       rating: PropTypes.number,
