@@ -79,8 +79,8 @@ export default class AppDetailsPage extends React.Component {
                 <div className="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
                   <h2>Description</h2>
                   <Truncate className="truncate-container" returnToId="app-details-description" charLimit={550}>
-  									{this.appStore.currentAppObject.long_description}
-  								</Truncate>
+                    {this.appStore.currentAppObject.long_description}
+                  </Truncate>
                 </div>
               </div>
             </div>
