@@ -6,9 +6,9 @@
         "entries": [
             {
                 "question": "What is FirstNet Local Control?",
-                "answer": "<p>Local Control is FirstNet’s web portal for Public Safety Entities (PSEs).  In Local Control, PSE communications administrators manage their PSE’s access to and use of the FirstNet Network by managing users, devices, solutions, apps, services and billing for their organization. Local Control has an interactive map that provides public safety communications professionals with visibility into current network coverage quality, along with overlays of weather, traffic, and network alerts. Public safety communications professionals can request both emergency and planning assistance when planning for or responding to an event that may have heavy network demands or affects the network itself.</p>",
+                "answer": "<p>Local Control is FirstNet’s web portal for Public Safety Entities (PSEs).  In Local Control, PSE communications administrators manage their PSE’s access to and use of the FirstNet Network by managing users, devices, solutions, apps, services and billing for their organization.   </p><p>Local Control has an interactive map that provides public safety communications professionals with visibility into current network coverage quality, along with overlays of weather, traffic, and network alerts. Public safety communications professionals can request both emergency and planning assistance when planning for or responding to an event that may have heavy network demands or affects the network itself.</p>",
                 "id": 1,
-                "maxStringLength": 500,
+                "maxStringLength": 282,
                 "category": "General"
             },
             {
@@ -62,7 +62,7 @@
             },
             {
                 "question": "How can I view information about my PSE's bill?",
-                "answer": "Clicking the 'Manage Services and Billing' button in the Administration Dashboard will open the FirstNet Premier - Manage page in a new window. In the header, select the 'Billing' tab.",
+                "answer": "<p>Clicking the 'Manage Services and Billing' button in the Administration Dashboard will open the FirstNet Premier - Manage page in a new window. In the header, select the 'Billing' tab.</p>",
                 "id": 9,
                 "maxStringLength": 500,
                 "category": "Manage My PSE"
