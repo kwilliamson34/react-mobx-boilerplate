@@ -60,15 +60,15 @@ export class AppDetailBanner extends React.Component {
   details() {
     return (
       <div className="app-details">
-        <div className="version spacer">
+        <div className="version">
           <strong>Version:&nbsp;</strong>
           {this.data.version.version_num}
         </div>
-        <div className="updated spacer">
+        <div className="updated">
           <strong>Released:&nbsp;</strong>
           {moment(this.data.release_date).format('MMMM DD, YYYY')}
         </div>
-        <div className="platform spacer">
+        <div className="platform">
           <strong>Platform:&nbsp;</strong>
           {this.properCaseOS(this.data.operating_system)}
         </div>
@@ -77,15 +77,15 @@ export class AppDetailBanner extends React.Component {
   }
 
   endorsement() {
-    if (this.data.isEndorsed) {
+    if (this.data.custom_metadata.app_type === "ENDORSED") {
       return (
-        <div className="endorsed spacer">FirstNet Endorsed</div>
+        <div className="endorsed app-details">FirstNet Endorsed</div>
       )
     }
   }
 
   author() {
-    return <div className="publisher spacer">{this.data.author}</div>
+    return <div className="publisher app-details">{this.data.author}</div>
   }
 
   metadata() {
@@ -140,6 +140,7 @@ export class AppDetailBanner extends React.Component {
   }
 
   render() {
+    console.log(this.data);
     return (
       <section className="app-summary">
         <div className="container">

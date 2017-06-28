@@ -17,7 +17,7 @@
     .icon-star,
     .icon-star-o,
     .icon-star-half-o {
-      margin-right: 2px;
+      margin-right: 1px;
 
       &:before {
         vertical-align: top;
@@ -55,10 +55,6 @@
 
   .app-meta {
     padding: 0 30px 0 0;
-
-    .spacer {
-      margin-top: 5px;
-    }
 
     strong {
       font-weight: $fn-bold-weight;
