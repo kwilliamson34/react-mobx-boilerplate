@@ -65,11 +65,11 @@ class ScrollToTop extends React.Component {
 
 	getDocumentHeight() {
 		return Math.max(
-			this.state.body.scrollHeight,
-			this.state.body.offsetHeight,
-			this.state.html.clientHeight,
-			this.state.html.scrollHeight,
-			this.state.html.offsetHeight
+			this.state.body.scrollHeight || 0,
+			this.state.body.offsetHeight || 0,
+			this.state.html.clientHeight || 0,
+			this.state.html.scrollHeight || 0,
+			this.state.html.offsetHeight || 0
 		);
 	}
 
