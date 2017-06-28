@@ -1,7 +1,21 @@
 import { action, observable } from 'mobx';
 import { apiService } from '../services/api.service';
+import { history } from '../services/history.service';
 
 class MDMStore {
+
+
+    getBrowserCloseAlert = (event) => {
+        if(!this.formHasChanged){
+            return;
+        } else {
+            event.returnValue = true;
+        }
+    };
+
+    checkForChanges = () => {
+        return this.formHasChanged;
+    };
 
     // Form Functions
     @action updateMDM(mdmProvider) {
@@ -112,6 +126,31 @@ class MDMStore {
         this.showbreakMDMConnection = !this.showbreakMDMConnection;
     }
 
+    @action disableSaveDialogs() {
+        console.log('unblock')
+        window.removeEventListener('beforeunload', this.getBrowserCloseAlert);
+        this.unblock();
+    }
+
+    @action enableSaveDialogs() {
+        window.addEventListener('beforeunload', this.getBrowserCloseAlert);
+        this.unblock = history.block((location)=>{
+
+            this.interceptedRoute = location.pathname;
+
+            if(!this.checkForChanges()){
+                console.log('dont block')
+                return true;
+            } else {
+                console.log('block')
+                this.toggleExitModal();
+                return false;
+            }
+
+        });
+    }
+
+
     // Services
     @action getMDMConfiguration() {
         const success = (resp) => {
@@ -163,6 +202,7 @@ class MDMStore {
                     message: messageObj.message
                 });
             } else {
+                this.formIsValid = false;
                 this.form_alerts.push({
                     type: 'error',
                     headline: 'Error: ',
