@@ -69,14 +69,14 @@ class ApiService {
 
     getMarketingPortalDevices() {
       return axios.get(`${base}/marketing/api/devices?_format=json`)
-        .then((res) =>{
+        .then((res) => {
           return res.data;
         });
     }
 
-    getMarketingPortalSolutionsDetails() {
+    getMarketingPortalSolutionDetails() {
       return axios.get(`${base}/marketing/api/solutions?_format=json`)
-        .then((res) =>{
+        .then((res) => {
           return res.data;
         });
     }

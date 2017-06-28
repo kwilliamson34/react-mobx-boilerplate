@@ -182,27 +182,3 @@
     }
   }
 }
-
-@media #{$tablet, $wide} {
-  #specialized-devices {
-    .device-detail {
-      .purchase-options-list {
-        li {
-          width: 50%;
-        }
-      }
-    }
-  }
-}
-
-@media #{$normal} {
-  #specialized-devices {
-    .device-detail {
-      .purchase-options-list {
-        li {
-          width: 100%;
-        }
-      }
-    }
-  }
-}

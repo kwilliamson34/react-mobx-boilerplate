@@ -1,19 +1,17 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
 import { Link } from 'react-router-dom';
 
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 
-const mockCategoryCards = require('../fixtures/mock-solutions-cards.json');
+//TODO: This data is being mocked until Marketing Portal's Solution's landing page is restored, at which point we should receive an API.
+const mockLanding = require('../fixtures/mock-solutions-landing-cards.json');
 
 @observer
 export default class ShopSolutionsPage extends React.Component {
 
   renderCards = (cardsArray) => {
-
     return cardsArray.map((card) => {
-
       return (
         <div key={card.title} className="col-xs-12 col-sm-6 col-md-6 col-lg-4 solutions-card">
           <div className="card-wrapper has-shadow">
@@ -62,8 +60,8 @@ export default class ShopSolutionsPage extends React.Component {
             </section>
             <section className="all-cards-wrapper">
               <nav>
-                {mockCategoryCards.cards.length > 0
-                  && this.renderCards(mockCategoryCards.cards)}
+                {mockLanding.cards.length > 0
+                  && this.renderCards(mockLanding.cards)}
               </nav>
             </section>
           </div>

@@ -22,16 +22,18 @@ export default class SolutionsDetailsTemplate extends React.Component {
   }
 
   componentWillMount() {
+    this.externalLinkStore.fetchSolutionDetails();
+
     //checking if the user was on this page previously, eliminating need for new request
-    if (this.props.match.params.solutionDetail != this.externalLinkStore.currentSolutionDetail.path){
-      this.externalLinkStore.resetSolutionDetail();
-      if (this.externalLinkStore.allSolutionDetails.length) {
-        this.externalLinkStore.fetchAndShowSolutionDetails(this.props.match.params.solutionDetail);
-      } else {
-        this.externalLinkStore.fetchSolutionDetails()
-        .then(() => this.externalLinkStore.fetchAndShowSolutionDetails(this.props.match.params.solutionDetail));
-      }
-    }
+    // if (this.props.match.params.solutionDetail != this.externalLinkStore.currentSolutionDetail.path){
+    //   this.externalLinkStore.resetSolutionDetail();
+    //   if (this.externalLinkStore.allSolutionDetails.length) {
+    //     this.externalLinkStore.fetchAndShowSolutionDetails(this.props.match.params.solutionDetail);
+    //   } else {
+    //     this.externalLinkStore.fetchSolutionDetails()
+    //     .then(() => this.externalLinkStore.fetchAndShowSolutionDetails(this.props.match.params.solutionDetail));
+    //   }
+    // }
   }
 
   render() {

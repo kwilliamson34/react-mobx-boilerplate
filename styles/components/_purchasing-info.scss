@@ -10,16 +10,11 @@
 
     li {
       font-size: $fn-body-default-size;
-      float: left;
       width: 100%;
       margin-bottom: 30px;
 
       a, span {
         font-weight: $fn-normal-weight;
-
-        &:last-of-type {
-          width: 100%;
-        }
       }
 
       strong {

@@ -48,14 +48,18 @@ class ExternalLinkStore {
     })
   }
 
-  @action fetchSolutionsData() {
+  @action fetchSolutionDetails() {
+
     const success = (res) => {
       console.log('RESSSSSS     ', res);
     }
+
     const fail = (res) => {
-      utilsService.handleError(res);
+      console.log('RUROH', res);
+      // utilsService.handleError(res);
     }
-    return apiService.getMarketingPortalSolutionsDetails().then(success, fail);
+
+    return apiService.getMarketingPortalSolutionDetails().then(success, fail);
   }
 
   @action getSolutionCards(queryString) {
