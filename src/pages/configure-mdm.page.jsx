@@ -34,7 +34,7 @@ export default class ConfigureMDM extends React.Component {
 
   componentDidUpdate() {
     if(this.store.hasBeenSubmitted){
-      history.replace('/admin/manage-apps');
+      history.push('/admin/manage-apps');
     }
   }
 
@@ -59,8 +59,8 @@ export default class ConfigureMDM extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.store.submitForm(event.target)
-    window.scrollTo(0, 0);
-    document.getElementById('mdm-alerts').focus();
+    // window.scrollTo(0, 0);
+    $('#mdm-alerts').focus();
   }
 
   // MDM Modals Functions
@@ -68,7 +68,13 @@ export default class ConfigureMDM extends React.Component {
   discardFormChanges = (event) => {
     event.preventDefault();
     this.store.resetMDMForm();
-    history.replace(this.store.interceptedRoute);
+    this.store.app_alerts.push({
+                    type: 'success',
+                    headline: 'Success! ',
+                    message: 'bla bla bla'
+                });
+    history.push(this.store.interceptedRoute);
+    $('#mdm-alerts').focus();
   }
 
   breakMDMConnection = (event) => {
@@ -203,7 +209,7 @@ export default class ConfigureMDM extends React.Component {
                 <section className="col-xs-12 col-lg-10 col-lg-offset-1">
                     <div className="mdm-form col-md-offset-2 col-xs-12 col-md-8 col-md">
 
-                      {this.store.form_alerts && <MDMAlerts store = {this.store} page = "mdm_form"/>}
+                      <MDMAlerts store = {this.store} page = "mdm_form"/>
 
                       <form id="configure-mdm-form" onSubmit={this.handleSubmit} noValidate onChange={this.updateForm} onBlur={this.updateForm}>
                         

@@ -4,7 +4,6 @@ import { history } from '../services/history.service';
 
 class MDMStore {
 
-
     getBrowserCloseAlert = (event) => {
         if(this.mdmProvider !== '' && this.formHasChanged){
             event.returnValue = true;
@@ -56,8 +55,6 @@ class MDMStore {
         for (let i = 0; i < keys.length; i++) {
             this.currentMDMForm.set(keys[i], undefined);
         }
-
-        console.log(this.formIsValid)
     }
 
     @action submitForm(form) {
