@@ -96,7 +96,7 @@ export default class ShowMoreOrLess extends React.Component {
 
       if (!isHtmlElement) {
         charCount += element.length
-      };
+      }
     }
     return truncateBlock;
   }
