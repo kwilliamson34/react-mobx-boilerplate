@@ -18,8 +18,13 @@
 	background: $fn-white;
 	line-height: 30px;
 
+	h1{
+		margin-bottom: 26px;
+	}
+
 	a {
 		display: table;
+		font-size: $fn-body-default-size;
 	}
 }
 @media #{$tablet,$desktop} {
