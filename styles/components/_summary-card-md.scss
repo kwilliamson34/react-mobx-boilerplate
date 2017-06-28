@@ -10,8 +10,29 @@
       font-size: 1.6rem;
     }
 
-    .card-name {
-      font-size: 2rem;
+        .card-info{
+            // @include paragraph-text();
+            font-size: 2rem;
+            margin: 0 1.5rem;
+        }
+        .card-publisher{
+            font-size: 1.4rem;
+        }
+        .card-rating{
+            font-size: 1.6rem;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            color: $fn-dkgrey;
+            .ratings-star {
+                height: 1.3rem;
+            }
+        }
+
+        .card-platform{
+            color: $fn-dkgrey;
+            bottom: 1.6rem;
+            right: 2rem;
+            font-size: 1.6rem;
+        }
     }
-  }
 }
