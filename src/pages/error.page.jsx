@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {observer, inject} from 'mobx-react';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {history} from '../core/services/history.service';
+import config from 'config';
 
 @inject('store')
 @observer
@@ -54,9 +55,9 @@ export default class ErrorPage extends React.Component {
           }}></p>
         {showLinksforOtherPortals &&
           <section>
-            <a href="http://www.firstnet.com/appstore">App Store</a>
-            <a href="http://www.firstnet.com/developerconsole">Developer Console</a>
-            <a href="http://www.firstnet.com/localcontrol">Local Control</a>
+            <a href={config.appStore}>App Store</a>
+            <a href={config.developerConsole}>Developer Console</a>
+            <a href={config.localControl}>Local Control</a>
           </section>
         }
         {showLinkToGoBack &&
