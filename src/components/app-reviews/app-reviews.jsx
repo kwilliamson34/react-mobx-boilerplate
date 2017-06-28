@@ -55,13 +55,15 @@ export default class AppReviews extends React.Component {
 
       return (
         <div key={i} className='individual-review-container' aria-labelledby={'Review-' + node.reviewId}>
-          <div className='review-subject' id={ 'Review-' + node.reviewId }>{node.commentTitle}</div>
-          <div className='author-and-rating-container'>
+          <div className='review-metadata'>
+            <div className='subject-and-rating-container'>
+              <div className='review-subject' id={ 'Review-' + node.reviewId }>{node.commentTitle}</div>
+              <div className='sr-only'>{'App rated ' + node.rating + ' out of 5'}</div>
+              <Rating rating={node.reviewStar} />
+            </div>
             <div className='review-author'>{authorName}</div>
-            <div className='sr-only'>{'App rated ' + node.rating + ' out of 5'}</div>
-            <Rating rating={node.reviewStar} />
+            <div className='review-date'>{normalizedDate}</div>
           </div>
-          <div className='review-date'>{normalizedDate}</div>
           <TruncateComment sourceId={node.reviewId} text={node.comment} />
         </div>
       )
