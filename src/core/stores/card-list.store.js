@@ -160,10 +160,10 @@ class CardListStore {
 		})
 	}
 
-	@computed get searchResultsCountLabel() {
+	@computed get resultsCountLabel() {
 		if(!this.isLoading && this.searchHasBeenApplied) {
 			const count = this.filteredSearchResults.length;
-			return `${count} Result${count === 1 ? '' : 's'}`
+			return count ? `${count} Result${count === 1 ? '' : 's'}` : '';
 		}
 	}
 

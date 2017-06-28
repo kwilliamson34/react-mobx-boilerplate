@@ -26,7 +26,6 @@ footer {
       color: $fn-dkgrey;
       margin-bottom: 15px;
       line-height: 1.4;
-
       a {
         font-weight: $fn-normal-weight;
         color: $fn-dkgrey;
@@ -80,6 +79,16 @@ footer {
         &:before {
           font-size: 2.4rem;
           vertical-align: bottom;
+        }
+
+        &.footer-support-phone{
+          color: $fn-dark;
+          margin-right: 5px;
+          &:before{
+            font-size: 1.6rem;
+            vertical-align: baseline;
+          }
+
         }
       }
     }
@@ -161,15 +170,16 @@ footer {
 .help-link-block {
   margin-left: 25px;
 }
-/* mobile */
-@media only screen and (min-width : 0px) {
+
+
+@media #{$mobile} {
   footer {
     .logoRow {
-      padding: 30px 15px;
+      padding: 30px;
 
       img {
         width: 100%;
-        max-width: 290px;
+        max-width: 295px;
       }
     }
   }
@@ -183,6 +193,7 @@ footer {
 
         nav {
           border-bottom: 1px solid $fn-grey;
+          padding-bottom: 15px;
         }
       }
     }
@@ -217,14 +228,14 @@ footer {
     }
   }
 }
-/*Tablet*/
-@media only screen and (min-width : 768px) {
+
+@media #{$tablet} {
   footer {
     .logoRow {
       padding: 30px 15px;
 
       img {
-        max-width: 460px;
+        max-width: 430px;
       }
     }
   }
@@ -258,7 +269,7 @@ footer {
     }
 
     li {
-      margin-bottom: 0;
+      margin-bottom: 30px;
 
       &:not(:last-child) {
         border-right: 1px solid $fn-blue;
@@ -266,14 +277,14 @@ footer {
     }
   }
 }
-/* Desktop */
-@media only screen and (min-width : 992px) {
+
+@media #{$desktop} {
   footer {
     .logoRow {
       padding: 60px 15px;
 
       img {
-        max-width: 460px;
+        max-width: 340px;
       }
     }
   }
@@ -307,19 +318,37 @@ footer {
   }
 
   .footer-main {
-    .is-flex > div {
-      padding: 15px 30px;
-
-      nav {
-        border-bottom: none;
-      }
-
-      &:not(:last-child) {
-        border-right: 1px solid $fn-grey;
+    .is-flex{
+      flex-wrap: nowrap;
+      > div {
+        padding: 15px 30px;
 
         nav {
           border-bottom: none;
         }
+        &:first-child{
+          padding-left: 15px;
+        }
+        &:not(:last-child) {
+          border-right: 1px solid $fn-grey;
+
+          nav {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+  }
+  .footer-sub {
+    .sub-links {
+      text-align: right;
+    }
+
+    li {
+      margin-bottom: 0;
+
+      &:not(:last-child) {
+        border-right: 1px solid $fn-blue;
       }
     }
   }
