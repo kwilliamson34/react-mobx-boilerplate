@@ -95,6 +95,13 @@ export default class ManageAppsPage extends React.Component {
 				</div>
 				<div className="container">
 					<div className="row">
+						<div className="col-xs-12">
+							<h2 className="as-h3 results-count">{this.cardListStore.resultsCountLabel}</h2>
+						</div>
+					</div>
+				</div>
+				<div className="container">
+					<div className="row">
 						<CardList
 							filteredAppsCount={this.cardListStore.filteredSearchResults.length}
 							cards={this.paginatedCards}

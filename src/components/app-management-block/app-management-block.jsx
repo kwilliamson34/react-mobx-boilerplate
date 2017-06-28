@@ -11,7 +11,7 @@ export default class AppManagementBlock extends React.Component {
     getMatchingApp: PropTypes.func.isRequired,
     changeAppAvailability: PropTypes.func.isRequired,
     changeAppRecommended: PropTypes.func.isRequired,
-    mdmIsConfigured: PropTypes.bool.isRequired
+    mdmIsConfigured: PropTypes.bool
   }
 
   constructor(props) {

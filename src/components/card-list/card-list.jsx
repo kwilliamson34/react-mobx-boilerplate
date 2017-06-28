@@ -60,13 +60,24 @@ export class CardList extends React.Component {
     return (
       <section className={`card-list-container col-md-12 col-xs-12 ${hideCardList && 'card-list-substitute'}`}>
         {this.props.isLoading
-          ? <h2>Loading&hellip;</h2>
+          ? <div className="row">
+              <div className="loading-container">
+                <h2><i className="icon-reload"></i>Loading apps&hellip;</h2>
+                <div className="ghost-container">
+                  <div className="app-ghost"><div></div></div>
+                  <div className="app-ghost hidden-xs"><div></div></div>
+                  <div className="app-ghost hidden-xs"><div></div></div>
+                  <div className="app-ghost hidden-xs hidden-sm"><div></div></div>
+                </div>
+              </div>
+            </div>
           : <div className="row">
               {this.props.cards.map((card, i) => {
                 return this.renderCard(card, i)
               })}
             </div>
         }
+
         {this.props.isLoading || this.canLoadMore && this.props.handleLoadMoreClick &&
           <div className="card-list-load-more">
             <button id="card-list-load-more-btn" className="btn fn-primary" onClick={this.props.handleLoadMoreClick}>Load More</button>

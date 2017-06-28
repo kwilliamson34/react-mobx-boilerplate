@@ -14,6 +14,7 @@ export default class Footer extends React.Component {
 	constructor(props) {
 		super(props);
 		this.headerStore = this.props.store.headerStore;
+		this.user = this.props.store.userStore;
 		this.handleSitemapClick = this.handleSitemapClick.bind(this);
 	}
 
@@ -45,18 +46,22 @@ export default class Footer extends React.Component {
 									aria-haspopup="true"
 									aria-expanded={this.headerStore.footerSitemapExpanded}>Sitemap</a>
 								<ul className="sitemap-links">
-									<li role="presentation">
-										<Link to="/admin">PSE Administration</Link>
-									</li>
-									<li role="presentation">
-										<Link to="/admin/manage-apps">Manage Apps</Link>
-									</li>
-									<li role="presentation">
-										<Link to="/devices">Specialized Device Catalog</Link>
-									</li>
-									<li role="presentation">
-										<Link to="/solutions">Solutions Catalog</Link>
-									</li>
+									{this.user.isAdmin &&
+									<div>
+										<li role="presentation">
+											<Link to="/admin">PSE Administration</Link>
+										</li>
+										<li role="presentation">
+											<Link to="/admin/manage-apps">Manage Apps</Link>
+										</li>
+										<li role="presentation">
+											<Link to="/devices">Specialized Device Catalog</Link>
+										</li>
+										<li role="presentation">
+											<Link to="/solutions">Solutions Catalog</Link>
+										</li>
+									</div>
+									}
 									<li role="presentation">
 										<Link to="/network-status">Network Status</Link>
 									</li>
@@ -127,7 +132,7 @@ export default class Footer extends React.Component {
 										<Link to="/feedback">Give Us Feedback</Link>
 									</li>
 									<li role="presentation">
-										AT&amp;T Customer Service:<br className="visible-xs-inline-block visible-md-inline-block" />&nbsp;<a href={'tel:' + this.headerStore.ATTSupportPhone}>{this.headerStore.ATTSupportPhone}</a>
+										AT&amp;T Customer Service:<br className="visible-xs-inline-block visible-md-inline-block" />&nbsp;<a href={'tel:' + this.headerStore.ATTSupportPhone}><i className="icon-phone-number footer-support-phone"></i>{this.headerStore.ATTSupportPhone}</a>
 									</li>
 								</ul>
 							</nav>

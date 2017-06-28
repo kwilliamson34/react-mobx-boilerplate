@@ -20,6 +20,10 @@
     margin-top: 2rem;
     padding: 1rem 0 0;
 
+    .search-form .control-label {
+      text-transform: uppercase;
+    }
+
     hr {
       border-color: $fn-grey;
       border-width: 2px;
@@ -49,6 +53,10 @@
     }
   }
 
+  .results-count {
+    padding-top: 2rem;
+  }
+
   .card-list-substitute {
     h2 {
       margin-bottom: 30px;
@@ -61,5 +69,147 @@
     text-align: center;
     margin: 100px auto;
     padding: 0;
+  }
+
+  .loading-container {
+    text-align: center;
+    h2{
+      font-size: 3.0rem;
+      i{
+        transform: rotate(-90deg);
+        margin-right: 5px;
+        font-size: 3.0rem;
+      }
+      margin-bottom: 60px;
+    }
+    .ghost-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin: 0 auto;
+      height: 490px;
+      overflow:hidden;
+      text-align: center;
+
+      .app-ghost {
+        display: inline-block;
+        position: relative;
+        min-width: 225px;
+        height: 490px;
+        background: $fn-ltbluegrey;
+        border: 1px solid $fn-grey;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 50px;
+          right: 0;
+          left: 0;
+          width: 130px;
+          padding-top: 130px;
+          margin: 0 auto;
+          border: 1px solid $fn-grey;
+          background: $fn-white;
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 20px;
+          right: 0;
+          left: 0;
+          width: 82%;
+          height: 48px;
+          margin: 0 auto;
+          border: 1px solid $fn-grey;
+          border-radius: 24px;
+          background: $fn-white;
+        }
+
+        > div {
+          position: absolute;
+          top: 236px;
+          left: 20px;
+          width: 58%;
+          height: 14px;
+          border-radius: 5px;
+          border: 1px solid $fn-grey;
+          background: $fn-white;
+
+          &:before {
+            content: '';
+            position: absolute;
+            display: block;
+            top: 94px;
+            left: 0;
+            width: 100%;
+            height: 14px;
+            border-radius: 5px;
+            border: 1px solid $fn-grey;
+            background: $fn-white;
+          }
+
+          &:after {
+            content: '';
+            position: absolute;
+            display: block;
+            top: 45px;
+            left: 0;
+            width: 61.5%;
+            height: 14px;
+            border-radius: 5px;
+            border: 1px solid $fn-grey;
+            background: $fn-white;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media #{$mobile} {
+  #manage-apps-page {
+    .ghost-container{
+      display:block;
+      width: 100%;
+      padding: 0 20px;
+      .app-ghost{
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media #{$tablet} {
+  #manage-apps-page {
+    .loading-container h2{
+      font-size: 3.6rem;
+      i{
+        font-size: 3.6rem;
+      }
+    }
+    .ghost-container{
+      display:flex;
+      width: 750px;
+      padding: 0px 25px;
+      .app-ghost{
+        width:225px;
+      }
+    }
+  }
+}
+
+@media #{$desktop} {
+  #manage-apps-page {
+    .loading-container h2{
+      font-size: 3.6rem;
+      i{
+        font-size: 3.6rem;
+      }
+    }
+    .ghost-container{
+      width: 970px;
+      margin: 0 auto;
+    }
   }
 }

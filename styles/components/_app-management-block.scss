@@ -1,20 +1,18 @@
 .app-management {
-    width: 100%;
-    height: auto;
-    background-color: $fn-ltgrey;
-    margin: 0 auto;
-    padding: 0 15px 15px 15px;
-    border: 1px solid $fn-grey;
+  width: 100%;
+  height: auto;
+  background-color: $fn-ltgrey;
+  padding: 0 15px 15px;
+  border: 1px solid $fn-grey;
 
-    .checkbox label {
-      padding: 1rem 0;
-      width: auto;
-    }
+  .checkbox label {
+    padding: 1rem 0;
+    width: auto;
+  }
 
-    button {
-        font-size: 1.4rem;
-        margin: auto;
-    }
+  button {
+    font-size: 1.4rem;
+    display: block;
+    margin: auto;
+  }
 }
-
-@import 'app-management-block-lg'

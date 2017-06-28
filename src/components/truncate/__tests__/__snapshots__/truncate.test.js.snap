@@ -1,0 +1,24 @@
+exports[`<Truncate /> renders matches previous snapshot 1`] = `
+<div
+  className="should render all classes">
+  <span
+    className="truncate-contents">
+    <p
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse …"
+        }
+      } />
+    <button
+      aria-expanded={false}
+      aria-haspopup="true"
+      className="btn-link truncate-button"
+      onClick={[Function anonymous]}>
+      SHOW MORE
+      <i
+        aria-hidden="true"
+        className="icon-arrowDown" />
+    </button>
+  </span>
+</div>
+`;
