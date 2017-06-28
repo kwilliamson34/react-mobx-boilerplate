@@ -5,31 +5,6 @@
     padding-bottom: 20px;
   }
 
-  .app-rating {
-    .ratings-container {
-      display: inline-block;
-    }
-
-    &.spacer {
-      margin-top: 7px;
-    }
-
-    .icon-star,
-    .icon-star-o,
-    .icon-star-half-o {
-      margin-right: 1px;
-
-      &:before {
-        vertical-align: top;
-      }
-    }
-  }
-
-  .app-reviews-count {
-    display: inline-block;
-    vertical-align: top;
-  }
-
   .appicon-wrapper {
     text-align: center;
 
@@ -76,12 +51,6 @@
   .app-summary {
     .app-details {
       margin-top: 1em;
-    }
-
-    .app-rating {
-      .ratings-number {
-        display: none;
-      }
     }
 
     .card-rating {

@@ -5,6 +5,22 @@ import {observer} from 'mobx-react';
 @observer
 export class Rating extends React.Component {
 
+  static propTypes = {
+    rating: PropTypes.number,
+    reviewCount: PropTypes.number,
+    showRatingNumber: PropTypes.bool,
+    showReviewCount: PropTypes.bool,
+    truncateStars: PropTypes.bool
+  }
+
+  static defaultProps = {
+    rating: 0,
+    reviewCount: 0,
+    showRatingNumber: false,
+    showReviewCount: false,
+    truncateStars: false
+  }
+
   starTemplate(starImage, i) {
     return (
       <span key={i} aria-hidden="true" className={starImage}></span>
@@ -31,25 +47,29 @@ export class Rating extends React.Component {
 
   render() {
     let rating = this.props.rating ? this.props.rating : 0;
+    let reviewCount = this.props.reviewCount ? this.props.reviewCount : 0;
     let stars = this.convertRatingToStars(rating)
     return (
       <div className="ratings-container">
-        <span className="ratings-number">
-          <span className="sr-only">Rating of</span>
-          {rating}
-        </span>&nbsp;
+        {this.props.showRatingNumber &&
+          <span className="ratings-number">
+            <span className="sr-only">Rating of&nbsp;</span>
+            {rating}&nbsp;
+          </span>
+        }
         <span className="ratings-stars">
-          {stars}
+          {this.props.truncateStars
+            ? <span className="icon-star" aria-hidden></span>
+            : stars}
         </span>
+        {this.props.showReviewCount && reviewCount > 0 &&
+          <span className="app-reviews-count hidden-xs">
+            <span className="sr-only">Reviewed by</span>
+            &nbsp;({reviewCount})
+            <span className="sr-only">&nbsp;people</span>
+          </span>
+        }
       </div>
     );
   }
-}
-
-Rating.propTypes = {
-  rating: PropTypes.number
-};
-
-Rating.defaultProps = {
-  rating: 0
 }

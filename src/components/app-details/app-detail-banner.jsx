@@ -27,19 +27,19 @@ export class AppDetailBanner extends React.Component {
 
   rating() {
     return (
-      <div className="app-rating spacer">
-        <span className="icon-star hidden-sm hidden-md hidden-lg" aria-hidden></span>
-        <span className="rating-component hidden-xs">
-          <Rating rating={this.data.rating}/>
-        </span>
-        <span className="hidden-sm hidden-md hidden-lg">
-          <span className="sr-only">Rating of
-          </span>
-          <span>{this.data.rating}</span>
-        </span>
-        {this.data.reviews_count > 0 && <span className="app-reviews-count hidden-xs">
-          ({this.data.reviews_count})
-        </span>}
+      <div className="app-rating app-details">
+        {/*Mobile*/}
+        <div className="hidden-sm hidden-md hidden-lg">
+          <Rating rating={this.data.rating} reviewCount={this.data.reviews_count} showRatingNumber={true} truncateStars={true}/>
+        </div>
+        {/*Tablet*/}
+        <div className="hidden-xs hidden-md hidden-lg">
+          <Rating rating={this.data.rating} reviewCount={this.data.reviews_count} showReviewCount={true}/>
+        </div>
+        {/*Desktop*/}
+        <div className="hidden-xs hidden-sm">
+          <Rating rating={this.data.rating} reviewCount={this.data.reviews_count} showReviewCount={true}/>
+        </div>
       </div>
     )
   }
