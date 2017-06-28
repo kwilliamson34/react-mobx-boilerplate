@@ -153,7 +153,6 @@ export default class FeedbackPage extends React.Component {
                       <option value='Network Status'>Network Status</option>
                       {this.userStore.isAdmin && <option value='Purchasing and Provisioning'>Purchasing & Provisioning</option>}
                       {this.userStore.isAdmin && <option value='Account Management'>Account Management</option>}
-                      <option value='General Questions'>General Questions</option>
                       <option value='Other'>Other</option>
                     </select>
                   </div>
