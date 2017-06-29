@@ -42,11 +42,13 @@ class GeolinkStore {
   }
 
   @action searchMap() {
-    console.log('Searching map for ' + this.searchTerm + '...');
-    this.mapIframeRef.contentWindow.postMessage({
-      eventName: 'doMapGeocode',
-      value: this.searchTerm || this.defaultSearchTerm
-    }, '*');
+    if(this.searchTerm) {
+      console.log('Searching map for ' + this.searchTerm + '...');
+      this.mapIframeRef.contentWindow.postMessage({
+        eventName: 'doMapGeocode',
+        value: this.searchTerm || this.defaultSearchTerm
+      }, '*');
+    }
   }
 
   @action addAllNetworkLayers() {

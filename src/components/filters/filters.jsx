@@ -50,7 +50,7 @@ export class Filters extends React.Component {
           <div className="col-xs-12">
             <span className="form-group-title">Filter</span>
           </div>
-          <div className="col-md-4 col-xs-12">
+          <div className="col-sm-4 col-xs-12">
             <div className="form-group">
               {this.renderSelect({
                 id: 'category-filter',
@@ -61,7 +61,7 @@ export class Filters extends React.Component {
               })}
             </div>
           </div>
-          <div className="col-md-4 col-xs-12">
+          <div className="col-sm-4 col-xs-12">
             <div className="form-group">
               {this.renderSelect({
                 id: 'segment-filter',
@@ -72,7 +72,7 @@ export class Filters extends React.Component {
               })}
             </div>
           </div>
-          <div className="col-md-4 col-xs-12">
+          <div className="col-sm-4 col-xs-12">
             <div className="form-group">
               {this.renderSelect({
                 id: 'platform-filter',
