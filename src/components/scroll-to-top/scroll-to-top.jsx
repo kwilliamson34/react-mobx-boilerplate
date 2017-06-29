@@ -42,20 +42,18 @@ class ScrollToTop extends React.Component {
 	}
 
 	componentWillUnmount() {
-			window.removeEventListener('scroll', this.manageBackToTopVisibility);
-			window.removeEventListener('resize', this.updateWindowDimensions);
+		window.removeEventListener('scroll', this.manageBackToTopVisibility);
+		window.removeEventListener('resize', this.updateWindowDimensions);
 	}
 
 	updateWindowDimensions = _.debounce(() => {
-
 		this.setState({
 			documentHeight: this.getDocumentHeight(),
 			footerHeight: document.getElementById('pse-footer').offsetHeight,
 			viewportHeight: window.innerHeight,
 			viewportWidth: window.innerWidth
 		});
-
-	},200, { leading: true, trailing: false });
+		}, 200, { leading: true, trailing: false });
 
 	getDocumentHeight() {
 		return Math.max(
