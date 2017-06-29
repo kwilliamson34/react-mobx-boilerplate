@@ -318,7 +318,7 @@ export default class PSEHeader extends React.Component {
 					</div>
 				</div>
 				<div
-					className="pageMask hidden-md hidden-lg"
+					className="pageMask hidden-xs hidden-md hidden-lg"
 					onClick={this.toggleMainMenu}
 				/>
 			</header>
