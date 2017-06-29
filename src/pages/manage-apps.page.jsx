@@ -9,6 +9,7 @@ import {SearchForm} from '../components/search/search-form';
 import {Filters} from '../components/filters/filters';
 import {MDMAlerts} from '../components/configure-mdm/mdm-alerts';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
+import $ from 'jquery';
 
 @inject('store')
 @observer
@@ -27,6 +28,7 @@ export default class ManageAppsPage extends React.Component {
 		this.pageId = 'manageAppsPage';
 		this.itemsPerPage = 20;
 		this.mdmIsConfigured = this.mdmStore.pseMDMObject.get('mdm_type') ? true : false
+		this.viewedAlert = false;
 	}
 
 	componentWillMount() {
@@ -39,6 +41,10 @@ export default class ManageAppsPage extends React.Component {
 			}
 		}else{
 			utilsService.handlePendingFANMapping();
+		}
+
+		if(this.mdmStore.app_alerts.length && $('#mdm-alerts:visible').length){
+			setTimeout(() => {$('#mdm-alerts').focus()}, 100);
 		}
 	}
 
@@ -66,6 +72,7 @@ export default class ManageAppsPage extends React.Component {
 				pageTitle: 'Manage Apps'
 			}
 		];
+
 		return (
 			<article id="manage-apps-page">
 				<BreadcrumbNav links={crumbs}/>

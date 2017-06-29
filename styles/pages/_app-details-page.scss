@@ -6,8 +6,6 @@
     background: white;
   }
 
-
-
   .app-summary {
     padding: 30px 0;
 
@@ -39,6 +37,10 @@
     border: none;
     width: auto;
     float: left;
+
+    .checkbox label {
+      padding-top: 0;
+    }
   }
 
   .developer-website {
