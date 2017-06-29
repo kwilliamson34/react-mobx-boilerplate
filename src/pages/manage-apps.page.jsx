@@ -57,8 +57,6 @@ export default class ManageAppsPage extends React.Component {
 		return this.cardListStore.filteredSearchResults.slice(0, totalCards);
 	}
 
-
-
 	render() {
 		const crumbs = [
 			{	pageHref: '/admin',
