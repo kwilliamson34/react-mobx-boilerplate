@@ -13,8 +13,8 @@ article.faq-article {
             border-bottom: 2px solid $fn-dkgrey; 
             text-align: left; 
             padding-top: 60px;
-            margin-bottom:52px;
-            padding-bottom:8px;
+            margin-bottom: 52px;
+            padding-bottom: 8px;
         }
         .header-title {
             background-color: $fn-white; 
@@ -41,33 +41,25 @@ article.faq-article {
             padding-left: 20px;
             padding-right: 20px;
             padding-top: 20px;
-            padding-bottom: 10px;
+            padding-bottom: 20px;
             color: $fn-dark;
             margin-left: 0;
             margin-right: 0;
         }
         div.faq-entry-content-button {
             background-color: $fn-ltbluegrey;
-            padding-bottom: 20px;
-            padding-left: 20px;
+            padding-top: 10px;
             margin-left: 0;
             margin-right: 0;
         }
-        div.faq-entry-content-button-hidden {
-            background-color: $fn-ltbluegrey;
-            padding-bottom: 20px;
-        }
-        div.faq-entry-content-button-hidden > .show-more-link {
-            display:none;
-        }
         p {
-            padding-top:1.6rem;
+            padding-top: 1.6rem;
             color: $fn-dark;
             font-size: 1.6rem;
             margin-bottom: 0;
         }
         p:first-child {
-            padding-top:0;
+            padding-top: 0;
             color: $fn-dark;
         }
         padding-top: 30px;
@@ -129,21 +121,21 @@ article.faq-article {
         li > a.active {
             color: $fn-dkgrey;
             font-weight: $fn-bold-weight;
-            position:relative;
-            width:50px;
-            text-align:center;
+            position: relative;
+            width: 50px;
+            text-align: center;
             text-decoration: none;
         }
         li > a.active:before{
-            content:"";
-            display:block;
-            width:0;
-            border:8px solid $fn-dkgrey;
+            content: "";
+            display: block;
+            width: 0;
+            border: 8px solid $fn-dkgrey;
             border-color:transparent transparent $fn-dkgrey transparent;
-            position:absolute;
-            top:70%;
-            left:50%;
-            margin-left:-8px;
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            margin-left: -8px;
         }
 
         li:first-child{
@@ -155,7 +147,7 @@ article.faq-article {
     .faq-category-select {
         label {
             padding-top:20px;
-            font-size:1.4rem;
+            font-size: 1.4rem;
             margin-bottom: 5px;
             margin-top: 10px;
             padding-left:4px;
@@ -166,7 +158,7 @@ article.faq-article {
 .faq-top-header {
     h1 { 
         color: $fn-black;
-        padding-left:60px;
+        padding-left: 60px;
     }
     p { 
         padding-bottom: 20px; 
@@ -177,8 +169,8 @@ article.faq-article {
         padding-bottom: 0;         
     }
     div.faq-header-box {
-        padding-top:40px;
-        padding-bottom:50px;
+        padding-top: 40px;
+        padding-bottom: 50px;
     }
 
 }
