@@ -63,8 +63,9 @@ export default class ConfigureMDM extends React.Component {
 
     this.store.submitForm(event.target)
 
+    $alerts.focus();
+    
     if(this.store.form_alerts.length && this.store.form_alerts[0].type === 'error'){
-        $alerts.focus();
         $alerts.one('blur', function(){
               $('#mdm').focus();
         });
