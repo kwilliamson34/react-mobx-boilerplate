@@ -72,7 +72,7 @@ export class FaqMain extends React.Component {
                     <div className="image-box">
                         <div className="container">
                             <div className="row">
-                                <div className="col-xs-12 faq-header-box">
+                                <div className="col-xs-12 col-sm-10 col-sm-offset-1 faq-header-box">
                                     <h1>Frequently Asked&nbsp;Questions</h1>
                                 </div>
                             </div>
