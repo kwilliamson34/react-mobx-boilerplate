@@ -68,8 +68,10 @@
 
   .card-lower-meta {
     position: absolute;
-    bottom: 0.7rem;
+    bottom: 1rem;
     width: 90%;
+    display: flex;
+    align-items: center;
   }
 
   .card-platform {
