@@ -27,11 +27,9 @@ import ManageUsersPage from './pages/manage-users.page';
 import ManageBillingPage from './pages/manage-billing.page';
 import ManageServicesPage from './pages/manage-services.page';
 import ManageAppsPage from './pages/manage-apps.page';
-import ManagePushToTalkPage from './pages/manage-push-to-talk.page';
 import ManageWirelessReportsPage from './pages/manage-wireless-reports.page';
 import AdminDashboardPage from './pages/admin-dashboard.page';
 import ConfigureMDM from './pages/configure-mdm.page';
-import ShopDevicesPage from './pages/shop-devices-rates.page';
 
 //Marketing Portal pages
 import DevicesLandingPage from './pages/devices.page';
@@ -130,7 +128,6 @@ export default class App extends React.Component {
             <Route path="/admin/manage-services" component={this.getAdminRoutes(ManageServicesPage)}/>
             <Route path="/admin/manage-apps" component={this.getAdminRoutes(ManageAppsPage)}/>
             <Route path="/admin/configure-mdm" component={this.getAdminRoutes(ConfigureMDM)}/>
-            <Route path="/admin/manage-push-to-talk" component={this.getAdminRoutes(ManagePushToTalkPage)}/>
             <Route path="/admin/manage-wireless-reports" component={this.getAdminRoutes(ManageWirelessReportsPage)}/>
             <Route path="/admin" component={this.getAdminRoutes(AdminDashboardPage)}/>
             <Route path="/app/:appPsk" component={this.getAdminRoutes(AppDetailsPage)/*TODO redirect to error/404 if psk has no match*/}/>
