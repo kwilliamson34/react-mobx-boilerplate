@@ -39,7 +39,7 @@ export default class DeviceCategoryTemplate extends React.Component {
 			{	pageHref: '/admin',
 				pageTitle: 'Administration Dashboard'
 			},
-			{	pageHref: '/devices',
+			{	pageHref: '/admin/devices',
 				pageTitle: 'Specialized Devices'
 			},
 			{	pageHref: this.props.match.url,
@@ -63,7 +63,7 @@ export default class DeviceCategoryTemplate extends React.Component {
 									let itemRoute = encodeURIComponent(item.device_title).replace(/%20/g, '+');
 									return (
 										<li key={idx}>
-											<Link to={`/devices/${item.device_category.toLowerCase()}/${itemRoute}`}>
+											<Link to={`/admin/devices/${item.device_category.toLowerCase()}/${itemRoute}`}>
 												{item.device_title}
 												<div className="card-img-wrapper">
 													<img src={item.device_image_url} alt={item.device_image_alt} />
