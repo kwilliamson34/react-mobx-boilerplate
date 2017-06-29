@@ -40,8 +40,8 @@ export class IBMForm extends React.Component {
 				</div>
 
 				<div className={this.inputHasError('ibm_userName') ? 'form-group has-feedback has-error' : 'form-group has-feedback'}>
-					<label className="control-label" htmlFor="ibm_userName">MaaS360 User Name<span className="required-asterisks"> *</span></label>
-					{this.inputHasError('ibm_userName') && <div className="msgBlock error error-list" role="alert" aria-live = "assertive"><span>Please enter a valid user name.</span></div>}
+					<label className="control-label" htmlFor="ibm_userName">MaaS360 Username<span className="required-asterisks"> *</span></label>
+					{this.inputHasError('ibm_userName') && <div className="msgBlock error error-list" role="alert" aria-live = "assertive"><span>Please enter a valid username.</span></div>}
 					<input id="ibm_userName" type="text" className="form-control" disabled={this.props.connectionSet} defaultValue={this.props.formData.ibm_userName}/>
 				</div>
 

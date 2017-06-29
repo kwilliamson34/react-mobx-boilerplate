@@ -82,7 +82,7 @@ export default class PSEHeader extends React.Component {
 										aria-expanded={this.headerStore.profileSubMenuIsOpen}>
 										<span className="sr-only">Expand Section Navigation</span>
 									</button>
-									<a id="pse-profile" href="/manage-profile">
+									<a id="pse-profile" href="#" className="deaden">
 										<div className="multi-line-item">
 											<div className="profile-display">
 												<i className="icon-profile" aria-hidden="true" />
@@ -102,7 +102,7 @@ export default class PSEHeader extends React.Component {
 										}
 										aria-labelledby="pse-profile">
 										<li role="presentation">
-											<Link to="/manage-profile">Manage My Profile</Link>
+											<NewTabLink to={this.linkStore.manageMyProfileLink}>Manage My Profile</NewTabLink>
 										</li>
 									</ul>
 								</li>
@@ -190,10 +190,10 @@ export default class PSEHeader extends React.Component {
 													</NewTabLink>
 												</li>
 												<li>
-													<NavLink to="/devices">Specialized Devices</NavLink>
+													<NavLink to="/admin/devices">Specialized Devices</NavLink>
 												</li>
 												<li>
-													<NavLink to="/solutions">
+													<NavLink to="/admin/solutions">
 														Public Safety Solutions
 													</NavLink>
 												</li>
@@ -262,23 +262,21 @@ export default class PSEHeader extends React.Component {
 									<button
 										id="profile-header-dropdown"
 										type="button"
-										className={(this.props.location.pathname === '/manage-profile')? 'dropdown-toggle active':'dropdown-toggle'}
 										data-toggle="dropdown">
 										<i
 											className="icon-profile"
 											aria-label="Go to User Dashboard"
 										/>
 									</button>
-
 									<ul
 										id="pse-profile-nav"
 										role="menu"
 										className="dropdown-menu dropdown-menu-right"
 										aria-labelledby="profile-header-dropdown">
 										<li role="presentation">
-											<NavLink to="/manage-profile" activeClassName="active">
+											<NewTabLink to={this.linkStore.manageMyProfileLink}>
 												<i className="icon-settings" aria-hidden="true"></i>Manage My Profile
-											</NavLink>
+											</NewTabLink>
 										</li>
 										<li role="presentation">
 											<a href="#" onClick={this.onLogout}>

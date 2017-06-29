@@ -31,6 +31,7 @@ class UserStore {
     this.checkPermissions();
     this.userValidationDone = true;
     this.authentic_user = true;
+
   }
 
   @action logoutUser() {

@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import config from 'config';
 import {observer, inject} from 'mobx-react';
 
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
+import PurchasingInfo from '../components/purchasing-info/purchasing-info';
 
 @inject('store')
 @observer
@@ -21,9 +21,14 @@ export default class DeviceDetailTemplate extends React.Component {
 
 	componentWillMount() {
 		//checking if the user was on this page previously, eliminating need for new request
-		if(this.props.match.url != this.externalLinkStore.currentDeviceDetail.path){
+		if(this.props.match.params.deviceId != this.externalLinkStore.currentDeviceDetail.path){
 			this.externalLinkStore.resetDeviceDetail();
-			this.externalLinkStore.getDeviceDetail(this.props.match.url);
+			if (this.externalLinkStore.allSpecializedDevices.length) {
+				this.externalLinkStore.fetchAndShowDeviceDetails(this.props.match.params.deviceId);
+			} else {
+				this.externalLinkStore.fetchDevicesData()
+				.then(() => this.externalLinkStore.fetchAndShowDeviceDetails(this.props.match.params.deviceId));
+			}
 		}
 	}
 
@@ -32,10 +37,10 @@ export default class DeviceDetailTemplate extends React.Component {
 			{	pageHref: '/admin',
 				pageTitle: 'Administration Dashboard'
 			},
-			{	pageHref: '/devices',
+			{	pageHref: '/admin/devices',
 				pageTitle: 'Specialized Devices'
 			},
-			{	pageHref: '/devices/' + this.props.match.params.deviceCategory,
+			{	pageHref: '/admin/devices/' + this.props.match.params.deviceCategory,
 				pageTitle: this.props.match.params.deviceCategory
 			},
 			{	pageHref: this.props.match.url,
@@ -53,54 +58,17 @@ export default class DeviceDetailTemplate extends React.Component {
 						<div className="col-xs-10 col-xs-offset-1 col-sm-offset-1 col-sm-4 col-md-offset-1 col-md-4 col-lg-offset-1 col-lg-3">
 							<img
 								className="img-responsive"
-								src={config.mktgPortalImgBaseUrl + this.externalLinkStore.currentDeviceDetail.deviceImg} alt={this.externalLinkStore.currentDeviceDetail.deviceImgAlt} />
+								src={this.externalLinkStore.currentDeviceDetail.deviceImg}
+								alt={this.externalLinkStore.currentDeviceDetail.deviceImgAlt} />
 						</div>
 						<div className="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-6 col-md-offset-0 col-lg-7">
 							<h1 className="as-h2 hidden-xs">{this.externalLinkStore.currentDeviceDetail.deviceName}</h1>
-							<ul className="feature-list">
-								{this.externalLinkStore.currentDeviceDetail.features.map((feature, idx) => {
-									return (
-										<li key={idx} dangerouslySetInnerHTML={{ __html: feature}} />
-									)
-								})}
-							</ul>
+							<div className="feature-list" dangerouslySetInnerHTML={{__html: this.externalLinkStore.currentDeviceDetail.features}}></div>
 						</div>
 					</div>
-					<div className="row">
-						<div
-							className="
-							col-xs-10 col-xs-offset-1
-							col-sm-offset-1 col-sm-10
-							col-md-6 col-md-offset-5
-							col-lg-7 col-lg-offset-4">
-							<h2 className="as-h3">For Purchasing</h2>
-							<div>
-								<ul className="purchase-options-list">
-									<li>
-										<strong>Contact:</strong>
-										<span>Lucius Fox</span>
-									</li>
-									<li>
-										<strong>Phone:</strong>
-										<a href="tel:18005882300">800-588-2300</a>
-									</li>
-									<li>
-										<strong>Email:</strong>
-										<a href="mailto:lfox@samsung.com">lfox@samsung.com</a>
-									</li>
-									<li>
-										<strong>Company:</strong>
-										<span>Samsung</span>
-									</li>
-									<li>
-										<strong>Website:</strong>
-										<a href="http://samsung.com/">samsung.com</a>
-									</li>
-								</ul>
-							</div>
-
-						</div>
-					</div>
+					{this.externalLinkStore.currentPurchasingInfo && this.externalLinkStore.showPurchasingInfo &&
+						<PurchasingInfo contactInfo={this.externalLinkStore.currentPurchasingInfo} />
+					}
 				</div>
 				{(this.externalLinkStore.currentDeviceDetail.terms) &&
 					<div className="terms-block">
