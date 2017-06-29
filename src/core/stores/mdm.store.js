@@ -4,6 +4,7 @@ import { history } from '../services/history.service';
 
 class MDMStore {
 
+    // Determines if the beforeUnload event should fire in the browser
     getBrowserCloseAlert = (event) => {
         if(this.mdmProvider !== '' && this.formHasChanged){
             event.returnValue = true;
@@ -12,6 +13,7 @@ class MDMStore {
         }
     };
 
+    // Checks for changes to the form
     checkForChanges = () => {
         let blockExit = false;
         if(this.mdmProvider !== '' && this.formHasChanged){
@@ -130,7 +132,6 @@ class MDMStore {
     }
 
     @action disableSaveDialogs() {
-        console.log('unblock')
         window.removeEventListener('beforeunload', this.getBrowserCloseAlert);
         this.unblock();
     }
@@ -142,10 +143,8 @@ class MDMStore {
             this.interceptedRoute = location.pathname;
 
             if(!this.checkForChanges()){
-                console.log('dont block')
                 return true;
             } else {
-                console.log('block')
                 this.showExitModal = true;
                 return false;
             }

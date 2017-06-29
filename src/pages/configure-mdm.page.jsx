@@ -59,7 +59,6 @@ export default class ConfigureMDM extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.store.submitForm(event.target)
-    // window.scrollTo(0, 0);
     $('#mdm-alerts').focus();
   }
 
@@ -68,13 +67,7 @@ export default class ConfigureMDM extends React.Component {
   discardFormChanges = (event) => {
     event.preventDefault();
     this.store.resetMDMForm();
-    this.store.app_alerts.push({
-                    type: 'success',
-                    headline: 'Success! ',
-                    message: 'bla bla bla'
-                });
     history.push(this.store.interceptedRoute);
-    $('#mdm-alerts').focus();
   }
 
   breakMDMConnection = (event) => {
@@ -94,12 +87,8 @@ export default class ConfigureMDM extends React.Component {
   }
 
   renderExitModal = (showExitModal) => {
-    if(showExitModal){
-      $('#exitModal').modal({backdrop:'static'});
-    } else {
-       $('#exitModal').modal('hide');
-       $('#exitModal').data('bs.modal',null);
-    }
+    this.showModal(showExitModal, '#exitModal')
+
     return (
         <div id="exitModal" className="modal fade" tabIndex="-1" role="dialog" aria-labelledby="modal-title">
           <div className="modal-dialog">
@@ -124,12 +113,9 @@ export default class ConfigureMDM extends React.Component {
   }
 
   renderBreakConnectionModal = (showbreakMDMConnection) => {
-    if(showbreakMDMConnection){
-      $('#breakConnectionModal').modal({backdrop:'static'});
-    } else {
-       $('#breakConnectionModal').modal('hide');
-       $('#breakConnectionModal').data('bs.modal',null);
-    }
+
+    this.showModal(showbreakMDMConnection, '#breakConnectionModal')
+
     return (
         <div id="breakConnectionModal"  className="modal fade" tabIndex="-1" role="dialog" aria-labelledby="modal-title">
           <div className="modal-dialog">
@@ -151,6 +137,15 @@ export default class ConfigureMDM extends React.Component {
           </div>
         </div>
     )
+  }
+
+  showModal(shouldShow, modalID){
+    if(shouldShow){
+      $(modalID).modal({backdrop:'static'});
+    } else {
+       $(modalID).modal('hide');
+       $(modalID).data('bs.modal',null);
+    }
   }
 
   clearModals = () => {
@@ -209,7 +204,7 @@ export default class ConfigureMDM extends React.Component {
                 <section className="col-xs-12 col-lg-10 col-lg-offset-1">
                     <div className="mdm-form col-md-offset-2 col-xs-12 col-md-8 col-md">
 
-                      <MDMAlerts store = {this.store} page = "mdm_form"/>
+                      <MDMAlerts store={this.store} page="mdm_form"/>
 
                       <form id="configure-mdm-form" onSubmit={this.handleSubmit} noValidate onChange={this.updateForm} onBlur={this.updateForm}>
                         
