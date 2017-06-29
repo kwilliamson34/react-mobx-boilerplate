@@ -9,9 +9,9 @@ const config = {
   mktgPortalImgBaseUrl: 'https://www.firstnet.ws',
   apiBase: '/api',
   attCustomerSupportPhone: '800-574-7000',
-  appStore: '', //TODO
-  developerConsole: '', //TODO
-  localControl: '' //TODO
+  appStore: 'https://apps.firstnet.att.com',
+  developerConsole: 'https://appcontrol.firstnet.att.com',
+  localControl: 'https://localcontrol.firstnet.att.com'
 }
 
 export default config
