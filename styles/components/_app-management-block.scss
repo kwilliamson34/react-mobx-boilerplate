@@ -6,13 +6,14 @@
   border: 1px solid $fn-grey;
 
   .checkbox label {
-    padding: 1rem 0;
+    padding: 15px 1rem;
     width: auto;
+    height: 48px;
   }
 
   button {
     font-size: 1.4rem;
     display: block;
-    margin: auto;
+    margin: .75rem auto;
   }
 }

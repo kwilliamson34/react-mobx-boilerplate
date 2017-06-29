@@ -30,8 +30,9 @@ class UserStore {
     this.api_token = tk_response;
     this.checkPermissions();
     this.userValidationDone = true;
-    this.authentic_user = true;
-
+    if(this.user.roles.indexOf('G_FN_PSE') >= 0) {
+      this.authentic_user = true;
+    }
   }
 
   @action logoutUser() {
@@ -58,10 +59,8 @@ class UserStore {
     this.user.lastName = userInfo.lastName;
     this.user.roles = userInfo.roles;
     this.user.username = userInfo.username;
-
-    if(userInfo.authorizations && userInfo.authorizations.length > 0) {
-      this.user.pse = Object.keys(userInfo.authorizations[0])[0];
-    }
+    this.user.pse = userInfo.authorizations[0].pseId || '';
+    this.user.pseName = userInfo.authorizations[0].pseName || '';
   }
 
   @observable user = {};

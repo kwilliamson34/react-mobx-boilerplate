@@ -8,7 +8,10 @@ const config = {
   geolinkAbMapConstants: 'abMapConstantsFNST.js',
   mktgPortalImgBaseUrl: 'https://www.firstnet.ws',
   apiBase: '/api',
-  attCustomerSupportPhone: '800-574-7000'
+  attCustomerSupportPhone: '800-574-7000',
+  appStore: 'https://apps-qa.sapientfirst.net',
+  developerConsole: 'https://devcon-qa.sapientfirst.net',
+  localControl: 'https://pse-qa.sapientfirst.net'
 }
 
 export default config

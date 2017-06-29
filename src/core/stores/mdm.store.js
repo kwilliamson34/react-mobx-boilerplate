@@ -1,7 +1,26 @@
 import { action, observable } from 'mobx';
 import { apiService } from '../services/api.service';
+import { history } from '../services/history.service';
 
 class MDMStore {
+
+    // Determines if the beforeUnload event should fire in the browser
+    getBrowserCloseAlert = (event) => {
+        if(this.mdmProvider !== '' && this.formHasChanged){
+            event.returnValue = true;
+        } else {
+            return;
+        }
+    };
+
+    // Checks for changes to the form
+    checkForChanges = () => {
+        let blockExit = false;
+        if(this.mdmProvider !== '' && this.formHasChanged){
+            blockExit = true;
+        }
+        return blockExit;
+    };
 
     // Form Functions
     @action updateMDM(mdmProvider) {
@@ -17,9 +36,9 @@ class MDMStore {
 
         this.formHasChanged = true;
         this.currentMDMForm.set(input.id, input.value);
-
+    
         for (let i = 0; i < inputs.length; i++) {
-            if (inputs[i].value === '') { validForm = false }
+            if (inputs.length <= 1 || inputs[i].value === '') { validForm = false }
         }
 
         this.formIsValid = validForm;
@@ -112,6 +131,28 @@ class MDMStore {
         this.showbreakMDMConnection = !this.showbreakMDMConnection;
     }
 
+    @action disableSaveDialogs() {
+        window.removeEventListener('beforeunload', this.getBrowserCloseAlert);
+        this.unblock();
+    }
+
+    @action enableSaveDialogs() {
+        window.addEventListener('beforeunload', this.getBrowserCloseAlert);
+        this.unblock = history.block((location)=>{
+
+            this.interceptedRoute = location.pathname;
+
+            if(!this.checkForChanges()){
+                return true;
+            } else {
+                this.showExitModal = true;
+                return false;
+            }
+
+        });
+    }
+
+
     // Services
     @action getMDMConfiguration() {
         const success = (resp) => {
@@ -163,6 +204,7 @@ class MDMStore {
                     message: messageObj.message
                 });
             } else {
+                this.formIsValid = false;
                 this.form_alerts.push({
                     type: 'error',
                     headline: 'Error: ',
@@ -212,7 +254,6 @@ class MDMStore {
         const success = () => {
             this.pseMDMObject.clear();
             this.hasBeenSubmitted = false;
-            this.showbreakMDMConnection = false;
             this.resetMDMForm();
             this.form_alerts.push({
                 type: 'success',
@@ -223,7 +264,6 @@ class MDMStore {
         const fail = (err) => {
             console.warn(err);
             this.hasBeenSubmitted = true;
-            this.showbreakMDMConnection = false;
             this.form_alerts.push({
                 type: 'error',
                 headline: 'Error: ',
@@ -236,7 +276,7 @@ class MDMStore {
     // OBSERVABLES
     @observable mdmProvider = '';
     @observable currentMDMForm = observable.map({});
-    @observable pseMDMObject = observable.map({}); // TODO - will be global mdm object from PSE
+    @observable pseMDMObject = observable.map({});
     @observable form_alerts = [];
     @observable app_alerts = [];
     @observable formIsValid = false;

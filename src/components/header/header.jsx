@@ -89,7 +89,9 @@ export default class PSEHeader extends React.Component {
 												{this.userStore.user.firstName +
 													' ' +
 													this.userStore.user.lastName}
-												<div>Seattle Fire Department Engine 110</div>
+												{this.userStore.user.pseName &&
+													<div>{this.userStore.user.pseName}</div>
+												}
 											</div>
 										</div>
 									</a>
@@ -318,7 +320,7 @@ export default class PSEHeader extends React.Component {
 					</div>
 				</div>
 				<div
-					className="pageMask hidden-md hidden-lg"
+					className="pageMask hidden-xs hidden-md hidden-lg"
 					onClick={this.toggleMainMenu}
 				/>
 			</header>

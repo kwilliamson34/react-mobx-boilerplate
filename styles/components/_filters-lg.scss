@@ -1,5 +1,7 @@
-@media #{$desktop}{
-    .filter-title {
-        text-align: right;
+@media #{$tablet}{
+  .filters {
+    .form-group {
+      margin-top: 0;
     }
+  }
 }

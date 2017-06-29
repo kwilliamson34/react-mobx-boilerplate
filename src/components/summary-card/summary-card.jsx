@@ -56,7 +56,7 @@ export class SummaryCard extends React.Component {
               <div className="card-name">
                 {this.props.display.name}
               </div>
-              <div className="card-publisher hidden-xs">
+              <div className="card-publisher">
                 {this.props.display.publisher}
               </div>
             </section>
