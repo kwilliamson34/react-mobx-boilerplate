@@ -58,7 +58,7 @@ export class CardList extends React.Component {
   render() {
     const hideCardList = (this.props.isLoading || this.showNoResultsBlock);
     return (
-      <section className={`card-list-container col-md-12 col-xs-12 ${hideCardList && 'card-list-substitute'}`}>
+      <section className={`card-list-container ${hideCardList && 'card-list-substitute'}`}>
         {this.props.isLoading
           ? <div className="row">
               <div className="loading-container">
