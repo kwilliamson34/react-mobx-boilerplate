@@ -1,0 +1,28 @@
+{
+  "cards": [
+    {
+      "title": "Advanced Logistics",
+      "description": "Better, faster, more",
+      "imgPath": "https://www-dev.firstnet.ws/sites/default/files/images/content/tools/thumbnail/Solutions_Business%20Messaging.png",
+      "url": "/solutions/advanced-logistics"
+    },
+    {
+      "title": "Tools",
+      "description": "Work for your community",
+      "imgPath": "https://www-dev.firstnet.ws/sites/default/files/images/content/tools/thumbnail/Solutions_Push-to-talk.png",
+      "url": "/solutions/tools"
+    },
+    {
+      "title": "Responsive Apps",
+      "description": "Get it done, rapidly",
+      "imgPath": "https://www-dev.firstnet.ws/sites/default/files/images/content/thumbnail/Solutions_Fleet%20Complete.png",
+      "url": "/solutions/responsive-apps"
+    },
+    {
+      "title": "Next Generation Communication",
+      "description": "You can hear me now",
+      "imgPath": "https://www-dev.firstnet.ws/sites/default/files/images/content/tools/thumbnail/Solutions_Mobile_Forms.png",
+      "url": "/solutions/next-generation-communication"
+    }
+  ]
+}

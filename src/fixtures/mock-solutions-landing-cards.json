@@ -1,28 +1,39 @@
 {
-  "cards": [
+  "solution_category": [
     {
-      "title": "Advanced Logistics",
-      "description": "Better, faster, more",
-      "imgPath": "https://www-dev.firstnet.ws/sites/default/files/images/content/tools/thumbnail/Solutions_Business%20Messaging.png",
-      "url": "/solutions/advanced-logistics"
+      "name": "Tools",
+      "description": "<p>Improve your team’s communication, workflow, and situational awareness</p>\r\n",
+      "thumbnail_url": "https://www-dev.firstnet.ws/sites/default/files/images/blocks/Tools.png",
+      "thumbnail_alt": "Learn more about tools",
+      "thumbnail_title": ""
     },
     {
-      "title": "Tools",
-      "description": "Improve your team's communication, workflow, and situational awareness",
-      "imgPath": "https://www-dev.firstnet.ws/sites/default/files/images/content/tools/thumbnail/Solutions_Push-to-talk.png",
-      "url": "/solutions/tools"
+      "name": "Device Security",
+      "description": "<p>Manage and protect your agency’s mobile devices</p>\r\n",
+      "thumbnail_url": "https://www-dev.firstnet.ws/sites/default/files/images/blocks/DeviceSecurity.png",
+      "thumbnail_alt": "Learn more about device security",
+      "thumbnail_title": ""
     },
     {
-      "title": "Responsive Apps",
-      "description": "Get it done, rapidly",
-      "imgPath": "https://www-dev.firstnet.ws/sites/default/files/images/content/thumbnail/Solutions_Fleet%20Complete.png",
-      "url": "/solutions/responsive-apps"
+      "name": "Secured Connections",
+      "description": "<p>Connect to critical public safety applications with confidence</p>\r\n",
+      "thumbnail_url": "https://www-dev.firstnet.ws/sites/default/files/images/blocks/SecuredConnections.png",
+      "thumbnail_alt": "Learn more about secure connections",
+      "thumbnail_title": ""
     },
     {
-      "title": "Next Generation Communication",
-      "description": "You can hear me now",
-      "imgPath": "https://www-dev.firstnet.ws/sites/default/files/images/content/tools/thumbnail/Solutions_Mobile_Forms.png",
-      "url": "/solutions/next-generation-communication"
+      "name": "Cloud Services",
+      "description": "<p>Optimize your agency’s computing, storage, and network resources</p>\r\n",
+      "thumbnail_url": "https://www-dev.firstnet.ws/sites/default/files/images/blocks/CloudServices.png",
+      "thumbnail_alt": "Learn more about cloud services",
+      "thumbnail_title": ""
+    },
+    {
+      "name": "Next Generation 9-1-1",
+      "description": "<p>Enhance PSAP communication with a state-of-the-art and highly secure IP-based network with call routing service</p>\r\n",
+      "thumbnail_url": "https://www-dev.firstnet.ws/sites/default/files/images/blocks/NextGen911.png",
+      "thumbnail_alt": "Learn more about next-generation-9-1-1",
+      "thumbnail_title": ""
     }
   ]
 }

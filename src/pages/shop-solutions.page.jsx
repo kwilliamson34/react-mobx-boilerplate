@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 
-//TODO: This data is being mocked until Marketing Portal's Solution's landing page is restored, at which point we should receive an API.
 const mockLanding = require('../fixtures/mock-solutions-landing-cards.json');
 
 @observer
@@ -12,15 +11,18 @@ export default class ShopSolutionsPage extends React.Component {
 
   renderCards = (cardsArray) => {
     return cardsArray.map((card) => {
+
+      let path = card.name.replace(' ', '-').toLowerCase();
+
       return (
-        <div key={card.title} className="col-xs-12 col-sm-6 col-md-6 col-lg-4 solutions-card">
+        <div key={card.name} className="col-xs-12 col-sm-6 col-md-6 col-lg-4 solutions-card">
           <div className="card-wrapper has-shadow">
-            <Link to={card.url}>
+            <Link to={`solutions/${path}`}>
               <div className="card-img-wrapper">
-                <img src={card.imgPath} alt={card.title}/>
+                <img src={card.thumbnail_url} alt={card.thumbnail_alt}/>
               </div>
               <div className="card-contents-wrapper">
-                <h3 className="card-title">{card.title}</h3>
+                <h3 className="card-name">{card.name}</h3>
                 <div className="card-desc">{card.description}</div>
               </div>
               <div className="learn-more">Learn More<i className="icon-arrowRight" aria-hidden="true" /></div>
@@ -60,8 +62,8 @@ export default class ShopSolutionsPage extends React.Component {
             </section>
             <section className="all-cards-wrapper">
               <nav>
-                {mockLanding.cards.length > 0
-                  && this.renderCards(mockLanding.cards)}
+                {mockLanding.solution_category.length > 0
+                  && this.renderCards(mockLanding.solution_category)}
               </nav>
             </section>
           </div>
