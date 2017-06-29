@@ -23,6 +23,13 @@ class ExternalSolutionsService {
       cards: _cards
     }
   }
+
+  filterSolutionDetailData(solution) {
+    return {
+      title: solution.title,
+      body: solution.body
+    }
+  }
 }
 
 export const externalSolutionsService = new ExternalSolutionsService();

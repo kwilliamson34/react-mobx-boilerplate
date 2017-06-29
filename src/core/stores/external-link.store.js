@@ -83,14 +83,21 @@ class ExternalLinkStore {
     }
   }
 
-  @action fetchAndShowSolutionDetails() {
+  @action fetchAndShowSolutionDetails(solutionPath) {
     let solution = this.fetchSolutionDetails(solutionPath);
     if (solution.length === 1) {
-      this.currentSolutionDetail = externalSolutionContentService.filterSolutionDetailData(solution[0]);
+      this.currentSolutionDetail = externalSolutionsService.filterSolutionDetailData(solution[0]);
       this.currentPurchasingInfo = externalDeviceContentService.filterPurchasingInfo(solution[0]);
     } else {
       history.replace('/error');
-    }  }
+    }
+  }
+
+  @action fetchSolutionDetails(solutionPath) {
+    return this.allSolutionDetails.filter((solution) => {
+      return solutionPath.replace(/\+/g, ' ') === solution.promo_title.toLowerCase();
+    })
+  }
 
   @action resetDeviceCategoryData() {
     this.currentDeviceCategoryData = {
@@ -98,6 +105,13 @@ class ExternalLinkStore {
       intro: '',
       items: []
     };
+  }
+
+  @action resetSolutionDetail() {
+    this.currentSolutionDetail = {
+      title: '',
+      body: ''
+    }
   }
 
   @action resetDeviceDetail() {
@@ -151,7 +165,7 @@ class ExternalLinkStore {
   @observable currentSolutionDetail = '';
   @observable currentSolutionDetailData = {
     title: '',
-
+    body: ''
   }
 
   @observable allSpecializedDevices = [];

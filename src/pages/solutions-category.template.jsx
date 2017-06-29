@@ -41,7 +41,7 @@ export default class SolutionsCategoryTemplate extends React.Component {
   renderCards = (cardsArray) => {
 
     return cardsArray.map((card) => {
-      const cardUrl = `${this.props.match.url}/${card.promo_title.replace(/ /g, '-').toLowerCase()}`;
+      const cardUrl = `${this.props.match.url}/${card.promo_title.replace(/ /g, '+').toLowerCase()}`;
       return (
         <div key={card.promo_title} className="col-xs-12 col-sm-6 col-md-6 col-lg-4 solutions-card">
           <div className="card-wrapper has-shadow">

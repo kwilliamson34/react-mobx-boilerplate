@@ -22,6 +22,9 @@ export default class SolutionsDetailsTemplate extends React.Component {
   }
 
   componentWillMount() {
+    //TODO: temp
+    this.externalLinkStore.allSolutionDetails = mockDetails;
+
     // checking if the user was on this page previously, eliminating need for new request
     if (this.props.match.params.solutionDetail != this.externalLinkStore.currentSolutionDetail.path){
       this.externalLinkStore.resetSolutionDetail();
@@ -36,17 +39,17 @@ export default class SolutionsDetailsTemplate extends React.Component {
 
   render() {
 
-    const solutionCategory = this.props.match.params.solutionCategory.split('-').join(' ');
-    const solutionDetail = this.props.match.params.solutionDetail.split('-').join(' ');
+    const solutionCategory = this.props.match.params.solutionCategory.replace(/-/g, ' ');
+    const solutionDetail = this.props.match.params.solutionDetail.replace(/\+/g, ' ');
 
     const crumbs = [
       {	pageHref: '/admin',
         pageTitle: 'Administration Dashboard'
       },
-      {	pageHref: '/solutions',
+      {	pageHref: '/admin/solutions',
         pageTitle: 'Public Safety Solutions'
       },
-      {	pageHref: `/solutions/${this.props.match.params.solutionCategory}`,
+      {	pageHref: `/admin/solutions/${this.props.match.params.solutionCategory}`,
         pageTitle: solutionCategory
       },
       {	pageHref: `/${this.props.match.url}`,
@@ -61,14 +64,9 @@ export default class SolutionsDetailsTemplate extends React.Component {
         <section className="details-wrapper col-lg-10">
           <div className="row">
             <div className="col-xs-12">
-              <h1 className="as-h2">{mockDetailPage.title}</h1>
-              <h2 className="as-h3">{mockDetailPage.subtitle}</h2>
-              <p>{mockDetailPage.description}</p>
+              <h1 className="as-h2">{this.externalLinkStore.currentSolutionDetail.title}</h1>
+              <div dangerouslySetInnerHTML={{__html: this.externalLinkStore.currentSolutionDetail.body}} />
             </div>
-            <figure className="details-img-wrapper">
-              <img src={mockDetailPage.imagePath} alt={'Image for ' + mockDetailPage.title}/>
-              <figcaption>{mockDetailPage.caption}</figcaption>
-            </figure>
           </div>
         </section>
       </div>
