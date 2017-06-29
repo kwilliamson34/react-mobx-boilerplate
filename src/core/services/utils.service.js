@@ -74,6 +74,11 @@ class UtilsService {
     }
   }
 
+  handlePendingFANMapping(){
+    console.warn('User PSE association has not yet happened..');
+    history.replace('/error/pending');
+  }
+
   properCaseOS(operating_system) {
 		let os;
 		if (operating_system === 'IOS') {

@@ -1,5 +1,6 @@
 import {observable, action} from 'mobx';
 import {apiService} from '../services/api.service';
+import {utilsService} from '../services/utils.service';
 import config from 'config';
 
 class UserStore {
@@ -31,7 +32,6 @@ class UserStore {
     this.checkPermissions();
     this.userValidationDone = true;
     this.authentic_user = true;
-
   }
 
   @action logoutUser() {
@@ -58,9 +58,10 @@ class UserStore {
     this.user.lastName = userInfo.lastName;
     this.user.roles = userInfo.roles;
     this.user.username = userInfo.username;
-
-    if(userInfo.authorizations && userInfo.authorizations.length > 0) {
-      this.user.pse = Object.keys(userInfo.authorizations[0])[0];
+    this.user.authorizations = userInfo.authorizations;
+    if(userInfo.authorizations.length > 0) {
+      this.user.pse = userInfo.authorizations[0].pseId;
+      this.user.pseName = userInfo.authorizations[0].pseName;
     }
   }
 
