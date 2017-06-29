@@ -15,17 +15,18 @@ article.faq-article {
             padding-top: 60px;
             margin-bottom: 52px;
             padding-bottom: 8px;
-        }
-        .header-title {
-            background-color: $fn-white; 
-            padding-right: 45px;
-            font-size: 2rem;
-            color: $fn-dkgrey;            
-            letter-spacing: 2px;
-            line-height: 1.2;
-            font-weight: $fn-bold-weight;
-            position: absolute;
-            text-transform: uppercase;
+
+            h2 {
+                background-color: $fn-white; 
+                padding-right: 45px;
+                font-size: 2rem;
+                color: $fn-dkgrey;            
+                letter-spacing: 2px;
+                line-height: 1.2;
+                font-weight: $fn-bold-weight;
+                position: absolute;
+                text-transform: uppercase;
+            }
         }
     }
 

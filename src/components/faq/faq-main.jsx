@@ -99,7 +99,7 @@ export class FaqMain extends React.Component {
                                 </div>
                             </div>
                             <div className="horizontal-line-header">
-                                <h2 className="header-title">
+                                <h2>
                                     {this.state.category}
                                 </h2>
                             </div>
