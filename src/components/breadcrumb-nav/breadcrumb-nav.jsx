@@ -18,7 +18,8 @@ export default class BreadcrumbNav extends React.Component {
                 {this.props.links.map((crumb,idx) => {
                   return (
                     <li key={idx}>
-                      <Link to={crumb.pageHref}>{crumb.pageTitle}<span className="icon-arrowRight" aria-hidden="true"></span></Link>
+                      <Link to={crumb.pageHref}>{crumb.pageTitle}</Link>
+                      <span className="icon-arrowRight" aria-hidden="true"></span>
                     </li>
                   )
                 })}
