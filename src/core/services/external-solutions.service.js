@@ -7,11 +7,12 @@ class ExternalSolutionsService {
   filterSolutionCategoryData(solutionArray, currentCategory) {
 
     console.log('currentCategory   ', currentCategory);
-    const _category = currentCategory.replace('-', ' ');
+    const _category = currentCategory.replace(/-/g, ' ');
     let _cards = solutionArray.filter((solution) => solution.page_category.toUpperCase() === _category.toUpperCase());
 
     _cards.forEach((card) => {
-      card.promo_title = card.promo_title.replace('&amp;', '&');
+      card.title = card.title.replace(/&amp;/g, '&');
+      card.promo_title = card.promo_title.replace(/&amp;/g, '&');
       card.promo_description = card.promo_description.replace(htmlRegex, '');
     });
 

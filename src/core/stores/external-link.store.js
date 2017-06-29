@@ -83,6 +83,15 @@ class ExternalLinkStore {
     }
   }
 
+  @action fetchAndShowSolutionDetails() {
+    let solution = this.fetchSolutionDetails(solutionPath);
+    if (solution.length === 1) {
+      this.currentSolutionDetail = externalSolutionContentService.filterSolutionDetailData(solution[0]);
+      this.currentPurchasingInfo = externalDeviceContentService.filterPurchasingInfo(solution[0]);
+    } else {
+      history.replace('/error');
+    }  }
+
   @action resetDeviceCategoryData() {
     this.currentDeviceCategoryData = {
       title: '',
@@ -138,6 +147,11 @@ class ExternalLinkStore {
   @observable currentSolutionCategoryData = {
     title: '',
     cards: []
+  }
+  @observable currentSolutionDetail = '';
+  @observable currentSolutionDetailData = {
+    title: '',
+
   }
 
   @observable allSpecializedDevices = [];

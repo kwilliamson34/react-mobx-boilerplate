@@ -61,15 +61,15 @@ class ExternalDeviceContentService {
 		}
 	}
 
-	filterDevicePurchasingInfo(device) {
-		let test = {
-			contact_name: "Don Johnson",
-			contact_company: "Fast 'n Hot Speedboats'",
-			contact_phone: "1-555-IAM-VICE",
-			contact_email: "don_the_heat@hotmail.com",
-			contact_website: "http://www.fastnhotspeedboats.com",
-		}
-		return _.pick(test, Object.keys(test).filter((p) => p.includes('contact_')));
+	filterPurchasingInfo(object) {
+		// let test = {
+		// 	contact_name: "Don Johnson",
+		// 	contact_company: "Fast 'n Hot Speedboats'",
+		// 	contact_phone: "1-555-IAM-VICE",
+		// 	contact_email: "don_the_heat@hotmail.com",
+		// 	contact_website: "http://www.fastnhotspeedboats.com",
+		// }
+		return _.pick(object, Object.keys(object).filter((p) => p.includes('contact_')));
 	}
 }
 

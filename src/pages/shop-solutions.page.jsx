@@ -36,7 +36,7 @@ export default class ShopSolutionsPage extends React.Component {
     let redactedArray = cardsArray.slice(0, 4);
 
     return redactedArray.map((card) => {
-      const path = card.name.replace(' ', '-').toLowerCase();
+      const path = card.name.replace(/ /g, '-').toLowerCase();
       const description = card.description.replace(htmlRegex, '');
       return (
         <div key={card.name} className="col-xs-12 col-sm-6 col-md-6 col-lg-4 solutions-card">
@@ -86,8 +86,8 @@ export default class ShopSolutionsPage extends React.Component {
             </section>
             <section className="all-cards-wrapper">
               <nav>
-                {mockLanding.solution_category.length > 0
-                  && this.renderCards(mockLanding.solution_category)}
+                {this.externalLinkStore.solutionCategories.length > 0
+                  && this.renderCards(this.externalLinkStore.solutionCategories)}
               </nav>
             </section>
           </div>
