@@ -58,8 +58,7 @@ export default class RatingsChart extends React.Component {
 					<div className="col-xs-12 col-sm-4 col-md-4 col-lg-3 col-lg-offset-1 average-ratings-col">
 						<DoughnutChart rating={this.state.value} size={this.state.graphSize}/>
 						<div className="total-reviews">
-							<Rating rating={this.state.value} />
-							<span className="total-reviews-number">({this.state.reviewsTotal})</span>
+							<Rating rating={this.state.value} reviewCount={this.state.reviewsTotal} showReviewCount={true}/>
 						</div>
 					</div>
 					<div className="col-xs-12 col-sm-8 col-md-8 col-lg-7 overall-ratings-col">

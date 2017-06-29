@@ -59,7 +59,6 @@ export class CardList extends React.Component {
     const hideCardList = (this.props.isLoading || this.showNoResultsBlock);
     return (
       <section className={`card-list-container col-md-12 col-xs-12 ${hideCardList && 'card-list-substitute'}`}>
-        <div className="container">
         {this.props.isLoading
           ? <div className="row">
               <div className="loading-container">
@@ -78,7 +77,7 @@ export class CardList extends React.Component {
               })}
             </div>
         }
-        </div>
+
         {this.props.isLoading || this.canLoadMore && this.props.handleLoadMoreClick &&
           <div className="card-list-load-more">
             <button id="card-list-load-more-btn" className="btn fn-primary" onClick={this.props.handleLoadMoreClick}>Load More</button>

@@ -164,6 +164,7 @@ class ExternalLinkStore {
   @observable manageServicesLink = 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn';
   @observable viewWirelessReportsLink = 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn?requestedPage=downloadReports';
   @observable shopStandardDevicesLink = 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn';
+  @observable manageMyProfileLink = 'https://test-profilemgt.firstnet.att.com/ebiz/firstnet/';
 }
 
 export const externalLinkStore = new ExternalLinkStore();
