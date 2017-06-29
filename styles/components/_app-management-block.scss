@@ -6,7 +6,7 @@
   border: 1px solid $fn-grey;
 
   .checkbox label {
-    padding: 8px 1rem;
+    padding: 15px 1rem;
     width: auto;
     height: 48px;
   }
@@ -17,16 +17,5 @@
     margin: .75rem auto;
     padding: 0;
     width: 100%;
-  }
-}
-
-@media (max-width: $screen-sm) {
-  .app-management {
-    padding-left: 0;
-    margin-top: 1rem;
-
-    .checkbox label {
-      padding-left: 0;
-    }
   }
 }

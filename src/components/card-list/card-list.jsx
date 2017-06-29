@@ -43,7 +43,7 @@ export class CardList extends React.Component {
 
   renderCard(card, i) {
     return (
-      <div className="col-md-3 col-xs-4 center-block" key={i}>
+      <div className="col-xs-12 col-sm-4 col-md-3 col-lg-3 center-block" key={i}>
         <SummaryCard display={card} shouldFocus={i === this.props.idToFocus}/>
         <div className="hidden-xs">
           <AppManagementBlock
@@ -62,7 +62,7 @@ export class CardList extends React.Component {
   render() {
     const hideCardList = (this.props.isLoading || this.showNoResultsBlock);
     return (
-      <section className={`card-list-container col-md-12 col-xs-12 ${hideCardList && 'card-list-substitute'}`}>
+      <section className={`card-list-container ${hideCardList && 'card-list-substitute'}`}>
         {this.props.isLoading
           ? <div className="row">
               <div className="loading-container">

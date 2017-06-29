@@ -83,7 +83,7 @@ export default class ManageAppsPage extends React.Component {
 				<BreadcrumbNav links={crumbs}/>
 				<div className="container header">
 					<div className="row">
-						<div className="col-xs-12">
+						<div className="col-xs-12 col-lg-offset-1 col-lg-10">
 							<h1 className="as-h2">Manage Apps</h1>
 							<Link to="/admin/configure-mdm" className="fn-primary">Configure MDM</Link>
 						</div>
@@ -91,15 +91,15 @@ export default class ManageAppsPage extends React.Component {
 				</div>
 				<div className="container">
 					<div className="row">
-						<div className="col-xs-12">
-							<MDMAlerts store = {this.mdmStore} page = "manage_apps"/>
+						<div className="col-xs-12 col-lg-offset-1 col-lg-10">
+							<MDMAlerts store={this.mdmStore} page="manage_apps"/>
 						</div>
 					</div>
 				</div>
 				<div className="manage-apps-form">
 					<div className="container">
 						<div className="row">
-							<div className="col-xs-12">
+							<div className="col-xs-12 col-lg-offset-1 col-lg-10">
 								<SearchForm store={this.cardListStore} />
 								<hr/>
 								<Filters ref={ref => this.filterForm = ref} store={this.cardListStore} />
@@ -109,7 +109,7 @@ export default class ManageAppsPage extends React.Component {
 				</div>
 				<div className="container">
 					<div className="row">
-						<div className="col-xs-12">
+						<div className="col-xs-12 col-lg-offset-1 col-lg-10">
 							<h2 className="as-h3 results-count">{this.cardListStore.resultsCountLabel}</h2>
 						</div>
 					</div>
