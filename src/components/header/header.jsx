@@ -36,6 +36,10 @@ export default class PSEHeader extends React.Component {
 		this.headerStore.toggleHelpSubMenu();
 	};
 
+	handleExternalTabOpen = () => {
+		this.headerStore.externalTabOpen();
+	}
+
 	onLogout = event => {
 		event.preventDefault();
 		this.userStore.logoutUser();
@@ -102,7 +106,9 @@ export default class PSEHeader extends React.Component {
 										}
 										aria-labelledby="pse-profile">
 										<li role="presentation">
-											<NewTabLink to={this.linkStore.manageMyProfileLink}>Manage My Profile</NewTabLink>
+											<NewTabLink
+												to={this.linkStore.manageMyProfileLink}
+												onClick={this.handleExternalTabOpen}>Manage My Profile</NewTabLink>
 										</li>
 									</ul>
 								</li>
@@ -143,7 +149,9 @@ export default class PSEHeader extends React.Component {
 													Manage
 												</strong>
 												<li role="presentation">
-													<NewTabLink to={this.linkStore.manageUsersLink}>
+													<NewTabLink
+														to={this.linkStore.manageUsersLink}
+														onClick={this.handleExternalTabOpen}>
 														<i
 															className="icon-external-site"
 															aria-hidden="true"
@@ -154,7 +162,9 @@ export default class PSEHeader extends React.Component {
 													<NavLink to="/admin/manage-apps">Manage Apps</NavLink>
 												</li>
 												<li role="presentation">
-													<NewTabLink to={this.linkStore.manageServicesLink}>
+													<NewTabLink
+														to={this.linkStore.manageServicesLink}
+														onClick={this.handleExternalTabOpen}>
 														<i
 															className="icon-external-site"
 															aria-hidden="true"
@@ -162,7 +172,9 @@ export default class PSEHeader extends React.Component {
 													</NewTabLink>
 												</li>
 												<li role="presentation">
-													<NewTabLink to={this.linkStore.viewWirelessReportsLink}>
+													<NewTabLink
+														to={this.linkStore.viewWirelessReportsLink}
+														onClick={this.handleExternalTabOpen}>
 														<i
 															className="icon-external-site"
 															aria-hidden="true"
@@ -182,7 +194,9 @@ export default class PSEHeader extends React.Component {
 													Purchasing &amp; Provisioning
 												</strong>
 												<li>
-													<NewTabLink to={this.linkStore.shopStandardDevicesLink}>
+													<NewTabLink
+														to={this.linkStore.shopStandardDevicesLink}
+														onClick={this.handleExternalTabOpen}>
 														<i
 															className="icon-external-site"
 															aria-hidden="true"
