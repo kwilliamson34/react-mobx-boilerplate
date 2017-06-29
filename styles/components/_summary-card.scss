@@ -13,6 +13,7 @@
   background-color: $fn-white;
   color: $focus-lightbg;
   padding: 5%;
+  height: 335px;
 
   .card-badge {
     position: absolute;
@@ -26,7 +27,9 @@
 
   .card-logo {
     width: 100%;
+    max-width: 200px;
     height: auto;
+    margin: 0 auto;
 
     img {
       width: 100%;
@@ -36,6 +39,7 @@
   }
 
   .card-info {
+    height: 110px;
     font-size: 1.6rem;
     margin: 0.5rem 1rem 0 0;
     white-space: nowrap;
@@ -48,6 +52,7 @@
     max-width: 100%;
     padding-bottom: 10px;
     font-weight: $fn-normal-weight;
+    font-size: 2rem;
   }
 
   .card-publisher {
@@ -61,8 +66,9 @@
   .card-rating {
     display: inline-block;
     text-align: left;
-    font-size: 1.2rem;
     min-height: 18px;
+    font-size: 1.6rem;
+    color: $fn-dkgrey;
   }
 
   .card-lower-meta {
@@ -76,11 +82,9 @@
   .card-platform {
     display: inline-block;
     color: $fn-dkgrey;
-    size: 1.2rem;
+    font-size: 1.6rem;
     position: absolute;
     right: 0;
   }
 }
-@import "summary-card-xs";
-@import "summary-card-md";
 @import "summary-card-lg";

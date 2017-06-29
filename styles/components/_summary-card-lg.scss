@@ -1,8 +1,5 @@
 @media #{$desktop} {
   .card-container {
-    width: 100%;
-    height: 375px;
-
     .card-badge {
       top: 1rem;
       left: 1rem;
@@ -10,24 +7,6 @@
       img {
         height: 2.8rem;
       }
-    }
-
-    .card-name {
-      font-size: 2rem;
-    }
-
-    .card-info {
-      height: 110px;
-      font-size: 2rem;
-    }
-
-    .card-rating {
-      font-size: 1.6rem;
-      color: $fn-dkgrey;
-    }
-
-    .card-platform {
-      font-size: 1.6rem;
     }
   }
 }
