@@ -1,16 +1,24 @@
 @media (max-width: $screen-xs) {
   .card-container {
-    .ratings-stars {
-      .ratings-star {
-        display: block;
+    .ratings-container {
+      min-width: 30px;
+
+      .ratings-number {
+        float: left;
       }
 
-      .ratings-star:nth-child(1n+2) {
-        display: none;
-      }
+      .ratings-stars {
+        .ratings-star {
+          display: block;
+        }
 
-      .ratings-star.icon-star-o {
-        display: none;
+        .ratings-star:nth-child(1n+2) {
+          display: none;
+        }
+
+        .ratings-star.icon-star-o {
+          display: none;
+        }
       }
     }
   }

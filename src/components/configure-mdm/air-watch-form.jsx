@@ -41,8 +41,8 @@ export class AirWatchForm extends React.Component {
 				</div>
 
 				<div className={this.inputHasError('aw_userName') ? 'form-group has-feedback has-error' : 'form-group has-feedback'}>
-					<label className="control-label" htmlFor="aw_userName">AirWatch User Name<span className="required-asterisks"> *</span></label>
-					{this.inputHasError('aw_userName') && <div className="msgBlock error error-list" role="alert" aria-live = "assertive"><span>Please enter a valid user name.</span></div>}
+					<label className="control-label" htmlFor="aw_userName">AirWatch Username<span className="required-asterisks"> *</span></label>
+					{this.inputHasError('aw_userName') && <div className="msgBlock error error-list" role="alert" aria-live = "assertive"><span>Please enter a valid username.</span></div>}
 					<input id="aw_userName" type="text" className="form-control" disabled={this.props.connectionSet} defaultValue={this.props.formData.aw_userName}/>
 				</div>
 

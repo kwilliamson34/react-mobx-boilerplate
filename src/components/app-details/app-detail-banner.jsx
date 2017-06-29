@@ -65,6 +65,7 @@ export class AppDetailBanner extends React.Component {
         </div>
         <div className="updated">
           <strong>Released:&nbsp;</strong>
+          <br className="hidden-xs hidden-md hidden-lg"/>
           {moment(this.data.release_date).format('MMMM DD, YYYY')}
         </div>
         <div className="platform">
@@ -100,12 +101,12 @@ export class AppDetailBanner extends React.Component {
 
         {/*Tablet*/}
         <div className="hidden-xs hidden-md hidden-lg">
-          <div className="col-sm-3">
+          <div className="col-sm-4">
             {this.author()}
+            {this.endorsement()}
             {this.rating()}
           </div>
-          <div className="col-sm-4">
-            {this.endorsement()}
+          <div className="col-sm-3">
             {this.details()}
           </div>
           <div className="col-sm-5">
