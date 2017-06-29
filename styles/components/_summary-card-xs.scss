@@ -1,7 +1,20 @@
 @media (max-width: $screen-xs) {
   .card-container {
+    .card-lower-meta {
+      display: block;
+      position: relative;
+      bottom: auto;
+
+      .card-platform,
+      .card-rating {
+        display: block;
+        right: auto;
+        width: 100%;
+      }
+    }
+
     .ratings-container {
-      min-width: 30px;
+      width: 100%;
 
       .ratings-number {
         float: left;
