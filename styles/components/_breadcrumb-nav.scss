@@ -14,17 +14,18 @@ nav.breadcrumb-nav {
       a {
         display: inline-block;
         position: relative;
-        padding-right: 10px;
         text-transform: uppercase;
         color: $fn-ltblue;
+      }
 
-        > span {
-          display: inline-block;
-          padding-left: 10px;
+      span {
+        display: inline-block;
+        padding-left: 10px;
+        padding-right: 10px;
+        color: $fn-ltblue;
 
-          &:before {
-            font-size: 1rem;
-          }
+        &:before {
+          font-size: 1rem;
         }
       }
 
@@ -33,10 +34,10 @@ nav.breadcrumb-nav {
           pointer-events: none;
           color: $fn-dkgrey;
           padding-right: 0;
+        }
 
-          > span {
-            display: none;
-          }
+        span {
+          display: none;
         }
       }
     }
