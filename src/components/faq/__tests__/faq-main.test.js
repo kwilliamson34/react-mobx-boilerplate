@@ -70,7 +70,5 @@ describe('<FaqMain />', () => {
             expect(props.store.toggleFaqPageHeaderButton).toBeCalled();
         });
     });
-
-
 });
 
