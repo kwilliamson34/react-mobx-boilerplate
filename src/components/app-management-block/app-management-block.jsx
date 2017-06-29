@@ -70,8 +70,11 @@ export default class AppManagementBlock extends React.Component {
 						disabled={!this.matchingApp.isAvailable}
 						onChange={this.handleRecommendedClick}/>
           <button id={'Push-' + this.props.psk} aria-disabled={!this.props.mdmIsConfigured} className='fn-primary'>
-            {!this.props.mdmIsConfigured && <span className="sr-only">Configure MDM to push apps to the system.</span>}
-            <span>Push to MDM</span>
+            {!this.props.mdmIsConfigured
+              ? <span className="sr-only">PUSH TO MDM button unavailable. Configure MDM to push apps to the system.</span>
+              : <span className="sr-only">PUSH TO MDM</span>
+            }
+            <span aria-hidden="true">Push to MDM</span>
           </button>
         </div>}
       </div>
