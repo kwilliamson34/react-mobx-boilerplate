@@ -155,6 +155,7 @@ export default class App extends React.Component {
         <Route exact path="/error/404" component={() => <ErrorPage cause="404"/>}/>
         <Route exact path="/error/unauthorized" component={() => <ErrorPage cause="unauthorized"/>}/>
         <Route exact path="/error/unavailable" component={() => <ErrorPage cause="410"/>}/>
+        <Route exact path="/error/pending" component={() => <ErrorPage cause="pending" />}/>
         <Route path="/error" component={ErrorPage}/>
         <Route component={() => <Redirect to="/error/404"/>}/>
       </Switch>

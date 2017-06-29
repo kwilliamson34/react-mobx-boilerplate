@@ -37,31 +37,23 @@ class ScrollToTop extends React.Component {
 
 	componentDidMount() {
 		this.updateWindowDimensions();
-		window.addEventListener(
-			'resize',
-			_.debounce(this.updateWindowDimensions, 200, { leading: true, trailing: false })
-		);
-		window.addEventListener(
-			'scroll',
-			_.debounce(this.manageBackToTopVisibility, 50, { leading: true, trailing: false })
-		);
+		window.addEventListener('resize', this.updateWindowDimensions);
+		window.addEventListener('scroll', this.manageBackToTopVisibility);
 	}
 
 	componentWillUnmount() {
-		if (this.props.onWindowScroll) {
-			window.removeEventListener('scroll');
-			window.removeEventListener('resize');
-		}
+		window.removeEventListener('scroll', this.manageBackToTopVisibility);
+		window.removeEventListener('resize', this.updateWindowDimensions);
 	}
 
-	updateWindowDimensions = () => {
+	updateWindowDimensions = _.debounce(() => {
 		this.setState({
 			documentHeight: this.getDocumentHeight(),
 			footerHeight: document.getElementById('pse-footer').offsetHeight,
 			viewportHeight: window.innerHeight,
 			viewportWidth: window.innerWidth
 		});
-	}
+		}, 200, { leading: true, trailing: false });
 
 	getDocumentHeight() {
 		return Math.max(
@@ -73,17 +65,22 @@ class ScrollToTop extends React.Component {
 		);
 	}
 
-	manageBackToTopVisibility = () => {
+	/* _.debounce(func, [wait=0], [options={}])
+	* func function to debounce
+	* wait(number) The number of milliseconds to delay.
+	* options Leading and trailing options are true, func is invoked on the trailing edge of the timeout only if the debounced function is invoked more than once during the wait timeout.
+	*/
+	manageBackToTopVisibility = _.debounce(() => {
 		let topPos = this.state.html.scrollTop || this.state.body.scrollTop;
 		if (
-			topPos > this.state.viewportHeight * 3 &&
+			topPos > this.state.viewportHeight * 2 &&
 			topPos < this.state.documentHeight - this.state.footerHeight - this.state.viewportHeight
 		) {
 			this.setState({ showBackToTopBtn: true});
 		} else {
 			this.setState({ showBackToTopBtn: false});
 		}
-	}
+	}, 50, { leading: true, trailing: false });
 
 	scrollTopFocus() {
 		window.scrollTo(0, 0);
