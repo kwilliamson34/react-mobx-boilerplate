@@ -3,6 +3,7 @@ import {apiService} from '../services/api.service';
 import {utilsService} from '../services/utils.service';
 import {history} from '../services/history.service';
 import {externalDeviceContentService} from '../services/external-device-content.service';
+import {externalSolutionsService} from '../services/external-solutions.service';
 
 class ExternalLinkStore {
   /*
@@ -25,9 +26,9 @@ class ExternalLinkStore {
 
   @action fetchAndShowDeviceCategory() {
     if(this.deviceCategoryIsValid){
-      this.currentDeviceCategoryData = externalDeviceContentService.filterDeviceCategoryData(this.allSpecializedDevices, this.currentCategory);
+      this.currentDeviceCategoryData = externalDeviceContentService.filterDeviceCategoryData(this.allSpecializedDevices, this.currentDeviceCategory);
     } else {
-      history.replace('/devices');
+      history.replace('/admin/devices');
     }
   }
 
@@ -74,6 +75,14 @@ class ExternalLinkStore {
     return apiService.getMarketingPortalSolutionCategories().then(success, fail);
   }
 
+  @action fetchAndShowSolutionCategory() {
+    if(this.solutionCategoryIsValid){
+      this.currentSolutionCategoryData = externalSolutionsService.filterSolutionCategoryData(this.allSolutionDetails, this.currentSolutionCategory);
+    } else {
+      history.replace('/admin/solutions');
+    }
+  }
+
   @action resetDeviceCategoryData() {
     this.currentDeviceCategoryData = {
       title: '',
@@ -92,6 +101,13 @@ class ExternalLinkStore {
     };
   }
 
+  @action resetSolutionCategoryData() {
+    this.currentSolutionCategoryData = {
+      title: '',
+      cards: []
+    }
+  }
+
   //COMPUTEDS
   @computed get deviceCategoryIsValid() {
     let deviceCategories = ['phones', 'tablets', 'in-vehicle', 'accessories'];
@@ -99,8 +115,8 @@ class ExternalLinkStore {
     return categoryIndex >= 0;
   }
 
-  @computer get solutionCategoryIsValid() {
-    let solutionCategories = ['tools', 'device security', 'secured connections', 'cloud services'];
+  @computed get solutionCategoryIsValid() {
+    let solutionCategories = ['tools', 'device-security', 'secured-connections', 'cloud-services'];
     let categoryIndex = solutionCategories.indexOf(this.currentSolutionCategory);
     return categoryIndex >= 0;
   }

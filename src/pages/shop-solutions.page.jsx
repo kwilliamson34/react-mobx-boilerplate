@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 
 const htmlRegex = /<\/?\w+((\s+\w+(\s*=\s*(?:".*?"|'.*?'|[\^'">\s]+))?)+\s*|\s*)\/?>/g;
-
 const mockLanding = require('../fixtures/mock-solutions-landing-cards.json');
 
 @inject('store')
@@ -42,7 +41,7 @@ export default class ShopSolutionsPage extends React.Component {
       return (
         <div key={card.name} className="col-xs-12 col-sm-6 col-md-6 col-lg-4 solutions-card">
           <div className="card-wrapper has-shadow">
-            <Link to={`admin/solutions/${path}`}>
+            <Link to={`solutions/${path}`}>
               <div className="card-img-wrapper">
                 <img src={card.thumbnail_url} alt={card.thumbnail_alt}/>
               </div>

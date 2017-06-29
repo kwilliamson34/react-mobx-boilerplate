@@ -5,7 +5,7 @@ import {observer, inject} from 'mobx-react';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 import PurchasingInfo from '../components/purchasing-info/purchasing-info';
 
-const mockDetailPage = require('../fixtures/mock-solutions-detail.json');
+// const mockDetailPage = require('../fixtures/mock-solutions-detail.json');
 
 @inject('store')
 @observer
