@@ -133,6 +133,7 @@ class ExternalLinkStore {
 
   @observable allSpecializedDevices = [];
   @observable allSolutionDetails = [];
+  @observable solutionCategories = [];
 
   @observable devicesData = {
     phones: [],

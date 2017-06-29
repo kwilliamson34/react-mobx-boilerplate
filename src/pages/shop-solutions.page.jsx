@@ -1,13 +1,28 @@
 import React from 'react';
-import { observer } from 'mobx-react';
+import PropTypes from 'prop-types';
+import { observer, inject } from 'mobx-react';
 import { Link } from 'react-router-dom';
 
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 
 const mockLanding = require('../fixtures/mock-solutions-landing-cards.json');
 
+@inject('store')
 @observer
 export default class ShopSolutionsPage extends React.Component {
+
+  static propTypes = {
+    store: PropTypes.object
+  }
+
+  constructor(props) {
+    super(props);
+    this.externalLinkStore = this.props.store.externalLinkStore;
+  }
+
+  componentWillMount() {
+    this.externalLinkStore.solutionCategories = mockLanding.solution_category;
+  }
 
   renderCards = (cardsArray) => {
     return cardsArray.map((card) => {
