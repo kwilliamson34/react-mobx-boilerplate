@@ -1,6 +1,5 @@
 import {observable, action} from 'mobx';
 import {apiService} from '../services/api.service';
-import {utilsService} from '../services/utils.service';
 import config from 'config';
 
 class UserStore {
@@ -58,11 +57,8 @@ class UserStore {
     this.user.lastName = userInfo.lastName;
     this.user.roles = userInfo.roles;
     this.user.username = userInfo.username;
-    this.user.authorizations = userInfo.authorizations;
-    if(userInfo.authorizations.length > 0) {
-      this.user.pse = userInfo.authorizations[0].pseId;
-      this.user.pseName = userInfo.authorizations[0].pseName;
-    }
+    this.user.pse = userInfo.authorizations[0].pseId ||'';
+    this.user.pseName = userInfo.authorizations[0].pseName || '';
   }
 
   @observable user = {};

@@ -40,6 +40,11 @@ export default class ErrorPage extends React.Component {
       body_content = 'The app you requested is no longer available.';
       showLinksforOtherPortals = false;
       showLinkToGoHome = true;
+    } else if (this.props.cause === 'pending') {
+      title = 'Account permissions pending.';
+      body_content = 'Permissions for new accounts may take up to 24 hours to properly sync and some pages may not be immediately available.  Please try accessing this page again later.';
+      showLinksforOtherPortals = false;
+      showLinkToGoBack = true;
     } else {
       title = 'We\'re Sorry.';
       body_content = 'This page is experiencing an issue. Try again later, or continue to one of the FirstNet Sites below:';

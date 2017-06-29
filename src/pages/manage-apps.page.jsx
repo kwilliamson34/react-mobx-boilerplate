@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {inject, observer} from 'mobx-react';
 import {Link} from 'react-router-dom';
+import {utilsService} from '../core/services/utils.service';
 
 import {CardList} from '../components/card-list/card-list';
 import {SearchForm} from '../components/search/search-form';
@@ -22,20 +23,22 @@ export default class ManageAppsPage extends React.Component {
 		this.cardListStore = this.props.store.cardListStore;
 		this.appCatalogStore = this.props.store.appCatalogStore;
 		this.mdmStore = this.props.store.mdmStore;
+		this.userStore = this.props.store.userStore;
 		this.pageId = 'manageAppsPage';
 		this.itemsPerPage = 20;
 		this.mdmIsConfigured = this.mdmStore.pseMDMObject.get('mdm_type') ? true : false
 	}
 
 	componentWillMount() {
-		this.mdmStore.getMDMConfiguration();
-	}
-
-	componentDidMount() {
-		this.cardListStore.fetchCardList();
-		this.appCatalogStore.fetchAppCatalog();
-		if(!this.props.store.pages[this.pageId]){
-			this.props.store.registerPage(this.pageId);
+		if(this.userStore.user.pse !== ''){
+			this.mdmStore.getMDMConfiguration();
+			this.cardListStore.fetchCardList();
+			this.appCatalogStore.fetchAppCatalog();
+			if(!this.props.store.pages[this.pageId]){
+				this.props.store.registerPage(this.pageId);
+			}
+		}else{
+			utilsService.handlePendingFANMapping();
 		}
 	}
 
@@ -53,6 +56,7 @@ export default class ManageAppsPage extends React.Component {
 		let totalCards = this.props.store.pages[this.pageId] * this.itemsPerPage;
 		return this.cardListStore.filteredSearchResults.slice(0, totalCards);
 	}
+
 
 
 	render() {
@@ -78,7 +82,9 @@ export default class ManageAppsPage extends React.Component {
 				<div className="container">
 					<div className="row">
 						<div className="col-xs-12">
-							{this.mdmStore.app_alerts && <MDMAlerts store = {this.mdmStore} page = "manage_apps"/>}
+							{this.mdmStore.app_alerts &&
+								<MDMAlerts store={this.mdmStore} page="manage_apps"/>
+							}
 						</div>
 					</div>
 				</div>
