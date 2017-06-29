@@ -13,7 +13,7 @@
         article.faq-entry {
             div.faq-entry-content {
                 font-size: $fn-body-default-size;
-                background-color: $fn-ltgrey;
+                background-color: $fn-ltbluegrey;
                 padding-left: 20px;
                 padding-right: 20px;
                 padding-top: 20px;
@@ -23,7 +23,7 @@
                 margin-right: -15px;
             }
             div.faq-entry-content-button {
-                background-color: $fn-ltgrey;
+                background-color: $fn-ltbluegrey;
                 padding-bottom: 20px;
                 padding-left: 20px;
                 margin-left: -15px;
@@ -36,5 +36,21 @@
                 padding-top: 30px;
             }
         }
+    }
+
+    .faq-top-header {
+        h1 { 
+            color: $fn-dark;
+            padding-left:26px;
+            font-size: 3.6rem;
+            line-height: 4rem;
+            max-width:50%;
+        }
+        div.faq-header-box {
+            padding-top:30px;
+            padding-bottom:30px;
+            min-height: 128px;
+        }
+
     }
 }

@@ -6,3 +6,16 @@
         }
     }
 }
+@media (min-width: $screen-sm) and (max-width: $screen-md) {
+    .faq-top-header {
+        h1 { 
+            color: $fn-dark;
+            padding-left:40px;
+        }
+        div.faq-header-box {
+            padding-top:40px;
+            padding-bottom:50px;
+        }
+
+    }
+}

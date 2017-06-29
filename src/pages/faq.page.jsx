@@ -2,7 +2,6 @@ import React from 'react';
 import { observer, inject } from 'mobx-react';
 import { PropTypes } from 'prop-types';
 
-import { FaqHeaderTop } from '../components/faq/faq-header-top.jsx';
 import { FaqMain } from '../components/faq/faq-main.jsx';
 
 @inject('store')
@@ -23,7 +22,6 @@ export default class FAQPage extends React.Component {
 		return(
 			<article className="faq-article">
 				<section className="faq-page">
-					<FaqHeaderTop />
 					<FaqMain store={this.store} />
 				</section>
 			</article>
