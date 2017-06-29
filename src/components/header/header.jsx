@@ -190,10 +190,10 @@ export default class PSEHeader extends React.Component {
 													</NewTabLink>
 												</li>
 												<li>
-													<NavLink to="/devices">Specialized Devices</NavLink>
+													<NavLink to="/admin/devices">Specialized Devices</NavLink>
 												</li>
 												<li>
-													<NavLink to="/solutions">
+													<NavLink to="/admin/solutions">
 														Public Safety Solutions
 													</NavLink>
 												</li>
