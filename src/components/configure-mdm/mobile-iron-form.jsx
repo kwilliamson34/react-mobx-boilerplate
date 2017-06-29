@@ -35,8 +35,8 @@ export class MobileIronForm extends React.Component {
 				</div>
 
 				<div className={this.inputHasError('mi_userName') ? 'form-group has-feedback has-error' : 'form-group has-feedback'}>
-					<label className="control-label" htmlFor="mi_userName">MobileIron Core User Name<span className="required-asterisks"> *</span></label>
-					{this.inputHasError('mi_userName') && <div className="msgBlock error error-list" role="alert" aria-live = "assertive"><span>Please enter a valid user name.</span></div>}
+					<label className="control-label" htmlFor="mi_userName">MobileIron Core Username<span className="required-asterisks"> *</span></label>
+					{this.inputHasError('mi_userName') && <div className="msgBlock error error-list" role="alert" aria-live = "assertive"><span>Please enter a valid username.</span></div>}
 					<input id="mi_userName" type="text" className="form-control" disabled={this.props.connectionSet} defaultValue={this.props.formData.mi_userName}/>
 				</div>
 

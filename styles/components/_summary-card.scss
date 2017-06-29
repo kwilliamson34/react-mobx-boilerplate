@@ -1,73 +1,87 @@
 .card-wrapper {
-    text-align: center;
-}
+  cursor: pointer;
 
-.card-focus {
-    display: inline-block;
-    &:hover, &:focus {
-        text-decoration: none;
+  a {
+    &:hover {
+      text-decoration: none;
     }
+  }
 }
 
 .card-container {
-    width: 100px;
-    height: 180px;
-    position: relative;
-    background-color: white;
-    color: #4A4A4A;
+  position: relative;
+  background-color: $fn-white;
+  color: $focus-lightbg;
+  padding: 5%;
+
+  .card-badge {
+    position: absolute;
+    top: 0.7rem;
+    left: 0.5rem;
+
+    img {
+      height: 2.0rem;
+    }
+  }
+
+  .card-logo {
+    width: 100%;
+    height: auto;
+
+    img {
+      width: 100%;
+      height: auto;
+      padding: 10%;
+    }
+  }
+
+  .card-info {
+    font-size: 1.6rem;
+    margin: 0.5rem 1rem 0 0;
+    height: 110px;
+    white-space: nowrap;
+    max-width: 100%;
+  }
+
+  .card-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    padding-bottom: 10px;
+    font-weight: $fn-normal-weight;
+  }
+
+  .card-publisher {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    font-weight: $fn-normal-weight;
+    font-size: 1.6rem;
+  }
+
+  .card-rating {
+    display: inline-block;
     text-align: left;
+    font-size: 1.2rem;
+    min-height: 18px;
+  }
 
-    .card-badge {
-        position: absolute;
-        top: 0.7rem;
-        left: 0.5rem;
+  .card-lower-meta {
+    position: absolute;
+    bottom: 1rem;
+    width: 90%;
+    display: flex;
+    align-items: center;
+  }
 
-        img {
-            height: 2.0rem;
-        }
-    }
-
-    .card-logo {
-        width: 100%;
-        padding-bottom: 100%;
-        position: relative;
-        margin: 0;
-        img {
-            width: 60%;
-            height: auto;
-            position: absolute;
-            top: 20%; // ~30px of 160px;
-            left: 20%; // 20px of 100px;
-        }
-    }
-
-    .card-info {
-        font-size: 1.6rem;
-        margin: 0 1rem;
-    }
-
-    .card-rating {
-        position: absolute;
-        bottom: 0.5rem;
-        left: 1.0rem;
-
-        .ratings-stars {
-            vertical-align: text-bottom;
-        }
-
-        .ratings-star {
-            color: $fn-mdgrey;
-            height: 1rem;
-        }
-    }
-
-    .card-platform {
-        position: absolute;
-        bottom: 0.5rem;
-        right: 0.7rem;
-        size: 1.4rem;
-    }
+  .card-platform {
+    display: inline-block;
+    color: $fn-dkgrey;
+    size: 1.2rem;
+    position: absolute;
+    right: 0;
+  }
 }
-
-@import "summary-card-lg";
+@import "summary-card-xs";
 @import "summary-card-md";
+@import "summary-card-lg";

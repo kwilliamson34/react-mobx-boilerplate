@@ -8,6 +8,7 @@ import {SearchForm} from '../components/search/search-form';
 import {Filters} from '../components/filters/filters';
 import {MDMAlerts} from '../components/configure-mdm/mdm-alerts';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
+import $ from 'jquery';
 
 @inject('store')
 @observer
@@ -24,6 +25,8 @@ export default class ManageAppsPage extends React.Component {
 		this.mdmStore = this.props.store.mdmStore;
 		this.pageId = 'manageAppsPage';
 		this.itemsPerPage = 20;
+		this.mdmIsConfigured = this.mdmStore.pseMDMObject.get('mdm_type') ? true : false
+		this.viewedAlert = false;
 	}
 
 	componentWillMount() {
@@ -35,6 +38,10 @@ export default class ManageAppsPage extends React.Component {
 		this.appCatalogStore.fetchAppCatalog();
 		if(!this.props.store.pages[this.pageId]){
 			this.props.store.registerPage(this.pageId);
+		}
+
+		if(this.mdmStore.app_alerts.length && $('#mdm-alerts:visible').length){
+			setTimeout(() => {$('#mdm-alerts').focus()}, 100);
 		}
 	}
 
@@ -63,6 +70,7 @@ export default class ManageAppsPage extends React.Component {
 				pageTitle: 'Manage Apps'
 			}
 		];
+
 		return (
 			<article id="manage-apps-page">
 				<BreadcrumbNav links={crumbs}/>
@@ -77,7 +85,7 @@ export default class ManageAppsPage extends React.Component {
 				<div className="container">
 					<div className="row">
 						<div className="col-xs-12">
-							{this.mdmStore.alert_msgs && <MDMAlerts store = {this.mdmStore}/>}
+							<MDMAlerts store = {this.mdmStore} page = "manage_apps"/>
 						</div>
 					</div>
 				</div>
@@ -89,6 +97,13 @@ export default class ManageAppsPage extends React.Component {
 								<hr/>
 								<Filters ref={ref => this.filterForm = ref} store={this.cardListStore} />
 							</div>
+						</div>
+					</div>
+				</div>
+				<div className="container">
+					<div className="row">
+						<div className="col-xs-12">
+							<h2 className="as-h3 results-count">{this.cardListStore.resultsCountLabel}</h2>
 						</div>
 					</div>
 				</div>
@@ -106,7 +121,7 @@ export default class ManageAppsPage extends React.Component {
 							changeAppAvailability={this.appCatalogStore.changeAppAvailability.bind(this.appCatalogStore)}
 							changeAppRecommended={this.appCatalogStore.changeAppRecommended.bind(this.appCatalogStore)}
 							getMatchingApp={this.appCatalogStore.getMatchingApp.bind(this.appCatalogStore)}
-							mdmIsConfigured={this.mdmStore.pseMDMObject.get('mdm_type') ? true : false}
+							mdmIsConfigured={this.mdmIsConfigured}
 							pushToMDM={this.mdmStore.pushToMDM.bind(this.mdmStore)}/>
 					</div>
 				</div>

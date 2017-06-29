@@ -1,6 +1,5 @@
 import axios from 'axios';
 import {utilsService} from './utils.service';
-import {externalDeviceContentService} from './external-device-content.service';
 import {externalSolutionsService} from './external-solutions.service';
 import {userStore} from '../stores/user.store';
 import config from 'config';
@@ -50,18 +49,18 @@ class ApiService {
         ? `${base}/apps/admin/search?searchTxt=${query}&pseId=${userStore.user.pse}`
         : `${base}/apps/admin?pseId=${userStore.user.pse}`
       return axios.get(endpoint).then((res) => {
-        return utilsService.conditionData(res.data.applications);
+        return utilsService.mapAppsToCards(res.data.applications);
       });
     }
 
     getAdminApps() {
       return axios.get(`${base}/apps/admin?pseId=${userStore.user.pse}`).then(res => {
-        return utilsService.conditionData(res.data.applications);
+        return utilsService.mapAppsToCards(res.data.applications);
       });
     }
 
     getAppDetails(appPSK) {
-      return axios.get(`${base}/app?appPsk=${appPSK}&pseId=${userStore.user.pse}`).then(res => {
+      return axios.get(`${base}/app/admin?appPsk=${appPSK}&pseId=${userStore.user.pse}`).then(res => {
         let arrayRes = [];
         arrayRes.push(res.data);
         return arrayRes;
@@ -69,23 +68,9 @@ class ApiService {
     }
 
     getMarketingPortalDevices() {
-      return axios.get(`${base}/marketing/devices`)
-        .then( (res) =>{
-          return externalDeviceContentService.filterDeviceLandingData(res.data);
-        });
-    }
-
-    getDeviceCategory(categoryNum) {
-      return axios.get(`${base}/marketing/devices/${categoryNum}`)
-        .then( (res) =>{
-          return externalDeviceContentService.filterDeviceCategoryData(res.data);
-        });
-    }
-
-    getDeviceDetail(deviceLink) {
-      return axios.get(`${base}/marketing${deviceLink}`)
-        .then( (res) =>{
-          return externalDeviceContentService.filterDeviceDetailData(res.data);
+      return axios.get(`${base}/marketing/api/devices?_format=json`)
+        .then((res) =>{
+          return res.data;
         });
     }
 
@@ -135,7 +120,7 @@ class ApiService {
 
     setMDMConfiguration(mdmConfig) {
       mdmConfig.pse_id = userStore.user.pse;
-      
+
       return axios({
         method: 'post',
         url: `${base}/pse/mdm`,
@@ -145,6 +130,14 @@ class ApiService {
 
     breakMDMConfiguration() {
       return axios.delete(`${base}/pse/mdm/${userStore.user.pse}`);
+    }
+
+    submitCustomerFeedbackForm(feedbackObject) {
+      return axios({
+        method: 'post',
+        url: `${base}/customerfeedback`,
+        data: feedbackObject
+      });
     }
 }
 

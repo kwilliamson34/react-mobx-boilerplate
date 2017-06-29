@@ -3,7 +3,7 @@ import {history} from './history.service';
 import config from 'config';
 
 class UtilsService {
-  conditionData(objs) {
+  mapAppsToCards(objs) {
     if(!objs || !objs.length) {
       return [];
     }
@@ -22,7 +22,7 @@ class UtilsService {
           app_psk: obj.app_psk,
           isAvailable: obj.isAvailable,
           isRecommended: obj.isRecommended,
-          badge: obj.is_endorsed,
+          badge: obj.custom_metadata.app_type === 'ENDORSED',
           operatingSystem: obj.operating_system,
           category: obj.custom_metadata.category,
           user_segment: obj.custom_metadata.user_segment,
@@ -51,7 +51,7 @@ class UtilsService {
     switch (err.response.status) {
       case 401:
         console.log('Received 401 Unauthenticated response, retrying user validation...');
-        userStore.validateUser();
+        userStore.revalidateUser();
         break;
       case 403:
         console.log('Received 403 Forbidden response, redirecting to error page...');
@@ -73,6 +73,18 @@ class UtilsService {
         break;
     }
   }
+
+  properCaseOS(operating_system) {
+		let os;
+		if (operating_system === 'IOS') {
+			os = 'iOS';
+		} else if (operating_system === 'ANDROID') {
+			os = 'Android';
+		} else {
+			os = operating_system;
+		}
+		return os;
+	}
 }
 
 export const utilsService = new UtilsService();

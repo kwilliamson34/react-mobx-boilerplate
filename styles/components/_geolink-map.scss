@@ -41,6 +41,7 @@ $search-border-radius: 4px;
 
   .checkbox label {
     padding-left: 0;
+    width: auto;
   }
 
   .emergency-numbers {
@@ -72,6 +73,7 @@ $search-border-radius: 4px;
   hr {
     border-color: $fn-grey;
     border-width: 1px;
+    margin-bottom: 30px;
   }
 
   .key-labels {
@@ -128,7 +130,7 @@ $search-border-radius: 4px;
 
       &:last-child {
         margin-right: 0;
-        background: $fn-map-red;
+        background: $fn-alert-red;
       }
     }
   }
@@ -149,7 +151,7 @@ $search-border-radius: 4px;
       }
 
       &.incident {
-        color: $fn-map-red;
+        color: $fn-alert-red;
       }
     }
   }
@@ -278,7 +280,7 @@ $search-border-radius: 4px;
       }
 
       .map-search {
-        padding-right: 15px;
+        padding-right: 40px;
       }
 
       .map-layers {

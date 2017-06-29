@@ -1,43 +1,51 @@
-import { action, observable, computed } from 'mobx';
-import { apiService } from '../services/api.service';
-import { utilsService } from '../services/utils.service';
-
+import {action, observable, computed} from 'mobx';
+import {apiService} from '../services/api.service';
+import {utilsService} from '../services/utils.service';
+import {history} from '../services/history.service';
+import {externalDeviceContentService} from '../services/external-device-content.service';
 
 class ExternalLinkStore {
   /*
   ** Retrieve Devices from Marketing Portal
   */
-  @action getMarketingPortalDevices() {
+  @action fetchDevicesData() {
     const success = (res) => {
-      this.devicesData = res;
+      this.allSpecializedDevices = externalDeviceContentService.filterDeviceData(res);
     }
     const fail = (res) => {
       utilsService.handleError(res);
     }
-    apiService.getMarketingPortalDevices().then(success, fail);
+    return apiService.getMarketingPortalDevices().then(success, fail);
   }
 
-  @action getDeviceCategoryItems() {
-    const success = (res) => {
-      this.currentCategoryData = res;
-    }
-    const fail = (res) => {
-      utilsService.handleError(res);
-    }
-    if(this.deviceCategoryNum){
-      apiService.getDeviceCategory(this.deviceCategoryNum).then(success, fail);
+  @action getDeviceLandingData() {
+    let _devicesData = externalDeviceContentService.filterDeviceLandingData(this.allSpecializedDevices);
+    this.devicesData = _devicesData;
+  }
+
+  @action fetchAndShowDeviceCategory() {
+    if(this.deviceCategoryIsValid){
+      this.currentCategoryData = externalDeviceContentService.filterDeviceCategoryData(this.allSpecializedDevices, this.currentCategory);
+    } else {
+      history.replace('/devices');
     }
   }
 
-  @action getDeviceDetail(devicePath) {
-    const success = (res) => {
-      this.currentDeviceDetail = res;
-      this.currentDeviceDetail.path = devicePath;
+  @action fetchAndShowDeviceDetails(devicePath) {
+    let device = this.fetchDeviceDetails(devicePath);
+    if (device.length === 1) {
+      this.currentDeviceDetail = externalDeviceContentService.filterDeviceDetailData(device[0]);
+      this.currentPurchasingInfo = externalDeviceContentService.filterDevicePurchasingInfo(device[0]);
+    } else {
+      history.replace('/error');
     }
-    const fail = (res) => {
-      utilsService.handleError(res);
-    }
-    apiService.getDeviceDetail(devicePath).then(success, fail);
+  }
+
+  @action fetchDeviceDetails(devicePath) {
+    return this.allSpecializedDevices.filter((device) => {
+      let _devicePath = encodeURIComponent(device.device_title).replace(/%20/g, '+');
+      return  _devicePath === devicePath;
+    })
   }
 
   @action getSolutionCards(queryString) {
@@ -83,19 +91,11 @@ class ExternalLinkStore {
     };
   }
 
-  @action togglePushToTalkModal() {
-    this.showPushToTalkModal = !this.showPushToTalkModal;
-  }
-
-  @action setPushToTalkProvider(providerCode) {
-    this.pushToTalkProvider = providerCode;
-  }
-
   //COMPUTEDS
-  @computed get deviceCategoryNum() {
+  @computed get deviceCategoryIsValid() {
     let deviceCategories = ['phones', 'tablets', 'in-vehicle', 'accessories'];
     let categoryIndex = deviceCategories.indexOf(this.currentCategory);
-    return (categoryIndex >= 0)? categoryIndex + 1 : undefined;
+    return categoryIndex >= 0;
   }
 
   @computed get pushToTalkLink() {
@@ -106,6 +106,18 @@ class ExternalLinkStore {
     }
     return '';
   }
+
+  @computed get showPurchasingInfo() {
+    let showPurchasingInfo = false;
+    for (let key in this.currentPurchasingInfo) {
+      if (this.currentPurchasingInfo[key] !== '') {
+        showPurchasingInfo = true;
+      }
+    }
+    return showPurchasingInfo;
+  }
+
+  @observable allSpecializedDevices = [];
 
   @observable devicesData = {
     phones: [],
@@ -125,21 +137,19 @@ class ExternalLinkStore {
   };
   @observable currentDeviceDetail = {
     path: '',
-    features: [],
+    features: '',
     deviceName: '',
     deviceImg: '',
     deviceImgAlt: ''
   };
+  @observable currentPurchasingInfo: {};
 
-  @observable manageUsersLink = 'https://profilemgt.firstnet.att.com/ebiz/firstnet/index.jsp';
-  @observable manageServicesLink = 'https://wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn';
-  @observable managePushToTalkKodiakLink = 'https://wgp.eptt.kodiaknetworks.com/cat/view/catui';
-  @observable managePushToTalkMotorolaLink = 'https://firstnet.att.com/ptt_upm';
-  @observable viewWirelessReportsLink = 'https://www.wireless.att.com/businesscare/menu/index.jsp?subject=Reports&wtLinkName=Reports&wtLinkLoc=S1&&wtLinkType=InventoryReport';
-  @observable shopStandardDevicesLink = 'https://wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn';
 
-  @observable showPushToTalkModal = false;
-  @observable pushToTalkProvider = '';
+  @observable manageUsersLink = 'https://test-profilemgt.firstnet.att.com/ebiz/firstnet/';
+  @observable manageServicesLink = 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn';
+  @observable viewWirelessReportsLink = 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn?requestedPage=downloadReports';
+  @observable shopStandardDevicesLink = 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn';
+  @observable manageMyProfileLink = 'https://test-profilemgt.firstnet.att.com/ebiz/firstnet/';
 }
 
 export const externalLinkStore = new ExternalLinkStore();

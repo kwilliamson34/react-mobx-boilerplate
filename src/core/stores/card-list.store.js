@@ -25,14 +25,15 @@ class CardListStore {
 
 	@action clearSearchQuery() {
 		this.searchQuery = '';
-		this.searchHasBeenApplied = false;
+		this.searchIsApplied = false;
+		this.searchResults = this.originalCardList;
 	}
 
 	@action getSearchResults = _.debounce(() => {
 		const success = (response) => {
 			this.searchResults = response;
 			this.isLoading = false;
-			this.searchHasBeenApplied = true;
+			this.searchIsApplied = true;
 		}
 
 		const fail = (err) => {
@@ -160,10 +161,14 @@ class CardListStore {
 		})
 	}
 
-	@computed get searchResultsCountLabel() {
-		if(!this.isLoading && this.searchHasBeenApplied) {
+	@computed get filterIsApplied() {
+		return this.categoryFilter || this.segmentFilter|| this.platformFilter;
+	}
+
+	@computed get resultsCountLabel() {
+		if(!this.isLoading && (this.searchIsApplied || this.filterIsApplied)) {
 			const count = this.filteredSearchResults.length;
-			return `${count} Result${count === 1 ? '' : 's'}`
+			return count ? `${count} Result${count === 1 ? '' : 's'}` : '';
 		}
 	}
 
@@ -172,7 +177,7 @@ class CardListStore {
 	@observable searchResults = [];
 	@observable searchQuery = '';
 	@observable isLoading = false;
-	@observable searchHasBeenApplied = false;
+	@observable searchIsApplied = false;
 	@observable filterElementRefs = [];
 	@observable idToFocus = null;
 

@@ -56,21 +56,52 @@ export default class AppManagementBlock extends React.Component {
     }
   }
 
+  getPushToMDM = (psk) => {
+    console.log(psk);
+    return 'unpushed';
+  }
+
   handlePushToMDM(event) {
     event.preventDefault();
     if(this.props.mdmIsConfigured){
       this.props.pushToMDM(this.props.psk);
-      this.setState({
-        pushingToMDM: true
-      });
     }
+  }
+
+  renderPushToMDM =  () => {
+
+    let status = this.props.mdmIsConfigured ? this.getPushToMDM(this.props.psk) : 'disabled';
+
+    let srMSG = '';
+    let btnLabel = null;
+
+    switch(status) {
+      case 'unpushed':
+        btnLabel = (<span>Push to MDM</span>);
+        break;
+      case 'submitting':
+        btnLabel = (<span><i className="icon-reload" aria-label="Still Submitting Form"></i>&nbsp;&nbsp;Submitting&hellip;</span>);
+        break;
+      case 'pushed':
+        srMSG = 'This app has been pushed to the MDM. Click agian to re-push';
+        btnLabel = (<span>Re-Push</span>);
+        break;
+      default:
+        srMSG = 'PUSH TO MDM button unavailable. Configure MDM to push apps to the system.';
+        btnLabel = (<span aria-hidden="true">Push to MDM</span>);
+    }
+
+    return (
+      <button id={'Push-' + this.props.psk} onClick={this.handlePushToMDM} aria-disabled={!this.props.mdmIsConfigured} className='fn-primary'>
+        {!this.props.mdmIsConfigured && <span className="sr-only">{srMSG}</span>}
+        {btnLabel}
+      </button>
+    )
   }
 
   render() {
     //get the latest matching app object
     this.matchingApp = this.props.getMatchingApp(this.props.psk);
-
-    console.log(this.state.pushingToMDM)
 
     return (
       <div>
@@ -86,15 +117,7 @@ export default class AppManagementBlock extends React.Component {
 						checked={this.matchingApp.isRecommended}
 						disabled={!this.matchingApp.isAvailable}
 						onChange={this.handleRecommendedClick}/>
-          <button id={'Push-' + this.props.psk} onClick={this.handlePushToMDM} aria-disabled={!this.props.mdmIsConfigured} className='fn-primary'>
-            {this.state.pushingToMDM
-              ? <span>
-                  <i className="icon-reload" aria-label="Still Submitting Form"></i>
-                  &nbsp;&nbsp;Submitting&hellip;
-                </span>
-              : <span>Push to MDM</span>
-            }
-          </button>
+            {this.renderPushToMDM()}
         </div>}
       </div>
     );

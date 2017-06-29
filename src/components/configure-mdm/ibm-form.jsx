@@ -40,8 +40,8 @@ export class IBMForm extends React.Component {
 				</div>
 
 				<div className={this.inputHasError('ibm_userName') ? 'form-group has-feedback has-error' : 'form-group has-feedback'}>
-					<label className="control-label" htmlFor="ibm_userName">MaaS360 User Name<span className="required-asterisks"> *</span></label>
-					{this.inputHasError('ibm_userName') && <div className="msgBlock error error-list" role="alert" aria-live = "assertive"><span>Please enter a valid user name.</span></div>}
+					<label className="control-label" htmlFor="ibm_userName">MaaS360 Username<span className="required-asterisks"> *</span></label>
+					{this.inputHasError('ibm_userName') && <div className="msgBlock error error-list" role="alert" aria-live = "assertive"><span>Please enter a valid username.</span></div>}
 					<input id="ibm_userName" type="text" className="form-control" disabled={this.props.connectionSet} defaultValue={this.props.formData.ibm_userName}/>
 				</div>
 
@@ -54,13 +54,7 @@ export class IBMForm extends React.Component {
 				<div className={this.inputHasError('ibm_platformID') ? 'form-group has-feedback has-error' : 'form-group has-feedback'}>
 					<label className="control-label" htmlFor="ibm_platformID">Platform ID<span className="required-asterisks"> *</span></label>
 					{this.inputHasError('ibm_platformID') && <div className="msgBlock error error-list" role="alert" aria-live = "assertive"><span>Please enter a valid platform ID.</span></div>}
-					<select id="ibm_platformID"
-					className='form-control'
-					disabled={this.props.connectionSet}
-					defaultValue={this.props.formData.ibm_platformID}>
-						<option value="" hidden>Select Platform ID</option>
-						<option value="3">3</option>
-					</select>
+					<input id="ibm_platformID" type="text" className="form-control" disabled={this.props.connectionSet} defaultValue={this.props.formData.ibm_platformID}/>
 				</div>
 
 				<div className={this.inputHasError('ibm_appID') ? 'form-group has-feedback has-error' : 'form-group has-feedback'}>
@@ -72,13 +66,7 @@ export class IBMForm extends React.Component {
 				<div className={this.inputHasError('ibm_appVersion') ? 'form-group has-feedback has-error' : 'form-group has-feedback'}>
 					<label className="control-label" htmlFor="ibm_appVersion">App Version<span className="required-asterisks"> *</span></label>
 					{this.inputHasError('ibm_appVersion') && <div className="msgBlock error error-list" role="alert" aria-live = "assertive"><span>Please enter a valid app version.</span></div>}
-					<select id="ibm_appVersion"
-					className='form-control'
-					disabled={this.props.connectionSet}
-					defaultValue={this.props.formData.ibm_appVersion}>
-						<option value="" hidden>Select App Version</option>
-						<option value="1.0">1.0</option>
-					</select>
+					<input id="ibm_appVersion" type="text" className="form-control" disabled={this.props.connectionSet} defaultValue={this.props.formData.ibm_appVersion}/>
 				</div>
 
 				<div className={this.inputHasError('ibm_appAccessKey') ? 'form-group has-feedback has-error' : 'form-group has-feedback'}>

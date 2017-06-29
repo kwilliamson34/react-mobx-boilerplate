@@ -7,7 +7,11 @@ const config = {
   geolinkScripts: 'https://geo.att.com/appBoard',
   geolinkAbMapConstants: 'abMapConstantsFN.js',
   mktgPortalImgBaseUrl: 'https://www.firstnet.ws',
-  apiBase: '/api'
+  apiBase: '/api',
+  attCustomerSupportPhone: '800-574-7000',
+  appStore: 'https://apps.firstnet.att.com',
+  developerConsole: 'https://appcontrol.firstnet.att.com',
+  localControl: 'https://localcontrol.firstnet.att.com'
 }
 
 export default config

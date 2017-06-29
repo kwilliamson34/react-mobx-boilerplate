@@ -1,12 +1,14 @@
+//Import variables first. They will pre-empt the variables included in the
+//firstnet lib marked as !default.
+@import "abstracts/variables";
+
 //libs
 @import
   "libs/bootstrap/bootstrap",
   "libs/firstnet/firstnet";
 
-//Abstracts
-@import
-  "abstracts/variables",
-  "abstracts/utils";
+//Utils
+@import "abstracts/utils";
 
 //Mixins
 @import
@@ -37,10 +39,12 @@
   "components/search",
   "components/filters",
   "components/toggle",
+  "components/app-detail-banner",
   "components/app-management-block",
+  "components/purchasing-info",
   "components/app-availability",
   "components/app-reviews",
-  "components/truncate-comment",
+  "components/truncate",
   "components/geolink-map",
   "components/screenshot-gallery",
   "components/ratings-chart";
@@ -54,4 +58,5 @@
   "pages/configure-mdm",
   "pages/specialized-devices",
   "pages/solutions",
+  "pages/feedback-page",
   "pages/manage-apps-page";

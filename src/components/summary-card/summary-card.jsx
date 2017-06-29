@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 
 import {observer} from 'mobx-react';
 import {Rating} from '../rating/rating.jsx';
+import {utilsService} from '../../core/services/utils.service';
 
 @observer
 export class SummaryCard extends React.Component {
@@ -11,13 +12,13 @@ export class SummaryCard extends React.Component {
   static propTypes = {
     shouldFocus: PropTypes.bool,
     display: PropTypes.shape({
-      name: PropTypes.string, //name
+      name: PropTypes.string,
       publisher: PropTypes.string, //author
       imageUrl: PropTypes.string,
       rating: PropTypes.number,
       badge: PropTypes.bool,
       app_psk: PropTypes.string,
-      operatingSystem: PropTypes.oneOf(['', 'IOS', 'ANDROID'])
+      operatingSystem: PropTypes.oneOf(['', 'NONE', 'IOS', 'ANDROID'])
     }).isRequired
   }
 
@@ -33,15 +34,16 @@ export class SummaryCard extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.shouldFocus) this.refs.div.children[0].focus();
+    if (this.props.shouldFocus) {
+      this.refs.div.children[0].focus();
+    }
   }
-
 
   render() {
     return (
       <div className="card-wrapper" ref="div">
-        <Link to={'/app/' + this.props.display.app_psk} className="card-focus has-shadow">
-          <div className="card-container">
+        <Link to={'/app/' + this.props.display.app_psk} className="card-focus has-shadow card-container center-block">
+          <div className="">
             {this.props.display.badge && (
               <div className="card-badge">
                 <img src='../../images/fn_badge.svg' alt="Endorsed app"/>
@@ -58,14 +60,16 @@ export class SummaryCard extends React.Component {
                 {this.props.display.publisher}
               </div>
             </section>
-            <div className="card-rating">
-              <Rating rating={this.props.display.rating}></Rating>
+            <div className="card-lower-meta">
+              <div className="card-rating">
+                <Rating rating={this.props.display.rating} showRatingNumber={true}></Rating>
+              </div>
+              {utilsService.properCaseOS(this.props.display.operatingSystem) && <div className="card-platform">
+                <span className="sr-only">Hosted at the</span>
+                {utilsService.properCaseOS(this.props.display.operatingSystem)}
+                <span className="sr-only">app store</span>
+              </div>}
             </div>
-            {this.props.display.operatingSystem && <div className="card-platform">
-              <span className="sr-only">Hosted at the&nbsp;</span>
-              {this.props.display.operatingSystem}
-              <span className="sr-only">&nbsp;app store</span>
-            </div>}
           </div>
         </Link>
       </div>
