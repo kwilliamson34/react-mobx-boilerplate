@@ -102,7 +102,6 @@ export default class App extends React.Component {
 	}
 
   getLandingPage = () => {
-    //TODO: Temporarily using @observable authentic_user in lieu of actual authorization check
     const userIsAdmin = pseMasterStore.userStore.isAdmin;
     return (
       <Switch>
@@ -129,6 +128,8 @@ export default class App extends React.Component {
             <Route path="/admin/manage-apps" component={this.getAdminRoutes(ManageAppsPage)}/>
             <Route path="/admin/configure-mdm" component={this.getAdminRoutes(ConfigureMDM)}/>
             <Route path="/admin/manage-wireless-reports" component={this.getAdminRoutes(ManageWirelessReportsPage)}/>
+            <Route path="/admin/devices" component={this.getAdminRoutes(this.getSpecializedDevicesComponent)}/>
+            <Route path="/admin/solutions" component={this.getAdminRoutes(this.getPublicSafetySolutionsComponent)}/>
             <Route path="/admin" component={this.getAdminRoutes(AdminDashboardPage)}/>
             <Route path="/app/:appPsk" component={this.getAdminRoutes(AppDetailsPage)/*TODO redirect to error/404 if psk has no match*/}/>
             <Route path="/network-status" component={NetworkStatusPage}/>
