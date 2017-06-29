@@ -37,10 +37,10 @@ export default class DeviceDetailTemplate extends React.Component {
 			{	pageHref: '/admin',
 				pageTitle: 'Administration Dashboard'
 			},
-			{	pageHref: '/devices',
+			{	pageHref: '/admin/devices',
 				pageTitle: 'Specialized Devices'
 			},
-			{	pageHref: '/devices/' + this.props.match.params.deviceCategory,
+			{	pageHref: '/admin/devices/' + this.props.match.params.deviceCategory,
 				pageTitle: this.props.match.params.deviceCategory
 			},
 			{	pageHref: this.props.match.url,
