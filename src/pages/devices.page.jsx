@@ -41,7 +41,7 @@ export default class DevicesLandingPage extends React.Component {
 									let itemRoute = encodeURIComponent(item.device_title).replace(/%20/g, '+');
 									return (
 										<li key={sectionId + '_' +idx}>
-											<Link to={`/devices/${sectionTitle.toLowerCase()}/${itemRoute}`} id={sectionId + '_' +idx}>
+											<Link to={`/admin/devices/${sectionTitle.toLowerCase()}/${itemRoute}`} id={sectionId + '_' +idx}>
 											{item.device_title}
 											<div className="card-img-wrapper">
 												<img src={item.device_image_url} alt={item.device_image_alt} />
@@ -55,7 +55,7 @@ export default class DevicesLandingPage extends React.Component {
 						{
 							sectionArray.length > devicesPerRow &&
 							<div className="row">
-								<Link to={'/devices/' + sectionTitle.toLowerCase()} className="fn-primary showAll">Explore All {sectionTitle}</Link>
+								<Link to={'/admin/devices/' + sectionTitle.toLowerCase()} className="fn-primary showAll">Explore All {sectionTitle}</Link>
 							</div>
 						}
 					</div>
@@ -69,7 +69,7 @@ export default class DevicesLandingPage extends React.Component {
 			{	pageHref: '/admin',
 				pageTitle: 'Administration Dashboard'
 			},
-			{	pageHref: '/devices',
+			{	pageHref: '/admin/devices',
 				pageTitle: 'Specialized Devices'
 			}
 		];

@@ -5,7 +5,7 @@ export default class NewTabLink extends React.Component {
   static propTypes = {
     to: PropTypes.string.isRequired,
     className: PropTypes.string,
-    children: PropTypes.array
+    children: PropTypes.node
   }
 
   render() {
