@@ -132,6 +132,12 @@ class ApiService {
       return axios.delete(`${base}/pse/mdm/${userStore.user.pse}`);
     }
 
+    pushToMDM() {
+      setTimeout(() => {
+        return true;
+      }, 1000);
+    }
+
     submitCustomerFeedbackForm(feedbackObject) {
       return axios({
         method: 'post',

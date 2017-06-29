@@ -157,6 +157,7 @@ class MDMStore {
     @action getMDMConfiguration() {
         const success = (resp) => {
             const serviceResponse = resp.data;
+            console.log(serviceResponse)
 
             this.pseMDMObject.merge(serviceResponse);
 
@@ -274,7 +275,28 @@ class MDMStore {
     }
 
     @action pushToMDM(psk) {
-        console.log(psk + 'was pushed to MDM')
+        this.appMDMStatus.set(psk,'submitting');
+
+        const success = () => {
+            this.pseMDMObject.clear();
+            this.hasBeenSubmitted = false;
+            this.resetMDMForm();
+            this.app_alerts.push({
+                type: 'success',
+                headline: 'Success! ',
+                message: 'The selected apps have been pushed to MDM.'
+            });
+        }
+        const fail = (err) => {
+            console.warn(err);
+            this.hasBeenSubmitted = true;
+            this.app_alerts.push({
+                type: 'error',
+                headline: 'Error: ',
+                message: 'Some or all of the selected apps could not be pushed to MDM.'
+            });
+        }
+        return apiService.pushToMDM().then(success, fail);
     }
 
 
@@ -291,6 +313,7 @@ class MDMStore {
     @observable showExitModal = false;
     @observable showbreakMDMConnection = false;
     @observable interceptedRoute = '';
+    @observable appMDMStatus = observable.map({});
 }
 
 export const mdmStore = new MDMStore();

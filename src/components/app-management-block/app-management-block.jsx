@@ -12,7 +12,8 @@ export default class AppManagementBlock extends React.Component {
     changeAppAvailability: PropTypes.func.isRequired,
     changeAppRecommended: PropTypes.func.isRequired,
     mdmIsConfigured: PropTypes.bool.isRequired,
-    pushToMDM: PropTypes.func.isRequired
+    pushToMDM: PropTypes.func.isRequired,
+    appMDMStatus: PropTypes.object
   }
 
   constructor(props) {
@@ -57,8 +58,8 @@ export default class AppManagementBlock extends React.Component {
   }
 
   getPushToMDM = (psk) => {
-    console.log(psk);
-    return 'unpushed';
+    let status = this.props.appMDMStatus[psk];
+    return status;
   }
 
   handlePushToMDM(event) {
@@ -82,9 +83,13 @@ export default class AppManagementBlock extends React.Component {
       case 'submitting':
         btnLabel = (<span><i className="icon-reload" aria-label="Still Submitting Form"></i>&nbsp;&nbsp;Submitting&hellip;</span>);
         break;
+      case 'failed':
+        srMSG = 'This app failed to pushed to the MDM. Click agian to re-push';
+        btnLabel = (<span>Re-Push to MDM</span>);
+        break;
       case 'pushed':
-        srMSG = 'This app has been pushed to the MDM. Click agian to re-push';
-        btnLabel = (<span>Re-Push</span>);
+        srMSG = 'This app has been pushed to the MDM. Click agian to update';
+        btnLabel = (<span>Update</span>);
         break;
       default:
         srMSG = 'PUSH TO MDM button unavailable. Configure MDM to push apps to the system.';

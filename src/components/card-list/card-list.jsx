@@ -23,7 +23,8 @@ export class CardList extends React.Component {
     changeAppRecommended: PropTypes.func.isRequired,
     getMatchingApp: PropTypes.func.isRequired,
     mdmIsConfigured: PropTypes.bool.isRequired,
-    pushToMDM:PropTypes.func.isRequired
+    pushToMDM:PropTypes.func.isRequired,
+    appMDMStatus:PropTypes.object
   }
 
   static defaultProps = {
@@ -51,7 +52,8 @@ export class CardList extends React.Component {
             changeAppAvailability={this.props.changeAppAvailability}
             changeAppRecommended={this.props.changeAppRecommended}
             mdmIsConfigured={this.props.mdmIsConfigured}
-            pushToMDM={this.props.pushToMDM}/>
+            pushToMDM={this.props.pushToMDM}
+            appMDMStatus={this.props.appMDMStatus}/>
         </div>
       </div>
     )
