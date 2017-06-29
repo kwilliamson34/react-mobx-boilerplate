@@ -25,7 +25,7 @@ class ExternalLinkStore {
 
   @action fetchAndShowDeviceCategory() {
     if(this.deviceCategoryIsValid){
-      this.currentCategoryData = externalDeviceContentService.filterDeviceCategoryData(this.allSpecializedDevices, this.currentCategory);
+      this.currentDeviceCategoryData = externalDeviceContentService.filterDeviceCategoryData(this.allSpecializedDevices, this.currentCategory);
     } else {
       history.replace('/devices');
     }
@@ -48,47 +48,34 @@ class ExternalLinkStore {
     })
   }
 
-  @action fetchSolutionDetails() {
-
+  //TODO: restore when API issues are sorted. Currently setting from copied data put in mock files;
+  // @action fetchSolutionDetails() {
+  //   const success = (res) => {
+  //     console.log('RESSSSSS     ', res);
+  //   }
+  //
+  //   const fail = (res) => {
+  //     console.log('RUROH', res);
+  //     // utilsService.handleError(res);
+  //   }
+  //
+  //   return apiService.getMarketingPortalSolutionDetails().then(success, fail);
+  // }
+  //
+  @action fetchSolutionCategories() {
     const success = (res) => {
-      console.log('RESSSSSS     ', res);
-    }
-
-    const fail = (res) => {
-      console.log('RUROH', res);
-      // utilsService.handleError(res);
-    }
-
-    return apiService.getMarketingPortalSolutionDetails().then(success, fail);
-  }
-
-  @action getSolutionCards(queryString) {
-    const success = (res) => {
-      this.solutionCards = res;
-    }
-
-    const fail = (res) => {
-      utilsService.handleError(res);
-    }
-
-    apiService.getSolutionCards(queryString).then(success, fail);
-  }
-
-  @action getSolutionHeaderImg(queryString) {
-    const success = (res) => {
-      this.solutionHeaderImg = res;
+      this.solutionCategories = res;
     }
 
     const fail = (res) => {
       utilsService.handleError(res);
     }
 
-    apiService.getSolutionHeaderImg(queryString).then(success, fail);
+    return apiService.getMarketingPortalSolutionCategories().then(success, fail);
   }
 
-
-  @action resetCategoryData() {
-    this.currentCategoryData = {
+  @action resetDeviceCategoryData() {
+    this.currentDeviceCategoryData = {
       title: '',
       intro: '',
       items: []
@@ -108,17 +95,14 @@ class ExternalLinkStore {
   //COMPUTEDS
   @computed get deviceCategoryIsValid() {
     let deviceCategories = ['phones', 'tablets', 'in-vehicle', 'accessories'];
-    let categoryIndex = deviceCategories.indexOf(this.currentCategory);
+    let categoryIndex = deviceCategories.indexOf(this.currentDeviceCategory);
     return categoryIndex >= 0;
   }
 
-  @computed get pushToTalkLink() {
-    if(this.pushToTalkProvider === 'ATT') {
-      return this.managePushToTalkKodiakLink;
-    } else if(this.pushToTalkProvider === 'FN') {
-      return this.managePushToTalkMotorolaLink;
-    }
-    return '';
+  @computer get solutionCategoryIsValid() {
+    let solutionCategories = ['tools', 'device security', 'secured connections', 'cloud services'];
+    let categoryIndex = solutionCategories.indexOf(this.currentSolutionCategory);
+    return categoryIndex >= 0;
   }
 
   @computed get showPurchasingInfo() {
@@ -131,22 +115,24 @@ class ExternalLinkStore {
     return showPurchasingInfo;
   }
 
-  @observable allSpecializedDevices = [];
   @observable allSolutionDetails = [];
   @observable solutionCategories = [];
 
+  @observable currentSolutionCategory = '';
+  @observable currentSolutionCategoryData = {
+    title: '',
+    cards: []
+  }
+
+  @observable allSpecializedDevices = [];
+  @observable currentDeviceCategory = '';
   @observable devicesData = {
     phones: [],
     tablets: [],
     invehicle: [],
     accessories: []
   };
-
-  @observable solutionCards = [];
-  @observable solutionHeaderImg = '';
-
-  @observable currentCategory = '';
-  @observable currentCategoryData = {
+  @observable currentDeviceCategoryData = {
     title: '',
     intro: '',
     items: []
@@ -158,8 +144,8 @@ class ExternalLinkStore {
     deviceImg: '',
     deviceImgAlt: ''
   };
-  @observable currentPurchasingInfo: {};
 
+  @observable currentPurchasingInfo: {};
 
   @observable manageUsersLink = 'https://test-profilemgt.firstnet.att.com/ebiz/firstnet/';
   @observable manageServicesLink = 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn';

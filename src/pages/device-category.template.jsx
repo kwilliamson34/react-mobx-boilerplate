@@ -22,8 +22,8 @@ export default class DeviceCategoryTemplate extends React.Component {
 	componentWillMount() {
 		//User has navigated to a different category page so will make request for new category
 		if(this.externalLinkStore.currentCategory != this.props.match.params.deviceCategory){
-			this.externalLinkStore.resetCategoryData();
-			this.externalLinkStore.currentCategory = this.props.match.params.deviceCategory;
+			this.externalLinkStore.resetDeviceCategoryData();
+			this.externalLinkStore.currentDeviceCategory = this.props.match.params.deviceCategory;
 			if (this.externalLinkStore.allSpecializedDevices.length) {
 				this.externalLinkStore.fetchAndShowDeviceCategory();
 			}

@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 
+const htmlRegex = /<\/?\w+((\s+\w+(\s*=\s*(?:".*?"|'.*?'|[\^'">\s]+))?)+\s*|\s*)\/?>/g;
+
 const mockLanding = require('../fixtures/mock-solutions-landing-cards.json');
 
 @inject('store')
@@ -21,24 +23,32 @@ export default class ShopSolutionsPage extends React.Component {
   }
 
   componentWillMount() {
+    //TODO: Temporary workaround until APIs are sorted out
     this.externalLinkStore.solutionCategories = mockLanding.solution_category;
+
+    if (!this.externalLinkStore.solutionCategories.length) {
+      this.externalLinkStore.fetchSolutionCategories();
+    }
   }
 
   renderCards = (cardsArray) => {
-    return cardsArray.map((card) => {
 
-      let path = card.name.replace(' ', '-').toLowerCase();
+    //TODO: temporary cut to remove the final "Next Generation 9-11" category from the list. The status of this item is an open question, for now it's removed.
+    let redactedArray = cardsArray.slice(0, 4);
 
+    return redactedArray.map((card) => {
+      const path = card.name.replace(' ', '-').toLowerCase();
+      const description = card.description.replace(htmlRegex, '');
       return (
         <div key={card.name} className="col-xs-12 col-sm-6 col-md-6 col-lg-4 solutions-card">
           <div className="card-wrapper has-shadow">
-            <Link to={`solutions/${path}`}>
+            <Link to={`admin/solutions/${path}`}>
               <div className="card-img-wrapper">
                 <img src={card.thumbnail_url} alt={card.thumbnail_alt}/>
               </div>
               <div className="card-contents-wrapper">
                 <h3 className="card-name">{card.name}</h3>
-                <div className="card-desc">{card.description}</div>
+                <div className="card-desc">{description}</div>
               </div>
               <div className="learn-more">Learn More<i className="icon-arrowRight" aria-hidden="true" /></div>
             </Link>
@@ -54,7 +64,7 @@ export default class ShopSolutionsPage extends React.Component {
       {	pageHref: '/admin',
         pageTitle: 'Administration Dashboard'
       },
-      {	pageHref: '/solutions',
+      {	pageHref: '/admin/solutions',
         pageTitle: 'Public Safety Solutions'
       }
     ];
