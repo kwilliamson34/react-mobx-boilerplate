@@ -40,9 +40,7 @@ export default class ManageAppsPage extends React.Component {
 			this.props.store.registerPage(this.pageId);
 		}
 
-		if(this.mdmStore.app_alerts.length && $('#mdm-alerts:visible').length){
-			setTimeout(() => {$('#mdm-alerts').focus()}, 100);
-		}
+
 	}
 
 	handleLoadMoreClick = () => {
@@ -70,6 +68,10 @@ export default class ManageAppsPage extends React.Component {
 				pageTitle: 'Manage Apps'
 			}
 		];
+
+		if(this.mdmStore.app_alerts.length && $('#mdm-alerts:visible').length){
+			setTimeout(() => {$('#mdm-alerts').focus()}, 100);
+		}
 
 		return (
 			<article id="manage-apps-page">
