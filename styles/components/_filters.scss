@@ -6,14 +6,12 @@
     display: inline-block;
     margin: 0px;
     width: 100%;
+    margin-top: 20px;
 
     select {
-      margin: 0px;
       display: block;
-      height: 48px;
       color: $fn-dkgrey;
       font-weight: $fn-medium-weight;
-      font-size: $fn-label-default-size;
     }
   }
 }

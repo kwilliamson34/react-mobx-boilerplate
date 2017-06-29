@@ -44,9 +44,9 @@ label {
 
 select {
   &.form-control {
-
-    line-height: 48px;
+    line-height: auto;
     height: 48px;
+    padding: 0 30px 0 10px; //do not allow text to run under the arrow icon
   }
 }
 
