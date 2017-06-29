@@ -57,7 +57,7 @@ class UserStore {
     this.user.lastName = userInfo.lastName;
     this.user.roles = userInfo.roles;
     this.user.username = userInfo.username;
-    this.user.pse = userInfo.authorizations[0].pseId ||'';
+    this.user.pse = userInfo.authorizations[0].pseId || '';
     this.user.pseName = userInfo.authorizations[0].pseName || '';
   }
 
