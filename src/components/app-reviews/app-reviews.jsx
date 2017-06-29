@@ -44,16 +44,11 @@ export default class AppReviews extends React.Component {
   }
 
   renderReviews(reviews) {
-    // let dateOptions = {year: 'numeric', month: 'long', day: 'numeric'};
 
-    //TODO: .toLocaleString() may be not supported on mobile. Test if it will revert to parsedDate, or some other option is needed;
     return reviews.map((node, i) => {
 
       let authorName = `${node.userFirstName} ${node.userLastName}`;
-      //parsedDate is working off of example data only; check that it will work with final version.
-      // let parsedDate = new Date(node.reviewDate);
-      // let normalizedDate = parsedDate.toLocaleString('en-US', dateOptions);
-
+      
       return (
         <div key={i} className='individual-review-container' aria-labelledby={'Review-' + node.reviewId}>
           <div className='review-metadata'>
