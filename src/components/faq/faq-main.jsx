@@ -67,38 +67,49 @@ export class FaqMain extends React.Component {
 		});
 
 		return (
-            <article className="container">
-                <div className="row">
-                    <div className="faq-header col-xs-12 col-sm-10 col-sm-offset-1">
-                        <div className="hidden-xs">
-                            <div className="faq-category-tabs">
-                                {categoryList}
+            <div>
+                <div className="faq-top-header">
+                    <div className="image-box">
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-xs-12 col-sm-10 col-sm-offset-1 faq-header-box">
+                                    <h1>Frequently Asked&nbsp;Questions</h1>
+                                </div>
                             </div>
-                        </div>
-                        <div className="hidden-sm hidden-md hidden-lg">
-                            <div className="faq-category-select">
-                                <form>
-                                    <div>FILTER</div>
-                                    <label htmlFor="faqCategory">Category</label>
-                                    <select id="faqCategory" className="form-control" onChange={this.updateCategoryBySelect.bind(this)} value={this.props.store.faqCategoryFilter}>
-                                        <option value="ALL">All Categories</option>
-                                        {topicList}
-                                    </select>
-                                </form>
-                            </div>
-                        </div>
-                        <div className="horizontal-line-header">
-                            <h2 className="header-title">
-                                {this.state.category}
-                            </h2>
-                        </div>
-                        <div className="faq-entry-list">
-                            {faqEntryList}
                         </div>
                     </div>
                 </div>
-            </article>
-
+                <article className="container">
+                    <div className="row">
+                        <div className="faq-header col-xs-12 col-sm-10 col-sm-offset-1">
+                            <div className="hidden-xs">
+                                <div className="faq-category-tabs">
+                                    {categoryList}
+                                </div>
+                            </div>
+                            <div className="hidden-sm hidden-md hidden-lg">
+                                <div className="faq-category-select">
+                                    <form>
+                                        <label htmlFor="faqCategory">FILTER BY CATEGORY</label>
+                                        <select id="faqCategory" className="form-control" onChange={this.updateCategoryBySelect.bind(this)} value={this.props.store.faqCategoryFilter}>
+                                            <option value="ALL">All Categories</option>
+                                            {topicList}
+                                        </select>
+                                    </form>
+                                </div>
+                            </div>
+                            <div className="horizontal-line-header">
+                                <h2>
+                                    {this.state.category}
+                                </h2>
+                            </div>
+                            <div className="faq-entry-list">
+                                {faqEntryList}
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
 		);
 	}
 }

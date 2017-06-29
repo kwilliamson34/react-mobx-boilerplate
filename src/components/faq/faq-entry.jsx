@@ -56,12 +56,14 @@ export class FaqEntry extends React.Component {
 		return (
             <article className="faq-entry">
                 <h3>{this.props.faq.question}</h3>
-                <div className="faq-entry-content" key={this.state.status + this.props.num} dangerouslySetInnerHTML={this.createMarkup()}></div>
-                <div className={this.state.needsMoreButton?'faq-entry-content-button':'hidden'} >
-                    <div className={'show-more-link ' + (this.state.status==='more' ? 'open' : 'closed')} aria-hidden="true">
-                        <a href="#" role="button" onClick={this.toggleText.bind(this)} className="toggle-button">
-                            {'Show ' + this.state.status}
-                        </a>
+                <div className="faq-entry-content">
+                    <div key={this.state.status + this.props.num} dangerouslySetInnerHTML={this.createMarkup()}></div>
+                    <div className={this.state.needsMoreButton?'faq-entry-content-button':'hidden'} >
+                        <div className={'show-more-link ' + (this.state.status==='more' ? 'open' : 'closed')} aria-hidden="true">
+                            <a href="#" role="button" onClick={this.toggleText.bind(this)} className="toggle-button">
+                                {'Show ' + this.state.status}
+                            </a>
+                        </div>
                     </div>
                 </div>
             </article>

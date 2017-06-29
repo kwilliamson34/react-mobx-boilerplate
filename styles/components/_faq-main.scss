@@ -12,31 +12,33 @@ article.faq-article {
             height: 20px; 
             border-bottom: 2px solid $fn-dkgrey; 
             text-align: left; 
-            padding-top: 30px;
+            padding-top: 60px;
+            margin-bottom: 52px;
             padding-bottom: 8px;
-            margin-bottom:30px;
-        }
-        .header-title {
-            background-color: $fn-white; 
-            padding-right: 45px;
-            font-size: 2rem;
-            color: $fn-dkgrey;            
-            letter-spacing: 2px;
-            line-height: 2.4rem;
-            font-weight: $fn-bold-weight;
-            position: absolute;
+
+            h2 {
+                background-color: $fn-white; 
+                padding-right: 45px;
+                font-size: 2rem;
+                color: $fn-dkgrey;            
+                letter-spacing: 2px;
+                line-height: 1.2;
+                font-weight: $fn-bold-weight;
+                position: absolute;
+                text-transform: uppercase;
+            }
         }
     }
 
     article.faq-entry {
         margin-top: 0;
         h3 {
-            padding-bottom: 14px;
+            padding-bottom: 20px;
             color: $fn-dark;
         }
         div.faq-entry-content {
             font-size: $fn-body-default-size;
-            background-color: $fn-ltgrey;
+            background-color: $fn-ltbluegrey;
             padding-left: 20px;
             padding-right: 20px;
             padding-top: 20px;
@@ -46,23 +48,23 @@ article.faq-article {
             margin-right: 0;
         }
         div.faq-entry-content-button {
-            background-color: $fn-ltgrey;
-            padding-bottom: 20px;
-            padding-left: 20px;
+            background-color: $fn-ltbluegrey;
+            padding-top: 10px;
             margin-left: 0;
             margin-right: 0;
         }
         p {
-            padding-top:1.6rem;
+            padding-top: 1.6rem;
             color: $fn-dark;
             font-size: 1.6rem;
+            margin-bottom: 0;
         }
         p:first-child {
-            padding-top:0;
+            padding-top: 0;
             color: $fn-dark;
         }
-        padding-top: 14px;
-        padding-bottom: 14px;
+        padding-top: 30px;
+        padding-bottom: 30px;
         width: 100%;
         border-bottom: 2px solid $fn-grey;
 
@@ -98,9 +100,12 @@ article.faq-article {
             }
         }
     }
+    article.faq-entry:last-of-type {
+        border-bottom: 0;
+    }
     
     .faq-category-tabs {
-        margin-top: 50px;
+        margin-top: 30px;
 
         ul {
             list-style: none;
@@ -117,21 +122,21 @@ article.faq-article {
         li > a.active {
             color: $fn-dkgrey;
             font-weight: $fn-bold-weight;
-            position:relative;
-            width:50px;
-            text-align:center;
+            position: relative;
+            width: 50px;
+            text-align: center;
             text-decoration: none;
         }
         li > a.active:before{
-            content:"";
-            display:block;
-            width:0;
-            border:8px solid $fn-dkgrey;
+            content: "";
+            display: block;
+            width: 0;
+            border: 8px solid $fn-dkgrey;
             border-color:transparent transparent $fn-dkgrey transparent;
-            position:absolute;
-            top:70%;
-            left:50%;
-            margin-left:-8px;
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            margin-left: -8px;
         }
 
         li:first-child{
@@ -141,17 +146,34 @@ article.faq-article {
     }
 
     .faq-category-select {
-        div {
-            font-size:1.4rem;
-            font-weight: $fn-medium-weight;
-            padding-top:12px;
-        }
         label {
-            font-size:1.4rem;
+            padding-top:20px;
+            font-size: 1.4rem;
             margin-bottom: 5px;
-            margin-top: 12px;
+            margin-top: 10px;
             padding-left:4px;
             font-weight: $fn-medium-weight;
         }        
     }
+}
+.faq-top-header {
+    h1 { 
+        color: $fn-black;
+    }
+    p { 
+        padding-bottom: 20px; 
+        color: $fn-black;
+        z-index: 3;
+    }
+    p:last-of-type {
+        padding-bottom: 0;         
+    }
+    div.faq-header-box {
+        padding-top: 40px;
+        padding-bottom: 50px;
+    }
+
+}
+.faq-top-header {
+    border-bottom: 1px solid $fn-grey;
 }

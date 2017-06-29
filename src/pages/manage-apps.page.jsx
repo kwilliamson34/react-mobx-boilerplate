@@ -43,9 +43,7 @@ export default class ManageAppsPage extends React.Component {
 			}
 		}
 
-		if(this.mdmStore.app_alerts.length && $('#mdm-alerts:visible').length){
-			setTimeout(() => {$('#mdm-alerts').focus()}, 100);
-		}
+
 	}
 
 	handleLoadMoreClick = () => {
@@ -73,12 +71,16 @@ export default class ManageAppsPage extends React.Component {
 			}
 		];
 
+		if(this.mdmStore.app_alerts.length && $('#mdm-alerts:visible').length){
+			setTimeout(() => {$('#mdm-alerts').focus()}, 100);
+		}
+
 		return (
 			<article id="manage-apps-page">
 				<BreadcrumbNav links={crumbs}/>
 				<div className="container header">
 					<div className="row">
-						<div className="col-xs-12">
+						<div className="col-xs-12 col-lg-offset-1 col-lg-10">
 							<h1 className="as-h2">Manage Apps</h1>
 							<Link to="/admin/configure-mdm" className="fn-primary">Configure MDM</Link>
 						</div>
@@ -86,7 +88,7 @@ export default class ManageAppsPage extends React.Component {
 				</div>
 				<div className="container">
 					<div className="row">
-						<div className="col-xs-12">
+						<div className="col-xs-12 col-lg-offset-1 col-lg-10">
 							{this.mdmStore.app_alerts &&
 								<MDMAlerts store={this.mdmStore} page="manage_apps"/>
 							}
@@ -96,7 +98,7 @@ export default class ManageAppsPage extends React.Component {
 				<div className="manage-apps-form">
 					<div className="container">
 						<div className="row">
-							<div className="col-xs-12">
+							<div className="col-xs-12 col-lg-offset-1 col-lg-10">
 								<SearchForm store={this.cardListStore} />
 								<hr/>
 								<Filters ref={ref => this.filterForm = ref} store={this.cardListStore} />
@@ -106,26 +108,28 @@ export default class ManageAppsPage extends React.Component {
 				</div>
 				<div className="container">
 					<div className="row">
-						<div className="col-xs-12">
+						<div className="col-xs-12 col-lg-offset-1 col-lg-10">
 							<h2 className="as-h3 results-count">{this.cardListStore.resultsCountLabel}</h2>
 						</div>
 					</div>
 				</div>
 				<div className="container">
 					<div className="row">
-						<CardList
-							filteredAppsCount={this.cardListStore.filteredSearchResults.length}
-							cards={this.paginatedCards}
-							numPagesShown={this.props.store.pages[this.pageId]}
-							itemsPerPage={this.itemsPerPage}
-							isLoading={this.cardListStore.isLoading || this.appCatalogStore.isLoading}
-							idToFocus={this.cardListStore.idToFocus}
-							handleLoadMoreClick={this.handleLoadMoreClick}
-							handleViewAllAppsClick={this.handleViewAllAppsClick}
-							changeAppAvailability={this.appCatalogStore.changeAppAvailability.bind(this.appCatalogStore)}
-							changeAppRecommended={this.appCatalogStore.changeAppRecommended.bind(this.appCatalogStore)}
-							getMatchingApp={this.appCatalogStore.getMatchingApp.bind(this.appCatalogStore)}
-							mdmIsConfigured={this.mdmIsConfigured}/>
+						<div className="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-12 col-lg-offset-1 col-lg-10">
+							<CardList
+								filteredAppsCount={this.cardListStore.filteredSearchResults.length}
+								cards={this.paginatedCards}
+								numPagesShown={this.props.store.pages[this.pageId]}
+								itemsPerPage={this.itemsPerPage}
+								isLoading={this.cardListStore.isLoading || this.appCatalogStore.isLoading}
+								idToFocus={this.cardListStore.idToFocus}
+								handleLoadMoreClick={this.handleLoadMoreClick}
+								handleViewAllAppsClick={this.handleViewAllAppsClick}
+								changeAppAvailability={this.appCatalogStore.changeAppAvailability.bind(this.appCatalogStore)}
+								changeAppRecommended={this.appCatalogStore.changeAppRecommended.bind(this.appCatalogStore)}
+								getMatchingApp={this.appCatalogStore.getMatchingApp.bind(this.appCatalogStore)}
+								mdmIsConfigured={this.mdmIsConfigured}/>
+						</div>
 					</div>
 				</div>
 			</article>
