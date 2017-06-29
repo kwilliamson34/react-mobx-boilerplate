@@ -104,7 +104,7 @@
             },
             {
                 "question": "When new apps are released into the FirstNet App Store, are they available to members of my PSE?",
-                "answer": "<p>Yes. All apps that pass the FirstNet Certification & Accreditation process immediately appear in Local Control and become available to users in the App Store.  If you would like to block an app from appearing in your PSE’s App Store, you must uncheck the app’s “Available” checkboxon the Manage Apps page of Local Control.</p>",
+                "answer": "<p>Yes. All apps that pass the FirstNet Certification & Accreditation process immediately appear in Local Control and become available to users in the App Store.  If you would like to block an app from appearing in your PSE’s App Store, you must uncheck the app’s “Available” checkbox on the Manage Apps page of Local Control.</p>",
                 "id": 15,
                 "maxStringLength": 500,
                 "category": "Manage Apps"
@@ -118,9 +118,9 @@
             },
             {
                 "question": "Can I push apps to my users' devices?",
-                "answer": "<p>If your PSE uses a Mobile Device Management (MDM) solution then you can push apps from Manage Apps to that MDM, and then from your MDM push them to the mobile devices of members of your organization. The MDM solutions supported by FirstNet are AirWatch, MobileIron, and IBM MaaS360. If you do not use one of these MDM’s, you can recommend an app in Local Control, which will flag it in the App Store for all members of your PSE. However, it is up to the user to determine whether to download the app to his/her device from the App Store.</p>",
+                "answer": "<p>If your PSE uses a Mobile Device Management (MDM) solution then you can push apps from Manage Apps to that MDM, and then from your MDM push them to the mobile devices of members of your organization. </p><p>The MDM solutions supported by FirstNet are AirWatch, MobileIron, and IBM MaaS360. If you do not use one of these MDM’s, you can recommend an app in Local Control, which will flag it in the App Store for all members of your PSE. However, it is up to the user to determine whether to download the app to his/her device from the App Store.</p>",
                 "id": 17,
-                "maxStringLength": 500,
+                "maxStringLength": 202,
                 "category": "Manage Apps"
             },
             {
@@ -146,9 +146,9 @@
             },
             {
                 "question": "What does FirstNet Certified mean?",
-                "answer": "<p>FirstNet branded apps are those that carry the FirstNet brand/name – these apps go through the most rigorous performance and security tests. FirstNet endorsed apps are created by non-FirstNet entities, but have passed such high levels of performance and security tests that they receive the FirstNet seal of approval. General apps are created by members of the general public, and must go through security and basic performance tests prior to their release on the FirstNet App Store. Government apps undergo similar testing to general apps, but were created by government entities.</p>",
+                "answer": "<p>FirstNet branded apps are those that carry the FirstNet brand/name – these apps go through the most rigorous performance and security tests. FirstNet endorsed apps are created by non-FirstNet entities, but have passed such high levels of performance and security tests that they receive the FirstNet seal of approval. </p><p>General apps are created by members of the general public, and must go through security and basic performance tests prior to their release on the FirstNet App Store. Government apps undergo similar testing to general apps, but were created by government entities.</p>",
                 "id": 21,
-                "maxStringLength": 500,
+                "maxStringLength": 320,
                 "category": "Manage Apps"
             },
 
