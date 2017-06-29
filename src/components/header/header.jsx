@@ -3,6 +3,7 @@ import { Link, NavLink, withRouter } from 'react-router-dom';
 import NewTabLink from '../link/new-tab-link';
 import { observer, inject, PropTypes } from 'mobx-react';
 import 'bootstrap';
+import $ from 'jquery';
 
 @inject('store')
 @withRouter
@@ -22,6 +23,7 @@ export default class PSEHeader extends React.Component {
 
 	toggleMainMenu = () => {
 		this.headerStore.toggleMainMenu();
+		this.toggleContentScrolling(this.headerStore.mainMenuIsOpen);
 	};
 
 	toggleAdminSubMenu = () => {
@@ -44,6 +46,20 @@ export default class PSEHeader extends React.Component {
 		event.preventDefault();
 		this.userStore.logoutUser();
 	};
+
+	toggleContentScrolling(disableScrolling) {
+    if (disableScrolling) {
+      $('body').css('overflow', 'hidden');
+      $('body').css('position', 'fixed');
+      $('body').css('width', '100%');
+    } else {
+      $('body').css('overflow', 'auto');
+      $('body').css('position', 'relative');
+      $('body').css('width', 'auto');
+    }
+  }
+
+
 
 	render() {
 		var mainbarClass = (this.headerStore.mainMenuIsOpen) ? 'fnnav__mainbar open' : 'fnnav__mainbar';

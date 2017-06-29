@@ -11,7 +11,11 @@ export default class NewTabLink extends React.Component {
 
   render() {
     return (
-      <a href={this.props.to} onClick={this.props.onClick} target="_blank" rel="noopener noreferrer" className={`new-tab-link ${this.props.className}`}>
+      <a href={this.props.to}
+        onClick={this.props.onClick}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`new-tab-link ${this.props.className}`}>
         {this.props.children}
       </a>
     )
