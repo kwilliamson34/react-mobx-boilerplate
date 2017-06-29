@@ -32,15 +32,15 @@ export default class ManageAppsPage extends React.Component {
 	}
 
 	componentWillMount() {
-		if(this.userStore.user.pse !== ''){
+		if(this.userStore.user.pse === ''){
+			utilsService.handlePendingAuthorizationsMapping();
+		}else{
 			this.mdmStore.getMDMConfiguration();
 			this.cardListStore.fetchCardList();
 			this.appCatalogStore.fetchAppCatalog();
 			if(!this.props.store.pages[this.pageId]){
 				this.props.store.registerPage(this.pageId);
 			}
-		}else{
-			utilsService.handlePendingFANMapping();
 		}
 
 		if(this.mdmStore.app_alerts.length && $('#mdm-alerts:visible').length){

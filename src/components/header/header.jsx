@@ -89,7 +89,7 @@ export default class PSEHeader extends React.Component {
 												{this.userStore.user.firstName +
 													' ' +
 													this.userStore.user.lastName}
-												{(this.userStore.user.pseName !== '') &&
+												{this.userStore.user.pseName &&
 													<div>{this.userStore.user.pseName}</div>
 												}
 											</div>

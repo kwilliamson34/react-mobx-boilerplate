@@ -65,8 +65,12 @@ class ScrollToTop extends React.Component {
 		);
 	}
 
+	/* _.debounce(func, [wait=0], [options={}])
+	* func function to debounce
+	* wait(number) The number of milliseconds to delay.
+	* options Leading and trailing options are true, func is invoked on the trailing edge of the timeout only if the debounced function is invoked more than once during the wait timeout.
+	*/
 	manageBackToTopVisibility = _.debounce(() => {
-
 		let topPos = this.state.html.scrollTop || this.state.body.scrollTop;
 		if (
 			topPos > this.state.viewportHeight * 2 &&

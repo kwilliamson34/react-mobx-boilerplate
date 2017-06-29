@@ -27,7 +27,9 @@ export default class AppDetailsPage extends React.Component {
   }
 
   componentWillMount() {
-    if(this.userStore.user.pse !== ''){
+    if(this.userStore.user.pse === ''){
+      utilsService.handlePendingAuthorizationsMapping();
+    }else{
       if (this.appStore.allApps.length) {
         this.updateCurrentApp();
       } else {
@@ -35,8 +37,6 @@ export default class AppDetailsPage extends React.Component {
           this.updateCurrentApp();
         });
       }
-    }else{
-      utilsService.handlePendingFANMapping();
     }
   }
 

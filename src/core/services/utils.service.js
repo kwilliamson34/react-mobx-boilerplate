@@ -74,7 +74,7 @@ class UtilsService {
     }
   }
 
-  handlePendingFANMapping() {
+  handlePendingAuthorizationsMapping() {
     console.warn('User PSE association has not yet happened..');
     history.replace('/error/pending');
   }
