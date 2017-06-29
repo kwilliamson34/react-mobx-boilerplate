@@ -46,7 +46,7 @@ export default class ShopSolutionsPage extends React.Component {
                 <img src={card.thumbnail_url} alt={card.thumbnail_alt}/>
               </div>
               <div className="card-contents-wrapper">
-                <h3 className="card-name">{card.name}</h3>
+                <h3 className="card-title">{card.name}</h3>
                 <div className="card-desc">{description}</div>
               </div>
               <div className="learn-more">Learn More<i className="icon-arrowRight" aria-hidden="true" /></div>

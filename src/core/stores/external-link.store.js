@@ -36,7 +36,7 @@ class ExternalLinkStore {
     let device = this.fetchDeviceDetails(devicePath);
     if (device.length === 1) {
       this.currentDeviceDetail = externalDeviceContentService.filterDeviceDetailData(device[0]);
-      this.currentPurchasingInfo = externalDeviceContentService.filterDevicePurchasingInfo(device[0]);
+      this.currentPurchasingInfo = externalDeviceContentService.filterPurchasingInfo(device[0]);
     } else {
       history.replace('/error');
     }

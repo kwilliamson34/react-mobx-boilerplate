@@ -65,10 +65,13 @@ export default class SolutionsDetailsTemplate extends React.Component {
           <div className="row">
             <div className="col-xs-12">
               <h1 className="as-h2">{this.externalLinkStore.currentSolutionDetail.title}</h1>
-              <div dangerouslySetInnerHTML={{__html: this.externalLinkStore.currentSolutionDetail.body}} />
+              <div dangerouslySetInnerHTML={{__html: this.externalLinkStore.currentSolutionDetail.body}}></div>
             </div>
           </div>
         </section>
+        {this.externalLinkStore.currentPurchasingInfo && this.externalLinkStore.showPurchasingInfo &&
+          <PurchasingInfo contactInfo={this.externalLinkStore.currentPurchasingInfo} />
+        }
       </div>
       </article>
     )
