@@ -27,7 +27,6 @@ export default class GeolinkControls extends React.Component {
   };
 
   handleSearchKeyPress = event => {
-		console.log(event);
     if (event.key == 'Enter') {
       event.preventDefault();
       this.handleSearchSubmit();
