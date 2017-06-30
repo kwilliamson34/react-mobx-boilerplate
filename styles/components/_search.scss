@@ -1,33 +1,36 @@
 .search-form {
-  p {
-    margin: 1rem 0;
-  }
-
-  .search-input {
+  .search-input.input-group {
     padding: 10px 0 0;
+    width: 100%;
 
-    &.input-group {
+    .search-bar {
+      display: flex;
+
       button {
+        height: 48px;
+        width: 48px;
+
         [class^="icon-"]:before {
           line-height: 3;
         }
       }
 
-      .form-control {
-        height: 48px;
+      input.form-control {
         padding-right: 35px !important;
-        border-top-left-radius: 4px !important;
-        border-bottom-left-radius: 4px !important;
         font-weight: $fn-medium-weight;
+
+        //hide pseudo-element for clear on IE
+        &::-ms-clear {
+          display: none;
+        }
       }
 
       .clear-btn {
         position: absolute;
-        right: 52px;
-        height: 48px;
-        z-index: 30;
+        right: 47px;
         background-color: transparent;
-        bottom: 0;
+        z-index: 30;
+        border-radius: 0;
 
         .icon-close {
           font-size: 14px;
@@ -36,34 +39,41 @@
       }
 
       .search-btn {
-        padding: 0;
-        vertical-align: bottom;
+        background-color: white;
+        border-color: $input-outline;
+        margin-left: -1px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
 
-        button {
-          background-color: white;
-          border-color: $input-outline;
-          height: 48px;
-          margin-right: 0;
+        .icon-search:before {
+          color: $fn-dkgrey;
+        }
+      }
 
+      .clear-btn,
+      .search-btn {
+        &:hover,
+        &:active,
+        &:focus {
+          border: 1px solid $input-outline;
+          box-shadow: none;
+          z-index: 30;
+
+          .icon-close,
           .icon-search:before {
-            color: $fn-dkgrey;
+            color: white;
           }
         }
 
-        &:focus{
-          @include focus();
+        &:hover {
+          background-color: $fn-ltblue;
+        }
+
+        &:active,
+        &:focus {
+          background-color: $fn-blue;
         }
       }
-    }
-
-    .feedback {
-      font-size: 1.2rem;
-      line-height: 14px;
-      margin: 10px 0px;
-    }
-
-    &::-ms-clear {
-      display: none;
     }
   }
 }
