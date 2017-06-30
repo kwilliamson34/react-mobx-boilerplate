@@ -22,13 +22,13 @@ export default class DeviceCategoryTemplate extends React.Component {
 	componentWillMount() {
 		//User has navigated to a different category page so will make request for new category
 		if(this.externalLinkStore.currentCategory != this.props.match.params.deviceCategory){
-			this.externalLinkStore.resetCategoryData();
-			this.externalLinkStore.currentCategory = this.props.match.params.deviceCategory;
+			this.externalLinkStore.resetDeviceCategoryData();
+			this.externalLinkStore.currentDeviceCategory = this.props.match.params.deviceCategory;
 			if (this.externalLinkStore.allSpecializedDevices.length) {
 				this.externalLinkStore.fetchAndShowDeviceCategory();
 			}
 			else {
-				this.externalLinkStore.fetchDevicesData()
+				this.externalLinkStore.getDevicesData()
 				.then(() => this.externalLinkStore.fetchAndShowDeviceCategory());
 			}
 		}
@@ -43,7 +43,7 @@ export default class DeviceCategoryTemplate extends React.Component {
 				pageTitle: 'Specialized Devices'
 			},
 			{	pageHref: this.props.match.url,
-				pageTitle: this.externalLinkStore.currentCategory
+				pageTitle: this.externalLinkStore.currentDeviceCategory
 			}
 		];
 		return (
@@ -52,14 +52,13 @@ export default class DeviceCategoryTemplate extends React.Component {
 				<div className="container">
 					<div className="row">
 						<div className="col-xs-12 catalog-header">
-							<h1 className="as-h2">{this.externalLinkStore.currentCategoryData.title}</h1>
-							<p>{this.externalLinkStore.currentCategoryData.intro}</p>
+							<h1 className="as-h2">{this.externalLinkStore.currentDeviceCategory}</h1>
 						</div>
 					</div>
 					<div className="row">
 						<div className="col-xs-offset-2 col-xs-8 col-sm-12 col-sm-offset-0 col-md-offset-1 col-md-10">
 							<ul className="mp-content left">
-								{this.externalLinkStore.currentCategoryData.items.map((item, idx) => {
+								{this.externalLinkStore.currentDeviceCategoryData.items.map((item, idx) => {
 									let itemRoute = encodeURIComponent(item.device_title).replace(/%20/g, '+');
 									return (
 										<li key={idx}>

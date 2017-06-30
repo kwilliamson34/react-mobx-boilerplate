@@ -14,7 +14,9 @@ exports[`<Truncate /> renders matches previous snapshot 1`] = `
       aria-haspopup="true"
       className="btn-link truncate-button"
       onClick={[Function anonymous]}>
-      SHOW MORE
+      <span>
+        SHOW MORE
+      </span>
       <i
         aria-hidden="true"
         className="icon-arrowDown" />

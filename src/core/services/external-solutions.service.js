@@ -1,35 +1,28 @@
-import cheerio from 'cheerio';
+const htmlRegex = /<\/?\w+((\s+\w+(\s*=\s*(?:".*?"|'.*?'|[\^'">\s]+))?)+\s*|\s*)\/?>/g;
 
 class ExternalSolutionsService {
 
-  filterSolutionCards(htmlNode) {
-    const $ = cheerio.load(htmlNode);
+  filterSolutionCategoryData(solutionArray, currentCategory) {
+    const _category = currentCategory.replace(/-/g, ' ');
+    let _cards = solutionArray.filter((solution) => solution.page_category.toUpperCase() === _category.toUpperCase());
 
-    let cardArray = [];
-    let regions = $('.molecules__image-card').get();
-
-    function retrieveFields(card){
-      return {
-        title: $(card).find('.card__title').text(),
-        description: $(card).find('.card__description').find('p').text(),
-        imgPath: $(card).find('.card__image-inner img').attr('src'),
-        url: $(card).find('.atoms__link-field').attr('href')
-      }
-    }
-
-    regions.forEach((card) => {
-      let cardData = retrieveFields(card);
-      cardArray.push(cardData);
+    _cards.forEach((card) => {
+      card.title = card.title.replace(/&amp;/g, '&');
+      card.promo_title = card.promo_title.replace(/&amp;/g, '&');
+      card.promo_description = card.promo_description.replace(htmlRegex, '');
     });
-
-    return cardArray;
+    return {
+      title: _category,
+      cards: _cards
+    }
   }
 
-  filterSolutionHeaderImg(htmlNode) {
-    const $ = cheerio.load(htmlNode);
-    return $('.title-large').css('background-image');
+  filterSolutionDetailData(solutionObject) {
+    return {
+      title: solutionObject.title.replace(/&amp;/g, '&'),
+      body: solutionObject.body
+    }
   }
-
 }
 
 export const externalSolutionsService = new ExternalSolutionsService();
