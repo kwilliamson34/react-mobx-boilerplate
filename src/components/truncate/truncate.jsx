@@ -108,7 +108,10 @@ export default class ShowMoreOrLess extends React.Component {
   truncateButton = () => {
     return (
       <button className='btn-link truncate-button' aria-haspopup='true' aria-expanded={!this.isTruncated} onClick={this.toggleTruncate} >
-        {this.isTruncated ? 'SHOW MORE' : 'SHOW LESS'}<i className={this.isTruncated ? 'icon-arrowDown' : 'icon-arrowUp'} aria-hidden='true' />
+        {this.isTruncated
+          ? <span>SHOW MORE</span>
+          : <span>SHOW LESS</span>
+        }<i className={this.isTruncated ? 'icon-arrowDown' : 'icon-arrowUp'} aria-hidden='true' />
       </button>
     )
   }

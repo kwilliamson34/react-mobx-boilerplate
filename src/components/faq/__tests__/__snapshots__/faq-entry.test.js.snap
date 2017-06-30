@@ -7,6 +7,7 @@ exports[`<FaqEntry /> render testing matches snapshot 1`] = `
   <div
     className="faq-entry-content">
     <div
+      className="displayed-content"
       dangerouslySetInnerHTML={
         Object {
           "__html": "Sampl..."
