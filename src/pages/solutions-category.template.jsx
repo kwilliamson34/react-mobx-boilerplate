@@ -32,7 +32,7 @@ export default class SolutionsCategoryTemplate extends React.Component {
         this.externalLinkStore.fetchAndShowSolutionCategory();
       }
       else {
-        this.externalLinkStore.fetchSolutionDetails()
+        this.externalLinkStore.getSolutionDetails()
         .then(() => this.externalLinkStore.fetchAndShowSolutionCategory());
       }
     }

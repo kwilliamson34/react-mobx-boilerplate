@@ -81,20 +81,6 @@ class ApiService {
         });
     }
 
-    getSolutionCards(queryString) {
-      return axios.get(`${base}/marketing${queryString}`)
-        .then((res) => {
-          return externalSolutionsService.filterSolutionCards(res.data);
-        })
-    }
-
-    getSolutionHeaderImg(queryString) {
-      return axios.get(`${base}/marketing${queryString}`)
-        .then((res) => {
-          return externalSolutionsService.filterSolutionHeaderImg(res.data);
-        })
-    }
-
     addAppToGroup(appPsk, groupIdentifier) {
       console.log('Adding app with appPsk=' + appPsk + ' to groupIdentifier="' + groupIdentifier + '"...');
       return axios({

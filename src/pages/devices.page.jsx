@@ -42,7 +42,7 @@ export default class DevicesLandingPage extends React.Component {
 									return (
 										<li key={sectionId + '_' +idx}>
 											<Link to={`/admin/devices/${sectionTitle.toLowerCase()}/${itemRoute}`} id={sectionId + '_' +idx}>
-											{item.device_title}
+											{item.device_title.replace(/&amp;/g, '&')}
 											<div className="card-img-wrapper">
 												<img src={item.device_image_url} alt={item.device_image_alt} />
 											</div>

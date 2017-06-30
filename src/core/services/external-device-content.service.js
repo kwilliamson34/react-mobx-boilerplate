@@ -22,14 +22,12 @@ class ExternalDeviceContentService {
 
 	filterDeviceCategoryData(array, category) {
 
-		const items = array.filter((ele) => {
+		const _items = array.filter((ele) => {
 			return category.toLowerCase() == ele.device_category.toLowerCase();
 		});
 
-		const _category = category.replace('-', '').toLowerCase();
-
 		return {
-			items: items
+			items: _items
 		}
 	}
 

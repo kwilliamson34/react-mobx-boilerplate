@@ -43,7 +43,7 @@ export default class DeviceCategoryTemplate extends React.Component {
 				pageTitle: 'Specialized Devices'
 			},
 			{	pageHref: this.props.match.url,
-				pageTitle: this.externalLinkStore.currentCategory
+				pageTitle: this.externalLinkStore.currentDeviceCategory
 			}
 		];
 		return (
@@ -52,13 +52,13 @@ export default class DeviceCategoryTemplate extends React.Component {
 				<div className="container">
 					<div className="row">
 						<div className="col-xs-12 catalog-header">
-							<h1 className="as-h2">{this.externalLinkStore.currentCategory}</h1>
+							<h1 className="as-h2">{this.externalLinkStore.currentDeviceCategory}</h1>
 						</div>
 					</div>
 					<div className="row">
 						<div className="col-xs-offset-2 col-xs-8 col-sm-12 col-sm-offset-0 col-md-offset-1 col-md-10">
 							<ul className="mp-content left">
-								{this.externalLinkStore.currentCategoryData.items.map((item, idx) => {
+								{this.externalLinkStore.currentDeviceCategoryData.items.map((item, idx) => {
 									let itemRoute = encodeURIComponent(item.device_title).replace(/%20/g, '+');
 									return (
 										<li key={idx}>

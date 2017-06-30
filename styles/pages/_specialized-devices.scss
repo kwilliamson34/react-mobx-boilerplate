@@ -35,6 +35,10 @@
 
   .device-category {
     padding-bottom: 70px;
+
+    h1 {
+      text-transform: capitalize;
+    }
   }
 
   .device-detail {

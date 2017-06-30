@@ -50,19 +50,19 @@ class ExternalLinkStore {
   }
 
   //TODO: restore when API issues are sorted. Currently setting from copied data put in mock files;
-  // @action fetchSolutionDetails() {
-  //   const success = (res) => {
-  //     console.log('RESSSSSS     ', res);
-  //   }
-  //
-  //   const fail = (res) => {
-  //     console.log('RUROH', res);
-  //     // utilsService.handleError(res);
-  //   }
-  //
-  //   return apiService.getMarketingPortalSolutionDetails().then(success, fail);
-  // }
-  //
+  @action getSolutionDetails() {
+    const success = (res) => {
+      console.log('RESSSSSS     ', res);
+    }
+
+    const fail = (res) => {
+      console.log('RUROH', res);
+      // utilsService.handleError(res);
+    }
+
+    return apiService.getMarketingPortalSolutionDetails().then(success, fail);
+  }
+
   @action fetchSolutionCategories() {
     const success = (res) => {
       this.solutionCategories = res;
