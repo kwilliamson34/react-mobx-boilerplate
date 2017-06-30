@@ -1,3 +1,10 @@
+input,
+select,
+input.form-control,
+select.form-control {
+  color: $input-font-color;
+}
+
 .checkbox {
   label {
     font-weight: $fn-medium-weight;
@@ -70,6 +77,11 @@ select {
 
 .error {
   color: $fn-alert-red !important;
+}
+
+select,
+select.form-control {
+  font-weight: $fn-medium-weight;
 }
 
 

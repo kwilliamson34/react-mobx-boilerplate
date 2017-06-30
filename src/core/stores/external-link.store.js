@@ -3,12 +3,13 @@ import {apiService} from '../services/api.service';
 import {utilsService} from '../services/utils.service';
 import {history} from '../services/history.service';
 import {externalDeviceContentService} from '../services/external-device-content.service';
+import {externalSolutionsService} from '../services/external-solutions.service';
 
 class ExternalLinkStore {
   /*
   ** Retrieve Devices from Marketing Portal
   */
-  @action fetchDevicesData() {
+  @action getDevicesData() {
     const success = (res) => {
       this.allSpecializedDevices = externalDeviceContentService.filterDeviceData(res);
     }
@@ -18,16 +19,16 @@ class ExternalLinkStore {
     return apiService.getMarketingPortalDevices().then(success, fail);
   }
 
-  @action getDeviceLandingData() {
+  @action fetchDeviceLandingData() {
     let _devicesData = externalDeviceContentService.filterDeviceLandingData(this.allSpecializedDevices);
     this.devicesData = _devicesData;
   }
 
   @action fetchAndShowDeviceCategory() {
     if(this.deviceCategoryIsValid){
-      this.currentCategoryData = externalDeviceContentService.filterDeviceCategoryData(this.allSpecializedDevices, this.currentCategory);
+      this.currentDeviceCategoryData = externalDeviceContentService.filterDeviceCategoryData(this.allSpecializedDevices, this.currentDeviceCategory);
     } else {
-      history.replace('/devices');
+      history.replace('/admin/devices');
     }
   }
 
@@ -35,7 +36,7 @@ class ExternalLinkStore {
     let device = this.fetchDeviceDetails(devicePath);
     if (device.length === 1) {
       this.currentDeviceDetail = externalDeviceContentService.filterDeviceDetailData(device[0]);
-      this.currentPurchasingInfo = externalDeviceContentService.filterDevicePurchasingInfo(device[0]);
+      this.currentPurchasingInfo = externalDeviceContentService.filterPurchasingInfo(device[0]);
     } else {
       history.replace('/error');
     }
@@ -48,37 +49,66 @@ class ExternalLinkStore {
     })
   }
 
-  @action getSolutionCards(queryString) {
+  //TODO: restore when API issues are sorted. Currently setting from copied data put in mock files;
+  @action getSolutionDetails() {
     const success = (res) => {
-      this.solutionCards = res;
+      this.allSolutionDetails = res;
     }
 
     const fail = (res) => {
       utilsService.handleError(res);
     }
 
-    apiService.getSolutionCards(queryString).then(success, fail);
+    return apiService.getMarketingPortalSolutionDetails().then(success, fail);
   }
 
-  @action getSolutionHeaderImg(queryString) {
+  @action getSolutionCategories() {
     const success = (res) => {
-      this.solutionHeaderImg = res;
+      this.solutionCategories = res.solution_category;
     }
 
     const fail = (res) => {
       utilsService.handleError(res);
     }
 
-    apiService.getSolutionHeaderImg(queryString).then(success, fail);
+    return apiService.getMarketingPortalSolutionCategories().then(success, fail);
   }
 
+  @action fetchAndShowSolutionCategory() {
+    if(this.solutionCategoryIsValid){
+      this.currentSolutionCategoryData = externalSolutionsService.filterSolutionCategoryData(this.allSolutionDetails, this.currentSolutionCategory);
+    } else {
+      history.replace('/admin/solutions');
+    }
+  }
 
-  @action resetCategoryData() {
-    this.currentCategoryData = {
-      title: '',
-      intro: '',
+  @action fetchAndShowSolutionDetails(solutionPath) {
+    let solution = this.fetchSolutionDetails(solutionPath);
+    if (solution.length === 1) {
+      this.currentSolutionDetail = externalSolutionsService.filterSolutionDetailData(solution[0]);
+      this.currentPurchasingInfo = externalDeviceContentService.filterPurchasingInfo(solution[0]);
+    } else {
+      history.replace('/error');
+    }
+  }
+
+  @action fetchSolutionDetails(solutionPath) {
+    return this.allSolutionDetails.filter((solution) => {
+      return solutionPath.replace(/\+/g, ' ') === solution.promo_title.toLowerCase();
+    })
+  }
+
+  @action resetDeviceCategoryData() {
+    this.currentDeviceCategoryData = {
       items: []
     };
+  }
+
+  @action resetSolutionDetail() {
+    this.currentSolutionDetail = {
+      title: '',
+      body: ''
+    }
   }
 
   @action resetDeviceDetail() {
@@ -91,20 +121,24 @@ class ExternalLinkStore {
     };
   }
 
+  @action resetSolutionCategoryData() {
+    this.currentSolutionCategoryData = {
+      title: '',
+      cards: []
+    }
+  }
+
   //COMPUTEDS
   @computed get deviceCategoryIsValid() {
     let deviceCategories = ['phones', 'tablets', 'in-vehicle', 'accessories'];
-    let categoryIndex = deviceCategories.indexOf(this.currentCategory);
+    let categoryIndex = deviceCategories.indexOf(this.currentDeviceCategory);
     return categoryIndex >= 0;
   }
 
-  @computed get pushToTalkLink() {
-    if(this.pushToTalkProvider === 'ATT') {
-      return this.managePushToTalkKodiakLink;
-    } else if(this.pushToTalkProvider === 'FN') {
-      return this.managePushToTalkMotorolaLink;
-    }
-    return '';
+  @computed get solutionCategoryIsValid() {
+    let solutionCategories = ['tools', 'device-security', 'secured-connections', 'cloud-services'];
+    let categoryIndex = solutionCategories.indexOf(this.currentSolutionCategory);
+    return categoryIndex >= 0;
   }
 
   @computed get showPurchasingInfo() {
@@ -117,22 +151,29 @@ class ExternalLinkStore {
     return showPurchasingInfo;
   }
 
-  @observable allSpecializedDevices = [];
+  @observable allSolutionDetails = [];
+  @observable solutionCategories = [];
 
+  @observable currentSolutionCategory = '';
+  @observable currentSolutionCategoryData = {
+    title: '',
+    cards: []
+  }
+  @observable currentSolutionDetail = '';
+  @observable currentSolutionDetailData = {
+    title: '',
+    body: ''
+  }
+
+  @observable allSpecializedDevices = [];
+  @observable currentDeviceCategory = '';
   @observable devicesData = {
     phones: [],
     tablets: [],
     invehicle: [],
     accessories: []
   };
-
-  @observable solutionCards = [];
-  @observable solutionHeaderImg = '';
-
-  @observable currentCategory = '';
-  @observable currentCategoryData = {
-    title: '',
-    intro: '',
+  @observable currentDeviceCategoryData = {
     items: []
   };
   @observable currentDeviceDetail = {
@@ -142,8 +183,8 @@ class ExternalLinkStore {
     deviceImg: '',
     deviceImgAlt: ''
   };
-  @observable currentPurchasingInfo: {};
 
+  @observable currentPurchasingInfo: {};
 
   @observable manageUsersLink = 'https://test-profilemgt.firstnet.att.com/ebiz/firstnet/';
   @observable manageServicesLink = 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn';
