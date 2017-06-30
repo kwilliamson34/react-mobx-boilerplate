@@ -1,41 +1,41 @@
 exports[`<SearchForm /> gives correct feedback when loaded 1`] = `
 <form
-  className="search-form"
+  className="search-form form-group"
   onSubmit={[Function anonymous]}>
   <div
     className="search-input input-group">
     <label
-      className="form-group-title"
-      htmlFor="search-box">
+      className="control-label"
+      htmlFor="search-field">
       Search
       <span
         className="sr-only">
          App Catalog
       </span>
     </label>
-    <input
-      className="form-control"
-      id="search-box"
-      onChange={[Function anonymous]}
-      title="searchQuery"
-      type="search"
-      value="test search" />
-    <button
-      className="btn clear-btn"
-      onClick={[Function anonymous]}
-      type="button">
-      <span
-        className="sr-only">
-        Clear
-      </span>
-      <span
-        aria-hidden="true"
-        className="icon-close" />
-    </button>
-    <span
-      className="input-group-btn search-btn">
+    <div
+      className="search-bar">
+      <input
+        className="form-control"
+        id="search-field"
+        onChange={[Function anonymous]}
+        title="searchQuery"
+        type="search"
+        value="test search" />
       <button
-        className="btn btn-primary"
+        className="btn clear-btn"
+        onClick={[Function anonymous]}
+        type="button">
+        <span
+          className="sr-only">
+          Clear
+        </span>
+        <span
+          aria-hidden="true"
+          className="icon-close" />
+      </button>
+      <button
+        className="btn search-btn"
         type="submit">
         <span
           className="sr-only">
@@ -45,50 +45,49 @@ exports[`<SearchForm /> gives correct feedback when loaded 1`] = `
           aria-hidden="true"
           className="icon-search" />
       </button>
-    </span>
+    </div>
   </div>
-  <p />
 </form>
 `;
 
 exports[`<SearchForm /> gives correct feedback when loading 1`] = `
 <form
-  className="search-form"
+  className="search-form form-group"
   onSubmit={[Function anonymous]}>
   <div
     className="search-input input-group">
     <label
-      className="form-group-title"
-      htmlFor="search-box">
+      className="control-label"
+      htmlFor="search-field">
       Search
       <span
         className="sr-only">
          App Catalog
       </span>
     </label>
-    <input
-      className="form-control"
-      id="search-box"
-      onChange={[Function anonymous]}
-      title="searchQuery"
-      type="search"
-      value="test search" />
-    <button
-      className="btn clear-btn"
-      onClick={[Function anonymous]}
-      type="button">
-      <span
-        className="sr-only">
-        Clear
-      </span>
-      <span
-        aria-hidden="true"
-        className="icon-close" />
-    </button>
-    <span
-      className="input-group-btn search-btn">
+    <div
+      className="search-bar">
+      <input
+        className="form-control"
+        id="search-field"
+        onChange={[Function anonymous]}
+        title="searchQuery"
+        type="search"
+        value="test search" />
       <button
-        className="btn btn-primary"
+        className="btn clear-btn"
+        onClick={[Function anonymous]}
+        type="button">
+        <span
+          className="sr-only">
+          Clear
+        </span>
+        <span
+          aria-hidden="true"
+          className="icon-close" />
+      </button>
+      <button
+        className="btn search-btn"
         type="submit">
         <span
           className="sr-only">
@@ -98,38 +97,37 @@ exports[`<SearchForm /> gives correct feedback when loading 1`] = `
           aria-hidden="true"
           className="icon-search" />
       </button>
-    </span>
+    </div>
   </div>
-  <p />
 </form>
 `;
 
 exports[`<SearchForm /> matches previous snapshot 1`] = `
 <form
-  className="search-form"
+  className="search-form form-group"
   onSubmit={[Function anonymous]}>
   <div
     className="search-input input-group">
     <label
-      className="form-group-title"
-      htmlFor="search-box">
+      className="control-label"
+      htmlFor="search-field">
       Search
       <span
         className="sr-only">
          App Catalog
       </span>
     </label>
-    <input
-      className="form-control"
-      id="search-box"
-      onChange={[Function anonymous]}
-      title="searchQuery"
-      type="search"
-      value="" />
-    <span
-      className="input-group-btn search-btn">
+    <div
+      className="search-bar">
+      <input
+        className="form-control"
+        id="search-field"
+        onChange={[Function anonymous]}
+        title="searchQuery"
+        type="search"
+        value="" />
       <button
-        className="btn btn-primary"
+        className="btn search-btn"
         type="submit">
         <span
           className="sr-only">
@@ -139,50 +137,49 @@ exports[`<SearchForm /> matches previous snapshot 1`] = `
           aria-hidden="true"
           className="icon-search" />
       </button>
-    </span>
+    </div>
   </div>
-  <p />
 </form>
 `;
 
 exports[`<SearchForm /> matches previous snapshot 2`] = `
 <form
-  className="search-form"
+  className="search-form form-group"
   onSubmit={[Function anonymous]}>
   <div
     className="search-input input-group">
     <label
-      className="form-group-title"
-      htmlFor="search-box">
+      className="control-label"
+      htmlFor="search-field">
       Search
       <span
         className="sr-only">
          App Catalog
       </span>
     </label>
-    <input
-      className="form-control"
-      id="search-box"
-      onChange={[Function anonymous]}
-      title="searchQuery"
-      type="search"
-      value="test search" />
-    <button
-      className="btn clear-btn"
-      onClick={[Function anonymous]}
-      type="button">
-      <span
-        className="sr-only">
-        Clear
-      </span>
-      <span
-        aria-hidden="true"
-        className="icon-close" />
-    </button>
-    <span
-      className="input-group-btn search-btn">
+    <div
+      className="search-bar">
+      <input
+        className="form-control"
+        id="search-field"
+        onChange={[Function anonymous]}
+        title="searchQuery"
+        type="search"
+        value="test search" />
       <button
-        className="btn btn-primary"
+        className="btn clear-btn"
+        onClick={[Function anonymous]}
+        type="button">
+        <span
+          className="sr-only">
+          Clear
+        </span>
+        <span
+          aria-hidden="true"
+          className="icon-close" />
+      </button>
+      <button
+        className="btn search-btn"
         type="submit">
         <span
           className="sr-only">
@@ -192,8 +189,7 @@ exports[`<SearchForm /> matches previous snapshot 2`] = `
           aria-hidden="true"
           className="icon-search" />
       </button>
-    </span>
+    </div>
   </div>
-  <p />
 </form>
 `;

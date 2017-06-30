@@ -63,7 +63,6 @@ export default class PurchasingInfo extends React.Component {
               }
             </ul>
           </div>
-
         </div>
       </div>
     )

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {inject, observer} from 'mobx-react';
 import {history} from '../core/services/history.service';
+import config from 'config';
 
 @inject('store')
 @observer
@@ -28,6 +29,9 @@ export default class FeedbackPage extends React.Component {
       }
     if (this.feedbackStore.hasBeenSubmitted) {
       this.feedbackStore.toggleHasBeenSubmitted();
+    }
+    if (!this.feedbackStore.formHasEntries && !this.feedbackStore.formIsValid) {
+      this.feedbackStore.clearFeedbackForm();
     }
   }
 
@@ -165,7 +169,7 @@ export default class FeedbackPage extends React.Component {
                   </div>
                   <div>
                     <p className="feedback-text">
-                      Your feedback will help us improve your experience. We cannot respond directly to feedback comments, but can follow up with you if you leave your email below. For immediate help, please contact us directly at <a href="tel:+18005747000">1-800-574-7000</a>.
+                      Your feedback will help us improve your experience. We cannot respond directly to feedback comments, but can follow up with you if you leave your email below. For immediate help, please contact us directly at <a href={`tel:${config.attCustomerSupportPhone}`}>{`${config.attCustomerSupportPhone}`}</a>.
                     </p>
                   </div>
                   <div className={this.feedbackStore.hasErrors.feedback_email ? 'form-group has-error' : 'form-group'}>

@@ -35,6 +35,10 @@
 
   .device-category {
     padding-bottom: 70px;
+
+    h1 {
+      text-transform: capitalize;
+    }
   }
 
   .device-detail {
@@ -178,30 +182,6 @@
         width: 23%;
         min-width: auto;
         margin: 0 1% 3%;
-      }
-    }
-  }
-}
-
-@media #{$tablet, $wide} {
-  #specialized-devices {
-    .device-detail {
-      .purchase-options-list {
-        li {
-          width: 50%;
-        }
-      }
-    }
-  }
-}
-
-@media #{$normal} {
-  #specialized-devices {
-    .device-detail {
-      .purchase-options-list {
-        li {
-          width: 100%;
-        }
       }
     }
   }
