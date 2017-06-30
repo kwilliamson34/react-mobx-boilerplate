@@ -3,6 +3,7 @@ select,
 input.form-control,
 select.form-control {
   color: $input-font-color;
+  font-weight: $fn-medium-weight;
 }
 
 .checkbox {
@@ -77,11 +78,6 @@ select {
 
 .error {
   color: $fn-alert-red !important;
-}
-
-select,
-select.form-control {
-  font-weight: $fn-medium-weight;
 }
 
 
