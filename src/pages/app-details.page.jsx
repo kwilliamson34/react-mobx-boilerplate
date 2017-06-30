@@ -27,7 +27,6 @@ export default class AppDetailsPage extends React.Component {
   }
 
   componentWillMount() {
-    console.log(this.appStore.currentAppObject);
     if(this.userStore.user.pse === ''){
       utilsService.handlePendingAuthorizationsMapping();
     }else{
