@@ -25,31 +25,33 @@ a {
   opacity: 1.0;
   visibility: visible;
   transition: visibility 0s, opacity 0.3s ease-in;
+
   i {
     color: $fn-dkgrey;
   }
-  &:focus{
+
+  &:focus {
     border-color: $focus-lightbg;
     text-decoration: none;
   }
+
   &:active,
   &:hover {
     background: $fn-blue;
     text-decoration: none;
+
     i {
       color: white;
     }
   }
-  &.faded{
+
+  &.faded {
     visibility: hidden;
     opacity: 0;
   }
 }
 
-/* Use aria-disabled to style a button to appear disabled, so it's also 
-   conveyed to screen readers while letting SC users focus on it. 
-   The "true" string is required.
-*/
+/* PSE disabled button differs from lib. */
 button {
   &[aria-disabled="true"],
   &[disabled] {
@@ -63,15 +65,14 @@ button {
 
 /* XS */
 @media only screen and (min-width : 320px) {
-  .back-to-top{
+  .back-to-top {
     left: 1em;
     right: auto;
   }
 }
-
 /* MD */
 @media only screen and (min-width : 992px) {
-  .back-to-top{
+  .back-to-top {
     left: auto;
     right: 2em;
   }
