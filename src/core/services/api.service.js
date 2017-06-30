@@ -1,6 +1,5 @@
 import axios from 'axios';
 import {utilsService} from './utils.service';
-import {externalSolutionsService} from './external-solutions.service';
 import {userStore} from '../stores/user.store';
 import config from 'config';
 

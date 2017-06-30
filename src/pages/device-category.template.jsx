@@ -28,7 +28,7 @@ export default class DeviceCategoryTemplate extends React.Component {
 				this.externalLinkStore.fetchAndShowDeviceCategory();
 			}
 			else {
-				this.externalLinkStore.fetchDevicesData()
+				this.externalLinkStore.getDevicesData()
 				.then(() => this.externalLinkStore.fetchAndShowDeviceCategory());
 			}
 		}

@@ -22,7 +22,6 @@ export default class SolutionsCategoryTemplate extends React.Component {
 
   componentWillMount() {
     this.externalLinkStore.allSolutionDetails = mockDetails;
-    console.log('allSolutionDetails   ', this.externalLinkStore.allSolutionDetails);
 
     //User has navigated to a different category page so will make request for new category
     if (this.externalLinkStore.currentCategory != this.props.match.params.solutionCategory){

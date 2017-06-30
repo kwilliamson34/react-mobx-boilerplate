@@ -9,7 +9,7 @@ class ExternalLinkStore {
   /*
   ** Retrieve Devices from Marketing Portal
   */
-  @action fetchDevicesData() {
+  @action getDevicesData() {
     const success = (res) => {
       this.allSpecializedDevices = externalDeviceContentService.filterDeviceData(res);
     }
@@ -19,7 +19,7 @@ class ExternalLinkStore {
     return apiService.getMarketingPortalDevices().then(success, fail);
   }
 
-  @action getDeviceLandingData() {
+  @action fetchDeviceLandingData() {
     let _devicesData = externalDeviceContentService.filterDeviceLandingData(this.allSpecializedDevices);
     this.devicesData = _devicesData;
   }
@@ -53,6 +53,7 @@ class ExternalLinkStore {
   @action getSolutionDetails() {
     const success = (res) => {
       console.log('RESSSSSS     ', res);
+      // this.allSolutionDetails = res;
     }
 
     const fail = (res) => {

@@ -23,7 +23,7 @@ export default class SolutionsDetailsTemplate extends React.Component {
 
   componentWillMount() {
     //TODO: temp
-    // this.externalLinkStore.allSolutionDetails = mockDetails;
+    this.externalLinkStore.allSolutionDetails = mockDetails;
 
     // checking if the user was on this page previously, eliminating need for new request
     if (this.props.match.params.solutionDetail != this.externalLinkStore.currentSolutionDetail.path){
