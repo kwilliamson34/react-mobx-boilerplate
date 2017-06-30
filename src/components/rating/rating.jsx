@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
+import {utilsService} from '../../core/services/utils.service';
 
 @observer
 export class Rating extends React.Component {
@@ -46,15 +47,15 @@ export class Rating extends React.Component {
   }
 
   render() {
-    let rating = this.props.rating ? this.props.rating : 0;
+    let rating = this.props.rating;
     let reviewCount = this.props.reviewCount ? this.props.reviewCount : 0;
-    let stars = this.convertRatingToStars(rating)
+    let stars = this.convertRatingToStars(rating);
     return (
       <div className="ratings-container">
         {this.props.showRatingNumber &&
           <span className="ratings-number">
             <span className="sr-only">Rating of&nbsp;</span>
-            {rating}&nbsp;
+            {utilsService.formatRating(rating)}&nbsp;
           </span>
         }
         <span className="ratings-stars">

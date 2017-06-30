@@ -3,6 +3,17 @@ import {history} from './history.service';
 import config from 'config';
 
 class UtilsService {
+  formatRating(rating) {
+    //format rating as a string with 1 decimal place
+    if(!rating) {
+      return "0.0";
+    }
+    if(rating.toString().indexOf('.') === -1) {
+      return rating.toFixed(1);
+    }
+    return rating.toString;
+  }
+
   mapAppsToCards(objs) {
     if(!objs || !objs.length) {
       return [];

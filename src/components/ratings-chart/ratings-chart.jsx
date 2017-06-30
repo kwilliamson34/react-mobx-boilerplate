@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import DoughnutChart from './doughnut';
 import HorizontalBar from './horizontal-bar';
-import { Rating } from '../rating/rating.jsx';
+import {Rating} from '../rating/rating.jsx';
 
 export default class RatingsChart extends React.Component {
 	constructor() {
