@@ -47,7 +47,7 @@ export class PushToMDM extends React.Component {
         btnLabel = (<span><i className="icon-reload" aria-label="Still Submitting Form"></i>&nbsp;&nbsp;Submitting&hellip;</span>);
         break;
       case 'failed':
-        srMSG = 'This app failed to pushed to the MDM. Click again to re-push';
+        srMSG = 'This app failed to push to the MDM. Click again to re-push';
         btnLabel = (<span aria-hidden="true">Push to MDM</span>);
         break;
       case 'pushed':
@@ -55,7 +55,7 @@ export class PushToMDM extends React.Component {
         btnLabel = (<span>Re-Push to MDM</span>);
         break;
       case 'repushed':
-        srMSG = 'The selected app already exist in MDM. It cannot be overwritten.';
+        srMSG = 'The selected app already exists in MDM. It cannot be overwritten.';
         btnLabel = (<span>Re-Push to MDM</span>);
         break;
       case 'old':
