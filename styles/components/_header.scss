@@ -3,7 +3,7 @@ $fn-mobile-item-height: 60px;
 .fnnav {
   @extend .clearfix;
   border-top: 5px solid $fn-yellow;
-
+  
   &__mainbar {
     background: $fn-white;
     color: $fn-dkgrey;
@@ -176,30 +176,31 @@ $fn-mobile-item-height: 60px;
     }
   }
 
-  .multi-line-item {
-    display: table-cell;
-    vertical-align: middle;
-    line-height: 1.4;
-    height: 60px;
-    width: 100%;
-    overflow: hidden;
-
-    > div.profile-display {
-      display: block;
-      position: relative;
-      margin-left: 30px;
-
-      i {
-        position: absolute;
-        top: 0;
-        left: -30px;
-        z-index: 2;
-      }
-    }
-  }
-
   phone {
     white-space: nowrap;
+  }
+}
+
+//profile-block
+.multi-line-item {
+  display: table-cell;
+  vertical-align: middle;
+  line-height: 1.4;
+  height: 60px;
+  width: 100%;
+  overflow-y: hidden;
+
+  > div.profile-display {
+    display: block;
+    position: relative;
+    padding-left: 30px;
+
+    i {
+      position: absolute;
+      top: 0;
+      left: 1px;
+      z-index: 2;
+    }
   }
 }
 
@@ -398,6 +399,31 @@ $fn-mobile-item-height: 60px;
           border-right: 1px solid $fn-grey;
         }
       }
+
+      .desktop-profile-display{
+        background: $fn-ltblue;
+        &:hover {
+          background: $fn-ltblue;
+        }
+        > a {
+            height: 70px;
+            text-transform: none;
+            i {
+              margin-right: 5px;
+            }
+            &:hover,
+            &:focus,
+            &:active {
+              background: $fn-ltblue;
+            }
+        }
+
+        .profile-display{
+          color: $fn-white;
+          padding-left: 23px;
+        }
+
+      }
     }
 
     .desktop-textlink {
@@ -409,7 +435,7 @@ $fn-mobile-item-height: 60px;
       }
 
       > a {
-        font-weight: $fn-normal-weight;
+        font-weight: $fn-medium-weight;
         border-bottom: none;
         height: $fn-primary-nav-height;
         line-height: $fn-primary-nav-height;
@@ -419,13 +445,13 @@ $fn-mobile-item-height: 60px;
         text-align: center;
 
         &:hover {
-          font-weight: $fn-medium-weight;
+          font-weight: $fn-bold-weight;
           color: $fn-ltblue;
         }
 
         &.active {
           position: relative;
-          font-weight: $fn-medium-weight;
+          font-weight: $fn-bold-weight;
           color: $fn-ltblue;
 
           &:after {
@@ -450,8 +476,7 @@ $fn-mobile-item-height: 60px;
     display: none;
   }
 
-  #btn-admin:hover .header-submenu,
-  #linkBtn-admin:focus + .header-submenu {
+  #btn-admin.expanded .header-submenu {
     display: flex;
   }
 
@@ -477,6 +502,9 @@ $fn-mobile-item-height: 60px;
       box-shadow: 0 3px 2px 0 rgba(130,130,130,0.5);
       display: none;
       flex-wrap: wrap;
+      &:focus{
+        outline: 2px solid #036;
+      }
 
       > ul {
         display: flex;

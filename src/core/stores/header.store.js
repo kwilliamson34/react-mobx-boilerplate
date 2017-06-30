@@ -8,6 +8,11 @@ class HeaderStore {
 		this.mainMenuIsOpen = !this.mainMenuIsOpen;
 	}
 
+	@action closeMainMenu(){
+		this.mainMenuIsOpen = false;
+		this.closeSubMenus();
+	}
+
 	@action toggleFooterSitemap() {
 		this.footerSitemapExpanded = !this.footerSitemapExpanded;
 	}
