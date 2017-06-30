@@ -1,0 +1,77 @@
+exports[`<PurchasingInfo /> renders matches previous snapshot 1`] = `
+<div
+  className="row"
+  id="purchasing-info">
+  <div
+    className=" col-xs-10 col-xs-offset-1 col-sm-offset-1 col-sm-10 col-md-6 col-md-offset-5 col-lg-7 col-lg-offset-4">
+    <h2>
+      For Purchasing
+    </h2>
+    <div>
+      <ul
+        className="purchase-options-list">
+        <li>
+          <strong>
+            Contact:
+          </strong>
+          <span>
+            Don Johnson
+          </span>
+        </li>
+        <li>
+          <strong>
+            Phone:
+          </strong>
+          <a
+            href="tel:1-555-IAM-VICE">
+            1-555-IAM-VICE
+          </a>
+        </li>
+        <li>
+          <strong>
+            Email:
+          </strong>
+          <a
+            href="mailto:don_the_heat@hotmail.com">
+            don_the_heat@hotmail.com
+          </a>
+        </li>
+        <li>
+          <strong>
+            Company:
+          </strong>
+          <span>
+            Fast \'n Hot Speedboats\'
+          </span>
+        </li>
+        <li>
+          <strong>
+            Website:
+          </strong>
+          <a
+            href="http://www.fastnhotspeedboats.com">
+            fastnhotspeedboats.com
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<PurchasingInfo /> renders should render with no purchasing info shown 1`] = `
+<div
+  className="row"
+  id="purchasing-info">
+  <div
+    className=" col-xs-10 col-xs-offset-1 col-sm-offset-1 col-sm-10 col-md-6 col-md-offset-5 col-lg-7 col-lg-offset-4">
+    <h2>
+      For Purchasing
+    </h2>
+    <div>
+      <ul
+        className="purchase-options-list" />
+    </div>
+  </div>
+</div>
+`;

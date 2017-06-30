@@ -14,40 +14,40 @@ exports[`<BreadcrumbNav /> renders a breadcrumb of links matches previous snapsh
               href="/link1"
               onClick={[Function anonymous]}>
               Link Level 1
-              <span
-                aria-hidden="true"
-                className="icon-arrowRight" />
             </a>
+            <span
+              aria-hidden="true"
+              className="icon-arrowRight" />
           </li>
           <li>
             <a
               href="/link1/link2"
               onClick={[Function anonymous]}>
               Link Level 2
-              <span
-                aria-hidden="true"
-                className="icon-arrowRight" />
             </a>
+            <span
+              aria-hidden="true"
+              className="icon-arrowRight" />
           </li>
           <li>
             <a
               href="/link1/link2/link3"
               onClick={[Function anonymous]}>
               Link Level 3
-              <span
-                aria-hidden="true"
-                className="icon-arrowRight" />
             </a>
+            <span
+              aria-hidden="true"
+              className="icon-arrowRight" />
           </li>
           <li>
             <a
               href="/link1/link2/link3/link4"
               onClick={[Function anonymous]}>
               Link Level 4
-              <span
-                aria-hidden="true"
-                className="icon-arrowRight" />
             </a>
+            <span
+              aria-hidden="true"
+              className="icon-arrowRight" />
           </li>
         </ol>
       </div>

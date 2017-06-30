@@ -1,7 +1,7 @@
 .truncate-container {
   display: block;
   position: relative;
-  overflow-wrap: break-word;
+  word-wrap: break-word;
   margin-top: 10px;
 
   .truncate-button {
@@ -12,10 +12,15 @@
     line-height: 1.25;
     color: $fn-ltblue;
     margin-top: 20px;
+    text-decoration: none;
     border: 0 !important;
 
     &:focus {
       @include focus();
+    }
+
+    span:hover {
+      text-decoration: underline;
     }
 
     i {

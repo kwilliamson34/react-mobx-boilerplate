@@ -1,15 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {utilsService} from '../../core/services/utils.service';
+
 
 export default class DoughnutChart extends React.Component {
+	static propTypes = {
+		rating: PropTypes.number, // rating the chart should show
+		size: PropTypes.number // diameter of chart
+  }
+
+  static defaultProps = {
+		rating: 0,
+		size: 215
+  }
 
 	render() {
-
 		const graphSize = this.props.size;
 		const strokewidth = 15;
 		const halfsize = (graphSize * 0.5);
-		const fontsize = (graphSize * .55);
-		const textAlign = (graphSize * 0.69);
+		const fontsize = (graphSize * .50);
+		const textAlign = (graphSize * 0.65);
 		const radius = halfsize - (strokewidth * 0.5);
 		const circumference = 2 * Math.PI * radius;
 		const perc = (this.props.rating / 5);
@@ -61,18 +71,8 @@ export default class DoughnutChart extends React.Component {
           x={halfsize}
           y={textAlign}
           style={fontStyle}
-          className="doughnut-text">{this.props.rating}</text>
+          className="doughnut-text">{utilsService.formatRating(this.props.rating)}</text>
       </svg>
 		);
 	}
-}
-
-DoughnutChart.propTypes = {
-	rating: PropTypes.number, // rating the chart should show
-	size: PropTypes.number // diameter of chart
-};
-
-DoughnutChart.defaultProps = {
-	rating: 0,
-	size: 215
 }

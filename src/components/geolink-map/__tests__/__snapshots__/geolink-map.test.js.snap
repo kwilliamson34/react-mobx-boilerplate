@@ -4,6 +4,7 @@ exports[`<GeolinkMap /> renders matches previous snapshot 1`] = `
   <div
     className="map-wrapper">
     <iframe
+      id="coverage-map"
       title="Interactive Coverage Map" />
   </div>
 </section>

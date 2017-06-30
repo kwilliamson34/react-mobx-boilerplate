@@ -1,6 +1,5 @@
 import axios from 'axios';
 import {utilsService} from './utils.service';
-import {externalSolutionsService} from './external-solutions.service';
 import {userStore} from '../stores/user.store';
 import config from 'config';
 
@@ -69,23 +68,23 @@ class ApiService {
 
     getMarketingPortalDevices() {
       return axios.get(`${base}/marketing/api/devices?_format=json`)
-        .then((res) =>{
+        .then((res) => {
           return res.data;
         });
     }
 
-    getSolutionCards(queryString) {
-      return axios.get(`${base}/marketing${queryString}`)
+    getMarketingPortalSolutionDetails() {
+      return axios.get(`${base}/marketing/api/solutions?_format=json`)
         .then((res) => {
-          return externalSolutionsService.filterSolutionCards(res.data);
-        })
+          return res.data;
+        });
     }
 
-    getSolutionHeaderImg(queryString) {
-      return axios.get(`${base}/marketing${queryString}`)
+    getMarketingPortalSolutionCategories() {
+      return axios.get(`${base}/marketing/api/category/solutions?_format=json`)
         .then((res) => {
-          return externalSolutionsService.filterSolutionHeaderImg(res.data);
-        })
+          return res.data;
+        });
     }
 
     addAppToGroup(appPsk, groupIdentifier) {
@@ -130,6 +129,15 @@ class ApiService {
 
     breakMDMConfiguration() {
       return axios.delete(`${base}/pse/mdm/${userStore.user.pse}`);
+    }
+
+    pushToMDM(app) {
+      console.log('Pushing app to MDM with appPsk=' + app + ' for pse="' + userStore.user.pse + '"...');
+      return axios({
+        method: 'post',
+        url: `${base}/pse/mdm/push?appPsk=${app}&pseId=${userStore.user.pse}`,
+        data: {}
+      });
     }
 
     submitCustomerFeedbackForm(feedbackObject) {

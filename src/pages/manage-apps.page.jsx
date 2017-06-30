@@ -27,7 +27,6 @@ export default class ManageAppsPage extends React.Component {
 		this.userStore = this.props.store.userStore;
 		this.pageId = 'manageAppsPage';
 		this.itemsPerPage = 20;
-		this.mdmIsConfigured = this.mdmStore.pseMDMObject.get('mdm_type') ? true : false
 		this.viewedAlert = false;
 	}
 
@@ -42,8 +41,6 @@ export default class ManageAppsPage extends React.Component {
 				this.props.store.registerPage(this.pageId);
 			}
 		}
-
-
 	}
 
 	handleLoadMoreClick = () => {
@@ -61,6 +58,30 @@ export default class ManageAppsPage extends React.Component {
 		return this.cardListStore.filteredSearchResults.slice(0, totalCards);
 	}
 
+	updateCardStyles = (apps) => {
+		for(let i=0;i<apps.length;i++){
+			const id = apps[i][0];
+			const status = apps[i][1];
+			const $card = $('#appCard'+id);
+			const $button = $('#pushBtn'+id);
+			switch(status) {
+				case 'failed':
+					$card.addClass('failed-to-push');
+					break;
+				case 'pushed':
+					$button.addClass('fn-secondary').removeClass('fn-primary');
+					break;
+				case 'repushed':
+					$card.addClass('already-pushed');
+					$button.addClass('fn-secondary').removeClass('fn-primary');
+					break;
+				default:
+					$card.removeClass('failed-to-push, already-pushed');
+					$button.addClass('fn-primary').removeClass('fn-secondary');
+			}
+		}
+	}
+
 	render() {
 		const crumbs = [
 			{	pageHref: '/admin',
@@ -71,9 +92,14 @@ export default class ManageAppsPage extends React.Component {
 			}
 		];
 
-		if(this.mdmStore.app_alerts.length && $('#mdm-alerts:visible').length){
-			setTimeout(() => {$('#mdm-alerts').focus()}, 100);
+		if(this.mdmStore.app_alerts.length && $('#mdm-alerts:visible').length && !this.viewedAlert){
+			setTimeout(() => {
+				$('#mdm-alerts').focus();
+				this.viewedAlert = true;
+			}, 100);
 		}
+
+		this.updateCardStyles(this.mdmStore.appMDMStatus.entries());
 
 		return (
 			<article id="manage-apps-page">
@@ -109,7 +135,7 @@ export default class ManageAppsPage extends React.Component {
 				<div className="container">
 					<div className="row">
 						<div className="col-xs-12 col-lg-offset-1 col-lg-10">
-							<h2 className="as-h3 results-count">{this.cardListStore.resultsCountLabel}</h2>
+							<p className="as-h3 results-count" aria-live="polite">{this.cardListStore.resultsCountLabel}</p>
 						</div>
 					</div>
 				</div>
@@ -128,7 +154,9 @@ export default class ManageAppsPage extends React.Component {
 								changeAppAvailability={this.appCatalogStore.changeAppAvailability.bind(this.appCatalogStore)}
 								changeAppRecommended={this.appCatalogStore.changeAppRecommended.bind(this.appCatalogStore)}
 								getMatchingApp={this.appCatalogStore.getMatchingApp.bind(this.appCatalogStore)}
-								mdmIsConfigured={this.mdmIsConfigured}/>
+								mdmIsConfigured={this.mdmStore.pseMDMObject.toJS().mdm_type}
+								pushToMDM={this.mdmStore.pushToMDM.bind(this.mdmStore)}
+								appMDMStatus={this.mdmStore.appMDMStatus.toJS()}/>
 						</div>
 					</div>
 				</div>

@@ -55,7 +55,7 @@ export default class AppReviews extends React.Component {
             <div className='subject-and-rating-container'>
               <div className='review-subject' id={'Review-' + node.reviewId}>{node.commentTitle}</div>
               <div className='sr-only'>{'App rated ' + node.rating + ' out of 5'}</div>
-              <Rating rating={node.reviewStar} />
+              <Rating rating={node.reviewStar} reviewCount={1}/>
             </div>
             <div className='review-author'>{authorName}</div>
             <div className='review-date'>{moment(node.reviewDate).format('MMMM DD, YYYY')}</div>

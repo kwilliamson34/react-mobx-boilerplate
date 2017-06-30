@@ -8,6 +8,11 @@ class HeaderStore {
 		this.mainMenuIsOpen = !this.mainMenuIsOpen;
 	}
 
+	@action closeMainMenu(){
+		this.mainMenuIsOpen = false;
+		this.closeSubMenus();
+	}
+
 	@action toggleFooterSitemap() {
 		this.footerSitemapExpanded = !this.footerSitemapExpanded;
 	}
@@ -49,6 +54,15 @@ class HeaderStore {
 		}
 	}
 
+	@action openAdminSubMenu() {
+		this.closeSubMenus();
+		this.adminSubMenuIsOpen = true;
+	}
+
+	@action closeAdminSubMenu() {
+		this.adminSubMenuIsOpen = false;
+	}
+
 	@action toggleHelpSubMenu(){
 		if(this.helpSubMenuIsOpen){
 			this.closeSubMenus();
@@ -56,6 +70,11 @@ class HeaderStore {
 			this.closeSubMenus();
 			this.helpSubMenuIsOpen = true;
 		}
+	}
+
+	@action externalTabOpen() {
+		this.toggleMainMenu();
+		this.closeSubMenus();
 	}
 
 	@observable ATTSupportPhone = config.attCustomerSupportPhone || '800-574-7000';
