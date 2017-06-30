@@ -79,10 +79,6 @@ $fn-mobile-item-height: 60px;
     color: $fn-dkgrey;
     transition: all $fn-animation-duration ease;
 
-    &:focus {
-      @include focus();
-    }
-
     &:before {
       display: inline-block;
       content: '\66';
@@ -152,10 +148,6 @@ $fn-mobile-item-height: 60px;
     .btnSubmenu {
       margin: 5px 0;
 
-      &:focus {
-        @include focus();
-      }
-
       &[aria-expanded=false] + a {
         border-bottom: 0;
       }
@@ -170,12 +162,6 @@ $fn-mobile-item-height: 60px;
     .btnSubmenu,
     > ul a {
       color: $fn-white;
-    }
-
-    .btnSubmenu {
-      &:focus {
-        @include focus();
-      }
     }
 
      > a,
