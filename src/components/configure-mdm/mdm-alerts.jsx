@@ -32,8 +32,8 @@ export class MDMAlerts extends React.Component {
         {alert_msgs.map((alert, idx) => {
           return (
             <div role="alert" aria-live="assertive" className={`alert alert-${alert.type}`} key={idx}>
-              <button type="button" className="close_btn" onClick={this.onRemoveName.bind(this, idx)}>
-                <span aria-hidden="true">×</span>
+              <button type="button" className="close_btn icon-close" onClick={this.onRemoveName.bind(this, idx)}>
+
                 <span className="sr-only">Close alert</span>
               </button>
               <p><strong>{alert.headline}</strong>{alert.message}</p>

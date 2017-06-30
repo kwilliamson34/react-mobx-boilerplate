@@ -17,6 +17,9 @@
 		-webkit-appearance: none;
 		float: right;
 		font-size: 14px;
+		&:before{
+			font-size: 9px;
+		}
 	}
 
 	&.alert-error {
