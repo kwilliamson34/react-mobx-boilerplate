@@ -3,6 +3,17 @@ import {history} from './history.service';
 import config from 'config';
 
 class UtilsService {
+  formatRating(rating) {
+    //format rating as a string with 1 decimal place
+    if(!rating) {
+      return '0.0';
+    }
+    if(rating.toString().indexOf('.') === -1) {
+      return rating.toFixed(1);
+    }
+    return rating.toString();
+  }
+
   mapAppsToCards(objs) {
     if(!objs || !objs.length) {
       return [];
@@ -18,6 +29,7 @@ class UtilsService {
           publisher: obj.author,
           imageUrl: config.apperianUploads + obj.icon_path,
           rating: obj.rating,
+          reviews_count: obj.reviews_count,
           id: obj.id,
           app_psk: obj.app_psk,
           isAvailable: obj.isAvailable,
