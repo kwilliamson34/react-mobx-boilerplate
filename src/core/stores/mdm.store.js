@@ -52,6 +52,7 @@ class MDMStore {
         this.beingSubmitted = false;
         this.formHasChanged = false;
         this.showExitModal = false;
+        this.isConfigured = false;
         this.showbreakMDMConnection = false;
 
         for (let i = 0; i < keys.length; i++) {
@@ -160,6 +161,7 @@ class MDMStore {
             console.log(serviceResponse)
 
             this.pseMDMObject.merge(serviceResponse);
+            this.isConfigured = true;
 
             switch (serviceResponse.mdm_type) {
                 case 'AIRWATCH':
@@ -275,12 +277,11 @@ class MDMStore {
     }
 
     @action pushToMDM(psk) {
+
         this.appMDMStatus.set(psk,'submitting');
 
         const success = () => {
-            this.pseMDMObject.clear();
-            this.hasBeenSubmitted = false;
-            this.resetMDMForm();
+            this.appMDMStatus.set(psk,'pushed');
             this.app_alerts.push({
                 type: 'success',
                 headline: 'Success! ',
@@ -289,23 +290,30 @@ class MDMStore {
         }
         const fail = (err) => {
             console.warn(err);
-            this.hasBeenSubmitted = true;
+            this.appMDMStatus.set(psk,'failed');
             this.app_alerts.push({
                 type: 'error',
                 headline: 'Error: ',
                 message: 'Some or all of the selected apps could not be pushed to MDM.'
             });
         }
-        return apiService.pushToMDM().then(success, fail);
+
+        setTimeout(() => {
+            console.log('hit')
+            success();
+        }, 1000);
+        // return apiService.pushToMDM(psk).then(success, fail);
     }
 
 
     // OBSERVABLES
+
+    @observable pseMDMObject = observable.map({});
+    @observable isConfigured = false;
+
+    // Configure MDM Form
     @observable mdmProvider = '';
     @observable currentMDMForm = observable.map({});
-    @observable pseMDMObject = observable.map({});
-    @observable form_alerts = [];
-    @observable app_alerts = [];
     @observable formIsValid = false;
     @observable beingSubmitted = false;
     @observable hasBeenSubmitted = false;
@@ -313,6 +321,12 @@ class MDMStore {
     @observable showExitModal = false;
     @observable showbreakMDMConnection = false;
     @observable interceptedRoute = '';
+
+    // MDM Alerts
+    @observable form_alerts = [];
+    @observable app_alerts = [];
+    
+    // Push to MDM
     @observable appMDMStatus = observable.map({});
 }
 

@@ -25,7 +25,6 @@ export default class ManageAppsPage extends React.Component {
 		this.mdmStore = this.props.store.mdmStore;
 		this.pageId = 'manageAppsPage';
 		this.itemsPerPage = 20;
-		this.mdmIsConfigured = false;
 		this.viewedAlert = false;
 	}
 
@@ -66,8 +65,6 @@ export default class ManageAppsPage extends React.Component {
 				pageTitle: 'Manage Apps'
 			}
 		];
-		
-		this.mdmIsConfigured = this.mdmStore.pseMDMObject.get('mdm_type') ? true : false;
 
 		if(this.mdmStore.app_alerts.length && $('#mdm-alerts:visible').length && !this.viewedAlert){
 			setTimeout(() => {
@@ -77,6 +74,7 @@ export default class ManageAppsPage extends React.Component {
 		}
 
 		console.log(this.mdmStore.appMDMStatus.toJS())
+		console.log(this.mdmStore.isConfigured, 'is configured')
 
 		return (
 			<article id="manage-apps-page">
@@ -128,7 +126,7 @@ export default class ManageAppsPage extends React.Component {
 							changeAppAvailability={this.appCatalogStore.changeAppAvailability.bind(this.appCatalogStore)}
 							changeAppRecommended={this.appCatalogStore.changeAppRecommended.bind(this.appCatalogStore)}
 							getMatchingApp={this.appCatalogStore.getMatchingApp.bind(this.appCatalogStore)}
-							mdmIsConfigured={this.mdmIsConfigured}
+							mdmIsConfigured={this.mdmStore.isConfigured }
 							pushToMDM={this.mdmStore.pushToMDM.bind(this.mdmStore)}
 							appMDMStatus={this.mdmStore.appMDMStatus.toJS()}/>
 					</div>

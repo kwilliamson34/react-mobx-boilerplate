@@ -47,6 +47,7 @@ export class CardList extends React.Component {
         <SummaryCard display={card} shouldFocus={i === this.props.idToFocus}/>
         <div className="hidden-xs">
           <AppManagementBlock
+            app={card}
             psk={card.app_psk}
             getMatchingApp={this.props.getMatchingApp}
             changeAppAvailability={this.props.changeAppAvailability}

@@ -7,6 +7,7 @@ import Checkbox from '../toggle/checkbox.jsx';
 export default class AppManagementBlock extends React.Component {
 
   static propTypes = {
+    card: PropTypes.object.isRequired,
     psk: PropTypes.string.isRequired,
     getMatchingApp: PropTypes.func.isRequired,
     changeAppAvailability: PropTypes.func.isRequired,
@@ -21,9 +22,6 @@ export default class AppManagementBlock extends React.Component {
     this.handleAvailableClick = this.handleAvailableClick.bind(this);
     this.handleRecommendedClick = this.handleRecommendedClick.bind(this);
     this.handlePushToMDM = this.handlePushToMDM.bind(this);
-    this.state = {
-      pushingToMDM:false
-    }
   }
 
   handleAvailableClick(event) {
