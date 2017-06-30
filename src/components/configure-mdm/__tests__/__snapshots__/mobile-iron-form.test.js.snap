@@ -31,7 +31,7 @@ exports[`<MobileIronForm /> renders displays an error when any field is empty 1`
     <label
       className="control-label"
       htmlFor="mi_userName">
-      MobileIron Core User Name
+      MobileIron Core Username
       <span
         className="required-asterisks">
          *
@@ -98,7 +98,7 @@ exports[`<MobileIronForm /> renders displays an error when any field is empty 2`
     <label
       className="control-label"
       htmlFor="mi_userName">
-      MobileIron Core User Name
+      MobileIron Core Username
       <span
         className="required-asterisks">
          *
@@ -109,7 +109,7 @@ exports[`<MobileIronForm /> renders displays an error when any field is empty 2`
       className="msgBlock error error-list"
       role="alert">
       <span>
-        Please enter a valid user name.
+        Please enter a valid username.
       </span>
     </div>
     <input
@@ -173,7 +173,7 @@ exports[`<MobileIronForm /> renders displays an error when any field is empty 3`
     <label
       className="control-label"
       htmlFor="mi_userName">
-      MobileIron Core User Name
+      MobileIron Core Username
       <span
         className="required-asterisks">
          *
@@ -184,7 +184,7 @@ exports[`<MobileIronForm /> renders displays an error when any field is empty 3`
       className="msgBlock error error-list"
       role="alert">
       <span>
-        Please enter a valid user name.
+        Please enter a valid username.
       </span>
     </div>
     <input
@@ -248,7 +248,7 @@ exports[`<MobileIronForm /> renders matches previous snapshot 1`] = `
     <label
       className="control-label"
       htmlFor="mi_userName">
-      MobileIron Core User Name
+      MobileIron Core Username
       <span
         className="required-asterisks">
          *
@@ -307,7 +307,7 @@ exports[`<MobileIronForm /> renders matches previous snapshot 2`] = `
     <label
       className="control-label"
       htmlFor="mi_userName">
-      MobileIron Core User Name
+      MobileIron Core Username
       <span
         className="required-asterisks">
          *

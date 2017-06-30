@@ -101,8 +101,6 @@ class ExternalLinkStore {
 
   @action resetDeviceCategoryData() {
     this.currentDeviceCategoryData = {
-      title: '',
-      intro: '',
       items: []
     };
   }
@@ -177,8 +175,6 @@ class ExternalLinkStore {
     accessories: []
   };
   @observable currentDeviceCategoryData = {
-    title: '',
-    intro: '',
     items: []
   };
   @observable currentDeviceDetail = {

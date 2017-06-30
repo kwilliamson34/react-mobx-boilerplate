@@ -19,21 +19,12 @@ exports[`<IBMForm /> renders displays an error when any field is empty 1`] = `
         Please enter a valid root URL.
       </span>
     </div>
-    <select
+    <input
       className="form-control"
       defaultValue=""
       disabled={true}
-      id="ibm_rootURL">
-      <option
-        hidden={true}
-        value="">
-        Select Root URL
-      </option>
-      <option
-        value="TBD">
-        Service will provide...
-      </option>
-    </select>
+      id="ibm_rootURL"
+      type="text" />
   </div>
   <div
     className="form-group has-feedback">
@@ -58,7 +49,7 @@ exports[`<IBMForm /> renders displays an error when any field is empty 1`] = `
     <label
       className="control-label"
       htmlFor="ibm_userName">
-      MaaS360 User Name
+      MaaS360 Username
       <span
         className="required-asterisks">
          *
@@ -100,21 +91,12 @@ exports[`<IBMForm /> renders displays an error when any field is empty 1`] = `
          *
       </span>
     </label>
-    <select
+    <input
       className="form-control"
       defaultValue={undefined}
       disabled={true}
-      id="ibm_platformID">
-      <option
-        hidden={true}
-        value="">
-        Select Platform ID
-      </option>
-      <option
-        value="3">
-        3
-      </option>
-    </select>
+      id="ibm_platformID"
+      type="text" />
   </div>
   <div
     className="form-group has-feedback">
@@ -145,21 +127,12 @@ exports[`<IBMForm /> renders displays an error when any field is empty 1`] = `
          *
       </span>
     </label>
-    <select
+    <input
       className="form-control"
       defaultValue={undefined}
       disabled={true}
-      id="ibm_appVersion">
-      <option
-        hidden={true}
-        value="">
-        Select App Version
-      </option>
-      <option
-        value="1.0">
-        1.0
-      </option>
-    </select>
+      id="ibm_appVersion"
+      type="text" />
   </div>
   <div
     className="form-group has-feedback">
@@ -203,21 +176,12 @@ exports[`<IBMForm /> renders displays an error when any field is empty 2`] = `
         Please enter a valid root URL.
       </span>
     </div>
-    <select
+    <input
       className="form-control"
       defaultValue=""
       disabled={true}
-      id="ibm_rootURL">
-      <option
-        hidden={true}
-        value="">
-        Select Root URL
-      </option>
-      <option
-        value="TBD">
-        Service will provide...
-      </option>
-    </select>
+      id="ibm_rootURL"
+      type="text" />
   </div>
   <div
     className="form-group has-feedback has-error">
@@ -250,7 +214,7 @@ exports[`<IBMForm /> renders displays an error when any field is empty 2`] = `
     <label
       className="control-label"
       htmlFor="ibm_userName">
-      MaaS360 User Name
+      MaaS360 Username
       <span
         className="required-asterisks">
          *
@@ -292,21 +256,12 @@ exports[`<IBMForm /> renders displays an error when any field is empty 2`] = `
          *
       </span>
     </label>
-    <select
+    <input
       className="form-control"
       defaultValue={undefined}
       disabled={true}
-      id="ibm_platformID">
-      <option
-        hidden={true}
-        value="">
-        Select Platform ID
-      </option>
-      <option
-        value="3">
-        3
-      </option>
-    </select>
+      id="ibm_platformID"
+      type="text" />
   </div>
   <div
     className="form-group has-feedback">
@@ -337,21 +292,12 @@ exports[`<IBMForm /> renders displays an error when any field is empty 2`] = `
          *
       </span>
     </label>
-    <select
+    <input
       className="form-control"
       defaultValue={undefined}
       disabled={true}
-      id="ibm_appVersion">
-      <option
-        hidden={true}
-        value="">
-        Select App Version
-      </option>
-      <option
-        value="1.0">
-        1.0
-      </option>
-    </select>
+      id="ibm_appVersion"
+      type="text" />
   </div>
   <div
     className="form-group has-feedback">
@@ -395,21 +341,12 @@ exports[`<IBMForm /> renders displays an error when any field is empty 3`] = `
         Please enter a valid root URL.
       </span>
     </div>
-    <select
+    <input
       className="form-control"
       defaultValue=""
       disabled={true}
-      id="ibm_rootURL">
-      <option
-        hidden={true}
-        value="">
-        Select Root URL
-      </option>
-      <option
-        value="TBD">
-        Service will provide...
-      </option>
-    </select>
+      id="ibm_rootURL"
+      type="text" />
   </div>
   <div
     className="form-group has-feedback has-error">
@@ -442,7 +379,7 @@ exports[`<IBMForm /> renders displays an error when any field is empty 3`] = `
     <label
       className="control-label"
       htmlFor="ibm_userName">
-      MaaS360 User Name
+      MaaS360 Username
       <span
         className="required-asterisks">
          *
@@ -453,7 +390,7 @@ exports[`<IBMForm /> renders displays an error when any field is empty 3`] = `
       className="msgBlock error error-list"
       role="alert">
       <span>
-        Please enter a valid user name.
+        Please enter a valid username.
       </span>
     </div>
     <input
@@ -492,21 +429,12 @@ exports[`<IBMForm /> renders displays an error when any field is empty 3`] = `
          *
       </span>
     </label>
-    <select
+    <input
       className="form-control"
       defaultValue={undefined}
       disabled={true}
-      id="ibm_platformID">
-      <option
-        hidden={true}
-        value="">
-        Select Platform ID
-      </option>
-      <option
-        value="3">
-        3
-      </option>
-    </select>
+      id="ibm_platformID"
+      type="text" />
   </div>
   <div
     className="form-group has-feedback">
@@ -537,21 +465,12 @@ exports[`<IBMForm /> renders displays an error when any field is empty 3`] = `
          *
       </span>
     </label>
-    <select
+    <input
       className="form-control"
       defaultValue={undefined}
       disabled={true}
-      id="ibm_appVersion">
-      <option
-        hidden={true}
-        value="">
-        Select App Version
-      </option>
-      <option
-        value="1.0">
-        1.0
-      </option>
-    </select>
+      id="ibm_appVersion"
+      type="text" />
   </div>
   <div
     className="form-group has-feedback">
@@ -595,21 +514,12 @@ exports[`<IBMForm /> renders displays an error when any field is empty 4`] = `
         Please enter a valid root URL.
       </span>
     </div>
-    <select
+    <input
       className="form-control"
       defaultValue=""
       disabled={true}
-      id="ibm_rootURL">
-      <option
-        hidden={true}
-        value="">
-        Select Root URL
-      </option>
-      <option
-        value="TBD">
-        Service will provide...
-      </option>
-    </select>
+      id="ibm_rootURL"
+      type="text" />
   </div>
   <div
     className="form-group has-feedback has-error">
@@ -642,7 +552,7 @@ exports[`<IBMForm /> renders displays an error when any field is empty 4`] = `
     <label
       className="control-label"
       htmlFor="ibm_userName">
-      MaaS360 User Name
+      MaaS360 Username
       <span
         className="required-asterisks">
          *
@@ -653,7 +563,7 @@ exports[`<IBMForm /> renders displays an error when any field is empty 4`] = `
       className="msgBlock error error-list"
       role="alert">
       <span>
-        Please enter a valid user name.
+        Please enter a valid username.
       </span>
     </div>
     <input
@@ -700,21 +610,12 @@ exports[`<IBMForm /> renders displays an error when any field is empty 4`] = `
          *
       </span>
     </label>
-    <select
+    <input
       className="form-control"
       defaultValue={undefined}
       disabled={true}
-      id="ibm_platformID">
-      <option
-        hidden={true}
-        value="">
-        Select Platform ID
-      </option>
-      <option
-        value="3">
-        3
-      </option>
-    </select>
+      id="ibm_platformID"
+      type="text" />
   </div>
   <div
     className="form-group has-feedback">
@@ -745,21 +646,12 @@ exports[`<IBMForm /> renders displays an error when any field is empty 4`] = `
          *
       </span>
     </label>
-    <select
+    <input
       className="form-control"
       defaultValue={undefined}
       disabled={true}
-      id="ibm_appVersion">
-      <option
-        hidden={true}
-        value="">
-        Select App Version
-      </option>
-      <option
-        value="1.0">
-        1.0
-      </option>
-    </select>
+      id="ibm_appVersion"
+      type="text" />
   </div>
   <div
     className="form-group has-feedback">
@@ -803,21 +695,12 @@ exports[`<IBMForm /> renders displays an error when any field is empty 5`] = `
         Please enter a valid root URL.
       </span>
     </div>
-    <select
+    <input
       className="form-control"
       defaultValue=""
       disabled={true}
-      id="ibm_rootURL">
-      <option
-        hidden={true}
-        value="">
-        Select Root URL
-      </option>
-      <option
-        value="TBD">
-        Service will provide...
-      </option>
-    </select>
+      id="ibm_rootURL"
+      type="text" />
   </div>
   <div
     className="form-group has-feedback has-error">
@@ -850,7 +733,7 @@ exports[`<IBMForm /> renders displays an error when any field is empty 5`] = `
     <label
       className="control-label"
       htmlFor="ibm_userName">
-      MaaS360 User Name
+      MaaS360 Username
       <span
         className="required-asterisks">
          *
@@ -861,7 +744,7 @@ exports[`<IBMForm /> renders displays an error when any field is empty 5`] = `
       className="msgBlock error error-list"
       role="alert">
       <span>
-        Please enter a valid user name.
+        Please enter a valid username.
       </span>
     </div>
     <input
@@ -916,21 +799,12 @@ exports[`<IBMForm /> renders displays an error when any field is empty 5`] = `
         Please enter a valid platform ID.
       </span>
     </div>
-    <select
+    <input
       className="form-control"
       defaultValue=""
       disabled={true}
-      id="ibm_platformID">
-      <option
-        hidden={true}
-        value="">
-        Select Platform ID
-      </option>
-      <option
-        value="3">
-        3
-      </option>
-    </select>
+      id="ibm_platformID"
+      type="text" />
   </div>
   <div
     className="form-group has-feedback">
@@ -961,21 +835,12 @@ exports[`<IBMForm /> renders displays an error when any field is empty 5`] = `
          *
       </span>
     </label>
-    <select
+    <input
       className="form-control"
       defaultValue={undefined}
       disabled={true}
-      id="ibm_appVersion">
-      <option
-        hidden={true}
-        value="">
-        Select App Version
-      </option>
-      <option
-        value="1.0">
-        1.0
-      </option>
-    </select>
+      id="ibm_appVersion"
+      type="text" />
   </div>
   <div
     className="form-group has-feedback">
@@ -1019,21 +884,12 @@ exports[`<IBMForm /> renders displays an error when any field is empty 6`] = `
         Please enter a valid root URL.
       </span>
     </div>
-    <select
+    <input
       className="form-control"
       defaultValue=""
       disabled={true}
-      id="ibm_rootURL">
-      <option
-        hidden={true}
-        value="">
-        Select Root URL
-      </option>
-      <option
-        value="TBD">
-        Service will provide...
-      </option>
-    </select>
+      id="ibm_rootURL"
+      type="text" />
   </div>
   <div
     className="form-group has-feedback has-error">
@@ -1066,7 +922,7 @@ exports[`<IBMForm /> renders displays an error when any field is empty 6`] = `
     <label
       className="control-label"
       htmlFor="ibm_userName">
-      MaaS360 User Name
+      MaaS360 Username
       <span
         className="required-asterisks">
          *
@@ -1077,7 +933,7 @@ exports[`<IBMForm /> renders displays an error when any field is empty 6`] = `
       className="msgBlock error error-list"
       role="alert">
       <span>
-        Please enter a valid user name.
+        Please enter a valid username.
       </span>
     </div>
     <input
@@ -1132,21 +988,12 @@ exports[`<IBMForm /> renders displays an error when any field is empty 6`] = `
         Please enter a valid platform ID.
       </span>
     </div>
-    <select
+    <input
       className="form-control"
       defaultValue=""
       disabled={true}
-      id="ibm_platformID">
-      <option
-        hidden={true}
-        value="">
-        Select Platform ID
-      </option>
-      <option
-        value="3">
-        3
-      </option>
-    </select>
+      id="ibm_platformID"
+      type="text" />
   </div>
   <div
     className="form-group has-feedback has-error">
@@ -1185,21 +1032,12 @@ exports[`<IBMForm /> renders displays an error when any field is empty 6`] = `
          *
       </span>
     </label>
-    <select
+    <input
       className="form-control"
       defaultValue={undefined}
       disabled={true}
-      id="ibm_appVersion">
-      <option
-        hidden={true}
-        value="">
-        Select App Version
-      </option>
-      <option
-        value="1.0">
-        1.0
-      </option>
-    </select>
+      id="ibm_appVersion"
+      type="text" />
   </div>
   <div
     className="form-group has-feedback">
@@ -1243,21 +1081,12 @@ exports[`<IBMForm /> renders displays an error when any field is empty 7`] = `
         Please enter a valid root URL.
       </span>
     </div>
-    <select
+    <input
       className="form-control"
       defaultValue=""
       disabled={true}
-      id="ibm_rootURL">
-      <option
-        hidden={true}
-        value="">
-        Select Root URL
-      </option>
-      <option
-        value="TBD">
-        Service will provide...
-      </option>
-    </select>
+      id="ibm_rootURL"
+      type="text" />
   </div>
   <div
     className="form-group has-feedback has-error">
@@ -1290,7 +1119,7 @@ exports[`<IBMForm /> renders displays an error when any field is empty 7`] = `
     <label
       className="control-label"
       htmlFor="ibm_userName">
-      MaaS360 User Name
+      MaaS360 Username
       <span
         className="required-asterisks">
          *
@@ -1301,7 +1130,7 @@ exports[`<IBMForm /> renders displays an error when any field is empty 7`] = `
       className="msgBlock error error-list"
       role="alert">
       <span>
-        Please enter a valid user name.
+        Please enter a valid username.
       </span>
     </div>
     <input
@@ -1356,21 +1185,12 @@ exports[`<IBMForm /> renders displays an error when any field is empty 7`] = `
         Please enter a valid platform ID.
       </span>
     </div>
-    <select
+    <input
       className="form-control"
       defaultValue=""
       disabled={true}
-      id="ibm_platformID">
-      <option
-        hidden={true}
-        value="">
-        Select Platform ID
-      </option>
-      <option
-        value="3">
-        3
-      </option>
-    </select>
+      id="ibm_platformID"
+      type="text" />
   </div>
   <div
     className="form-group has-feedback has-error">
@@ -1417,21 +1237,12 @@ exports[`<IBMForm /> renders displays an error when any field is empty 7`] = `
         Please enter a valid app version.
       </span>
     </div>
-    <select
+    <input
       className="form-control"
       defaultValue=""
       disabled={true}
-      id="ibm_appVersion">
-      <option
-        hidden={true}
-        value="">
-        Select App Version
-      </option>
-      <option
-        value="1.0">
-        1.0
-      </option>
-    </select>
+      id="ibm_appVersion"
+      type="text" />
   </div>
   <div
     className="form-group has-feedback">
@@ -1475,21 +1286,12 @@ exports[`<IBMForm /> renders displays an error when any field is empty 8`] = `
         Please enter a valid root URL.
       </span>
     </div>
-    <select
+    <input
       className="form-control"
       defaultValue=""
       disabled={true}
-      id="ibm_rootURL">
-      <option
-        hidden={true}
-        value="">
-        Select Root URL
-      </option>
-      <option
-        value="TBD">
-        Service will provide...
-      </option>
-    </select>
+      id="ibm_rootURL"
+      type="text" />
   </div>
   <div
     className="form-group has-feedback has-error">
@@ -1522,7 +1324,7 @@ exports[`<IBMForm /> renders displays an error when any field is empty 8`] = `
     <label
       className="control-label"
       htmlFor="ibm_userName">
-      MaaS360 User Name
+      MaaS360 Username
       <span
         className="required-asterisks">
          *
@@ -1533,7 +1335,7 @@ exports[`<IBMForm /> renders displays an error when any field is empty 8`] = `
       className="msgBlock error error-list"
       role="alert">
       <span>
-        Please enter a valid user name.
+        Please enter a valid username.
       </span>
     </div>
     <input
@@ -1588,21 +1390,12 @@ exports[`<IBMForm /> renders displays an error when any field is empty 8`] = `
         Please enter a valid platform ID.
       </span>
     </div>
-    <select
+    <input
       className="form-control"
       defaultValue=""
       disabled={true}
-      id="ibm_platformID">
-      <option
-        hidden={true}
-        value="">
-        Select Platform ID
-      </option>
-      <option
-        value="3">
-        3
-      </option>
-    </select>
+      id="ibm_platformID"
+      type="text" />
   </div>
   <div
     className="form-group has-feedback has-error">
@@ -1649,21 +1442,12 @@ exports[`<IBMForm /> renders displays an error when any field is empty 8`] = `
         Please enter a valid app version.
       </span>
     </div>
-    <select
+    <input
       className="form-control"
       defaultValue=""
       disabled={true}
-      id="ibm_appVersion">
-      <option
-        hidden={true}
-        value="">
-        Select App Version
-      </option>
-      <option
-        value="1.0">
-        1.0
-      </option>
-    </select>
+      id="ibm_appVersion"
+      type="text" />
   </div>
   <div
     className="form-group has-feedback has-error">
@@ -1707,21 +1491,12 @@ exports[`<IBMForm /> renders matches previous snapshot 1`] = `
          *
       </span>
     </label>
-    <select
+    <input
       className="form-control"
       defaultValue={undefined}
       disabled={false}
-      id="ibm_rootURL">
-      <option
-        hidden={true}
-        value="">
-        Select Root URL
-      </option>
-      <option
-        value="TBD">
-        Service will provide...
-      </option>
-    </select>
+      id="ibm_rootURL"
+      type="text" />
   </div>
   <div
     className="form-group has-feedback">
@@ -1746,7 +1521,7 @@ exports[`<IBMForm /> renders matches previous snapshot 1`] = `
     <label
       className="control-label"
       htmlFor="ibm_userName">
-      MaaS360 User Name
+      MaaS360 Username
       <span
         className="required-asterisks">
          *
@@ -1788,21 +1563,12 @@ exports[`<IBMForm /> renders matches previous snapshot 1`] = `
          *
       </span>
     </label>
-    <select
+    <input
       className="form-control"
       defaultValue={undefined}
       disabled={false}
-      id="ibm_platformID">
-      <option
-        hidden={true}
-        value="">
-        Select Platform ID
-      </option>
-      <option
-        value="3">
-        3
-      </option>
-    </select>
+      id="ibm_platformID"
+      type="text" />
   </div>
   <div
     className="form-group has-feedback">
@@ -1833,21 +1599,12 @@ exports[`<IBMForm /> renders matches previous snapshot 1`] = `
          *
       </span>
     </label>
-    <select
+    <input
       className="form-control"
       defaultValue={undefined}
       disabled={false}
-      id="ibm_appVersion">
-      <option
-        hidden={true}
-        value="">
-        Select App Version
-      </option>
-      <option
-        value="1.0">
-        1.0
-      </option>
-    </select>
+      id="ibm_appVersion"
+      type="text" />
   </div>
   <div
     className="form-group has-feedback">
@@ -1883,21 +1640,12 @@ exports[`<IBMForm /> renders matches previous snapshot 2`] = `
          *
       </span>
     </label>
-    <select
+    <input
       className="form-control"
       defaultValue={undefined}
       disabled={true}
-      id="ibm_rootURL">
-      <option
-        hidden={true}
-        value="">
-        Select Root URL
-      </option>
-      <option
-        value="TBD">
-        Service will provide...
-      </option>
-    </select>
+      id="ibm_rootURL"
+      type="text" />
   </div>
   <div
     className="form-group has-feedback">
@@ -1922,7 +1670,7 @@ exports[`<IBMForm /> renders matches previous snapshot 2`] = `
     <label
       className="control-label"
       htmlFor="ibm_userName">
-      MaaS360 User Name
+      MaaS360 Username
       <span
         className="required-asterisks">
          *
@@ -1964,21 +1712,12 @@ exports[`<IBMForm /> renders matches previous snapshot 2`] = `
          *
       </span>
     </label>
-    <select
+    <input
       className="form-control"
       defaultValue={undefined}
       disabled={true}
-      id="ibm_platformID">
-      <option
-        hidden={true}
-        value="">
-        Select Platform ID
-      </option>
-      <option
-        value="3">
-        3
-      </option>
-    </select>
+      id="ibm_platformID"
+      type="text" />
   </div>
   <div
     className="form-group has-feedback">
@@ -2009,21 +1748,12 @@ exports[`<IBMForm /> renders matches previous snapshot 2`] = `
          *
       </span>
     </label>
-    <select
+    <input
       className="form-control"
       defaultValue={undefined}
       disabled={true}
-      id="ibm_appVersion">
-      <option
-        hidden={true}
-        value="">
-        Select App Version
-      </option>
-      <option
-        value="1.0">
-        1.0
-      </option>
-    </select>
+      id="ibm_appVersion"
+      type="text" />
   </div>
   <div
     className="form-group has-feedback">

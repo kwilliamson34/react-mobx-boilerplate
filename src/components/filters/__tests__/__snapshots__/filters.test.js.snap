@@ -11,53 +11,56 @@ exports[`<Filters /> matches previous snapshot 1`] = `
       </span>
     </div>
     <div
-      className="col-md-4 col-xs-12">
+      className="col-sm-4 col-xs-12">
       <div
         className="form-group">
         <div>
           <label
+            className="control-label"
             htmlFor="category-filter">
             Category
           </label>
           <select
             className="form-control"
+            defaultValue={undefined}
             id="category-filter"
-            onChange={[Function anonymous]}
-            selected={undefined} />
+            onChange={[Function anonymous]} />
         </div>
       </div>
     </div>
     <div
-      className="col-md-4 col-xs-12">
+      className="col-sm-4 col-xs-12">
       <div
         className="form-group">
         <div>
           <label
+            className="control-label"
             htmlFor="segment-filter">
-            Segment
+            Branch/Discipline
           </label>
           <select
             className="form-control"
+            defaultValue={undefined}
             id="segment-filter"
-            onChange={[Function anonymous]}
-            selected={undefined} />
+            onChange={[Function anonymous]} />
         </div>
       </div>
     </div>
     <div
-      className="col-md-4 col-xs-12">
+      className="col-sm-4 col-xs-12">
       <div
         className="form-group">
         <div>
           <label
+            className="control-label"
             htmlFor="platform-filter">
             Platform
           </label>
           <select
             className="form-control"
+            defaultValue={undefined}
             id="platform-filter"
-            onChange={[Function anonymous]}
-            selected={undefined} />
+            onChange={[Function anonymous]} />
         </div>
       </div>
     </div>
@@ -89,19 +92,20 @@ exports[`<Filters /> matches previous snapshot 2`] = `
       </span>
     </div>
     <div
-      className="col-md-4 col-xs-12">
+      className="col-sm-4 col-xs-12">
       <div
         className="form-group">
         <div>
           <label
+            className="control-label"
             htmlFor="category-filter">
             Category
           </label>
           <select
             className="form-control"
+            defaultValue={undefined}
             id="category-filter"
-            onChange={[Function anonymous]}
-            selected={undefined}>
+            onChange={[Function anonymous]}>
             <option
               value="value1">
               title1
@@ -115,36 +119,38 @@ exports[`<Filters /> matches previous snapshot 2`] = `
       </div>
     </div>
     <div
-      className="col-md-4 col-xs-12">
+      className="col-sm-4 col-xs-12">
       <div
         className="form-group">
         <div>
           <label
+            className="control-label"
             htmlFor="segment-filter">
-            Segment
+            Branch/Discipline
           </label>
           <select
             className="form-control"
+            defaultValue={undefined}
             id="segment-filter"
-            onChange={[Function anonymous]}
-            selected={undefined} />
+            onChange={[Function anonymous]} />
         </div>
       </div>
     </div>
     <div
-      className="col-md-4 col-xs-12">
+      className="col-sm-4 col-xs-12">
       <div
         className="form-group">
         <div>
           <label
+            className="control-label"
             htmlFor="platform-filter">
             Platform
           </label>
           <select
             className="form-control"
+            defaultValue={undefined}
             id="platform-filter"
-            onChange={[Function anonymous]}
-            selected={undefined} />
+            onChange={[Function anonymous]} />
         </div>
       </div>
     </div>
@@ -176,19 +182,20 @@ exports[`<Filters /> matches previous snapshot 3`] = `
       </span>
     </div>
     <div
-      className="col-md-4 col-xs-12">
+      className="col-sm-4 col-xs-12">
       <div
         className="form-group">
         <div>
           <label
+            className="control-label"
             htmlFor="category-filter">
             Category
           </label>
           <select
             className="form-control"
+            defaultValue={undefined}
             id="category-filter"
-            onChange={[Function anonymous]}
-            selected={undefined}>
+            onChange={[Function anonymous]}>
             <option
               value="value1">
               title1
@@ -202,19 +209,20 @@ exports[`<Filters /> matches previous snapshot 3`] = `
       </div>
     </div>
     <div
-      className="col-md-4 col-xs-12">
+      className="col-sm-4 col-xs-12">
       <div
         className="form-group">
         <div>
           <label
+            className="control-label"
             htmlFor="segment-filter">
-            Segment
+            Branch/Discipline
           </label>
           <select
             className="form-control"
+            defaultValue={undefined}
             id="segment-filter"
-            onChange={[Function anonymous]}
-            selected={undefined}>
+            onChange={[Function anonymous]}>
             <option
               value="value1">
               title1
@@ -228,19 +236,20 @@ exports[`<Filters /> matches previous snapshot 3`] = `
       </div>
     </div>
     <div
-      className="col-md-4 col-xs-12">
+      className="col-sm-4 col-xs-12">
       <div
         className="form-group">
         <div>
           <label
+            className="control-label"
             htmlFor="platform-filter">
             Platform
           </label>
           <select
             className="form-control"
+            defaultValue={undefined}
             id="platform-filter"
-            onChange={[Function anonymous]}
-            selected={undefined} />
+            onChange={[Function anonymous]} />
         </div>
       </div>
     </div>
@@ -272,19 +281,20 @@ exports[`<Filters /> matches previous snapshot 4`] = `
       </span>
     </div>
     <div
-      className="col-md-4 col-xs-12">
+      className="col-sm-4 col-xs-12">
       <div
         className="form-group">
         <div>
           <label
+            className="control-label"
             htmlFor="category-filter">
             Category
           </label>
           <select
             className="form-control"
+            defaultValue={undefined}
             id="category-filter"
-            onChange={[Function anonymous]}
-            selected={undefined}>
+            onChange={[Function anonymous]}>
             <option
               value="value1">
               title1
@@ -298,19 +308,20 @@ exports[`<Filters /> matches previous snapshot 4`] = `
       </div>
     </div>
     <div
-      className="col-md-4 col-xs-12">
+      className="col-sm-4 col-xs-12">
       <div
         className="form-group">
         <div>
           <label
+            className="control-label"
             htmlFor="segment-filter">
-            Segment
+            Branch/Discipline
           </label>
           <select
             className="form-control"
+            defaultValue={undefined}
             id="segment-filter"
-            onChange={[Function anonymous]}
-            selected={undefined}>
+            onChange={[Function anonymous]}>
             <option
               value="value1">
               title1
@@ -324,19 +335,20 @@ exports[`<Filters /> matches previous snapshot 4`] = `
       </div>
     </div>
     <div
-      className="col-md-4 col-xs-12">
+      className="col-sm-4 col-xs-12">
       <div
         className="form-group">
         <div>
           <label
+            className="control-label"
             htmlFor="platform-filter">
             Platform
           </label>
           <select
             className="form-control"
+            defaultValue={undefined}
             id="platform-filter"
-            onChange={[Function anonymous]}
-            selected={undefined}>
+            onChange={[Function anonymous]}>
             <option
               value="value1">
               title1

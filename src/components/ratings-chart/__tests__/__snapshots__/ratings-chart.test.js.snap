@@ -15,9 +15,7 @@ exports[`<RatingsChart /> renders matches snapshot for ratings-chart 1`] = `
     <div
       className="col-xs-12 col-sm-4 col-md-4 col-lg-3 col-lg-offset-1 average-ratings-col">
       <div
-        className="total-reviews">
-        <span />
-      </div>
+        className="total-reviews" />
     </div>
     <div
       className="col-xs-12 col-sm-8 col-md-8 col-lg-7 overall-ratings-col">
@@ -47,9 +45,7 @@ exports[`<RatingsChart /> renders matches snapshot for ratings-chart when only o
     <div
       className="col-xs-12 col-sm-4 col-md-4 col-lg-3 col-lg-offset-1 average-ratings-col">
       <div
-        className="total-reviews">
-        <span />
-      </div>
+        className="total-reviews" />
     </div>
     <div
       className="col-xs-12 col-sm-8 col-md-8 col-lg-7 overall-ratings-col">
@@ -79,9 +75,7 @@ exports[`<RatingsChart /> renders matches snapshot for ratings-chart when zeroes
     <div
       className="col-xs-12 col-sm-4 col-md-4 col-lg-3 col-lg-offset-1 average-ratings-col">
       <div
-        className="total-reviews">
-        <span />
-      </div>
+        className="total-reviews" />
     </div>
     <div
       className="col-xs-12 col-sm-8 col-md-8 col-lg-7 overall-ratings-col">
