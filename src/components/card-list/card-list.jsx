@@ -67,7 +67,10 @@ export class CardList extends React.Component {
         {this.props.isLoading
           ? <div className="row">
               <div className="loading-container">
-                <h2><i className="icon-reload"></i>Loading apps&hellip;</h2>
+                <p className="as-h2" aria-live="polite">
+                  <i className="as-h2 icon-reload" aria-hidden="true"></i>
+                  Loading apps&hellip;
+                </p>
                 <div className="ghost-container">
                   <div className="app-ghost"><div></div></div>
                   <div className="app-ghost hidden-xs"><div></div></div>
@@ -90,8 +93,8 @@ export class CardList extends React.Component {
         }
         {this.showNoResultsBlock &&
           <div>
-            <h2>No Results</h2>
-            <p>There are no results to display. Please retry your search.</p>
+            <p className="as-h2">No Results</p>
+            <p aria-live="polite">There are no results to display. Please retry your search.</p>
             {this.props.handleViewAllAppsClick &&
               <button type="button" className="btn fn-primary" onClick={this.props.handleViewAllAppsClick}>View All Apps</button>
             }
