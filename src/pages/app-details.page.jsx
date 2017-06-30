@@ -27,6 +27,7 @@ export default class AppDetailsPage extends React.Component {
   }
 
   componentWillMount() {
+    console.log(this.appStore.currentAppObject);
     if(this.userStore.user.pse === ''){
       utilsService.handlePendingAuthorizationsMapping();
     }else{
@@ -83,7 +84,7 @@ export default class AppDetailsPage extends React.Component {
             <div className="container">
               <div className="row">
                 <div className="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
-                  <h2>Description</h2>
+                  <h2 id="app-details-description">Description</h2>
                   <Truncate className="truncate-container" returnToId="app-details-description" charLimit={550}>
                     {this.appStore.currentAppObject.long_description}
                   </Truncate>

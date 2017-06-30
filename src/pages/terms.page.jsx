@@ -3,7 +3,7 @@ import React from 'react';
 export default class TermsOfServicePage extends React.Component {
   render() {
     return (
-      <article id="help-center-page">
+      <article id="terms-of-service-page">
         <section className="content-wrapper">
         <div className="container">
           <div className="row">
