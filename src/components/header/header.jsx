@@ -314,7 +314,7 @@ export default class PSEHeader extends React.Component {
 											Expand Administration Navigation
 										</span>
 									</button>
-									<a id="pse-profile" href="/manage-profile">
+									<a id="pse-profile" href="/manage-profile" className="deaden">
 										<i className="icon-help" aria-hidden="true" /> Help
 									</a>
 									<ul
