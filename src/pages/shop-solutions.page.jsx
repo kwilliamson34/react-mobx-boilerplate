@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 
 const htmlRegex = /<\/?\w+((\s+\w+(\s*=\s*(?:".*?"|'.*?'|[\^'">\s]+))?)+\s*|\s*)\/?>/g;
-const mockLanding = require('../fixtures/mock-solutions-landing-cards.json');
 
 @inject('store')
 @observer
@@ -22,16 +21,12 @@ export default class ShopSolutionsPage extends React.Component {
   }
 
   componentWillMount() {
-    //TODO: Temporary workaround until APIs are sorted out
-    this.externalLinkStore.solutionCategories = mockLanding.solution_category;
-
     if (!this.externalLinkStore.solutionCategories.length) {
-      this.externalLinkStore.fetchSolutionCategories();
+      this.externalLinkStore.getSolutionCategories();
     }
   }
 
   renderCards = (cardsArray) => {
-
     //TODO: temporary cut to remove the final "Next Generation 9-11" category from the list. The status of this item is an open question; for now it's not needed.
     let redactedArray = cardsArray.slice(0, 4);
 
@@ -86,8 +81,9 @@ export default class ShopSolutionsPage extends React.Component {
             </section>
             <section className="all-cards-wrapper">
               <nav>
-                {this.externalLinkStore.solutionCategories.length > 0
-                  && this.renderCards(this.externalLinkStore.solutionCategories)}
+                {this.externalLinkStore.solutionCategories.length > 0 &&
+                  this.renderCards(this.externalLinkStore.solutionCategories)
+                }
               </nav>
             </section>
           </div>

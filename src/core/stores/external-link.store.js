@@ -52,21 +52,19 @@ class ExternalLinkStore {
   //TODO: restore when API issues are sorted. Currently setting from copied data put in mock files;
   @action getSolutionDetails() {
     const success = (res) => {
-      console.log('RESSSSSS     ', res);
-      // this.allSolutionDetails = res;
+      this.allSolutionDetails = res;
     }
 
     const fail = (res) => {
-      console.log('RUROH', res);
-      // utilsService.handleError(res);
+      utilsService.handleError(res);
     }
 
     return apiService.getMarketingPortalSolutionDetails().then(success, fail);
   }
 
-  @action fetchSolutionCategories() {
+  @action getSolutionCategories() {
     const success = (res) => {
-      this.solutionCategories = res;
+      this.solutionCategories = res.solution_category;
     }
 
     const fail = (res) => {

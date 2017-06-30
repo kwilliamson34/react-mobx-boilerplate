@@ -5,8 +5,6 @@ import {observer, inject} from 'mobx-react';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 import PurchasingInfo from '../components/purchasing-info/purchasing-info';
 
-const mockDetails = require('../fixtures/mock-solution-details.json');
-
 @inject('store')
 @observer
 export default class SolutionsDetailsTemplate extends React.Component {
@@ -22,9 +20,6 @@ export default class SolutionsDetailsTemplate extends React.Component {
   }
 
   componentWillMount() {
-    //TODO: temp
-    this.externalLinkStore.allSolutionDetails = mockDetails;
-
     // checking if the user was on this page previously, eliminating need for new request
     if (this.props.match.params.solutionDetail != this.externalLinkStore.currentSolutionDetail.path){
       this.externalLinkStore.resetSolutionDetail();
@@ -64,7 +59,6 @@ export default class SolutionsDetailsTemplate extends React.Component {
         <section className="details-wrapper col-lg-10">
           <div className="row">
             <div className="col-xs-12">
-              <h1 className="as-h2">{this.externalLinkStore.currentSolutionDetail.title}</h1>
               <div dangerouslySetInnerHTML={{__html: this.externalLinkStore.currentSolutionDetail.body}}></div>
             </div>
           </div>

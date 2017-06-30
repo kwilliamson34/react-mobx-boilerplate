@@ -80,6 +80,13 @@ class ApiService {
         });
     }
 
+    getMarketingPortalSolutionCategories() {
+      return axios.get(`${base}/marketing/api/category/solutions?_format=json`)
+        .then((res) => {
+          return res.data;
+        });
+    }
+
     addAppToGroup(appPsk, groupIdentifier) {
       console.log('Adding app with appPsk=' + appPsk + ' to groupIdentifier="' + groupIdentifier + '"...');
       return axios({

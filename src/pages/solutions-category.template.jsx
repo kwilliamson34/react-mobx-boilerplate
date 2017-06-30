@@ -4,7 +4,6 @@ import { observer, inject } from 'mobx-react';
 import { Link } from 'react-router-dom';
 
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
-const mockDetails = require('../fixtures/mock-solution-details.json');
 
 @inject('store')
 @observer
@@ -21,8 +20,6 @@ export default class SolutionsCategoryTemplate extends React.Component {
   }
 
   componentWillMount() {
-    this.externalLinkStore.allSolutionDetails = mockDetails;
-
     //User has navigated to a different category page so will make request for new category
     if (this.externalLinkStore.currentCategory != this.props.match.params.solutionCategory){
       this.externalLinkStore.resetSolutionCategoryData();
