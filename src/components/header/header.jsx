@@ -25,8 +25,9 @@ export default class PSEHeader extends React.Component {
 		$('#btn-admin').on('mouseenter focusin', () => {
 			this.headerStore.adminSubMenuIsOpen = true;
 		}).on('mouseleave', () => {
-				this.headerStore.adminSubMenuIsOpen = false;
+			this.headerStore.adminSubMenuIsOpen = false;
 		});
+
 		$('#linkBtn-networkStatus, #logo-home-link').focus(() => {
 			this.headerStore.adminSubMenuIsOpen = false;
 		});
