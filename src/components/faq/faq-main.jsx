@@ -24,6 +24,7 @@ export class FaqMain extends React.Component {
 
     componentWillUnmount() {
 		this.props.store.toggleFaqPageHeaderButton(false);
+        this.props.store.updateFilter('ALL');
     }
 
     updateCategoryBySelect(event) {
