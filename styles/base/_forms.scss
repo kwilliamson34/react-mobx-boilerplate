@@ -1,3 +1,10 @@
+input,
+select,
+input.form-control,
+select.form-control {
+  color: $input-font-color;
+}
+
 .checkbox {
   label {
     font-weight: $fn-medium-weight;
@@ -72,6 +79,11 @@ select {
   color: $fn-alert-red !important;
 }
 
+select,
+select.form-control {
+  font-weight: $fn-medium-weight;
+}
+
 
 /* Remove native caret from select menu in IE */
 select::-ms-expand {
@@ -89,7 +101,7 @@ select::-ms-value {
   select,
   select:-moz-focusring,
   select::-moz-focus-inner {
-    color: transparent;
+    color: transparent !important;
     text-shadow: 0 0 0 #000 !important;
   }
 }

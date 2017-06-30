@@ -5,24 +5,27 @@ exports[`<FaqEntry /> render testing matches snapshot 1`] = `
     Sample Question
   </h3>
   <div
-    className="faq-entry-content"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "Sampl..."
-      }
-    } />
-  <div
-    className="faq-entry-content-button">
+    className="faq-entry-content">
     <div
-      aria-hidden="true"
-      className="show-more-link open">
-      <a
-        className="toggle-button"
-        href="#"
-        onClick={[Function bound bound toggleText]}
-        role="button">
-        Show more
-      </a>
+      className="displayed-content"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Sampl..."
+        }
+      } />
+    <div
+      className="faq-entry-content-button">
+      <div
+        aria-hidden="true"
+        className="show-more-link open">
+        <a
+          className="toggle-button"
+          href="#"
+          onClick={[Function bound bound toggleText]}
+          role="button">
+          Show more
+        </a>
+      </div>
     </div>
   </div>
 </article>

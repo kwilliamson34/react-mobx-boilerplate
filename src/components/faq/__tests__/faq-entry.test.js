@@ -52,7 +52,7 @@ describe('<FaqEntry />', () => {
         test('Does ellipsis add work?', () => {
             var componentClick = TestUtils.renderIntoDocument(<FaqEntry {...props} />)
             var showMoreButton = TestUtils.findRenderedDOMComponentWithClass(componentClick, 'toggle-button');
-            var displayedText = TestUtils.findRenderedDOMComponentWithClass(componentClick, 'faq-entry-content').innerHTML;
+            var displayedText = TestUtils.findRenderedDOMComponentWithClass(componentClick, 'displayed-content').innerHTML;
             var ellipsis = displayedText.substr(displayedText.length-3, displayedText.length-1)==='...';
             expect(ellipsis).toBe(true);
 

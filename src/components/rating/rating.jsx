@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
+import {utilsService} from '../../core/services/utils.service';
 
 @observer
 export class Rating extends React.Component {
 
   static propTypes = {
     rating: PropTypes.number,
-    reviewCount: PropTypes.number,
+    reviewCount: PropTypes.number.isRequired,
     showRatingNumber: PropTypes.bool,
     showReviewCount: PropTypes.bool,
     truncateStars: PropTypes.bool
@@ -46,28 +47,30 @@ export class Rating extends React.Component {
   }
 
   render() {
-    let rating = this.props.rating ? this.props.rating : 0;
-    let reviewCount = this.props.reviewCount ? this.props.reviewCount : 0;
-    let stars = this.convertRatingToStars(rating)
     return (
       <div className="ratings-container">
-        {this.props.showRatingNumber &&
-          <span className="ratings-number">
-            <span className="sr-only">Rating of&nbsp;</span>
-            {rating}&nbsp;
-          </span>
-        }
-        <span className="ratings-stars">
-          {this.props.truncateStars
-            ? <span className="icon-star" aria-hidden></span>
-            : stars}
-        </span>
-        {this.props.showReviewCount && reviewCount > 0 &&
-          <span className="app-reviews-count hidden-xs">
-            <span className="sr-only">Reviewed by</span>
-            &nbsp;({reviewCount})
-            <span className="sr-only">&nbsp;people</span>
-          </span>
+        {this.props.reviewCount > 0
+          ? <div>
+              {this.props.showRatingNumber &&
+                <span className="ratings-number">
+                  <span className="sr-only">Rating of&nbsp;</span>
+                  {utilsService.formatRating(this.props.rating)}&nbsp;
+                </span>
+              }
+              <span className="ratings-stars">
+                {this.props.truncateStars
+                  ? <span className="icon-star" aria-hidden></span>
+                  : this.convertRatingToStars(this.props.rating)}
+              </span>
+              {this.props.showReviewCount &&
+                <span className="app-reviews-count hidden-xs">
+                  <span className="sr-only">Reviewed by</span>
+                  &nbsp;({this.props.reviewCount})
+                  <span className="sr-only">&nbsp;people</span>
+                </span>
+              }
+            </div>
+          : <span>No Reviews</span>
         }
       </div>
     );
