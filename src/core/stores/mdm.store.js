@@ -273,12 +273,39 @@ class MDMStore {
         return apiService.breakMDMConfiguration().then(success, fail);
     }
 
+    @action pushToMDM(psk) {
+        this.clearAlerts();
+        this.appMDMStatus.set(psk,'submitting');
+
+        const success = () => {
+            this.appMDMStatus.set(psk,'pushed');
+            this.app_alerts.push({
+                type: 'success',
+                headline: 'Success! ',
+                message: 'The selected apps have been pushed to MDM.'
+            });
+        }
+        const fail = (err) => {
+            console.warn(err);
+            this.appMDMStatus.set(psk,'failed');
+            this.app_alerts.push({
+                type: 'error',
+                headline: 'Error: ',
+                message: 'Some or all of the selected apps could not be pushed to MDM.'
+            });
+        }
+
+        return apiService.pushToMDM(psk).then(success, fail);
+    }
+
+
     // OBSERVABLES
+
+    @observable pseMDMObject = observable.map({});
+
+    // Configure MDM Form
     @observable mdmProvider = '';
     @observable currentMDMForm = observable.map({});
-    @observable pseMDMObject = observable.map({});
-    @observable form_alerts = [];
-    @observable app_alerts = [];
     @observable formIsValid = false;
     @observable beingSubmitted = false;
     @observable hasBeenSubmitted = false;
@@ -286,6 +313,13 @@ class MDMStore {
     @observable showExitModal = false;
     @observable showbreakMDMConnection = false;
     @observable interceptedRoute = '';
+
+    // MDM Alerts
+    @observable form_alerts = [];
+    @observable app_alerts = [];
+    
+    // Push to MDM
+    @observable appMDMStatus = observable.map({});
 }
 
 export const mdmStore = new MDMStore();

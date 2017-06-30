@@ -18,8 +18,8 @@ export default class DoughnutChart extends React.Component {
 		const graphSize = this.props.size;
 		const strokewidth = 15;
 		const halfsize = (graphSize * 0.5);
-		const fontsize = (graphSize * .55);
-		const textAlign = (graphSize * 0.69);
+		const fontsize = (graphSize * .50);
+		const textAlign = (graphSize * 0.65);
 		const radius = halfsize - (strokewidth * 0.5);
 		const circumference = 2 * Math.PI * radius;
 		const perc = (this.props.rating / 5);

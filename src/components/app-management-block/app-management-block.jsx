@@ -2,16 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
 import Checkbox from '../toggle/checkbox.jsx';
+import {PushToMDM} from '../push-to-mdm/push-to-mdm';
 
 @observer
 export default class AppManagementBlock extends React.Component {
 
   static propTypes = {
+    name: PropTypes.string.isRequired,
     psk: PropTypes.string.isRequired,
     getMatchingApp: PropTypes.func.isRequired,
     changeAppAvailability: PropTypes.func.isRequired,
     changeAppRecommended: PropTypes.func.isRequired,
-    mdmIsConfigured: PropTypes.bool
+    mdmIsConfigured: PropTypes.string,
+    pushToMDM: PropTypes.func.isRequired,
+    appMDMStatus: PropTypes.object
   }
 
   constructor(props) {
@@ -69,13 +73,12 @@ export default class AppManagementBlock extends React.Component {
 						checked={this.matchingApp.isRecommended}
 						disabled={!this.matchingApp.isAvailable}
 						onChange={this.handleRecommendedClick}/>
-          <button id={'Push-' + this.props.psk} aria-disabled={!this.props.mdmIsConfigured} className='fn-primary'>
-            {!this.props.mdmIsConfigured
-              ? <span className="sr-only">PUSH TO MDM button unavailable. Configure MDM to push apps to the system.</span>
-              : <span className="sr-only">PUSH TO MDM</span>
-            }
-            <span aria-hidden="true">Push to MDM</span>
-          </button>
+          <PushToMDM
+              name={this.props.name}
+              psk={this.props.psk}
+              mdmIsConfigured={this.props.mdmIsConfigured}
+              pushToMDM={this.props.pushToMDM}
+              appMDMStatus={this.props.appMDMStatus}/>
         </div>}
       </div>
     );

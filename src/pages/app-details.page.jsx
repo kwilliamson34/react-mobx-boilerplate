@@ -23,13 +23,15 @@ export default class AppDetailsPage extends React.Component {
   constructor(props) {
     super(props);
     this.appStore = this.props.store.appCatalogStore;
+    this.mdmStore = this.props.store.mdmStore;
     this.userStore = this.props.store.userStore;
   }
 
   componentWillMount() {
     if (this.userStore.user.pse === '') {
       utilsService.handlePendingAuthorizationsMapping();
-    } else {
+    }else{
+      this.mdmStore.getMDMConfiguration();
       if (this.appStore.allApps.length) {
         this.updateCurrentApp();
       } else {
@@ -78,7 +80,7 @@ export default class AppDetailsPage extends React.Component {
         <BreadcrumbNav links={crumbs}/>
         {(this.appStore.currentAppObject && this.appStore.currentAppObject.detailsFetched)
           ? <div>
-              <AppDetailBanner data={this.appStore.currentAppObject} appCatalogStore={this.appStore}/>
+              <AppDetailBanner data={this.appStore.currentAppObject} appCatalogStore={this.appStore}  mdmIsConfigured={this.mdmStore.pseMDMObject.toJS().mdm_type} pushToMDM={this.mdmStore.pushToMDM.bind(this.mdmStore)} appMDMStatus={this.mdmStore.appMDMStatus.toJS()}/>
               {(this.appStore.currentAppObject.tabletScreenshots.length > 0 || this.appStore.currentAppObject.mobileScreenshots.length > 0) &&
                 <section className='app-gallery'>
                   <ScreenshotGallery detailObj={this.appStore.currentAppObject}/>

@@ -87,4 +87,10 @@
     position: absolute;
     right: 0;
   }
+  &.failed-to-push {
+    border: 2px solid $fn-alert-red;
+  }
+  &.already-pushed {
+    border: 2px solid $fn-ltblue;
+  }
 }
