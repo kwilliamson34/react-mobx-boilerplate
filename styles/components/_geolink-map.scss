@@ -30,6 +30,14 @@ $search-border-radius: 4px;
   padding-top: 30px;
   padding-bottom: 100px;
 
+  form {
+    margin-top: 0;
+  }
+
+  .search-input.input-group {
+    padding-top: 0;
+  }
+
   .search-input button,
   .search-input input {
     height: 48px;
