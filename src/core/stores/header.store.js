@@ -54,6 +54,15 @@ class HeaderStore {
 		}
 	}
 
+	@action openAdminSubMenu() {
+		this.closeSubMenus();
+		this.adminSubMenuIsOpen = true;
+	}
+
+	@action closeAdminSubMenu() {
+		this.adminSubMenuIsOpen = false;
+	}
+
 	@action toggleHelpSubMenu(){
 		if(this.helpSubMenuIsOpen){
 			this.closeSubMenus();

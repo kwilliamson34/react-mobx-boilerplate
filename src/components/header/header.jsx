@@ -4,6 +4,7 @@ import NewTabLink from '../link/new-tab-link';
 import { observer, inject, PropTypes } from 'mobx-react';
 import 'bootstrap';
 import $ from 'jquery';
+import _ from 'lodash';
 
 @inject('store')
 @withRouter
@@ -21,17 +22,35 @@ export default class PSEHeader extends React.Component {
 		this.linkStore = this.props.store.externalLinkStore;
 	}
 
+	componentDidUpdate(prevProps) {
+    if (this.props.location !== prevProps.location) {
+      this.handleRouteChange();
+    }
+  }
+
+	handleRouteChange() {
+		this.headerStore.closeMainMenu();
+	}
+
 	componentDidMount() {
-		$('#btn-admin').on('mouseenter focusin', () => {
+		$('#btn-admin').focusin( () => {
 			this.headerStore.adminSubMenuIsOpen = true;
-		}).on('mouseleave', () => {
-			this.headerStore.adminSubMenuIsOpen = false;
 		});
 
 		$('#linkBtn-networkStatus, #logo-home-link').focus(() => {
 			this.headerStore.adminSubMenuIsOpen = false;
 		});
+
+		window.addEventListener('resize', this.updateWindowDimensions);
 	}
+
+	componentWillUnmount() {
+		window.removeEventListener('resize', this.updateWindowDimensions);
+	}
+
+	updateWindowDimensions = _.debounce(() => {
+		this.closeMainMenu();
+		}, 200, { leading: true, trailing: false });
 
 	toggleMainMenu = () => {
 		this.headerStore.toggleMainMenu();

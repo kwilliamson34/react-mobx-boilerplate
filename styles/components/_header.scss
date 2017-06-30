@@ -3,7 +3,7 @@ $fn-mobile-item-height: 60px;
 .fnnav {
   @extend .clearfix;
   border-top: 5px solid $fn-yellow;
-  
+
   &__mainbar {
     background: $fn-white;
     color: $fn-dkgrey;
@@ -476,6 +476,7 @@ $fn-mobile-item-height: 60px;
     display: none;
   }
 
+  #btn-admin:hover .header-submenu,
   #btn-admin.expanded .header-submenu {
     display: flex;
   }
