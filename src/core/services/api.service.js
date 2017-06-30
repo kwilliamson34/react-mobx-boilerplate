@@ -137,10 +137,7 @@ class ApiService {
       return axios({
         method: 'post',
         url: `${base}/pse/mdm/push?appPsk=${app}&pseId=${userStore.user.pse}`,
-        data: {
-          appPsk: app,
-          pseId: userStore.user.pse
-        }
+        data: {}
       });
     }
 
