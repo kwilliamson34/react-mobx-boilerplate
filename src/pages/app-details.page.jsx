@@ -75,20 +75,6 @@ export default class AppDetailsPage extends React.Component {
     ];
     return (
       <article id="app-details-page">
-<<<<<<< HEAD
-        <BreadcrumbNav links={crumbs}/> {this.appStore.currentAppObject && this.appStore.currentAppObject.detailsFetched && <div>
-          <AppDetailBanner data={this.appStore.currentAppObject} appCatalogStore={this.appStore}/> {(this.appStore.currentAppObject.tabletScreenshots.length > 0 || this.appStore.currentAppObject.mobileScreenshots.length > 0) && <section className='app-gallery'>
-            <ScreenshotGallery detailObj={this.appStore.currentAppObject}/>
-          </section>}
-          <section className="app-description">
-            <div className="container">
-              <div className="row">
-                <div className="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
-                  <h2 id="app-details-description">Description</h2>
-                  <Truncate className="truncate-container" returnToId="app-details-description" charLimit={550}>
-                    {this.appStore.currentAppObject.long_description}
-                  </Truncate>
-=======
         <BreadcrumbNav links={crumbs}/>
         {(this.appStore.currentAppObject && this.appStore.currentAppObject.detailsFetched)
           ? <div>
@@ -108,7 +94,6 @@ export default class AppDetailsPage extends React.Component {
                       </Truncate>
                     </div>
                   </div>
->>>>>>> 3f3d5d761763bb92660e483e1c74468edaab7296
                 </div>
               </section>
               <section className="app-ratings">
