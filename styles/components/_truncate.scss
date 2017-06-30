@@ -1,7 +1,7 @@
 .truncate-container {
   display: block;
   position: relative;
-  overflow-wrap: break-word;
+  word-wrap: break-word;
   margin-top: 10px;
 
   .truncate-button {
