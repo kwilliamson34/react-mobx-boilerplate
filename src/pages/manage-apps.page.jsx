@@ -109,7 +109,7 @@ export default class ManageAppsPage extends React.Component {
 				<div className="container">
 					<div className="row">
 						<div className="col-xs-12 col-lg-offset-1 col-lg-10">
-							<h2 className="as-h3 results-count">{this.cardListStore.resultsCountLabel}</h2>
+							<p className="as-h3 results-count" aria-live="polite">{this.cardListStore.resultsCountLabel}</p>
 						</div>
 					</div>
 				</div>
