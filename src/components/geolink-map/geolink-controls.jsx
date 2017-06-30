@@ -132,11 +132,11 @@ export default class GeolinkControls extends React.Component {
 								<div className="emergency-numbers">
 									<div className="emergency">
 										Emergency:<br />
-										<a href="tel:1-800-XXX-XXXX">1-800-GET-HELP</a>
+									<a className="deaden" href="tel:1-800-XXX-XXXX">1-800-***-****</a>
 									</div>
 									<div className="non-emergency">
 										Non-emergency:<br />
-										<a href="tel:1-800-XXX-XXXX">1-800-XXX-XXXX</a>
+									<a className="deaden" href="tel:1-800-XXX-XXXX">1-800-***-****</a>
 									</div>
 								</div>
 							</div>
