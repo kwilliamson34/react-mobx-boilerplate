@@ -16,6 +16,7 @@ export class SummaryCard extends React.Component {
       publisher: PropTypes.string, //author
       imageUrl: PropTypes.string,
       rating: PropTypes.number,
+      reviews_count: PropTypes.number,
       badge: PropTypes.bool,
       app_psk: PropTypes.string,
       operatingSystem: PropTypes.oneOf(['', 'NONE', 'IOS', 'ANDROID'])
@@ -62,7 +63,7 @@ export class SummaryCard extends React.Component {
             </section>
             <div className="card-lower-meta">
               <div className="card-rating">
-                <Rating rating={this.props.display.rating} showRatingNumber={true}></Rating>
+                <Rating rating={this.props.display.rating} reviewCount={this.props.display.reviews_count} showRatingNumber={true}></Rating>
               </div>
               {utilsService.properCaseOS(this.props.display.operatingSystem) && <div className="card-platform">
                 <span className="sr-only">Hosted at the</span>
