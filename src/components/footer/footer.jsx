@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {observer,inject} from 'mobx-react';
 
+import NewTabLink from '../link/new-tab-link';
+
 @inject('store')
 @observer
 export default class Footer extends React.Component {
@@ -146,10 +148,10 @@ export default class Footer extends React.Component {
 					<div className="col-xs-12">
 						<nav>
 							<ul className="sub-links">
-								<li role="presentation"><Link to="/privacy">Privacy Policy</Link></li>
+								<li role="presentation"><NewTabLink to="https://www.firstnet.gov/privacy-policy">Privacy Policy</Link></li>
 								<li role="presentation"><Link to="/terms">Terms &amp; Conditions</Link></li>
 								<br className="visible-xs-inline-block" />
-								<li role="presentation"><Link to="/accessibility">Accessibility</Link></li>
+								<li role="presentation"><NewTabLink to="https://www.firstnet.gov/accessibility">Accessibility</Link></li>
 								<li role="presentation"><a href="https://www.firstnet.gov/" target="_blank" rel="noopener noreferrer">FirstNet.gov</a></li>
 							</ul>
 						</nav>
