@@ -43,7 +43,7 @@ export class SummaryCard extends React.Component {
   render() {
     return (
       <div className="card-wrapper" ref="div">
-        <Link to={'/app/' + this.props.display.app_psk} className="card-focus has-shadow card-container center-block">
+        <Link to={'/app/' + this.props.display.app_psk} id={'appCard'+this.props.display.app_psk} className="card-focus has-shadow card-container center-block">
           <div className="">
             {this.props.display.badge && (
               <div className="card-badge">

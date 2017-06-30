@@ -131,6 +131,15 @@ class ApiService {
       return axios.delete(`${base}/pse/mdm/${userStore.user.pse}`);
     }
 
+    pushToMDM(app) {
+      console.log('Pushing app to MDM with appPsk=' + app + ' for pse="' + userStore.user.pse + '"...');
+      return axios({
+        method: 'post',
+        url: `${base}/pse/mdm/push?appPsk=${app}&pseId=${userStore.user.pse}`,
+        data: {}
+      });
+    }
+
     submitCustomerFeedbackForm(feedbackObject) {
       return axios({
         method: 'post',

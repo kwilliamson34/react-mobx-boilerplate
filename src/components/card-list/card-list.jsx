@@ -22,7 +22,9 @@ export class CardList extends React.Component {
     changeAppAvailability: PropTypes.func.isRequired,
     changeAppRecommended: PropTypes.func.isRequired,
     getMatchingApp: PropTypes.func.isRequired,
-    mdmIsConfigured: PropTypes.bool.isRequired
+    mdmIsConfigured: PropTypes.string,
+    pushToMDM:PropTypes.func.isRequired,
+    appMDMStatus:PropTypes.object
   }
 
   static defaultProps = {
@@ -44,11 +46,14 @@ export class CardList extends React.Component {
       <div className="col-xs-12 col-sm-4 col-md-3 col-lg-3 center-block" key={i}>
         <SummaryCard display={card} shouldFocus={i === this.props.idToFocus}/>
         <AppManagementBlock
+          name={card.name}
           psk={card.app_psk}
           getMatchingApp={this.props.getMatchingApp}
           changeAppAvailability={this.props.changeAppAvailability}
           changeAppRecommended={this.props.changeAppRecommended}
-          mdmIsConfigured={this.props.mdmIsConfigured}/>
+          mdmIsConfigured={this.props.mdmIsConfigured}
+          pushToMDM={this.props.pushToMDM}
+          appMDMStatus={this.props.appMDMStatus}/>
       </div>
     )
   }
