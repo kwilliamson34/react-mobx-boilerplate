@@ -89,7 +89,9 @@ export default class PSEHeader extends React.Component {
 												{this.userStore.user.firstName +
 													' ' +
 													this.userStore.user.lastName}
-												<div>Seattle Fire Department Engine 110</div>
+												{this.userStore.user.pseName &&
+													<div>{this.userStore.user.pseName}</div>
+												}
 											</div>
 										</div>
 									</a>
