@@ -59,7 +59,7 @@ export class PushToMDM extends React.Component {
         btnLabel = (<span>Re-Push to MDM</span>);
         break;
       case 'old':
-        srMSG = 'This app has been pushed to the MDM. Click agian to update';
+        srMSG = 'This app has been pushed to the MDM. Click again to update';
         btnLabel = (<span>Update</span>);
         break;
       default:
