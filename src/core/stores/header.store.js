@@ -73,8 +73,8 @@ class HeaderStore {
 	}
 
 	@action externalTabOpen() {
-		this.closeSubMenus();
 		this.toggleMainMenu();
+		this.closeSubMenus();
 	}
 
 	@observable ATTSupportPhone = config.attCustomerSupportPhone || '800-574-7000';

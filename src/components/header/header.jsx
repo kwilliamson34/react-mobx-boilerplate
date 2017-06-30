@@ -29,7 +29,7 @@ export default class PSEHeader extends React.Component {
   }
 
 	handleRouteChange() {
-		this.headerStore.closeMainMenu();
+		this.closeMainMenu();
 	}
 
 	componentDidMount() {
@@ -76,6 +76,7 @@ export default class PSEHeader extends React.Component {
 
 	handleExternalTabOpen = () => {
 		this.headerStore.externalTabOpen();
+		this.toggleContentScrolling();
 	}
 
 	onLogout = event => {

@@ -79,6 +79,11 @@ $fn-mobile-item-height: 60px;
     color: $fn-dkgrey;
     transition: all $fn-animation-duration ease;
 
+    &:focus{
+      @include focus();
+    }
+
+
     &:before {
       display: inline-block;
       content: '\66';
