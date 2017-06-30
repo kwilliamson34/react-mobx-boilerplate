@@ -141,21 +141,23 @@ export default class ManageAppsPage extends React.Component {
 				</div>
 				<div className="container">
 					<div className="row">
-						<CardList
-							filteredAppsCount={this.cardListStore.filteredSearchResults.length}
-							cards={this.paginatedCards}
-							numPagesShown={this.props.store.pages[this.pageId]}
-							itemsPerPage={this.itemsPerPage}
-							isLoading={this.cardListStore.isLoading || this.appCatalogStore.isLoading}
-							idToFocus={this.cardListStore.idToFocus}
-							handleLoadMoreClick={this.handleLoadMoreClick}
-							handleViewAllAppsClick={this.handleViewAllAppsClick}
-							changeAppAvailability={this.appCatalogStore.changeAppAvailability.bind(this.appCatalogStore)}
-							changeAppRecommended={this.appCatalogStore.changeAppRecommended.bind(this.appCatalogStore)}
-							getMatchingApp={this.appCatalogStore.getMatchingApp.bind(this.appCatalogStore)}
-							mdmIsConfigured={this.mdmStore.pseMDMObject.toJS().mdm_type}
-							pushToMDM={this.mdmStore.pushToMDM.bind(this.mdmStore)}
-							appMDMStatus={this.mdmStore.appMDMStatus.toJS()}/>
+						<div className="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-12 col-lg-offset-1 col-lg-10">
+							<CardList
+								filteredAppsCount={this.cardListStore.filteredSearchResults.length}
+								cards={this.paginatedCards}
+								numPagesShown={this.props.store.pages[this.pageId]}
+								itemsPerPage={this.itemsPerPage}
+								isLoading={this.cardListStore.isLoading || this.appCatalogStore.isLoading}
+								idToFocus={this.cardListStore.idToFocus}
+								handleLoadMoreClick={this.handleLoadMoreClick}
+								handleViewAllAppsClick={this.handleViewAllAppsClick}
+								changeAppAvailability={this.appCatalogStore.changeAppAvailability.bind(this.appCatalogStore)}
+								changeAppRecommended={this.appCatalogStore.changeAppRecommended.bind(this.appCatalogStore)}
+								getMatchingApp={this.appCatalogStore.getMatchingApp.bind(this.appCatalogStore)}
+								mdmIsConfigured={this.mdmStore.pseMDMObject.toJS().mdm_type}
+								pushToMDM={this.mdmStore.pushToMDM.bind(this.mdmStore)}
+								appMDMStatus={this.mdmStore.appMDMStatus.toJS()}/>
+						</div>
 					</div>
 				</div>
 			</article>
