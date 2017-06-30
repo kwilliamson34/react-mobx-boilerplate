@@ -22,7 +22,7 @@ export class CardList extends React.Component {
     changeAppAvailability: PropTypes.func.isRequired,
     changeAppRecommended: PropTypes.func.isRequired,
     getMatchingApp: PropTypes.func.isRequired,
-    mdmIsConfigured: PropTypes.bool.isRequired,
+    mdmIsConfigured: PropTypes.string,
     pushToMDM:PropTypes.func.isRequired,
     appMDMStatus:PropTypes.object
   }
@@ -47,7 +47,7 @@ export class CardList extends React.Component {
         <SummaryCard display={card} shouldFocus={i === this.props.idToFocus}/>
         <div className="hidden-xs">
           <AppManagementBlock
-            app={card}
+            name={card.name}
             psk={card.app_psk}
             getMatchingApp={this.props.getMatchingApp}
             changeAppAvailability={this.props.changeAppAvailability}

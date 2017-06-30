@@ -2,17 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
 import Checkbox from '../toggle/checkbox.jsx';
+import {PushToMDM} from '../push-to-mdm/push-to-mdm';
 
 @observer
 export default class AppManagementBlock extends React.Component {
 
   static propTypes = {
-    card: PropTypes.object.isRequired,
+    name: PropTypes.string.isRequired,
     psk: PropTypes.string.isRequired,
     getMatchingApp: PropTypes.func.isRequired,
     changeAppAvailability: PropTypes.func.isRequired,
     changeAppRecommended: PropTypes.func.isRequired,
-    mdmIsConfigured: PropTypes.bool.isRequired,
+    mdmIsConfigured: PropTypes.string,
     pushToMDM: PropTypes.func.isRequired,
     appMDMStatus: PropTypes.object
   }
@@ -21,7 +22,6 @@ export default class AppManagementBlock extends React.Component {
     super(props);
     this.handleAvailableClick = this.handleAvailableClick.bind(this);
     this.handleRecommendedClick = this.handleRecommendedClick.bind(this);
-    this.handlePushToMDM = this.handlePushToMDM.bind(this);
   }
 
   handleAvailableClick(event) {
@@ -55,53 +55,6 @@ export default class AppManagementBlock extends React.Component {
     }
   }
 
-  getPushToMDM = (psk) => {
-    let status = this.props.appMDMStatus[psk];
-    return status;
-  }
-
-  handlePushToMDM(event) {
-    event.preventDefault();
-    if(this.props.mdmIsConfigured){
-      this.props.pushToMDM(this.props.psk);
-    }
-  }
-
-  renderPushToMDM =  () => {
-
-    let status = this.props.mdmIsConfigured ? this.getPushToMDM(this.props.psk) : 'disabled';
-
-    let srMSG = '';
-    let btnLabel = null;
-
-    switch(status) {
-      case 'unpushed':
-        btnLabel = (<span>Push to MDM</span>);
-        break;
-      case 'submitting':
-        btnLabel = (<span><i className="icon-reload" aria-label="Still Submitting Form"></i>&nbsp;&nbsp;Submitting&hellip;</span>);
-        break;
-      case 'failed':
-        srMSG = 'This app failed to pushed to the MDM. Click agian to re-push';
-        btnLabel = (<span>Re-Push to MDM</span>);
-        break;
-      case 'pushed':
-        srMSG = 'This app has been pushed to the MDM. Click agian to update';
-        btnLabel = (<span>Update</span>);
-        break;
-      default:
-        srMSG = 'PUSH TO MDM button unavailable. Configure MDM to push apps to the system.';
-        btnLabel = (<span aria-hidden="true">Push to MDM</span>);
-    }
-
-    return (
-      <button id={'Push-' + this.props.psk} onClick={this.handlePushToMDM} aria-disabled={!this.props.mdmIsConfigured} className='fn-primary'>
-        {!this.props.mdmIsConfigured && <span className="sr-only">{srMSG}</span>}
-        {btnLabel}
-      </button>
-    )
-  }
-
   render() {
     //get the latest matching app object
     this.matchingApp = this.props.getMatchingApp(this.props.psk);
@@ -120,7 +73,12 @@ export default class AppManagementBlock extends React.Component {
 						checked={this.matchingApp.isRecommended}
 						disabled={!this.matchingApp.isAvailable}
 						onChange={this.handleRecommendedClick}/>
-            {this.renderPushToMDM()}
+          <PushToMDM
+              name={this.props.name}
+              psk={this.props.psk}
+              mdmIsConfigured={this.props.mdmIsConfigured}
+              pushToMDM={this.props.pushToMDM}
+              appMDMStatus={this.props.appMDMStatus}/>
         </div>}
       </div>
     );

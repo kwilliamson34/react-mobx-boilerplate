@@ -58,6 +58,30 @@ export default class ManageAppsPage extends React.Component {
 		return this.cardListStore.filteredSearchResults.slice(0, totalCards);
 	}
 
+	updateCardStyles = (apps) => {
+		for(let i=0;i<apps.length;i++){
+			const id = apps[i][0];
+			const status = apps[i][1];
+			const $card = $('#appCard'+id);
+			const $button = $('#pushBtn'+id);
+			switch(status) {
+				case 'failed':
+					$card.addClass('failed-to-push');
+					break;
+				case 'pushed':
+					$button.addClass('fn-secondary').removeClass('fn-primary');
+					break;
+				case 'repushed':
+					$card.addClass('already-pushed');
+					$button.addClass('fn-secondary').removeClass('fn-primary');
+					break;
+				default:
+					$card.removeClass('failed-to-push, already-pushed');
+					$button.addClass('fn-primary').removeClass('fn-secondary');
+			}
+		}
+	}
+
 	render() {
 		const crumbs = [
 			{	pageHref: '/admin',
@@ -75,8 +99,7 @@ export default class ManageAppsPage extends React.Component {
 			}, 100);
 		}
 
-		console.log(this.mdmStore.appMDMStatus.toJS())
-		console.log(this.mdmStore.isConfigured, 'is configured')
+		this.updateCardStyles(this.mdmStore.appMDMStatus.entries());
 
 		return (
 			<article id="manage-apps-page">
@@ -130,7 +153,7 @@ export default class ManageAppsPage extends React.Component {
 							changeAppAvailability={this.appCatalogStore.changeAppAvailability.bind(this.appCatalogStore)}
 							changeAppRecommended={this.appCatalogStore.changeAppRecommended.bind(this.appCatalogStore)}
 							getMatchingApp={this.appCatalogStore.getMatchingApp.bind(this.appCatalogStore)}
-							mdmIsConfigured={this.mdmStore.isConfigured }
+							mdmIsConfigured={this.mdmStore.pseMDMObject.toJS().mdm_type}
 							pushToMDM={this.mdmStore.pushToMDM.bind(this.mdmStore)}
 							appMDMStatus={this.mdmStore.appMDMStatus.toJS()}/>
 					</div>

@@ -52,7 +52,6 @@ class MDMStore {
         this.beingSubmitted = false;
         this.formHasChanged = false;
         this.showExitModal = false;
-        this.isConfigured = false;
         this.showbreakMDMConnection = false;
 
         for (let i = 0; i < keys.length; i++) {
@@ -158,10 +157,8 @@ class MDMStore {
     @action getMDMConfiguration() {
         const success = (resp) => {
             const serviceResponse = resp.data;
-            console.log(serviceResponse)
 
             this.pseMDMObject.merge(serviceResponse);
-            this.isConfigured = true;
 
             switch (serviceResponse.mdm_type) {
                 case 'AIRWATCH':
@@ -277,7 +274,7 @@ class MDMStore {
     }
 
     @action pushToMDM(psk) {
-
+        this.clearAlerts();
         this.appMDMStatus.set(psk,'submitting');
 
         const success = () => {
@@ -298,18 +295,13 @@ class MDMStore {
             });
         }
 
-        setTimeout(() => {
-            console.log('hit')
-            success();
-        }, 1000);
-        // return apiService.pushToMDM(psk).then(success, fail);
+        return apiService.pushToMDM(psk).then(success, fail);
     }
 
 
     // OBSERVABLES
 
     @observable pseMDMObject = observable.map({});
-    @observable isConfigured = false;
 
     // Configure MDM Form
     @observable mdmProvider = '';

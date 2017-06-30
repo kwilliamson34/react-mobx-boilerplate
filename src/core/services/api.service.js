@@ -136,7 +136,7 @@ class ApiService {
       console.log('Pushing app to MDM with appPsk=' + app + ' for pse="' + userStore.user.pse + '"...');
       return axios({
         method: 'post',
-        url: `${base}/pse/mdm/push`,
+        url: `${base}/pse/mdm/push?appPsk=${app}&pseId=${userStore.user.pse}`,
         data: {
           appPsk: app,
           pseId: userStore.user.pse
