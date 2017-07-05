@@ -8,6 +8,7 @@
   font-weight: $fn-normal-weight;
   text-transform: uppercase;
   outline: none;
+  box-sizing: border-box;
 
   &.active,
   &.hover,
@@ -71,51 +72,128 @@ button {
   border: 0;
   color: $fn-white;
   background: $fn-ltblue;
+  border: 2px solid $fn-ltblue;
+  line-height: 44px;
+  font-weight: $fn-medium-weight;
+
+
 
   &.hover,
   &:hover,
   &.active,
   &:active  {
+    font-weight: $fn-bold-weight;
     background: $fn-blue;
     color: $fn-white;
+    border-color: $fn-blue;
     box-shadow: inset 0px 0px 16px 0px rgba(50, 50, 50, 0.5);
   }
 
   &.focus,
   &:focus {
     @include focus();
-    border: 0;
+    border: 2px solid $fn-blue;
     background: $fn-blue;
     color: $fn-white;
   }
+
+  &.disabled,
+  &[disabled],
+  &[aria-disabled='true']{
+    pointer-events: none;
+    color: $fn-mdgrey;
+    border-color: $fn-grey;
+    background: $fn-grey;
+    opacity: 1.0;
+  }
+
+  &.inverse{
+    color: $fn-white;
+    border-color: $fn-white;
+    background: $fn-dkblue;
+
+    &.hover,
+    &:hover,
+    &.active,
+    &:active  {
+      color: $fn-dark;
+      background: $fn-white;
+      border: 0;
+      line-height: 48px;
+      box-shadow: inset 0px 0px 16px 0px rgba(50, 50, 50, 0.5);
+    }
+
+    &.disabled,
+    &[disabled],
+    &[aria-disabled='true']{
+      pointer-events: none;
+      color: $fn-white;
+      background: rgba(155,155,155,0.8);
+      border-color: $fn-grey;
+      opacity: 1.0;
+    }
+  }
+
 }
 
 .fn-secondary {
   @extend .btn;
-  border: 2px solid $fn-dkgrey;
-  color: $fn-dkgrey;
+  display: inline-block;
+  border: 2px solid $fn-ltblue;
+  color: $fn-ltblue;
   background: transparent;
+  line-height: 44px;
 
   &.hover,
-  &:hover {
-    color: white;
-    background: $fn-dkgrey;
-  }
-
+  &:hover,
   &.active,
   &:active {
-    outline: none !important;
-    color: white;
-    background: darken($fn-dkgrey,15%) !important;
-    border-color: darken($fn-dkgrey,15%) !important;
+    background: $fn-blue;
+    color: $fn-white;
+    border-color: $fn-white;
+    box-shadow: inset 0px 0px 16px 0px rgba(50, 50, 50, 0.5);
   }
 
   &.focus,
   &:focus {
     @include focus();
-    color: white;
-    background: $fn-dkgrey;
-    border-radius: 25px;
+    color: $fn-blue;
+    border-color: $fn-blue;
+    background: transparent;
+  }
+
+  &.disabled,
+  &[disabled],
+  &[aria-disabled='true']{
+    pointer-events: none;
+    color: $fn-mdgrey;
+    border-color: $fn-grey;
+    opacity: 1.0;
+  }
+
+  &.inverse{
+    color: $fn-white;
+    border-color: $fn-white;
+
+    &.hover,
+    &:hover,
+    &.active,
+    &:active  {
+      color: $fn-dark;
+      background: $fn-white;
+      border: 0;
+      line-height: 48px;
+      box-shadow: inset 0px 0px 16px 0px rgba(50, 50, 50, 0.5);
+    }
+
+    &.disabled,
+    &[disabled],
+    &[aria-disabled='true']{
+      pointer-events: none;
+      color: $fn-grey;
+      border-color: $fn-grey;
+      opacity: 1.0;
+    }
   }
 }
 
