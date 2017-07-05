@@ -50,6 +50,13 @@ button {
   font-size: $fn-button-desktop;
   font-weight: $fn-medium-weight;
 
+  &.hover,
+  &:hover,
+  &.active,
+  &:active  {
+    font-weight: $fn-bold-weight;
+  }
+
   i {
     font-size: 2.4rem;
     vertical-align: middle;
@@ -74,15 +81,11 @@ button {
   background: $fn-ltblue;
   border: 2px solid $fn-ltblue;
   line-height: 44px;
-  font-weight: $fn-medium-weight;
-
-
 
   &.hover,
   &:hover,
   &.active,
   &:active  {
-    font-weight: $fn-bold-weight;
     background: $fn-blue;
     color: $fn-white;
     border-color: $fn-blue;
@@ -116,7 +119,7 @@ button {
     &:hover,
     &.active,
     &:active  {
-      color: $fn-dark;
+      color: $fn-dkgrey;
       background: $fn-white;
       border: 0;
       line-height: 48px;
@@ -179,7 +182,7 @@ button {
     &:hover,
     &.active,
     &:active  {
-      color: $fn-dark;
+      color: $fn-dkgrey;
       background: $fn-white;
       border: 0;
       line-height: 48px;
