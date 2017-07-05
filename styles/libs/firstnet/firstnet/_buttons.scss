@@ -1,11 +1,10 @@
 //button overrides
-
 .btn {
   padding: 0 1.6rem;
   line-height: 33px;
   height: 36px;
   background: white;
-  font-size: $fn-button-default-size;
+  font-size: $fn-button-desktop;
   font-weight: $fn-normal-weight;
   text-transform: uppercase;
   outline: none;
@@ -25,8 +24,8 @@
   }
 }
 
-/* Use aria-disabled to style a button to appear disabled, so it's also 
-   conveyed to screen readers while letting SC users focus on it. 
+/* Use aria-disabled to style a button to appear disabled, so it's also
+   conveyed to screen readers while letting SC users focus on it.
    The "true" string is required.
 */
 button {
@@ -42,11 +41,12 @@ button {
 .fn-inverse,
 .fn-primary,
 .fn-secondary {
-  min-width: 120px;
-  border-radius: 25px;
-  padding: 0 4rem;
+  min-width: 160px;
+  border-radius: 24px;
+  padding: 0 30px;
   line-height: 48px;
-  height: 50px;
+  height: 48px;
+  font-size: $fn-button-desktop;
   font-weight: $fn-medium-weight;
 
   i {
@@ -58,36 +58,35 @@ button {
   &:after {
     display: none;
   }
+
+  &.focus,
+  &:focus {
+    outline: 0;
+  }
 }
 
 .fn-primary {
   @extend .btn;
-  border: 2px solid $primary-button-color;
-  color: $primary-button-color;
-  background: transparent;
+  display: inline-block;
+  border: 0;
+  color: $fn-white;
+  background: $fn-ltblue;
 
   &.hover,
-  &:hover {
-    background: $primary-button-color;
-    border-color: $primary-button-color;
-    color: white;
-    box-shadow: none;
-  }
-
+  &:hover,
   &.active,
-  &:active {
-    outline: none !important;
-    background: darken($primary-button-color,15%) !important;
-    border-color: darken($primary-button-color,15%) !important;
-    color: white;
+  &:active  {
+    background: $fn-blue;
+    color: $fn-white;
+    box-shadow: inset 0px 0px 16px 0px rgba(50, 50, 50, 0.5);
   }
 
   &.focus,
   &:focus {
     @include focus();
-    background: $primary-button-color;
-    color: white;
-    border-radius: 25px;
+    border: 0;
+    background: $fn-blue;
+    color: $fn-white;
   }
 }
 

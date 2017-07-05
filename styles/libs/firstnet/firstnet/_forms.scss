@@ -10,7 +10,7 @@
 .form-control,
 input[type='text'],
 textarea {
-  font-size: $fn-label-default-size;
+  font-size: $fn-label-desktop;
   font-weight: $fn-normal-weight;
   color: $fn-dkgrey;
   background: $input-bgcolor;
@@ -47,7 +47,7 @@ textarea[disabled] {
 .help-text,
 .help-block {
   color: $fn-mdgrey;
-  font-size: $fn-small-text-default-size;
+  font-size: $fn-small-text-desktop;
   text-transform: none;
   font-style: italic;
 }
@@ -78,7 +78,7 @@ select {
 
   .control-label {
     font-weight: $fn-bold-weight;
-    font-size: $fn-label-default-size;
+    font-size: $fn-label-desktop;
     margin-bottom: 5px;
     text-transform: uppercase;
     padding-left: 10px;
@@ -90,7 +90,7 @@ select {
 }
 
 legend {
-  font-size: $fn-label-default-size;
+  font-size: $fn-label-desktop;
 }
 
 .checkbox,
@@ -98,7 +98,7 @@ legend {
   margin: 0;
 
   label {
-    font-size: $fn-label-default-size;
+    font-size: $fn-label-desktop;
     line-height: 32px;
     min-height: 32px;
     padding-left: 20px;

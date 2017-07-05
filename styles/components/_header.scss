@@ -437,6 +437,7 @@ $fn-mobile-item-height: 60px;
       }
 
       > a {
+        font-size: $fn-landing-page-text-desktop;
         font-weight: $fn-medium-weight;
         border-bottom: none;
         height: $fn-primary-nav-height;
@@ -522,7 +523,7 @@ $fn-mobile-item-height: 60px;
         }
 
         > strong {
-          font-size: $fn-landing-body-default-size;
+          font-size: $fn-landing-page-text-desktop;
           font-weight: $fn-medium-weight;
           margin-bottom: 1rem;
         }

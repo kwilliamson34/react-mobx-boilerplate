@@ -56,7 +56,7 @@ $search-border-radius: 4px;
     text-transform: uppercase;
 
     > div {
-      font-size: $fn-landing-body-default-size;
+      font-size: $fn-landing-page-text-desktop;
       font-weight: $fn-medium-weight;
       line-height: 1.6;
       margin-bottom: 15px;
@@ -73,7 +73,7 @@ $search-border-radius: 4px;
     }
 
     + p {
-      font-size: $fn-label-default-size;
+      font-size: $fn-label-desktop;
       margin-bottom: 0;
     }
   }
@@ -90,7 +90,7 @@ $search-border-radius: 4px;
       float: left;
       width: 25%;
       text-align: center;
-      font-size: $fn-label-default-size;
+      font-size: $fn-label-desktop;
       padding-bottom: 10px;
 
       &:first-child {
@@ -146,7 +146,7 @@ $search-border-radius: 4px;
   .hazards-legend {
     span {
       display: block;
-      font-size: $fn-label-default-size;
+      font-size: $fn-label-desktop;
     }
 
     i {

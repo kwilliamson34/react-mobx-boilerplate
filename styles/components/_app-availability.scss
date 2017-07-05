@@ -8,7 +8,7 @@
 			padding: 0px 15px;
 			height:50px;
 			line-height: 50px;
-			font-size: $fn-label-default-size;
+			font-size: $fn-label-desktop;
 		    font-weight: $fn-medium-weight;
 		    text-transform: uppercase;
 		    letter-spacing: 0;
@@ -31,7 +31,7 @@
 		}
 		.list-group-item-heading{
 			position:relative;
-			font-size: $fn-label-default-size;
+			font-size: $fn-label-desktop;
 			letter-spacing: 0;
 			padding-left: 40px;
 			i {
@@ -53,7 +53,7 @@
 			}
 		}
 		.list-group-item-text{
-			font-size: $fn-body-default-size;
+			font-size: $fn-content-page-text-desktop;
 			margin-left: 40px;
 		}
 	}

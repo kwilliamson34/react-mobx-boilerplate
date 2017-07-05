@@ -3,18 +3,18 @@ body {
 }
 
 p {
-  font-size: $fn-body-default-size;
+  font-size: $fn-content-page-text-desktop;
   margin-bottom: 1.5rem;
   line-height: 1.6;
 
   &.intro {
-    font-size: $fn-intro-default-size;
+    font-size: $fn-intro-desktop;
   }
 }
 
 caption,
 p.disclaimer {
-  font-size: $fn-small-text-default-size;
+  font-size: $fn-small-text-desktop;
 }
 
 caption {
@@ -88,7 +88,7 @@ figure {
 }
 
 h5, .as-h5 {
-  font-size: $fn-h5-default-size;
+  font-size: $fn-h5-desktop;
   font-weight: $fn-medium-weight;
   text-transform: uppercase;
   padding-bottom: 2.5rem;

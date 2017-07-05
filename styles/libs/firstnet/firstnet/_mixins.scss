@@ -3,9 +3,18 @@ $focus-shadow-depth: 1px;
 @mixin focus($borderColor: $focus-lightbg) {
   &:not(.no-focus-styles) {
     outline: none;
-    border: 2px solid $borderColor;
-    box-shadow: 0 0 $focus-shadow-depth $borderColor;
-    box-sizing: border-box;
+    position: relative;
+    z-index:100;
+    box-shadow:
+      1px 1px 0 0 $fn-white,
+      1px -1px 0 0 $fn-white,
+      -1px 1px 0 0 $fn-white,
+      -1px -1px 0 0 $fn-white,
+      0 0 10px 0 rgba(0, 0, 0, 0.70);
+
+    &.inverse{
+      box-shadow: 0 2px 2px 0 rgba(255, 255, 255, 0.80), inset 0 0 0 -4px $fn-white;
+    }
 
     &.dropdown-toggle {
       border-color: $borderColor;
