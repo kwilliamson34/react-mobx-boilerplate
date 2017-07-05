@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {observer,inject} from 'mobx-react';
+import $ from 'jquery';
 
 import NewTabLink from '../link/new-tab-link';
 
