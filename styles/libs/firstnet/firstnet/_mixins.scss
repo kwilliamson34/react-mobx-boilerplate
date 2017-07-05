@@ -20,6 +20,14 @@ $focus-shadow-depth: 1px;
       }
     }
 
+    &.reset-filters-button{
+      box-shadow: 1px 1px 0 0 $fn-ltblue,
+      1px -1px 0 0 $fn-ltblue,
+      -1px 1px 0 0 $fn-ltblue,
+      -1px -1px 0 0 $fn-ltblue;
+      border-radius: 8px;
+    }
+
     &.dropdown-toggle {
       border-color: $borderColor;
       box-shadow: 0 0 $focus-shadow-depth $borderColor;

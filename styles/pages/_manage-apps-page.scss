@@ -35,19 +35,28 @@
     }
 
     .reset-filters-button {
+      display: inline-block;
+      height: 48px;
+      line-height: 48px;
+      background: none;
+      font-size: $fn-button-desktop;
+      font-weight: $fn-medium-weight;
+      color: $fn-ltblue;
+      text-transform: uppercase;
       margin-top: 1rem;
       border: none;
-      padding: 0;
+      padding: 0 15px;
 
       &:focus {
-        outline: 2px solid $focus-lightbg;
-        box-shadow: none;
+        @include focus()
+        outline: 0;
       }
 
-      &:focus,
-      &:hover {
-        background: transparent !important;
-        color: $fn-ltblue;
+      &:hover,
+      &:active {
+        background: transparent;
+        color: $fn-dkgrey;
+        font-weight: $fn-bold-weight;
         text-decoration: underline;
       }
     }
