@@ -30,7 +30,7 @@ class UserStore {
     this.api_token = tk_response;
     this.checkPermissions();
     this.userValidationDone = true;
-    if(this.user.roles.indexOf('G_FN_PSE') >= 0) {
+    if(this.user.roles.indexOf('G_FN_SUB') >= 0) {
       this.authentic_user = true;
     }
   }
@@ -59,8 +59,13 @@ class UserStore {
     this.user.lastName = userInfo.lastName;
     this.user.roles = userInfo.roles;
     this.user.username = userInfo.username;
-    this.user.pse = userInfo.authorizations[0].pseId || '';
-    this.user.pseName = userInfo.authorizations[0].pseName || '';
+    if(userInfo.authorizations.length){
+      this.user.pse = userInfo.authorizations[0].pseId;
+      this.user.pseName = userInfo.authorizations[0].pseName;
+    }else{
+      this.user.pse = '';
+      this.user.pseName = '';
+    }
   }
 
   @observable user = {};

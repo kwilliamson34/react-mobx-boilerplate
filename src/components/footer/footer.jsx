@@ -26,8 +26,10 @@ export default class Footer extends React.Component {
 	}
 
 	render() {
+		let sitemapCollapseBreakpoint = 992;
+		let allowFocusOnSitemapLinks = this.headerStore.footerSitemapExpanded || $(window).width() >= sitemapCollapseBreakpoint;
+		let allowFocusOnSitemapHeader = $(window).width() < sitemapCollapseBreakpoint;
 		return (
-
 			<footer id="pse-footer">
 			<div className="footer-main">
 				<div className="container">
@@ -43,6 +45,7 @@ export default class Footer extends React.Component {
 							<nav aria-describedby="sitemap">
 								<a id="sitemap" href=""
 									onClick={this.handleSitemapClick}
+									tabIndex={allowFocusOnSitemapHeader ? 0 : -1}
 									className="sitemap-hdr"
 									role="button"
 									aria-haspopup="true"
@@ -51,21 +54,21 @@ export default class Footer extends React.Component {
 									{this.user.isAdmin &&
 									<div>
 										<li role="presentation">
-											<Link to="/admin">PSE Administration</Link>
+											<Link to="/admin" tabIndex={allowFocusOnSitemapLinks ? 0 : -1}>PSE Administration</Link>
 										</li>
 										<li role="presentation">
-											<Link to="/admin/manage-apps">Manage Apps</Link>
+											<Link to="/admin/manage-apps" tabIndex={allowFocusOnSitemapLinks ? 0 : -1}>Manage Apps</Link>
 										</li>
 										<li role="presentation">
-											<Link to="/devices">Specialized Device Catalog</Link>
+											<Link to="/devices" tabIndex={allowFocusOnSitemapLinks ? 0 : -1}>Specialized Device Catalog</Link>
 										</li>
 										<li role="presentation">
-											<Link to="/solutions">Solutions Catalog</Link>
+											<Link to="/solutions" tabIndex={allowFocusOnSitemapLinks ? 0 : -1}>Solutions Catalog</Link>
 										</li>
 									</div>
 									}
 									<li role="presentation">
-										<Link to="/network-status">Network Status</Link>
+										<Link to="/network-status" tabIndex={allowFocusOnSitemapLinks ? 0 : -1}>Network Status</Link>
 									</li>
 								</ul>
 							</nav>

@@ -16,9 +16,10 @@ export default class BreadcrumbNav extends React.Component {
             <div className="col-xs-12">
               <ol>
                 {this.props.links.map((crumb,idx) => {
+                  let displayAsLink = idx < this.props.links.length - 1;
                   return (
                     <li key={idx}>
-                      <Link to={crumb.pageHref}>{crumb.pageTitle}</Link>
+                      <Link to={crumb.pageHref} tabIndex={displayAsLink ? 0 : -1}>{crumb.pageTitle}</Link>
                       <span className="icon-arrowRight" aria-hidden="true"></span>
                     </li>
                   )
