@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {history} from '../../core/services/history.service';
 import _ from 'lodash';
+import $ from 'jquery';
 
 export default class ScrollToTop extends React.Component {
 	static propTypes = {
