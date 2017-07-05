@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {inject, observer} from 'mobx-react';
 import {history} from '../core/services/history.service';
+import $ from 'jquery';
 import config from 'config';
 
 @inject('store')
@@ -20,13 +21,12 @@ export default class FeedbackPage extends React.Component {
 
   componentWillMount() {
     this.feedbackStore.setDefaultEmail();
+    this.feedbackStore.enableSaveDialogs();
   }
 
   componentWillUnmount() {
-    if (this.feedbackStore.formHasEntries && !this.feedbackStore.hasBeenSubmitted) {
-        this.feedbackStore.toggleExitModal();
-        history.goBack();
-      }
+    this.clearModals();
+    this.feedbackStore.disableSaveDialogs();
     if (this.feedbackStore.hasBeenSubmitted) {
       this.feedbackStore.toggleHasBeenSubmitted();
     }
@@ -66,13 +66,28 @@ export default class FeedbackPage extends React.Component {
     if (this.feedbackStore.hasBeenSubmitted) {
       this.feedbackStore.toggleHasBeenSubmitted();
     }
-    history.replace('/');
+    history.replace(this.feedbackStore.interceptedRoute);
   }
 
-  renderExitModal = () => {
+  showModal = (shouldShow, modalID) => {
+    if (shouldShow) {
+      $(modalID).modal({backdrop:'static'});
+    } else {
+     $(modalID).modal('hide');
+     $(modalID).data('bs.modal', null);
+    }
+  }
+
+  clearModals = () => {
+    $('.modal-backdrop, #customer-feedback-exit-modal').remove();
+    $('body').removeClass('modal-open');
+  }
+
+  renderExitModal = (showExitModal) => {
+    this.showModal(showExitModal, '#customer-feedback-exit-modal');
     return (
-      <div>
-        <div id="customer-feedback-exit-modal" className="modal fade in">
+      <div id="customer-feedback-exit-modal" tabIndex="-1" role="dialog" className="modal fade" aria-labelledby="feedback-modal-title">
+        <div>
           <div className="modal-dialog">
             <div className="modal-content">
               <button type="button" className="btn close-modal icon-close" onClick={this.toggleExitModal}>
@@ -80,7 +95,7 @@ export default class FeedbackPage extends React.Component {
               </button>
               <div className="row no-gutters">
                 <div className="col-xs-12">
-                  <h1 className="as-h2">Unsaved changes</h1>
+                  <h1 id="feedback-modal-title" className="as-h2">Unsaved changes</h1>
                   <p>Your form changes will not be saved if you navigate away from this page.</p>
                 </div>
                 <div className="col-xs-12 text-center">
@@ -91,7 +106,6 @@ export default class FeedbackPage extends React.Component {
             </div>
           </div>
         </div>
-        <div className="modal-backdrop fade in" ></div>
       </div>
     )
   }
@@ -188,6 +202,9 @@ export default class FeedbackPage extends React.Component {
               </section>
             </div>
           </div>
+
+          {this.renderExitModal(this.feedbackStore.showExitModal)}
+
         </section>
     )
   }
@@ -199,7 +216,6 @@ export default class FeedbackPage extends React.Component {
             ? this.renderSuccessPage()
             : this.renderFeedbackForm()
           }
-          {this.feedbackStore.showExitModal && this.renderExitModal()}
       </article>
     )
   }

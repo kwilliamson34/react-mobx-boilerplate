@@ -2,10 +2,19 @@ import {action, observable, computed} from 'mobx';
 import {apiService} from '../services/api.service';
 import {userStore} from './user.store';
 import {utilsService} from '../services/utils.service';
+import {history} from '../services/history.service';
 
 const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
 class FeedbackStore {
+
+  getBrowserCloseAlert = (event) => {
+    if (this.formHasEntries) {
+      event.returnValue = true;
+    } else {
+      return;
+    }
+  };
 
   @action submitForm(form) {
     const inputs = form.querySelectorAll('input, select, textarea');
@@ -55,6 +64,24 @@ class FeedbackStore {
 
   @action toggleExitModal() {
       this.showExitModal = !this.showExitModal;
+  }
+
+  @action disableSaveDialogs() {
+      window.removeEventListener('beforeunload', this.getBrowserCloseAlert);
+      this.unblock();
+  }
+
+  @action enableSaveDialogs() {
+      window.addEventListener('beforeunload', this.getBrowserCloseAlert);
+      this.unblock = history.block((location) => {
+        this.interceptedRoute = location.pathname;
+        if (!this.formHasEntries) {
+          return true;
+        } else {
+          this.showExitModal = true;
+          return false;
+        }
+    });
   }
 
   @action toggleHasBeenSubmitted() {
@@ -108,6 +135,7 @@ class FeedbackStore {
   @observable showExitModal = false;
   @observable showAlertBar = false;
   @observable hasBeenSubmitted = false;
+  @observable interceptedRoute = '';
   @observable feedbackObject = {
     feedback_title: '',
     feedback_details: '',
