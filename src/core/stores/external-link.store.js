@@ -94,7 +94,7 @@ class ExternalLinkStore {
 
   @action fetchSolutionDetails(solutionPath) {
     return this.allSolutionDetails.filter((solution) => {
-      return solutionPath.replace(/\+/g, ' ') === solution.promo_title.toLowerCase();
+      return solutionPath.replace(/\+/g, ' ') === solution.promo_title.replace(/&amp;/g, '&').toLowerCase();
     })
   }
 
