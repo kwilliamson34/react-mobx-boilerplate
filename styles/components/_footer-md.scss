@@ -1,0 +1,48 @@
+@media #{$tablet} {
+  footer {
+    .logoRow {
+      padding: 30px 15px;
+
+      img {
+        max-width: 430px;
+      }
+    }
+  }
+
+  .footer-main {
+    .is-flex > div {
+      padding: 15px 30px;
+
+      nav {
+        border-bottom: 0;
+      }
+
+      &:not(:last-child) {
+        border-right: 0;
+
+        nav {
+          border-bottom: 1px solid $fn-grey;
+          padding-bottom: 15px;
+        }
+      }
+    }
+
+    nav {
+      border-bottom: 1px solid $fn-grey;
+    }
+  }
+
+  .footer-sub {
+    .sub-links {
+      text-align: right;
+    }
+
+    li {
+      margin-bottom: 30px;
+
+      &:not(:last-child) {
+        border-right: 1px solid $fn-blue;
+      }
+    }
+  }
+}

@@ -29,10 +29,6 @@ class PSEStore {
 	}
 
 	// ACTIONS
-	@action updateLocation(hash) {
-		this.location = hash;
-	}
-
 	@action nameFieldChange(value) {
 		this.nameFieldStr = value;
 	}
