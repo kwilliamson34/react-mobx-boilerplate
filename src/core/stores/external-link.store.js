@@ -49,7 +49,6 @@ class ExternalLinkStore {
     })
   }
 
-  //TODO: restore when API issues are sorted. Currently setting from copied data put in mock files;
   @action getSolutionDetails() {
     const success = (res) => {
       this.allSolutionDetails = res;
@@ -94,7 +93,7 @@ class ExternalLinkStore {
 
   @action fetchSolutionDetails(solutionPath) {
     return this.allSolutionDetails.filter((solution) => {
-      return solutionPath.replace(/\+/g, ' ') === solution.promo_title.replace(/&amp;/g, '&').toLowerCase();
+      return solutionPath.replace(/\+/g, ' ') === solution.promo_title.replace(/&\w{2,5};/g, '').replace(/[^A-Z\s\d]/ig, '').toLowerCase();
     })
   }
 
@@ -160,10 +159,7 @@ class ExternalLinkStore {
     cards: []
   }
   @observable currentSolutionDetail = '';
-  @observable currentSolutionDetailData = {
-    title: '',
-    body: ''
-  }
+  @observable currentSolutionDetailData = '';
 
   @observable allSpecializedDevices = [];
   @observable currentDeviceCategory = '';
