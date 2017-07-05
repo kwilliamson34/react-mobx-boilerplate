@@ -10,7 +10,7 @@ export default class BreadcrumbNav extends React.Component {
 
   render() {
     return(
-      <nav className="breadcrumb-nav xs-hidden" aria-label="You are here:">
+      <nav className="breadcrumb-nav hidden-xs" aria-label="You are here:">
         <div className="container">
           <div className="row">
             <div className="col-xs-12">
