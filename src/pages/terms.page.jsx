@@ -8,7 +8,7 @@ export default class TermsOfServicePage extends React.Component {
         <div className="container">
           <div className="row">
             <div className="col-xs-12">
-              <h1 className="as-h2">Terms of Service</h1>
+              <h1>Terms of Service</h1>
               <h3>Lorem ipsum dolor</h3>
             </div>
           </div>

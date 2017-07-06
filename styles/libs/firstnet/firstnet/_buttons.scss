@@ -248,6 +248,37 @@ button {
   min-width: 100px;
 }
 
+.fn-modal-close {
+  position: absolute;
+  height: 48px;
+  width: 48px;
+  top: 32px;
+  right: 25px;
+  background: transparent;
+  border: none;
+  padding: 5px 0;
+  line-height: 48px;
+  border-radius: 50%;
+  i {
+    &:before {
+      color: $fn-mdgrey;
+      font-size: 25px;
+    }
+  }
+  &:hover,
+  &:active,
+  &:focus,
+  &:active:focus {
+    outline:none;
+    background: $fn-blue;
+    i {
+      &:before {
+        color: white
+      }
+    }
+  }
+}
+
 .btn-group {
   & > .btn,
   & > .fn-primary {
