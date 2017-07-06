@@ -43,15 +43,10 @@ export default class ManageAppsPage extends React.Component {
 		}
 	}
 
-	componentDidUpdate() {
-		$('#card-list-load-more-btn').on('mouseover', () => {
-			console.log('HSEEE');
-		})
-	}
-
 	handleLoadMoreClick = () => {
 		this.props.store.changePage(this.pageId);
-		$('#card-list-load-more-btn').blur();
+		// $('#card-list-load-more-btn').blur();
+		$('#card-list-load-more-btn').trigger('touchend');
 		this.cardListStore.setIdToFocus((this.props.store.pages[this.pageId] - 1) * this.itemsPerPage);
 	}
 
