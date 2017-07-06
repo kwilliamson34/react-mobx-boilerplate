@@ -26,7 +26,7 @@ export default class ManageAppsPage extends React.Component {
 		this.mdmStore = this.props.store.mdmStore;
 		this.userStore = this.props.store.userStore;
 		this.pageId = 'manageAppsPage';
-		this.itemsPerPage = 20;
+		this.itemsPerPage = 4;
 		this.viewedAlert = false;
 	}
 
@@ -41,6 +41,12 @@ export default class ManageAppsPage extends React.Component {
 				this.props.store.registerPage(this.pageId);
 			}
 		}
+	}
+
+	componentDidUpdate() {
+		$('#card-list-load-more-btn').on('mouseover', () => {
+			console.log('HSEEE');
+		})
 	}
 
 	handleLoadMoreClick = () => {
