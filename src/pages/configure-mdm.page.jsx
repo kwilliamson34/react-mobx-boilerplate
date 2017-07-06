@@ -208,7 +208,7 @@ export default class ConfigureMDM extends React.Component {
         {this.isConfigured &&
           <div className="break-mdm-wrapper col-xs-12">
             <div className="container">
-              <button onClick={this.togglebreakMDMConnection} className= "break-mdm-btn fn-primary" aria-labelledby="break-mdm-connection" aria-disabled={!this.isConfigured}>Break Connection</button>
+              <button onClick={this.togglebreakMDMConnection} className="break-mdm-btn fn-primary" aria-labelledby="break-mdm-connection" aria-disabled={!this.isConfigured}>Break Connection</button>
             </div>
           </div>
         }
