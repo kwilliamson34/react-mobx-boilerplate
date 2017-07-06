@@ -41,6 +41,14 @@ class PSEStore {
 		}
 	}
 
+	@action deRegisterPage(id) {
+		delete this.pages[id];
+	}
+
+	@action resetPage(id) {
+		this.pages[id] = 1;
+	}
+
 	@action changePage(id) {
 		this.pages[id]++;
 	}

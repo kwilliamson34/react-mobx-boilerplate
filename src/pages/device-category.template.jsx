@@ -69,8 +69,7 @@ export default class DeviceCategoryTemplate extends React.Component {
 												</div>
 											</Link>
 										</li>
-									)
-								})}
+									)})}
 							</ul>
 						</div>
 					</div>
