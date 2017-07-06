@@ -2,7 +2,6 @@
   footer {
     .logoRow {
       padding: 30px 15px;
-
       img {
         max-width: 430px;
       }
@@ -29,6 +28,20 @@
 
     nav {
       border-bottom: 1px solid $fn-grey;
+    }
+  }
+
+  .social-links-list {
+    li {
+      display: inline-block;
+    }
+
+    a {
+      margin-right: 45px;
+
+      > span {
+        display: none;
+      }
     }
   }
 

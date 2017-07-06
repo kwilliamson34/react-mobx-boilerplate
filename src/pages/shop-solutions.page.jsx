@@ -65,7 +65,7 @@ export default class ShopSolutionsPage extends React.Component {
         <BreadcrumbNav links={crumbs} />
           <div className="container center-block">
             <section className="intro-block col-xs-12">
-              <h1 className="as-h2">For Public Safety, By Public Safety</h1>
+              <h1>For Public Safety, By Public Safety</h1>
               <p>
                 The FirstNet Applications Store and Solutions Catalog offers enhanced technologies to complement public safety's fundamental services and applications. Current solutions include applications that are designed to improve workflow and communication, enhance device and connection security, and enable public safety organizations to scale departmental capabilities by utilizing cloud and IP-based services.
               </p>

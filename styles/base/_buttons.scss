@@ -1,10 +1,3 @@
-a {
-  &.focus,
-  &:focus {
-    box-shadow: none;
-  }
-}
-
 .back-to-top {
   margin: 0;
   padding: 0;
@@ -51,16 +44,35 @@ a {
     opacity: 0;
   }
 }
-/* PSE disabled button differs from lib. */
-button {
-  &[aria-disabled="true"],
-  &[disabled] {
-    background-color: $fn-grey !important;
-    color: $fn-mdgrey !important;
-    border: 1px solid $fn-grey !important;
-    pointer-events: none;
+
+.reset-filters-button {
+  display: inline-block;
+  height: 48px;
+  line-height: 48px;
+  background: none;
+  font-size: $fn-button-desktop;
+  font-weight: $fn-medium-weight;
+  color: $fn-ltblue;
+  text-transform: uppercase;
+  margin-top: 1rem;
+  border: none;
+  padding: 0 15px;
+
+  &:focus {
+    @include focus();
+  }
+
+  &:hover,
+  &:active,
+  &:active:focus {
+    background: transparent;
+    color: $fn-dkgrey;
+    font-weight: $fn-bold-weight;
+    text-decoration: underline;
+    box-shadow: none !important;
   }
 }
+
 /* XS */
 @media only screen and (min-width : 320px) {
   .back-to-top {
