@@ -5,8 +5,6 @@ import { Link } from 'react-router-dom';
 
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 
-const htmlRegex = /<\/?\w+((\s+\w+(\s*=\s*(?:".*?"|'.*?'|[\^'">\s]+))?)+\s*|\s*)\/?>/g;
-
 @inject('store')
 @observer
 export default class ShopSolutionsPage extends React.Component {
@@ -32,7 +30,6 @@ export default class ShopSolutionsPage extends React.Component {
 
     return redactedArray.map((card) => {
       const path = card.name.replace(/ /g, '-').toLowerCase();
-      const description = card.description.replace(htmlRegex, '');
       return (
         <div key={card.name} className="col-xs-12 col-sm-6 col-md-6 col-lg-4 solutions-card">
           <div className="card-wrapper has-shadow">
@@ -41,8 +38,8 @@ export default class ShopSolutionsPage extends React.Component {
                 <img src={card.thumbnail_url} alt={card.thumbnail_alt}/>
               </div>
               <div className="card-contents-wrapper">
-                <h3 className="card-title">{card.name}</h3>
-                <div className="card-desc">{description}</div>
+                <h3 className="card-title" dangerouslySetInnerHTML={{__html: card.name}}></h3>
+                <div className="card-desc" dangerouslySetInnerHTML={{__html: card.description}} />
               </div>
               <div className="learn-more">Learn More<i className="icon-arrowRight" aria-hidden="true" /></div>
             </Link>
