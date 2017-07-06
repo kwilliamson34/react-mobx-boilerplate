@@ -37,7 +37,7 @@ export default class SolutionsCategoryTemplate extends React.Component {
   renderCards = (cardsArray) => {
 
     return cardsArray.map((card) => {
-      const cardUrl = `${this.props.match.url}/${card.promo_title.replace(/ /g, '+').toLowerCase()}`;
+      const cardUrl = `${this.props.match.url}/${card.promo_title.replace(/&\w{2,5};/g, '').replace(/[^A-Z\s\d]/ig, '').replace(/ /g, '+').toLowerCase()}`;
       return (
         <div key={card.promo_title} className="col-xs-12 col-sm-6 col-md-6 col-lg-4 solutions-card">
           <div className="card-wrapper has-shadow">
@@ -46,8 +46,8 @@ export default class SolutionsCategoryTemplate extends React.Component {
                 <img src={card.promo_image_url} alt={card.promo_title}/>
               </div>
               <div className="card-contents-wrapper">
-                <h3 className="card-title">{card.promo_title}</h3>
-                <div className="card-desc">{card.promo_description}</div>
+                <h3 className="card-title" dangerouslySetInnerHTML={{__html: card.promo_title}}></h3>
+                <div className="card-desc" dangerouslySetInnerHTML={{__html: card.promo_description}}></div>
               </div>
               <div className="learn-more">Learn More<i className="icon-arrowRight" aria-hidden="true" /></div>
             </Link>
