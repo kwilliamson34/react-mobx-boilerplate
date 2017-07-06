@@ -20,20 +20,3 @@ section.placeholder{
   &.news-feed{}
   &.mp-links{border:0 none;}
 }
-
-$device: "screen and (max-width: #{$screen-sm-max})";
-$desktop: "screen and (min-width: #{$screen-sm-max})";
-$mobile:  "screen and (max-width: #{$screen-xs-max})";
-$tablet:  "screen and (min-width: #{$screen-sm-min}) and (max-width: #{$screen-sm-max})";
-$normal:  "screen and (min-width: #{$screen-md-min}) and (max-width: #{$screen-md-max})";
-$wide:    "screen and (min-width: #{$screen-lg-min})";
-
-/*
-@media only screen and (min-width : 0px) {
-}
-@media only screen and (min-width : 992px) {
-}
-@media only screen and (min-width : 1200px) {
-
-}
-*/

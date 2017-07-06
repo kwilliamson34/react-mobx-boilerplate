@@ -24,7 +24,7 @@
 
   &__quicklinks {
     li {
-      font-size: $fn-body-default-size;
+      font-size: $fn-content-page-text-desktop;
       margin-bottom: 10px;
       line-height: 140%;
 
@@ -67,7 +67,7 @@ li.actionicon {
     background: none;
     border: 0;
     text-transform: uppercase;
-    font-size: $fn-label-default-size;
+    font-size: $fn-label-desktop;
     font-weight: $fn-bold-weight;
     color: $fn-blue;
     padding: 0 0 0 2px;

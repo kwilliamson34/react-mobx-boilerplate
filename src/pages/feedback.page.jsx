@@ -90,12 +90,13 @@ export default class FeedbackPage extends React.Component {
         <div>
           <div className="modal-dialog">
             <div className="modal-content">
-              <button type="button" className="btn close-modal icon-close" onClick={this.toggleExitModal}>
+              <button type="button" className="fn-modal-close" onClick={this.toggleExitModal}>
+                <i aria-hidden="true" className="icon-close"></i>
                 <span className="sr-only">close window</span>
               </button>
               <div className="row no-gutters">
                 <div className="col-xs-12">
-                  <h1 id="feedback-modal-title" className="as-h2">Unsaved changes</h1>
+                  <h1 id="feedback-modal-title">Unsaved changes</h1>
                   <p>Your form changes will not be saved if you navigate away from this page.</p>
                 </div>
                 <div className="col-xs-12 text-center">

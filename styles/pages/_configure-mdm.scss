@@ -1,11 +1,17 @@
 #configure-mdm-page {
-  padding-top:0;
+  padding-top: 0;
+
   h1 {
     margin: 30px 0;
   }
+
   .mdm-form-wrapper {
     padding-top: 30px;
   }
+}
+
+.break-mdm-wrapper {
+  padding-top: 30px;
 }
 
 .break-mdm-btn {
@@ -16,7 +22,7 @@
   margin-bottom: 90px;
 
   .mdm-description {
-    font-size: $fn-label-default-size;
+    font-size: $fn-label-desktop;
     line-height: 20px;
     margin-bottom: 30px;
   }
@@ -31,11 +37,30 @@
 
   .msgBlock {
     font-weight: $fn-medium-weight;
-    font-size: $fn-label-default-size;
+    font-size: $fn-label-desktop;
     line-height: 16px;
   }
 
   #mdm_submit_btn {
     min-width: 200px;
+  }
+
+}
+
+@media #{$mobile} {
+  #configure-mdm-page {
+    h1 {
+      text-align: left;
+    }
+
+    .break-mdm-wrapper {
+      border-bottom: 1px solid $fn-grey;
+      padding: 0;
+    }
+
+    .break-mdm-btn {
+      border: 0;
+      padding: 0;
+    }
   }
 }
