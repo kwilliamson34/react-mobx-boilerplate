@@ -17,6 +17,7 @@ export default class FeedbackPage extends React.Component {
     super(props);
     this.userStore = this.props.store.userStore;
     this.feedbackStore = this.props.store.feedbackStore;
+    this.headerStore = this.props.store.headerStore;
   }
 
   componentWillMount() {
@@ -70,6 +71,7 @@ export default class FeedbackPage extends React.Component {
   }
 
   showModal = (shouldShow, modalID) => {
+    this.headerStore.closeAdminSubMenu();
     if (shouldShow) {
       $(modalID).modal({backdrop:'static'});
     } else {
