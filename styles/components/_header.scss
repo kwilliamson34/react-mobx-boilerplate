@@ -442,7 +442,7 @@ $fn-mobile-item-height: 60px;
         border-bottom: none;
         height: $fn-primary-nav-height;
         line-height: $fn-primary-nav-height;
-        color: $fn-black;
+        color: $fn-dkgrey;
         padding: 0 30px;
         min-width: 175px;
         text-align: center;
@@ -450,6 +450,11 @@ $fn-mobile-item-height: 60px;
         &:hover {
           font-weight: $fn-bold-weight;
           color: $fn-ltblue;
+        }
+
+        &:focus{
+          @include focus();
+          border-radius: 8px;  
         }
 
         &.active {

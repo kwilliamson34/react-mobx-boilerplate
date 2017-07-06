@@ -33,12 +33,13 @@
 button {
   &[aria-disabled="true"],
   &[disabled] {
-    background: white !important;
-    color: $input-outline-disabled !important;
-    border: 1px solid $input-outline-disabled !important;
     pointer-events: none;
+    color: $fn-mdgrey;
+    border-color: $fn-grey;
+    background: $fn-grey;
   }
 }
+
 
 .fn-inverse,
 .fn-primary,

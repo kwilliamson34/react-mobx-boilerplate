@@ -183,3 +183,14 @@ samp {
     text-transform: uppercase;
   }
 }
+
+.has-shadow {
+    border: 1px solid rgba(182, 182, 182, 0.50);
+    box-shadow: 0 2px 2px 0 rgba(182, 182, 182, 0.50);
+    transition: box-shadow 0.3s ease-in-out;
+
+    &:hover,
+    &:focus {
+        box-shadow: 0 0 20px 0 rgba(182, 182, 182, 0.50);
+    }
+}
