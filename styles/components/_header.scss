@@ -548,6 +548,19 @@ $fn-mobile-item-height: 60px;
             color: $fn-ltblue;
           }
 
+          &:focus{
+            @include focus();
+            padding: 2px 4px;
+            border-radius: 4px;
+          }
+          
+          &:hover,
+          &:active,
+          &:active:focus {
+            text-decoration: underline;
+            box-shadow: none !important;
+          }
+
           i {
             display: inline-block;
             vertical-align: sub;
@@ -556,10 +569,7 @@ $fn-mobile-item-height: 60px;
             }
           }
 
-          &:focus,
-          &:hover {
-            text-decoration: underline;
-          }
+
         }
       }
     }
