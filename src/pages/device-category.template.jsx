@@ -52,7 +52,7 @@ export default class DeviceCategoryTemplate extends React.Component {
 				<div className="container">
 					<div className="row">
 						<div className="col-xs-12 catalog-header">
-							<h1 className="as-h2">{this.externalLinkStore.currentDeviceCategory}</h1>
+							<h1>{this.externalLinkStore.currentDeviceCategory}</h1>
 						</div>
 					</div>
 					<div className="row">

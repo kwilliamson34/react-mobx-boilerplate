@@ -37,7 +37,7 @@ article.faq-article {
             color: $fn-dark;
         }
         div.faq-entry-content {
-            font-size: $fn-body-default-size;
+            font-size: $fn-content-page-text-desktop;
             background-color: $fn-ltbluegrey;
             padding-left: 20px;
             padding-right: 20px;
@@ -70,7 +70,7 @@ article.faq-article {
 
         .show-more-link {
             color: $fn-ltblue;
-            font-size: $fn-button-default-size;
+            font-size: $fn-button-desktop;
             font-weight: $fn-medium-weight;
             text-align: left;
             text-transform: uppercase;
@@ -114,7 +114,7 @@ article.faq-article {
             display: inline;
             padding: 0 10px;
             border-left: solid 1px $fn-dkgrey;
-            font-size: $fn-body-default-size;
+            font-size: $fn-content-page-text-desktop;
             font-weight: $fn-medium-weight;
             color: $fn-ltblue;
             line-height: 4rem;

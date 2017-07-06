@@ -24,7 +24,7 @@
 
 	a {
 		display: table;
-		font-size: $fn-body-default-size;
+		font-size: $fn-content-page-text-desktop;
 	}
 }
 @media #{$tablet,$desktop} {

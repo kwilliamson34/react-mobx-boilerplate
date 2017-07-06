@@ -61,10 +61,10 @@ export default class Footer extends React.Component {
 											<Link to="/admin/manage-apps" tabIndex={allowFocusOnSitemapLinks ? 0 : -1}>Manage Apps</Link>
 										</li>
 										<li role="presentation">
-											<Link to="/devices" tabIndex={allowFocusOnSitemapLinks ? 0 : -1}>Specialized Device Catalog</Link>
+											<Link to="/admin/devices" tabIndex={allowFocusOnSitemapLinks ? 0 : -1}>Specialized Device Catalog</Link>
 										</li>
 										<li role="presentation">
-											<Link to="/solutions" tabIndex={allowFocusOnSitemapLinks ? 0 : -1}>Solutions Catalog</Link>
+											<Link to="/admin/solutions" tabIndex={allowFocusOnSitemapLinks ? 0 : -1}>Solutions Catalog</Link>
 										</li>
 									</div>
 									}

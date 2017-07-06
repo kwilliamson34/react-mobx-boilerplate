@@ -22,7 +22,7 @@ export default class AdminDashboardPage extends React.Component {
       <article id="admin-dashboard-page">
         <div className="container">
           <div className="col-xs-12">
-            <h1 className="as-h2">Administration</h1>
+            <h1>Administration</h1>
           </div>
           <div className="row no-gutters">
             <section className="col-xs-12 col-lg-8 manage-actions">

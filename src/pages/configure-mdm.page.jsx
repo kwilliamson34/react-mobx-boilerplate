@@ -58,13 +58,13 @@ export default class ConfigureMDM extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    
+
     const $alerts = $('#mdm-alerts');
 
     this.store.submitForm(event.target)
 
     $alerts.focus();
-    
+
     if(this.store.form_alerts.length && this.store.form_alerts[0].type === 'error'){
         $alerts.one('blur', function(){
               $('#mdm').focus();
@@ -104,7 +104,8 @@ export default class ConfigureMDM extends React.Component {
         <div id="exitModal" className="modal fade" tabIndex="-1" role="dialog" aria-labelledby="modal-title">
           <div className="modal-dialog">
             <div className="modal-content">
-              <button type="button" autoFocus="true" id="exitModalCloseBtn" className="btn close-modal icon-close" onClick={this.toggleExitModal}>
+              <button type="button" autoFocus="true" id="exitModalCloseBtn" className="fn-modal-close" onClick={this.toggleExitModal}>
+                <i aria-hidden="true" className="icon-close"></i>
                 <span className="sr-only">close window</span>
               </button>
               <div className="row no-gutters">
@@ -131,7 +132,8 @@ export default class ConfigureMDM extends React.Component {
         <div id="breakConnectionModal"  className="modal fade" tabIndex="-1" role="dialog" aria-labelledby="modal-title">
           <div className="modal-dialog">
             <div className="modal-content">
-              <button type="button" className="btn close-modal icon-close" onClick={this.togglebreakMDMConnection}>
+              <button type="button" className="fn-modal-close" onClick={this.togglebreakMDMConnection}>
+                <i aria-hidden="true" className="icon-close"></i>
                 <span className="sr-only">close window</span>
               </button>
               <div className="row no-gutters">
@@ -214,7 +216,7 @@ export default class ConfigureMDM extends React.Component {
         }
         <div className="mdm-form-wrapper container">
             <div className="col-xs-12 text-center">
-                <h1 className="as-h2">Configure <span className="hidden-xs">Mobile Device Management (</span>MDM<span className="hidden-xs">)</span></h1>
+                <h1>Configure <span className="hidden-xs">Mobile Device Management (</span>MDM<span className="hidden-xs">)</span></h1>
             </div>
 
             <div className="row no-gutters">
@@ -224,9 +226,9 @@ export default class ConfigureMDM extends React.Component {
                       <MDMAlerts store={this.store} page="mdm_form"/>
 
                       <form id="configure-mdm-form" onSubmit={this.handleSubmit} noValidate onChange={this.updateForm} onBlur={this.updateForm}>
-                        
+
                         {this.isConfigured && <p className="mdm-description">Only one MDM can be configured at a time. To configure a new MDM, the existing connection must be broken. Once the existing connection is broken, a new one can be configured.</p>}
-                        
+
                         <div className='form-group has-feedback'>
                           <label className="control-label" htmlFor="mdm">Your MDM<span className="required-asterisks"> *</span></label>
                             <select id="mdm"
@@ -240,9 +242,9 @@ export default class ConfigureMDM extends React.Component {
                               <option value="mobileIronForm">MobileIron</option>
                             </select>
                         </div>
-                        
+
                         {mdm_form}
-                        
+
                         <div className="form-group text-center">
                           <button id="mdm_submit_btn" aria-labelledby="configure-mdm-form" aria-disabled={!this.store.formIsValid || this.isConfigured || this.store.beingSubmitted} type="submit" className='fn-primary'>
                           {this.store.beingSubmitted

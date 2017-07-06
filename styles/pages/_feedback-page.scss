@@ -7,7 +7,7 @@
 
   .feedback-text {
     color: $fn-dark;
-    font-size: $fn-label-default-size;
+    font-size: $fn-label-desktop;
   }
 
   .form-group {
@@ -85,7 +85,7 @@
       }
 
       p {
-        font-size: $fn-body-default-size;
+        font-size: $fn-content-page-text-desktop;
         padding: 0 10rem;
       }
 
