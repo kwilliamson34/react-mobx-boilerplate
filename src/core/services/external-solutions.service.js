@@ -1,5 +1,3 @@
-const htmlRegex = /<\/?\w+((\s+\w+(\s*=\s*(?:".*?"|'.*?'|[\^'">\s]+))?)+\s*|\s*)\/?>/g;
-
 class ExternalSolutionsService {
 
   filterSolutionCategoryData(solutionArray, currentCategory) {
@@ -7,9 +5,8 @@ class ExternalSolutionsService {
     let _cards = solutionArray.filter((solution) => solution.page_category.toUpperCase() === _category.toUpperCase());
 
     _cards.forEach((card) => {
-      card.title = card.title.replace(/&amp;/g, '&');
-      card.promo_title = card.promo_title.replace(/&amp;/g, '&');
-      card.promo_description = card.promo_description.replace(htmlRegex, '');
+      card.promo_title = card.promo_title;
+      card.promo_description = card.promo_description;
     });
     return {
       title: _category,
@@ -18,10 +15,7 @@ class ExternalSolutionsService {
   }
 
   filterSolutionDetailData(solutionObject) {
-    return {
-      title: solutionObject.title.replace(/&amp;/g, '&'),
-      body: solutionObject.body
-    }
+    return solutionObject.body;
   }
 }
 
