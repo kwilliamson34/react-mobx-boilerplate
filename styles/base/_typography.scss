@@ -34,10 +34,21 @@ a {
     text-decoration: underline;
   }
 
+  &.focus,
+  &:focus {
+    @include focus();
+    margin: 1px;
+    border-radius: 4px;
+    padding: 2px;
+  }
+
   &.active,
-  &:active {
+  &:active,
+  &:active:focus {
     color: $inactive-link-color;
     text-decoration: underline;
+    box-shadow: none;
+    padding: 0;
   }
 
   &.visited,
@@ -45,10 +56,6 @@ a {
     color: $inactive-link-color;
   }
 
-  &.focus,
-  &:focus {
-    @include focus();
-  }
 }
 //color variations
 .green {

@@ -13,6 +13,7 @@
   &.active,
   &.hover,
   &:active,
+  &:active:focus,
   &:hover {
     outline: none;
     box-shadow: none;
@@ -53,7 +54,9 @@ button {
   &.hover,
   &:hover,
   &.active,
-  &:active  {
+  &:active,
+  &:active:focus  {
+    outline: none;
     font-weight: $fn-bold-weight;
   }
 
@@ -85,7 +88,8 @@ button {
   &.hover,
   &:hover,
   &.active,
-  &:active  {
+  &:active,
+  &:active:focus  {
     background: $fn-blue;
     color: $fn-white;
     border-color: $fn-blue;
@@ -118,7 +122,8 @@ button {
     &.hover,
     &:hover,
     &.active,
-    &:active  {
+    &:active,
+    &:active:focus  {
       color: $fn-dkgrey;
       background: $fn-white;
       border: 0;
@@ -150,7 +155,8 @@ button {
   &.hover,
   &:hover,
   &.active,
-  &:active {
+  &:active,
+  &:active:focus {
     background: $fn-blue;
     color: $fn-white;
     border-color: $fn-white;
@@ -181,7 +187,8 @@ button {
     &.hover,
     &:hover,
     &.active,
-    &:active  {
+    &:active,
+    &:active:focus {
       color: $fn-dkgrey;
       background: $fn-white;
       border: 0;
@@ -213,7 +220,8 @@ button {
   }
 
   &.active,
-  &:active {
+  &:active
+   {
     outline: none !important;
     color: $fn-dark !important;
     background: darken(white,15%) !important;

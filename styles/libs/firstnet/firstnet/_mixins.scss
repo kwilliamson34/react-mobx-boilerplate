@@ -2,13 +2,25 @@ $focus-shadow-depth: 1px;
 
 @mixin focus($borderColor: $focus-lightbg) {
   &:not(.no-focus-styles) {
+
     outline: none;
     box-shadow:
-      1px 1px 0 0 $fn-white,
-      1px -1px 0 0 $fn-white,
-      -1px 1px 0 0 $fn-white,
-      -1px -1px 0 0 $fn-white,
-      0 0 10px 0 rgba(0, 0, 0, 0.70);
+      1px 1px 0 0 $fn-ltblue,
+      1px -1px 0 0 $fn-ltblue,
+      -1px 1px 0 0 $fn-ltblue,
+      -1px -1px 0 0 $fn-ltblue;
+    
+
+    &.fn-primary,
+    &.fn-secondary {
+      box-shadow:
+        1px 1px 0 0 $fn-white,
+        1px -1px 0 0 $fn-white,
+        -1px 1px 0 0 $fn-white,
+        -1px -1px 0 0 $fn-white,
+        0 0 10px 0 rgba(0, 0, 0, 0.70);
+    }
+
 
     &.inverse{
       background: transparent;

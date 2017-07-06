@@ -51,6 +51,34 @@ a {
   }
 }
 
+.reset-filters-button {
+  display: inline-block;
+  height: 48px;
+  line-height: 48px;
+  background: none;
+  font-size: $fn-button-desktop;
+  font-weight: $fn-medium-weight;
+  color: $fn-ltblue;
+  text-transform: uppercase;
+  margin-top: 1rem;
+  border: none;
+  padding: 0 15px;
+
+  &:focus {
+    @include focus();
+  }
+
+  &:hover,
+  &:active,
+  &:active:focus {
+    background: transparent;
+    color: $fn-dkgrey;
+    font-weight: $fn-bold-weight;
+    text-decoration: underline;
+    box-shadow: none !important;
+  }
+}
+
 /* PSE disabled button differs from lib. */
 button {
   &[aria-disabled="true"],

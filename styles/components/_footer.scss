@@ -31,7 +31,9 @@ footer {
         color: $fn-dkgrey;
 
         &.fb {
-          &:hover {
+          &:hover,
+          &:active,
+          &:focus {
             i {
               color: $fn-facebook;
             }
@@ -39,7 +41,9 @@ footer {
         }
 
         &.youtube {
-          &:hover {
+          &:hover,
+          &:active,
+          &:focus {
             i {
               color: $fn-youtube;
             }
@@ -47,7 +51,9 @@ footer {
         }
 
         &.twitter {
-          &:hover {
+          &:hover,
+          &:active,
+          &:focus {
             i {
               color: $fn-twitter;
             }
@@ -55,7 +61,9 @@ footer {
         }
 
         &.linkedin {
-          &:hover {
+          &:hover,
+          &:active,
+          &:focus {
             i {
               color: $fn-linkedin;
             }
@@ -63,7 +71,9 @@ footer {
         }
 
         &.tumblr {
-          &:hover {
+          &:hover,
+          &:active,
+          &:focus {
             i {
               color: $fn-tumblr;
             }

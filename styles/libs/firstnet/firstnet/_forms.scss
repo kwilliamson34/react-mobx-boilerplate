@@ -11,8 +11,8 @@
 input[type='text'],
 textarea {
   font-size: $fn-label-desktop;
-  font-weight: $fn-normal-weight;
-  color: $fn-dkgrey;
+  font-weight: $fn-medium-weight;
+  color: $fn-black;
   background: $input-bgcolor;
   border-color: $input-outline;
   box-shadow: none;
@@ -38,7 +38,6 @@ textarea[disabled] {
   background: white;
   border-color: $input-outline-disabled;
   color: $input-outline-disabled;
-
   label {
     color: $input-outline-disabled;
   }
