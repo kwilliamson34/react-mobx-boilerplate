@@ -42,6 +42,8 @@ export default class PSEHeader extends React.Component {
 		});
 
 		window.addEventListener('resize', this.updateWindowDimensions);
+
+		
 	}
 
 	componentWillUnmount() {
@@ -77,6 +79,11 @@ export default class PSEHeader extends React.Component {
 	handleExternalTabOpen = () => {
 		this.headerStore.externalTabOpen();
 		this.toggleContentScrolling();
+	}
+
+	handleDropdownFocus = () => {
+		console.log('dropdown toggle focused out');
+		$('[data-toggle="dropdown"]').parent().removeClass('open');
 	}
 
 	onLogout = event => {
