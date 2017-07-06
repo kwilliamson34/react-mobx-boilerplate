@@ -1,7 +1,7 @@
 {
   "name": "pse-homepage-ui",
   "version": "1.0.0",
-  "description": "FirstNet PSE Homepage",
+  "description": "FirstNet Local Control",
   "main": "index.jsx",
   "scripts": {
     "copyassets": "copyfiles ./images/**/* ./fonts/**/* ./maps/* ./build/",

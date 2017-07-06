@@ -1,37 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
-import { observer, inject } from 'mobx-react';
+import {history} from '../../core/services/history.service';
 import _ from 'lodash';
+import $ from 'jquery';
 
-@inject('store')
-@observer
-class ScrollToTop extends React.Component {
-
+export default class ScrollToTop extends React.Component {
 	static propTypes = {
-		store: PropTypes.object.isRequired,
-		children: PropTypes.node,
-		location: PropTypes.object,
-		onWindowScroll: PropTypes.func
+		children: PropTypes.node
 	};
 
 	constructor(props) {
 		super(props);
 		this.state = {
+			prevLocation: history.location.pathname,
 			body: document.body,
 			html: document.documentElement,
-			documentHeight: null,
-			footerHeight: null,
-			viewportHeight: null,
-			viewportWidth: null,
+			documentHeight: 0,
+			viewportHeight: 0,
+			viewportWidth: 0,
 			showBackToTopBtn: false
 		}
 	}
 
-	componentDidUpdate(prevProps) {
-		if (this.props.location !== prevProps.location) {
-			this.scrollTopFocus();
+	componentDidUpdate() {
+		if (history.location.pathname !== this.state.prevLocation) {
+			this.scrollToTopAndFocus();
 			this.updateWindowDimensions();
+			this.setState({prevLocation: history.location.pathname});
 		}
 	}
 
@@ -46,14 +41,20 @@ class ScrollToTop extends React.Component {
 		window.removeEventListener('resize', this.updateWindowDimensions);
 	}
 
+	/* _.debounce(func, [wait=0], [options={}])
+	* func function to debounce
+	* wait(number) The number of milliseconds to delay.
+	* options Leading and trailing options are true. func is invoked on
+	* the trailing edge of the timeout only if the debounced
+	* function is invoked more than once during the wait timeout.
+	*/
 	updateWindowDimensions = _.debounce(() => {
 		this.setState({
 			documentHeight: this.getDocumentHeight(),
-			footerHeight: document.getElementById('pse-footer').offsetHeight,
 			viewportHeight: window.innerHeight,
 			viewportWidth: window.innerWidth
 		});
-		}, 200, { leading: true, trailing: false });
+	}, 200, { leading: true, trailing: false });
 
 	getDocumentHeight() {
 		return Math.max(
@@ -68,21 +69,22 @@ class ScrollToTop extends React.Component {
 	/* _.debounce(func, [wait=0], [options={}])
 	* func function to debounce
 	* wait(number) The number of milliseconds to delay.
-	* options Leading and trailing options are true, func is invoked on the trailing edge of the timeout only if the debounced function is invoked more than once during the wait timeout.
+	* options Leading option is true. func is invoked on the leading
+	* edge of the timeout only.
 	*/
 	manageBackToTopVisibility = _.debounce(() => {
-		let topPos = this.state.html.scrollTop || this.state.body.scrollTop;
-		if (
-			topPos > this.state.viewportHeight * 2 &&
-			topPos < this.state.documentHeight - this.state.footerHeight - this.state.viewportHeight
-		) {
-			this.setState({ showBackToTopBtn: true});
-		} else {
-			this.setState({ showBackToTopBtn: false});
-		}
+		let topPos = this.state.body.scrollTop || this.state.html.scrollTop;
+		let scrollButtonPos = topPos + this.state.viewportHeight - 28;
+
+		let topIsBelowFold = topPos > (this.state.viewportHeight * 2);
+		let scrollButtonIsAboveFooter = scrollButtonPos < $('footer').offset().top;
+
+		this.setState({
+			showBackToTopBtn: topIsBelowFold && scrollButtonIsAboveFooter
+		});
 	}, 50, { leading: true, trailing: false });
 
-	scrollTopFocus() {
+	scrollToTopAndFocus() {
 		window.scrollTo(0, 0);
 		this.rootAnchor.focus();
 		this.setState({ showBackToTopBtn: false});
@@ -90,37 +92,21 @@ class ScrollToTop extends React.Component {
 
 	handleBackToTopClick = (event) => {
 		event.preventDefault();
-		this.scrollTopFocus();
+		this.scrollToTopAndFocus();
 	};
 
 	render() {
 		return (
 			<div id="PSE-wrapper">
-				<span
-					id="root-anchor"
-					ref={ref => {
-						this.rootAnchor = ref;
-					}}
-					tabIndex="-1"
-					className="sr-only">
+				<span id="root-anchor" ref={ref => this.rootAnchor = ref} className="sr-only" tabIndex="-1">
 					Top of Page
 				</span>
 				{this.props.children}
-				<a
-					id="btn-back-top"
-					href="#root"
-					className={
-						this.state.showBackToTopBtn
-							? 'back-to-top'
-							: 'back-to-top faded'
-					}
-					onClick={this.handleBackToTopClick}>
-					<i aria-hidden="true" className="icon-arrowUp" />
+				<a id="btn-back-top" href="#" className={`back-to-top btn ${!this.state.showBackToTopBtn && 'faded'}`} onClick={this.handleBackToTopClick}>
+					<i aria-hidden="true" className="icon-arrowUp"/>
 					<span className="sr-only">Back to top</span>
 				</a>
 			</div>
 		);
 	}
 }
-
-export default withRouter(ScrollToTop);
