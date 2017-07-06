@@ -43,10 +43,12 @@ export default class ScrollToTop extends React.Component {
 
 	/* _.debounce(func, [wait=0], [options={}])
 	* func function to debounce
-	* wait(number) The number of milliseconds to delay.
-	* options Leading and trailing options are true. func is invoked on
-	* the trailing edge of the timeout only if the debounced
-	* function is invoked more than once during the wait timeout.
+	* wait(number) The number of milliseconds to delay. Time was chosen to be
+	* long enough to prevent constant recalculation, but short enough to
+	* not impede the user.
+	* options Trailing option is true. The function is invoked on
+	* the trailing edge of the timeout to increase the chance that the
+	* event has finished before recalculating.
 	*/
 	updateWindowDimensions = _.debounce(() => {
 		this.setState({
@@ -54,7 +56,7 @@ export default class ScrollToTop extends React.Component {
 			viewportHeight: window.innerHeight,
 			viewportWidth: window.innerWidth
 		});
-	}, 200, { leading: true, trailing: false });
+	}, 200, { leading: false, trailing: true });
 
 	getDocumentHeight() {
 		return Math.max(
@@ -68,8 +70,10 @@ export default class ScrollToTop extends React.Component {
 
 	/* _.debounce(func, [wait=0], [options={}])
 	* func function to debounce
-	* wait(number) The number of milliseconds to delay.
-	* options Leading option is true. func is invoked on the leading
+	* wait(number) The number of milliseconds to delay. Scroll is a common user
+	* event, and recalculation should not wait for the event to finish
+	* (should look continuous).
+	* options Trailing option is true. Function is invoked on the trailing
 	* edge of the timeout only.
 	*/
 	manageBackToTopVisibility = _.debounce(() => {
@@ -82,7 +86,7 @@ export default class ScrollToTop extends React.Component {
 		this.setState({
 			showBackToTopBtn: topIsBelowFold && scrollButtonIsAboveFooter
 		});
-	}, 50, { leading: true, trailing: false });
+	}, 50, { leading: false, trailing: true });
 
 	scrollToTopAndFocus() {
 		window.scrollTo(0, 0);
