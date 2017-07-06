@@ -38,7 +38,6 @@ export default class FeedbackPage extends React.Component {
 
   componentDidUpdate() {
     if (this.feedbackStore.hasBeenSubmitted) {
-      console.log('this.refs.success   ', this.refs.success);
       this.refs.success.children[0].scrollIntoView();
     }
   }
