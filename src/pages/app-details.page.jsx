@@ -44,6 +44,10 @@ export default class AppDetailsPage extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    this.mdmStore.clearAlerts();
+  }
+
   updateCurrentApp() {
     const psk = this.props.match.params.appPsk;
     this.appStore.fetchAppDetailByPsk(psk);
@@ -80,15 +84,17 @@ export default class AppDetailsPage extends React.Component {
     return (
       <article id="app-details-page">
         <BreadcrumbNav links={crumbs}/>
-        <div className="container">
-          <div className="row">
-            <div className="col-xs-12 col-lg-offset-1 col-lg-10">
-              {this.mdmStore.app_alerts &&
-                <MDMAlerts store={this.mdmStore} page="manage_apps"/>
-              }
+        {this.mdmStore.app_alerts.length !== 0 &&
+          <div className=" app-details-alerts">
+            <div className="container">
+              <div className="row">
+                <div className="col-xs-12">
+                    <MDMAlerts store={this.mdmStore} page="manage_apps"/>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        }
         {(this.appStore.currentAppObject && this.appStore.currentAppObject.detailsFetched)
           ? <div>
               <AppDetailBanner data={this.appStore.currentAppObject} appCatalogStore={this.appStore}  mdmIsConfigured={this.mdmStore.pseMDMObject.toJS().mdm_type} pushToMDM={this.mdmStore.pushToMDM.bind(this.mdmStore)} appMDMStatus={this.mdmStore.appMDMStatus.toJS()}/>
