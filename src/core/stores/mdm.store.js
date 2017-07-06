@@ -294,8 +294,8 @@ class MDMStore {
                 message: 'Some or all of the selected apps could not be pushed to MDM.'
             });
         }
-        setTimeout(function(){ success(); }, 3000);
-        // return apiService.pushToMDM(psk).then(success, fail);
+
+        return apiService.pushToMDM(psk).then(success, fail);
     }
 
 

@@ -10,6 +10,7 @@ import ScreenshotGallery from '../components/screenshot-gallery/screenshot-galle
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 import {MDMAlerts} from '../components/configure-mdm/mdm-alerts';
 import Truncate from '../components/truncate/truncate';
+import $ from 'jquery';
 
 @inject('store')
 @observer
@@ -26,6 +27,7 @@ export default class AppDetailsPage extends React.Component {
     this.appStore = this.props.store.appCatalogStore;
     this.mdmStore = this.props.store.mdmStore;
     this.userStore = this.props.store.userStore;
+    this.viewedAlert = false;
   }
 
   componentWillMount() {
@@ -81,6 +83,13 @@ export default class AppDetailsPage extends React.Component {
           : ''
       }
     ];
+
+    if(this.mdmStore.app_alerts.length !== 0 && !this.viewedAlert){
+      setTimeout(() => {
+        $('#mdm-alerts').focus();
+        this.viewedAlert = true;
+      }, 100);
+    }
     return (
       <article id="app-details-page">
         <BreadcrumbNav links={crumbs}/>
