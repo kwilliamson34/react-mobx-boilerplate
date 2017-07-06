@@ -33,9 +33,10 @@ export default class ManageAppsPage extends React.Component {
 	componentWillMount() {
 		if(this.userStore.user.pse === ''){
 			utilsService.handlePendingAuthorizationsMapping();
-		}else{
+		} else{
 			this.mdmStore.getMDMConfiguration();
 			this.cardListStore.fetchCardList();
+			this.cardListStore.fetchCategoriesAndSegments();
 			this.appCatalogStore.fetchAppCatalog();
 			if(!this.props.store.pages[this.pageId]){
 				this.props.store.registerPage(this.pageId);
