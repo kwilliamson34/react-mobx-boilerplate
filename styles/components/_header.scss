@@ -117,9 +117,10 @@ $fn-mobile-item-height: 60px;
 
       i {
         display: inline-block;
-        margin-right: 5px;
+        margin-left: 5px;
         text-decoration: none;
         font-size: 1.4rem;
+        vertical-align: sub;
       }
     }
 
@@ -454,7 +455,7 @@ $fn-mobile-item-height: 60px;
 
         &:focus{
           @include focus();
-          border-radius: 8px;  
+          border-radius: 8px;
         }
 
         &.active {
@@ -548,11 +549,8 @@ $fn-mobile-item-height: 60px;
           }
 
           i {
-            position: absolute;
-            left: -20px;
-            top: 2px;
-            display: none;
-
+            display: inline-block;
+            vertical-align: sub;
             &:before {
               font-size: 1.4rem;
             }
@@ -561,10 +559,6 @@ $fn-mobile-item-height: 60px;
           &:focus,
           &:hover {
             text-decoration: underline;
-
-            i {
-              display: inline-block;
-            }
           }
         }
       }
