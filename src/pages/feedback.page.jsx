@@ -36,6 +36,13 @@ export default class FeedbackPage extends React.Component {
     }
   }
 
+  componentDidUpdate() {
+    if (this.feedbackStore.hasBeenSubmitted) {
+      console.log('this.refs.success   ', this.refs.success);
+      this.refs.success.children[0].scrollIntoView();
+    }
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
     this.feedbackStore.submitForm(e.target);
@@ -115,7 +122,7 @@ export default class FeedbackPage extends React.Component {
   renderSuccessPage = () => {
     return (
       <div>
-        <div id="customer-feedback-success">
+        <div id="customer-feedback-success" ref="success">
           <div className="success-content">
             <h1>Thanks for your feedback!</h1>
             <p>We appreciate you taking the time to provide your thoughts about this site. Your comments will help us to improve our tools going forward.</p>
