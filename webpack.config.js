@@ -54,11 +54,11 @@ module.exports = {
 		publicPath: '/',
 		proxy: {
 			'/api': {
-				target: 'https://pse-qa.sapientfirst.net',
+				target: 'https://pse-internal-qa.sapientfirst.net',
 				secure: false
 			},
 			'/oauth/validate': {
-				target: 'https://pse-qa.sapientfirst.net',
+				target: 'https://pse-internal-qa.sapientfirst.net',
 				secure: false
 			}
 		}

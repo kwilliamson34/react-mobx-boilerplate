@@ -33,9 +33,10 @@ export default class ManageAppsPage extends React.Component {
 	componentWillMount() {
 		if(this.userStore.user.pse === ''){
 			utilsService.handlePendingAuthorizationsMapping();
-		}else{
+		} else {
 			this.mdmStore.getMDMConfiguration();
 			this.cardListStore.fetchCardList();
+			this.cardListStore.fetchCategoriesAndSegments();
 			this.appCatalogStore.fetchAppCatalog();
 			if(!this.props.store.pages[this.pageId]){
 				this.props.store.registerPage(this.pageId);
@@ -108,7 +109,7 @@ export default class ManageAppsPage extends React.Component {
 				<div className="container header">
 					<div className="row">
 						<div className="col-xs-12 col-lg-offset-1 col-lg-10">
-							<h1 className="as-h2">Manage Apps</h1>
+							<h1>Manage Apps</h1>
 							<Link to="/admin/configure-mdm" className="fn-primary">Configure MDM</Link>
 						</div>
 					</div>

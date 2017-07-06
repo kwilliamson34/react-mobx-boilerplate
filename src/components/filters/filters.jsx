@@ -29,13 +29,14 @@ export class Filters extends React.Component {
     this.store.resetFilters();
   }
 
-  renderSelect({id, label, initialValue, changeHandler, optionsArray}) {
+  renderSelect({id, label, initialValue, defaultDisplayName, changeHandler, optionsArray}) {
     const component = (
       <div>
         <label className="control-label" htmlFor={id}>{label}</label>
         <select id={id} ref={ref => this.store.addFilterElementRef(id, ref)} className="form-control" defaultValue={initialValue} onChange={changeHandler}>
+          <option value="">{defaultDisplayName}</option>
           {optionsArray.map((option, index) => {
-            return <option value={option.value} key={index}>{option.title}</option>
+            return <option value={option.name} key={index}>{option.display}</option>
           })}
         </select>
       </div>
@@ -55,6 +56,7 @@ export class Filters extends React.Component {
               {this.renderSelect({
                 id: 'category-filter',
                 label: 'Category',
+                defaultDisplayName: 'All Categories',
                 initialValue: this.store.categoryFilter,
                 changeHandler: this.handleCategoryChange,
                 optionsArray: this.store.categories
@@ -66,6 +68,7 @@ export class Filters extends React.Component {
               {this.renderSelect({
                 id: 'segment-filter',
                 label: 'Branch/Discipline',
+                defaultDisplayName: 'All Branches/Disciplines',
                 initialValue: this.store.segmentFilter,
                 changeHandler: this.handleSegmentChange,
                 optionsArray: this.store.segments
@@ -77,6 +80,7 @@ export class Filters extends React.Component {
               {this.renderSelect({
                 id: 'platform-filter',
                 label: 'Platform',
+                defaultDisplayName: 'All Platforms',
                 initialValue: this.store.platformFilter,
                 changeHandler: this.handlePlatformChange,
                 optionsArray: this.store.platforms
@@ -86,7 +90,7 @@ export class Filters extends React.Component {
         </div>
         <div className="row">
           <div className="col-xs-12 text-right">
-            <button className="btn fn-primary reset-filters-button" onClick={this.resetFilters}>Reset Filters</button>
+            <button className="reset-filters-button" onClick={this.resetFilters}>Reset Filters</button>
           </div>
         </div>
       </section>

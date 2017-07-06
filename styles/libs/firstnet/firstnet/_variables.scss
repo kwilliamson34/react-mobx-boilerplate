@@ -1,6 +1,7 @@
 //global colors
 $fn-ltblue: #1071BC;
 $fn-blue: #18477E;
+$fn-dkblue: #05123b;
 $fn-red: #CB4027;
 $fn-ltorange: #F1A694;
 $fn-orange: #E34B25;
@@ -25,9 +26,6 @@ $input-outline-disabled: #d8d8d8 !default;
 //tables
 $table-header-bg: black !default;
 
-//button colors
-$primary-button-color: $fn-ltblue !default;
-
 //link colors
 $active-link-color: $fn-ltblue !default;
 $inactive-link-color: $fn-blue !default;
@@ -45,22 +43,40 @@ $fn-youtube: #bb0000 !default;
 $fn-linkedin: #007bb6 !default;
 
 //font size
-$fn-h1-default-size: 4.8rem !default; //48px
-$fn-h2-default-size: 4rem !default; //40px
-$fn-h3-default-size: 2.8rem !default; //28px
-$fn-h4-default-size: 2rem !default; //20px
-$fn-intro-default-size: 2rem !default; //20px
-$fn-body-default-size: 1.8rem !default; //18px
-$fn-landing-body-default-size: 1.6rem !default; //16px
-$fn-label-default-size: 1.4rem !default; //14px
-$fn-button-default-size: 1.4rem !default; //14px
-$fn-small-text-default-size: 1.2rem !default; //12px
+$fn-h1-desktop: 4.8rem !default; //48px
+$fn-h2-desktop: 3.6rem !default; //40px
+$fn-h3-desktop: 2.8rem !default; //28px
+$fn-h4-desktop: 2rem !default; //20px
+$fn-intro-desktop: 2rem !default; //20px
+$fn-content-page-text-desktop: 1.8rem !default; //18px
+$fn-landing-page-text-desktop: 1.6rem !default; //16px
+$fn-small-text-desktop: 1.2rem !default; //12px
+$fn-label-desktop: 1.4rem !default; //14px
+$fn-button-desktop: 1.4rem !default; //14px
+
+$fn-h1-mobile: 3.6rem !default;
+$fn-h2-mobile: 3rem !default;
+$fn-h3-mobile: 2.4rem !default;
+$fn-h4-mobile: 1.8rem !default;
+$fn-intro-mobile: 1.8rem !default;
+$fn-content-page-text-mobile: 1.8rem !default;
+$fn-landing-page-text-mobile: 1.6rem !default;
+$fn-caption-text-mobile: 1.2rem !default;
 
 //font weight
 $fn-bold-weight: 700 !default;
 $fn-medium-weight: 500 !default;
 $fn-normal-weight: 400 !default;
 $fn-light-weight: 300 !default;
+
+//breakpoint definitions
+$device: "screen and (max-width: #{$screen-sm-max})";
+$desktop: "screen and (min-width: #{$screen-sm-max})";
+$mobile:  "screen and (max-width: #{$screen-xs-max})";
+$tablet:  "screen and (min-width: #{$screen-sm-min}) and (max-width: #{$screen-sm-max})";
+$normal:  "screen and (min-width: #{$screen-md-min}) and (max-width: #{$screen-md-max})";
+$wide:    "screen and (min-width: #{$screen-lg-min})";
+
 
 //cards
 $fn-card-height-tall: 600px !default;

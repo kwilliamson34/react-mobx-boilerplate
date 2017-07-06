@@ -8,6 +8,12 @@
     display: block;
     width: 100%;
     text-align: center;
+
+    &:focus{
+      @include focus();
+      padding: 5px;
+      border-radius: 8px;
+    }
   }
 
   img {

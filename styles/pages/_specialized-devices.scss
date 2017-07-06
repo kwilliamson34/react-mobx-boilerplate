@@ -63,7 +63,7 @@
           li {
             margin-bottom: 1.6rem;
             line-height: 1.6;
-            font-size: $fn-body-default-size;
+            font-size: $fn-content-page-text-desktop;
           }
         }
       }
@@ -78,7 +78,7 @@
     .terms-block {
       padding: 50px 0 100px;
       background: $fn-ltbluegrey;
-      font-size: $fn-small-text-default-size;
+      font-size: $fn-small-text-desktop;
 
       ol {
         list-style: decimal;

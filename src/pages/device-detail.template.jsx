@@ -52,7 +52,7 @@ export default class DeviceDetailTemplate extends React.Component {
 				<BreadcrumbNav links={crumbs} />
 				<div className="container detail-block">
 					<div className="row">
-					<div className="col-xs-10 col-xs-offset-1 text-center visible-xs-block "><h1 className="as-h2">{this.externalLinkStore.currentDeviceDetail.deviceName}</h1></div>
+					<div className="col-xs-10 col-xs-offset-1 text-center visible-xs-block "><h1>{this.externalLinkStore.currentDeviceDetail.deviceName}</h1></div>
 					</div>
 					<div className="row is-flex">
 						<div className="col-xs-10 col-xs-offset-1 col-sm-offset-1 col-sm-4 col-md-offset-1 col-md-4 col-lg-offset-1 col-lg-3">
