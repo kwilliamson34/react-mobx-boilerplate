@@ -107,9 +107,11 @@ export default class ManageAppsPage extends React.Component {
 				<BreadcrumbNav links={crumbs}/>
 				<div className="container header">
 					<div className="row">
-						<div className="col-xs-12 col-lg-offset-1 col-lg-10">
+						<div className="configure-mdm-container col-xs-12 col-lg-offset-1 col-lg-10">
+							<div className="configure-mdm-wrapper">
+								<Link to="/admin/configure-mdm" className=" configure-mdm-btn fn-primary">Configure MDM</Link>
+							</div>
 							<h1>Manage Apps</h1>
-							<Link to="/admin/configure-mdm" className="fn-primary">Configure MDM</Link>
 						</div>
 					</div>
 				</div>

@@ -56,11 +56,18 @@
     .break-mdm-wrapper {
       border-bottom: 1px solid $fn-grey;
       padding: 0;
-    }
-
-    .break-mdm-btn {
-      border: 0;
-      padding: 0;
+      .break-mdm-btn {
+        background: $fn-white;
+        color: $fn-ltblue;
+        border: 0;
+        &.hover,
+        &:hover,
+        &.active,
+        &:active,
+        &:active:focus  {
+          box-shadow: none;
+        }
+      }
     }
   }
 }
