@@ -8,6 +8,7 @@ import RatingsChart from '../components/ratings-chart/ratings-chart';
 import AppReviews from '../components/app-reviews/app-reviews';
 import ScreenshotGallery from '../components/screenshot-gallery/screenshot-gallery';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
+import {MDMAlerts} from '../components/configure-mdm/mdm-alerts';
 import Truncate from '../components/truncate/truncate';
 
 @inject('store')
@@ -30,7 +31,8 @@ export default class AppDetailsPage extends React.Component {
   componentWillMount() {
     if (this.userStore.user.pse === '') {
       utilsService.handlePendingAuthorizationsMapping();
-    }else{
+    } else {
+      this.mdmStore.clearAlerts();
       this.mdmStore.getMDMConfiguration();
       if (this.appStore.allApps.length) {
         this.updateCurrentApp();
@@ -78,6 +80,15 @@ export default class AppDetailsPage extends React.Component {
     return (
       <article id="app-details-page">
         <BreadcrumbNav links={crumbs}/>
+        <div className="container">
+          <div className="row">
+            <div className="col-xs-12 col-lg-offset-1 col-lg-10">
+              {this.mdmStore.app_alerts &&
+                <MDMAlerts store={this.mdmStore} page="manage_apps"/>
+              }
+            </div>
+          </div>
+        </div>
         {(this.appStore.currentAppObject && this.appStore.currentAppObject.detailsFetched)
           ? <div>
               <AppDetailBanner data={this.appStore.currentAppObject} appCatalogStore={this.appStore}  mdmIsConfigured={this.mdmStore.pseMDMObject.toJS().mdm_type} pushToMDM={this.mdmStore.pushToMDM.bind(this.mdmStore)} appMDMStatus={this.mdmStore.appMDMStatus.toJS()}/>
