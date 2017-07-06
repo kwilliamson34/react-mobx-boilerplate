@@ -24,31 +24,20 @@ export default class AppReviews extends React.Component {
     this.loadReviews();
   }
 
-  constructor() {
-    super();
-    this.loadReviews = this.loadReviews.bind(this);
-    this.loadMoreButton = this.loadMoreButton.bind(this);
-    this.renderReviews = this.renderReviews.bind(this);
-  }
-
   paginationCount = 0;
   showLoadMoreButton = false;
-
   @observable loadedReviewsArray = [];
 
-  loadReviews() {
+  loadReviews = () => {
     let endingIndex = (this.paginationCount * this.props.numberOfReviewsToLoad) + this.props.numberOfReviewsToLoad;
     this.loadedReviewsArray = this.props.reviews.slice(0, endingIndex);
     this.showLoadMoreButton = this.loadedReviewsArray < this.props.reviews;
     this.paginationCount++;
   }
 
-  renderReviews(reviews) {
-
+  renderReviews = (reviews) => {
     return reviews.map((node, i) => {
-
       let authorName = `${node.userFirstName} ${node.userLastName}`;
-      
       return (
         <div key={i} className='individual-review-container' aria-labelledby={'Review-' + node.reviewId}>
           <div className='review-metadata'>
@@ -68,23 +57,14 @@ export default class AppReviews extends React.Component {
     })
   }
 
-  loadMoreButton() {
+  render() {
     return (
-      <button className='btn fn-primary' onClick={ this.loadReviews }>
-        Load More
-      </button>
+      <div className='reviews-container'>
+        {this.renderReviews(this.loadedReviewsArray)}
+        {this.showLoadMoreButton && <button className='btn fn-primary' onClick={this.loadReviews}>
+          Load More
+        </button>}
+      </div>
     )
   }
-
-
-  render() {
-
-  return (
-    <div className='reviews-container'>
-      {this.renderReviews(this.loadedReviewsArray)}
-      {this.showLoadMoreButton && this.loadMoreButton()}
-    </div>
-  )
-
- }
 }
