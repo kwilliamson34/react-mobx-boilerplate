@@ -2,8 +2,9 @@
   cursor: pointer;
 
   a {
+    &:focus,
     &:hover {
-      text-decoration: none;
+      color: $fn-dkgrey;
     }
   }
 }
