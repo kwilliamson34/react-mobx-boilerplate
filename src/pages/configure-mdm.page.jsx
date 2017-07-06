@@ -207,10 +207,16 @@ export default class ConfigureMDM extends React.Component {
 		return (
 			<article id="configure-mdm-page">
         <BreadcrumbNav links={crumbs}/>
+        {this.isConfigured &&
+          <div className="break-mdm-wrapper col-xs-12">
+            <div className="container">
+              <button onClick={this.togglebreakMDMConnection} className="break-mdm-btn fn-primary" aria-labelledby="break-mdm-connection" aria-disabled={!this.isConfigured}>Break Connection</button>
+            </div>
+          </div>
+        }
         <div className="mdm-form-wrapper container">
-            {this.isConfigured && <button onClick={this.togglebreakMDMConnection} className= "break-mdm-btn fn-primary" aria-labelledby="break-mdm-connection" aria-disabled={!this.isConfigured}>Break Connection</button>}
             <div className="col-xs-12 text-center">
-                <h1>Configure Mobile Device Management (MDM)</h1>
+                <h1>Configure <span className="hidden-xs">Mobile Device Management (</span>MDM<span className="hidden-xs">)</span></h1>
             </div>
 
             <div className="row no-gutters">
