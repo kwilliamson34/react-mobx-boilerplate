@@ -30,6 +30,9 @@ export default class PSEHeader extends React.Component {
 
 	handleRouteChange() {
 		this.closeMainMenu();
+		if(window.innerWidth >= 768){
+			this.headerStore.closeAdminSubMenu();
+		}
 	}
 
 	componentDidMount() {
