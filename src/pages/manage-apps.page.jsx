@@ -46,8 +46,7 @@ export default class ManageAppsPage extends React.Component {
 
 	handleLoadMoreClick = () => {
 		this.props.store.changePage(this.pageId);
-		// $('#card-list-load-more-btn').blur();
-		$('#card-list-load-more-btn').trigger('touchend');
+		$('#card-list-load-more-btn').blur();
 		this.cardListStore.setIdToFocus((this.props.store.pages[this.pageId] - 1) * this.itemsPerPage);
 	}
 

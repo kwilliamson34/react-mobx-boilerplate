@@ -44,7 +44,7 @@ class ExternalLinkStore {
 
   @action fetchDeviceDetails(devicePath) {
     return this.allSpecializedDevices.filter((device) => {
-      let _devicePath = encodeURIComponent(device.device_title).replace(/%20/g, '+');
+      let _devicePath = device.device_title.replace(/&\w{2,5};/g, '').replace(/[^A-Z\s\d]/ig, '').replace(/ /g, '+').toLowerCase();
       return  _devicePath === devicePath;
     })
   }

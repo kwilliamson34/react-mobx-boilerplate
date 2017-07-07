@@ -88,7 +88,7 @@ export default class DeviceCategoryTemplate extends React.Component {
 						<div className="col-xs-offset-2 col-xs-8 col-sm-12 col-sm-offset-0 col-md-offset-1 col-md-10">
 							<ul className="mp-content left">
 								{this.externalLinkStore.currentDeviceCategoryData.items && this.devicesToLoad.map((item, idx) => {
-									let itemRoute = encodeURIComponent(item.device_title).replace(/%20/g, '+');
+									let itemRoute = item.device_title.replace(/&\w{2,5};/g, '').replace(/[^A-Z\s\d]/ig, '').replace(/ /g, '+').toLowerCase();
 									return (
 										<li key={idx}>
 											<Link to={`/admin/devices/${item.device_category.toLowerCase()}/${itemRoute}`}>
