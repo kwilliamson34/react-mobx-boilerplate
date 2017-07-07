@@ -1,11 +1,13 @@
 import React from 'react';
-import {observer, PropTypes} from 'mobx-react';
+import PropTypes from 'prop-types';
+import {observer} from 'mobx-react';
 
 @observer
 export class Filters extends React.Component {
 
   static propTypes = {
-    store: PropTypes.observableObject.isRequired
+    store: PropTypes.object.isRequired,
+    resetPagination: PropTypes.func
   }
 
   constructor(props) {
@@ -27,6 +29,7 @@ export class Filters extends React.Component {
 
   resetFilters = () => {
     this.store.resetFilters();
+    this.props.resetPagination();
   }
 
   renderSelect({id, label, initialValue, defaultDisplayName, changeHandler, optionsArray}) {
