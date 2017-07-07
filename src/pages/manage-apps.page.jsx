@@ -140,10 +140,7 @@ export default class ManageAppsPage extends React.Component {
 									resetPagination={this.resetPagination}
 									store={this.cardListStore} />
 								<hr/>
-								<Filters
-									ref={ref => this.filterForm = ref}
-									resetPagination={this.resetPagination}
-									store={this.cardListStore} />
+								<Filters ref={ref => this.filterForm = ref} store={this.cardListStore} />
 							</div>
 						</div>
 					</div>

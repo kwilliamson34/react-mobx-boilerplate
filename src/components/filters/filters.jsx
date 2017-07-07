@@ -1,13 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import {observer} from 'mobx-react';
+import {observer, PropTypes} from 'mobx-react';
 
 @observer
 export class Filters extends React.Component {
 
   static propTypes = {
-    store: PropTypes.object.isRequired,
-    resetPagination: PropTypes.func
+    store: PropTypes.observableObject.isRequired
   }
 
   constructor(props) {
@@ -17,22 +15,18 @@ export class Filters extends React.Component {
 
   handleCategoryChange = (event) => {
     this.store.changeCategoryFilter(event.target.value);
-    this.props.resetPagination();
   }
 
   handleSegmentChange = (event) => {
     this.store.changeSegmentFilter(event.target.value);
-    this.props.resetPagination();
   }
 
   handlePlatformChange = (event) => {
     this.store.changePlatformFilter(event.target.value);
-    this.props.resetPagination();
   }
 
   resetFilters = () => {
     this.store.resetFilters();
-    this.props.resetPagination();
   }
 
   renderSelect({id, label, initialValue, defaultDisplayName, changeHandler, optionsArray}) {
