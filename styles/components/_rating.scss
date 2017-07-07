@@ -1,0 +1,21 @@
+.ratings-container {
+  margin: 0 15px 0 0;
+  font-size: 1.4rem;
+  color: $fn-dkgrey;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+
+  .ratings-stars {
+    .ratings-star {
+      font-size: 1.8rem;
+      line-height: 20px;
+      color: $fn-mdgrey;
+
+      &:before,
+      &:after {
+        vertical-align: middle;
+      }
+    }
+  }
+}

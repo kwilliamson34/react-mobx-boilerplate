@@ -101,6 +101,10 @@ class CardListStore {
 		this.idToFocus = targetId;
 	}
 
+	@action resetIdToFocus() {
+		this.idToFocus = null;
+	}
+
 	//COMPUTEDS
 	@computed get recommendedCards() {
 		return this.searchResults.filter((app) => {

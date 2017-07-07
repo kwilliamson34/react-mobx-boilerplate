@@ -77,6 +77,14 @@ class HeaderStore {
 		this.closeSubMenus();
 	}
 
+	@action updateViewportDimensions() {
+		this.viewportWidth = window.innerWidth;
+		this.viewportHeight = window.innerHeight;
+	}
+
+	@observable viewportWidth = window.innerWidth;
+	@observable viewportHeight = window.innerHeight;
+	
 	@observable ATTSupportPhone = config.attCustomerSupportPhone || '800-574-7000';
 	@observable mainMenuIsOpen = false;
 	@observable footerSitemapExpanded = false;

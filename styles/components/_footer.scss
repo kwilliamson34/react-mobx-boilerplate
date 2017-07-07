@@ -176,6 +176,7 @@ footer {
 
     + .sitemap-links {
       max-height: 0;
+      visibility: hidden;
     }
   }
   //sitemap expanded
@@ -185,6 +186,7 @@ footer {
     }
 
     + .sitemap-links {
+      visibility: visible;
       max-height: 700px;
     }
   }
