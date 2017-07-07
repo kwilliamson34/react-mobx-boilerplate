@@ -17,6 +17,7 @@ export default class FeedbackPage extends React.Component {
     super(props);
     this.userStore = this.props.store.userStore;
     this.feedbackStore = this.props.store.feedbackStore;
+    this.headerStore = this.props.store.headerStore;
   }
 
   componentWillMount() {
@@ -32,6 +33,12 @@ export default class FeedbackPage extends React.Component {
     }
     if (!this.feedbackStore.formHasEntries && !this.feedbackStore.formIsValid) {
       this.feedbackStore.clearFeedbackForm();
+    }
+  }
+
+  componentDidUpdate() {
+    if (this.feedbackStore.hasBeenSubmitted) {
+      this.refs.success.children[0].scrollIntoView();
     }
   }
 
@@ -70,6 +77,7 @@ export default class FeedbackPage extends React.Component {
   }
 
   showModal = (shouldShow, modalID) => {
+    this.headerStore.closeAdminSubMenu();
     if (shouldShow) {
       $(modalID).modal({backdrop:'static'});
     } else {
@@ -114,7 +122,7 @@ export default class FeedbackPage extends React.Component {
   renderSuccessPage = () => {
     return (
       <div>
-        <div id="customer-feedback-success">
+        <div id="customer-feedback-success" ref="success">
           <div className="success-content">
             <h1>Thanks for your feedback!</h1>
             <p>We appreciate you taking the time to provide your thoughts about this site. Your comments will help us to improve our tools going forward.</p>
