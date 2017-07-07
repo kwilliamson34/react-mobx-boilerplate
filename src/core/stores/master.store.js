@@ -45,6 +45,10 @@ class PSEStore {
 		this.pages[id]++;
 	}
 
+	@action resetPage(id) {
+		this.pages[id] = 1;
+	}
+
 	// COMPUTEDS
 	@computed get lastNameAdded() {
 		return this.names[this.names.length - 1];
