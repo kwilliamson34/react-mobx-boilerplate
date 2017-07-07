@@ -26,7 +26,7 @@ export default class ManageAppsPage extends React.Component {
 		this.mdmStore = this.props.store.mdmStore;
 		this.userStore = this.props.store.userStore;
 		this.pageId = 'manageAppsPage';
-		this.itemsPerPage = 4;
+		this.itemsPerPage = 20;
 		this.viewedAlert = false;
 	}
 
