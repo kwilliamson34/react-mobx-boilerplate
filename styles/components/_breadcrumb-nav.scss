@@ -1,5 +1,4 @@
 nav.breadcrumb-nav {
-  border-bottom: 1px solid $fn-grey;
 
   ol {
     display: flex;
@@ -45,6 +44,7 @@ nav.breadcrumb-nav {
 }
 @media #{$tablet} {
   nav.breadcrumb-nav {
+    border-bottom: 1px solid $fn-grey;
     .container {
       width: 100%;
     }

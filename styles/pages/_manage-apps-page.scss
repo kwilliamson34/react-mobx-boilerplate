@@ -8,9 +8,11 @@
       display: inline-block;
     }
 
-    a {
+
+    .configure-mdm-wrapper {
       float: right;
     }
+
   }
 
   .manage-apps-form {
@@ -152,16 +154,56 @@
 
 @media #{$mobile} {
   #manage-apps-page {
-    .ghost-container{
-      display:block;
+    .header {
+      padding-top: 0;
+      .configure-mdm-container {
+        padding-top: 65px;
+        .configure-mdm-wrapper {
+          width: 100%;
+          border-bottom: 1px solid $fn-grey;
+          text-align: right;
+          position: absolute;
+          left: 0;
+          top: 0;
+          .configure-mdm-btn {
+            background: transparent;
+            color: $fn-ltblue;
+            border-color: transparent;
+            padding: 0 15px;
+            margin: 0 15px;
+            &.hover,
+            &:hover {
+              color: $fn-dkgrey;
+              font-weight: 700;
+              text-decoration: underline;
+              box-shadow: none;
+            }
+            &:focus,
+            &.focus {
+               box-shadow: 1px 1px 0 0 #1071BC, 1px -1px 0 0 #1071BC, -1px 1px 0 0 #1071BC, -1px -1px 0 0 #1071BC;
+               border-radius: 8px;
+               outline: none;
+           }
+            &.active,
+            &:active,
+            &:active:focus {
+              box-shadow: none!important;
+            }
+          }
+        }
+      }
+    }
+    .ghost-container {
+      display: block;
       width: 100%;
       padding: 0 20px;
-      .app-ghost{
+      .app-ghost {
         width: 100%;
       }
     }
   }
 }
+
 
 @media #{$tablet} {
   #manage-apps-page {
