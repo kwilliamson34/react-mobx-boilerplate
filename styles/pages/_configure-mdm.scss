@@ -60,6 +60,8 @@
         background: transparent;
         color: $fn-ltblue;
         border-color: transparent;
+        padding: 0 15px;
+        margin: 0 15px;
         &.hover,
         &:hover {
           color: $fn-dkgrey;
@@ -67,10 +69,16 @@
           text-decoration: underline;
           box-shadow: none;
         }
+        &:focus,
+        &.focus {
+           box-shadow: 1px 1px 0 0 #1071BC, 1px -1px 0 0 #1071BC, -1px 1px 0 0 #1071BC, -1px -1px 0 0 #1071BC;
+           border-radius: 8px;
+           outline: none;
+       }
         &.active,
         &:active,
         &:active:focus {
-          box-shadow: none;
+          box-shadow: none!important;
         }
       }
     }
