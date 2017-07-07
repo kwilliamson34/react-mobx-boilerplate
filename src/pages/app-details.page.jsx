@@ -10,6 +10,7 @@ import ScreenshotGallery from '../components/screenshot-gallery/screenshot-galle
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 import {MDMAlerts} from '../components/configure-mdm/mdm-alerts';
 import Truncate from '../components/truncate/truncate';
+import NewTabLink from '../components/link/new-tab-link';
 import $ from 'jquery';
 
 @inject('store')
@@ -84,7 +85,7 @@ export default class AppDetailsPage extends React.Component {
       }
     ];
 
-    if(this.mdmStore.app_alerts.length !== 0 && !this.viewedAlert){
+    if (this.mdmStore.app_alerts.length !== 0 && !this.viewedAlert) {
       setTimeout(() => {
         $('#mdm-alerts').focus();
         this.viewedAlert = true;
@@ -148,10 +149,9 @@ export default class AppDetailsPage extends React.Component {
                         __html: this.appStore.currentAppObject.custom_metadata.developer_description
                       }}></p>
                       <div className="developer-website">
-                        <a href={'http://' + this.appStore.currentAppObject.custom_metadata.developer_website} className="fn-primary" target="_blank" rel="noopener noreferrer">
+                        <NewTabLink to={'http://' + this.appStore.currentAppObject.custom_metadata.developer_website} className="fn-primary" showIcon={true}>
                           Visit Developer Website
-                          <i className="icon-external-site" aria-hidden="true"></i>
-                        </a>
+                        </NewTabLink>
                       </div>
                     </div>
                   </div>

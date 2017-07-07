@@ -6,6 +6,7 @@ export default class NewTabLink extends React.Component {
     to: PropTypes.string.isRequired,
     className: PropTypes.string,
     children: PropTypes.node,
+    showIcon: PropTypes.bool,
     onClick: PropTypes.func
   }
 
@@ -17,6 +18,8 @@ export default class NewTabLink extends React.Component {
         rel="noopener noreferrer"
         className={`new-tab-link ${this.props.className}`}>
         {this.props.children}
+        <span className="sr-only">&hellip;Link will open in a new browser tab.</span>
+        {this.props.showIcon && <i className="icon-external-site" aria-hidden="true" />}
       </a>
     )
   }
