@@ -59,6 +59,11 @@ class UtilsService {
     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
   }
 
+  getDevicesAndSolutionsUrl(string) {
+    //removes HTML code entities and any special characters, before replacing spaces with plus symbol;
+    return string.replace(/&\w{2,5}; ?/g, '').replace(/[^A-Z\s\d] ?/ig, '').replace(/ /g, '+').toLowerCase();
+  }
+
   handleError(err) {
     switch (err.response.status) {
       case 401:

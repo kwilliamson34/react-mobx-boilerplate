@@ -30,6 +30,10 @@
       .showAll {
         margin-top: 30px;
       }
+
+      h3 {
+        font-size: $fn-label-desktop;
+      }
     }
   }
 
@@ -39,6 +43,10 @@
 
     h1 {
       text-transform: capitalize;
+    }
+
+    h3 {
+      font-size: $fn-label-desktop;
     }
   }
 

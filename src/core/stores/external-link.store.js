@@ -44,7 +44,7 @@ class ExternalLinkStore {
 
   @action fetchDeviceDetails(devicePath) {
     return this.allSpecializedDevices.filter((device) => {
-      let _devicePath = device.device_title.replace(/&\w{2,5};/g, '').replace(/[^A-Z\s\d]/ig, '').replace(/ /g, '+').toLowerCase();
+      let _devicePath = utilsService.getDevicesAndSolutionsUrl(device.device_title);
       return  _devicePath === devicePath;
     })
   }
@@ -93,7 +93,7 @@ class ExternalLinkStore {
 
   @action fetchSolutionDetails(solutionPath) {
     return this.allSolutionDetails.filter((solution) => {
-      return solutionPath.replace(/\+/g, ' ') === solution.promo_title.replace(/&\w{2,5};/g, '').replace(/[^A-Z\s\d]/ig, '').toLowerCase();
+      return solutionPath === utilsService.getDevicesAndSolutionsUrl(solution.promo_title);
     })
   }
 
