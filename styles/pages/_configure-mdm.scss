@@ -57,14 +57,19 @@
       border-bottom: 1px solid $fn-grey;
       padding: 0;
       .break-mdm-btn {
-        background: $fn-white;
+        background: transparent;
         color: $fn-ltblue;
-        border: 0;
+        border-color: transparent;
         &.hover,
-        &:hover,
+        &:hover {
+          color: $fn-dkgrey;
+          font-weight: 700;
+          text-decoration: underline;
+          box-shadow: none;
+        }
         &.active,
         &:active,
-        &:active:focus  {
+        &:active:focus {
           box-shadow: none;
         }
       }

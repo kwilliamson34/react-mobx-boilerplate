@@ -154,44 +154,48 @@
 
 @media #{$mobile} {
   #manage-apps-page {
-
     .header {
-      padding-top:0;
+      padding-top: 0;
       .configure-mdm-container {
         padding-top: 65px;
         .configure-mdm-wrapper {
-            width:100%;
-            border-bottom: 1px solid $fn-grey;
-            text-align: right;
-            position:absolute;
-            left:0;
-            top:0;
-              .configure-mdm-btn {
-                background: $fn-white;
-                color: $fn-ltblue;
-                border: 0;
-                &.hover,
-                &:hover,
-                &.active,
-                &:active,
-                &:active:focus  {
-                  box-shadow: none;
-                }
-              }
-        }      
+          width: 100%;
+          border-bottom: 1px solid $fn-grey;
+          text-align: right;
+          position: absolute;
+          left: 0;
+          top: 0;
+          .configure-mdm-btn {
+            background: transparent;
+            color: $fn-ltblue;
+            border-color: transparent;
+            &.hover,
+            &:hover {
+              color: $fn-dkgrey;
+              font-weight: 700;
+              text-decoration: underline;
+              box-shadow: none;
+            }
+            &.active,
+            &:active,
+            &:active:focus {
+              box-shadow: none;
+            }
+          }
+        }
       }
     }
-
-    .ghost-container{
-      display:block;
+    .ghost-container {
+      display: block;
       width: 100%;
       padding: 0 20px;
-      .app-ghost{
+      .app-ghost {
         width: 100%;
       }
     }
   }
 }
+
 
 @media #{$tablet} {
   #manage-apps-page {
