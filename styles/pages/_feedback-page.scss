@@ -36,8 +36,9 @@
     &.disabled {
       background: $fn-grey;
       color: $fn-mdgrey;
-      border: none;
+      border-color: $fn-grey;
       cursor: auto;
+      pointer-events: auto;
     }
   }
 
