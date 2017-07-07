@@ -4,6 +4,7 @@ import {Filters} from '../filters';
 
 describe('<Filters />', () => {
   let props = {
+    resetPagination: jest.fn(),
     store: {
       searchQuery: '',
       resetFilters: jest.fn(),

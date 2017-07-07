@@ -103,7 +103,6 @@ describe('<AppManagementBlock />', () => {
       //trigger the action
       const idToFind = 'Available-' + props.psk;
       const checkbox = TestUtils.findAllInRenderedTree(memoryRouterComponent, (inst) => {
-        console.log(ReactDOM.findDOMNode(inst).getAttribute('checked'));
         return ReactDOM.findDOMNode(inst).getAttribute('id') == idToFind;
       })[0];
 

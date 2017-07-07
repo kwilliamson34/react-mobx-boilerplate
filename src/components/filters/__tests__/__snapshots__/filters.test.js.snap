@@ -24,7 +24,12 @@ exports[`<Filters /> matches previous snapshot 1`] = `
             className="form-control"
             defaultValue={undefined}
             id="category-filter"
-            onChange={[Function anonymous]} />
+            onChange={[Function anonymous]}>
+            <option
+              value="">
+              All Categories
+            </option>
+          </select>
         </div>
       </div>
     </div>
@@ -42,7 +47,12 @@ exports[`<Filters /> matches previous snapshot 1`] = `
             className="form-control"
             defaultValue={undefined}
             id="segment-filter"
-            onChange={[Function anonymous]} />
+            onChange={[Function anonymous]}>
+            <option
+              value="">
+              All Branches/Disciplines
+            </option>
+          </select>
         </div>
       </div>
     </div>
@@ -60,7 +70,12 @@ exports[`<Filters /> matches previous snapshot 1`] = `
             className="form-control"
             defaultValue={undefined}
             id="platform-filter"
-            onChange={[Function anonymous]} />
+            onChange={[Function anonymous]}>
+            <option
+              value="">
+              All Platforms
+            </option>
+          </select>
         </div>
       </div>
     </div>
@@ -70,7 +85,7 @@ exports[`<Filters /> matches previous snapshot 1`] = `
     <div
       className="col-xs-12 text-right">
       <button
-        className="btn fn-primary reset-filters-button"
+        className="reset-filters-button"
         onClick={[Function anonymous]}>
         Reset Filters
       </button>
@@ -107,13 +122,13 @@ exports[`<Filters /> matches previous snapshot 2`] = `
             id="category-filter"
             onChange={[Function anonymous]}>
             <option
-              value="value1">
-              title1
+              value="">
+              All Categories
             </option>
             <option
-              value="value2">
-              title2
-            </option>
+              value={undefined} />
+            <option
+              value={undefined} />
           </select>
         </div>
       </div>
@@ -132,7 +147,12 @@ exports[`<Filters /> matches previous snapshot 2`] = `
             className="form-control"
             defaultValue={undefined}
             id="segment-filter"
-            onChange={[Function anonymous]} />
+            onChange={[Function anonymous]}>
+            <option
+              value="">
+              All Branches/Disciplines
+            </option>
+          </select>
         </div>
       </div>
     </div>
@@ -150,7 +170,12 @@ exports[`<Filters /> matches previous snapshot 2`] = `
             className="form-control"
             defaultValue={undefined}
             id="platform-filter"
-            onChange={[Function anonymous]} />
+            onChange={[Function anonymous]}>
+            <option
+              value="">
+              All Platforms
+            </option>
+          </select>
         </div>
       </div>
     </div>
@@ -160,7 +185,7 @@ exports[`<Filters /> matches previous snapshot 2`] = `
     <div
       className="col-xs-12 text-right">
       <button
-        className="btn fn-primary reset-filters-button"
+        className="reset-filters-button"
         onClick={[Function anonymous]}>
         Reset Filters
       </button>
@@ -197,13 +222,13 @@ exports[`<Filters /> matches previous snapshot 3`] = `
             id="category-filter"
             onChange={[Function anonymous]}>
             <option
-              value="value1">
-              title1
+              value="">
+              All Categories
             </option>
             <option
-              value="value2">
-              title2
-            </option>
+              value={undefined} />
+            <option
+              value={undefined} />
           </select>
         </div>
       </div>
@@ -224,13 +249,13 @@ exports[`<Filters /> matches previous snapshot 3`] = `
             id="segment-filter"
             onChange={[Function anonymous]}>
             <option
-              value="value1">
-              title1
+              value="">
+              All Branches/Disciplines
             </option>
             <option
-              value="value2">
-              title2
-            </option>
+              value={undefined} />
+            <option
+              value={undefined} />
           </select>
         </div>
       </div>
@@ -249,7 +274,12 @@ exports[`<Filters /> matches previous snapshot 3`] = `
             className="form-control"
             defaultValue={undefined}
             id="platform-filter"
-            onChange={[Function anonymous]} />
+            onChange={[Function anonymous]}>
+            <option
+              value="">
+              All Platforms
+            </option>
+          </select>
         </div>
       </div>
     </div>
@@ -259,7 +289,7 @@ exports[`<Filters /> matches previous snapshot 3`] = `
     <div
       className="col-xs-12 text-right">
       <button
-        className="btn fn-primary reset-filters-button"
+        className="reset-filters-button"
         onClick={[Function anonymous]}>
         Reset Filters
       </button>
@@ -296,13 +326,13 @@ exports[`<Filters /> matches previous snapshot 4`] = `
             id="category-filter"
             onChange={[Function anonymous]}>
             <option
-              value="value1">
-              title1
+              value="">
+              All Categories
             </option>
             <option
-              value="value2">
-              title2
-            </option>
+              value={undefined} />
+            <option
+              value={undefined} />
           </select>
         </div>
       </div>
@@ -323,13 +353,13 @@ exports[`<Filters /> matches previous snapshot 4`] = `
             id="segment-filter"
             onChange={[Function anonymous]}>
             <option
-              value="value1">
-              title1
+              value="">
+              All Branches/Disciplines
             </option>
             <option
-              value="value2">
-              title2
-            </option>
+              value={undefined} />
+            <option
+              value={undefined} />
           </select>
         </div>
       </div>
@@ -350,13 +380,13 @@ exports[`<Filters /> matches previous snapshot 4`] = `
             id="platform-filter"
             onChange={[Function anonymous]}>
             <option
-              value="value1">
-              title1
+              value="">
+              All Platforms
             </option>
             <option
-              value="value2">
-              title2
-            </option>
+              value={undefined} />
+            <option
+              value={undefined} />
           </select>
         </div>
       </div>
@@ -367,7 +397,7 @@ exports[`<Filters /> matches previous snapshot 4`] = `
     <div
       className="col-xs-12 text-right">
       <button
-        className="btn fn-primary reset-filters-button"
+        className="reset-filters-button"
         onClick={[Function anonymous]}>
         Reset Filters
       </button>

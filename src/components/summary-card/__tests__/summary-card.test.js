@@ -1,5 +1,6 @@
 jest.unmock('../summary-card');
 jest.unmock('../../rating/rating');
+jest.unmock('axios');
 
 import {SummaryCard} from '../summary-card';
 import {MemoryRouter} from 'react-router-dom';
