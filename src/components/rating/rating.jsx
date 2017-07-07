@@ -50,7 +50,7 @@ export class Rating extends React.Component {
     return (
       <div className="ratings-container">
         {this.props.reviewCount > 0
-          ? <div>
+          ? <span>
               {this.props.showRatingNumber &&
                 <span className="ratings-number">
                   <span className="sr-only">Rating of&nbsp;</span>
@@ -59,7 +59,7 @@ export class Rating extends React.Component {
               }
               <span className="ratings-stars">
                 {this.props.truncateStars
-                  ? <span className="icon-star" aria-hidden></span>
+                  ? <span className="ratings-star icon-star" aria-hidden></span>
                   : this.convertRatingToStars(this.props.rating)}
               </span>
               {this.props.showReviewCount &&
@@ -69,7 +69,7 @@ export class Rating extends React.Component {
                   <span className="sr-only">&nbsp;people</span>
                 </span>
               }
-            </div>
+            </span>
           : <span>No Reviews</span>
         }
       </div>

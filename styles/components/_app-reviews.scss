@@ -26,22 +26,17 @@
   align-items: center;
 
   .ratings-container {
-    display: inline-block;
-    margin: 0 0 0 15px;
-
     .ratings-number {
       display: none;
     }
 
     .ratings-stars {
+      margin-left: 15px;
       vertical-align: middle;
-      margin: 1px 0 0 0;
-    }
 
-    .ratings-star {
-      font-size: 2rem;
-      line-height: 20px;
-      max-height: 15px;
+      .ratings-star:before {
+        vertical-align: top;
+      }
     }
   }
 }
