@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { observer, inject } from 'mobx-react';
 import { Link } from 'react-router-dom';
 
+import {utilsService} from '../core/services/utils.service';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 
 @inject('store')
@@ -37,7 +38,7 @@ export default class SolutionsCategoryTemplate extends React.Component {
   renderCards = (cardsArray) => {
 
     return cardsArray.map((card) => {
-      const cardUrl = `${this.props.match.url}/${card.promo_title.replace(/&\w{2,5};/g, '').replace(/[^A-Z\s\d]/ig, '').replace(/ /g, '+').toLowerCase()}`;
+      const cardUrl = `${this.props.match.url}/${utilsService.getDevicesAndSolutionsUrl(card.promo_title)}`;
       return (
         <div key={card.promo_title} className="col-xs-12 col-sm-6 col-md-6 col-lg-4 solutions-card">
           <div className="card-wrapper has-shadow">

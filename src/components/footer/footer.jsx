@@ -2,7 +2,6 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {observer,inject} from 'mobx-react';
-import $ from 'jquery';
 
 import NewTabLink from '../link/new-tab-link';
 
@@ -28,8 +27,7 @@ export default class Footer extends React.Component {
 
 	render() {
 		let sitemapCollapseBreakpoint = 992;
-		let allowFocusOnSitemapLinks = this.headerStore.footerSitemapExpanded || $(window).width() >= sitemapCollapseBreakpoint;
-		let allowFocusOnSitemapHeader = $(window).width() < sitemapCollapseBreakpoint;
+		let allowFocusOnSitemapHeader = this.headerStore.viewportWidth < sitemapCollapseBreakpoint;
 		return (
 			<footer id="pse-footer">
 			<div className="footer-main">
@@ -55,21 +53,21 @@ export default class Footer extends React.Component {
 									{this.user.isAdmin &&
 									<div>
 										<li role="presentation">
-											<Link to="/admin" tabIndex={allowFocusOnSitemapLinks ? 0 : -1}>PSE Administration</Link>
+											<Link to="/admin">PSE Administration</Link>
 										</li>
 										<li role="presentation">
-											<Link to="/admin/manage-apps" tabIndex={allowFocusOnSitemapLinks ? 0 : -1}>Manage Apps</Link>
+											<Link to="/admin/manage-apps">Manage Apps</Link>
 										</li>
 										<li role="presentation">
-											<Link to="/admin/devices" tabIndex={allowFocusOnSitemapLinks ? 0 : -1}>Specialized Device Catalog</Link>
+											<Link to="/admin/devices">Specialized Device Catalog</Link>
 										</li>
 										<li role="presentation">
-											<Link to="/admin/solutions" tabIndex={allowFocusOnSitemapLinks ? 0 : -1}>Solutions Catalog</Link>
+											<Link to="/admin/solutions">Public Safety Solutions </Link>
 										</li>
 									</div>
 									}
 									<li role="presentation">
-										<Link to="/network-status" tabIndex={allowFocusOnSitemapLinks ? 0 : -1}>Network Status</Link>
+										<Link to="/network-status">Network Status</Link>
 									</li>
 								</ul>
 							</nav>
@@ -83,13 +81,13 @@ export default class Footer extends React.Component {
 										FirstNet.com</a>
 									</li>
 									<li role="presentation">
-										<a href="http://firstnet.com/" target="_blank" rel="noopener noreferrer">
-									Developer Portal</a></li>
+										<a href="http://firstnet.com/" target="_blank" rel="noopener noreferrer">Developer Portal</a>
+									</li>
 									<li role="presentation">
-										<a href="http://firstnet.com/" target="_blank" rel="noopener noreferrer">
+										<a href="https://test-appcontrol.firstnet.att.com/" target="_blank" rel="noopener noreferrer">
 									App Control</a></li>
 									<li role="presentation">
-										<a href="http://firstnet.com/" target="_blank" rel="noopener noreferrer">
+										<a href="https://test-apps.firstnet.att.com/" target="_blank" rel="noopener noreferrer">
 									App Store</a></li>
 								</ul>
 							</nav>

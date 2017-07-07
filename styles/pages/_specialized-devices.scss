@@ -30,14 +30,23 @@
       .showAll {
         margin-top: 30px;
       }
+
+      h3 {
+        font-size: $fn-label-desktop;
+      }
     }
   }
 
   .device-category {
     padding-bottom: 70px;
+    text-align: center;
 
     h1 {
       text-transform: capitalize;
+    }
+
+    h3 {
+      font-size: $fn-label-desktop;
     }
   }
 

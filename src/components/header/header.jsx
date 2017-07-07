@@ -30,6 +30,9 @@ export default class PSEHeader extends React.Component {
 
 	handleRouteChange() {
 		this.closeMainMenu();
+		if(this.headerStore.viewportWidth >= 768){
+			this.headerStore.closeAdminSubMenu();
+		}
 	}
 
 	componentDidMount() {
@@ -59,6 +62,7 @@ export default class PSEHeader extends React.Component {
 
 	closeMainMenu = () => {
 		this.headerStore.closeMainMenu();
+		this.headerStore.updateViewportDimensions();
 		this.toggleContentScrolling();
 	};
 

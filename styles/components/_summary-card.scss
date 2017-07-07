@@ -65,11 +65,18 @@
   }
 
   .card-rating {
-    display: inline-block;
-    text-align: left;
-    min-height: 18px;
-    font-size: 1.6rem;
-    color: $fn-dkgrey;
+    .ratings-container,
+    .ratings-number {
+      font-size: 1.6rem;
+    }
+
+    .ratings-container .ratings-stars {
+      vertical-align: middle;
+
+      .ratings-star:before {
+        vertical-align: top;
+      }
+    }
   }
 
   .card-lower-meta {

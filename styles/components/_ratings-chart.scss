@@ -53,39 +53,15 @@
   fill: rgba(16, 116, 185, 1);
 }
 
-.ratings-star {
-  color: $fn-mdgrey;
-}
-
 .total-reviews {
-  padding-left: 20px;
+  margin: 0 10px 10px;
 
   .ratings-container {
-    display: inline-block;
-    margin-right: 5px;
+    margin: 0;
 
     .ratings-number {
       display: none;
     }
-
-    .ratings-stars {
-      vertical-align: middle;
-    }
-
-    .ratings-star {
-      // font-size: 2rem;
-      // line-height: 1;
-    }
-  }
-
-  .total-reviews-number {
-    font-size: 1.6rem;
-    color: $fn-dkgrey;
-    vertical-align: top;
-  }
-
-   span {
-    font-size: 1.6rem;
   }
 }
 
@@ -96,28 +72,22 @@
   .bar-wrapper {
     position: relative;
 
-    label {
+    label.ratings-container {
       position: absolute;
-      height: 22px;
       width: 50px;
       left: -50px;
       top: 0;
+      line-height: 1;
 
       .ratings-number {
-        color: $focus-lightbg;
+        color: $fn-dkgrey;
         font-size: $fn-content-page-text-desktop;
-        line-height: 1;
-        display: inline-block;
-        position: relative;
-        padding-left: 30px;
+        font-weight: $fn-normal-weight;
+        padding-left: 8px;
       }
 
       .ratings-star {
-        font-size: 2.2rem;
-        line-height: 0;
-        position: absolute;
-        left: 0;
-        top: 0px;
+        color: $fn-mdgrey;
       }
     }
 
@@ -160,10 +130,6 @@
           font-size: $fn-content-page-text-desktop;
           line-height: 1.3;
         }
-
-        .ratings-star {
-          top: 10px;
-        }
       }
 
       .bar {
@@ -190,10 +156,6 @@
       label {
         .ratings-number {
           line-height: 1.5;
-        }
-
-        .ratings-star {
-          top: 4px;
         }
       }
 
