@@ -21,6 +21,7 @@
     &[aria-expanded] {
       + .sitemap-links {
         max-height: 700px;
+        visibility: visible;
       }
     }
   }

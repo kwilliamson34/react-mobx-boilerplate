@@ -69,7 +69,7 @@ export default class GeolinkControls extends React.Component {
                   <label htmlFor="search-field" className="control-label">Location</label>
                   <div className="search-bar">
                     <input id="search-field" type="search" className="form-control" onChange={this.handleSearchInput} onKeyPress={this.handleSearchKeyPress}/>
-                    <button className="btn search-btn" type="button">
+                    <button className="btn search-btn" type="button" onClick={this.handleSearchSubmit}>
                       <span className="sr-only">Search for locations</span>
                       <span aria-hidden="true" className="icon-search"/>
                     </button>

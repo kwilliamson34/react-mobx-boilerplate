@@ -62,6 +62,7 @@ export default class PSEHeader extends React.Component {
 
 	closeMainMenu = () => {
 		this.headerStore.closeMainMenu();
+		this.headerStore.updateViewportDimensions();
 		this.toggleContentScrolling();
 	};
 
