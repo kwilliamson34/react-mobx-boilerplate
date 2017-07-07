@@ -83,13 +83,10 @@ export default class Footer extends React.Component {
 										FirstNet.com</a>
 									</li>
 									<li role="presentation">
-										<a href="http://firstnet.com/" target="_blank" rel="noopener noreferrer">
-									Developer Portal</a></li>
-									<li role="presentation">
-										<a href="http://firstnet.com/" target="_blank" rel="noopener noreferrer">
+										<a href="https://test-appcontrol.firstnet.att.com/" target="_blank" rel="noopener noreferrer">
 									App Control</a></li>
 									<li role="presentation">
-										<a href="http://firstnet.com/" target="_blank" rel="noopener noreferrer">
+										<a href="https://test-apps.firstnet.att.com/" target="_blank" rel="noopener noreferrer">
 									App Store</a></li>
 								</ul>
 							</nav>
