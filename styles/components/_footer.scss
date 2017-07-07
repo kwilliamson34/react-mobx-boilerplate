@@ -1,6 +1,17 @@
 footer {
   border-top: 5px solid $fn-black;
 
+  .logoRow{
+    > a {
+      display: inline-block;
+      height: 100%;
+      &:focus{
+        @include focus();
+        padding: 5px;
+        border-radius: 8px;
+      }
+    }
+  }
   .footer-main {
     background: $fn-ltgrey;
     padding-bottom: 60px;
@@ -31,8 +42,17 @@ footer {
         font-weight: $fn-normal-weight;
         color: $fn-dkgrey;
 
+        &:focus{
+          @include focus();
+          border-radius: 4px;
+          padding: 2px;
+        }
+
         &.fb {
-          &:hover {
+          &:hover,
+          &:active,
+          &:focus {
+            padding-bottom: 5px;
             i {
               color: $fn-facebook;
             }
@@ -40,7 +60,10 @@ footer {
         }
 
         &.youtube {
-          &:hover {
+          &:hover,
+          &:active,
+          &:focus {
+            padding-bottom: 5px;
             i {
               color: $fn-youtube;
             }
@@ -48,7 +71,10 @@ footer {
         }
 
         &.twitter {
-          &:hover {
+          &:hover,
+          &:active,
+          &:focus {
+            padding-bottom: 5px;
             i {
               color: $fn-twitter;
             }
@@ -56,7 +82,10 @@ footer {
         }
 
         &.linkedin {
-          &:hover {
+          &:hover,
+          &:active,
+          &:focus {
+            padding-bottom: 5px;
             i {
               color: $fn-linkedin;
             }
@@ -64,7 +93,10 @@ footer {
         }
 
         &.tumblr {
-          &:hover {
+          &:hover,
+          &:active,
+          &:focus {
+            padding-bottom: 5px;
             i {
               color: $fn-tumblr;
             }
@@ -115,6 +147,9 @@ footer {
 .sitemap-links {
   overflow: hidden;
   transition: all $fn-animation-duration ease;
+  > div{
+    padding: 1px;
+  }
 }
 
 .sitemap-hdr {
@@ -171,6 +206,7 @@ footer {
 .help-link-block {
   margin-left: 25px;
 }
+
 @import 'footer-xs';
 @import 'footer-md';
 @import 'footer-lg';

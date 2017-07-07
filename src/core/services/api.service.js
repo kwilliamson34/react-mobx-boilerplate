@@ -66,6 +66,17 @@ class ApiService {
       });
     }
 
+    getCategoriesAndSegments() {
+      return axios.get(`${base}/categoriesandsegments`, {
+        data: {}, //this is required to unset the media type and avoid a 415 error
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(res => {
+        return res;
+      });
+    }
+
     getMarketingPortalDevices() {
       return axios.get(`${base}/marketing/api/devices?_format=json`)
         .then((res) => {

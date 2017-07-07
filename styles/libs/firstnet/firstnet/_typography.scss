@@ -66,26 +66,45 @@ h6 {
 }
 
 h1, .as-h1 {
-  font-size: $fn-h1-default-size;
+  font-size: $fn-h1-mobile;
   font-weight: $fn-normal-weight;
-  line-height: 1.2; //58 leading
+  line-height: 1.11; //40 leading
 }
 
 h2, .as-h2 {
-  font-size: $fn-h2-default-size;
+  font-size: $fn-h2-mobile;
   font-weight: $fn-normal-weight;
-  line-height: 1.12; //40 leading
+  line-height: 1.13; //34 leading
 }
 
 h3, .as-h3 {
-  font-size: $fn-h3-default-size;
+  font-size: $fn-h3-mobile;
   font-weight: $fn-normal-weight;
-  line-height: 1.07; //30 leading
+  line-height: 1.25; //30 leading
 }
 
 h4, .as-h4 {
-  font-size: $fn-h4-default-size;
+  font-size: $fn-h4-mobile;
   font-weight: $fn-medium-weight;
   text-transform: uppercase;
-  letter-spacing: 2.65px;
+  letter-spacing: 1.33px;
+}
+
+
+@media #{$tablet} {
+  h1, .as-h1 {
+    font-size: $fn-h1-desktop;
+    line-height: 1.2; //58 leading
+  }
+  h2, .as-h2 {
+    font-size: $fn-h2-desktop;
+    line-height: 1.11; //40 leading
+  }
+  h3, .as-h3 {
+    font-size: $fn-h3-desktop;
+    line-height: 1.07; //30 leading
+  }
+  h4, .as-h4 {
+    font-size: $fn-h4-desktop;
+  }
 }

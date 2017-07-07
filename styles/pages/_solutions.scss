@@ -34,7 +34,7 @@
           bottom: 1px;
           height: 40px;
           padding-left: 20px;
-          font-size: $fn-landing-body-default-size;
+          font-size: $fn-landing-page-text-desktop;
           font-weight: $fn-medium-weight;
           text-transform: uppercase;
           color: $fn-ltblue;
@@ -71,7 +71,7 @@
           height: 100%;
           width: 100%;
           padding: 0 20px;
-          font-size: $fn-landing-body-default-size;
+          font-size: $fn-landing-page-text-desktop;
           font-weight: $fn-normal-weight;
           line-height: 20px;
 
@@ -111,11 +111,16 @@
     ul, ol {
       list-style: disc;
       padding-left: 30px;
-
       li {
         margin-bottom: 15px;
         line-height: 1.6;
-        font-size: $fn-body-default-size;
+        font-size: $fn-content-page-text-desktop;
+      }
+
+      figcaption {
+        font-weight: $fn-normal-weight;
+        font-size: $fn-content-page-text-desktop;
+        margin: 10px 0 50px 0;
       }
     }
 
@@ -127,7 +132,7 @@
 
     .card__title {
       font-weight: $fn-normal-weight;
-      font-size: $fn-small-text-default-size;
+      font-size: $fn-small-text-desktop;
       margin: 10px 0 50px 0;
       padding-left: 15px;
     }

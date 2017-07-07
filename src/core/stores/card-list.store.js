@@ -23,6 +23,18 @@ class CardListStore {
 		}
 	}
 
+	@action fetchCategoriesAndSegments() {
+		const success = (res) => {
+			this.categories = res.data.categories;
+			this.segments = res.data.user_segments;
+			return res;
+		}
+		const fail = (err) => {
+			utilsService.handleError(err);
+		}
+		return apiService.getCategoriesAndSegments().then(success, fail)
+	}
+
 	@action clearSearchQuery() {
 		this.searchQuery = '';
 		this.searchIsApplied = false;
@@ -96,38 +108,6 @@ class CardListStore {
 		})
 	}
 
-	@computed get fireCards() {
-		return this.searchResults.filter((app) => {
-			return app.user_segment.filter(segment => {
-				return segment.toUpperCase() === 'FIRE & RESCUE'
-			}).length > 0;
-		})
-	}
-
-	@computed get lawCards() {
-		return this.searchResults.filter((app) => {
-			return app.user_segment.filter(segment => {
-				return segment.toUpperCase() === 'LAW ENFORCEMENT'
-			}).length > 0;
-		})
-	}
-
-	@computed get emergencyCards() {
-		return this.searchResults.filter((app) => {
-			return app.user_segment.filter(segment => {
-				return segment.toUpperCase() === 'EMERGENCY MEDICAL'
-			}).length > 0;
-		})
-	}
-
-	@computed get dispatchCards() {
-		return this.searchResults.filter((app) => {
-			return app.user_segment.filter(segment => {
-				return segment.toUpperCase() === 'HAZMAT DISPATCH'
-			}).length > 0;
-		})
-	}
-
 	@computed get filteredSearchResults() {
 		return this.searchResults.filter((app) => {
 			let categoryCheck = () => {
@@ -182,45 +162,18 @@ class CardListStore {
 	@observable idToFocus = null;
 
 	@observable platforms = [{
-			title: 'All Platforms',
-			value: ''
+			display: 'iOS',
+			name: 'IOS'
 		},
 		{
-			title: 'iOS',
-			value: 'IOS'
-		},
-		{
-			title: 'Android',
-			value: 'ANDROID'
+			display: 'Android',
+			name: 'ANDROID'
 		}
 	];
 	@observable platformFilter = '';
-	@observable categories = [
-    {title: 'All Categories', value: ''},
-    {title: 'Public Safety (Communication) Tools', value: 'PUBLIC SAFETY (COMMUNICATION)TOOLS'},
-    {title: 'Device Security', value: 'DEVICE SECURITY'},
-    {title: 'Secure Connections', value: 'SECURE CONNECTIONS'},
-    {title: 'Cloud Solutions', value: 'CLOUD SOLUTIONS'},
-    {title: 'Next Gen 9-1-1', value: 'NEXT GEN 9-1-1'},
-    {title: 'CAD Solutions', value: 'CAD SOLUTIONS'},
-    {title: 'Video Surveillance', value: 'VIDEO SURVEILLANCE'},
-    {title: 'In Building Coverage & Mapping', value: 'IN BUILDING COVERAGE & MAPPING'},
-    {title: 'Situational Awareness & Detection', value: 'SITUATIONAL AWARENESS & DETECTION'},
-    {title: 'Cyber Security & Fraud Detection', value: 'CYBER SECURITY & FRAUD DETECTION'},
-    {title: 'Forensic Intelligence', value: 'FORENSIC INTELLIGENCE'},
-    {title: 'Public Safety Community', value: 'PUBLIC SAFETY COMMUNITY'}
-  ];
+	@observable categories = [];
 	@observable categoryFilter = '';
-
-	@observable segments = [
-		{title: 'All Branches/Disciplines', value: ''},
-		{title: 'Law Enforcement', value: 'LAW ENFORCEMENT'},
-		{title: 'Fire & Rescue', value: 'FIRE & RESCUE'},
-		{title: 'Emergency Medical', value: 'EMERGENCY MEDICAL'},
-		{title: 'Hazmat Dispatch', value: 'HAZMAT DISPATCH'},
-		{title: 'Emergency Management', value: 'EMERGENCY MANAGEMENT'},
-		{title: 'Critical Infrastructure', value: 'CRITICAL INFRASTRUCTURE'}
-	];
+	@observable segments = [];
 	@observable segmentFilter = '';
 }
 

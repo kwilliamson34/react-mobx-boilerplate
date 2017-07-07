@@ -38,7 +38,7 @@
 
       > a {
         line-height: 3.4;
-        font-size: $fn-label-default-size;
+        font-size: $fn-label-desktop;
         text-transform: uppercase;
         font-weight: $fn-medium-weight;
         color: $fn-dkgrey;
@@ -55,7 +55,7 @@
           margin-right: 5px;
 
           &:before {
-            font-size: $fn-landing-body-default-size;
+            font-size: $fn-landing-page-text-desktop;
           }
         }
 

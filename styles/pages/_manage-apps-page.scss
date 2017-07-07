@@ -33,24 +33,7 @@
     section.filters {
       padding-top: 0;
     }
-
-    .reset-filters-button {
-      margin-top: 1rem;
-      border: none;
-      padding: 0;
-
-      &:focus {
-        outline: 2px solid $focus-lightbg;
-        box-shadow: none;
-      }
-
-      &:focus,
-      &:hover {
-        background: transparent !important;
-        color: $fn-ltblue;
-        text-decoration: underline;
-      }
-    }
+    
   }
 
   .results-count {
