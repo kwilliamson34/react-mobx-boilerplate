@@ -1,7 +1,7 @@
 exports[`<BreadcrumbNav /> renders a breadcrumb of links matches previous snapshot 1`] = `
 <nav
   aria-label="You are here:"
-  className="breadcrumb-nav xs-hidden">
+  className="breadcrumb-nav hidden-xs">
   <div
     className="container">
     <div
@@ -12,7 +12,8 @@ exports[`<BreadcrumbNav /> renders a breadcrumb of links matches previous snapsh
           <li>
             <a
               href="/link1"
-              onClick={[Function anonymous]}>
+              onClick={[Function anonymous]}
+              tabIndex={0}>
               Link Level 1
             </a>
             <span
@@ -22,7 +23,8 @@ exports[`<BreadcrumbNav /> renders a breadcrumb of links matches previous snapsh
           <li>
             <a
               href="/link1/link2"
-              onClick={[Function anonymous]}>
+              onClick={[Function anonymous]}
+              tabIndex={0}>
               Link Level 2
             </a>
             <span
@@ -32,7 +34,8 @@ exports[`<BreadcrumbNav /> renders a breadcrumb of links matches previous snapsh
           <li>
             <a
               href="/link1/link2/link3"
-              onClick={[Function anonymous]}>
+              onClick={[Function anonymous]}
+              tabIndex={0}>
               Link Level 3
             </a>
             <span
@@ -42,7 +45,8 @@ exports[`<BreadcrumbNav /> renders a breadcrumb of links matches previous snapsh
           <li>
             <a
               href="/link1/link2/link3/link4"
-              onClick={[Function anonymous]}>
+              onClick={[Function anonymous]}
+              tabIndex={-1}>
               Link Level 4
             </a>
             <span

@@ -1,3 +1,7 @@
+jest.unmock('../../../core/stores/master.store');
+import {masterStore} from '../../../core/stores/master.store';
+const store = masterStore;
+
 jest.unmock('../footer');
 
 import Footer from '../footer';
