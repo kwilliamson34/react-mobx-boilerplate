@@ -44,6 +44,10 @@ export default class ManageAppsPage extends React.Component {
 		}
 	}
 
+	componentWillUnmount() {
+		this.resetPagination();
+	}
+
 	handleLoadMoreClick = () => {
 		this.props.store.changePage(this.pageId);
 		document.getElementById('card-list-load-more-btn').blur();
@@ -52,6 +56,12 @@ export default class ManageAppsPage extends React.Component {
 
 	handleViewAllAppsClick = () => {
 		this.cardListStore.restoreOriginalList();
+		this.resetPagination();
+	}
+
+	resetPagination = () => {
+		this.props.store.resetPage(this.pageId);
+		this.cardListStore.resetIdToFocus();
 	}
 
 	get paginatedCards() {
@@ -126,9 +136,14 @@ export default class ManageAppsPage extends React.Component {
 					<div className="container">
 						<div className="row">
 							<div className="col-xs-12 col-lg-offset-1 col-lg-10">
-								<SearchForm store={this.cardListStore} />
+								<SearchForm
+									resetPagination={this.resetPagination}
+									store={this.cardListStore} />
 								<hr/>
-								<Filters ref={ref => this.filterForm = ref} store={this.cardListStore} />
+								<Filters
+									ref={ref => this.filterForm = ref}
+									resetPagination={this.resetPagination} 
+									store={this.cardListStore} />
 							</div>
 						</div>
 					</div>
