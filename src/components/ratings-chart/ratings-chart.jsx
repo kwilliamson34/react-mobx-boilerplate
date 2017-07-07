@@ -55,13 +55,13 @@ export default class RatingsChart extends React.Component {
 			<div className="ratings-chart" aria-describedby="chart-info">
 				<div id="chart-info" className="sr-only">This app has {this.state.reviewsTotal} reviews with an average rating of {this.state.value}.</div>
 				<div className="row">
-					<div className="col-xs-12 col-sm-4 col-md-4 col-lg-3 col-lg-offset-1 average-ratings-col">
+					<div className="col-xs-12 col-sm-4 average-ratings-col">
 						<DoughnutChart rating={this.state.value} size={this.state.graphSize}/>
 						<div className="total-reviews">
 							<Rating rating={this.state.value} reviewCount={this.state.reviewsTotal} showReviewCount={true}/>
 						</div>
 					</div>
-					<div className="col-xs-12 col-sm-8 col-md-8 col-lg-7 overall-ratings-col">
+					<div className="col-xs-12 col-sm-8 overall-ratings-col">
 						<HorizontalBar data={this.state.sortedReviews} />
 						{this.state.sortedReviews.reduce((x, y) => x + y) === 0 &&
 							<div className="zero-reviews">No Reviews Yet!</div>
