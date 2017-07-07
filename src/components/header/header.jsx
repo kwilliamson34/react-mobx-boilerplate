@@ -30,7 +30,7 @@ export default class PSEHeader extends React.Component {
 
 	handleRouteChange() {
 		this.closeMainMenu();
-		if(window.innerWidth >= 768){
+		if(this.headerStore.viewportWidth >= 768){
 			this.headerStore.closeAdminSubMenu();
 		}
 	}
@@ -81,11 +81,6 @@ export default class PSEHeader extends React.Component {
 	handleExternalTabOpen = () => {
 		this.headerStore.externalTabOpen();
 		this.toggleContentScrolling();
-	}
-
-	handleDropdownFocus = () => {
-		console.log('dropdown toggle focused out');
-		$('[data-toggle="dropdown"]').parent().removeClass('open');
 	}
 
 	onLogout = event => {
