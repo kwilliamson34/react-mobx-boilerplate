@@ -23,7 +23,7 @@ export default class PSEHeader extends React.Component {
 	}
 
 	componentDidUpdate(prevProps) {
-    if (this.props.location !== prevProps.location) {
+    if (this.props.location.pathname !== prevProps.location.pathname) {
       this.handleRouteChange();
     }
   }
@@ -185,8 +185,8 @@ export default class PSEHeader extends React.Component {
 				}>
 				<button
 					className="btnSubmenu"
-					onClick={this.toggleAdminSubMenu}
 					aria-haspopup="true"
+					onClick={this.toggleAdminSubMenu}
 					aria-expanded={this.headerStore.adminSubMenuIsOpen}>
 					<span className="sr-only">
 						Expand Administration Navigation
@@ -210,8 +210,8 @@ export default class PSEHeader extends React.Component {
 								: 'collapse'
 						}
 						aria-labelledby="linkBtn-admin">
-						<strong className="visible-md-block visible-lg-block">
-							Manage
+						<strong className="visible-md-block visible-lg-block" aria-hidden="true">
+							Management
 						</strong>
 						<li>
 							<NewTabLink
@@ -250,7 +250,7 @@ export default class PSEHeader extends React.Component {
 								: 'collapse'
 						}
 						aria-labelledby="linkBtn-admin">
-						<strong className="visible-md-block visible-lg-block">
+						<strong className="visible-md-block visible-lg-block" aria-hidden="true">
 							Purchasing &amp; Provisioning
 						</strong>
 						<li>
@@ -349,11 +349,11 @@ export default class PSEHeader extends React.Component {
 									<button
 										id="profile-header-dropdown"
 										type="button"
+										className="dropdown-toggle"
+										aria-label="Go to User Dashboard"
+										aria-expanded="false"
 										data-toggle="dropdown">
-										<i
-											className="icon-profile"
-											aria-label="Go to User Dashboard"
-										/>
+										<i className="icon-profile"/>
 									</button>
 									<ul
 										id="pse-profile-nav"
@@ -382,8 +382,10 @@ export default class PSEHeader extends React.Component {
 										id="help-header-dropdown"
 										type="button"
 										className={(this.props.location.pathname === '/faq' || this.props.location.pathname === '/feedback')? 'dropdown-toggle active':'dropdown-toggle'}
+										aria-label="Go to Help Center"
+										aria-expanded="false"
 										data-toggle="dropdown">
-										<i className="icon-help" aria-label="Go to Help Center" />
+										<i className="icon-help"/>
 									</button>
 									<ul
 										id="pse-help-nav"

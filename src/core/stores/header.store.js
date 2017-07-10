@@ -48,6 +48,7 @@ class HeaderStore {
 	@action toggleAdminSubMenu(){
 		if(this.adminSubMenuIsOpen){
 			this.closeSubMenus();
+			this.adminSubMenuIsOpen = false;
 		}else{
 			this.closeSubMenus();
 			this.adminSubMenuIsOpen = true;
@@ -84,7 +85,7 @@ class HeaderStore {
 
 	@observable viewportWidth = window.innerWidth;
 	@observable viewportHeight = window.innerHeight;
-	
+
 	@observable ATTSupportPhone = config.attCustomerSupportPhone || '800-574-7000';
 	@observable mainMenuIsOpen = false;
 	@observable footerSitemapExpanded = false;
