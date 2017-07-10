@@ -216,9 +216,9 @@ export default class PSEHeader extends React.Component {
 						<li>
 							<NewTabLink
 								to={this.linkStore.manageUsersLink}
-								onClick={this.handleExternalTabOpen}>
+								onClick={this.handleExternalTabOpen}
+								showIcon={true}>
 								Manage Users
-								<i className="icon-external-site" aria-hidden="true" />
 							</NewTabLink>
 						</li>
 						<li>
@@ -227,17 +227,17 @@ export default class PSEHeader extends React.Component {
 						<li>
 							<NewTabLink
 								to={this.linkStore.manageServicesLink}
-								onClick={this.handleExternalTabOpen}>
+								onClick={this.handleExternalTabOpen}
+								showIcon={true}>
 								Manage Services &amp; Billing
-								<i className="icon-external-site" aria-hidden="true" />
 							</NewTabLink>
 						</li>
 						<li>
 							<NewTabLink
 								to={this.linkStore.viewWirelessReportsLink}
-								onClick={this.handleExternalTabOpen}>
+								onClick={this.handleExternalTabOpen}
+								showIcon={true}>
 								View Wireless Reports
-								<i className="icon-external-site" aria-hidden="true" />
 							</NewTabLink>
 						</li>
 					</ul>
@@ -256,9 +256,9 @@ export default class PSEHeader extends React.Component {
 						<li>
 							<NewTabLink
 								to={this.linkStore.shopStandardDevicesLink}
-								onClick={this.handleExternalTabOpen}>
+								onClick={this.handleExternalTabOpen}
+								showIcon={true}>
 								Rate Plans &amp; Standard Devices
-								<i className="icon-external-site" aria-hidden="true" />
 							</NewTabLink>
 						</li>
 						<li>
