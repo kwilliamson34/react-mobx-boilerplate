@@ -211,7 +211,7 @@ export default class PSEHeader extends React.Component {
 						}
 						aria-labelledby="linkBtn-admin">
 						<strong className="visible-md-block visible-lg-block">
-							Manage
+							Management
 						</strong>
 						<li>
 							<NewTabLink
