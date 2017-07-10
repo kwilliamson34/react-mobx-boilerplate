@@ -350,8 +350,9 @@ export default class PSEHeader extends React.Component {
 										id="profile-header-dropdown"
 										className="dropdown-toggle"
 										type="button"
+										aria-label="Go to User Dashboard"
 										data-toggle="dropdown">
-										<i className="icon-profile" aria-label="Go to User Dashboard"/>
+										<i className="icon-profile"/>
 									</button>
 									<ul
 										id="pse-profile-nav"
@@ -380,8 +381,9 @@ export default class PSEHeader extends React.Component {
 										id="help-header-dropdown"
 										type="button"
 										className={(this.props.location.pathname === '/faq' || this.props.location.pathname === '/feedback')? 'dropdown-toggle active':'dropdown-toggle'}
+										aria-label="Go to Help Center"
 										data-toggle="dropdown">
-										<i className="icon-help" aria-label="Go to Help Center" />
+										<i className="icon-help" />
 									</button>
 									<ul
 										id="pse-help-nav"
