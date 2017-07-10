@@ -78,6 +78,7 @@
       left: -50px;
       top: 0;
       line-height: 1;
+      vertical-align: middle;
 
       .ratings-number {
         color: $fn-dkgrey;
@@ -88,6 +89,10 @@
 
       .ratings-star {
         color: $fn-mdgrey;
+
+        &:before {
+          vertical-align: top;
+        }
       }
     }
 
