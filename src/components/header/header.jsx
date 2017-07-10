@@ -348,12 +348,10 @@ export default class PSEHeader extends React.Component {
 								<li className="desktop-iconItem dropdown">
 									<button
 										id="profile-header-dropdown"
+										className="dropdown-toggle"
 										type="button"
 										data-toggle="dropdown">
-										<i
-											className="icon-profile"
-											aria-label="Go to User Dashboard"
-										/>
+										<i className="icon-profile" aria-label="Go to User Dashboard"/>
 									</button>
 									<ul
 										id="pse-profile-nav"
