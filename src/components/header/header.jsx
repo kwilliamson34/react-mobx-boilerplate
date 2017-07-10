@@ -29,7 +29,6 @@ export default class PSEHeader extends React.Component {
   }
 
 	handleRouteChange() {
-		console.log('handleRouteChange');
 		this.closeMainMenu();
 		if(this.headerStore.viewportWidth >= 768){
 			this.headerStore.closeAdminSubMenu();
@@ -57,20 +56,17 @@ export default class PSEHeader extends React.Component {
 		}, 200, { leading: true, trailing: false });
 
 	toggleMainMenu = () => {
-		console.log('toggleMainMenu');
 		this.headerStore.toggleMainMenu();
 		this.toggleContentScrolling();
 	};
 
 	closeMainMenu = () => {
-		console.log('closeMainMenu');
 		this.headerStore.closeMainMenu();
 		this.headerStore.updateViewportDimensions();
 		this.toggleContentScrolling();
 	};
 
 	toggleAdminSubMenu = () => {
-		console.log('toggleAdminSubMenu');
 		this.headerStore.toggleAdminSubMenu();
 	};
 
@@ -190,13 +186,13 @@ export default class PSEHeader extends React.Component {
 				<button
 					className="btnSubmenu"
 					aria-haspopup="true"
+					onClick={this.toggleAdminSubMenu}
 					aria-expanded={this.headerStore.adminSubMenuIsOpen}>
 					<span className="sr-only">
 						Expand Administration Navigation
 					</span>
 				</button>
 					<NavLink
-						onClick={this.toggleAdminSubMenu}
 						id="linkBtn-admin"
 						to="/admin"
 						activeClassName="active"
@@ -415,6 +411,10 @@ export default class PSEHeader extends React.Component {
 						</nav>
 					</div>
 				</div>
+				<div
+					className="pageMask hidden-xs hidden-md hidden-lg"
+					onClick={this.closeMainMenu}
+				/>
 			</header>
 		);
 	}

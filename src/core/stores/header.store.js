@@ -48,6 +48,7 @@ class HeaderStore {
 	@action toggleAdminSubMenu(){
 		if(this.adminSubMenuIsOpen){
 			this.closeSubMenus();
+			this.adminSubMenuIsOpen = false;
 		}else{
 			this.closeSubMenus();
 			this.adminSubMenuIsOpen = true;
