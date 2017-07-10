@@ -210,7 +210,7 @@ export default class PSEHeader extends React.Component {
 								: 'collapse'
 						}
 						aria-labelledby="linkBtn-admin">
-						<strong className="visible-md-block visible-lg-block">
+						<strong className="visible-md-block visible-lg-block" aria-hidden="true">
 							Management
 						</strong>
 						<li>
@@ -250,7 +250,7 @@ export default class PSEHeader extends React.Component {
 								: 'collapse'
 						}
 						aria-labelledby="linkBtn-admin">
-						<strong className="visible-md-block visible-lg-block">
+						<strong className="visible-md-block visible-lg-block" aria-hidden="true">
 							Purchasing &amp; Provisioning
 						</strong>
 						<li>
