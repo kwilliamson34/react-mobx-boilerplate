@@ -36,6 +36,7 @@ export default class PSEHeader extends React.Component {
 	}
 
 	componentDidMount() {
+		this.headerStore.adminSubMenuIsOpen = true;
 		$('#linkBtn-admin').focus( () => {
 			this.headerStore.adminSubMenuIsOpen = true;
 		});
