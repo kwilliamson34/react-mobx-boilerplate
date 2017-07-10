@@ -1,7 +1,11 @@
+jest.unmock('../../core/stores/master.store');
+import {masterStore} from '../../core/stores/master.store';
+const store = masterStore;
+
 jest.unmock('../admin-dashboard.page');
 
 import AdminDashboard from '../admin-dashboard.page';
-import { MemoryRouter } from 'react-router-dom';
+import {MemoryRouter} from 'react-router-dom';
 
 describe('<AdminDashboard />', () => {
   let props = {

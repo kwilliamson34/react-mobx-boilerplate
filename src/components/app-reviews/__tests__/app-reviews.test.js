@@ -1,6 +1,6 @@
 jest.unmock('../app-reviews');
-
-jest.unmock('../../truncate-comment/truncate-comment');
+jest.unmock('axios');
+jest.unmock('../../truncate/truncate');
 jest.unmock('../../rating/rating');
 
 import AppReviews from '../app-reviews';

@@ -1,3 +1,4 @@
+jest.unmock('axios');
 jest.unmock('../ratings-chart');
 
 import RatingsChart from '../ratings-chart';

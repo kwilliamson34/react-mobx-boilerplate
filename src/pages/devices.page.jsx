@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {observer,inject} from 'mobx-react';
 import {Link} from 'react-router-dom';
 
+import {utilsService} from '../core/services/utils.service';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 
 @inject('store')
@@ -38,11 +39,11 @@ export default class DevicesLandingPage extends React.Component {
 							<ul className="mp-content">
 								{sectionArray.map((item, idx) => {
 									if (idx >= devicesPerRow) return;
-									let itemRoute = encodeURIComponent(item.device_title).replace(/%20/g, '+');
+									let itemRoute = utilsService.getDevicesAndSolutionsUrl(item.device_title);
 									return (
 										<li key={sectionId + '_' +idx}>
 											<Link to={`/admin/devices/${sectionTitle.toLowerCase()}/${itemRoute}`} id={sectionId + '_' +idx}>
-											{item.device_title.replace(/&amp;/g, '&')}
+											<h3 dangerouslySetInnerHTML={{__html: item.device_title}} />
 											<div className="card-img-wrapper">
 												<img src={item.device_image_url} alt={item.device_image_alt} />
 											</div>

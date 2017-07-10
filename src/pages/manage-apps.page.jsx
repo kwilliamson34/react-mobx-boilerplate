@@ -50,7 +50,7 @@ export default class ManageAppsPage extends React.Component {
 
 	handleLoadMoreClick = () => {
 		this.props.store.changePage(this.pageId);
-		document.getElementById('card-list-load-more-btn').blur();
+		$('#card-list-load-more-btn').blur();
 		this.cardListStore.setIdToFocus((this.props.store.pages[this.pageId] - 1) * this.itemsPerPage);
 	}
 
@@ -144,7 +144,7 @@ export default class ManageAppsPage extends React.Component {
 								<hr/>
 								<Filters
 									ref={ref => this.filterForm = ref}
-									resetPagination={this.resetPagination} 
+									resetPagination={this.resetPagination}
 									store={this.cardListStore} />
 							</div>
 						</div>

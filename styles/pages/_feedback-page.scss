@@ -34,10 +34,8 @@
     margin: 3rem 0 6rem 0;
 
     &.disabled {
-      background: $fn-grey;
-      color: $fn-mdgrey;
-      border: none;
       cursor: auto;
+      pointer-events: auto;
     }
   }
 

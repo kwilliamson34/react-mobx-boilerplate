@@ -3,55 +3,56 @@ exports[`<GeolinkControls /> renders matches previous snapshot 1`] = `
   className="geolink-controls">
   <div
     className="container">
-    <form
-      className="form-group search-input">
+    <div
+      className="row is-flex">
       <div
-        className="row is-flex">
-        <div
-          className="col-xs-12 col-sm-offset-1 col-sm-6 col-md-offset-0 col-md-4 map-search ">
-          <h2
-            className="as-h5">
-            Search
-          </h2>
-          <fieldset>
+        className="col-xs-12 col-sm-offset-1 col-sm-6 col-md-offset-0 col-md-4 map-search">
+        <h2
+          className="as-h5">
+          Search
+        </h2>
+        <form
+          className="search-form form-group"
+          onSubmit={undefined}>
+          <div
+            className="search-input input-group">
             <label
               className="control-label"
-              htmlFor="geo-search">
+              htmlFor="search-field">
               Location
             </label>
-            <span
-              className="input-group">
+            <div
+              className="search-bar">
               <input
                 className="form-control"
-                id="geo-search"
+                id="search-field"
                 onChange={[Function anonymous]}
                 onKeyPress={[Function anonymous]}
-                type="text" />
-              <span
-                className="input-group-btn">
-                <button
-                  className="btn btn-default"
-                  onClick={[Function anonymous]}
-                  type="button">
-                  <span
-                    className="sr-only">
-                    Search for locations
-                  </span>
-                  <i
-                    alt="search icon"
-                    aria-hidden="true"
-                    className="icon-search" />
-                </button>
-              </span>
-            </span>
-          </fieldset>
-        </div>
-        <div
-          className="col-xs-12 col-sm-4 col-md-4 map-layers">
-          <h2
-            className="as-h5">
-            Layers
-          </h2>
+                type="search" />
+              <button
+                className="btn search-btn"
+                onClick={[Function anonymous]}
+                type="button">
+                <span
+                  className="sr-only">
+                  Search for locations
+                </span>
+                <span
+                  aria-hidden="true"
+                  className="icon-search" />
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div
+        className="col-xs-12 col-sm-4 col-md-4 map-layers">
+        <h2
+          className="as-h5">
+          Layers
+        </h2>
+        <form
+          className="form-group">
           <fieldset
             className="coverage-layers">
             <legend
@@ -139,39 +140,39 @@ exports[`<GeolinkControls /> renders matches previous snapshot 1`] = `
               </label>
             </div>
           </fieldset>
-        </div>
+        </form>
+      </div>
+      <div
+        className="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-4 report-coverage-issue">
+        <h2
+          className="as-h5">
+          Report coverage issue
+        </h2>
         <div
-          className="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-4 report-coverage-issue">
-          <h2
-            className="as-h5">
-            Report coverage issue
-          </h2>
+          className="emergency-numbers">
           <div
-            className="emergency-numbers">
-            <div
-              className="emergency">
-              Emergency:
-              <br />
-              <a
-                className="deaden"
-                href="tel:1-800-XXX-XXXX">
-                1-800-***-****
-              </a>
-            </div>
-            <div
-              className="non-emergency">
-              Non-emergency:
-              <br />
-              <a
-                className="deaden"
-                href="tel:1-800-XXX-XXXX">
-                1-800-***-****
-              </a>
-            </div>
+            className="emergency">
+            Emergency:
+            <br />
+            <a
+              className="deaden"
+              href="tel:1-800-XXX-XXXX">
+              1-800-***-****
+            </a>
+          </div>
+          <div
+            className="non-emergency">
+            Non-emergency:
+            <br />
+            <a
+              className="deaden"
+              href="tel:1-800-XXX-XXXX">
+              1-800-***-****
+            </a>
           </div>
         </div>
       </div>
-    </form>
+    </div>
     <div
       className="row">
       <div
