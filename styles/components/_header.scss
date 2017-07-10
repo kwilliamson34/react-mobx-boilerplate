@@ -495,7 +495,8 @@ $fn-mobile-item-height: 60px;
       border-top: 5px solid $fn-ltblue;
       background: $fn-ltgrey;
       text-align: center;
-      padding: 30px calc( ((100% - 970px)/ 2) + 134px) 30px 30px;
+      // padding: 30px calc( ((100% - 970px)/ 2) + 134px) 30px 30px;
+      padding: 30px calc( ((100% - 970px)/ 2) + 119px) 30px 30px;
       justify-content: flex-end;
       box-shadow: 0 3px 2px 0 rgba(130,130,130,0.5);
       display: none;
@@ -577,11 +578,8 @@ $fn-mobile-item-height: 60px;
 
   .mainnav-item {
     .header-submenu {
-      padding: 30px calc( ((100% - 1170px)/ 2) + 115px) 30px 30px;
+      padding: 30px calc( ((100% - 1170px)/ 2) + 118px) 30px 30px;
 
-      > ul {
-        width: 33%;
-      }
     }
   }
 }
