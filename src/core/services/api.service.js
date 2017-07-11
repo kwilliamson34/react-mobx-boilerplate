@@ -87,6 +87,7 @@ class ApiService {
     getMarketingPortalSolutionDetails() {
       return axios.get(`${base}/marketing/api/solutions?_format=json`)
         .then((res) => {
+          // console.log(res.data);
           return res.data;
         });
     }

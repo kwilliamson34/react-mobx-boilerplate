@@ -33,6 +33,7 @@ export default class SolutionsDetailsTemplate extends React.Component {
   }
 
   render() {
+    console.log(this.externalLinkStore.currentPurchasingInfo);
 
     const solutionCategory = this.props.match.params.solutionCategory.replace(/-/g, ' ');
     const solutionDetail = this.props.match.params.solutionDetail.replace(/\+/g, ' ');
