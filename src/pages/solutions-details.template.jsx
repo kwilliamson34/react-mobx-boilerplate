@@ -56,7 +56,7 @@ export default class SolutionsDetailsTemplate extends React.Component {
       <article id="solutions-details-page">
         <BreadcrumbNav links={crumbs} />
         <div className="container">
-        <section className="details-wrapper col-lg-10">
+        <section className="details-wrapper col-lg-offset-1 col-lg-10">
           <div className="row">
             <div className="col-xs-12">
               <div dangerouslySetInnerHTML={{__html: this.externalLinkStore.currentSolutionDetail}}></div>

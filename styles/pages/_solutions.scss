@@ -101,6 +101,7 @@
     text-align: left;
 
     h1, h2 {
+      @extend .as-h1;
       padding: 20px 0;
     }
 
