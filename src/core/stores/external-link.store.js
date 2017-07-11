@@ -84,7 +84,6 @@ class ExternalLinkStore {
   @action fetchAndShowSolutionDetails(solutionPath) {
     let solution = this.fetchSolutionDetails(solutionPath);
     if (solution.length === 1) {
-      console.log('SOLUTION   ', solution[0]);
       this.currentSolutionDetail = externalSolutionsService.filterSolutionDetailData(solution[0]);
       this.currentPurchasingInfo = externalDeviceContentService.filterPurchasingInfo(solution[0]);
     } else {

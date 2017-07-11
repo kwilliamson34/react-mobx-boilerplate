@@ -185,8 +185,8 @@ export default class PSEHeader extends React.Component {
 				}>
 				<button
 					className="btnSubmenu"
-					onClick={this.toggleAdminSubMenu}
 					aria-haspopup="true"
+					onClick={this.toggleAdminSubMenu}
 					aria-expanded={this.headerStore.adminSubMenuIsOpen}>
 					<span className="sr-only">
 						Expand Administration Navigation
