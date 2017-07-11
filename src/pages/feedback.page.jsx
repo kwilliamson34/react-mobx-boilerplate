@@ -188,7 +188,7 @@ export default class FeedbackPage extends React.Component {
                     {this.feedbackStore.hasErrors.feedback_details &&
                       <label className='control-label' htmlFor="feedback_details"><span>Please summarize your feedback</span></label>
                     }
-                    <textarea type='text' id='feedback_details' className='form-control' rows="7" value={this.feedbackStore.feedbackObject.feedback_details} onChange={(e) => this.handleOnChange(e, 10000)} onBlur={this.handleOnBlur}/>
+                    <textarea type='text' id='feedback_details' className='form-control' value={this.feedbackStore.feedbackObject.feedback_details} onChange={(e) => this.handleOnChange(e, 10000)} onBlur={this.handleOnBlur}/>
                   </div>
                   <div>
                     <p className="feedback-text">
