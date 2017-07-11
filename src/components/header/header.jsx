@@ -23,14 +23,12 @@ export default class PSEHeader extends React.Component {
 	}
 
 	componentDidUpdate(prevProps) {
-		console.log('this.headerStore.adminSubMenuIsOpen', this.headerStore.adminSubMenuIsOpen);
     if (this.props.location.pathname !== prevProps.location.pathname) {
       this.handleRouteChange();
     }
   }
 
 	handleRouteChange() {
-		console.log('handleRouteChange page');
 		this.closeMainMenu();
 		if(this.headerStore.viewportWidth >= 768){
 			this.headerStore.closeAdminSubMenu();
@@ -58,35 +56,29 @@ export default class PSEHeader extends React.Component {
 		}, 200, { leading: true, trailing: false });
 
 	toggleMainMenu = () => {
-		console.log('toggleMainMenu page');
 		this.headerStore.toggleMainMenu();
 		this.toggleContentScrolling();
 	};
 
 	closeMainMenu = () => {
-		console.log('closeMainMenu page');
 		this.headerStore.closeMainMenu();
 		this.headerStore.updateViewportDimensions();
 		this.toggleContentScrolling();
 	};
 
 	toggleAdminSubMenu = () => {
-		console.log('toggleAdminSubMenu page');
 		this.headerStore.toggleAdminSubMenu();
 	};
 
 	toggleProfileSubMenu = () => {
-		console.log('toggleProfileSubMenu page');
 		this.headerStore.toggleProfileSubMenu();
 	};
 
 	toggleHelpSubMenu = () => {
-		console.log('toggleHelpSubMenu page');
 		this.headerStore.toggleHelpSubMenu();
 	};
 
 	handleExternalTabOpen = () => {
-		console.log('handleExternalTabOpen page');
 		this.headerStore.externalTabOpen();
 		this.toggleContentScrolling();
 	}
@@ -97,7 +89,6 @@ export default class PSEHeader extends React.Component {
 	};
 
 	toggleContentScrolling() {
-		console.log('toggleContentScrolling page');
     if (this.headerStore.mainMenuIsOpen) {
       $('body').css('overflow', 'hidden');
       $('body').css('position', 'fixed');

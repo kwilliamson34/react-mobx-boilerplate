@@ -5,12 +5,10 @@ import config from 'config';
 class HeaderStore {
 
 	@action toggleMainMenu() {
-		console.log('toggleMainMenu');
 		this.mainMenuIsOpen = !this.mainMenuIsOpen;
 	}
 
 	@action closeMainMenu(){
-		console.log('closeMainMenu');
 		this.mainMenuIsOpen = false;
 		this.closeSubMenus();
 	}
@@ -33,14 +31,12 @@ class HeaderStore {
 	}
 
 	@action closeSubMenus(){
-		console.log('closeSubMenus');
 		this.profileSubMenuIsOpen = false;
 		this.adminSubMenuIsOpen = false;
 		this.helpSubMenuIsOpen = false;
 	}
 
 	@action toggleProfileSubMenu(){
-		console.log('toggleProfileSubMenu');
 		if(this.profileSubMenuIsOpen){
 			this.closeSubMenus();
 		}else{
@@ -50,10 +46,8 @@ class HeaderStore {
 	}
 
 	@action toggleAdminSubMenu(){
-		console.log('toggleAdminSubMenu');
 		if(this.adminSubMenuIsOpen){
 			this.closeSubMenus();
-			// this.adminSubMenuIsOpen = false;
 		}else{
 			this.closeSubMenus();
 			this.adminSubMenuIsOpen = true;
@@ -61,18 +55,15 @@ class HeaderStore {
 	}
 
 	@action openAdminSubMenu() {
-		console.log('openAdminSubMenu');
 		this.closeSubMenus();
 		this.adminSubMenuIsOpen = true;
 	}
 
 	@action closeAdminSubMenu() {
-		console.log('closeAdminSubMenu');
 		this.adminSubMenuIsOpen = false;
 	}
 
 	@action toggleHelpSubMenu(){
-		console.log('toggleHelpSubMenu');
 		if(this.helpSubMenuIsOpen){
 			this.closeSubMenus();
 		}else{
@@ -82,15 +73,12 @@ class HeaderStore {
 	}
 
 	@action externalTabOpen() {
-		console.log('externalTabOpen');
 		this.updateViewportDimensions();
-		console.log('viewportWidth', this.viewportWidth);
 		if (this.viewportWidth <= 990) this.toggleMainMenu();
 		this.closeSubMenus();
 	}
 
 	@action updateViewportDimensions() {
-		console.log('updateViewportDimensions');
 		this.viewportWidth = window.innerWidth;
 		this.viewportHeight = window.innerHeight;
 	}
