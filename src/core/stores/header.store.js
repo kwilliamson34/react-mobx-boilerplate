@@ -74,7 +74,9 @@ class HeaderStore {
 
 	@action externalTabOpen() {
 		this.updateViewportDimensions();
-		if (this.viewportWidth <= 990) this.toggleMainMenu();
+		if (this.viewportWidth <= 991) {
+			this.toggleMainMenu();
+		}
 		this.closeSubMenus();
 	}
 
