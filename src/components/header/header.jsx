@@ -36,13 +36,20 @@ export default class PSEHeader extends React.Component {
 	}
 
 	componentDidMount() {
-		$('#linkBtn-admin').focus( () => {
+		$('#linkBtn-admin').focus(() => {
 			this.headerStore.adminSubMenuIsOpen = true;
 		});
 
 		$('#linkBtn-networkStatus, #logo-home-link').focus(() => {
 			this.headerStore.adminSubMenuIsOpen = false;
 		});
+
+		$('#admin-submenu').children().addBack().on('click', (e) => {
+			console.log('tickytacky', $(e.target));
+			// if (this.headerStore.adminSubMenuIsOpen) {
+			// 	this.toggleAdminSubMenu();
+			// }
+		})
 
 		window.addEventListener('resize', this.updateWindowDimensions);
 	}
