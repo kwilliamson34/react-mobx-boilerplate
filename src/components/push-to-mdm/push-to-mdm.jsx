@@ -38,7 +38,6 @@ export class PushToMDM extends React.Component {
     let srMSG = '';
     let btnLabel = null;
     let btnClass ='fn-primary';
-    // console.log(name, status)
 
     switch(status) {
       case 'NOT_INSTALLED':
