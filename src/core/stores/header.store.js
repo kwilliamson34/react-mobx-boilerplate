@@ -48,7 +48,6 @@ class HeaderStore {
 	@action toggleAdminSubMenu(){
 		if(this.adminSubMenuIsOpen){
 			this.closeSubMenus();
-			this.adminSubMenuIsOpen = false;
 		}else{
 			this.closeSubMenus();
 			this.adminSubMenuIsOpen = true;
@@ -74,7 +73,10 @@ class HeaderStore {
 	}
 
 	@action externalTabOpen() {
-		this.toggleMainMenu();
+		this.updateViewportDimensions();
+		if (this.viewportWidth <= 991) {
+			this.toggleMainMenu();
+		}
 		this.closeSubMenus();
 	}
 
