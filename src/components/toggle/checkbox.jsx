@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import $ from 'jquery';
-// import {utilsService} from '../../core/services/utils.service';
 
 export default class Checkbox extends React.Component {
 	static propTypes = {
@@ -18,11 +16,6 @@ export default class Checkbox extends React.Component {
 		this.onChange = this.onChange.bind(this);
 	}
 
-	// componentDidMount() {
-	// 	$(`#${this.props.id}`).on('focus', () => {
-	// 		console.log(utilsService.scrollIntoViewIfNotInViewport(`#${this.props.id}`));
-	// 	});
-	// }
 
 	onChange(event) {
 		if (this.props.disabled) {
