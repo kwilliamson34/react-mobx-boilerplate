@@ -24,17 +24,15 @@ export default class PurchasingInfo extends React.Component {
       <div id="purchasing-info" className="row">
         <div
           className="
-          col-xs-10 col-xs-offset-1
-          col-sm-offset-1 col-sm-10
-          col-md-6 col-md-offset-5
-          col-lg-7 col-lg-offset-4">
+          col-xs-12
+          col-lg-offset-1 col-lg-10">
           <h2>For Purchasing</h2>
           <div>
             <ul className="purchase-options-list">
               {this.props.contactInfo.contact_name !== '' &&
                 <li>
                   <strong>Contact:</strong>
-                  <span>{this.props.contactInfo.contact_name}</span>
+                  <span dangerouslySetInnerHTML={{__html: this.props.contactInfo.contact_name}} />
                 </li>
               }
               {this.props.contactInfo.contact_phone !== '' &&
@@ -52,7 +50,7 @@ export default class PurchasingInfo extends React.Component {
               {this.props.contactInfo.contact_company !== '' &&
                 <li>
                   <strong>Company:</strong>
-                  <span>{this.props.contactInfo.contact_company}</span>
+                  <span dangerouslySetInnerHTML={{__html: this.props.contactInfo.contact_company}} />
                 </li>
               }
               {this.props.contactInfo.contact_website !== '' &&

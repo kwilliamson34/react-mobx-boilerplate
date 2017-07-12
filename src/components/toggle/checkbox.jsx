@@ -16,6 +16,7 @@ export default class Checkbox extends React.Component {
 		this.onChange = this.onChange.bind(this);
 	}
 
+
 	onChange(event) {
 		if (this.props.disabled) {
 			event.preventDefault();
