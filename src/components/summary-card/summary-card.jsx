@@ -20,7 +20,8 @@ export class SummaryCard extends React.Component {
       badge: PropTypes.bool,
       app_psk: PropTypes.string,
       operatingSystem: PropTypes.oneOf(['', 'NONE', 'IOS', 'ANDROID'])
-    }).isRequired
+    }).isRequired,
+    mdm_status: PropTypes.string
   }
 
   static defaultProps = {
@@ -41,9 +42,10 @@ export class SummaryCard extends React.Component {
   }
 
   render() {
+    let mdmClass = this.props.mdm_status === 'FAILED' || this.props.mdm_status === 'REPUSHED' ? 'mdm_'+ this.props.mdm_status.toLowerCase() : '';
     return (
       <div className="card-wrapper" ref="div">
-        <Link to={'/app/' + this.props.display.app_psk} id={'appCard'+this.props.display.app_psk} className="card-focus has-shadow card-container center-block">
+        <Link to={'/app/' + this.props.display.app_psk} id={'appCard'+this.props.display.app_psk} className={'card-focus has-shadow card-container center-block '+mdmClass}>
           <div className="">
             {this.props.display.badge && (
               <div className="card-badge">

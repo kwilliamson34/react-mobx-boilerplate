@@ -34,6 +34,7 @@ class UtilsService {
           app_psk: obj.app_psk,
           isAvailable: obj.isAvailable,
           isRecommended: obj.isRecommended,
+          mdm_install_status: obj.mdm_install_status,
           badge: obj.custom_metadata.app_type === 'ENDORSED',
           operatingSystem: obj.operating_system,
           category: obj.custom_metadata.category,

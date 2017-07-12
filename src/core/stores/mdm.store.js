@@ -273,29 +273,80 @@ class MDMStore {
         return apiService.breakMDMConfiguration().then(success, fail);
     }
 
-    @action pushToMDM(psk) {
-        this.clearAlerts();
-        this.appMDMStatus.set(psk,'submitting');
+    @action getMDMStatus() {
+        const success = (apps) => {
+            mdmStore.setMDMStatus(apps);
+        }
+        const fail = (err) => {
+            console.warn(err);
+            this.app_alerts.push({
+                type: 'error',
+                headline: 'Error: ',
+                message: 'There was an error establishing a connection with MDM.'
+            });
+        }
+        return apiService.getAdminApps().then(success, fail)
+    }
 
-        const success = () => {
-            this.appMDMStatus.set(psk,'pushed');
+    @action setMDMStatus(apps){
+
+        // NEEDS_UPDATE case needs to be built on service side
+
+        let successfullSubmission = false;
+        let failedSubmission = false;
+
+        for (let i = 0; i < apps.length; i++) {
+            let app = apps[i];
+
+            if(app.mdm_install_status === 'FAILED'){
+                failedSubmission = true;
+            } else if(app.mdm_install_status === 'INSTALLED' && this.appMDMStatus.get(app.app_psk) === 'PENDING'){
+                successfullSubmission = true;
+            }
+            this.appMDMStatus.set(app.app_psk,app.mdm_install_status)
+        }
+        
+        if(failedSubmission){
+            this.throwMDMError();
+        }
+
+        if(successfullSubmission){
             this.app_alerts.push({
                 type: 'success',
                 headline: 'Success! ',
                 message: 'The selected apps have been pushed to MDM.'
             });
         }
+    }
+
+    @action throwMDMError () {
+        this.clearAlerts();
+        this.app_alerts.push({
+            type: 'error',
+            headline: 'Error: ',
+            message: 'Some or all of the selected apps could not be pushed to MDM.'
+        });
+    }
+
+    @action pushToMDM(psk) {
+        this.clearAlerts();
+
+        const success = () => {
+            this.getMDMStatus();
+        }
         const fail = (err) => {
             console.warn(err);
-            this.appMDMStatus.set(psk,'failed');
-            this.app_alerts.push({
-                type: 'error',
-                headline: 'Error: ',
-                message: 'Some or all of the selected apps could not be pushed to MDM.'
-            });
+            this.appMDMStatus.set(psk,'FAILED');
+            this.throwMDMError();
+        }
+        if(this.appMDMStatus.get(psk) === 'INSTALLED' || this.appMDMStatus.get(psk) === 'REPUSHED'){
+            this.appMDMStatus.set(psk,'REPUSHED');
+            this.app_alerts.push({headline:'Note. ',message: 'The selected apps already exist in MDM. They cannot be overwritten.'})
+        } else {
+            this.appMDMStatus.set(psk,'PENDING');
+            return apiService.pushToMDM(psk).then(success, fail);
         }
 
-        return apiService.pushToMDM(psk).then(success, fail);
     }
 
 

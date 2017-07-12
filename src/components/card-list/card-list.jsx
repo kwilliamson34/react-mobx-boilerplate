@@ -44,7 +44,7 @@ export class CardList extends React.Component {
   renderCard(card, i) {
     return (
       <div className="col-xs-12 col-sm-4 col-md-3 col-lg-3 center-block" key={i}>
-        <SummaryCard display={card} shouldFocus={i === this.props.idToFocus}/>
+        <SummaryCard display={card} shouldFocus={i === this.props.idToFocus} mdm_status={this.props.appMDMStatus[card.app_psk]}/>
         <AppManagementBlock
           name={card.name}
           psk={card.app_psk}

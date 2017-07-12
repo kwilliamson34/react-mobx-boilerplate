@@ -1,6 +1,7 @@
 import {action, observable} from 'mobx';
 import {apiService} from '../services/api.service';
 import {utilsService} from '../services/utils.service';
+import {mdmStore} from '../stores/mdm.store';
 
 class AppCatalogStore {
 
@@ -9,6 +10,7 @@ class AppCatalogStore {
 		const success = (res) => {
 			this.allApps = res;
 			this.isLoading = false;
+			mdmStore.setMDMStatus(res);
 			return this.allApps;
 		}
 		const fail = (err) => {
