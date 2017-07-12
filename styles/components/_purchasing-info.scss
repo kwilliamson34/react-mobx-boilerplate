@@ -5,7 +5,7 @@
     font-weight: $fn-normal-weight;
     margin: 30px 0 20px 0;
     padding-bottom: 10px;
-    border-bottom: 1px solid $fn-grey;
+    border-bottom: 1px solid $fn-dkgrey;
   }
 
   .purchase-options-list {
@@ -14,7 +14,8 @@
     li {
       font-size: $fn-content-page-text-desktop;
       width: 100%;
-      margin-bottom: 30px;
+      padding: 20px 0;
+      border-bottom: 1px solid $fn-grey;
 
       a, span {
         font-weight: $fn-normal-weight;
