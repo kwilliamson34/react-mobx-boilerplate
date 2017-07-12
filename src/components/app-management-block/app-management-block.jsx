@@ -74,11 +74,11 @@ export default class AppManagementBlock extends React.Component {
 						disabled={!this.matchingApp.isAvailable}
 						onChange={this.handleRecommendedClick}/>
           <PushToMDM
-              name={this.props.name}
-              psk={this.props.psk}
-              mdmIsConfigured={this.props.mdmIsConfigured}
-              pushToMDM={this.props.pushToMDM}
-              appMDMStatus={this.props.appMDMStatus}/>
+            name={this.props.name}
+            psk={this.props.psk}
+            mdmIsConfigured={this.props.mdmIsConfigured}
+            pushToMDM={this.props.pushToMDM}
+            appMDMStatus={this.props.appMDMStatus}/>
         </div>}
       </div>
     );

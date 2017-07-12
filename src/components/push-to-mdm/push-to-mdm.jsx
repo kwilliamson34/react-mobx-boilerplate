@@ -37,28 +37,31 @@ export class PushToMDM extends React.Component {
     let name = this.props.name;
     let srMSG = '';
     let btnLabel = null;
+    let btnClass ='fn-primary';
 
     switch(status) {
-      case 'unpushed':
+      case 'NOT_INSTALLED':
         srMSG = 'Push '+name+' to MDM';
         btnLabel = (<span aria-hidden="true">Push to MDM</span>);
         break;
-      case 'submitting':
+      case 'PENDING':
         btnLabel = (<span><i className="icon-reload" aria-label="Still Submitting Form"></i>&nbsp;&nbsp;Submitting&hellip;</span>);
         break;
-      case 'failed':
+      case 'FAILED':
         srMSG = 'This app failed to push to the MDM. Click again to re-push';
         btnLabel = (<span aria-hidden="true">Push to MDM</span>);
         break;
-      case 'pushed':
+      case 'INSTALLED':
+        btnClass ='fn-secondary';
         srMSG = 'This app has already been pushed to the MDM. Click to re-push';
         btnLabel = (<span>Re-Push to MDM</span>);
         break;
-      case 'repushed':
+      case 'REPUSHED':
+        btnClass ='fn-secondary';
         srMSG = 'The selected app already exists in MDM. It cannot be overwritten.';
         btnLabel = (<span>Re-Push to MDM</span>);
         break;
-      case 'old':
+      case 'NEEDS_UPDATE':
         srMSG = 'This app has been pushed to the MDM. Click again to update';
         btnLabel = (<span>Update</span>);
         break;
@@ -68,7 +71,7 @@ export class PushToMDM extends React.Component {
     }
 
     return (
-      <button id={'pushBtn' + this.props.psk} onClick={this.handlePushToMDM} aria-disabled={!this.props.mdmIsConfigured} className='fn-primary'>
+      <button id={'pushBtn' + this.props.psk} onClick={this.handlePushToMDM} aria-disabled={!this.props.mdmIsConfigured} className={btnClass}>
         {!this.props.mdmIsConfigured && <span className="sr-only">{srMSG}</span>}
         {btnLabel}
       </button>
