@@ -58,7 +58,7 @@ export default class SolutionsDetailsTemplate extends React.Component {
         <div className="container">
         <section className="details-wrapper col-lg-offset-1 col-lg-10">
           <div className="row">
-            <div className="col-xs-12">
+            <div className="col-xs-12 content-wrapper">
               <div dangerouslySetInnerHTML={{__html: this.externalLinkStore.currentSolutionDetail}}></div>
             </div>
           </div>
