@@ -44,11 +44,9 @@ export default class PSEHeader extends React.Component {
 			this.headerStore.adminSubMenuIsOpen = false;
 		});
 
-		$('#admin-submenu').children().addBack().on('click', (e) => {
-			console.log('tickytacky', $(e.target));
-			// if (this.headerStore.adminSubMenuIsOpen) {
-			// 	this.toggleAdminSubMenu();
-			// }
+		let $subMenuAndChildren = $('#admin-submenu').children().addBack();
+		$(document).not($subMenuAndChildren).on('click', () => {
+			console.log('jnda');
 		})
 
 		window.addEventListener('resize', this.updateWindowDimensions);
