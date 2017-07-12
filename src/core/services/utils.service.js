@@ -1,7 +1,7 @@
 import {userStore} from '../stores/user.store';
 import {history} from './history.service';
 import config from 'config';
-import $ from 'jquery';
+// import $ from 'jquery';
 
 class UtilsService {
   formatRating(rating) {
@@ -65,29 +65,29 @@ class UtilsService {
     return string.replace(/&\w{2,5}; ?/g, '').replace(/[^A-Z\s\d] ?/ig, '').replace(/ /g, '+').toLowerCase();
   }
 
-  scrollIntoViewIfNotInViewport(targetableElement) {
-    //attempted recreation of experimental scrollIntoViewIfNeeded function used by Webkit browsers.
-    let $ele = null;
-    try {
-      $ele = $(targetableElement);
-    } catch (e) {
-      console.warn('Could not target element! Element must be targetable by jQuery');
-      console.log(e);
-      return;
-    }
-
-    let $win = $(window);
-    let topScrollPosition = $ele.scrollTop();
-    let visibleArea = topScrollPosition + $win.height();
-    let elementEndPosition = $ele.offset().top + $ele.outerHeight();
-
-    let shouldScrollIntoView = (visibleArea >= elementEndPosition) && (topScrollPosition <= elementEndPosition);
-    console.log('shouldScrollIntoView?  ', shouldScrollIntoView);
-    return shouldScrollIntoView;
-    // if (shouldScrollIntoView) {
-    //
-    // }
-  }
+  // scrollIntoViewIfNotInViewport(targetableElement) {
+  //   //attempted recreation of experimental scrollIntoViewIfNeeded function used by Webkit browsers.
+  //   let $ele = null;
+  //   try {
+  //     $ele = $(targetableElement);
+  //   } catch (e) {
+  //     console.warn('Could not target element! Element must be targetable by jQuery');
+  //     console.log(e);
+  //     return;
+  //   }
+  //
+  //   let $win = $(window);
+  //   let topScrollPosition = $ele.scrollTop();
+  //   let visibleArea = topScrollPosition + $win.height();
+  //   let elementEndPosition = $ele.offset().top + $ele.outerHeight();
+  //
+  //   let shouldScrollIntoView = (visibleArea >= elementEndPosition) && (topScrollPosition <= elementEndPosition);
+  //   console.log('shouldScrollIntoView?  ', shouldScrollIntoView);
+  //   return shouldScrollIntoView;
+  //   // if (shouldScrollIntoView) {
+  //   //
+  //   // }
+  // }
 
   handleError(err) {
     switch (err.response.status) {
