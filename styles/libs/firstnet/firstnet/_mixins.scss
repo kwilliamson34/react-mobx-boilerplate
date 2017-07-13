@@ -12,7 +12,8 @@ $focus-shadow-depth: 1px;
 
 
     &.fn-primary,
-    &.fn-secondary {
+    &.fn-secondary,
+    &.alert {
       box-shadow:
         1px 1px 0 0 $fn-white,
         1px -1px 0 0 $fn-white,
