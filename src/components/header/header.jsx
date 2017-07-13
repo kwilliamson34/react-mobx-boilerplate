@@ -99,8 +99,8 @@ export default class PSEHeader extends React.Component {
 
 	toggleContentScrolling() {
     if (this.headerStore.mainMenuIsOpen) {
-      $('body').css('overflow', 'hidden');
-      $('body').css('position', 'fixed');
+      $('body:not(.fnnav__main)').css('overflow', 'hidden');
+      $('body:not(.fnnav__main)').css('position', 'fixed');
       $('body').css('width', '100%');
     } else {
       $('body').css('overflow', 'auto');

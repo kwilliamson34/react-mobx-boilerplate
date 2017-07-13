@@ -21,9 +21,9 @@ $fn-mobile-item-height: 60px;
     left: 0;
     z-index: 110;
     width: 100%;
-    height: 100%;
     background: $fn-dkgrey;
     padding-bottom: 30px;
+    overflow-y: auto;
     transition: left $fn-animation-duration ease;
   }
 }
@@ -37,7 +37,7 @@ $fn-mobile-item-height: 60px;
   font-size: 14px;
   background: $fn-white;
 
-   > span,
+  > span,
   > a {
     display: block;
     height: $fn-mobile-item-height;
@@ -252,6 +252,7 @@ $fn-mobile-item-height: 60px;
     display: block;
     top: 65px;
     left: -100vw;
+    height: calc(100vh - 60px);
     visibility: hidden;
     .btnSubmenu{
       display: none;
@@ -290,6 +291,7 @@ $fn-mobile-item-height: 60px;
   }
 
   .fnnav__main {
+    height: calc(100vh - 98px);
     top: 103px;
     left: -505px;
     max-width: 505px;
@@ -349,6 +351,7 @@ $fn-mobile-item-height: 60px;
     text-align: right;
     border-top: 0 none;
     visibility: visible;
+    overflow-y: visible;
 
     .mainnav-item {
       clear: none;
