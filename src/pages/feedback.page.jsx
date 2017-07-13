@@ -167,14 +167,14 @@ export default class FeedbackPage extends React.Component {
               <section>
                 <form id="feedback-form" className="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6" noValidate onSubmit={this.handleSubmit}>
                   {this.feedbackStore.showAlertBar && this.renderAlertBar()}
-                  <div className={this.feedbackStore.hasErrors.feedback_title ? "form-group has-error" : "form-group"}>
+                  <div className={this.feedbackStore.hasErrors.feedback_title ? 'form-group has-error' : 'form-group'}>
                     <label className="control-label" htmlFor="feedback_title">Title<span className="required-asterisks"> *</span></label><br />
                     {this.feedbackStore.hasErrors.feedback_title &&
                       <label className="control-label" htmlFor="feedback_title"><span>Please title your feedback</span></label>
                     }
                     <input type="text" id="feedback_title" className="form-control input-lg" value={this.feedbackStore.feedbackObject.feedback_title} onChange={(e) => this.handleOnChange(e, 250)} onBlur={this.handleOnBlur}/>
                   </div>
-                  <div className={this.feedbackStore.hasErrors.feedback_topic ? "form-group has-error" : "form-group"}>
+                  <div className={this.feedbackStore.hasErrors.feedback_topic ? 'form-group has-error' : 'form-group'}>
                     <label className="control-label" htmlFor="feedback_topic">Topic<span className="required-asterisks"> *</span></label><br />
                     {this.feedbackStore.hasErrors.feedback_topic &&
                       <label className="control-label" htmlFor="feedback_topic"><span>Please select a topic</span></label>
@@ -189,7 +189,7 @@ export default class FeedbackPage extends React.Component {
                       <option value="Other">Other</option>
                     </select>
                   </div>
-                  <div className={this.feedbackStore.hasErrors.feedback_details ? "form-group has-error" : "form-group"}>
+                  <div className={this.feedbackStore.hasErrors.feedback_details ? 'form-group has-error' : 'form-group'}>
                     <label className="control-label" htmlFor="feedback_details">Details<span className="required-asterisks"> *</span></label><br />
                     {this.feedbackStore.hasErrors.feedback_details &&
                       <label className="control-label" htmlFor="feedback_details"><span>Please summarize your feedback</span></label>
@@ -201,7 +201,7 @@ export default class FeedbackPage extends React.Component {
                       Your feedback will help us improve your experience. We cannot respond directly to feedback comments, but can follow up with you if you leave your email below. For immediate help, please contact us directly at <a href={`tel:${config.attCustomerSupportPhone}`}>{`${config.attCustomerSupportPhone}`}</a>.
                     </p>
                   </div>
-                  <div className={this.feedbackStore.hasErrors.feedback_email ? "form-group has-error" : "form-group"}>
+                  <div className={this.feedbackStore.hasErrors.feedback_email ? 'form-group has-error' : 'form-group'}>
                     <label className="control-label" htmlFor="feedback_email">Email (Optional)</label>
                       {this.feedbackStore.hasErrors.feedback_email &&
                         <label className="control-label" htmlFor="feedback_email"><span>Please enter a valid email address</span></label>
@@ -209,7 +209,7 @@ export default class FeedbackPage extends React.Component {
                     <input type="email" id="feedback_email" className="form-control input-lg" value={this.feedbackStore.feedbackObject.feedback_email} onChange={(e) => this.handleOnChange(e, 10000)} onBlur={this.handleOnBlur} />
                   </div>
                   <div className="form-group text-center">
-                    <button type="submit" onClick={this.handleAlertFocus} className={this.feedbackStore.requiredFieldsEntered ? "feedback-btn fn-primary" : "feedback-btn fn-primary disabled"} aria-labelledby="feedback-form">
+                    <button type="submit" onClick={this.handleAlertFocus} className={this.feedbackStore.requiredFieldsEntered ? 'feedback-btn fn-primary' : 'feedback-btn fn-primary disabled'} aria-labelledby="feedback-form">
                       Submit Feedback
                     </button>
                   </div>
