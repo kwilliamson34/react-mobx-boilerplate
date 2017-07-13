@@ -53,6 +53,7 @@ class UserStore {
   }
 
   condtionUserObj(userInfo) {
+    console.log(userInfo);
     this.user.uid = userInfo.id;
     this.user.email = userInfo.email;
     this.user.firstName = userInfo.firstName;
@@ -61,7 +62,7 @@ class UserStore {
     if(userInfo.authorizations.length){
       this.user.pse = userInfo.authorizations[0].pseId;
       this.user.pseName = userInfo.authorizations[0].pseName;
-      this.user.roles = userInfo.authorizations[0].roles;
+      this.user.roles = userInfo.authorizations[0].pseUseroles;
     }else{
       this.user.pse = '';
       this.user.pseName = '';
