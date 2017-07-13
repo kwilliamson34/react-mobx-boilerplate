@@ -9,6 +9,12 @@ export class MDMAlerts extends React.Component {
     page: PropTypes.string
   }
 
+  componentDidUpdate() {
+    if (this.refs.alert_focus) {
+      this.refs.alert_focus.focus();
+    }
+  }
+
   onRemoveName = (idx) => {
     this.props.store.removeAlert(this.props.page,idx);
   };
@@ -31,7 +37,7 @@ export class MDMAlerts extends React.Component {
       <div id="mdm-alerts" className="alerts-wrapper">
         {alert_msgs.map((alert, idx) => {
           return (
-            <div role="alert" aria-live="assertive" className={`alert alert-${alert.type}`} tabIndex="0" key={idx}>
+            <div role="alert" ref="alert_focus" aria-live="assertive" className={`alert alert-${alert.type}`} tabIndex="0" key={idx}>
               <button type="button" className="close_btn icon-close" onClick={this.onRemoveName.bind(this, idx)}>
 
                 <span className="sr-only">Close alert</span>

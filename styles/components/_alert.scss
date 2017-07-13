@@ -16,9 +16,8 @@
 		border: 0;
 		-webkit-appearance: none;
 		float: right;
-		font-size: 14px;
-		&:before{
-			font-size: 9px;
+		&:focus {
+			outline-color: $fn-white;
 		}
 	}
 
@@ -28,6 +27,10 @@
 
 	&.alert-success {
 		background-color: $fn-green;
+	}
+	
+	&:focus {
+		@include focus();
 	}
 }
 
