@@ -22,17 +22,17 @@ $focus-shadow-depth: 1px;
     }
 
 
-    &.inverse{
+    &.inverse {
       background: transparent;
       box-shadow:
       inset 0px 0px 16px 0px rgba(255, 255, 255, 0.5),
       0 0 10px 0 rgba(255, 255, 255, 0.70);
-      &.fn-primary{
+      &.fn-primary {
         background: $fn-dkblue;
       }
     }
 
-    &.reset-filters-button{
+    &.filters-button {
       box-shadow: 1px 1px 0 0 $fn-ltblue,
       1px -1px 0 0 $fn-ltblue,
       -1px 1px 0 0 $fn-ltblue,
