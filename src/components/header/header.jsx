@@ -44,7 +44,7 @@ export default class PSEHeader extends React.Component {
 			this.headerStore.adminSubMenuIsOpen = false;
 		});
 
-		$('body').on('click', (e) => {
+		$('body').click((e) => {
 			let targetIds = ['admin-submenu', 'pse-admin-nav', 'pse-aside-nav', 'linkBtn-admin'];
 			if (this.headerStore.adminSubMenuIsOpen
 				&& !this.headerStore.mainMenuIsOpen
