@@ -23,6 +23,9 @@ export class SearchForm extends React.Component {
     event.preventDefault();
     this.props.resetPagination();
     this.store.getSearchResults();
+
+    //close native keyboard on mobile, to show search results
+    this.refs.input.blur();
   }
 
   handleClearClick = () => {
