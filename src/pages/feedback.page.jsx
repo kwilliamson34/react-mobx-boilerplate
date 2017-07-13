@@ -40,6 +40,9 @@ export default class FeedbackPage extends React.Component {
     if (this.feedbackStore.hasBeenSubmitted) {
       this.refs.success.children[0].scrollIntoView();
     }
+    if (this.refs.feedback_alert) {
+      this.refs.feedback_alert.focus();
+    }
   }
 
   handleSubmit = (e) => {
@@ -136,7 +139,7 @@ export default class FeedbackPage extends React.Component {
   renderAlertBar = () => {
     return (
       <div>
-        <div role="alert" className="alert alert-error" aria-live="assertive" aria-atomic="true" tabIndex="0">
+        <div role="alert" ref="feedback_alert" className="alert alert-error" aria-live="assertive" aria-atomic="true" tabIndex="0">
           <button type="button" className="close_btn" onClick={this.toggleAlertBar}>
             <span aria-hidden="true" className="icon-close" />
             <span className="sr-only">Close alert</span>

@@ -61,7 +61,6 @@ export default class ConfigureMDM extends React.Component {
     this.store.submitForm(event.target);
     }
 
-
   // MDM Modals Functions
 
   discardFormChanges = (event) => {
