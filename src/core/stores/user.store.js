@@ -59,11 +59,13 @@ class UserStore {
     this.user.firstName = userInfo.firstName;
     this.user.lastName = userInfo.lastName;
     this.user.username = userInfo.username;
+    // check if fan mapping has occurred and designate internal pse roles
     if(userInfo.authorizations.length){
       this.user.pse = userInfo.authorizations[0].pseId;
       this.user.pseName = userInfo.authorizations[0].pseName;
       this.user.roles = userInfo.authorizations[0].pseUserRoles;
     }else{
+      // FAN mapping hasn't happened; use HALO provided groups and roles
       this.user.pse = '';
       this.user.pseName = '';
       this.user.roles = userInfo.roles;
