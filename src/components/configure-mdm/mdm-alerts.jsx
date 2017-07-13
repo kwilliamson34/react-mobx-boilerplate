@@ -28,10 +28,10 @@ export class MDMAlerts extends React.Component {
     }
 
     return (
-      <div id="mdm-alerts" className="alerts-wrapper" tabIndex="1">
+      <div id="mdm-alerts" className="alerts-wrapper">
         {alert_msgs.map((alert, idx) => {
           return (
-            <div role="alert" aria-live="assertive" className={`alert alert-${alert.type}`} key={idx}>
+            <div role="alert" aria-live="assertive" className={`alert alert-${alert.type}`} tabIndex="0" key={idx}>
               <button type="button" className="close_btn icon-close" onClick={this.onRemoveName.bind(this, idx)}>
 
                 <span className="sr-only">Close alert</span>
