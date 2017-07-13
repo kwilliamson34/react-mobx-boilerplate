@@ -57,14 +57,15 @@ class UserStore {
     this.user.email = userInfo.email;
     this.user.firstName = userInfo.firstName;
     this.user.lastName = userInfo.lastName;
-    this.user.roles = userInfo.roles;
     this.user.username = userInfo.username;
     if(userInfo.authorizations.length){
       this.user.pse = userInfo.authorizations[0].pseId;
       this.user.pseName = userInfo.authorizations[0].pseName;
+      this.user.roles = userInfo.authorizations[0].roles;
     }else{
       this.user.pse = '';
       this.user.pseName = '';
+      this.user.roles = userInfo.roles;
     }
   }
 
