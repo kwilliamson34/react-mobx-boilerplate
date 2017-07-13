@@ -24,6 +24,9 @@ export default class GeolinkControls extends React.Component {
 
   handleSearchSubmit = () => {
     this.geoStore.searchMap();
+
+    //close native keyboard on mobile, to show search result
+    this.refs.searchInput.blur();
   };
 
   handleSearchKeyPress = event => {
@@ -68,7 +71,7 @@ export default class GeolinkControls extends React.Component {
                 <div className="search-input input-group">
                   <label htmlFor="search-field" className="control-label">Location</label>
                   <div className="search-bar">
-                    <input id="search-field" type="search" className="form-control" onChange={this.handleSearchInput} onKeyPress={this.handleSearchKeyPress}/>
+                    <input id="search-field" type="search" ref="searchInput" className="form-control" onChange={this.handleSearchInput} onKeyPress={this.handleSearchKeyPress}/>
                     <button className="btn search-btn" type="button" onClick={this.handleSearchSubmit}>
                       <span className="sr-only">Search for locations</span>
                       <span aria-hidden="true" className="icon-search"/>
