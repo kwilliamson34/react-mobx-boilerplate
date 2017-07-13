@@ -135,7 +135,7 @@ export default class FeedbackPage extends React.Component {
 
   renderAlertBar = () => {
     return (
-      <div>
+      <div tabIndex="1">
         <div role="alert" className="alert alert-error" aria-live="assertive" aria-atomic="true">
           <button type="button" className="close_btn" onClick={this.toggleAlertBar}>
             <span aria-hidden="true" className="icon-close" />
@@ -159,7 +159,7 @@ export default class FeedbackPage extends React.Component {
             <div className='row'>
 
               <section>
-                <form className="feedback-form col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6" noValidate onSubmit={this.handleSubmit}>
+                <form id='feedback-form' className='col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6' noValidate onSubmit={this.handleSubmit}>
                   {this.feedbackStore.showAlertBar && this.renderAlertBar()}
                   <div className={this.feedbackStore.hasErrors.feedback_title ? 'form-group has-error' : 'form-group'}>
                     <label className='control-label' htmlFor='feedback_title'>Title<span className='required-asterisks'> *</span></label><br />

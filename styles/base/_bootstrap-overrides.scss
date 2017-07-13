@@ -89,3 +89,11 @@
     padding-left: 0;
   }
 }
+
+.alert {
+  &:focus {
+    @include focus();
+    box-shadow: inset 0px 0px 16px 0px rgba(50, 50, 50, 0.5);
+    color: $fn-white;
+  }
+}
