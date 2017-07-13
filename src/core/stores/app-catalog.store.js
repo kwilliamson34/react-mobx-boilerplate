@@ -2,6 +2,7 @@ import {action, observable} from 'mobx';
 import {apiService} from '../services/api.service';
 import {utilsService} from '../services/utils.service';
 import {mdmStore} from '../stores/mdm.store';
+import {cardListStore} from './card-list.store';
 
 class AppCatalogStore {
 
@@ -9,6 +10,7 @@ class AppCatalogStore {
 	@action fetchAppCatalog() {
 		const success = (res) => {
 			this.allApps = res;
+			cardListStore.setCardList(res);
 			this.isLoading = false;
 			mdmStore.setMDMStatus(res);
 			return this.allApps;
@@ -35,7 +37,6 @@ class AppCatalogStore {
 		return this.allApps.filter((app) => {
 			return psk.toString() == app.app_psk.toString();
 		})[0];
-
 	}
 
 	@action fetchAppDetailByPsk(psk) {
