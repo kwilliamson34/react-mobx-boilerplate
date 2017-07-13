@@ -62,7 +62,7 @@ class UserStore {
     if(userInfo.authorizations.length){
       this.user.pse = userInfo.authorizations[0].pseId;
       this.user.pseName = userInfo.authorizations[0].pseName;
-      this.user.roles = userInfo.authorizations[0].pseUseroles;
+      this.user.roles = userInfo.authorizations[0].pseUserRoles;
     }else{
       this.user.pse = '';
       this.user.pseName = '';
