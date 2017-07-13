@@ -4,14 +4,11 @@
 
   .form-group {
     display: inline-block;
-    margin: 0px;
     width: 100%;
-    margin-top: 20px;
+    margin: 5px 0 1rem;
 
     select {
       display: block;
     }
   }
 }
-
-@import 'filters-lg';

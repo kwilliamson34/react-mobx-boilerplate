@@ -2,6 +2,7 @@ import {action, computed, observable} from 'mobx';
 import {apiService} from '../services/api.service';
 import {utilsService} from '../services/utils.service';
 import _ from 'lodash';
+import $ from 'jquery';
 
 class CardListStore {
 
@@ -93,6 +94,10 @@ class CardListStore {
 		this.idToFocus = null;
 	}
 
+	@action toggleFilterShowHide() {
+		this.showFilters = !this.showFilters;
+	}
+
 	//COMPUTEDS
 	@computed get recommendedCards() {
 		return this.searchResults.filter((app) => {
@@ -152,6 +157,7 @@ class CardListStore {
 	@observable searchIsApplied = false;
 	@observable filterElementRefs = [];
 	@observable idToFocus = null;
+	@observable showFilters = false;
 
 	@observable platforms = [{
 			display: 'iOS',

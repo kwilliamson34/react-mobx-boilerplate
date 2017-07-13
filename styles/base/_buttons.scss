@@ -45,7 +45,7 @@
   }
 }
 
-.reset-filters-button {
+.filters-button {
   display: inline-block;
   height: 48px;
   line-height: 48px;
@@ -54,12 +54,25 @@
   font-weight: $fn-medium-weight;
   color: $fn-ltblue;
   text-transform: uppercase;
-  margin-top: 1rem;
   border: none;
-  padding: 0 15px;
+  padding: 0 10px;
+  text-decoration: none;
+
+  i {
+    font-size: 10px;
+    padding-left: 5px;
+  }
 
   &:focus {
     @include focus();
+  }
+
+  span {
+    &:hover,
+    &:active,
+    &:active:focus {
+      text-decoration: underline;
+    }
   }
 
   &:hover,
@@ -68,7 +81,6 @@
     background: transparent;
     color: $fn-dkgrey;
     font-weight: $fn-bold-weight;
-    text-decoration: underline;
     box-shadow: none !important;
   }
 }
