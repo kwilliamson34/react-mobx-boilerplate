@@ -59,7 +59,7 @@ export default class ConfigureMDM extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     this.store.submitForm(event.target);
-    }
+  }
 
   // MDM Modals Functions
 
