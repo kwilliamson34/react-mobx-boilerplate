@@ -36,13 +36,22 @@ export default class PSEHeader extends React.Component {
 	}
 
 	componentDidMount() {
-		$('#linkBtn-admin').focus( () => {
+		$('#linkBtn-admin').focus(() => {
 			this.headerStore.adminSubMenuIsOpen = true;
 		});
 
 		$('#linkBtn-networkStatus, #logo-home-link').focus(() => {
 			this.headerStore.adminSubMenuIsOpen = false;
 		});
+
+		$('body').click((e) => {
+			let targetIds = ['admin-submenu', 'pse-admin-nav', 'pse-aside-nav', 'linkBtn-admin'];
+			if (this.headerStore.adminSubMenuIsOpen
+				&& !this.headerStore.mainMenuIsOpen
+				&& !_.includes(targetIds, e.target.id)) {
+					this.toggleAdminSubMenu();
+				}
+		})
 
 		window.addEventListener('resize', this.updateWindowDimensions);
 	}
@@ -90,8 +99,8 @@ export default class PSEHeader extends React.Component {
 
 	toggleContentScrolling() {
     if (this.headerStore.mainMenuIsOpen) {
-      $('body').css('overflow', 'hidden');
-      $('body').css('position', 'fixed');
+      $('body:not(.fnnav__main)').css('overflow', 'hidden');
+      $('body:not(.fnnav__main)').css('position', 'fixed');
       $('body').css('width', '100%');
     } else {
       $('body').css('overflow', 'auto');

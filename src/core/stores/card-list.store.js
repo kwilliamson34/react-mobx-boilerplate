@@ -6,21 +6,9 @@ import _ from 'lodash';
 class CardListStore {
 
 	// ACTIONS
-	@action fetchCardList() {
-		if(!this.searchResults.length) {
-			const success = (res) => {
-				this.originalCardList = res;
-				this.searchResults = res;
-				this.isLoading = false;
-				return this.searchResults;
-			}
-			const fail = (err) => {
-				utilsService.handleError(err);
-				this.isLoading = false;
-			}
-			this.isLoading = true;
-			return apiService.getAdminApps().then(success, fail)
-		}
+	@action setCardList(appArray) {
+		this.originalCardList = appArray;
+		this.searchResults = appArray;
 	}
 
 	@action fetchCategoriesAndSegments() {
@@ -105,6 +93,10 @@ class CardListStore {
 		this.idToFocus = null;
 	}
 
+	@action toggleFilterShowHide() {
+		this.showFilters = !this.showFilters;
+	}
+
 	//COMPUTEDS
 	@computed get recommendedCards() {
 		return this.searchResults.filter((app) => {
@@ -164,6 +156,7 @@ class CardListStore {
 	@observable searchIsApplied = false;
 	@observable filterElementRefs = [];
 	@observable idToFocus = null;
+	@observable showFilters = false;
 
 	@observable platforms = [{
 			display: 'iOS',

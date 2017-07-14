@@ -30,7 +30,7 @@ class UserStore {
     this.api_token = tk_response;
     this.checkPermissions();
     this.userValidationDone = true;
-    if(this.user.roles.indexOf('G_FN_ADM') >= 0 || this.user.roles.indexOf('G_FN_IM') >= 0 ) {
+    if(this.user.roles && (this.user.roles.indexOf('G_FN_ADM') >= 0 || this.user.roles.indexOf('G_FN_IM') >= 0) ) {
       this.authentic_user = true;
     }
   }
@@ -45,7 +45,7 @@ class UserStore {
   }
 
   checkPermissions() {
-    if (this.user.roles.indexOf('G_FN_ADM') !== -1) {
+    if (this.user.roles && this.user.roles.indexOf('G_FN_ADM') !== -1) {
       this.isAdmin = true;
     } else {
       this.isAdmin = false;
@@ -57,14 +57,17 @@ class UserStore {
     this.user.email = userInfo.email;
     this.user.firstName = userInfo.firstName;
     this.user.lastName = userInfo.lastName;
-    this.user.roles = userInfo.roles;
     this.user.username = userInfo.username;
+    // check if FAN mapping has occurred and designate internal PSE roles
     if(userInfo.authorizations.length){
       this.user.pse = userInfo.authorizations[0].pseId;
       this.user.pseName = userInfo.authorizations[0].pseName;
-    }else{
+      this.user.roles = userInfo.authorizations[0].pseUserRoles;
+    } else {
+      // FAN mapping hasn't happened; use HALO provided groups and roles
       this.user.pse = '';
       this.user.pseName = '';
+      this.user.roles = userInfo.roles;
     }
   }
 

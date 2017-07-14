@@ -58,20 +58,8 @@ export default class ConfigureMDM extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-
-    const $alerts = $('#mdm-alerts');
-
-    this.store.submitForm(event.target)
-
-    $alerts.focus();
-
-    if(this.store.form_alerts.length && this.store.form_alerts[0].type === 'error'){
-        $alerts.one('blur', function(){
-              $('#mdm').focus();
-        });
-      }
-    }
-
+    this.store.submitForm(event.target);
+  }
 
   // MDM Modals Functions
 

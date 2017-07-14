@@ -11,10 +11,6 @@ i {
 
 main {
   background: #fff;
-
-  &:focus {
-    @include focus();
-  }
 }
 
 .row.is-flex {

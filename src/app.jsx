@@ -113,9 +113,9 @@ export default class App extends React.Component {
   getMainLayoutComponent = () => {
     return (
       <ScrollToTop>
-        <a href="#main-content" className="sr-only sr-only-focusable">Skip Navigation</a>
+        <a href="#main-content" className="skipnav">Skip Navigation</a>
         <Header/>
-        <main id="main-content">
+        <main id="main-content" tabIndex="-1">
           <Switch>
             <Route exact path="/" component={this.getLandingPage}/>
             <Route path="/admin/manage-users" component={this.getAdminRoutes(ManageUsersPage)}/>

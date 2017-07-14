@@ -33,7 +33,7 @@ export default class SolutionsDetailsTemplate extends React.Component {
   }
 
   render() {
-    
+
     const solutionCategory = this.props.match.params.solutionCategory.replace(/-/g, ' ');
     const solutionDetail = this.props.match.params.solutionDetail.replace(/\+/g, ' ');
 
@@ -56,16 +56,18 @@ export default class SolutionsDetailsTemplate extends React.Component {
       <article id="solutions-details-page">
         <BreadcrumbNav links={crumbs} />
         <div className="container">
-        <section className="details-wrapper col-lg-10">
+        <section className="details-wrapper col-lg-offset-1 col-lg-10">
           <div className="row">
-            <div className="col-xs-12">
+            <div className="col-xs-12 content-wrapper">
               <div dangerouslySetInnerHTML={{__html: this.externalLinkStore.currentSolutionDetail}}></div>
             </div>
           </div>
         </section>
-        {this.externalLinkStore.currentPurchasingInfo && this.externalLinkStore.showPurchasingInfo &&
-          <PurchasingInfo contactInfo={this.externalLinkStore.currentPurchasingInfo} />
-        }
+        <div className="col-lg-offset-1 col-lg-10">
+          {this.externalLinkStore.currentPurchasingInfo && this.externalLinkStore.showPurchasingInfo &&
+            <PurchasingInfo contactInfo={this.externalLinkStore.currentPurchasingInfo} />
+          }
+        </div>
       </div>
       </article>
     )

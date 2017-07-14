@@ -35,15 +35,29 @@ export default class ShowMoreOrLess extends React.Component {
   }
 
   componentWillMount() {
-    this.shouldTruncate = this.checkIfShouldTruncate(this.stringToTruncate, this.props.charLimit);
-    this.showEverythingBlock = this.generateEverythingBlock(this.stringToTruncate);
-    this.showTruncatedBlock = this.generateTruncatedBlock(this.stringToTruncate, this.props.charLimit);
+    this.modifiedString = this.modifyStringToTruncate(this.stringToTruncate);
+    this.shouldTruncate = this.checkIfShouldTruncate(this.modifiedString, this.props.charLimit);
+    this.showEverythingBlock = this.generateEverythingBlock(this.modifiedString);
+    this.showTruncatedBlock = this.generateTruncatedBlock(this.modifiedString, this.props.charLimit);
   }
 
   @observable isTruncated = true;
 
-  checkIfShouldTruncate = (stringToTruncate, charLimit) => {
-    let rawTextLength = this.getRawText(stringToTruncate).length;
+  modifyStringToTruncate = (string) => {
+    let returnString = ''
+    returnString = this.addLineBreaks(string);
+    return returnString;
+  }
+
+  addLineBreaks = (value) => {
+    if (typeof value === 'string') {
+      value = value.replace(/\n/g, '<br/>');
+    }
+    return value;
+  }
+
+  checkIfShouldTruncate = (string, charLimit) => {
+    let rawTextLength = this.getRawText(string).length;
     return charLimit < rawTextLength;
   }
 
@@ -51,14 +65,14 @@ export default class ShowMoreOrLess extends React.Component {
     return string.replace(globalHtmlRegex, '');
   }
 
-  generateEverythingBlock = (stringToTruncate) => {
+  generateEverythingBlock = (string) => {
     //This is a precaution to normalize the showEverythingBlock with the showTruncatedBlock. Might not ultimately be necessary.
-    let splitArray = stringToTruncate.match(splitAllElementsRegex);
+    let splitArray = string.match(splitAllElementsRegex);
     return splitArray.join('');
   }
 
-  generateTruncatedBlock = (stringToTruncate, charLimit) => {
-    let splitArray = stringToTruncate.match(splitAllElementsRegex);
+  generateTruncatedBlock = (string, charLimit) => {
+    let splitArray = string.match(splitAllElementsRegex);
     return this.shouldTruncate
       ? this.findTruncateBlock(splitArray, charLimit) + this.generateEndElements(this.props.cutoffSymbol)
       : 'Error';
@@ -73,7 +87,7 @@ export default class ShowMoreOrLess extends React.Component {
     if (splitArray.reduce((x, y) => {
         return x + (singleHtmlRegex.test(y) ? 0 : 1)
       }, 0) === 1) {
-        truncateBlock = this.getRawText(this.stringToTruncate).substr(0, charLimit);
+        truncateBlock = this.getRawText(this.string).substr(0, charLimit);
     }
     //If no edge cases have triggered:
     else {
