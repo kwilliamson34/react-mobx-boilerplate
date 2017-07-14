@@ -63,7 +63,7 @@ export default class SolutionsDetailsTemplate extends React.Component {
             </div>
           </div>
         </section>
-        <div className="col-lg-offset-1 col-lg-12">
+        <div className="col-lg-offset-1 col-lg-10">
           {this.externalLinkStore.currentPurchasingInfo && this.externalLinkStore.showPurchasingInfo &&
             <PurchasingInfo contactInfo={this.externalLinkStore.currentPurchasingInfo} />
           }

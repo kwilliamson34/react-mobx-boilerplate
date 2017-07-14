@@ -22,8 +22,7 @@ export default class PurchasingInfo extends React.Component {
   render() {
     return(
       <div id="purchasing-info" className="row">
-        <div
-          className="col-xs-12 col-lg-10">
+        <div className="col-xs-12">
           <h2>For Purchasing</h2>
           <div>
             <ul className="purchase-options-list">
