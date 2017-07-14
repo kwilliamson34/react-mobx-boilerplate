@@ -12,7 +12,7 @@ class CardListStore {
 		/* If the user has already performed a search, left the page, and
 		returned, re-execute the search with the same parameters (the app
 		catalog may have changed). */
-		if(this.searchResults.length) {
+		if(this.searchIsApplied) {
 			this.getSearchResults();
 		} else {
 			this.searchResults = appArray;
