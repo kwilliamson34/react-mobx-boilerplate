@@ -110,8 +110,9 @@ export default class FeedbackPage extends React.Component {
               </button>
               <div className="row no-gutters">
                 <div className="col-xs-12">
-                  <h1 id="feedback-modal-title">Unsaved changes</h1>
-                  <p>Your form changes will not be saved if you navigate away from this page.</p>
+                  <h1 id="feedback-modal-title" aria-hidden="true">Unsaved changes</h1>
+                  <p aria-hidden="true">Your form changes will not be saved if you navigate away from this page.</p>
+                  <span className="sr-only">Unsaved changes. Your form changes will not be saved if you navigate away from this page.</span>
                 </div>
                 <div className="col-xs-12 text-center">
                   <button className="fn-primary" onClick={this.toggleExitModal}>Stay on Page</button>
