@@ -23,7 +23,7 @@ export default class PSEHeader extends React.Component {
 	}
 
 	componentDidUpdate(prevProps) {
-    if (this.props.location.pathname !== prevProps.location.pathname) {
+    if (this.props.location !== prevProps.location) {
       this.handleRouteChange();
     }
   }
