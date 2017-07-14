@@ -8,19 +8,30 @@ class CardListStore {
 	// ACTIONS
 	@action setCardList(appArray) {
 		this.originalCardList = appArray;
-		this.searchResults = appArray;
+
+		/* If the user has already performed a search, left the page, and
+		returned, re-execute the search with the same parameters (the app
+		catalog may have changed). */
+		if(this.searchIsApplied) {
+			this.getSearchResults();
+		} else {
+			this.searchResults = appArray;
+		}
 	}
 
 	@action fetchCategoriesAndSegments() {
-		const success = (res) => {
-			this.categories = res.data.categories;
-			this.segments = res.data.user_segments;
-			return res;
+		/* Retrieve categories and segments once and cache forever */
+		if(!this.categories.length || !this.segments.length) {
+			const success = (res) => {
+				this.categories = res.data.categories;
+				this.segments = res.data.user_segments;
+				return res;
+			}
+			const fail = (err) => {
+				utilsService.handleError(err);
+			}
+			return apiService.getCategoriesAndSegments().then(success, fail)
 		}
-		const fail = (err) => {
-			utilsService.handleError(err);
-		}
-		return apiService.getCategoriesAndSegments().then(success, fail)
 	}
 
 	@action clearSearchQuery() {
