@@ -110,7 +110,7 @@ export default class FeedbackPage extends React.Component {
               </button>
               <div className="row no-gutters" id="feedback-modal-title">
                 <div className="col-xs-12">
-                  <h1>Unsaved changes</h1>
+                  <h1 className="as-h2">Unsaved changes</h1>
                   <p>Your form changes will not be saved if you navigate away from this page.</p>
                 </div>
                 <div className="col-xs-12 text-center">
