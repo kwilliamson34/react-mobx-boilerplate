@@ -1,3 +1,29 @@
+a.skipnav{
+  left:-999px;
+  position:absolute;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+  z-index:-999;
+  &:focus,
+  &:active{
+    position:relative;
+    display: inline-block;
+    left: auto;
+    top: auto;
+    height: auto;
+    width:auto;
+    overflow:auto;
+    margin: 2px;
+    padding:5px;
+    border-radius: 8px;
+    border:1px solid $fn-blue;
+    text-align:center;
+    z-index:999;
+    color: $fn-black;
+  }
+}
 .back-to-top {
   margin: 0;
   padding: 0;
@@ -156,7 +182,7 @@
 /* XS */
 @media only screen and (min-width : 320px) {
   $fn-primary-nav-height: 60px;
-  
+
   .back-to-top {
     left: 1em;
     right: auto;
