@@ -298,8 +298,6 @@ class MDMStore {
         for (let i = 0; i < apps.length; i++) {
             let app = apps[i];
 
-            console.log(app.name, app.mdm_install_status)
-
             if(app.mdm_install_status === 'FAILED'){
                 failedSubmission = true;
             } else if(app.mdm_install_status === 'INSTALLED' && this.appMDMStatus.get(app.app_psk) === 'PENDING'){
