@@ -58,7 +58,7 @@ export default class DeviceDetailTemplate extends React.Component {
 						<div className="
 							col-xs-offset-2 col-xs-8
 							col-sm-offset-1 col-sm-5
-							col-lg-3">
+							col-lg-offset-1 col-lg-3">
 							<img
 								className="img-responsive"
 								src={this.externalLinkStore.currentDeviceDetail.deviceImg}
@@ -67,7 +67,7 @@ export default class DeviceDetailTemplate extends React.Component {
 						<div className="
 							col-xs-offset-1 col-xs-10
 							col-sm-offset-0 col-sm-6
-							col-lg-7">
+							col-lg-offset-0 col-lg-7">
 							<h1 className="as-h2 hidden-xs"><span dangerouslySetInnerHTML={{__html: this.externalLinkStore.currentDeviceDetail.deviceName}} /></h1>
 							<div className="feature-list" dangerouslySetInnerHTML={{__html: this.externalLinkStore.currentDeviceDetail.features}}></div>
 						</div>
