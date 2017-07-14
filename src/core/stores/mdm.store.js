@@ -339,13 +339,9 @@ class MDMStore {
             this.appMDMStatus.set(psk,'FAILED');
             this.throwMDMError();
         }
-        if(this.appMDMStatus.get(psk) === 'INSTALLED' || this.appMDMStatus.get(psk) === 'REPUSHED'){
-            this.appMDMStatus.set(psk,'REPUSHED');
-            this.app_alerts.push({headline:'Note. ',message: 'The selected apps already exist in MDM. They cannot be overwritten.'})
-        } else {
-            this.appMDMStatus.set(psk,'PENDING');
-            return apiService.pushToMDM(psk).then(success, fail);
-        }
+
+        this.appMDMStatus.set(psk,'PENDING');
+        return apiService.pushToMDM(psk).then(success, fail);
 
     }
 
