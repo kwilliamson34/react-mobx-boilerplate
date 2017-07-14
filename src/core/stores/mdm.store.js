@@ -298,6 +298,8 @@ class MDMStore {
         for (let i = 0; i < apps.length; i++) {
             let app = apps[i];
 
+            console.log(app.name, app.mdm_install_status)
+
             if(app.mdm_install_status === 'FAILED'){
                 failedSubmission = true;
             } else if(app.mdm_install_status === 'INSTALLED' && this.appMDMStatus.get(app.app_psk) === 'PENDING'){
@@ -339,13 +341,9 @@ class MDMStore {
             this.appMDMStatus.set(psk,'FAILED');
             this.throwMDMError();
         }
-        if(this.appMDMStatus.get(psk) === 'INSTALLED' || this.appMDMStatus.get(psk) === 'REPUSHED'){
-            this.appMDMStatus.set(psk,'REPUSHED');
-            this.app_alerts.push({headline:'Note. ',message: 'The selected apps already exist in MDM. They cannot be overwritten.'})
-        } else {
-            this.appMDMStatus.set(psk,'PENDING');
-            return apiService.pushToMDM(psk).then(success, fail);
-        }
+
+        this.appMDMStatus.set(psk,'PENDING');
+        return apiService.pushToMDM(psk).then(success, fail);
 
     }
 
