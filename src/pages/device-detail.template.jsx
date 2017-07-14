@@ -52,23 +52,33 @@ export default class DeviceDetailTemplate extends React.Component {
 				<BreadcrumbNav links={crumbs} />
 				<div className="container detail-block">
 					<div className="row">
-					<div className="col-xs-10 col-xs-offset-1 text-center visible-xs-block "><h1>{this.externalLinkStore.currentDeviceDetail.deviceName}</h1></div>
+					<div className="col-xs-10 col-xs-offset-1 text-center visible-xs-block"><h1>{this.externalLinkStore.currentDeviceDetail.deviceName}</h1></div>
 					</div>
 					<div className="row is-flex">
-						<div className="col-xs-10 col-xs-offset-1 col-sm-offset-1 col-sm-4 col-md-offset-1 col-md-4 col-lg-offset-1 col-lg-3">
+						<div className="
+							col-xs-offset-2 col-xs-8
+							col-sm-offset-1 col-sm-5
+							col-lg-offset-1 col-lg-3">
 							<img
 								className="img-responsive"
 								src={this.externalLinkStore.currentDeviceDetail.deviceImg}
 								alt={this.externalLinkStore.currentDeviceDetail.deviceImgAlt} />
 						</div>
-						<div className="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-6 col-md-offset-0 col-lg-7">
+						<div className="
+							col-xs-offset-1 col-xs-10
+							col-sm-offset-0 col-sm-6
+							col-lg-offset-0 col-lg-7">
 							<h1 className="as-h2 hidden-xs"><span dangerouslySetInnerHTML={{__html: this.externalLinkStore.currentDeviceDetail.deviceName}} /></h1>
 							<div className="feature-list" dangerouslySetInnerHTML={{__html: this.externalLinkStore.currentDeviceDetail.features}}></div>
 						</div>
+						<div className="
+							col-xs-offset-1 col-xs-10
+							col-lg-offset-4 col-lg-7">
+							{this.externalLinkStore.currentPurchasingInfo && this.externalLinkStore.showPurchasingInfo &&
+								<PurchasingInfo contactInfo={this.externalLinkStore.currentPurchasingInfo} />
+							}
+						</div>
 					</div>
-					{this.externalLinkStore.currentPurchasingInfo && this.externalLinkStore.showPurchasingInfo &&
-						<PurchasingInfo contactInfo={this.externalLinkStore.currentPurchasingInfo} />
-					}
 				</div>
 				{(this.externalLinkStore.currentDeviceDetail.terms) &&
 					<div className="terms-block">
