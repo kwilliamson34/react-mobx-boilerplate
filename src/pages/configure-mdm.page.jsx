@@ -89,16 +89,16 @@ export default class ConfigureMDM extends React.Component {
     this.showModal(showExitModal, '#exitModal')
 
     return (
-        <div id="exitModal" className="modal fade" tabIndex="-1" role="dialog" aria-labelledby="modal-title">
+        <div id="exitModal" className="modal fade" tabIndex="-1" role="dialog" aria-labelledby="exit-modal-title">
           <div className="modal-dialog">
             <div className="modal-content">
               <button type="button" autoFocus="true" id="exitModalCloseBtn" className="fn-modal-close" onClick={this.toggleExitModal}>
                 <i aria-hidden="true" className="icon-close"></i>
                 <span className="sr-only">close window</span>
               </button>
-              <div className="row no-gutters">
+              <div className="row no-gutters" id="exit-modal-title">
                 <div className="col-xs-12">
-                  <h1 id="modal-title" className="as-h2">Unsaved changes</h1>
+                  <h1 className="as-h2">Unsaved changes</h1>
                   <p>Your form changes will not be saved if you navigate away from this page.</p>
                 </div>
                 <div className="col-xs-12 text-center">
@@ -117,16 +117,16 @@ export default class ConfigureMDM extends React.Component {
     this.showModal(showbreakMDMConnection, '#breakConnectionModal')
 
     return (
-        <div id="breakConnectionModal"  className="modal fade" tabIndex="-1" role="dialog" aria-labelledby="modal-title">
+        <div id="breakConnectionModal"  className="modal fade" tabIndex="-1" role="dialog" aria-labelledby="break-connection-modal-title">
           <div className="modal-dialog">
             <div className="modal-content">
               <button type="button" className="fn-modal-close" onClick={this.togglebreakMDMConnection}>
                 <i aria-hidden="true" className="icon-close"></i>
                 <span className="sr-only">close window</span>
               </button>
-              <div className="row no-gutters">
+              <div className="row no-gutters" id="break-connection-modal-title">
                 <div className="col-xs-12">
-                  <h1 id="modal-title" className="as-h2">Confirm break connection</h1>
+                  <h1 className="as-h2">Confirm break connection</h1>
                   <p>This cannot be undone. If you break this application’s connection to MDM, you will have to re-configure it using this form to establish a new connection.</p>
                 </div>
                 <div className="col-xs-12 text-center">
