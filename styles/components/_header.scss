@@ -543,6 +543,10 @@ $fn-mobile-item-height: 60px;
             @include focus();
             padding: 2px 4px;
             border-radius: 4px;
+            
+            i {
+             visibility: visible;
+            }
           }
 
           &:active,
