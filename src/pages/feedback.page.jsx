@@ -100,7 +100,7 @@ export default class FeedbackPage extends React.Component {
   renderExitModal = (showExitModal) => {
     this.showModal(showExitModal, '#customer-feedback-exit-modal');
     return (
-      <div id="customer-feedback-exit-modal" tabIndex="-1" role="dialog" className="modal fade" aria-labelledby="feedback-modal-title">
+      <div id="customer-feedback-exit-modal" role="dialog" tabIndex="-1" className="modal fade" aria-labelledby="feedback-modal-title">
         <div>
           <div className="modal-dialog">
             <div className="modal-content">
@@ -108,9 +108,9 @@ export default class FeedbackPage extends React.Component {
                 <i aria-hidden="true" className="icon-close"></i>
                 <span className="sr-only">close window</span>
               </button>
-              <div className="row no-gutters">
+              <div className="row no-gutters" id="feedback-modal-title">
                 <div className="col-xs-12">
-                  <h1 id="feedback-modal-title">Unsaved changes</h1>
+                  <h1 className="as-h2">Unsaved changes</h1>
                   <p>Your form changes will not be saved if you navigate away from this page.</p>
                 </div>
                 <div className="col-xs-12 text-center">
