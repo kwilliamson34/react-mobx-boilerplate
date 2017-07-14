@@ -370,7 +370,7 @@ export default class PSEHeader extends React.Component {
 										className="dropdown-menu dropdown-menu-right"
 										aria-labelledby="profile-header-dropdown">
 										<li role="presentation" className="desktop-profile-display">
-											<a id="pse-profile-desktop" href="#profile" className="deaden">
+											<a id="pse-profile-desktop" href="#profile" className="deaden" tabIndex="-1">
 												{this.renderProfileBlock()}
 											</a>
 										</li>
