@@ -23,9 +23,7 @@ export default class PurchasingInfo extends React.Component {
     return(
       <div id="purchasing-info" className="row">
         <div
-          className="
-          col-xs-12
-          col-lg-offset-1 col-lg-10">
+          className="col-xs-12 col-lg-10">
           <h2>For Purchasing</h2>
           <div>
             <ul className="purchase-options-list">

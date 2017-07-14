@@ -33,7 +33,7 @@ export default class SolutionsDetailsTemplate extends React.Component {
   }
 
   render() {
-    
+
     const solutionCategory = this.props.match.params.solutionCategory.replace(/-/g, ' ');
     const solutionDetail = this.props.match.params.solutionDetail.replace(/\+/g, ' ');
 
@@ -63,9 +63,11 @@ export default class SolutionsDetailsTemplate extends React.Component {
             </div>
           </div>
         </section>
-        {this.externalLinkStore.currentPurchasingInfo && this.externalLinkStore.showPurchasingInfo &&
-          <PurchasingInfo contactInfo={this.externalLinkStore.currentPurchasingInfo} />
-        }
+        <div className="col-lg-offset-1 col-lg-12">
+          {this.externalLinkStore.currentPurchasingInfo && this.externalLinkStore.showPurchasingInfo &&
+            <PurchasingInfo contactInfo={this.externalLinkStore.currentPurchasingInfo} />
+          }
+        </div>
       </div>
       </article>
     )
