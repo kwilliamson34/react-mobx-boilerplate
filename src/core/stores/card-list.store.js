@@ -2,7 +2,6 @@ import {action, computed, observable} from 'mobx';
 import {apiService} from '../services/api.service';
 import {utilsService} from '../services/utils.service';
 import _ from 'lodash';
-import $ from 'jquery';
 
 class CardListStore {
 
