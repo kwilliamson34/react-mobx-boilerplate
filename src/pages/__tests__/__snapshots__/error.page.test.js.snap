@@ -1,0 +1,236 @@
+exports[`<ErrorPage /> render matches previous snapshot 1`] = `
+<section
+  className="error-page">
+  <div
+    className="error-container">
+    <h1>
+      Access denied.
+    </h1>
+    <p
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Unfortunately, you do not have permission to view this page. If you think this is in error, please contact your site administrator, or continue to one of the FirstNet Sites below:<br/><br/>"
+        }
+      } />
+    <section>
+      <a
+        href="https://apps-qa.sapientfirst.net">
+        App Store
+      </a>
+      <a
+        href="https://devcon-qa.sapientfirst.net">
+        Developer Console
+      </a>
+      <a
+        href="https://pse-qa.sapientfirst.net">
+        Local Control
+      </a>
+    </section>
+  </div>
+</section>
+`;
+
+exports[`<ErrorPage /> render shows Access Denied for authorization problem 1`] = `
+<section
+  className="error-page">
+  <div
+    className="error-container">
+    <h1>
+      Access denied.
+    </h1>
+    <p
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Unfortunately, you do not have permission to view this page. If you think this is in error, please contact your site administrator, or continue to one of the FirstNet Sites below:<br/><br/>"
+        }
+      } />
+    <section>
+      <a
+        href="https://apps-qa.sapientfirst.net">
+        App Store
+      </a>
+      <a
+        href="https://devcon-qa.sapientfirst.net">
+        Developer Console
+      </a>
+      <a
+        href="https://pse-qa.sapientfirst.net">
+        Local Control
+      </a>
+    </section>
+  </div>
+</section>
+`;
+
+exports[`<ErrorPage /> render shows Access Denied for authorization problem 2`] = `
+<section
+  className="error-page">
+  <div
+    className="error-container">
+    <h1>
+      We\'re Sorry.
+    </h1>
+    <p
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "This page is experiencing an issue. Try again later, or continue to one of the FirstNet Sites below:"
+        }
+      } />
+    <section>
+      <a
+        href="https://apps-qa.sapientfirst.net">
+        App Store
+      </a>
+      <a
+        href="https://devcon-qa.sapientfirst.net">
+        Developer Console
+      </a>
+      <a
+        href="https://pse-qa.sapientfirst.net">
+        Local Control
+      </a>
+    </section>
+  </div>
+</section>
+`;
+
+exports[`<ErrorPage /> render shows App Unavailable on 410 1`] = `
+<section
+  className="error-page">
+  <div
+    className="error-container">
+    <h1>
+      App Unavailable
+    </h1>
+    <p
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "The app you requested is no longer available."
+        }
+      } />
+    <section
+      className="text-center">
+      <a
+        className="fn-primary"
+        href="/"
+        onClick={[Function anonymous]}>
+        Return to Home Page
+      </a>
+    </section>
+  </div>
+</section>
+`;
+
+exports[`<ErrorPage /> render shows Generic message otherwise 1`] = `
+<section
+  className="error-page">
+  <div
+    className="error-container">
+    <h1>
+      We\'re Sorry.
+    </h1>
+    <p
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "This page is experiencing an issue. Try again later, or continue to one of the FirstNet Sites below:"
+        }
+      } />
+    <section>
+      <a
+        href="https://apps-qa.sapientfirst.net">
+        App Store
+      </a>
+      <a
+        href="https://devcon-qa.sapientfirst.net">
+        Developer Console
+      </a>
+      <a
+        href="https://pse-qa.sapientfirst.net">
+        Local Control
+      </a>
+    </section>
+  </div>
+</section>
+`;
+
+exports[`<ErrorPage /> render shows Permission Pending 1`] = `
+<section
+  className="error-page">
+  <div
+    className="error-container">
+    <h1>
+      Account permissions pending.
+    </h1>
+    <p
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Permissions for new accounts may take up to 24 hours to properly sync and some pages may not be immediately available.  Please try accessing this page again later."
+        }
+      } />
+    <section>
+      <a
+        href="#"
+        onClick={[Function onClick]}>
+        Go Back
+      </a>
+    </section>
+  </div>
+</section>
+`;
+
+exports[`<ErrorPage /> render shows Service Error for authentication problem 1`] = `
+<section
+  className="error-page">
+  <div
+    className="error-container">
+    <h1>
+      Service Issue.
+    </h1>
+    <p
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "This page is experiencing an issue. Try again later, or continue to one of the FirstNet Sites below:"
+        }
+      } />
+    <section>
+      <a
+        href="https://apps-qa.sapientfirst.net">
+        App Store
+      </a>
+      <a
+        href="https://devcon-qa.sapientfirst.net">
+        Developer Console
+      </a>
+      <a
+        href="https://pse-qa.sapientfirst.net">
+        Local Control
+      </a>
+    </section>
+  </div>
+</section>
+`;
+
+exports[`<ErrorPage /> render shows Sorry for Page Not Found (404) 1`] = `
+<section
+  className="error-page">
+  <div
+    className="error-container">
+    <h1>
+      We\'re Sorry.
+    </h1>
+    <p
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "The page you were looking for could not be found."
+        }
+      } />
+    <section>
+      <a
+        href="#"
+        onClick={[Function onClick]}>
+        Go Back
+      </a>
+    </section>
+  </div>
+</section>
+`;

@@ -1,0 +1,83 @@
+exports[`<FAQPage /> render matches previous snapshot 1`] = `
+<article
+  className="faq-article">
+  <section
+    className="faq-page">
+    <div>
+      <div
+        className="faq-top-header">
+        <div
+          className="image-box">
+          <div
+            className="container">
+            <div
+              className="row">
+              <div
+                className="col-xs-12 col-sm-10 col-sm-offset-1 faq-header-box">
+                <h1>
+                  Frequently Asked Questions
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <article
+        className="container">
+        <div
+          className="row">
+          <div
+            className="faq-header col-xs-12 col-sm-10 col-sm-offset-1">
+            <div
+              className="hidden-xs">
+              <div
+                className="faq-category-tabs">
+                <ul>
+                  <li>
+                    <a
+                      className="active"
+                      href="#"
+                      onClick={[Function bound bound updateCategoryByTab]}>
+                      ALL
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div
+              className="hidden-sm hidden-md hidden-lg">
+              <div
+                className="faq-category-select">
+                <form>
+                  <label
+                    htmlFor="faqCategory">
+                    FILTER BY CATEGORY
+                  </label>
+                  <select
+                    className="form-control"
+                    id="faqCategory"
+                    onChange={[Function bound bound updateCategoryBySelect]}
+                    value="ALL">
+                    <option
+                      value="ALL">
+                      All Categories
+                    </option>
+                  </select>
+                </form>
+              </div>
+            </div>
+            <div
+              className="horizontal-line-header">
+              <h2>
+                ALL
+              </h2>
+            </div>
+            <div
+              className="faq-entry-list" />
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+</article>
+`;
