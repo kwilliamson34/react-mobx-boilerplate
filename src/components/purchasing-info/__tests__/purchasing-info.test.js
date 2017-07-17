@@ -23,7 +23,7 @@ describe('<PurchasingInfo />', () => {
     }
   }
 
-  describe('renders', () => {
+  describe('render tests', () => {
     test('matches previous snapshot', () => {
         const component = renderer.create(
           <PurchasingInfo {...fullProps} />
@@ -32,9 +32,7 @@ describe('<PurchasingInfo />', () => {
         let tree = component.toJSON();
         expect(tree).toMatchSnapshot();
     });
-  });
 
-  describe('renders', () => {
     test('should render with no purchasing info shown', () => {
         const component = renderer.create(
           <PurchasingInfo {...emptyProps} />
