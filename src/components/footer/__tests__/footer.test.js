@@ -1,17 +1,20 @@
 jest.unmock('axios');
 jest.unmock('../../../core/stores/master.store');
-import {masterStore} from '../../../core/stores/master.store';
-const store = masterStore;
-
 jest.unmock('../footer');
 
+import {observer, inject} from 'mobx-react';
+import {headerStore} from '../../../core/stores/header.store';
+import {userStore} from '../../../core/stores/user.store';
 import Footer from '../footer';
 import {MemoryRouter} from 'react-router-dom';
 
 describe('<Footer />', () => {
   describe('renders', () => {
     let props = {
-      store: {}
+      store: {
+        headerStore,
+        userStore
+      }
     }
 
     test('matches previous footer snapshot', () => {
