@@ -87,7 +87,7 @@ export default class ShowMoreOrLess extends React.Component {
     if (splitArray.reduce((x, y) => {
         return x + (singleHtmlRegex.test(y) ? 0 : 1)
       }, 0) === 1) {
-        truncateBlock = this.getRawText(this.string).substr(0, charLimit);
+        truncateBlock = this.getRawText(this.stringToTruncate).substr(0, charLimit);
     }
     //If no edge cases have triggered:
     else {
