@@ -1,12 +1,12 @@
+jest.unmock('../app-catalog.store');
 jest.unmock('axios');
-jest.unmock('../card-list.store');
 
-import {cardListStore} from '../card-list.store';
+import { appCatalogStore } from '../app-catalog.store';
 import {apiService} from '../../services/api.service';
 
-const store = cardListStore;
+const store = appCatalogStore;
 
-describe("CardList", () => {
+describe("AppCatalogStore", () => {
 
   const sum = (a,b) => {
     return a + b;
@@ -15,5 +15,5 @@ describe("CardList", () => {
   test("placeholder test to make a valid test suite", () => {
     expect( sum(2,4) ).toBe(6);
   });
-  
+
 });
