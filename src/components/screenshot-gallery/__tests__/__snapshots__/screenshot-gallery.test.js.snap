@@ -1,0 +1,46 @@
+exports[`<ScreenshotGallery /> standard snapshot tests: Render tests; should render with props 1`] = `
+<div
+  aria-label="App screenshot gallery"
+  className="gallery-container"
+  role="region">
+  <div
+    className="slide-container">
+    <figure
+      className="img-responsive">
+      <img
+        alt="This is a mobile screenshot"
+        aria-labelledby="slide-caption-0"
+        className="slide-img"
+        src="https://ease.apperian.com/uploads/imgpath.jpg" />
+    </figure>
+    <figcaption
+      className="slide-caption"
+      id="slide-caption-0">
+      This is a mobile screenshot
+    </figcaption>
+  </div>
+  <div
+    className="slide-container">
+    <figure
+      className="img-responsive">
+      <img
+        alt="This is a tablet screenshot"
+        aria-labelledby="slide-caption-1"
+        className="slide-img"
+        src="https://ease.apperian.com/uploads/imgpath.jpg" />
+    </figure>
+    <figcaption
+      className="slide-caption"
+      id="slide-caption-1">
+      This is a tablet screenshot
+    </figcaption>
+  </div>
+</div>
+`;
+
+exports[`<ScreenshotGallery /> standard snapshot tests: Render tests; should render without props but just be a div with no children 1`] = `
+<div
+  aria-label="App screenshot gallery"
+  className="gallery-container"
+  role="region" />
+`;
