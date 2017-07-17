@@ -25,6 +25,8 @@ export class AppDetailBanner extends React.Component {
 
   componentWillMount() {
     this.data = this.props.data;
+    console.log('this.data', this.data);
+    console.log('mdmIsConfigured', this.props.mdmIsConfigured);
     this.appStore = this.props.appCatalogStore;
   }
 
