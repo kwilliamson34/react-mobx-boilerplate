@@ -2,11 +2,12 @@ exports[`<SummaryCard /> render testing matches snapshot 1`] = `
 <div
   className="card-wrapper">
   <a
-    className="card-focus has-shadow"
+    className="card-focus has-shadow card-container center-block "
     href="/app/undefined"
+    id="appCardundefined"
     onClick={[Function anonymous]}>
     <div
-      className="card-container">
+      className="">
       <div
         className="card-badge">
         <img
@@ -26,53 +27,21 @@ exports[`<SummaryCard /> render testing matches snapshot 1`] = `
           app name
         </div>
         <div
-          className="card-publisher hidden-xs">
+          className="card-publisher">
           publisher name
         </div>
       </section>
       <div
-        className="card-rating">
+        className="card-lower-meta">
         <div
-          className="ratings-container">
-          <span
-            className="ratings-number">
-            <span
-              className="sr-only">
-              Rating of
+          className="card-rating">
+          <div
+            className="ratings-container">
+            <span>
+              No Reviews
             </span>
-            3.5
-          </span>
-          <span
-            className="ratings-stars">
-            <span
-              aria-hidden="true"
-              className="ratings-star icon-star" />
-            <span
-              aria-hidden="true"
-              className="ratings-star icon-star" />
-            <span
-              aria-hidden="true"
-              className="ratings-star icon-star" />
-            <span
-              aria-hidden="true"
-              className="ratings-star icon-star-half-o" />
-            <span
-              aria-hidden="true"
-              className="ratings-star icon-star-o" />
-          </span>
+          </div>
         </div>
-      </div>
-      <div
-        className="card-platform">
-        <span
-          className="sr-only">
-          Hosted at the 
-        </span>
-        ANDROID
-        <span
-          className="sr-only">
-           app store
-        </span>
       </div>
     </div>
   </a>
@@ -83,11 +52,12 @@ exports[`<SummaryCard /> render testing matches snapshot 2`] = `
 <div
   className="card-wrapper">
   <a
-    className="card-focus has-shadow"
+    className="card-focus has-shadow card-container center-block "
     href="/app/undefined"
+    id="appCardundefined"
     onClick={[Function anonymous]}>
     <div
-      className="card-container">
+      className="">
       <div
         className="card-logo">
         <img
@@ -101,53 +71,21 @@ exports[`<SummaryCard /> render testing matches snapshot 2`] = `
           app name
         </div>
         <div
-          className="card-publisher hidden-xs">
+          className="card-publisher">
           publisher name
         </div>
       </section>
       <div
-        className="card-rating">
+        className="card-lower-meta">
         <div
-          className="ratings-container">
-          <span
-            className="ratings-number">
-            <span
-              className="sr-only">
-              Rating of
+          className="card-rating">
+          <div
+            className="ratings-container">
+            <span>
+              No Reviews
             </span>
-            1.5
-          </span>
-          <span
-            className="ratings-stars">
-            <span
-              aria-hidden="true"
-              className="ratings-star icon-star" />
-            <span
-              aria-hidden="true"
-              className="ratings-star icon-star-half-o" />
-            <span
-              aria-hidden="true"
-              className="ratings-star icon-star-o" />
-            <span
-              aria-hidden="true"
-              className="ratings-star icon-star-o" />
-            <span
-              aria-hidden="true"
-              className="ratings-star icon-star-o" />
-          </span>
+          </div>
         </div>
-      </div>
-      <div
-        className="card-platform">
-        <span
-          className="sr-only">
-          Hosted at the 
-        </span>
-        IOS
-        <span
-          className="sr-only">
-           app store
-        </span>
       </div>
     </div>
   </a>
