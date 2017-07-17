@@ -128,7 +128,7 @@ describe('<GeolinkControls />', () => {
 
       //trigger the action
       const textField = TestUtils.findAllInRenderedTree(component, (inst) => {
-        return ReactDOM.findDOMNode(inst).getAttribute('id') == 'geo-search';
+        return ReactDOM.findDOMNode(inst).getAttribute('id') == 'search-field';
       })[0];
 
       TestUtils.Simulate.keyPress(textField, {'key': 'Enter'});
