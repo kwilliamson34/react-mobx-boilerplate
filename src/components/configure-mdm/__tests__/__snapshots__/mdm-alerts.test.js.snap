@@ -1,20 +1,17 @@
 exports[`<MDMAlerts /> renders renders with many alerts 1`] = `
 <div
   className="alerts-wrapper"
-  id="mdm-alerts"
-  tabIndex="1" />
+  id="mdm-alerts" />
 `;
 
 exports[`<MDMAlerts /> renders renders with no alerts 1`] = `
 <div
   className="alerts-wrapper"
-  id="mdm-alerts"
-  tabIndex="1" />
+  id="mdm-alerts" />
 `;
 
 exports[`<MDMAlerts /> renders renders with one alert 1`] = `
 <div
   className="alerts-wrapper"
-  id="mdm-alerts"
-  tabIndex="1" />
+  id="mdm-alerts" />
 `;
