@@ -7,6 +7,7 @@ import {apiService} from '../../services/api.service';
 const store = cardListStore;
 // set your store here, you're testing actions against the store, not the store itself
 store.searchResults = [];
+store.getAdminApps = jest.fn();
 
 // over ride the API call with an instantly resolved promise
 apiService.getAdminApps = () => {

@@ -1,3 +1,4 @@
+jest.unmock('axios');
 jest.unmock('../../core/stores/master.store');
 import {masterStore} from '../../core/stores/master.store';
 const store = masterStore;
@@ -9,15 +10,17 @@ import {MemoryRouter} from 'react-router-dom';
 
 describe('<AdminDashboard />', () => {
   let props = {
-    externalLinkStore: {
-      togglePushToTalkModal: jest.fn(),
-      setPushToTalkProvider: jest.fn(),
-      pushToTalkLink: 'example link',
-      manageUsersLink: 'manage users link',
-      manageServicesLink: 'manage services link',
-      viewWirelessReportsLink: 'view reports link',
-      shopStandardDevicesLink: 'shop devices link',
-      showPushToTalkModal: false
+    store: {
+      externalLinkStore: {
+        togglePushToTalkModal: jest.fn(),
+        setPushToTalkProvider: jest.fn(),
+        pushToTalkLink: 'example link',
+        manageUsersLink: 'manage users link',
+        manageServicesLink: 'manage services link',
+        viewWirelessReportsLink: 'view reports link',
+        shopStandardDevicesLink: 'shop devices link',
+        showPushToTalkModal: false
+      }
     }
   }
 
