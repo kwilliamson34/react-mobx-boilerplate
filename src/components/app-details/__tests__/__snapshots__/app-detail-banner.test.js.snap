@@ -77,6 +77,7 @@ exports[`<AppDetailBanner />  render tests matches snapshot when MDM is INSTALLE
                 </strong>
               </div>
             </div>
+            <div />
           </div>
           <div
             className="hidden-xs hidden-md hidden-lg">
@@ -129,7 +130,9 @@ exports[`<AppDetailBanner />  render tests matches snapshot when MDM is INSTALLE
               </div>
             </div>
             <div
-              className="col-sm-5" />
+              className="col-sm-5">
+              <div />
+            </div>
           </div>
           <div
             className="hidden-xs hidden-sm">
@@ -191,7 +194,9 @@ exports[`<AppDetailBanner />  render tests matches snapshot when MDM is INSTALLE
               </div>
             </div>
             <div
-              className="col-md-4" />
+              className="col-md-4">
+              <div />
+            </div>
           </div>
         </div>
       </div>
@@ -279,6 +284,7 @@ exports[`<AppDetailBanner />  render tests matches snapshot when MDM is NOT_INST
                 </strong>
               </div>
             </div>
+            <div />
           </div>
           <div
             className="hidden-xs hidden-md hidden-lg">
@@ -331,7 +337,9 @@ exports[`<AppDetailBanner />  render tests matches snapshot when MDM is NOT_INST
               </div>
             </div>
             <div
-              className="col-sm-5" />
+              className="col-sm-5">
+              <div />
+            </div>
           </div>
           <div
             className="hidden-xs hidden-sm">
@@ -393,7 +401,9 @@ exports[`<AppDetailBanner />  render tests matches snapshot when MDM is NOT_INST
               </div>
             </div>
             <div
-              className="col-md-4" />
+              className="col-md-4">
+              <div />
+            </div>
           </div>
         </div>
       </div>
@@ -477,6 +487,7 @@ exports[`<AppDetailBanner />  render tests matches snapshot when app is not ENDO
                 </strong>
               </div>
             </div>
+            <div />
           </div>
           <div
             className="hidden-xs hidden-md hidden-lg">
@@ -525,7 +536,9 @@ exports[`<AppDetailBanner />  render tests matches snapshot when app is not ENDO
               </div>
             </div>
             <div
-              className="col-sm-5" />
+              className="col-sm-5">
+              <div />
+            </div>
           </div>
           <div
             className="hidden-xs hidden-sm">
@@ -583,7 +596,9 @@ exports[`<AppDetailBanner />  render tests matches snapshot when app is not ENDO
               </div>
             </div>
             <div
-              className="col-md-4" />
+              className="col-md-4">
+              <div />
+            </div>
           </div>
         </div>
       </div>
@@ -667,6 +682,7 @@ exports[`<AppDetailBanner />  render tests matches snapshot when mdmIsConfigured
                 </strong>
               </div>
             </div>
+            <div />
           </div>
           <div
             className="hidden-xs hidden-md hidden-lg">
@@ -715,7 +731,9 @@ exports[`<AppDetailBanner />  render tests matches snapshot when mdmIsConfigured
               </div>
             </div>
             <div
-              className="col-sm-5" />
+              className="col-sm-5">
+              <div />
+            </div>
           </div>
           <div
             className="hidden-xs hidden-sm">
@@ -773,7 +791,9 @@ exports[`<AppDetailBanner />  render tests matches snapshot when mdmIsConfigured
               </div>
             </div>
             <div
-              className="col-md-4" />
+              className="col-md-4">
+              <div />
+            </div>
           </div>
         </div>
       </div>

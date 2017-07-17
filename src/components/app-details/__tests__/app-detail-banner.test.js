@@ -2,6 +2,10 @@ jest.unmock('../app-detail-banner');
 jest.unmock('moment');
 jest.unmock('axios');
 
+jest.unmock('../../app-management-block/app-management-block');
+jest.unmock('../../push-to-mdm/push-to-mdm');
+jest.unmock('../../toggle/checkbox');
+
 import {AppDetailBanner} from '../app-detail-banner';
 
 describe('<AppDetailBanner /> ', () => {
