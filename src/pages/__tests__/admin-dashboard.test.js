@@ -18,14 +18,6 @@ describe('<AdminDashboard />', () => {
     test('matches previous snapshot', () => {
       let component, tree;
 
-      props.store.externalLinkStore.showPushToTalkModal = true;
-      component = renderer.create(<MemoryRouter>
-          <AdminDashboard {...props} />
-      </MemoryRouter>);
-      tree = component.toJSON();
-      expect(tree).toMatchSnapshot();
-
-      props.store.externalLinkStore.showPushToTalkModal = true;
       component = renderer.create(<MemoryRouter>
           <AdminDashboard {...props} />
       </MemoryRouter>);

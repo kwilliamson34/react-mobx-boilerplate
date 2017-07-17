@@ -23,11 +23,7 @@ import NetworkStatusPage from './pages/network-status.page';
 import ErrorPage from './pages/error.page.jsx';
 
 //Admin pages
-import ManageUsersPage from './pages/manage-users.page';
-import ManageBillingPage from './pages/manage-billing.page';
-import ManageServicesPage from './pages/manage-services.page';
 import ManageAppsPage from './pages/manage-apps.page';
-import ManageWirelessReportsPage from './pages/manage-wireless-reports.page';
 import AdminDashboardPage from './pages/admin-dashboard.page';
 import ConfigureMDM from './pages/configure-mdm.page';
 
@@ -44,10 +40,8 @@ import SolutionsCategoryTemplate from './pages/solutions-category.template';
 
 //Help section
 import HelpCenterPage from './pages/help-center.page';
-
 import FAQPage from './pages/faq.page';
 import FeedbackPage from './pages/feedback.page';
-import ManageProfilePage from './pages/manage-profile.page';
 
 //Footer pages
 import PrivacyPage from './pages/privacy.page';
@@ -118,18 +112,13 @@ export default class App extends React.Component {
         <main id="main-content" tabIndex="-1">
           <Switch>
             <Route exact path="/" component={this.getLandingPage}/>
-            <Route path="/admin/manage-users" component={this.getAdminRoutes(ManageUsersPage)}/>
-            <Route path="/admin/manage-billing" component={this.getAdminRoutes(ManageBillingPage)}/>
-            <Route path="/admin/manage-services" component={this.getAdminRoutes(ManageServicesPage)}/>
             <Route path="/admin/manage-apps" component={this.getAdminRoutes(ManageAppsPage)}/>
             <Route path="/admin/configure-mdm" component={this.getAdminRoutes(ConfigureMDM)}/>
-            <Route path="/admin/manage-wireless-reports" component={this.getAdminRoutes(ManageWirelessReportsPage)}/>
             <Route path="/admin/devices" component={this.getAdminRoutes(this.getSpecializedDevicesComponent)}/>
             <Route path="/admin/solutions" component={this.getAdminRoutes(this.getPublicSafetySolutionsComponent)}/>
             <Route path="/admin" component={this.getAdminRoutes(AdminDashboardPage)}/>
             <Route path="/app/:appPsk" component={this.getAdminRoutes(AppDetailsPage)/*TODO redirect to error/404 if psk has no match*/}/>
             <Route path="/network-status" component={NetworkStatusPage}/>
-            <Route path="/manage-profile" component={ManageProfilePage}/>
             <Route path="/feedback" component={FeedbackPage}/>
             <Route path="/faq" component={FAQPage}/>
             <Route path="/help-center" component={HelpCenterPage}/>
