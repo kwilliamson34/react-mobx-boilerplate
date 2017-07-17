@@ -11,7 +11,7 @@ import Truncate from '../truncate/truncate';
 export default class AppReviews extends React.Component {
 
   static propTypes = {
-    reviews: PropTypes.object,
+    reviews: PropTypes.object.isRequired,
     numberOfReviewsToLoad: PropTypes.number
   }
 
