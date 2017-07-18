@@ -38,6 +38,7 @@ describe('<PushToMDM /> ', () => {
     let possibleMDMStatuses = [
       'NOT_INSTALLED',
       'IN_PROGRESS',
+      'PENDING',
       'FAILED',
       'INSTALLED',
       'REPUSHED',
@@ -70,9 +71,11 @@ describe('<PushToMDM /> ', () => {
         pushToMDMComponent, 'button'
       )
 
-      const functionToWatch = pushToMDMComponent.handlePushToMDM;
+      const functionToWatch = props.pushToMDM;
+      expect(functionToWatch).not.toHaveBeenCalled();
 
       TestUtils.Simulate.click(pushToMDMButton);
+      expect(functionToWatch).toHaveBeenCalled();
 
     });
   });

@@ -1,4 +1,4 @@
-exports[`<PushToMDM />  render tests  should match snapshot if mdmIsConfigured is a string 1`] = `
+exports[`<PushToMDM />  render tests  should match snapshot if mdmIsConfigured is configured 1`] = `
 <button
   aria-disabled={false}
   className="fn-secondary"
@@ -52,6 +52,21 @@ exports[`<PushToMDM />  test all appMDMStatus conditions should match snapshot i
 </button>
 `;
 
+exports[`<PushToMDM />  test all appMDMStatus conditions should match snapshot if appMDMStatus is IN_PROGRESS 1`] = `
+<button
+  aria-disabled={false}
+  className="fn-primary"
+  id="pushBtn12345"
+  onClick={[Function bound handlePushToMDM]}>
+  <span>
+    <i
+      aria-label="Submitting the app to the MDM."
+      className="icon-reload" />
+      Submitting…
+  </span>
+</button>
+`;
+
 exports[`<PushToMDM />  test all appMDMStatus conditions should match snapshot if appMDMStatus is NEEDS_UPDATE 1`] = `
 <button
   aria-disabled={false}
@@ -85,7 +100,7 @@ exports[`<PushToMDM />  test all appMDMStatus conditions should match snapshot i
   onClick={[Function bound handlePushToMDM]}>
   <span>
     <i
-      aria-label="Still Submitting Form"
+      aria-label="Submitting the app to the MDM."
       className="icon-reload" />
       Submitting…
   </span>
