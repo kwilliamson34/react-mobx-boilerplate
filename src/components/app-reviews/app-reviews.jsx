@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import { observer } from 'mobx-react';
-import { observable } from 'mobx';
+import { observable, isObservable } from 'mobx';
 
 import { Rating } from '../rating/rating';
 import Truncate from '../truncate/truncate';
@@ -11,7 +11,7 @@ import Truncate from '../truncate/truncate';
 export default class AppReviews extends React.Component {
 
   static propTypes = {
-    reviews: PropTypes.object,
+    reviews: PropTypes.object.isRequired,
     numberOfReviewsToLoad: PropTypes.number
   }
 
@@ -61,7 +61,7 @@ export default class AppReviews extends React.Component {
     return (
       <div className='reviews-container'>
         {this.renderReviews(this.loadedReviewsArray)}
-        {this.showLoadMoreButton && <button className='btn fn-primary' onClick={this.loadReviews}>
+        {this.showLoadMoreButton && <button className='btn fn-primary load-more-button' onClick={this.loadReviews}>
           Load More
         </button>}
       </div>

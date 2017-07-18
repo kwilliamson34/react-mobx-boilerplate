@@ -1,7 +1,12 @@
 jest.unmock('../header');
-import PSEHeader from '../header';
-import { MemoryRouter } from 'react-router-dom';
+
+import 'bootstrap';
 import $ from 'jquery';
+import _ from 'lodash';
+
+import {observer, inject} from 'mobx-react';
+import PSEHeader from '../header';
+import {MemoryRouter} from 'react-router-dom';
 
 describe('<PSEHeader />', () => {
     let props = {

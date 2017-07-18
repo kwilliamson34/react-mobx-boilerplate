@@ -1,4 +1,4 @@
-exports[`<PurchasingInfo /> renders matches previous snapshot 1`] = `
+exports[`<PurchasingInfo /> render tests matches previous snapshot 1`] = `
 <div
   className="row"
   id="purchasing-info">
@@ -65,7 +65,7 @@ exports[`<PurchasingInfo /> renders matches previous snapshot 1`] = `
 </div>
 `;
 
-exports[`<PurchasingInfo /> renders should render with no purchasing info shown 1`] = `
+exports[`<PurchasingInfo /> render tests should render with no purchasing info shown 1`] = `
 <div
   className="row"
   id="purchasing-info">
