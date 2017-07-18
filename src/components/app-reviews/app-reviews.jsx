@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import { observer } from 'mobx-react';
-import { observable, isObservable } from 'mobx';
+import { observable } from 'mobx';
 
 import { Rating } from '../rating/rating';
 import Truncate from '../truncate/truncate';

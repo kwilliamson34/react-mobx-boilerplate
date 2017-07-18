@@ -32,7 +32,9 @@ export class PushToMDM extends React.Component {
   }
 
   render() {
+    console.log('this.props.mdmIsConfigured', this.props.mdmIsConfigured);
     let status = this.props.mdmIsConfigured ? this.getPushToMDM(this.props.psk) : 'disabled';
+    console.log('status    ', status);
 
     let name = this.props.name;
     let srMSG = '';
