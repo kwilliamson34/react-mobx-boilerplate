@@ -51,7 +51,7 @@ export default class PSEHeader extends React.Component {
 				&& !_.includes(targetIds, e.target.id)) {
 					this.toggleAdminSubMenu();
 				}
-		})
+		});
 
 		window.addEventListener('resize', this.updateWindowDimensions);
 	}
@@ -62,7 +62,7 @@ export default class PSEHeader extends React.Component {
 
 	updateWindowDimensions = _.debounce(() => {
 		this.closeMainMenu();
-		}, 200, { leading: true, trailing: false });
+	}, 200, { leading: true, trailing: false });
 
 	toggleMainMenu = () => {
 		this.headerStore.toggleMainMenu();
@@ -114,12 +114,8 @@ export default class PSEHeader extends React.Component {
 			<div className="multi-line-item">
 				<div className="profile-display">
 					<i className="icon-profile" aria-hidden="true" />
-					{this.userStore.user.firstName +
-						' ' +
-						this.userStore.user.lastName}
-						{this.userStore.user.pseName &&
-							<div>{this.userStore.user.pseName}</div>
-						}
+					{`${this.userStore.user.firstName} ${this.userStore.user.lastName}`}
+					{this.userStore.user.pseName && <div>{this.userStore.user.pseName}</div>}
 				</div>
 			</div>
 		)
@@ -130,10 +126,7 @@ export default class PSEHeader extends React.Component {
 			<div className="fnnav__header">
 				<div className="fnnav__brand">
 					<Link id="logo-home-link" to="/">
-						<img
-							src="/images/logo-FirstNet-local-control.svg"
-							alt="FirstNet Logo"
-						/>
+						<img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Logo"/>
 						<span className="sr-only">Go Home</span>
 					</Link>
 				</div>
@@ -160,23 +153,21 @@ export default class PSEHeader extends React.Component {
 					onClick={this.toggleProfileSubMenu}
 					aria-haspopup="true"
 					aria-expanded={this.headerStore.profileSubMenuIsOpen}>
-					<span className="sr-only">Expand Section Navigation</span>
+					<span className="sr-only">
+						Expand Profile Menu
+					</span>
 				</button>
 				<a id="pse-profile" href="#profile" className="deaden">
 					{this.renderProfileBlock()}
 				</a>
 				<ul
 					id="pse-profile-nav"
-					className={
-						this.headerStore.profileSubMenuIsOpen
-							? 'collapse in'
-							: 'collapse'
-					}
+					className={`collapse ${this.headerStore.profileSubMenuIsOpen ? 'in' : ''}`}
 					aria-labelledby="pse-profile">
 					<li role="presentation">
-						<NewTabLink
-							to={this.linkStore.manageMyProfileLink}
-							onClick={this.handleExternalTabOpen}>Manage My Profile</NewTabLink>
+						<NewTabLink to={this.linkStore.manageMyProfileLink} onClick={this.handleExternalTabOpen}>
+							Manage My Profile
+						</NewTabLink>
 					</li>
 				</ul>
 			</li>
@@ -185,48 +176,35 @@ export default class PSEHeader extends React.Component {
 
 	renderAdminMenuItem = () => {
 		return (
-			<li
-				id="btn-admin"
-				className={
-					this.headerStore.adminSubMenuIsOpen
-						? 'mainnav-item desktop-textlink expanded'
-						: 'mainnav-item desktop-textlink'
-				}>
+			<li id="btn-admin" className={`mainnav-item desktop-textlink ${this.headerStore.adminSubMenuIsOpen ? 'expanded' : ''}`}>
 				<button
 					className="btnSubmenu"
 					aria-haspopup="true"
 					onClick={this.toggleAdminSubMenu}
 					aria-expanded={this.headerStore.adminSubMenuIsOpen}>
 					<span className="sr-only">
-						Expand Administration Navigation
+						Expand Administration Menu
 					</span>
 				</button>
-					<NavLink
-						id="linkBtn-admin"
-						to="/admin"
-						activeClassName="active"
-						aria-haspopup="true"
-						aria-expanded={this.headerStore.adminSubMenuIsOpen}>
-						Administration
-					</NavLink>
+				<NavLink
+					id="linkBtn-admin"
+					to="/admin"
+					activeClassName="active"
+					aria-haspopup="true"
+					aria-expanded={this.headerStore.adminSubMenuIsOpen}>
+					Administration
+				</NavLink>
 				<div id="admin-submenu" className="header-submenu">
 					<ul
 						id="pse-admin-nav"
 						role="navigation"
-						className={
-							this.headerStore.adminSubMenuIsOpen
-								? 'collapse in'
-								: 'collapse'
-						}
+						className={`collapse ${this.headerStore.adminSubMenuIsOpen ? 'in' : ''}`}
 						aria-labelledby="linkBtn-admin">
 						<strong className="visible-md-block visible-lg-block" aria-hidden="true">
 							Management
 						</strong>
 						<li>
-							<NewTabLink
-								to={this.linkStore.manageUsersLink}
-								onClick={this.handleExternalTabOpen}
-								showIcon={true}>
+							<NewTabLink to={this.linkStore.manageUsersLink} onClick={this.handleExternalTabOpen} showIcon={true}>
 								Manage Users
 							</NewTabLink>
 						</li>
@@ -234,18 +212,12 @@ export default class PSEHeader extends React.Component {
 							<NavLink to="/admin/manage-apps">Manage Apps</NavLink>
 						</li>
 						<li>
-							<NewTabLink
-								to={this.linkStore.manageServicesLink}
-								onClick={this.handleExternalTabOpen}
-								showIcon={true}>
+							<NewTabLink to={this.linkStore.manageServicesLink} onClick={this.handleExternalTabOpen} showIcon={true}>
 								Manage Services &amp; Billing
 							</NewTabLink>
 						</li>
 						<li>
-							<NewTabLink
-								to={this.linkStore.viewWirelessReportsLink}
-								onClick={this.handleExternalTabOpen}
-								showIcon={true}>
+							<NewTabLink to={this.linkStore.viewWirelessReportsLink} onClick={this.handleExternalTabOpen} showIcon={true}>
 								View Wireless Reports
 							</NewTabLink>
 						</li>
@@ -253,25 +225,20 @@ export default class PSEHeader extends React.Component {
 					<ul
 						id="pse-aside-nav"
 						role="navigation"
-						className={
-							this.headerStore.adminSubMenuIsOpen
-								? 'collapse in'
-								: 'collapse'
-						}
+						className={`collapse ${this.headerStore.adminSubMenuIsOpen ? 'in' : ''}`}
 						aria-labelledby="linkBtn-admin">
 						<strong className="visible-md-block visible-lg-block" aria-hidden="true">
 							Purchasing &amp; Provisioning
 						</strong>
 						<li>
-							<NewTabLink
-								to={this.linkStore.shopStandardDevicesLink}
-								onClick={this.handleExternalTabOpen}
-								showIcon={true}>
+							<NewTabLink to={this.linkStore.shopStandardDevicesLink} onClick={this.handleExternalTabOpen} showIcon={true}>
 								Rate Plans &amp; Standard Devices
 							</NewTabLink>
 						</li>
 						<li>
-							<NavLink to="/admin/devices">Specialized Devices</NavLink>
+							<NavLink to="/admin/devices">
+								Specialized Devices
+							</NavLink>
 						</li>
 						<li>
 							<NavLink to="/admin/solutions">
@@ -285,31 +252,22 @@ export default class PSEHeader extends React.Component {
 	}
 
 	render() {
-		var mainbarClass = (this.headerStore.mainMenuIsOpen) ? 'fnnav__mainbar open' : 'fnnav__mainbar';
 		return (
 			<header className="fnnav pse" role="banner">
-				<div className={mainbarClass}>
+				<div className={`fnnav__mainbar ${this.headerStore.mainMenuIsOpen ? 'open' : ''}`}>
 					<div className="container">
 						{this.renderBrandArea()}
-						<nav
-							id="main-menu"
-							aria-label="Main Menu">
+						<nav id="main-menu" aria-label="Main Menu">
 							<ul className="fnnav__main">
 								{this.renderMobileOnlyUserMenu()}
-								{this.userStore.isAdmin &&
-									this.renderAdminMenuItem()
-								}
-								<li
-									id="hdr-network-status"
-									className="mainnav-item desktop-textlink"
-									role="presentation">
-									<NavLink
-										id="linkBtn-networkStatus"
-										to="/network-status"
-										activeClassName="active">
+								{this.userStore.isAdmin && this.renderAdminMenuItem() }
+								<li id="hdr-network-status" className="mainnav-item desktop-textlink" role="presentation">
+									<NavLink id="linkBtn-networkStatus" to="/network-status" activeClassName="active">
 										Network Status
 									</NavLink>
 								</li>
+
+								{/* Mobile only menu items */}
 								<li className="mainnav-item grey">
 									<button
 										className="btnSubmenu"
@@ -317,7 +275,7 @@ export default class PSEHeader extends React.Component {
 										aria-haspopup="true"
 										aria-expanded={this.headerStore.helpSubMenuIsOpen}>
 										<span className="sr-only">
-											Expand Administration Navigation
+											Expand Help Menu
 										</span>
 									</button>
 									<a id="pse-profile" href="/manage-profile" className="deaden">
@@ -325,14 +283,12 @@ export default class PSEHeader extends React.Component {
 									</a>
 									<ul
 										id="pse-help-menu"
-										className={
-											this.headerStore.helpSubMenuIsOpen
-												? 'collapse in'
-												: 'collapse'
-										}
+										className={`collapse ${this.headerStore.helpSubMenuIsOpen ? 'in' : ''}`}
 										aria-labelledby="linkBtn-admin">
 										<li>
-											<NavLink activeClassName="active" to="/faq">FAQ</NavLink>
+											<NavLink activeClassName="active" to="/faq">
+												FAQ
+											</NavLink>
 										</li>
 										<li>
 											<NavLink activeClassName="active" to="/feedback">
@@ -350,9 +306,11 @@ export default class PSEHeader extends React.Component {
 								</li>
 								<li className="mainnav-item grey logout" role="presentation">
 									<a href="#" onClick={this.onLogout}>
-										<i className="icon-logout" aria-hidden="true" />Log Out
+										<i className="icon-logout" aria-hidden="true"/>
+										Log Out
 									</a>
 								</li>
+
 								{/* Desktop only icon items */}
 								<li className="desktop-iconItem dropdown">
 									<button
@@ -376,12 +334,14 @@ export default class PSEHeader extends React.Component {
 										</li>
 										<li role="presentation">
 											<NewTabLink to={this.linkStore.manageMyProfileLink}>
-												<i className="icon-settings" aria-hidden="true"></i>Manage My Profile
+												<i className="icon-settings" aria-hidden="true"></i>
+												Manage My Profile
 											</NewTabLink>
 										</li>
 										<li role="presentation">
 											<a href="#" onClick={this.onLogout}>
-												<i className="icon-logout" aria-hidden="true" />Log Out
+												<i className="icon-logout" aria-hidden="true"/>
+												Log Out
 											</a>
 										</li>
 									</ul>
@@ -402,7 +362,9 @@ export default class PSEHeader extends React.Component {
 										className="dropdown-menu dropdown-menu-right"
 										aria-labelledby="help-header-dropdown">
 										<li role="presentation">
-											<NavLink to="/faq" activeClassName="active">FAQ</NavLink>
+											<NavLink to="/faq" activeClassName="active">
+												FAQ
+											</NavLink>
 										</li>
 										<li role="presentation">
 											<NavLink to="/feedback" activeClassName="active">
@@ -420,10 +382,7 @@ export default class PSEHeader extends React.Component {
 						</nav>
 					</div>
 				</div>
-				<div
-					className="pageMask hidden-xs hidden-md hidden-lg"
-					onClick={this.closeMainMenu}
-				/>
+				<div className="pageMask hidden-xs hidden-md hidden-lg" onClick={this.closeMainMenu}/>
 			</header>
 		);
 	}
