@@ -51,7 +51,7 @@ export default class PSEHeader extends React.Component {
 				&& !_.includes(targetIds, e.target.id)) {
 					this.toggleAdminSubMenu();
 				}
-		})
+		});
 
 		window.addEventListener('resize', this.updateWindowDimensions);
 	}
