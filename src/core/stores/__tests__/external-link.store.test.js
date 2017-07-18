@@ -2,6 +2,7 @@ jest.unmock('../external-link.store');
 jest.unmock('axios');
 
 import { externalLinkStore } from '../external-link.store';
+import {apiService} from '../../services/api.service';
 
 const store = externalLinkStore;
 

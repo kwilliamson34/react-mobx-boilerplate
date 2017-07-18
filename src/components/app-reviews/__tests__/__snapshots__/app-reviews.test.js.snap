@@ -1,4 +1,84 @@
-exports[`<AppReviews /> render tests renders multiple reviews and displays the Load More button 1`] = `
+exports[`<AppReviews /> render tests renders one review and does not render Load More button 1`] = `
+<div
+  className="reviews-container">
+  <div
+    aria-labelledby="Review-81"
+    className="individual-review-container">
+    <div
+      className="review-metadata">
+      <div
+        className="subject-and-rating-container">
+        <div
+          className="review-subject"
+          id="Review-81">
+          A Bad Review is Coming
+        </div>
+        <div
+          className="sr-only">
+          App rated undefined out of 5
+        </div>
+        <div
+          className="ratings-container">
+          <span>
+            <span
+              className="ratings-stars">
+              <span
+                aria-hidden="true"
+                className="ratings-star icon-star" />
+              <span
+                aria-hidden="true"
+                className="ratings-star icon-star-o" />
+              <span
+                aria-hidden="true"
+                className="ratings-star icon-star-o" />
+              <span
+                aria-hidden="true"
+                className="ratings-star icon-star-o" />
+              <span
+                aria-hidden="true"
+                className="ratings-star icon-star-o" />
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        className="review-author">
+        Cletus Slackjaw of the House Yokel
+      </div>
+      <div
+        className="review-date">
+        July 14, 2017
+      </div>
+    </div>
+    <div
+      className="truncate-container">
+      <span
+        className="truncate-contents">
+        <p
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse …"
+            }
+          } />
+        <button
+          aria-expanded={false}
+          aria-haspopup="true"
+          className="btn-link truncate-button"
+          onClick={[Function anonymous]}>
+          <span>
+            SHOW MORE
+          </span>
+          <i
+            aria-hidden="true"
+            className="icon-arrowDown" />
+        </button>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<AppReviews /> render tests renders three reviews and displays the Load More button 1`] = `
 <div
   className="reviews-container">
   <div
@@ -228,85 +308,5 @@ exports[`<AppReviews /> render tests renders multiple reviews and displays the L
     onClick={[Function anonymous]}>
     Load More
   </button>
-</div>
-`;
-
-exports[`<AppReviews /> render tests renders one review and does not render Load More button 1`] = `
-<div
-  className="reviews-container">
-  <div
-    aria-labelledby="Review-81"
-    className="individual-review-container">
-    <div
-      className="review-metadata">
-      <div
-        className="subject-and-rating-container">
-        <div
-          className="review-subject"
-          id="Review-81">
-          A Bad Review is Coming
-        </div>
-        <div
-          className="sr-only">
-          App rated undefined out of 5
-        </div>
-        <div
-          className="ratings-container">
-          <span>
-            <span
-              className="ratings-stars">
-              <span
-                aria-hidden="true"
-                className="ratings-star icon-star" />
-              <span
-                aria-hidden="true"
-                className="ratings-star icon-star-o" />
-              <span
-                aria-hidden="true"
-                className="ratings-star icon-star-o" />
-              <span
-                aria-hidden="true"
-                className="ratings-star icon-star-o" />
-              <span
-                aria-hidden="true"
-                className="ratings-star icon-star-o" />
-            </span>
-          </span>
-        </div>
-      </div>
-      <div
-        className="review-author">
-        Cletus Slackjaw of the House Yokel
-      </div>
-      <div
-        className="review-date">
-        July 14, 2017
-      </div>
-    </div>
-    <div
-      className="truncate-container">
-      <span
-        className="truncate-contents">
-        <p
-          dangerouslySetInnerHTML={
-            Object {
-              "__html": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse …"
-            }
-          } />
-        <button
-          aria-expanded={false}
-          aria-haspopup="true"
-          className="btn-link truncate-button"
-          onClick={[Function anonymous]}>
-          <span>
-            SHOW MORE
-          </span>
-          <i
-            aria-hidden="true"
-            className="icon-arrowDown" />
-        </button>
-      </span>
-    </div>
-  </div>
 </div>
 `;
