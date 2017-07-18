@@ -46,15 +46,15 @@ export class PushToMDM extends React.Component {
         break;
       case 'IN_PROGRESS':
       case 'PENDING':
-        btnLabel = (<span><i className="icon-reload" aria-label="Still Submitting Form"></i>&nbsp;&nbsp;Submitting&hellip;</span>);
+        btnLabel = (<span><i className="icon-reload" aria-label="Submitting the app to the MDM."></i>&nbsp;&nbsp;Submitting&hellip;</span>);
         break;
       case 'FAILED':
-        srMSG = 'This app failed to push to the MDM. Click again to re-push';
+        srMSG = 'This app failed to push to the MDM. Click again to re-push.';
         btnLabel = (<span aria-hidden="true">Push to MDM</span>);
         break;
       case 'INSTALLED':
         btnClass ='fn-secondary';
-        srMSG = 'This app has already been pushed to the MDM. Click to re-push';
+        srMSG = 'This app has already been pushed to the MDM. Click to re-push.';
         btnLabel = (<span>Re-Push to MDM</span>);
         break;
       case 'REPUSHED':
@@ -63,7 +63,7 @@ export class PushToMDM extends React.Component {
         btnLabel = (<span>Re-Push to MDM</span>);
         break;
       case 'NEEDS_UPDATE':
-        srMSG = 'This app has been pushed to the MDM. Click again to update';
+        srMSG = 'This app has been pushed to the MDM. Click again to update.';
         btnLabel = (<span>Update</span>);
         break;
       default:
