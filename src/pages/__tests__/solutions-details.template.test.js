@@ -57,8 +57,7 @@ describe('<SolutionsDetailsTemplate />', () => {
       }
     }
 
-    //.match.params.solutionCategory
-    test('displays if the category matches', () => {
+    test('displays if the details have been retrieved', () => {
       let component, tree;
       props.store.externalLinkStore.fetchAndShowSolutionDetails = jest.fn();
 
@@ -68,7 +67,7 @@ describe('<SolutionsDetailsTemplate />', () => {
       expect(props.store.externalLinkStore.fetchAndShowSolutionDetails).toBeCalled();
     });
 
-    test('fetches if the category is missing', () => {
+    test('fetches if the details are missing', () => {
       let component, tree;
       props.store.externalLinkStore.getSolutionDetails = jest.fn();
       props.store.externalLinkStore.getSolutionDetails.mockReturnValue(new Promise(resolve => resolve()));

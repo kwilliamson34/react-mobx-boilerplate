@@ -26,8 +26,9 @@ export default class DeviceDetailTemplate extends React.Component {
 			if (this.externalLinkStore.allSpecializedDevices.length) {
 				this.externalLinkStore.fetchAndShowDeviceDetails(this.props.match.params.deviceId);
 			} else {
-				this.externalLinkStore.getDevicesData()
-				.then(() => this.externalLinkStore.fetchAndShowDeviceDetails(this.props.match.params.deviceId));
+				this.externalLinkStore.getDevicesData().then(() => {
+					this.externalLinkStore.fetchAndShowDeviceDetails(this.props.match.params.deviceId)
+				});
 			}
 		}
 	}

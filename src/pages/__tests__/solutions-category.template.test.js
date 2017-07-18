@@ -65,8 +65,7 @@ describe('<SolutionsCategoryTemplate />', () => {
       }
     }
 
-    //.match.params.solutionCategory
-    test('displays if the category matches', () => {
+    test('displays if the category has been retrieved', () => {
       let component, tree;
       props.store.externalLinkStore.fetchAndShowSolutionCategory = jest.fn();
 
