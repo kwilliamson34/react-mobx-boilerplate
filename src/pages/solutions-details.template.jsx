@@ -26,8 +26,9 @@ export default class SolutionsDetailsTemplate extends React.Component {
       if (this.externalLinkStore.allSolutionDetails.length) {
         this.externalLinkStore.fetchAndShowSolutionDetails(this.props.match.params.solutionDetail);
       } else {
-        this.externalLinkStore.getSolutionDetails()
-        .then(() => this.externalLinkStore.fetchAndShowSolutionDetails(this.props.match.params.solutionDetail));
+        this.externalLinkStore.getSolutionDetails().then(() => {
+          this.externalLinkStore.fetchAndShowSolutionDetails(this.props.match.params.solutionDetail);
+        });
       }
     }
   }

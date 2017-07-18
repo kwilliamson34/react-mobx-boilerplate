@@ -2,6 +2,7 @@ jest.unmock('../feedback.store');
 jest.unmock('axios');
 
 import { feedbackStore } from '../feedback.store';
+import {apiService} from '../../services/api.service';
 
 const store = feedbackStore;
 
