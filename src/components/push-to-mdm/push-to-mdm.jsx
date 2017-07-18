@@ -44,6 +44,7 @@ export class PushToMDM extends React.Component {
         srMSG = 'Push '+name+' to MDM';
         btnLabel = (<span aria-hidden="true">Push to MDM</span>);
         break;
+      case 'IN_PROGRESS':
       case 'PENDING':
         btnLabel = (<span><i className="icon-reload" aria-label="Still Submitting Form"></i>&nbsp;&nbsp;Submitting&hellip;</span>);
         break;
