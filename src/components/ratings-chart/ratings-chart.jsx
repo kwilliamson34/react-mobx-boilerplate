@@ -1,87 +1,71 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {observer} from 'mobx-react';
+import {observable} from 'mobx';
 
 import DoughnutChart from './doughnut';
 import HorizontalBar from './horizontal-bar';
 import {Rating} from '../rating/rating.jsx';
 
+@observer
 export default class RatingsChart extends React.Component {
-	constructor() {
-		super();
-		this.state = {
-			graphSize: 215,
-			value: 0,
-			reviewsTotal: 0,
-			sortedReviews: [0,0,0,0,0]
-		}
-	}
+  static propTypes = {
+    value: PropTypes.number,
+    reviewsTotal: PropTypes.number,
+    reviews: PropTypes.object
+  }
 
-	componentDidMount() {
-		this.updateGraphSize();
-		window.addEventListener('resize', this.updateGraphSize.bind(this));
-		this.sortRatingData();
-	}
+  static defaultProps = {
+    value: 0,
+    reviewsTotal: 0,
+    reviews: {}
+  }
 
-	componentWillUnmount() {
-		window.removeEventListener('resize', this.updateGraphSize.bind(this));
-	}
+  @observable graphSize = 215;
+  @observable sortedReviews = [0, 0, 0, 0, 0];
 
-	updateGraphSize() {
-		let newGraphSize = (window.innerWidth <= 992) ? 165 : 215;
-		this.setState({
-			graphSize: newGraphSize
-		})
-	}
+  componentWillMount() {
+    this.sortRatingData();
+  }
 
-	sortRatingData(){
-		let rev = this.props.reviews;
-		let value = this.props.value ? this.props.value : 0;
-		let reviewsTotal = rev.length
-		let sortedReviews = this.state.sortedReviews;
+  componentDidMount() {
+    this.updateGraphSize();
+    window.addEventListener('resize', this.updateGraphSize.bind(this));
+  }
 
-		for (let i = 0; i < reviewsTotal; i++) {
-			let starRating = 5 - rev[i].reviewStar;
-			sortedReviews[starRating]++;
-		}
-		this.setState({
-			value: value,
-			reviewsTotal: reviewsTotal,
-			sortedReviews: sortedReviews
-		})
-	}
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateGraphSize.bind(this));
+  }
 
-	render() {
-		return (
-			<div className="ratings-chart" aria-describedby="chart-info">
-				<div id="chart-info" className="sr-only">This app has {this.state.reviewsTotal} reviews with an average rating of {this.state.value}.</div>
-				<div className="row">
-					<div className="col-xs-12 col-sm-4 average-ratings-col">
-						<DoughnutChart rating={this.state.value} size={this.state.graphSize}/>
-						<div className="total-reviews">
-							<Rating rating={this.state.value} reviewCount={this.state.reviewsTotal} showReviewCount={true}/>
-						</div>
-					</div>
-					<div className="col-xs-12 col-sm-8 overall-ratings-col">
-						<HorizontalBar data={this.state.sortedReviews} />
-						{this.state.sortedReviews.reduce((x, y) => x + y) === 0 &&
-							<div className="zero-reviews">No Reviews Yet!</div>
-						}
-					</div>
-				</div>
-			</div>
-		);
-	}
-}
+  updateGraphSize() {
+    this.graphSize = (window.innerWidth <= 992) ? 165 : 215;
+  }
 
-RatingsChart.propTypes = {
-	value: PropTypes.number,
-	reviewsTotal: PropTypes.number,
-	data: PropTypes.array,
-	reviews: PropTypes.object
-};
+  sortRatingData() {
+    this.props.reviews.forEach(review => {
+      let starRating = 5 - review.reviewStar;
+      this.sortedReviews[starRating]++;
+    });
+  }
 
-RatingsChart.defaultProps = {
-	value: 0,
-	reviewsTotal: 0,
-	reviews: {}
+  render() {
+    const reviewsTotal = this.props.reviewsTotal || this.props.reviews.length;
+    return (
+      <div className="ratings-chart" aria-describedby="chart-info">
+        <div id="chart-info" className="sr-only">This app has {reviewsTotal} reviews with an average rating of {this.props.value}.</div>
+        <div className="row">
+          <div className="col-xs-12 col-sm-4 average-ratings-col">
+            <DoughnutChart rating={this.props.value} size={this.graphSize}/>
+            <div className="total-reviews">
+              <Rating rating={this.props.value} reviewCount={reviewsTotal} showReviewCount={true}/>
+            </div>
+          </div>
+          <div className="col-xs-12 col-sm-8 overall-ratings-col">
+            <HorizontalBar data={this.sortedReviews}/>
+			{this.sortedReviews.reduce((x, y) => x + y) === 0 && <div className="zero-reviews">No Reviews Yet!</div>}
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
