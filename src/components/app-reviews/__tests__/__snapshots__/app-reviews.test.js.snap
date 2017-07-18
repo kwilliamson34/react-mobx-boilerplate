@@ -224,7 +224,7 @@ exports[`<AppReviews /> render tests renders multiple reviews and displays the L
     </div>
   </div>
   <button
-    className="btn fn-primary"
+    className="btn fn-primary load-more-button"
     onClick={[Function anonymous]}>
     Load More
   </button>
