@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { inject,	observer } from 'mobx-react';
 import config from 'config';
 import GeolinkMap from '../components/geolink-map/geolink-map';
+import GeolinkControls from '../components/geolink-map/geolink-controls';
 
 @inject('store')
 @observer
@@ -37,6 +38,7 @@ export default class NetworkStatusPage extends React.Component {
 							</p>
 						</div>
 				}
+				<GeolinkControls geolinkStore={this.props.store.geolinkStore} disabled={!this.props.store.geolinkStore.isGeolinkReady}/>
 			</article>
 		)
 	}

@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import GeolinkControls from './geolink-controls';
-
 export default class GeolinkMap extends React.Component {
   static propTypes = {
     geolinkStore: PropTypes.object.isRequired
@@ -48,7 +46,6 @@ export default class GeolinkMap extends React.Component {
             title="Interactive Coverage Map"
             ref={(ref) => this.props.geolinkStore.mapIframeRef = ref}/>
         </div>
-        <GeolinkControls geolinkStore={this.props.geolinkStore}/>
       </section>
     );
   }

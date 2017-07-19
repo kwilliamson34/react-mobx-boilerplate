@@ -89,7 +89,7 @@ class GeolinkStore {
       this.removeAllNetworkLayers();
     }
   }
-  
+
   @action toggleTraffic() {
     this.showTrafficLayer = !this.showTrafficLayer;
     this.mapIframeRef.contentWindow.postMessage({
@@ -155,6 +155,9 @@ class GeolinkStore {
   @observable showWeatherLayer = false;
   @observable showTrafficLayer = false;
   @observable showAlertLayer = false;
+
+  @observable coverageIssueEmergencyNumber = '1-800-***-****';
+  @observable coverageIssueNonEmergencyNumber = '1-800-***-****';
 }
 
 export const geolinkStore = new GeolinkStore();
