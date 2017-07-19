@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
-import config from 'config';
 
 @observer
 export default class ScreenshotGallery extends React.Component {
@@ -17,7 +16,7 @@ export default class ScreenshotGallery extends React.Component {
     let screenshotArray = [...this.props.detailObj.mobileScreenshots, ...this.props.detailObj.tabletScreenshots];
 
     return screenshotArray.map((node, i) => {
-      let imgPath = config.apperianUploads + node.path;
+      let imgPath = node.path;
       return (
         <div key={i} className='slide-container'>
           <figure className='img-responsive'>
