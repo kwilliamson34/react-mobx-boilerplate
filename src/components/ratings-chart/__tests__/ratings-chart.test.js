@@ -8,7 +8,7 @@ import RatingsChart from '../ratings-chart';
 import DoughnutChart from '../doughnut';
 import HorizontalBar from '../horizontal-bar';
 import {Rating} from '../../rating/rating.jsx';
-import { MemoryRouter } from 'react-router-dom';
+import {MemoryRouter} from 'react-router-dom';
 
 describe('<RatingsChart />', () => {
   let props = {

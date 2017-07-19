@@ -37,8 +37,12 @@ export class SummaryCard extends React.Component {
 
   componentDidMount() {
     if (this.props.shouldFocus) {
-      this.refs.div.children[0].focus();
+      this.cardTakesFocus();
     }
+  }
+
+  cardTakesFocus = () => {
+    this.refs.div.children[0].focus();
   }
 
   render() {
