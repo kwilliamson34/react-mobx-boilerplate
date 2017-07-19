@@ -23,7 +23,7 @@ exports[`<AppDetailBanner />  render tests matches snapshot when MDM is INSTALLE
           className="app-icon">
           <img
             alt="Vampire Finder 3000"
-            src="https://ease.apperian.com/uploads/undefined" />
+            src={undefined} />
         </div>
         <div
           className="hidden-sm hidden-md hidden-lg">
@@ -230,7 +230,7 @@ exports[`<AppDetailBanner />  render tests matches snapshot when MDM is NOT_INST
           className="app-icon">
           <img
             alt="Vampire Finder 3000"
-            src="https://ease.apperian.com/uploads/undefined" />
+            src={undefined} />
         </div>
         <div
           className="hidden-sm hidden-md hidden-lg">
@@ -437,7 +437,7 @@ exports[`<AppDetailBanner />  render tests matches snapshot when app is not ENDO
           className="app-icon">
           <img
             alt="Vampire Finder 3000"
-            src="https://ease.apperian.com/uploads/undefined" />
+            src={undefined} />
         </div>
         <div
           className="hidden-sm hidden-md hidden-lg">
@@ -632,7 +632,7 @@ exports[`<AppDetailBanner />  render tests matches snapshot when mdmIsConfigured
           className="app-icon">
           <img
             alt="Vampire Finder 3000"
-            src="https://ease.apperian.com/uploads/undefined" />
+            src={undefined} />
         </div>
         <div
           className="hidden-sm hidden-md hidden-lg">

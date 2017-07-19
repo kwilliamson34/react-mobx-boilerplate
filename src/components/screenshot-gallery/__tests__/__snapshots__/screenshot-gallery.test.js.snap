@@ -11,7 +11,7 @@ exports[`<ScreenshotGallery /> standard snapshot tests: Render tests; should ren
         alt="This is a mobile screenshot"
         aria-labelledby="slide-caption-0"
         className="slide-img"
-        src="https://ease.apperian.com/uploads/imgpath.jpg" />
+        src="imgpath.jpg" />
     </figure>
     <figcaption
       className="slide-caption"
@@ -27,7 +27,7 @@ exports[`<ScreenshotGallery /> standard snapshot tests: Render tests; should ren
         alt="This is a tablet screenshot"
         aria-labelledby="slide-caption-1"
         className="slide-img"
-        src="https://ease.apperian.com/uploads/imgpath.jpg" />
+        src="imgpath.jpg" />
     </figure>
     <figcaption
       className="slide-caption"
