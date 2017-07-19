@@ -145,7 +145,9 @@ class GeolinkStore {
     this.showAlertLayer = false;
   }
 
-  @observable isGeolinkReady = false;
+  @observable iframeIsFullyLoaded = false;
+  @observable geolinkScriptsAreFullyLoaded = false;
+  
   @observable geolinkHtml = null;
   @observable mapIframeRef = null;
   @observable searchTerm = '';
