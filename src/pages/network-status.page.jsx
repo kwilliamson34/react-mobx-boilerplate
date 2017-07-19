@@ -28,8 +28,14 @@ export default class NetworkStatusPage extends React.Component {
 					src={config.geolinkScripts + '/libs/jquery/jquery.min.js'}
 					style={{width: 0, height: 0, padding: 0, margin: 0, border: '0 none',position: 'absolute',top:'0',left:0}}>
 				</iframe>
-				{this.props.store.geolinkStore.isGeolinkReady &&
-					<GeolinkMap geolinkStore={this.props.store.geolinkStore}/>
+				{this.props.store.geolinkStore.isGeolinkReady
+					? <GeolinkMap geolinkStore={this.props.store.geolinkStore}/>
+					: <div className="map-placeholder">
+							<p className="as-h2" aria-live="polite">
+								<i className="as-h2 icon-reload" aria-hidden="true"></i>
+								Loading map&hellip;
+							</p>
+						</div>
 				}
 			</article>
 		)

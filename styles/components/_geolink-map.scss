@@ -3,6 +3,25 @@ $search-border-radius: 4px;
 
 #network-page {
   padding-top: 0;
+
+  .map-placeholder {
+    height: $map-height;
+    width: 100%;
+    padding: 0;
+    background-color: white;
+    background-image: url('/images/map-placeholder.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    p {
+      position: absolute;
+      margin-top: $map-height/2 - 18px;
+      width: 100%;
+      text-align: center;
+      background: none;
+    }
+  }
 }
 
 .geolink-map {
