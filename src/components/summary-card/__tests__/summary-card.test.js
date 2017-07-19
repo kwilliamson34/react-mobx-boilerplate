@@ -54,8 +54,6 @@ describe('<SummaryCard />', () => {
 
       let targetElement = TestUtils.findRenderedDOMComponentWithClass(component, 'card-container');
       let focusedElement = document.activeElement;
-      console.log('targetElement', targetElement);
-      console.log('focusedElement', focusedElement);
       expect(focusedElement === targetElement).toBe(true);
     });
   });
