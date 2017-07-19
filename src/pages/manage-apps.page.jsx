@@ -44,6 +44,10 @@ export default class ManageAppsPage extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    this.cardListStore.resetIdToFocus();
+  }
+
   handleLoadMoreClick = () => {
     this.props.store.changePage(this.pageId);
     $('#card-list-load-more-btn').blur();
