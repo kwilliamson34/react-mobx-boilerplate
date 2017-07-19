@@ -45,7 +45,7 @@ export default class ManageAppsPage extends React.Component {
   }
 
   componentWillUnmount() {
-    this.resetPagination();
+    this.cardListStore.resetIdToFocus();
   }
 
   handleLoadMoreClick = () => {
