@@ -1,6 +1,5 @@
 import {userStore} from '../stores/user.store';
 import {history} from './history.service';
-import config from 'config';
 
 class UtilsService {
   formatRating(rating) {
@@ -27,7 +26,7 @@ class UtilsService {
         return {
           name: obj.app_name,
           publisher: obj.author,
-          imageUrl: config.apperianUploads + obj.icon_path,
+          imageUrl: obj.icon_path,
           rating: obj.rating,
           reviews_count: obj.reviews_count,
           id: obj.id,
