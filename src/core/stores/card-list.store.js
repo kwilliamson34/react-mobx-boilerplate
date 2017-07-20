@@ -108,6 +108,14 @@ class CardListStore {
 		this.showFilters = !this.showFilters;
 	}
 
+	@action addSelectedCard(psk) {
+	  this.selectedCards.push(psk);
+	}
+
+	@action clearSelectedCards = () => {
+	  this.selectedCards = [];
+	}
+	
 	//COMPUTEDS
 	@computed get recommendedCards() {
 		return this.searchResults.filter((app) => {
@@ -162,6 +170,7 @@ class CardListStore {
 	// OBSERVABLES
 	@observable originalCardList = [];
 	@observable searchResults = [];
+	@observable selectedCards = [];
 	@observable searchQuery = '';
 	@observable isLoading = false;
 	@observable searchIsApplied = false;

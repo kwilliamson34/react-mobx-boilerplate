@@ -123,6 +123,7 @@ class MDMStore {
   @action clearAlerts() {
     this.form_alerts = [];
     this.app_alerts = [];
+    this.appsReferencedByAlert = [];
   }
 
   // MDM Modals
@@ -290,6 +291,7 @@ class MDMStore {
 
     let successfullSubmission = false;
     let failedSubmission = false;
+    this.appsReferencedByAlert = [];
 
     for (let i = 0; i < apps.length; i++) {
       let app = apps[i];
@@ -301,6 +303,7 @@ class MDMStore {
         /* Only show success message if the user has just tried
         to install; NOT on initial render. */
         successfullSubmission = true;
+        this.appsReferencedByAlert.push(app.app_psk);
       }
       this.appCatalogMDMStatuses.set(app.app_psk, app.mdm_install_status)
     }
@@ -318,6 +321,10 @@ class MDMStore {
     }
   }
 
+  @action clearAppsReferencedByAlert = () => {
+    this.appsReferencedByAlert = [];
+  }
+
   @action throwMDMError() {
     this.clearAlerts();
     this.app_alerts.push({
@@ -327,21 +334,28 @@ class MDMStore {
     });
   }
 
+  @action pollUntilResolved(psk) {
+    setTimeout(() => {
+      if(this.appCatalogMDMStatuses.get(psk) === 'PENDING' || this.appCatalogMDMStatuses.get(psk) === 'IN_PROGRESS') {
+        this.getMDMStatus();
+        this.pollUntilResolved(psk);
+      }
+    }, 3000);
+  }
+
   @action pushToMDM(psk) {
     this.clearAlerts();
-
     const success = () => {
       this.getMDMStatus();
+      this.pollUntilResolved(psk);
     }
     const fail = (err) => {
       console.warn(err);
       this.appCatalogMDMStatuses.set(psk, 'FAILED');
       this.throwMDMError();
     }
-
     this.appCatalogMDMStatuses.set(psk, 'PENDING');
     return apiService.pushToMDM(psk).then(success, fail);
-
   }
 
   // OBSERVABLES
@@ -370,6 +384,7 @@ class MDMStore {
   // MDM Alerts
   @observable form_alerts = [];
   @observable app_alerts = [];
+  @observable appsReferencedByAlert = [];
 
   // Push to MDM
   @observable appCatalogMDMStatuses = observable.map({});

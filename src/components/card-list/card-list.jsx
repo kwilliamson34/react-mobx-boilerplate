@@ -23,7 +23,8 @@ export class CardList extends React.Component {
     getMatchingApp: PropTypes.func.isRequired,
     configuredMDMType: PropTypes.string,
     pushToMDM: PropTypes.func.isRequired,
-    appCatalogMDMStatuses: PropTypes.object
+    appCatalogMDMStatuses: PropTypes.object,
+    appsReferencedByAlert: PropTypes.object
   }
 
   static defaultProps = {
@@ -44,7 +45,11 @@ export class CardList extends React.Component {
   renderCard(card, i) {
     return (
       <div className="col-xs-12 col-sm-4 col-md-3 col-lg-3 center-block" key={i}>
-        <SummaryCard display={card} shouldFocus={i === this.props.idToFocus} mdm_status={this.props.appCatalogMDMStatuses[card.app_psk]}/>
+        <SummaryCard
+          display={card}
+          shouldFocus={i === this.props.idToFocus}
+          error={this.props.appCatalogMDMStatuses[card.app_psk] === 'FAILED'}
+          selected={this.props.appsReferencedByAlert.indexOf(card.app_psk) > -1}/>
         <AppManagementBlock
           name={card.name}
           psk={card.app_psk}
