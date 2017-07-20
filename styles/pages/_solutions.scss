@@ -17,7 +17,8 @@
         > a {
           text-decoration: none;
 
-          &:focus {
+          &:focus,
+          &:hover {
             & .card-title {
               text-decoration: underline;
             }
@@ -25,16 +26,6 @@
             & .learn-more {
               text-decoration: underline;
             }
-          }
-        }
-
-        &:hover {
-          & .card-title {
-            text-decoration: underline;
-          }
-
-          & .learn-more {
-            text-decoration: underline;
           }
         }
 
