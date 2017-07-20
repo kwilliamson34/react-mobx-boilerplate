@@ -33,8 +33,10 @@ export default class PSEHeader extends React.Component {
 				this.openDesktopAdminSubmenu();
 			}
 		}, () => {
-			this.headerStore.adminSubMenuIsOpen = false;
-			$('#linkBtn-admin').blur();
+			if(window.innerWidth > 992){
+				this.headerStore.adminSubMenuIsOpen = false;
+				$('#linkBtn-admin').blur();
+			}
 		});
 
 		$('#linkBtn-admin').focus(() => {
