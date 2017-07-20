@@ -48,11 +48,12 @@ export default class PSEHeader extends React.Component {
 		});
 
 		$('.dropdown-menu li:last-child a').keydown((e)=>{
+			// if user uses keyboard navigation, need to make sure we arent closing menu when user Shift+Tabs(goes to previous item)
 			if (e.which == 9 && e.shiftKey) {
 				// do nothing
-      } else if (e.which == 9) {
+			} else if (e.which == 9) {
 				$('.dropdown.open').removeClass('open');
-      }
+			}
 		});
 
 		$('#linkBtn-networkStatus, #logo-home-link').focus(() => {
