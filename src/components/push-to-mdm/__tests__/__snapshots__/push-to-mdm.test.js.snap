@@ -1,7 +1,7 @@
 exports[`<PushToMDM />  render tests  should match snapshot if configuredMDMType is configured 1`] = `
 <button
   aria-disabled={false}
-  className="fn-secondary"
+  className="push-button fn-secondary"
   id="pushBtn12345"
   onClick={[Function anonymous]}>
   <span
@@ -22,7 +22,7 @@ exports[`<PushToMDM />  render tests  should match snapshot if configuredMDMType
 exports[`<PushToMDM />  render tests  should match snapshot if configuredMDMType is null 1`] = `
 <button
   aria-disabled={true}
-  className="fn-primary"
+  className="push-button fn-primary"
   id="pushBtn12345"
   onClick={[Function anonymous]}>
   <span
@@ -43,7 +43,7 @@ exports[`<PushToMDM />  render tests  should match snapshot if configuredMDMType
 exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match snapshot if appCatalogMDMStatuses is FAILED 1`] = `
 <button
   aria-disabled={false}
-  className="fn-primary"
+  className="push-button fn-primary"
   id="pushBtn12345"
   onClick={[Function anonymous]}>
   <span
@@ -64,7 +64,7 @@ exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match s
 exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match snapshot if appCatalogMDMStatuses is INSTALLED 1`] = `
 <button
   aria-disabled={false}
-  className="fn-secondary"
+  className="push-button fn-secondary"
   id="pushBtn12345"
   onClick={[Function anonymous]}>
   <span
@@ -85,7 +85,7 @@ exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match s
 exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match snapshot if appCatalogMDMStatuses is IN_PROGRESS 1`] = `
 <button
   aria-disabled={false}
-  className="fn-primary"
+  className="push-button fn-primary"
   id="pushBtn12345"
   onClick={[Function anonymous]}>
   <span
@@ -107,7 +107,7 @@ exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match s
 exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match snapshot if appCatalogMDMStatuses is NEEDS_UPDATE 1`] = `
 <button
   aria-disabled={false}
-  className="fn-primary"
+  className="push-button fn-primary"
   id="pushBtn12345"
   onClick={[Function anonymous]}>
   <span
@@ -128,7 +128,7 @@ exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match s
 exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match snapshot if appCatalogMDMStatuses is NOT_INSTALLED 1`] = `
 <button
   aria-disabled={false}
-  className="fn-primary"
+  className="push-button fn-primary"
   id="pushBtn12345"
   onClick={[Function anonymous]}>
   <span
@@ -149,7 +149,7 @@ exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match s
 exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match snapshot if appCatalogMDMStatuses is PENDING 1`] = `
 <button
   aria-disabled={false}
-  className="fn-primary"
+  className="push-button fn-primary"
   id="pushBtn12345"
   onClick={[Function anonymous]}>
   <span
@@ -163,27 +163,6 @@ exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match s
     dangerouslySetInnerHTML={
       Object {
         "__html": "Submitting&hellip;"
-      }
-    } />
-</button>
-`;
-
-exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match snapshot if appCatalogMDMStatuses is REPUSHED 1`] = `
-<button
-  aria-disabled={false}
-  className="fn-secondary"
-  id="pushBtn12345"
-  onClick={[Function anonymous]}>
-  <span
-    className="sr-only">
-    This app has already been pushed to MDM. Click to re-push.
-  </span>
-  
-  <span
-    aria-hidden="true"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "Re-Push to MDM"
       }
     } />
 </button>

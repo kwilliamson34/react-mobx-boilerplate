@@ -95,10 +95,8 @@
     position: absolute;
     right: 0;
   }
+  
   &.mdm_failed {
     border: 2px solid $fn-alert-red;
-  }
-  &.mdm_repushed {
-    border: 2px solid $fn-ltblue;
   }
 }

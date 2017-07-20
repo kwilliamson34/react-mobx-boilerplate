@@ -41,7 +41,6 @@ describe('<PushToMDM /> ', () => {
       'PENDING',
       'FAILED',
       'INSTALLED',
-      'REPUSHED',
       'NEEDS_UPDATE'
     ];
 

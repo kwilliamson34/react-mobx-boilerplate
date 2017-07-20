@@ -48,7 +48,6 @@ export class PushToMDM extends React.Component {
         btnLabel = 'Push to MDM';
         break;
       case 'INSTALLED':
-      case 'REPUSHED':
         btnClass ='fn-secondary';
         screenReaderMessage = 'This app has already been pushed to MDM. Click to re-push.';
         btnLabel = 'Re-Push to MDM';
