@@ -4,8 +4,6 @@ jest.unmock('../app-management-block');
 jest.unmock('../../toggle/checkbox');
 
 import AppManagementBlock from '../app-management-block';
-import { MemoryRouter } from 'react-router-dom';
-import ReactDom from 'react-dom';
 
 describe('<AppManagementBlock />', () => {
   let props = {
@@ -22,18 +20,16 @@ describe('<AppManagementBlock />', () => {
 
   describe('render', () => {
     test('matches snapshots with all group combinations', () => {
+      let component, tree;
+
       props.getMatchingApp = () => {
         return {
           isAvailable: false,
           isRecommended: false
         }
       }
-      let component = renderer.create(
-        <MemoryRouter>
-          <AppManagementBlock { ...props }/>
-        </MemoryRouter>
-      );
-      let tree = component.toJSON();
+      component = renderer.create(<AppManagementBlock { ...props }/>);
+      tree = component.toJSON();
       expect(tree).toMatchSnapshot();
 
       props.getMatchingApp = () => {
@@ -42,11 +38,7 @@ describe('<AppManagementBlock />', () => {
           isRecommended: false
         }
       }
-      component = renderer.create(
-        <MemoryRouter>
-          <AppManagementBlock { ...props }/>
-        </MemoryRouter>
-      );
+      component = renderer.create(<AppManagementBlock { ...props }/>);
       tree = component.toJSON();
       expect(tree).toMatchSnapshot();
 
@@ -56,11 +48,7 @@ describe('<AppManagementBlock />', () => {
           isRecommended: true
         }
       }
-      component = renderer.create(
-        <MemoryRouter>
-          <AppManagementBlock { ...props }/>
-        </MemoryRouter>
-      );
+      component = renderer.create(<AppManagementBlock { ...props }/>);
       tree = component.toJSON();
       expect(tree).toMatchSnapshot();
 
@@ -71,11 +59,7 @@ describe('<AppManagementBlock />', () => {
           isRecommended: true
         }
       }
-      component = renderer.create(
-        <MemoryRouter>
-          <AppManagementBlock { ...props }/>
-        </MemoryRouter>
-      );
+      component = renderer.create(<AppManagementBlock { ...props }/>);
       tree = component.toJSON();
       expect(tree).toMatchSnapshot();
     });
@@ -89,27 +73,22 @@ describe('<AppManagementBlock />', () => {
           isRecommended: false
         }
       }
-
-      let memoryRouterComponent = TestUtils.renderIntoDocument(
-        <MemoryRouter>
-          <AppManagementBlock {...props} />
-        </MemoryRouter>
-      );
+      let component = TestUtils.renderIntoDocument(<AppManagementBlock {...props} />);
 
       //determine the function to spy on
-      const functionToWatch = memoryRouterComponent.props.children.props.changeAppAvailability;
+      const functionToWatch = component.props.changeAppAvailability;
       expect(functionToWatch).not.toHaveBeenCalled();
 
       //trigger the action
-      const idToFind = 'Available-' + props.psk;
-      const checkbox = TestUtils.findAllInRenderedTree(memoryRouterComponent, (inst) => {
-        return ReactDOM.findDOMNode(inst).getAttribute('id') == idToFind;
+      const checkbox = TestUtils.findAllInRenderedTree(component, (inst) => {
+        if(ReactDOM.findDOMNode(inst) && ReactDOM.findDOMNode(inst).getAttribute('id'))
+          return ReactDOM.findDOMNode(inst).getAttribute('id') === 'Available-123';
       })[0];
 
-      TestUtils.Simulate.change(checkbox, {'target': {'checked': true, 'target': 'checkbox'}});
+      TestUtils.Simulate.change(checkbox, {'target': {'checked': true, 'type': 'checkbox'}});
       expect(functionToWatch).toHaveBeenCalled();
 
-      TestUtils.Simulate.change(checkbox, {'target': {'checked': false, 'target': 'checkbox'}});
+      TestUtils.Simulate.change(checkbox, {'target': {'checked': false, 'type': 'checkbox'}});
       expect(functionToWatch).toHaveBeenCalled();
     });
 
@@ -120,27 +99,22 @@ describe('<AppManagementBlock />', () => {
           isRecommended: false
         }
       }
-
-      let memoryRouterComponent = TestUtils.renderIntoDocument(
-        <MemoryRouter>
-          <AppManagementBlock {...props} />
-        </MemoryRouter>
-      );
+      let component = TestUtils.renderIntoDocument(<AppManagementBlock {...props} />);
 
       //determine the function to spy on
-      const functionToWatch = memoryRouterComponent.props.children.props.changeAppRecommended;
+      const functionToWatch = component.props.changeAppRecommended;
       expect(functionToWatch).not.toHaveBeenCalled();
 
       //trigger the action
-      const idToFind = 'Recommended-' + props.psk;
-      const checkbox = TestUtils.findAllInRenderedTree(memoryRouterComponent, (inst) => {
-        return ReactDOM.findDOMNode(inst).getAttribute('id') == idToFind;
+      const checkbox = TestUtils.findAllInRenderedTree(component, (inst) => {
+        if(ReactDOM.findDOMNode(inst) && ReactDOM.findDOMNode(inst).getAttribute('id'))
+          return ReactDOM.findDOMNode(inst).getAttribute('id') === 'Recommended-123';
       })[0];
 
-      TestUtils.Simulate.click(checkbox, {'target': {'checked': true, 'target': 'checkbox'}});
+      TestUtils.Simulate.change(checkbox, {'target': {'checked': true, 'type': 'checkbox'}});
       expect(functionToWatch).toHaveBeenCalled();
 
-      TestUtils.Simulate.click(checkbox, {'target': {'checked': false, 'target': 'checkbox'}});
+      TestUtils.Simulate.change(checkbox, {'target': {'checked': false, 'type': 'checkbox'}});
       expect(functionToWatch).toHaveBeenCalled();
     });
 
@@ -151,27 +125,19 @@ describe('<AppManagementBlock />', () => {
           isRecommended: true
         }
       }
-
-      let memoryRouterComponent = TestUtils.renderIntoDocument(
-        <MemoryRouter>
-          <AppManagementBlock {...props} />
-        </MemoryRouter>
-      );
-
-      //determine the function to spy on
-      const functionToWatch1 = memoryRouterComponent.props.children.props.changeAppAvailability;
-      const functionToWatch2 = memoryRouterComponent.props.children.props.changeAppRecommended;
+      let component = TestUtils.renderIntoDocument(<AppManagementBlock {...props} />);
 
       //trigger the action
-      const idToFind = 'Available-' + props.psk;
-      const checkbox = TestUtils.findAllInRenderedTree(memoryRouterComponent, (inst) => {
-        return ReactDOM.findDOMNode(inst).getAttribute('id') == idToFind;
+      const checkbox = TestUtils.findAllInRenderedTree(component, (inst) => {
+        if(ReactDOM.findDOMNode(inst) && ReactDOM.findDOMNode(inst).getAttribute('id'))
+          return ReactDOM.findDOMNode(inst).getAttribute('id') === 'Available-123';
       })[0];
-      TestUtils.Simulate.click(checkbox, {'target': {'checked': false, 'target': 'checkbox'}});
+
+      TestUtils.Simulate.change(checkbox, {'target': {'checked': false, 'type': 'checkbox'}});
 
       //assert an outcome
-      expect(functionToWatch1).toHaveBeenCalled();
-      expect(functionToWatch2).toHaveBeenCalled();
+      expect(component.props.changeAppAvailability).toHaveBeenCalled();
+      expect(component.props.changeAppRecommended).toHaveBeenCalled();
     });
   });
 });

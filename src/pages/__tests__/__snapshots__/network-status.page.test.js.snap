@@ -1,0 +1,25 @@
+exports[`<NetworkStatusPage /> render matches previous snapshot 1`] = `
+<article
+  className="content-wrapper"
+  id="network-page">
+  <h1
+    className="sr-only">
+    Network Status
+  </h1>
+  <iframe
+    id="geolink_static_assets"
+    src="https://geo.stage.att.com/appBoard/libs/jquery/jquery.min.js"
+    style={
+      Object {
+        "border": "0 none",
+        "height": 0,
+        "left": 0,
+        "margin": 0,
+        "padding": 0,
+        "position": "absolute",
+        "top": "0",
+        "width": 0
+      }
+    } />
+</article>
+`;

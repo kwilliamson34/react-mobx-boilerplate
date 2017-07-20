@@ -1,0 +1,272 @@
+exports[`<ManageAppsPage /> render matches previous snapshot 1`] = `
+<article
+  id="manage-apps-page">
+  <div
+    className="container header">
+    <div
+      className="row">
+      <div
+        className="configure-mdm-container col-xs-12 col-lg-offset-1 col-lg-10">
+        <div
+          className="configure-mdm-wrapper">
+          <a
+            className=" configure-mdm-btn fn-primary"
+            href="/admin/configure-mdm"
+            onClick={[Function anonymous]}>
+            Configure MDM
+          </a>
+        </div>
+        <h1>
+          Manage Apps
+        </h1>
+      </div>
+    </div>
+  </div>
+  <div
+    className="container">
+    <div
+      className="row">
+      <div
+        className="col-xs-12 col-lg-offset-1 col-lg-10" />
+    </div>
+  </div>
+  <div
+    className="manage-apps-form">
+    <div
+      className="container">
+      <div
+        className="row">
+        <div
+          className="col-xs-12 col-lg-offset-1 col-lg-10">
+          <hr />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="container">
+    <div
+      className="row">
+      <div
+        className="col-xs-12 col-lg-offset-1 col-lg-10">
+        <p
+          aria-live="polite"
+          className="as-h3 results-count" />
+      </div>
+    </div>
+  </div>
+  <div
+    className="container">
+    <div
+      className="row">
+      <div
+        className="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-12 col-lg-offset-1 col-lg-10">
+        <section
+          className="card-list-container card-list-substitute">
+          <div
+            className="row" />
+          <div>
+            <p
+              className="as-h2">
+              No Results
+            </p>
+            <p
+              aria-live="polite">
+              There are no results to display. Please retry your search.
+            </p>
+            <button
+              className="btn fn-primary"
+              id="view-all-apps-button"
+              onClick={[Function anonymous]}
+              type="button">
+              View All Apps
+            </button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</article>
+`;
+
+exports[`<ManageAppsPage /> render matches previous snapshot 2`] = `
+<article
+  id="manage-apps-page">
+  <div
+    className="container header">
+    <div
+      className="row">
+      <div
+        className="configure-mdm-container col-xs-12 col-lg-offset-1 col-lg-10">
+        <div
+          className="configure-mdm-wrapper">
+          <a
+            className=" configure-mdm-btn fn-primary"
+            href="/admin/configure-mdm"
+            onClick={[Function anonymous]}>
+            Configure MDM
+          </a>
+        </div>
+        <h1>
+          Manage Apps
+        </h1>
+      </div>
+    </div>
+  </div>
+  <div
+    className="container">
+    <div
+      className="row">
+      <div
+        className="col-xs-12 col-lg-offset-1 col-lg-10" />
+    </div>
+  </div>
+  <div
+    className="manage-apps-form">
+    <div
+      className="container">
+      <div
+        className="row">
+        <div
+          className="col-xs-12 col-lg-offset-1 col-lg-10">
+          <hr />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="container">
+    <div
+      className="row">
+      <div
+        className="col-xs-12 col-lg-offset-1 col-lg-10">
+        <p
+          aria-live="polite"
+          className="as-h3 results-count" />
+      </div>
+    </div>
+  </div>
+  <div
+    className="container">
+    <div
+      className="row">
+      <div
+        className="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-12 col-lg-offset-1 col-lg-10">
+        <section
+          className="card-list-container card-list-substitute">
+          <div
+            className="row" />
+          <div>
+            <p
+              className="as-h2">
+              No Results
+            </p>
+            <p
+              aria-live="polite">
+              There are no results to display. Please retry your search.
+            </p>
+            <button
+              className="btn fn-primary"
+              id="view-all-apps-button"
+              onClick={[Function anonymous]}
+              type="button">
+              View All Apps
+            </button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</article>
+`;
+
+exports[`<ManageAppsPage /> render matches previous snapshot 3`] = `
+<article
+  id="manage-apps-page">
+  <div
+    className="container header">
+    <div
+      className="row">
+      <div
+        className="configure-mdm-container col-xs-12 col-lg-offset-1 col-lg-10">
+        <div
+          className="configure-mdm-wrapper">
+          <a
+            className=" configure-mdm-btn fn-primary"
+            href="/admin/configure-mdm"
+            onClick={[Function anonymous]}>
+            Configure MDM
+          </a>
+        </div>
+        <h1>
+          Manage Apps
+        </h1>
+      </div>
+    </div>
+  </div>
+  <div
+    className="container">
+    <div
+      className="row">
+      <div
+        className="col-xs-12 col-lg-offset-1 col-lg-10" />
+    </div>
+  </div>
+  <div
+    className="manage-apps-form">
+    <div
+      className="container">
+      <div
+        className="row">
+        <div
+          className="col-xs-12 col-lg-offset-1 col-lg-10">
+          <hr />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="container">
+    <div
+      className="row">
+      <div
+        className="col-xs-12 col-lg-offset-1 col-lg-10">
+        <p
+          aria-live="polite"
+          className="as-h3 results-count" />
+      </div>
+    </div>
+  </div>
+  <div
+    className="container">
+    <div
+      className="row">
+      <div
+        className="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-12 col-lg-offset-1 col-lg-10">
+        <section
+          className="card-list-container card-list-substitute">
+          <div
+            className="row" />
+          <div>
+            <p
+              className="as-h2">
+              No Results
+            </p>
+            <p
+              aria-live="polite">
+              There are no results to display. Please retry your search.
+            </p>
+            <button
+              className="btn fn-primary"
+              id="view-all-apps-button"
+              onClick={[Function anonymous]}
+              type="button">
+              View All Apps
+            </button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</article>
+`;

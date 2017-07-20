@@ -4,91 +4,111 @@ exports[`<Filters /> matches previous snapshot 1`] = `
   <div
     className="row">
     <div
-      className="col-xs-12">
+      className="col-xs-12 hidden-xs">
       <span
         className="form-group-title">
         Filter
       </span>
     </div>
     <div
-      className="col-sm-4 col-xs-12">
+      className="hidden-xs">
       <div
-        className="form-group">
-        <div>
-          <label
-            className="control-label"
-            htmlFor="category-filter">
-            Category
-          </label>
-          <select
-            className="form-control"
-            defaultValue={undefined}
-            id="category-filter"
-            onChange={[Function anonymous]}>
-            <option
-              value="">
-              All Categories
-            </option>
-          </select>
+        className="col-sm-4 col-xs-12">
+        <div
+          className="form-group">
+          <div>
+            <label
+              className="control-label"
+              htmlFor="category-filter">
+              Category
+            </label>
+            <select
+              className="form-control"
+              defaultValue={undefined}
+              id="category-filter"
+              onChange={[Function anonymous]}>
+              <option
+                value="">
+                All Categories
+              </option>
+            </select>
+          </div>
         </div>
       </div>
-    </div>
-    <div
-      className="col-sm-4 col-xs-12">
       <div
-        className="form-group">
-        <div>
-          <label
-            className="control-label"
-            htmlFor="segment-filter">
-            Branch/Discipline
-          </label>
-          <select
-            className="form-control"
-            defaultValue={undefined}
-            id="segment-filter"
-            onChange={[Function anonymous]}>
-            <option
-              value="">
-              All Branches/Disciplines
-            </option>
-          </select>
+        className="col-sm-4 col-xs-12">
+        <div
+          className="form-group">
+          <div>
+            <label
+              className="control-label"
+              htmlFor="segment-filter">
+              Branch/Discipline
+            </label>
+            <select
+              className="form-control"
+              defaultValue={undefined}
+              id="segment-filter"
+              onChange={[Function anonymous]}>
+              <option
+                value="">
+                All Branches/Disciplines
+              </option>
+            </select>
+          </div>
         </div>
       </div>
-    </div>
-    <div
-      className="col-sm-4 col-xs-12">
       <div
-        className="form-group">
-        <div>
-          <label
-            className="control-label"
-            htmlFor="platform-filter">
-            Platform
-          </label>
-          <select
-            className="form-control"
-            defaultValue={undefined}
-            id="platform-filter"
-            onChange={[Function anonymous]}>
-            <option
-              value="">
-              All Platforms
-            </option>
-          </select>
+        className="col-sm-4 col-xs-12">
+        <div
+          className="form-group">
+          <div>
+            <label
+              className="control-label"
+              htmlFor="platform-filter">
+              Platform
+            </label>
+            <select
+              className="form-control"
+              defaultValue={undefined}
+              id="platform-filter"
+              onChange={[Function anonymous]}>
+              <option
+                value="">
+                All Platforms
+              </option>
+            </select>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <div
     className="row">
-    <div
-      className="col-xs-12 text-right">
-      <button
-        className="reset-filters-button"
-        onClick={[Function anonymous]}>
-        Reset Filters
-      </button>
+    <div>
+      <div
+        className="col-xs-6 hidden-sm hidden-md hidden-lg">
+        <button
+          className="filters-button"
+          onClick={[Function anonymous]}>
+          <span>
+            Show Filters
+          </span>
+          <i
+            aria-hidden="true"
+            className="icon-arrowDown" />
+        </button>
+      </div>
+      <div
+        className="col-xs-6 col-sm-12 text-right">
+        <button
+          className="filters-button"
+          onClick={[Function anonymous]}>
+          <span>
+            Reset Filters
+          </span>
+        </button>
+      </div>
     </div>
   </div>
 </section>
@@ -100,95 +120,115 @@ exports[`<Filters /> matches previous snapshot 2`] = `
   <div
     className="row">
     <div
-      className="col-xs-12">
+      className="col-xs-12 hidden-xs">
       <span
         className="form-group-title">
         Filter
       </span>
     </div>
     <div
-      className="col-sm-4 col-xs-12">
+      className="hidden-xs">
       <div
-        className="form-group">
-        <div>
-          <label
-            className="control-label"
-            htmlFor="category-filter">
-            Category
-          </label>
-          <select
-            className="form-control"
-            defaultValue={undefined}
-            id="category-filter"
-            onChange={[Function anonymous]}>
-            <option
-              value="">
-              All Categories
-            </option>
-            <option
-              value={undefined} />
-            <option
-              value={undefined} />
-          </select>
+        className="col-sm-4 col-xs-12">
+        <div
+          className="form-group">
+          <div>
+            <label
+              className="control-label"
+              htmlFor="category-filter">
+              Category
+            </label>
+            <select
+              className="form-control"
+              defaultValue={undefined}
+              id="category-filter"
+              onChange={[Function anonymous]}>
+              <option
+                value="">
+                All Categories
+              </option>
+              <option
+                value={undefined} />
+              <option
+                value={undefined} />
+            </select>
+          </div>
         </div>
       </div>
-    </div>
-    <div
-      className="col-sm-4 col-xs-12">
       <div
-        className="form-group">
-        <div>
-          <label
-            className="control-label"
-            htmlFor="segment-filter">
-            Branch/Discipline
-          </label>
-          <select
-            className="form-control"
-            defaultValue={undefined}
-            id="segment-filter"
-            onChange={[Function anonymous]}>
-            <option
-              value="">
-              All Branches/Disciplines
-            </option>
-          </select>
+        className="col-sm-4 col-xs-12">
+        <div
+          className="form-group">
+          <div>
+            <label
+              className="control-label"
+              htmlFor="segment-filter">
+              Branch/Discipline
+            </label>
+            <select
+              className="form-control"
+              defaultValue={undefined}
+              id="segment-filter"
+              onChange={[Function anonymous]}>
+              <option
+                value="">
+                All Branches/Disciplines
+              </option>
+            </select>
+          </div>
         </div>
       </div>
-    </div>
-    <div
-      className="col-sm-4 col-xs-12">
       <div
-        className="form-group">
-        <div>
-          <label
-            className="control-label"
-            htmlFor="platform-filter">
-            Platform
-          </label>
-          <select
-            className="form-control"
-            defaultValue={undefined}
-            id="platform-filter"
-            onChange={[Function anonymous]}>
-            <option
-              value="">
-              All Platforms
-            </option>
-          </select>
+        className="col-sm-4 col-xs-12">
+        <div
+          className="form-group">
+          <div>
+            <label
+              className="control-label"
+              htmlFor="platform-filter">
+              Platform
+            </label>
+            <select
+              className="form-control"
+              defaultValue={undefined}
+              id="platform-filter"
+              onChange={[Function anonymous]}>
+              <option
+                value="">
+                All Platforms
+              </option>
+            </select>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <div
     className="row">
-    <div
-      className="col-xs-12 text-right">
-      <button
-        className="reset-filters-button"
-        onClick={[Function anonymous]}>
-        Reset Filters
-      </button>
+    <div>
+      <div
+        className="col-xs-6 hidden-sm hidden-md hidden-lg">
+        <button
+          className="filters-button"
+          onClick={[Function anonymous]}>
+          <span>
+            Show Filters
+          </span>
+          <i
+            aria-hidden="true"
+            className="icon-arrowDown" />
+        </button>
+      </div>
+      <div
+        className="col-xs-6 col-sm-12 text-right">
+        <button
+          className="filters-button"
+          onClick={[Function anonymous]}>
+          <span>
+            Reset Filters
+          </span>
+        </button>
+      </div>
     </div>
   </div>
 </section>
@@ -200,99 +240,119 @@ exports[`<Filters /> matches previous snapshot 3`] = `
   <div
     className="row">
     <div
-      className="col-xs-12">
+      className="col-xs-12 hidden-xs">
       <span
         className="form-group-title">
         Filter
       </span>
     </div>
     <div
-      className="col-sm-4 col-xs-12">
+      className="hidden-xs">
       <div
-        className="form-group">
-        <div>
-          <label
-            className="control-label"
-            htmlFor="category-filter">
-            Category
-          </label>
-          <select
-            className="form-control"
-            defaultValue={undefined}
-            id="category-filter"
-            onChange={[Function anonymous]}>
-            <option
-              value="">
-              All Categories
-            </option>
-            <option
-              value={undefined} />
-            <option
-              value={undefined} />
-          </select>
+        className="col-sm-4 col-xs-12">
+        <div
+          className="form-group">
+          <div>
+            <label
+              className="control-label"
+              htmlFor="category-filter">
+              Category
+            </label>
+            <select
+              className="form-control"
+              defaultValue={undefined}
+              id="category-filter"
+              onChange={[Function anonymous]}>
+              <option
+                value="">
+                All Categories
+              </option>
+              <option
+                value={undefined} />
+              <option
+                value={undefined} />
+            </select>
+          </div>
         </div>
       </div>
-    </div>
-    <div
-      className="col-sm-4 col-xs-12">
       <div
-        className="form-group">
-        <div>
-          <label
-            className="control-label"
-            htmlFor="segment-filter">
-            Branch/Discipline
-          </label>
-          <select
-            className="form-control"
-            defaultValue={undefined}
-            id="segment-filter"
-            onChange={[Function anonymous]}>
-            <option
-              value="">
-              All Branches/Disciplines
-            </option>
-            <option
-              value={undefined} />
-            <option
-              value={undefined} />
-          </select>
+        className="col-sm-4 col-xs-12">
+        <div
+          className="form-group">
+          <div>
+            <label
+              className="control-label"
+              htmlFor="segment-filter">
+              Branch/Discipline
+            </label>
+            <select
+              className="form-control"
+              defaultValue={undefined}
+              id="segment-filter"
+              onChange={[Function anonymous]}>
+              <option
+                value="">
+                All Branches/Disciplines
+              </option>
+              <option
+                value={undefined} />
+              <option
+                value={undefined} />
+            </select>
+          </div>
         </div>
       </div>
-    </div>
-    <div
-      className="col-sm-4 col-xs-12">
       <div
-        className="form-group">
-        <div>
-          <label
-            className="control-label"
-            htmlFor="platform-filter">
-            Platform
-          </label>
-          <select
-            className="form-control"
-            defaultValue={undefined}
-            id="platform-filter"
-            onChange={[Function anonymous]}>
-            <option
-              value="">
-              All Platforms
-            </option>
-          </select>
+        className="col-sm-4 col-xs-12">
+        <div
+          className="form-group">
+          <div>
+            <label
+              className="control-label"
+              htmlFor="platform-filter">
+              Platform
+            </label>
+            <select
+              className="form-control"
+              defaultValue={undefined}
+              id="platform-filter"
+              onChange={[Function anonymous]}>
+              <option
+                value="">
+                All Platforms
+              </option>
+            </select>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <div
     className="row">
-    <div
-      className="col-xs-12 text-right">
-      <button
-        className="reset-filters-button"
-        onClick={[Function anonymous]}>
-        Reset Filters
-      </button>
+    <div>
+      <div
+        className="col-xs-6 hidden-sm hidden-md hidden-lg">
+        <button
+          className="filters-button"
+          onClick={[Function anonymous]}>
+          <span>
+            Show Filters
+          </span>
+          <i
+            aria-hidden="true"
+            className="icon-arrowDown" />
+        </button>
+      </div>
+      <div
+        className="col-xs-6 col-sm-12 text-right">
+        <button
+          className="filters-button"
+          onClick={[Function anonymous]}>
+          <span>
+            Reset Filters
+          </span>
+        </button>
+      </div>
     </div>
   </div>
 </section>
@@ -304,103 +364,123 @@ exports[`<Filters /> matches previous snapshot 4`] = `
   <div
     className="row">
     <div
-      className="col-xs-12">
+      className="col-xs-12 hidden-xs">
       <span
         className="form-group-title">
         Filter
       </span>
     </div>
     <div
-      className="col-sm-4 col-xs-12">
+      className="hidden-xs">
       <div
-        className="form-group">
-        <div>
-          <label
-            className="control-label"
-            htmlFor="category-filter">
-            Category
-          </label>
-          <select
-            className="form-control"
-            defaultValue={undefined}
-            id="category-filter"
-            onChange={[Function anonymous]}>
-            <option
-              value="">
-              All Categories
-            </option>
-            <option
-              value={undefined} />
-            <option
-              value={undefined} />
-          </select>
+        className="col-sm-4 col-xs-12">
+        <div
+          className="form-group">
+          <div>
+            <label
+              className="control-label"
+              htmlFor="category-filter">
+              Category
+            </label>
+            <select
+              className="form-control"
+              defaultValue={undefined}
+              id="category-filter"
+              onChange={[Function anonymous]}>
+              <option
+                value="">
+                All Categories
+              </option>
+              <option
+                value={undefined} />
+              <option
+                value={undefined} />
+            </select>
+          </div>
         </div>
       </div>
-    </div>
-    <div
-      className="col-sm-4 col-xs-12">
       <div
-        className="form-group">
-        <div>
-          <label
-            className="control-label"
-            htmlFor="segment-filter">
-            Branch/Discipline
-          </label>
-          <select
-            className="form-control"
-            defaultValue={undefined}
-            id="segment-filter"
-            onChange={[Function anonymous]}>
-            <option
-              value="">
-              All Branches/Disciplines
-            </option>
-            <option
-              value={undefined} />
-            <option
-              value={undefined} />
-          </select>
+        className="col-sm-4 col-xs-12">
+        <div
+          className="form-group">
+          <div>
+            <label
+              className="control-label"
+              htmlFor="segment-filter">
+              Branch/Discipline
+            </label>
+            <select
+              className="form-control"
+              defaultValue={undefined}
+              id="segment-filter"
+              onChange={[Function anonymous]}>
+              <option
+                value="">
+                All Branches/Disciplines
+              </option>
+              <option
+                value={undefined} />
+              <option
+                value={undefined} />
+            </select>
+          </div>
         </div>
       </div>
-    </div>
-    <div
-      className="col-sm-4 col-xs-12">
       <div
-        className="form-group">
-        <div>
-          <label
-            className="control-label"
-            htmlFor="platform-filter">
-            Platform
-          </label>
-          <select
-            className="form-control"
-            defaultValue={undefined}
-            id="platform-filter"
-            onChange={[Function anonymous]}>
-            <option
-              value="">
-              All Platforms
-            </option>
-            <option
-              value={undefined} />
-            <option
-              value={undefined} />
-          </select>
+        className="col-sm-4 col-xs-12">
+        <div
+          className="form-group">
+          <div>
+            <label
+              className="control-label"
+              htmlFor="platform-filter">
+              Platform
+            </label>
+            <select
+              className="form-control"
+              defaultValue={undefined}
+              id="platform-filter"
+              onChange={[Function anonymous]}>
+              <option
+                value="">
+                All Platforms
+              </option>
+              <option
+                value={undefined} />
+              <option
+                value={undefined} />
+            </select>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <div
     className="row">
-    <div
-      className="col-xs-12 text-right">
-      <button
-        className="reset-filters-button"
-        onClick={[Function anonymous]}>
-        Reset Filters
-      </button>
+    <div>
+      <div
+        className="col-xs-6 hidden-sm hidden-md hidden-lg">
+        <button
+          className="filters-button"
+          onClick={[Function anonymous]}>
+          <span>
+            Show Filters
+          </span>
+          <i
+            aria-hidden="true"
+            className="icon-arrowDown" />
+        </button>
+      </div>
+      <div
+        className="col-xs-6 col-sm-12 text-right">
+        <button
+          className="filters-button"
+          onClick={[Function anonymous]}>
+          <span>
+            Reset Filters
+          </span>
+        </button>
+      </div>
     </div>
   </div>
 </section>

@@ -1,67 +1,154 @@
 jest.unmock('axios');
+jest.unmock('lodash');
 jest.unmock('../card-list.store');
+jest.unmock('react-router-dom');
+jest.unmock('history/createBrowserHistory');
 
-import {cardListStore} from '../card-list.store';
-import {apiService} from '../../services/api.service';
+import { apiService } from '../../services/api.service';
+import { history } from '../../services/history.service';
+import { cardListStore } from '../card-list.store';
 
 const store = cardListStore;
-// set your store here, you're testing actions against the store, not the store itself
-store.searchResults = [];
 
-// over ride the API call with an instantly resolved promise
-apiService.getAdminApps = () => {
-  return new Promise((resolve) => {
-    return resolve([{
-        title: "one",
-        category: [1]
-      },
-      {
-        title: "two",
-        category: [2]
-      },
-      {
-        title: "three",
-        category: [3]
-      },
-      {
-        title: "four",
-        category: [4]
-      },
-      {
-        title: "five",
-        category: [1]
-      },
-      {
-        title: "six",
-        category: [5]
-      }
-    ]);
-  })
-};
+let arrayOfSixApps = [
+  {title: "one", category: ["cat1"], user_segment: ["FIRE & RESCUE"], operatingSystem: "ANDROID", isRecommended: true},
+  {title: "two", category: ["cat1"], user_segment: ["FIRE & RESCUE","LAW ENFORCEMENT","HAZMAT"], operatingSystem: "IOS", isRecommended: false},
+  {title: "three", category: ["cat1"], user_segment: ["LAW ENFORCEMENT"], operatingSystem: "IOS", isRecommended: false},
+  {title: "four", category: ["cat1"], user_segment: ["EMERGENCY MANAGEMENT"], operatingSystem: "IOS", isRecommended: false},
+  {title: "five", category: ["cat1","cat2"], user_segment: ["HAZMAT"], operatingSystem: "IOS", isRecommended: true},
+  {title: "six", category: ["cat2"], user_segment: ["HAZMAT"], operatingSystem: "ANDROID", isRecommended: false}
+];
 
-// clean up after yourself
-const clearStore = () => {
-  store.searchResults = [];
-}
+describe("FilterStore", () => {
 
-describe("HomeStore", () => {
-  // will run once before everything
   beforeAll(() => {
-    return store.getAdminApps();
+    store.searchResults = arrayOfSixApps;
   });
 
-  // will run once after everything
-  afterAll(() => {
-    clearStore();
+  test("is not filtered or searched initially", () => {
+    expect(store.filteredSearchResults.length).toBe(6)
+    expect(store.searchIsApplied).toBe(false);
+    expect(store.platformFilter).toBe('');
+    expect(store.categoryFilter).toBe('');
+    expect(store.segmentFilter).toBe('');
   });
 
-  test("has things in it", () => {
-    expect(store.searchResults.length).toBe(6);
+  test("filters list after applying filter", () => {
+    store.changeSegmentFilter("FIRE & RESCUE");
+    expect(store.segmentFilter).toBe("FIRE & RESCUE");
+    expect(store.filteredSearchResults.length).toBe(2);
+
+    store.changeSegmentFilter("EMERGENCY MANAGEMENT");
+    expect(store.segmentFilter).toBe("EMERGENCY MANAGEMENT");
+    expect(store.filteredSearchResults.length).toBe(1);
+
+    store.changeSegmentFilter("");
+    store.changeCategoryFilter("cat2");
+    expect(store.categoryFilter).toBe("cat2");
+    expect(store.filteredSearchResults.length).toBe(2);
+
+    store.changeCategoryFilter("");
+    store.changePlatformFilter("IOS");
+    expect(store.platformFilter).toBe("IOS");
+    expect(store.filteredSearchResults.length).toBe(4);
   });
 
-  test("returns only recommended items", () => {
-    expect(store.recommendedCards.length).toBe(2);
-    expect(store.recommendedCards[0].title).toBe("one");
-    expect(store.recommendedCards[1].title).toBe("five");
+  test("can filter by level of recommendation", () => {
+      expect(store.recommendedCards.length).toBe(2);
+  });
+
+  test("updates appropriately when user resets their filters", () => {
+    store.searchResults = arrayOfSixApps;
+    store.changeSegmentFilter("");
+    store.changeCategoryFilter("");
+    store.changePlatformFilter("");
+    expect(store.filteredSearchResults.length).toBe(6);
+
+    store.changePlatformFilter("ANDROID");
+    expect(store.platformFilter).toBe("ANDROID");
+    expect(store.filteredSearchResults.length).toBe(2);
+
+    store.resetFilters();
+    expect(store.platformFilter).toBe("");
+    expect(store.filteredSearchResults.length).toBe(6);
+    expect(store.filterIsApplied).toBe(false);
+  });
+
+});
+
+describe("CardListStore", () => {
+
+    // will run once before everything
+    beforeAll(() => {
+      store.searchResults = arrayOfSixApps;
+    });
+
+    // will run once after everything
+    afterAll(() => {
+        clearStore();
+    });
+
+    test("has things in it", () => {
+        expect(store.searchResults.length).toBe(6);
+    });
+
+    test("updates appropriately when user clears all search and filter inputs", () => {
+      store.originalCardList = arrayOfSixApps;
+      store.searchResults = [];
+      store.changePlatformFilter("ANDROID");
+      store.changeSegmentFilter("HAZMAT");
+      store.handleSearchInput("hello");
+
+      store.restoreOriginalList();
+      expect(store.platformFilter).toBe("");
+      expect(store.segmentFilter).toBe("");
+      expect(store.categoryFilter).toBe("");
+      expect(store.searchQuery).toBe("");
+      expect(store.searchIsApplied).toBe(false);
+      expect(store.searchResults).toBe(arrayOfSixApps);
+    });
+});
+
+describe("SearchStore", () => {
+
+  beforeAll(() => {
+    store.resetFilters();
+    store.searchResults = [{title: "one", category:"cat1", user_segment: ["FIRE & RESCUE"], isRecommended: true}]
+    history.push = jest.fn();
+  });
+
+  test("accepts input", () => {
+    let testText = "gibberish";
+    store.handleSearchInput(testText);
+    expect(store.searchQuery).toBe(testText);
+  });
+
+  test("generates correct result count label", () => {
+    store.isLoading = false;
+    expect(store.resultsCountLabel).toBe(undefined);
+
+    store.searchIsApplied = true;
+
+    store.resetFilters();
+    store.searchResults = [];
+    expect(store.resultsCountLabel).toBe("");
+
+    store.searchResults = [{title: "one", category:"cat1", user_segment: ["FIRE & RESCUE"], isRecommended: true}]
+    expect(store.resultsCountLabel).toBe("1 Result");
+
+    store.searchResults = arrayOfSixApps;
+    expect(store.resultsCountLabel).toBe("6 Results");
+  });
+
+  test("updates appropriately when user clears their search", () => {
+    store.originalCardList = arrayOfSixApps;
+    store.searchIsApplied = true;
+    store.searchQuery = "rescue";
+    store.searchResults = [{title: "one", category:"cat1", user_segment: ["FIRE & RESCUE"], isRecommended: true}];
+
+    store.clearSearchQuery();
+    expect(store.searchQuery).toBe("");
+    expect(store.searchResults).toBe(arrayOfSixApps);
+    expect(store.searchIsApplied).toBe(false);
   });
 });

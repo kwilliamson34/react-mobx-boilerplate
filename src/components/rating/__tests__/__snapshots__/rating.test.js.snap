@@ -1,0 +1,61 @@
+exports[`<Rating />  render tests should match previous snapshot with alternative props 1`] = `
+<div
+  className="ratings-container">
+  <span>
+    <span
+      className="ratings-stars">
+      <span
+        aria-hidden="true"
+        className="ratings-star icon-star" />
+      <span
+        aria-hidden="true"
+        className="ratings-star icon-star-half-o" />
+      <span
+        aria-hidden="true"
+        className="ratings-star icon-star-o" />
+      <span
+        aria-hidden="true"
+        className="ratings-star icon-star-o" />
+      <span
+        aria-hidden="true"
+        className="ratings-star icon-star-o" />
+    </span>
+  </span>
+</div>
+`;
+
+exports[`<Rating />  render tests should match previous snapshot with default props 1`] = `
+<div
+  className="ratings-container">
+  <span>
+    <span
+      className="ratings-number">
+      <span
+        className="sr-only">
+        Rating of 
+      </span>
+       
+    </span>
+    <span
+      className="ratings-stars">
+      <span
+        aria-hidden={true}
+        className="ratings-star icon-star" />
+    </span>
+    <span
+      className="app-reviews-count hidden-xs">
+      <span
+        className="sr-only">
+        Reviewed by
+      </span>
+       (
+      1
+      )
+      <span
+        className="sr-only">
+         people
+      </span>
+    </span>
+  </span>
+</div>
+`;

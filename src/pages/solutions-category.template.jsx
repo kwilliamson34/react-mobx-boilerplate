@@ -27,10 +27,10 @@ export default class SolutionsCategoryTemplate extends React.Component {
       this.externalLinkStore.currentSolutionCategory = this.props.match.params.solutionCategory;
       if (this.externalLinkStore.allSolutionDetails.length) {
         this.externalLinkStore.fetchAndShowSolutionCategory();
-      }
-      else {
-        this.externalLinkStore.getSolutionDetails()
-        .then(() => this.externalLinkStore.fetchAndShowSolutionCategory());
+      } else {
+        this.externalLinkStore.getSolutionDetails().then(() => {
+          this.externalLinkStore.fetchAndShowSolutionCategory();
+        });
       }
     }
   }
