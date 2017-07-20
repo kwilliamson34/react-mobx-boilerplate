@@ -29,7 +29,7 @@ export default class PSEHeader extends React.Component {
 
 	componentDidMount() {
 		$('#btn-admin').hover(() => {
-			if(window.innerWidth > 992){
+			if(window.innerWidth > 992 ){
 				this.openDesktopAdminSubmenu();
 			}
 		}, () => {
@@ -57,7 +57,6 @@ export default class PSEHeader extends React.Component {
 
 		$('#linkBtn-networkStatus, #logo-home-link').focus(() => {
 			this.headerStore.adminSubMenuIsOpen = false;
-			$('.dropdown.open').removeClass('open');
 		});
 
 		$('body').click((e) => {
@@ -84,9 +83,11 @@ export default class PSEHeader extends React.Component {
 	}
 
 	openDesktopAdminSubmenu() {
-		this.headerStore.adminSubMenuIsOpen = true;
-		$('.dropdown.open').removeClass('open').find('button').blur();
-		$('#linkBtn-admin').focus();
+		if(!this.headerStore.adminSubMenuIsOpen){
+			this.headerStore.adminSubMenuIsOpen = true;
+			$('.dropdown.open').removeClass('open');
+			$('#linkBtn-admin').focus();
+		}
 	}
 
 	updateWindowDimensions = _.debounce(() => {
