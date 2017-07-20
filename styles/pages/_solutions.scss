@@ -19,11 +19,9 @@
 
           &:focus,
           &:hover {
-            & .card-title {
-              text-decoration: underline;
-            }
 
-            & .learn-more {
+            .card-title,
+            .learn-more {
               text-decoration: underline;
             }
           }
