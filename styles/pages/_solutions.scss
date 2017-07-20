@@ -16,6 +16,16 @@
 
         > a {
           text-decoration: none;
+
+          &:focus {
+            & .card-title {
+              text-decoration: underline;
+            }
+
+            & .learn-more {
+              text-decoration: underline;
+            }
+          }
         }
 
         &:hover {
