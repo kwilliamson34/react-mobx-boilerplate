@@ -1,15 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import GeolinkControls from './geolink-controls';
-
 export default class GeolinkMap extends React.Component {
   static propTypes = {
-    geolinkStore: PropTypes.object.isRequired
+    geolinkStore: PropTypes.object.isRequired,
+    hidden: PropTypes.bool
   }
 
   componentWillMount() {
-    window.iframeLoaded = this.setDefaults;
+    window.iframeLoaded = this.onIframeLoad;
 
     this.props.geolinkStore.loadGeolinkHtml().then(() => {
       //write the html into the iframe
@@ -24,7 +23,11 @@ export default class GeolinkMap extends React.Component {
     window.iframeLoaded = null;
   }
 
-  setDefaults = () => {
+  onIframeLoad = () => {
+    //record isReady in store to swap the placeholder for the map
+    this.props.geolinkStore.iframeIsFullyLoaded = true;
+
+    //set map defaults
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition(position => {
         const defaultSearchTerm = position.coords.latitude + ', ' + position.coords.longitude;
@@ -41,14 +44,13 @@ export default class GeolinkMap extends React.Component {
 
   render() {
     return (
-      <section className="geolink-map">
+      <section className={`geolink-map ${this.props.hidden ? 'hidden' : ''}`}>
         <div className="map-wrapper">
           <iframe
             id="coverage-map"
             title="Interactive Coverage Map"
             ref={(ref) => this.props.geolinkStore.mapIframeRef = ref}/>
         </div>
-        <GeolinkControls geolinkStore={this.props.geolinkStore}/>
       </section>
     );
   }

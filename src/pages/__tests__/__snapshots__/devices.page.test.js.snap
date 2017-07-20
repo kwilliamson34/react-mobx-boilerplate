@@ -1,0 +1,538 @@
+exports[`<DevicesPage /> render matches snapshot with zero, one and many cards in each row 1`] = `
+<div
+  className="devices-landing">
+  <div
+    className="container">
+    <div
+      className="row">
+      <div
+        className="col-xs-12 col-sm-10 col-sm-offset-1 catalog-header">
+        <h1>
+          Specialized Devices
+        </h1>
+        <p>
+          FirstNet offers an extensive selection of devices and accessories. Check out a small selection of our portfolio. To learn more about our full portfolio, contact a FirstNet Specialist.
+        </p>
+      </div>
+    </div>
+  </div>
+  <section
+    className="view-phone">
+    <div
+      className="container">
+      <div
+        className="row">
+        <div
+          className="col-xs-offset-2 col-xs-8 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
+          <h2>
+            Phones
+          </h2>
+          <ul
+            className="mp-content" />
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    className="view-tablet">
+    <div
+      className="container">
+      <div
+        className="row">
+        <div
+          className="col-xs-offset-2 col-xs-8 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
+          <h2>
+            Tablets
+          </h2>
+          <ul
+            className="mp-content" />
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    className="view-invehicle">
+    <div
+      className="container">
+      <div
+        className="row">
+        <div
+          className="col-xs-offset-2 col-xs-8 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
+          <h2>
+            In-Vehicle
+          </h2>
+          <ul
+            className="mp-content" />
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    className="view-accessories">
+    <div
+      className="container">
+      <div
+        className="row">
+        <div
+          className="col-xs-offset-2 col-xs-8 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
+          <h2>
+            Accessories
+          </h2>
+          <ul
+            className="mp-content" />
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`<DevicesPage /> render matches snapshot with zero, one and many cards in each row 2`] = `
+<div
+  className="devices-landing">
+  <div
+    className="container">
+    <div
+      className="row">
+      <div
+        className="col-xs-12 col-sm-10 col-sm-offset-1 catalog-header">
+        <h1>
+          Specialized Devices
+        </h1>
+        <p>
+          FirstNet offers an extensive selection of devices and accessories. Check out a small selection of our portfolio. To learn more about our full portfolio, contact a FirstNet Specialist.
+        </p>
+      </div>
+    </div>
+  </div>
+  <section
+    className="view-phone">
+    <div
+      className="container">
+      <div
+        className="row">
+        <div
+          className="col-xs-offset-2 col-xs-8 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
+          <h2>
+            Phones
+          </h2>
+          <ul
+            className="mp-content" />
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    className="view-tablet">
+    <div
+      className="container">
+      <div
+        className="row">
+        <div
+          className="col-xs-offset-2 col-xs-8 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
+          <h2>
+            Tablets
+          </h2>
+          <ul
+            className="mp-content" />
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    className="view-invehicle">
+    <div
+      className="container">
+      <div
+        className="row">
+        <div
+          className="col-xs-offset-2 col-xs-8 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
+          <h2>
+            In-Vehicle
+          </h2>
+          <ul
+            className="mp-content">
+            <li>
+              <a
+                href="/admin/devices/in-vehicle/undefined"
+                id="invehicle_0"
+                onClick={[Function anonymous]}>
+                <h3
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "title"
+                    }
+                  } />
+                <div
+                  className="card-img-wrapper">
+                  <img
+                    alt="alt"
+                    src="url" />
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    className="view-accessories">
+    <div
+      className="container">
+      <div
+        className="row">
+        <div
+          className="col-xs-offset-2 col-xs-8 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
+          <h2>
+            Accessories
+          </h2>
+          <ul
+            className="mp-content" />
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`<DevicesPage /> render matches snapshot with zero, one and many cards in each row 3`] = `
+<div
+  className="devices-landing">
+  <div
+    className="container">
+    <div
+      className="row">
+      <div
+        className="col-xs-12 col-sm-10 col-sm-offset-1 catalog-header">
+        <h1>
+          Specialized Devices
+        </h1>
+        <p>
+          FirstNet offers an extensive selection of devices and accessories. Check out a small selection of our portfolio. To learn more about our full portfolio, contact a FirstNet Specialist.
+        </p>
+      </div>
+    </div>
+  </div>
+  <section
+    className="view-phone">
+    <div
+      className="container">
+      <div
+        className="row">
+        <div
+          className="col-xs-offset-2 col-xs-8 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
+          <h2>
+            Phones
+          </h2>
+          <ul
+            className="mp-content">
+            <li>
+              <a
+                href="/admin/devices/phones/undefined"
+                id="phone_0"
+                onClick={[Function anonymous]}>
+                <h3
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "title"
+                    }
+                  } />
+                <div
+                  className="card-img-wrapper">
+                  <img
+                    alt="alt"
+                    src="url" />
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    className="view-tablet">
+    <div
+      className="container">
+      <div
+        className="row">
+        <div
+          className="col-xs-offset-2 col-xs-8 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
+          <h2>
+            Tablets
+          </h2>
+          <ul
+            className="mp-content">
+            <li>
+              <a
+                href="/admin/devices/tablets/undefined"
+                id="tablet_0"
+                onClick={[Function anonymous]}>
+                <h3
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "title"
+                    }
+                  } />
+                <div
+                  className="card-img-wrapper">
+                  <img
+                    alt="alt"
+                    src="url" />
+                </div>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/admin/devices/tablets/undefined"
+                id="tablet_1"
+                onClick={[Function anonymous]}>
+                <h3
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "title"
+                    }
+                  } />
+                <div
+                  className="card-img-wrapper">
+                  <img
+                    alt="alt"
+                    src="url" />
+                </div>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/admin/devices/tablets/undefined"
+                id="tablet_2"
+                onClick={[Function anonymous]}>
+                <h3
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "title"
+                    }
+                  } />
+                <div
+                  className="card-img-wrapper">
+                  <img
+                    alt="alt"
+                    src="url" />
+                </div>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/admin/devices/tablets/undefined"
+                id="tablet_3"
+                onClick={[Function anonymous]}>
+                <h3
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "title"
+                    }
+                  } />
+                <div
+                  className="card-img-wrapper">
+                  <img
+                    alt="alt"
+                    src="url" />
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div
+          className="row">
+          <a
+            className="fn-primary showAll"
+            href="/admin/devices/tablets"
+            onClick={[Function anonymous]}>
+            Explore All 
+            Tablets
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    className="view-invehicle">
+    <div
+      className="container">
+      <div
+        className="row">
+        <div
+          className="col-xs-offset-2 col-xs-8 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
+          <h2>
+            In-Vehicle
+          </h2>
+          <ul
+            className="mp-content">
+            <li>
+              <a
+                href="/admin/devices/in-vehicle/undefined"
+                id="invehicle_0"
+                onClick={[Function anonymous]}>
+                <h3
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "title"
+                    }
+                  } />
+                <div
+                  className="card-img-wrapper">
+                  <img
+                    alt="alt"
+                    src="url" />
+                </div>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/admin/devices/in-vehicle/undefined"
+                id="invehicle_1"
+                onClick={[Function anonymous]}>
+                <h3
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "title"
+                    }
+                  } />
+                <div
+                  className="card-img-wrapper">
+                  <img
+                    alt="alt"
+                    src="url" />
+                </div>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/admin/devices/in-vehicle/undefined"
+                id="invehicle_2"
+                onClick={[Function anonymous]}>
+                <h3
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "title"
+                    }
+                  } />
+                <div
+                  className="card-img-wrapper">
+                  <img
+                    alt="alt"
+                    src="url" />
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    className="view-accessories">
+    <div
+      className="container">
+      <div
+        className="row">
+        <div
+          className="col-xs-offset-2 col-xs-8 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
+          <h2>
+            Accessories
+          </h2>
+          <ul
+            className="mp-content">
+            <li>
+              <a
+                href="/admin/devices/accessories/undefined"
+                id="accessories_0"
+                onClick={[Function anonymous]}>
+                <h3
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "title"
+                    }
+                  } />
+                <div
+                  className="card-img-wrapper">
+                  <img
+                    alt="alt"
+                    src="url" />
+                </div>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/admin/devices/accessories/undefined"
+                id="accessories_1"
+                onClick={[Function anonymous]}>
+                <h3
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "title"
+                    }
+                  } />
+                <div
+                  className="card-img-wrapper">
+                  <img
+                    alt="alt"
+                    src="url" />
+                </div>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/admin/devices/accessories/undefined"
+                id="accessories_2"
+                onClick={[Function anonymous]}>
+                <h3
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "title"
+                    }
+                  } />
+                <div
+                  className="card-img-wrapper">
+                  <img
+                    alt="alt"
+                    src="url" />
+                </div>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/admin/devices/accessories/undefined"
+                id="accessories_3"
+                onClick={[Function anonymous]}>
+                <h3
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "title"
+                    }
+                  } />
+                <div
+                  className="card-img-wrapper">
+                  <img
+                    alt="alt"
+                    src="url" />
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div
+          className="row">
+          <a
+            className="fn-primary showAll"
+            href="/admin/devices/accessories"
+            onClick={[Function anonymous]}>
+            Explore All 
+            Accessories
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+`;

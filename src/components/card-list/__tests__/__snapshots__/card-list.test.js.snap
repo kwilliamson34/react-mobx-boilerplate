@@ -1,70 +1,570 @@
-exports[`<CardList /> renders matches previous snapshot 1`] = `
+exports[`<CardList /> renders matches snapshot before and after loading 1`] = `
 <section
-  className="card-list-container col-md-12 col-xs-12">
+  className="card-list-container card-list-substitute">
   <div
-    className="container false">
+    className="row">
     <div
-      className="row">
+      className="loading-container">
+      <p
+        aria-live="polite"
+        className="as-h2">
+        <i
+          aria-hidden="true"
+          className="as-h2 icon-reload" />
+        Loading apps…
+      </p>
       <div
-        className="col-md-3 col-xs-4 center-block">
+        className="ghost-container">
         <div
-          className="card-wrapper">
-          <a
-            className="card-focus has-shadow"
-            href="/app/undefined"
-            onClick={[Function anonymous]}>
+          className="app-ghost">
+          <div />
+        </div>
+        <div
+          className="app-ghost hidden-xs">
+          <div />
+        </div>
+        <div
+          className="app-ghost hidden-xs">
+          <div />
+        </div>
+        <div
+          className="app-ghost hidden-xs hidden-sm">
+          <div />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+`;
+
+exports[`<CardList /> renders matches snapshot before and after loading 2`] = `
+<section
+  className="card-list-container false">
+  <div
+    className="row">
+    <div
+      className="col-xs-12 col-sm-4 col-md-3 col-lg-3 center-block">
+      <div
+        className="card-wrapper">
+        <a
+          className="card-focus has-shadow card-container center-block "
+          href="/app/undefined"
+          id="appCardundefined"
+          onClick={[Function anonymous]}>
+          <div
+            className="">
             <div
-              className="card-container">
+              className="card-logo">
+              <img
+                alt="undefined Logo"
+                src={undefined} />
+            </div>
+            <section
+              className="card-info">
               <div
-                className="card-logo">
-                <img
-                  alt="undefined Logo"
-                  src={undefined} />
-              </div>
-              <section
-                className="card-info">
-                <div
-                  className="card-name" />
-                <div
-                  className="card-publisher hidden-xs" />
-              </section>
+                className="card-name" />
+              <div
+                className="card-publisher" />
+            </section>
+            <div
+              className="card-lower-meta">
               <div
                 className="card-rating">
                 <div
                   className="ratings-container">
-                  <span
-                    className="ratings-number">
-                    <span
-                      className="sr-only">
-                      Rating of
-                    </span>
-                    0
-                  </span>
-                  <span
-                    className="ratings-stars">
-                    <span
-                      aria-hidden="true"
-                      className="ratings-star icon-star-o" />
-                    <span
-                      aria-hidden="true"
-                      className="ratings-star icon-star-o" />
-                    <span
-                      aria-hidden="true"
-                      className="ratings-star icon-star-o" />
-                    <span
-                      aria-hidden="true"
-                      className="ratings-star icon-star-o" />
-                    <span
-                      aria-hidden="true"
-                      className="ratings-star icon-star-o" />
+                  <span>
+                    No Reviews
                   </span>
                 </div>
               </div>
             </div>
-          </a>
-        </div>
-        <div
-          className="hidden-xs" />
+          </div>
+        </a>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-4 col-md-3 col-lg-3 center-block">
+      <div
+        className="card-wrapper">
+        <a
+          className="card-focus has-shadow card-container center-block "
+          href="/app/undefined"
+          id="appCardundefined"
+          onClick={[Function anonymous]}>
+          <div
+            className="">
+            <div
+              className="card-logo">
+              <img
+                alt="undefined Logo"
+                src={undefined} />
+            </div>
+            <section
+              className="card-info">
+              <div
+                className="card-name" />
+              <div
+                className="card-publisher" />
+            </section>
+            <div
+              className="card-lower-meta">
+              <div
+                className="card-rating">
+                <div
+                  className="ratings-container">
+                  <span>
+                    No Reviews
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-4 col-md-3 col-lg-3 center-block">
+      <div
+        className="card-wrapper">
+        <a
+          className="card-focus has-shadow card-container center-block "
+          href="/app/undefined"
+          id="appCardundefined"
+          onClick={[Function anonymous]}>
+          <div
+            className="">
+            <div
+              className="card-logo">
+              <img
+                alt="undefined Logo"
+                src={undefined} />
+            </div>
+            <section
+              className="card-info">
+              <div
+                className="card-name" />
+              <div
+                className="card-publisher" />
+            </section>
+            <div
+              className="card-lower-meta">
+              <div
+                className="card-rating">
+                <div
+                  className="ratings-container">
+                  <span>
+                    No Reviews
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-4 col-md-3 col-lg-3 center-block">
+      <div
+        className="card-wrapper">
+        <a
+          className="card-focus has-shadow card-container center-block "
+          href="/app/undefined"
+          id="appCardundefined"
+          onClick={[Function anonymous]}>
+          <div
+            className="">
+            <div
+              className="card-logo">
+              <img
+                alt="undefined Logo"
+                src={undefined} />
+            </div>
+            <section
+              className="card-info">
+              <div
+                className="card-name" />
+              <div
+                className="card-publisher" />
+            </section>
+            <div
+              className="card-lower-meta">
+              <div
+                className="card-rating">
+                <div
+                  className="ratings-container">
+                  <span>
+                    No Reviews
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-4 col-md-3 col-lg-3 center-block">
+      <div
+        className="card-wrapper">
+        <a
+          className="card-focus has-shadow card-container center-block "
+          href="/app/undefined"
+          id="appCardundefined"
+          onClick={[Function anonymous]}>
+          <div
+            className="">
+            <div
+              className="card-logo">
+              <img
+                alt="undefined Logo"
+                src={undefined} />
+            </div>
+            <section
+              className="card-info">
+              <div
+                className="card-name" />
+              <div
+                className="card-publisher" />
+            </section>
+            <div
+              className="card-lower-meta">
+              <div
+                className="card-rating">
+                <div
+                  className="ratings-container">
+                  <span>
+                    No Reviews
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+`;
+
+exports[`<CardList /> renders matches snapshot with no results 1`] = `
+<section
+  className="card-list-container false">
+  <div
+    className="row">
+    <div
+      className="col-xs-12 col-sm-4 col-md-3 col-lg-3 center-block">
+      <div
+        className="card-wrapper">
+        <a
+          className="card-focus has-shadow card-container center-block "
+          href="/app/undefined"
+          id="appCardundefined"
+          onClick={[Function anonymous]}>
+          <div
+            className="">
+            <div
+              className="card-logo">
+              <img
+                alt="undefined Logo"
+                src={undefined} />
+            </div>
+            <section
+              className="card-info">
+              <div
+                className="card-name" />
+              <div
+                className="card-publisher" />
+            </section>
+            <div
+              className="card-lower-meta">
+              <div
+                className="card-rating">
+                <div
+                  className="ratings-container">
+                  <span>
+                    No Reviews
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-4 col-md-3 col-lg-3 center-block">
+      <div
+        className="card-wrapper">
+        <a
+          className="card-focus has-shadow card-container center-block "
+          href="/app/undefined"
+          id="appCardundefined"
+          onClick={[Function anonymous]}>
+          <div
+            className="">
+            <div
+              className="card-logo">
+              <img
+                alt="undefined Logo"
+                src={undefined} />
+            </div>
+            <section
+              className="card-info">
+              <div
+                className="card-name" />
+              <div
+                className="card-publisher" />
+            </section>
+            <div
+              className="card-lower-meta">
+              <div
+                className="card-rating">
+                <div
+                  className="ratings-container">
+                  <span>
+                    No Reviews
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-4 col-md-3 col-lg-3 center-block">
+      <div
+        className="card-wrapper">
+        <a
+          className="card-focus has-shadow card-container center-block "
+          href="/app/undefined"
+          id="appCardundefined"
+          onClick={[Function anonymous]}>
+          <div
+            className="">
+            <div
+              className="card-logo">
+              <img
+                alt="undefined Logo"
+                src={undefined} />
+            </div>
+            <section
+              className="card-info">
+              <div
+                className="card-name" />
+              <div
+                className="card-publisher" />
+            </section>
+            <div
+              className="card-lower-meta">
+              <div
+                className="card-rating">
+                <div
+                  className="ratings-container">
+                  <span>
+                    No Reviews
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-4 col-md-3 col-lg-3 center-block">
+      <div
+        className="card-wrapper">
+        <a
+          className="card-focus has-shadow card-container center-block "
+          href="/app/undefined"
+          id="appCardundefined"
+          onClick={[Function anonymous]}>
+          <div
+            className="">
+            <div
+              className="card-logo">
+              <img
+                alt="undefined Logo"
+                src={undefined} />
+            </div>
+            <section
+              className="card-info">
+              <div
+                className="card-name" />
+              <div
+                className="card-publisher" />
+            </section>
+            <div
+              className="card-lower-meta">
+              <div
+                className="card-rating">
+                <div
+                  className="ratings-container">
+                  <span>
+                    No Reviews
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-4 col-md-3 col-lg-3 center-block">
+      <div
+        className="card-wrapper">
+        <a
+          className="card-focus has-shadow card-container center-block "
+          href="/app/undefined"
+          id="appCardundefined"
+          onClick={[Function anonymous]}>
+          <div
+            className="">
+            <div
+              className="card-logo">
+              <img
+                alt="undefined Logo"
+                src={undefined} />
+            </div>
+            <section
+              className="card-info">
+              <div
+                className="card-name" />
+              <div
+                className="card-publisher" />
+            </section>
+            <div
+              className="card-lower-meta">
+              <div
+                className="card-rating">
+                <div
+                  className="ratings-container">
+                  <span>
+                    No Reviews
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+`;
+
+exports[`<CardList /> renders matches snapshot with zero, one, and many cards 1`] = `
+<section
+  className="card-list-container card-list-substitute">
+  <div
+    className="row" />
+  <div>
+    <p
+      className="as-h2">
+      No Results
+    </p>
+    <p
+      aria-live="polite">
+      There are no results to display. Please retry your search.
+    </p>
+  </div>
+</section>
+`;
+
+exports[`<CardList /> renders matches snapshot with zero, one, and many cards 2`] = `
+<section
+  className="card-list-container false">
+  <div
+    className="row">
+    <div
+      className="col-xs-12 col-sm-4 col-md-3 col-lg-3 center-block">
+      <div
+        className="card-wrapper">
+        <a
+          className="card-focus has-shadow card-container center-block "
+          href="/app/undefined"
+          id="appCardundefined"
+          onClick={[Function anonymous]}>
+          <div
+            className="">
+            <div
+              className="card-logo">
+              <img
+                alt="undefined Logo"
+                src={undefined} />
+            </div>
+            <section
+              className="card-info">
+              <div
+                className="card-name" />
+              <div
+                className="card-publisher" />
+            </section>
+            <div
+              className="card-lower-meta">
+              <div
+                className="card-rating">
+                <div
+                  className="ratings-container">
+                  <span>
+                    No Reviews
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+`;
+
+exports[`<CardList /> renders matches snapshot with zero, one, and many cards 3`] = `
+<section
+  className="card-list-container false">
+  <div
+    className="row">
+    <div
+      className="col-xs-12 col-sm-4 col-md-3 col-lg-3 center-block">
+      <div
+        className="card-wrapper">
+        <a
+          className="card-focus has-shadow card-container center-block "
+          href="/app/undefined"
+          id="appCardundefined"
+          onClick={[Function anonymous]}>
+          <div
+            className="">
+            <div
+              className="card-logo">
+              <img
+                alt="undefined Logo"
+                src={undefined} />
+            </div>
+            <section
+              className="card-info">
+              <div
+                className="card-name" />
+              <div
+                className="card-publisher" />
+            </section>
+            <div
+              className="card-lower-meta">
+              <div
+                className="card-rating">
+                <div
+                  className="ratings-container">
+                  <span>
+                    No Reviews
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
       </div>
     </div>
   </div>

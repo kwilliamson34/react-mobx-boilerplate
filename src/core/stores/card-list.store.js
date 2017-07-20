@@ -111,7 +111,7 @@ class CardListStore {
 	//COMPUTEDS
 	@computed get recommendedCards() {
 		return this.searchResults.filter((app) => {
-			return (app.recommended)
+			return (app.isRecommended)
 		})
 	}
 
@@ -149,7 +149,7 @@ class CardListStore {
 	}
 
 	@computed get filterIsApplied() {
-		return this.categoryFilter || this.segmentFilter|| this.platformFilter;
+		return (this.categoryFilter || this.segmentFilter || this.platformFilter) ? true : false;
 	}
 
 	@computed get resultsCountLabel() {

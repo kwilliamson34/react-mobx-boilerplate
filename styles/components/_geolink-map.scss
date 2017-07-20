@@ -3,6 +3,25 @@ $search-border-radius: 4px;
 
 #network-page {
   padding-top: 0;
+
+  .map-placeholder {
+    height: $map-height;
+    width: 100%;
+    padding: 0;
+    background-color: white;
+    background-image: url('/images/map-placeholder.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    p {
+      position: absolute;
+      margin-top: $map-height/2 - 18px;
+      width: 100%;
+      text-align: center;
+      background: none;
+    }
+  }
 }
 
 .geolink-map {
@@ -29,6 +48,7 @@ $search-border-radius: 4px;
   background-color: $fn-ltgrey;
   padding-top: 30px;
   padding-bottom: 100px;
+  border-top: 1px solid $fn-grey;
 
   form {
     margin-top: 0;
@@ -166,167 +186,161 @@ $search-border-radius: 4px;
 }
 /**********************************************/
 @media #{$mobile} {
-  .geolink-map {
-    .geolink-controls {
-      [class*='col-'] {
-        margin-bottom: 30px;
-        padding-left: 30px;
-        padding-right: 30px;
+  .geolink-controls {
+    [class*='col-'] {
+      margin-bottom: 30px;
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+
+    .map-search {
+      padding-right: 30px;
+    }
+
+    .map-layers {
+      fieldset {
+        padding-left: 15px;
       }
 
-      .map-search {
-        padding-right: 30px;
+      h2 {
+        padding-left: 0;
       }
+    }
 
-      .map-layers {
-        fieldset {
-          padding-left: 15px;
-        }
+    .report-coverage-issue {
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
 
-        h2 {
-          padding-left: 0;
-        }
+    .emergency-numbers {
+      > div {
+        width: 100%;
+        float: left;
       }
+    }
 
-      .report-coverage-issue {
-        padding-bottom: 0;
-        margin-bottom: 0;
-      }
+    .coverage-layers {
+      border-bottom: 1px solid $fn-grey;
+      padding-bottom: 30px;
+    }
 
-      .emergency-numbers {
-        > div {
-          width: 100%;
-          float: left;
-        }
-      }
+    .hazards-legend {
+      margin-top: 15px;
 
-      .coverage-layers {
-        border-bottom: 1px solid $fn-grey;
-        padding-bottom: 30px;
-      }
-
-      .hazards-legend {
-        margin-top: 15px;
-
-        span {
-          width: 50%;
-          float: left;
-        }
+      span {
+        width: 50%;
+        float: left;
       }
     }
   }
 }
 @media #{$tablet} {
-  .geolink-map {
-    .geolink-controls {
-      [class*='col-'] {
-        margin-bottom: 30px;
-      }
+  .geolink-controls {
+    [class*='col-'] {
+      margin-bottom: 30px;
+    }
 
-      .map-search {
+    .map-search {
+      padding-right: 30px;
+    }
+
+    .map-layers {
+      fieldset {
+        padding-left: 30px;
         padding-right: 30px;
       }
 
-      .map-layers {
-        fieldset {
-          padding-left: 30px;
-          padding-right: 30px;
-        }
-
-        h2 {
-          padding-left: 15px;
-        }
-      }
-
-      .report-coverage-issue {
-        border-top: 1px solid $fn-grey;
-        border-bottom: 1px solid $fn-grey;
-        padding-top: 30px;
-        padding-bottom: 30px;
-      }
-
-      .emergency-numbers {
-        > div {
-          width: 50%;
-          float: left;
-        }
-      }
-
-      .coverage-layers {
-        border-left: 1px solid $fn-grey;
-        border-right: 0;
-        padding-left: 20px;
-        margin: 0 -15px;
-      }
-
-      .traffic-bars {
-        width: 60%;
-        float: left;
-        padding-right: 15px;
-      }
-
-      .hazards-legend {
-        width: 40%;
-        float: left;
+      h2 {
         padding-left: 15px;
+      }
+    }
 
-        span {
-          width: 50%;
-          float: left;
-        }
+    .report-coverage-issue {
+      border-top: 1px solid $fn-grey;
+      border-bottom: 1px solid $fn-grey;
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+
+    .emergency-numbers {
+      > div {
+        width: 50%;
+        float: left;
+      }
+    }
+
+    .coverage-layers {
+      border-left: 1px solid $fn-grey;
+      border-right: 0;
+      padding-left: 20px;
+      margin: 0 -15px;
+    }
+
+    .traffic-bars {
+      width: 60%;
+      float: left;
+      padding-right: 15px;
+    }
+
+    .hazards-legend {
+      width: 40%;
+      float: left;
+      padding-left: 15px;
+
+      span {
+        width: 50%;
+        float: left;
       }
     }
   }
 }
 @media #{$desktop} {
-  .geolink-map {
-    .geolink-controls {
-      [class*='col-'] {
-        margin-bottom: 0;
-        padding-left: 40px;
-        padding-right: 40px;
-      }
+  .geolink-controls {
+    [class*='col-'] {
+      margin-bottom: 0;
+      padding-left: 40px;
+      padding-right: 40px;
+    }
 
-      .map-search {
-        padding-right: 40px;
-      }
+    .map-search {
+      padding-right: 40px;
+    }
 
-      .map-layers {
-        fieldset {
-          padding-left: 40px;
-        }
-
-        h2 {
-          padding-left: 0;
-        }
-      }
-
-      .emergency-numbers {
-        > div {
-          width: 100%;
-          float: left;
-        }
-      }
-
-      .coverage-layers {
-        border-bottom: 0;
-        border-left: 1px solid $fn-grey;
-        border-right: 1px solid $fn-grey;
-        margin: 0 -40px;
+    .map-layers {
+      fieldset {
         padding-left: 40px;
       }
 
-      .traffic-bars {
+      h2 {
+        padding-left: 0;
+      }
+    }
+
+    .emergency-numbers {
+      > div {
         width: 100%;
+        float: left;
       }
+    }
 
-      .hazards-legend {
-        margin-top: 15px;
+    .coverage-layers {
+      border-bottom: 0;
+      border-left: 1px solid $fn-grey;
+      border-right: 1px solid $fn-grey;
+      margin: 0 -40px;
+      padding-left: 40px;
+    }
 
-        span {
-          width: 50%;
-          float: left;
-        }
+    .traffic-bars {
+      width: 100%;
+    }
+
+    .hazards-legend {
+      margin-top: 15px;
+
+      span {
+        width: 50%;
+        float: left;
       }
     }
   }
