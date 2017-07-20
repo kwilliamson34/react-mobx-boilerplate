@@ -87,7 +87,7 @@ export default class PSEHeader extends React.Component {
 		if(!this.headerStore.adminSubMenuIsOpen){
 			this.headerStore.adminSubMenuIsOpen = true;
 			$('.dropdown.open').removeClass('open');
-			$('#linkBtn-admin').focus();
+			$('#linkBtn-admin').focus().blur();
 		}
 	}
 
