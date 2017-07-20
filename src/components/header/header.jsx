@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, NavLink, withRouter } from 'react-router-dom';
 import NewTabLink from '../link/new-tab-link';
 import { observer, inject, PropTypes } from 'mobx-react';
-import 'bootstrap';
 import $ from 'jquery';
 import _ from 'lodash';
 
@@ -28,20 +27,24 @@ export default class PSEHeader extends React.Component {
     }
   }
 
-	handleRouteChange() {
-		this.closeMainMenu();
-		if(this.headerStore.viewportWidth >= 768){
-			this.headerStore.closeAdminSubMenu();
-		}
-	}
-
 	componentDidMount() {
+		$('#btn-admin').hover(() => {
+			this.openDesktopAdminSubmenu();
+		}, () => {
+			this.headerStore.adminSubMenuIsOpen = false;
+		});
+
 		$('#linkBtn-admin').focus(() => {
-			this.headerStore.adminSubMenuIsOpen = true;
+			this.openDesktopAdminSubmenu();
+		});
+
+		$('.dropdown').focusout((e)=>{
+			console.log('hi: '  + e.target);
 		});
 
 		$('#linkBtn-networkStatus, #logo-home-link').focus(() => {
 			this.headerStore.adminSubMenuIsOpen = false;
+			$('.dropdown.open').removeClass('open');
 		});
 
 		$('body').click((e) => {
@@ -58,6 +61,18 @@ export default class PSEHeader extends React.Component {
 
 	componentWillUnmount() {
 		window.removeEventListener('resize', this.updateWindowDimensions);
+	}
+
+	handleRouteChange() {
+		this.closeMainMenu();
+		if(this.headerStore.viewportWidth >= 768){
+			this.headerStore.closeAdminSubMenu();
+		}
+	}
+
+	openDesktopAdminSubmenu() {
+		this.headerStore.adminSubMenuIsOpen = true;
+		$('.dropdown.open').removeClass('open').find('button').blur();
 	}
 
 	updateWindowDimensions = _.debounce(() => {

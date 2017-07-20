@@ -476,8 +476,7 @@ $fn-mobile-item-height: 60px;
     }
   }
 
-  #btn-admin.expanded .header-submenu,
-  #btn-admin:hover .header-submenu {
+  #linkBtn-admin[aria-expanded='true'] + .header-submenu {
     display: flex;
   }
 
@@ -543,7 +542,7 @@ $fn-mobile-item-height: 60px;
             @include focus();
             padding: 2px 4px;
             border-radius: 4px;
-            
+
             i {
              visibility: visible;
             }
@@ -575,7 +574,6 @@ $fn-mobile-item-height: 60px;
   }
 
   #pse-admin-nav {
-
     > li:last-child {
       border-bottom: 0 none;
     }
