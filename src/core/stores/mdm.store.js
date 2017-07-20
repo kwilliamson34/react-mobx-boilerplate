@@ -286,6 +286,23 @@ class MDMStore {
     return apiService.getAdminApps().then(success, fail)
   }
 
+  @action getSingleMDMStatus(psk) {
+    const success = (statusObject) => {
+      this.appCatalogMDMStatuses.set(psk, statusObject.mdm_install_status)
+    }
+    const fail = (err) => {
+      console.warn(err);
+      //set a status other than PENDING and IN_PROGRESS to stop polling
+      this.appCatalogMDMStatuses.set(psk, 'DISABLED');
+      this.app_alerts.push({
+        type: 'error',
+        headline: 'Error: ',
+        message: this.userMessages.connectFail
+      });
+    }
+    return apiService.getSingleMDMStatus(psk).then(success, fail)
+  }
+
   @action setMDMStatus(apps) {
     // TODO: Future enhancement: NEEDS_UPDATE case needs to be built on service side
 
@@ -337,7 +354,7 @@ class MDMStore {
   @action pollUntilResolved(psk) {
     setTimeout(() => {
       if(this.appCatalogMDMStatuses.get(psk) === 'PENDING' || this.appCatalogMDMStatuses.get(psk) === 'IN_PROGRESS') {
-        this.getMDMStatus();
+        this.getSingleMDMStatus(psk);
         this.pollUntilResolved(psk);
       }
     }, 3000);
@@ -346,7 +363,7 @@ class MDMStore {
   @action pushToMDM(psk) {
     this.clearAlerts();
     const success = () => {
-      this.getMDMStatus();
+      this.getSingleMDMStatus(psk);
       this.pollUntilResolved(psk);
     }
     const fail = (err) => {
