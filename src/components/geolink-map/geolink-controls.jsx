@@ -6,7 +6,8 @@ import {observer} from 'mobx-react';
 @observer
 export default class GeolinkControls extends React.Component {
   static propTypes = {
-    geolinkStore: PropTypes.object.isRequired
+    geolinkStore: PropTypes.object.isRequired,
+    disabled: PropTypes.bool
   };
 
   constructor(props) {
@@ -71,8 +72,8 @@ export default class GeolinkControls extends React.Component {
                 <div className="search-input input-group">
                   <label htmlFor="search-field" className="control-label">Location</label>
                   <div className="search-bar">
-                    <input id="search-field" type="search" ref="searchInput" className="form-control" onChange={this.handleSearchInput} onKeyPress={this.handleSearchKeyPress}/>
-                    <button className="btn search-btn" type="button" onClick={this.handleSearchSubmit}>
+                    <input id="search-field" type="search" ref="searchInput" disabled={this.props.disabled} className="form-control" onChange={this.handleSearchInput} onKeyPress={this.handleSearchKeyPress}/>
+                    <button className="btn search-btn" type="button" onClick={this.handleSearchSubmit} disabled={this.props.disabled}>
                       <span className="sr-only">Search for locations</span>
                       <span aria-hidden="true" className="icon-search"/>
                     </button>
@@ -85,10 +86,10 @@ export default class GeolinkControls extends React.Component {
               <form className="form-group">
                 <fieldset className="coverage-layers">
                   <legend className="sr-only">Coverage layers</legend>
-                  <Checkbox id="network-toggle" value="Network" label="Network" onChange={this.toggleNetwork} checked={this.geoStore.showNetworkLayer}/>
-                  <Checkbox id="traffic-toggle" value="Traffic" label="Traffic" onChange={this.toggleTraffic} checked={this.geoStore.showTrafficLayer}/>
-                  <Checkbox id="weather-toggle" value="Weather" label="Weather" onChange={this.toggleWeather} checked={this.geoStore.showWeatherLayer}/>
-                  <Checkbox id="alerts-toggle" value="Alerts" label="Alerts" onChange={this.toggleAlerts} checked={this.geoStore.showAlertLayer}/>
+                  <Checkbox id="network-toggle" value="Network" label="Network" onChange={this.toggleNetwork} checked={this.geoStore.showNetworkLayer} disabled={this.props.disabled}/>
+                  <Checkbox id="traffic-toggle" value="Traffic" label="Traffic" onChange={this.toggleTraffic} checked={this.geoStore.showTrafficLayer} disabled={this.props.disabled}/>
+                  <Checkbox id="weather-toggle" value="Weather" label="Weather" onChange={this.toggleWeather} checked={this.geoStore.showWeatherLayer} disabled={this.props.disabled}/>
+                  <Checkbox id="alerts-toggle" value="Alerts" label="Alerts" onChange={this.toggleAlerts} checked={this.geoStore.showAlertLayer} disabled={this.props.disabled}/>
                 </fieldset>
               </form>
             </div>
@@ -97,11 +98,15 @@ export default class GeolinkControls extends React.Component {
               <div className="emergency-numbers">
                 <div className="emergency">
                   Emergency:<br/>
-                  <a className="deaden" href="tel:1-800-XXX-XXXX">1-800-***-****</a>
+                <a className="deaden" href={'tel:' + this.geoStore.coverageIssueEmergencyNumber}>
+                  {this.geoStore.coverageIssueEmergencyNumber}
+                </a>
                 </div>
                 <div className="non-emergency">
                   Non-emergency:<br/>
-                  <a className="deaden" href="tel:1-800-XXX-XXXX">1-800-***-****</a>
+                <a className="deaden" href={'tel:' + this.geoStore.coverageIssueNonEmergencyNumber}>
+                  {this.geoStore.coverageIssueNonEmergencyNumber}
+                </a>
                 </div>
               </div>
             </div>
