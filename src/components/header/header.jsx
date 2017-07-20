@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, NavLink, withRouter } from 'react-router-dom';
 import NewTabLink from '../link/new-tab-link';
 import { observer, inject, PropTypes } from 'mobx-react';
-import 'bootstrap';
 import $ from 'jquery';
 import _ from 'lodash';
 
@@ -28,16 +27,33 @@ export default class PSEHeader extends React.Component {
     }
   }
 
-	handleRouteChange() {
-		this.closeMainMenu();
-		if(this.headerStore.viewportWidth >= 768){
-			this.headerStore.closeAdminSubMenu();
-		}
-	}
-
 	componentDidMount() {
+		$('#btn-admin').hover(() => {
+			if(window.innerWidth > 992 ){
+				this.openDesktopAdminSubmenu();
+			}
+		}, () => {
+			if(window.innerWidth > 992){
+				this.headerStore.adminSubMenuIsOpen = false;
+				$('#linkBtn-admin').blur();
+			}
+		});
+
 		$('#linkBtn-admin').focus(() => {
-			this.headerStore.adminSubMenuIsOpen = true;
+			this.openDesktopAdminSubmenu();
+		});
+
+		$('.dropdown-toggle').focus(() => {
+			$('.dropdown.open').removeClass('open');
+		});
+
+		$('.dropdown-menu li:last-child a').keydown((e)=>{
+			// if user uses keyboard navigation, need to make sure we arent closing menu when user Shift+Tabs(goes to previous item)
+			if (e.which == 9 && e.shiftKey) {
+				// do nothing
+			} else if (e.which == 9) {
+				$('.dropdown.open').removeClass('open');
+			}
 		});
 
 		$('#linkBtn-networkStatus, #logo-home-link').focus(() => {
@@ -58,6 +74,21 @@ export default class PSEHeader extends React.Component {
 
 	componentWillUnmount() {
 		window.removeEventListener('resize', this.updateWindowDimensions);
+	}
+
+	handleRouteChange() {
+		this.closeMainMenu();
+		if(this.headerStore.viewportWidth >= 768){
+			this.headerStore.closeAdminSubMenu();
+		}
+	}
+
+	openDesktopAdminSubmenu() {
+		if(!this.headerStore.adminSubMenuIsOpen){
+			this.headerStore.adminSubMenuIsOpen = true;
+			$('.dropdown.open').removeClass('open');
+			$('#linkBtn-admin').focus();
+		}
 	}
 
 	updateWindowDimensions = _.debounce(() => {
