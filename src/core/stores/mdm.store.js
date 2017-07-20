@@ -96,7 +96,9 @@ class MDMStore {
       this.setMDMConfiguration(mdmConfig);
     } else {
       if (!this.pseMDMObject.get('mdm_type')) {
-        let error_msg = inputs.length > 1 ? 'Please correct the errors below.' : 'Please  select an MDM';
+        let error_msg = inputs.length > 1
+          ? this.userMessages.errorsExist
+          : this.userMessages.mdmMissing;
         this.form_alerts.push({
           type: 'error',
           headline: 'Error: ',
@@ -116,7 +118,6 @@ class MDMStore {
         this.app_alerts.splice(idx, 1);
         break;
     }
-
   }
 
   @action clearAlerts() {
@@ -175,7 +176,7 @@ class MDMStore {
       this.form_alerts.push({
         type: 'error',
         headline: 'Error: ',
-        message: 'Unable to reach MDM Service.'
+        message: this.userMessages.connectFail
       });
     }
     return apiService.getMDMConfiguration().then(success, fail);
@@ -240,7 +241,7 @@ class MDMStore {
       this.form_alerts.push({
         type: 'error',
         headline: 'Error: ',
-        message: 'There was an error establishing a connection with MDM.'
+        message: this.userMessages.connectFail
       });
     }
     return apiService.setMDMConfiguration(mdmConfig).then(success, fail);
@@ -254,7 +255,7 @@ class MDMStore {
       this.form_alerts.push({
         type: 'success',
         headline: 'Success! ',
-        message: 'The connection to MDM has been broken.'
+        message: this.userMessages.breakConnectionSuccess
       });
     }
     const fail = (err) => {
@@ -263,7 +264,7 @@ class MDMStore {
       this.form_alerts.push({
         type: 'error',
         headline: 'Error: ',
-        message: 'There was an error breaking the connection with MDM.'
+        message: this.userMessages.breakConnectionFail
       });
     }
     return apiService.breakMDMConfiguration().then(success, fail);
@@ -278,7 +279,7 @@ class MDMStore {
       this.app_alerts.push({
         type: 'error',
         headline: 'Error: ',
-        message: 'There was an error establishing a connection with MDM.'
+        message: this.userMessages.connectFail
       });
     }
     return apiService.getAdminApps().then(success, fail)
@@ -296,12 +297,12 @@ class MDMStore {
         /* Always show error banner if failed installs are present. */
         failedSubmission = true;
       } else if (app.mdm_install_status === 'INSTALLED'
-          && (this.appMDMStatus.get(app.app_psk) === 'PENDING' || this.appMDMStatus.get(app.app_psk) === 'IN_PROGRESS')) {
+          && (this.appCatalogMDMStatuses.get(app.app_psk) === 'PENDING' || this.appCatalogMDMStatuses.get(app.app_psk) === 'IN_PROGRESS')) {
         /* Only show success message if the user has just tried
         to install; NOT on initial render. */
         successfullSubmission = true;
       }
-      this.appMDMStatus.set(app.app_psk, app.mdm_install_status)
+      this.appCatalogMDMStatuses.set(app.app_psk, app.mdm_install_status)
     }
 
     if (failedSubmission) {
@@ -312,7 +313,7 @@ class MDMStore {
       this.app_alerts.push({
         type: 'success',
         headline: 'Success! ',
-        message: 'The selected apps have been pushed to MDM.'
+        message: this.userMessages.pushSuccess
       });
     }
   }
@@ -322,7 +323,7 @@ class MDMStore {
     this.app_alerts.push({
       type: 'error',
       headline: 'Error: ',
-      message: 'Some or all of the selected apps could not be pushed to MDM.'
+      message: this.userMessages.pushFail
     });
   }
 
@@ -334,17 +335,26 @@ class MDMStore {
     }
     const fail = (err) => {
       console.warn(err);
-      this.appMDMStatus.set(psk, 'FAILED');
+      this.appCatalogMDMStatuses.set(psk, 'FAILED');
       this.throwMDMError();
     }
 
-    this.appMDMStatus.set(psk, 'PENDING');
+    this.appCatalogMDMStatuses.set(psk, 'PENDING');
     return apiService.pushToMDM(psk).then(success, fail);
 
   }
 
   // OBSERVABLES
   @observable pseMDMObject = observable.map({});
+  @observable userMessages = {
+    errorsExist: 'Please correct the errors below.',
+    mdmMissing: 'Please select an MDM.',
+    connectFail: 'There was a problem establishing a connection with MDM.',
+    breakConnectionSuccess: 'The connection to MDM has been broken.',
+    breakConnectionFail: 'There was a problem breaking the connection with MDM.',
+    pushSuccess: 'The selected apps have been pushed to MDM.',
+    pushFail: 'Some or all of the selected apps could not be pushed to MDM.'
+  }
 
   // Configure MDM Form
   @observable mdmProvider = '';
@@ -362,7 +372,7 @@ class MDMStore {
   @observable app_alerts = [];
 
   // Push to MDM
-  @observable appMDMStatus = observable.map({});
+  @observable appCatalogMDMStatuses = observable.map({});
 }
 
 export const mdmStore = new MDMStore();

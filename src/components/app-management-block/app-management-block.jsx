@@ -13,9 +13,9 @@ export default class AppManagementBlock extends React.Component {
     getMatchingApp: PropTypes.func.isRequired,
     changeAppAvailability: PropTypes.func.isRequired,
     changeAppRecommended: PropTypes.func.isRequired,
-    mdmIsConfigured: PropTypes.string,
+    configuredMDMType: PropTypes.string,
     pushToMDM: PropTypes.func.isRequired,
-    appMDMStatus: PropTypes.object
+    appCatalogMDMStatuses: PropTypes.object
   }
 
   constructor(props) {
@@ -76,9 +76,9 @@ export default class AppManagementBlock extends React.Component {
           <PushToMDM
             name={this.props.name}
             psk={this.props.psk}
-            mdmIsConfigured={this.props.mdmIsConfigured}
+            configuredMDMType={this.props.configuredMDMType}
             pushToMDM={this.props.pushToMDM}
-            appMDMStatus={this.props.appMDMStatus}/>
+            appCatalogMDMStatuses={this.props.appCatalogMDMStatuses}/>
         </div>}
       </div>
     );

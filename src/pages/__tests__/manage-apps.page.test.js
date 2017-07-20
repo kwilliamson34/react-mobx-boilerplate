@@ -33,8 +33,8 @@ describe('<ManageAppsPage />', () => {
     props.store.mdmStore.pseMDMObject.toJS = jest.fn();
     props.store.mdmStore.pseMDMObject.toJS.mockReturnValue({mdm_type: 'mdm-type'});
 
-    props.store.mdmStore.appMDMStatus = {};
-    props.store.mdmStore.appMDMStatus.toJS = jest.fn();
+    props.store.mdmStore.appCatalogMDMStatuses = {};
+    props.store.mdmStore.appCatalogMDMStatuses.toJS = jest.fn();
 
     test('matches previous snapshot', () => {
       let component, tree;
@@ -87,9 +87,9 @@ describe('<ManageAppsPage />', () => {
     props.store.mdmStore.pseMDMObject.toJS = jest.fn();
     props.store.mdmStore.pseMDMObject.toJS.mockReturnValue({mdm_type: 'mdm-type'});
 
-    props.store.mdmStore.appMDMStatus = {};
-    props.store.mdmStore.appMDMStatus.toJS = jest.fn();
-    props.store.mdmStore.appMDMStatus.toJS.mockReturnValue({});
+    props.store.mdmStore.appCatalogMDMStatuses = {};
+    props.store.mdmStore.appCatalogMDMStatuses.toJS = jest.fn();
+    props.store.mdmStore.appCatalogMDMStatuses.toJS.mockReturnValue({});
 
     test('does fetch if PSE is populated', () => {
       props.store.userStore.user.pse = '123';
