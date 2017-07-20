@@ -42,7 +42,7 @@ export default class SolutionsCategoryTemplate extends React.Component {
       return (
         <div key={card.promo_title} className="col-xs-12 col-sm-6 col-md-6 col-lg-4 solutions-card">
           <div className="card-wrapper has-shadow">
-            <Link to={cardUrl} tabIndex="0">
+            <Link to={cardUrl}>
               <div className="card-img-wrapper">
                 <img src={card.promo_image_url} alt={card.promo_title}/>
               </div>
