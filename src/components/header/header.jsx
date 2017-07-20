@@ -34,10 +34,15 @@ export default class PSEHeader extends React.Component {
 			}
 		}, () => {
 			this.headerStore.adminSubMenuIsOpen = false;
+			$('#linkBtn-admin').blur();
 		});
 
 		$('#linkBtn-admin').focus(() => {
 			this.openDesktopAdminSubmenu();
+		});
+
+		$('.dropdown-toggle').focus(() => {
+			$('.dropdown.open').removeClass('open');
 		});
 
 		$('.dropdown-menu li:last-child a').keydown((e)=>{
@@ -79,6 +84,7 @@ export default class PSEHeader extends React.Component {
 	openDesktopAdminSubmenu() {
 		this.headerStore.adminSubMenuIsOpen = true;
 		$('.dropdown.open').removeClass('open').find('button').blur();
+		$('#linkBtn-admin').focus();
 	}
 
 	updateWindowDimensions = _.debounce(() => {
