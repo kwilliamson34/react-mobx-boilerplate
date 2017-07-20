@@ -61,10 +61,11 @@ export class PushToMDM extends React.Component {
       default:
         screenReaderMessage = 'Push to MDM is not available. Configure an MDM to push apps to the system.';
         btnLabel = 'Push to MDM';
+        break;
     }
 
     return (
-      <button id={'pushBtn' + this.props.psk} onClick={this.handleButtonClick} aria-disabled={!this.props.configuredMDMType} className={btnClass}>
+      <button id={'pushBtn' + this.props.psk} onClick={this.handleButtonClick} aria-disabled={!this.props.configuredMDMType} className={`push-button ${btnClass}`}>
         <span className="sr-only">{screenReaderMessage}</span>
         {icon}
         <span aria-hidden="true" dangerouslySetInnerHTML={{__html: btnLabel}}></span>
