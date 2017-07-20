@@ -31,15 +31,15 @@ describe('<AppDetailBanner /> ', () => {
         app_type: 'ENDORSED'
       }
     },
-    mdmIsConfigured: true,
+    configuredMDMType: 'airwatch',
     pushToMDM:  jest.fn(),
-    appMDMStatus: {
+    appCatalogMDMStatuses: {
       12345: 'NOT_INSTALLED'
     }
   }
 
   describe('render tests', () => {
-    test('matches snapshot when MDM is NOT_INSTALLED', () => {
+    test('matches snapshot when app is NOT_INSTALLED', () => {
       const component = renderer.create(
         <AppDetailBanner {...props} />
       )
@@ -48,8 +48,8 @@ describe('<AppDetailBanner /> ', () => {
       expect(tree).toMatchSnapshot();
     });
 
-    test('matches snapshot when MDM is INSTALLED', () => {
-      props.mdmIsConfigured = 'INSTALLED';
+    test('matches snapshot when app is INSTALLED', () => {
+      props.appCatalogMDMStatuses[12345] = 'INSTALLED';
 
       const component = renderer.create(
         <AppDetailBanner {...props} />
@@ -70,8 +70,8 @@ describe('<AppDetailBanner /> ', () => {
       expect(tree).toMatchSnapshot();
     });
 
-    test('matches snapshot when mdmIsConfigured is FALSE', () => {
-      props.mdmIsConfigured = false;
+    test('matches snapshot when configuredMDMType is falsey', () => {
+      props.configuredMDMType = '';
 
       const component = renderer.create(
         <AppDetailBanner {...props} />

@@ -1,4 +1,4 @@
-exports[`<AppDetailBanner />  render tests matches snapshot when MDM is INSTALLED 1`] = `
+exports[`<AppDetailBanner />  render tests matches snapshot when app is INSTALLED 1`] = `
 <section
   className="app-summary">
   <div
@@ -205,7 +205,7 @@ exports[`<AppDetailBanner />  render tests matches snapshot when MDM is INSTALLE
 </section>
 `;
 
-exports[`<AppDetailBanner />  render tests matches snapshot when MDM is NOT_INSTALLED 1`] = `
+exports[`<AppDetailBanner />  render tests matches snapshot when app is NOT_INSTALLED 1`] = `
 <section
   className="app-summary">
   <div
@@ -607,7 +607,7 @@ exports[`<AppDetailBanner />  render tests matches snapshot when app is not ENDO
 </section>
 `;
 
-exports[`<AppDetailBanner />  render tests matches snapshot when mdmIsConfigured is FALSE 1`] = `
+exports[`<AppDetailBanner />  render tests matches snapshot when configuredMDMType is falsey 1`] = `
 <section
   className="app-summary">
   <div

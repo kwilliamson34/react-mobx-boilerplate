@@ -30,7 +30,7 @@ describe('<CardList />', () => {
     changeAppRecommended: jest.fn(),
     getMatchingApp: jest.fn(),
     pushToMDM: jest.fn(),
-    appMDMStatus: {
+    appCatalogMDMStatuses: {
       123: ''
     }
   };

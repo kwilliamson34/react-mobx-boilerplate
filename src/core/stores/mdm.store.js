@@ -96,7 +96,7 @@ class MDMStore {
       this.setMDMConfiguration(mdmConfig);
     } else {
       if (!this.pseMDMObject.get('mdm_type')) {
-        let error_msg = inputs.length > 1 ? 'Please correct the errors below.' : 'Please  select an MDM';
+        let error_msg = inputs.length > 1 ? 'Please correct the errors below.' : 'Please select an MDM.';
         this.form_alerts.push({
           type: 'error',
           headline: 'Error: ',
@@ -116,7 +116,6 @@ class MDMStore {
         this.app_alerts.splice(idx, 1);
         break;
     }
-
   }
 
   @action clearAlerts() {
@@ -296,12 +295,12 @@ class MDMStore {
         /* Always show error banner if failed installs are present. */
         failedSubmission = true;
       } else if (app.mdm_install_status === 'INSTALLED'
-          && (this.appMDMStatus.get(app.app_psk) === 'PENDING' || this.appMDMStatus.get(app.app_psk) === 'IN_PROGRESS')) {
+          && (this.appCatalogMDMStatuses.get(app.app_psk) === 'PENDING' || this.appCatalogMDMStatuses.get(app.app_psk) === 'IN_PROGRESS')) {
         /* Only show success message if the user has just tried
         to install; NOT on initial render. */
         successfullSubmission = true;
       }
-      this.appMDMStatus.set(app.app_psk, app.mdm_install_status)
+      this.appCatalogMDMStatuses.set(app.app_psk, app.mdm_install_status)
     }
 
     if (failedSubmission) {
@@ -334,11 +333,11 @@ class MDMStore {
     }
     const fail = (err) => {
       console.warn(err);
-      this.appMDMStatus.set(psk, 'FAILED');
+      this.appCatalogMDMStatuses.set(psk, 'FAILED');
       this.throwMDMError();
     }
 
-    this.appMDMStatus.set(psk, 'PENDING');
+    this.appCatalogMDMStatuses.set(psk, 'PENDING');
     return apiService.pushToMDM(psk).then(success, fail);
 
   }
@@ -362,7 +361,7 @@ class MDMStore {
   @observable app_alerts = [];
 
   // Push to MDM
-  @observable appMDMStatus = observable.map({});
+  @observable appCatalogMDMStatuses = observable.map({});
 }
 
 export const mdmStore = new MDMStore();

@@ -13,9 +13,9 @@ export class AppDetailBanner extends React.Component {
   static propTypes = {
     appCatalogStore: PropTypes.object.isRequired,
     data: PropTypes.object.isRequired,
-    mdmIsConfigured: PropTypes.string,
+    configuredMDMType: PropTypes.string,
     pushToMDM: PropTypes.func.isRequired,
-    appMDMStatus: PropTypes.object
+    appCatalogMDMStatuses: PropTypes.object
   }
 
   static defaultProps = {
@@ -144,9 +144,9 @@ export class AppDetailBanner extends React.Component {
             getMatchingApp={this.appStore.getMatchingApp.bind(this.appStore)}
             changeAppAvailability={this.appStore.changeAppAvailability.bind(this.appStore)}
             changeAppRecommended={this.appStore.changeAppRecommended.bind(this.appStore)}
-            mdmIsConfigured={this.props.mdmIsConfigured}
+            configuredMDMType={this.props.configuredMDMType}
             pushToMDM={this.props.pushToMDM}
-            appMDMStatus={this.props.appMDMStatus}/>
+            appCatalogMDMStatuses={this.props.appCatalogMDMStatuses}/>
   }
 
   render() {

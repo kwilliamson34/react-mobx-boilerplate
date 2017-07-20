@@ -1,120 +1,190 @@
-exports[`<PushToMDM />  render tests  should match snapshot if mdmIsConfigured is configured 1`] = `
+exports[`<PushToMDM />  render tests  should match snapshot if configuredMDMType is configured 1`] = `
 <button
   aria-disabled={false}
   className="fn-secondary"
   id="pushBtn12345"
-  onClick={[Function bound handlePushToMDM]}>
-  <span>
-    Re-Push to MDM
+  onClick={[Function anonymous]}>
+  <span
+    className="sr-only">
+    This app has already been pushed to MDM. Click to re-push.
   </span>
+  
+  <span
+    aria-hidden="true"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Re-Push to MDM"
+      }
+    } />
 </button>
 `;
 
-exports[`<PushToMDM />  render tests  should match snapshot if mdmIsConfigured is null 1`] = `
+exports[`<PushToMDM />  render tests  should match snapshot if configuredMDMType is null 1`] = `
 <button
   aria-disabled={true}
   className="fn-primary"
   id="pushBtn12345"
-  onClick={[Function bound handlePushToMDM]}>
+  onClick={[Function anonymous]}>
   <span
     className="sr-only">
-    PUSH TO MDM button is unavailable. Configure MDM to push apps to the system.
+    Push to MDM is not available. Configure an MDM to push apps to the system.
   </span>
+  
   <span
-    aria-hidden="true">
-    Push to MDM
-  </span>
+    aria-hidden="true"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Push to MDM"
+      }
+    } />
 </button>
 `;
 
-exports[`<PushToMDM />  test all appMDMStatus conditions should match snapshot if appMDMStatus is FAILED 1`] = `
+exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match snapshot if appCatalogMDMStatuses is FAILED 1`] = `
 <button
   aria-disabled={false}
   className="fn-primary"
   id="pushBtn12345"
-  onClick={[Function bound handlePushToMDM]}>
+  onClick={[Function anonymous]}>
   <span
-    aria-hidden="true">
-    Push to MDM
+    className="sr-only">
+    This app failed to push to MDM. Click again to re-push.
   </span>
+  
+  <span
+    aria-hidden="true"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Push to MDM"
+      }
+    } />
 </button>
 `;
 
-exports[`<PushToMDM />  test all appMDMStatus conditions should match snapshot if appMDMStatus is INSTALLED 1`] = `
+exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match snapshot if appCatalogMDMStatuses is INSTALLED 1`] = `
 <button
   aria-disabled={false}
   className="fn-secondary"
   id="pushBtn12345"
-  onClick={[Function bound handlePushToMDM]}>
-  <span>
-    Re-Push to MDM
-  </span>
-</button>
-`;
-
-exports[`<PushToMDM />  test all appMDMStatus conditions should match snapshot if appMDMStatus is IN_PROGRESS 1`] = `
-<button
-  aria-disabled={false}
-  className="fn-primary"
-  id="pushBtn12345"
-  onClick={[Function bound handlePushToMDM]}>
-  <span>
-    <i
-      aria-label="Submitting the app to the MDM."
-      className="icon-reload" />
-      Submitting…
-  </span>
-</button>
-`;
-
-exports[`<PushToMDM />  test all appMDMStatus conditions should match snapshot if appMDMStatus is NEEDS_UPDATE 1`] = `
-<button
-  aria-disabled={false}
-  className="fn-primary"
-  id="pushBtn12345"
-  onClick={[Function bound handlePushToMDM]}>
-  <span>
-    Update
-  </span>
-</button>
-`;
-
-exports[`<PushToMDM />  test all appMDMStatus conditions should match snapshot if appMDMStatus is NOT_INSTALLED 1`] = `
-<button
-  aria-disabled={false}
-  className="fn-primary"
-  id="pushBtn12345"
-  onClick={[Function bound handlePushToMDM]}>
+  onClick={[Function anonymous]}>
   <span
-    aria-hidden="true">
-    Push to MDM
+    className="sr-only">
+    This app has already been pushed to MDM. Click to re-push.
   </span>
+  
+  <span
+    aria-hidden="true"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Re-Push to MDM"
+      }
+    } />
 </button>
 `;
 
-exports[`<PushToMDM />  test all appMDMStatus conditions should match snapshot if appMDMStatus is PENDING 1`] = `
+exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match snapshot if appCatalogMDMStatuses is IN_PROGRESS 1`] = `
 <button
   aria-disabled={false}
   className="fn-primary"
   id="pushBtn12345"
-  onClick={[Function bound handlePushToMDM]}>
-  <span>
-    <i
-      aria-label="Submitting the app to the MDM."
-      className="icon-reload" />
-      Submitting…
+  onClick={[Function anonymous]}>
+  <span
+    className="sr-only">
+    Submitting the app to MDM.
   </span>
+  <i
+    className="icon-reload" />
+  <span
+    aria-hidden="true"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Submitting&hellip;"
+      }
+    } />
 </button>
 `;
 
-exports[`<PushToMDM />  test all appMDMStatus conditions should match snapshot if appMDMStatus is REPUSHED 1`] = `
+exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match snapshot if appCatalogMDMStatuses is NEEDS_UPDATE 1`] = `
+<button
+  aria-disabled={false}
+  className="fn-primary"
+  id="pushBtn12345"
+  onClick={[Function anonymous]}>
+  <span
+    className="sr-only">
+    This app has been pushed to MDM and has an available update. Click to push the update.
+  </span>
+  
+  <span
+    aria-hidden="true"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Update"
+      }
+    } />
+</button>
+`;
+
+exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match snapshot if appCatalogMDMStatuses is NOT_INSTALLED 1`] = `
+<button
+  aria-disabled={false}
+  className="fn-primary"
+  id="pushBtn12345"
+  onClick={[Function anonymous]}>
+  <span
+    className="sr-only">
+    Push The Greatest App in the West to MDM
+  </span>
+  
+  <span
+    aria-hidden="true"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Push to MDM"
+      }
+    } />
+</button>
+`;
+
+exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match snapshot if appCatalogMDMStatuses is PENDING 1`] = `
+<button
+  aria-disabled={false}
+  className="fn-primary"
+  id="pushBtn12345"
+  onClick={[Function anonymous]}>
+  <span
+    className="sr-only">
+    Submitting the app to MDM.
+  </span>
+  <i
+    className="icon-reload" />
+  <span
+    aria-hidden="true"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Submitting&hellip;"
+      }
+    } />
+</button>
+`;
+
+exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match snapshot if appCatalogMDMStatuses is REPUSHED 1`] = `
 <button
   aria-disabled={false}
   className="fn-secondary"
   id="pushBtn12345"
-  onClick={[Function bound handlePushToMDM]}>
-  <span>
-    Re-Push to MDM
+  onClick={[Function anonymous]}>
+  <span
+    className="sr-only">
+    This app has already been pushed to MDM. Click to re-push.
   </span>
+  
+  <span
+    aria-hidden="true"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Re-Push to MDM"
+      }
+    } />
 </button>
 `;

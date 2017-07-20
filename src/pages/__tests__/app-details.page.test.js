@@ -82,7 +82,7 @@ describe('<AppDetailsPage />', () => {
       props.store.mdmStore.pseMDMObject = {
         toJS: () => {return {mdm_type: 'test'} }
       };
-      props.store.mdmStore.appMDMStatus = {
+      props.store.mdmStore.appCatalogMDMStatuses = {
         toJS: () => {return {mdm_type: 'test'} }
       };
       component = renderer.create(<AppDetailsPage {...props}/>);

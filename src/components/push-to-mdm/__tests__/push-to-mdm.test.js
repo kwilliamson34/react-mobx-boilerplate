@@ -9,11 +9,11 @@ describe('<PushToMDM /> ', () => {
     name: 'The Greatest App in the West',
     psk: '12345',
     pushToMDM: jest.fn(),
-    appMDMStatus: {}
+    appCatalogMDMStatuses: {}
   }
 
   describe('render tests ', () => {
-    test('should match snapshot if mdmIsConfigured is null', () => {
+    test('should match snapshot if configuredMDMType is null', () => {
       let component = renderer.create(
         <PushToMDM {...props} />
       )
@@ -22,9 +22,9 @@ describe('<PushToMDM /> ', () => {
       expect(tree).toMatchSnapshot();
     });
 
-    test('should match snapshot if mdmIsConfigured is configured', () => {
-      props.mdmIsConfigured = 'configured';
-      props.appMDMStatus[12345] = 'INSTALLED';
+    test('should match snapshot if configuredMDMType is configured', () => {
+      props.configuredMDMType = 'airwatch';
+      props.appCatalogMDMStatuses[12345] = 'INSTALLED';
       let component = renderer.create(
         <PushToMDM {...props} />
       )
@@ -34,7 +34,7 @@ describe('<PushToMDM /> ', () => {
     });
   });
 
-  describe('test all appMDMStatus conditions', () => {
+  describe('test all appCatalogMDMStatuses conditions', () => {
     let possibleMDMStatuses = [
       'NOT_INSTALLED',
       'IN_PROGRESS',
@@ -46,9 +46,9 @@ describe('<PushToMDM /> ', () => {
     ];
 
     for (let i = 0; i < possibleMDMStatuses.length; ++i) {
-      test(`should match snapshot if appMDMStatus is ${possibleMDMStatuses[i]}`, () => {
-        props.mdmIsConfigured = 'configured';
-        props.appMDMStatus[12345] = possibleMDMStatuses[i];
+      test(`should match snapshot if appCatalogMDMStatuses is ${possibleMDMStatuses[i]}`, () => {
+        props.configuredMDMType = 'airwatch';
+        props.appCatalogMDMStatuses[12345] = possibleMDMStatuses[i];
         let component = renderer.create(
           <PushToMDM {...props} />
         )
@@ -61,8 +61,8 @@ describe('<PushToMDM /> ', () => {
 
   describe('interaction tests', () => {
     test('function should fire on button click', () => {
-      props.mdmIsConfigured = 'configured';
-      props.appMDMStatus[12345] = 'INSTALLED';
+      props.configuredMDMType = 'airwatch';
+      props.appCatalogMDMStatuses[12345] = 'INSTALLED';
       let pushToMDMComponent = TestUtils.renderIntoDocument(
         <PushToMDM {...props} />
       )
