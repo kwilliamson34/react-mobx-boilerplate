@@ -23,7 +23,7 @@ describe('<PSEHeader />', () => {
 
   describe('render', () => {
     test('matches snapshot when menu is closed', () => {
-      store.mainMenuIsOpen = false;
+      props.store.headerStore.mainMenuIsOpen = false;
       const component = renderer.create(<MemoryRouter>
         <PSEHeader {...props}/>
       </MemoryRouter>);
@@ -32,7 +32,7 @@ describe('<PSEHeader />', () => {
     });
 
     test('matches snapshot when menu is open', () => {
-      store.mainMenuIsOpen = true;
+      props.store.headerStore.mainMenuIsOpen = true;
       const component = renderer.create(<MemoryRouter>
         <PSEHeader {...props}/>
       </MemoryRouter>);
