@@ -27,7 +27,7 @@ class UserStore {
     this.api_token = tk_response;
     let tk_array = tk_response.split('.');
     let user_obj = JSON.parse(window.atob(tk_array[1]));
-    this.condtionUserObj(user_obj);
+    this.conditionUserObj(user_obj);
     this.checkPermissions();
     this.userValidationDone = true;
     if(this.user.roles && (this.user.roles.indexOf('G_FN_ADM') >= 0 || this.user.roles.indexOf('G_FN_IM') >= 0) ) {
@@ -52,7 +52,7 @@ class UserStore {
     }
   }
 
-  condtionUserObj(userInfo) {
+  conditionUserObj(userInfo) {
     this.user.uid = userInfo.id;
     this.user.email = userInfo.email;
     this.user.firstName = userInfo.firstName;

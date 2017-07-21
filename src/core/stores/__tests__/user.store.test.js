@@ -43,7 +43,7 @@ describe("UserStore", () => {
         let tk_array = store.api_token.split('.');
         let userObj = JSON.parse(window.atob(tk_array[1]));
         userObj.authorizations = [];
-        store.condtionUserObj(userObj);
+        store.conditionUserObj(userObj);
         expect(store.user.roles.length).toBe(5);
       });
 
