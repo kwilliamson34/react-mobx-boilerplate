@@ -45,7 +45,6 @@ class AppCatalogStore {
 		let success = (response) => {
 			this.allApps.remove(this.currentAppObject);
 			let newAppObject = response[0];
-			console.log(JSON.stringify(newAppObject));
 			newAppObject.detailsFetched = true;
 			this.allApps.push(newAppObject);
 			this.currentAppObject = newAppObject;
