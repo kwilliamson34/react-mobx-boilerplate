@@ -35,7 +35,6 @@ export default class PSEHeader extends React.Component {
 		}, () => {
 			if(window.innerWidth > 992){
 				this.headerStore.adminSubMenuIsOpen = false;
-				$('#linkBtn-admin').blur();
 			}
 		});
 
@@ -87,7 +86,7 @@ export default class PSEHeader extends React.Component {
 		if(!this.headerStore.adminSubMenuIsOpen){
 			this.headerStore.adminSubMenuIsOpen = true;
 			$('.dropdown.open').removeClass('open');
-			$('#linkBtn-admin').focus().blur();
+			$('#linkBtn-admin').focus();
 		}
 	}
 
