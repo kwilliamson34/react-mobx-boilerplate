@@ -1,4 +1,4 @@
-exports[`<GeolinkControls /> renders matches previous snapshot 1`] = `
+exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 1`] = `
 <section
   className="geolink-controls">
   <div
@@ -25,14 +25,302 @@ exports[`<GeolinkControls /> renders matches previous snapshot 1`] = `
               className="search-bar">
               <input
                 className="form-control"
-                disabled={undefined}
+                disabled={true}
                 id="search-field"
                 onChange={[Function anonymous]}
                 onKeyPress={[Function anonymous]}
                 type="search" />
               <button
                 className="btn search-btn"
-                disabled={undefined}
+                disabled={true}
+                onClick={[Function anonymous]}
+                type="button">
+                <span
+                  className="sr-only">
+                  Search for locations
+                </span>
+                <span
+                  aria-hidden="true"
+                  className="icon-search" />
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div
+        className="col-xs-12 col-sm-4 col-md-4 map-layers">
+        <h2
+          className="as-h5">
+          Layers
+        </h2>
+        <form
+          className="form-group">
+          <fieldset
+            className="coverage-layers">
+            <legend
+              className="sr-only">
+              Coverage layers
+            </legend>
+            <div
+              className="checkbox disabled">
+              <label>
+                <input
+                  aria-disabled={true}
+                  checked={false}
+                  className="disabled"
+                  data-checked={false}
+                  id="network-toggle"
+                  onChange={[Function bound onChange]}
+                  type="checkbox"
+                  value="Network" />
+                <span
+                  className="cr" />
+                <span
+                  className="layer-label">
+                  Network
+                </span>
+              </label>
+            </div>
+            <div
+              className="checkbox disabled">
+              <label>
+                <input
+                  aria-disabled={true}
+                  checked={false}
+                  className="disabled"
+                  data-checked={false}
+                  id="traffic-toggle"
+                  onChange={[Function bound onChange]}
+                  type="checkbox"
+                  value="Traffic" />
+                <span
+                  className="cr" />
+                <span
+                  className="layer-label">
+                  Traffic
+                </span>
+              </label>
+            </div>
+            <div
+              className="checkbox disabled">
+              <label>
+                <input
+                  aria-disabled={true}
+                  checked={false}
+                  className="disabled"
+                  data-checked={false}
+                  id="weather-toggle"
+                  onChange={[Function bound onChange]}
+                  type="checkbox"
+                  value="Weather" />
+                <span
+                  className="cr" />
+                <span
+                  className="layer-label">
+                  Weather
+                </span>
+              </label>
+            </div>
+            <div
+              className="checkbox disabled">
+              <label>
+                <input
+                  aria-disabled={true}
+                  checked={false}
+                  className="disabled"
+                  data-checked={false}
+                  id="alerts-toggle"
+                  onChange={[Function bound onChange]}
+                  type="checkbox"
+                  value="Alerts" />
+                <span
+                  className="cr" />
+                <span
+                  className="layer-label">
+                  Alerts
+                </span>
+              </label>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+      <div
+        className="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-4 report-coverage-issue">
+        <h2
+          className="as-h5">
+          Report coverage issue
+        </h2>
+        <div
+          className="emergency-numbers">
+          <div
+            className="emergency">
+            Emergency:
+            <br />
+            <a
+              className="deaden"
+              href="tel:undefined" />
+          </div>
+          <div
+            className="non-emergency">
+            Non-emergency:
+            <br />
+            <a
+              className="deaden"
+              href="tel:undefined" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row">
+      <div
+        className="col-xs-12 hidden-sm col-md-12">
+        <hr />
+      </div>
+    </div>
+    <div
+      className="row is-flex">
+      <div
+        className="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-4">
+        <h2
+          className="as-h5">
+          Network
+        </h2>
+        <div
+          className="key-labels">
+          <span>
+            4G LTE
+          </span>
+          <span>
+            4G
+          </span>
+          <span>
+            3G
+          </span>
+          <span>
+            2G
+          </span>
+        </div>
+        <div
+          className="coverage-legend">
+          <img
+            alt=""
+            src="/images/spectrum-gradient.svg" />
+        </div>
+      </div>
+      <div
+        className="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-4">
+        <h2
+          className="as-h5">
+          Weather
+        </h2>
+        <div
+          className="key-labels">
+          <span>
+            Light Rain
+          </span>
+          <span>
+            Heavy Rain
+          </span>
+          <span>
+            Snow
+          </span>
+          <span>
+            Ice
+          </span>
+        </div>
+        <div
+          className="weather-legend">
+          <img
+            alt=""
+            src="/images/precip-gradient.svg" />
+        </div>
+      </div>
+      <div
+        className="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-4">
+        <h2
+          className="as-h5">
+          Traffic
+        </h2>
+        <div
+          className="traffic-legend-wrapper ">
+          <div
+            className="traffic-bars ">
+            <div
+              className="key-labels traffic">
+              <span>
+                Fast
+              </span>
+              <span>
+                Slow
+              </span>
+            </div>
+            <div
+              className="traffic-legend">
+              <div />
+              <div />
+              <div />
+            </div>
+          </div>
+          <div
+            className="hazards-legend">
+            <span>
+              Construction
+              <br />
+              <i
+                aria-hidden="true"
+                className="icon-warning construction" />
+            </span>
+            <span>
+              Vehicle Incident
+              <br />
+              <i
+                aria-hidden="true"
+                className="icon-warning incident" />
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+`;
+
+exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 2`] = `
+<section
+  className="geolink-controls">
+  <div
+    className="container">
+    <div
+      className="row is-flex">
+      <div
+        className="col-xs-12 col-sm-offset-1 col-sm-6 col-md-offset-0 col-md-4 map-search">
+        <h2
+          className="as-h5">
+          Search
+        </h2>
+        <form
+          className="search-form form-group"
+          onSubmit={undefined}>
+          <div
+            className="search-input input-group">
+            <label
+              className="control-label"
+              htmlFor="search-field">
+              Location
+            </label>
+            <div
+              className="search-bar">
+              <input
+                className="form-control"
+                disabled={false}
+                id="search-field"
+                onChange={[Function anonymous]}
+                onKeyPress={[Function anonymous]}
+                type="search" />
+              <button
+                className="btn search-btn"
+                disabled={false}
                 onClick={[Function anonymous]}
                 type="button">
                 <span
@@ -65,7 +353,7 @@ exports[`<GeolinkControls /> renders matches previous snapshot 1`] = `
               className="checkbox ">
               <label>
                 <input
-                  aria-disabled={undefined}
+                  aria-disabled={false}
                   checked={false}
                   className=""
                   data-checked={false}
@@ -85,7 +373,7 @@ exports[`<GeolinkControls /> renders matches previous snapshot 1`] = `
               className="checkbox ">
               <label>
                 <input
-                  aria-disabled={undefined}
+                  aria-disabled={false}
                   checked={false}
                   className=""
                   data-checked={false}
@@ -105,7 +393,7 @@ exports[`<GeolinkControls /> renders matches previous snapshot 1`] = `
               className="checkbox ">
               <label>
                 <input
-                  aria-disabled={undefined}
+                  aria-disabled={false}
                   checked={false}
                   className=""
                   data-checked={false}
@@ -125,7 +413,7 @@ exports[`<GeolinkControls /> renders matches previous snapshot 1`] = `
               className="checkbox ">
               <label>
                 <input
-                  aria-disabled={undefined}
+                  aria-disabled={false}
                   checked={false}
                   className=""
                   data-checked={false}
