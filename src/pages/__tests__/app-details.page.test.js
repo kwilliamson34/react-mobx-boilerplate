@@ -7,6 +7,7 @@ import {appCatalogStore} from '../../core/stores/app-catalog.store';
 import {mdmStore} from '../../core/stores/mdm.store';
 import {userStore} from '../../core/stores/user.store';
 import AppDetailsPage from '../app-details.page';
+import {utilsService} from '../../core/services/utils.service';
 
 describe('<AppDetailsPage />', () => {
   describe('render', () => {
@@ -89,5 +90,44 @@ describe('<AppDetailsPage />', () => {
       tree = component.toJSON();
       expect(tree).toMatchSnapshot();
     });
+  });
+});
+
+describe('API', () => {
+  let props = {
+    store: {
+      appCatalogStore,
+      mdmStore,
+      userStore
+    },
+    match: {
+      params: {
+        appPsk: '123'
+      }
+    }
+  }
+
+  test('maps authorizations if pse doesnt exist', () => {
+    props.store.userStore.user.pse = '';
+    utilsService.handlePendingAuthorizationsMapping = jest.fn();
+    let component = renderer.create(<AppDetailsPage {...props}/>);
+    expect(utilsService.handlePendingAuthorizationsMapping).toBeCalled();
+  });
+
+  test('fetches app catalog if missing', () => {
+    props.store.appCatalogStore.allApps = [];
+    props.store.userStore.user.pse = '123';
+    props.store.appCatalogStore.fetchAppCatalog = jest.fn();
+    props.store.appCatalogStore.fetchAppCatalog.mockReturnValue(new Promise(resolve => resolve()));
+    let component = renderer.create(<AppDetailsPage {...props}/>);
+    expect(props.store.appCatalogStore.fetchAppCatalog).toBeCalled();
+  });
+
+  test('fetches and updates app details if app catalog is already loaded', () => {
+    props.store.appCatalogStore.allApps = [{},{}];
+    props.store.userStore.user.pse = '123';
+    props.store.appCatalogStore.fetchAppDetailByPsk = jest.fn();
+    let component = renderer.create(<AppDetailsPage {...props}/>);
+    expect(props.store.appCatalogStore.fetchAppDetailByPsk).toBeCalled();
   });
 });

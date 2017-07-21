@@ -56,17 +56,6 @@ export default class AppDetailsPage extends React.Component {
     this.appStore.fetchAppDetailByPsk(psk);
   }
 
-  formatDate(dateStr) {
-    let dateOptions = {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    };
-    let parsedDate = new Date(dateStr);
-    let formattedDate = parsedDate.toLocaleString('en-US', dateOptions);
-    return formattedDate;
-  }
-
   render() {
     const crumbs = [
       {
