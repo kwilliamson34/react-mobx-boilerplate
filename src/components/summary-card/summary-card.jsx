@@ -42,10 +42,10 @@ export class SummaryCard extends React.Component {
   }
 
   render() {
-    let mdmClass = this.props.mdm_status === 'FAILED' || this.props.mdm_status === 'REPUSHED' ? 'mdm_'+ this.props.mdm_status.toLowerCase() : '';
+    let cardClass = `card-focus has-shadow card-container center-block ${this.props.mdm_status === 'FAILED' ? 'mdm_failed' : ''}`;
     return (
       <div className="card-wrapper" ref="div">
-        <Link to={'/app/' + this.props.display.app_psk} id={'appCard'+this.props.display.app_psk} className={'card-focus has-shadow card-container center-block '+mdmClass}>
+        <Link to={'/app/' + this.props.display.app_psk} id={'appCard'+this.props.display.app_psk} className={cardClass}>
           <div className="">
             {this.props.display.badge && (
               <div className="card-badge">

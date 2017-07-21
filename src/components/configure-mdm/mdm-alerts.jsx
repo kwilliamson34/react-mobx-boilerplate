@@ -15,8 +15,8 @@ export class MDMAlerts extends React.Component {
     }
   }
 
-  onRemoveName = (idx) => {
-    this.props.store.removeAlert(this.props.page,idx);
+  onCloseButtonClick = (idx) => {
+    this.props.store.removeAlert(this.props.page, idx);
   };
 
   render() {
@@ -24,13 +24,13 @@ export class MDMAlerts extends React.Component {
 
     switch (this.props.page) {
       case 'mdm_form':
-          alert_msgs = this.props.store.form_alerts;
-          break;
+        alert_msgs = this.props.store.form_alerts;
+        break;
       case 'manage_apps':
-          alert_msgs = this.props.store.app_alerts;
-          break;
+        alert_msgs = this.props.store.app_alerts;
+        break;
       default:
-          alert_msgs = []
+        alert_msgs = []
     }
 
     return (
@@ -38,11 +38,11 @@ export class MDMAlerts extends React.Component {
         {alert_msgs.map((alert, idx) => {
           return (
             <div role="alert" ref="alert_focus" aria-live="assertive" className={`alert alert-${alert.type}`} tabIndex="0" key={idx}>
-              <button type="button" className="close_btn icon-close" onClick={this.onRemoveName.bind(this, idx)}>
-
+              <button type="button" className="close_btn icon-close" onClick={this.onCloseButtonClick.bind(this, idx)}>
                 <span className="sr-only">Close alert</span>
               </button>
-              <p><strong>{alert.headline}</strong>{alert.message}</p>
+              <p>
+                <strong>{alert.headline}</strong>{alert.message}</p>
             </div>
           )
         })}

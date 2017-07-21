@@ -9,72 +9,65 @@ export class PushToMDM extends React.Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
     psk: PropTypes.string.isRequired,
-    mdmIsConfigured: PropTypes.string,
+    configuredMDMType: PropTypes.string,
     pushToMDM: PropTypes.func.isRequired,
-    appMDMStatus: PropTypes.object
+    appCatalogMDMStatuses: PropTypes.object
   }
 
-  constructor(props) {
-    super(props);
-    this.handlePushToMDM = this.handlePushToMDM.bind(this);
+  getMDMStatus = (psk) => {
+    return this.props.appCatalogMDMStatuses[psk];
   }
 
-  getPushToMDM = (psk) => {
-    let status = this.props.appMDMStatus[psk];
-    return status;
-  }
-
-  handlePushToMDM(event) {
+  handleButtonClick = (event) => {
     event.preventDefault();
-    if(this.props.mdmIsConfigured){
+    if(this.props.configuredMDMType){
       this.props.pushToMDM(this.props.psk);
     }
   }
 
   render() {
-    let status = this.props.mdmIsConfigured ? this.getPushToMDM(this.props.psk) : 'disabled';
-
-    let name = this.props.name;
-    let srMSG = '';
+    let status = this.props.configuredMDMType ? this.getMDMStatus(this.props.psk) : 'DISABLED';
+    let screenReaderMessage = '';
     let btnLabel = null;
     let btnClass ='fn-primary';
+    let icon = '';
 
     switch(status) {
       case 'NOT_INSTALLED':
-        srMSG = 'Push '+name+' to MDM';
-        btnLabel = (<span aria-hidden="true">Push to MDM</span>);
+        screenReaderMessage = `Push ${this.props.name} to MDM`;
+        btnLabel = 'Push to MDM';
         break;
       case 'IN_PROGRESS':
       case 'PENDING':
-        btnLabel = (<span><i className="icon-reload" aria-label="Submitting the app to the MDM."></i>&nbsp;&nbsp;Submitting&hellip;</span>);
+        screenReaderMessage = 'Submitting the app to MDM.';
+        icon = (<i className="icon-reload"></i>);
+        btnLabel = 'Submitting&hellip;'
         break;
       case 'FAILED':
-        srMSG = 'This app failed to push to the MDM. Click again to re-push.';
-        btnLabel = (<span aria-hidden="true">Push to MDM</span>);
+        screenReaderMessage = 'This app failed to push to MDM. Click again to re-push.';
+        btnLabel = 'Push to MDM';
         break;
       case 'INSTALLED':
         btnClass ='fn-secondary';
-        srMSG = 'This app has already been pushed to the MDM. Click to re-push.';
-        btnLabel = (<span>Re-Push to MDM</span>);
-        break;
-      case 'REPUSHED':
-        btnClass ='fn-secondary';
-        srMSG = 'The selected app already exists in MDM. It cannot be overwritten.';
-        btnLabel = (<span>Re-Push to MDM</span>);
+        screenReaderMessage = 'This app has already been pushed to MDM. Click to re-push.';
+        btnLabel = 'Re-Push to MDM';
         break;
       case 'NEEDS_UPDATE':
-        srMSG = 'This app has been pushed to the MDM. Click again to update.';
-        btnLabel = (<span>Update</span>);
+        screenReaderMessage = 'This app has been pushed to MDM and has an available update. Click to push the update.';
+        btnLabel = 'Update';
         break;
+      case 'DISABLED':
       default:
-        srMSG = 'PUSH TO MDM button is unavailable. Configure MDM to push apps to the system.';
-        btnLabel = (<span aria-hidden="true">Push to MDM</span>);
+        screenReaderMessage = 'Push to MDM is not available. Configure an MDM to push apps to the system.';
+        btnLabel = 'Push to MDM';
+        break;
     }
 
     return (
-      <button id={'pushBtn' + this.props.psk} onClick={this.handlePushToMDM} aria-disabled={!this.props.mdmIsConfigured} className={btnClass}>
-        {!this.props.mdmIsConfigured && <span className="sr-only">{srMSG}</span>}
-        {btnLabel}
+      <button id={'pushBtn' + this.props.psk} onClick={this.handleButtonClick} aria-disabled={!this.props.configuredMDMType} className={`push-button ${btnClass}`}>
+        <span className="sr-only">{screenReaderMessage}</span>
+        {icon}
+        <span aria-hidden="true" dangerouslySetInnerHTML={{__html: btnLabel}}></span>
       </button>
     );
   }

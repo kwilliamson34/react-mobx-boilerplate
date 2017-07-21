@@ -20,9 +20,17 @@ describe('<GeolinkControls />', () => {
   }
 
   describe('renders', () => {
-    test('matches previous snapshot', () => {
-      const component = renderer.create(<GeolinkControls {...props}/>);
-      let tree = component.toJSON();
+    test('matches snapshot when enabled and disabled', () => {
+      let component, tree;
+
+      props.disabled = true;
+      component = renderer.create(<GeolinkControls {...props}/>);
+      tree = component.toJSON();
+      expect(tree).toMatchSnapshot();
+
+      props.disabled = false;
+      component = renderer.create(<GeolinkControls {...props}/>);
+      tree = component.toJSON();
       expect(tree).toMatchSnapshot();
     });
   });
@@ -101,6 +109,22 @@ describe('<GeolinkControls />', () => {
       expect(functionToWatch).toHaveBeenCalled();
 
       TestUtils.Simulate.change(checkbox, {'target': {'checked': false, 'type': 'checkbox'}});
+      expect(functionToWatch).toHaveBeenCalled();
+    });
+
+    test('typing in search field updates the store search term', () => {
+      let component = TestUtils.renderIntoDocument(<GeolinkControls {...props} />);
+
+      //determine the function to spy on
+      const functionToWatch = component.props.geolinkStore.updateSearchTerm;
+      expect(functionToWatch).not.toHaveBeenCalled();
+
+      //trigger the action
+      const textField = TestUtils.findAllInRenderedTree(component, (inst) => {
+        return ReactDOM.findDOMNode(inst).getAttribute('id') == 'search-field';
+      })[0];
+
+      TestUtils.Simulate.change(textField, {'target': {'value': '1'}});
       expect(functionToWatch).toHaveBeenCalled();
     });
 
