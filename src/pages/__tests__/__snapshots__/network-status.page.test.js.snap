@@ -21,5 +21,16 @@ exports[`<NetworkStatusPage /> render matches previous snapshot 1`] = `
         "width": 0
       }
     } />
+  <div
+    className="map-placeholder">
+    <p
+      aria-live="polite"
+      className="as-h2">
+      <i
+        aria-hidden="true"
+        className="as-h2 icon-reload" />
+      Loading map…
+    </p>
+  </div>
 </article>
 `;

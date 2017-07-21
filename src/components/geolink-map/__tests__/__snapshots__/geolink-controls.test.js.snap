@@ -25,12 +25,14 @@ exports[`<GeolinkControls /> renders matches previous snapshot 1`] = `
               className="search-bar">
               <input
                 className="form-control"
+                disabled={undefined}
                 id="search-field"
                 onChange={[Function anonymous]}
                 onKeyPress={[Function anonymous]}
                 type="search" />
               <button
                 className="btn search-btn"
+                disabled={undefined}
                 onClick={[Function anonymous]}
                 type="button">
                 <span
@@ -156,9 +158,7 @@ exports[`<GeolinkControls /> renders matches previous snapshot 1`] = `
             <br />
             <a
               className="deaden"
-              href="tel:1-800-XXX-XXXX">
-              1-800-***-****
-            </a>
+              href="tel:undefined" />
           </div>
           <div
             className="non-emergency">
@@ -166,9 +166,7 @@ exports[`<GeolinkControls /> renders matches previous snapshot 1`] = `
             <br />
             <a
               className="deaden"
-              href="tel:1-800-XXX-XXXX">
-              1-800-***-****
-            </a>
+              href="tel:undefined" />
           </div>
         </div>
       </div>

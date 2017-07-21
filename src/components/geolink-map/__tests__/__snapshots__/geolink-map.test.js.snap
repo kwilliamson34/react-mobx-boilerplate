@@ -1,6 +1,6 @@
 exports[`<GeolinkMap /> renders matches previous snapshot 1`] = `
 <section
-  className="geolink-map">
+  className="geolink-map ">
   <div
     className="map-wrapper">
     <iframe
