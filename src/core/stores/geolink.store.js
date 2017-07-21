@@ -9,12 +9,10 @@ const networkLayerNames = [
   'FirstNet:CoverageLTEWithPriorityOutdoor',
   'FirstNet:CoverageLTEWithoutPriority'
 ];
-// const outageLayerName = 'FirstNet:GTOCOutages';
 
 class GeolinkStore {
   @action loadGeolinkHtml() {
     const success = (response) => {
-      //TODO point to the script domain specified in configs
       let html = response.data;
       html = html.replace(new RegExp('@@geolinkScriptPath', 'g'), config.geolinkScripts);
       html = html.replace(new RegExp('@@geolinkAbMapConstantsFileName', 'g'), config.geolinkAbMapConstants);
@@ -145,7 +143,7 @@ class GeolinkStore {
 
   @observable iframeIsFullyLoaded = false;
   @observable geolinkScriptsAreFullyLoaded = false;
-  
+
   @observable geolinkHtml = null;
   @observable mapIframeRef = null;
   @observable searchTerm = '';
