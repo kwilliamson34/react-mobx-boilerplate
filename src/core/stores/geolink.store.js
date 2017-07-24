@@ -5,9 +5,7 @@ import {utilsService} from '../services/utils.service';
 
 const networkLayerNames = [
   'FirstNet:Coverage2G',
-  'FirstNet:Coverage3G4GIndoor',
   'FirstNet:Coverage3G4GOutdoor',
-  'FirstNet:CoverageLTEWithPriorityIndoor',
   'FirstNet:CoverageLTEWithPriorityOutdoor',
   'FirstNet:CoverageLTEWithoutPriority'
 ];

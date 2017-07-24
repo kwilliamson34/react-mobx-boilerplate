@@ -4,7 +4,7 @@
 
 //libs
 @import
-  "libs/bootstrap/bootstrap",
+  "base/bootstrap", //point to local custom bootstrap import file
   "libs/firstnet/firstnet";
 
 //Utils
@@ -61,3 +61,6 @@
   "pages/feedback-page",
   "pages/terms",
   "pages/manage-apps-page";
+
+//Shame
+@import "base/ie-styles";
