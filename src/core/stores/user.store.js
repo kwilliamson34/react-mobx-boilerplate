@@ -24,10 +24,10 @@ class UserStore {
   }
 
   @action initUserObject(tk_response) {
+    this.api_token = tk_response;
     let tk_array = tk_response.split('.');
     let user_obj = JSON.parse(window.atob(tk_array[1]));
     this.condtionUserObj(user_obj);
-    this.api_token = tk_response;
     this.checkPermissions();
     this.userValidationDone = true;
     if(this.user.roles && (this.user.roles.indexOf('G_FN_ADM') >= 0 || this.user.roles.indexOf('G_FN_IM') >= 0) ) {
@@ -72,7 +72,7 @@ class UserStore {
   }
 
   @observable user = {};
-  @observable api_token;
+  @observable api_token = '';
   @observable userValidationDone = false;
   @observable authentic_user = false;
   @observable isAdmin = false;

@@ -4,7 +4,12 @@ exports[`<NewTabLink /> renders matches previous snapshot 1`] = `
   href="http://example.com"
   onClick={undefined}
   rel="noopener noreferrer"
-  target="_blank" />
+  target="_blank">
+  <span
+    className="sr-only">
+    …Link will open in a new browser tab.
+  </span>
+</a>
 `;
 
 exports[`<NewTabLink /> renders renders children inside link 1`] = `
@@ -15,5 +20,9 @@ exports[`<NewTabLink /> renders renders children inside link 1`] = `
   rel="noopener noreferrer"
   target="_blank">
   <div />
+  <span
+    className="sr-only">
+    …Link will open in a new browser tab.
+  </span>
 </a>
 `;

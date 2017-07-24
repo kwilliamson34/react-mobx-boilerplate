@@ -16,15 +16,14 @@
 
         > a {
           text-decoration: none;
-        }
 
-        &:hover {
-          & .card-title {
-            text-decoration: underline;
-          }
+          &:focus,
+          &:hover {
 
-          & .learn-more {
-            text-decoration: underline;
+            .card-title,
+            .learn-more {
+              text-decoration: underline;
+            }
           }
         }
 

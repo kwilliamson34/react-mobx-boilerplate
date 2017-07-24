@@ -1,35 +1,23 @@
-jest.unmock('../../core/stores/master.store');
-import {masterStore} from '../../core/stores/master.store';
-const store = masterStore;
-
+jest.unmock('axios');
+jest.unmock('../../core/stores/external-link.store');
 jest.unmock('../admin-dashboard.page');
 
+import {observer, inject} from 'mobx-react';
+import {externalLinkStore} from '../../core/stores/external-link.store';
 import AdminDashboard from '../admin-dashboard.page';
 import {MemoryRouter} from 'react-router-dom';
 
 describe('<AdminDashboard />', () => {
   let props = {
-    externalLinkStore: {
-      togglePushToTalkModal: jest.fn(),
-      setPushToTalkProvider: jest.fn(),
-      pushToTalkLink: 'example link',
-      manageUsersLink: 'manage users link',
-      manageServicesLink: 'manage services link',
-      viewWirelessReportsLink: 'view reports link',
-      shopStandardDevicesLink: 'shop devices link',
-      showPushToTalkModal: false
+    store: {
+      externalLinkStore
     }
   }
 
   describe('renders', () => {
     test('matches previous snapshot', () => {
-      let component = renderer.create(<MemoryRouter>
-          <AdminDashboard {...props} />
-      </MemoryRouter>);
-      let tree = component.toJSON();
-      expect(tree).toMatchSnapshot();
+      let component, tree;
 
-      props.externalLinkStore.showPushToTalkModal = true;
       component = renderer.create(<MemoryRouter>
           <AdminDashboard {...props} />
       </MemoryRouter>);

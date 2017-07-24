@@ -1,9 +1,9 @@
-exports[`<PurchasingInfo /> renders matches previous snapshot 1`] = `
+exports[`<PurchasingInfo /> render tests matches previous snapshot 1`] = `
 <div
   className="row"
   id="purchasing-info">
   <div
-    className=" col-xs-10 col-xs-offset-1 col-sm-offset-1 col-sm-10 col-md-6 col-md-offset-5 col-lg-7 col-lg-offset-4">
+    className="col-xs-12">
     <h2>
       For Purchasing
     </h2>
@@ -14,9 +14,12 @@ exports[`<PurchasingInfo /> renders matches previous snapshot 1`] = `
           <strong>
             Contact:
           </strong>
-          <span>
-            Don Johnson
-          </span>
+          <span
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "Don Johnson"
+              }
+            } />
         </li>
         <li>
           <strong>
@@ -40,9 +43,12 @@ exports[`<PurchasingInfo /> renders matches previous snapshot 1`] = `
           <strong>
             Company:
           </strong>
-          <span>
-            Fast \'n Hot Speedboats\'
-          </span>
+          <span
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "Fast \'n Hot Speedboats\'"
+              }
+            } />
         </li>
         <li>
           <strong>
@@ -59,12 +65,12 @@ exports[`<PurchasingInfo /> renders matches previous snapshot 1`] = `
 </div>
 `;
 
-exports[`<PurchasingInfo /> renders should render with no purchasing info shown 1`] = `
+exports[`<PurchasingInfo /> render tests should render with no purchasing info shown 1`] = `
 <div
   className="row"
   id="purchasing-info">
   <div
-    className=" col-xs-10 col-xs-offset-1 col-sm-offset-1 col-sm-10 col-md-6 col-md-offset-5 col-lg-7 col-lg-offset-4">
+    className="col-xs-12">
     <h2>
       For Purchasing
     </h2>

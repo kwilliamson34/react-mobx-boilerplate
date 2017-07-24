@@ -1,0 +1,281 @@
+exports[`<Footer /> renders matches previous footer snapshot 1`] = `
+<footer
+  id="pse-footer">
+  <div
+    className="footer-main">
+    <div
+      className="container">
+      <div
+        className="row">
+        <div
+          className="col-xs-12 logoRow">
+          <a
+            href="/"
+            onClick={[Function anonymous]}>
+            <img
+              alt="FirstNet Local Control Home"
+              src="/images/logo-FirstNet-local-control.svg" />
+          </a>
+        </div>
+      </div>
+      <div
+        className="row is-flex">
+        <div
+          className="col-xs-12 col-md-3">
+          <nav
+            aria-describedby="sitemap">
+            <a
+              aria-expanded={false}
+              aria-haspopup="true"
+              className="sitemap-hdr"
+              href=""
+              id="sitemap"
+              onClick={[Function bound handleSitemapClick]}
+              role="button"
+              tabIndex={-1}>
+              Sitemap
+            </a>
+            <ul
+              className="sitemap-links">
+              <li
+                role="presentation">
+                <a
+                  href="/network-status"
+                  onClick={[Function anonymous]}>
+                  Network Status
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div
+          className="col-xs-12 col-md-3">
+          <nav
+            aria-describedby="firstnet-sites"
+            id="">
+            <h2
+              id="firstnet-sites">
+              Firstnet Sites
+            </h2>
+            <ul>
+              <li
+                role="presentation">
+                <a
+                  href="http://firstnet.com/"
+                  rel="noopener noreferrer"
+                  target="_blank">
+                  FirstNet.com
+                </a>
+              </li>
+              <li
+                role="presentation">
+                <a
+                  href="https://fndevpgm-uat-app.eng.mobilephone.net/firstnet"
+                  rel="noopener noreferrer"
+                  target="_blank">
+                  Developer Portal
+                </a>
+              </li>
+              <li
+                role="presentation">
+                <a
+                  href="https://test-appcontrol.firstnet.att.com/"
+                  rel="noopener noreferrer"
+                  target="_blank">
+                  App Control
+                </a>
+              </li>
+              <li
+                role="presentation">
+                <a
+                  href="https://test-apps.firstnet.att.com/"
+                  rel="noopener noreferrer"
+                  target="_blank">
+                  App Store
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div
+          className="col-xs-12 col-md-3">
+          <nav
+            aria-describedby="social-links"
+            className="social-nav">
+            <h2
+              id="social-links">
+              Follow Us
+            </h2>
+            <ul
+              className="social-links-list">
+              <li
+                role="presentation">
+                <a
+                  className="fn-social-icon fb"
+                  href="https://www.facebook.com/firstnetgov/"
+                  rel="noopener noreferrer"
+                  target="_blank">
+                  <i
+                    aria-hidden="true"
+                    className="icon-facebook" />
+                  <span
+                    className="title">
+                    Facebook
+                  </span>
+                </a>
+              </li>
+              <li
+                role="presentation">
+                <a
+                  className="fn-social-icon linkedin"
+                  href="https://www.linkedin.com/company/first-responder-network-authority-firstnet-"
+                  rel="noopener noreferrer"
+                  target="_blank">
+                  <i
+                    aria-hidden="true"
+                    className="icon-linkedin" />
+                  <span
+                    className="title">
+                    LinkedIn
+                  </span>
+                </a>
+              </li>
+              <li
+                role="presentation">
+                <a
+                  className="fn-social-icon twitter"
+                  href="https://twitter.com/FirstNetGov"
+                  rel="noopener noreferrer"
+                  target="_blank">
+                  <i
+                    aria-hidden="true"
+                    className="icon-twitter" />
+                  <span
+                    className="title">
+                    Twitter
+                  </span>
+                </a>
+              </li>
+              <li
+                role="presentation">
+                <a
+                  className="fn-social-icon tumblr"
+                  href="https://firstnetgov.tumblr.com/"
+                  rel="noopener noreferrer"
+                  target="_blank">
+                  <i
+                    aria-hidden="true"
+                    className="icon-tumblr" />
+                  <span
+                    className="title">
+                    Tumblr
+                  </span>
+                </a>
+              </li>
+              <li
+                role="presentation">
+                <a
+                  className="fn-social-icon youtube"
+                  href="https://www.youtube.com/user/FirstNetGov"
+                  rel="noopener noreferrer"
+                  target="_blank">
+                  <i
+                    aria-hidden="true"
+                    className="icon-youtube" />
+                  <span
+                    className="title">
+                    YouTube
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div
+          className="col-xs-12 col-md-3">
+          <nav
+            aria-describedby="helpLinks">
+            <h2
+              className="help-hdr"
+              id="helpLinks">
+              Help
+            </h2>
+            <ul
+              className="help-link-block">
+              <li
+                role="presentation">
+                <a
+                  href="/faq"
+                  onClick={[Function anonymous]}>
+                  FAQ
+                </a>
+              </li>
+              <li
+                role="presentation">
+                <a
+                  href="/feedback"
+                  onClick={[Function anonymous]}>
+                  Give Us Feedback
+                </a>
+              </li>
+              <li
+                role="presentation">
+                AT&T Customer Service:
+                <br
+                  className="visible-xs-inline-block visible-md-inline-block" />
+                 
+                <a
+                  href="tel:800-574-7000">
+                  <i
+                    className="icon-phone-number footer-support-phone" />
+                  800-574-7000
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="footer-sub">
+    <div
+      className="container">
+      <div
+        className="row">
+        <div
+          className="col-xs-12">
+          <nav>
+            <ul
+              className="sub-links">
+              <li
+                role="presentation" />
+              <li
+                role="presentation">
+                <a
+                  href="/terms"
+                  onClick={[Function anonymous]}>
+                  Terms & Conditions
+                </a>
+              </li>
+              <br
+                className="visible-xs-inline-block" />
+              <li
+                role="presentation" />
+              <li
+                role="presentation">
+                <a
+                  href="https://www.firstnet.gov/"
+                  rel="noopener noreferrer"
+                  target="_blank">
+                  FirstNet.gov
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+`;

@@ -12,6 +12,8 @@ coverage/
 coverage
 coverage/
 coverage/*
+jest/
+jest/*
 
 #Strange settings files
 .vscode/

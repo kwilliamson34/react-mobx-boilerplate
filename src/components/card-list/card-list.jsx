@@ -21,14 +21,15 @@ export class CardList extends React.Component {
     changeAppAvailability: PropTypes.func.isRequired,
     changeAppRecommended: PropTypes.func.isRequired,
     getMatchingApp: PropTypes.func.isRequired,
-    mdmIsConfigured: PropTypes.string,
-    pushToMDM:PropTypes.func.isRequired,
-    appMDMStatus:PropTypes.object
+    configuredMDMType: PropTypes.string,
+    pushToMDM: PropTypes.func.isRequired,
+    appCatalogMDMStatuses: PropTypes.object
   }
 
   static defaultProps = {
     cards: [],
-    title: ''
+    title: '',
+    appCatalogMDMStatuses: {}
   }
 
   get canLoadMore() {
@@ -43,16 +44,16 @@ export class CardList extends React.Component {
   renderCard(card, i) {
     return (
       <div className="col-xs-12 col-sm-4 col-md-3 col-lg-3 center-block" key={i}>
-        <SummaryCard display={card} shouldFocus={i === this.props.idToFocus} mdm_status={this.props.appMDMStatus[card.app_psk]}/>
+        <SummaryCard display={card} shouldFocus={i === this.props.idToFocus} mdm_status={this.props.appCatalogMDMStatuses[card.app_psk]}/>
         <AppManagementBlock
           name={card.name}
           psk={card.app_psk}
           getMatchingApp={this.props.getMatchingApp}
           changeAppAvailability={this.props.changeAppAvailability}
           changeAppRecommended={this.props.changeAppRecommended}
-          mdmIsConfigured={this.props.mdmIsConfigured}
+          configuredMDMType={this.props.configuredMDMType}
           pushToMDM={this.props.pushToMDM}
-          appMDMStatus={this.props.appMDMStatus}/>
+          appCatalogMDMStatuses={this.props.appCatalogMDMStatuses}/>
       </div>
     )
   }
@@ -93,7 +94,7 @@ export class CardList extends React.Component {
             <p className="as-h2">No Results</p>
             <p aria-live="polite">There are no results to display. Please retry your search.</p>
             {this.props.handleViewAllAppsClick &&
-              <button type="button" className="btn fn-primary" onClick={this.props.handleViewAllAppsClick}>View All Apps</button>
+              <button id="view-all-apps-button" type="button" className="btn fn-primary" onClick={this.props.handleViewAllAppsClick}>View All Apps</button>
             }
           </div>
         }

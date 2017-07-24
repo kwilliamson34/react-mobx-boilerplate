@@ -1,20 +1,247 @@
-exports[`<MDMAlerts /> renders renders with many alerts 1`] = `
+exports[`<MDMAlerts /> renders renders as expected on different pages 1`] = `
 <div
   className="alerts-wrapper"
-  id="mdm-alerts"
-  tabIndex="1" />
+  id="mdm-alerts" />
 `;
 
-exports[`<MDMAlerts /> renders renders with no alerts 1`] = `
+exports[`<MDMAlerts /> renders renders as expected on different pages 2`] = `
 <div
   className="alerts-wrapper"
-  id="mdm-alerts"
-  tabIndex="1" />
+  id="mdm-alerts">
+  <div
+    aria-live="assertive"
+    className="alert alert-error"
+    role="alert"
+    tabIndex="0">
+    <button
+      className="close_btn icon-close"
+      onClick={[Function bound ]}
+      type="button">
+      <span
+        className="sr-only">
+        Close alert
+      </span>
+    </button>
+    <p>
+      <strong>
+        Error: 
+      </strong>
+      Please correct the errors below.
+    </p>
+  </div>
+  <div
+    aria-live="assertive"
+    className="alert alert-error"
+    role="alert"
+    tabIndex="0">
+    <button
+      className="close_btn icon-close"
+      onClick={[Function bound ]}
+      type="button">
+      <span
+        className="sr-only">
+        Close alert
+      </span>
+    </button>
+    <p>
+      <strong>
+        Error: 
+      </strong>
+      Please correct the errors below.
+    </p>
+  </div>
+  <div
+    aria-live="assertive"
+    className="alert alert-error"
+    role="alert"
+    tabIndex="0">
+    <button
+      className="close_btn icon-close"
+      onClick={[Function bound ]}
+      type="button">
+      <span
+        className="sr-only">
+        Close alert
+      </span>
+    </button>
+    <p>
+      <strong>
+        Error: 
+      </strong>
+      Please correct the errors below.
+    </p>
+  </div>
+  <div
+    aria-live="assertive"
+    className="alert alert-error"
+    role="alert"
+    tabIndex="0">
+    <button
+      className="close_btn icon-close"
+      onClick={[Function bound ]}
+      type="button">
+      <span
+        className="sr-only">
+        Close alert
+      </span>
+    </button>
+    <p>
+      <strong>
+        Error: 
+      </strong>
+      Please correct the errors below.
+    </p>
+  </div>
+  <div
+    aria-live="assertive"
+    className="alert alert-error"
+    role="alert"
+    tabIndex="0">
+    <button
+      className="close_btn icon-close"
+      onClick={[Function bound ]}
+      type="button">
+      <span
+        className="sr-only">
+        Close alert
+      </span>
+    </button>
+    <p>
+      <strong>
+        Error: 
+      </strong>
+      Please correct the errors below.
+    </p>
+  </div>
+</div>
 `;
 
-exports[`<MDMAlerts /> renders renders with one alert 1`] = `
+exports[`<MDMAlerts /> renders renders as expected on different pages 3`] = `
 <div
   className="alerts-wrapper"
-  id="mdm-alerts"
-  tabIndex="1" />
+  id="mdm-alerts">
+  <div
+    aria-live="assertive"
+    className="alert alert-error"
+    role="alert"
+    tabIndex="0">
+    <button
+      className="close_btn icon-close"
+      onClick={[Function bound ]}
+      type="button">
+      <span
+        className="sr-only">
+        Close alert
+      </span>
+    </button>
+    <p>
+      <strong>
+        Error: 
+      </strong>
+      Please correct the errors below.
+    </p>
+  </div>
+  <div
+    aria-live="assertive"
+    className="alert alert-error"
+    role="alert"
+    tabIndex="0">
+    <button
+      className="close_btn icon-close"
+      onClick={[Function bound ]}
+      type="button">
+      <span
+        className="sr-only">
+        Close alert
+      </span>
+    </button>
+    <p>
+      <strong>
+        Error: 
+      </strong>
+      Please correct the errors below.
+    </p>
+  </div>
+  <div
+    aria-live="assertive"
+    className="alert alert-error"
+    role="alert"
+    tabIndex="0">
+    <button
+      className="close_btn icon-close"
+      onClick={[Function bound ]}
+      type="button">
+      <span
+        className="sr-only">
+        Close alert
+      </span>
+    </button>
+    <p>
+      <strong>
+        Error: 
+      </strong>
+      Please correct the errors below.
+    </p>
+  </div>
+  <div
+    aria-live="assertive"
+    className="alert alert-error"
+    role="alert"
+    tabIndex="0">
+    <button
+      className="close_btn icon-close"
+      onClick={[Function bound ]}
+      type="button">
+      <span
+        className="sr-only">
+        Close alert
+      </span>
+    </button>
+    <p>
+      <strong>
+        Error: 
+      </strong>
+      Please correct the errors below.
+    </p>
+  </div>
+  <div
+    aria-live="assertive"
+    className="alert alert-error"
+    role="alert"
+    tabIndex="0">
+    <button
+      className="close_btn icon-close"
+      onClick={[Function bound ]}
+      type="button">
+      <span
+        className="sr-only">
+        Close alert
+      </span>
+    </button>
+    <p>
+      <strong>
+        Error: 
+      </strong>
+      Please correct the errors below.
+    </p>
+  </div>
+</div>
+`;
+
+exports[`<MDMAlerts /> renders renders with zero, one, and many alerts 1`] = `
+<div
+  className="alerts-wrapper"
+  id="mdm-alerts" />
+`;
+
+exports[`<MDMAlerts /> renders renders with zero, one, and many alerts 2`] = `
+<div
+  className="alerts-wrapper"
+  id="mdm-alerts" />
+`;
+
+exports[`<MDMAlerts /> renders renders with zero, one, and many alerts 3`] = `
+<div
+  className="alerts-wrapper"
+  id="mdm-alerts" />
 `;

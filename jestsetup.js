@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Router, Route, Switch, Redirect} from 'react-router-dom';
 import TestUtils from 'react-dom/test-utils';
 import renderer from 'react-test-renderer';
 
 global.React = React;
 global.ReactDOM = ReactDOM;
+global.Router = Router;
 global.TestUtils = TestUtils;
 global.renderer = renderer;
 

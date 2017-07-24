@@ -71,6 +71,12 @@ a.skipnav{
   }
 }
 
+.push-button {
+  i:before {
+    padding-right: 5px;
+  }
+}
+
 .filters-button {
   display: inline-block;
   height: 48px;

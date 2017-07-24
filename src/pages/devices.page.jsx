@@ -23,8 +23,9 @@ export default class DevicesLandingPage extends React.Component {
 		if (this.externalLinkStore.allSpecializedDevices.length) {
 			this.externalLinkStore.fetchDeviceLandingData();
 		} else {
-			this.externalLinkStore.getDevicesData()
-			.then(() => this.externalLinkStore.fetchDeviceLandingData());
+			this.externalLinkStore.getDevicesData().then(() => {
+				this.externalLinkStore.fetchDeviceLandingData()
+			});
 		}
 	}
 
@@ -53,8 +54,7 @@ export default class DevicesLandingPage extends React.Component {
 								})}
 							</ul>
 						</div>
-						{
-							sectionArray.length > devicesPerRow &&
+						{sectionArray.length > devicesPerRow &&
 							<div className="row">
 								<Link to={'/admin/devices/' + sectionTitle.toLowerCase()} className="fn-primary showAll">Explore All {sectionTitle}</Link>
 							</div>

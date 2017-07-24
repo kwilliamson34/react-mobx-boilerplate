@@ -6,22 +6,269 @@ exports[`<RatingsChart /> renders matches snapshot for ratings-chart 1`] = `
     className="sr-only"
     id="chart-info">
     This app has 
+    3
      reviews with an average rating of 
-    4.1
+    3
     .
   </div>
   <div
-    className="row is-flex">
+    className="row">
     <div
-      className="col-xs-12 col-sm-4 col-md-4 col-lg-3 col-lg-offset-1 average-ratings-col">
+      className="col-xs-12 col-sm-4 average-ratings-col">
+      <svg
+        aria-hidden="true"
+        className="doughnut"
+        height={215}
+        width={215}>
+        <circle
+          className="doughnut-track"
+          cx={107.5}
+          cy={107.5}
+          r={100}
+          style={
+            Object {
+              "strokeWidth": 3
+            }
+          }
+          transform="rotate(-90 107.5,107.5)" />
+        <circle
+          className="doughnut-indicator"
+          cx={107.5}
+          cy={107.5}
+          r={100}
+          style={
+            Object {
+              "strokeDasharray": "376.99111843077515 628.3185307179587",
+              "strokeWidth": 15
+            }
+          }
+          transform="rotate(-90 107.5,107.5)" />
+        <circle
+          className="doughnut-endpoint"
+          cx={107.5}
+          cy={7.5}
+          r={7.5} />
+        <circle
+          className="doughnut-endpoint"
+          cx={107.5}
+          cy={7.5}
+          r={7.5}
+          transform="rotate(216,107.5,107.5)" />
+        <text
+          className="doughnut-text"
+          style={
+            Object {
+              "fontSize": 107.5
+            }
+          }
+          x={107.5}
+          y={139.75} />
+      </svg>
       <div
-        className="total-reviews" />
+        className="total-reviews">
+        <div
+          className="ratings-container">
+          <span>
+            <span
+              className="ratings-stars">
+              <span
+                aria-hidden="true"
+                className="ratings-star icon-star" />
+              <span
+                aria-hidden="true"
+                className="ratings-star icon-star" />
+              <span
+                aria-hidden="true"
+                className="ratings-star icon-star" />
+              <span
+                aria-hidden="true"
+                className="ratings-star icon-star-o" />
+              <span
+                aria-hidden="true"
+                className="ratings-star icon-star-o" />
+            </span>
+            <span
+              className="app-reviews-count hidden-xs">
+              <span
+                className="sr-only">
+                Reviewed by
+              </span>
+               (
+              3
+              )
+              <span
+                className="sr-only">
+                 people
+              </span>
+            </span>
+          </span>
+        </div>
+      </div>
     </div>
     <div
-      className="col-xs-12 col-sm-8 col-md-8 col-lg-7 overall-ratings-col">
+      className="col-xs-12 col-sm-8 overall-ratings-col">
       <div
-        className="zero-reviews">
-        No Reviews Yet!
+        className="horizontal-bar-chart">
+        <div
+          className="bar-wrapper">
+          <label
+            className="ratings-container">
+            <i
+              aria-hidden="true"
+              className="ratings-star icon-star" />
+            <span
+              aria-hidden="true"
+              className="ratings-number">
+              5
+            </span>
+          </label>
+          <div
+            className="bar"
+            style={
+              Object {
+                "width": "100%"
+              }
+            }>
+            <div
+              className="bar-value">
+              1
+              <span
+                className="sr-only">
+                of reviews gave 
+                5
+                 stars
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          className="bar-wrapper">
+          <label
+            className="ratings-container">
+            <i
+              aria-hidden="true"
+              className="ratings-star icon-star" />
+            <span
+              aria-hidden="true"
+              className="ratings-number">
+              4
+            </span>
+          </label>
+          <div
+            className="bar"
+            style={
+              Object {
+                "width": "1%"
+              }
+            }>
+            <div
+              className="bar-value">
+              0
+              <span
+                className="sr-only">
+                of reviews gave 
+                4
+                 stars
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          className="bar-wrapper">
+          <label
+            className="ratings-container">
+            <i
+              aria-hidden="true"
+              className="ratings-star icon-star" />
+            <span
+              aria-hidden="true"
+              className="ratings-number">
+              3
+            </span>
+          </label>
+          <div
+            className="bar"
+            style={
+              Object {
+                "width": "100%"
+              }
+            }>
+            <div
+              className="bar-value">
+              1
+              <span
+                className="sr-only">
+                of reviews gave 
+                3
+                 stars
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          className="bar-wrapper">
+          <label
+            className="ratings-container">
+            <i
+              aria-hidden="true"
+              className="ratings-star icon-star" />
+            <span
+              aria-hidden="true"
+              className="ratings-number">
+              2
+            </span>
+          </label>
+          <div
+            className="bar"
+            style={
+              Object {
+                "width": "1%"
+              }
+            }>
+            <div
+              className="bar-value">
+              0
+              <span
+                className="sr-only">
+                of reviews gave 
+                2
+                 stars
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          className="bar-wrapper">
+          <label
+            className="ratings-container">
+            <i
+              aria-hidden="true"
+              className="ratings-star icon-star" />
+            <span
+              aria-hidden="true"
+              className="ratings-number">
+              1
+            </span>
+          </label>
+          <div
+            className="bar"
+            style={
+              Object {
+                "width": "100%"
+              }
+            }>
+            <div
+              className="bar-value">
+              1
+              <span
+                className="sr-only">
+                of reviews gave 
+                1
+                 stars
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -36,29 +283,276 @@ exports[`<RatingsChart /> renders matches snapshot for ratings-chart when only o
     className="sr-only"
     id="chart-info">
     This app has 
+    1
      reviews with an average rating of 
-    3
+    1
     .
   </div>
   <div
-    className="row is-flex">
+    className="row">
     <div
-      className="col-xs-12 col-sm-4 col-md-4 col-lg-3 col-lg-offset-1 average-ratings-col">
+      className="col-xs-12 col-sm-4 average-ratings-col">
+      <svg
+        aria-hidden="true"
+        className="doughnut"
+        height={215}
+        width={215}>
+        <circle
+          className="doughnut-track"
+          cx={107.5}
+          cy={107.5}
+          r={100}
+          style={
+            Object {
+              "strokeWidth": 3
+            }
+          }
+          transform="rotate(-90 107.5,107.5)" />
+        <circle
+          className="doughnut-indicator"
+          cx={107.5}
+          cy={107.5}
+          r={100}
+          style={
+            Object {
+              "strokeDasharray": "125.66370614359172 628.3185307179587",
+              "strokeWidth": 15
+            }
+          }
+          transform="rotate(-90 107.5,107.5)" />
+        <circle
+          className="doughnut-endpoint"
+          cx={107.5}
+          cy={7.5}
+          r={7.5} />
+        <circle
+          className="doughnut-endpoint"
+          cx={107.5}
+          cy={7.5}
+          r={7.5}
+          transform="rotate(72,107.5,107.5)" />
+        <text
+          className="doughnut-text"
+          style={
+            Object {
+              "fontSize": 107.5
+            }
+          }
+          x={107.5}
+          y={139.75} />
+      </svg>
       <div
-        className="total-reviews" />
+        className="total-reviews">
+        <div
+          className="ratings-container">
+          <span>
+            <span
+              className="ratings-stars">
+              <span
+                aria-hidden="true"
+                className="ratings-star icon-star" />
+              <span
+                aria-hidden="true"
+                className="ratings-star icon-star-o" />
+              <span
+                aria-hidden="true"
+                className="ratings-star icon-star-o" />
+              <span
+                aria-hidden="true"
+                className="ratings-star icon-star-o" />
+              <span
+                aria-hidden="true"
+                className="ratings-star icon-star-o" />
+            </span>
+            <span
+              className="app-reviews-count hidden-xs">
+              <span
+                className="sr-only">
+                Reviewed by
+              </span>
+               (
+              1
+              )
+              <span
+                className="sr-only">
+                 people
+              </span>
+            </span>
+          </span>
+        </div>
+      </div>
     </div>
     <div
-      className="col-xs-12 col-sm-8 col-md-8 col-lg-7 overall-ratings-col">
+      className="col-xs-12 col-sm-8 overall-ratings-col">
       <div
-        className="zero-reviews">
-        No Reviews Yet!
+        className="horizontal-bar-chart">
+        <div
+          className="bar-wrapper">
+          <label
+            className="ratings-container">
+            <i
+              aria-hidden="true"
+              className="ratings-star icon-star" />
+            <span
+              aria-hidden="true"
+              className="ratings-number">
+              5
+            </span>
+          </label>
+          <div
+            className="bar"
+            style={
+              Object {
+                "width": "1%"
+              }
+            }>
+            <div
+              className="bar-value">
+              0
+              <span
+                className="sr-only">
+                of reviews gave 
+                5
+                 stars
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          className="bar-wrapper">
+          <label
+            className="ratings-container">
+            <i
+              aria-hidden="true"
+              className="ratings-star icon-star" />
+            <span
+              aria-hidden="true"
+              className="ratings-number">
+              4
+            </span>
+          </label>
+          <div
+            className="bar"
+            style={
+              Object {
+                "width": "1%"
+              }
+            }>
+            <div
+              className="bar-value">
+              0
+              <span
+                className="sr-only">
+                of reviews gave 
+                4
+                 stars
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          className="bar-wrapper">
+          <label
+            className="ratings-container">
+            <i
+              aria-hidden="true"
+              className="ratings-star icon-star" />
+            <span
+              aria-hidden="true"
+              className="ratings-number">
+              3
+            </span>
+          </label>
+          <div
+            className="bar"
+            style={
+              Object {
+                "width": "1%"
+              }
+            }>
+            <div
+              className="bar-value">
+              0
+              <span
+                className="sr-only">
+                of reviews gave 
+                3
+                 stars
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          className="bar-wrapper">
+          <label
+            className="ratings-container">
+            <i
+              aria-hidden="true"
+              className="ratings-star icon-star" />
+            <span
+              aria-hidden="true"
+              className="ratings-number">
+              2
+            </span>
+          </label>
+          <div
+            className="bar"
+            style={
+              Object {
+                "width": "1%"
+              }
+            }>
+            <div
+              className="bar-value">
+              0
+              <span
+                className="sr-only">
+                of reviews gave 
+                2
+                 stars
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          className="bar-wrapper">
+          <label
+            className="ratings-container">
+            <i
+              aria-hidden="true"
+              className="ratings-star icon-star" />
+            <span
+              aria-hidden="true"
+              className="ratings-number">
+              1
+            </span>
+          </label>
+          <div
+            className="bar"
+            style={
+              Object {
+                "width": "100%"
+              }
+            }>
+            <div
+              className="bar-value">
+              1
+              <span
+                className="sr-only">
+                of reviews gave 
+                1
+                 stars
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 `;
 
-exports[`<RatingsChart /> renders matches snapshot for ratings-chart when zeroes are passed in 1`] = `
+exports[`<RatingsChart /> renders matches snapshot for ratings-chart when zero reviews are passed in 1`] = `
 <div
   aria-describedby="chart-info"
   className="ratings-chart">
@@ -66,19 +560,239 @@ exports[`<RatingsChart /> renders matches snapshot for ratings-chart when zeroes
     className="sr-only"
     id="chart-info">
     This app has 
+    0
      reviews with an average rating of 
     0
     .
   </div>
   <div
-    className="row is-flex">
+    className="row">
     <div
-      className="col-xs-12 col-sm-4 col-md-4 col-lg-3 col-lg-offset-1 average-ratings-col">
+      className="col-xs-12 col-sm-4 average-ratings-col">
+      <svg
+        aria-hidden="true"
+        className="doughnut"
+        height={215}
+        width={215}>
+        <circle
+          className="doughnut-track"
+          cx={107.5}
+          cy={107.5}
+          r={100}
+          style={
+            Object {
+              "strokeWidth": 3
+            }
+          }
+          transform="rotate(-90 107.5,107.5)" />
+        <circle
+          className="doughnut-indicator"
+          cx={107.5}
+          cy={107.5}
+          r={100}
+          style={
+            Object {
+              "strokeDasharray": "0 628.3185307179587",
+              "strokeWidth": 15
+            }
+          }
+          transform="rotate(-90 107.5,107.5)" />
+        <circle
+          className="doughnut-endpoint"
+          cx={107.5}
+          cy={7.5}
+          r={7.5} />
+        <circle
+          className="doughnut-endpoint"
+          cx={107.5}
+          cy={7.5}
+          r={7.5}
+          transform="rotate(0,107.5,107.5)" />
+        <text
+          className="doughnut-text"
+          style={
+            Object {
+              "fontSize": 107.5
+            }
+          }
+          x={107.5}
+          y={139.75} />
+      </svg>
       <div
-        className="total-reviews" />
+        className="total-reviews">
+        <div
+          className="ratings-container">
+          <span>
+            No Reviews
+          </span>
+        </div>
+      </div>
     </div>
     <div
-      className="col-xs-12 col-sm-8 col-md-8 col-lg-7 overall-ratings-col">
+      className="col-xs-12 col-sm-8 overall-ratings-col">
+      <div
+        className="horizontal-bar-chart">
+        <div
+          className="bar-wrapper">
+          <label
+            className="ratings-container">
+            <i
+              aria-hidden="true"
+              className="ratings-star icon-star" />
+            <span
+              aria-hidden="true"
+              className="ratings-number">
+              5
+            </span>
+          </label>
+          <div
+            className="bar"
+            style={
+              Object {
+                "width": "1%"
+              }
+            }>
+            <div
+              className="bar-value">
+              0
+              <span
+                className="sr-only">
+                of reviews gave 
+                5
+                 stars
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          className="bar-wrapper">
+          <label
+            className="ratings-container">
+            <i
+              aria-hidden="true"
+              className="ratings-star icon-star" />
+            <span
+              aria-hidden="true"
+              className="ratings-number">
+              4
+            </span>
+          </label>
+          <div
+            className="bar"
+            style={
+              Object {
+                "width": "1%"
+              }
+            }>
+            <div
+              className="bar-value">
+              0
+              <span
+                className="sr-only">
+                of reviews gave 
+                4
+                 stars
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          className="bar-wrapper">
+          <label
+            className="ratings-container">
+            <i
+              aria-hidden="true"
+              className="ratings-star icon-star" />
+            <span
+              aria-hidden="true"
+              className="ratings-number">
+              3
+            </span>
+          </label>
+          <div
+            className="bar"
+            style={
+              Object {
+                "width": "1%"
+              }
+            }>
+            <div
+              className="bar-value">
+              0
+              <span
+                className="sr-only">
+                of reviews gave 
+                3
+                 stars
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          className="bar-wrapper">
+          <label
+            className="ratings-container">
+            <i
+              aria-hidden="true"
+              className="ratings-star icon-star" />
+            <span
+              aria-hidden="true"
+              className="ratings-number">
+              2
+            </span>
+          </label>
+          <div
+            className="bar"
+            style={
+              Object {
+                "width": "1%"
+              }
+            }>
+            <div
+              className="bar-value">
+              0
+              <span
+                className="sr-only">
+                of reviews gave 
+                2
+                 stars
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          className="bar-wrapper">
+          <label
+            className="ratings-container">
+            <i
+              aria-hidden="true"
+              className="ratings-star icon-star" />
+            <span
+              aria-hidden="true"
+              className="ratings-number">
+              1
+            </span>
+          </label>
+          <div
+            className="bar"
+            style={
+              Object {
+                "width": "1%"
+              }
+            }>
+            <div
+              className="bar-value">
+              0
+              <span
+                className="sr-only">
+                of reviews gave 
+                1
+                 stars
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
       <div
         className="zero-reviews">
         No Reviews Yet!
