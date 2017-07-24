@@ -5,6 +5,7 @@ jest.unmock('../footer');
 import {observer, inject} from 'mobx-react';
 import {headerStore} from '../../../core/stores/header.store';
 import {userStore} from '../../../core/stores/user.store';
+import {externalLinkStore} from '../../../core/stores/external-link.store';
 import Footer from '../footer';
 import {MemoryRouter} from 'react-router-dom';
 
@@ -13,7 +14,8 @@ describe('<Footer />', () => {
     let props = {
       store: {
         headerStore,
-        userStore
+        userStore,
+        externalLinkStore
       }
     }
 

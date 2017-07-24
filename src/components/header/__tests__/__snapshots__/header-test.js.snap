@@ -11,8 +11,8 @@ exports[`<PSEHeader /> render matches snapshot when header store is not initiali
         <div
           className="fnnav__brand">
           <a
+            className="logo-home-link"
             href="/"
-            id="logo-home-link"
             onClick={[Function anonymous]}>
             <img
               alt="FirstNet Logo"
@@ -294,8 +294,8 @@ exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
         <div
           className="fnnav__brand">
           <a
+            className="logo-home-link"
             href="/"
-            id="logo-home-link"
             onClick={[Function anonymous]}>
             <img
               alt="FirstNet Logo"
@@ -579,8 +579,8 @@ exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
         <div
           className="fnnav__brand">
           <a
+            className="logo-home-link"
             href="/"
-            id="logo-home-link"
             onClick={[Function anonymous]}>
             <img
               alt="FirstNet Logo"

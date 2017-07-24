@@ -8,7 +8,7 @@ exports[`<NetworkStatusPage /> render matches previous snapshot 1`] = `
   </h1>
   <iframe
     id="geolink_static_assets"
-    src="https://geo.stage.att.com/appBoard/libs/jquery/jquery.min.js"
+    src="https://onemap.att.com/icecapmap/libs/jquery/jquery.min.js"
     style={
       Object {
         "border": "0 none",
