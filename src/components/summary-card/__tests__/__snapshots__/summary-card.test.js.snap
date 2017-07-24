@@ -2,7 +2,7 @@ exports[`<SummaryCard /> render testing matches snapshot 1`] = `
 <div
   className="card-wrapper">
   <a
-    className="card-focus has-shadow card-container center-block "
+    className="card-focus has-shadow card-container center-block  "
     href="/app/12345"
     id="appCard12345"
     onClick={[Function anonymous]}>
@@ -52,7 +52,7 @@ exports[`<SummaryCard /> render testing matches snapshot 2`] = `
 <div
   className="card-wrapper">
   <a
-    className="card-focus has-shadow card-container center-block "
+    className="card-focus has-shadow card-container center-block  "
     href="/app/12345"
     id="appCard12345"
     onClick={[Function anonymous]}>

@@ -30,7 +30,8 @@ export class CardList extends React.Component {
   static defaultProps = {
     cards: [],
     title: '',
-    appCatalogMDMStatuses: {}
+    appCatalogMDMStatuses: {},
+    appsReferencedByAlert: []
   }
 
   get canLoadMore() {
