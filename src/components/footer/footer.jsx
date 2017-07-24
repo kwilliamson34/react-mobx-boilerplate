@@ -34,7 +34,7 @@ export default class Footer extends React.Component {
 				<div className="container">
 					<div className="row">
 						<div className="col-xs-12 logoRow">
-							<Link to="/">
+							<Link to="/" className="logo-home-link-footer">
 								<img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Local Control Home" />
 							</Link>
 						</div>
