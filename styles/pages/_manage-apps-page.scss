@@ -43,108 +43,101 @@
   }
 
   .card-list-substitute {
-    h2 {
-      margin-bottom: 30px;
-    }
-
-    p {
-      margin-bottom: 60px;
-    }
-
     text-align: center;
-    margin: 100px auto;
+    margin: auto;
+    margin-bottom: 100px;
     padding: 0;
-  }
 
-  .loading-container {
-    text-align: center;
-    h2{
-      font-size: 3.0rem;
-      i{
-        transform: rotate(-90deg);
-        margin-right: 5px;
-        font-size: 3.0rem;
-      }
-      margin-bottom: 60px;
-    }
-    .ghost-container {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      margin: 0 auto;
-      height: 490px;
-      overflow:hidden;
+    .loading-container {
       text-align: center;
-
-      .app-ghost {
-        display: inline-block;
-        position: relative;
-        min-width: 225px;
+      p {
+        font-size: 3.0rem;
+        i{
+          transform: rotate(-90deg);
+          margin-right: 5px;
+          font-size: 3.0rem;
+        }
+        margin: 25px 0 60px 0;
+      }
+      .ghost-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin: 0 auto;
         height: 490px;
-        background: $fn-ltbluegrey;
-        border: 1px solid $fn-grey;
+        overflow:hidden;
+        text-align: center;
 
-        &::before {
-          content: '';
-          position: absolute;
-          top: 50px;
-          right: 0;
-          left: 0;
-          width: 130px;
-          padding-top: 130px;
-          margin: 0 auto;
+        .app-ghost {
+          display: inline-block;
+          position: relative;
+          min-width: 225px;
+          height: 490px;
+          background: $fn-ltbluegrey;
           border: 1px solid $fn-grey;
-          background: $fn-white;
-        }
 
-        &::after {
-          content: '';
-          position: absolute;
-          bottom: 20px;
-          right: 0;
-          left: 0;
-          width: 82%;
-          height: 48px;
-          margin: 0 auto;
-          border: 1px solid $fn-grey;
-          border-radius: 24px;
-          background: $fn-white;
-        }
-
-        > div {
-          position: absolute;
-          top: 236px;
-          left: 20px;
-          width: 58%;
-          height: 14px;
-          border-radius: 5px;
-          border: 1px solid $fn-grey;
-          background: $fn-white;
-
-          &:before {
+          &::before {
             content: '';
             position: absolute;
-            display: block;
-            top: 94px;
+            top: 50px;
+            right: 0;
             left: 0;
-            width: 100%;
-            height: 14px;
-            border-radius: 5px;
+            width: 130px;
+            padding-top: 130px;
+            margin: 0 auto;
             border: 1px solid $fn-grey;
             background: $fn-white;
           }
 
-          &:after {
+          &::after {
             content: '';
             position: absolute;
-            display: block;
-            top: 45px;
+            bottom: 20px;
+            right: 0;
             left: 0;
-            width: 61.5%;
+            width: 82%;
+            height: 48px;
+            margin: 0 auto;
+            border: 1px solid $fn-grey;
+            border-radius: 24px;
+            background: $fn-white;
+          }
+
+          > div {
+            position: absolute;
+            top: 236px;
+            left: 20px;
+            width: 58%;
             height: 14px;
             border-radius: 5px;
             border: 1px solid $fn-grey;
             background: $fn-white;
+
+            &:before {
+              content: '';
+              position: absolute;
+              display: block;
+              top: 94px;
+              left: 0;
+              width: 100%;
+              height: 14px;
+              border-radius: 5px;
+              border: 1px solid $fn-grey;
+              background: $fn-white;
+            }
+
+            &:after {
+              content: '';
+              position: absolute;
+              display: block;
+              top: 45px;
+              left: 0;
+              width: 61.5%;
+              height: 14px;
+              border-radius: 5px;
+              border: 1px solid $fn-grey;
+              background: $fn-white;
+            }
           }
         }
       }
@@ -193,12 +186,14 @@
         }
       }
     }
-    .ghost-container {
-      display: block;
-      width: 100%;
-      padding: 0 20px;
-      .app-ghost {
+    .card-list-substitute {
+      .ghost-container {
+        display: block;
         width: 100%;
+        padding: 0 20px;
+        .app-ghost {
+          width: 100%;
+        }
       }
     }
   }
@@ -207,18 +202,20 @@
 
 @media #{$tablet} {
   #manage-apps-page {
-    .loading-container h2{
-      font-size: 3.6rem;
-      i{
+    .card-list-substitute {
+      .loading-container h2{
         font-size: 3.6rem;
+        i{
+          font-size: 3.6rem;
+        }
       }
-    }
-    .ghost-container{
-      display:flex;
-      width: 750px;
-      padding: 0px 25px;
-      .app-ghost{
-        width:225px;
+      .ghost-container{
+        display:flex;
+        width: 750px;
+        padding: 0px 25px;
+        .app-ghost{
+          width:225px;
+        }
       }
     }
   }
@@ -226,15 +223,17 @@
 
 @media #{$desktop} {
   #manage-apps-page {
-    .loading-container h2{
-      font-size: 3.6rem;
-      i{
+    .card-list-substitute {      
+      .loading-container h2{
         font-size: 3.6rem;
+        i{
+          font-size: 3.6rem;
+        }
       }
-    }
-    .ghost-container{
-      width: 970px;
-      margin: 0 auto;
+      .ghost-container{
+        width: 970px;
+        margin: 0 auto;
+      }
     }
   }
 }
