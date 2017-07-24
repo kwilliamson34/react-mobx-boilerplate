@@ -133,7 +133,7 @@ export default class ManageAppsPage extends React.Component {
 								cards={this.paginatedCards}
 								numPagesShown={this.props.store.pages[this.pageId]}
 								itemsPerPage={this.itemsPerPage}
-								isLoading={true}
+								isLoading={this.cardListStore.isLoading || this.appCatalogStore.isLoading}
 								idToFocus={this.cardListStore.idToFocus}
 								handleLoadMoreClick={this.handleLoadMoreClick}
 								handleViewAllAppsClick={this.handleViewAllAppsClick}
