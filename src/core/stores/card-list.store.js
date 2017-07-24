@@ -5,184 +5,193 @@ import _ from 'lodash';
 
 class CardListStore {
 
-	// ACTIONS
-	@action setCardList(appArray) {
-		this.originalCardList = appArray;
+  // ACTIONS
+  @action setCardList(appArray) {
+    this.originalCardList = appArray;
 
-		/* If the user has already performed a search, left the page, and
-		returned, re-execute the search with the same parameters (the app
-		catalog may have changed). */
-		if(this.searchIsApplied) {
-			this.getSearchResults();
-		} else {
-			this.searchResults = appArray;
-		}
-	}
+    /* If the user has already performed a search, left the page, and
+    returned, re-execute the search with the same parameters (the app
+    catalog may have changed). */
+    if (this.searchIsApplied) {
+      this.getSearchResults();
+    } else {
+      this.searchResults = appArray;
+    }
+  }
 
-	@action fetchCategoriesAndSegments() {
-		/* Retrieve categories and segments once and cache forever */
-		if(!this.categories.length || !this.segments.length) {
-			const success = (res) => {
-				this.categories = res.data.categories;
-				this.segments = res.data.user_segments;
-				return res;
-			}
-			const fail = (err) => {
-				utilsService.handleError(err);
-			}
-			return apiService.getCategoriesAndSegments().then(success, fail)
-		}
-	}
+  @action fetchCategoriesAndSegments() {
+    /* Retrieve categories and segments once and cache forever */
+    if (!this.categories.length || !this.segments.length) {
+      const success = (res) => {
+        this.categories = res.data.categories;
+        this.segments = res.data.user_segments;
+        return res;
+      }
+      const fail = (err) => {
+        utilsService.handleError(err);
+      }
+      return apiService.getCategoriesAndSegments().then(success, fail)
+    }
+  }
 
-	@action clearSearchQuery() {
-		this.searchQuery = '';
-		this.searchIsApplied = false;
-		this.searchResults = this.originalCardList;
-	}
+  @action clearSearchQuery() {
+    this.searchQuery = '';
+    this.searchIsApplied = false;
+    this.searchResults = this.originalCardList;
+  }
 
-	@action getSearchResults = _.debounce(() => {
-		const success = (response) => {
-			this.searchResults = response;
-			this.isLoading = false;
-			this.searchIsApplied = true;
-		}
+  @action getSearchResults = _.debounce(() => {
+    const success = (response) => {
+      this.searchResults = response;
+      this.isLoading = false;
+      this.searchIsApplied = true;
+    }
 
-		const fail = (err) => {
-			utilsService.handleError(err);
-			this.searchResults = [];
-			this.isLoading = false;
-		}
+    const fail = (err) => {
+      utilsService.handleError(err);
+      this.searchResults = [];
+      this.isLoading = false;
+    }
 
-		this.isLoading = true;
-		apiService.getSearchResults(encodeURIComponent(this.searchQuery)).then(success, fail)
-	}, 500, {
-		leading: true,
-		trailing: false
-	});
+    this.isLoading = true;
+    apiService.getSearchResults(encodeURIComponent(this.searchQuery)).then(success, fail)
+  }, 500, {
+    leading: true,
+    trailing: false
+  });
 
-	@action handleSearchInput(value) {
-		this.searchQuery = value;
-	}
+  @action handleSearchInput(value) {
+    this.searchQuery = value;
+  }
 
-	@action changeCategoryFilter(value) {
-		this.categoryFilter = value;
-	}
+  @action changeCategoryFilter(value) {
+    this.categoryFilter = value;
+  }
 
-	@action changeSegmentFilter(value) {
-		this.segmentFilter = value;
-	}
+  @action changeSegmentFilter(value) {
+    this.segmentFilter = value;
+  }
 
-	@action changePlatformFilter(value) {
-		this.platformFilter = value;
-	}
+  @action changePlatformFilter(value) {
+    this.platformFilter = value;
+  }
 
-	@action addFilterElementRef(id, ref) {
-		this.filterElementRefs[id] = ref;
-	}
+  @action addFilterElementRef(id, ref) {
+    this.filterElementRefs[id] = ref;
+  }
 
-	@action resetFilters() {
-		this.categoryFilter = '';
-		this.segmentFilter = '';
-		this.platformFilter = '';
+  @action resetFilters() {
+    this.categoryFilter = '';
+    this.segmentFilter = '';
+    this.platformFilter = '';
 
-		Object.keys(this.filterElementRefs).forEach((key) => {
-			this.filterElementRefs[key].value = '';
-		});
-	}
+    Object.keys(this.filterElementRefs).forEach((key) => {
+      this.filterElementRefs[key].value = '';
+    });
+  }
 
-	@action restoreOriginalList() {
-		this.resetFilters();
-		this.clearSearchQuery();
-		this.searchResults = this.originalCardList;
-	}
+  @action restoreOriginalList() {
+    this.resetFilters();
+    this.clearSearchQuery();
+    this.searchResults = this.originalCardList;
+  }
 
-	@action setIdToFocus(targetId) {
-		this.idToFocus = targetId;
-	}
+  @action setIdToFocus(targetId) {
+    this.idToFocus = targetId;
+  }
 
-	@action resetIdToFocus() {
-		this.idToFocus = null;
-	}
+  @action resetIdToFocus() {
+    this.idToFocus = null;
+  }
 
-	@action toggleFilterShowHide() {
-		this.showFilters = !this.showFilters;
-	}
+  @action toggleFilterShowHide() {
+    this.showFilters = !this.showFilters;
+  }
 
-	//COMPUTEDS
-	@computed get recommendedCards() {
-		return this.searchResults.filter((app) => {
-			return (app.isRecommended)
-		})
-	}
+  @action addSelectedCard(psk) {
+    this.selectedCards.push(psk);
+  }
 
-	@computed get filteredSearchResults() {
-		return this.searchResults.filter((app) => {
-			let categoryCheck = () => {
-				if (this.categoryFilter) {
-					let matches = app.category.filter(category => {
-						return category.toUpperCase() === this.categoryFilter.toUpperCase()
-					});
-					return matches.length > 0;
-				} else {
-					return true;
-				}
-			}
-			let segmentCheck = () => {
-				if (this.segmentFilter) {
-					let matches = app.user_segment.filter(segment => {
-						return segment.toUpperCase() === this.segmentFilter.toUpperCase()
-					});
-					return matches.length > 0;
-				} else {
-					return true;
-				}
-			}
-			let platformCheck = () => {
-				if (this.platformFilter) {
-					return app.operatingSystem.toUpperCase() === this.platformFilter.toUpperCase();
-				} else {
-					return true;
-				}
-			}
-			return (categoryCheck() && segmentCheck() && platformCheck())
-		})
-	}
+  @action clearSelectedCards = () => {
+    this.selectedCards = [];
+  }
 
-	@computed get filterIsApplied() {
-		return (this.categoryFilter || this.segmentFilter || this.platformFilter) ? true : false;
-	}
+  //COMPUTEDS
+  @computed get recommendedCards() {
+    return this.searchResults.filter((app) => {
+      return (app.isRecommended)
+    })
+  }
 
-	@computed get resultsCountLabel() {
-		if(!this.isLoading && (this.searchIsApplied || this.filterIsApplied)) {
-			const count = this.filteredSearchResults.length;
-			return count ? `${count} Result${count === 1 ? '' : 's'}` : '';
-		}
-	}
+  @computed get filteredSearchResults() {
+    return this.searchResults.filter((app) => {
+      let categoryCheck = () => {
+        if (this.categoryFilter) {
+          let matches = app.category.filter(category => {
+            return category.toUpperCase() === this.categoryFilter.toUpperCase()
+          });
+          return matches.length > 0;
+        } else {
+          return true;
+        }
+      }
+      let segmentCheck = () => {
+        if (this.segmentFilter) {
+          let matches = app.user_segment.filter(segment => {
+            return segment.toUpperCase() === this.segmentFilter.toUpperCase()
+          });
+          return matches.length > 0;
+        } else {
+          return true;
+        }
+      }
+      let platformCheck = () => {
+        if (this.platformFilter) {
+          return app.operatingSystem.toUpperCase() === this.platformFilter.toUpperCase();
+        } else {
+          return true;
+        }
+      }
+      return (categoryCheck() && segmentCheck() && platformCheck())
+    })
+  }
 
-	// OBSERVABLES
-	@observable originalCardList = [];
-	@observable searchResults = [];
-	@observable searchQuery = '';
-	@observable isLoading = false;
-	@observable searchIsApplied = false;
-	@observable filterElementRefs = [];
-	@observable idToFocus = null;
-	@observable showFilters = false;
+  @computed get filterIsApplied() {
+    return (this.categoryFilter || this.segmentFilter || this.platformFilter) ? true : false;
+  }
 
-	@observable platforms = [{
-			display: 'iOS',
-			name: 'IOS'
-		},
-		{
-			display: 'Android',
-			name: 'ANDROID'
-		}
-	];
-	@observable platformFilter = '';
-	@observable categories = [];
-	@observable categoryFilter = '';
-	@observable segments = [];
-	@observable segmentFilter = '';
+  @computed get resultsCountLabel() {
+    if (!this.isLoading && (this.searchIsApplied || this.filterIsApplied)) {
+      const count = this.filteredSearchResults.length;
+      return count ? `${count} Result${count === 1 ? '' : 's'}` : '';
+    }
+  }
+
+  // OBSERVABLES
+  @observable originalCardList = [];
+  @observable searchResults = [];
+  @observable selectedCards = [];
+  @observable searchQuery = '';
+  @observable isLoading = false;
+  @observable searchIsApplied = false;
+  @observable filterElementRefs = [];
+  @observable idToFocus = null;
+  @observable showFilters = false;
+
+  @observable platforms = [{
+      display: 'iOS',
+      name: 'IOS'
+    },
+    {
+      display: 'Android',
+      name: 'ANDROID'
+    }
+  ];
+  @observable platformFilter = '';
+  @observable categories = [];
+  @observable categoryFilter = '';
+  @observable segments = [];
+  @observable segmentFilter = '';
 }
 
 export const cardListStore = new CardListStore();

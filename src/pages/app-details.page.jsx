@@ -88,7 +88,7 @@ export default class AppDetailsPage extends React.Component {
             <div className="container">
               <div className="row">
                 <div className="col-xs-12">
-                    <MDMAlerts store={this.mdmStore} page="manage_apps"/>
+                    <MDMAlerts store={this.mdmStore} page="manage_apps" clearSelectedCards={this.mdmStore.clearAppsReferencedByAlert}/>
                 </div>
               </div>
             </div>

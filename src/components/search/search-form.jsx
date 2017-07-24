@@ -24,13 +24,19 @@ export class SearchForm extends React.Component {
     this.props.resetPagination();
     this.store.getSearchResults();
 
-    //close native keyboard on mobile, to show search results
-    this.refs.input.blur();
+    if(this.refs.btnClear){
+      this.refs.btnClear.focus();
+    } else {
+      this.refs.btnSearch.focus();
+    }
+
   }
 
   handleClearClick = () => {
     this.props.resetPagination();
     this.store.clearSearchQuery();
+    
+    this.refs.btnSearch.focus();
   }
 
   render() {
@@ -41,12 +47,12 @@ export class SearchForm extends React.Component {
           <div className="search-bar">
             <input id="search-field" type="search" ref="input" className="form-control" title="searchQuery" value={this.store.searchQuery} onChange={this.handleInput} />
             {(this.store.searchQuery.length > 0) &&
-              <button className="btn clear-btn" type="button" onClick={this.handleClearClick}>
+              <button className="btn clear-btn" type="button" ref="btnClear" onClick={this.handleClearClick}>
                 <span className="sr-only">Clear</span>
                 <span aria-hidden="true" className="icon-close"/>
               </button>
             }
-            <button className="btn search-btn" type="submit">
+            <button className="btn search-btn" type="submit" ref="btnSearch">
               <span className="sr-only">Search</span>
               <span aria-hidden="true" className="icon-search"/>
             </button>

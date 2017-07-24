@@ -103,7 +103,7 @@ export default class ManageAppsPage extends React.Component {
         <div className="container">
           <div className="row">
             <div className="col-xs-12 col-lg-offset-1 col-lg-10">
-              {this.mdmStore.app_alerts && <MDMAlerts store={this.mdmStore} page="manage_apps"/>}
+              {this.mdmStore.app_alerts && <MDMAlerts store={this.mdmStore} page="manage_apps" clearSelectedCards={this.mdmStore.clearAppsReferencedByAlert}/>}
             </div>
           </div>
         </div>
@@ -129,20 +129,21 @@ export default class ManageAppsPage extends React.Component {
           <div className="row">
             <div className="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-12 col-lg-offset-1 col-lg-10">
               <CardList
-								filteredAppsCount={this.cardListStore.filteredSearchResults.length}
-								cards={this.paginatedCards}
-								numPagesShown={this.props.store.pages[this.pageId]}
-								itemsPerPage={this.itemsPerPage}
-								isLoading={this.cardListStore.isLoading || this.appCatalogStore.isLoading}
-								idToFocus={this.cardListStore.idToFocus}
-								handleLoadMoreClick={this.handleLoadMoreClick}
-								handleViewAllAppsClick={this.handleViewAllAppsClick}
-								changeAppAvailability={this.appCatalogStore.changeAppAvailability.bind(this.appCatalogStore)}
-								changeAppRecommended={this.appCatalogStore.changeAppRecommended.bind(this.appCatalogStore)}
-								getMatchingApp={this.appCatalogStore.getMatchingApp.bind(this.appCatalogStore)}
-								configuredMDMType={this.mdmStore.pseMDMObject.toJS().mdm_type}
-								pushToMDM={this.mdmStore.pushToMDM.bind(this.mdmStore)}
-								appCatalogMDMStatuses={this.mdmStore.appCatalogMDMStatuses.toJS()}/>
+                filteredAppsCount={this.cardListStore.filteredSearchResults.length}
+                cards={this.paginatedCards}
+                numPagesShown={this.props.store.pages[this.pageId]}
+                itemsPerPage={this.itemsPerPage}
+                isLoading={this.cardListStore.isLoading || this.appCatalogStore.isLoading}
+                idToFocus={this.cardListStore.idToFocus}
+                handleLoadMoreClick={this.handleLoadMoreClick}
+                handleViewAllAppsClick={this.handleViewAllAppsClick}
+                changeAppAvailability={this.appCatalogStore.changeAppAvailability.bind(this.appCatalogStore)}
+                changeAppRecommended={this.appCatalogStore.changeAppRecommended.bind(this.appCatalogStore)}
+                appsReferencedByAlert={this.mdmStore.appsReferencedByAlert}
+                getMatchingApp={this.appCatalogStore.getMatchingApp.bind(this.appCatalogStore)}
+                configuredMDMType={this.mdmStore.pseMDMObject.toJS().mdm_type}
+                pushToMDM={this.mdmStore.pushToMDM.bind(this.mdmStore)}
+                appCatalogMDMStatuses={this.mdmStore.appCatalogMDMStatuses.toJS()}/>
             </div>
           </div>
         </div>

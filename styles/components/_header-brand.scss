@@ -11,8 +11,7 @@
 
     &:focus{
       @include focus();
-      padding: 5px;
-      border-radius: 8px;
+      border-radius: 0px;
     }
   }
 

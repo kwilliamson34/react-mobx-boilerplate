@@ -13,10 +13,9 @@
     }
   </style>
 
-  <!-- Geolink Widget stylesheets. Depend on cookie from successful Halo.b login. -->
+  <!-- Geolink Widget stylesheets -->
   <link rel="stylesheet" type="text/css" href="@@geolinkScriptPath/libs/leaflet-control-geocoder/dist/Control.Geocoder.css" />
   <link rel="stylesheet" type="text/css" href="@@geolinkScriptPath/libs/leaflet/dist/leaflet.css" />
-  <link rel="stylesheet" type="text/css" href="@@geolinkScriptPath/libs/font-awesome/css/font-awesome.min.css" />
   <link rel="stylesheet" type="text/css" href="@@geolinkScriptPath/assets/stylesheets/abMap.css" />
 </head>
 
@@ -25,13 +24,17 @@
     <div style="height:100vh;width:100%;" ab-map config="{defaultBaseLayerName: 'bingRoadAndBase', scrollWheelZoom: false, center: {'lat':40,'lng':-99,'zoom':4}}"></div>
   </div>
 
-  <script type="text/javascript" src="@@geolinkScriptPath/extns/@@geolinkAbMapConstantsFileName" data-ngmod="appBoardsMap"></script>
+  <script type="text/javascript" src="@@geolinkScriptPath/extns/abMapConstantsFN.js" data-ngmod="appBoardsMap"></script>
+  <script type="text/javascript" src="@@geolinkScriptPath/extns/abMapConstantsCloudFN.js" data-ngmod="appBoardsMap"></script>
+
   <script type="text/javascript" src="@@geolinkScriptPath/libs/jquery/jquery.min.js"></script>
   <script type="text/javascript" src="@@geolinkScriptPath/libs/amplify/lib/amplify.min.js"></script>
   <script type="text/javascript" src="@@geolinkScriptPath/libs/angular/angular.min.js"></script>
+
   <script type="text/javascript" src="@@geolinkScriptPath/libs/leaflet/dist/leaflet.js"></script>
   <script type="text/javascript" src="@@geolinkScriptPath/libs/leaflet-plugins/layer/tile/Bing.js"></script>
   <script type="text/javascript" src="@@geolinkScriptPath/libs/esri-leaflet/dist/esri-leaflet.js"></script>
+
   <script type="text/javascript" src="@@geolinkScriptPath/directives/abMap.js" data-ngmod="appBoardsMap"></script>
   <script type="text/javascript" src="@@geolinkScriptPath/extns/abMapLeafletPlugins.js"></script>
   <script type="text/javascript" src="@@geolinkScriptPath/services/abMapLayerLoaderFactory.js" data-ngmod="appBoardsMap"></script>

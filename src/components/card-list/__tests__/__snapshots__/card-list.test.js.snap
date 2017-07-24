@@ -47,7 +47,7 @@ exports[`<CardList /> renders matches snapshot before and after loading 2`] = `
       <div
         className="card-wrapper">
         <a
-          className="card-focus has-shadow card-container center-block "
+          className="card-focus has-shadow card-container center-block  "
           href="/app/undefined"
           id="appCardundefined"
           onClick={[Function anonymous]}>
@@ -87,7 +87,7 @@ exports[`<CardList /> renders matches snapshot before and after loading 2`] = `
       <div
         className="card-wrapper">
         <a
-          className="card-focus has-shadow card-container center-block "
+          className="card-focus has-shadow card-container center-block  "
           href="/app/undefined"
           id="appCardundefined"
           onClick={[Function anonymous]}>
@@ -127,7 +127,7 @@ exports[`<CardList /> renders matches snapshot before and after loading 2`] = `
       <div
         className="card-wrapper">
         <a
-          className="card-focus has-shadow card-container center-block "
+          className="card-focus has-shadow card-container center-block  "
           href="/app/undefined"
           id="appCardundefined"
           onClick={[Function anonymous]}>
@@ -167,7 +167,7 @@ exports[`<CardList /> renders matches snapshot before and after loading 2`] = `
       <div
         className="card-wrapper">
         <a
-          className="card-focus has-shadow card-container center-block "
+          className="card-focus has-shadow card-container center-block  "
           href="/app/undefined"
           id="appCardundefined"
           onClick={[Function anonymous]}>
@@ -207,7 +207,7 @@ exports[`<CardList /> renders matches snapshot before and after loading 2`] = `
       <div
         className="card-wrapper">
         <a
-          className="card-focus has-shadow card-container center-block "
+          className="card-focus has-shadow card-container center-block  "
           href="/app/undefined"
           id="appCardundefined"
           onClick={[Function anonymous]}>
@@ -256,7 +256,7 @@ exports[`<CardList /> renders matches snapshot with no results 1`] = `
       <div
         className="card-wrapper">
         <a
-          className="card-focus has-shadow card-container center-block "
+          className="card-focus has-shadow card-container center-block  "
           href="/app/undefined"
           id="appCardundefined"
           onClick={[Function anonymous]}>
@@ -296,7 +296,7 @@ exports[`<CardList /> renders matches snapshot with no results 1`] = `
       <div
         className="card-wrapper">
         <a
-          className="card-focus has-shadow card-container center-block "
+          className="card-focus has-shadow card-container center-block  "
           href="/app/undefined"
           id="appCardundefined"
           onClick={[Function anonymous]}>
@@ -336,7 +336,7 @@ exports[`<CardList /> renders matches snapshot with no results 1`] = `
       <div
         className="card-wrapper">
         <a
-          className="card-focus has-shadow card-container center-block "
+          className="card-focus has-shadow card-container center-block  "
           href="/app/undefined"
           id="appCardundefined"
           onClick={[Function anonymous]}>
@@ -376,7 +376,7 @@ exports[`<CardList /> renders matches snapshot with no results 1`] = `
       <div
         className="card-wrapper">
         <a
-          className="card-focus has-shadow card-container center-block "
+          className="card-focus has-shadow card-container center-block  "
           href="/app/undefined"
           id="appCardundefined"
           onClick={[Function anonymous]}>
@@ -416,7 +416,7 @@ exports[`<CardList /> renders matches snapshot with no results 1`] = `
       <div
         className="card-wrapper">
         <a
-          className="card-focus has-shadow card-container center-block "
+          className="card-focus has-shadow card-container center-block  "
           href="/app/undefined"
           id="appCardundefined"
           onClick={[Function anonymous]}>
@@ -483,7 +483,7 @@ exports[`<CardList /> renders matches snapshot with zero, one, and many cards 2`
       <div
         className="card-wrapper">
         <a
-          className="card-focus has-shadow card-container center-block "
+          className="card-focus has-shadow card-container center-block  "
           href="/app/undefined"
           id="appCardundefined"
           onClick={[Function anonymous]}>
@@ -532,7 +532,7 @@ exports[`<CardList /> renders matches snapshot with zero, one, and many cards 3`
       <div
         className="card-wrapper">
         <a
-          className="card-focus has-shadow card-container center-block "
+          className="card-focus has-shadow card-container center-block  "
           href="/app/undefined"
           id="appCardundefined"
           onClick={[Function anonymous]}>

@@ -7,7 +7,8 @@ describe('<MDMAlerts />', () => {
     store: {
       removeAlert: jest.fn(),
       alert_msgs: []
-    }
+    },
+    clearSelectedCards: jest.fn()
   }
 
   let exampleError = {

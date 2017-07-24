@@ -21,7 +21,8 @@ export class SummaryCard extends React.Component {
       app_psk: PropTypes.string,
       operatingSystem: PropTypes.oneOf(['', 'NONE', 'IOS', 'ANDROID'])
     }).isRequired,
-    mdm_status: PropTypes.string
+    error: PropTypes.bool,
+    selected: PropTypes.bool
   }
 
   static defaultProps = {
@@ -42,10 +43,12 @@ export class SummaryCard extends React.Component {
   }
 
   render() {
-    let cardClass = `card-focus has-shadow card-container center-block ${this.props.mdm_status === 'FAILED' ? 'mdm_failed' : ''}`;
+    const errorClass = this.props.error ? 'mdm_failed' : '';
+    const selectedClass = this.props.selected ? 'mdm_selected' : '';
+    const cardClass = `card-focus has-shadow card-container center-block ${errorClass} ${selectedClass}`;
     return (
       <div className="card-wrapper" ref="div">
-        <Link to={'/app/' + this.props.display.app_psk} id={'appCard'+this.props.display.app_psk} className={cardClass}>
+        <Link to={'/app/' + this.props.display.app_psk} id={'appCard' + this.props.display.app_psk} className={cardClass}>
           <div className="">
             {this.props.display.badge && (
               <div className="card-badge">
@@ -68,9 +71,9 @@ export class SummaryCard extends React.Component {
                 <Rating rating={this.props.display.rating} reviewCount={this.props.display.reviews_count} showRatingNumber={true}></Rating>
               </div>
               {utilsService.properCaseOS(this.props.display.operatingSystem) && <div className="card-platform">
-                <span className="sr-only">Hosted at the</span>
+                <span className="sr-only">Hosted at the&nbsp;</span>
                 {utilsService.properCaseOS(this.props.display.operatingSystem)}
-                <span className="sr-only">app store</span>
+                <span className="sr-only">&nbsp;app store</span>
               </div>}
             </div>
           </div>

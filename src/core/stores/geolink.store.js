@@ -110,16 +110,28 @@ class GeolinkStore {
       }
     }, '*');
 
-    //Weather layer animation
     this.mapIframeRef.contentWindow.postMessage({
-      eventName: 'animateRadar',
-      options: {
-        frameSpeed: 1500 //milliseconds
-      }
+      eventName: 'showHurricane',
+      flag: true
     }, '*');
+
+    //Weather layer animation. Call to animate must be last.
+    setTimeout(() => {
+      this.mapIframeRef.contentWindow.postMessage({
+        eventName: 'animateRadar',
+        options: {
+          frameSpeed: 1500 //milliseconds
+        }
+      }, '*');
+    }, 100);
   }
 
   @action removeWeather() {
+    this.mapIframeRef.contentWindow.postMessage({
+      eventName: 'showHurricane',
+      flag: false
+    }, '*');
+
     this.mapIframeRef.contentWindow.postMessage({
       eventName: 'removeRadar'
     }, '*');
