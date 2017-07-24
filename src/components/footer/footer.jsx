@@ -16,6 +16,7 @@ export default class Footer extends React.Component {
 	constructor(props) {
 		super(props);
 		this.headerStore = this.props.store.headerStore;
+		this.externalLinkStore = this.props.store.externalLinkStore;
 		this.user = this.props.store.userStore;
 		this.handleSitemapClick = this.handleSitemapClick.bind(this);
 	}
@@ -151,7 +152,7 @@ export default class Footer extends React.Component {
 						<nav>
 							<ul className="sub-links">
 								<li role="presentation"><NewTabLink to="https://www.firstnet.gov/privacy-policy">Privacy Policy</NewTabLink></li>
-								<li role="presentation"><Link to="/terms">Terms &amp; Conditions</Link></li>
+								<li role="presentation"><NewTabLink to={this.externalLinkStore.termsOfUse}>Terms of Use</NewTabLink></li>
 								<br className="visible-xs-inline-block" />
 								<li role="presentation"><NewTabLink to="https://www.firstnet.gov/accessibility">Accessibility</NewTabLink></li>
 								<li role="presentation"><a href="https://www.firstnet.gov/" target="_blank" rel="noopener noreferrer">FirstNet.gov</a></li>
