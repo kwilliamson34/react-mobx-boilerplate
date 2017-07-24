@@ -51,13 +51,13 @@
       text-align: center;
 
       p {
-        font-size: 3.0rem;
+        font-size: $fn-h2-desktop;
         margin: 25px 0 60px 0;
 
         i {
           transform: rotate(-90deg);
           margin-right: 5px;
-          font-size: 3.0rem;
+          font-size: $fn-h2-desktop;
         }
       }
 
