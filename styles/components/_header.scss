@@ -522,6 +522,7 @@ $fn-mobile-item-height: 60px;
           font-size: $fn-landing-page-text-desktop;
           font-weight: $fn-medium-weight;
           margin-bottom: 1rem;
+          padding-left: 2px;
         }
 
         > li:not(:last-child) {
@@ -533,6 +534,7 @@ $fn-mobile-item-height: 60px;
           line-height: 2.4;
           position: relative;
           color: $fn-ltblue;
+          padding-left: 2px;
 
           &:visited {
             color: $fn-ltblue;
@@ -540,7 +542,6 @@ $fn-mobile-item-height: 60px;
 
           &:focus {
             @include focus();
-            padding: 2px 4px;
             border-radius: 4px;
 
             i {
