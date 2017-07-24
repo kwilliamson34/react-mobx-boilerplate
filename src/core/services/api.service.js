@@ -142,11 +142,18 @@ class ApiService {
       return axios.delete(`${base}/pse/mdm/${userStore.user.pse}`);
     }
 
-    pushToMDM(app) {
-      console.log('Pushing app to MDM with appPsk=' + app + ' for pse="' + userStore.user.pse + '"...');
+    getSingleMDMStatus(app_psk) {
+      return axios.get(`${base}/pse/mdm/app?appPsk=${app_psk}&pseId=${userStore.user.pse}`)
+        .then((res) => {
+          return res.data;
+        });
+    }
+
+    pushToMDM(app_psk) {
+      console.log('Pushing app to MDM with appPsk=' + app_psk + ' for pse="' + userStore.user.pse + '"...');
       return axios({
         method: 'post',
-        url: `${base}/pse/mdm/push?appPsk=${app}&pseId=${userStore.user.pse}`,
+        url: `${base}/pse/mdm/push?appPsk=${app_psk}&pseId=${userStore.user.pse}`,
         data: {}
       });
     }

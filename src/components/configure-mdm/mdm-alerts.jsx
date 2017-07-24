@@ -6,7 +6,8 @@ import PropTypes from 'prop-types';
 export class MDMAlerts extends React.Component {
   static propTypes = {
     store: PropTypes.object,
-    page: PropTypes.string
+    page: PropTypes.string,
+    clearSelectedCards: PropTypes.func.isRequired
   }
 
   componentDidUpdate() {
@@ -17,11 +18,11 @@ export class MDMAlerts extends React.Component {
 
   onCloseButtonClick = (idx) => {
     this.props.store.removeAlert(this.props.page, idx);
+    this.props.clearSelectedCards();
   };
 
   render() {
-    let alert_msgs = null;
-
+    let alert_msgs;
     switch (this.props.page) {
       case 'mdm_form':
         alert_msgs = this.props.store.form_alerts;
@@ -30,7 +31,8 @@ export class MDMAlerts extends React.Component {
         alert_msgs = this.props.store.app_alerts;
         break;
       default:
-        alert_msgs = []
+        alert_msgs = [];
+        break;
     }
 
     return (
@@ -42,7 +44,8 @@ export class MDMAlerts extends React.Component {
                 <span className="sr-only">Close alert</span>
               </button>
               <p>
-                <strong>{alert.headline}</strong>{alert.message}</p>
+                <strong>{alert.headline}</strong>{alert.message}
+              </p>
             </div>
           )
         })}
