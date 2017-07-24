@@ -286,9 +286,18 @@ class MDMStore {
     return apiService.getAdminApps().then(success, fail)
   }
 
-  @action getSingleMDMStatus(psk) {
+  @action getSingleMDMStatus(psk, args) {
     const success = (statusObject) => {
-      this.appCatalogMDMStatuses.set(psk, statusObject.mdm_install_status)
+      this.appCatalogMDMStatuses.set(psk, statusObject.mdm_install_status);
+      if(args.showUserMessageOnFail && statusObject.mdm_install_status === 'FAILED'){
+        this.throwMDMError();
+      } else if (args.showUserMessageOnSuccess && statusObject.mdm_install_status === 'INSTALLED'){
+        this.app_alerts.push({
+          type: 'success',
+          headline: 'Success! ',
+          message: this.userMessages.pushSuccess
+        });
+      }
     }
     const fail = (err) => {
       console.warn(err);
@@ -354,7 +363,10 @@ class MDMStore {
   @action pollUntilResolved(psk) {
     setTimeout(() => {
       if(this.appCatalogMDMStatuses.get(psk) === 'PENDING' || this.appCatalogMDMStatuses.get(psk) === 'IN_PROGRESS') {
-        this.getSingleMDMStatus(psk);
+        this.getSingleMDMStatus(psk, {
+          showUserMessageOnFail: true,
+          showUserMessageOnSuccess: true
+        });
         this.pollUntilResolved(psk);
       }
     }, 3000);
@@ -363,7 +375,6 @@ class MDMStore {
   @action pushToMDM(psk) {
     this.clearAlerts();
     const success = () => {
-      this.getSingleMDMStatus(psk);
       this.pollUntilResolved(psk);
     }
     const fail = (err) => {
