@@ -45,7 +45,6 @@ import FeedbackPage from './pages/feedback.page';
 
 //Footer pages
 import PrivacyPage from './pages/privacy.page';
-import TermsOfServicePage from './pages/terms.page';
 import AccessibilityPage from './pages/accessibility.page';
 
 
@@ -123,7 +122,6 @@ export default class App extends React.Component {
             <Route path="/faq" component={FAQPage}/>
             <Route path="/help-center" component={HelpCenterPage}/>
             <Route path="/privacy" component={PrivacyPage}/>
-            <Route path="/terms" component={TermsOfServicePage}/>
             <Route path="/accessibility" component={AccessibilityPage}/>
             <Route component={() => <Redirect to="/error/404"/>}/>
           </Switch>
