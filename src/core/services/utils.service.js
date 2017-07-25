@@ -1,5 +1,6 @@
 import {userStore} from '../stores/user.store';
 import {history} from './history.service';
+import $ from 'jquery';
 
 class UtilsService {
   formatRating(rating) {
@@ -57,6 +58,26 @@ class UtilsService {
     var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
     var results = regex.exec(window.location.search);
     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+  }
+
+  scrollIntoViewIfNecessary($target) {
+    if ($target.offset()) {
+      console.log('1', $target.offset());
+      console.log('2', $(window).scrollTop());
+      if ($target.offset().top < $(window).scrollTop()) {
+        $('html, body').animate(
+          {
+            scrollTop: $target.offset().top
+          }
+        );
+      } else if ($target.offset().top + $target.height() > $(window).scrollTop() + window.innerHeight || document.documentElement.clientHeight) {
+        $('html, body').animate(
+          {
+            scrollTop: $target.offset().top - (window.innerHeight || document.documentElement.clientHeight) + $target.height() + 15
+          }
+        );
+      }
+    }
   }
 
   getDevicesAndSolutionsUrl(string) {

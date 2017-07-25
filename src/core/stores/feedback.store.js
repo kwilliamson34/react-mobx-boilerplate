@@ -36,7 +36,7 @@ class FeedbackStore {
       for (let key in this.feedbackObject) {
         data[key.replace('feedback_', '')] = this.feedbackObject[key];
       }
-      const success = (res) => {
+      const success = () => {
         this.hasBeenSubmitted = true;
         this.clearFeedbackForm();
       }
