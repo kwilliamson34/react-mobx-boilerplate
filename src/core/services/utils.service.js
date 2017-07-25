@@ -25,7 +25,7 @@ class UtilsService {
       try {
         return {
           name: obj.app_name,
-          publisher: obj.author,
+          publisher: obj.custom_metadata.author,
           imageUrl: obj.icon_path,
           rating: obj.rating,
           reviews_count: obj.reviews_count,

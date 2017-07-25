@@ -55,7 +55,7 @@ export default class PSEHeader extends React.Component {
 			}
 		});
 
-		$('#linkBtn-networkStatus, #logo-home-link').focus(() => {
+		$('#linkBtn-networkStatus, .logo-home-link').focus(() => {
 			this.headerStore.adminSubMenuIsOpen = false;
 		});
 
