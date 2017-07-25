@@ -10,6 +10,7 @@ exports[`<Footer /> renders matches previous footer snapshot 1`] = `
         <div
           className="col-xs-12 logoRow">
           <a
+            className="logo-home-link-footer"
             href="/"
             onClick={[Function anonymous]}>
             <img
@@ -251,13 +252,7 @@ exports[`<Footer /> renders matches previous footer snapshot 1`] = `
               <li
                 role="presentation" />
               <li
-                role="presentation">
-                <a
-                  href="/terms"
-                  onClick={[Function anonymous]}>
-                  Terms & Conditions
-                </a>
-              </li>
+                role="presentation" />
               <br
                 className="visible-xs-inline-block" />
               <li

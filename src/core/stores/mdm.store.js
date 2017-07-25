@@ -38,7 +38,7 @@ class MDMStore {
     this.currentMDMForm.set(input.id, input.value);
 
     for (let i = 0; i < inputs.length; i++) {
-      if (inputs.length <= 1 || inputs[i].value === '') {
+      if (inputs[i].value === '') {
         validForm = false
       }
     }
@@ -283,7 +283,7 @@ class MDMStore {
         message: this.userMessages.connectFail
       });
     }
-    return apiService.getAdminApps().then(success, fail)
+    return apiService.getAdminApps().then(success, fail);
   }
 
   @action getSingleMDMStatus(psk, args) {
@@ -331,7 +331,7 @@ class MDMStore {
         successfullSubmission = true;
         this.appsReferencedByAlert.push(app.app_psk);
       }
-      this.appCatalogMDMStatuses.set(app.app_psk, app.mdm_install_status)
+      this.appCatalogMDMStatuses.set(app.app_psk, app.mdm_install_status);
     }
 
     if (failedSubmission) {

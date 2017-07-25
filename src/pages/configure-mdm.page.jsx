@@ -9,7 +9,6 @@ import {IBMForm} from '../components/configure-mdm/ibm-form';
 import {MobileIronForm} from '../components/configure-mdm/mobile-iron-form';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 import $ from 'jquery';
-import 'bootstrap';
 
 @inject('store')
 @observer

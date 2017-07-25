@@ -97,7 +97,7 @@ class AppCatalogStore {
 	@observable allApps = [];
 	@observable currentAppObject = {};
 	@observable screenshots = [];
-	@observable isLoading;
+	@observable isLoading = false;
 }
 
 export const appCatalogStore = new AppCatalogStore();
