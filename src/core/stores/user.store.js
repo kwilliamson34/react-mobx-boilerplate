@@ -13,6 +13,7 @@ class UserStore {
 
         //Redirect to Halo
         window.location.replace(config.haloLogin);
+        throw new Error('Auth failed - redirecting to SSO login...');
       } else if (err.response.status === 403) {
         //this is not an authorized user for anything
         this.authentic_user = false;
