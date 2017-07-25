@@ -28,9 +28,14 @@ export default class AppManagementBlock extends React.Component {
   }
 
   componentDidMount() {
-    $('[id^=Available-]').focus((e) => {
+    $(`#Available-${this.props.psk}`).focus((e) => {
       const $target = $(e.target);
-      utilsService.scrollIntoViewIfNecessary($target);
+      $(window).one('keyup', (e) => {
+        const code = e.keyCode ? e.keyCode : e.which;
+        if (code === 9) {
+          utilsService.scrollIntoViewIfNecessary($target);
+        }
+      })
     })
   }
 

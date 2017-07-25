@@ -60,20 +60,26 @@ class UtilsService {
     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
   }
 
-  scrollIntoViewIfNecessary($target) {
-    if ($target.offset()) {
-      console.log('1', $target.offset());
-      console.log('2', $(window).scrollTop());
-      if ($target.offset().top < $(window).scrollTop()) {
+  scrollIntoViewIfNecessary($target, scrollPadding) {
+    const _scrollPadding = scrollPadding || 380;
+    const tgtOffsetTop = $target.offset().top;
+    const tgtHeight = $target.height();
+    const winScrollTop = $(window).scrollTop();
+    const winHeight = window.innerHeight || document.documentElement.clientHeight;
+    //check if $target is in viewport
+    if (!(tgtOffsetTop < winScrollTop && tgtOffsetTop > winScrollTop + winHeight)) {
+      if (tgtOffsetTop > winScrollTop) {
+        //scroll down
         $('html, body').animate(
           {
-            scrollTop: $target.offset().top
+            scrollTop: tgtOffsetTop - _scrollPadding
           }
         );
-      } else if ($target.offset().top + $target.height() > $(window).scrollTop() + window.innerHeight || document.documentElement.clientHeight) {
+      } else if (tgtOffsetTop + tgtHeight < winScrollTop + winHeight) {
+        //scroll up
         $('html, body').animate(
           {
-            scrollTop: $target.offset().top - (window.innerHeight || document.documentElement.clientHeight) + $target.height() + 15
+            scrollTop: tgtOffsetTop - winHeight + tgtHeight + _scrollPadding
           }
         );
       }
