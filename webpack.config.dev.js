@@ -63,8 +63,8 @@ module.exports = {
 	resolve: {
 		extensions: ['.js', '.jsx'],
 		alias: {
-      config: path.join(__dirname, `config/${env}.endpoints.js`),
-    },
+			'config': path.join(__dirname, `config/${env}.endpoints.js`),
+		},
 	},
 	node: {
     console: true,
@@ -142,9 +142,7 @@ module.exports = {
 	},
 	plugins: [
 		new webpack.IgnorePlugin(/regenerator|nodent|js-beautify/, /ajv/),
-
 		new webpack.HotModuleReplacementPlugin(),
-		// enable HMR globally
 
 		new webpack.ProvidePlugin({
 			'jQuery': 'jquery',
@@ -162,6 +160,7 @@ module.exports = {
 		}),
 
 		new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /nb/),
+
 		new webpack.LoaderOptionsPlugin({
 			test: /\.scss$/,
 			debug: true,
