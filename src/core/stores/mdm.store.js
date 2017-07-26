@@ -391,8 +391,6 @@ class MDMStore {
   // OBSERVABLES
   @observable pseMDMObject = observable.map({});
   @observable userMessages = {
-    errorsExist: 'Please correct the errors below.',
-    mdmMissing: 'Please select an MDM.',
     connectFail: 'There was a problem establishing a connection with MDM.',
     breakConnectionSuccess: 'The connection to MDM has been broken.',
     breakConnectionFail: 'There was a problem breaking the connection with MDM.',
