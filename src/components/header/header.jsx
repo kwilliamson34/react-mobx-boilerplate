@@ -35,7 +35,6 @@ export default class PSEHeader extends React.Component {
 		}, () => {
 			if(window.innerWidth > 992){
 				this.headerStore.adminSubMenuIsOpen = false;
-				$('#linkBtn-admin').blur();
 			}
 		});
 
@@ -56,7 +55,7 @@ export default class PSEHeader extends React.Component {
 			}
 		});
 
-		$('#linkBtn-networkStatus, #logo-home-link').focus(() => {
+		$('#linkBtn-networkStatus, .logo-home-link').focus(() => {
 			this.headerStore.adminSubMenuIsOpen = false;
 		});
 
@@ -87,7 +86,7 @@ export default class PSEHeader extends React.Component {
 		if(!this.headerStore.adminSubMenuIsOpen){
 			this.headerStore.adminSubMenuIsOpen = true;
 			$('.dropdown.open').removeClass('open');
-			$('#linkBtn-admin').focus().blur();
+			$('#linkBtn-admin').focus();
 		}
 	}
 
@@ -156,7 +155,7 @@ export default class PSEHeader extends React.Component {
 		return(
 			<div className="fnnav__header">
 				<div className="fnnav__brand">
-					<Link id="logo-home-link" to="/">
+					<Link className="logo-home-link" to="/">
 						<img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Logo"/>
 						<span className="sr-only">Go Home</span>
 					</Link>

@@ -56,17 +56,6 @@ export default class AppDetailsPage extends React.Component {
     this.appStore.fetchAppDetailByPsk(psk);
   }
 
-  formatDate(dateStr) {
-    let dateOptions = {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    };
-    let parsedDate = new Date(dateStr);
-    let formattedDate = parsedDate.toLocaleString('en-US', dateOptions);
-    return formattedDate;
-  }
-
   render() {
     const crumbs = [
       {
@@ -99,7 +88,7 @@ export default class AppDetailsPage extends React.Component {
             <div className="container">
               <div className="row">
                 <div className="col-xs-12">
-                    <MDMAlerts store={this.mdmStore} page="manage_apps"/>
+                    <MDMAlerts store={this.mdmStore} page="manage_apps" clearSelectedCards={this.mdmStore.clearAppsReferencedByAlert}/>
                 </div>
               </div>
             </div>

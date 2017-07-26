@@ -7,8 +7,7 @@ footer {
       height: 100%;
       &:focus{
         @include focus();
-        padding: 5px;
-        border-radius: 8px;
+        border-radius: 4px;
       }
     }
   }
@@ -24,10 +23,12 @@ footer {
       text-transform: uppercase;
       font-weight: $fn-medium-weight;
       letter-spacing: 2.65px;
+      padding-left: 2px;
     }
 
     ul {
       margin-top: 30px;
+      padding-top: 1px;
     }
 
     li {
@@ -41,11 +42,11 @@ footer {
       a {
         font-weight: $fn-normal-weight;
         color: $fn-dkgrey;
+        padding: 2px;
 
         &:focus{
           @include focus();
           border-radius: 4px;
-          padding: 2px;
         }
 
         &.fb {

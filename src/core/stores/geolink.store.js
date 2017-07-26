@@ -5,18 +5,14 @@ import {utilsService} from '../services/utils.service';
 
 const networkLayerNames = [
   'FirstNet:Coverage2G',
-  'FirstNet:Coverage3G4GIndoor',
   'FirstNet:Coverage3G4GOutdoor',
-  'FirstNet:CoverageLTEWithPriorityIndoor',
   'FirstNet:CoverageLTEWithPriorityOutdoor',
   'FirstNet:CoverageLTEWithoutPriority'
 ];
-// const outageLayerName = 'FirstNet:GTOCOutages';
 
 class GeolinkStore {
   @action loadGeolinkHtml() {
     const success = (response) => {
-      //TODO point to the script domain specified in configs
       let html = response.data;
       html = html.replace(new RegExp('@@geolinkScriptPath', 'g'), config.geolinkScripts);
       html = html.replace(new RegExp('@@geolinkAbMapConstantsFileName', 'g'), config.geolinkAbMapConstants);
@@ -114,16 +110,28 @@ class GeolinkStore {
       }
     }, '*');
 
-    //Weather layer animation
     this.mapIframeRef.contentWindow.postMessage({
-      eventName: 'animateRadar',
-      options: {
-        frameSpeed: 1500 //milliseconds
-      }
+      eventName: 'showHurricane',
+      flag: true
     }, '*');
+
+    //Weather layer animation. Call to animate must be last.
+    setTimeout(() => {
+      this.mapIframeRef.contentWindow.postMessage({
+        eventName: 'animateRadar',
+        options: {
+          frameSpeed: 1500 //milliseconds
+        }
+      }, '*');
+    }, 100);
   }
 
   @action removeWeather() {
+    this.mapIframeRef.contentWindow.postMessage({
+      eventName: 'showHurricane',
+      flag: false
+    }, '*');
+
     this.mapIframeRef.contentWindow.postMessage({
       eventName: 'removeRadar'
     }, '*');
@@ -147,7 +155,7 @@ class GeolinkStore {
 
   @observable iframeIsFullyLoaded = false;
   @observable geolinkScriptsAreFullyLoaded = false;
-  
+
   @observable geolinkHtml = null;
   @observable mapIframeRef = null;
   @observable searchTerm = '';

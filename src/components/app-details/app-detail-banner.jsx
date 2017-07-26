@@ -87,7 +87,7 @@ export class AppDetailBanner extends React.Component {
   }
 
   author() {
-    return <div className="publisher app-details">{this.data.version.author}</div>
+    return <div className="publisher app-details">{this.data.custom_metadata.author}</div>
   }
 
   metadata() {

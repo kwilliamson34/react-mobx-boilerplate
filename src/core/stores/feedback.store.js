@@ -14,10 +14,14 @@ class FeedbackStore {
     } else {
       return;
     }
-  };
+  }
+
+  parseForm = (form) => {
+    return form.querySelectorAll('input, select, textarea');
+  }
 
   @action submitForm(form) {
-    const inputs = form.querySelectorAll('input, select, textarea');
+    const inputs = this.parseForm(form);
     this.showAlertBar = false;
     this.hasBeenSubmitted = false;
     for (var i = 0; i < inputs.length; ++i) {
@@ -96,7 +100,11 @@ class FeedbackStore {
     this.showExitModal = false;
     this.showAlertBar = false;
     for (let key in this.feedbackObject) {
-      this.feedbackObject[key] = '';
+      if (key === 'feedback_email') {
+        this.feedbackObject[key] = userStore.user.email;
+      } else {
+        this.feedbackObject[key] = '';
+      }
     }
     for (let key in this.hasErrors) {
       this.hasErrors[key] = false;
