@@ -99,8 +99,8 @@ export default class ConfigureMDM extends React.Component {
                 <p>Your form changes will not be saved if you navigate away from this page.</p>
               </div>
               <div className="col-xs-12 text-center">
-                <button className='fn-primary' onClick={this.toggleExitModal}>Stay on Page</button>
-                <button className='fn-secondary' onClick={this.discardFormChanges}>Discard Changes</button>
+                <button className="fn-primary" onClick={this.toggleExitModal}>Stay on Page</button>
+                <button className="fn-secondary" onClick={this.discardFormChanges}>Discard Changes</button>
               </div>
             </div>
           </div>
@@ -117,7 +117,7 @@ export default class ConfigureMDM extends React.Component {
           <div className="modal-content">
             <button type="button" className="fn-modal-close" onClick={this.togglebreakMDMConnection}>
               <i aria-hidden="true" className="icon-close"></i>
-              <span className="sr-only">close window</span>
+              <span className="sr-only">Close window</span>
             </button>
             <div className="row no-gutters" id="break-connection-modal-title">
               <div className="col-xs-12">
@@ -125,8 +125,8 @@ export default class ConfigureMDM extends React.Component {
                 <p>This cannot be undone. If you break this application’s connection to MDM, you will have to re-configure it using this form to establish a new connection.</p>
               </div>
               <div className="col-xs-12 text-center">
-                <button className='fn-primary' onClick={this.togglebreakMDMConnection}>Keep Connection</button>
-                <button className='fn-secondary' onClick={this.breakMDMConnection}>Break Connection</button>
+                <button className="fn-primary" onClick={this.togglebreakMDMConnection}>Keep Connection</button>
+                <button className="fn-secondary" onClick={this.breakMDMConnection}>Break Connection</button>
               </div>
             </div>
           </div>

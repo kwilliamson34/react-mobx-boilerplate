@@ -164,10 +164,7 @@ class MDMStore {
     });
   }
 
-  @action showErrorAlert({alertsList = this.form_alerts, message, clearOtherAlerts = false}) {
-    if(clearOtherAlerts) {
-      this.clearAlerts();
-    }
+  @action showErrorAlert({alertsList = this.form_alerts, message}) {
     alertsList.push({
       type: 'error',
       headline: 'Error: ',
@@ -175,11 +172,8 @@ class MDMStore {
     });
   }
 
-  @action showSuccessAlert({alertsList = this.form_alerts, message, clearOtherAlerts = false}) {
+  @action showSuccessAlert({alertsList = this.form_alerts, message}) {
     if(message) {
-      if(clearOtherAlerts) {
-        this.clearAlerts();
-      }
       alertsList.push({
         type: 'success',
         headline: 'Success! ',
