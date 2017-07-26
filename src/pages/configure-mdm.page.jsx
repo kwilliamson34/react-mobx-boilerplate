@@ -43,7 +43,6 @@ export default class ConfigureMDM extends React.Component {
   }
 
   // Configure MDM Form Functions
-
 	updateMDM = (event) => {
 		this.store.updateMDM(event.target.value);
 	}
@@ -61,7 +60,6 @@ export default class ConfigureMDM extends React.Component {
   }
 
   // MDM Modals Functions
-
   discardFormChanges = (event) => {
     event.preventDefault();
     this.store.resetMDMForm();
@@ -88,54 +86,52 @@ export default class ConfigureMDM extends React.Component {
     this.showModal(showExitModal, '#exitModal')
 
     return (
-        <div id="exitModal" className="modal fade" tabIndex="-1" role="dialog" aria-labelledby="exit-modal-title">
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <button type="button" autoFocus="true" id="exitModalCloseBtn" className="fn-modal-close" onClick={this.toggleExitModal}>
-                <i aria-hidden="true" className="icon-close"></i>
-                <span className="sr-only">close window</span>
-              </button>
-              <div className="row no-gutters" id="exit-modal-title">
-                <div className="col-xs-12">
-                  <h1 className="as-h2">Unsaved changes</h1>
-                  <p>Your form changes will not be saved if you navigate away from this page.</p>
-                </div>
-                <div className="col-xs-12 text-center">
-                  <button className='fn-primary' onClick={this.toggleExitModal}>Stay on Page</button>
-                  <button className='fn-secondary' onClick={this.discardFormChanges}>Discard Changes</button>
-                </div>
+      <div id="exitModal" className="modal fade" tabIndex="-1" role="dialog" aria-labelledby="exit-modal-title">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <button type="button" autoFocus="true" id="exitModalCloseBtn" className="fn-modal-close" onClick={this.toggleExitModal}>
+              <i aria-hidden="true" className="icon-close"></i>
+              <span className="sr-only">Close window</span>
+            </button>
+            <div className="row no-gutters" id="exit-modal-title">
+              <div className="col-xs-12">
+                <h1 className="as-h2">Unsaved changes</h1>
+                <p>Your form changes will not be saved if you navigate away from this page.</p>
+              </div>
+              <div className="col-xs-12 text-center">
+                <button className='fn-primary' onClick={this.toggleExitModal}>Stay on Page</button>
+                <button className='fn-secondary' onClick={this.discardFormChanges}>Discard Changes</button>
               </div>
             </div>
           </div>
         </div>
+      </div>
     )
   }
 
   renderBreakConnectionModal = (showbreakMDMConnection) => {
-
-    this.showModal(showbreakMDMConnection, '#breakConnectionModal')
-
+    this.showModal(showbreakMDMConnection, '#breakConnectionModal');
     return (
-        <div id="breakConnectionModal"  className="modal fade" tabIndex="-1" role="dialog" aria-labelledby="break-connection-modal-title">
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <button type="button" className="fn-modal-close" onClick={this.togglebreakMDMConnection}>
-                <i aria-hidden="true" className="icon-close"></i>
-                <span className="sr-only">close window</span>
-              </button>
-              <div className="row no-gutters" id="break-connection-modal-title">
-                <div className="col-xs-12">
-                  <h1 className="as-h2">Confirm break connection</h1>
-                  <p>This cannot be undone. If you break this application’s connection to MDM, you will have to re-configure it using this form to establish a new connection.</p>
-                </div>
-                <div className="col-xs-12 text-center">
-                  <button className='fn-primary' onClick={this.togglebreakMDMConnection}>Keep Connection</button>
-                  <button className='fn-secondary' onClick={this.breakMDMConnection}>Break Connection</button>
-                </div>
+      <div id="breakConnectionModal"  className="modal fade" tabIndex="-1" role="dialog" aria-labelledby="break-connection-modal-title">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <button type="button" className="fn-modal-close" onClick={this.togglebreakMDMConnection}>
+              <i aria-hidden="true" className="icon-close"></i>
+              <span className="sr-only">close window</span>
+            </button>
+            <div className="row no-gutters" id="break-connection-modal-title">
+              <div className="col-xs-12">
+                <h1 className="as-h2">Confirm break connection</h1>
+                <p>This cannot be undone. If you break this application’s connection to MDM, you will have to re-configure it using this form to establish a new connection.</p>
+              </div>
+              <div className="col-xs-12 text-center">
+                <button className='fn-primary' onClick={this.togglebreakMDMConnection}>Keep Connection</button>
+                <button className='fn-secondary' onClick={this.breakMDMConnection}>Break Connection</button>
               </div>
             </div>
           </div>
         </div>
+      </div>
     )
   }
 
@@ -154,7 +150,6 @@ export default class ConfigureMDM extends React.Component {
   }
 
 	render() {
-
     const crumbs = [
       {
         pageHref: '/admin',
@@ -170,25 +165,24 @@ export default class ConfigureMDM extends React.Component {
       }
     ];
 
-    let mdm_provider = this.store.mdmProvider;
-    let mdm_form = null;
-
     this.isConfigured = this.store.pseMDMObject.get('mdm_type') ? true : false;
+    let formData = this.isConfigured
+      ? this.store.pseMDMObject.toJS()
+      : this.store.currentMDMForm.toJS();
 
-    let formData = this.isConfigured ? this.store.pseMDMObject.toJS() : this.store.currentMDMForm.toJS();
-
-    switch(mdm_provider) {
+    let MDMFormComponent = null;
+    switch(this.store.mdmProvider) {
       case 'airWatchForm':
-        mdm_form = <AirWatchForm store={this.store} connectionSet={this.isConfigured} formData={formData}/>;
+        MDMFormComponent = AirWatchForm;
         break;
       case 'ibmForm':
-        mdm_form = <IBMForm store={this.store} connectionSet={this.isConfigured} formData={formData}/>;
+        MDMFormComponent = IBMForm;
         break;
       case 'mobileIronForm':
-        mdm_form = <MobileIronForm store={this.store} connectionSet={this.isConfigured} formData={formData}/>;
+        MDMFormComponent = MobileIronForm;
         break;
       default:
-        mdm_form = null;
+        MDMFormComponent = null;
     }
 
 		return (
@@ -202,55 +196,61 @@ export default class ConfigureMDM extends React.Component {
           </div>
         }
         <div className="mdm-form-wrapper container">
-            <div className="col-xs-12 text-center">
-                <h1>Configure <span className="hidden-xs">Mobile Device Management (</span>MDM<span className="hidden-xs">)</span></h1>
-            </div>
+          <div className="col-xs-12 text-center">
+            <h1>Configure <span className="hidden-xs">Mobile Device Management (</span>MDM<span className="hidden-xs">)</span></h1>
+          </div>
 
-            <div className="row no-gutters">
-                <section className="col-xs-12 col-lg-10 col-lg-offset-1">
-                    <div className="mdm-form col-md-offset-2 col-xs-12 col-md-8 col-md">
+          <div className="row no-gutters">
+            <section className="col-xs-12 col-lg-10 col-lg-offset-1">
+              <div className="mdm-form col-md-offset-2 col-xs-12 col-md-8 col-md">
 
-                      <MDMAlerts store={this.store} page="mdm_form" clearSelectedCards={this.store.clearAppsReferencedByAlert}/>
+                <MDMAlerts
+                  store={this.store}
+                  page="mdm_form"
+                  clearSelectedCards={this.store.clearAppsReferencedByAlert}/>
 
-                      <form id="configure-mdm-form" onSubmit={this.handleSubmit} noValidate onChange={this.updateForm} onBlur={this.updateForm}>
+                <form id="configure-mdm-form" onSubmit={this.handleSubmit} noValidate onChange={this.updateForm} onBlur={this.updateForm}>
+                  {this.isConfigured &&
+                    <p className="mdm-description">Only one MDM can be configured at a time. To configure a new MDM, the existing connection must be broken. Once the existing connection is broken, a new one can be configured.</p>
+                  }
+                  <div className='form-group has-feedback'>
+                    <label className="control-label" htmlFor="mdm">
+                      Your MDM<span className="required-asterisks"> *</span>
+                    </label>
+                    <select id="mdm-select"
+                      className={`form-control ${this.store.mdmProvider ? '' : 'placeholder'}`}
+                      onChange={this.updateMDM}
+                      value={this.store.mdmProvider}
+                      disabled={this.isConfigured}>
+                      <option value="">Select MDM</option>
+                      <option value="airWatchForm">Airwatch</option>
+                      <option value="ibmForm">IBM MaaS360</option>
+                      <option value="mobileIronForm">MobileIron</option>
+                    </select>
+                  </div>
 
-                        {this.isConfigured && <p className="mdm-description">Only one MDM can be configured at a time. To configure a new MDM, the existing connection must be broken. Once the existing connection is broken, a new one can be configured.</p>}
+                  {MDMFormComponent && <MDMFormComponent
+                    store={this.store}
+                    connectionSet={this.isConfigured}
+                    formData={formData}/>}
 
-                        <div className='form-group has-feedback'>
-                          <label className="control-label" htmlFor="mdm">Your MDM<span className="required-asterisks"> *</span></label>
-                            <select id="mdm"
-                              className={`form-control ${mdm_provider ==='' && 'placeholder'}`}
-                              onChange={this.updateMDM}
-                              value={mdm_provider}
-                              disabled={this.isConfigured}>
-                              <option value="">Select MDM</option>
-                              <option value="airWatchForm">Airwatch</option>
-                              <option value="ibmForm">IBM MaaS360</option>
-                              <option value="mobileIronForm">MobileIron</option>
-                            </select>
-                        </div>
-
-                        {mdm_form}
-
-                        <div className="form-group text-center">
-                          <button id="mdm_submit_btn" aria-labelledby="configure-mdm-form" aria-disabled={!this.store.formIsValid || this.isConfigured || this.store.beingSubmitted} type="submit" className='fn-primary'>
-                          {this.store.beingSubmitted
-                            ? <span>
-                                <i className="icon-reload" aria-label="Still Submitting Form"></i>
-                                &nbsp;&nbsp;Submitting&hellip;
-                              </span>
-                            : <span>Submit</span>}
-                          </button>
-                        </div>
-                      </form>
-                    </div>
-                </section>
-            </div>
+                  <div className="form-group text-center">
+                    <button id="mdm_submit_btn" aria-labelledby="configure-mdm-form" aria-disabled={!this.store.formIsValid || this.isConfigured || this.store.beingSubmitted} type="submit" className='fn-primary'>
+                    {this.store.beingSubmitted
+                      ? <span>
+                          <i className="icon-reload" aria-label="Still Submitting Form"></i>
+                          &nbsp;&nbsp;Submitting&hellip;
+                        </span>
+                      : <span>Submit</span>}
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </section>
+          </div>
         </div>
-
         {this.renderExitModal(this.store.showExitModal)}
         {this.renderBreakConnectionModal(this.store.showbreakMDMConnection)}
-
       </article>
 		)
 	}

@@ -302,7 +302,7 @@ describe("MDMStore", () => {
 
   // test("setMDMStatus pushes the right error onto the stack if fails", () => {
   //   store.app_alerts = [];
-  //   store.throwMDMError = jest.fn();
+  //   store.throwPushError = jest.fn();
   //   let apps = [
   //     {
   //       mdm_install_status: 'FAILED'
@@ -311,13 +311,13 @@ describe("MDMStore", () => {
   //
   //   store.setMDMStatus(apps);
   //
-  //   expect(store.throwMDMError).toBeCalled();
+  //   expect(store.throwPushError).toBeCalled();
   // });
 
-  test("throwMDMError pushes the right error onto the stack", () => {
+  test("throwPushError pushes the right error onto the stack", () => {
     store.app_alerts = [];
     store.form_alerts = [];
-    store.throwMDMError();
+    store.throwPushError();
     expect(store.app_alerts.length).toBe(1);
     expect(store.app_alerts[0].message).toBe(store.userMessages.pushFail);
   });
@@ -336,12 +336,12 @@ describe("MDMStore", () => {
     const psk = "123";
     apiService.pushToMDM = jest.fn();
     apiService.pushToMDM.mockReturnValue(Promise.reject());
-    store.throwMDMError = jest.fn();
+    store.throwPushError = jest.fn();
 
     store.pushToMDM(psk).then(() => {
       expect(apiService.pushToMDM).rejects;
       expect(store.appCatalogMDMStatuses.get(psk)).toBe('FAILED');
-      expect(store.throwMDMError).toHaveBeenCalled();
+      expect(store.throwPushError).toHaveBeenCalled();
     });
   });
 });

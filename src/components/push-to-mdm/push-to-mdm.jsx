@@ -59,7 +59,7 @@ export class PushToMDM extends React.Component {
         break;
       case 'DISABLED':
         disabled = true;
-        screenReaderMessage = 'Push to MDM is not available.';
+        screenReaderMessage = 'Push to MDM has encountered a problem and is not available for this app. Please try again later.';
         btnLabel = 'Push to MDM';
         break;
       default:
