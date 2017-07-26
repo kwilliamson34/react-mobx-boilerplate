@@ -110,10 +110,8 @@ module.exports = {
 	},
 
 	plugins: [
-
-    new webpack.optimize.UglifyJsPlugin(), //minify everything
-    new webpack.optimize.AggressiveMergingPlugin(),//Merge chunks
-
+		new webpack.optimize.UglifyJsPlugin(), //minify everything
+		new webpack.optimize.AggressiveMergingPlugin(),//Merge chunks
 		new webpack.IgnorePlugin(/regenerator|nodent|js-beautify/, /ajv/),
 
 		new webpack.ProvidePlugin({
@@ -132,6 +130,7 @@ module.exports = {
 		}),
 
 		new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /nb/),
+
 		new webpack.LoaderOptionsPlugin({
 			test: /\.scss$/,
 			debug: true,
@@ -143,7 +142,8 @@ module.exports = {
 				output: { path: path.join(__dirname, "build") }
 			}
 		}),
-    new CompressionPlugin({
+
+		new CompressionPlugin({
       asset: "[path].gz[query]",
       algorithm: "gzip",
       test: /\.js$|\.css$|\.html$/,
