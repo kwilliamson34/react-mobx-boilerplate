@@ -5,7 +5,7 @@
   "main": "index.jsx",
   "scripts": {
     "copyassets": "copyfiles ./images/**/* ./fonts/**/* ./maps/* ./build/",
-    "build": "rm -rf build & npm run copyassets & webpack --env=prod",
+    "build": "rm -rf build & npm run copyassets & webpack -p",
     "start": "npm run copyassets & webpack-dev-server --hot --open --env=dev --progress",
     "test": "jest --coverage"
   },
