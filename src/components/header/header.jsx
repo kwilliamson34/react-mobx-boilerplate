@@ -38,9 +38,19 @@ export default class PSEHeader extends React.Component {
 			}
 		});
 
+		//only show focus styles when user tabs to them
+		$('#linkBtn-admin, #linkBtn-networkStatus').keyup((e) =>{
+			//add focus styles if on tab
+			if (e.which == 9){
+				$(e.target).addClass('focused');
+			}
+		}).blur((e) => {
+			$(e.target).removeClass('focused');
+		})
+
 		$('#linkBtn-admin').focus(() => {
 			this.openDesktopAdminSubmenu();
-		});
+		})
 
 		$('.dropdown-toggle').focus(() => {
 			$('.dropdown.open').removeClass('open');

@@ -80,7 +80,7 @@ export default class SolutionsCategoryTemplate extends React.Component {
         <BreadcrumbNav links={crumbs} />
         <div className="container">
           <section className="intro-block">
-            <h1 className="as-h2 centered">{categoryTitle}</h1>
+            <h1 className="centered">{categoryTitle}</h1>
           </section>
           <section className="all-cards-wrapper text-center">
             <nav className="center-block">

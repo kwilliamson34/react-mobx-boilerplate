@@ -37,18 +37,16 @@ class MDMStore {
     this.formHasChanged = true;
     this.currentMDMForm.set(input.id, input.value);
 
-    for (let i = 0; i < inputs.length; i++) {
-      if (inputs[i].value === '') {
-        validForm = false
+    inputs.forEach(input => {
+      if(input.value === '') {
+        validForm = false;
       }
-    }
+    });
 
     this.formIsValid = validForm;
   }
 
   @action resetMDMForm() {
-    const keys = this.currentMDMForm.keys();
-
     this.mdmProvider = '';
     this.formIsValid = false;
     this.beingSubmitted = false;
@@ -56,9 +54,36 @@ class MDMStore {
     this.showExitModal = false;
     this.showbreakMDMConnection = false;
 
-    for (let i = 0; i < keys.length; i++) {
-      this.currentMDMForm.set(keys[i], undefined);
+    if(this.currentMDMForm.keys.length) {
+      this.currentMDMForm.keys.forEach(key => {
+        this.currentMDMForm.set(key, undefined);
+      });
     }
+  }
+
+  clearStoredCredentials() {
+    let credFields = {};
+    switch (this.mdmProvider) {
+      case 'airWatchForm':
+        credFields = {
+          aw_password: '',
+          aw_userName: ''
+        }
+        break;
+      case 'ibmForm':
+        credFields = {
+          ibm_password: '',
+          ibm_userName: ''
+        }
+        break;
+      case 'mobileIronForm':
+        credFields = {
+          mi_password: '',
+          mi_userName: ''
+        }
+        break;
+    }
+    this.currentMDMForm.merge(credFields);
   }
 
   @action submitForm(form) {
@@ -83,32 +108,20 @@ class MDMStore {
 
     this.clearAlerts();
 
-    if (inputs.length > 1) {
-      for (let i = 0; i < inputs.length; i++) {
-        if (inputs[i].id !== 'mdm') {
-          mdmConfig[inputs[i].id] = inputs[i].value;
-        }
+    //record all input values (except mdm select menu) in state
+    inputs.forEach(input => {
+      if (input.id !== 'mdm-select') {
+        mdmConfig[input.id] = input.value;
       }
-    }
+    });
 
     if (this.formIsValid) {
       this.beingSubmitted = true;
       this.setMDMConfiguration(mdmConfig);
-    } else {
-      if (!this.pseMDMObject.get('mdm_type')) {
-        let error_msg = inputs.length > 1
-          ? this.userMessages.errorsExist
-          : this.userMessages.mdmMissing;
-        this.form_alerts.push({
-          type: 'error',
-          headline: 'Error: ',
-          message: error_msg
-        });
-      }
     }
   }
 
-  // MDM Alerts
+  // MDM Alert functions
   @action removeAlert(page, idx) {
     switch (page) {
       case 'mdm_form':
@@ -126,7 +139,50 @@ class MDMStore {
     this.appsReferencedByAlert = [];
   }
 
-  // MDM Modals
+  @action clearAppsReferencedByAlert = () => {
+    this.appsReferencedByAlert = [];
+  }
+
+  @action throwPushError() {
+    this.showErrorAlert({
+      alertsList: this.app_alerts,
+      message: this.userMessages.pushFail
+    });
+  }
+
+  @action throwPushSuccess() {
+    this.showSuccessAlert({
+      alertsList: this.app_alerts,
+      message: this.userMessages.pushSuccess
+    });
+  }
+
+  @action throwConnectError({alertsList = this.app_alerts}) {
+    this.showErrorAlert({
+      alertsList,
+      message: this.userMessages.connectFail
+    });
+  }
+
+  @action showErrorAlert({alertsList = this.form_alerts, message}) {
+    alertsList.push({
+      type: 'error',
+      headline: 'Error: ',
+      message: message || this.userMessages.connectFail
+    });
+  }
+
+  @action showSuccessAlert({alertsList = this.form_alerts, message}) {
+    if(message) {
+      alertsList.push({
+        type: 'success',
+        headline: 'Success! ',
+        message: message
+      });
+    }
+  }
+
+  // MDM Modal functions
   @action toggleExitModal() {
     this.showExitModal = !this.showExitModal;
   }
@@ -153,7 +209,6 @@ class MDMStore {
     });
   }
 
-
   // Services
   @action getMDMConfiguration() {
     const success = (resp) => {
@@ -172,13 +227,8 @@ class MDMStore {
           break;
       }
     }
-    const fail = (err) => {
-      console.warn(err);
-      this.form_alerts.push({
-        type: 'error',
-        headline: 'Error: ',
-        message: this.userMessages.connectFail
-      });
+    const fail = () => {
+      this.throwConnectError({alertsList: this.form_alerts});
     }
     return apiService.getMDMConfiguration().then(success, fail);
   }
@@ -189,61 +239,32 @@ class MDMStore {
       this.beingSubmitted = false;
       this.form_alerts = [];
 
-      if (!messageObj.error) {
+      if (messageObj.error) {
+        this.formIsValid = false;
+        this.showErrorAlert({
+          alertsList: this.form_alerts,
+          message: messageObj.error
+        });
+
+        if (messageObj.error.toLowerCase().includes('credentials')) {
+          this.clearStoredCredentials();
+        }
+      } else {
         this.showExitModal = false;
         this.formHasChanged = false;
         this.hasBeenSubmitted = true;
 
         this.pseMDMObject.merge(mdmConfig);
         this.pseMDMObject.set('mdm_type', 'configured');
-        this.app_alerts.push({
-          type: 'success',
-          headline: 'Success! ',
+        this.showSuccessAlert({
+          alertsList: this.form_alerts,
           message: messageObj.message
         });
-      } else {
-        this.formIsValid = false;
-        this.form_alerts.push({
-          type: 'error',
-          headline: 'Error: ',
-          message: messageObj.error
-        });
-
-        if (messageObj.error.toLowerCase().includes('credentials')) {
-          let credFields = {};
-
-          switch (this.mdmProvider) {
-            case 'airWatchForm':
-              credFields = {
-                aw_password: '',
-                aw_userName: ''
-              }
-              break;
-            case 'ibmForm':
-              credFields = {
-                ibm_password: '',
-                ibm_userName: ''
-              }
-              break;
-            case 'mobileIronForm':
-              credFields = {
-                mi_password: '',
-                mi_userName: ''
-              }
-              break;
-          }
-          this.currentMDMForm.merge(credFields);
-        }
       }
     }
-    const fail = (err) => {
-      console.warn(err);
+    const fail = () => {
       this.beingSubmitted = false;
-      this.form_alerts.push({
-        type: 'error',
-        headline: 'Error: ',
-        message: this.userMessages.connectFail
-      });
+      this.throwConnectError({alertsList: this.form_alerts});
     }
     return apiService.setMDMConfiguration(mdmConfig).then(success, fail);
   }
@@ -253,18 +274,15 @@ class MDMStore {
       this.pseMDMObject.clear();
       this.hasBeenSubmitted = false;
       this.resetMDMForm();
-      this.form_alerts.push({
-        type: 'success',
-        headline: 'Success! ',
+      this.showSuccessAlert({
+        alertsList: this.form_alerts,
         message: this.userMessages.breakConnectionSuccess
       });
     }
-    const fail = (err) => {
-      console.warn(err);
+    const fail = () => {
       this.hasBeenSubmitted = true;
-      this.form_alerts.push({
-        type: 'error',
-        headline: 'Error: ',
+      this.showErrorAlert({
+        alertsList: this.form_alerts,
         message: this.userMessages.breakConnectionFail
       });
     }
@@ -275,13 +293,8 @@ class MDMStore {
     const success = (apps) => {
       mdmStore.setMDMStatus(apps);
     }
-    const fail = (err) => {
-      console.warn(err);
-      this.app_alerts.push({
-        type: 'error',
-        headline: 'Error: ',
-        message: this.userMessages.connectFail
-      });
+    const fail = () => {
+      this.throwConnectError();
     }
     return apiService.getAdminApps().then(success, fail);
   }
@@ -290,79 +303,56 @@ class MDMStore {
     const success = (statusObject) => {
       this.appCatalogMDMStatuses.set(psk, statusObject.mdm_install_status);
       if(args.showUserMessageOnFail && statusObject.mdm_install_status === 'FAILED'){
-        this.throwMDMError();
+        this.throwPushError();
       } else if (args.showUserMessageOnSuccess && statusObject.mdm_install_status === 'INSTALLED'){
-        this.app_alerts.push({
-          type: 'success',
-          headline: 'Success! ',
-          message: this.userMessages.pushSuccess
-        });
+        this.throwPushSuccess();
       }
     }
-    const fail = (err) => {
-      console.warn(err);
-      //set a status other than PENDING and IN_PROGRESS to stop polling
-      this.appCatalogMDMStatuses.set(psk, 'DISABLED');
-      this.app_alerts.push({
-        type: 'error',
-        headline: 'Error: ',
-        message: this.userMessages.connectFail
-      });
+    const fail = () => {
+      this.stopPolling(psk);
     }
     return apiService.getSingleMDMStatus(psk).then(success, fail)
   }
 
   @action setMDMStatus(apps) {
-    // TODO: Future enhancement: NEEDS_UPDATE case needs to be built on service side
-
     let successfullSubmission = false;
     let failedSubmission = false;
     this.appsReferencedByAlert = [];
 
-    for (let i = 0; i < apps.length; i++) {
-      let app = apps[i];
+    apps.forEach(app => {
       if (app.mdm_install_status === 'FAILED') {
         /* Always show error banner if failed installs are present. */
         failedSubmission = true;
-      } else if (app.mdm_install_status === 'INSTALLED'
-          && (this.appCatalogMDMStatuses.get(app.app_psk) === 'PENDING' || this.appCatalogMDMStatuses.get(app.app_psk) === 'IN_PROGRESS')) {
+      } else if (app.mdm_install_status === 'INSTALLED' && this.mdmStatusIsUnresolved(app.app_psk)) {
         /* Only show success message if the user has just tried
         to install; NOT on initial render. */
         successfullSubmission = true;
         this.appsReferencedByAlert.push(app.app_psk);
       }
       this.appCatalogMDMStatuses.set(app.app_psk, app.mdm_install_status);
-    }
+    });
 
     if (failedSubmission) {
-      this.throwMDMError();
+      this.throwPushError();
     }
-
     if (successfullSubmission) {
-      this.app_alerts.push({
-        type: 'success',
-        headline: 'Success! ',
-        message: this.userMessages.pushSuccess
-      });
+      this.throwPushSuccess();
     }
   }
 
-  @action clearAppsReferencedByAlert = () => {
-    this.appsReferencedByAlert = [];
+  mdmStatusIsUnresolved(psk) {
+    return this.appCatalogMDMStatuses.get(psk) === 'PENDING' || this.appCatalogMDMStatuses.get(psk) === 'IN_PROGRESS';
   }
 
-  @action throwMDMError() {
-    this.clearAlerts();
-    this.app_alerts.push({
-      type: 'error',
-      headline: 'Error: ',
-      message: this.userMessages.pushFail
-    });
+  stopPolling(psk) {
+    //set a status other than PENDING and IN_PROGRESS to stop polling
+    this.appCatalogMDMStatuses.set(psk, 'DISABLED');
+    this.throwConnectError();
   }
 
-  @action pollUntilResolved(psk) {
+  pollUntilResolved(psk) {
     setTimeout(() => {
-      if(this.appCatalogMDMStatuses.get(psk) === 'PENDING' || this.appCatalogMDMStatuses.get(psk) === 'IN_PROGRESS') {
+      if(this.mdmStatusIsUnresolved(psk)) {
         this.getSingleMDMStatus(psk, {
           showUserMessageOnFail: true,
           showUserMessageOnSuccess: true
@@ -376,11 +366,17 @@ class MDMStore {
     this.clearAlerts();
     const success = () => {
       this.pollUntilResolved(psk);
+
+      //Stop polling after 5 min as a failsafe
+      setTimeout(() => {
+        if(this.mdmStatusIsUnresolved(psk)) {
+          this.stopPolling(psk);
+        }
+      }, 300000);
     }
-    const fail = (err) => {
-      console.warn(err);
+    const fail = () => {
       this.appCatalogMDMStatuses.set(psk, 'FAILED');
-      this.throwMDMError();
+      this.throwPushError();
     }
     this.appCatalogMDMStatuses.set(psk, 'PENDING');
     return apiService.pushToMDM(psk).then(success, fail);
@@ -389,8 +385,6 @@ class MDMStore {
   // OBSERVABLES
   @observable pseMDMObject = observable.map({});
   @observable userMessages = {
-    errorsExist: 'Please correct the errors below.',
-    mdmMissing: 'Please select an MDM.',
     connectFail: 'There was a problem establishing a connection with MDM.',
     breakConnectionSuccess: 'The connection to MDM has been broken.',
     breakConnectionFail: 'There was a problem breaking the connection with MDM.',

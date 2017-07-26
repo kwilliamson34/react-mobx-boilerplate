@@ -40,6 +40,7 @@ export class PushToMDM extends React.Component {
         break;
       case 'IN_PROGRESS':
       case 'PENDING':
+        btnClass = 'fn-primary deaden';
         screenReaderMessage = 'Submitting the app to MDM.';
         icon = (<i className="icon-reload"></i>);
         btnLabel = 'Submitting&hellip;'
@@ -49,7 +50,7 @@ export class PushToMDM extends React.Component {
         btnLabel = 'Push to MDM';
         break;
       case 'INSTALLED':
-        btnClass ='fn-secondary';
+        btnClass = 'fn-secondary';
         screenReaderMessage = 'This app has already been pushed to MDM. Click to re-push.';
         btnLabel = 'Re-Push to MDM';
         break;
@@ -59,7 +60,7 @@ export class PushToMDM extends React.Component {
         break;
       case 'DISABLED':
         disabled = true;
-        screenReaderMessage = 'Push to MDM is not available.';
+        screenReaderMessage = 'Push to MDM has encountered a problem and is not available for this app. Please try again later.';
         btnLabel = 'Push to MDM';
         break;
       default:

@@ -4,6 +4,9 @@ import {observer} from 'mobx-react';
 import Checkbox from '../toggle/checkbox.jsx';
 import {PushToMDM} from '../push-to-mdm/push-to-mdm';
 
+import $ from 'jquery';
+import {utilsService} from '../../core/services/utils.service';
+
 @observer
 export default class AppManagementBlock extends React.Component {
 
@@ -22,6 +25,18 @@ export default class AppManagementBlock extends React.Component {
     super(props);
     this.handleAvailableClick = this.handleAvailableClick.bind(this);
     this.handleRecommendedClick = this.handleRecommendedClick.bind(this);
+  }
+
+  componentDidMount() {
+    $(`#Available-${this.props.psk}`).focus((e) => {
+      const $target = $(e.target);
+      $(window).one('keyup', (e) => {
+        const code = e.keyCode ? e.keyCode : e.which;
+        if (code === 9) {
+          utilsService.scrollIntoViewIfNecessary($target);
+        }
+      })
+    })
   }
 
   handleAvailableClick(event) {
