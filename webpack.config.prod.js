@@ -7,8 +7,8 @@ const CompressionPlugin = require('compression-webpack-plugin');
 const precss = require("precss");
 const autoprefixer = require("autoprefixer");
 
-// Set the correct environment
-let env = 'prod';
+// Set environment to prod; allowed ['dev', 'prod']
+const env = 'prod';
 
 console.log('Built for the \x1b[34m' + env + '\x1b[30m environment');
 
@@ -29,7 +29,7 @@ module.exports = {
 	resolve: {
 		extensions: ['.js', '.jsx'],
 		alias: {
-      config: path.join(__dirname, `config/${env}.endpoints.js`),
+      'config': path.join(__dirname, `config/${env}.endpoints.js`),
       'react': 'preact-compat',
       'react-dom': 'preact-compat'
     },
