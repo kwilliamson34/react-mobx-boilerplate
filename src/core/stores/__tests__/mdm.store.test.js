@@ -16,6 +16,18 @@ describe("MDMStore", () => {
     store = mdmStore;
   });
 
+  test("getBrowserCloseAlert updates event properly", () => {
+    let event = {};
+    store.mdmProvider = '';
+    store.getBrowserCloseAlert(event);
+    expect(event.returnValue).toBe(undefined);
+
+    store.mdmProvider = 'provider';
+    store.formHasChanged = true;
+    store.getBrowserCloseAlert(event);
+    expect(event.returnValue).toBe(true);
+  });
+
   test("checkForChanges returns true iff the user has entered info", () => {
     store.mdmProvider = '';
     expect(store.checkForChanges()).toBe(false);
@@ -81,7 +93,13 @@ describe("MDMStore", () => {
     expect(store.formIsValid).toBe(false);
   });
 
-  //TODO submitForm
+  test("clearStoredCredentials works as expected", () => {
+    //TODO
+  });
+
+  test("submitForm works as expected", () => {
+    //TODO
+  });
 
   test("can remove alert based on page id and index", () => {
     store.form_alerts = ['0','1','2'];
@@ -107,6 +125,77 @@ describe("MDMStore", () => {
     expect(store.app_alerts.length).toBe(0);
   });
 
+  test("throwPushError pushes the right error onto the stack", () => {
+    store.app_alerts = [];
+    store.form_alerts = [];
+    store.throwPushError();
+    expect(store.app_alerts.length).toBe(1);
+    expect(store.app_alerts[0].message).toBe(store.userMessages.pushFail);
+  });
+
+  test("throwPushSuccess pushes the right message onto the stack", () => {
+    store.app_alerts = [];
+    store.form_alerts = [];
+    store.throwPushSuccess();
+    expect(store.app_alerts.length).toBe(1);
+    expect(store.app_alerts[0].message).toBe(store.userMessages.pushSuccess);
+  });
+
+  test("throwConnectError pushes the right error onto the stack", () => {
+    store.app_alerts = [];
+    store.form_alerts = [];
+    store.throwConnectError({alertsList: store.app_alerts});
+    expect(store.app_alerts.length).toBe(1);
+    expect(store.app_alerts[0].message).toBe(store.userMessages.connectFail);
+
+    store.throwConnectError({alertsList: store.form_alerts});
+    expect(store.form_alerts.length).toBe(1);
+    expect(store.form_alerts[0].message).toBe(store.userMessages.connectFail);
+  });
+
+  test("showErrorAlert works correctly", () => {
+    store.app_alerts = [];
+    store.form_alerts = [];
+
+    store.showErrorAlert({alertsList: store.app_alerts, message: ''});
+    expect(store.app_alerts.length).toBe(1);
+    expect(store.app_alerts[0].type).toBe('error');
+    expect(store.app_alerts[0].message).toBe(store.userMessages.connectFail);
+
+    store.showErrorAlert({alertsList: store.app_alerts, message: 'message1'});
+    expect(store.app_alerts.length).toBe(2);
+    expect(store.app_alerts[1].type).toBe('error');
+    expect(store.app_alerts[1].message).toBe('message1');
+
+    store.showErrorAlert({alertsList: store.form_alerts, message: 'message2'});
+    expect(store.form_alerts.length).toBe(1);
+    expect(store.form_alerts[0].type).toBe('error');
+    expect(store.form_alerts[0].message).toBe('message2');
+  });
+
+  test("showSuccessAlert works correctly", () => {
+    store.app_alerts = [];
+    store.form_alerts = [];
+
+    store.showSuccessAlert({alertsList: store.app_alerts, message: ''});
+    expect(store.app_alerts.length).toBe(0);
+
+    store.showSuccessAlert({alertsList: store.app_alerts, message: 'message1'});
+    expect(store.app_alerts.length).toBe(1);
+    expect(store.app_alerts[0].type).toBe('success');
+    expect(store.app_alerts[0].message).toBe('message1');
+
+    store.showSuccessAlert({alertsList: store.app_alerts, message: 'message2'});
+    expect(store.app_alerts.length).toBe(2);
+    expect(store.app_alerts[1].type).toBe('success');
+    expect(store.app_alerts[1].message).toBe('message2');
+
+    store.showSuccessAlert({alertsList: store.form_alerts, message: 'message3'});
+    expect(store.form_alerts.length).toBe(1);
+    expect(store.form_alerts[0].type).toBe('success');
+    expect(store.form_alerts[0].message).toBe('message3');
+  });
+
   test("modal toggles work correctly", () => {
     store.showExitModal = false;
     store.showbreakMDMConnection = false;
@@ -122,6 +211,7 @@ describe("MDMStore", () => {
     expect(store.showbreakMDMConnection).toBe(false);
   });
 
+  //TODO
   // test("enable/disable exit modal works correctly", () => {
   //   store.showExitModal = false;
   //   history.block = jest.fn()
@@ -131,7 +221,7 @@ describe("MDMStore", () => {
   //   expect(store.showExitModal).toBe(true);
   // });
 
-  test("AIRWATCH records the right mdmProvider", () => {
+  test("records the right mdmProvider", () => {
     apiService.getMDMConfiguration = jest.fn();
     apiService.getMDMConfiguration.mockReturnValue(Promise.resolve({
       data: {
@@ -283,47 +373,77 @@ describe("MDMStore", () => {
     });
   });
 
-  //TODO setMDMStatus
-  // test("setMDMStatus pushes success message onto the stack if succeeds", () => {
-  //   store.app_alerts = [];
-  //   store.appCatalogMDMStatuses['123'] = 'PENDING';
+  test("getSingleMDMStatus works as expected", () => {
+    //TODO
+  });
+
+  //TODO
+  // test("setMDMStatus sets status for each app", () => {
   //   let apps = [
-  //     {
-  //       app_psk: '123',
-  //       mdm_install_status: 'INSTALLED'
-  //     }
+  //     {app_psk: '1', mdm_install_status: 'a'},
+  //     {app_psk: '2', mdm_install_status: 'b'}
   //   ];
-  //
   //   store.setMDMStatus(apps);
+  //   expect(store.appCatalogMDMStatuses.get('1')).toBe('a');
+  //   expect(store.appCatalogMDMStatuses.get('2')).toBe('b');
+  // });
   //
-  //   expect(store.app_alerts.length).toBe(1);
-  //   expect(store.app_alerts[0].message).toBe(store.userMessages.pushSuccess);
+  // test("setMDMStatus shows alert on push failure", () => {
+  //   store.throwPushError = jest.fn();
+  //   let apps = [
+  //     {app_psk: '1', mdm_install_status: 'FAILED'}
+  //   ];
+  //   store.setMDMStatus(apps);
+  //   expect(store.throwPushError).toHaveBeenCalled();
+  // });
+  //
+  // test("setMDMStatus shows alert on push success", () => {
+  //   store.throwPushSuccess = jest.fn();
+  //   store.mdmStatusIsUnresolved = jest.fn();
+  //   store.mdmStatusIsUnresolved.mockReturnValue(true);
+  //   let apps = [
+  //     {app_psk: '2', mdm_install_status: 'INSTALLED'}
+  //   ];
+  //   store.setMDMStatus(apps);
+  //   expect(store.throwPushSuccess).toHaveBeenCalled();
   // });
 
-  // test("setMDMStatus pushes the right error onto the stack if fails", () => {
-  //   store.app_alerts = [];
-  //   store.throwMDMError = jest.fn();
-  //   let apps = [
-  //     {
-  //       mdm_install_status: 'FAILED'
-  //     }
-  //   ];
-  //
-  //   store.setMDMStatus(apps);
-  //
-  //   expect(store.throwMDMError).toBeCalled();
-  // });
+  test("mdmStatusIsUnresolved returns expected value", () => {
+    let psk = "123";
+    store.appCatalogMDMStatuses.set(psk, 'PENDING');
+    expect(store.mdmStatusIsUnresolved(psk)).toBe(true);
 
-  test("throwMDMError pushes the right error onto the stack", () => {
-    store.app_alerts = [];
-    store.form_alerts = [];
-    store.throwMDMError();
-    expect(store.app_alerts.length).toBe(1);
-    expect(store.app_alerts[0].message).toBe(store.userMessages.pushFail);
+    store.appCatalogMDMStatuses.set(psk, 'IN_PROGRESS');
+    expect(store.mdmStatusIsUnresolved(psk)).toBe(true);
+
+    store.appCatalogMDMStatuses.set(psk, 'INSTALLEND');
+    expect(store.mdmStatusIsUnresolved(psk)).toBe(false);
+
+    store.appCatalogMDMStatuses.set(psk, 'NOT_INSTALLED');
+    expect(store.mdmStatusIsUnresolved(psk)).toBe(false);
+
+    store.appCatalogMDMStatuses.set(psk, 'FAILED');
+    expect(store.mdmStatusIsUnresolved(psk)).toBe(false);
+  });
+
+  test("stopPolling works as expected", () => {
+    let psk = "123";
+    store.appCatalogMDMStatuses.set(psk, 'PENDING');
+    store.throwConnectError = jest.fn();
+
+    store.stopPolling(psk);
+
+    expect(store.appCatalogMDMStatuses.get(psk)).toBe('DISABLED');
+    expect(store.throwConnectError).toHaveBeenCalled();
+  });
+
+  test("pollUntilResolved works as expected", () => {
+    //TODO
   });
 
   test("pushToMDM sets status to PENDING until resolved", () => {
     const psk = "123";
+    store.appCatalogMDMStatuses.set(psk, 'NOT_INSTALLED');
     apiService.pushToMDM = jest.fn();
     apiService.pushToMDM.mockReturnValue(Promise.resolve());
     expect(store.appCatalogMDMStatuses.get(psk)).not.toBe('PENDING');
@@ -336,12 +456,12 @@ describe("MDMStore", () => {
     const psk = "123";
     apiService.pushToMDM = jest.fn();
     apiService.pushToMDM.mockReturnValue(Promise.reject());
-    store.throwMDMError = jest.fn();
+    store.throwPushError = jest.fn();
 
     store.pushToMDM(psk).then(() => {
       expect(apiService.pushToMDM).rejects;
       expect(store.appCatalogMDMStatuses.get(psk)).toBe('FAILED');
-      expect(store.throwMDMError).toHaveBeenCalled();
+      expect(store.throwPushError).toHaveBeenCalled();
     });
   });
 });
