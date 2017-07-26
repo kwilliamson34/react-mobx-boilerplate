@@ -1,5 +1,5 @@
 .gallery-container {
-  padding: 60px 0 30px;
+  padding: 60px 0 0;
 
   .scrollable-region {
     overflow-x: scroll;
@@ -15,14 +15,21 @@
   .slide-container {
     position: relative;
     display: inline-block;
-    margin: 0 15px;
+    margin: 0 15px 60px;
+    width: 100%;
 
     &:first-child {
-      margin-left: 0;
-    }
+      margin-left: 15px;
 
-    &:last-child {
-      margin-right: 0;
+      @media #{$tablet} {
+        margin-left: calc((100% - 750px) / 2);
+      }
+      @media #{$desktop} {
+        margin-left: calc((100% - 970px) / 2);
+      }
+      @media #{$wide} {
+        margin-left: calc((100% - 1170px) / 2);
+      }
     }
 
     .slide-img {
