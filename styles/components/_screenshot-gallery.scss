@@ -1,27 +1,43 @@
 .gallery-container {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  justify-content: space-between;
-  position: relative;
   padding: 60px 0 30px;
-  overflow-x: scroll;
-  overflow-y: hidden;
+
+  .scrollable-region {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+    position: relative;
+    padding: 0;
+  }
 
   .slide-container {
     position: relative;
+    display: inline-block;
     margin: 0 15px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
 
     .slide-img {
       height: 440px;
-      margin-bottom: 3rem;
+      min-width: 200px;
       border: 1px solid $fn-grey;
     }
 
     .slide-caption {
-      justify-content: flex-end;
-      position: absolute;
-      bottom: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 200px;
+      line-height: 2rem;
+      margin: 15px 0;
     }
   }
 }

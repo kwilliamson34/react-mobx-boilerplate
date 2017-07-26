@@ -34,7 +34,7 @@ export default class ScreenshotGallery extends React.Component {
       <div className='gallery-container' role='region' aria-label='App screenshot gallery'>
         <div className="container">
           <div className="row">
-            <div className="col-xs-12">
+            <div className="col-xs-12 scrollable-region">
               {this.renderSlides()}
             </div>
           </div>
