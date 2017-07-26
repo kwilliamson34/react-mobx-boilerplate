@@ -4,24 +4,24 @@
   align-items: stretch;
   justify-content: space-between;
   position: relative;
-  padding: 60px 0px 30px 0px;
+  padding: 60px 0 30px;
   overflow-x: scroll;
   overflow-y: hidden;
-}
 
-.slide-container {
-  position: relative;
-  margin: 0px 15px;
-}
+  .slide-container {
+    position: relative;
+    margin: 0 15px;
 
-.slide-img {
-  height: 440px;
-  margin-bottom: 10px;
-  border: 1px solid $fn-grey;
-}
+    .slide-img {
+      height: 440px;
+      margin-bottom: 3rem;
+      border: 1px solid $fn-grey;
+    }
 
-.slide-caption {
-  justify-content: flex-end;
-  position: absolute;
-  bottom: 0;
+    .slide-caption {
+      justify-content: flex-end;
+      position: absolute;
+      bottom: 0;
+    }
+  }
 }

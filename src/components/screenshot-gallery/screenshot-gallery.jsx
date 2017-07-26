@@ -32,7 +32,13 @@ export default class ScreenshotGallery extends React.Component {
 
     return (
       <div className='gallery-container' role='region' aria-label='App screenshot gallery'>
-        {this.renderSlides()}
+        <div className="container">
+          <div className="row">
+            <div className="col-xs-12">
+              {this.renderSlides()}
+            </div>
+          </div>
+        </div>
       </div>
     )
   }
