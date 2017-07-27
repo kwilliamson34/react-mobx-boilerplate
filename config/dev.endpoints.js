@@ -10,7 +10,8 @@ const config = {
   attCustomerSupportPhone: '800-574-7000',
   appStore: 'https://apps-qa.sapientfirst.net',
   developerConsole: 'https://devcon-qa.sapientfirst.net',
-  localControl: 'https://pse-qa.sapientfirst.net'
+  localControl: 'https://pse-qa.sapientfirst.net',
+  viewWirelessReportsLink: 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn?requestedPage=downloadReports'
 }
 
 export default config

@@ -10,7 +10,8 @@ const config = {
   attCustomerSupportPhone: '800-574-7000',
   appStore: 'https://apps.firstnet.att.com',
   developerConsole: 'https://appcontrol.firstnet.att.com',
-  localControl: 'https://localcontrol.firstnet.att.com'
+  localControl: 'https://localcontrol.firstnet.att.com',
+  viewWirelessReportsLink: 'https://wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn?requestedPage=downloadReports'
 }
 
 export default config
