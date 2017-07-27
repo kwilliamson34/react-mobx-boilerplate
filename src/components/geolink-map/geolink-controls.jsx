@@ -123,7 +123,7 @@ export default class GeolinkControls extends React.Component {
           </div>
           <div className="row is-flex">
             <div className="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-4">
-              <h2 className="as-h5">Network</h2>
+              <h2 className="as-h5">Network<span className="sr-only">&nbsp;color key</span></h2>
               <div className="key-labels">
                 <span>4G LTE</span>
                 <span>4G</span>
@@ -135,7 +135,7 @@ export default class GeolinkControls extends React.Component {
               </div>
             </div>
             <div className="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-4">
-              <h2 className="as-h5">Weather</h2>
+              <h2 className="as-h5">Weather<span className="sr-only">&nbsp;color key</span></h2>
               <div className="key-labels">
                 <span>Light Rain</span>
                 <span>Heavy Rain</span>
@@ -147,7 +147,7 @@ export default class GeolinkControls extends React.Component {
               </div>
             </div>
             <div className="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-4">
-              <h2 className="as-h5">Traffic</h2>
+              <h2 className="as-h5">Traffic<span className="sr-only">&nbsp;color key</span></h2>
               <div className="traffic-legend-wrapper ">
                 <div className="traffic-bars ">
                   <div className="key-labels traffic">
