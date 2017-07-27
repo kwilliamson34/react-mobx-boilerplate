@@ -96,7 +96,7 @@ export class CardList extends React.Component {
           </div>
         }
         {this.showNoResultsBlock &&
-          <div>
+          <div className="no-results-container">
             <p className="as-h2">No Results</p>
             <p aria-live="polite">There are no results to display. Please retry your search.</p>
             {this.props.handleViewAllAppsClick &&
