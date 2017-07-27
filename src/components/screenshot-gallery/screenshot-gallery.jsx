@@ -31,8 +31,10 @@ export default class ScreenshotGallery extends React.Component {
   render() {
 
     return (
-      <div className='gallery-container' role='region' aria-label='App screenshot gallery'>
-        {this.renderSlides()}
+      <div className="gallery-container" role="region" aria-label="App screenshot gallery">
+        <div className="scrollable-region">
+          {this.renderSlides()}
+        </div>
       </div>
     )
   }
