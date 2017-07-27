@@ -1,16 +1,18 @@
 footer {
   border-top: 5px solid $fn-black;
 
-  .logoRow{
+  .logoRow {
     > a {
       display: inline-block;
       height: 100%;
-      &:focus{
+
+      &:focus {
         @include focus();
         border-radius: 4px;
       }
     }
   }
+
   .footer-main {
     background: $fn-ltgrey;
     padding-bottom: 60px;
@@ -25,7 +27,7 @@ footer {
       letter-spacing: 2.65px;
     }
 
-    h2{
+    h2 {
       padding-left: 2px;
     }
 
@@ -47,16 +49,21 @@ footer {
         color: $fn-dkgrey;
         padding: 2px;
 
-        &:focus{
+        span {
+          margin-left: 10px;
+        }
+
+        &:focus {
           @include focus();
           border-radius: 4px;
         }
 
         &.fb {
-          &:hover,
           &:active,
-          &:focus {
+          &:focus,
+          &:hover {
             padding-bottom: 5px;
+
             i {
               color: $fn-facebook;
             }
@@ -64,10 +71,11 @@ footer {
         }
 
         &.youtube {
-          &:hover,
           &:active,
-          &:focus {
+          &:focus,
+          &:hover {
             padding-bottom: 5px;
+
             i {
               color: $fn-youtube;
             }
@@ -75,10 +83,11 @@ footer {
         }
 
         &.twitter {
-          &:hover,
           &:active,
-          &:focus {
+          &:focus,
+          &:hover {
             padding-bottom: 5px;
+
             i {
               color: $fn-twitter;
             }
@@ -86,10 +95,11 @@ footer {
         }
 
         &.linkedin {
-          &:hover,
           &:active,
-          &:focus {
+          &:focus,
+          &:hover {
             padding-bottom: 5px;
+
             i {
               color: $fn-linkedin;
             }
@@ -97,10 +107,11 @@ footer {
         }
 
         &.tumblr {
-          &:hover,
           &:active,
-          &:focus {
+          &:focus,
+          &:hover {
             padding-bottom: 5px;
+
             i {
               color: $fn-tumblr;
             }
@@ -110,7 +121,6 @@ footer {
 
       i {
         display: inline-block;
-        margin-right: 10px;
         color: $fn-social-grey;
 
         &:before {
@@ -151,7 +161,8 @@ footer {
 .sitemap-links {
   overflow: hidden;
   transition: all $fn-animation-duration ease;
-  > div{
+
+  > div {
     padding: 1px;
   }
 }
@@ -212,7 +223,6 @@ footer {
 .help-link-block {
   margin-left: 25px;
 }
-
 @import 'footer-xs';
 @import 'footer-md';
 @import 'footer-lg';
