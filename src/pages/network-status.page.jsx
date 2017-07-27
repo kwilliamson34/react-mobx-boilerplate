@@ -41,7 +41,7 @@ export default class NetworkStatusPage extends React.Component {
     return (
       <article id="network-page" className="content-wrapper">
         <h1 className="sr-only">Network Status</h1>
-        <iframe id="geolink_static_assets" src={config.geolinkScripts + '/libs/jquery/jquery.min.js'} style={{
+        <iframe aria-hidden='true' id="geolink_static_assets" src={config.geolinkScripts + '/libs/jquery/jquery.min.js'} style={{
           width: 0,
           height: 0,
           padding: 0,

@@ -99,13 +99,17 @@ export default class GeolinkControls extends React.Component {
                 <div className="emergency">
                   Emergency:<br/>
                 <a className="deaden" href={'tel:' + this.geoStore.coverageIssueEmergencyNumber}>
+                  <span className="sr-only">Call&nbsp;</span>
                   {this.geoStore.coverageIssueEmergencyNumber}
+                  <span className="sr-only">&nbsp;to report an emergency coverage issue</span>
                 </a>
                 </div>
                 <div className="non-emergency">
                   Non-emergency:<br/>
                 <a className="deaden" href={'tel:' + this.geoStore.coverageIssueNonEmergencyNumber}>
+                  <span className="sr-only">Call&nbsp;</span>
                   {this.geoStore.coverageIssueNonEmergencyNumber}
+                  <span className="sr-only">&nbsp;to report a non-emergency coverage issue</span>
                 </a>
                 </div>
               </div>
