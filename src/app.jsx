@@ -155,7 +155,7 @@ export default class App extends React.Component {
 			pseMasterStore.isLoggedIn ? (
 				<Switch>
           <Route exact path="/session-timeout" component={SessionTimeoutPage}/>
-					<Route path="/error" component={this.getPlainLayoutComponent}/>
+          <Route path="/error" component={this.getPlainLayoutComponent}/>
 					<Route component={this.getMainLayoutComponent}/>
 				</Switch>
 			) : (
