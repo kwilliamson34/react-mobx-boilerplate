@@ -22,13 +22,13 @@
       padding-left: 15px;
 
       @media #{$tablet} {
-        padding-left: calc((100% - 750px) / 2);
+        padding-left: calc((100% - 750px) / 2 + 15px);
       }
       @media #{$desktop} {
-        padding-left: calc((100% - 970px) / 2);
+        padding-left: calc((100% - 970px) / 2 + 15px);
       }
       @media #{$wide} {
-        padding-left: calc((100% - 1170px) / 2);
+        padding-left: calc((100% - 1170px) / 2 + 15px);
       }
     }
 
@@ -36,13 +36,13 @@
       padding-right: 15px;
 
       @media #{$tablet} {
-        padding-right: calc((100% - 750px) / 2);
+        padding-right: calc((100% - 750px) / 2 + 15px);
       }
       @media #{$desktop} {
-        padding-right: calc((100% - 970px) / 2);
+        padding-right: calc((100% - 970px) / 2 + 15px);
       }
       @media #{$wide} {
-        padding-right: calc((100% - 1170px) / 2);
+        padding-right: calc((100% - 1170px) / 2 + 15px);
       }
     }
 
