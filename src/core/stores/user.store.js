@@ -6,10 +6,10 @@ import config from 'config';
 class UserStore {
   @action revalidateUser() {
     //throttle validation
-    if(this.awaitingValidation){
+    if (this.awaitingValidation) {
       //return promise to execute once flag is cleared
       return this.validationPromise;
-    }else{
+    } else {
       const success = (res) => {
         this.initUserObject(res.data);
         this.awaitingValidation = false;
@@ -17,7 +17,7 @@ class UserStore {
       }
 
       const fail = (err) => {
-        if(err.response.status === 401) {
+        if (err.response.status === 401) {
           //Redirect to session timeout page
           history.replace('/session-timeout');
         } else if (err.response.status === 403) {
@@ -43,7 +43,7 @@ class UserStore {
     let user_obj = JSON.parse(window.atob(tk_array[1]));
     this.conditionUserObj(user_obj);
     this.checkPermissions();
-    if(this.user.roles && (this.user.roles.indexOf('G_FN_ADM') >= 0 || this.user.roles.indexOf('G_FN_IM') >= 0) ) {
+    if (this.user.roles && (this.user.roles.indexOf('G_FN_ADM') >= 0 || this.user.roles.indexOf('G_FN_IM') >= 0)) {
       this.authentic_user = true;
     }
     this.userValidationDone = true;
@@ -73,7 +73,7 @@ class UserStore {
     this.user.lastName = userInfo.lastName;
     this.user.username = userInfo.username;
     // check if FAN mapping has occurred and designate internal PSE roles
-    if(userInfo.authorizations.length){
+    if (userInfo.authorizations.length) {
       this.user.pse = userInfo.authorizations[0].pseId;
       this.user.pseName = userInfo.authorizations[0].pseName;
       this.user.roles = userInfo.authorizations[0].pseUserRoles;
