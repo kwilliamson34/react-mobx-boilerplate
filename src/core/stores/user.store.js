@@ -10,32 +10,44 @@ class UserStore {
       //return promise to execute once flag is cleared
       return this.validationPromise;
     } else {
-      const success = (res) => {
-        this.initUserObject(res.data);
-        this.awaitingValidation = false;
-        this.validationPromise = '';
-      }
-
-      const fail = (err) => {
-        if (err.response.status === 401) {
-          //Redirect to session timeout page
-          history.replace('/session-timeout');
-        } else if (err.response.status === 403) {
-          //this is not an authorized user for anything
-          this.authentic_user = false;
-          this.userValidationDone = true;
-        }
-        this.awaitingValidation = false;
-        this.validationPromise = '';
-      }
-
-      this.awaitingValidation = true;
-      //store the promise for return
-      this.validationPromise = apiService.validateUserData().then(success, fail);
-      return this.validationPromise;
+      return this.validateUser();
     }
   }
 
+  @action validateUser() {
+    const success = (res) => {
+      this.initUserObject(res.data);
+      this.awaitingValidation = false;
+      this.validationPromise = '';
+    }
+
+    const fail = (err) => {
+      if (err.response.status === 401) {
+
+        if(!this.userValidationDone){
+          window.location.replace(config.haloLogin);
+          throw new Error('Auth failed - redirecting to SSO login...');
+        } else {
+          //Redirect to session timeout page
+          history.replace('/session-timeout');
+          throw new Error('Session timed out');
+        }
+
+      } else if (err.response.status === 403) {
+        //this is not an authorized user for anything
+        this.authentic_user = false;
+        this.userValidationDone = true;
+        throw new Error('Authorization');
+      }
+      this.awaitingValidation = false;
+      this.validationPromise = '';
+    }
+
+    this.awaitingValidation = true;
+    //store the promise for return
+    this.validationPromise = apiService.validateUserData().then(success, fail);
+    return this.validationPromise;
+  }
 
   @action initUserObject(tk_response) {
     this.api_token = tk_response;

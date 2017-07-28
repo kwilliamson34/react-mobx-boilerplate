@@ -62,7 +62,7 @@ export default class App extends React.Component {
 			pseMasterStore.userStore.initUserObject(urlToken);
 		} else {
 			//get token the long way
-			pseMasterStore.userStore.revalidateUser();
+			pseMasterStore.userStore.validateUser();
 		}
   }
 

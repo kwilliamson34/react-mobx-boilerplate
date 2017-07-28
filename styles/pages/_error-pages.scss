@@ -35,10 +35,15 @@ section.session-timeout{
 
 		> div{
 			background: $fn-white;
-			padding: 60px 30px;
+			padding: 80px 100px;
 			text-align: center;
-			h1, p {
+
+			h1{
 				margin-bottom: 30px;
+			}
+			
+			p {
+				margin-bottom: 60px;
 			}
 		}
 	}
