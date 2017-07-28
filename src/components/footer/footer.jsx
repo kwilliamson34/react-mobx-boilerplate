@@ -137,7 +137,13 @@ export default class Footer extends React.Component {
 										<Link to="/feedback">Give Us Feedback</Link>
 									</li>
 									<li role="presentation">
-										AT&amp;T Customer Service:<br className="visible-xs-inline-block visible-md-inline-block" />&nbsp;<a href={'tel:' + this.headerStore.ATTSupportPhone}><i className="icon-phone-number footer-support-phone"></i>{this.headerStore.ATTSupportPhone}</a>
+										AT&amp;T Customer Service:<br className="visible-xs-inline-block visible-md-inline-block" />&nbsp;
+										<a href={'tel:' + this.headerStore.ATTSupportPhone}>
+											<i className="icon-phone-number footer-support-phone" aria-hidden='true'></i>
+											<span className="sr-only">Call&nbsp;</span>
+											{this.headerStore.ATTSupportPhone}
+											<span className="sr-only">&nbsp;to speak with AT&amp;T Customer Service</span>
+										</a>
 									</li>
 								</ul>
 							</nav>

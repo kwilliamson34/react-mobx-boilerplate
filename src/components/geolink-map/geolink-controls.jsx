@@ -99,13 +99,17 @@ export default class GeolinkControls extends React.Component {
                 <div className="emergency">
                   Emergency:<br/>
                 <a className="deaden" href={'tel:' + this.geoStore.coverageIssueEmergencyNumber}>
+                  <span className="sr-only">Call&nbsp;</span>
                   {this.geoStore.coverageIssueEmergencyNumber}
+                  <span className="sr-only">&nbsp;to report an emergency coverage issue</span>
                 </a>
                 </div>
                 <div className="non-emergency">
                   Non-emergency:<br/>
                 <a className="deaden" href={'tel:' + this.geoStore.coverageIssueNonEmergencyNumber}>
+                  <span className="sr-only">Call&nbsp;</span>
                   {this.geoStore.coverageIssueNonEmergencyNumber}
+                  <span className="sr-only">&nbsp;to report a non-emergency coverage issue</span>
                 </a>
                 </div>
               </div>
@@ -119,7 +123,7 @@ export default class GeolinkControls extends React.Component {
           </div>
           <div className="row is-flex">
             <div className="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-4">
-              <h2 className="as-h5">Network</h2>
+              <h2 className="as-h5">Network<span className="sr-only">&nbsp;color key</span></h2>
               <div className="key-labels">
                 <span>4G LTE</span>
                 <span>4G</span>
@@ -131,7 +135,7 @@ export default class GeolinkControls extends React.Component {
               </div>
             </div>
             <div className="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-4">
-              <h2 className="as-h5">Weather</h2>
+              <h2 className="as-h5">Weather<span className="sr-only">&nbsp;color key</span></h2>
               <div className="key-labels">
                 <span>Light Rain</span>
                 <span>Heavy Rain</span>
@@ -143,7 +147,7 @@ export default class GeolinkControls extends React.Component {
               </div>
             </div>
             <div className="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-4">
-              <h2 className="as-h5">Traffic</h2>
+              <h2 className="as-h5">Traffic<span className="sr-only">&nbsp;color key</span></h2>
               <div className="traffic-legend-wrapper ">
                 <div className="traffic-bars ">
                   <div className="key-labels traffic">
