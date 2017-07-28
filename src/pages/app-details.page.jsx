@@ -112,9 +112,9 @@ export default class AppDetailsPage extends React.Component {
                         {this.appStore.currentAppObject.long_description}
                       </Truncate>
                       {this.appStore.currentAppObject.version.version_note && this.appStore.currentAppObject.version.version_note.length > 0 &&
-                      <div>
-                        <h2 id="app-details-whats-new">What's New</h2>
-                        <div>{moment(this.appStore.currentAppObject.version.release_date).format('MMMM DD, YYYY')}</div>
+                      <div className="whats-new">
+                        <h2 id="app-details-whats-new" className="whats-new-title">What's New</h2>
+                        <div className="whats-new-date">{moment(this.appStore.currentAppObject.version.release_date).format('MMMM DD, YYYY')}</div>
                         <Truncate className="truncate-container" returnToId="app-details-whats-new" charLimit={500}>
                           {this.appStore.currentAppObject.version.version_note}
                         </Truncate>

@@ -36,13 +36,17 @@
     padding: 70px 0 50px;
   }
 
-  #app-details-whats-new {
-    padding-bottom: 0;
-    + div {
-      color: $fn-dkgrey;
-      font-size: $fn-content-page-text-desktop;
-      line-height: 1.5;
-      font-weight: $fn-normal-weight;
+  .app-description {
+    .whats-new {
+      &-title {
+        padding-bottom: 0;
+      }
+      &-date {
+        color: $fn-dkgrey;
+        font-size: $fn-content-page-text-desktop;
+        line-height: 1.5;
+        font-weight: $fn-normal-weight;
+      }
     }
   }
 
@@ -85,10 +89,14 @@
       }
     }
 
-    #app-details-whats-new {
-      padding-top: 6rem;
-      + div {
-        padding-bottom: 2rem;
+    .app-description {
+      .whats-new {
+        &-title {
+          padding-top: 6rem;
+        }
+        &-date {
+          padding-bottom: 2rem;
+        }
       }
     }
 
@@ -128,11 +136,14 @@
         padding-bottom: 3rem;
       }
     }
-
-    #app-details-whats-new {
-      padding-top: 6rem;
-      + div {
-        padding-bottom: 3rem;
+    .app-description {
+      .whats-new {
+        &-title {
+          padding-top: 6rem;
+        }
+        &-date {
+          padding-bottom: 3rem;
+        }
       }
     }
 
