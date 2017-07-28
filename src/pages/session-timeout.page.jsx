@@ -1,5 +1,9 @@
 import React from 'react';
-import { observer, inject, PropTypes } from 'mobx-react';
+import {
+	observer,
+	inject,
+	PropTypes
+} from 'mobx-react';
 import config from 'config';
 import NewTabLink from '../components/link/new-tab-link';
 
@@ -7,14 +11,14 @@ import NewTabLink from '../components/link/new-tab-link';
 @observer
 export default class SessionTimeoutPage extends React.Component {
 
-  static propTypes = {
+	static propTypes = {
 		store: PropTypes.observableObject.isRequired
 	};
 
-  constructor(props) {
-    super(props)
-    this.externalLinkStore = this.props.store.externalLinkStore;
-  }
+	constructor(props) {
+		super(props)
+		this.externalLinkStore = this.props.store.externalLinkStore;
+	}
 
 	render() {
 		return (
@@ -62,36 +66,24 @@ export default class SessionTimeoutPage extends React.Component {
 										<h2 id="firstnet-sites">Firstnet Sites</h2>
 										<ul>
 											<li role="presentation">
-												<a
-													href="http://firstnet.com/"
-													target="_blank"
-													rel="noopener noreferrer">
+												<NewTabLink to="http://firstnet.com/">
 													FirstNet.com
-												</a>
+												</NewTabLink>
 											</li>
 											<li role="presentation">
-												<a
-													href="https://fndevpgm-uat-app.eng.mobilephone.net/firstnet"
-													target="_blank"
-													rel="noopener noreferrer">
+												<NewTabLink to="https://fndevpgm-uat-app.eng.mobilephone.net/firstnet">
 													Developer Portal
-												</a>
+												</NewTabLink>
 											</li>
 											<li role="presentation">
-												<a
-													href="https://test-appcontrol.firstnet.att.com/"
-													target="_blank"
-													rel="noopener noreferrer">
+												<NewTabLink to="https://test-appcontrol.firstnet.att.com/">
 													App Control
-												</a>
+												</NewTabLink>
 											</li>
 											<li role="presentation">
-												<a
-													href="https://test-apps.firstnet.att.com/"
-													target="_blank"
-													rel="noopener noreferrer">
+												<NewTabLink to="https://test-apps.firstnet.att.com/">
 													App Store
-												</a>
+												</NewTabLink>
 											</li>
 										</ul>
 									</nav>
@@ -101,54 +93,38 @@ export default class SessionTimeoutPage extends React.Component {
 										<h2 id="social-links">Follow Us</h2>
 										<ul className="social-links-list">
 											<li role="presentation">
-												<a
-													href="https://www.facebook.com/firstnetgov/"
-													className="fn-social-icon fb"
-													target="_blank"
-													rel="noopener noreferrer">
+												<NewTabLink to="https://www.facebook.com/firstnetgov/" className="fn-social-icon fb">
 													<i aria-hidden="true" className="icon-facebook" />
 													<span className="title">Facebook</span>
-												</a>
+												</NewTabLink>
 											</li>
 											<li role="presentation">
-												<a
-													href="https://www.linkedin.com/company/first-responder-network-authority-firstnet-"
-													className="fn-social-icon linkedin"
-													target="_blank"
-													rel="noopener noreferrer">
+												<NewTabLink to="https://www.linkedin.com/company/first-responder-network-authority-firstnet-"
+													className="fn-social-icon linkedin">
 													<i aria-hidden="true" className="icon-linkedin" />
 													<span className="title">LinkedIn</span>
-												</a>
+												</NewTabLink>
 											</li>
 											<li role="presentation">
-												<a
-													href="https://twitter.com/FirstNetGov"
-													className="fn-social-icon twitter"
-													target="_blank"
-													rel="noopener noreferrer">
+												<NewTabLink to="https://twitter.com/FirstNetGov" className="fn-social-icon twitter">
 													<i aria-hidden="true" className="icon-twitter" />
 													<span className="title">Twitter</span>
-												</a>
+												</NewTabLink>
 											</li>
 											<li role="presentation">
-												<a
-													href="https://firstnetgov.tumblr.com/"
-													className="fn-social-icon tumblr"
-													target="_blank"
-													rel="noopener noreferrer">
+												<NewTabLink to="https://firstnetgov.tumblr.com/"
+													className="fn-social-icon tumblr">
 													<i aria-hidden="true" className="icon-tumblr" />
 													<span className="title">Tumblr</span>
-												</a>
+												</NewTabLink>
 											</li>
 											<li role="presentation">
-												<a
-													href="https://www.youtube.com/user/FirstNetGov"
-													className="fn-social-icon youtube"
-													target="_blank"
-													rel="noopener noreferrer">
+												<NewTabLink
+													to="https://www.youtube.com/user/FirstNetGov"
+													className="fn-social-icon youtube">
 													<i aria-hidden="true" className="icon-youtube" />
 													<span className="title">YouTube</span>
-												</a>
+												</NewTabLink>
 											</li>
 										</ul>
 									</nav>
@@ -158,12 +134,15 @@ export default class SessionTimeoutPage extends React.Component {
 										<h2 id="helpLinks" className="help-hdr">Help</h2>
 										<ul className="help-link-block">
 											<li role="presentation">
-												FirstNet Customer Service:<br className="visible-xs-inline-block visible-md-inline-block" />&nbsp;<a
-													href={'tel:' + config.attCustomerSupportPhone}>
-													<i className="icon-phone-number footer-support-phone" />
-													{config.attCustomerSupportPhone}
-												</a>
-											</li>
+                        FirstNet Customer Service:
+                        <br className="visible-xs-inline-block visible-md-inline-block" />
+                        <a href={'tel:' + config.attCustomerSupportPhone}>
+                          <i className="icon-phone-number footer-support-phone" aria-hidden="true" />
+                          <span className="sr-only">Call </span>
+                          {config.attCustomerSupportPhone}
+                          <span className="sr-only"> to speak with AT&amp;T Customer Service</span>
+                        </a>
+                      </li>
 										</ul>
 									</nav>
 								</div>
@@ -193,12 +172,9 @@ export default class SessionTimeoutPage extends React.Component {
 												</NewTabLink>
 											</li>
 											<li role="presentation">
-												<a
-													href="https://www.firstnet.gov/"
-													target="_blank"
-													rel="noopener noreferrer">
+												<NewTabLink to="https://www.firstnet.gov/">
 													FirstNet.gov
-												</a>
+												</NewTabLink>
 											</li>
 										</ul>
 									</nav>
