@@ -1,28 +1,41 @@
 import {observable, action} from 'mobx';
 import {apiService} from '../services/api.service';
+import {history} from '../services/history.service';
 import config from 'config';
 
 class UserStore {
   @action revalidateUser() {
-    const success = (res) => {
-      this.initUserObject(res.data);
-    }
-
-    const fail = (err) => {
-      if(err.response.status === 401) {
-
-        //Redirect to Halo
-        window.location.replace(config.haloLogin);
-        throw new Error('Auth failed - redirecting to SSO login...');
-      } else if (err.response.status === 403) {
-        //this is not an authorized user for anything
-        this.authentic_user = false;
-        this.userValidationDone = true;
+    //throttle validation
+    if(this.awaitingValidation){
+      //return promise to execute once flag is cleared
+      return this.validationPromise;
+    }else{
+      const success = (res) => {
+        this.initUserObject(res.data);
+        this.awaitingValidation = false;
+        this.validationPromise = '';
       }
-    }
 
-    return apiService.validateUserData().then(success, fail);
+      const fail = (err) => {
+        if(err.response.status === 401) {
+          //Redirect to session timeout page
+          history.replace('/session-timeout');
+        } else if (err.response.status === 403) {
+          //this is not an authorized user for anything
+          this.authentic_user = false;
+          this.userValidationDone = true;
+        }
+        this.awaitingValidation = false;
+        this.validationPromise = '';
+      }
+
+      this.awaitingValidation = true;
+      //store the promise for return
+      this.validationPromise = apiService.validateUserData().then(success, fail);
+      return this.validationPromise;
+    }
   }
+
 
   @action initUserObject(tk_response) {
     this.api_token = tk_response;
@@ -30,10 +43,10 @@ class UserStore {
     let user_obj = JSON.parse(window.atob(tk_array[1]));
     this.conditionUserObj(user_obj);
     this.checkPermissions();
-    this.userValidationDone = true;
     if(this.user.roles && (this.user.roles.indexOf('G_FN_ADM') >= 0 || this.user.roles.indexOf('G_FN_IM') >= 0) ) {
       this.authentic_user = true;
     }
+    this.userValidationDone = true;
   }
 
   @action logoutUser() {
@@ -77,6 +90,8 @@ class UserStore {
   @observable userValidationDone = false;
   @observable authentic_user = false;
   @observable isAdmin = false;
+  @observable validationPromise = '';
+
 }
 
 export const userStore = new UserStore();
