@@ -420,26 +420,6 @@ class MDMStore {
     return apiService.pushToMDM(psk).then(success, fail);
   }
 
-  // @action getAppDetailAlerts(pagePsk) {
-  //   this.failedPushApps.forEach(entryPsk => {
-  //     if(entryPsk === pagePsk) {
-  //       return {
-  //         error
-  //       }
-  //     }
-  //   });
-  //   return this.failedPushApps.filter((app) => {
-  //     return (app.app_psk === psk)
-  //   })
-  // }
-
-  // //COMPUTEDS
-  // @computed get app_detail_alerts() {
-  //   return this.failedPushApps.filter((app) => {
-  //     return (app.isRecommended)
-  //   })
-  // }
-
   // OBSERVABLES
   @observable pseMDMObject = observable.map({});
   @observable userMessages = {
