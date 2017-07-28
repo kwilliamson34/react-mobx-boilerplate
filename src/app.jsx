@@ -47,6 +47,7 @@ import FeedbackPage from './pages/feedback.page';
 import PrivacyPage from './pages/privacy.page';
 import AccessibilityPage from './pages/accessibility.page';
 
+import SessionTimeoutPage from './pages/session-timeout.page';
 
 @observer
 export default class App extends React.Component {
@@ -153,6 +154,7 @@ export default class App extends React.Component {
     return pseMasterStore.userStore.userValidationDone ? (
 			pseMasterStore.isLoggedIn ? (
 				<Switch>
+          <Route exact path="/session-timeout" component={SessionTimeoutPage}/>
 					<Route path="/error" component={this.getPlainLayoutComponent}/>
 					<Route component={this.getMainLayoutComponent}/>
 				</Switch>
