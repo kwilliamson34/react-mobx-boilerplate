@@ -25,7 +25,7 @@ export default class SessionTimeoutPage extends React.Component {
               <div className="fnnav__header">
                 <div className="fnnav__brand">
                   <div className="logo-container">
-                    <img src="/images/logo-FirstNet-local-control.svg" alt="" />
+                    <img src="/images/logo-FirstNet-local-control.svg" alt="" aria-hidden="true" />
                   </div>
                 </div>
               </div>
@@ -55,7 +55,7 @@ export default class SessionTimeoutPage extends React.Component {
 						<div className="container">
 							<div className="row">
 								<div className="col-xs-12 logoRow">
-										<img src="/images/logo-FirstNet-local-control.svg" alt=""/>
+										<img src="/images/logo-FirstNet-local-control.svg" alt="" aria-hidden="true" />
 								</div>
 							</div>
 							<div className="row is-flex">
