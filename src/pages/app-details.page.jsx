@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {observer, inject} from 'mobx-react';
 import {utilsService} from '../core/services/utils.service';
-import moment from 'moment'
+import moment from 'moment';
 
 import {AppDetailBanner} from '../components/app-details/app-detail-banner';
 import RatingsChart from '../components/ratings-chart/ratings-chart';
