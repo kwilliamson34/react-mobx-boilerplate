@@ -25,6 +25,20 @@
     padding: 70px 0 50px;
   }
 
+  .app-description {
+    .whats-new {
+      &-title {
+        padding-bottom: 0;
+      }
+      &-date {
+        color: $fn-dkgrey;
+        font-size: $fn-content-page-text-desktop;
+        line-height: 1.5;
+        font-weight: $fn-normal-weight;
+      }
+    }
+  }
+
   .app-ratings {
     padding: 70px 0 50px;
     background: $fn-white;
@@ -49,6 +63,17 @@
     .app-developer {
       h2 {
         padding-bottom: 2rem;
+      }
+    }
+
+    .app-description {
+      .whats-new {
+        &-title {
+          padding-top: 6rem;
+        }
+        &-date {
+          padding-bottom: 2rem;
+        }
       }
     }
 
@@ -86,6 +111,16 @@
     .app-developer {
       h2 {
         padding-bottom: 3rem;
+      }
+    }
+    .app-description {
+      .whats-new {
+        &-title {
+          padding-top: 6rem;
+        }
+        &-date {
+          padding-bottom: 3rem;
+        }
       }
     }
 
