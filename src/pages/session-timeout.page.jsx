@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-	observer,
-	inject,
-	PropTypes
-} from 'mobx-react';
+import {observer, inject, PropTypes} from 'mobx-react';
 import config from 'config';
 import NewTabLink from '../components/link/new-tab-link';
 
