@@ -152,27 +152,29 @@ export class AppDetailBanner extends React.Component {
     return (
       <section className="app-summary">
         <div className="container">
-          <div className="row">
-            <div className="col-xs-12 col-sm-12 hidden-md hidden-lg">
-              {this.title()}
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-xs-4 col-sm-3 col-md-3 col-lg-3 appicon-wrapper">
-              <div className="app-icon">
-                <img src={this.data.icon_path} alt={this.data.app_name}/>
-              </div>
-              <div className="hidden-sm hidden-md hidden-lg">
-                {this.rating()}
+          <div className="white-card">
+            <div className="row">
+              <div className="col-xs-12 col-sm-12 hidden-md hidden-lg">
+                {this.title()}
               </div>
             </div>
-            <div className="col-xs-8 col-sm-9 col-md-9 col-lg-9 appmeta-wrapper">
-              {this.metadata()}
+            <div className="row">
+              <div className="col-xs-4 col-sm-3 col-md-3 col-lg-3 appicon-wrapper">
+                <div className="app-icon">
+                  <img src={this.data.icon_path} alt={this.data.app_name}/>
+                </div>
+                <div className="hidden-sm hidden-md hidden-lg">
+                  {this.rating()}
+                </div>
+              </div>
+              <div className="col-xs-8 col-sm-9 col-md-9 col-lg-9 appmeta-wrapper">
+                {this.metadata()}
+              </div>
             </div>
-          </div>
-          <div className="row hidden-sm hidden-md hidden-lg">
-            <div className="col-xs-offset-1 col-xs-10">
-              {this.appManagement()}
+            <div className="row hidden-sm hidden-md hidden-lg">
+              <div className="col-xs-offset-1 col-xs-10">
+                {this.appManagement()}
+              </div>
             </div>
           </div>
         </div>
