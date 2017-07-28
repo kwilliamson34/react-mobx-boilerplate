@@ -27,8 +27,28 @@
 		font-size: $fn-content-page-text-desktop;
 	}
 }
+
+section.session-timeout{
+	background: $fn-grey;
+	padding: 30px 20px 100px;
+	> .container{
+
+		> div{
+			background: $fn-white;
+			padding: 60px 30px;
+			text-align: center;
+			h1, p {
+				margin-bottom: 30px;
+			}
+		}
+	}
+}
+
 @media #{$tablet,$desktop} {
 	.error-container {
 		padding: 60px 100px;
+	}
+	section.session-timeout{
+		padding-top: 100px;
 	}
 }

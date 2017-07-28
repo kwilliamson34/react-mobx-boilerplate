@@ -161,7 +161,7 @@ export default class Footer extends React.Component {
 								<li role="presentation"><NewTabLink to={this.externalLinkStore.termsOfUse}>Terms of Use</NewTabLink></li>
 								<br className="visible-xs-inline-block" />
 								<li role="presentation"><NewTabLink to="https://www.firstnet.gov/accessibility">Accessibility</NewTabLink></li>
-								<li role="presentation"><a href="https://www.firstnet.gov/" target="_blank" rel="noopener noreferrer">FirstNet.gov</a></li>
+								<li role="presentation"><NewTabLink to="https://www.firstnet.gov/">FirstNet.gov</NewTabLink></li>
 							</ul>
 						</nav>
 					</div>

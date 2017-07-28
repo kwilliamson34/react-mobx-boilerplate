@@ -4,7 +4,8 @@
   position: relative;
   background: $fn-white;
 
-  > a {
+  > a,
+  > .logo-container {
     display: block;
     width: 100%;
     text-align: center;
@@ -25,9 +26,13 @@
     width: calc(100% - 49px);
     height: 49px;
 
-    > a {
+    > a,
+    > .logo-container {
       margin: 16px auto;
       max-width: 220px;
+    }
+    #session-timeout &{
+      width: 100%;
     }
   }
 }
@@ -36,9 +41,13 @@
     width: calc(100% - 73px);
     height: 98px;
 
-    > a {
+    > a,
+    > .logo-container {
       margin: 24px auto 0;
       max-width: 440px;
+    }
+    #session-timeout &{
+      width: 100%;
     }
   }
 }
@@ -47,7 +56,8 @@
     width: 100%;
     height: 94px;
 
-    > a {
+    > a,
+    > .logo-container {
       margin: 24px auto;
       text-align: left;
     }

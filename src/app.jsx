@@ -21,6 +21,7 @@ import ScrollToTop from './components/scroll-to-top/scroll-to-top';
 //Pages
 import NetworkStatusPage from './pages/network-status.page';
 import ErrorPage from './pages/error.page.jsx';
+import SessionTimeoutPage from './pages/session-timeout.page';
 
 //Admin pages
 import ManageAppsPage from './pages/manage-apps.page';
@@ -46,7 +47,6 @@ import FeedbackPage from './pages/feedback.page';
 //Footer pages
 import PrivacyPage from './pages/privacy.page';
 import AccessibilityPage from './pages/accessibility.page';
-
 
 @observer
 export default class App extends React.Component {
@@ -152,10 +152,11 @@ export default class App extends React.Component {
   getSessionDependentContent() {
     return pseMasterStore.userStore.userValidationDone ? (
 			pseMasterStore.isLoggedIn ? (
-				<Switch>
-					<Route path="/error" component={this.getPlainLayoutComponent}/>
-					<Route component={this.getMainLayoutComponent}/>
-				</Switch>
+        <Switch>
+          <Route exact path="/session-timeout" component={SessionTimeoutPage}/>
+          <Route path="/error" component={this.getPlainLayoutComponent}/>
+          <Route component={this.getMainLayoutComponent}/>
+        </Switch>
 			) : (
 				<ErrorPage cause="unauthorized" />
 			)
