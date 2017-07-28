@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 export class MDMAlerts extends React.Component {
   static propTypes = {
     store: PropTypes.object,
-    psk: PropTypes.string,
+    psk: PropTypes.string, //PSK is specified if the user is on the AppDetails page
     alertList: PropTypes.oneOfType([
       PropTypes.array,
       PropTypes.object

@@ -182,7 +182,7 @@ class MDMStore {
     let alertForThisPsk = alertList.filter(alert => {
       return alert.psk === psk;
     });
-    if(alertForThisPsk) {
+    if(alertForThisPsk[0]) {
       alertForThisPsk.type = type;
       alertForThisPsk.headline = type === 'error' ? 'Error: ' : 'Success! ';
       alertForThisPsk.message = message;
@@ -350,32 +350,21 @@ class MDMStore {
   }
 
   @action processMDMStatusForAppCatalog(apps) {
-    let successfullSubmission = false;
-    let failedSubmission = false;
     this.appsReferencedByAlert = [];
-
     apps.forEach(app => {
-      if (app.mdm_install_status === 'FAILED') {
-        /* Always show error banner if failed installs are present. */
-        this.addPushErrorAlert(app.app_psk);
-        failedSubmission = true;
-
-      } else if (app.mdm_install_status === 'INSTALLED' && this.mdmStatusIsUnresolved(app.app_psk)) {
+      if (app.mdm_install_status === 'INSTALLED' && this.mdmStatusIsUnresolved(app.app_psk)) {
         /* Only show success message if the user has just tried
         to install; NOT on initial render. */
         this.addPushSuccessAlert(app.app_psk);
-        successfullSubmission = true;
         this.appsReferencedByAlert.push(app.app_psk);
+      } else if (app.mdm_install_status === 'FAILED') {
+        /* Always show error banner if failed installs are present.
+        This case should be second so that it overwrites the success
+        message on the catalog page, if present (error takes priority). */
+        this.addPushErrorAlert(app.app_psk);
       }
       this.appCatalogMDMStatuses.set(app.app_psk, app.mdm_install_status);
     });
-
-    if (failedSubmission) {
-      this.addPushErrorAlert();
-    }
-    if (successfullSubmission) {
-      this.addPushSuccessAlert();
-    }
   }
 
   mdmStatusIsUnresolved(psk) {
