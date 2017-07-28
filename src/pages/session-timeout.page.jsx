@@ -39,11 +39,9 @@ export default class SessionTimeoutPage extends React.Component {
               <p>
                 Your session has expired due to inactivity. Please log in again.<br/>If you're having trouble logging in, please contact your site administrator or call
                 <a href={'tel:' + config.attCustomerSupportPhone}>
-                  <span className="sr-only">Call
-                  </span>
+                  <span className="sr-only">Call&nbsp;</span>
                   {config.attCustomerSupportPhone}
-                  <span className="sr-only">
-                    to speak with AT&amp;T Customer Service</span>
+                  <span className="sr-only">&nbsp;to speak with AT&amp;T Customer Service</span>
                 </a>.
               </p>
               <div className="text-center">
@@ -134,11 +132,9 @@ export default class SessionTimeoutPage extends React.Component {
                         <br className="visible-xs-inline-block visible-md-inline-block"/>
                         <a href={'tel:' + config.attCustomerSupportPhone}>
                           <i className="icon-phone-number footer-support-phone" aria-hidden="true"/>
-                          <span className="sr-only">Call
-                          </span>
+                          <span className="sr-only">Call&nbsp;</span>
                           {config.attCustomerSupportPhone}
-                          <span className="sr-only">
-                            to speak with AT&amp;T Customer Service</span>
+                          <span className="sr-only">&nbsp;to speak with AT&amp;T Customer Service</span>
                         </a>
                       </li>
                     </ul>
