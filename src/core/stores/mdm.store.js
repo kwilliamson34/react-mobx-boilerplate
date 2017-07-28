@@ -438,9 +438,6 @@ class MDMStore {
   @observable app_detail_alerts = [];
   @observable appsReferencedByAlert = [];
 
-  @observable successPsks = [];
-  @observable errorPsks = [];
-
   // Push to MDM
   @observable appCatalogMDMStatuses = observable.map({});
 }
