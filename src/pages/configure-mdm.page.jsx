@@ -25,7 +25,6 @@ export default class ConfigureMDM extends React.Component {
 	}
 
   componentWillMount() {
-    this.store.clearAlerts();
     this.store.hasBeenSubmitted = false;
     this.store.getMDMConfiguration();
     this.store.enableSaveDialogs();
@@ -204,10 +203,7 @@ export default class ConfigureMDM extends React.Component {
             <section className="col-xs-12 col-lg-10 col-lg-offset-1">
               <div className="mdm-form col-md-offset-2 col-xs-12 col-md-8 col-md">
 
-                <MDMAlerts
-                  store={this.store}
-                  page="mdm_form"
-                  clearSelectedCards={this.store.clearAppsReferencedByAlert}/>
+                <MDMAlerts store={this.store} alertList={this.store.mdm_form_alerts}/>
 
                 <form id="configure-mdm-form" onSubmit={this.handleSubmit} noValidate onChange={this.updateForm} onBlur={this.updateForm}>
                   {this.isConfigured &&

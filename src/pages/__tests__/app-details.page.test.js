@@ -38,17 +38,17 @@ describe('<AppDetailsPage />', () => {
       let component, tree;
       props.store.appCatalogStore.fetchAppCatalog = () => {return new Promise(resolve => resolve())};
 
-      props.store.mdmStore.app_alerts.length = 0;
+      props.store.mdmStore.manage_apps_alerts.length = 0;
       component = renderer.create(<AppDetailsPage {...props}/>);
       tree = component.toJSON();
       expect(tree).toMatchSnapshot();
 
-      props.store.mdmStore.app_alerts.length = 1;
+      props.store.mdmStore.manage_apps_alerts.length = 1;
       component = renderer.create(<AppDetailsPage {...props}/>);
       tree = component.toJSON();
       expect(tree).toMatchSnapshot();
 
-      props.store.mdmStore.app_alerts.length = 3;
+      props.store.mdmStore.manage_apps_alerts.length = 3;
       component = renderer.create(<AppDetailsPage {...props}/>);
       tree = component.toJSON();
       expect(tree).toMatchSnapshot();
