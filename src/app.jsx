@@ -153,11 +153,11 @@ export default class App extends React.Component {
   getSessionDependentContent() {
     return pseMasterStore.userStore.userValidationDone ? (
 			pseMasterStore.isLoggedIn ? (
-				<Switch>
+        <Switch>
           <Route exact path="/session-timeout" component={SessionTimeoutPage}/>
-					<Route path="/error" component={this.getPlainLayoutComponent}/>
-					<Route component={this.getMainLayoutComponent}/>
-				</Switch>
+          <Route path="/error" component={this.getPlainLayoutComponent}/>
+          <Route component={this.getMainLayoutComponent}/>
+        </Switch>
 			) : (
 				<ErrorPage cause="unauthorized" />
 			)
