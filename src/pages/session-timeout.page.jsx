@@ -43,7 +43,9 @@ export default class SessionTimeoutPage extends React.Component {
               <p>
                 Your session has expired due to inactivity. Please log in again.<br />If you're having trouble logging in, please contact your site administrator or call <a
                   href={'tel:' + config.attCustomerSupportPhone}>
-                  {config.attCustomerSupportPhone}
+									<span className="sr-only">Call </span>
+									{config.attCustomerSupportPhone}
+									<span className="sr-only"> to speak with AT&amp;T Customer Service</span>
                 </a>.
               </p>
               <div className="text-center">
