@@ -80,13 +80,6 @@ export default class ManageAppsPage extends React.Component {
       }
     ];
 
-    if (this.mdmStore.app_alerts.length && $('#mdm-alerts:visible').length && !this.viewedAlert) {
-      setTimeout(() => {
-        $('#mdm-alerts').focus();
-        this.viewedAlert = true;
-      }, 100);
-    }
-
     return (
       <article id="manage-apps-page">
         <BreadcrumbNav links={crumbs}/>
@@ -103,7 +96,7 @@ export default class ManageAppsPage extends React.Component {
         <div className="container">
           <div className="row">
             <div className="col-xs-12 col-lg-offset-1 col-lg-10">
-              {this.mdmStore.app_alerts && <MDMAlerts store={this.mdmStore} page="manage_apps" clearSelectedCards={this.mdmStore.clearAppsReferencedByAlert}/>}
+              <MDMAlerts store={this.mdmStore} alertList={this.mdmStore.manage_apps_alerts}/>
             </div>
           </div>
         </div>

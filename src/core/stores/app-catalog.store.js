@@ -12,7 +12,7 @@ class AppCatalogStore {
 			this.allApps = res;
 			cardListStore.setCardList(res);
 			this.isLoading = false;
-			mdmStore.setMDMStatus(res);
+			mdmStore.processMDMStatusForAppCatalog(res);
 			return this.allApps;
 		}
 		const fail = (err) => {

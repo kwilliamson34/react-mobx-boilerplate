@@ -14,7 +14,7 @@ export class PushToMDM extends React.Component {
     appCatalogMDMStatuses: PropTypes.object
   }
 
-  getMDMStatus = (psk) => {
+  getMDMStatusForAppCatalog = (psk) => {
     return this.props.appCatalogMDMStatuses[psk];
   }
 
@@ -26,7 +26,7 @@ export class PushToMDM extends React.Component {
   }
 
   render() {
-    let status = this.props.configuredMDMType ? this.getMDMStatus(this.props.psk) : null;
+    let status = this.props.configuredMDMType ? this.getMDMStatusForAppCatalog(this.props.psk) : null;
     let disabled = !this.props.configuredMDMType;
     let screenReaderMessage = '';
     let btnLabel = null;

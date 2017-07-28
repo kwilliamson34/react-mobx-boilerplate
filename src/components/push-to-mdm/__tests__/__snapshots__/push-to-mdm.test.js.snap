@@ -85,7 +85,7 @@ exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match s
 exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match snapshot if appCatalogMDMStatuses is IN_PROGRESS 1`] = `
 <button
   aria-disabled={false}
-  className="push-button fn-primary"
+  className="push-button fn-primary deaden"
   id="pushBtn12345"
   onClick={[Function anonymous]}>
   <span
@@ -149,7 +149,7 @@ exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match s
 exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match snapshot if appCatalogMDMStatuses is PENDING 1`] = `
 <button
   aria-disabled={false}
-  className="push-button fn-primary"
+  className="push-button fn-primary deaden"
   id="pushBtn12345"
   onClick={[Function anonymous]}>
   <span
