@@ -6,8 +6,9 @@ describe('<MDMAlerts />', () => {
   let props = {
     store: {
       removeAlert: jest.fn(),
-      alert_msgs: []
+      clearAppsReferencedByAlert: jest.fn()
     },
+    alertList: [],
     clearSelectedCards: jest.fn()
   }
 
@@ -25,15 +26,15 @@ describe('<MDMAlerts />', () => {
       tree = component.toJSON();
       expect(tree).toMatchSnapshot();
 
-      props.store.alert_msgs.push(exampleError);
+      props.alertList.push(exampleError);
       component = renderer.create(<MDMAlerts {...props}/>);
       tree = component.toJSON();
       expect(tree).toMatchSnapshot();
 
-      props.store.alert_msgs.push(exampleError);
-      props.store.alert_msgs.push(exampleError);
-      props.store.alert_msgs.push(exampleError);
-      props.store.alert_msgs.push(exampleError);
+      props.alertList.push(exampleError);
+      props.alertList.push(exampleError);
+      props.alertList.push(exampleError);
+      props.alertList.push(exampleError);
       component = renderer.create(<MDMAlerts {...props}/>);
       tree = component.toJSON();
       expect(tree).toMatchSnapshot();
@@ -47,13 +48,13 @@ describe('<MDMAlerts />', () => {
       expect(tree).toMatchSnapshot();
 
       props.page = 'mdm_form';
-      props.store.form_alerts = props.store.alert_msgs;
+      props.store.mdm_form_alerts = props.store.alert_msgs;
       component = renderer.create(<MDMAlerts {...props}/>);
       tree = component.toJSON();
       expect(tree).toMatchSnapshot();
 
       props.page = 'manage_apps';
-      props.store.app_alerts = props.store.alert_msgs;
+      props.store.manage_apps_alerts = props.store.alert_msgs;
       component = renderer.create(<MDMAlerts {...props}/>);
       tree = component.toJSON();
       expect(tree).toMatchSnapshot();
@@ -62,10 +63,8 @@ describe('<MDMAlerts />', () => {
 
   describe('User interaction', () => {
     test('removes alert upon clicking the close button', () => {
-      let alertList = [];
-      alertList.push(exampleError);
-      props.page = 'manage_apps';
-      props.store.app_alerts = alertList;
+      props.alertList = [];
+      props.alertList.push(exampleError);
 
       let component = TestUtils.renderIntoDocument(<MDMAlerts {...props} />);
 

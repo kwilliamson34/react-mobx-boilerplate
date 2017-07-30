@@ -12,7 +12,6 @@ import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 import {MDMAlerts} from '../components/configure-mdm/mdm-alerts';
 import Truncate from '../components/truncate/truncate';
 import NewTabLink from '../components/link/new-tab-link';
-import $ from 'jquery';
 
 @inject('store')
 @observer
@@ -36,7 +35,6 @@ export default class AppDetailsPage extends React.Component {
     if (this.userStore.user.pse === '') {
       utilsService.handlePendingAuthorizationsMapping();
     } else {
-      this.mdmStore.clearAlerts();
       this.mdmStore.getMDMConfiguration();
       if (this.appStore.allApps.length) {
         this.updateCurrentApp();
@@ -46,10 +44,6 @@ export default class AppDetailsPage extends React.Component {
         });
       }
     }
-  }
-
-  componentWillUnmount() {
-    this.mdmStore.clearAlerts();
   }
 
   updateCurrentApp() {
@@ -75,26 +69,18 @@ export default class AppDetailsPage extends React.Component {
       }
     ];
 
-    if (this.mdmStore.app_alerts.length !== 0 && !this.viewedAlert) {
-      setTimeout(() => {
-        $('#mdm-alerts').focus();
-        this.viewedAlert = true;
-      }, 100);
-    }
     return (
       <article id="app-details-page">
         <BreadcrumbNav links={crumbs}/>
-        {this.mdmStore.app_alerts.length !== 0 &&
-          <div className=" app-details-alerts">
-            <div className="container">
-              <div className="row">
-                <div className="col-xs-12">
-                    <MDMAlerts store={this.mdmStore} page="manage_apps" clearSelectedCards={this.mdmStore.clearAppsReferencedByAlert}/>
-                </div>
+        <div className="app-details-alerts">
+          <div className="container">
+            <div className="row">
+              <div className="col-xs-12">
+                <MDMAlerts store={this.mdmStore} alertList={this.mdmStore.app_detail_alerts} psk={this.props.match.params.appPsk}/>
               </div>
             </div>
           </div>
-        }
+        </div>
         {(this.appStore.currentAppObject && this.appStore.currentAppObject.detailsFetched)
           ? <div>
               <AppDetailBanner data={this.appStore.currentAppObject} appCatalogStore={this.appStore}  configuredMDMType={this.mdmStore.pseMDMObject.toJS().mdm_type} pushToMDM={this.mdmStore.pushToMDM.bind(this.mdmStore)} appCatalogMDMStatuses={this.mdmStore.appCatalogMDMStatuses.toJS()}/>

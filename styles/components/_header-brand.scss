@@ -1,4 +1,5 @@
 .fnnav__brand {
+  width: 100%;
   display: inline-block;
   z-index: 100;
   position: relative;
@@ -23,7 +24,6 @@
 }
 @media #{$mobile} {
   .fnnav__brand {
-    width: calc(100% - 49px);
     height: 49px;
 
     > a,
@@ -38,7 +38,6 @@
 }
 @media #{$tablet} {
   .fnnav__brand {
-    width: calc(100% - 73px);
     height: 98px;
 
     > a,
@@ -53,7 +52,6 @@
 }
 @media #{$desktop} {
   .fnnav__brand {
-    width: 100%;
     height: 94px;
 
     > a,

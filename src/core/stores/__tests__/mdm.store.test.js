@@ -102,98 +102,98 @@ describe("MDMStore", () => {
   });
 
   test("can remove alert based on page id and index", () => {
-    store.form_alerts = ['0','1','2'];
-    store.removeAlert('mdm_form', 0);
-    expect(store.form_alerts[0]).toBe('1');
-    expect(store.form_alerts[1]).toBe('2');
-    expect(store.form_alerts[2]).toBe(undefined);
+    store.mdm_form_alerts = ['0','1','2'];
+    store.removeAlert(store.mdm_form_alerts, 0);
+    expect(store.mdm_form_alerts[0]).toBe('1');
+    expect(store.mdm_form_alerts[1]).toBe('2');
+    expect(store.mdm_form_alerts[2]).toBe(undefined);
 
-    store.app_alerts = ['0','1','2'];
-    store.removeAlert('manage_apps', 1);
-    expect(store.app_alerts[0]).toBe('0');
-    expect(store.app_alerts[1]).toBe('2');
-    expect(store.app_alerts[2]).toBe(undefined);
+    store.manage_apps_alerts = ['0','1','2'];
+    store.removeAlert(store.manage_apps_alerts, 1);
+    expect(store.manage_apps_alerts[0]).toBe('0');
+    expect(store.manage_apps_alerts[1]).toBe('2');
+    expect(store.manage_apps_alerts[2]).toBe(undefined);
   });
 
   test("clearAlerts encompasses all pages where alerts might be shown", () => {
-    store.form_alerts = [{},{},{}];
-    store.app_alerts = [{}];
+    store.mdm_form_alerts = [{},{},{}];
+    store.manage_apps_alerts = [{}];
 
     store.clearAlerts();
 
-    expect(store.form_alerts.length).toBe(0);
-    expect(store.app_alerts.length).toBe(0);
+    expect(store.mdm_form_alerts.length).toBe(0);
+    expect(store.manage_apps_alerts.length).toBe(0);
   });
 
-  test("throwPushError pushes the right error onto the stack", () => {
-    store.app_alerts = [];
-    store.form_alerts = [];
-    store.throwPushError();
-    expect(store.app_alerts.length).toBe(1);
-    expect(store.app_alerts[0].message).toBe(store.userMessages.pushFail);
+  test("addPushErrorAlert pushes the right error onto the stack", () => {
+    store.manage_apps_alerts = [];
+    store.mdm_form_alerts = [];
+    store.addPushErrorAlert();
+    expect(store.manage_apps_alerts.length).toBe(1);
+    expect(store.manage_apps_alerts[0].message).toBe(store.userMessages.pushFailMultiple);
   });
 
-  test("throwPushSuccess pushes the right message onto the stack", () => {
-    store.app_alerts = [];
-    store.form_alerts = [];
-    store.throwPushSuccess();
-    expect(store.app_alerts.length).toBe(1);
-    expect(store.app_alerts[0].message).toBe(store.userMessages.pushSuccess);
+  test("addPushSuccessAlert pushes the right message onto the stack", () => {
+    store.manage_apps_alerts = [];
+    store.mdm_form_alerts = [];
+    store.addPushSuccessAlert();
+    expect(store.manage_apps_alerts.length).toBe(1);
+    expect(store.manage_apps_alerts[0].message).toBe(store.userMessages.pushSuccessMultiple);
   });
 
   test("throwConnectError pushes the right error onto the stack", () => {
-    store.app_alerts = [];
-    store.form_alerts = [];
-    store.throwConnectError({alertsList: store.app_alerts});
-    expect(store.app_alerts.length).toBe(1);
-    expect(store.app_alerts[0].message).toBe(store.userMessages.connectFail);
+    store.manage_apps_alerts = [];
+    store.mdm_form_alerts = [];
+    store.throwConnectError({alertList: store.manage_apps_alerts});
+    expect(store.manage_apps_alerts.length).toBe(1);
+    expect(store.manage_apps_alerts[0].message).toBe(store.userMessages.connectFail);
 
-    store.throwConnectError({alertsList: store.form_alerts});
-    expect(store.form_alerts.length).toBe(1);
-    expect(store.form_alerts[0].message).toBe(store.userMessages.connectFail);
+    store.throwConnectError({alertList: store.mdm_form_alerts});
+    expect(store.mdm_form_alerts.length).toBe(1);
+    expect(store.mdm_form_alerts[0].message).toBe(store.userMessages.connectFail);
   });
 
   test("showErrorAlert works correctly", () => {
-    store.app_alerts = [];
-    store.form_alerts = [];
+    store.manage_apps_alerts = [];
+    store.mdm_form_alerts = [];
 
-    store.showErrorAlert({alertsList: store.app_alerts, message: ''});
-    expect(store.app_alerts.length).toBe(1);
-    expect(store.app_alerts[0].type).toBe('error');
-    expect(store.app_alerts[0].message).toBe(store.userMessages.connectFail);
+    store.showErrorAlert({alertList: store.manage_apps_alerts, message: ''});
+    expect(store.manage_apps_alerts.length).toBe(1);
+    expect(store.manage_apps_alerts[0].type).toBe('error');
+    expect(store.manage_apps_alerts[0].message).toBe(store.userMessages.connectFail);
 
-    store.showErrorAlert({alertsList: store.app_alerts, message: 'message1'});
-    expect(store.app_alerts.length).toBe(2);
-    expect(store.app_alerts[1].type).toBe('error');
-    expect(store.app_alerts[1].message).toBe('message1');
+    store.showErrorAlert({alertList: store.manage_apps_alerts, message: 'message1'});
+    expect(store.manage_apps_alerts.length).toBe(2);
+    expect(store.manage_apps_alerts[1].type).toBe('error');
+    expect(store.manage_apps_alerts[1].message).toBe('message1');
 
-    store.showErrorAlert({alertsList: store.form_alerts, message: 'message2'});
-    expect(store.form_alerts.length).toBe(1);
-    expect(store.form_alerts[0].type).toBe('error');
-    expect(store.form_alerts[0].message).toBe('message2');
+    store.showErrorAlert({alertList: store.mdm_form_alerts, message: 'message2'});
+    expect(store.mdm_form_alerts.length).toBe(1);
+    expect(store.mdm_form_alerts[0].type).toBe('error');
+    expect(store.mdm_form_alerts[0].message).toBe('message2');
   });
 
   test("showSuccessAlert works correctly", () => {
-    store.app_alerts = [];
-    store.form_alerts = [];
+    store.manage_apps_alerts = [];
+    store.mdm_form_alerts = [];
 
-    store.showSuccessAlert({alertsList: store.app_alerts, message: ''});
-    expect(store.app_alerts.length).toBe(0);
+    store.showSuccessAlert({alertList: store.manage_apps_alerts, message: ''});
+    expect(store.manage_apps_alerts.length).toBe(0);
 
-    store.showSuccessAlert({alertsList: store.app_alerts, message: 'message1'});
-    expect(store.app_alerts.length).toBe(1);
-    expect(store.app_alerts[0].type).toBe('success');
-    expect(store.app_alerts[0].message).toBe('message1');
+    store.showSuccessAlert({alertList: store.manage_apps_alerts, message: 'message1'});
+    expect(store.manage_apps_alerts.length).toBe(1);
+    expect(store.manage_apps_alerts[0].type).toBe('success');
+    expect(store.manage_apps_alerts[0].message).toBe('message1');
 
-    store.showSuccessAlert({alertsList: store.app_alerts, message: 'message2'});
-    expect(store.app_alerts.length).toBe(2);
-    expect(store.app_alerts[1].type).toBe('success');
-    expect(store.app_alerts[1].message).toBe('message2');
+    store.showSuccessAlert({alertList: store.manage_apps_alerts, message: 'message2'});
+    expect(store.manage_apps_alerts.length).toBe(2);
+    expect(store.manage_apps_alerts[1].type).toBe('success');
+    expect(store.manage_apps_alerts[1].message).toBe('message2');
 
-    store.showSuccessAlert({alertsList: store.form_alerts, message: 'message3'});
-    expect(store.form_alerts.length).toBe(1);
-    expect(store.form_alerts[0].type).toBe('success');
-    expect(store.form_alerts[0].message).toBe('message3');
+    store.showSuccessAlert({alertList: store.mdm_form_alerts, message: 'message3'});
+    expect(store.mdm_form_alerts.length).toBe(1);
+    expect(store.mdm_form_alerts[0].type).toBe('success');
+    expect(store.mdm_form_alerts[0].message).toBe('message3');
   });
 
   test("modal toggles work correctly", () => {
@@ -255,18 +255,18 @@ describe("MDMStore", () => {
   });
 
   test("getMDMConfiguration pushes the right error onto the stack if fails", () => {
-    store.form_alerts = [];
+    store.mdm_form_alerts = [];
     apiService.getMDMConfiguration = jest.fn();
     apiService.getMDMConfiguration.mockReturnValue(Promise.reject());
 
     store.getMDMConfiguration().then(() => {
-      expect(store.form_alerts.length).toBe(1);
-      expect(store.form_alerts[0].message).toBe(store.userMessages.connectFail);
+      expect(store.mdm_form_alerts.length).toBe(1);
+      expect(store.mdm_form_alerts[0].message).toBe(store.userMessages.connectFail);
     });
   });
 
   test("setMDMConfiguration shows success message on success", () => {
-    store.form_alerts = [];
+    store.mdm_form_alerts = [];
     store.mdmProvider = 'airWatchForm';
     apiService.setMDMConfiguration = jest.fn();
     apiService.setMDMConfiguration.mockReturnValue(Promise.resolve({
@@ -276,8 +276,8 @@ describe("MDMStore", () => {
     }));
 
     store.setMDMConfiguration().then(() => {
-      expect(store.form_alerts.length).toBe(1);
-      expect(store.form_alerts[0].message).toBe('success message');
+      expect(store.mdm_form_alerts.length).toBe(1);
+      expect(store.mdm_form_alerts[0].message).toBe('success message');
       expect(store.showExitModal).toBe(false);
       expect(store.formHasChanged).toBe(false);
       expect(store.hasBeenSubmitted).toBe(true);
@@ -285,7 +285,7 @@ describe("MDMStore", () => {
   });
 
   test("setMDMConfiguration clears out the form if fails based on credentials", () => {
-    store.form_alerts = [];
+    store.mdm_form_alerts = [];
     apiService.setMDMConfiguration = jest.fn();
     apiService.setMDMConfiguration.mockReturnValue(Promise.resolve({
       data: {
@@ -319,13 +319,13 @@ describe("MDMStore", () => {
   });
 
   test("setMDMConfiguration pushes the right error onto the stack if fails", () => {
-    store.form_alerts = [];
+    store.mdm_form_alerts = [];
     apiService.setMDMConfiguration = jest.fn();
     apiService.setMDMConfiguration.mockReturnValue(Promise.reject());
 
     store.setMDMConfiguration().then(() => {
-      expect(store.form_alerts.length).toBe(1);
-      expect(store.form_alerts[0].message).toBe(store.userMessages.connectFail);
+      expect(store.mdm_form_alerts.length).toBe(1);
+      expect(store.mdm_form_alerts[0].message).toBe(store.userMessages.connectFail);
     });
   });
 
@@ -342,34 +342,34 @@ describe("MDMStore", () => {
 
   test("breakMDMConnection pushes the right error onto the stack if fails", () => {
     const psk = "123";
-    store.form_alerts = [];
+    store.mdm_form_alerts = [];
     apiService.breakMDMConfiguration = jest.fn();
     apiService.breakMDMConfiguration.mockReturnValue(Promise.reject());
 
     store.breakMDMConnection().then(() => {
-      expect(store.form_alerts.length).toBe(1);
-      expect(store.form_alerts[0].message).toBe(store.userMessages.breakConnectionFail);
+      expect(store.mdm_form_alerts.length).toBe(1);
+      expect(store.mdm_form_alerts[0].message).toBe(store.userMessages.breakConnectionFail);
     });
   });
 
-  test("getMDMStatus sets all statuses on success", () => {
+  test("getMDMStatusForAppCatalog sets all statuses on success", () => {
     apiService.getAdminApps = jest.fn();
     apiService.getAdminApps.mockReturnValue(Promise.resolve());
-    store.setMDMStatus = jest.fn();
+    store.processMDMStatusForAppCatalog = jest.fn();
 
-    store.getMDMStatus().then(() => {
-      expect(store.setMDMStatus).toHaveBeenCalled();
+    store.getMDMStatusForAppCatalog().then(() => {
+      expect(store.processMDMStatusForAppCatalog).toHaveBeenCalled();
     });
   });
 
-  test("getMDMStatus pushes the right error onto the stack if fails", () => {
-    store.form_alerts = [];
+  test("getMDMStatusForAppCatalog pushes the right error onto the stack if fails", () => {
+    store.mdm_form_alerts = [];
     apiService.getAdminApps = jest.fn();
     apiService.getAdminApps.mockReturnValue(Promise.reject());
 
-    store.getMDMStatus().then(() => {
-      expect(store.app_alerts.length).toBe(1);
-      expect(store.app_alerts[0].message).toBe(store.userMessages.connectFail);
+    store.getMDMStatusForAppCatalog().then(() => {
+      expect(store.manage_apps_alerts.length).toBe(1);
+      expect(store.manage_apps_alerts[0].message).toBe(store.userMessages.connectFail);
     });
   });
 
@@ -378,33 +378,33 @@ describe("MDMStore", () => {
   });
 
   //TODO
-  // test("setMDMStatus sets status for each app", () => {
+  // test("processMDMStatusForAppCatalog sets status for each app", () => {
   //   let apps = [
   //     {app_psk: '1', mdm_install_status: 'a'},
   //     {app_psk: '2', mdm_install_status: 'b'}
   //   ];
-  //   store.setMDMStatus(apps);
+  //   store.processMDMStatusForAppCatalog(apps);
   //   expect(store.appCatalogMDMStatuses.get('1')).toBe('a');
   //   expect(store.appCatalogMDMStatuses.get('2')).toBe('b');
   // });
   //
-  // test("setMDMStatus shows alert on push failure", () => {
+  // test("processMDMStatusForAppCatalog shows alert on push failure", () => {
   //   store.throwPushError = jest.fn();
   //   let apps = [
   //     {app_psk: '1', mdm_install_status: 'FAILED'}
   //   ];
-  //   store.setMDMStatus(apps);
+  //   store.processMDMStatusForAppCatalog(apps);
   //   expect(store.throwPushError).toHaveBeenCalled();
   // });
   //
-  // test("setMDMStatus shows alert on push success", () => {
+  // test("processMDMStatusForAppCatalog shows alert on push success", () => {
   //   store.throwPushSuccess = jest.fn();
   //   store.mdmStatusIsUnresolved = jest.fn();
   //   store.mdmStatusIsUnresolved.mockReturnValue(true);
   //   let apps = [
   //     {app_psk: '2', mdm_install_status: 'INSTALLED'}
   //   ];
-  //   store.setMDMStatus(apps);
+  //   store.processMDMStatusForAppCatalog(apps);
   //   expect(store.throwPushSuccess).toHaveBeenCalled();
   // });
 

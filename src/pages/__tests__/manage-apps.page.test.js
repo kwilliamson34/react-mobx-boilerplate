@@ -27,7 +27,7 @@ describe('<ManageAppsPage />', () => {
 
     props.store.userStore.user.pse = '';
     props.store.cardListStore.filteredSearchResults = [];
-    props.store.mdmStore.app_alerts = [];
+    props.store.mdmStore.manage_apps_alerts = [];
 
     props.store.mdmStore.pseMDMObject = {};
     props.store.mdmStore.pseMDMObject.toJS = jest.fn();
@@ -41,7 +41,7 @@ describe('<ManageAppsPage />', () => {
 
       //default
       props.store.cardListStore.filteredSearchResults = [];
-      props.store.mdmStore.app_alerts = [];
+      props.store.mdmStore.manage_apps_alerts = [];
       component = renderer.create(<MemoryRouter>
           <ManageAppsPage {...props} />
       </MemoryRouter>);
@@ -49,7 +49,7 @@ describe('<ManageAppsPage />', () => {
       expect(tree).toMatchSnapshot();
 
       //with alerts
-      props.store.mdmStore.app_alerts = [{},{}];
+      props.store.mdmStore.manage_apps_alerts = [{},{}];
       component = renderer.create(<MemoryRouter>
           <ManageAppsPage {...props} />
       </MemoryRouter>);
@@ -81,7 +81,7 @@ describe('<ManageAppsPage />', () => {
 
     props.store.userStore.user.pse = '';
     props.store.cardListStore.filteredSearchResults = [];
-    props.store.mdmStore.app_alerts = [];
+    props.store.mdmStore.manage_apps_alerts = [];
 
     props.store.mdmStore.pseMDMObject = {};
     props.store.mdmStore.pseMDMObject.toJS = jest.fn();
