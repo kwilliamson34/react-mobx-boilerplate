@@ -23,7 +23,7 @@
 }
 @media #{$mobile} {
   .fnnav__brand {
-    width: calc(100% - 49px);
+    width: calc(100% - 98px);
     height: 49px;
 
     > a,
@@ -38,7 +38,7 @@
 }
 @media #{$tablet} {
   .fnnav__brand {
-    width: calc(100% - 73px);
+    width: calc(100% - 144px);
     height: 98px;
 
     > a,
