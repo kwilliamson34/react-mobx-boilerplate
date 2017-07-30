@@ -31,52 +31,45 @@ export default class Footer extends React.Component {
 		this.headerStore.toggleFooterSitemap();
 	}
 
-	renderBrandingArea() {
-		return(
-			<Link to="/" className="logo-home-link-footer">
-				<img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Local Control Home" />
-			</Link>
-		)
-	}
-
-
 	renderSitemapColumn() {
 		let sitemapCollapseBreakpoint = 992;
 		let allowFocusOnSitemapHeader = this.headerStore.viewportWidth < sitemapCollapseBreakpoint;
-		return(
-			<div className="col-xs-12 col-md-3">
-				<nav aria-describedby="sitemap">
-					<a id="sitemap" href=""
-						onClick={this.handleSitemapClick}
-						tabIndex={allowFocusOnSitemapHeader ? 0 : -1}
-						className="sitemap-hdr"
-						role="button"
-						aria-haspopup="true"
-						aria-expanded={this.headerStore.footerSitemapExpanded}>Sitemap</a>
-					<ul className="sitemap-links">
-						{this.user.isAdmin &&
-						<div>
+		if(this.props.showInternalLinks){
+			return(
+				<div className="col-xs-12 col-md-3">
+					<nav aria-describedby="sitemap">
+						<a id="sitemap" href=""
+							onClick={this.handleSitemapClick}
+							tabIndex={allowFocusOnSitemapHeader ? 0 : -1}
+							className="sitemap-hdr"
+							role="button"
+							aria-haspopup="true"
+							aria-expanded={this.headerStore.footerSitemapExpanded}>Sitemap</a>
+						<ul className="sitemap-links">
+							{this.user.isAdmin &&
+							<div>
+								<li role="presentation">
+									<Link to="/admin">PSE Administration</Link>
+								</li>
+								<li role="presentation">
+									<Link to="/admin/manage-apps">Manage Apps</Link>
+								</li>
+								<li role="presentation">
+									<Link to="/admin/devices">Specialized Device Catalog</Link>
+								</li>
+								<li role="presentation">
+									<Link to="/admin/solutions">Public Safety Solutions </Link>
+								</li>
+							</div>
+							}
 							<li role="presentation">
-								<Link to="/admin">PSE Administration</Link>
+								<Link to="/network-status">Network Status</Link>
 							</li>
-							<li role="presentation">
-								<Link to="/admin/manage-apps">Manage Apps</Link>
-							</li>
-							<li role="presentation">
-								<Link to="/admin/devices">Specialized Device Catalog</Link>
-							</li>
-							<li role="presentation">
-								<Link to="/admin/solutions">Public Safety Solutions </Link>
-							</li>
-						</div>
-						}
-						<li role="presentation">
-							<Link to="/network-status">Network Status</Link>
-						</li>
-					</ul>
-				</nav>
-			</div>
-		);
+						</ul>
+					</nav>
+				</div>
+			);
+		}
 	}
 
 	renderFirstNetColumn() {
@@ -107,35 +100,39 @@ export default class Footer extends React.Component {
 	renderSocialLinkColumn() {
 		return (
 			<div className="col-xs-12 col-md-3">
-				<nav className="social-nav"  aria-describedby="social-links">
+				<nav className="social-nav" aria-describedby="social-links">
 					<h2 id="social-links">Follow Us</h2>
 					<ul className="social-links-list">
 						<li role="presentation">
 							<NewTabLink to="https://www.facebook.com/firstnetgov/" className="fn-social-icon fb" >
-							<i aria-hidden="true" className="icon-facebook"></i>
-							<span className="title">Facebook</span>
-						</NewTabLink>
+								<i aria-hidden="true" className="icon-facebook"></i>
+								<span className="title">Facebook</span>
+							</NewTabLink>
 						</li>
 						<li role="presentation">
 							<NewTabLink to="https://www.linkedin.com/company/first-responder-network-authority-firstnet-" className="fn-social-icon linkedin" >
-							<i aria-hidden="true" className="icon-linkedin"></i>
-							<span className="title">LinkedIn</span>
-						</NewTabLink>
+								<i aria-hidden="true" className="icon-linkedin"></i>
+								<span className="title">LinkedIn</span>
+							</NewTabLink>
 						</li>
-						<li role="presentation"><NewTabLink to="https://twitter.com/FirstNetGov" className="fn-social-icon twitter" >
-							<i aria-hidden="true" className="icon-twitter"></i>
-							<span className="title">Twitter</span>
-						</NewTabLink></li>
+						<li role="presentation">
+							<NewTabLink to="https://twitter.com/FirstNetGov" className="fn-social-icon twitter">
+								<i aria-hidden="true" className="icon-twitter"></i>
+								<span className="title">Twitter</span>
+							</NewTabLink>
+						</li>
 						<li role="presentation">
 							<NewTabLink to="https://firstnetgov.tumblr.com/" className="fn-social-icon tumblr" >
-							<i aria-hidden="true" className="icon-tumblr"></i>
-							<span className="title">Tumblr</span>
-						</NewTabLink>
+								<i aria-hidden="true" className="icon-tumblr"></i>
+								<span className="title">Tumblr</span>
+							</NewTabLink>
 						</li>
-						<li role="presentation"><NewTabLink to="https://www.youtube.com/user/FirstNetGov" className="fn-social-icon youtube" >
-							<i aria-hidden="true" className="icon-youtube"></i>
-							<span className="title">YouTube</span>
-						</NewTabLink></li>
+						<li role="presentation">
+							<NewTabLink to="https://www.youtube.com/user/FirstNetGov" className="fn-social-icon youtube" >
+								<i aria-hidden="true" className="icon-youtube"></i>
+								<span className="title">YouTube</span>
+							</NewTabLink>
+						</li>
 					</ul>
 				</nav>
 			</div>
@@ -143,17 +140,22 @@ export default class Footer extends React.Component {
 	}
 
 	renderHelpColumn() {
+
 		return (
-			<div className="col-xs-12 col-md-3">
+			<div className={`col-xs-12  ${this.props.showInternalLinks ? 'col-md-3' : 'col-md-6'}`}>
 				<nav aria-describedby="helpLinks">
 					<h2 id="helpLinks" className="help-hdr">Help</h2>
 					<ul className="help-link-block">
-						<li role="presentation">
-							<Link to="/faq">FAQ</Link>
-						</li>
-						<li role="presentation">
-							<Link to="/feedback">Give Us Feedback</Link>
-						</li>
+						{this.props.showInternalLinks &&
+							<li role="presentation">
+								<Link to="/faq">FAQ</Link>
+							</li>
+						}
+						{this.props.showInternalLinks &&
+							<li role="presentation">
+								<Link to="/feedback">Give Us Feedback</Link>
+							</li>
+						}
 						<li role="presentation">
 							AT&amp;T Customer Service:<br className="visible-xs-inline-block visible-md-inline-block" />&nbsp;
 							<a href={'tel:' + this.headerStore.ATTSupportPhone}>
@@ -178,7 +180,8 @@ export default class Footer extends React.Component {
 					</li>
 					<li role="presentation">
 						<NewTabLink to={this.externalLinkStore.termsOfUse}>
-							Terms of Use</NewTabLink>
+							Terms of Use
+						</NewTabLink>
 					</li>
 					<br className="visible-xs-inline-block" />
 					<li role="presentation">
@@ -186,7 +189,11 @@ export default class Footer extends React.Component {
 						Accessibility
 						</NewTabLink>
 					</li>
-					<li role="presentation"><NewTabLink to="https://www.firstnet.gov/">FirstNet.gov</NewTabLink></li>
+					<li role="presentation">
+						<NewTabLink to="https://www.firstnet.gov/">
+							FirstNet.gov
+						</NewTabLink>
+					</li>
 				</ul>
 			</nav>
 		);
@@ -199,7 +206,13 @@ export default class Footer extends React.Component {
 					<div className="container">
 						<div className="row">
 							<div className="col-xs-12 logoRow">
-								{this.renderBrandingArea()}
+								{(this.props.showInternalLinks)?
+										<Link to="/" className="logo-home-link-footer">
+											<img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Local Control Home" />
+										</Link>
+									:
+										<img src="/images/logo-FirstNet-local-control.svg" alt="" aria-hidden="true"/>
+								}
 							</div>
 						</div>
 						<div className="row is-flex">
@@ -214,7 +227,7 @@ export default class Footer extends React.Component {
 					<div className="container">
 					<div className="row">
 						<div className="col-xs-12">
-							{this.renderBottomNav}
+							{this.renderBottomNav()}
 						</div>
 					</div>
 					</div>
@@ -222,5 +235,4 @@ export default class Footer extends React.Component {
 			</footer>
 		);
 	}
-
 }
