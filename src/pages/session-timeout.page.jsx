@@ -1,7 +1,7 @@
 import React from 'react';
 import {observer, inject, PropTypes} from 'mobx-react';
 import config from 'config';
-import NewTabLink from '../components/link/new-tab-link';
+import Footer from './components/footer/footer.jsx';
 
 @inject('store')
 @observer
@@ -50,133 +50,7 @@ export default class SessionTimeoutPage extends React.Component {
             </div>
           </div>
         </section>
-        <footer id="pse-footer">
-          <div className="footer-main">
-            <div className="container">
-              <div className="row">
-                <div className="col-xs-12 logoRow">
-                  <img src="/images/logo-FirstNet-local-control.svg" alt="" aria-hidden="true"/>
-                </div>
-              </div>
-              <div className="row is-flex">
-                <div className="col-xs-12 col-md-3">
-                  <nav id="" aria-describedby="firstnet-sites">
-                    <h2 id="firstnet-sites">Firstnet Sites</h2>
-                    <ul>
-                      <li role="presentation">
-                        <NewTabLink to="http://firstnet.com/">
-                          FirstNet.com
-                        </NewTabLink>
-                      </li>
-                      <li role="presentation">
-                        <NewTabLink to="https://fndevpgm-uat-app.eng.mobilephone.net/firstnet">
-                          Developer Portal
-                        </NewTabLink>
-                      </li>
-                      <li role="presentation">
-                        <NewTabLink to="https://test-appcontrol.firstnet.att.com/">
-                          App Control
-                        </NewTabLink>
-                      </li>
-                      <li role="presentation">
-                        <NewTabLink to="https://test-apps.firstnet.att.com/">
-                          App Store
-                        </NewTabLink>
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
-                <div className="col-xs-12 col-md-3">
-                  <nav className="social-nav" aria-describedby="social-links">
-                    <h2 id="social-links">Follow Us</h2>
-                    <ul className="social-links-list">
-                      <li role="presentation">
-                        <NewTabLink to="https://www.facebook.com/firstnetgov/" className="fn-social-icon fb">
-                          <i aria-hidden="true" className="icon-facebook"/>
-                          <span className="title">Facebook</span>
-                        </NewTabLink>
-                      </li>
-                      <li role="presentation">
-                        <NewTabLink to="https://www.linkedin.com/company/first-responder-network-authority-firstnet-" className="fn-social-icon linkedin">
-                          <i aria-hidden="true" className="icon-linkedin"/>
-                          <span className="title">LinkedIn</span>
-                        </NewTabLink>
-                      </li>
-                      <li role="presentation">
-                        <NewTabLink to="https://twitter.com/FirstNetGov" className="fn-social-icon twitter">
-                          <i aria-hidden="true" className="icon-twitter"/>
-                          <span className="title">Twitter</span>
-                        </NewTabLink>
-                      </li>
-                      <li role="presentation">
-                        <NewTabLink to="https://firstnetgov.tumblr.com/" className="fn-social-icon tumblr">
-                          <i aria-hidden="true" className="icon-tumblr"/>
-                          <span className="title">Tumblr</span>
-                        </NewTabLink>
-                      </li>
-                      <li role="presentation">
-                        <NewTabLink to="https://www.youtube.com/user/FirstNetGov" className="fn-social-icon youtube">
-                          <i aria-hidden="true" className="icon-youtube"/>
-                          <span className="title">YouTube</span>
-                        </NewTabLink>
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
-                <div className="col-xs-12 col-md-3">
-                  <nav aria-describedby="helpLinks">
-                    <h2 id="helpLinks" className="help-hdr">Help</h2>
-                    <ul className="help-link-block">
-                      <li role="presentation">
-                        FirstNet Customer Service:
-                        <br className="visible-xs-inline-block visible-md-inline-block"/>&nbsp;
-                        <a href={'tel:' + config.attCustomerSupportPhone}>
-                          <i className="icon-phone-number footer-support-phone" aria-hidden="true"/>
-                          <span className="sr-only">Call&nbsp;</span>
-                          {config.attCustomerSupportPhone}
-                          <span className="sr-only">&nbsp;to speak with AT&amp;T Customer Service</span>
-                        </a>
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="footer-sub">
-            <div className="container">
-              <div className="row">
-                <div className="col-xs-12">
-                  <nav>
-                    <ul className="sub-links">
-                      <li role="presentation">
-                        <NewTabLink to="https://www.firstnet.gov/privacy-policy">
-                          Privacy Policy
-                        </NewTabLink>
-                      </li>
-                      <li role="presentation">
-                        <NewTabLink to={this.externalLinkStore.termsOfUse}>
-                          Terms of Use
-                        </NewTabLink>
-                      </li>
-                      <br className="visible-xs-inline-block"/>
-                      <li role="presentation">
-                        <NewTabLink to="https://www.firstnet.gov/accessibility">
-                          Accessibility
-                        </NewTabLink>
-                      </li>
-                      <li role="presentation">
-                        <NewTabLink to="https://www.firstnet.gov/">
-                          FirstNet.gov
-                        </NewTabLink>
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
-              </div>
-            </div>
-          </div>
-        </footer>
+        <Footer showInternalLinks={false} />
       </article>
     );
   }
