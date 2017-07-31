@@ -86,11 +86,15 @@ export default class Footer extends React.Component {
 							<NewTabLink to="https://fndevpgm-uat-app.eng.mobilephone.net/firstnet" >Developer Portal</NewTabLink>
 						</li>
 						<li role="presentation">
-							<NewTabLink to="https://test-appcontrol.firstnet.att.com/" >
-						App Control</NewTabLink></li>
+							<NewTabLink to="https://test-appcontrol.firstnet.att.com/">
+								App Control
+							</NewTabLink>
+						</li>
 						<li role="presentation">
-							<NewTabLink to="https://test-apps.firstnet.att.com/" >
-						App Store</NewTabLink></li>
+							<NewTabLink to="https://test-apps.firstnet.att.com/">
+						App Store
+							</NewTabLink>
+						</li>
 					</ul>
 				</nav>
 			</div>
@@ -186,7 +190,7 @@ export default class Footer extends React.Component {
 					<br className="visible-xs-inline-block" />
 					<li role="presentation">
 						<NewTabLink to="https://www.firstnet.gov/accessibility">
-						Accessibility
+							Accessibility
 						</NewTabLink>
 					</li>
 					<li role="presentation">
@@ -207,11 +211,11 @@ export default class Footer extends React.Component {
 						<div className="row">
 							<div className="col-xs-12 logoRow">
 								{(this.props.showInternalLinks)?
-										<Link to="/" className="logo-home-link-footer">
-											<img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Local Control Home" />
-										</Link>
+									<Link to="/" className="logo-home-link-footer">
+										<img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Local Control Home" />
+									</Link>
 									:
-										<img src="/images/logo-FirstNet-local-control.svg" alt="" aria-hidden="true"/>
+									<img src="/images/logo-FirstNet-local-control.svg" alt="" aria-hidden="true"/>
 								}
 							</div>
 						</div>
@@ -225,11 +229,11 @@ export default class Footer extends React.Component {
 				</div>
 				<div className="footer-sub">
 					<div className="container">
-					<div className="row">
-						<div className="col-xs-12">
-							{this.renderBottomNav()}
+						<div className="row">
+							<div className="col-xs-12">
+								{this.renderBottomNav()}
+							</div>
 						</div>
-					</div>
 					</div>
 				</div>
 			</footer>
