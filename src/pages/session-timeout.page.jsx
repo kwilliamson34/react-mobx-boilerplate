@@ -1,7 +1,7 @@
 import React from 'react';
 import {observer, inject, PropTypes} from 'mobx-react';
 import config from 'config';
-import Footer from './components/footer/footer.jsx';
+import Footer from '../components/footer/footer.jsx';
 
 @inject('store')
 @observer
