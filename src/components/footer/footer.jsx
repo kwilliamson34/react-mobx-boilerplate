@@ -75,25 +75,20 @@ export default class Footer extends React.Component {
 	renderFirstNetColumn() {
 		return (
 			<div className="col-xs-12 col-md-3">
-				<nav id=""  aria-describedby="firstnet-sites">
+				<nav aria-describedby="firstnet-sites">
 					<h2 id="firstnet-sites">Firstnet Sites</h2>
 					<ul>
 						<li role="presentation">
-							<NewTabLink to="http://firstnet.com/" >
-							FirstNet.com</NewTabLink>
+							<NewTabLink to={this.externalLinkStore.firstnetCom}>FirstNet.com</NewTabLink>
 						</li>
 						<li role="presentation">
-							<NewTabLink to="https://fndevpgm-uat-app.eng.mobilephone.net/firstnet" >Developer Portal</NewTabLink>
+							<NewTabLink to={this.externalLinkStore.devPortal}>Developer Portal</NewTabLink>
 						</li>
 						<li role="presentation">
-							<NewTabLink to="https://test-appcontrol.firstnet.att.com/">
-								App Control
-							</NewTabLink>
+							<NewTabLink to={this.externalLinkStore.appControl}>App Control</NewTabLink>
 						</li>
 						<li role="presentation">
-							<NewTabLink to="https://test-apps.firstnet.att.com/">
-						App Store
-							</NewTabLink>
+							<NewTabLink to={this.externalLinkStore.appStore}>App Store</NewTabLink>
 						</li>
 					</ul>
 				</nav>
@@ -108,31 +103,31 @@ export default class Footer extends React.Component {
 					<h2 id="social-links">Follow Us</h2>
 					<ul className="social-links-list">
 						<li role="presentation">
-							<NewTabLink to="https://www.facebook.com/firstnetgov/" className="fn-social-icon fb" >
+							<NewTabLink to={this.externalLinkStore.firstnetFacebook} className="fn-social-icon fb">
 								<i aria-hidden="true" className="icon-facebook"></i>
 								<span className="title">Facebook</span>
 							</NewTabLink>
 						</li>
 						<li role="presentation">
-							<NewTabLink to="https://www.linkedin.com/company/first-responder-network-authority-firstnet-" className="fn-social-icon linkedin" >
+							<NewTabLink to={this.externalLinkStore.firstnetLinkedIn} className="fn-social-icon linkedin">
 								<i aria-hidden="true" className="icon-linkedin"></i>
 								<span className="title">LinkedIn</span>
 							</NewTabLink>
 						</li>
 						<li role="presentation">
-							<NewTabLink to="https://twitter.com/FirstNetGov" className="fn-social-icon twitter">
+							<NewTabLink to={this.externalLinkStore.firstnetTwitter} className="fn-social-icon twitter">
 								<i aria-hidden="true" className="icon-twitter"></i>
 								<span className="title">Twitter</span>
 							</NewTabLink>
 						</li>
 						<li role="presentation">
-							<NewTabLink to="https://firstnetgov.tumblr.com/" className="fn-social-icon tumblr" >
+							<NewTabLink to={this.externalLinkStore.firstnetTumblr}>
 								<i aria-hidden="true" className="icon-tumblr"></i>
 								<span className="title">Tumblr</span>
 							</NewTabLink>
 						</li>
 						<li role="presentation">
-							<NewTabLink to="https://www.youtube.com/user/FirstNetGov" className="fn-social-icon youtube" >
+							<NewTabLink to={this.externalLinkStore.firstnetYoutube} className="fn-social-icon youtube">
 								<i aria-hidden="true" className="icon-youtube"></i>
 								<span className="title">YouTube</span>
 							</NewTabLink>
@@ -144,7 +139,6 @@ export default class Footer extends React.Component {
 	}
 
 	renderHelpColumn() {
-
 		return (
 			<div className={`col-xs-12  ${this.props.showInternalLinks ? 'col-md-3' : 'col-md-6'}`}>
 				<nav aria-describedby="helpLinks">
@@ -180,7 +174,7 @@ export default class Footer extends React.Component {
 			<nav>
 				<ul className="sub-links">
 					<li role="presentation">
-						<NewTabLink to="https://www.firstnet.gov/privacy-policy">Privacy Policy</NewTabLink>
+						<NewTabLink to={this.externalLinkStore.privacyPolicyLink}>Privacy Policy</NewTabLink>
 					</li>
 					<li role="presentation">
 						<NewTabLink to={this.externalLinkStore.termsOfUse}>
@@ -189,12 +183,12 @@ export default class Footer extends React.Component {
 					</li>
 					<br className="visible-xs-inline-block" />
 					<li role="presentation">
-						<NewTabLink to="https://www.firstnet.gov/accessibility">
+						<NewTabLink to={this.externalLinkStore.accessibilityLink}>
 							Accessibility
 						</NewTabLink>
 					</li>
 					<li role="presentation">
-						<NewTabLink to="https://www.firstnet.gov/">
+						<NewTabLink to={this.externalLinkStore.firstnetGov}>
 							FirstNet.gov
 						</NewTabLink>
 					</li>
