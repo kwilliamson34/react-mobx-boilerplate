@@ -15,7 +15,7 @@ class GeolinkStore {
     const success = (response) => {
       let html = response.data;
       html = html.replace(new RegExp('@@geolinkScriptPath', 'g'), config.geolinkScripts);
-      html = html.replace(new RegExp('@@geolinkAbMapConstantsFileName', 'g'), config.geolinkAbMapConstants);
+      html = html.replace(new RegExp('@@geolinkAbMapConstantsFileName', 'g'), config.geolinkAbMapConstantsFileName);
       this.geolinkHtml = html;
     }
     const fail = (err) => {

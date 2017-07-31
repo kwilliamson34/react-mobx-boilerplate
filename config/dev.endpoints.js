@@ -5,6 +5,7 @@ const config = {
   haloLogout: 'https://fcontent.stage.att.com/dynamic/iamLRR/LrrController?IAM_OP=logout&appName=m11635',
   apperianUploads: 'https://ease.apperian.com/uploads/',
   geolinkScripts: 'https://onemap.att.com/icecapmap',
+  geolinkAbMapConstantsFileName: 'abMapConstantsFNST.js',
   mktgPortalImgBaseUrl: 'https://www.firstnet.ws',
   apiBase: '/api',
   attCustomerSupportPhone: '800-574-7000',
