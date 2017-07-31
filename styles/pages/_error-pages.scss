@@ -35,15 +35,15 @@ section.session-timeout{
 
 		> div{
 			background: $fn-white;
-			padding: 45px 30px;
+			padding: 60px 30px;
 			text-align: center;
 
 			h1{
-				margin-bottom: 30px;
+				margin-bottom: 20px;
 			}
 
 			p {
-				margin-bottom: 60px;
+				margin-bottom: 30px;
 			}
 			a {
 				white-space: nowrap;
@@ -61,6 +61,17 @@ section.session-timeout{
 		> .container{
 			> div {
 				padding: 80px 100px;
+
+				h1{
+					margin-bottom: 30px;
+				}
+
+				p {
+					margin-bottom: 60px;
+				}
+				a {
+					white-space: nowrap;
+				}
 			}
 		}
 	}
