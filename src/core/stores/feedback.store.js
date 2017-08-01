@@ -41,8 +41,9 @@ class FeedbackStore {
         this.clearFeedbackForm();
       }
       const failure = (res) => {
+        // this.disableSaveDialogs();
+        // history.push('/feedback');
         utilsService.handleError(res);
-        this.showExitModal = false;
       }
       apiService.submitCustomerFeedbackForm(data)
       .then(success, failure);
