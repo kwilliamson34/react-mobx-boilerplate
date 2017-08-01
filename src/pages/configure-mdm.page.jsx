@@ -258,8 +258,9 @@ export default class ConfigureMDM extends React.Component {
         {this.store.isConfigured && this.renderBreakConnectionButton()}
         <div className="mdm-form-wrapper container">
           <div className="col-xs-12 text-center">
-            <h1>Configure
-              <span className="hidden-xs">Mobile Device Management (</span>MDM<span className="hidden-xs">)</span>
+            <h1>
+              <span className="hidden-xs">Configure Mobile Device Management (MDM)</span>
+              <span className="hidden-sm hidden-md hidden-lg">Configure MDM</span>
             </h1>
           </div>
 
