@@ -2,6 +2,17 @@ exports[`<AppDetailsPage /> render matches snapshot before and after PSE is assi
 <article
   id="app-details-page">
   <div
+    className="app-details-alerts">
+    <div
+      className="container">
+      <div
+        className="row">
+        <div
+          className="col-xs-12" />
+      </div>
+    </div>
+  </div>
+  <div
     className="container loading-container">
     <div
       className="row">
@@ -24,6 +35,17 @@ exports[`<AppDetailsPage /> render matches snapshot before and after PSE is assi
 exports[`<AppDetailsPage /> render matches snapshot before and after PSE is assigned 2`] = `
 <article
   id="app-details-page">
+  <div
+    className="app-details-alerts">
+    <div
+      className="container">
+      <div
+        className="row">
+        <div
+          className="col-xs-12" />
+      </div>
+    </div>
+  </div>
   <div
     className="container loading-container">
     <div
@@ -48,7 +70,7 @@ exports[`<AppDetailsPage /> render matches snapshot when app has not been matche
 <article
   id="app-details-page">
   <div
-    className=" app-details-alerts">
+    className="app-details-alerts">
     <div
       className="container">
       <div
@@ -82,7 +104,7 @@ exports[`<AppDetailsPage /> render matches snapshot when app has not been matche
 <article
   id="app-details-page">
   <div
-    className=" app-details-alerts">
+    className="app-details-alerts">
     <div
       className="container">
       <div
@@ -116,7 +138,7 @@ exports[`<AppDetailsPage /> render matches snapshot when app has not been matche
 <article
   id="app-details-page">
   <div
-    className=" app-details-alerts">
+    className="app-details-alerts">
     <div
       className="container">
       <div
@@ -139,6 +161,18 @@ exports[`<AppDetailsPage /> render matches snapshot when app has not been matche
               id="app-details-description">
               Description
             </h2>
+            <div
+              className="whats-new">
+              <h2
+                className="whats-new-title"
+                id="app-details-whats-new">
+                What\'s New
+              </h2>
+              <div
+                className="whats-new-date">
+                October 31, 2011
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -190,6 +224,17 @@ exports[`<AppDetailsPage /> render matches snapshot when showing 0, 1, and many 
 <article
   id="app-details-page">
   <div
+    className="app-details-alerts">
+    <div
+      className="container">
+      <div
+        className="row">
+        <div
+          className="col-xs-12" />
+      </div>
+    </div>
+  </div>
+  <div
     className="container loading-container">
     <div
       className="row">
@@ -213,7 +258,7 @@ exports[`<AppDetailsPage /> render matches snapshot when showing 0, 1, and many 
 <article
   id="app-details-page">
   <div
-    className=" app-details-alerts">
+    className="app-details-alerts">
     <div
       className="container">
       <div
@@ -247,7 +292,7 @@ exports[`<AppDetailsPage /> render matches snapshot when showing 0, 1, and many 
 <article
   id="app-details-page">
   <div
-    className=" app-details-alerts">
+    className="app-details-alerts">
     <div
       className="container">
       <div

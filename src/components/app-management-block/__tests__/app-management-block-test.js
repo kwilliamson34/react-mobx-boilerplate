@@ -1,7 +1,7 @@
+jest.unmock('axios');
 jest.unmock('../app-management-block');
-
-// unmocking because we want to test all the way down the chain.
 jest.unmock('../../toggle/checkbox');
+jest.unmock('jquery');
 
 import AppManagementBlock from '../app-management-block';
 

@@ -4,36 +4,39 @@ exports[`<ScreenshotGallery /> standard snapshot tests: Render tests; should ren
   className="gallery-container"
   role="region">
   <div
-    className="slide-container">
-    <figure
-      className="img-responsive">
-      <img
-        alt="This is a mobile screenshot"
-        aria-labelledby="slide-caption-0"
-        className="slide-img"
-        src="imgpath.jpg" />
-    </figure>
-    <figcaption
-      className="slide-caption"
-      id="slide-caption-0">
-      This is a mobile screenshot
-    </figcaption>
-  </div>
-  <div
-    className="slide-container">
-    <figure
-      className="img-responsive">
-      <img
-        alt="This is a tablet screenshot"
-        aria-labelledby="slide-caption-1"
-        className="slide-img"
-        src="imgpath.jpg" />
-    </figure>
-    <figcaption
-      className="slide-caption"
-      id="slide-caption-1">
-      This is a tablet screenshot
-    </figcaption>
+    className="scrollable-region">
+    <div
+      className="slide-container">
+      <figure
+        className="img-responsive">
+        <img
+          alt="This is a mobile screenshot"
+          aria-labelledby="slide-caption-0"
+          className="slide-img"
+          src="imgpath.jpg" />
+      </figure>
+      <figcaption
+        className="slide-caption"
+        id="slide-caption-0">
+        This is a mobile screenshot
+      </figcaption>
+    </div>
+    <div
+      className="slide-container">
+      <figure
+        className="img-responsive">
+        <img
+          alt="This is a tablet screenshot"
+          aria-labelledby="slide-caption-1"
+          className="slide-img"
+          src="imgpath.jpg" />
+      </figure>
+      <figcaption
+        className="slide-caption"
+        id="slide-caption-1">
+        This is a tablet screenshot
+      </figcaption>
+    </div>
   </div>
 </div>
 `;
@@ -42,5 +45,8 @@ exports[`<ScreenshotGallery /> standard snapshot tests: Render tests; should ren
 <div
   aria-label="App screenshot gallery"
   className="gallery-container"
-  role="region" />
+  role="region">
+  <div
+    className="scrollable-region" />
+</div>
 `;

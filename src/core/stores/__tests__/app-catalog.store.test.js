@@ -27,6 +27,10 @@ const mockCatalogArray = [
 		screenshots: {
 			mobile: [],
 			tablet: []
+		},
+		version: {
+			version_note: 'note',
+			release_date: '20111031'
 		}
 	},
 	{
@@ -46,6 +50,10 @@ const mockCatalogArray = [
 		screenshots: {
 			mobile: [],
 			tablet: []
+		},
+		version: {
+			version_note: 'note',
+			release_date: '20111031'
 		}
 	},
 	{
@@ -68,6 +76,10 @@ const mockCatalogArray = [
 		screenshots: {
 			mobile: [],
 			tablet: []
+		},
+		version: {
+			version_note: 'note',
+			release_date: '20111031'
 		}
 	},
 	{
@@ -106,6 +118,11 @@ const mockCatalogArray = [
 		screenshots: {
 			mobile: [],
 			tablet: []
+		},
+		version: {
+			version_note: 'note',
+			release_date: '20111031',
+			version_num: '2.6.0'
 		}
 	}
 ];

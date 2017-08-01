@@ -6,7 +6,7 @@ exports[`<SolutionsCategoryTemplate /> render matches snapshot with zero, one an
     <section
       className="intro-block">
       <h1
-        className="as-h2 centered">
+        className="centered">
         match
       </h1>
     </section>
@@ -27,7 +27,7 @@ exports[`<SolutionsCategoryTemplate /> render matches snapshot with zero, one an
     <section
       className="intro-block">
       <h1
-        className="as-h2 centered">
+        className="centered">
         match
       </h1>
     </section>
@@ -89,7 +89,7 @@ exports[`<SolutionsCategoryTemplate /> render matches snapshot with zero, one an
     <section
       className="intro-block">
       <h1
-        className="as-h2 centered">
+        className="centered">
         match
       </h1>
     </section>

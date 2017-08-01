@@ -1,6 +1,7 @@
 jest.unmock('axios');
 jest.unmock('../../core/stores/master.store');
 jest.unmock('../app-details.page');
+jest.unmock('moment');
 
 import {observer, inject} from 'mobx-react';
 import {appCatalogStore} from '../../core/stores/app-catalog.store';
@@ -16,6 +17,11 @@ describe('<AppDetailsPage />', () => {
         appCatalogStore,
         mdmStore,
         userStore
+      },
+      match: {
+        params: {
+          appPsk: '123'
+        }
       }
     }
 
@@ -78,13 +84,17 @@ describe('<AppDetailsPage />', () => {
         custom_metadata: {
           developer_description: '',
           developer_website: ''
+        },
+        version: {
+          version_note: 'note',
+          release_date: '20111031'
         }
       };
       props.store.mdmStore.pseMDMObject = {
-        toJS: () => {return {mdm_type: 'test'} }
+        toJS: () => {return {mdm_type: 'AIRWATCH'} }
       };
       props.store.mdmStore.appCatalogMDMStatuses = {
-        toJS: () => {return {mdm_type: 'test'} }
+        toJS: () => {return {mdm_type: 'AIRWATCH'} }
       };
       component = renderer.create(<AppDetailsPage {...props}/>);
       tree = component.toJSON();

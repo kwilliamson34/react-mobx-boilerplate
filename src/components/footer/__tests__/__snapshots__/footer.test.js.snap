@@ -52,49 +52,20 @@ exports[`<Footer /> renders matches previous footer snapshot 1`] = `
         <div
           className="col-xs-12 col-md-3">
           <nav
-            aria-describedby="firstnet-sites"
-            id="">
+            aria-describedby="firstnet-sites">
             <h2
               id="firstnet-sites">
               Firstnet Sites
             </h2>
             <ul>
               <li
-                role="presentation">
-                <a
-                  href="http://firstnet.com/"
-                  rel="noopener noreferrer"
-                  target="_blank">
-                  FirstNet.com
-                </a>
-              </li>
+                role="presentation" />
               <li
-                role="presentation">
-                <a
-                  href="https://fndevpgm-uat-app.eng.mobilephone.net/firstnet"
-                  rel="noopener noreferrer"
-                  target="_blank">
-                  Developer Portal
-                </a>
-              </li>
+                role="presentation" />
               <li
-                role="presentation">
-                <a
-                  href="https://test-appcontrol.firstnet.att.com/"
-                  rel="noopener noreferrer"
-                  target="_blank">
-                  App Control
-                </a>
-              </li>
+                role="presentation" />
               <li
-                role="presentation">
-                <a
-                  href="https://test-apps.firstnet.att.com/"
-                  rel="noopener noreferrer"
-                  target="_blank">
-                  App Store
-                </a>
-              </li>
+                role="presentation" />
             </ul>
           </nav>
         </div>
@@ -110,90 +81,20 @@ exports[`<Footer /> renders matches previous footer snapshot 1`] = `
             <ul
               className="social-links-list">
               <li
-                role="presentation">
-                <a
-                  className="fn-social-icon fb"
-                  href="https://www.facebook.com/firstnetgov/"
-                  rel="noopener noreferrer"
-                  target="_blank">
-                  <i
-                    aria-hidden="true"
-                    className="icon-facebook" />
-                  <span
-                    className="title">
-                    Facebook
-                  </span>
-                </a>
-              </li>
+                role="presentation" />
               <li
-                role="presentation">
-                <a
-                  className="fn-social-icon linkedin"
-                  href="https://www.linkedin.com/company/first-responder-network-authority-firstnet-"
-                  rel="noopener noreferrer"
-                  target="_blank">
-                  <i
-                    aria-hidden="true"
-                    className="icon-linkedin" />
-                  <span
-                    className="title">
-                    LinkedIn
-                  </span>
-                </a>
-              </li>
+                role="presentation" />
               <li
-                role="presentation">
-                <a
-                  className="fn-social-icon twitter"
-                  href="https://twitter.com/FirstNetGov"
-                  rel="noopener noreferrer"
-                  target="_blank">
-                  <i
-                    aria-hidden="true"
-                    className="icon-twitter" />
-                  <span
-                    className="title">
-                    Twitter
-                  </span>
-                </a>
-              </li>
+                role="presentation" />
               <li
-                role="presentation">
-                <a
-                  className="fn-social-icon tumblr"
-                  href="https://firstnetgov.tumblr.com/"
-                  rel="noopener noreferrer"
-                  target="_blank">
-                  <i
-                    aria-hidden="true"
-                    className="icon-tumblr" />
-                  <span
-                    className="title">
-                    Tumblr
-                  </span>
-                </a>
-              </li>
+                role="presentation" />
               <li
-                role="presentation">
-                <a
-                  className="fn-social-icon youtube"
-                  href="https://www.youtube.com/user/FirstNetGov"
-                  rel="noopener noreferrer"
-                  target="_blank">
-                  <i
-                    aria-hidden="true"
-                    className="icon-youtube" />
-                  <span
-                    className="title">
-                    YouTube
-                  </span>
-                </a>
-              </li>
+                role="presentation" />
             </ul>
           </nav>
         </div>
         <div
-          className="col-xs-12 col-md-3">
+          className="col-xs-12  col-md-3">
           <nav
             aria-describedby="helpLinks">
             <h2
@@ -228,8 +129,17 @@ exports[`<Footer /> renders matches previous footer snapshot 1`] = `
                 <a
                   href="tel:800-574-7000">
                   <i
+                    aria-hidden="true"
                     className="icon-phone-number footer-support-phone" />
+                  <span
+                    className="sr-only">
+                    Call 
+                  </span>
                   800-574-7000
+                  <span
+                    className="sr-only">
+                     to speak with AT&T Customer Service
+                  </span>
                 </a>
               </li>
             </ul>
@@ -258,14 +168,7 @@ exports[`<Footer /> renders matches previous footer snapshot 1`] = `
               <li
                 role="presentation" />
               <li
-                role="presentation">
-                <a
-                  href="https://www.firstnet.gov/"
-                  rel="noopener noreferrer"
-                  target="_blank">
-                  FirstNet.gov
-                </a>
-              </li>
+                role="presentation" />
             </ul>
           </nav>
         </div>

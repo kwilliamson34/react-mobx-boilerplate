@@ -158,7 +158,16 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
             <br />
             <a
               className="deaden"
-              href="tel:undefined" />
+              href="tel:undefined">
+              <span
+                className="sr-only">
+                Call 
+              </span>
+              <span
+                className="sr-only">
+                 to report an emergency coverage issue
+              </span>
+            </a>
           </div>
           <div
             className="non-emergency">
@@ -166,7 +175,16 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
             <br />
             <a
               className="deaden"
-              href="tel:undefined" />
+              href="tel:undefined">
+              <span
+                className="sr-only">
+                Call 
+              </span>
+              <span
+                className="sr-only">
+                 to report a non-emergency coverage issue
+              </span>
+            </a>
           </div>
         </div>
       </div>
@@ -185,6 +203,10 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
         <h2
           className="as-h5">
           Network
+          <span
+            className="sr-only">
+             color key
+          </span>
         </h2>
         <div
           className="key-labels">
@@ -213,6 +235,10 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
         <h2
           className="as-h5">
           Weather
+          <span
+            className="sr-only">
+             color key
+          </span>
         </h2>
         <div
           className="key-labels">
@@ -241,6 +267,10 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
         <h2
           className="as-h5">
           Traffic
+          <span
+            className="sr-only">
+             color key
+          </span>
         </h2>
         <div
           className="traffic-legend-wrapper ">
@@ -446,7 +476,16 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
             <br />
             <a
               className="deaden"
-              href="tel:undefined" />
+              href="tel:undefined">
+              <span
+                className="sr-only">
+                Call 
+              </span>
+              <span
+                className="sr-only">
+                 to report an emergency coverage issue
+              </span>
+            </a>
           </div>
           <div
             className="non-emergency">
@@ -454,7 +493,16 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
             <br />
             <a
               className="deaden"
-              href="tel:undefined" />
+              href="tel:undefined">
+              <span
+                className="sr-only">
+                Call 
+              </span>
+              <span
+                className="sr-only">
+                 to report a non-emergency coverage issue
+              </span>
+            </a>
           </div>
         </div>
       </div>
@@ -473,6 +521,10 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
         <h2
           className="as-h5">
           Network
+          <span
+            className="sr-only">
+             color key
+          </span>
         </h2>
         <div
           className="key-labels">
@@ -501,6 +553,10 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
         <h2
           className="as-h5">
           Weather
+          <span
+            className="sr-only">
+             color key
+          </span>
         </h2>
         <div
           className="key-labels">
@@ -529,6 +585,10 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
         <h2
           className="as-h5">
           Traffic
+          <span
+            className="sr-only">
+             color key
+          </span>
         </h2>
         <div
           className="traffic-legend-wrapper ">

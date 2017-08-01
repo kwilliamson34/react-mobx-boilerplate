@@ -65,7 +65,8 @@ exports[`<ManageAppsPage /> render matches previous snapshot 1`] = `
           className="card-list-container card-list-substitute">
           <div
             className="row" />
-          <div>
+          <div
+            className="no-results-container">
             <p
               className="as-h2">
               No Results
@@ -156,7 +157,8 @@ exports[`<ManageAppsPage /> render matches previous snapshot 2`] = `
           className="card-list-container card-list-substitute">
           <div
             className="row" />
-          <div>
+          <div
+            className="no-results-container">
             <p
               className="as-h2">
               No Results
@@ -247,7 +249,8 @@ exports[`<ManageAppsPage /> render matches previous snapshot 3`] = `
           className="card-list-container card-list-substitute">
           <div
             className="row" />
-          <div>
+          <div
+            className="no-results-container">
             <p
               className="as-h2">
               No Results
