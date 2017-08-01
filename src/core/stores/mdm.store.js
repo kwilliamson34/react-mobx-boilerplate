@@ -8,8 +8,10 @@ class MDMStore {
   @action updateMDM(mdm_type) {
     this.clearAlerts();
     this.resetMDMForm();
+
+    //set mdm_type to determine which form to show
     this.formData.mdm_type = mdm_type;
-    this.initializeFormData();
+    this.initializeFormData({mdm_type});
   }
 
   @action updateForm(input) {
