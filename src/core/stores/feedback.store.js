@@ -19,7 +19,7 @@ class FeedbackStore {
   }
 
   hasSomeText = (string) => {
-    const _string = string.replace(/\s/g, '');
+    const _string = string.trim();
     return _string.length > 0;
   }
 
@@ -31,7 +31,7 @@ class FeedbackStore {
       if (inputs[i].id !== 'feedback_email') {
         this.hasErrors[inputs[i].id] = !this.hasSomeText(inputs[i].value);
       } else if (inputs[i].id === 'feedback_email') {
-        this.hasErrors[inputs[i].id] = this.hasSomeText(inputs[i].value) ? !utilsService.testEmailRegex(inputs[i].value) : false;
+        this.hasErrors[inputs[i].id] = this.hasSomeText(inputs[i].value) && !utilsService.testEmailRegex(inputs[i].value);
       }
     }
     if (this.formIsValid) {
@@ -64,7 +64,7 @@ class FeedbackStore {
     if (input.id !== 'feedback_email') {
       this.hasErrors[input.id] = !this.hasSomeText(this.feedbackObject[input.id]);
     } else if (input.id === 'feedback_email') {
-      this.hasErrors[input.id] = this.hasSomeText(input.value) ? !utilsService.testEmailRegex(input.value) : false;
+      this.hasErrors[input.id] = this.hasSomeText(input.value) && !utilsService.testEmailRegex(input.value);
     }
     if (this.showAlertBar && this.requiredFieldsEntered) {
       this.toggleAlertBar();
