@@ -6,10 +6,8 @@ class MDMStore {
 
   // Determines if the beforeUnload event should fire in the browser
   getBrowserCloseAlert = (event) => {
-    if (this.mdmProvider !== '' && this.formHasChanged) {
+    if (this.formHasUnsavedChanges) {
       event.returnValue = true;
-    } else {
-      return;
     }
   };
 
@@ -42,6 +40,7 @@ class MDMStore {
   }
 
   clearStoredCredentials() {
+    //trigger error by replacing value with empty string
     let credFields = {};
     switch (this.mdmProvider) {
       case 'airWatchForm':
@@ -68,9 +67,11 @@ class MDMStore {
   }
 
   @action initializeFormData(responseData) {
+    /* Note: important to initialize to 'undefined' so errors are not shown
+    on the initial form load. */
     let formData = {};
     this.visibleInputArray.forEach(key => {
-      formData[key] = responseData ? responseData[key] : '';
+      formData[key] = responseData ? responseData[key] : undefined;
     });
     this.formData = formData;
   }
@@ -217,7 +218,7 @@ class MDMStore {
     window.addEventListener('beforeunload', this.getBrowserCloseAlert);
     this.unblock = history.block((location) => {
       this.interceptedRoute = location.pathname;
-      if (this.formHasUnsavedChanges()) {
+      if (this.formHasUnsavedChanges) {
         this.showExitModal = true;
         return false;
       } else {
@@ -402,7 +403,9 @@ class MDMStore {
     });
 
     Object.keys(this.formData).forEach(key => {
-      if(!this.formData[key]) {
+      if(this.formData[key] === '' || this.formData[key] === undefined) {
+        /* Note: 'undefined' is reserved for when the form is first initialized.
+        Compare to empty string to determine if error should be shown. */
         hasError = true;
       }
     });
