@@ -3,14 +3,7 @@ import {apiService} from '../services/api.service';
 import {history} from '../services/history.service';
 
 class MDMStore {
-
-  // Determines if the beforeUnload event should fire in the browser
-  getBrowserCloseAlert = (event) => {
-    if (this.formHasUnsavedChanges) {
-      event.returnValue = true;
-    }
-  };
-
+  // ACTIONS
   // Form Functions
   @action updateMDM(mdmProvider) {
     this.clearAlerts();
@@ -39,7 +32,7 @@ class MDMStore {
     });
   }
 
-  clearStoredCredentials() {
+  @action clearStoredCredentials() {
     //trigger error by replacing value with empty string
     let credFields = {};
     switch (this.mdmProvider) {
@@ -105,7 +98,7 @@ class MDMStore {
     }
   }
 
-  // MDM Alert functions
+  // Alert functions
   @action removeAlert(alertList, idx) {
     alertList.splice(idx, 1);
   }
@@ -200,7 +193,7 @@ class MDMStore {
     }
   }
 
-  // MDM Modal functions
+  // Modal functions
   @action toggleExitModal() {
     this.showExitModal = !this.showExitModal;
   }
@@ -227,7 +220,14 @@ class MDMStore {
     });
   }
 
-  // Services
+  @action getBrowserCloseAlert = (event) => {
+    // Determine if the beforeUnload event should fire in the browser
+    if (this.formHasUnsavedChanges) {
+      event.returnValue = true;
+    }
+  };
+
+  // MDM Connection functions
   @action getMDMConfiguration() {
     const success = (resp) => {
       const serviceResponse = resp.data;
@@ -307,6 +307,7 @@ class MDMStore {
     return apiService.breakMDMConfiguration().then(success, fail);
   }
 
+  // MDM Status Management functions
   @action getMDMStatusForAppCatalog() {
     const success = (apps) => {
       mdmStore.processMDMStatusForAppCatalog(apps);
@@ -351,17 +352,17 @@ class MDMStore {
     });
   }
 
-  mdmStatusIsUnresolved(psk) {
+  @action mdmStatusIsUnresolved(psk) {
     return this.appCatalogMDMStatuses.get(psk) === 'PENDING' || this.appCatalogMDMStatuses.get(psk) === 'IN_PROGRESS';
   }
 
-  stopPolling(psk) {
+  @action stopPolling(psk) {
     //set a status other than PENDING and IN_PROGRESS to stop polling
     this.appCatalogMDMStatuses.set(psk, 'DISABLED');
     this.throwConnectError();
   }
 
-  pollUntilResolved(psk) {
+  @action pollUntilResolved(psk) {
     setTimeout(() => {
       if(this.mdmStatusIsUnresolved(psk)) {
         this.getSingleMDMStatus(psk, {
@@ -413,7 +414,7 @@ class MDMStore {
     this.mdmFormIsValid = !hasError;
   }
 
-  //COMPUTEDS
+  // COMPUTEDS
   @computed get isConfigured() {
     return this.pseMDMObject.get('mdm_type') ? true : false
   }
@@ -436,7 +437,6 @@ class MDMStore {
   }
 
   // OBSERVABLES
-
   // MDM API
   @observable pseMDMObject = observable.map({});
   @observable appCatalogMDMStatuses = observable.map({});
@@ -466,8 +466,6 @@ class MDMStore {
     pushFail: 'This app could not be pushed to MDM.',
     pushFailMultiple: 'Some or all of the selected apps could not be pushed to MDM.'
   }
-
-
 }
 
 export const mdmStore = new MDMStore();
