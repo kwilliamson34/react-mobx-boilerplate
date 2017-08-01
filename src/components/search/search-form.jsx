@@ -29,13 +29,12 @@ export class SearchForm extends React.Component {
     } else {
       this.refs.btnSearch.focus();
     }
-
   }
 
   handleClearClick = () => {
     this.props.resetPagination();
     this.store.clearSearchQuery();
-    
+
     this.refs.btnSearch.focus();
   }
 

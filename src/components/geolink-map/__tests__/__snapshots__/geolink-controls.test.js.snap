@@ -440,12 +440,12 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
               </label>
             </div>
             <div
-              className="checkbox ">
+              className="checkbox disabled">
               <label>
                 <input
-                  aria-disabled={false}
+                  aria-disabled={true}
                   checked={false}
-                  className=""
+                  className="disabled"
                   data-checked={false}
                   id="alerts-toggle"
                   onChange={[Function bound onChange]}
