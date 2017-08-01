@@ -4,8 +4,6 @@ import {userStore} from './user.store';
 import {utilsService} from '../services/utils.service';
 import {history} from '../services/history.service';
 
-const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-
 class FeedbackStore {
 
   getBrowserCloseAlert = (event) => {
@@ -28,7 +26,7 @@ class FeedbackStore {
       if (inputs[i].id !== 'feedback_email') {
         this.hasErrors[inputs[i].id] = inputs[i].value === '';
       } else if (inputs[i].id === 'feedback_email') {
-        this.hasErrors[inputs[i].id] = inputs[i].value.length > 0 ? !emailRegex.test(inputs[i].value) : false;
+        this.hasErrors[inputs[i].id] = inputs[i].value.length > 0 ? !utilsService.testEmailRegex(inputs[i].value) : false;
       }
     }
     if (this.formIsValid) {
@@ -41,8 +39,9 @@ class FeedbackStore {
         this.clearFeedbackForm();
       }
       const failure = (res) => {
-        // this.disableSaveDialogs();
-        // history.push('/feedback');
+        //prevent the unsaved changes modal from showing, and change history to allow user to navigate back to here from error page.
+        this.disableSaveDialogs();
+        history.push('/feedback');
         utilsService.handleError(res);
       }
       apiService.submitCustomerFeedbackForm(data)
@@ -60,7 +59,7 @@ class FeedbackStore {
     if (input.id !== 'feedback_email') {
       this.hasErrors[input.id] = this.feedbackObject[input.id].length === 0;
     } else if (input.id === 'feedback_email') {
-      this.hasErrors[input.id] = input.value.length > 0 ? !emailRegex.test(input.value) : false;
+      this.hasErrors[input.id] = input.value.length > 0 ? !utilsService.testEmailRegex(input.value) : false;
     }
     if (this.showAlertBar && this.requiredFieldsEntered) {
       this.toggleAlertBar();
