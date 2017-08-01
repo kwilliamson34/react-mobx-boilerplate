@@ -17,12 +17,14 @@ export default class NetworkStatusPage extends React.Component {
     super(props);
     this.geoStore = this.props.store.geolinkStore;
 
-    window.addEventListener('message', (event) => {
-      if(event.data === 'geo-ready') {
-        console.log('geo-ready message received from iframe');
-        this.geoStore.authIsComplete = true;
-      }
-    }, false);
+    if(!this.geoStore.authIsComplete) {
+      window.addEventListener('message', (event) => {
+        if(event.data === 'geo-ready') {
+          console.log('geo-ready message received from iframe');
+          this.geoStore.authIsComplete = true;
+        }
+      }, false);
+    }
   }
 
   renderPlaceholder() {
