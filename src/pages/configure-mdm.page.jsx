@@ -260,7 +260,7 @@ export default class ConfigureMDM extends React.Component {
           <div className="col-xs-12 text-center">
             <h1>
               <span className="hidden-xs">Configure Mobile Device Management (MDM)</span>
-              <span className="hidden-sm hidden-md hidden-lg">Configure MDM</span>
+              <span className="hidden-sm hidden-md hidden-lg hidden-xl">Configure MDM</span>
             </h1>
           </div>
 
