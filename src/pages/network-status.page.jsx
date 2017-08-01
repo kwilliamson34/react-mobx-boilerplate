@@ -16,13 +16,13 @@ export default class NetworkStatusPage extends React.Component {
   constructor(props) {
     super(props);
     this.geoStore = this.props.store.geolinkStore;
-  }
 
-  componentDidMount() {
-    //wait for geolink to fully load
-    setTimeout(() => {
-      this.geoStore.geolinkScriptsAreFullyLoaded = true;
-    }, 5000);
+    window.addEventListener('message', (event) => {
+      if(event.data === 'geo-ready') {
+        console.log('geo-ready message received from iframe');
+        this.geoStore.authIsComplete = true;
+      }
+    }, false);
   }
 
   renderPlaceholder() {
@@ -37,20 +37,11 @@ export default class NetworkStatusPage extends React.Component {
   }
 
   render() {
-    const showMap = this.geoStore.geolinkScriptsAreFullyLoaded && this.geoStore.iframeIsFullyLoaded;
+    const showMap = this.geoStore.iframeIsFullyLoaded;
     return (
       <article id="network-page" className="content-wrapper">
         <h1 className="sr-only">Network Status</h1>
-        <iframe aria-hidden='true' id="geolink_static_assets" src={config.geolinkScripts + '/libs/jquery/jquery.min.js'} style={{
-          width: 0,
-          height: 0,
-          padding: 0,
-          margin: 0,
-          border: '0 none',
-          position: 'absolute',
-          top: '0',
-          left: 0
-        }}></iframe>
+        <iframe src={config.geolinkAuthScript} aria-hidden="true" className="hidden-iframe"></iframe>
 
         {!showMap && this.renderPlaceholder()}
         <GeolinkMap geolinkStore={this.geoStore} hidden={!showMap}/>
