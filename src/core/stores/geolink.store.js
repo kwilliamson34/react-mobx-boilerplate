@@ -14,7 +14,7 @@ class GeolinkStore {
   @action loadGeolinkHtml() {
     const success = (response) => {
       let html = response.data;
-      html = html.replace(new RegExp('@@geolinkScriptPath', 'g'), config.geolinkScripts);
+      html = html.replace(new RegExp('@@geolinkScriptPath', 'g'), config.cloudGeolinkAssets);
       html = html.replace(new RegExp('@@geolinkAbMapConstantsFileName', 'g'), config.geolinkAbMapConstantsFileName);
       this.geolinkHtml = html;
     }
@@ -154,7 +154,7 @@ class GeolinkStore {
   }
 
   @observable iframeIsFullyLoaded = false;
-  @observable geolinkScriptsAreFullyLoaded = false;
+  @observable authIsComplete = false;
 
   @observable geolinkHtml = null;
   @observable mapIframeRef = null;
