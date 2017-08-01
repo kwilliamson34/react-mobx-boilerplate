@@ -1,12 +1,14 @@
 jest.unmock('../ibm-form');
+jest.unmock('axios');
+jest.unmock('mobx');
+jest.unmock('../../../core/stores/mdm.store');
 
+import {mdmStore} from '../../../core/stores/mdm.store';
 import {IBMForm} from '../ibm-form';
 
 describe('<IBMForm />', () => {
   let props = {
-    store: {},
-    connectionSet: false,
-    formData: {}
+    renderFormInput: jest.fn()
   }
 
   describe('renders', () => {
@@ -14,50 +16,45 @@ describe('<IBMForm />', () => {
       let component = renderer.create(<IBMForm {...props}/>);
       let tree = component.toJSON();
       expect(tree).toMatchSnapshot();
-
-      props.connectionSet = true;
-      component = renderer.create(<IBMForm {...props}/>);
-      tree = component.toJSON();
-      expect(tree).toMatchSnapshot();
     });
 
     test('displays an error when any field is empty', () => {
-      props.formData.ibm_rootURL = '';
+      mdmStore.formData.ibm_rootURL = '';
       let component = renderer.create(<IBMForm {...props}/>);
       let tree = component.toJSON();
       expect(tree).toMatchSnapshot();
 
-      props.formData.ibm_billingID = '';
+      mdmStore.formData.ibm_billingID = '';
       component = renderer.create(<IBMForm {...props}/>);
       tree = component.toJSON();
       expect(tree).toMatchSnapshot();
 
-      props.formData.ibm_userName = '';
+      mdmStore.formData.ibm_userName = '';
       component = renderer.create(<IBMForm {...props}/>);
       tree = component.toJSON();
       expect(tree).toMatchSnapshot();
 
-      props.formData.ibm_password = '';
+      mdmStore.formData.ibm_password = '';
       component = renderer.create(<IBMForm {...props}/>);
       tree = component.toJSON();
       expect(tree).toMatchSnapshot();
 
-      props.formData.ibm_platformID = '';
+      mdmStore.formData.ibm_platformID = '';
       component = renderer.create(<IBMForm {...props}/>);
       tree = component.toJSON();
       expect(tree).toMatchSnapshot();
 
-      props.formData.ibm_appID = '';
+      mdmStore.formData.ibm_appID = '';
       component = renderer.create(<IBMForm {...props}/>);
       tree = component.toJSON();
       expect(tree).toMatchSnapshot();
 
-      props.formData.ibm_appVersion = '';
+      mdmStore.formData.ibm_appVersion = '';
       component = renderer.create(<IBMForm {...props}/>);
       tree = component.toJSON();
       expect(tree).toMatchSnapshot();
 
-      props.formData.ibm_appAccessKey = '';
+      mdmStore.formData.ibm_appAccessKey = '';
       component = renderer.create(<IBMForm {...props}/>);
       tree = component.toJSON();
       expect(tree).toMatchSnapshot();

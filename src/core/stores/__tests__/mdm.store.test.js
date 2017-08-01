@@ -18,79 +18,52 @@ describe("MDMStore", () => {
 
   test("getBrowserCloseAlert updates event properly", () => {
     let event = {};
-    store.mdmProvider = '';
+    store.formData.mdm_type = '';
     store.getBrowserCloseAlert(event);
     expect(event.returnValue).toBe(undefined);
 
-    store.mdmProvider = 'provider';
+    store.formData.mdm_type = 'AIRWATCH';
     store.formHasChanged = true;
     store.getBrowserCloseAlert(event);
     expect(event.returnValue).toBe(true);
   });
 
-  test("checkForChanges returns true iff the user has entered info", () => {
-    store.mdmProvider = '';
-    expect(store.checkForChanges()).toBe(false);
+  test("formHasChanged returns true iff the user has entered info", () => {
+    store.formData.mdm_type = '';
+    expect(store.formHasUnsavedChanges).toBe(false);
 
-    store.mdmProvider = 'airwatch';
+    store.formData.mdm_type = 'AIRWATCH';
     store.formHasChanged = false;
-    expect(store.checkForChanges()).toBe(false);
+    expect(store.formHasUnsavedChanges).toBe(false);
 
     store.formHasChanged = true;
-    expect(store.checkForChanges()).toBe(true);
+    expect(store.formHasUnsavedChanges).toBe(true);
   });
 
   test("updateMDM sets the MDM and resets the form", () => {
-    store.mdmProvider = 'airwatch';
-    store.formIsValid = true;
-    store.currentMDMForm = {
-      keys: jest.fn()
-    }
-    store.currentMDMForm.keys.mockReturnValue([]);
+    store.formData.mdm_type = 'AIRWATCH';
 
-    store.updateMDM('maas360');
+    store.updateMDM('MAAS360');
 
-    expect(store.mdmProvider).toBe('maas360');
-    expect(store.formIsValid).toBe(false);
+    expect(store.formData.mdm_type).toBe('MAAS360');
     expect(store.beingSubmitted).toBe(false);
     expect(store.formHasChanged).toBe(false);
     expect(store.showExitModal).toBe(false);
     expect(store.showbreakMDMConnection).toBe(false);
   });
 
-  test("updateForm properly updates store based on a valid input", () => {
-    store.currentMDMForm = observable.map({});
+  test("updateForm properly updates store based on input", () => {
     store.formHasChanged = false;
+    store.formData['text-input'] = 'old value';
+
     let input = {
       id: 'text-input',
-      value: 'value string'
-    }
-    let form = {
-      querySelectorAll: () => [input]
+      value: 'new value'
     }
 
-    store.updateForm(input, form);
-
+    store.updateForm(input);
     expect(store.formHasChanged).toBe(true);
-    expect(store.currentMDMForm.get('text-input')).toBe('value string');
-    expect(store.formIsValid).toBe(true);
-  });
-
-  test("updateForm properly updates store based on an invalid input", () => {
-    store.currentMDMForm = observable.map({});
-    store.formHasChanged = false;
-    let input = {
-      id: 'text-input',
-      value: ''
-    }
-
-    let form = {
-      querySelectorAll: () => [input]
-    }
-    store.updateForm(input, form);
-    expect(store.formHasChanged).toBe(true);
-    expect(store.currentMDMForm.get('text-input')).toBe('');
-    expect(store.formIsValid).toBe(false);
+    expect(store.formData['text-input']).toBe('new value');
   });
 
   test("clearStoredCredentials works as expected", () => {
@@ -216,12 +189,12 @@ describe("MDMStore", () => {
   //   store.showExitModal = false;
   //   history.block = jest.fn()
   //   store.enableSaveDialogs();
-  //   store.checkForChanges = true;
+  //   store.formHasChanged = true;
   //   TestUtils.Simulate.beforeUnload(window);
   //   expect(store.showExitModal).toBe(true);
   // });
 
-  test("records the right mdmProvider", () => {
+  test("records the right formData.mdm_type", () => {
     apiService.getMDMConfiguration = jest.fn();
     apiService.getMDMConfiguration.mockReturnValue(Promise.resolve({
       data: {
@@ -230,7 +203,7 @@ describe("MDMStore", () => {
     }));
 
     store.getMDMConfiguration().then(() => {
-      expect(store.mdmProvider).toBe('airWatchForm');
+      expect(store.formData.mdm_type).toBe('AIRWATCH');
     });
 
     apiService.getMDMConfiguration.mockReturnValue(Promise.resolve({
@@ -240,7 +213,7 @@ describe("MDMStore", () => {
     }));
 
     store.getMDMConfiguration().then(() => {
-      expect(store.mdmProvider).toBe('ibmForm');
+      expect(store.formData.mdm_type).toBe('MAAS360');
     });
 
     apiService.getMDMConfiguration.mockReturnValue(Promise.resolve({
@@ -250,7 +223,7 @@ describe("MDMStore", () => {
     }));
 
     store.getMDMConfiguration().then(() => {
-      expect(store.mdmProvider).toBe('mobileIronForm');
+      expect(store.formData.mdm_type).toBe('MOBILE_IRON');
     });
   });
 
@@ -267,7 +240,7 @@ describe("MDMStore", () => {
 
   test("setMDMConfiguration shows success message on success", () => {
     store.mdm_form_alerts = [];
-    store.mdmProvider = 'airWatchForm';
+    store.formData.mdm_type = 'AIRWATCH';
     apiService.setMDMConfiguration = jest.fn();
     apiService.setMDMConfiguration.mockReturnValue(Promise.resolve({
       data: {
@@ -293,28 +266,28 @@ describe("MDMStore", () => {
       }
     }));
 
-    store.mdmProvider = 'airWatchForm';
-    store.currentMDMForm.aw_password = 'password';
-    store.currentMDMForm.aw_userName = 'username';
+    store.formData.mdm_type = 'AIRWATCH';
+    store.formData.aw_password = 'password';
+    store.formData.aw_userName = 'username';
     store.setMDMConfiguration().then(() => {
-      expect(store.currentMDMForm.aw_password).toBe('');
-      expect(store.currentMDMForm.aw_userName).toBe('');
+      expect(store.formData.aw_password).toBe('');
+      expect(store.formData.aw_userName).toBe('');
     });
 
-    store.mdmProvider = 'ibmForm';
-    store.currentMDMForm.ibm_password = 'password';
-    store.currentMDMForm.ibm_userName = 'username';
+    store.formData.mdm_type = 'MAAS360';
+    store.formData.ibm_password = 'password';
+    store.formData.ibm_userName = 'username';
     store.setMDMConfiguration().then(() => {
-      expect(store.currentMDMForm.ibm_password).toBe('');
-      expect(store.currentMDMForm.ibm_userName).toBe('');
+      expect(store.formData.ibm_password).toBe('');
+      expect(store.formData.ibm_userName).toBe('');
     });
 
-    store.mdmProvider = 'mobileIronForm';
-    store.currentMDMForm.mi_password = 'password';
-    store.currentMDMForm.mi_userName = 'username';
+    store.formData.mdm_type = 'MOBILE_IRON';
+    store.formData.mi_password = 'password';
+    store.formData.mi_userName = 'username';
     store.setMDMConfiguration().then(() => {
-      expect(store.currentMDMForm.mi_password).toBe('');
-      expect(store.currentMDMForm.mi_userName).toBe('');
+      expect(store.formData.mi_password).toBe('');
+      expect(store.formData.mi_userName).toBe('');
     });
   });
 
