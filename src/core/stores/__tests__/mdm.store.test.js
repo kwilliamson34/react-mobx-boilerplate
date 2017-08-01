@@ -28,21 +28,20 @@ describe("MDMStore", () => {
     expect(event.returnValue).toBe(true);
   });
 
-  test("checkForChanges returns true iff the user has entered info", () => {
+  test("formHasChanged returns true iff the user has entered info", () => {
     store.mdmProvider = '';
-    expect(store.checkForChanges()).toBe(false);
+    expect(store.formHasUnsavedChanges).toBe(false);
 
     store.mdmProvider = 'airwatch';
     store.formHasChanged = false;
-    expect(store.checkForChanges()).toBe(false);
+    expect(store.formHasUnsavedChanges).toBe(false);
 
     store.formHasChanged = true;
-    expect(store.checkForChanges()).toBe(true);
+    expect(store.formHasUnsavedChanges).toBe(true);
   });
 
   test("updateMDM sets the MDM and resets the form", () => {
     store.mdmProvider = 'airwatch';
-    store.formIsValid = true;
     store.currentMDMForm = {
       keys: jest.fn()
     }
@@ -51,7 +50,6 @@ describe("MDMStore", () => {
     store.updateMDM('maas360');
 
     expect(store.mdmProvider).toBe('maas360');
-    expect(store.formIsValid).toBe(false);
     expect(store.beingSubmitted).toBe(false);
     expect(store.formHasChanged).toBe(false);
     expect(store.showExitModal).toBe(false);
@@ -61,36 +59,29 @@ describe("MDMStore", () => {
   test("updateForm properly updates store based on a valid input", () => {
     store.currentMDMForm = observable.map({});
     store.formHasChanged = false;
+    store.formData['text-input'] = 'old value';
+
     let input = {
       id: 'text-input',
-      value: 'value string'
-    }
-    let form = {
-      querySelectorAll: () => [input]
+      value: 'new value'
     }
 
-    store.updateForm(input, form);
-
+    store.updateForm(input);
     expect(store.formHasChanged).toBe(true);
-    expect(store.currentMDMForm.get('text-input')).toBe('value string');
-    expect(store.formIsValid).toBe(true);
+    expect(store.formData['text-input']).toBe('new value');
   });
 
   test("updateForm properly updates store based on an invalid input", () => {
     store.currentMDMForm = observable.map({});
     store.formHasChanged = false;
     let input = {
-      id: 'text-input',
-      value: ''
+      id: 'mdm-select',
+      value: 'hello'
     }
 
-    let form = {
-      querySelectorAll: () => [input]
-    }
-    store.updateForm(input, form);
+    store.updateForm(input);
     expect(store.formHasChanged).toBe(true);
-    expect(store.currentMDMForm.get('text-input')).toBe('');
-    expect(store.formIsValid).toBe(false);
+    expect(store.formData['mdm-select']).toBe(undefined);
   });
 
   test("clearStoredCredentials works as expected", () => {
@@ -216,7 +207,7 @@ describe("MDMStore", () => {
   //   store.showExitModal = false;
   //   history.block = jest.fn()
   //   store.enableSaveDialogs();
-  //   store.checkForChanges = true;
+  //   store.formHasChanged = true;
   //   TestUtils.Simulate.beforeUnload(window);
   //   expect(store.showExitModal).toBe(true);
   // });

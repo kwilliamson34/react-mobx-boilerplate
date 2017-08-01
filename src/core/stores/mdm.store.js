@@ -98,7 +98,6 @@ class MDMStore {
   }
 
   @action submitForm() {
-
     if (this.mdmFormIsValid) {
       this.beingSubmitted = true;
       this.setMDMConfiguration(this.buildNetworkDataPacket());
