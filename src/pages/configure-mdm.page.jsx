@@ -176,15 +176,15 @@ export default class ConfigureMDM extends React.Component {
         <label className="control-label" htmlFor="mdm">
           Your MDM<span className="required-asterisks"> *</span>
         </label>
-        <select id="mdm-select"
-          className={`form-control ${this.store.mdmProvider ? '' : 'placeholder'}`}
+        <select id="mdm_type"
+          className={`form-control ${this.store.formData.mdm_type ? '' : 'placeholder'}`}
           onChange={this.handleSelectChange}
-          value={this.store.mdmProvider}
+          value={this.store.formData.mdm_type}
           disabled={this.store.isConfigured}>
           <option value="">Select MDM</option>
-          <option value="airWatchForm">Airwatch</option>
-          <option value="ibmForm">IBM MaaS360</option>
-          <option value="mobileIronForm">MobileIron</option>
+          <option value="AIRWATCH">Airwatch</option>
+          <option value="MAAS360">IBM MaaS360</option>
+          <option value="MOBILE_IRON">MobileIron</option>
         </select>
       </div>
     )
@@ -192,14 +192,14 @@ export default class ConfigureMDM extends React.Component {
 
   renderProperMDMForm = () => {
     let MDMFormComponent = null;
-    switch(this.store.mdmProvider) {
-      case 'airWatchForm':
+    switch(this.store.formData.mdm_type) {
+      case 'AIRWATCH':
         MDMFormComponent = AirWatchForm;
         break;
-      case 'ibmForm':
+      case 'MAAS360':
         MDMFormComponent = IBMForm;
         break;
-      case 'mobileIronForm':
+      case 'MOBILE_IRON':
         MDMFormComponent = MobileIronForm;
         break;
       default:

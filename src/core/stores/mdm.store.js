@@ -5,23 +5,21 @@ import {history} from '../services/history.service';
 class MDMStore {
   // ACTIONS
   // Form Functions
-  @action updateMDM(mdmProvider) {
+  @action updateMDM(mdm_type) {
     this.clearAlerts();
     this.resetMDMForm();
-    this.mdmProvider = mdmProvider;
+    this.formData.mdm_type = mdm_type;
     this.initializeFormData();
   }
 
   @action updateForm(input) {
     this.formHasChanged = true;
-    if(input.id !== 'mdm-select'){
-      this.formData[input.id] = input.value;
-    }
+    this.formData[input.id] = input.value;
     this.validateMDMForm();
   }
 
   @action resetMDMForm() {
-    this.mdmProvider = '';
+    this.formData.mdm_type = '';
     this.beingSubmitted = false;
     this.formHasChanged = false;
     this.showExitModal = false;
@@ -35,20 +33,20 @@ class MDMStore {
   @action clearStoredCredentials() {
     //trigger error by replacing value with empty string
     let credFields = {};
-    switch (this.mdmProvider) {
-      case 'airWatchForm':
+    switch (this.formData.mdm_type) {
+      case 'AIRWATCH':
         credFields = {
           aw_password: '',
           aw_userName: ''
         }
         break;
-      case 'ibmForm':
+      case 'MAAS360':
         credFields = {
           ibm_password: '',
           ibm_userName: ''
         }
         break;
-      case 'mobileIronForm':
+      case 'MOBILE_IRON':
         credFields = {
           mi_password: '',
           mi_userName: ''
@@ -71,6 +69,7 @@ class MDMStore {
 
   @action buildNetworkDataPacket() {
     let structure = {
+      mdm_type: '',
       aw_hostName: '',
       aw_password: '',
       aw_tenantCode: '',
@@ -94,7 +93,7 @@ class MDMStore {
   @action submitForm() {
     if (this.mdmFormIsValid) {
       this.beingSubmitted = true;
-      this.setMDMConfiguration(this.buildNetworkDataPacket());
+      this.setMDMConfiguration();
     }
   }
 
@@ -233,17 +232,8 @@ class MDMStore {
       const serviceResponse = resp.data;
       this.pseMDMObject.merge(serviceResponse);
 
-      switch (serviceResponse.mdm_type) {
-        case 'AIRWATCH':
-          this.mdmProvider = 'airWatchForm'
-          break;
-        case 'MAAS360':
-          this.mdmProvider = 'ibmForm'
-          break;
-        case 'MOBILE_IRON':
-          this.mdmProvider = 'mobileIronForm'
-          break;
-      }
+      //set mdm_type to determine which form to show
+      this.formData.mdm_type = serviceResponse.mdm_type;
       this.initializeFormData(serviceResponse);
     }
     const fail = () => {
@@ -252,7 +242,8 @@ class MDMStore {
     return apiService.getMDMConfiguration().then(success, fail);
   }
 
-  @action setMDMConfiguration(mdmConfig) {
+  @action setMDMConfiguration() {
+    let mdmConfig = this.buildNetworkDataPacket();
     const success = (resp) => {
       let messageObj = resp.data;
       this.beingSubmitted = false;
@@ -272,15 +263,18 @@ class MDMStore {
         this.formHasChanged = false;
         this.hasBeenSubmitted = true;
 
+        /* Update the pseMDMObject to reflect the new service status,
+        including mdm_type/isConfigured */
         this.pseMDMObject.merge(mdmConfig);
 
         this.showSuccessAlert({
           alertList: this.mdm_form_alerts,
-          message: messageObj.message
+          message: this.userMessages.connectSuccess
         });
       }
     }
     const fail = () => {
+      this.mdm_form_alerts = [];
       this.beingSubmitted = false;
       this.throwConnectError({alertList: this.mdm_form_alerts});
     }
@@ -289,8 +283,10 @@ class MDMStore {
 
   @action breakMDMConnection() {
     const success = () => {
+      this.mdm_form_alerts = [];
       this.pseMDMObject.clear();
       this.hasBeenSubmitted = false;
+      this.formData.mdm_type = '';
       this.resetMDMForm();
       this.showSuccessAlert({
         alertList: this.mdm_form_alerts,
@@ -298,6 +294,7 @@ class MDMStore {
       });
     }
     const fail = () => {
+      this.mdm_form_alerts = [];
       this.hasBeenSubmitted = true;
       this.showErrorAlert({
         alertList: this.mdm_form_alerts,
@@ -420,30 +417,29 @@ class MDMStore {
   }
 
   @computed get formHasUnsavedChanges() {
-    return this.mdmProvider !== '' && this.formHasChanged
+    return this.formData.mdm_type !== '' && this.formHasChanged
   }
 
   @computed get visibleInputArray() {
-    switch (this.mdmProvider) {
-      case 'airWatchForm':
-        return ['aw_hostName', 'aw_tenantCode', 'aw_userName', 'aw_password'];
-      case 'ibmForm':
-        return ['ibm_rootURL', 'ibm_billingID', 'ibm_userName', 'ibm_password', 'ibm_platformID', 'ibm_appID', 'ibm_appVersion', 'ibm_appAccessKey'];
-      case 'mobileIronForm':
-        return ['mi_hostName', 'mi_userName', 'mi_password'];
+    switch (this.formData.mdm_type) {
+      case 'AIRWATCH':
+        return ['mdm_type', 'aw_hostName', 'aw_tenantCode', 'aw_userName', 'aw_password'];
+      case 'MAAS360':
+        return ['mdm_type', 'ibm_rootURL', 'ibm_billingID', 'ibm_userName', 'ibm_password', 'ibm_platformID', 'ibm_appID', 'ibm_appVersion', 'ibm_appAccessKey'];
+      case 'MOBILE_IRON':
+        return ['mdm_type', 'mi_hostName', 'mi_userName', 'mi_password'];
       default:
         return [];
     }
   }
 
   // OBSERVABLES
-  // MDM API
+  // API
   @observable pseMDMObject = observable.map({});
   @observable appCatalogMDMStatuses = observable.map({});
 
-  // Configure MDM Form
+  // Form
   @observable formData = observable.map({});
-  @observable mdmProvider = '';
   @observable beingSubmitted = false;
   @observable hasBeenSubmitted = false;
   @observable formHasChanged = false;
@@ -452,12 +448,13 @@ class MDMStore {
   @observable interceptedRoute = '';
   @observable mdmFormIsValid = false;
 
-  // MDM Alerts
+  // Alerts
   @observable mdm_form_alerts = [];
   @observable manage_apps_alerts = [];
   @observable app_detail_alerts = [];
   @observable appsReferencedByAlert = [];
   @observable userMessages = {
+    connectSuccess: 'The MDM connection was successful.',
     connectFail: 'There was a problem establishing a connection with MDM.',
     breakConnectionSuccess: 'The connection to MDM has been broken.',
     breakConnectionFail: 'There was a problem breaking the connection with MDM.',
