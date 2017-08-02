@@ -29,9 +29,7 @@ module.exports = {
 	resolve: {
 		extensions: ['.js', '.jsx'],
 		alias: {
-			'config': path.join(__dirname, `config/${env}.endpoints.js`),
-			'react': 'preact-compat',
-			'react-dom': 'preact-compat'
+			'config': path.join(__dirname, `config/${env}.endpoints.js`)
 		},
 	},
 	node: {
