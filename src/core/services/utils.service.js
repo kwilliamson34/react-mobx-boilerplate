@@ -88,7 +88,7 @@ class UtilsService {
 
   getDevicesAndSolutionsUrl(string) {
     //removes HTML code entities and any special characters, before replacing spaces with plus symbol;
-    return string.replace(/&\w{2,5}; ?/g, '').replace(/[^A-Z\s\d] ?/ig, '').replace(/ /g, '+').toLowerCase();
+    return string.replace(/&\w{2,8}; ?/g, '').replace(/[^A-Z\s\d]?/ig, '').replace(/ /g, '+').toLowerCase();
   }
 
   isValidEmailAddress(string) {
