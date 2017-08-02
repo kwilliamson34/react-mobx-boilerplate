@@ -69,7 +69,20 @@ describe('UtilsService', () => {
     });
 
     test('getUrlParameter', () => {
-      //TODO by Nassir-- i do not know what the regex is doing
+      //mock the querystring
+      Object.defineProperty(window.location, 'search', {
+        writable: true,
+        value: '?token=123456ABCDEF'
+      });
+      expect(utilsService.getUrlParameter('token')).toBe('123456ABCDEF');
+      expect(utilsService.getUrlParameter('not_in_querystring')).toBe('');
+
+      //getUrlParameter returns only string before & or # symbols
+      Object.defineProperty(window.location, 'search', {
+        writable: true,
+        value: '?token=123456&THIS_PART_WONT_SHOW'
+      });
+      expect(utilsService.getUrlParameter('token')).toBe('123456');
     });
 
     test('scrollIntoViewIfNecessary', () => {
@@ -77,7 +90,12 @@ describe('UtilsService', () => {
     });
 
     test('getDevicesAndSolutionsUrl', () => {
-      //TODO by Nassir-- i do not know what the regex is doing
+      //removes HTML entities, replaces spaces with + sign, converts to lowercase
+      let stringToTransform = 'A Trademarked Device&reg;';
+      expect(utilsService.getDevicesAndSolutionsUrl(stringToTransform)).toBe('a+trademarked+device');
+      //removes special characters, retaining only letters and numbers, before adding + to spaces
+      stringToTransform = '!h@e#l$l%o^ 1& 2* 3(';
+      expect(utilsService.getDevicesAndSolutionsUrl(stringToTransform)).toBe('hello+1+2+3');
     });
 
     test('isValidEmailAddress', () => {

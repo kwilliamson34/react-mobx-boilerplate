@@ -57,6 +57,7 @@ class UtilsService {
     name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
     var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
     var results = regex.exec(window.location.search);
+    console.log('results   ', results);
     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
   }
 
@@ -88,7 +89,7 @@ class UtilsService {
 
   getDevicesAndSolutionsUrl(string) {
     //removes HTML code entities and any special characters, before replacing spaces with plus symbol;
-    return string.replace(/&\w{2,5}; ?/g, '').replace(/[^A-Z\s\d] ?/ig, '').replace(/ /g, '+').toLowerCase();
+    return string.replace(/&\w{2,5}; ?/g, '').replace(/[^A-Z\s\d]?/ig, '').replace(/ /g, '+').toLowerCase();
   }
 
   isValidEmailAddress(string) {
