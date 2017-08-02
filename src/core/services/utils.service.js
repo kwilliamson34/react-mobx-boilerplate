@@ -36,7 +36,7 @@ class UtilsService {
           isRecommended: obj.isRecommended,
           mdm_install_status: obj.mdm_install_status,
           badge: obj.custom_metadata.app_type === 'ENDORSED',
-          operatingSystem: obj.operating_system,
+          platform: obj.platform,
           category: obj.custom_metadata.category,
           user_segment: obj.custom_metadata.user_segment,
           screenshots: {
@@ -128,14 +128,14 @@ class UtilsService {
     history.replace('/error/pending');
   }
 
-  properCaseOS(operating_system) {
+  properCaseOS(platform) {
 		let os;
-		if (operating_system === 'IOS') {
+		if (platform === 'IOS') {
 			os = 'iOS';
-		} else if (operating_system === 'ANDROID') {
+		} else if (platform === 'ANDROID') {
 			os = 'Android';
 		} else {
-			os = operating_system;
+			os = platform;
 		}
 		return os;
 	}

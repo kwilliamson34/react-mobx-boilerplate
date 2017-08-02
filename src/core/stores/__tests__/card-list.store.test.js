@@ -11,12 +11,12 @@ import { cardListStore } from '../card-list.store';
 const store = cardListStore;
 
 let arrayOfSixApps = [
-  {title: "one", category: ["cat1"], user_segment: ["FIRE & RESCUE"], operatingSystem: "ANDROID", isRecommended: true},
-  {title: "two", category: ["cat1"], user_segment: ["FIRE & RESCUE","LAW ENFORCEMENT","HAZMAT"], operatingSystem: "IOS", isRecommended: false},
-  {title: "three", category: ["cat1"], user_segment: ["LAW ENFORCEMENT"], operatingSystem: "IOS", isRecommended: false},
-  {title: "four", category: ["cat1"], user_segment: ["EMERGENCY MANAGEMENT"], operatingSystem: "IOS", isRecommended: false},
-  {title: "five", category: ["cat1","cat2"], user_segment: ["HAZMAT"], operatingSystem: "IOS", isRecommended: true},
-  {title: "six", category: ["cat2"], user_segment: ["HAZMAT"], operatingSystem: "ANDROID", isRecommended: false}
+  {title: "one", category: ["cat1"], user_segment: ["FIRE & RESCUE"], platform: "ANDROID", isRecommended: true},
+  {title: "two", category: ["cat1"], user_segment: ["FIRE & RESCUE","LAW ENFORCEMENT","HAZMAT"], platform: "IOS", isRecommended: false},
+  {title: "three", category: ["cat1"], user_segment: ["LAW ENFORCEMENT"], platform: "IOS", isRecommended: false},
+  {title: "four", category: ["cat1"], user_segment: ["EMERGENCY MANAGEMENT"], platform: "IOS", isRecommended: false},
+  {title: "five", category: ["cat1","cat2"], user_segment: ["HAZMAT"], platform: "IOS", isRecommended: true},
+  {title: "six", category: ["cat2"], user_segment: ["HAZMAT"], platform: "ANDROID", isRecommended: false}
 ];
 
 describe("FilterStore", () => {

@@ -76,8 +76,7 @@ exports[`<PSEHeader /> render matches snapshot when header store is not initiali
             </a>
             <ul
               aria-labelledby="pse-profile"
-              className="collapse "
-              id="pse-profile-nav">
+              className="collapse ">
               <li
                 role="presentation" />
             </ul>
@@ -110,14 +109,14 @@ exports[`<PSEHeader /> render matches snapshot when header store is not initiali
             <a
               className="deaden"
               href="/manage-profile"
-              id="pse-profile">
+              id="pse-help-mobile">
               <i
                 aria-hidden="true"
                 className="icon-help" />
                Help
             </a>
             <ul
-              aria-labelledby="linkBtn-admin"
+              aria-labelledby="pse-help-mobile"
               className="collapse "
               id="pse-help-menu">
               <li>
@@ -170,19 +169,22 @@ exports[`<PSEHeader /> render matches snapshot when header store is not initiali
             className="desktop-iconItem dropdown">
             <button
               aria-expanded="false"
-              aria-label="Go to User Dashboard"
               className="dropdown-toggle"
               data-toggle="dropdown"
               id="profile-header-dropdown"
               type="button">
               <i
+                aria-hidden="true"
                 className="icon-profile" />
+              <span
+                className="sr-only">
+                Toggle Profile Dropdown
+              </span>
             </button>
             <ul
               aria-labelledby="profile-header-dropdown"
               className="dropdown-menu dropdown-menu-right"
-              id="pse-profile-nav"
-              role="menu">
+              id="pse-profile-nav">
               <li
                 className="desktop-profile-display"
                 role="presentation">
@@ -222,19 +224,22 @@ exports[`<PSEHeader /> render matches snapshot when header store is not initiali
             className="desktop-iconItem dropdown">
             <button
               aria-expanded="false"
-              aria-label="Go to Help Center"
               className="dropdown-toggle"
               data-toggle="dropdown"
               id="help-header-dropdown"
               type="button">
               <i
+                aria-hidden="true"
                 className="icon-help" />
+              <span
+                className="sr-only">
+                Toggle Help Dropdown
+              </span>
             </button>
             <ul
               aria-labelledby="help-header-dropdown"
               className="dropdown-menu dropdown-menu-right"
-              id="pse-help-nav"
-              role="menu">
+              id="pse-help-nav">
               <li
                 role="presentation">
                 <a
@@ -359,8 +364,7 @@ exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
             </a>
             <ul
               aria-labelledby="pse-profile"
-              className="collapse "
-              id="pse-profile-nav">
+              className="collapse ">
               <li
                 role="presentation" />
             </ul>
@@ -393,14 +397,14 @@ exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
             <a
               className="deaden"
               href="/manage-profile"
-              id="pse-profile">
+              id="pse-help-mobile">
               <i
                 aria-hidden="true"
                 className="icon-help" />
                Help
             </a>
             <ul
-              aria-labelledby="linkBtn-admin"
+              aria-labelledby="pse-help-mobile"
               className="collapse "
               id="pse-help-menu">
               <li>
@@ -454,19 +458,22 @@ exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
             className="desktop-iconItem dropdown">
             <button
               aria-expanded="false"
-              aria-label="Go to User Dashboard"
               className="dropdown-toggle"
               data-toggle="dropdown"
               id="profile-header-dropdown"
               type="button">
               <i
+                aria-hidden="true"
                 className="icon-profile" />
+              <span
+                className="sr-only">
+                Toggle Profile Dropdown
+              </span>
             </button>
             <ul
               aria-labelledby="profile-header-dropdown"
               className="dropdown-menu dropdown-menu-right"
-              id="pse-profile-nav"
-              role="menu">
+              id="pse-profile-nav">
               <li
                 className="desktop-profile-display"
                 role="presentation">
@@ -506,19 +513,22 @@ exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
             className="desktop-iconItem dropdown">
             <button
               aria-expanded="false"
-              aria-label="Go to Help Center"
               className="dropdown-toggle"
               data-toggle="dropdown"
               id="help-header-dropdown"
               type="button">
               <i
+                aria-hidden="true"
                 className="icon-help" />
+              <span
+                className="sr-only">
+                Toggle Help Dropdown
+              </span>
             </button>
             <ul
               aria-labelledby="help-header-dropdown"
               className="dropdown-menu dropdown-menu-right"
-              id="pse-help-nav"
-              role="menu">
+              id="pse-help-nav">
               <li
                 role="presentation">
                 <a
@@ -644,8 +654,7 @@ exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
             </a>
             <ul
               aria-labelledby="pse-profile"
-              className="collapse "
-              id="pse-profile-nav">
+              className="collapse ">
               <li
                 role="presentation" />
             </ul>
@@ -678,14 +687,14 @@ exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
             <a
               className="deaden"
               href="/manage-profile"
-              id="pse-profile">
+              id="pse-help-mobile">
               <i
                 aria-hidden="true"
                 className="icon-help" />
                Help
             </a>
             <ul
-              aria-labelledby="linkBtn-admin"
+              aria-labelledby="pse-help-mobile"
               className="collapse "
               id="pse-help-menu">
               <li>
@@ -739,19 +748,22 @@ exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
             className="desktop-iconItem dropdown">
             <button
               aria-expanded="false"
-              aria-label="Go to User Dashboard"
               className="dropdown-toggle"
               data-toggle="dropdown"
               id="profile-header-dropdown"
               type="button">
               <i
+                aria-hidden="true"
                 className="icon-profile" />
+              <span
+                className="sr-only">
+                Toggle Profile Dropdown
+              </span>
             </button>
             <ul
               aria-labelledby="profile-header-dropdown"
               className="dropdown-menu dropdown-menu-right"
-              id="pse-profile-nav"
-              role="menu">
+              id="pse-profile-nav">
               <li
                 className="desktop-profile-display"
                 role="presentation">
@@ -791,19 +803,22 @@ exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
             className="desktop-iconItem dropdown">
             <button
               aria-expanded="false"
-              aria-label="Go to Help Center"
               className="dropdown-toggle"
               data-toggle="dropdown"
               id="help-header-dropdown"
               type="button">
               <i
+                aria-hidden="true"
                 className="icon-help" />
+              <span
+                className="sr-only">
+                Toggle Help Dropdown
+              </span>
             </button>
             <ul
               aria-labelledby="help-header-dropdown"
               className="dropdown-menu dropdown-menu-right"
-              id="pse-help-nav"
-              role="menu">
+              id="pse-help-nav">
               <li
                 role="presentation">
                 <a

@@ -18,7 +18,7 @@ export class SummaryCard extends React.Component {
       reviews_count: PropTypes.number,
       badge: PropTypes.bool,
       app_psk: PropTypes.string,
-      operatingSystem: PropTypes.oneOf(['', 'NONE', 'IOS', 'ANDROID'])
+      platform: PropTypes.oneOf(['', 'NONE', 'IOS', 'ANDROID'])
     }).isRequired,
     error: PropTypes.bool,
     selected: PropTypes.bool
@@ -31,7 +31,7 @@ export class SummaryCard extends React.Component {
       imageUrl: '../../images/app-icon.png',
       rating: 0,
       badge: '',
-      operatingSystem: ''
+      platform: ''
     }
   }
 
@@ -69,9 +69,9 @@ export class SummaryCard extends React.Component {
               <div className="card-rating">
                 <Rating rating={this.props.display.rating} reviewCount={this.props.display.reviews_count} showRatingNumber={true}></Rating>
               </div>
-              {utilsService.properCaseOS(this.props.display.operatingSystem) && <div className="card-platform">
+              {utilsService.properCaseOS(this.props.display.platform) && <div className="card-platform">
                 <span className="sr-only">Hosted at the&nbsp;</span>
-                {utilsService.properCaseOS(this.props.display.operatingSystem)}
+                {utilsService.properCaseOS(this.props.display.platform)}
                 <span className="sr-only">&nbsp;app store</span>
               </div>}
             </div>
