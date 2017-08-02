@@ -190,7 +190,7 @@ class ExternalLinkStore {
   @observable manageMyProfileLink = 'https://test-profilemgt.firstnet.att.com/ebiz/firstnet/';
 
 
-  @observable firstnetCom = 'https://firstnet.com/';
+  @observable firstnetCom = 'https://www.firstnet.com/';
   @observable firstnetGov = 'https://firstnet.gov/';
   @observable devPortal = 'https://fndevpgm-uat-app.eng.mobilephone.net/firstnet';
   @observable appControl = 'https://test-appcontrol.firstnet.att.com/';
