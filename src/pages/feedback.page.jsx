@@ -83,7 +83,6 @@ export default class FeedbackPage extends React.Component {
   }
 
   showModal = (shouldShow, modalID) => {
-    this.headerStore.closeAdminSubMenu();
     if (shouldShow) {
       $(modalID).modal({backdrop:'static'});
     } else {

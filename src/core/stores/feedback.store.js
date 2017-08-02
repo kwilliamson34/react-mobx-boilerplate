@@ -4,8 +4,6 @@ import {userStore} from './user.store';
 import {utilsService} from '../services/utils.service';
 import {history} from '../services/history.service';
 
-const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-
 class FeedbackStore {
 
   getBrowserCloseAlert = (event) => {
@@ -20,15 +18,20 @@ class FeedbackStore {
     return form.querySelectorAll('input, select, textarea');
   }
 
+  isEmpty = (string) => {
+    const _string = string.trim();
+    return _string.length === 0;
+  }
+
   @action submitForm(form) {
     const inputs = this.parseForm(form);
     this.showAlertBar = false;
     this.hasBeenSubmitted = false;
     for (var i = 0; i < inputs.length; ++i) {
       if (inputs[i].id !== 'feedback_email') {
-        this.hasErrors[inputs[i].id] = inputs[i].value === '';
+        this.hasErrors[inputs[i].id] = this.isEmpty(inputs[i].value);
       } else if (inputs[i].id === 'feedback_email') {
-        this.hasErrors[inputs[i].id] = inputs[i].value.length > 0 ? !emailRegex.test(inputs[i].value) : false;
+        this.hasErrors[inputs[i].id] = !this.isEmpty(inputs[i].value) && !utilsService.isValidEmailAddress(inputs[i].value);
       }
     }
     if (this.formIsValid) {
@@ -41,8 +44,10 @@ class FeedbackStore {
         this.clearFeedbackForm();
       }
       const failure = (res) => {
+        //prevent the unsaved changes modal from showing, and change history to allow user to navigate back to here from error page.
+        this.disableSaveDialogs();
+        history.push('/feedback');
         utilsService.handleError(res);
-        this.showExitModal = false;
       }
       apiService.submitCustomerFeedbackForm(data)
       .then(success, failure);
@@ -56,10 +61,10 @@ class FeedbackStore {
   }
 
   @action validateInput(input) {
-    if (input.id !== 'feedback_email') {
-      this.hasErrors[input.id] = this.feedbackObject[input.id].length === 0;
-    } else if (input.id === 'feedback_email') {
-      this.hasErrors[input.id] = input.value.length > 0 ? !emailRegex.test(input.value) : false;
+    if (input.id === 'feedback_email') {
+      this.hasErrors[input.id] = !this.isEmpty(input.value) && !utilsService.isValidEmailAddress(input.value);
+    } else {
+      this.hasErrors[input.id] = this.isEmpty(this.feedbackObject[input.id]);
     }
     if (this.showAlertBar && this.requiredFieldsEntered) {
       this.toggleAlertBar();
@@ -112,7 +117,7 @@ class FeedbackStore {
   }
 
   @action setDefaultEmail() {
-    if (this.feedbackObject.feedback_email === '') {
+    if (this.isEmpty(this.feedbackObject.feedback_email)) {
       this.feedbackObject.feedback_email = userStore.user.email;
     }
   }
@@ -129,15 +134,13 @@ class FeedbackStore {
   @computed get requiredFieldsEntered() {
     let requiredFieldsEntered = true;
     for (let key in this.feedbackObject) {
-      if (key !== 'feedback_email' && !this.feedbackObject[key].length) requiredFieldsEntered = false;
+      if (key !== 'feedback_email' && this.isEmpty(this.feedbackObject[key])) requiredFieldsEntered = false;
     }
     return requiredFieldsEntered;
   }
 
   @computed get formHasEntries() {
-    let formHasEntries = false;
-    if (this.feedbackObject.feedback_title.length || this.feedbackObject.feedback_details.length) formHasEntries = true;
-    return formHasEntries;
+    return !this.isEmpty(this.feedbackObject.feedback_title) || !this.isEmpty(this.feedbackObject.feedback_details;
   }
 
   @observable showExitModal = false;
