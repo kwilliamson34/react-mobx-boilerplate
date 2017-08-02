@@ -39,7 +39,7 @@ describe('UtilsService', () => {
         isAvailable: true,
         isRecommended: false,
         mdm_install_status: 'INSTALLED',
-        operating_system: 'ANDROID'
+        platform: 'ANDROID'
       }
       let appSimplifiedObj = {
         name: 'name',
@@ -53,7 +53,7 @@ describe('UtilsService', () => {
         isRecommended: false,
         mdm_install_status: 'INSTALLED',
         badge: true,
-        operatingSystem: 'ANDROID',
+        platform: 'ANDROID',
         category: 'category',
         user_segment: 'segment',
         screenshots: {
