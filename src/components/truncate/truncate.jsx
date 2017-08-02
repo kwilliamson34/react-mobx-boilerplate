@@ -8,7 +8,7 @@ const globalHtmlRegex = /<\/?\w+((\s+\w+(\s*=\s*(?:".*?"|'.*?'|[\^'">\s]+))?)+\s
 const splitAllElementsRegex = /<[^>]*>|\s?[^<>\s]+\s?/g;
 
 @observer
-export default class ShowMoreOrLess extends React.Component {
+export default class Truncate extends React.Component {
 
   static propTypes = {
     wrappingElement: PropTypes.string,
