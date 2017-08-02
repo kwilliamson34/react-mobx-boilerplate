@@ -33,12 +33,6 @@ export default class ConfigureMDM extends React.Component {
     this.store.enableSaveDialogs();
   }
 
-  componentDidUpdate() {
-    if(this.store.hasBeenSubmitted){
-      history.push('/admin/manage-apps');
-    }
-  }
-
   componentWillUnmount() {
     this.clearModals();
     this.store.disableSaveDialogs();
