@@ -147,7 +147,7 @@ class CardListStore {
       }
       let platformCheck = () => {
         if (this.platformFilter) {
-          return app.operatingSystem.toUpperCase() === this.platformFilter.toUpperCase();
+          return app.platform.toUpperCase() === this.platformFilter.toUpperCase();
         } else {
           return true;
         }
