@@ -107,10 +107,10 @@ export class AppDetailBanner extends React.Component {
             {this.endorsement()}
             {this.rating()}
           </div>
-          <div className="col-sm-3">
+          <div className="col-sm-4">
             {this.details()}
           </div>
-          <div className="col-sm-5">
+          <div className="col-sm-4">
             {this.appManagement()}
           </div>
         </div>
