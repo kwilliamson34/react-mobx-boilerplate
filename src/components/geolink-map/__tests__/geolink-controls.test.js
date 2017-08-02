@@ -23,11 +23,19 @@ describe('<GeolinkControls />', () => {
     test('matches snapshot when enabled and disabled', () => {
       let component, tree;
 
+      props.geolinkStore.authIsComplete = false;
       props.disabled = true;
       component = renderer.create(<GeolinkControls {...props}/>);
       tree = component.toJSON();
       expect(tree).toMatchSnapshot();
 
+      props.geolinkStore.authIsComplete = false;
+      props.disabled = false;
+      component = renderer.create(<GeolinkControls {...props}/>);
+      tree = component.toJSON();
+      expect(tree).toMatchSnapshot();
+
+      props.geolinkStore.authIsComplete = true;
       props.disabled = false;
       component = renderer.create(<GeolinkControls {...props}/>);
       tree = component.toJSON();
@@ -76,6 +84,7 @@ describe('<GeolinkControls />', () => {
 
     test('toggling alerts checkbox results in geolink store action calls', () => {
       let component = TestUtils.renderIntoDocument(<GeolinkControls {...props} />);
+      props.geolinkStore.authIsComplete = true;
 
       //determine the function to spy on
       const functionToWatch = component.props.geolinkStore.toggleAlerts;

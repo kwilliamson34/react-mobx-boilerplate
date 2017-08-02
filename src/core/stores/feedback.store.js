@@ -49,8 +49,7 @@ class FeedbackStore {
         history.push('/feedback');
         utilsService.handleError(res);
       }
-      apiService.submitCustomerFeedbackForm(data)
-      .then(success, failure);
+      apiService.submitCustomerFeedbackForm(data).then(success, failure);
     } else {
       this.showAlertBar = true;
     }

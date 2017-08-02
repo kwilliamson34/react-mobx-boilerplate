@@ -1,6 +1,7 @@
 jest.unmock('../feedback.store');
 jest.unmock('../user.store');
 jest.unmock('axios');
+jest.unmock('../../services/utils.service');
 
 import {observable, useStrict} from 'mobx';
 import {feedbackStore} from '../feedback.store';
@@ -15,18 +16,7 @@ describe("FeedbackStore", () => {
     authorizations: []
   });
 
-  let res = {
-    status: 200
-  }
-  apiService.submitCustomerFeedbackForm = jest.fn()
-    .mockReturnValue(new Promise(resolve =>
-      resolve(
-        {
-          res
-        }
-      )
-    )
-  );
+  apiService.submitCustomerFeedbackForm = jest.fn().mockReturnValue(Promise.resolve());
   let inputsArray = [
     {
       id: 'feedback_title',
@@ -47,8 +37,7 @@ describe("FeedbackStore", () => {
     }
   ];
 
-  feedbackStore.parseForm = jest.fn()
-    .mockReturnValue(inputsArray);
+  feedbackStore.parseForm = jest.fn().mockReturnValue(inputsArray);
 
   beforeEach(() => {
     useStrict(false);
