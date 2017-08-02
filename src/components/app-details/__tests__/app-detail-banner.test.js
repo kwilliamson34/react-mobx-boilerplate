@@ -21,7 +21,7 @@ describe('<AppDetailBanner /> ', () => {
       app_name: 'Vampire Finder 3000',
       app_psk: '12345',
       release_date: '2017-07-14T15:30:08+00:00',
-      operating_system: 'IOS',
+      platform: 'IOS',
       version: {
         author: 'Tiny Rick',
         version_num: '1.8.2'

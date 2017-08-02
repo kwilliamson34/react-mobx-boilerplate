@@ -204,7 +204,6 @@ export default class PSEHeader extends React.Component {
 					{this.renderProfileBlock()}
 				</a>
 				<ul
-					id="pse-profile-nav"
 					className={`collapse ${this.headerStore.profileSubMenuIsOpen ? 'in' : ''}`}
 					aria-labelledby="pse-profile">
 					<li role="presentation">
@@ -321,13 +320,13 @@ export default class PSEHeader extends React.Component {
 											Expand Help Menu
 										</span>
 									</button>
-									<a id="pse-profile" href="/manage-profile" className="deaden">
+									<a id="pse-help-mobile" href="/manage-profile" className="deaden">
 										<i className="icon-help" aria-hidden="true" /> Help
 									</a>
 									<ul
 										id="pse-help-menu"
 										className={`collapse ${this.headerStore.helpSubMenuIsOpen ? 'in' : ''}`}
-										aria-labelledby="linkBtn-admin">
+										aria-labelledby="pse-help-mobile">
 										<li>
 											<NavLink activeClassName="active" to="/faq">
 												FAQ
@@ -360,14 +359,13 @@ export default class PSEHeader extends React.Component {
 										id="profile-header-dropdown"
 										type="button"
 										className="dropdown-toggle"
-										aria-label="Go to User Dashboard"
 										aria-expanded="false"
 										data-toggle="dropdown">
-										<i className="icon-profile"/>
+										<i className="icon-profile" aria-hidden="true" />
+										<span className="sr-only">Toggle Profile Dropdown</span>
 									</button>
 									<ul
 										id="pse-profile-nav"
-										role="menu"
 										className="dropdown-menu dropdown-menu-right"
 										aria-labelledby="profile-header-dropdown">
 										<li role="presentation" className="desktop-profile-display">
@@ -394,14 +392,13 @@ export default class PSEHeader extends React.Component {
 										id="help-header-dropdown"
 										type="button"
 										className={(this.props.location.pathname === '/faq' || this.props.location.pathname === '/feedback')? 'dropdown-toggle active':'dropdown-toggle'}
-										aria-label="Go to Help Center"
 										aria-expanded="false"
 										data-toggle="dropdown">
-										<i className="icon-help"/>
+										<i className="icon-help" aria-hidden="true" />
+										<span className="sr-only">Toggle Help Dropdown</span>
 									</button>
 									<ul
 										id="pse-help-nav"
-										role="menu"
 										className="dropdown-menu dropdown-menu-right"
 										aria-labelledby="help-header-dropdown">
 										<li role="presentation">

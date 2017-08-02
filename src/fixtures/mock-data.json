@@ -6,7 +6,7 @@
   "homeCards": {
     "applications": [
       {
-        "operating_system": 3,
+        "platform": 3,
         "isAvailable": true,
         "isRecommended": false,
         "install_uri": null,
@@ -49,7 +49,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": "",
         "tablet_screenshot_path5": "",
@@ -64,7 +64,7 @@
         "name": "App Catalog - HTML5"
       },
       {
-        "operating_system": 102,
+        "platform": 102,
         "isAvailable": null,
         "isRecommended": null,
         "install_uri": null,
@@ -107,7 +107,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": "",
         "tablet_screenshot_path5": "",
@@ -122,7 +122,7 @@
         "name": "Active911"
       },
       {
-        "operating_system": 1,
+        "platform": 1,
         "isAvailable": true,
         "isRecommended": true,
         "install_uri": null,
@@ -165,7 +165,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": "org_5945/appstore_68483/phone1.png",
         "tablet_screenshot_path5": "",
@@ -180,7 +180,7 @@
         "name": "Complete Anatomy"
       },
       {
-        "operating_system": 104,
+        "platform": 104,
         "isAvailable": false,
         "isRecommended": false,
         "install_uri": null,
@@ -223,7 +223,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": null,
         "tablet_screenshot_path5": null,
@@ -238,7 +238,7 @@
         "name": "DemoApp"
       },
       {
-        "operating_system": 104,
+        "platform": 104,
         "isAvailable": null,
         "isRecommended": null,
         "install_uri": null,
@@ -281,7 +281,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": null,
         "tablet_screenshot_path5": null,
@@ -296,7 +296,7 @@
         "name": "DemoApp"
       },
       {
-        "operating_system": 104,
+        "platform": 104,
         "isAvailable": null,
         "isRecommended": null,
         "install_uri": null,
@@ -339,7 +339,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": null,
         "tablet_screenshot_path5": null,
@@ -354,7 +354,7 @@
         "name": "DemoApp"
       },
       {
-        "operating_system": 104,
+        "platform": 104,
         "isAvailable": null,
         "isRecommended": null,
         "install_uri": null,
@@ -397,7 +397,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": "",
         "tablet_screenshot_path5": "",
@@ -412,7 +412,7 @@
         "name": "DemoApp"
       },
       {
-        "operating_system": 102,
+        "platform": 102,
         "isAvailable": null,
         "isRecommended": null,
         "install_uri": null,
@@ -455,7 +455,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": "org_5945/android_market_62862/Screen_Shot_2016-06-27_at_4.18.50_PM.png",
         "tablet_screenshot_path5": "",
@@ -470,7 +470,7 @@
         "name": "Disaster Alert"
       },
       {
-        "operating_system": 102,
+        "platform": 102,
         "isAvailable": null,
         "isRecommended": null,
         "install_uri": null,
@@ -513,7 +513,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": "",
         "tablet_screenshot_path5": "",
@@ -528,7 +528,7 @@
         "name": "Emergency - American Red Cross"
       },
       {
-        "operating_system": 102,
+        "platform": 102,
         "isAvailable": null,
         "isRecommended": null,
         "install_uri": null,
@@ -571,7 +571,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": "",
         "tablet_screenshot_path5": "",
@@ -586,7 +586,7 @@
         "name": "ERG 2016 for Android"
       },
       {
-        "operating_system": 102,
+        "platform": 102,
         "isAvailable": null,
         "isRecommended": null,
         "install_uri": null,
@@ -629,7 +629,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": "",
         "tablet_screenshot_path5": "",
@@ -644,7 +644,7 @@
         "name": "FEMA"
       },
       {
-        "operating_system": 102,
+        "platform": 102,
         "isAvailable": null,
         "isRecommended": null,
         "install_uri": null,
@@ -687,7 +687,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": "",
         "tablet_screenshot_path5": "",
@@ -702,7 +702,7 @@
         "name": "First Aid - American Red Cross"
       },
       {
-        "operating_system": 104,
+        "platform": 104,
         "isAvailable": null,
         "isRecommended": null,
         "install_uri": null,
@@ -745,7 +745,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": "",
         "tablet_screenshot_path5": "",
@@ -760,7 +760,7 @@
         "name": "Flipkart"
       },
       {
-        "operating_system": 102,
+        "platform": 102,
         "isAvailable": null,
         "isRecommended": null,
         "install_uri": null,
@@ -803,7 +803,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": "",
         "tablet_screenshot_path5": "",
@@ -818,7 +818,7 @@
         "name": "HealthMap: Outbreaks Near Me"
       },
       {
-        "operating_system": 104,
+        "platform": 104,
         "isAvailable": null,
         "isRecommended": null,
         "install_uri": null,
@@ -861,7 +861,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": "",
         "tablet_screenshot_path5": "",
@@ -876,7 +876,7 @@
         "name": "Imgur"
       },
       {
-        "operating_system": 104,
+        "platform": 104,
         "isAvailable": null,
         "isRecommended": null,
         "install_uri": null,
@@ -919,7 +919,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": "org_5945/android_72170/screen696x696_2.jpeg",
         "tablet_screenshot_path5": "",
@@ -934,7 +934,7 @@
         "name": "Instagram"
       },
       {
-        "operating_system": 102,
+        "platform": 102,
         "isAvailable": null,
         "isRecommended": null,
         "install_uri": null,
@@ -977,7 +977,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": "org_5945/android_market_62834/Screen_Shot_2016-06-27_at_4.13.22_PM.png",
         "tablet_screenshot_path5": "",
@@ -992,7 +992,7 @@
         "name": "MobilePatrol Public Safety App"
       },
       {
-        "operating_system": 102,
+        "platform": 102,
         "isAvailable": null,
         "isRecommended": null,
         "install_uri": null,
@@ -1035,7 +1035,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": "org_5945/android_market_62839/Screen_Shot_2016-06-29_at_3.05.08_PM.png",
         "tablet_screenshot_path5": "",
@@ -1050,7 +1050,7 @@
         "name": "Motorola Alert"
       },
       {
-        "operating_system": 102,
+        "platform": 102,
         "isAvailable": null,
         "isRecommended": null,
         "install_uri": null,
@@ -1093,7 +1093,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": "",
         "tablet_screenshot_path5": "",
@@ -1108,7 +1108,7 @@
         "name": "NIMS ICS Guide"
       },
       {
-        "operating_system": 102,
+        "platform": 102,
         "isAvailable": null,
         "isRecommended": null,
         "install_uri": null,
@@ -1151,7 +1151,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": "org_5945/android_market_62864/Screen_Shot_2016-06-27_at_4.21.39_PM.png",
         "tablet_screenshot_path5": "org_5945/android_market_62864/__tablet007__Screen_Shot_2016-06-27_at_4.22.53_PM.png",
@@ -1166,7 +1166,7 @@
         "name": "NOAA Weather Radar & Alerts"
       },
       {
-        "operating_system": 102,
+        "platform": 102,
         "isAvailable": null,
         "isRecommended": null,
         "install_uri": null,
@@ -1209,7 +1209,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": "",
         "tablet_screenshot_path5": "",
@@ -1224,7 +1224,7 @@
         "name": "Operation Predator"
       },
       {
-        "operating_system": 3,
+        "platform": 3,
         "isAvailable": null,
         "isRecommended": null,
         "install_uri": null,
@@ -1267,7 +1267,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": "",
         "tablet_screenshot_path5": "",
@@ -1282,7 +1282,7 @@
         "name": "Sample Web App"
       },
       {
-        "operating_system": 104,
+        "platform": 104,
         "isAvailable": null,
         "isRecommended": null,
         "install_uri": null,
@@ -1325,7 +1325,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": null,
         "tablet_screenshot_path5": null,
@@ -1340,7 +1340,7 @@
         "name": "tester"
       },
       {
-        "operating_system": 104,
+        "platform": 104,
         "isAvailable": null,
         "isRecommended": null,
         "install_uri": null,
@@ -1383,7 +1383,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": null,
         "tablet_screenshot_path5": null,
@@ -1398,7 +1398,7 @@
         "name": "tester"
       },
       {
-        "operating_system": 104,
+        "platform": 104,
         "isAvailable": null,
         "isRecommended": null,
         "install_uri": null,
@@ -1441,7 +1441,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": null,
         "tablet_screenshot_path5": null,
@@ -1456,7 +1456,7 @@
         "name": "tester"
       },
       {
-        "operating_system": 104,
+        "platform": 104,
         "isAvailable": null,
         "isRecommended": null,
         "install_uri": null,
@@ -1499,7 +1499,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": null,
         "tablet_screenshot_path5": null,
@@ -1514,7 +1514,7 @@
         "name": "tester"
       },
       {
-        "operating_system": 104,
+        "platform": 104,
         "isAvailable": null,
         "isRecommended": null,
         "install_uri": null,
@@ -1557,7 +1557,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": null,
         "tablet_screenshot_path5": null,
@@ -1572,7 +1572,7 @@
         "name": "tester"
       },
       {
-        "operating_system": 104,
+        "platform": 104,
         "isAvailable": null,
         "isRecommended": null,
         "install_uri": null,
@@ -1615,7 +1615,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": null,
         "tablet_screenshot_path5": null,
@@ -1630,7 +1630,7 @@
         "name": "tester"
       },
       {
-        "operating_system": 104,
+        "platform": 104,
         "isAvailable": null,
         "isRecommended": null,
         "install_uri": null,
@@ -1673,7 +1673,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": null,
         "tablet_screenshot_path5": null,
@@ -1688,7 +1688,7 @@
         "name": "tester"
       },
       {
-        "operating_system": 104,
+        "platform": 104,
         "isAvailable": null,
         "isRecommended": null,
         "install_uri": null,
@@ -1731,7 +1731,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": null,
         "tablet_screenshot_path5": null,
@@ -1746,7 +1746,7 @@
         "name": "tester"
       },
       {
-        "operating_system": 104,
+        "platform": 104,
         "isAvailable": null,
         "isRecommended": null,
         "install_uri": null,
@@ -1789,7 +1789,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": null,
         "tablet_screenshot_path5": null,
@@ -1804,7 +1804,7 @@
         "name": "tester"
       },
       {
-        "operating_system": 104,
+        "platform": 104,
         "isAvailable": null,
         "isRecommended": null,
         "install_uri": null,
@@ -1847,7 +1847,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": null,
         "tablet_screenshot_path5": null,
@@ -1862,7 +1862,7 @@
         "name": "tester"
       },
       {
-        "operating_system": 104,
+        "platform": 104,
         "isAvailable": null,
         "isRecommended": null,
         "install_uri": null,
@@ -1905,7 +1905,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": null,
         "tablet_screenshot_path5": null,
@@ -1920,7 +1920,7 @@
         "name": "tester"
       },
       {
-        "operating_system": 104,
+        "platform": 104,
         "isAvailable": null,
         "isRecommended": null,
         "install_uri": null,
@@ -1963,7 +1963,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": null,
         "tablet_screenshot_path5": null,
@@ -1978,7 +1978,7 @@
         "name": "tester"
       },
       {
-        "operating_system": 104,
+        "platform": 104,
         "isAvailable": null,
         "isRecommended": null,
         "install_uri": null,
@@ -2021,7 +2021,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": null,
         "tablet_screenshot_path5": null,
@@ -2036,7 +2036,7 @@
         "name": "tester"
       },
       {
-        "operating_system": 104,
+        "platform": 104,
         "isAvailable": null,
         "isRecommended": null,
         "install_uri": null,
@@ -2079,7 +2079,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": null,
         "tablet_screenshot_path5": null,
@@ -2094,7 +2094,7 @@
         "name": "tester"
       },
       {
-        "operating_system": 104,
+        "platform": 104,
         "isAvailable": null,
         "isRecommended": null,
         "install_uri": null,
@@ -2137,7 +2137,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": null,
         "tablet_screenshot_path5": null,
@@ -2152,7 +2152,7 @@
         "name": "tester"
       },
       {
-        "operating_system": 104,
+        "platform": 104,
         "isAvailable": null,
         "isRecommended": null,
         "install_uri": null,
@@ -2195,7 +2195,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": null,
         "tablet_screenshot_path5": null,
@@ -2210,7 +2210,7 @@
         "name": "tester"
       },
       {
-        "operating_system": 104,
+        "platform": 104,
         "isAvailable": null,
         "isRecommended": null,
         "install_uri": null,
@@ -2253,7 +2253,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": null,
         "tablet_screenshot_path5": null,
@@ -2268,7 +2268,7 @@
         "name": "tester"
       },
       {
-        "operating_system": 104,
+        "platform": 104,
         "isAvailable": null,
         "isRecommended": null,
         "install_uri": null,
@@ -2311,7 +2311,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": null,
         "tablet_screenshot_path5": null,
@@ -2326,7 +2326,7 @@
         "name": "tester"
       },
       {
-        "operating_system": 1,
+        "platform": 1,
         "isAvailable": null,
         "isRecommended": null,
         "install_uri": null,
@@ -2369,7 +2369,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": "org_5945/appstore_58409/phone1.png",
         "tablet_screenshot_path5": "org_5945/appstore_58409/__tablet007__tablet4.png",
@@ -2384,7 +2384,7 @@
         "name": "Waze - GPS, Maps & Social T..."
       },
       {
-        "operating_system": 104,
+        "platform": 104,
         "isAvailable": null,
         "isRecommended": null,
         "install_uri": null,
@@ -2427,7 +2427,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": "",
         "tablet_screenshot_path5": "",
@@ -2442,7 +2442,7 @@
         "name": "What's App"
       },
       {
-        "operating_system": 102,
+        "platform": 102,
         "isAvailable": null,
         "isRecommended": null,
         "install_uri": null,
@@ -2485,7 +2485,7 @@
           "screenshot_3_description": null,
           "screenshot_4_description": null,
           "screenshot_5_description": null,
-          "operating_system": "Android"
+          "platform": "Android"
         },
         "screenshot_path2": "",
         "tablet_screenshot_path5": "",

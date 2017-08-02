@@ -54,8 +54,8 @@ export class AppDetailBanner extends React.Component {
     )
   }
 
-  properCaseOS(operating_system) {
-    return utilsService.properCaseOS(operating_system);
+  properCaseOS(platform) {
+    return utilsService.properCaseOS(platform);
   }
 
   details() {
@@ -72,7 +72,7 @@ export class AppDetailBanner extends React.Component {
         </div>
         <div className="platform">
           <strong>Platform:&nbsp;</strong>
-          {this.properCaseOS(this.data.operating_system)}
+          {this.properCaseOS(this.data.platform)}
         </div>
       </div>
     )

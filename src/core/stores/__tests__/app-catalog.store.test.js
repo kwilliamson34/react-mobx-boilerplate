@@ -21,7 +21,7 @@ const mockCatalogArray = [
 		isRecommended: null,
 		mdm_install_status: 'NOT_INSTALLED',
 		badge: false,
-		operatingSystem: 'ANDROID',
+		platform: 'ANDROID',
 		category: ['VIDEO SURVEILLANCE'],
 		user_segment: ['LAW ENFORCEMENT'],
 		screenshots: {
@@ -44,7 +44,7 @@ const mockCatalogArray = [
 		isRecommended: null,
 		mdm_install_status: 'NOT_INSTALLED',
 		badge: false,
-		operatingSystem: 'IOS',
+		platform: 'IOS',
 		category: ['PUBLIC SAFETY (COMMUNICATION)TOOLS'],
 		user_segment: ['LAW ENFORCEMENT'],
 		screenshots: {
@@ -67,7 +67,7 @@ const mockCatalogArray = [
 		isRecommended: true,
 		mdm_install_status: 'NOT_INSTALLED',
 		badge: true,
-		operatingSystem: 'ANDROID',
+		platform: 'ANDROID',
 		category: [
 			'IN BUILDING COVERAGE & MAPPING',
 			'CYBER SECURITY & FRAUD DETECTION'
@@ -93,7 +93,7 @@ const mockCatalogArray = [
 		isRecommended: true,
 		mdm_install_status: 'NOT_INSTALLED',
 		badge: false,
-		operatingSystem: 'IOS',
+		platform: 'IOS',
 		category: [
 			'DEVICE SECURITY',
 			'SECURE CONNECTIONS',
@@ -214,7 +214,6 @@ const mockAppDetail = {
 	app_name: 'NOAA calculator_1',
 	direct_download_binary_url:
 		'https://firstnet-ws.apperian.com/v1/downloads/direct/applications/Puco4dE1AhP82HqYSna94g',
-	operating_system: 'IOS',
 	device: 'BOTH'
 };
 

@@ -15,7 +15,7 @@ describe('<SummaryCard />', () => {
       rating: 3.5,
       badge: true,
       app_psk: '12345',
-      operatingSystem: 'ANDROID',
+      platform: 'ANDROID',
     },
     mdm_status: 'INSTALLED'
   };
@@ -32,7 +32,7 @@ describe('<SummaryCard />', () => {
 
       props.display.rating = 1.5;
       props.display.badge = false;
-      props.display.operatingSystem = 'IOS';
+      props.display.platform = 'IOS';
       component = renderer.create(
         <MemoryRouter>
           <SummaryCard {...props} />
