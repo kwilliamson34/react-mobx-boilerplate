@@ -140,7 +140,7 @@ class FeedbackStore {
   }
 
   @computed get formHasEntries() {
-    return !this.isEmpty(this.feedbackObject.feedback_title) || !this.isEmpty(this.feedbackObject.feedback_details;
+    return !this.isEmpty(this.feedbackObject.feedback_title) || !this.isEmpty(this.feedbackObject.feedback_details);
   }
 
   @observable showExitModal = false;
