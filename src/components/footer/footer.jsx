@@ -121,7 +121,7 @@ export default class Footer extends React.Component {
 							</NewTabLink>
 						</li>
 						<li role="presentation">
-							<NewTabLink to={this.externalLinkStore.firstnetTumblr}>
+							<NewTabLink to={this.externalLinkStore.firstnetTumblr} className="fn-social-icon tumblr">
 								<i aria-hidden="true" className="icon-tumblr"></i>
 								<span className="title">Tumblr</span>
 							</NewTabLink>
