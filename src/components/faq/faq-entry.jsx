@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
-import Truncate from '../truncate/truncate'
+import Truncate from '../truncate/truncate';
 
 @observer
 export class FaqEntry extends React.Component {
