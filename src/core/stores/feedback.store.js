@@ -18,9 +18,9 @@ class FeedbackStore {
     return form.querySelectorAll('input, select, textarea');
   }
 
-  hasSomeText = (string) => {
+  isEmpty = (string) => {
     const _string = string.trim();
-    return _string.length > 0;
+    return _string.length === 0;
   }
 
   @action submitForm(form) {
@@ -29,9 +29,9 @@ class FeedbackStore {
     this.hasBeenSubmitted = false;
     for (var i = 0; i < inputs.length; ++i) {
       if (inputs[i].id !== 'feedback_email') {
-        this.hasErrors[inputs[i].id] = !this.hasSomeText(inputs[i].value);
+        this.hasErrors[inputs[i].id] = this.isEmpty(inputs[i].value);
       } else if (inputs[i].id === 'feedback_email') {
-        this.hasErrors[inputs[i].id] = this.hasSomeText(inputs[i].value) && !utilsService.testEmailRegex(inputs[i].value);
+        this.hasErrors[inputs[i].id] = !this.isEmpty(inputs[i].value) && !utilsService.testEmailRegex(inputs[i].value);
       }
     }
     if (this.formIsValid) {
@@ -62,9 +62,9 @@ class FeedbackStore {
 
   @action validateInput(input) {
     if (input.id !== 'feedback_email') {
-      this.hasErrors[input.id] = !this.hasSomeText(this.feedbackObject[input.id]);
+      this.hasErrors[input.id] = this.isEmpty(this.feedbackObject[input.id]);
     } else if (input.id === 'feedback_email') {
-      this.hasErrors[input.id] = this.hasSomeText(input.value) && !utilsService.testEmailRegex(input.value);
+      this.hasErrors[input.id] = !this.isEmpty(input.value) && !utilsService.testEmailRegex(input.value);
     }
     if (this.showAlertBar && this.requiredFieldsEntered) {
       this.toggleAlertBar();
@@ -117,7 +117,7 @@ class FeedbackStore {
   }
 
   @action setDefaultEmail() {
-    if (!this.hasSomeText(this.feedbackObject.feedback_email)) {
+    if (this.isEmpty(this.feedbackObject.feedback_email)) {
       this.feedbackObject.feedback_email = userStore.user.email;
     }
   }
@@ -134,14 +134,14 @@ class FeedbackStore {
   @computed get requiredFieldsEntered() {
     let requiredFieldsEntered = true;
     for (let key in this.feedbackObject) {
-      if (key !== 'feedback_email' && !this.hasSomeText(this.feedbackObject[key])) requiredFieldsEntered = false;
+      if (key !== 'feedback_email' && this.isEmpty(this.feedbackObject[key])) requiredFieldsEntered = false;
     }
     return requiredFieldsEntered;
   }
 
   @computed get formHasEntries() {
     let formHasEntries = false;
-    if (this.hasSomeText(this.feedbackObject.feedback_title) || this.hasSomeText(this.feedbackObject.feedback_details)) formHasEntries = true;
+    if (!this.isEmpty(this.feedbackObject.feedback_title) || !this.isEmpty(this.feedbackObject.feedback_details)) formHasEntries = true;
     return formHasEntries;
   }
 
