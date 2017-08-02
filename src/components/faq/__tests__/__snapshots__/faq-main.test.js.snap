@@ -31,18 +31,22 @@ exports[`<FaqMain /> Render testing Matches snapshot 1`] = `
             <ul>
               <li>
                 <a
-                  className="active"
+                  className="category-tab-button active"
+                  data-value="ALL"
                   href="#"
-                  onClick={[Function bound bound updateCategoryByTab]}>
-                  ALL
+                  onClick={[Function anonymous]}
+                  role="button">
+                  ALL 
                 </a>
               </li>
               <li>
                 <a
-                  className="category-tab-button"
+                  className="category-tab-button "
+                  data-value="LOREM"
                   href="#"
-                  onClick={[Function bound bound updateCategoryByTab]}>
-                  LOREM IPSUM 1 
+                  onClick={[Function anonymous]}
+                  role="button">
+                  LOREM 
                 </a>
               </li>
             </ul>
@@ -60,16 +64,15 @@ exports[`<FaqMain /> Render testing Matches snapshot 1`] = `
               <select
                 className="form-control"
                 id="faqCategory"
-                onChange={[Function bound bound updateCategoryBySelect]}
+                onChange={[Function anonymous]}
                 value="ALL">
                 <option
                   value="ALL">
                   All Categories
                 </option>
                 <option
-                  value="LOREM IPSUM 1">
-                  Lorem Ipsum 1
-                   
+                  value="LOREM">
+                  LOREM
                 </option>
               </select>
             </form>

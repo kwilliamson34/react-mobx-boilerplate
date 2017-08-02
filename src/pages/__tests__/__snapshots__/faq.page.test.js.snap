@@ -35,10 +35,12 @@ exports[`<FAQPage /> render matches previous snapshot 1`] = `
                 <ul>
                   <li>
                     <a
-                      className="active"
+                      className="category-tab-button active"
+                      data-value="ALL"
                       href="#"
-                      onClick={[Function bound bound updateCategoryByTab]}>
-                      ALL
+                      onClick={[Function anonymous]}
+                      role="button">
+                      ALL 
                     </a>
                   </li>
                 </ul>
@@ -56,7 +58,7 @@ exports[`<FAQPage /> render matches previous snapshot 1`] = `
                   <select
                     className="form-control"
                     id="faqCategory"
-                    onChange={[Function bound bound updateCategoryBySelect]}
+                    onChange={[Function anonymous]}
                     value="ALL">
                     <option
                       value="ALL">
