@@ -96,6 +96,12 @@ describe('UtilsService', () => {
       //removes special characters, retaining only letters and numbers, before adding + to spaces
       stringToTransform = '!h@e#l$l%o^ 1& 2* 3(';
       expect(utilsService.getDevicesAndSolutionsUrl(stringToTransform)).toBe('hello+1+2+3');
+      //removes html entities before special symbols.
+      stringToTransform = 'hello&&&trade;;!!!';
+      expect(utilsService.getDevicesAndSolutionsUrl(stringToTransform)).not.toBe('hellotrade');
+      //treats strings longer than 8 characters between & and ; as text, and not as an html entity.
+      stringToTransform = '&thisisnotanhtmlentity;';
+      expect(utilsService.getDevicesAndSolutionsUrl(stringToTransform)).toBe('thisisnotanhtmlentity');
     });
 
     test('isValidEmailAddress', () => {
