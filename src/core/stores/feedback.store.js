@@ -31,7 +31,7 @@ class FeedbackStore {
       if (inputs[i].id !== 'feedback_email') {
         this.hasErrors[inputs[i].id] = this.isEmpty(inputs[i].value);
       } else if (inputs[i].id === 'feedback_email') {
-        this.hasErrors[inputs[i].id] = !this.isEmpty(inputs[i].value) && !utilsService.testEmailRegex(inputs[i].value);
+        this.hasErrors[inputs[i].id] = !this.isEmpty(inputs[i].value) && !utilsService.isValidEmailAddress(inputs[i].value);
       }
     }
     if (this.formIsValid) {
@@ -61,10 +61,10 @@ class FeedbackStore {
   }
 
   @action validateInput(input) {
-    if (input.id !== 'feedback_email') {
+    if (input.id === 'feedback_email') {
+      this.hasErrors[input.id] = !this.isEmpty(input.value) && !utilsService.isValidEmailAddress(input.value);
+    } else {
       this.hasErrors[input.id] = this.isEmpty(this.feedbackObject[input.id]);
-    } else if (input.id === 'feedback_email') {
-      this.hasErrors[input.id] = !this.isEmpty(input.value) && !utilsService.testEmailRegex(input.value);
     }
     if (this.showAlertBar && this.requiredFieldsEntered) {
       this.toggleAlertBar();
@@ -140,9 +140,7 @@ class FeedbackStore {
   }
 
   @computed get formHasEntries() {
-    let formHasEntries = false;
-    if (!this.isEmpty(this.feedbackObject.feedback_title) || !this.isEmpty(this.feedbackObject.feedback_details)) formHasEntries = true;
-    return formHasEntries;
+    return !this.isEmpty(this.feedbackObject.feedback_title) || !this.isEmpty(this.feedbackObject.feedback_details;
   }
 
   @observable showExitModal = false;
