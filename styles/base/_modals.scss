@@ -20,46 +20,27 @@
     .modal-content {
       border-radius: 0;
       margin-top: 15%;
-      padding: 60px 100px;
-      text-align: center;
+      padding: 60px 30px;
 
       h1 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      p {
+        text-align: center;
         margin-bottom: 30px;
       }
 
-      .btn {
-        margin: 60px 10px 0;
+      .fn-primary,
+      .fn-secondary {
+        display: block;
+        width: 100%;
       }
 
-      .close-modal {
-        position: absolute;
-        top: 32px;
-        right: 25px;
-        margin: 0;
-
-        //TODO add special hover and focus styling to this button
-        &:focus {
-          color: $fn-black;
-        }
-      }
-    }
-  }
-}
-@media #{$mobile} {
-  .modal {
-    .modal-dialog {
-      .modal-content {
-        padding: 20px 30px;
-
-        h1 {
-          margin-bottom: 20px;
-          font-size: $fn-h2-desktop;
-        }
-
-        .fn-primary,
-        .fn-secondary {
-          margin-top: 20px;
-        }
+      button + button {
+        margin-top: 30px;
       }
     }
   }
@@ -68,15 +49,49 @@
   .modal {
     .modal-dialog {
       .modal-content {
-        padding: 30px 50px;
+        padding: 60px 50px;
 
         h1 {
-          margin-bottom: 20px;
+          margin-bottom: 30px;
+        }
+
+        p {
+          margin-bottom: 40px;
         }
 
         .fn-primary,
         .fn-secondary {
-          margin-top: 40px;
+          display: inline-block;
+          width: auto;
+        }
+
+        button:not(.fn-modal-close) {
+          margin: 0 10px 0;
+        }
+      }
+    }
+  }
+}
+@media #{$desktop} {
+  .modal {
+    .modal-dialog {
+      .modal-content {
+        padding: 60px 100px;
+
+        h1 {
+          margin-bottom: 30px;
+        }
+
+        p {
+          margin-bottom: 60px;
+        }
+        .fn-primary,
+        .fn-secondary {
+          display: inline-block;
+          width: auto;
+        }
+        button:not(.fn-modal-close) {
+          margin: 0 10px 0;
         }
       }
     }
