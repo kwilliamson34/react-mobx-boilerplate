@@ -60,8 +60,8 @@ export default class ErrorPage extends React.Component {
           }}></p>
         {showLinksforOtherPortals &&
           <section>
-            <a href={config.appStore}>App Store</a>
-            <a href={config.developerConsole}>Developer Console</a>
+            <a href={config.appStore}>Apps</a>
+            <a href={config.developerConsole}>App Control</a>
             <a href={config.localControl}>Local Control</a>
           </section>
         }
