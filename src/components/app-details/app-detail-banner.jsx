@@ -68,7 +68,7 @@ export class AppDetailBanner extends React.Component {
         <div className="updated">
           <strong>Released:&nbsp;</strong>
           <br className="hidden-xs hidden-md hidden-lg"/>
-          {moment(this.data.release_date).format('MMMM DD, YYYY')}
+          {moment(this.data.custom_metadata.release_date).format('MMMM DD, YYYY')}
         </div>
         <div className="platform">
           <strong>Platform:&nbsp;</strong>
