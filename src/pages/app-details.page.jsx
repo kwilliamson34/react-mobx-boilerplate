@@ -51,6 +51,34 @@ export default class AppDetailsPage extends React.Component {
     this.appStore.fetchAppDetailByPsk(psk);
   }
 
+  renderReviewsSection = (currentAppObject) => {
+    <section>
+      <h2>Reviews</h2>
+      <RatingsChart value={currentAppObject.rating} reviewsTotal={currentAppObject.reviews_count} reviews={currentAppObject.reviews}/>
+      {currentAppObject.reviews.length > 0 && <AppReviews reviews={currentAppObject.reviews}/>}
+    </section>
+  }
+
+  renderDeveloperSection = (custom_metadata) => {
+    const rawDeveloperWebsite = custom_metadata.developer_website.trim();
+    const cleanDeveloperWebsite = rawDeveloperWebsite.indexOf('http') > -1
+      ? rawDeveloperWebsite
+      : 'http://' + rawDeveloperWebsite;
+    return (
+      <section>
+        <h2>About the Developer</h2>
+        <p className="dev-description" dangerouslySetInnerHTML={{
+          __html: custom_metadata.developer_description
+        }}></p>
+        <div className="developer-website">
+          <NewTabLink to={cleanDeveloperWebsite} className="fn-primary" showIcon={true}>
+            Visit Developer Website
+          </NewTabLink>
+        </div>
+      </section>
+    )
+  }
+
   render() {
     const crumbs = [
       {
@@ -85,7 +113,7 @@ export default class AppDetailsPage extends React.Component {
           ? <div>
               <AppDetailBanner data={this.appStore.currentAppObject} appCatalogStore={this.appStore}  configuredMDMType={this.mdmStore.pseMDMObject.toJS().mdm_type} pushToMDM={this.mdmStore.pushToMDM.bind(this.mdmStore)} appCatalogMDMStatuses={this.mdmStore.appCatalogMDMStatuses.toJS()}/>
               {(this.appStore.currentAppObject.tabletScreenshots.length > 0 || this.appStore.currentAppObject.mobileScreenshots.length > 0) &&
-                <section className='app-gallery'>
+                <section className="app-gallery">
                   <ScreenshotGallery detailObj={this.appStore.currentAppObject}/>
                 </section>
               }
@@ -114,13 +142,7 @@ export default class AppDetailsPage extends React.Component {
                 <div className="container">
                   <div className="row">
                     <div className="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
-                      <h2>Reviews</h2>
-                      <RatingsChart
-                        value={this.appStore.currentAppObject.rating}
-                        reviewsTotal={this.appStore.currentAppObject.reviews_count}
-                        reviews={this.appStore.currentAppObject.reviews}/>
-                      {this.appStore.currentAppObject.reviews.length > 0 &&
-                        <AppReviews reviews={this.appStore.currentAppObject.reviews}/>}
+                      {this.renderReviewsSection(this.appStore.currentAppObject)}
                     </div>
                   </div>
                 </div>
@@ -129,15 +151,7 @@ export default class AppDetailsPage extends React.Component {
                 <div className="container">
                   <div className="row">
                     <div className="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
-                      <h2>About the Developer</h2>
-                      <p className="dev-description" dangerouslySetInnerHTML={{
-                        __html: this.appStore.currentAppObject.custom_metadata.developer_description
-                      }}></p>
-                      <div className="developer-website">
-                        <NewTabLink to={'http://' + this.appStore.currentAppObject.custom_metadata.developer_website} className="fn-primary" showIcon={true}>
-                          Visit Developer Website
-                        </NewTabLink>
-                      </div>
+                      {this.renderDeveloperSection(this.appStore.currentAppObject.custom_metadata)}
                     </div>
                   </div>
                 </div>
