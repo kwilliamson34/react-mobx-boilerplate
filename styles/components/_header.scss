@@ -121,6 +121,10 @@ $fn-mobile-item-height: 60px;
         text-decoration: none;
         font-size: 1.4rem;
         vertical-align: sub;
+
+        &.header-support-phone {
+          margin-right: 5px;
+        }
       }
     }
 
