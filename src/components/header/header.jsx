@@ -340,7 +340,7 @@ export default class PSEHeader extends React.Component {
 										<li>
 											<a href={'tel:' + this.headerStore.ATTSupportPhone}>
 												<div className="multi-line-item">
-													AT&amp;T Customer Service: <phone><i className="icon-phone-number header-support-phone" aria-hidden="true"></i>{this.headerStore.ATTSupportPhone}</phone>
+													AT&amp;T Customer Service: <phone><i className="icon-phone-number" aria-hidden="true"></i>{this.headerStore.ATTSupportPhone}</phone>
 												</div>
 											</a>
 										</li>
