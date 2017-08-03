@@ -396,16 +396,13 @@ class MDMStore {
   @action validateMDMForm() {
     let hasError = false;
 
-    this.mdm_form_alerts.forEach(alert => {
-      if(alert.type === 'error') {
-        hasError = true;
-      }
-    });
-
+    /* Note: 'undefined' is reserved for when the form is first initialized,
+    or if the field has been cleared due to an error.
+    Empty string occurs if the user has modified the field but ultimately
+    left it blank.
+    Compare to both to determine if error should be shown. */
     Object.keys(this.formData).forEach(key => {
       if(this.formData[key] === '' || this.formData[key] === undefined) {
-        /* Note: 'undefined' is reserved for when the form is first initialized.
-        Compare to empty string to determine if error should be shown. */
         hasError = true;
       }
     });
