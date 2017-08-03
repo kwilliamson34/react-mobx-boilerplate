@@ -2,6 +2,7 @@ import React from 'react';
 import {Router, Route, Switch, Redirect} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {history} from './core/services/history.service';
+import $ from 'jquery';
 
 //State Management
 import {Provider, observer} from 'mobx-react';
@@ -64,6 +65,18 @@ export default class App extends React.Component {
 			//get token the long way
 			pseMasterStore.userStore.validateUser();
 		}
+  }
+
+  componentDidMount() {
+    document.addEventListener('keydown', function (e) {
+      if (e.keyCode === 9) {
+        $('body').addClass('show-focus-styles');
+      }
+    });
+
+    document.addEventListener('click', function () {
+      $('body').removeClass('show-focus-styles');
+    });
   }
 
   getSpecializedDevicesComponent = ({match}) => {

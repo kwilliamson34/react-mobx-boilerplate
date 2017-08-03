@@ -95,15 +95,12 @@ a.skipnav{
     padding-left: 5px;
   }
 
-  &:focus {
-    @include focus();
-  }
-
   span {
     &:hover,
     &:active,
     &:active:focus {
       text-decoration: underline;
+      outline: none;
     }
   }
 
