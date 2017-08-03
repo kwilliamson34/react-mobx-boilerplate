@@ -22,8 +22,12 @@ $search-border-radius: 4px;
     background-color: white;
     background-image: url('/images/map-placeholder.png');
     background-repeat: no-repeat;
-    background-size: contain;
     background-position: center;
+    background-size: cover;
+
+    @media #{$desktop} {
+      background-size: contain;
+    }
 
     p {
       position: absolute;
