@@ -1,5 +1,5 @@
 jest.unmock('../app-detail-banner');
-jest.unmock('moment');
+jest.unmock('date-fns/format');
 jest.unmock('axios');
 
 jest.unmock('../../push-to-mdm/push-to-mdm');

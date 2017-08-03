@@ -126,9 +126,7 @@ module.exports = {
 			template: './index.ejs',
 			hash: false
 		}),
-
-		new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /nb/),
-
+		
 		new webpack.LoaderOptionsPlugin({
 			test: /\.scss$/,
 			debug: true,

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {observer, inject} from 'mobx-react';
 import {utilsService} from '../core/services/utils.service';
-import moment from 'moment';
+import dateFns from 'date-fns/format';
 
 import {AppDetailBanner} from '../components/app-details/app-detail-banner';
 import RatingsChart from '../components/ratings-chart/ratings-chart';
@@ -100,7 +100,7 @@ export default class AppDetailsPage extends React.Component {
                       {this.appStore.currentAppObject.version && this.appStore.currentAppObject.version.version_note && this.appStore.currentAppObject.version.version_note.length > 0 &&
                         <div className="whats-new">
                           <h2 id="app-details-whats-new" className="whats-new-title">What's New</h2>
-                          <div className="whats-new-date">{moment(this.appStore.currentAppObject.version.release_date).format('MMMM DD, YYYY')}</div>
+                          <div className="whats-new-date">{dateFns(this.appStore.currentAppObject.version.release_date, 'MMMM DD, YYYY')}</div>
                           <Truncate className="truncate-container" returnToId="app-details-whats-new" charLimit={500}>
                             {this.appStore.currentAppObject.version.version_note}
                           </Truncate>

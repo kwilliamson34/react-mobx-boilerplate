@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import moment from 'moment';
+import dateFns from 'date-fns/format';
 
 import {observer} from 'mobx-react';
 import {Rating} from '../rating/rating.jsx';
@@ -22,9 +22,7 @@ export class AppDetailBanner extends React.Component {
     data: {}
   }
 
-  constructor(props) {
-    super(props);
-    console.log('data', this.props.data);
+  componentWillMount() {
     this.data = this.props.data;
     this.appStore = this.props.appCatalogStore;
   }
@@ -70,7 +68,7 @@ export class AppDetailBanner extends React.Component {
         <div className="updated">
           <strong>Released:&nbsp;</strong>
           <br className="hidden-xs hidden-md hidden-lg"/>
-          {moment(this.data.release_date).format('MMMM DD, YYYY')}
+          {dateFns(this.data.custom_metadata.release_date, 'MMMM DD, YYYY')}
         </div>
         <div className="platform">
           <strong>Platform:&nbsp;</strong>

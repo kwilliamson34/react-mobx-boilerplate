@@ -1,7 +1,7 @@
 jest.unmock('axios');
 jest.unmock('../../core/stores/master.store');
 jest.unmock('../app-details.page');
-jest.unmock('moment');
+jest.unmock('date-fns/format');
 
 import {observer, inject} from 'mobx-react';
 import {appCatalogStore} from '../../core/stores/app-catalog.store';

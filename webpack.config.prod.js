@@ -128,8 +128,6 @@ module.exports = {
 			hash: false
 		}),
 
-		new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /nb/),
-
 		new webpack.LoaderOptionsPlugin({
 			test: /\.scss$/,
 			debug: true,
