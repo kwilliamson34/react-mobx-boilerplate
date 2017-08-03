@@ -214,7 +214,7 @@ export default class ConfigureMDM extends React.Component {
         {hasError && <div className="msgBlock error error-list" role="alert" aria-live="assertive">
           <span>Please enter a valid {genericLabel || label.toLowerCase()}.</span>
         </div>}
-        <input id={id} type={type || 'text'} className="form-control" disabled={this.store.isConfigured} defaultValue={value}/>
+        <input id={id} ref={ref => this.store.formFieldRefs[id] = ref} type={type || 'text'} className="form-control" disabled={this.store.isConfigured} defaultValue={value}/>
       </div>
     )
   }
