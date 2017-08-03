@@ -30,6 +30,7 @@
       &-title {
         padding-bottom: 0;
       }
+
       &-date {
         color: $fn-dkgrey;
         font-size: $fn-content-page-text-desktop;
@@ -56,7 +57,6 @@
     }
   }
 }
-
 @media #{$mobile, $tablet} {
   #app-details-page {
     .app-description,
@@ -71,6 +71,7 @@
         &-title {
           padding-top: 6rem;
         }
+
         &-date {
           padding-bottom: 2rem;
         }
@@ -84,27 +85,18 @@
     }
   }
 }
-
 @media (max-width: $screen-sm) {
   #app-details-page {
-    .app-management {
-      padding-left: 0;
-      margin-top: 1rem;
-
-      .checkbox label {
-        padding-left: 0;
-      }
-    }
     .app-details-alerts {
       background: transparent;
       padding: 20px 0 0;
+
       .alert {
         margin-bottom: 0;
       }
     }
   }
 }
-
 @media #{$desktop} {
   #app-details-page {
     .app-description,
@@ -113,11 +105,13 @@
         padding-bottom: 3rem;
       }
     }
+
     .app-description {
       .whats-new {
         &-title {
           padding-top: 6rem;
         }
+
         &-date {
           padding-bottom: 3rem;
         }
