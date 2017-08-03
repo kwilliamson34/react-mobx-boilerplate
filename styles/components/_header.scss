@@ -449,11 +449,10 @@ $fn-mobile-item-height: 60px;
 
         &:focus {
           @include focus();
-          border-radius: 8px;
         }
 
         &:hover:focus {
-          box-shadow:none;
+          box-shadow: none;
         }
 
         &.active {
