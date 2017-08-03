@@ -35,7 +35,7 @@ export default class DevicesLandingPage extends React.Component {
 			<section className={'view-' + sectionId}>
 				<div className="container">
 					<div className="row">
-						<div className="col-xs-offset-2 col-xs-8 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
+						<div className="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-12 col-md-offset-1 col-md-10">
 							<h2>{sectionTitle}</h2>
 							<ul className="mp-content">
 								{sectionArray.map((item, idx) => {
