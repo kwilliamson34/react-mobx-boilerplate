@@ -22,7 +22,9 @@ export class AppDetailBanner extends React.Component {
     data: {}
   }
 
-  componentWillMount() {
+  constructor(props) {
+    super(props);
+    console.log('data', this.props.data);
     this.data = this.props.data;
     this.appStore = this.props.appCatalogStore;
   }
