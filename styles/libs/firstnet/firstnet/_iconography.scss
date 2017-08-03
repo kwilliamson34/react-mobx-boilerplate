@@ -1,11 +1,11 @@
 $icon-font: 'firstnet-icons';
 @font-face {
   font-family: 'firstnet-icons';
-  src: url('/fonts/firstnet-icons/firstnet-icons.eot');
-  src: url('/fonts/firstnet-icons/firstnet-icons.eot?#iefix') format('embedded-opentype'),
-    url('/fonts/firstnet-icons/firstnet-icons.woff') format('woff'),
-    url('/fonts/firstnet-icons/firstnet-icons.ttf') format('truetype'),
-    url('/fonts/firstnet-icons/firstnet-icons.svg#firstnet-icons') format('svg');
+  src: url('/fonts/firstnet-icons/firstnet-icons.eot?v=' + random(1000));
+  src: url('/fonts/firstnet-icons/firstnet-icons.eot?v=' + random(1000) + '#iefix') format('embedded-opentype'),
+    url('/fonts/firstnet-icons/firstnet-icons.woff?v=' + random(1000)) format('woff'),
+    url('/fonts/firstnet-icons/firstnet-icons.ttf?v=' + random(1000)) format('truetype'),
+    url('/fonts/firstnet-icons/firstnet-icons.svg?v=' + random(1000) + '#firstnet-icons') format('svg');
   font-weight: $fn-normal-weight;
   font-size: 2.0rem;
   font-style: normal;
