@@ -334,7 +334,7 @@ export default class PSEHeader extends React.Component {
 										</li>
 										<li>
 											<NavLink activeClassName="active" to="/feedback">
-												Give Us FeedBack
+												Give Us Feedback
 											</NavLink>
 										</li>
 										<li>
