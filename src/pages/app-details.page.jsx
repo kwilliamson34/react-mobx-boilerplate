@@ -77,7 +77,7 @@ export default class AppDetailsPage extends React.Component {
     return (
       <section className="whats-new">
         <h2 id="app-details-whats-new" className="whats-new-title">What's New</h2>
-        <div className="whats-new-date">{moment(versionObj.release_date).format('MMMM DD, YYYY')}</div>
+        <div className="whats-new-date">{dateFns(versionObj.release_date, 'MMMM DD, YYYY')}</div>
         <Truncate className="truncate-container" returnToId="app-details-whats-new" charLimit={500}>
           {versionObj.version_note || ''}
         </Truncate>
