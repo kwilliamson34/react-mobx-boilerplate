@@ -2,10 +2,8 @@ body {
   background: #fafafa;
   margin: 0;
 
-  &.show-focus-styles {
-    *:focus {
-      @include focus();
-    }
+  *:focus {
+    @include focus();
   }
 }
 
