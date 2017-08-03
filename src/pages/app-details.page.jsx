@@ -51,6 +51,82 @@ export default class AppDetailsPage extends React.Component {
     this.appStore.fetchAppDetailByPsk(psk);
   }
 
+  renderScreenshotGallery = (currentAppObject) => {
+    if(currentAppObject.tabletScreenshots.length > 0 || currentAppObject.mobileScreenshots.length > 0) {
+      return (
+        <section className="app-gallery">
+          <ScreenshotGallery detailObj={currentAppObject}/>
+        </section>
+      )
+    }
+    return '';
+  }
+
+  renderDescription = (currentAppObject) => {
+    return (
+      <div>
+        <h2 id="app-details-description">Description</h2>
+        <Truncate className="truncate-container" returnToId="app-details-description" charLimit={550}>
+          {currentAppObject.long_description}
+        </Truncate>
+      </div>
+    )
+  }
+
+  renderWhatsNewSection = (versionObj) => {
+    return (
+      <section className="whats-new">
+        <h2 id="app-details-whats-new" className="whats-new-title">What's New</h2>
+        <div className="whats-new-date">{moment(versionObj.release_date).format('MMMM DD, YYYY')}</div>
+        <Truncate className="truncate-container" returnToId="app-details-whats-new" charLimit={500}>
+          {versionObj.version_note || ''}
+        </Truncate>
+      </section>
+    )
+  }
+
+  renderReviewsSection = (currentAppObject) => {
+    return (
+      <section className="app-ratings">
+        <div className="container">
+          <div className="row">
+            <div className="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
+              <h2>Reviews</h2>
+              <RatingsChart value={currentAppObject.rating} reviewsTotal={currentAppObject.reviews_count} reviews={currentAppObject.reviews}/>
+              {currentAppObject.reviews.length > 0 && <AppReviews reviews={currentAppObject.reviews}/>}
+            </div>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  renderDeveloperSection = (custom_metadata) => {
+    const rawDeveloperWebsite = custom_metadata.developer_website.trim();
+    const cleanDeveloperWebsite = rawDeveloperWebsite.indexOf('http') > -1
+      ? rawDeveloperWebsite
+      : 'http://' + rawDeveloperWebsite;
+    return (
+      <section className="app-developer">
+        <div className="container">
+          <div className="row">
+            <div className="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
+              <h2>About the Developer</h2>
+              <p className="dev-description" dangerouslySetInnerHTML={{
+                __html: custom_metadata.developer_description
+              }}></p>
+              <div className="developer-website">
+                <NewTabLink to={cleanDeveloperWebsite} className="fn-primary" showIcon={true}>
+                  Visit Developer Website
+                </NewTabLink>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
   render() {
     const crumbs = [
       {
@@ -83,65 +159,20 @@ export default class AppDetailsPage extends React.Component {
         </div>
         {(this.appStore.currentAppObject && this.appStore.currentAppObject.detailsFetched)
           ? <div>
-              <AppDetailBanner data={this.appStore.currentAppObject} appCatalogStore={this.appStore}  configuredMDMType={this.mdmStore.pseMDMObject.toJS().mdm_type} pushToMDM={this.mdmStore.pushToMDM.bind(this.mdmStore)} appCatalogMDMStatuses={this.mdmStore.appCatalogMDMStatuses.toJS()}/>
-              {(this.appStore.currentAppObject.tabletScreenshots.length > 0 || this.appStore.currentAppObject.mobileScreenshots.length > 0) &&
-                <section className='app-gallery'>
-                  <ScreenshotGallery detailObj={this.appStore.currentAppObject}/>
-                </section>
-              }
+              <AppDetailBanner data={this.appStore.currentAppObject} appCatalogStore={this.appStore} configuredMDMType={this.mdmStore.pseMDMObject.toJS().mdm_type} pushToMDM={this.mdmStore.pushToMDM.bind(this.mdmStore)} appCatalogMDMStatuses={this.mdmStore.appCatalogMDMStatuses.toJS()}/>
+              {this.renderScreenshotGallery(this.appStore.currentAppObject)}
               <section className="app-description">
                 <div className="container">
                   <div className="row">
                     <div className="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
-                      <h2 id="app-details-description">Description</h2>
-                      <Truncate className="truncate-container" returnToId="app-details-description" charLimit={550}>
-                        {this.appStore.currentAppObject.long_description}
-                      </Truncate>
-                      {this.appStore.currentAppObject.version && this.appStore.currentAppObject.version.version_note && this.appStore.currentAppObject.version.version_note.length > 0 &&
-                        <div className="whats-new">
-                          <h2 id="app-details-whats-new" className="whats-new-title">What's New</h2>
-                          <div className="whats-new-date">{dateFns(this.appStore.currentAppObject.version.release_date, 'MMMM DD, YYYY')}</div>
-                          <Truncate className="truncate-container" returnToId="app-details-whats-new" charLimit={500}>
-                            {this.appStore.currentAppObject.version.version_note}
-                          </Truncate>
-                        </div>
-                      }
+                      {this.renderDescription(this.appStore.currentAppObject)}
+                      {this.appStore.currentAppObject.version && this.renderWhatsNewSection(this.appStore.currentAppObject.version)}
                     </div>
                   </div>
                 </div>
               </section>
-              <section className="app-ratings">
-                <div className="container">
-                  <div className="row">
-                    <div className="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
-                      <h2>Reviews</h2>
-                      <RatingsChart
-                        value={this.appStore.currentAppObject.rating}
-                        reviewsTotal={this.appStore.currentAppObject.reviews_count}
-                        reviews={this.appStore.currentAppObject.reviews}/>
-                      {this.appStore.currentAppObject.reviews.length > 0 &&
-                        <AppReviews reviews={this.appStore.currentAppObject.reviews}/>}
-                    </div>
-                  </div>
-                </div>
-              </section>
-              <section className="app-developer">
-                <div className="container">
-                  <div className="row">
-                    <div className="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
-                      <h2>About the Developer</h2>
-                      <p className="dev-description" dangerouslySetInnerHTML={{
-                        __html: this.appStore.currentAppObject.custom_metadata.developer_description
-                      }}></p>
-                      <div className="developer-website">
-                        <NewTabLink to={'http://' + this.appStore.currentAppObject.custom_metadata.developer_website} className="fn-primary" showIcon={true}>
-                          Visit Developer Website
-                        </NewTabLink>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
+              {this.renderReviewsSection(this.appStore.currentAppObject)}
+              {this.renderDeveloperSection(this.appStore.currentAppObject.custom_metadata)}
             </div>
           : <div className="container loading-container">
             <div className="row">

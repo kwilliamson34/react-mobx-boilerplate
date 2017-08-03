@@ -32,31 +32,31 @@ class MDMStore {
     });
   }
 
-  @action clearStoredCredentials() {
+  @action clearFormField(id) {
     //trigger error by replacing value with empty string
-    let credFields = {};
+    this.formData[id] = '';
+
+    //change value of uncontrolled form component
+    this.formFieldRefs[id].value = '';
+    
+    this.validateMDMForm();
+  }
+
+  @action clearStoredCredentials() {
     switch (this.formData.mdm_type) {
       case 'AIRWATCH':
-        credFields = {
-          aw_password: '',
-          aw_userName: ''
-        }
+        this.clearFormField('aw_password');
+        this.clearFormField('aw_userName');
         break;
       case 'MAAS360':
-        credFields = {
-          ibm_password: '',
-          ibm_userName: ''
-        }
+        this.clearFormField('ibm_password');
+        this.clearFormField('ibm_userName');
         break;
       case 'MOBILE_IRON':
-        credFields = {
-          mi_password: '',
-          mi_userName: ''
-        }
+        this.clearFormField('mi_password');
+        this.clearFormField('mi_userName');
         break;
     }
-    let data = Object.assign(this.formData, credFields);
-    this.formData = data;
   }
 
   @action initializeFormData(responseData) {
@@ -440,6 +440,7 @@ class MDMStore {
   @observable appCatalogMDMStatuses = observable.map({});
 
   // Form
+  @observable formFieldRefs = [];
   @observable formData = observable.map({});
   @observable beingSubmitted = false;
   @observable hasBeenSubmitted = false;
