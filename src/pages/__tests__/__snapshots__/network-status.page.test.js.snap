@@ -8,8 +8,25 @@ exports[`<NetworkStatusPage /> render matches previous snapshot 1`] = `
   </h1>
   <iframe
     aria-hidden="true"
+<<<<<<< Updated upstream
     className="hidden-iframe"
     src="https://geo.stage.att.com/appBoard/views/firstnet-pse-remote-auth-dev.html" />
+=======
+    id="geolink_static_assets"
+    src="https://onemap.att.com/icecapmap/libs/jquery/jquery.min.js"
+    style={
+      Object {
+        "border": "0 none",
+        "height": 0,
+        "left": 0,
+        "margin": 0,
+        "padding": 0,
+        "position": "absolute",
+        "top": "0",
+        "width": 0
+      }
+    } />
+>>>>>>> Stashed changes
   <div
     className="map-placeholder">
     <p
