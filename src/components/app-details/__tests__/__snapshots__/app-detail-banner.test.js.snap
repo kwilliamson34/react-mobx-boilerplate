@@ -99,7 +99,7 @@ exports[`<AppDetailBanner />  render tests matches snapshot when app is INSTALLE
                 </div>
               </div>
               <div
-                className="col-sm-3">
+                className="col-sm-4">
                 <div
                   className="app-details">
                   <div
@@ -127,7 +127,7 @@ exports[`<AppDetailBanner />  render tests matches snapshot when app is INSTALLE
                 </div>
               </div>
               <div
-                className="col-sm-5" />
+                className="col-sm-4" />
             </div>
             <div
               className="hidden-xs hidden-sm">
@@ -303,7 +303,7 @@ exports[`<AppDetailBanner />  render tests matches snapshot when app is NOT_INST
                 </div>
               </div>
               <div
-                className="col-sm-3">
+                className="col-sm-4">
                 <div
                   className="app-details">
                   <div
@@ -331,7 +331,7 @@ exports[`<AppDetailBanner />  render tests matches snapshot when app is NOT_INST
                 </div>
               </div>
               <div
-                className="col-sm-5" />
+                className="col-sm-4" />
             </div>
             <div
               className="hidden-xs hidden-sm">
@@ -499,7 +499,7 @@ exports[`<AppDetailBanner />  render tests matches snapshot when app is not ENDO
                 </div>
               </div>
               <div
-                className="col-sm-3">
+                className="col-sm-4">
                 <div
                   className="app-details">
                   <div
@@ -527,7 +527,7 @@ exports[`<AppDetailBanner />  render tests matches snapshot when app is not ENDO
                 </div>
               </div>
               <div
-                className="col-sm-5" />
+                className="col-sm-4" />
             </div>
             <div
               className="hidden-xs hidden-sm">
@@ -691,7 +691,7 @@ exports[`<AppDetailBanner />  render tests matches snapshot when configuredMDMTy
                 </div>
               </div>
               <div
-                className="col-sm-3">
+                className="col-sm-4">
                 <div
                   className="app-details">
                   <div
@@ -719,7 +719,7 @@ exports[`<AppDetailBanner />  render tests matches snapshot when configuredMDMTy
                 </div>
               </div>
               <div
-                className="col-sm-5" />
+                className="col-sm-4" />
             </div>
             <div
               className="hidden-xs hidden-sm">
