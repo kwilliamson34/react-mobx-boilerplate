@@ -129,9 +129,10 @@ export default class GeolinkControls extends React.Component {
       <div className="network-contact-info">
         <p>Report Network Issue:&nbsp;
           <br className="visible-md-inline"/>
-          <a className="deaden" href={'tel:' + this.geoStore.coverageIssueNonEmergencyNumber}>
+          <a href={'tel:' + this.geoStore.networkIssueNumber}>
+            <i className="icon-phone-number footer-support-phone" aria-hidden='true'></i>
             <span className="sr-only">Call&nbsp;</span>
-            {this.geoStore.coverageIssueNonEmergencyNumber}
+            {this.geoStore.networkIssueNumber}
             <span className="sr-only">&nbsp;to report a network issue</span>
           </a>
         </p>

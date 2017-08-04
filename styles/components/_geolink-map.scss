@@ -152,6 +152,10 @@ $search-border-radius: 4px;
       font-size: 16px;
     }
 
+    .icon-phone-number:before {
+      margin-right: 5px;
+    }
+
     @media #{$tablet} {
       float: right;
       margin-top: 0;
@@ -232,7 +236,7 @@ $search-border-radius: 4px;
       margin-bottom: 0;
     }
 
-    .map-layers {      
+    .map-layers {
       fieldset {
         padding-left: 15px;
       }
