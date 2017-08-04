@@ -96,6 +96,15 @@ class MDMStore {
     if (this.mdmFormIsValid) {
       this.beingSubmitted = true;
       this.setMDMConfiguration();
+    } else {
+      this.mdm_form_alerts = [];
+      let message = this.formData.mdm_type
+        ? this.userMessages.formError
+        : this.userMessages.missingMdm;
+      this.showErrorAlert({
+        alertList: this.mdm_form_alerts,
+        message
+      });
     }
   }
 
@@ -456,6 +465,8 @@ class MDMStore {
   @observable app_detail_alerts = [];
   @observable appsReferencedByAlert = [];
   @observable userMessages = {
+    missingMdm: 'Please select any MDM.',
+    formError: 'Please correct the errors below.',
     connectSuccess: 'The MDM connection was successful.',
     connectFail: 'There was a problem establishing a connection with MDM.',
     breakConnectionSuccess: 'The connection to MDM has been broken.',

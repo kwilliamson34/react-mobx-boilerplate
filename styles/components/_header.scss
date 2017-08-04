@@ -121,6 +121,10 @@ $fn-mobile-item-height: 60px;
         text-decoration: none;
         font-size: 1.4rem;
         vertical-align: sub;
+
+        &.icon-phone-number {
+          margin-right: 5px;
+        }
       }
     }
 
@@ -447,13 +451,12 @@ $fn-mobile-item-height: 60px;
           color: $fn-ltblue;
         }
 
-        &.focused {
+        &:focus {
           @include focus();
-          border-radius: 8px;
         }
 
         &:hover:focus {
-          box-shadow:none;
+          box-shadow: none;
         }
 
         &.active {

@@ -38,16 +38,6 @@ export default class PSEHeader extends React.Component {
 			}
 		});
 
-		//only show focus styles when user tabs to them
-		$('#linkBtn-admin, #linkBtn-networkStatus').keyup((e) =>{
-			//add focus styles if on tab
-			if (e.which == 9){
-				$(e.target).addClass('focused');
-			}
-		}).blur((e) => {
-			$(e.target).removeClass('focused');
-		})
-
 		$('#linkBtn-admin').focus(() => {
 			this.openDesktopAdminSubmenu();
 		})
@@ -334,7 +324,7 @@ export default class PSEHeader extends React.Component {
 										</li>
 										<li>
 											<NavLink activeClassName="active" to="/feedback">
-												Give Us FeedBack
+												Give Us Feedback
 											</NavLink>
 										</li>
 										<li>

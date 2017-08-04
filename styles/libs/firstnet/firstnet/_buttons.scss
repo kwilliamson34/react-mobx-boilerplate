@@ -254,19 +254,19 @@ button {
 
 .fn-modal-close {
   position: absolute;
-  height: 48px;
-  width: 48px;
-  top: 32px;
-  right: 25px;
+  height: 38px;
+  width: 38px;
+  top: 10px;
+  right: 10px;
   background: transparent;
   border: none;
   padding: 5px 0;
-  line-height: 48px;
+  line-height: 36px;
   border-radius: 50%;
   i {
     &:before {
-      color: $fn-mdgrey;
-      font-size: 25px;
+      color: $fn-dkgrey;
+      font-size: 21px;
     }
   }
   &:hover,
@@ -336,11 +336,19 @@ button {
   .btn-primary {
     width: auto;
   }
+  .fn-modal-close {
+    top: 20px;
+    right: 20px;
+  }
 }
 /* MD */
 @media only screen and (min-width : 992px) {
   .btn-primary {
     width: auto;
+  }
+  .fn-modal-close {
+    top: 20px;
+    right: 20px;
   }
 }
 /* LG */
