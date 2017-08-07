@@ -64,6 +64,15 @@ $search-border-radius: 4px;
   padding-bottom: 100px;
   border-top: 1px solid $fn-grey;
 
+  [class*='col-'] {
+    padding-left: 40px;
+    padding-right: 40px;
+
+    &.no-gutters {
+      padding: 0;
+    }
+  }
+
   .as-h5 {
     margin-top: 30px;
   }
@@ -72,21 +81,24 @@ $search-border-radius: 4px;
     margin-top: 0;
   }
 
-  .search-input.input-group {
-    padding-top: 0;
-  }
+  .search-input {
+    &.input-group {
+      padding-top: 0;
+    }
 
-  .search-input button,
-  .search-input input {
-    height: 48px;
-  }
+    button,
+    input {
+      height: 48px;
+    }
 
-  .search-input input {
-    background-color: white;
+    input {
+      background-color: white;
+    }
   }
 
   .checkbox {
     padding-bottom: 1.5rem;
+    margin-top: 2px;
 
     label {
       padding-left: 0;
@@ -210,17 +222,6 @@ $search-border-radius: 4px;
 /**********************************************/
 @media #{$mobile} {
   .geolink-controls {
-    [class*='col-'] {
-      padding-left: 30px;
-      padding-right: 30px;
-    }
-
-    .map-layers {
-      fieldset {
-        padding-left: 15px;
-      }
-    }
-
     .network-contact-info {
       margin: 20px 0;
     }
@@ -228,9 +229,7 @@ $search-border-radius: 4px;
 }
 @media #{$tablet} {
   .geolink-controls {
-    .map-search {
-      padding-right: 40px;
-    }
+    padding: auto 0;
 
     .map-layers {
       padding-left: 0;
@@ -263,15 +262,6 @@ $search-border-radius: 4px;
 }
 @media #{$desktop} {
   .geolink-controls {
-    [class*='col-'] {
-      padding-left: 40px;
-      padding-right: 40px;
-    }
-
-    .map-search {
-      padding-right: 40px;
-    }
-
     .map-layers {
       fieldset {
         border-left: 1px solid $fn-grey;
