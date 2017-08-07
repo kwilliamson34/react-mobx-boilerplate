@@ -347,7 +347,7 @@ class MDMStore {
 
   @action stopPolling(psk) {
     //set a status other than PENDING and IN_PROGRESS to stop polling
-    this.appCatalogMDMStatuses.set(psk, 'DISABLED');
+    this.appCatalogMDMStatuses.set(psk, 'NOT_INSTALLED');
     this.throwConnectError();
   }
 
@@ -367,13 +367,6 @@ class MDMStore {
     this.clearAlerts();
     const success = () => {
       this.pollUntilResolved(psk);
-
-      //Stop polling after 5 min as a failsafe
-      setTimeout(() => {
-        if(this.mdmStatusIsUnresolved(psk)) {
-          this.stopPolling(psk);
-        }
-      }, 300000);
     }
     const fail = () => {
       this.appCatalogMDMStatuses.set(psk, 'FAILED');

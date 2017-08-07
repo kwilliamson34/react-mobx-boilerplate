@@ -58,11 +58,6 @@ export class PushToMDM extends React.Component {
         screenReaderMessage = 'This app has been pushed to MDM and has an available update. Click to push the update.';
         btnLabel = 'Update';
         break;
-      case 'DISABLED':
-        disabled = true;
-        screenReaderMessage = 'Push to MDM has encountered a problem and is not available for this app. Please try again later.';
-        btnLabel = 'Push to MDM';
-        break;
       default:
         disabled = true;
         screenReaderMessage = 'Push to MDM is not available. Configure an MDM to push apps to the system.';
