@@ -127,7 +127,7 @@ export default class GeolinkControls extends React.Component {
   renderContactInfo = () => {
     return (
       <div className="network-contact-info">
-        <p>Report Network Issue:&nbsp;
+        <p>Report Network Issue:
           <br className="visible-md-inline"/>
           <a href={'tel:' + this.geoStore.networkIssueNumber}>
             <i className="icon-phone-number footer-support-phone" aria-hidden='true'></i>
@@ -148,10 +148,10 @@ export default class GeolinkControls extends React.Component {
           Network<span className="sr-only">&nbsp;color key</span>
         </h2>
         <div className="key-labels">
-          <span>4G LTE</span>
-          <span>4G</span>
-          <span>3G</span>
-          <span>2G</span>
+          <span className="as-label">4G LTE</span>
+          <span className="as-label">4G</span>
+          <span className="as-label">3G</span>
+          <span className="as-label">2G</span>
         </div>
         <div className="legend-gradient">
           <img src="/images/network-legend.png" alt=""/>
@@ -165,10 +165,10 @@ export default class GeolinkControls extends React.Component {
       <div>
         <h2 className="as-h5">Weather<span className="sr-only">&nbsp;color key</span></h2>
         <div className="key-labels">
-          <span>Light Rain</span>
-          <span>Heavy Rain</span>
-          <span>Snow</span>
-          <span>Ice</span>
+          <span className="as-label">Light Rain</span>
+          <span className="as-label">Heavy Rain</span>
+          <span className="as-label">Snow</span>
+          <span className="as-label">Ice</span>
         </div>
         <div className="legend-gradient">
           <img src="/images/weather-legend.png" alt=""/>
@@ -182,10 +182,11 @@ export default class GeolinkControls extends React.Component {
       <div>
         <h2 className="as-h5">Traffic<span className="sr-only">&nbsp;color key</span></h2>
         <div className="traffic-legend-wrapper ">
-          <div className="traffic-bars ">
+          <div className="traffic-bars">
             <div className="key-labels traffic">
-              <span>Fast</span>
-              <span>Slow</span>
+              <span className="as-label">Fast</span>
+              <span className="as-label">Normal</span>
+              <span className="as-label">Slow</span>
             </div>
             <div className="traffic-legend">
               <div></div>
@@ -194,8 +195,8 @@ export default class GeolinkControls extends React.Component {
             </div>
           </div>
           <div className="hazards-legend">
-            <span>Construction<br/><i className="icon-warning construction" aria-hidden="true"/></span>
-            <span>Vehicle Incident<br/><i className="icon-warning incident" aria-hidden="true"/></span>
+            <span className="as-label">Construction<br/><i className="icon-warning construction" aria-hidden="true"/></span>
+            <span className="as-label">Vehicle Incident<br/><i className="icon-warning incident" aria-hidden="true"/></span>
           </div>
         </div>
       </div>
