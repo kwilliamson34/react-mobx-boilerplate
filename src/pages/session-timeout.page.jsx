@@ -41,7 +41,7 @@ export default class SessionTimeoutPage extends React.Component {
                 <a href={'tel:' + config.attCustomerSupportPhone}>
                   <span className="sr-only">Call&nbsp;</span>
                   {config.attCustomerSupportPhone}
-                  <span className="sr-only">&nbsp;to speak with AT&amp;T Customer Service</span>
+                  <span className="sr-only">&nbsp;to speak with FirstNet Customer Service</span>
                 </a>.
               </p>
               <div className="text-center">
