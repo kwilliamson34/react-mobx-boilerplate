@@ -166,8 +166,7 @@ class GeolinkStore {
   @observable showTrafficLayer = false;
   @observable showAlertLayer = false;
 
-  @observable coverageIssueEmergencyNumber = '1-800-***-****';
-  @observable coverageIssueNonEmergencyNumber = '1-800-***-****';
+  @observable networkIssueNumber = '800-574-7000';
 }
 
 export const geolinkStore = new GeolinkStore();

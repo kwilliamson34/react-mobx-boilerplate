@@ -155,12 +155,13 @@ export default class Footer extends React.Component {
 							</li>
 						}
 						<li role="presentation">
-							AT&amp;T Customer Service:<br className="visible-xs-inline-block visible-md-inline-block" />&nbsp;
+							FirstNet Customer Svc:<br className="visible-xs-inline-block visible-md-inline-block" />&nbsp;
 							<a href={'tel:' + this.headerStore.ATTSupportPhone}>
-								<i className="icon-phone-number footer-support-phone" aria-hidden='true'></i>
-								<span className="sr-only">Call&nbsp;</span>
-								{this.headerStore.ATTSupportPhone}
-								<span className="sr-only">&nbsp;to speak with AT&amp;T Customer Service</span>
+								<phone><i className="icon-phone-number footer-support-phone" aria-hidden='true'></i>
+									<span className="sr-only">Call&nbsp;</span>
+									{this.headerStore.ATTSupportPhone}
+									<span className="sr-only">&nbsp;to speak with FirstNet Customer Service</span>
+								</phone>
 							</a>
 						</li>
 					</ul>

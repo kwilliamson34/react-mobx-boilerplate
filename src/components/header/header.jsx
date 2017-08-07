@@ -330,7 +330,12 @@ export default class PSEHeader extends React.Component {
 										<li>
 											<a href={'tel:' + this.headerStore.ATTSupportPhone}>
 												<div className="multi-line-item">
-													AT&amp;T Customer Service: <phone><i className="icon-phone-number" aria-hidden="true"></i>{this.headerStore.ATTSupportPhone}</phone>
+													<span aria-hidden="true">FirstNet Customer Svc: </span>
+													<phone><i className="icon-phone-number" aria-hidden="true"></i>
+														<span className="sr-only">Call&nbsp;</span>
+															{this.headerStore.ATTSupportPhone}
+														<span className="sr-only">&nbsp;to speak with FirstNet Customer Service</span>
+													</phone>
 												</div>
 											</a>
 										</li>
@@ -403,7 +408,12 @@ export default class PSEHeader extends React.Component {
 										</li>
 										<li role="presentation">
 											<a href={'tel:' + this.headerStore.ATTSupportPhone} className="tel-cell">
-												AT&amp;T Customer Service: <br /><span><i className="icon-phone-number" aria-hidden="true"></i>{this.headerStore.ATTSupportPhone}</span>
+												<span aria-hidden="true">FirstNet Customer Svc: </span><br />
+												<phone><i className="icon-phone-number" aria-hidden="true"></i>
+													<span className="sr-only">Call&nbsp;</span>
+														{this.headerStore.ATTSupportPhone}
+													<span className="sr-only">&nbsp;to speak with FirstNet Customer Service</span>
+												</phone>
 											</a>
 										</li>
 									</ul>
