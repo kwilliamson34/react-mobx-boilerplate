@@ -149,6 +149,7 @@ exports[`<AppDetailsPage /> render matches snapshot when app has not been matche
     </div>
   </div>
   <div>
+    
     <section
       className="app-description">
       <div
@@ -157,11 +158,13 @@ exports[`<AppDetailsPage /> render matches snapshot when app has not been matche
           className="row">
           <div
             className="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
-            <h2
-              id="app-details-description">
-              Description
-            </h2>
-            <div
+            <div>
+              <h2
+                id="app-details-description">
+                Description
+              </h2>
+            </div>
+            <section
               className="whats-new">
               <h2
                 className="whats-new-title"
@@ -172,7 +175,7 @@ exports[`<AppDetailsPage /> render matches snapshot when app has not been matche
                 className="whats-new-date">
                 October 31, 2011
               </div>
-            </div>
+            </section>
           </div>
         </div>
       </div>
