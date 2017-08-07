@@ -406,7 +406,7 @@ describe("MDMStore", () => {
 
     store.stopPolling(psk);
 
-    expect(store.appCatalogMDMStatuses.get(psk)).toBe('DISABLED');
+    expect(store.appCatalogMDMStatuses.get(psk)).toBe('NOT_INSTALLED');
     expect(store.throwConnectError).toHaveBeenCalled();
   });
 
