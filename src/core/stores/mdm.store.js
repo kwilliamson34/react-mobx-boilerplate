@@ -40,7 +40,7 @@ class MDMStore {
 
     //change value of uncontrolled form component
     this.formFieldRefs[id].value = '';
-    
+
     this.validateMDMForm();
   }
 
@@ -69,29 +69,6 @@ class MDMStore {
       formData[key] = responseData ? responseData[key] : undefined;
     });
     this.formData = formData;
-  }
-
-  @action buildNetworkDataPacket() {
-    let structure = {
-      mdm_type: '',
-      aw_hostName: '',
-      aw_password: '',
-      aw_tenantCode: '',
-      aw_userName: '',
-      ibm_appAccessKey: '',
-      ibm_appID: '',
-      ibm_appVersion: '',
-      ibm_billingID: '',
-      ibm_password: '',
-      ibm_platformID: '',
-      ibm_rootURL: '',
-      ibm_userName: '',
-      mi_hostName: '',
-      mi_password: '',
-      mi_userName: ''
-    };
-    let data = Object.assign(structure, this.formData);
-    return data;
   }
 
   @action submitForm() {
@@ -256,7 +233,7 @@ class MDMStore {
   }
 
   @action setMDMConfiguration() {
-    let mdmConfig = this.buildNetworkDataPacket();
+    let mdmConfig = this.mdmConfigDataPacket;
     const success = (resp) => {
       let messageObj = resp.data;
       this.beingSubmitted = false;
@@ -443,6 +420,29 @@ class MDMStore {
       default:
         return [];
     }
+  }
+
+  @computed get mdmConfigDataPacket() {
+    let structure = {
+      mdm_type: '',
+      aw_hostName: '',
+      aw_password: '',
+      aw_tenantCode: '',
+      aw_userName: '',
+      ibm_appAccessKey: '',
+      ibm_appID: '',
+      ibm_appVersion: '',
+      ibm_billingID: '',
+      ibm_password: '',
+      ibm_platformID: '',
+      ibm_rootURL: '',
+      ibm_userName: '',
+      mi_hostName: '',
+      mi_password: '',
+      mi_userName: ''
+    };
+    let data = Object.assign(structure, this.formData);
+    return data;
   }
 
   // OBSERVABLES
