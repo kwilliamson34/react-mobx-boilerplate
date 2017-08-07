@@ -122,24 +122,26 @@ exports[`<Footer /> renders matches previous footer snapshot 1`] = `
               </li>
               <li
                 role="presentation">
-                AT&T Customer Service:
+                FirstNet Customer Svc:
                 <br
                   className="visible-xs-inline-block visible-md-inline-block" />
                  
                 <a
                   href="tel:800-574-7000">
-                  <i
-                    aria-hidden="true"
-                    className="icon-phone-number footer-support-phone" />
-                  <span
-                    className="sr-only">
-                    Call 
-                  </span>
-                  800-574-7000
-                  <span
-                    className="sr-only">
-                     to speak with AT&T Customer Service
-                  </span>
+                  <phone>
+                    <i
+                      aria-hidden="true"
+                      className="icon-phone-number footer-support-phone" />
+                    <span
+                      className="sr-only">
+                      Call 
+                    </span>
+                    800-574-7000
+                    <span
+                      className="sr-only">
+                       to speak with FirstNet Customer Service
+                    </span>
+                  </phone>
                 </a>
               </li>
             </ul>
