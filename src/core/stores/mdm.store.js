@@ -30,6 +30,8 @@ class MDMStore {
     Object.keys(this.formData).forEach(key => {
       this.formData[key] = undefined;
     });
+
+    this.validateMDMForm();
   }
 
   @action clearFormField(id) {
