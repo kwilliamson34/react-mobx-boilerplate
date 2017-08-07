@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import moment from 'moment';
+import dateFns from 'date-fns/format';
 import { observer } from 'mobx-react';
 import { observable } from 'mobx';
 
@@ -47,7 +47,7 @@ export default class AppReviews extends React.Component {
               <Rating rating={node.reviewStar} reviewCount={1}/>
             </div>
             <div className='review-author'>{authorName}</div>
-            <div className='review-date'>{moment(node.reviewDate).format('MMMM DD, YYYY')}</div>
+            <div className='review-date'>{dateFns(node.reviewDate, 'MMMM DD, YYYY')}</div>
           </div>
           <Truncate returnToId={'Review-' + node.reviewId} charLimit={300} className='truncate-container'>
             {node.comment}

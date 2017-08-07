@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 
 const precss = require("precss");
@@ -127,8 +128,6 @@ module.exports = {
 			hash: false
 		}),
 
-		new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /nb/),
-
 		new webpack.LoaderOptionsPlugin({
 			test: /\.scss$/,
 			debug: true,
@@ -140,6 +139,8 @@ module.exports = {
 				output: { path: path.join(__dirname, "build") }
 			}
 		}),
+
+		new LodashModuleReplacementPlugin(),
 
 		new CompressionPlugin({
 			asset: "[path].gz[query]",
