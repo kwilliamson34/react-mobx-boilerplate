@@ -43,7 +43,8 @@
       "react-dom",
       "prop-types",
       "react-router-dom",
-      "lodash"
+      "lodash",
+      "date-fns"
     ],
     "moduleFileExtensions": [
       "js",
