@@ -59,6 +59,11 @@ export class AppDetailBanner extends React.Component {
   }
 
   details() {
+    console.log(this.data.custom_metadata.release_date);
+    // let newDate = this.data.custom_metadata.release_date.split('T')[0].replace(/-/g, '/');
+    // let _newDate = new Date(newDate);
+    // console.log(typeof newDate);
+    // console.log(_newDate);
     return (
       <div className="app-details">
         <div className="version">
@@ -68,7 +73,7 @@ export class AppDetailBanner extends React.Component {
         <div className="updated">
           <strong>Released:&nbsp;</strong>
           <br className="hidden-xs hidden-md hidden-lg"/>
-          {dateFns(this.data.custom_metadata.release_date, 'MMMM DD, YYYY')}
+          {dateFns('2017-21-04', 'MMMM DD, YYYY')}
         </div>
         <div className="platform">
           <strong>Platform:&nbsp;</strong>
