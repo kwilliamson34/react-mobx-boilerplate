@@ -24,6 +24,7 @@ export default class ErrorPage extends React.Component {
     let showLinksforOtherPortals = true;
     let showLinkToGoBack = false;
     let showLinkToGoHome = false;
+    let showLogout = false;
 
     if (this.userStore.auth_error) {
       title = 'Service Issue.';
@@ -31,6 +32,7 @@ export default class ErrorPage extends React.Component {
     } else if (!this.userStore.authentic_user || this.props.cause === 'unauthorized') {
       title = 'You\'ve encountered a permissions error.';
       body_content = 'Unfortunately, you do not have permission to view this page. If you think this is in error, please contact your site administrator, or continue to one of the FirstNet Sites below:';
+      showLogout = true;
     } else if (this.props.cause === '404') {
       title = 'We\'re Sorry.';
       body_content = 'The page you were looking for could not be found.';
@@ -61,12 +63,16 @@ export default class ErrorPage extends React.Component {
             <h1 className="as-h3">{title}</h1>
             <p dangerouslySetInnerHTML={{__html: body_content}} />
             {showLinksforOtherPortals &&
+              <nav className="sites-list" aria-label="FirstNet Sites">
+                <ul>
+                  <li><a href={config.appStore}>Apps</a></li>
+                  <li><a href={config.developerConsole}>App Control</a></li>
+                  <li><a href={config.localControl}>Local Control</a></li>
+                </ul>
+              </nav>
+            }
+            {showLogout &&
               <div className="logout-block">
-                <section className="sites-list">
-                  <a href={config.appStore}>Apps</a>
-                  <a href={config.developerConsole}>App Control</a>
-                  <a href={config.localControl}>Local Control</a>
-                </section>
                 <hr className="or" />
                 <a href={config.haloLogin}>Log Out</a>
               </div>

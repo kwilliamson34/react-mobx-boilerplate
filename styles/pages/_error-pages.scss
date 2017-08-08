@@ -25,15 +25,18 @@
 		}
 
 		a {
-			display: block;
 			font-size: $fn-button-desktop;
 		}
 	}
 
 	.sites-list {
-		a {
+		li:not(:last-child) {
 			margin-bottom: 30px;
 		}
+	}
+
+	.logout-block{
+		margin-top: 30px;
 	}
 
 	hr.or {
@@ -99,7 +102,7 @@ section.session-timeout {
 		}
 	}
 
-section.session-timeout {
+	section.session-timeout {
 		padding-top: 100px;
 
 		.container {
@@ -128,7 +131,7 @@ section.session-timeout {
 
 		.container {
 			> div{
-				padding: 80px 100px;
+				padding: 80px 90px;
 			}
 		}
 
