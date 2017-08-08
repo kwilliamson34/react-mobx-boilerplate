@@ -72,7 +72,10 @@ class MDMStore {
   }
 
   @action submitForm() {
-    if (this.mdmFormIsValid) {
+    if (this.isConfigured) {
+      //the user is looking at a completed, disabled form
+      return;
+    } else if (this.mdmFormIsValid) {
       this.beingSubmitted = true;
       this.setMDMConfiguration();
     } else {
