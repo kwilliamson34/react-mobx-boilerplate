@@ -3,7 +3,7 @@
 
   h1,
   h2 {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
   }
 
   .breadcrumb-nav {
@@ -68,13 +68,23 @@
         margin-left: 15px;
 
         ul {
-          list-style: disc;
+          list-style: none;
           margin-left: 2rem;
 
           li {
+            position: relative;
             margin-bottom: 1.6rem;
+            padding-left: 1.5rem;
             line-height: 1.6;
             font-size: $fn-content-page-text-desktop;
+
+            &::before {
+              position: absolute;
+              left: -20px;
+              top: -9px;
+              content: '\00b7';
+              font-size: 30px;
+            }
           }
         }
       }

@@ -34,6 +34,8 @@ export default class DeviceDetailTemplate extends React.Component {
 	}
 
 	render() {
+		//replace special characters in strings for breadcrumb component
+		const _pageTitle = this.externalLinkStore.currentDeviceDetail.deviceName.replace(/&amp;/g, '&');
 		const crumbs = [
 			{	pageHref: '/admin',
 				pageTitle: 'Administration Dashboard'
@@ -45,7 +47,7 @@ export default class DeviceDetailTemplate extends React.Component {
 				pageTitle: this.props.match.params.deviceCategory
 			},
 			{	pageHref: this.props.match.url,
-				pageTitle: this.externalLinkStore.currentDeviceDetail.deviceName
+				pageTitle: _pageTitle
 			}
 		];
 		return (
@@ -53,12 +55,12 @@ export default class DeviceDetailTemplate extends React.Component {
 				<BreadcrumbNav links={crumbs} />
 				<div className="container detail-block">
 					<div className="row">
-					<div className="col-xs-10 col-xs-offset-1 text-center visible-xs-block"><h1>{this.externalLinkStore.currentDeviceDetail.deviceName}</h1></div>
+					<div className="col-xs-10 col-xs-offset-1 text-center visible-xs-block"><h1 dangerouslySetInnerHTML={{__html: this.externalLinkStore.currentDeviceDetail.deviceName}} /></div>
 					</div>
 					<div className="row is-flex">
 						<div className="
 							col-xs-offset-2 col-xs-8
-							col-sm-offset-1 col-sm-5
+							col-sm-offset-0 col-sm-6
 							col-md-offset-0 col-md-4
 							col-lg-offset-1 col-lg-3">
 							<img
@@ -75,7 +77,8 @@ export default class DeviceDetailTemplate extends React.Component {
 							<div className="feature-list" dangerouslySetInnerHTML={{__html: this.externalLinkStore.currentDeviceDetail.features}}></div>
 						</div>
 						<div className="
-							col-xs-offset-1 col-xs-10
+							col-xs-offset-0 col-xs-12
+							col-md-offset-4 col-md-7
 							col-lg-offset-4 col-lg-7">
 							{this.externalLinkStore.currentPurchasingInfo && this.externalLinkStore.showPurchasingInfo &&
 								<PurchasingInfo contactInfo={this.externalLinkStore.currentPurchasingInfo} />
