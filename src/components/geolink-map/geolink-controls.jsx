@@ -66,7 +66,7 @@ export default class GeolinkControls extends React.Component {
       <section className="geolink-controls">
         <div className="container">
           <div className="row is-flex">
-            <div className="col-xs-12 col-sm-offset-1 col-sm-6 col-md-offset-0 col-md-4 map-search">
+            <div className="col-xs-12 col-sm-8 col-md-4 map-search">
 							<h2 className="as-h5">Search</h2>
               <form className="search-form form-group" onSubmit={this.handleSubmit}>
                 <div className="search-input input-group">
@@ -104,7 +104,7 @@ export default class GeolinkControls extends React.Component {
           </div>
 
           <div className="row">
-            <div className="legend-divider col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-12">
+            <div className="legend-divider col-xs-12">
               <hr />
               <div className="visible-xs-inline">
                 {this.renderContactInfo()}
@@ -113,13 +113,13 @@ export default class GeolinkControls extends React.Component {
             </div>
           </div>
           <div className="row is-flex">
-            <div className="col-xs-12 col-sm-offset-1 col-sm-10 visible-xs-inline visible-sm-inline">
+            <div className="col-xs-12 visible-xs-inline visible-sm-inline">
               {this.renderNetworkLegend()}
             </div>
-            <div className="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-6">
+            <div className="col-xs-12 col-md-6">
               {this.renderWeatherLegend()}
             </div>
-            <div className="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-6">
+            <div className="col-xs-12 col-md-6">
               {this.renderTrafficLegend()}
             </div>
           </div>
