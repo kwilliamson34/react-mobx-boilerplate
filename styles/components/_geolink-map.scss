@@ -1,5 +1,52 @@
-$map-height: 500px;
-$search-border-radius: 4px;
+$map-height-wide: 800px;
+$map-height-normal: 600px;
+$map-height-tablet: 700px;
+$map-height-mobile: 400px;
+
+@media #{$wide} {
+  .map-placeholder,
+  .geolink-map .map-wrapper,
+  .geolink-map iframe {
+    height: $map-height-wide;
+  }
+
+  .map-placeholder p {
+    margin-top: $map-height-wide/2 - 18px;
+  }
+}
+@media #{$normal} {
+  .map-placeholder,
+  .geolink-map .map-wrapper,
+  .geolink-map iframe {
+    height: $map-height-normal;
+  }
+
+  .map-placeholder p {
+    margin-top: $map-height-normal/2 - 18px;
+  }
+}
+@media #{$tablet} {
+  .map-placeholder,
+  .geolink-map .map-wrapper,
+  .geolink-map iframe {
+    height: $map-height-tablet;
+  }
+
+  .map-placeholder p {
+    margin-top: $map-height-tablet/2 - 18px;
+  }
+}
+@media #{$mobile} {
+  .map-placeholder,
+  .geolink-map .map-wrapper,
+  .geolink-map iframe {
+    height: $map-height-mobile;
+  }
+
+  .map-placeholder p {
+    margin-top: $map-height-mobile/2 - 18px;
+  }
+}
 
 #network-page {
   padding-top: 0;
@@ -16,7 +63,6 @@ $search-border-radius: 4px;
   }
 
   .map-placeholder {
-    height: $map-height;
     width: 100%;
     padding: 0;
     background-color: white;
@@ -25,13 +71,8 @@ $search-border-radius: 4px;
     background-position: center;
     background-size: cover;
 
-    @media #{$desktop} {
-      background-size: contain;
-    }
-
     p {
       position: absolute;
-      margin-top: $map-height/2 - 18px;
       width: 100%;
       text-align: center;
       background: none;
@@ -40,16 +81,9 @@ $search-border-radius: 4px;
 }
 
 .geolink-map {
-  @extend .clearfix;
-  width: 100%;
-
   .map-wrapper {
-    height: $map-height;
-    padding: 0;
-
     iframe {
       width: 100%;
-      height: $map-height;
       border: none;
 
       body {
@@ -60,9 +94,9 @@ $search-border-radius: 4px;
 }
 
 .geolink-controls {
+  border-top: 1px solid $fn-grey;
   background-color: $fn-ltgrey;
   padding-bottom: 100px;
-  border-top: 1px solid $fn-grey;
 
   [class*='col-'] {
     padding-left: 40px;
@@ -84,20 +118,20 @@ $search-border-radius: 4px;
   .input-group {
     padding: 0;
     margin: 0;
-  }
 
-  input {
-    background-color: white!important;
-  }
+    input {
+      background-color: white!important;
+    }
 
-  .checkbox {
-    display: block;
-    margin: 2px 0 0;
+    .checkbox {
+      display: block;
+      margin: 2px 0 0;
 
-    label {
-      min-height: 16px + 25px;
-      padding-left: 0;
-      width: auto;
+      label {
+        min-height: 16px + 25px;
+        padding-left: 0;
+        width: auto;
+      }
     }
   }
 
@@ -143,25 +177,9 @@ $search-border-radius: 4px;
       margin: 0 5px;
       font-size: 16px;
     }
-
-    @media #{$tablet} {
-      float: right;
-      margin-top: 0;
-      line-height: 1.11;
-    }
-
-    @media #{$desktop} {
-      margin-top: 40px;
-    }
   }
 
   .traffic-legend-wrapper {
-    @extend .clearfix;
-
-    .traffic-legend {
-      @extend .clearfix;
-      padding: 6px 0;
-    }
 
     .key-labels span.as-label,
     .traffic-legend div {
@@ -192,8 +210,6 @@ $search-border-radius: 4px;
     }
 
     .hazards-legend {
-      margin-top: 15px;
-
       span.as-label {
         font-weight: $fn-normal-weight;
         width: 50%;
@@ -220,6 +236,14 @@ $search-border-radius: 4px;
   .geolink-controls {
     .network-contact-info {
       margin: 20px 0;
+    }
+
+    .traffic-legend-wrapper {
+      .hazards-legend {
+        span {
+          padding-top: 15px;
+        }
+      }
     }
   }
 }
@@ -251,8 +275,13 @@ $search-border-radius: 4px;
         width: 40%;
         float: left;
         padding-left: 15px;
-        margin-top: 0;
       }
+    }
+
+    .network-contact-info {
+      float: right;
+      margin-top: 0;
+      line-height: 1.11;
     }
   }
 }
@@ -277,13 +306,16 @@ $search-border-radius: 4px;
       }
 
       .hazards-legend {
-        margin-top: 15px;
-
         span {
           width: 50%;
           float: left;
+          padding-top: 15px;
         }
       }
+    }
+
+    .network-contact-info {
+      margin-top: 40px;
     }
   }
 }
