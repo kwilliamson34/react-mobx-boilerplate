@@ -1,37 +1,19 @@
 .card-list-container {
   background-color: white;
+  padding-bottom: 8rem;
 
-    .center-block {
-        padding-top: 20px;
-        padding-bottom: 20px;
-    }
-
-    .card-list-cards {
-        margin: auto;
-        padding: 0;
-    }
-
-    .card-wrapper {
-        display: inline-block;
-        width: 100%;
-    }
-
-    .card-list-load-more {
-        padding: 4rem 0 2rem 0;
-        text-align: center;
-    }
-}
-
-@import 'card-list-lg';
-
-@media #{$tablet, $mobile} {
-  .card-list-container {
-    padding-bottom: 8rem;
+  .center-block {
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
-}
 
-@media #{$desktop} {
-  .card-list-container {
-    padding-bottom: 8rem;
+  .card-wrapper {
+    display: inline-block;
+    width: 100%;
+  }
+
+  .card-list-load-more {
+    padding: 4rem 0 2rem;
+    text-align: center;
   }
 }

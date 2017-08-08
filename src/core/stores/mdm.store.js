@@ -30,33 +30,35 @@ class MDMStore {
     Object.keys(this.formData).forEach(key => {
       this.formData[key] = undefined;
     });
+
+    this.validateMDMForm();
+  }
+
+  @action clearFormField(id) {
+    //trigger error by replacing value with empty string
+    this.formData[id] = '';
+
+    //change value of uncontrolled form component
+    this.formFieldRefs[id].value = '';
+
+    this.validateMDMForm();
   }
 
   @action clearStoredCredentials() {
-    //trigger error by replacing value with empty string
-    let credFields = {};
     switch (this.formData.mdm_type) {
       case 'AIRWATCH':
-        credFields = {
-          aw_password: '',
-          aw_userName: ''
-        }
+        this.clearFormField('aw_password');
+        this.clearFormField('aw_userName');
         break;
       case 'MAAS360':
-        credFields = {
-          ibm_password: '',
-          ibm_userName: ''
-        }
+        this.clearFormField('ibm_password');
+        this.clearFormField('ibm_userName');
         break;
       case 'MOBILE_IRON':
-        credFields = {
-          mi_password: '',
-          mi_userName: ''
-        }
+        this.clearFormField('mi_password');
+        this.clearFormField('mi_userName');
         break;
     }
-    let data = Object.assign(this.formData, credFields);
-    this.formData = data;
   }
 
   @action initializeFormData(responseData) {
@@ -69,33 +71,19 @@ class MDMStore {
     this.formData = formData;
   }
 
-  @action buildNetworkDataPacket() {
-    let structure = {
-      mdm_type: '',
-      aw_hostName: '',
-      aw_password: '',
-      aw_tenantCode: '',
-      aw_userName: '',
-      ibm_appAccessKey: '',
-      ibm_appID: '',
-      ibm_appVersion: '',
-      ibm_billingID: '',
-      ibm_password: '',
-      ibm_platformID: '',
-      ibm_rootURL: '',
-      ibm_userName: '',
-      mi_hostName: '',
-      mi_password: '',
-      mi_userName: ''
-    };
-    let data = Object.assign(structure, this.formData);
-    return data;
-  }
-
   @action submitForm() {
     if (this.mdmFormIsValid) {
       this.beingSubmitted = true;
       this.setMDMConfiguration();
+    } else {
+      this.mdm_form_alerts = [];
+      let message = this.formData.mdm_type
+        ? this.userMessages.formError
+        : this.userMessages.missingMdm;
+      this.showErrorAlert({
+        alertList: this.mdm_form_alerts,
+        message
+      });
     }
   }
 
@@ -245,7 +233,7 @@ class MDMStore {
   }
 
   @action setMDMConfiguration() {
-    let mdmConfig = this.buildNetworkDataPacket();
+    let mdmConfig = this.mdmConfigDataPacket;
     const success = (resp) => {
       let messageObj = resp.data;
       this.beingSubmitted = false;
@@ -286,6 +274,8 @@ class MDMStore {
   @action breakMDMConnection() {
     const success = () => {
       this.mdm_form_alerts = [];
+      this.manage_apps_alerts = [];
+      this.app_detail_alerts = [];
       this.pseMDMObject.clear();
       this.hasBeenSubmitted = false;
       this.formData.mdm_type = '';
@@ -357,7 +347,7 @@ class MDMStore {
 
   @action stopPolling(psk) {
     //set a status other than PENDING and IN_PROGRESS to stop polling
-    this.appCatalogMDMStatuses.set(psk, 'DISABLED');
+    this.appCatalogMDMStatuses.set(psk, 'NOT_INSTALLED');
     this.throwConnectError();
   }
 
@@ -377,13 +367,6 @@ class MDMStore {
     this.clearAlerts();
     const success = () => {
       this.pollUntilResolved(psk);
-
-      //Stop polling after 5 min as a failsafe
-      setTimeout(() => {
-        if(this.mdmStatusIsUnresolved(psk)) {
-          this.stopPolling(psk);
-        }
-      }, 300000);
     }
     const fail = () => {
       this.appCatalogMDMStatuses.set(psk, 'FAILED');
@@ -432,12 +415,36 @@ class MDMStore {
     }
   }
 
+  @computed get mdmConfigDataPacket() {
+    let structure = {
+      mdm_type: '',
+      aw_hostName: '',
+      aw_password: '',
+      aw_tenantCode: '',
+      aw_userName: '',
+      ibm_appAccessKey: '',
+      ibm_appID: '',
+      ibm_appVersion: '',
+      ibm_billingID: '',
+      ibm_password: '',
+      ibm_platformID: '',
+      ibm_rootURL: '',
+      ibm_userName: '',
+      mi_hostName: '',
+      mi_password: '',
+      mi_userName: ''
+    };
+    let data = Object.assign(structure, this.formData);
+    return data;
+  }
+
   // OBSERVABLES
   // API
   @observable pseMDMObject = observable.map({});
   @observable appCatalogMDMStatuses = observable.map({});
 
   // Form
+  @observable formFieldRefs = [];
   @observable formData = observable.map({});
   @observable beingSubmitted = false;
   @observable hasBeenSubmitted = false;
@@ -453,6 +460,8 @@ class MDMStore {
   @observable app_detail_alerts = [];
   @observable appsReferencedByAlert = [];
   @observable userMessages = {
+    missingMdm: 'Please select any MDM.',
+    formError: 'Please correct the errors below.',
     connectSuccess: 'The MDM connection was successful.',
     connectFail: 'There was a problem establishing a connection with MDM.',
     breakConnectionSuccess: 'The connection to MDM has been broken.',

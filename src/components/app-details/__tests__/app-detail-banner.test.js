@@ -1,5 +1,5 @@
 jest.unmock('../app-detail-banner');
-jest.unmock('moment');
+jest.unmock('date-fns');
 jest.unmock('axios');
 
 jest.unmock('../../push-to-mdm/push-to-mdm');
@@ -20,14 +20,14 @@ describe('<AppDetailBanner /> ', () => {
       reviews_count: 1,
       app_name: 'Vampire Finder 3000',
       app_psk: '12345',
-      release_date: '2017-07-14T15:30:08+00:00',
       platform: 'IOS',
       version: {
         author: 'Tiny Rick',
         version_num: '1.8.2'
       },
       custom_metadata: {
-        app_type: 'ENDORSED'
+        app_type: 'ENDORSED',
+        release_date: '2017-07-14T15:30:08+00:00'
       }
     },
     configuredMDMType: 'airwatch',

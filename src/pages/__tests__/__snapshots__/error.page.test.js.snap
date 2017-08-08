@@ -15,11 +15,11 @@ exports[`<ErrorPage /> render matches previous snapshot 1`] = `
     <section>
       <a
         href="https://apps-qa.sapientfirst.net">
-        App Store
+        Apps
       </a>
       <a
         href="https://devcon-qa.sapientfirst.net">
-        Developer Console
+        App Control
       </a>
       <a
         href="https://pse-qa.sapientfirst.net">
@@ -47,11 +47,11 @@ exports[`<ErrorPage /> render shows Access Denied for authorization problem 1`] 
     <section>
       <a
         href="https://apps-qa.sapientfirst.net">
-        App Store
+        Apps
       </a>
       <a
         href="https://devcon-qa.sapientfirst.net">
-        Developer Console
+        App Control
       </a>
       <a
         href="https://pse-qa.sapientfirst.net">
@@ -79,11 +79,11 @@ exports[`<ErrorPage /> render shows Access Denied for authorization problem 2`] 
     <section>
       <a
         href="https://apps-qa.sapientfirst.net">
-        App Store
+        Apps
       </a>
       <a
         href="https://devcon-qa.sapientfirst.net">
-        Developer Console
+        App Control
       </a>
       <a
         href="https://pse-qa.sapientfirst.net">
@@ -138,11 +138,11 @@ exports[`<ErrorPage /> render shows Generic message otherwise 1`] = `
     <section>
       <a
         href="https://apps-qa.sapientfirst.net">
-        App Store
+        Apps
       </a>
       <a
         href="https://devcon-qa.sapientfirst.net">
-        Developer Console
+        App Control
       </a>
       <a
         href="https://pse-qa.sapientfirst.net">
@@ -195,11 +195,11 @@ exports[`<ErrorPage /> render shows Service Error for authentication problem 1`]
     <section>
       <a
         href="https://apps-qa.sapientfirst.net">
-        App Store
+        Apps
       </a>
       <a
         href="https://devcon-qa.sapientfirst.net">
-        Developer Console
+        App Control
       </a>
       <a
         href="https://pse-qa.sapientfirst.net">

@@ -23,7 +23,7 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
       <div
         className="row">
         <div
-          className="col-xs-offset-2 col-xs-8 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
+          className="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-12 col-md-offset-1 col-md-10">
           <h2>
             Phones
           </h2>
@@ -40,7 +40,7 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
       <div
         className="row">
         <div
-          className="col-xs-offset-2 col-xs-8 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
+          className="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-12 col-md-offset-1 col-md-10">
           <h2>
             Tablets
           </h2>
@@ -57,7 +57,7 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
       <div
         className="row">
         <div
-          className="col-xs-offset-2 col-xs-8 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
+          className="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-12 col-md-offset-1 col-md-10">
           <h2>
             In-Vehicle
           </h2>
@@ -74,7 +74,7 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
       <div
         className="row">
         <div
-          className="col-xs-offset-2 col-xs-8 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
+          className="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-12 col-md-offset-1 col-md-10">
           <h2>
             Accessories
           </h2>
@@ -112,7 +112,7 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
       <div
         className="row">
         <div
-          className="col-xs-offset-2 col-xs-8 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
+          className="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-12 col-md-offset-1 col-md-10">
           <h2>
             Phones
           </h2>
@@ -129,7 +129,7 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
       <div
         className="row">
         <div
-          className="col-xs-offset-2 col-xs-8 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
+          className="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-12 col-md-offset-1 col-md-10">
           <h2>
             Tablets
           </h2>
@@ -146,7 +146,7 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
       <div
         className="row">
         <div
-          className="col-xs-offset-2 col-xs-8 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
+          className="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-12 col-md-offset-1 col-md-10">
           <h2>
             In-Vehicle
           </h2>
@@ -183,7 +183,7 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
       <div
         className="row">
         <div
-          className="col-xs-offset-2 col-xs-8 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
+          className="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-12 col-md-offset-1 col-md-10">
           <h2>
             Accessories
           </h2>
@@ -221,7 +221,7 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
       <div
         className="row">
         <div
-          className="col-xs-offset-2 col-xs-8 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
+          className="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-12 col-md-offset-1 col-md-10">
           <h2>
             Phones
           </h2>
@@ -258,7 +258,7 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
       <div
         className="row">
         <div
-          className="col-xs-offset-2 col-xs-8 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
+          className="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-12 col-md-offset-1 col-md-10">
           <h2>
             Tablets
           </h2>
@@ -362,7 +362,7 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
       <div
         className="row">
         <div
-          className="col-xs-offset-2 col-xs-8 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
+          className="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-12 col-md-offset-1 col-md-10">
           <h2>
             In-Vehicle
           </h2>
@@ -437,7 +437,7 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
       <div
         className="row">
         <div
-          className="col-xs-offset-2 col-xs-8 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
+          className="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-12 col-md-offset-1 col-md-10">
           <h2>
             Accessories
           </h2>

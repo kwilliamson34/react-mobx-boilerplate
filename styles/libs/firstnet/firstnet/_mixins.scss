@@ -1,7 +1,7 @@
 $focus-shadow-depth: 1px;
 
 @mixin focus($borderColor: $focus-lightbg) {
-  &:not(.no-focus-styles) {
+  .show-focus-styles &{
 
     outline: none;
     box-shadow:
@@ -21,6 +21,7 @@ $focus-shadow-depth: 1px;
         1px 0px 0 8px $fn-ltblue;
       }
     }
+
     &.fn-primary,
     &.fn-secondary,
     &.alert {
@@ -32,7 +33,6 @@ $focus-shadow-depth: 1px;
         0 0 10px 0 rgba(0, 0, 0, 0.70);
     }
 
-
     &.inverse {
       background: transparent;
       box-shadow:
@@ -43,7 +43,9 @@ $focus-shadow-depth: 1px;
       }
     }
 
-    &.filters-button {
+    &.filters-button,
+    &#linkBtn-admin,
+    &#linkBtn-networkStatus {
       box-shadow: inset 0px 1px 0 0 $fn-ltblue,
       inset 0px 0px 0 1px $fn-ltblue;
       border-radius: 8px;

@@ -38,16 +38,6 @@ export default class PSEHeader extends React.Component {
 			}
 		});
 
-		//only show focus styles when user tabs to them
-		$('#linkBtn-admin, #linkBtn-networkStatus').keyup((e) =>{
-			//add focus styles if on tab
-			if (e.which == 9){
-				$(e.target).addClass('focused');
-			}
-		}).blur((e) => {
-			$(e.target).removeClass('focused');
-		})
-
 		$('#linkBtn-admin').focus(() => {
 			this.openDesktopAdminSubmenu();
 		})
@@ -334,13 +324,18 @@ export default class PSEHeader extends React.Component {
 										</li>
 										<li>
 											<NavLink activeClassName="active" to="/feedback">
-												Give Us FeedBack
+												Give Us Feedback
 											</NavLink>
 										</li>
 										<li>
 											<a href={'tel:' + this.headerStore.ATTSupportPhone}>
 												<div className="multi-line-item">
-													AT&amp;T Customer Service: <phone><i className="icon-phone-number" aria-hidden="true"></i>{this.headerStore.ATTSupportPhone}</phone>
+													<span aria-hidden="true">FirstNet Customer Svc: </span>
+													<phone><i className="icon-phone-number" aria-hidden="true"></i>
+														<span className="sr-only">Call&nbsp;</span>
+															{this.headerStore.ATTSupportPhone}
+														<span className="sr-only">&nbsp;to speak with FirstNet Customer Service</span>
+													</phone>
 												</div>
 											</a>
 										</li>
@@ -413,7 +408,12 @@ export default class PSEHeader extends React.Component {
 										</li>
 										<li role="presentation">
 											<a href={'tel:' + this.headerStore.ATTSupportPhone} className="tel-cell">
-												AT&amp;T Customer Service: <br /><span><i className="icon-phone-number" aria-hidden="true"></i>{this.headerStore.ATTSupportPhone}</span>
+												<span aria-hidden="true">FirstNet Customer Svc: </span><br />
+												<phone><i className="icon-phone-number" aria-hidden="true"></i>
+													<span className="sr-only">Call&nbsp;</span>
+														{this.headerStore.ATTSupportPhone}
+													<span className="sr-only">&nbsp;to speak with FirstNet Customer Service</span>
+												</phone>
 											</a>
 										</li>
 									</ul>

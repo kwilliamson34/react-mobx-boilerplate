@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import moment from 'moment';
+import dateFns from 'date-fns/format';
+import isValid from 'date-fns/is_valid'
 
 import {observer} from 'mobx-react';
 import {Rating} from '../rating/rating.jsx';
@@ -59,6 +60,10 @@ export class AppDetailBanner extends React.Component {
   }
 
   details() {
+    //normalize the date string, variant formats of which have caused unpredictable behavior.
+    const newDate = this.data.custom_metadata.release_date.split('T')[0];
+    const dateToRender = isValid(new Date(newDate)) ? dateFns(newDate, 'MMMM DD, YYYY') : 'Invalid Date';
+
     return (
       <div className="app-details">
         <div className="version">
@@ -68,7 +73,7 @@ export class AppDetailBanner extends React.Component {
         <div className="updated">
           <strong>Released:&nbsp;</strong>
           <br className="hidden-xs hidden-md hidden-lg"/>
-          {moment(this.data.custom_metadata.release_date).format('MMMM DD, YYYY')}
+          {dateToRender}
         </div>
         <div className="platform">
           <strong>Platform:&nbsp;</strong>

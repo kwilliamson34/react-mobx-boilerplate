@@ -214,7 +214,7 @@ export default class ConfigureMDM extends React.Component {
         {hasError && <div className="msgBlock error error-list" role="alert" aria-live="assertive">
           <span>Please enter a valid {genericLabel || label.toLowerCase()}.</span>
         </div>}
-        <input id={id} type={type || 'text'} className="form-control" disabled={this.store.isConfigured} defaultValue={value}/>
+        <input id={id} ref={ref => this.store.formFieldRefs[id] = ref} type={type || 'text'} className="form-control" disabled={this.store.isConfigured} defaultValue={value}/>
       </div>
     )
   }
@@ -223,7 +223,7 @@ export default class ConfigureMDM extends React.Component {
     const disabled = !this.store.mdmFormIsValid || this.store.isConfigured || this.store.beingSubmitted;
     return (
       <div className="form-group text-center">
-        <button id="mdm_submit_btn" aria-labelledby="configure-mdm-form" aria-disabled={disabled} type="submit" className='fn-primary'>
+        <button id="mdm_submit_btn" aria-labelledby="configure-mdm-form" type="submit" className={`fn-primary ${disabled ? 'disabled' : ''}`}>
         {this.store.beingSubmitted
           ? <span>
               <i className="icon-reload" aria-label="Still Submitting Form"></i>

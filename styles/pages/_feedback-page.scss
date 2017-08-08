@@ -1,7 +1,7 @@
 #customer-feedback-page {
   padding: 0;
 
-  h1 {
+  .content-wrapper h1 {
     margin: 6rem 0;
   }
 
@@ -50,18 +50,6 @@
     line-height: 1.5;
   }
 
-  #customer-feedback-exit-modal {
-    text-align: center;
-
-    p {
-      padding-bottom: 6rem;
-    }
-
-    button {
-      margin: 0 1rem;
-    }
-  }
-
   #customer-feedback-success {
     position: relative;
     text-align: center;
@@ -102,7 +90,7 @@
 @media #{$mobile} {
   #customer-feedback-page {
 
-    h1 {
+    .content-wrapper h1 {
       margin: 3rem 0;
     }
 

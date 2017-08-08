@@ -134,7 +134,7 @@ exports[`<PSEHeader /> render matches snapshot when header store is not initiali
                   href="/feedback"
                   onClick={[Function anonymous]}
                   style={undefined}>
-                  Give Us FeedBack
+                  Give Us Feedback
                 </a>
               </li>
               <li>
@@ -142,11 +142,22 @@ exports[`<PSEHeader /> render matches snapshot when header store is not initiali
                   href="tel:undefined">
                   <div
                     className="multi-line-item">
-                    AT&T Customer Service: 
+                    <span
+                      aria-hidden="true">
+                      FirstNet Customer Svc: 
+                    </span>
                     <phone>
                       <i
                         aria-hidden="true"
                         className="icon-phone-number" />
+                      <span
+                        className="sr-only">
+                        Call 
+                      </span>
+                      <span
+                        className="sr-only">
+                         to speak with FirstNet Customer Service
+                      </span>
                     </phone>
                   </div>
                 </a>
@@ -265,13 +276,24 @@ exports[`<PSEHeader /> render matches snapshot when header store is not initiali
                 <a
                   className="tel-cell"
                   href="tel:undefined">
-                  AT&T Customer Service: 
+                  <span
+                    aria-hidden="true">
+                    FirstNet Customer Svc: 
+                  </span>
                   <br />
-                  <span>
+                  <phone>
                     <i
                       aria-hidden="true"
                       className="icon-phone-number" />
-                  </span>
+                    <span
+                      className="sr-only">
+                      Call 
+                    </span>
+                    <span
+                      className="sr-only">
+                       to speak with FirstNet Customer Service
+                    </span>
+                  </phone>
                 </a>
               </li>
             </ul>
@@ -422,7 +444,7 @@ exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
                   href="/feedback"
                   onClick={[Function anonymous]}
                   style={undefined}>
-                  Give Us FeedBack
+                  Give Us Feedback
                 </a>
               </li>
               <li>
@@ -430,12 +452,23 @@ exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
                   href="tel:800-574-7000">
                   <div
                     className="multi-line-item">
-                    AT&T Customer Service: 
+                    <span
+                      aria-hidden="true">
+                      FirstNet Customer Svc: 
+                    </span>
                     <phone>
                       <i
                         aria-hidden="true"
                         className="icon-phone-number" />
+                      <span
+                        className="sr-only">
+                        Call 
+                      </span>
                       800-574-7000
+                      <span
+                        className="sr-only">
+                         to speak with FirstNet Customer Service
+                      </span>
                     </phone>
                   </div>
                 </a>
@@ -554,14 +587,25 @@ exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
                 <a
                   className="tel-cell"
                   href="tel:800-574-7000">
-                  AT&T Customer Service: 
+                  <span
+                    aria-hidden="true">
+                    FirstNet Customer Svc: 
+                  </span>
                   <br />
-                  <span>
+                  <phone>
                     <i
                       aria-hidden="true"
                       className="icon-phone-number" />
+                    <span
+                      className="sr-only">
+                      Call 
+                    </span>
                     800-574-7000
-                  </span>
+                    <span
+                      className="sr-only">
+                       to speak with FirstNet Customer Service
+                    </span>
+                  </phone>
                 </a>
               </li>
             </ul>
@@ -712,7 +756,7 @@ exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
                   href="/feedback"
                   onClick={[Function anonymous]}
                   style={undefined}>
-                  Give Us FeedBack
+                  Give Us Feedback
                 </a>
               </li>
               <li>
@@ -720,12 +764,23 @@ exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
                   href="tel:800-574-7000">
                   <div
                     className="multi-line-item">
-                    AT&T Customer Service: 
+                    <span
+                      aria-hidden="true">
+                      FirstNet Customer Svc: 
+                    </span>
                     <phone>
                       <i
                         aria-hidden="true"
                         className="icon-phone-number" />
+                      <span
+                        className="sr-only">
+                        Call 
+                      </span>
                       800-574-7000
+                      <span
+                        className="sr-only">
+                         to speak with FirstNet Customer Service
+                      </span>
                     </phone>
                   </div>
                 </a>
@@ -844,14 +899,25 @@ exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
                 <a
                   className="tel-cell"
                   href="tel:800-574-7000">
-                  AT&T Customer Service: 
+                  <span
+                    aria-hidden="true">
+                    FirstNet Customer Svc: 
+                  </span>
                   <br />
-                  <span>
+                  <phone>
                     <i
                       aria-hidden="true"
                       className="icon-phone-number" />
+                    <span
+                      className="sr-only">
+                      Call 
+                    </span>
                     800-574-7000
-                  </span>
+                    <span
+                      className="sr-only">
+                       to speak with FirstNet Customer Service
+                    </span>
+                  </phone>
                 </a>
               </li>
             </ul>

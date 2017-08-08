@@ -86,89 +86,124 @@ export default class GeolinkControls extends React.Component {
               <form className="form-group">
                 <fieldset className="coverage-layers">
                   <legend className="sr-only">Coverage layers</legend>
-                  <Checkbox id="network-toggle" value="Network" label="Network" onChange={this.toggleNetwork} checked={this.geoStore.showNetworkLayer} disabled={this.props.disabled}/>
-                  <Checkbox id="traffic-toggle" value="Traffic" label="Traffic" onChange={this.toggleTraffic} checked={this.geoStore.showTrafficLayer} disabled={this.props.disabled}/>
-                  <Checkbox id="weather-toggle" value="Weather" label="Weather" onChange={this.toggleWeather} checked={this.geoStore.showWeatherLayer} disabled={this.props.disabled}/>
-                  <Checkbox id="alerts-toggle" value="Alerts" label="Alerts" onChange={this.toggleAlerts} checked={this.geoStore.showAlertLayer} disabled={this.props.disabled || !this.geoStore.authIsComplete}/>
+                  <div className="col-xs-6 col-sm-12 no-gutters">
+                    <Checkbox id="network-toggle" value="Network" label="Network" onChange={this.toggleNetwork} checked={this.geoStore.showNetworkLayer} disabled={this.props.disabled}/>
+                    <Checkbox id="weather-toggle" value="Weather" label="Weather" onChange={this.toggleWeather} checked={this.geoStore.showWeatherLayer} disabled={this.props.disabled}/>
+                  </div>
+                  <div className="col-xs-6 col-sm-12 no-gutters">
+                    <Checkbox id="traffic-toggle" value="Traffic" label="Traffic" onChange={this.toggleTraffic} checked={this.geoStore.showTrafficLayer} disabled={this.props.disabled}/>
+                    <Checkbox id="alerts-toggle" value="Alerts" label="Alerts" onChange={this.toggleAlerts} checked={this.geoStore.showAlertLayer} disabled={this.props.disabled || !this.geoStore.authIsComplete}/>
+                  </div>
                 </fieldset>
               </form>
             </div>
-            <div className="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-4 report-coverage-issue">
-              <h2 className="as-h5">Report coverage issue</h2>
-              <div className="emergency-numbers">
-                <div className="emergency">
-                  Emergency:<br/>
-                <a className="deaden" href={'tel:' + this.geoStore.coverageIssueEmergencyNumber}>
-                  <span className="sr-only">Call&nbsp;</span>
-                  {this.geoStore.coverageIssueEmergencyNumber}
-                  <span className="sr-only">&nbsp;to report an emergency coverage issue</span>
-                </a>
-                </div>
-                <div className="non-emergency">
-                  Non-emergency:<br/>
-                <a className="deaden" href={'tel:' + this.geoStore.coverageIssueNonEmergencyNumber}>
-                  <span className="sr-only">Call&nbsp;</span>
-                  {this.geoStore.coverageIssueNonEmergencyNumber}
-                  <span className="sr-only">&nbsp;to report a non-emergency coverage issue</span>
-                </a>
-                </div>
-              </div>
+            <div className="col-md-4 hidden-xs hidden-sm">
+              {this.renderNetworkLegend()}
+              {this.renderContactInfo()}
             </div>
           </div>
 
           <div className="row">
-            <div className="col-xs-12 hidden-sm col-md-12">
-              <hr/>
+            <div className="legend-divider col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-12">
+              <hr />
+              <div className="visible-xs-inline">
+                {this.renderContactInfo()}
+                <hr />
+              </div>
             </div>
           </div>
           <div className="row is-flex">
-            <div className="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-4">
-              <h2 className="as-h5">Network<span className="sr-only">&nbsp;color key</span></h2>
-              <div className="key-labels">
-                <span>4G LTE</span>
-                <span>4G</span>
-                <span>3G</span>
-                <span>2G</span>
-              </div>
-              <div className="coverage-legend">
-                <img src="/images/spectrum-gradient.svg" alt=""/>
-              </div>
+            <div className="col-xs-12 col-sm-offset-1 col-sm-10 visible-xs-inline visible-sm-inline">
+              {this.renderNetworkLegend()}
             </div>
-            <div className="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-4">
-              <h2 className="as-h5">Weather<span className="sr-only">&nbsp;color key</span></h2>
-              <div className="key-labels">
-                <span>Light Rain</span>
-                <span>Heavy Rain</span>
-                <span>Snow</span>
-                <span>Ice</span>
-              </div>
-              <div className="weather-legend">
-                <img src="/images/precip-gradient.svg" alt=""/>
-              </div>
+            <div className="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-6">
+              {this.renderWeatherLegend()}
             </div>
-            <div className="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-4">
-              <h2 className="as-h5">Traffic<span className="sr-only">&nbsp;color key</span></h2>
-              <div className="traffic-legend-wrapper ">
-                <div className="traffic-bars ">
-                  <div className="key-labels traffic">
-                    <span>Fast</span>
-                    <span>Slow</span>
-                  </div>
-                  <div className="traffic-legend">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                  </div>
-                </div>
-                <div className="hazards-legend">
-                  <span>Construction<br/><i className="icon-warning construction" aria-hidden="true"/></span>
-                  <span>Vehicle Incident<br/><i className="icon-warning incident" aria-hidden="true"/></span>
-                </div>
-              </div>
+            <div className="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-6">
+              {this.renderTrafficLegend()}
             </div>
           </div>
         </div>
       </section>
     );
+  }
+
+  renderContactInfo = () => {
+    return (
+      <div className="network-contact-info">
+        <p>Report Network Issue:
+          <br className="visible-md-inline"/>
+          <a href={'tel:' + this.geoStore.networkIssueNumber}>
+            <i className="icon-phone-number footer-support-phone" aria-hidden='true'></i>
+            <span className="sr-only">Call&nbsp;</span>
+            {this.geoStore.networkIssueNumber}
+            <span className="sr-only">&nbsp;to report a network issue</span>
+          </a>
+        </p>
+      </div>
+    )
+  }
+
+  renderNetworkLegend = () => {
+    return (
+      <div>
+        <span className="visible-sm-inline">{this.renderContactInfo()}</span>
+        <h2 className="as-h5">
+          Network<span className="sr-only">&nbsp;color key</span>
+        </h2>
+        <div className="key-labels">
+          <span className="as-label">4G LTE</span>
+          <span className="as-label">4G</span>
+          <span className="as-label">3G</span>
+          <span className="as-label">2G</span>
+        </div>
+        <div className="legend-gradient">
+          <img src="/images/network-legend.png" alt=""/>
+        </div>
+      </div>
+    )
+  }
+
+  renderWeatherLegend = () => {
+    return (
+      <div>
+        <h2 className="as-h5">Weather<span className="sr-only">&nbsp;color key</span></h2>
+        <div className="key-labels">
+          <span className="as-label">Light Rain</span>
+          <span className="as-label">Heavy Rain</span>
+          <span className="as-label">Snow</span>
+          <span className="as-label">Ice</span>
+        </div>
+        <div className="legend-gradient">
+          <img src="/images/weather-legend.png" alt=""/>
+        </div>
+      </div>
+    )
+  }
+
+  renderTrafficLegend = () => {
+    return (
+      <div>
+        <h2 className="as-h5">Traffic<span className="sr-only">&nbsp;color key</span></h2>
+        <div className="traffic-legend-wrapper ">
+          <div className="traffic-bars">
+            <div className="key-labels traffic">
+              <span className="as-label">Fast</span>
+              <span className="as-label">Normal</span>
+              <span className="as-label">Slow</span>
+            </div>
+            <div className="traffic-legend">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+          <div className="hazards-legend">
+            <span className="as-label">Construction<br/><i className="icon-warning construction" aria-hidden="true"/></span>
+            <span className="as-label">Vehicle Incident<br/><i className="icon-warning incident" aria-hidden="true"/></span>
+          </div>
+        </div>
+      </div>
+    )
   }
 }

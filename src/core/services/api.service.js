@@ -15,7 +15,6 @@ axios.interceptors.request.use(request => {
 axios.interceptors.response.use((response) => {
   return response;
 }, (error) => {
-
   if(error.response) {
     let response = error.response;
     let old_req = response.config;
@@ -24,10 +23,8 @@ axios.interceptors.response.use((response) => {
       return userStore.revalidateUser().then(() => axios(old_req));
     }
   }
-
   throw error;
-})
-
+});
 
 class ApiService {
 
@@ -72,30 +69,25 @@ class ApiService {
         headers: {
           'Accept': 'application/json'
         }
-      }).then(res => {
-        return res;
       });
     }
 
     getMarketingPortalDevices() {
-      return axios.get(`${base}/marketing/api/devices?_format=json`)
-        .then((res) => {
-          return res.data;
-        });
+      return axios.get(`${base}/marketing/api/devices?_format=json`).then((res) => {
+        return res.data;
+      });
     }
 
     getMarketingPortalSolutionDetails() {
-      return axios.get(`${base}/marketing/api/solutions?_format=json`)
-        .then((res) => {
-          return res.data;
-        });
+      return axios.get(`${base}/marketing/api/solutions?_format=json`).then((res) => {
+        return res.data;
+      });
     }
 
     getMarketingPortalSolutionCategories() {
-      return axios.get(`${base}/marketing/api/category/solutions?_format=json`)
-        .then((res) => {
-          return res.data;
-        });
+      return axios.get(`${base}/marketing/api/category/solutions?_format=json`).then((res) => {
+        return res.data;
+      });
     }
 
     addAppToGroup(appPsk, groupIdentifier) {
@@ -130,7 +122,6 @@ class ApiService {
 
     setMDMConfiguration(mdmConfig) {
       mdmConfig.pse_id = userStore.user.pse;
-
       return axios({
         method: 'post',
         url: `${base}/pse/mdm`,
@@ -143,10 +134,9 @@ class ApiService {
     }
 
     getSingleMDMStatus(app_psk) {
-      return axios.get(`${base}/pse/mdm/app?appPsk=${app_psk}&pseId=${userStore.user.pse}`)
-        .then((res) => {
-          return res.data;
-        });
+      return axios.get(`${base}/pse/mdm/app?appPsk=${app_psk}&pseId=${userStore.user.pse}`).then((res) => {
+        return res.data;
+      });
     }
 
     pushToMDM(app_psk) {
