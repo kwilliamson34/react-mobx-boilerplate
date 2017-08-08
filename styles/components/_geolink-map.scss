@@ -3,7 +3,7 @@ $map-height-normal: 600px;
 $map-height-tablet: 700px;
 $map-height-mobile: 400px;
 
-@media #{$wide} {
+@media #{screen and (min-width: #{1500px})} {
   .map-placeholder,
   .geolink-map .map-wrapper,
   .geolink-map iframe {
@@ -14,7 +14,7 @@ $map-height-mobile: 400px;
     margin-top: $map-height-wide/2 - 18px;
   }
 }
-@media #{$normal} {
+@media #{screen and (min-width: #{$screen-sm-max}) and (max-width: #{1500px})} {
   .map-placeholder,
   .geolink-map .map-wrapper,
   .geolink-map iframe {
