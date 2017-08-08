@@ -34,8 +34,6 @@ export default class DeviceDetailTemplate extends React.Component {
 	}
 
 	render() {
-		//replace special characters in strings for breadcrumb component
-		const _pageTitle = this.externalLinkStore.currentDeviceDetail.deviceName.replace(/&amp;/g, '&');
 		const crumbs = [
 			{	pageHref: '/admin',
 				pageTitle: 'Administration Dashboard'
@@ -47,7 +45,7 @@ export default class DeviceDetailTemplate extends React.Component {
 				pageTitle: this.props.match.params.deviceCategory
 			},
 			{	pageHref: this.props.match.url,
-				pageTitle: _pageTitle
+				pageTitle: this.externalLinkStore.currentDeviceDetail.deviceName
 			}
 		];
 		return (
