@@ -56,13 +56,12 @@
   .device-detail {
 
     .detail-block {
-      padding-top: 50px;
       padding-bottom: 100px;
 
       .img-responsive {
         width: 100%;
         margin-bottom: 30px;
-        max-width: 480px;
+        max-width: 300px;
       }
 
       .feature-list {
@@ -70,6 +69,7 @@
 
         ul {
           list-style: disc;
+          margin-left: 2rem;
 
           li {
             margin-bottom: 1.6rem;
@@ -160,6 +160,12 @@
   #specialized-devices {
     .catalog-header {
       margin-top: 30px;
+    }
+
+    .device-detail {
+      .detail-block {
+        padding-top: 30px;
+      }
     }
   }
 }
