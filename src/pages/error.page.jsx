@@ -79,7 +79,7 @@ export default class ErrorPage extends React.Component {
             }
             {showLinkToGoBack &&
               <section>
-                <a href="#" onClick={() => {history.go(-1)}}>Go Back</a>
+                <button onClick={() => {history.go(-1)}}>Go Back</button>
               </section>
             }
             {showLinkToGoHome &&
