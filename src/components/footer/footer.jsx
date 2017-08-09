@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {observer,inject} from 'mobx-react';
+import config from 'config';
 
 import NewTabLink from '../link/new-tab-link';
 
@@ -79,16 +80,16 @@ export default class Footer extends React.Component {
 					<h2 id="firstnet-sites">Firstnet Sites</h2>
 					<ul>
 						<li role="presentation">
-							<NewTabLink to={this.externalLinkStore.firstnetCom}>FirstNet.com</NewTabLink>
+							<NewTabLink to={config.firstnetCom}>FirstNet.com</NewTabLink>
 						</li>
 						<li role="presentation">
-							<NewTabLink to={this.externalLinkStore.devPortal}>Developer Portal</NewTabLink>
+							<NewTabLink to={config.devPortal}>Developer Portal</NewTabLink>
 						</li>
 						<li role="presentation">
-							<NewTabLink to={this.externalLinkStore.appControl}>App Control</NewTabLink>
+							<NewTabLink to={config.appControl}>App Control</NewTabLink>
 						</li>
 						<li role="presentation">
-							<NewTabLink to={this.externalLinkStore.appStore}>App Store</NewTabLink>
+							<NewTabLink to={config.appStore}>App Store</NewTabLink>
 						</li>
 					</ul>
 				</nav>
@@ -189,7 +190,7 @@ export default class Footer extends React.Component {
 						</NewTabLink>
 					</li>
 					<li role="presentation">
-						<NewTabLink to={this.externalLinkStore.firstnetGov}>
+						<NewTabLink to={config.firstnetGov}>
 							FirstNet.gov
 						</NewTabLink>
 					</li>

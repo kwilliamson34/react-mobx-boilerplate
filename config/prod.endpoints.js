@@ -10,10 +10,12 @@ const config = {
   mktgPortalImgBaseUrl: 'https://www.firstnet.ws',
   apiBase: '/api',
   attCustomerSupportPhone: '800-574-7000',
-  appStore: 'https://apps.firstnet.att.com',
-  developerConsole: 'https://appcontrol.firstnet.att.com',
-  localControl: 'https://localcontrol.firstnet.att.com',
   viewWirelessReportsLink: 'https://wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn?requestedPage=downloadReports',
+  firstnetGov: 'https://firstnet.gov/',
+  firstnetCom: 'https://www.firstnet.com/',
+  appStore: 'https://apps.firstnet.att.com',
+  appControl: 'https://appcontrol.firstnet.att.com',
+  localControl: 'https://localcontrol.firstnet.att.com',
   devPortal: 'https://test-developer.firstnet.att.com'
 }
 
