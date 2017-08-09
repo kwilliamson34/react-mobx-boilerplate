@@ -24,7 +24,8 @@
 			margin-bottom: 30px;
 		}
 
-		a {
+		a,
+		.as-link {
 			font-size: $fn-button-desktop;
 		}
 	}
@@ -125,12 +126,12 @@ section.session-timeout {
 	.error-page {
 		padding: 120px 0;
 
-		.logo-container img{
+		.logo-container img {
 			max-width: 320px;
 		}
 
 		.container {
-			> div{
+			> div {
 				padding: 80px 90px;
 			}
 		}
