@@ -33,11 +33,7 @@ export default class DeviceDetailTemplate extends React.Component {
 		}
 	}
 
-
 	render() {
-
-		this.externalLinkStore.currentDeviceDetail.terms = "<ol><li>Available space is less and varies due to many factors. A standard configuration uses approximately 4GB to 6GB of space (including iOS and built-in apps) depending on the model and settings.<\/li>\n\t<li>Size and weight vary by configuration and manufacturing process.<\/li>\n\t<li>FaceTime calling requires a FaceTime-enabled device for the caller and recipient and a Wi-Fi connection. Availability over a cellular network depends on carrier policies; data charges may apply.<\/li>\n\t<li>Data plan required. LTE Advanced, LTE, and Wi-Fi calling are available in select markets and through select carriers. Speeds are based on theoretical throughput and vary based on site conditions and carrier. For details on LTE support, contact AT&amp;T and see <a href=\"https:\/\/www.apple.com\/iphone\/LTE\">www.apple.com\/iphone\/LTE<\/a>.<\/li>\n\t<li>Cellular data plan is sold separately. Cellular data service is available only on Wi-Fi + Cellular models. The model you purchase is configured to work with a particular cellular network technology. Check with AT&amp;T for compatibility and cellular data plan availability.<\/li>\n\t<li>Embedded Apple SIM in iPad Pro (9.7-inch) may be disabled when purchased from some carriers. See AT&amp;T for details. Apple SIM and embedded Apple SIM not available in China.<\/li>\n\t<li>Battery life varies by use and configuration. See <a href=\"https:\/\/www.apple.com\/batteries\">www.apple.com\/batteries<\/a> for more information.<\/li>\n<\/ol><p>TM and \u00a9 2017 Apple Inc. All rights reserved.<\/p>"
-
 		const crumbs = [
 			{	pageHref: '/admin',
 				pageTitle: 'Administration Dashboard'
@@ -77,11 +73,16 @@ export default class DeviceDetailTemplate extends React.Component {
 							col-lg-offset-0 col-lg-8">
 							<h1 className="hidden-xs hidden-sm"><span dangerouslySetInnerHTML={{__html: this.externalLinkStore.currentDeviceDetail.deviceName}} /></h1>
 							<div className="feature-list" dangerouslySetInnerHTML={{__html: this.externalLinkStore.currentDeviceDetail.features}}></div>
+							<div className="hidden-xs hidden-sm contact-info">
+								{this.externalLinkStore.currentPurchasingInfo && this.externalLinkStore.showPurchasingInfo &&
+									<PurchasingInfo contactInfo={this.externalLinkStore.currentPurchasingInfo} />
+								}
+							</div>
 						</div>
-						<div className="
+						<div className="contact-info
+							visible-xs-block visible-sm-block
 							col-xs-offset-0 col-xs-12
-							col-md-offset-4 col-md-7
-							col-lg-offset-4 col-lg-7">
+							col-md-offset-4 col-md-7">
 							{this.externalLinkStore.currentPurchasingInfo && this.externalLinkStore.showPurchasingInfo &&
 								<PurchasingInfo contactInfo={this.externalLinkStore.currentPurchasingInfo} />
 							}
