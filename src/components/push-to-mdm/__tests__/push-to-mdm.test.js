@@ -41,7 +41,7 @@ describe('<PushToMDM /> ', () => {
       'PENDING',
       'FAILED',
       'INSTALLED',
-      'NEEDS_UPDATE'
+      'INSTALLED_UPDATABLE'
     ];
 
     for (let i = 0; i < possibleMDMStatuses.length; ++i) {
