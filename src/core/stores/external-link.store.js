@@ -192,7 +192,7 @@ class ExternalLinkStore {
 
   @observable firstnetCom = 'https://www.firstnet.com/';
   @observable firstnetGov = 'https://firstnet.gov/';
-  @observable devPortal = 'https://fndevpgm-uat-app.eng.mobilephone.net/firstnet';
+  @observable devPortal = 'https://test-developer.firstnet.att.com';
   @observable appControl = 'https://test-appcontrol.firstnet.att.com/';
   @observable appStore = 'https://test-apps.firstnet.att.com/';
 
