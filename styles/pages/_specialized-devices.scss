@@ -56,6 +56,7 @@
   .device-detail {
 
     .detail-block {
+      padding-bottom: 100px;
       position: relative;
 
       .img-responsive {
@@ -89,6 +90,10 @@
             }
           }
         }
+      }
+
+      .contact-info {
+        margin-top: 30px;
       }
     }
 
@@ -180,7 +185,6 @@
 
     .device-detail {
       .detail-block {
-        padding-bottom: 60px;
         padding-top: 30px;
 
         .img-responsive {
@@ -189,10 +193,6 @@
 
         .feature-list {
           margin-left: 0;
-        }
-
-        .contact-info {
-          margin-top: 0;
         }
       }
     }
@@ -210,16 +210,6 @@
         width: 23%;
         min-width: 165px;
         margin: 0 1% 15px;
-      }
-    }
-
-    .device-detail {
-      .detail-block {
-        padding-bottom: 100px;
-
-        .contact-info {
-          margin-top: 30px;
-        }
       }
     }
   }
@@ -241,15 +231,10 @@
 
     .device-detail {
       .detail-block {
-        padding-bottom: 100px;
         padding-top: 30px;
 
         .feature-list {
           margin-left: 15px;
-        }
-
-        .contact-info {
-          margin-top: 30px;
         }
       }
     }
