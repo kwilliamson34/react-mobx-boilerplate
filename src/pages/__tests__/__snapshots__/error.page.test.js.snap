@@ -291,7 +291,9 @@ exports[`<ErrorPage /> render shows Permission Pending 1`] = `
         } />
       <section>
         <button
-          onClick={[Function onClick]}>
+          className="as-link"
+          onClick={[Function onClick]}
+          role="button">
           Go Back
         </button>
       </section>
@@ -379,7 +381,9 @@ exports[`<ErrorPage /> render shows Sorry for Page Not Found (404) 1`] = `
         } />
       <section>
         <button
-          onClick={[Function onClick]}>
+          className="as-link"
+          onClick={[Function onClick]}
+          role="button">
           Go Back
         </button>
       </section>
