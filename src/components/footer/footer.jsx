@@ -155,7 +155,7 @@ export default class Footer extends React.Component {
 							</li>
 						}
 						<li role="presentation">
-							FirstNet Customer Svc:<br className="visible-xs-inline-block visible-md-inline-block" />&nbsp;
+							FirstNet Customer Svc:<br className="visible-xs-inline-block visible-md-inline-block" />
 							<a href={'tel:' + this.headerStore.ATTSupportPhone}>
 								<phone><i className="icon-phone-number footer-support-phone" aria-hidden='true'></i>
 									<span className="sr-only">Call&nbsp;</span>
