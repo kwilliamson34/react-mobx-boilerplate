@@ -57,12 +57,6 @@ export default class FeedbackPage extends React.Component {
     this.feedbackStore.validateInput(e.target);
   }
 
-  handleAlertFocus = () => {
-    if (this.feedbackStore.showAlertBar) {
-      $('#feedback-alert').focus();
-    }
-  }
-
   toggleExitModal = (e) => {
     e.preventDefault();
     this.feedbackStore.toggleExitModal()
@@ -140,14 +134,12 @@ export default class FeedbackPage extends React.Component {
 
   renderAlertBar = () => {
     return (
-      <div>
-        <div role="alert" id="feedback-alert" ref={this.handleAlertFocus} className="alert alert-error" aria-live="assertive" aria-atomic="true" tabIndex="0">
-          <button type="button" className="close_btn" onClick={this.toggleAlertBar}>
-            <span aria-hidden="true" className="icon-close" />
-            <span className="sr-only">Close alert</span>
-          </button>
-          <p><strong>Error: </strong>Please correct the errors below</p>
-        </div>
+      <div role="alert" id="feedback-alert" className="alert alert-error" aria-live="assertive" aria-atomic="true">
+        <button type="button" className="close_btn" onClick={this.toggleAlertBar}>
+          <span aria-hidden="true" className="icon-close" />
+          <span className="sr-only">Close alert</span>
+        </button>
+        <p><strong>Error: </strong>Please correct the errors below</p>
       </div>
     )
   }
@@ -209,7 +201,7 @@ export default class FeedbackPage extends React.Component {
                       <input type="email" id="feedback_email" className="form-control input-lg" value={this.feedbackStore.feedbackObject.feedback_email} onChange={(e) => this.handleOnChange(e, 10000)} onBlur={this.handleOnBlur} />
                     </div>
                     <div className="form-group text-center">
-                      <button type="submit" onClick={this.handleAlertFocus} className={this.feedbackStore.requiredFieldsEntered ? 'feedback-btn fn-primary' : 'feedback-btn fn-primary disabled'} aria-labelledby="feedback-form">
+                      <button type="submit" className={`feedback-btn fn-primary ${this.feedbackStore.requiredFieldsEntered ? '' : 'disabled'}`} aria-labelledby="feedback-form">
                         Submit Feedback
                       </button>
                     </div>
