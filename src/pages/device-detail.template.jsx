@@ -27,11 +27,12 @@ export default class DeviceDetailTemplate extends React.Component {
 				this.externalLinkStore.fetchAndShowDeviceDetails(this.props.match.params.deviceId);
 			} else {
 				this.externalLinkStore.getDevicesData().then(() => {
-					this.externalLinkStore.fetchAndShowDeviceDetails(this.props.match.params.deviceId)
+					this.externalLinkStore.fetchAndShowDeviceDetails(this.props.match.params.deviceId);
 				});
 			}
 		}
 	}
+
 
 	render() {
 		const crumbs = [
@@ -53,12 +54,13 @@ export default class DeviceDetailTemplate extends React.Component {
 				<BreadcrumbNav links={crumbs} />
 				<div className="container detail-block">
 					<div className="row">
-					<div className="col-xs-10 col-xs-offset-1 text-center visible-xs-block"><h1>{this.externalLinkStore.currentDeviceDetail.deviceName}</h1></div>
+					<div className="col-xs-10 col-xs-offset-1 text-center visible-xs-block visible-sm-block"><h1 dangerouslySetInnerHTML={{__html: this.externalLinkStore.currentDeviceDetail.deviceName}} /></div>
 					</div>
 					<div className="row is-flex">
 						<div className="
-							col-xs-offset-2 col-xs-8
-							col-sm-offset-1 col-sm-5
+							col-xs-offset-0 col-xs-12
+							col-sm-offset-0 col-sm-6
+							col-md-offset-0 col-md-4
 							col-lg-offset-1 col-lg-3">
 							<img
 								className="img-responsive"
@@ -68,13 +70,20 @@ export default class DeviceDetailTemplate extends React.Component {
 						<div className="
 							col-xs-offset-1 col-xs-10
 							col-sm-offset-0 col-sm-6
-							col-lg-offset-0 col-lg-7">
-							<h1 className="as-h2 hidden-xs"><span dangerouslySetInnerHTML={{__html: this.externalLinkStore.currentDeviceDetail.deviceName}} /></h1>
+							col-md-offset-0 col-md-7
+							col-lg-offset-0 col-lg-8">
+							<h1 className="hidden-xs hidden-sm"><span dangerouslySetInnerHTML={{__html: this.externalLinkStore.currentDeviceDetail.deviceName}} /></h1>
 							<div className="feature-list" dangerouslySetInnerHTML={{__html: this.externalLinkStore.currentDeviceDetail.features}}></div>
+							<div className="hidden-xs hidden-sm contact-info">
+								{this.externalLinkStore.currentPurchasingInfo && this.externalLinkStore.showPurchasingInfo &&
+									<PurchasingInfo contactInfo={this.externalLinkStore.currentPurchasingInfo} />
+								}
+							</div>
 						</div>
-						<div className="
-							col-xs-offset-1 col-xs-10
-							col-lg-offset-4 col-lg-7">
+						<div className="contact-info
+							visible-xs-block visible-sm-block
+							col-xs-offset-0 col-xs-12
+							col-md-offset-4 col-md-7">
 							{this.externalLinkStore.currentPurchasingInfo && this.externalLinkStore.showPurchasingInfo &&
 								<PurchasingInfo contactInfo={this.externalLinkStore.currentPurchasingInfo} />
 							}
@@ -85,7 +94,9 @@ export default class DeviceDetailTemplate extends React.Component {
 					<div className="terms-block">
 						<div className="container">
 							<div className="row">
-								<div className="col-xs-10 col-xs-offset-1 col-sm-offset-1 col-sm-10">
+								<div className="
+									col-xs-offset-0 col-xs-12
+									col-lg-offset-1 col-lg-10">
 									<div dangerouslySetInnerHTML={{ __html: this.externalLinkStore.currentDeviceDetail.terms}}></div>
 								</div>
 							</div>
