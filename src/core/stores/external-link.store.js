@@ -189,13 +189,6 @@ class ExternalLinkStore {
   @observable shopStandardDevicesLink = 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn';
   @observable manageMyProfileLink = 'https://test-profilemgt.firstnet.att.com/ebiz/firstnet/';
 
-
-  @observable firstnetCom = 'https://www.firstnet.com/';
-  @observable firstnetGov = 'https://firstnet.gov/';
-  @observable devPortal = 'https://fndevpgm-uat-app.eng.mobilephone.net/firstnet';
-  @observable appControl = 'https://test-appcontrol.firstnet.att.com/';
-  @observable appStore = 'https://test-apps.firstnet.att.com/';
-
   @observable firstnetFacebook = 'https://www.facebook.com/firstnetgov/';
   @observable firstnetLinkedIn = 'https://www.linkedin.com/company/first-responder-network-authority-firstnet-';
   @observable firstnetTwitter = 'https://twitter.com/FirstNetGov';
