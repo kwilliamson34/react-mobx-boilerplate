@@ -13,7 +13,8 @@ const config = {
   appStore: 'https://apps.firstnet.att.com',
   developerConsole: 'https://appcontrol.firstnet.att.com',
   localControl: 'https://localcontrol.firstnet.att.com',
-  viewWirelessReportsLink: 'https://wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn?requestedPage=downloadReports'
+  viewWirelessReportsLink: 'https://wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn?requestedPage=downloadReports',
+  devPortal: 'https://test-developer.firstnet.att.com'
 }
 
 export default config

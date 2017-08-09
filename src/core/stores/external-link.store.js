@@ -192,7 +192,7 @@ class ExternalLinkStore {
 
   @observable firstnetCom = 'https://www.firstnet.com/';
   @observable firstnetGov = 'https://firstnet.gov/';
-  @observable devPortal = 'https://test-developer.firstnet.att.com';
+  @observable devPortal = config.devPortal;
   @observable appControl = 'https://test-appcontrol.firstnet.att.com/';
   @observable appStore = 'https://test-apps.firstnet.att.com/';
 

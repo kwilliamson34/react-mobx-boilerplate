@@ -13,7 +13,8 @@ const config = {
   appStore: 'https://apps-qa.sapientfirst.net',
   developerConsole: 'https://devcon-qa.sapientfirst.net',
   localControl: 'https://pse-qa.sapientfirst.net',
-  viewWirelessReportsLink: 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn?requestedPage=downloadReports'
+  viewWirelessReportsLink: 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn?requestedPage=downloadReports',
+  devPortal: 'https://test-developer.firstnet.att.com'
 }
 
 export default config
