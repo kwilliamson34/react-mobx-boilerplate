@@ -57,6 +57,7 @@
 
     .detail-block {
       padding-bottom: 100px;
+      position: relative;
 
       .img-responsive {
         width: 100%;
@@ -65,7 +66,6 @@
       }
 
       .feature-list {
-        margin-left: 15px;
 
         ul {
           list-style: none;
@@ -98,11 +98,12 @@
       ol {
         list-style: decimal;
         margin-bottom: 30px;
-        margin-left: 15px;
+        margin-left: 20px;
 
         li {
           line-height: 1.6;
           margin-bottom: 1rem;
+          padding-left: 1rem;
         }
       }
 
@@ -168,22 +169,34 @@
 
 @media #{$mobile} {
   #specialized-devices {
+
     .catalog-header {
       margin-top: 30px;
     }
 
     .device-detail {
+
       .detail-block {
         padding-top: 30px;
+
+        .img-responsive {
+          align-self: center;
+        }
+
+        .feature-list {
+          margin-left: 0;
+        }
       }
     }
   }
 }
 @media #{$tablet} {
   #specialized-devices {
+
     .breadcrumb-nav {
       display: block;
     }
+
     .mp-content {
       > li {
         width: 23%;
@@ -195,14 +208,26 @@
 }
 @media #{$desktop} {
   #specialized-devices {
+
     .breadcrumb-nav {
       display: block;
     }
+
     .mp-content {
       > li {
         width: 23%;
         min-width: auto;
         margin: 0 1% 20px;
+      }
+    }
+
+    .device-detail {
+      .detail-block {
+        padding-top: 30px;
+
+        .feature-list {
+          margin-left: 15px;
+        }
       }
     }
   }
