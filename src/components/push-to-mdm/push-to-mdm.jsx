@@ -27,7 +27,11 @@ export class PushToMDM extends React.Component {
     event.preventDefault();
     if(this.props.configuredMDMType){
       this.ariaLiveMessage = 'App submission in progress.';
-      this.props.pushToMDM(this.props.psk);
+      this.props.pushToMDM(this.props.psk).then(() => {
+        /* Must push a non-empty string for live region to recognize a change.
+        This string is not actually announced; it's pre-empted by the alert bar. */
+        this.ariaLiveMessage = 'Done.';
+      });
     } else {
       this.ariaLiveMessage = 'Push to MDM is not available. Configure an MDM to push apps to the system.';
     }
@@ -50,29 +54,27 @@ export class PushToMDM extends React.Component {
         case 'INSTALLED':
           btnClass = 'fn-secondary';
           btnLabel = 'Re-Push to MDM';
-          this.ariaLiveMessage = '';
           break;
         case 'INSTALLED_UPDATABLE':
           //TODO enhancement: customize this case
-          console.log('Update available for app_psk=' + this.props.psk); //xxx
           btnLabel = 'Push to MDM'; //'Update';
-          this.ariaLiveMessage = '';
           break;
         case 'NOT_INSTALLED':
         case 'FAILED':
         default:
           btnLabel = 'Push to MDM';
-          this.ariaLiveMessage = '';
           break;
       }
     }
 
     return (
-      <button id={'pushBtn' + this.props.psk} onClick={this.handleButtonClick} className={`push-button ${btnClass} ${enabled ? '' : 'disabled'}`}>
-        {this.ariaLiveMessage && <span className="sr-only" role="status" aria-live="polite">{this.ariaLiveMessage}</span>}
-        {iconClass && <i className={iconClass} aria-hidden="true"></i>}
-        <span aria-hidden="true" dangerouslySetInnerHTML={{__html: btnLabel}}></span>
-      </button>
+      <div>
+        <span className="sr-only" role="alert" aria-live="assertive">{this.ariaLiveMessage}</span>
+        <button type="button" id={'pushBtn' + this.props.psk} onClick={this.handleButtonClick} className={`push-button ${btnClass} ${enabled ? '' : 'disabled'}`}>
+          {iconClass && <i className={iconClass} aria-hidden="true"></i>}
+          <span aria-hidden="true" dangerouslySetInnerHTML={{__html: btnLabel}}></span>
+        </button>
+      </div>
     );
   }
 }
