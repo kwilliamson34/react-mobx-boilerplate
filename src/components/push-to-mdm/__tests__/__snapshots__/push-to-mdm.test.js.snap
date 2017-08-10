@@ -1,171 +1,203 @@
 exports[`<PushToMDM />  render tests  should match snapshot if configuredMDMType is configured 1`] = `
-<button
-  className="push-button fn-secondary "
-  id="pushBtn12345"
-  onClick={[Function anonymous]}>
+<div>
   <span
     aria-live="assertive"
-    className="sr-only">
-    Re-push app titled The Greatest App in the West to MDM.
+    className="sr-only"
+    role="alert">
+    
   </span>
-  
-  <span
-    aria-hidden="true"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "Re-Push to MDM"
-      }
-    } />
-</button>
+  <button
+    className="push-button fn-secondary "
+    id="pushBtn12345"
+    onClick={[Function anonymous]}
+    type="button">
+    
+    <span
+      aria-hidden="true"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Re-Push to MDM"
+        }
+      } />
+  </button>
+</div>
 `;
 
 exports[`<PushToMDM />  render tests  should match snapshot if configuredMDMType is null 1`] = `
-<button
-  className="push-button fn-primary "
-  id="pushBtn12345"
-  onClick={[Function anonymous]}>
+<div>
   <span
     aria-live="assertive"
-    className="sr-only">
-    Push app titled The Greatest App in the West to MDM.
+    className="sr-only"
+    role="alert">
+    
   </span>
-  
-  <span
-    aria-hidden="true"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "Push to MDM"
-      }
-    } />
-</button>
+  <button
+    className="push-button fn-primary "
+    id="pushBtn12345"
+    onClick={[Function anonymous]}
+    type="button">
+    
+    <span
+      aria-hidden="true"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Push to MDM"
+        }
+      } />
+  </button>
+</div>
 `;
 
 exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match snapshot if appCatalogMDMStatuses is FAILED 1`] = `
-<button
-  className="push-button fn-primary "
-  id="pushBtn12345"
-  onClick={[Function anonymous]}>
+<div>
   <span
     aria-live="assertive"
-    className="sr-only">
-    Push app titled The Greatest App in the West to MDM.
+    className="sr-only"
+    role="alert">
+    
   </span>
-  
-  <span
-    aria-hidden="true"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "Push to MDM"
-      }
-    } />
-</button>
+  <button
+    className="push-button fn-primary "
+    id="pushBtn12345"
+    onClick={[Function anonymous]}
+    type="button">
+    
+    <span
+      aria-hidden="true"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Push to MDM"
+        }
+      } />
+  </button>
+</div>
 `;
 
 exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match snapshot if appCatalogMDMStatuses is INSTALLED 1`] = `
-<button
-  className="push-button fn-secondary "
-  id="pushBtn12345"
-  onClick={[Function anonymous]}>
+<div>
   <span
     aria-live="assertive"
-    className="sr-only">
-    Re-push app titled The Greatest App in the West to MDM.
+    className="sr-only"
+    role="alert">
+    
   </span>
-  
-  <span
-    aria-hidden="true"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "Re-Push to MDM"
-      }
-    } />
-</button>
+  <button
+    className="push-button fn-secondary "
+    id="pushBtn12345"
+    onClick={[Function anonymous]}
+    type="button">
+    
+    <span
+      aria-hidden="true"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Re-Push to MDM"
+        }
+      } />
+  </button>
+</div>
 `;
 
 exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match snapshot if appCatalogMDMStatuses is INSTALLED_UPDATABLE 1`] = `
-<button
-  className="push-button fn-primary "
-  id="pushBtn12345"
-  onClick={[Function anonymous]}>
+<div>
   <span
     aria-live="assertive"
-    className="sr-only">
-    Push app titled The Greatest App in the West to MDM.
+    className="sr-only"
+    role="alert">
+    
   </span>
-  
-  <span
-    aria-hidden="true"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "Push to MDM"
-      }
-    } />
-</button>
+  <button
+    className="push-button fn-primary "
+    id="pushBtn12345"
+    onClick={[Function anonymous]}
+    type="button">
+    
+    <span
+      aria-hidden="true"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Push to MDM"
+        }
+      } />
+  </button>
+</div>
 `;
 
 exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match snapshot if appCatalogMDMStatuses is IN_PROGRESS 1`] = `
-<button
-  className="push-button fn-primary deaden "
-  id="pushBtn12345"
-  onClick={[Function anonymous]}>
+<div>
   <span
     aria-live="assertive"
-    className="sr-only">
-    App submission in progress.
+    className="sr-only"
+    role="alert">
+    
   </span>
-  <i
-    aria-hidden="true"
-    className="icon-reload" />
-  <span
-    aria-hidden="true"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "Submitting&hellip;"
-      }
-    } />
-</button>
+  <button
+    className="push-button fn-primary deaden "
+    id="pushBtn12345"
+    onClick={[Function anonymous]}
+    type="button">
+    <i
+      aria-hidden="true"
+      className="icon-reload" />
+    <span
+      aria-hidden="true"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Submitting&hellip;"
+        }
+      } />
+  </button>
+</div>
 `;
 
 exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match snapshot if appCatalogMDMStatuses is NOT_INSTALLED 1`] = `
-<button
-  className="push-button fn-primary "
-  id="pushBtn12345"
-  onClick={[Function anonymous]}>
+<div>
   <span
     aria-live="assertive"
-    className="sr-only">
-    Push app titled The Greatest App in the West to MDM.
+    className="sr-only"
+    role="alert">
+    
   </span>
-  
-  <span
-    aria-hidden="true"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "Push to MDM"
-      }
-    } />
-</button>
+  <button
+    className="push-button fn-primary "
+    id="pushBtn12345"
+    onClick={[Function anonymous]}
+    type="button">
+    
+    <span
+      aria-hidden="true"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Push to MDM"
+        }
+      } />
+  </button>
+</div>
 `;
 
 exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match snapshot if appCatalogMDMStatuses is PENDING 1`] = `
-<button
-  className="push-button fn-primary deaden "
-  id="pushBtn12345"
-  onClick={[Function anonymous]}>
+<div>
   <span
     aria-live="assertive"
-    className="sr-only">
-    App submission in progress.
+    className="sr-only"
+    role="alert">
+    
   </span>
-  <i
-    aria-hidden="true"
-    className="icon-reload" />
-  <span
-    aria-hidden="true"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "Submitting&hellip;"
-      }
-    } />
-</button>
+  <button
+    className="push-button fn-primary deaden "
+    id="pushBtn12345"
+    onClick={[Function anonymous]}
+    type="button">
+    <i
+      aria-hidden="true"
+      className="icon-reload" />
+    <span
+      aria-hidden="true"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Submitting&hellip;"
+        }
+      } />
+  </button>
+</div>
 `;
