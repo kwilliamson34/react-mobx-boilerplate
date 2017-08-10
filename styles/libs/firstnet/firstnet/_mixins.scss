@@ -3,11 +3,10 @@ $focus-shadow-depth: 1px;
 @mixin focus($borderColor: $focus-lightbg) {
   .show-focus-styles &{
 
-    //changed to red for testing
     outline: none;
     box-shadow:
-      inset 0px 1px 0 0 $fn-red,
-      inset 0px 0px 0 1px $fn-red;
+      inset 0px 1px 0 0 $fn-ltblue,
+      inset 0px 0px 0 1px $fn-ltblue;
 
     &.logo-home-link{
       border-radius: 1px;
@@ -45,6 +44,7 @@ $focus-shadow-depth: 1px;
     }
 
     &.filters-button,
+    &.close_btn,
     &#linkBtn-admin,
     &#linkBtn-networkStatus {
       box-shadow: inset 0px 1px 0 0 $fn-ltblue,

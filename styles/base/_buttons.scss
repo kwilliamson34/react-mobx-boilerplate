@@ -106,11 +106,12 @@ a.skipnav{
 
   &:hover,
   &:active,
+  &:focus,
   &:active:focus {
+    @include focus();
     background: transparent;
     color: $fn-dkgrey;
     font-weight: $fn-bold-weight;
-    box-shadow: none !important;
   }
 }
 
