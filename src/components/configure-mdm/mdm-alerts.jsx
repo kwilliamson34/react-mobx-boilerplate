@@ -30,11 +30,11 @@ export class MDMAlerts extends React.Component {
         {this.props.alertList.map((alert, idx) => {
           if(!this.props.psk || this.props.psk === alert.psk) {
             return (
-              <div role="alert" ref="alert_focus" className={`alert alert-${alert.type}`} key={idx}>
+              <div ref="alert_focus" className={`alert alert-${alert.type}`} key={idx}>
                 <button type="button" className="close_btn icon-close" onClick={this.onCloseButtonClick.bind(this, idx)}>
                   <span className="sr-only">Close alert</span>
                 </button>
-                <p aria-live="assertive">
+                <p role="alert" aria-live="assertive">
                   <strong>{alert.headline}</strong>{alert.message}
                 </p>
               </div>

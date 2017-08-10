@@ -14,6 +14,11 @@ export class PushToMDM extends React.Component {
     appCatalogMDMStatuses: PropTypes.object
   }
 
+  constructor(props) {
+    super(props);
+    this.ariaLiveMessage = '';
+  }
+
   getMDMStatusForAppCatalog = (psk) => {
     return this.props.appCatalogMDMStatuses[psk];
   }
@@ -21,14 +26,16 @@ export class PushToMDM extends React.Component {
   handleButtonClick = (event) => {
     event.preventDefault();
     if(this.props.configuredMDMType){
+      this.ariaLiveMessage = 'App submission in progress.';
       this.props.pushToMDM(this.props.psk);
+    } else {
+      this.ariaLiveMessage = 'Push to MDM is not available. Configure an MDM to push apps to the system.';
     }
   }
 
   render() {
     let enabled = this.props.configuredMDMType !== '';
-    let screenReaderMessage = '';
-    let btnLabel = '';
+    let btnLabel = 'Push to MDM';
     let btnClass = 'fn-primary';
     let iconClass = '';
 
@@ -37,39 +44,33 @@ export class PushToMDM extends React.Component {
         case 'IN_PROGRESS':
         case 'PENDING':
           btnClass = 'fn-primary deaden';
-          screenReaderMessage = 'App submission in progress.';
           iconClass = 'icon-reload';
-          btnLabel = 'Submitting&hellip;'
+          btnLabel = 'Submitting&hellip;';
           break;
         case 'INSTALLED':
           btnClass = 'fn-secondary';
-          screenReaderMessage = `Re-push app titled ${this.props.name} to MDM.`;
           btnLabel = 'Re-Push to MDM';
+          this.ariaLiveMessage = '';
           break;
         case 'INSTALLED_UPDATABLE':
           //TODO enhancement: customize this case
-          console.log('Update available for app_psk=' + this.props.psk);
-          screenReaderMessage = `Push app titled ${this.props.name} to MDM.`; //`Push update for app titled ${this.props.name} to MDM.`;
+          console.log('Update available for app_psk=' + this.props.psk); //xxx
           btnLabel = 'Push to MDM'; //'Update';
+          this.ariaLiveMessage = '';
           break;
         case 'NOT_INSTALLED':
         case 'FAILED':
         default:
-          screenReaderMessage = `Push app titled ${this.props.name} to MDM.`;
           btnLabel = 'Push to MDM';
+          this.ariaLiveMessage = '';
           break;
       }
-    } else {
-      enabled = false;
-      screenReaderMessage = 'Push to MDM is not available. Configure an MDM to push apps to the system.';
-      btnLabel = 'Push to MDM';
     }
-
 
     return (
       <button id={'pushBtn' + this.props.psk} onClick={this.handleButtonClick} className={`push-button ${btnClass} ${enabled ? '' : 'disabled'}`}>
-        <span className="sr-only" aria-live="assertive">{screenReaderMessage}</span>
-        {iconClass ? <i className={iconClass} aria-hidden="true"></i> : ''}
+        {this.ariaLiveMessage && <span className="sr-only" role="status" aria-live="polite">{this.ariaLiveMessage}</span>}
+        {iconClass && <i className={iconClass} aria-hidden="true"></i>}
         <span aria-hidden="true" dangerouslySetInnerHTML={{__html: btnLabel}}></span>
       </button>
     );
