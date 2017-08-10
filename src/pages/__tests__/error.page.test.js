@@ -85,11 +85,11 @@ describe('<ErrorPage />', () => {
       }
     }
 
-    test('3 links take you to other portals', () => {
+    test('3 links take you to other portals, one link logs you out', () => {
       props.cause = 'unauthorized';
       let component = TestUtils.renderIntoDocument(<ErrorPage {...props} />);
       let links = TestUtils.scryRenderedDOMComponentsWithTag(component, 'a');
-      expect(links.length).toBe(3);
+      expect(links.length).toBe(4);
     });
 
     test('Back link takes you back', () => {
@@ -97,7 +97,7 @@ describe('<ErrorPage />', () => {
 
       props.cause = 'pending';
       let component = TestUtils.renderIntoDocument(<ErrorPage {...props} />);
-      let links = TestUtils.scryRenderedDOMComponentsWithTag(component, 'a');
+      let links = TestUtils.scryRenderedDOMComponentsWithTag(component, 'button');
       expect(links.length).toBe(1);
       TestUtils.Simulate.click(links[0]);
 
