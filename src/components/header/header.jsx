@@ -264,7 +264,7 @@ export default class PSEHeader extends React.Component {
 						</strong>
 						<li>
 							<NewTabLink to={this.linkStore.shopStandardDevicesLink} onClick={this.handleExternalTabOpen} showIcon={true}>
-								Rate Plans &amp; Standard Devices
+								Standard Devices &amp; Rate Plans 
 							</NewTabLink>
 						</li>
 						<li>
