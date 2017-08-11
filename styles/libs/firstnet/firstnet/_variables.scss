@@ -16,6 +16,9 @@ $fn-ltbluegrey: #F2F2F2;
 $fn-ltgrey: #FAFAFA;
 $fn-white: #FFFFFF;
 $fn-bordergrey: #d8d8d8;
+$fn-disabledgrey: #707070;
+$fn-admin-red: #b60016;
+$fn-alert-red: #D0011B;
 
 //form colors
 $input-placeholder-color: #d5d5d5 !default;
@@ -70,13 +73,12 @@ $fn-normal-weight: 400 !default;
 $fn-light-weight: 300 !default;
 
 //breakpoint definitions
-$device: "screen and (max-width: #{$screen-sm-max})";
+$device:  "screen and (max-width: #{$screen-sm-max})";
 $desktop: "screen and (min-width: #{$screen-sm-max})";
 $mobile:  "screen and (max-width: #{$screen-xs-max})";
 $tablet:  "screen and (min-width: #{$screen-sm-min}) and (max-width: #{$screen-sm-max})";
 $normal:  "screen and (min-width: #{$screen-md-min}) and (max-width: #{$screen-md-max})";
 $wide:    "screen and (min-width: #{$screen-lg-min})";
-
 
 //cards
 $fn-card-height-tall: 600px !default;
