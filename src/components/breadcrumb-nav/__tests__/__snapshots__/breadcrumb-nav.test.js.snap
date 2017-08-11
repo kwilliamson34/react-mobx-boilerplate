@@ -11,44 +11,56 @@ exports[`<BreadcrumbNav /> renders a breadcrumb of links matches previous snapsh
         <ol>
           <li>
             <a
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Link Level 1"
+                }
+              }
               href="/link1"
               onClick={[Function anonymous]}
-              tabIndex={0}>
-              Link Level 1
-            </a>
+              tabIndex={0} />
             <span
               aria-hidden="true"
               className="icon-arrowRight" />
           </li>
           <li>
             <a
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Link Level 2"
+                }
+              }
               href="/link1/link2"
               onClick={[Function anonymous]}
-              tabIndex={0}>
-              Link Level 2
-            </a>
+              tabIndex={0} />
             <span
               aria-hidden="true"
               className="icon-arrowRight" />
           </li>
           <li>
             <a
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Link Level 3"
+                }
+              }
               href="/link1/link2/link3"
               onClick={[Function anonymous]}
-              tabIndex={0}>
-              Link Level 3
-            </a>
+              tabIndex={0} />
             <span
               aria-hidden="true"
               className="icon-arrowRight" />
           </li>
           <li>
             <a
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Link Level 4"
+                }
+              }
               href="/link1/link2/link3/link4"
               onClick={[Function anonymous]}
-              tabIndex={-1}>
-              Link Level 4
-            </a>
+              tabIndex={-1} />
             <span
               aria-hidden="true"
               className="icon-arrowRight" />

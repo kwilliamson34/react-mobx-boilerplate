@@ -8,7 +8,7 @@ describe('<PushToMDM /> ', () => {
   const props = {
     name: 'The Greatest App in the West',
     psk: '12345',
-    pushToMDM: jest.fn(),
+    pushToMDM: jest.fn().mockReturnValue(Promise.resolve()),
     appCatalogMDMStatuses: {}
   }
 
@@ -41,7 +41,7 @@ describe('<PushToMDM /> ', () => {
       'PENDING',
       'FAILED',
       'INSTALLED',
-      'NEEDS_UPDATE'
+      'INSTALLED_UPDATABLE'
     ];
 
     for (let i = 0; i < possibleMDMStatuses.length; ++i) {
@@ -62,19 +62,12 @@ describe('<PushToMDM /> ', () => {
     test('function should fire on button click', () => {
       props.configuredMDMType = 'airwatch';
       props.appCatalogMDMStatuses[12345] = 'INSTALLED';
-      let pushToMDMComponent = TestUtils.renderIntoDocument(
-        <PushToMDM {...props} />
-      )
+      let component = TestUtils.renderIntoDocument(<PushToMDM {...props} />);
+      let button = TestUtils.findRenderedDOMComponentWithTag(component, 'button');
+      expect(props.pushToMDM).not.toHaveBeenCalled();
 
-      let pushToMDMButton = TestUtils.findRenderedDOMComponentWithTag(
-        pushToMDMComponent, 'button'
-      )
-
-      const functionToWatch = props.pushToMDM;
-      expect(functionToWatch).not.toHaveBeenCalled();
-
-      TestUtils.Simulate.click(pushToMDMButton);
-      expect(functionToWatch).toHaveBeenCalled();
+      TestUtils.Simulate.click(button);
+      expect(props.pushToMDM).toHaveBeenCalled();
 
     });
   });

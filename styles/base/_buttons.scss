@@ -87,6 +87,7 @@ a.skipnav{
   color: $fn-ltblue;
   text-transform: uppercase;
   border: none;
+  outline: none;
   padding: 0 10px;
   text-decoration: none;
 
@@ -104,14 +105,17 @@ a.skipnav{
     }
   }
 
+  &:focus {
+    @include focus();
+  }
+
   &:hover,
   &:active,
-  &:focus,
   &:active:focus {
-    @include focus();
     background: transparent;
     color: $fn-dkgrey;
     font-weight: $fn-bold-weight;
+    box-shadow: none !important;
   }
 }
 
