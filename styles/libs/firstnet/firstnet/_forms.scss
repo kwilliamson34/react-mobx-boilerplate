@@ -155,7 +155,7 @@ select::-ms-value {
     @include sr-only;
 
     &:focus +.cr {
-      margin: 6px 10px 10px 0;
+      margin: 8px 8px 8px 2px;
       @include focus();
     }
   }
