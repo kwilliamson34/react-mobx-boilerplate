@@ -89,7 +89,10 @@ export default class ScrollToTop extends React.Component {
 	}, 50, { leading: false, trailing: true });
 
 	scrollToTopAndFocus() {
-		window.scrollTo(0, 0);
+		$('html, body').animate({
+			scrollTop: 0,
+			scrollLeft: 0
+		}, 500);
 		this.rootAnchor.focus();
 		this.setState({ showBackToTopBtn: false});
 	}
