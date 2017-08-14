@@ -24,7 +24,8 @@
 			margin-bottom: 30px;
 		}
 
-		a {
+		a,
+		.as-link {
 			font-size: $fn-button-desktop;
 		}
 	}
@@ -70,19 +71,26 @@ section.session-timeout {
 	.container {
 		> div {
 			background: $fn-white;
-			padding: 60px 30px;
 			text-align: center;
 
 			h1 {
-				margin-bottom: 20px;
-			}
-
-			p {
-				margin-bottom: 30px;
+				margin-bottom: 40px;
 			}
 
 			a {
 				white-space: nowrap;
+			}
+		}
+	}
+}
+
+@media #{$mobile} {
+	section.session-timeout {
+		padding: 30px 15px 150px 15px;
+
+		.container {
+			> div {
+				padding: 60px 30px;
 			}
 		}
 	}
@@ -103,19 +111,11 @@ section.session-timeout {
 	}
 
 	section.session-timeout {
-		padding-top: 100px;
+		padding: 100px 0 150px 0;
 
 		.container {
 			> div {
 				padding: 80px 100px;
-
-				h1 {
-					margin-bottom: 30px;
-				}
-
-				p {
-					margin-bottom: 60px;
-				}
 			}
 		}
 	}
@@ -125,15 +125,24 @@ section.session-timeout {
 	.error-page {
 		padding: 120px 0;
 
-		.logo-container img{
+		.logo-container img {
 			max-width: 320px;
 		}
 
 		.container {
-			> div{
+			> div {
 				padding: 80px 90px;
 			}
 		}
+	}
 
+	section.session-timeout {
+		padding: 100px 0;
+
+		.container {
+			> div {
+				padding: 80px 30px;
+			}
+		}
 	}
 }

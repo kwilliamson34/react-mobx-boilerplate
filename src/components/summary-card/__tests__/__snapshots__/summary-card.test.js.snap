@@ -9,12 +9,6 @@ exports[`<SummaryCard /> render testing matches snapshot 1`] = `
     <div
       className="">
       <div
-        className="card-badge">
-        <img
-          alt="Endorsed app"
-          src="../../images/fn_badge.svg" />
-      </div>
-      <div
         className="card-logo">
         <img
           alt="app name Logo"

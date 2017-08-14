@@ -33,6 +33,16 @@ $focus-shadow-depth: 1px;
         0 0 10px 0 rgba(0, 0, 0, 0.70);
     }
 
+    &.close_btn {
+      box-shadow:
+        1px 1px 0 0 $fn-white,
+        1px -1px 0 0 $fn-white,
+        -1px 1px 0 0 $fn-white,
+        -1px -1px 0 0 $fn-white,
+        0 0 10px 0 rgba(0, 0, 0, 0.70);
+        border-radius: 8px;
+    }
+
     &.inverse {
       background: transparent;
       box-shadow:

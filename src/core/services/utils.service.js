@@ -35,7 +35,6 @@ class UtilsService {
           isAvailable: obj.isAvailable,
           isRecommended: obj.isRecommended,
           mdm_install_status: obj.mdm_install_status,
-          badge: obj.custom_metadata.app_type === 'ENDORSED',
           platform: obj.platform,
           category: obj.custom_metadata.category,
           user_segment: obj.custom_metadata.user_segment,

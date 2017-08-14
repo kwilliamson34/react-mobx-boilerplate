@@ -26,7 +26,6 @@ describe('<AppDetailBanner /> ', () => {
         version_num: '1.8.2'
       },
       custom_metadata: {
-        app_type: 'ENDORSED',
         release_date: '2017-07-14T15:30:08+00:00'
       }
     },
@@ -49,17 +48,6 @@ describe('<AppDetailBanner /> ', () => {
 
     test('matches snapshot when app is INSTALLED', () => {
       props.appCatalogMDMStatuses[12345] = 'INSTALLED';
-
-      const component = renderer.create(
-        <AppDetailBanner {...props} />
-      )
-
-      let tree = component.toJSON();
-      expect(tree).toMatchSnapshot();
-    });
-
-    test('matches snapshot when app is not ENDORSED', () => {
-      props.data.custom_metadata.app_type = 'BRANDED';
 
       const component = renderer.create(
         <AppDetailBanner {...props} />

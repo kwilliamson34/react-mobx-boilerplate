@@ -52,7 +52,6 @@ describe('UtilsService', () => {
         isAvailable: true,
         isRecommended: false,
         mdm_install_status: 'INSTALLED',
-        badge: true,
         platform: 'ANDROID',
         category: 'category',
         user_segment: 'segment',

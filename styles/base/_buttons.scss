@@ -87,6 +87,7 @@ a.skipnav{
   color: $fn-ltblue;
   text-transform: uppercase;
   border: none;
+  outline: none;
   padding: 0 10px;
   text-decoration: none;
 
@@ -102,6 +103,10 @@ a.skipnav{
       text-decoration: underline;
       outline: none;
     }
+  }
+
+  &:focus {
+    @include focus();
   }
 
   &:hover,

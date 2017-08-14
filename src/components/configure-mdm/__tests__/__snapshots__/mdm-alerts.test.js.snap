@@ -3,10 +3,7 @@ exports[`<MDMAlerts /> renders renders as expected on different pages 1`] = `
   className="alerts-wrapper"
   id="mdm-alerts">
   <div
-    aria-live="assertive"
-    className="alert alert-error"
-    role="alert"
-    tabIndex="0">
+    className="alert alert-error">
     <button
       className="close_btn icon-close"
       onClick={[Function bound ]}
@@ -16,7 +13,9 @@ exports[`<MDMAlerts /> renders renders as expected on different pages 1`] = `
         Close alert
       </span>
     </button>
-    <p>
+    <p
+      aria-live="assertive"
+      role="alert">
       <strong>
         Error: 
       </strong>
@@ -24,10 +23,7 @@ exports[`<MDMAlerts /> renders renders as expected on different pages 1`] = `
     </p>
   </div>
   <div
-    aria-live="assertive"
-    className="alert alert-error"
-    role="alert"
-    tabIndex="0">
+    className="alert alert-error">
     <button
       className="close_btn icon-close"
       onClick={[Function bound ]}
@@ -37,7 +33,9 @@ exports[`<MDMAlerts /> renders renders as expected on different pages 1`] = `
         Close alert
       </span>
     </button>
-    <p>
+    <p
+      aria-live="assertive"
+      role="alert">
       <strong>
         Error: 
       </strong>
@@ -45,10 +43,7 @@ exports[`<MDMAlerts /> renders renders as expected on different pages 1`] = `
     </p>
   </div>
   <div
-    aria-live="assertive"
-    className="alert alert-error"
-    role="alert"
-    tabIndex="0">
+    className="alert alert-error">
     <button
       className="close_btn icon-close"
       onClick={[Function bound ]}
@@ -58,7 +53,9 @@ exports[`<MDMAlerts /> renders renders as expected on different pages 1`] = `
         Close alert
       </span>
     </button>
-    <p>
+    <p
+      aria-live="assertive"
+      role="alert">
       <strong>
         Error: 
       </strong>
@@ -66,10 +63,7 @@ exports[`<MDMAlerts /> renders renders as expected on different pages 1`] = `
     </p>
   </div>
   <div
-    aria-live="assertive"
-    className="alert alert-error"
-    role="alert"
-    tabIndex="0">
+    className="alert alert-error">
     <button
       className="close_btn icon-close"
       onClick={[Function bound ]}
@@ -79,7 +73,9 @@ exports[`<MDMAlerts /> renders renders as expected on different pages 1`] = `
         Close alert
       </span>
     </button>
-    <p>
+    <p
+      aria-live="assertive"
+      role="alert">
       <strong>
         Error: 
       </strong>
@@ -87,10 +83,7 @@ exports[`<MDMAlerts /> renders renders as expected on different pages 1`] = `
     </p>
   </div>
   <div
-    aria-live="assertive"
-    className="alert alert-error"
-    role="alert"
-    tabIndex="0">
+    className="alert alert-error">
     <button
       className="close_btn icon-close"
       onClick={[Function bound ]}
@@ -100,7 +93,9 @@ exports[`<MDMAlerts /> renders renders as expected on different pages 1`] = `
         Close alert
       </span>
     </button>
-    <p>
+    <p
+      aria-live="assertive"
+      role="alert">
       <strong>
         Error: 
       </strong>
@@ -115,10 +110,7 @@ exports[`<MDMAlerts /> renders renders as expected on different pages 2`] = `
   className="alerts-wrapper"
   id="mdm-alerts">
   <div
-    aria-live="assertive"
-    className="alert alert-error"
-    role="alert"
-    tabIndex="0">
+    className="alert alert-error">
     <button
       className="close_btn icon-close"
       onClick={[Function bound ]}
@@ -128,7 +120,9 @@ exports[`<MDMAlerts /> renders renders as expected on different pages 2`] = `
         Close alert
       </span>
     </button>
-    <p>
+    <p
+      aria-live="assertive"
+      role="alert">
       <strong>
         Error: 
       </strong>
@@ -136,10 +130,7 @@ exports[`<MDMAlerts /> renders renders as expected on different pages 2`] = `
     </p>
   </div>
   <div
-    aria-live="assertive"
-    className="alert alert-error"
-    role="alert"
-    tabIndex="0">
+    className="alert alert-error">
     <button
       className="close_btn icon-close"
       onClick={[Function bound ]}
@@ -149,7 +140,9 @@ exports[`<MDMAlerts /> renders renders as expected on different pages 2`] = `
         Close alert
       </span>
     </button>
-    <p>
+    <p
+      aria-live="assertive"
+      role="alert">
       <strong>
         Error: 
       </strong>
@@ -157,10 +150,7 @@ exports[`<MDMAlerts /> renders renders as expected on different pages 2`] = `
     </p>
   </div>
   <div
-    aria-live="assertive"
-    className="alert alert-error"
-    role="alert"
-    tabIndex="0">
+    className="alert alert-error">
     <button
       className="close_btn icon-close"
       onClick={[Function bound ]}
@@ -170,7 +160,9 @@ exports[`<MDMAlerts /> renders renders as expected on different pages 2`] = `
         Close alert
       </span>
     </button>
-    <p>
+    <p
+      aria-live="assertive"
+      role="alert">
       <strong>
         Error: 
       </strong>
@@ -178,10 +170,7 @@ exports[`<MDMAlerts /> renders renders as expected on different pages 2`] = `
     </p>
   </div>
   <div
-    aria-live="assertive"
-    className="alert alert-error"
-    role="alert"
-    tabIndex="0">
+    className="alert alert-error">
     <button
       className="close_btn icon-close"
       onClick={[Function bound ]}
@@ -191,7 +180,9 @@ exports[`<MDMAlerts /> renders renders as expected on different pages 2`] = `
         Close alert
       </span>
     </button>
-    <p>
+    <p
+      aria-live="assertive"
+      role="alert">
       <strong>
         Error: 
       </strong>
@@ -199,10 +190,7 @@ exports[`<MDMAlerts /> renders renders as expected on different pages 2`] = `
     </p>
   </div>
   <div
-    aria-live="assertive"
-    className="alert alert-error"
-    role="alert"
-    tabIndex="0">
+    className="alert alert-error">
     <button
       className="close_btn icon-close"
       onClick={[Function bound ]}
@@ -212,7 +200,9 @@ exports[`<MDMAlerts /> renders renders as expected on different pages 2`] = `
         Close alert
       </span>
     </button>
-    <p>
+    <p
+      aria-live="assertive"
+      role="alert">
       <strong>
         Error: 
       </strong>
@@ -227,10 +217,7 @@ exports[`<MDMAlerts /> renders renders as expected on different pages 3`] = `
   className="alerts-wrapper"
   id="mdm-alerts">
   <div
-    aria-live="assertive"
-    className="alert alert-error"
-    role="alert"
-    tabIndex="0">
+    className="alert alert-error">
     <button
       className="close_btn icon-close"
       onClick={[Function bound ]}
@@ -240,7 +227,9 @@ exports[`<MDMAlerts /> renders renders as expected on different pages 3`] = `
         Close alert
       </span>
     </button>
-    <p>
+    <p
+      aria-live="assertive"
+      role="alert">
       <strong>
         Error: 
       </strong>
@@ -248,10 +237,7 @@ exports[`<MDMAlerts /> renders renders as expected on different pages 3`] = `
     </p>
   </div>
   <div
-    aria-live="assertive"
-    className="alert alert-error"
-    role="alert"
-    tabIndex="0">
+    className="alert alert-error">
     <button
       className="close_btn icon-close"
       onClick={[Function bound ]}
@@ -261,7 +247,9 @@ exports[`<MDMAlerts /> renders renders as expected on different pages 3`] = `
         Close alert
       </span>
     </button>
-    <p>
+    <p
+      aria-live="assertive"
+      role="alert">
       <strong>
         Error: 
       </strong>
@@ -269,10 +257,7 @@ exports[`<MDMAlerts /> renders renders as expected on different pages 3`] = `
     </p>
   </div>
   <div
-    aria-live="assertive"
-    className="alert alert-error"
-    role="alert"
-    tabIndex="0">
+    className="alert alert-error">
     <button
       className="close_btn icon-close"
       onClick={[Function bound ]}
@@ -282,7 +267,9 @@ exports[`<MDMAlerts /> renders renders as expected on different pages 3`] = `
         Close alert
       </span>
     </button>
-    <p>
+    <p
+      aria-live="assertive"
+      role="alert">
       <strong>
         Error: 
       </strong>
@@ -290,10 +277,7 @@ exports[`<MDMAlerts /> renders renders as expected on different pages 3`] = `
     </p>
   </div>
   <div
-    aria-live="assertive"
-    className="alert alert-error"
-    role="alert"
-    tabIndex="0">
+    className="alert alert-error">
     <button
       className="close_btn icon-close"
       onClick={[Function bound ]}
@@ -303,7 +287,9 @@ exports[`<MDMAlerts /> renders renders as expected on different pages 3`] = `
         Close alert
       </span>
     </button>
-    <p>
+    <p
+      aria-live="assertive"
+      role="alert">
       <strong>
         Error: 
       </strong>
@@ -311,10 +297,7 @@ exports[`<MDMAlerts /> renders renders as expected on different pages 3`] = `
     </p>
   </div>
   <div
-    aria-live="assertive"
-    className="alert alert-error"
-    role="alert"
-    tabIndex="0">
+    className="alert alert-error">
     <button
       className="close_btn icon-close"
       onClick={[Function bound ]}
@@ -324,7 +307,9 @@ exports[`<MDMAlerts /> renders renders as expected on different pages 3`] = `
         Close alert
       </span>
     </button>
-    <p>
+    <p
+      aria-live="assertive"
+      role="alert">
       <strong>
         Error: 
       </strong>
@@ -345,10 +330,7 @@ exports[`<MDMAlerts /> renders renders with zero, one, and many alerts 2`] = `
   className="alerts-wrapper"
   id="mdm-alerts">
   <div
-    aria-live="assertive"
-    className="alert alert-error"
-    role="alert"
-    tabIndex="0">
+    className="alert alert-error">
     <button
       className="close_btn icon-close"
       onClick={[Function bound ]}
@@ -358,7 +340,9 @@ exports[`<MDMAlerts /> renders renders with zero, one, and many alerts 2`] = `
         Close alert
       </span>
     </button>
-    <p>
+    <p
+      aria-live="assertive"
+      role="alert">
       <strong>
         Error: 
       </strong>
@@ -373,10 +357,7 @@ exports[`<MDMAlerts /> renders renders with zero, one, and many alerts 3`] = `
   className="alerts-wrapper"
   id="mdm-alerts">
   <div
-    aria-live="assertive"
-    className="alert alert-error"
-    role="alert"
-    tabIndex="0">
+    className="alert alert-error">
     <button
       className="close_btn icon-close"
       onClick={[Function bound ]}
@@ -386,7 +367,9 @@ exports[`<MDMAlerts /> renders renders with zero, one, and many alerts 3`] = `
         Close alert
       </span>
     </button>
-    <p>
+    <p
+      aria-live="assertive"
+      role="alert">
       <strong>
         Error: 
       </strong>
@@ -394,10 +377,7 @@ exports[`<MDMAlerts /> renders renders with zero, one, and many alerts 3`] = `
     </p>
   </div>
   <div
-    aria-live="assertive"
-    className="alert alert-error"
-    role="alert"
-    tabIndex="0">
+    className="alert alert-error">
     <button
       className="close_btn icon-close"
       onClick={[Function bound ]}
@@ -407,7 +387,9 @@ exports[`<MDMAlerts /> renders renders with zero, one, and many alerts 3`] = `
         Close alert
       </span>
     </button>
-    <p>
+    <p
+      aria-live="assertive"
+      role="alert">
       <strong>
         Error: 
       </strong>
@@ -415,10 +397,7 @@ exports[`<MDMAlerts /> renders renders with zero, one, and many alerts 3`] = `
     </p>
   </div>
   <div
-    aria-live="assertive"
-    className="alert alert-error"
-    role="alert"
-    tabIndex="0">
+    className="alert alert-error">
     <button
       className="close_btn icon-close"
       onClick={[Function bound ]}
@@ -428,7 +407,9 @@ exports[`<MDMAlerts /> renders renders with zero, one, and many alerts 3`] = `
         Close alert
       </span>
     </button>
-    <p>
+    <p
+      aria-live="assertive"
+      role="alert">
       <strong>
         Error: 
       </strong>
@@ -436,10 +417,7 @@ exports[`<MDMAlerts /> renders renders with zero, one, and many alerts 3`] = `
     </p>
   </div>
   <div
-    aria-live="assertive"
-    className="alert alert-error"
-    role="alert"
-    tabIndex="0">
+    className="alert alert-error">
     <button
       className="close_btn icon-close"
       onClick={[Function bound ]}
@@ -449,7 +427,9 @@ exports[`<MDMAlerts /> renders renders with zero, one, and many alerts 3`] = `
         Close alert
       </span>
     </button>
-    <p>
+    <p
+      aria-live="assertive"
+      role="alert">
       <strong>
         Error: 
       </strong>
@@ -457,10 +437,7 @@ exports[`<MDMAlerts /> renders renders with zero, one, and many alerts 3`] = `
     </p>
   </div>
   <div
-    aria-live="assertive"
-    className="alert alert-error"
-    role="alert"
-    tabIndex="0">
+    className="alert alert-error">
     <button
       className="close_btn icon-close"
       onClick={[Function bound ]}
@@ -470,7 +447,9 @@ exports[`<MDMAlerts /> renders renders with zero, one, and many alerts 3`] = `
         Close alert
       </span>
     </button>
-    <p>
+    <p
+      aria-live="assertive"
+      role="alert">
       <strong>
         Error: 
       </strong>

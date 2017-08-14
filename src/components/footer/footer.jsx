@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {observer,inject} from 'mobx-react';
+import config from 'config';
 
 import NewTabLink from '../link/new-tab-link';
 
@@ -55,7 +56,7 @@ export default class Footer extends React.Component {
 									<Link to="/admin/manage-apps">Manage Apps</Link>
 								</li>
 								<li role="presentation">
-									<Link to="/admin/devices">Specialized Device Catalog</Link>
+									<Link to="/admin/devices">Specialized Devices</Link>
 								</li>
 								<li role="presentation">
 									<Link to="/admin/solutions">Public Safety Solutions </Link>
@@ -74,21 +75,21 @@ export default class Footer extends React.Component {
 
 	renderFirstNetColumn() {
 		return (
-			<div className="col-xs-12 col-md-3">
+			<div className={`col-xs-12  ${this.headerStore.showInternalLinks ? 'col-md-3' : 'col-md-4'}`}>
 				<nav aria-describedby="firstnet-sites">
 					<h2 id="firstnet-sites">Firstnet Sites</h2>
-					<ul>
+					<ul >
 						<li role="presentation">
-							<NewTabLink to={this.externalLinkStore.firstnetCom}>FirstNet.com</NewTabLink>
+							<NewTabLink to={config.firstnetCom}>FirstNet.com</NewTabLink>
 						</li>
 						<li role="presentation">
-							<NewTabLink to={this.externalLinkStore.devPortal}>Developer Portal</NewTabLink>
+							<NewTabLink to={config.devPortal}>Developer Portal</NewTabLink>
 						</li>
 						<li role="presentation">
-							<NewTabLink to={this.externalLinkStore.appControl}>App Control</NewTabLink>
+							<NewTabLink to={config.appControl}>App Control</NewTabLink>
 						</li>
 						<li role="presentation">
-							<NewTabLink to={this.externalLinkStore.appStore}>App Store</NewTabLink>
+							<NewTabLink to={config.appStore}>App Store</NewTabLink>
 						</li>
 					</ul>
 				</nav>
@@ -98,7 +99,7 @@ export default class Footer extends React.Component {
 
 	renderSocialLinkColumn() {
 		return (
-			<div className="col-xs-12 col-md-3">
+			<div className={`col-xs-12  ${this.headerStore.showInternalLinks ? 'col-md-3' : 'col-md-4'}`}>
 				<nav className="social-nav" aria-describedby="social-links">
 					<h2 id="social-links">Follow Us</h2>
 					<ul className="social-links-list">
@@ -140,7 +141,7 @@ export default class Footer extends React.Component {
 
 	renderHelpColumn() {
 		return (
-			<div className={`col-xs-12  ${this.props.showInternalLinks ? 'col-md-3' : 'col-md-6'}`}>
+			<div className={`col-xs-12  ${this.props.showInternalLinks ? 'col-md-3' : 'col-md-4'}`}>
 				<nav aria-describedby="helpLinks">
 					<h2 id="helpLinks" className="help-hdr">Help</h2>
 					<ul className="help-link-block">
@@ -155,7 +156,7 @@ export default class Footer extends React.Component {
 							</li>
 						}
 						<li role="presentation">
-							FirstNet Customer Svc:<br className="visible-xs-inline-block visible-md-inline-block" />&nbsp;
+							FirstNet Customer Svc:<br className={`visible-xs-inline-block visible-md-inline-block ${this.props.showInternalLinks ? '' : 'visible-lg-inline-block'}`} />
 							<a href={'tel:' + this.headerStore.ATTSupportPhone}>
 								<phone><i className="icon-phone-number footer-support-phone" aria-hidden='true'></i>
 									<span className="sr-only">Call&nbsp;</span>
@@ -189,7 +190,7 @@ export default class Footer extends React.Component {
 						</NewTabLink>
 					</li>
 					<li role="presentation">
-						<NewTabLink to={this.externalLinkStore.firstnetGov}>
+						<NewTabLink to={config.firstnetGov}>
 							FirstNet.gov
 						</NewTabLink>
 					</li>

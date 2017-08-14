@@ -15,7 +15,6 @@ describe('<CardList />', () => {
       publisher: 'PUBLISHER ERROR',
       imageUrl: '../../images/app-icon.png',
       rating: 0,
-      badge: '',
       platform: '',
     },
     events: {

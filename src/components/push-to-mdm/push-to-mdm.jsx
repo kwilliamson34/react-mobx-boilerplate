@@ -14,6 +14,11 @@ export class PushToMDM extends React.Component {
     appCatalogMDMStatuses: PropTypes.object
   }
 
+  constructor(props) {
+    super(props);
+    this.ariaLiveMessage = '';
+  }
+
   getMDMStatusForAppCatalog = (psk) => {
     return this.props.appCatalogMDMStatuses[psk];
   }
@@ -21,56 +26,55 @@ export class PushToMDM extends React.Component {
   handleButtonClick = (event) => {
     event.preventDefault();
     if(this.props.configuredMDMType){
-      this.props.pushToMDM(this.props.psk);
+      this.ariaLiveMessage = 'App submission in progress.';
+      this.props.pushToMDM(this.props.psk).then(() => {
+        /* Must push a non-empty string for live region to recognize a change.
+        This string is not actually announced; it's pre-empted by the alert bar. */
+        this.ariaLiveMessage = 'Done.';
+      });
+    } else {
+      this.ariaLiveMessage = 'Push to MDM is not available. Configure an MDM to push apps to the system.';
     }
   }
 
   render() {
-    let status = this.props.configuredMDMType ? this.getMDMStatusForAppCatalog(this.props.psk) : null;
-    let disabled = !this.props.configuredMDMType;
-    let screenReaderMessage = '';
-    let btnLabel = null;
-    let btnClass ='fn-primary';
-    let icon = '';
+    let enabled = this.props.configuredMDMType !== '';
+    let btnLabel = 'Push to MDM';
+    let btnClass = 'fn-primary';
+    let iconClass = '';
 
-    switch(status) {
-      case 'NOT_INSTALLED':
-        screenReaderMessage = `Push ${this.props.name} to MDM`;
-        btnLabel = 'Push to MDM';
-        break;
-      case 'IN_PROGRESS':
-      case 'PENDING':
-        btnClass = 'fn-primary deaden';
-        screenReaderMessage = 'Submitting the app to MDM.';
-        icon = (<i className="icon-reload"></i>);
-        btnLabel = 'Submitting&hellip;'
-        break;
-      case 'FAILED':
-        screenReaderMessage = 'This app failed to push to MDM. Click again to re-push.';
-        btnLabel = 'Push to MDM';
-        break;
-      case 'INSTALLED':
-        btnClass = 'fn-secondary';
-        screenReaderMessage = 'This app has already been pushed to MDM. Click to re-push.';
-        btnLabel = 'Re-Push to MDM';
-        break;
-      case 'NEEDS_UPDATE':
-        screenReaderMessage = 'This app has been pushed to MDM and has an available update. Click to push the update.';
-        btnLabel = 'Update';
-        break;
-      default:
-        disabled = true;
-        screenReaderMessage = 'Push to MDM is not available. Configure an MDM to push apps to the system.';
-        btnLabel = 'Push to MDM';
-        break;
+    if(enabled) {
+      switch(this.getMDMStatusForAppCatalog(this.props.psk)) {
+        case 'IN_PROGRESS':
+        case 'PENDING':
+          btnClass = 'fn-primary deaden';
+          iconClass = 'icon-reload';
+          btnLabel = 'Submitting&hellip;';
+          break;
+        case 'INSTALLED':
+          btnClass = 'fn-secondary';
+          btnLabel = 'Re-Push to MDM';
+          break;
+        case 'INSTALLED_UPDATABLE':
+          //TODO enhancement: customize this case
+          btnLabel = 'Push to MDM'; //'Update';
+          break;
+        case 'NOT_INSTALLED':
+        case 'FAILED':
+        default:
+          btnLabel = 'Push to MDM';
+          break;
+      }
     }
 
     return (
-      <button id={'pushBtn' + this.props.psk} onClick={this.handleButtonClick} aria-disabled={disabled} className={`push-button ${btnClass}`}>
-        <span className="sr-only">{screenReaderMessage}</span>
-        {icon}
-        <span aria-hidden="true" dangerouslySetInnerHTML={{__html: btnLabel}}></span>
-      </button>
+      <div>
+        <span className="sr-only" role="alert" aria-live="assertive">{this.ariaLiveMessage}</span>
+        <button type="button" id={'pushBtn' + this.props.psk} onClick={this.handleButtonClick} className={`push-button ${btnClass} ${enabled ? '' : 'disabled'}`}>
+          {iconClass && <i className={iconClass} aria-hidden="true"></i>}
+          <span aria-hidden="true" dangerouslySetInnerHTML={{__html: btnLabel}}></span>
+        </button>
+      </div>
     );
   }
 }

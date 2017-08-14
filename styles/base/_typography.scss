@@ -22,7 +22,8 @@ caption {
   color: $fn-dkgrey;
 }
 
-a{
+a,
+.as-link {
   color: $active-link-color;
   text-decoration: none;
   font-weight: $fn-medium-weight;
@@ -32,7 +33,7 @@ a{
     text-decoration: underline;
   }
 
-  &:focus{
+  &:focus {
     outline: none;
   }
 
@@ -43,19 +44,8 @@ a{
 }
 
 .as-link {
-  color: $active-link-color;
-  text-decoration: none;
-  font-weight: $fn-medium-weight;
-
-  &.hover,
-  &:hover {
-    color: $active-link-color;
-    text-decoration: underline;
-  }
-
-  &:focus{
-    outline: none;
-  }
+  border: none;
+  background: transparent;
 
   &.active,
   &:active,
@@ -64,9 +54,9 @@ a{
     box-shadow: none;
   }
 
-  &.visited,
-  &:visited {
+  &:focus {
     color: $inactive-link-color;
+    text-decoration: underline;
   }
 }
 //color variations

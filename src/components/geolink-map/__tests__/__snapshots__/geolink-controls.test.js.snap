@@ -6,7 +6,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
     <div
       className="row is-flex">
       <div
-        className="col-xs-12 col-sm-offset-1 col-sm-6 col-md-offset-0 col-md-4 map-search">
+        className="col-xs-12 col-sm-8 col-md-4 map-search">
         <h2
           className="as-h5">
           Search
@@ -239,7 +239,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
     <div
       className="row">
       <div
-        className="legend-divider col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-12">
+        className="legend-divider col-xs-12">
         <hr />
         <div
           className="visible-xs-inline">
@@ -272,7 +272,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
     <div
       className="row is-flex">
       <div
-        className="col-xs-12 col-sm-offset-1 col-sm-10 visible-xs-inline visible-sm-inline">
+        className="col-xs-12 visible-xs-inline visible-sm-inline">
         <div>
           <span
             className="visible-sm-inline">
@@ -335,7 +335,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
         </div>
       </div>
       <div
-        className="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-6">
+        className="col-xs-12 col-md-6">
         <div>
           <h2
             className="as-h5">
@@ -373,7 +373,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
         </div>
       </div>
       <div
-        className="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-6">
+        className="col-xs-12 col-md-6">
         <div>
           <h2
             className="as-h5">
@@ -444,7 +444,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
     <div
       className="row is-flex">
       <div
-        className="col-xs-12 col-sm-offset-1 col-sm-6 col-md-offset-0 col-md-4 map-search">
+        className="col-xs-12 col-sm-8 col-md-4 map-search">
         <h2
           className="as-h5">
           Search
@@ -677,7 +677,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
     <div
       className="row">
       <div
-        className="legend-divider col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-12">
+        className="legend-divider col-xs-12">
         <hr />
         <div
           className="visible-xs-inline">
@@ -710,7 +710,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
     <div
       className="row is-flex">
       <div
-        className="col-xs-12 col-sm-offset-1 col-sm-10 visible-xs-inline visible-sm-inline">
+        className="col-xs-12 visible-xs-inline visible-sm-inline">
         <div>
           <span
             className="visible-sm-inline">
@@ -773,7 +773,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
         </div>
       </div>
       <div
-        className="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-6">
+        className="col-xs-12 col-md-6">
         <div>
           <h2
             className="as-h5">
@@ -811,7 +811,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
         </div>
       </div>
       <div
-        className="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-6">
+        className="col-xs-12 col-md-6">
         <div>
           <h2
             className="as-h5">
@@ -882,7 +882,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
     <div
       className="row is-flex">
       <div
-        className="col-xs-12 col-sm-offset-1 col-sm-6 col-md-offset-0 col-md-4 map-search">
+        className="col-xs-12 col-sm-8 col-md-4 map-search">
         <h2
           className="as-h5">
           Search
@@ -1115,7 +1115,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
     <div
       className="row">
       <div
-        className="legend-divider col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-12">
+        className="legend-divider col-xs-12">
         <hr />
         <div
           className="visible-xs-inline">
@@ -1148,7 +1148,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
     <div
       className="row is-flex">
       <div
-        className="col-xs-12 col-sm-offset-1 col-sm-10 visible-xs-inline visible-sm-inline">
+        className="col-xs-12 visible-xs-inline visible-sm-inline">
         <div>
           <span
             className="visible-sm-inline">
@@ -1211,7 +1211,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
         </div>
       </div>
       <div
-        className="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-6">
+        className="col-xs-12 col-md-6">
         <div>
           <h2
             className="as-h5">
@@ -1249,7 +1249,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
         </div>
       </div>
       <div
-        className="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-6">
+        className="col-xs-12 col-md-6">
         <div>
           <h2
             className="as-h5">

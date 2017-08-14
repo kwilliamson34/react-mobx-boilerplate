@@ -19,7 +19,7 @@ export default class BreadcrumbNav extends React.Component {
                   let displayAsLink = idx < this.props.links.length - 1;
                   return (
                     <li key={idx}>
-                      <Link to={crumb.pageHref} tabIndex={displayAsLink ? 0 : -1}>{crumb.pageTitle}</Link>
+                      <Link to={crumb.pageHref} tabIndex={displayAsLink ? 0 : -1} dangerouslySetInnerHTML={{__html: crumb.pageTitle}}></Link>
                       <span className="icon-arrowRight" aria-hidden="true"></span>
                     </li>
                   )

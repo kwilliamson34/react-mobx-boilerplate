@@ -16,7 +16,6 @@ export class SummaryCard extends React.Component {
       imageUrl: PropTypes.string,
       rating: PropTypes.number,
       reviews_count: PropTypes.number,
-      badge: PropTypes.bool,
       app_psk: PropTypes.string,
       platform: PropTypes.oneOf(['', 'NONE', 'IOS', 'ANDROID'])
     }).isRequired,
@@ -30,7 +29,6 @@ export class SummaryCard extends React.Component {
       publisher: 'PUBLISHER ERROR',
       imageUrl: '../../images/app-icon.png',
       rating: 0,
-      badge: '',
       platform: ''
     }
   }
@@ -49,11 +47,6 @@ export class SummaryCard extends React.Component {
       <div className="card-wrapper" ref="div">
         <Link to={'/app/' + this.props.display.app_psk} id={'appCard' + this.props.display.app_psk} className={cardClass}>
           <div className="">
-            {this.props.display.badge && (
-              <div className="card-badge">
-                <img src='../../images/fn_badge.svg' alt="Endorsed app"/>
-              </div>
-            )}
             <div className="card-logo">
               <img src={this.props.display.imageUrl} alt={this.props.display.name + ' Logo'}/>
             </div>

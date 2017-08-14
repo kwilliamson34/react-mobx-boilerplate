@@ -1,7 +1,6 @@
 #purchasing-info {
 
   h2 {
-    font-size: 36px;
     font-weight: $fn-normal-weight;
     margin-top: 30px;
     padding-bottom: 25px;
@@ -35,6 +34,8 @@
 
 @media #{$mobile} {
   #purchasing-info {
+    margin-left: 5px;
+
     .purchase-options-list {
       strong {
         width: 130px;
@@ -45,6 +46,8 @@
 
 @media #{$tablet} {
   #purchasing-info {
+    margin-left: 0px;
+
     .purchase-options-list {
       strong {
         width: 130px;
