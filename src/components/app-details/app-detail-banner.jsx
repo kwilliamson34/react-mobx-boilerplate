@@ -83,14 +83,6 @@ export class AppDetailBanner extends React.Component {
     )
   }
 
-  endorsement() {
-    if (this.data.custom_metadata.app_type === 'ENDORSED') {
-      return (
-        <div className="endorsed app-details">FirstNet Endorsed</div>
-      )
-    }
-  }
-
   author() {
     return <div className="publisher app-details">{this.data.custom_metadata.author}</div>
   }
@@ -101,7 +93,6 @@ export class AppDetailBanner extends React.Component {
         {/*Mobile*/}
         <div className="col-xs-12 hidden-sm hidden-md hidden-lg">
           {this.author()}
-          {this.endorsement()}
           {this.details()}
         </div>
 
@@ -109,7 +100,6 @@ export class AppDetailBanner extends React.Component {
         <div className="hidden-xs hidden-md hidden-lg">
           <div className="col-sm-4">
             {this.author()}
-            {this.endorsement()}
             {this.rating()}
           </div>
           <div className="col-sm-4">
@@ -127,7 +117,6 @@ export class AppDetailBanner extends React.Component {
           </div>
           <div className="col-md-4">
             {this.author()}
-            {this.endorsement()}
             {this.rating()}
           </div>
           <div className="col-md-4">
