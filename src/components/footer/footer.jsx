@@ -75,7 +75,7 @@ export default class Footer extends React.Component {
 
 	renderFirstNetColumn() {
 		return (
-			<div className={`col-xs-12  ${this.headerStore.showInternalLinks ? 'col-md-3' : 'col-md-4'}`}>
+			<div className={`col-xs-12 ${this.props.showInternalLinks ? 'col-md-3' : 'col-md-4'}`}>
 				<nav aria-describedby="firstnet-sites">
 					<h2 id="firstnet-sites">Firstnet Sites</h2>
 					<ul >
@@ -99,7 +99,7 @@ export default class Footer extends React.Component {
 
 	renderSocialLinkColumn() {
 		return (
-			<div className={`col-xs-12  ${this.headerStore.showInternalLinks ? 'col-md-3' : 'col-md-4'}`}>
+			<div className={`col-xs-12 ${this.props.showInternalLinks ? 'col-md-3' : 'col-md-4'}`}>
 				<nav className="social-nav" aria-describedby="social-links">
 					<h2 id="social-links">Follow Us</h2>
 					<ul className="social-links-list">
@@ -141,7 +141,7 @@ export default class Footer extends React.Component {
 
 	renderHelpColumn() {
 		return (
-			<div className={`col-xs-12  ${this.props.showInternalLinks ? 'col-md-3' : 'col-md-4'}`}>
+			<div className={`col-xs-12 ${this.props.showInternalLinks ? 'col-md-3' : 'col-md-4'}`}>
 				<nav aria-describedby="helpLinks">
 					<h2 id="helpLinks" className="help-hdr">Help</h2>
 					<ul className="help-link-block">
