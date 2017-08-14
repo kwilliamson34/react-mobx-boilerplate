@@ -144,14 +144,6 @@
         "category": "Manage Apps"
       },
       {
-        "question": "What does FirstNet Certified mean?",
-        "answer": "<p>FirstNet branded apps are those that carry the FirstNet brand/name – these apps go through the most rigorous performance and security tests. FirstNet endorsed apps are created by non-FirstNet entities, but have passed such high levels of performance and security tests that they receive the FirstNet seal of approval. </p><p>General apps are created by members of the general public, and must go through security and basic performance tests prior to their release on the FirstNet App Store. Government apps undergo similar testing to general apps, but were created by government entities.</p>",
-        "id": 21,
-        "maxStringLength": 320,
-        "category": "Manage Apps"
-      },
-
-      {
         "question": "What is an MDM?",
         "answer": "<p>Mobile device management (MDM) solutions are used for the administration of mobile devices, such as smartphones, tablet computers, laptops, and desktop computers. Some PSEs may opt to manage distribution of apps through a third-party MDM solution. If users have an MDM account, Local Control allows users to push apps to that MDM.  The MDM solutions supported by FirstNet are AirWatch, MobileIron, and IBM MaaS360.</p>",
         "id": 22,
