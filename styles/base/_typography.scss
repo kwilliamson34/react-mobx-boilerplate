@@ -2,16 +2,6 @@ body {
   font-size: 1.4rem;
 }
 
-p {
-  font-size: $fn-content-page-text-desktop;
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-
-  &.intro {
-    font-size: $fn-intro-desktop;
-  }
-}
-
 caption,
 p.disclaimer {
   font-size: $fn-small-text-desktop;

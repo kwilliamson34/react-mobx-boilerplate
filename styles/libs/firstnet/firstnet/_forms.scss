@@ -1,5 +1,35 @@
+.form-group {
+  margin-top: 1em;
+  margin-bottom: 15px;
+}
+
+.form-group-title {
+  font-size: $fn-label-desktop;
+  text-transform: uppercase;
+  padding-left: 10px;
+  font-weight: $fn-bold-weight;
+  line-height: 2;
+}
+
+.as-label,
+.control-label,
+label,
+legend {
+  font-size: $fn-label-desktop;
+  line-height: 2;
+  padding-left: 10px;
+  padding-bottom: 5px;
+  font-weight: $fn-bold-weight;
+}
+
+.required-asterisks {
+  color: $fn-alert-red;
+}
+
 .form-control {
   border-radius: 4px;
+  line-height: 48px;
+  height: 48px;
 
   &:focus {
     @include focus();
@@ -9,6 +39,7 @@
 
 .form-control,
 input[type='text'],
+select,
 textarea {
   font-size: $fn-label-desktop;
   font-weight: $fn-medium-weight;
@@ -35,61 +66,62 @@ textarea {
 .form-control[disabled],
 input[disabled],
 textarea[disabled] {
+  font-weight: $fn-medium-weight;
   background: white;
   border-color: $input-outline-disabled;
   color: $input-outline-disabled;
+
   label {
     color: $input-outline-disabled;
   }
 }
 
-.help-text,
-.help-block {
+.help-block,
+.help-text {
   color: $fn-mdgrey;
   font-size: $fn-small-text-desktop;
   text-transform: none;
   font-style: italic;
 }
 
+.control-label .help-text {
+  padding-left: 10px;
+}
+
 select {
   &.form-control {
     position: relative;
     display: block;
-    line-height: 40px;
-    height: 40px;
     width: 100%;
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
-    border: 1px solid #ccc;
+    border: 1px solid $input-outline;
     padding: 0 0.75em;
     color: black;
-    font-weight: $fn-bold-weight;
-    background: $fn-ltgrey url('/images/DownArrow.svg') no-repeat;
+    font-weight: $fn-medium-weight;
+    background: $fn-ltgrey url('/images/down-arrow.svg') no-repeat;
     background-size: 14px 14px;
     background-position: 95% 48%;
   }
 }
-
-.form-group {
-  margin-top: 1em;
-  margin-bottom: 15px;
-
-  .control-label {
-    font-weight: $fn-bold-weight;
-    font-size: $fn-label-desktop;
-    margin-bottom: 5px;
-    text-transform: uppercase;
-    padding-left: 10px;
-
-    .help-text {
-      padding-left: 10px;
-    }
-  }
+/* Remove native caret from select menu in IE */
+select::-ms-expand {
+  display: none;
 }
-
-legend {
-  font-size: $fn-label-desktop;
+/* Remove blue highlight from select menu in IE */
+select::-ms-value {
+  background: transparent;
+  color: $fn-black;
+}
+/* Remove dotted outline from select menu in Firefox */
+@-moz-document url-prefix() {
+  select,
+  select:-moz-focusring,
+  select::-moz-focus-inner {
+    color: transparent !important;
+    text-shadow: 0 0 0 #000 !important;
+  }
 }
 
 .checkbox,
@@ -98,6 +130,7 @@ legend {
 
   label {
     font-size: $fn-label-desktop;
+    font-weight: $fn-medium-weight;
     line-height: 32px;
     min-height: 32px;
     padding-left: 20px;
@@ -117,11 +150,12 @@ legend {
     margin: 8px 8px 8px 2px;
   }
   //keyboard-only fallback
-  input[type="radio"],
-  input[type="checkbox"] {
+  input[type="checkbox"],
+  input[type="radio"] {
     @include sr-only;
+
     &:focus +.cr {
-      margin: 6px 10px 10px 0;
+      margin: 8px 8px 8px 2px;
       @include focus();
     }
   }
@@ -169,8 +203,8 @@ legend {
       background-position: 0 0;
     }
 
-    &:disabled,
-    &.disabled {
+    &.disabled,
+    &:disabled {
       &+ .cr {
         background: url('/images/chkbox-disabled.svg') no-repeat;
         background-size: 16px 16px;
@@ -185,8 +219,8 @@ legend {
         background-position: 0 0;
       }
 
-      &:disabled,
-      &.disabled {
+      &.disabled,
+      &:disabled {
         &+ .cr {
           background: url('/images/chkbox-checked-disabled.svg') no-repeat;
           background-size: 16px 16px;
@@ -196,25 +230,24 @@ legend {
     }
   }
 }
-
 /****** ERROR STATE ******/
 .form-group.has-error {
   .control-label {
-    color: $fn-red!important;
+    color: $fn-alert-red!important;
   }
 
   .form-control {
-    border-color: $fn-red!important;
+    border-color: $fn-alert-red!important;
   }
 }
 
 .form-group {
   .msgBlock.error-list {
-    margin:  0 0 .6rem 0;
+    margin: 0 0 0.6rem;
     padding-left: 10px;
   }
 }
 
 .error {
-  color: $fn-red!important;
+  color: $fn-alert-red!important;
 }
