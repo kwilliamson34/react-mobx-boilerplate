@@ -29,7 +29,8 @@ a.skipnav{
   padding: 0;
   position: fixed;
   bottom: 2.8rem;
-  left: 1em;
+  left: auto;
+  right: 2em;
   width: 48px;
   height: 48px;
   line-height: 2.8;
@@ -193,12 +194,6 @@ a.skipnav{
 /* XS */
 @media only screen and (min-width : 320px) {
   $fn-primary-nav-height: 60px;
-
-  .back-to-top {
-    left: 1em;
-    right: auto;
-  }
-
   .navbar-toggle {
     width: 49px;
     height: $fn-primary-nav-height;
@@ -225,11 +220,6 @@ a.skipnav{
 
 /* Desktop */
 @media only screen and (min-width : 992px) {
-  .back-to-top {
-    left: auto;
-    right: 2em;
-  }
-
   .navbar-toggle {
     display: none;
   }
