@@ -90,6 +90,16 @@ h4, .as-h4 {
   letter-spacing: 1.33px;
 }
 
+p {
+  font-size: $fn-content-page-text-mobile;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+
+  &.intro {
+    font-size: $fn-intro-mobile;
+  }
+}
+
 
 @media #{$tablet, $desktop} {
   h1, .as-h1 {
@@ -106,5 +116,15 @@ h4, .as-h4 {
   }
   h4, .as-h4 {
     font-size: $fn-h4-desktop;
+  }
+
+  p {
+    font-size: $fn-content-page-text-desktop;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+
+    &.intro {
+      font-size: $fn-intro-desktop;
+    }
   }
 }
