@@ -38,7 +38,7 @@ export class FaqMain extends React.Component {
         <a href="#" role="button" data-value={value} onClick={this.updateCategory} className={`category-tab-button ${isActive
           ? 'active'
           : ''}`}>
-          {value.replace(/\s/g, '\u00a0') + ' '}
+          {value.replace(/\s/g, '\u00a0')}
         </a>
       </li>
     )
