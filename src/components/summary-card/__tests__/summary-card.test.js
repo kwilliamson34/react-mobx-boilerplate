@@ -13,7 +13,6 @@ describe('<SummaryCard />', () => {
       publisher: 'publisher name',
       imageUrl: '../../images/app-icon.png',
       rating: 3.5,
-      badge: true,
       app_psk: '12345',
       platform: 'ANDROID',
     },
@@ -31,7 +30,6 @@ describe('<SummaryCard />', () => {
       expect(tree).toMatchSnapshot();
 
       props.display.rating = 1.5;
-      props.display.badge = false;
       props.display.platform = 'IOS';
       component = renderer.create(
         <MemoryRouter>

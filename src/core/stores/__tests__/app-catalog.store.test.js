@@ -20,7 +20,6 @@ const mockCatalogArray = [
 		isAvailable: null,
 		isRecommended: null,
 		mdm_install_status: 'NOT_INSTALLED',
-		badge: false,
 		platform: 'ANDROID',
 		category: ['VIDEO SURVEILLANCE'],
 		user_segment: ['LAW ENFORCEMENT'],
@@ -43,7 +42,6 @@ const mockCatalogArray = [
 		isAvailable: true,
 		isRecommended: null,
 		mdm_install_status: 'NOT_INSTALLED',
-		badge: false,
 		platform: 'IOS',
 		category: ['PUBLIC SAFETY (COMMUNICATION)TOOLS'],
 		user_segment: ['LAW ENFORCEMENT'],
@@ -66,7 +64,6 @@ const mockCatalogArray = [
 		isAvailable: true,
 		isRecommended: true,
 		mdm_install_status: 'NOT_INSTALLED',
-		badge: true,
 		platform: 'ANDROID',
 		category: [
 			'IN BUILDING COVERAGE & MAPPING',
@@ -92,7 +89,6 @@ const mockCatalogArray = [
 		isAvailable: true,
 		isRecommended: true,
 		mdm_install_status: 'NOT_INSTALLED',
-		badge: false,
 		platform: 'IOS',
 		category: [
 			'DEVICE SECURITY',
