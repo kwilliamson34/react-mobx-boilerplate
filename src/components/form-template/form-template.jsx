@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
 
 @observer
-export class Form extends React.Component {
+export class FormTemplate extends React.Component {
 
   static propTypes = {
     inputList: PropTypes.array.isRequired,

@@ -4,7 +4,7 @@ import {inject, observer} from 'mobx-react';
 import {history} from '../core/services/history.service';
 import $ from 'jquery';
 import config from 'config';
-import {Form} from '../components/form/form';
+import {FormTemplate} from '../components/form-template/form-template';
 
 @inject('store')
 @observer
@@ -198,7 +198,7 @@ export default class FeedbackPage extends React.Component {
             </div>
             <div className="row">
               <section className="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
-                <Form id="feedback-form"
+                <FormTemplate id="feedback-form"
                   inputList={this.getInputList() || []}
                   onSubmit={this.feedbackStore.handleSubmit.bind(this.feedbackStore)}
                   onChange={this.feedbackStore.handleChange.bind(this.feedbackStore)}
