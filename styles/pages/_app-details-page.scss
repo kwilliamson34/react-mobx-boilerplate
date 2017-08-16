@@ -22,20 +22,23 @@
 
   .app-description,
   .app-developer {
-    padding: 70px 0 50px;
+    p {
+      padding-top: 3rem;
+    }
   }
 
   .app-description {
+    padding: 60px 0;
+
     .whats-new {
-      &-title {
-        padding-bottom: 0;
-      }
+      padding-top: 6rem;
 
       &-date {
         color: $fn-dkgrey;
         font-size: $fn-content-page-text-desktop;
         line-height: 1.5;
         font-weight: $fn-normal-weight;
+        padding-top: 10px;
       }
     }
   }
@@ -45,15 +48,18 @@
     background: $fn-white;
   }
 
-  .developer-website {
-    margin-top: 40px;
-    margin-bottom: 100px;
-    text-align: center;
+  .app-developer {
+    padding: 60px 0 100px;
 
-    i {
-      margin-left: 10px;
-      font-size: 1.6rem;
-      vertical-align: middle;
+    .developer-website {
+      margin-top: 40px;
+      text-align: center;
+
+      i {
+        margin-left: 10px;
+        font-size: 1.6rem;
+        vertical-align: middle;
+      }
     }
   }
 }
@@ -61,20 +67,8 @@
   #app-details-page {
     .app-description,
     .app-developer {
-      h2 {
-        padding-bottom: 2rem;
-      }
-    }
-
-    .app-description {
-      .whats-new {
-        &-title {
-          padding-top: 6rem;
-        }
-
-        &-date {
-          padding-bottom: 2rem;
-        }
+      p {
+        padding-top: 2rem;
       }
     }
 
@@ -99,25 +93,6 @@
 }
 @media #{$desktop} {
   #app-details-page {
-    .app-description,
-    .app-developer {
-      h2 {
-        padding-bottom: 3rem;
-      }
-    }
-
-    .app-description {
-      .whats-new {
-        &-title {
-          padding-top: 6rem;
-        }
-
-        &-date {
-          padding-bottom: 3rem;
-        }
-      }
-    }
-
     .app-ratings {
       & h2 {
         padding-bottom: 5rem;

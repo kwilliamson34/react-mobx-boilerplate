@@ -111,7 +111,7 @@ export default class AppDetailsPage extends React.Component {
         <div className="container">
           <div className="row">
             <div className="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
-              <h2>About the Developer</h2>
+              <h2>About this Developer</h2>
               <p className="dev-description" dangerouslySetInnerHTML={{
                 __html: custom_metadata.developer_description
               }}></p>
