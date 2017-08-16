@@ -56,7 +56,7 @@ export default class DeviceCategoryTemplate extends React.Component {
 
 	loadMoreButton = () => {
 		return (
-			<button className='btn fn-primary' onClick={this.loadDevices}>
+			<button className='btn fn-secondary' onClick={this.loadDevices}>
 				Load More
 			</button>
 		)

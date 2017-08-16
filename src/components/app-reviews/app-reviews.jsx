@@ -61,7 +61,7 @@ export default class AppReviews extends React.Component {
     return (
       <div className='reviews-container'>
         {this.renderReviews(this.loadedReviewsArray)}
-        {this.showLoadMoreButton && <button className='btn fn-primary load-more-button' onClick={this.loadReviews}>
+        {this.showLoadMoreButton && <button className='btn fn-secondary load-more-button' onClick={this.loadReviews}>
           Load More
         </button>}
       </div>
