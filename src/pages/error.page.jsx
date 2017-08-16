@@ -74,7 +74,7 @@ export default class ErrorPage extends React.Component {
             {showLogout &&
               <div className="logout-block">
                 <hr className="or" />
-                <a href={config.haloLogin}>Log Out</a>
+                <a href={config.haloLogout}>Log Out</a>
               </div>
             }
             {showLinkToGoBack &&
