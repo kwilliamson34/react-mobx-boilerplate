@@ -210,7 +210,7 @@ export default class ConfigureMDM extends React.Component {
     const hasError = value === '';
     return (
       <div className={`form-group has-feedback ${hasError ? 'has-error' : ''}`}>
-        <label className="control-label" htmlFor="mi_hostName">{label}<span className="required-asterisks"> *</span></label>
+        <label className="control-label" htmlFor={id}>{label}<span className="required-asterisks"> *</span></label>
         {hasError && <div className="msgBlock error error-list" role="alert" aria-live="assertive">
           <span>Please enter a valid {genericLabel || label.toLowerCase()}.</span>
         </div>}
