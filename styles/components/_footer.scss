@@ -1,3 +1,5 @@
+$footer-font-color: $fn-dark;
+
 footer {
   border-top: 5px solid $fn-black;
 
@@ -19,7 +21,7 @@ footer {
 
     .sitemap-hdr,
     h2 {
-      color: $fn-black;
+      color: $footer-font-color;
       font-size: 1.8rem;
       line-height: 1.12;
       text-transform: uppercase;
@@ -40,13 +42,13 @@ footer {
       text-transform: uppercase;
       font-size: 1.6rem;
       font-weight: $fn-normal-weight;
-      color: $fn-dkgrey;
+      color: $footer-font-color;
       margin-bottom: 15px;
       line-height: 1.4;
 
       a {
         font-weight: $fn-normal-weight;
-        color: $fn-dkgrey;
+        color: $footer-font-color;
         padding: 2px;
 
         span {
@@ -129,7 +131,7 @@ footer {
         }
 
         &.footer-support-phone {
-          color: $fn-dark;
+          color: $footer-font-color;
           margin-right: 5px;
 
           &:before {
