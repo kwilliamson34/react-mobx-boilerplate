@@ -116,7 +116,7 @@ export default class AppDetailsPage extends React.Component {
                 __html: custom_metadata.developer_description
               }}></p>
               <div className="developer-website">
-                <NewTabLink to={cleanDeveloperWebsite} className="fn-primary" showIcon={true}>
+                <NewTabLink to={cleanDeveloperWebsite} className="fn-secondary" showIcon={true}>
                   Visit Developer Website
                 </NewTabLink>
               </div>
