@@ -24,7 +24,7 @@ export default class ScrollToTop extends React.Component {
 
 	componentDidUpdate() {
 		if (history.location.pathname !== this.state.prevLocation) {
-			this.scrollToTopAndFocus();
+			this.scrollImmediatelyToTopAndFocus();
 			this.updateWindowDimensions();
 			this.setState({prevLocation: history.location.pathname});
 		}
@@ -88,7 +88,13 @@ export default class ScrollToTop extends React.Component {
 		});
 	}, 50, { leading: false, trailing: true });
 
-	scrollToTopAndFocus() {
+	scrollImmediatelyToTopAndFocus() {
+		window.scrollTo(0, 0);
+		this.rootAnchor.focus();
+		this.setState({ showBackToTopBtn: false});
+	}
+
+	scrollSmoothlyToTopAndFocus() {
 		$('html, body').animate({
 			scrollTop: 0,
 			scrollLeft: 0
@@ -99,7 +105,7 @@ export default class ScrollToTop extends React.Component {
 
 	handleBackToTopClick = (event) => {
 		event.preventDefault();
-		this.scrollToTopAndFocus();
+		this.scrollSmoothlyToTopAndFocus();
 	};
 
 	render() {
