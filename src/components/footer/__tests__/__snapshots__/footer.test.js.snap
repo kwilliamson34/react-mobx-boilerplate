@@ -50,7 +50,7 @@ exports[`<Footer /> renders matches previous footer snapshot 1`] = `
           </nav>
         </div>
         <div
-          className="col-xs-12  col-md-4">
+          className="col-xs-12 col-md-3">
           <nav
             aria-describedby="firstnet-sites">
             <h2
@@ -70,7 +70,7 @@ exports[`<Footer /> renders matches previous footer snapshot 1`] = `
           </nav>
         </div>
         <div
-          className="col-xs-12  col-md-4">
+          className="col-xs-12 col-md-3">
           <nav
             aria-describedby="social-links"
             className="social-nav">
@@ -94,7 +94,7 @@ exports[`<Footer /> renders matches previous footer snapshot 1`] = `
           </nav>
         </div>
         <div
-          className="col-xs-12  col-md-3">
+          className="col-xs-12 col-md-3">
           <nav
             aria-describedby="helpLinks">
             <h2
