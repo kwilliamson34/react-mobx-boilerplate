@@ -131,8 +131,8 @@ select::-ms-value {
   label {
     font-size: $fn-label-desktop;
     font-weight: $fn-medium-weight;
-    line-height: 32px;
-    min-height: 32px;
+    line-height: 1;
+    min-height: 48px;
     padding-left: 20px;
     margin-bottom: 0;
     cursor: pointer;
@@ -147,7 +147,7 @@ select::-ms-value {
     width: 16px;
     height: 16px;
     float: left;
-    margin: 8px 8px 8px 2px;
+    margin: 0 8px 8px 2px;
   }
   //keyboard-only fallback
   input[type="checkbox"],
@@ -155,7 +155,6 @@ select::-ms-value {
     @include sr-only;
 
     &:focus +.cr {
-      margin: 8px 8px 8px 2px;
       @include focus();
     }
   }
