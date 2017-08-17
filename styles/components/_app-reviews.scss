@@ -47,8 +47,6 @@
         margin-right: 15px;
         overflow-wrap: break-word;
         word-wrap: break-word;
-        // padding: 0;
-        // word-break: break-all;
       }
     }
   }
@@ -67,15 +65,11 @@
   font-size: $fn-content-page-text-desktop;
 }
 
-@media #{$mobile} {
+@media #{$mobile, $tablet} {
   .subject-and-rating-container {
-    .ratings-container {
-      .ratings-stars {
-        margin-top: 5px;
-      }
-    }
     .review-subject {
       width: 100%;
+      margin-bottom: 5px;
     }
   }
 }
