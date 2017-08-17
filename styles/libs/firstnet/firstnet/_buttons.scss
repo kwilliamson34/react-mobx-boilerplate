@@ -275,6 +275,7 @@ button {
   &:active:focus {
     outline:none;
     background: $fn-blue;
+    color: $fn-white;
     i {
       &:before {
         color: white
