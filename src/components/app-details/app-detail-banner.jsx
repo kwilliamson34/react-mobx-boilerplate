@@ -66,25 +66,28 @@ export class AppDetailBanner extends React.Component {
 
     return (
       <div className="app-details">
-        <div className="version">
+        <p className="version">
           <strong>Version:&nbsp;</strong>
           {this.data.version.version_num}
-        </div>
-        <div className="updated">
+        </p>
+        <p className="updated">
           <strong>Released:&nbsp;</strong>
           <br className="hidden-xs hidden-md hidden-lg"/>
           {dateToRender}
-        </div>
-        <div className="platform">
+        </p>
+        <p className="platform">
           <strong>Platform:&nbsp;</strong>
           {this.properCaseOS(this.data.platform)}
-        </div>
+        </p>
       </div>
     )
   }
 
   author() {
-    return <div className="publisher app-details">{this.data.custom_metadata.author}</div>
+    if (this.data.custom_metadata.author) {
+      return <p className="publisher app-details">{this.data.custom_metadata.author}</p>
+    }
+    return '';
   }
 
   metadata() {
