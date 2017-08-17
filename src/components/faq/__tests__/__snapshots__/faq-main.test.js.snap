@@ -36,7 +36,7 @@ exports[`<FaqMain /> Render testing Matches snapshot 1`] = `
                   href="#"
                   onClick={[Function anonymous]}
                   role="button">
-                  ALL 
+                  ALL
                 </a>
               </li>
               <li>
@@ -46,7 +46,7 @@ exports[`<FaqMain /> Render testing Matches snapshot 1`] = `
                   href="#"
                   onClick={[Function anonymous]}
                   role="button">
-                  LOREM 
+                  LOREM
                 </a>
               </li>
             </ul>
