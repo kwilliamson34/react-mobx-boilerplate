@@ -1,0 +1,74 @@
+$focus-shadow-depth: 1px;
+
+@mixin focus($borderColor: $focus-lightbg) {
+  .show-focus-styles &{
+
+    outline: none;
+    box-shadow:
+      inset 0px 1px 0 0 $fn-ltblue,
+      inset 0px 0px 0 1px $fn-ltblue;
+
+    &.logo-home-link{
+      border-radius: 1px;
+      box-shadow:
+        1px 0px 0px 7px $fn-white,
+        1px 0px 0 8px $fn-ltblue;
+
+      &-footer{
+        border-radius: 1px;
+        box-shadow:
+        1px 0px 0px 7px $fn-ltgrey,
+        1px 0px 0 8px $fn-ltblue;
+      }
+    }
+
+    &.fn-primary,
+    &.fn-secondary,
+    &.alert {
+      box-shadow:
+        1px 1px 0 0 $fn-white,
+        1px -1px 0 0 $fn-white,
+        -1px 1px 0 0 $fn-white,
+        -1px -1px 0 0 $fn-white,
+        0 0 10px 0 rgba(0, 0, 0, 0.70);
+    }
+
+    &.close_btn {
+      box-shadow:
+        1px 1px 0 0 $fn-white,
+        1px -1px 0 0 $fn-white,
+        -1px 1px 0 0 $fn-white,
+        -1px -1px 0 0 $fn-white,
+        0 0 10px 0 rgba(0, 0, 0, 0.70);
+        border-radius: 8px;
+    }
+
+    &.inverse {
+      background: transparent;
+      box-shadow:
+      inset 0px 0px 16px 0px rgba(255, 255, 255, 0.5),
+      0 0 10px 0 rgba(255, 255, 255, 0.70);
+      &.fn-primary {
+        background: $fn-dkblue;
+      }
+    }
+
+    &.filters-button,
+    &#linkBtn-admin,
+    &#linkBtn-networkStatus {
+      box-shadow: inset 0px 1px 0 0 $fn-ltblue,
+      inset 0px 0px 0 1px $fn-ltblue;
+      border-radius: 8px;
+    }
+
+    &.dropdown-toggle {
+      border-color: $borderColor;
+      box-shadow: 0 0 $focus-shadow-depth $borderColor;
+    }
+
+    &.tray-btn {
+      border-color: white;
+      box-shadow: 0 0 $focus-shadow-depth white;
+    }
+  }
+}

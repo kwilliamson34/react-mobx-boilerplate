@@ -1,6 +1,22 @@
 .form-group {
   margin-top: 1em;
   margin-bottom: 15px;
+  /****** ERROR STATE ******/
+
+    &.has-error {
+    .control-label {
+      color: $fn-alert-red!important;
+    }
+
+    .form-control {
+      border-color: $fn-alert-red!important;
+    }
+    }
+
+      .msgBlock.error-list {
+        margin: 0 0 0.6rem;
+        padding-left: 10px;
+    }
 }
 
 .form-group-title {
@@ -230,23 +246,8 @@ select::-ms-value {
     }
   }
 }
-/****** ERROR STATE ******/
-.form-group.has-error {
-  .control-label {
-    color: $fn-alert-red!important;
-  }
 
-  .form-control {
-    border-color: $fn-alert-red!important;
-  }
-}
 
-.form-group {
-  .msgBlock.error-list {
-    margin: 0 0 0.6rem;
-    padding-left: 10px;
-  }
-}
 
 .error {
   color: $fn-alert-red!important;

@@ -90,7 +90,7 @@ h4, .as-h4 {
   letter-spacing: 1.33px;
 }
 
-p {
+p, .as-p {
   font-size: $fn-content-page-text-mobile;
   margin-bottom: 1.5rem;
   line-height: 1.6;
@@ -118,7 +118,7 @@ p {
     font-size: $fn-h4-desktop;
   }
 
-  p {
+  p, .as-p {
     font-size: $fn-content-page-text-desktop;
     margin-bottom: 1.5rem;
     line-height: 1.6;
