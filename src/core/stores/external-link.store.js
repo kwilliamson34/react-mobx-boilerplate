@@ -183,11 +183,11 @@ class ExternalLinkStore {
 
   @observable currentPurchasingInfo: {};
 
-  @observable manageUsersLink = 'https://test-profilemgt.firstnet.att.com/ebiz/firstnet/index.jsp#/companyInfo/companyInfoProfile';
-  @observable manageServicesLink = 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn';
+  @observable manageUsersLink = config.manageUsersLink;
+  @observable manageServicesLink = config.manageServicesLink;
   @observable viewWirelessReportsLink = config.viewWirelessReportsLink;
-  @observable shopStandardDevicesLink = 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn';
-  @observable manageMyProfileLink = 'https://test-profilemgt.firstnet.att.com/ebiz/firstnet/';
+  @observable shopStandardDevicesLink = config.shopStandardDevicesLink;
+  @observable manageMyProfileLink = config.manageMyProfileLink;
 
   @observable firstnetFacebook = 'https://www.facebook.com/firstnetgov/';
   @observable firstnetLinkedIn = 'https://www.linkedin.com/company/first-responder-network-authority-firstnet-';
@@ -198,6 +198,7 @@ class ExternalLinkStore {
   @observable termsOfUse = 'https://www.att.com/legal/terms.attWebsiteTermsOfUse.html';
   @observable accessibilityLink = 'https://www.firstnet.gov/accessibility';
   @observable privacyPolicyLink = 'https://www.firstnet.gov/privacy-policy';
+  @observable webPoliciesLink = 'https://www.firstnet.gov/web-policies';
 
 }
 
