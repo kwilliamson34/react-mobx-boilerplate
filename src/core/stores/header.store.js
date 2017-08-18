@@ -1,5 +1,4 @@
 import {action, observable} from 'mobx';
-import config from 'config';
 
 class HeaderStore {
 
