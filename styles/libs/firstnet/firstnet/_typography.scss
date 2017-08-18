@@ -60,37 +60,51 @@ h4,
 h5,
 h6 {
   line-height: 1.6;
+
   &:focus {
     @include focus();
   }
 }
 
-h1, .as-h1 {
+.as-h1,
+h1 {
   font-size: $fn-h1-mobile;
   font-weight: $fn-normal-weight;
   line-height: 1.11; //40 leading
 }
 
-h2, .as-h2 {
+.as-h2,
+h2 {
   font-size: $fn-h2-mobile;
   font-weight: $fn-normal-weight;
   line-height: 1.13; //34 leading
 }
 
-h3, .as-h3 {
+.as-h3,
+h3 {
   font-size: $fn-h3-mobile;
   font-weight: $fn-normal-weight;
   line-height: 1.25; //30 leading
 }
 
-h4, .as-h4 {
+.as-h4,
+h4 {
   font-size: $fn-h4-mobile;
   font-weight: $fn-medium-weight;
   text-transform: uppercase;
   letter-spacing: 1.33px;
 }
 
-p, .as-p {
+.as-h5,
+h5 {
+  font-size: $fn-h5-mobile;
+  font-weight: $fn-medium-weight;
+  text-transform: uppercase;
+  padding-bottom: 2.5rem;
+}
+
+.as-p,
+p {
   font-size: $fn-content-page-text-mobile;
   margin-bottom: 1.5rem;
   line-height: 1.6;
@@ -99,26 +113,37 @@ p, .as-p {
     font-size: $fn-intro-mobile;
   }
 }
-
-
 @media #{$tablet, $desktop} {
-  h1, .as-h1 {
+  .as-h1,
+  h1 {
     font-size: $fn-h1-desktop;
     line-height: 1.2; //58 leading
   }
-  h2, .as-h2 {
+
+  .as-h2,
+  h2 {
     font-size: $fn-h2-desktop;
     line-height: 1.11; //40 leading
   }
-  h3, .as-h3 {
+
+  .as-h3,
+  h3 {
     font-size: $fn-h3-desktop;
     line-height: 1.07; //30 leading
   }
-  h4, .as-h4 {
+
+  .as-h4,
+  h4 {
     font-size: $fn-h4-desktop;
   }
 
-  p, .as-p {
+  .as-h5,
+  h5 {
+    font-size: $fn-h5-desktop;
+  }
+
+  .as-p,
+  p {
     font-size: $fn-content-page-text-desktop;
     margin-bottom: 1.5rem;
     line-height: 1.6;

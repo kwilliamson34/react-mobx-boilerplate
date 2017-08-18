@@ -1,22 +1,26 @@
-section.placeholder{
+section.placeholder {
   border: 2px dashed #ccc;
   text-align: center;
   min-height: 250px;
   width: 100%;
-  &-long{
+
+  &-long {
     min-height: 850px;
     border: 1px solid #ccc;
   }
-  h2{
+
+  h2 {
     margin-top: 60px;
   }
-  &.alert-dropdown{
+
+  &.alert-dropdown {
     height: 48px;
     min-height: auto;
     background: $fn-grey;
     line-height: 48px;
   }
-  &.geolink{}
-  &.news-feed{}
-  &.mp-links{border:0 none;}
+
+  &.mp-links {
+    border: 0 none;
+  }
 }
