@@ -158,6 +158,12 @@ select::-ms-value {
       @include focus();
     }
   }
+
+  &.disabled {
+    label {
+      color: $fn-disabledgrey-chkboxlabel;
+    }
+  }
 }
 
 .radio {
