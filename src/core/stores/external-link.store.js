@@ -4,7 +4,6 @@ import {utilsService} from '../services/utils.service';
 import {history} from '../services/history.service';
 import {externalDeviceContentService} from '../services/external-device-content.service';
 import {externalSolutionsService} from '../services/external-solutions.service';
-import config from 'config';
 
 class ExternalLinkStore {
   /*
@@ -183,12 +182,6 @@ class ExternalLinkStore {
 
   @observable currentPurchasingInfo: {};
 
-  @observable manageUsersLink = config.manageUsersLink;
-  @observable manageServicesLink = config.manageServicesLink;
-  @observable viewWirelessReportsLink = config.viewWirelessReportsLink;
-  @observable shopStandardDevicesLink = config.shopStandardDevicesLink;
-  @observable manageMyProfileLink = config.manageMyProfileLink;
-
   @observable firstnetFacebook = 'https://www.facebook.com/firstnetgov/';
   @observable firstnetLinkedIn = 'https://www.linkedin.com/company/first-responder-network-authority-firstnet-';
   @observable firstnetTwitter = 'https://twitter.com/FirstNetGov';
@@ -198,7 +191,6 @@ class ExternalLinkStore {
   @observable termsOfUse = 'https://www.att.com/legal/terms.attWebsiteTermsOfUse.html';
   @observable accessibilityLink = 'https://www.firstnet.gov/accessibility';
   @observable privacyPolicyLink = 'https://www.firstnet.gov/privacy-policy';
-  @observable webPoliciesLink = 'https://www.firstnet.gov/web-policies';
 
 }
 
