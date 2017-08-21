@@ -52,7 +52,6 @@ export default class RatingsChart extends React.Component {
     const reviewsTotal = this.props.reviewsTotal || this.props.reviews.length;
     return (
       <div className="ratings-chart" aria-describedby="chart-info">
-        <div id="chart-info" className="sr-only">This app has {reviewsTotal} reviews with an average rating of {this.props.value}.</div>
         <div className="row">
           <div className="col-xs-12 col-sm-4 average-ratings-col">
             <DoughnutChart rating={this.props.value} size={this.graphSize}/>
