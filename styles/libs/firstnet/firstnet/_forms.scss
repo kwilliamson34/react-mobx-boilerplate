@@ -2,8 +2,8 @@
   margin-top: 1em;
   margin-bottom: 15px;
   /****** ERROR STATE ******/
-
-    &.has-error {
+  &.has-error {
+    
     .control-label {
       color: $fn-alert-red!important;
     }
@@ -11,12 +11,12 @@
     .form-control {
       border-color: $fn-alert-red!important;
     }
-    }
+  }
 
-      .msgBlock.error-list {
-        margin: 0 0 0.6rem;
-        padding-left: 10px;
-    }
+  .msgBlock.error-list {
+    margin: 0 0 0.6rem;
+    padding-left: 10px;
+  }
 }
 
 .form-group-title {
@@ -245,8 +245,6 @@ select::-ms-value {
     }
   }
 }
-
-
 
 .error {
   color: $fn-alert-red!important;
