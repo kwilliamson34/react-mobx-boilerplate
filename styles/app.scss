@@ -2,27 +2,25 @@
 //firstnet lib marked as !default.
 @import "abstracts/variables";
 
+//Globally available Mixins
+@import
+  "mixins/card-hover",
+  "mixins/after-link";
+
 //libs
 @import
-  "base/bootstrap", //point to local custom bootstrap import file
+  "base/bootstrap",
   "libs/firstnet/firstnet";
 
 //Utils
 @import "abstracts/utils";
-
-//Mixins
-@import
-  "mixins/card-hover",
-  "mixins/after-link";
 
 //Base
 @import
   "base/base",
   "base/typography",
   "base/bootstrap-overrides",
-  "base/buttons",
-  "base/views",
-  "base/modals";
+  "base/buttons";
 
 //Components
 @import
