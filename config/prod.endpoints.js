@@ -7,7 +7,7 @@ const config = {
   cloudGeolinkAssets: 'https://onemap.att.com/icecapmap',
   geolinkAuthScript: 'https://geo.att.com/appBoard/views/firstnet-pse-remote-auth.html',
   geolinkAbMapConstantsFileName: 'abMapConstantsFN.js',
-  mktgPortalImgBaseUrl: 'https://www.firstnet.ws',
+  mktgPortalImgBaseUrl: 'https://www.firstnet.com',
   apiBase: '/api',
   attCustomerSupportPhone: '800-574-7000',
   firstnetGov: 'https://firstnet.gov/',
