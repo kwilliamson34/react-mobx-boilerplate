@@ -105,7 +105,7 @@ class FeedbackStore {
     this.showAlertBar = false;
     for (let key in this.feedbackObject) {
       if (key === 'feedback_email') {
-        this.feedbackObject[key] = userStore.user.email;
+        this.feedbackObject[key] = userStore.user.email || '';
       } else {
         this.feedbackObject[key] = '';
       }
