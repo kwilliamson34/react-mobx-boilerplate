@@ -40,7 +40,6 @@ button {
   }
 }
 
-
 .fn-inverse,
 .fn-primary,
 .fn-secondary {
@@ -146,7 +145,6 @@ button {
       opacity: 1.0;
     }
   }
-
 }
 
 .fn-secondary {
@@ -416,35 +414,10 @@ button {
   }
 }
 
-/* XS */
-@media only screen and (min-width : 320px) {
-  .btn-primary {
-    width: 100%;
-  }
-}
 /* SM */
 @media only screen and (min-width : 768px) {
-  .btn-primary {
-    width: auto;
-  }
   .fn-modal-close {
     top: 20px;
     right: 20px;
-  }
-}
-/* MD */
-@media only screen and (min-width : 992px) {
-  .btn-primary {
-    width: auto;
-  }
-  .fn-modal-close {
-    top: 20px;
-    right: 20px;
-  }
-}
-/* LG */
-@media only screen and (min-width : 1200px) {
-  .btn-primary {
-    width: auto;
   }
 }
