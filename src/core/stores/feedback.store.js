@@ -116,8 +116,12 @@ class FeedbackStore {
   }
 
   @action setDefaultEmail() {
-    if (this.isEmpty(this.feedbackObject.feedback_email)) {
+    //check for rare Halo case where email is undefined
+    if (userStore.user.email && this.isEmpty(this.feedbackObject.feedback_email)) {
       this.feedbackObject.feedback_email = userStore.user.email;
+    }
+    else {
+      this.feedbackObject.feedback_email = '';
     }
   }
 
@@ -150,7 +154,7 @@ class FeedbackStore {
     feedback_title: '',
     feedback_details: '',
     feedback_topic: '',
-    feedback_email: userStore.user.email
+    feedback_email: ''
   };
   @observable hasErrors = {
     feedback_title: false,
