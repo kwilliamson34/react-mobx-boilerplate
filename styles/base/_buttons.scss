@@ -1,122 +1,6 @@
-a.skipnav{
-  left:-999px;
-  position:absolute;
-  top:auto;
-  width:1px;
-  height:1px;
-  overflow:hidden;
-  z-index:-999;
-  &:focus,
-  &:active{
-    position:relative;
-    display: inline-block;
-    left: auto;
-    top: auto;
-    height: auto;
-    width:auto;
-    overflow:auto;
-    margin: 2px;
-    padding:5px;
-    border-radius: 8px;
-    border:1px solid $fn-blue;
-    text-align:center;
-    z-index:999;
-    color: $fn-black;
-  }
-}
-.back-to-top {
-  margin: 0;
-  padding: 0;
-  position: fixed;
-  bottom: 2.8rem;
-  left: auto;
-  right: 2em;
-  width: 48px;
-  height: 48px;
-  line-height: 2.8;
-  text-align: center;
-  border-radius: 50%;
-  border: 2px solid transparent;
-  z-index: 75;
-  display: inline-block;
-  text-decoration: none;
-  color: $fn-dkgrey;
-  background: white;
-  box-shadow: 0 0 6px 0 rgba(0,0,0,0.12), 0 4px 2px 0 rgba(0,0,0,0.05);
-  opacity: 1.0;
-  visibility: visible;
-  transition: visibility 0s, opacity 0.3s ease-in;
-
-  i {
-    color: $fn-dkgrey;
-  }
-
-  &:focus {
-    border-color: $focus-lightbg;
-    text-decoration: none;
-  }
-
-  &:active,
-  &:hover {
-    background: $fn-blue;
-    text-decoration: none;
-
-    i {
-      color: white;
-    }
-  }
-
-  &.faded {
-    visibility: hidden;
-    opacity: 0;
-  }
-}
-
 .push-button {
   i:before {
     padding-right: 5px;
-  }
-}
-
-.filters-button {
-  display: inline-block;
-  height: 48px;
-  line-height: 48px;
-  background: none;
-  font-size: $fn-button-desktop;
-  font-weight: $fn-medium-weight;
-  color: $fn-ltblue;
-  text-transform: uppercase;
-  border: none;
-  outline: none;
-  padding: 0 10px;
-  text-decoration: none;
-
-  i {
-    font-size: 10px;
-    padding-left: 5px;
-  }
-
-  span {
-    &:hover,
-    &:active,
-    &:active:focus {
-      text-decoration: underline;
-      outline: none;
-    }
-  }
-
-  &:focus {
-    @include focus();
-  }
-
-  &:hover,
-  &:active,
-  &:active:focus {
-    background: transparent;
-    color: $fn-dkgrey;
-    font-weight: $fn-bold-weight;
-    box-shadow: none !important;
   }
 }
 
@@ -176,10 +60,7 @@ a.skipnav{
     display: block;
     z-index: 1;
     transform-origin: 4px 0;
-    transition:
-      transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-      background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-      opacity 0.55s ease;
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0), background 0.5s cubic-bezier(0.77,0.2,0.05,1.0), opacity 0.55s ease;
 
     &:first-child {
       transform-origin: 0 0;
@@ -190,10 +71,10 @@ a.skipnav{
     }
   }
 }
-
 /* XS */
 @media only screen and (min-width : 320px) {
   $fn-primary-nav-height: 60px;
+
   .navbar-toggle {
     width: 49px;
     height: $fn-primary-nav-height;
@@ -203,10 +84,10 @@ a.skipnav{
     }
   }
 }
-
 /*Tablet*/
 @media only screen and (min-width : 768px) {
   $fn-primary-nav-height: 98px;
+
   .navbar-toggle {
     width: 72px;
     height: $fn-primary-nav-height;
@@ -217,7 +98,6 @@ a.skipnav{
     }
   }
 }
-
 /* Desktop */
 @media only screen and (min-width : 992px) {
   .navbar-toggle {

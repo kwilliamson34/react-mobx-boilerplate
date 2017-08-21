@@ -1,6 +1,4 @@
-$focus-shadow-depth: 1px;
-
-@mixin focus($borderColor: $focus-lightbg) {
+@mixin focus() {
   .show-focus-styles &{
 
     outline: none;
@@ -53,22 +51,15 @@ $focus-shadow-depth: 1px;
       }
     }
 
-    &.filters-button,
-    &#linkBtn-admin,
-    &#linkBtn-networkStatus {
+    &.filters-button {
       box-shadow: inset 0px 1px 0 0 $fn-ltblue,
       inset 0px 0px 0 1px $fn-ltblue;
       border-radius: 8px;
     }
 
     &.dropdown-toggle {
-      border-color: $borderColor;
-      box-shadow: 0 0 $focus-shadow-depth $borderColor;
-    }
-
-    &.tray-btn {
-      border-color: white;
-      box-shadow: 0 0 $focus-shadow-depth white;
+      border-color: $focus-lightbg;
+      box-shadow: 0 0 $focus-shadow-depth $focus-lightbg;
     }
   }
 }
