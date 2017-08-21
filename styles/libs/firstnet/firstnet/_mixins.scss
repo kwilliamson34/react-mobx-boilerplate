@@ -63,11 +63,6 @@ $focus-shadow-depth: 1px;
       border-color: $borderColor;
       box-shadow: 0 0 $focus-shadow-depth $borderColor;
     }
-
-    &.tray-btn {
-      border-color: white;
-      box-shadow: 0 0 $focus-shadow-depth white;
-    }
   }
 }
 
