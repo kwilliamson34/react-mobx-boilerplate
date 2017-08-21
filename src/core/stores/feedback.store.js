@@ -116,12 +116,8 @@ class FeedbackStore {
   }
 
   @action setDefaultEmail() {
-    //check for rare Halo case where email is undefined
-    if (userStore.user.email && this.isEmpty(this.feedbackObject.feedback_email)) {
-      this.feedbackObject.feedback_email = userStore.user.email;
-    }
-    else {
-      this.feedbackObject.feedback_email = '';
+    if (this.isEmpty(this.feedbackObject.feedback_email)) {
+      this.feedbackObject.feedback_email = userStore.user.email || '';
     }
   }
 
