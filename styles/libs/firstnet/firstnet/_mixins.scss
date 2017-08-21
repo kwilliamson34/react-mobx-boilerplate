@@ -1,6 +1,4 @@
-$focus-shadow-depth: 1px;
-
-@mixin focus($borderColor: $focus-lightbg) {
+@mixin focus() {
   .show-focus-styles &{
 
     outline: none;
@@ -60,8 +58,8 @@ $focus-shadow-depth: 1px;
     }
 
     &.dropdown-toggle {
-      border-color: $borderColor;
-      box-shadow: 0 0 $focus-shadow-depth $borderColor;
+      border-color: $focus-lightbg;
+      box-shadow: 0 0 $focus-shadow-depth $focus-lightbg;
     }
   }
 }
