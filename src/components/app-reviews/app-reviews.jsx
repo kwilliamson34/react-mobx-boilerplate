@@ -37,13 +37,14 @@ export default class AppReviews extends React.Component {
 
   renderReviews = (reviews) => {
     return reviews.map((node, i) => {
+      console.log('NODE', node);
       let authorName = `${node.userFirstName} ${node.userLastName}`;
       return (
         <div key={i} className='individual-review-container' aria-labelledby={'Review-' + node.reviewId}>
           <div className='review-metadata'>
             <div className='subject-and-rating-container'>
               <div className='review-subject' id={'Review-' + node.reviewId}>{node.commentTitle}</div>
-              <div className='sr-only'>{'App rated ' + node.rating + ' out of 5'}</div>
+              <div className='sr-only'>{'App rated ' + node.reviewStar + ' out of 5'}</div>
               <Rating rating={node.reviewStar} reviewCount={1}/>
             </div>
             <div className='review-author'>{authorName}</div>
