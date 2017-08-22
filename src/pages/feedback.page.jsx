@@ -104,20 +104,6 @@ export default class FeedbackPage extends React.Component {
     )
   }
 
-  renderSuccessPage = () => {
-    return (
-      <div>
-        <div id="customer-feedback-success" ref="success">
-          <div className="success-content">
-            <h1>Thanks for your feedback!</h1>
-            <p>We appreciate you taking the time to provide your thoughts about this site. Your comments will help us to improve our tools going forward.</p>
-            <button className="fn-primary" onClick={this.discardFormChanges}>Return Home</button>
-          </div>
-        </div>
-      </div>
-    )
-  }
-
   getInputList = () => {
     let adminOptions = [
       {value: 'System Performance', title: 'System Performance'},
@@ -172,9 +158,9 @@ export default class FeedbackPage extends React.Component {
     ];
   }
 
-  renderFeedbackForm = () => {
+  render = () => {
     return (
-      <section>
+      <section id="customer-feedback-page">
         <div className="content-wrapper">
           <div className="container">
             <div className="row text-center">
@@ -200,17 +186,6 @@ export default class FeedbackPage extends React.Component {
         </div>
         {this.renderExitModal(this.feedbackStore.showExitModal)}
       </section>
-    )
-  }
-
-  render() {
-    return (
-      <article id="customer-feedback-page">
-        {this.feedbackStore.hasBeenSubmitted
-          ? this.renderSuccessPage()
-          : this.renderFeedbackForm()
-        }
-      </article>
     )
   }
 }

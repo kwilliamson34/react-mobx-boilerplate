@@ -40,8 +40,8 @@ class FeedbackStore {
         data[key.replace('feedback_', '')] = this.feedbackObject[key];
       }
       const success = () => {
-        this.hasBeenSubmitted = true;
         this.clearForm();
+        history.push('/feedback-success');
       }
       const failure = (res) => {
         //prevent the unsaved changes modal from showing, and change history to allow user to navigate back to here from error page.
