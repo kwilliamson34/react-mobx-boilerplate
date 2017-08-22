@@ -519,7 +519,7 @@ $fn-mobile-item-height: 60px;
         flex-direction: column;
         width: 300px;
         text-align: left;
-        padding: 0 0 0 6rem;
+        padding: 0 0 0 5.4rem;
 
         &:not(:last-child) {
           border-right: 1px solid $fn-grey;
@@ -542,6 +542,7 @@ $fn-mobile-item-height: 60px;
           position: relative;
           color: $fn-ltblue;
           padding-left: 2px;
+          min-height: 36px;
 
           &:visited {
             color: $fn-ltblue;
