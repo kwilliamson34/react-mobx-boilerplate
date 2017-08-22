@@ -7,7 +7,7 @@ import {history} from '../core/services/history.service';
 export default class FeedbackPage extends React.Component {
   goHome = (e) => {
     e.preventDefault();
-    history.replace('/admin');
+    history.replace('/');
   }
 
   render() {
