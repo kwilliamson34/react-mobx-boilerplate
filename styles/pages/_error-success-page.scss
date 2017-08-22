@@ -1,7 +1,10 @@
+.error-page {
+	min-height: 100vh;
+}
+
 .error-page,
 .success-page {
 	background: $fn-grey;
-	min-height: 100vh;
 	padding: 60px 20px;
 
 	.logo-container {
@@ -101,9 +104,11 @@ section.session-timeout {
 	.error-page,
 	.success-page {
 		padding: 100px 0;
+
 		.logo-container img{
 			max-width: 320px;
 		}
+
 		.container{
 			> div{
 				padding: 60px 65px;
