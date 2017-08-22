@@ -1,10 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {inject, observer} from 'mobx-react';
 import {history} from '../core/services/history.service';
-import $ from 'jquery';
-import config from 'config';
-import {FormTemplate} from '../components/form-template/form-template';
 
 @inject('store')
 @observer

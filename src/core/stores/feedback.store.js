@@ -30,7 +30,6 @@ class FeedbackStore {
     let form = e.target;
     const inputs = this.parseForm(form);
     this.showAlertBar = false;
-    this.hasBeenSubmitted = false;
     for (var i = 0; i < inputs.length; ++i) {
       this.validateInput(inputs[i]);
     }
@@ -105,10 +104,6 @@ class FeedbackStore {
     return false;
   }
 
-  @action toggleHasBeenSubmitted() {
-    this.hasBeenSubmitted = !this.hasBeenSubmitted;
-  }
-
   @action toggleAlertBar() {
     this.showAlertBar = !this.showAlertBar;
   }
@@ -157,7 +152,6 @@ class FeedbackStore {
 
   @observable showExitModal = false;
   @observable showAlertBar = false;
-  @observable hasBeenSubmitted = false;
   @observable interceptedRoute = '';
   @observable feedbackObject = {
     feedback_title: '',

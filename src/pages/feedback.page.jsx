@@ -29,17 +29,8 @@ export default class FeedbackPage extends React.Component {
   componentWillUnmount() {
     this.clearModals();
     this.feedbackStore.disableSaveDialogs();
-    if (this.feedbackStore.hasBeenSubmitted) {
-      this.feedbackStore.toggleHasBeenSubmitted();
-    }
     if (!this.feedbackStore.formHasEntries && !this.feedbackStore.formIsValid) {
       this.feedbackStore.clearForm();
-    }
-  }
-
-  componentDidUpdate() {
-    if (this.feedbackStore.hasBeenSubmitted) {
-      this.refs.success.children[0].scrollIntoView();
     }
   }
 
@@ -56,9 +47,6 @@ export default class FeedbackPage extends React.Component {
   discardFormChanges = (e) => {
     e.preventDefault();
     this.feedbackStore.clearForm();
-    if (this.feedbackStore.hasBeenSubmitted) {
-      this.feedbackStore.toggleHasBeenSubmitted();
-    }
     history.replace(this.feedbackStore.interceptedRoute);
   }
 
