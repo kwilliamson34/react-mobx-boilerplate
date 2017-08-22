@@ -41,7 +41,7 @@ describe("FeedbackStore", () => {
 
   beforeEach(() => {
     useStrict(false);
-    return feedbackStore.clearFeedbackForm();
+    return feedbackStore.clearForm();
   })
 
   describe('email tests ', () => {

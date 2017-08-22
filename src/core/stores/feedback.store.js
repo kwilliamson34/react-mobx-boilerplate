@@ -41,7 +41,7 @@ class FeedbackStore {
       }
       const success = () => {
         this.hasBeenSubmitted = true;
-        this.clearFeedbackForm();
+        this.clearForm();
       }
       const failure = (res) => {
         //prevent the unsaved changes modal from showing, and change history to allow user to navigate back to here from error page.
@@ -55,31 +55,13 @@ class FeedbackStore {
     }
   }
 
-  //Other actions
+  //Modal actions
   getBrowserCloseAlert = (event) => {
     if (this.formHasEntries) {
       event.returnValue = true;
     } else {
       return;
     }
-  }
-
-  @action validateInput(input) {
-    if (input.id.indexOf('email') > -1) {
-      this.hasErrors[input.id] = !this.isEmpty(input.value) && !utilsService.isValidEmailAddress(input.value);
-    } else if(input.id){
-      this.hasErrors[input.id] = this.isEmpty(this.feedbackObject[input.id]);
-    }
-  }
-
-  parseForm = (form) => {
-    return form.querySelectorAll('input, select, textarea');
-  }
-
-  isEmpty = (string) => {
-    if (!string) return true;
-    if (!string.trim()) return true;
-    return false;
   }
 
   @action toggleExitModal() {
@@ -104,6 +86,25 @@ class FeedbackStore {
     });
   }
 
+  //Other actions
+  @action validateInput(input) {
+    if (input.id.indexOf('email') > -1) {
+      this.hasErrors[input.id] = !this.isEmpty(input.value) && !utilsService.isValidEmailAddress(input.value);
+    } else if(input.id){
+      this.hasErrors[input.id] = this.isEmpty(this.feedbackObject[input.id]);
+    }
+  }
+
+  parseForm = (form) => {
+    return form.querySelectorAll('input, select, textarea');
+  }
+
+  isEmpty = (string) => {
+    if (!string) return true;
+    if (!string.trim()) return true;
+    return false;
+  }
+
   @action toggleHasBeenSubmitted() {
     this.hasBeenSubmitted = !this.hasBeenSubmitted;
   }
@@ -112,7 +113,7 @@ class FeedbackStore {
     this.showAlertBar = !this.showAlertBar;
   }
 
-  @action clearFeedbackForm() {
+  @action clearForm() {
     this.showExitModal = false;
     this.showAlertBar = false;
     for (let key in this.feedbackObject) {

@@ -33,7 +33,7 @@ export default class FeedbackPage extends React.Component {
       this.feedbackStore.toggleHasBeenSubmitted();
     }
     if (!this.feedbackStore.formHasEntries && !this.feedbackStore.formIsValid) {
-      this.feedbackStore.clearFeedbackForm();
+      this.feedbackStore.clearForm();
     }
   }
 
@@ -55,7 +55,7 @@ export default class FeedbackPage extends React.Component {
 
   discardFormChanges = (e) => {
     e.preventDefault();
-    this.feedbackStore.clearFeedbackForm();
+    this.feedbackStore.clearForm();
     if (this.feedbackStore.hasBeenSubmitted) {
       this.feedbackStore.toggleHasBeenSubmitted();
     }
