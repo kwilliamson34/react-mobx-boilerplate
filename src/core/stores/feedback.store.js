@@ -9,9 +9,9 @@ class FeedbackStore {
   @action handleChange(e) {
     e.preventDefault();
     let input = e.target;
-    if(input.dataset.charlimit) {
+    if(input.dataset.charlimit && input.id) {
       this.feedbackObject[input.id] = input.value.substr(0, input.dataset.charlimit);
-    } else {
+    } else if(input.id) {
       this.feedbackObject[input.id] = input.value;
     }
   }
@@ -65,9 +65,9 @@ class FeedbackStore {
   }
 
   @action validateInput(input) {
-    if (input.id === 'feedback_email') {
+    if (input.id.indexOf('email') > -1) {
       this.hasErrors[input.id] = !this.isEmpty(input.value) && !utilsService.isValidEmailAddress(input.value);
-    } else {
+    } else if(input.id){
       this.hasErrors[input.id] = this.isEmpty(this.feedbackObject[input.id]);
     }
   }

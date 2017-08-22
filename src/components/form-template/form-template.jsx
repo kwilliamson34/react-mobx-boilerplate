@@ -12,10 +12,10 @@ export class FormTemplate extends React.Component {
     onSubmit: PropTypes.func,
     onChange: PropTypes.func,
     onBlur: PropTypes.func,
-    alertBarJsx: PropTypes.string,
     refList: PropTypes.array,
     submitButtonDisabled: PropTypes.bool,
-    submitButtonText: PropTypes.string
+    submitButtonText: PropTypes.string,
+    errorBody: PropTypes.string
   }
 
   static defaultProps = {
@@ -24,6 +24,7 @@ export class FormTemplate extends React.Component {
 
   componentWillMount() {
     this.localRefList = [];
+    this.alertJsx = null;
   }
 
   renderSubmitButton = () => {
@@ -92,10 +93,25 @@ export class FormTemplate extends React.Component {
     return inputJsx;
   }
 
+  renderErrorAlertBar = () => {
+    if(!this.props.errorBody) return '';
+    return (
+      <div id="alert-bar" className="alert alert-error">
+        <button type="button" className="close_btn" onClick={this.toggleAlertBar}>
+          <span aria-hidden="true" className="icon-close"/>
+          <span className="sr-only">Close alert</span>
+        </button>
+        <p role="alert" aria-live="assertive">
+          <strong>Error:&nbsp;</strong>{this.props.errorBody}
+        </p>
+      </div>
+    )
+  }
+
   render() {
     return (
       <form id={this.props.id} className={this.props.className} onSubmit={this.props.onSubmit} onChange={this.props.onChange} onBlur={this.props.onBlur} noValidate>
-        {this.props.alertBarJsx || ''}
+        {this.renderErrorAlertBar()}
         {this.props.inputList.map(input => this.renderInput(input))}
         {this.renderSubmitButton()}
       </form>

@@ -118,20 +118,6 @@ export default class FeedbackPage extends React.Component {
     )
   }
 
-  renderAlertBar = () => {
-    return (
-      <div id="feedback-alert" className="alert alert-error">
-        <button type="button" className="close_btn" onClick={this.toggleAlertBar}>
-          <span aria-hidden="true" className="icon-close"/>
-          <span className="sr-only">Close alert</span>
-        </button>
-        <p role="alert" aria-live="assertive">
-          <strong>Error:&nbsp;</strong>Please correct the errors below.
-        </p>
-      </div>
-    )
-  }
-
   getInputList = () => {
     let adminOptions = [
       {value: 'System Performance', title: 'System Performance'},
@@ -199,11 +185,12 @@ export default class FeedbackPage extends React.Component {
             <div className="row">
               <section className="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
                 <FormTemplate id="feedback-form"
+                  ref={ref => this.form = ref}
                   inputList={this.getInputList() || []}
                   onSubmit={this.feedbackStore.handleSubmit.bind(this.feedbackStore)}
                   onChange={this.feedbackStore.handleChange.bind(this.feedbackStore)}
                   onBlur={this.feedbackStore.handleBlur.bind(this.feedbackStore)}
-                  alertBarJsx={this.feedbackStore.showAlertBar ? this.renderAlertBar() : ''}
+                  errorBody={this.feedbackStore.showAlertBar ? 'Please correct the errors below.' : ''}
                   submitButtonDisabled={!this.feedbackStore.requiredFieldsEntered}
                   submitButtonText='Submit Feedback'/>
               </section>
