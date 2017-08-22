@@ -15,7 +15,8 @@ export class FormTemplate extends React.Component {
     refList: PropTypes.array,
     submitButtonDisabled: PropTypes.bool,
     submitButtonText: PropTypes.string,
-    errorBody: PropTypes.string
+    errorBody: PropTypes.string,
+    toggleAlertBar: PropTypes.func
   }
 
   static defaultProps = {
@@ -96,9 +97,8 @@ export class FormTemplate extends React.Component {
   renderErrorAlertBar = () => {
     if(!this.props.errorBody) return '';
     return (
-      <div id="alert-bar" className="alert alert-error">
-        <button type="button" className="close_btn" onClick={this.toggleAlertBar}>
-          <span aria-hidden="true" className="icon-close"/>
+      <div className="alert alert-error">
+        <button type="button" className="close_btn icon-close" onClick={this.props.toggleAlertBar}>
           <span className="sr-only">Close alert</span>
         </button>
         <p role="alert" aria-live="assertive">

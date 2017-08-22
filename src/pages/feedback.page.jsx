@@ -191,6 +191,7 @@ export default class FeedbackPage extends React.Component {
                   onChange={this.feedbackStore.handleChange.bind(this.feedbackStore)}
                   onBlur={this.feedbackStore.handleBlur.bind(this.feedbackStore)}
                   errorBody={this.feedbackStore.showAlertBar ? 'Please correct the errors below.' : ''}
+                  toggleAlertBar={this.feedbackStore.toggleAlertBar.bind(this.feedbackStore)}
                   submitButtonDisabled={!this.feedbackStore.requiredFieldsEntered}
                   submitButtonText='Submit Feedback'/>
               </section>
