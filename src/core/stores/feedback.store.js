@@ -5,34 +5,33 @@ import {utilsService} from '../services/utils.service';
 import {history} from '../services/history.service';
 
 class FeedbackStore {
-
-  getBrowserCloseAlert = (event) => {
-    if (this.formHasEntries) {
-      event.returnValue = true;
-    } else {
-      return;
+  //Form event handler actions
+  @action handleChange(e) {
+    e.preventDefault();
+    let input = e.target;
+    if(input.dataset.charlimit && input.id) {
+      this.feedbackObject[input.id] = input.value.substr(0, input.dataset.charlimit);
+    } else if(input.id) {
+      this.feedbackObject[input.id] = input.value;
     }
   }
 
-  parseForm = (form) => {
-    return form.querySelectorAll('input, select, textarea');
+  @action handleBlur(e) {
+    e.preventDefault();
+    let input = e.target;
+    this.validateInput(input);
+    if (this.showAlertBar && this.requiredFieldsEntered) {
+      this.toggleAlertBar();
+    }
   }
 
-  isEmpty = (string) => {
-    const _string = string.trim();
-    return _string.length === 0;
-  }
-
-  @action submitForm(form) {
+  @action handleSubmit(e) {
+    e.preventDefault();
+    let form = e.target;
     const inputs = this.parseForm(form);
     this.showAlertBar = false;
-    this.hasBeenSubmitted = false;
     for (var i = 0; i < inputs.length; ++i) {
-      if (inputs[i].id !== 'feedback_email') {
-        this.hasErrors[inputs[i].id] = this.isEmpty(inputs[i].value);
-      } else if (inputs[i].id === 'feedback_email') {
-        this.hasErrors[inputs[i].id] = !this.isEmpty(inputs[i].value) && !utilsService.isValidEmailAddress(inputs[i].value);
-      }
+      this.validateInput(inputs[i]);
     }
     if (this.formIsValid) {
       let data = {};
@@ -40,8 +39,8 @@ class FeedbackStore {
         data[key.replace('feedback_', '')] = this.feedbackObject[key];
       }
       const success = () => {
-        this.hasBeenSubmitted = true;
-        this.clearFeedbackForm();
+        this.clearForm();
+        history.push('/feedback-success');
       }
       const failure = (res) => {
         //prevent the unsaved changes modal from showing, and change history to allow user to navigate back to here from error page.
@@ -55,18 +54,12 @@ class FeedbackStore {
     }
   }
 
-  @action changeValue(input, num) {
-    this.feedbackObject[input.id] = input.value.substr(0, num);
-  }
-
-  @action validateInput(input) {
-    if (input.id === 'feedback_email') {
-      this.hasErrors[input.id] = !this.isEmpty(input.value) && !utilsService.isValidEmailAddress(input.value);
+  //Modal actions
+  getBrowserCloseAlert = (event) => {
+    if (this.formHasEntries) {
+      event.returnValue = true;
     } else {
-      this.hasErrors[input.id] = this.isEmpty(this.feedbackObject[input.id]);
-    }
-    if (this.showAlertBar && this.requiredFieldsEntered) {
-      this.toggleAlertBar();
+      return;
     }
   }
 
@@ -92,15 +85,30 @@ class FeedbackStore {
     });
   }
 
-  @action toggleHasBeenSubmitted() {
-    this.hasBeenSubmitted = !this.hasBeenSubmitted;
+  //Other actions
+  @action validateInput(input) {
+    if (input.id.indexOf('email') > -1) {
+      this.hasErrors[input.id] = !this.isEmpty(input.value) && !utilsService.isValidEmailAddress(input.value);
+    } else if(input.id){
+      this.hasErrors[input.id] = this.isEmpty(this.feedbackObject[input.id]);
+    }
+  }
+
+  parseForm = (form) => {
+    return form.querySelectorAll('input, select, textarea');
+  }
+
+  isEmpty = (string) => {
+    if (!string) return true;
+    if (!string.trim()) return true;
+    return false;
   }
 
   @action toggleAlertBar() {
     this.showAlertBar = !this.showAlertBar;
   }
 
-  @action clearFeedbackForm() {
+  @action clearForm() {
     this.showExitModal = false;
     this.showAlertBar = false;
     for (let key in this.feedbackObject) {
@@ -144,7 +152,6 @@ class FeedbackStore {
 
   @observable showExitModal = false;
   @observable showAlertBar = false;
-  @observable hasBeenSubmitted = false;
   @observable interceptedRoute = '';
   @observable feedbackObject = {
     feedback_title: '',
