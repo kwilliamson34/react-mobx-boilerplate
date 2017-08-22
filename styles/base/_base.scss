@@ -15,6 +15,14 @@ i {
 
 main {
   background: #fff;
+
+  > article {
+    padding-top: 30px;
+  }
+}
+
+.content-wrapper {
+    min-height: 635px;
 }
 
 .row.is-flex {
