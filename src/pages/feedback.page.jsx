@@ -138,7 +138,7 @@ export default class FeedbackPage extends React.Component {
       }, {
         id: 'feedback_email',
         label: 'Email (Optional)',
-        genericLabel: 'email address',
+        genericLabel: 'valid email address',
         value: this.feedbackStore.feedbackObject.feedback_email,
         hasError: this.feedbackStore.hasErrors.feedback_email,
         charLimit: 10000
