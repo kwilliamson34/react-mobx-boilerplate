@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, NavLink, withRouter } from 'react-router-dom';
 import NewTabLink from '../link/new-tab-link';
 import { observer, inject, PropTypes } from 'mobx-react';
+import config from 'config';
 import $ from 'jquery';
 import _ from 'lodash';
 
@@ -18,7 +19,6 @@ export default class PSEHeader extends React.Component {
 		super(props);
 		this.headerStore = this.props.store.headerStore;
 		this.userStore = this.props.store.userStore;
-		this.linkStore = this.props.store.externalLinkStore;
 	}
 
 	componentDidUpdate(prevProps) {
@@ -197,7 +197,7 @@ export default class PSEHeader extends React.Component {
 					className={`collapse ${this.headerStore.profileSubMenuIsOpen ? 'in' : ''}`}
 					aria-labelledby="pse-profile">
 					<li role="presentation">
-						<NewTabLink to={this.linkStore.manageMyProfileLink} onClick={this.handleExternalTabOpen}>
+						<NewTabLink to={config.manageMyProfileLink} onClick={this.handleExternalTabOpen}>
 							Manage My Profile
 						</NewTabLink>
 					</li>
@@ -236,7 +236,7 @@ export default class PSEHeader extends React.Component {
 							Management
 						</strong>
 						<li>
-							<NewTabLink to={this.linkStore.manageUsersLink} onClick={this.handleExternalTabOpen} showIcon={true}>
+							<NewTabLink to={config.manageUsersLink} onClick={this.handleExternalTabOpen} showIcon={true}>
 								Manage Users
 							</NewTabLink>
 						</li>
@@ -244,12 +244,12 @@ export default class PSEHeader extends React.Component {
 							<NavLink to="/admin/manage-apps">Manage Apps</NavLink>
 						</li>
 						<li>
-							<NewTabLink to={this.linkStore.manageServicesLink} onClick={this.handleExternalTabOpen} showIcon={true}>
+							<NewTabLink to={config.manageServicesLink} onClick={this.handleExternalTabOpen} showIcon={true}>
 								Manage Services &amp; Billing
 							</NewTabLink>
 						</li>
 						<li>
-							<NewTabLink to={this.linkStore.viewWirelessReportsLink} onClick={this.handleExternalTabOpen} showIcon={true}>
+							<NewTabLink to={config.viewWirelessReportsLink} onClick={this.handleExternalTabOpen} showIcon={true}>
 								View Wireless Reports
 							</NewTabLink>
 						</li>
@@ -263,7 +263,7 @@ export default class PSEHeader extends React.Component {
 							Purchasing &amp; Provisioning
 						</strong>
 						<li>
-							<NewTabLink to={this.linkStore.shopStandardDevicesLink} onClick={this.handleExternalTabOpen} showIcon={true}>
+							<NewTabLink to={config.shopStandardDevicesLink} onClick={this.handleExternalTabOpen} showIcon={true}>
 								Standard Devices &amp; Rate Plans
 							</NewTabLink>
 						</li>
@@ -328,12 +328,12 @@ export default class PSEHeader extends React.Component {
 											</NavLink>
 										</li>
 										<li>
-											<a href={'tel:' + this.headerStore.ATTSupportPhone}>
+											<a href={'tel:' + config.attCustomerSupportPhone}>
 												<div className="multi-line-item">
 													<span aria-hidden="true">FirstNet Customer Svc: </span>
 													<phone><i className="icon-phone-number" aria-hidden="true"></i>
 														<span className="sr-only">Call&nbsp;</span>
-															{this.headerStore.ATTSupportPhone}
+															{config.attCustomerSupportPhone}
 														<span className="sr-only">&nbsp;to speak with FirstNet Customer Service</span>
 													</phone>
 												</div>
@@ -369,7 +369,7 @@ export default class PSEHeader extends React.Component {
 											</a>
 										</li>
 										<li role="presentation">
-											<NewTabLink to={this.linkStore.manageMyProfileLink}>
+											<NewTabLink to={config.manageMyProfileLink}>
 												<i className="icon-settings" aria-hidden="true"></i>
 												Manage My Profile
 											</NewTabLink>
@@ -407,11 +407,11 @@ export default class PSEHeader extends React.Component {
 											</NavLink>
 										</li>
 										<li role="presentation">
-											<a href={'tel:' + this.headerStore.ATTSupportPhone} className="tel-cell">
+											<a href={'tel:' + config.attCustomerSupportPhone} className="tel-cell">
 												<span aria-hidden="true">FirstNet Customer Svc: </span><br />
 												<phone><i className="icon-phone-number" aria-hidden="true"></i>
 													<span className="sr-only">Call&nbsp;</span>
-														{this.headerStore.ATTSupportPhone}
+														{config.attCustomerSupportPhone}
 													<span className="sr-only">&nbsp;to speak with FirstNet Customer Service</span>
 												</phone>
 											</a>

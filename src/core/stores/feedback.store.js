@@ -117,7 +117,7 @@ class FeedbackStore {
     this.showAlertBar = false;
     for (let key in this.feedbackObject) {
       if (key === 'feedback_email') {
-        this.feedbackObject[key] = userStore.user.email;
+        this.feedbackObject[key] = userStore.user.email || '';
       } else {
         this.feedbackObject[key] = '';
       }
@@ -129,7 +129,7 @@ class FeedbackStore {
 
   @action setDefaultEmail() {
     if (this.isEmpty(this.feedbackObject.feedback_email)) {
-      this.feedbackObject.feedback_email = userStore.user.email;
+      this.feedbackObject.feedback_email = userStore.user.email || '';
     }
   }
 
@@ -162,7 +162,7 @@ class FeedbackStore {
     feedback_title: '',
     feedback_details: '',
     feedback_topic: '',
-    feedback_email: userStore.user.email
+    feedback_email: ''
   };
   @observable hasErrors = {
     feedback_title: false,

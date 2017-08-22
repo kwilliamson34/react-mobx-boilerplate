@@ -1,21 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import NewTabLink from '../components/link/new-tab-link';
-import {observer, inject} from 'mobx-react';
-import PropTypes from 'prop-types';
+import config from 'config';
 
-@inject('store')
-@observer
 export default class AdminDashboardPage extends React.Component {
-
-  static propTypes = {
-    store: PropTypes.object
-  }
-
-  constructor(props) {
-    super(props);
-    this.linkStore = this.props.store.externalLinkStore;
-  }
 
   render() {
     return (
@@ -32,7 +20,7 @@ export default class AdminDashboardPage extends React.Component {
               <nav>
                 <ul>
                   <li className="col-xs-12">
-                    <NewTabLink to={this.linkStore.manageUsersLink} className="dashboard-card manage-users has-shadow">
+                    <NewTabLink to={config.manageUsersLink} className="dashboard-card manage-users has-shadow">
                       <div className="desc">
                         <h3>Manage users</h3>
                         <p>Add, edit and remove users</p>
@@ -41,7 +29,7 @@ export default class AdminDashboardPage extends React.Component {
                     </NewTabLink>
                   </li>
                   <li className="col-xs-12">
-                    <NewTabLink to={this.linkStore.manageServicesLink} className="dashboard-card manage-services has-shadow">
+                    <NewTabLink to={config.manageServicesLink} className="dashboard-card manage-services has-shadow">
                       <div className="desc">
                         <h3>Manage services & billing</h3>
                         <p>Assign or remove devices, change rate plans &amp; features, view & pay bills, update information, manage push-to-talk</p>
@@ -59,7 +47,7 @@ export default class AdminDashboardPage extends React.Component {
                     </Link>
                   </li>
                   <li className="col-xs-12 col-sm-6">
-                    <NewTabLink to={this.linkStore.viewWirelessReportsLink} className="dashboard-card manage-wireless-reports has-shadow">
+                    <NewTabLink to={config.viewWirelessReportsLink} className="dashboard-card manage-wireless-reports has-shadow">
                       <div className="desc">
                         <h3>View wireless reports</h3>
                         <p>View device inventory, rate plan summary, early termination fees, upgrade eligibility, device unlock eligibility</p>
@@ -77,7 +65,7 @@ export default class AdminDashboardPage extends React.Component {
               <nav>
                 <ul>
                   <li className="col-xs-12 col-md-6 col-lg-12">
-                    <NewTabLink to={this.linkStore.shopStandardDevicesLink} className="dashboard-card shop-devices-rates has-shadow">
+                    <NewTabLink to={config.shopStandardDevicesLink} className="dashboard-card shop-devices-rates has-shadow">
                       <div className="desc">
                         <h3>Shop standard devices &amp; rate plans</h3>
                         <p>Add a new device, provision an existing device, add a rate plan, feature(s) and accessories</p>

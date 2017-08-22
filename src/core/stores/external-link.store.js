@@ -4,7 +4,6 @@ import {utilsService} from '../services/utils.service';
 import {history} from '../services/history.service';
 import {externalDeviceContentService} from '../services/external-device-content.service';
 import {externalSolutionsService} from '../services/external-solutions.service';
-import config from 'config';
 
 class ExternalLinkStore {
   /*
@@ -182,12 +181,6 @@ class ExternalLinkStore {
   };
 
   @observable currentPurchasingInfo: {};
-
-  @observable manageUsersLink = 'https://test-profilemgt.firstnet.att.com/ebiz/firstnet/index.jsp#/companyInfo/companyInfoProfile';
-  @observable manageServicesLink = 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn';
-  @observable viewWirelessReportsLink = config.viewWirelessReportsLink;
-  @observable shopStandardDevicesLink = 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn';
-  @observable manageMyProfileLink = 'https://test-profilemgt.firstnet.att.com/ebiz/firstnet/';
 
   @observable firstnetFacebook = 'https://www.facebook.com/firstnetgov/';
   @observable firstnetLinkedIn = 'https://www.linkedin.com/company/first-responder-network-authority-firstnet-';

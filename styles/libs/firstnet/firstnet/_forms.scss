@@ -1,6 +1,22 @@
 .form-group {
   margin-top: 1em;
   margin-bottom: 15px;
+  /****** ERROR STATE ******/
+  &.has-error {
+    
+    .control-label {
+      color: $fn-alert-red!important;
+    }
+
+    .form-control {
+      border-color: $fn-alert-red!important;
+    }
+  }
+
+  .msgBlock.error-list {
+    margin: 0 0 0.6rem;
+    padding-left: 10px;
+  }
 }
 
 .form-group-title {
@@ -131,8 +147,8 @@ select::-ms-value {
   label {
     font-size: $fn-label-desktop;
     font-weight: $fn-medium-weight;
-    line-height: 32px;
-    min-height: 32px;
+    line-height: 1.6;
+    min-height: 48px;
     padding-left: 20px;
     margin-bottom: 0;
     cursor: pointer;
@@ -147,7 +163,7 @@ select::-ms-value {
     width: 16px;
     height: 16px;
     float: left;
-    margin: 8px 8px 8px 2px;
+    margin: 4px 8px 8px 2px;
   }
   //keyboard-only fallback
   input[type="checkbox"],
@@ -155,8 +171,13 @@ select::-ms-value {
     @include sr-only;
 
     &:focus +.cr {
-      margin: 8px 8px 8px 2px;
       @include focus();
+    }
+  }
+
+  &.disabled {
+    label {
+      color: $fn-disabledgrey-chkboxlabel;
     }
   }
 }
@@ -228,23 +249,6 @@ select::-ms-value {
         }
       }
     }
-  }
-}
-/****** ERROR STATE ******/
-.form-group.has-error {
-  .control-label {
-    color: $fn-alert-red!important;
-  }
-
-  .form-control {
-    border-color: $fn-alert-red!important;
-  }
-}
-
-.form-group {
-  .msgBlock.error-list {
-    margin: 0 0 0.6rem;
-    padding-left: 10px;
   }
 }
 

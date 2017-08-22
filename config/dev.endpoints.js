@@ -10,13 +10,17 @@ const config = {
   mktgPortalImgBaseUrl: 'https://www.firstnet.ws',
   apiBase: '/api',
   attCustomerSupportPhone: '800-574-7000',
-  viewWirelessReportsLink: 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn?requestedPage=downloadReports',
   firstnetGov: 'https://firstnet.gov/',
   firstnetCom: 'https://www.firstnet.com/',
   appStore: 'https://test-apps.firstnet.att.com',
   appControl: 'https://test-appcontrol.firstnet.att.com/',
   localControl: 'https://test-localcontrol.firstnet.att.com',
-  devPortal: 'https://test-developer.firstnet.att.com'
+  devPortal: 'https://test-developer.firstnet.att.com',
+  manageMyProfileLink: 'https://test-profilemgt.firstnet.att.com/ebiz/firstnet/',
+  manageUsersLink: 'https://test-profilemgt.firstnet.att.com/ebiz/firstnet/index.jsp#/companyInfo/companyInfoProfile',
+  manageServicesLink: 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn',
+  viewWirelessReportsLink: 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn?requestedPage=downloadReports',
+  shopStandardDevicesLink: 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn'
 }
 
 export default config

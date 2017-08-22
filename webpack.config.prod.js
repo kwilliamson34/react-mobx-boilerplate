@@ -4,7 +4,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const precss = require("precss");
 const autoprefixer = require("autoprefixer");
@@ -110,7 +109,6 @@ module.exports = {
 	},
 
 	plugins: [
-		new BundleAnalyzerPlugin(),
 		new webpack.optimize.UglifyJsPlugin(), //minify everything
 		new webpack.optimize.AggressiveMergingPlugin(),//Merge chunks
 

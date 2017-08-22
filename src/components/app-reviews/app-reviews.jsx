@@ -43,7 +43,6 @@ export default class AppReviews extends React.Component {
           <div className='review-metadata'>
             <div className='subject-and-rating-container'>
               <div className='review-subject' id={'Review-' + node.reviewId}>{node.commentTitle}</div>
-              <div className='sr-only'>{'App rated ' + node.rating + ' out of 5'}</div>
               <Rating rating={node.reviewStar} reviewCount={1}/>
             </div>
             <div className='review-author'>{authorName}</div>
@@ -61,7 +60,7 @@ export default class AppReviews extends React.Component {
     return (
       <div className='reviews-container'>
         {this.renderReviews(this.loadedReviewsArray)}
-        {this.showLoadMoreButton && <button className='btn fn-primary load-more-button' onClick={this.loadReviews}>
+        {this.showLoadMoreButton && <button className='btn fn-secondary load-more-button' onClick={this.loadReviews}>
           Load More
         </button>}
       </div>

@@ -2,20 +2,22 @@
   width: 100%;
   height: auto;
   background-color: $fn-ltgrey;
-  padding: 0 15px 15px;
+  padding: 20px 15px;
   border: 1px solid $fn-grey;
 
-  .checkbox label {
-    padding: 15px 1rem;
-    width: auto;
-    height: 48px;
+  .checkbox {
+    label {
+      font-size: 1.6rem;
+      width: auto;
+      padding-left: 10px;
+    }
   }
 
   button {
     font-size: 1.4rem;
     display: block;
-    margin: .75rem auto;
     padding: 0;
     width: 100%;
+    margin-top: -5px;
   }
 }
