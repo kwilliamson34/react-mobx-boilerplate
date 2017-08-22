@@ -12,7 +12,7 @@ export default class FeedbackPage extends React.Component {
 
   render() {
     return (
-      <section id="customer-feedback-success-page">
+      <section className="success-page">
         <div className="success-content">
           <h1>Thanks for your feedback!</h1>
           <p>We appreciate you taking the time to provide your thoughts about this site. Your comments will help us to improve our tools going forward.</p>
