@@ -99,9 +99,10 @@ class FeedbackStore {
   }
 
   isEmpty = (string) => {
-    if (!string) return true;
-    if (!string.trim()) return true;
-    return false;
+    if(string && string.trim()) {
+      return false;
+    }
+    return true;
   }
 
   @action toggleAlertBar() {
