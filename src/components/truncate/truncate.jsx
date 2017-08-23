@@ -136,18 +136,14 @@ export default class Truncate extends React.Component {
   renderNodes = (everythingBlock, truncatedBlock) => {
     return (
       <span className="truncate-contents">
-        {this.shouldTruncate && this.isTruncated
-          ? <p dangerouslySetInnerHTML={{__html: `${truncatedBlock}`}} />
-          : <p dangerouslySetInnerHTML={{__html: `${everythingBlock}`}} />
-        }
+        <p dangerouslySetInnerHTML={{__html: `${(this.shouldTruncate && this.isTruncated) ? truncatedBlock : everythingBlock}`}} />
       </span>
     )
   }
 
   render() {
-    let tagAttributes = { 'className': this.props.className }
     return (
-      <this.props.wrappingElement {...tagAttributes}>
+      <this.props.wrappingElement  className={this.props.className}>
         {this.renderNodes(this.showEverythingBlock, this.showTruncatedBlock)}
         {this.shouldTruncate && this.truncateButton()}
       </this.props.wrappingElement>
