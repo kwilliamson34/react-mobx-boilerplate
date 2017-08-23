@@ -3,7 +3,7 @@
   margin-bottom: 15px;
   /****** ERROR STATE ******/
   &.has-error {
-    
+
     .control-label {
       color: $fn-alert-red!important;
     }
@@ -176,6 +176,8 @@ select::-ms-value {
   }
 
   &.disabled {
+    pointer-events: none;
+
     label {
       color: $fn-disabledgrey-chkboxlabel;
     }
@@ -190,6 +192,7 @@ select::-ms-value {
       background-position: 0 0;
     }
 
+    &.disabled,
     &:disabled {
       &+ .cr {
         background: url('/images/radio-unchecked-disabled.svg') no-repeat;
@@ -205,6 +208,7 @@ select::-ms-value {
         background-position: 0 0;
       }
 
+      &.disabled,
       &:disabled {
         &+ .cr {
           background: url('/images/radio-checked-disabled.svg') no-repeat;
@@ -243,7 +247,7 @@ select::-ms-value {
       &.disabled,
       &:disabled {
         &+ .cr {
-          background: url('/images/chkbox-checked-disabled.svg') no-repeat;
+          background: url('/images/chkbox-disabled.svg') no-repeat;
           background-size: 16px 16px;
           background-position: 0 0;
         }
