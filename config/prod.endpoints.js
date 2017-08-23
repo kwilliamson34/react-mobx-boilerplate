@@ -16,7 +16,7 @@ const config = {
   appControl: 'https://appcontrol.firstnet.att.com/',
   localControl: 'https://localcontrol.firstnet.att.com',
   devPortal: 'https://developer.firstnet.att.com',
-  manageMyProfileLink: 'https://profilemgt.firstnet.att.com/ebiz/firstnet/index.jsp#/userInfo/userInfoProfile?userId=W08iMDR4LnAj',
+  manageMyProfileLink: 'https://profilemgt.firstnet.att.com/ebiz/firstnet/userDetails/viewMyProfile',
   manageUsersLink: 'https://profilemgt.firstnet.att.com/ebiz/firstnet/index.jsp#/companyInfo/companyInfoProfile',
   manageServicesLink: 'https://wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn',
   viewWirelessReportsLink: 'https://wireless.firstnet.att.com/businesscare/reporting/tcm_inv_reports/requestreports.jsp?showsearch=null',
