@@ -76,6 +76,27 @@ export class FormTemplate extends React.Component {
     )
   }
 
+  renderCheckbox = ({id, label, genericLabel, hasError, checkboxList}) => {
+    return (
+      <div className={`form-group has-feedback ${hasError ? 'has-error' : ''}`} key={id}>
+      <label className="control-label" htmlFor={id}>{label}<span className="required-asterisks"> *</span></label>
+      {hasError && <div className="msgBlock error error-list" role="alert" aria-live="assertive">
+        <span>Please enter a {genericLabel || label.toLowerCase()}.</span>
+      </div>}
+      {checkboxList.map((name, i) => {
+        return (
+          <label className="custom-control custom-checkbox" key={`${id}-checkbox-${i}`}>
+            <input type="checkbox" className="custom-control-input"/>
+            <span className="custom-control-indicator" />
+            <span className="custom-control-description">{name}</span>
+          </label>
+          )
+        })
+      }
+    </div>
+    )
+  }
+
   renderInput = (inputData) => {
     let inputJsx = '';
     switch(inputData.type) {
@@ -84,6 +105,9 @@ export class FormTemplate extends React.Component {
         break;
       case 'select' :
         inputJsx = this.renderSelect(inputData);
+        break;
+      case 'checkbox' :
+        inputJsx = this.renderCheckbox(inputData);
         break;
       case 'textarea':
       case 'text':

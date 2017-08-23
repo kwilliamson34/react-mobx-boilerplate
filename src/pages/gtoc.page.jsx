@@ -22,14 +22,28 @@ export default class SubscribeToGTOC extends React.Component {
   }
 
   getInputList = () => {
+    const checkboxList = [
+      'Option 1',
+      'Option 2',
+      'Options 3'
+    ]
+
     return [
       {
         id: 'gtoc_email',
+        type: 'text',
         label: 'Email',
         genericLabel: 'valid email address',
         value: this.gtocStore.gtocObject.gtoc_email,
         hasError: this.gtocStore.hasErrors.gtoc_email,
         charLimit: 10000
+      }, {
+        id: 'gtoc_femaList',
+        type: 'checkbox',
+        label: 'Option',
+        genericLabel: 'at least one option',
+        checkboxList: checkboxList,
+        hasError: this.gtocStore.hasErrors.gtoc_femaList
       }
     ]
   }
@@ -50,7 +64,7 @@ export default class SubscribeToGTOC extends React.Component {
                   ref={ref => this.form = ref}
                   inputList={this.getInputList() || []}
                   onSubmit={this.gtocStore.handleSubmit.bind(this.gtocStore)}
-                  onChange={this.gtocStore.handleChange.bind(this.gtocStore)}
+                  onChange={() => {}}
                   onBlur={this.gtocStore.handleBlur.bind(this.gtocStore)}
                   errorBody={this.gtocStore.showAlertBar ? 'Please correct the errors below.' : ''}
                   toggleAlertBar={this.gtocStore.toggleAlertBar.bind(this.gtocStore)}
