@@ -18,8 +18,21 @@
     padding-bottom: 20px;
   }
 
-  p {
-    font-size: 1.6rem;
+  p,
+  .ratings-container {
+    font-size: $detail-banner-font-size;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+
+    .ratings-star {
+      font-size: 2rem;
+    }
+  }
+
+  .rating-as-text p {
+    margin: 5px 0;
+    text-align: left;
+    line-height: 1;
   }
 
   .appicon-wrapper {
@@ -40,21 +53,6 @@
         left: 0;
       }
     }
-  }
-
-  .ratings-container {
-    font-size: 1.6rem;
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-
-    .ratings-star {
-      font-size: 2rem;
-    }
-  }
-
-  .rating-as-text p {
-    margin: 0;
-    text-align: left;
   }
 
   .app-title {
