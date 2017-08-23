@@ -122,7 +122,7 @@ export default class Truncate extends React.Component {
   truncateButton = () => {
     return (
       <button className='btn-link truncate-button' aria-haspopup='true' aria-expanded={!this.isTruncated} onClick={this.toggleTruncate} >
-        {'Show ' + (this.isTruncated ? 'more' : 'less')}
+        <span>{'Show ' + (this.isTruncated ? 'more' : 'less')}</span>
         <i className={this.isTruncated ? 'icon-arrowDown' : 'icon-arrowUp'} aria-hidden='true' />
       </button>
     )
