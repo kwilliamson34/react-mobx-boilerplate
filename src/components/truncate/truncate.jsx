@@ -122,10 +122,8 @@ export default class Truncate extends React.Component {
   truncateButton = () => {
     return (
       <button className='btn-link truncate-button' aria-haspopup='true' aria-expanded={!this.isTruncated} onClick={this.toggleTruncate} >
-        {this.isTruncated
-          ? <span>SHOW MORE</span>
-          : <span>SHOW LESS</span>
-        }<i className={this.isTruncated ? 'icon-arrowDown' : 'icon-arrowUp'} aria-hidden='true' />
+        {'Show ' + (this.isTruncated ? 'more' : 'less')}
+        <i className={this.isTruncated ? 'icon-arrowDown' : 'icon-arrowUp'} aria-hidden='true' />
       </button>
     )
   }
@@ -142,18 +140,17 @@ export default class Truncate extends React.Component {
           ? <p dangerouslySetInnerHTML={{__html: `${truncatedBlock}`}} />
           : <p dangerouslySetInnerHTML={{__html: `${everythingBlock}`}} />
         }
-        {this.shouldTruncate && this.truncateButton()}
       </span>
     )
   }
 
   render() {
-    return React.createElement(
-      this.props.wrappingElement,
-      {
-        className: this.props.className
-      },
-      this.renderNodes(this.showEverythingBlock, this.showTruncatedBlock)
+    let tagAttributes = { 'className': this.props.className }
+    return (
+      <this.props.wrappingElement {...tagAttributes}>
+        {this.renderNodes(this.showEverythingBlock, this.showTruncatedBlock)}
+        {this.shouldTruncate && this.truncateButton()}
+      </this.props.wrappingElement>
     );
   }
 }
