@@ -33,7 +33,10 @@ export class AppDetailBanner extends React.Component {
       <div className="app-rating app-details">
         {/*Mobile*/}
         <div className="hidden-sm hidden-md hidden-lg">
-          <Rating rating={this.data.rating} reviewCount={this.data.reviews_count} showRatingNumber={true} truncateStars={true}/>
+          <span className="rating-as-text">
+            <p>{this.data.rating} Stars</p>
+            <p>{this.data.reviews_count ? this.data.reviews_count : 'No'} Review{this.data.reviews_count === 1 ? '' : 's'}</p>
+          </span>
         </div>
         {/*Tablet*/}
         <div className="hidden-xs hidden-md hidden-lg">
