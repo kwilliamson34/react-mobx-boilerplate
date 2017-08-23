@@ -2,7 +2,6 @@ import React from 'react';
 import Checkbox from '../toggle/checkbox';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
-import {utilsService} from '../../core/services/utils.service';
 
 @observer
 export default class GeolinkControls extends React.Component {
@@ -89,7 +88,7 @@ export default class GeolinkControls extends React.Component {
                   <legend className="sr-only">Coverage layers</legend>
                   <div className="col-xs-6 col-sm-12 no-gutters">
                     <Checkbox id="network-toggle" value="Network" label="Network" onChange={this.toggleNetwork} checked={this.geoStore.showNetworkLayer} disabled={this.props.disabled}/>
-                    <Checkbox id="weather-toggle" value="Weather" label="Weather" onChange={this.toggleWeather} checked={this.geoStore.showWeatherLayer} disabled={utilsService.getIsMobile() || this.props.disabled}/>
+                    <Checkbox id="weather-toggle" value="Weather" label="Weather" onChange={this.toggleWeather} checked={this.geoStore.showWeatherLayer} disabled={this.props.disabled}/>
                   </div>
                   <div className="col-xs-6 col-sm-12 no-gutters">
                     <Checkbox id="traffic-toggle" value="Traffic" label="Traffic" onChange={this.toggleTraffic} checked={this.geoStore.showTrafficLayer} disabled={this.props.disabled}/>
