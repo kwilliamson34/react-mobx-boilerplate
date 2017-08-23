@@ -82,10 +82,17 @@ class GTOCStore {
     }
   }
 
+  //email will need validation
   @computed get requiredFieldsEntered() {
     let requiredFieldsEntered = true;
     for (let key in this.gtocObject) {
-      if (this.isEmpty(this.gtocObject[key])) requiredFieldsEntered = false;
+      if (key === 'gtoc_email') {
+        if (this.isEmpty(this.gtocObject[key]) || !utilsService.isValidEmailAddress(this.gtocObject[key])) {
+          requiredFieldsEntered = false;
+        }
+      } else {
+        if (this.isEmpty(this.gtocObject[key])) requiredFieldsEntered = false;
+      }
     }
     return requiredFieldsEntered;
   }

@@ -40,7 +40,7 @@ export default class SubscribeToGTOC extends React.Component {
       }, {
         id: 'gtoc_femaList',
         type: 'checkbox',
-        label: 'Option',
+        label: 'CHOOSE YOUR DESTROYER',
         genericLabel: 'at least one option',
         checkboxList: checkboxList,
         hasError: this.gtocStore.hasErrors.gtoc_femaList
@@ -64,7 +64,7 @@ export default class SubscribeToGTOC extends React.Component {
                   ref={ref => this.form = ref}
                   inputList={this.getInputList() || []}
                   onSubmit={this.gtocStore.handleSubmit.bind(this.gtocStore)}
-                  onChange={() => {}}
+                  onChange={this.gtocStore.handleChange.bind(this.gtocStore)}
                   onBlur={this.gtocStore.handleBlur.bind(this.gtocStore)}
                   errorBody={this.gtocStore.showAlertBar ? 'Please correct the errors below.' : ''}
                   toggleAlertBar={this.gtocStore.toggleAlertBar.bind(this.gtocStore)}
