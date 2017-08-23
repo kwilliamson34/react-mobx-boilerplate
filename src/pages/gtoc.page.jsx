@@ -17,14 +17,18 @@ export default class SubscribeToGTOC extends React.Component {
     this.gtocStore = this.props.store.gtocStore;
   }
 
+  componentDidUpdate() {
+    console.log(this.gtocStore.gtocObject);
+  }
+
   getInputList = () => {
     return [
       {
         id: 'gtoc_email',
         label: 'Email',
         genericLabel: 'valid email address',
-        value: this.gtocStore.gtocObject.email,
-        hasError: this.gtocStore.hasErrors.email,
+        value: this.gtocStore.gtocObject.gtoc_email,
+        hasError: this.gtocStore.hasErrors.gtoc_email,
         charLimit: 10000
       }
     ]

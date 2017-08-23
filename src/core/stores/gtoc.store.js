@@ -1,5 +1,5 @@
 import {action, observable, computed} from 'mobx';
-import {apiService} from '../services/api.service';
+// import {apiService} from '../services/api.service';
 import {utilsService} from '../services/utils.service';
 
 class GTOCStore {
@@ -8,6 +8,7 @@ class GTOCStore {
   @action handleChange(e) {
     e.preventDefault();
     let input = e.target;
+    console.log('change', input);
     if(input.dataset.charlimit && input.id) {
       this.gtocObject[input.id] = input.value.substr(0, input.dataset.charlimit);
     } else if(input.id) {
@@ -18,6 +19,7 @@ class GTOCStore {
   @action handleBlur(e) {
     e.preventDefault();
     let input = e.target;
+    // console.log('input', input);
     this.validateInput(input);
     if (this.showAlertBar && this.requiredFieldsEntered) {
       this.toggleAlertBar();
@@ -53,10 +55,10 @@ class GTOCStore {
   }
 
   @action validateInput(input) {
-    if (input.id.indexOf('email') > -1) {
+    if (input.id.indexOf('gtoc_email') > -1) {
       this.hasErrors[input.id] = !this.isEmpty(input.value) && !utilsService.isValidEmailAddress(input.value);
     } else if(input.id){
-      this.hasErrors[input.id] = this.isEmpty(this.feedbackObject[input.id]);
+      this.hasErrors[input.id] = this.isEmpty(this.gtocObject[input.id]);
     }
   }
 
@@ -68,22 +70,33 @@ class GTOCStore {
   @action clearForm() {
     this.showExitModal = false;
     this.showAlertBar = false;
+    // this.gtocObject = {
+    //   email: '',
+    //   femaList: []
+    // }
     this.gtocObject = {
-      email: '',
-      femaList: []
+      email: ''
     }
     for (let key in this.hasErrors) {
       this.hasErrors[key] = false;
     }
   }
 
+  @computed get requiredFieldsEntered() {
+    let requiredFieldsEntered = true;
+    for (let key in this.gtocObject) {
+      if (this.isEmpty(this.gtocObject[key])) requiredFieldsEntered = false;
+    }
+    return requiredFieldsEntered;
+  }
+
   @observable showAlertBar = false;
   @observable gtocObject = {
-    email: '',
-    femaList: []
+    gtoc_email: ''
   }
   @observable hasErrors = {
-    email: false,
-    femaList: false
+    gtoc_email: false
   }
 }
+
+export const gtocStore = new GTOCStore();
