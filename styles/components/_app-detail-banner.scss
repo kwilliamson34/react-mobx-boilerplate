@@ -42,6 +42,21 @@
     }
   }
 
+  .ratings-container {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+
+    .ratings-star {
+      font-size: 2rem;
+    }
+  }
+
+  .rating-as-text p {
+    margin: 0;
+    text-align: left;
+  }
+
   .app-title {
     padding: 0 30px 0 0;
   }
