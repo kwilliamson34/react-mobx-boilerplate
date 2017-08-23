@@ -4,6 +4,34 @@
   word-wrap: break-word;
   margin-top: 10px;
 
+  .truncate-button {
+    position: relative;
+    font-weight: $fn-bold-weight;
+    font-size: $fn-button-desktop;
+    line-height: 1.25;
+    color: $fn-ltblue;
+    margin-top: 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 0;
+    padding: 2px;
+
+    &:focus {
+      outline: 0;
+      border-radius: 4px;
+      @include focus();
+    }
+
+    span:hover {
+      text-decoration: underline;
+    }
+
+    i {
+      font-size: 10px;
+      padding-left: 5px;
+    }
+  }
+
   .truncate-contents {
     p {
       margin: 0;

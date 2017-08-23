@@ -133,7 +133,7 @@ export default class Truncate extends React.Component {
     if (this.props.returnToId !== null) document.getElementById(this.props.returnToId).scrollIntoView();
   }
 
-  renderNodes = (everythingBlock, truncatedBlock) => {
+  renderTruncateBlock = (everythingBlock, truncatedBlock) => {
     return (
       <span className="truncate-contents">
         <p dangerouslySetInnerHTML={{__html: `${(this.shouldTruncate && this.isTruncated) ? truncatedBlock : everythingBlock}`}} />
@@ -143,8 +143,8 @@ export default class Truncate extends React.Component {
 
   render() {
     return (
-      <this.props.wrappingElement  className={this.props.className}>
-        {this.renderNodes(this.showEverythingBlock, this.showTruncatedBlock)}
+      <this.props.wrappingElement className={this.props.className}>
+        {this.renderTruncateBlock(this.showEverythingBlock, this.showTruncatedBlock)}
         {this.shouldTruncate && this.truncateButton()}
       </this.props.wrappingElement>
     );
