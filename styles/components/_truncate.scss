@@ -18,6 +18,7 @@
 
     &:focus {
       border-radius: 4px;
+      outline: 1px solid $fn-ltblue;
       @include focus();
     }
 
