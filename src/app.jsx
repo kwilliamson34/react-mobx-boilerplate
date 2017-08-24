@@ -24,6 +24,7 @@ import NetworkStatusPage from './pages/network-status.page';
 import ErrorPage from './pages/error.page.jsx';
 import SessionTimeoutPage from './pages/session-timeout.page';
 import SubscribeToGTOC from './pages/gtoc.page';
+import SubscribeToGTOCSuccess from './pages/gtoc-success.page';
 
 //Admin pages
 import ManageAppsPage from './pages/manage-apps.page';
@@ -136,6 +137,7 @@ export default class App extends React.Component {
             <Route path="/feedback" component={FeedbackPage}/>
             <Route path="/feedback-success" component={FeedbackSuccessPage}/>
             <Route path="/subscribe-to-alerts" component={SubscribeToGTOC}/>
+            <Route path="/subscribe-to-alerts-success" component={SubscribeToGTOCSuccess}/>
             <Route path="/faq" component={FAQPage}/>
             <Route path="/help-center" component={HelpCenterPage}/>
             <Route path="/privacy" component={PrivacyPage}/>

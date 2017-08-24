@@ -1,19 +1,23 @@
 import {action, observable, computed} from 'mobx';
-// import {apiService} from '../services/api.service';
+import {apiService} from '../services/api.service';
 import {utilsService} from '../services/utils.service';
+import {history} from '../services/history.service';
 
 class GTOCStore {
 
   //Form event handler actions
   @action handleChange(e) {
-    e.preventDefault();
     let input = e.target;
-    console.log('change', input);
-    if(input.dataset.charlimit && input.id) {
-      this.gtocObject[input.id] = input.value.substr(0, input.dataset.charlimit);
-    } else if(input.id) {
+    // console.log('change', input);
+    if(input.id === 'gtoc_email') {
       this.gtocObject[input.id] = input.value;
+    } else if (input.type === 'checkbox') {
+      // console.log('GO GO GO', this.gtocObject.gtoc_femaList.indexOf(input.value));
+      this.gtocObject.gtoc_femaList.indexOf(input.value) < 0
+        ? this.gtocObject.gtoc_femaList.push(input.value)
+        : this.gtocObject.gtoc_femaList.remove(input.value);
     }
+    // console.log('this.gtocObject', this.gtocObject.gtoc_femaList);
   }
 
   @action handleBlur(e) {
@@ -30,12 +34,28 @@ class GTOCStore {
     e.preventDefault();
     let form = e.target;
     const inputs = this.parseForm(form);
+    console.log('inputs', inputs);
     this.showAlertBar = false;
     for (var i = 0; i < inputs.length; ++i) {
       this.validateInput(inputs[i]);
     }
     if (this.formIsValid) {
-      console.log('SUCCESS!!!!');
+
+      let data = {};
+      for (let key in this.feedbackObject) {
+        data[key.replace('gtoc_', '')] = this.gtocObject[key];
+      }
+      const success = () => {
+        this.clearForm();
+        history.push('/subscribe-to-alerts-success');
+      }
+      const failure = (res) => {
+        //prevent the unsaved changes modal from showing, and change history to allow user to navigate back to here from error page.
+        // this.disableSaveDialogs();
+        history.push('/subscribe-to-alerts');
+        utilsService.handleError(res);
+      }
+      apiService.submitGTOCSubscriptionForm(data).then(success, failure);
     } else {
       console.log('DUHOH');
       this.showAlertBar = true;
@@ -56,10 +76,11 @@ class GTOCStore {
 
   @action validateInput(input) {
     if (input.id.indexOf('gtoc_email') > -1) {
-      this.hasErrors[input.id] = !this.isEmpty(input.value) && !utilsService.isValidEmailAddress(input.value);
-    } else if(input.id){
-      this.hasErrors[input.id] = this.isEmpty(this.gtocObject[input.id]);
+      this.hasErrors.gtoc_email = !this.isEmpty(input.value) && !utilsService.isValidEmailAddress(input.value);
     }
+    // else if(input.type === 'checkbox'){
+    //   this.hasErrors.gtoc_femaList = !this.hasErrors.gtoc_femaList.length;
+    // }
   }
 
   //other actions
@@ -70,39 +91,43 @@ class GTOCStore {
   @action clearForm() {
     this.showExitModal = false;
     this.showAlertBar = false;
-    // this.gtocObject = {
-    //   email: '',
-    //   femaList: []
-    // }
     this.gtocObject = {
-      email: ''
+      email: '',
+      femaList: []
     }
     for (let key in this.hasErrors) {
       this.hasErrors[key] = false;
     }
   }
 
-  //email will need validation
   @computed get requiredFieldsEntered() {
     let requiredFieldsEntered = true;
-    for (let key in this.gtocObject) {
-      if (key === 'gtoc_email') {
-        if (this.isEmpty(this.gtocObject[key]) || !utilsService.isValidEmailAddress(this.gtocObject[key])) {
-          requiredFieldsEntered = false;
-        }
-      } else {
-        if (this.isEmpty(this.gtocObject[key])) requiredFieldsEntered = false;
-      }
+    if (this.isEmpty(this.gtocObject.gtoc_email) || !utilsService.isValidEmailAddress(this.gtocObject.gtoc_email)) {
+      requiredFieldsEntered = false;
+    }
+    if (this.gtocObject.gtoc_femaList.length === 0) {
+      requiredFieldsEntered = false;
     }
     return requiredFieldsEntered;
   }
 
+  @computed get formIsValid() {
+    for (let key in this.hasErrors) {
+      if (this.hasErrors[key]) {
+        return false;
+      }
+    }
+    return true;
+  }
+
   @observable showAlertBar = false;
   @observable gtocObject = {
-    gtoc_email: ''
+    gtoc_email: '',
+    gtoc_femaList: []
   }
   @observable hasErrors = {
-    gtoc_email: false
+    gtoc_email: false,
+    gtoc_femaList: false
   }
 }
 

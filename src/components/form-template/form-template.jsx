@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
 
+import 'bootstrap';
+
 @observer
 export class FormTemplate extends React.Component {
 
@@ -83,16 +85,18 @@ export class FormTemplate extends React.Component {
       {hasError && <div className="msgBlock error error-list" role="alert" aria-live="assertive">
         <span>Please enter a {genericLabel || label.toLowerCase()}.</span>
       </div>}
-      {checkboxList.map((name, i) => {
-        return (
-          <label className="custom-control custom-checkbox" key={`${id}-checkbox-${i}`}>
-            <input type="checkbox" className="custom-control-input"/>
-            <span className="custom-control-indicator" />
-            <span className="custom-control-description">{name}</span>
-          </label>
+      <div id={id}>
+        {checkboxList.map((name, i) => {
+          return (
+            <label className="custom-control custom-checkbox" key={`${id}-checkbox-${i}`}>
+              <input type="checkbox" className="custom-control-input" value={name}/>
+              <span className="custom-control-indicator" />
+              <span className="custom-control-description">{name}</span>
+            </label>
           )
         })
       }
+      </div>
     </div>
     )
   }
