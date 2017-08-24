@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {observer, inject} from 'mobx-react';
+import $ from 'jquery';
 
+import {history} from '../core/services/history.service';
 import {FormTemplate} from '../components/form-template/form-template';
 
 @inject('store')
@@ -17,15 +19,88 @@ export default class SubscribeToGTOC extends React.Component {
     this.gtocStore = this.props.store.gtocStore;
   }
 
-  componentDidUpdate() {
-    console.log(this.gtocStore.gtocObject);
+  componentWillMount() {
+    this.gtocStore.enableSaveDialogs();
+  }
+
+  componentWillUnmount() {
+    this.clearModals();
+    this.gtocStore.disableSaveDialogs();
+    if (!this.gtocStore.formHasEntries && !this.gtocStore.formIsValid) {
+      this.gtocStore.clearForm();
+    }
+  }
+
+  toggleExitModal = (e) => {
+    e.preventDefault();
+    this.gtocStore.toggleExitModal()
+  }
+
+  toggleAlertBar = (e) => {
+    e.preventDefault();
+    this.gtocStore.toggleAlertBar();
+  }
+
+  discardFormChanges = (e) => {
+    e.preventDefault();
+    this.gtocStore.clearForm();
+    history.replace(this.gtocStore.interceptedRoute);
+  }
+
+  showModal = (shouldShow, modalID) => {
+    if (shouldShow) {
+      $(modalID).modal({backdrop: 'static'});
+    } else {
+      $(modalID).modal('hide');
+      $(modalID).data('bs.modal', null);
+    }
+  }
+
+  clearModals = () => {
+    $('.modal-backdrop, #network-alerts-exit-modal').remove();
+    $('body').removeClass('modal-open');
+  }
+
+  renderExitModal = (showExitModal) => {
+    this.showModal(showExitModal, '#network-alerts-exit-modal');
+    return (
+      <div id="network-alerts-exit-modal" role="dialog" tabIndex="-1" className="modal fade" aria-labelledby="network-alerts-modal-title">
+        <div>
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <button type="button" className="fn-modal-close" onClick={this.toggleExitModal}>
+                <i aria-hidden="true" className="icon-close"></i>
+                <span className="sr-only">close window</span>
+              </button>
+              <div className="row no-gutters" id="network-alerts-modal-title">
+                <div className="col-xs-12">
+                  <h1 className="as-h2">Unsaved changes</h1>
+                  <p>Your form changes will not be saved if you navigate away from this page.</p>
+                </div>
+                <div className="col-xs-12 text-center">
+                  <button className="fn-primary" onClick={this.toggleExitModal}>Stay on Page</button>
+                  <button className="fn-secondary" onClick={this.discardFormChanges}>Discard Changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
   }
 
   getInputList = () => {
     const checkboxList = [
-      'Option 1',
-      'Option 2',
-      'Options 3'
+      'Region I: Connecticut, Maine, Massachusetts, New Hampshire, Rhode Island, Vermont',
+      'Region II: New Jersey, New York, Puerto Rico, Virgin Islands',
+      'Region III: District of Columbia, Delaware, Maryland, Pennsylvania, Virginia, West Virginia',
+      'Region IV: Alabama, Florida, Georgia, Kentucky, Mississippi, North Carolina, South Carolina, Tennessee',
+      'Region V: Illinois, Indiana, Michigan, Minnesota, Ohio, Wisconsin',
+      'Region VI: Arkansas, Louisiana, New Mexico, Oklahoma, Texas',
+      'Region VII: Iowa, Kansas, Missouri, Nebraska',
+      'Region VIII: Colorado, Montana, North Dakota, South Dakota, Utah, Wyoming',
+      'Region IX: Arizona, California, Hawaii, Nevada, Pacific Islands',
+      'Region X: Alaska, Idaho, Oregon, Washington'
     ]
 
     return [
@@ -74,6 +149,7 @@ export default class SubscribeToGTOC extends React.Component {
             </div>
           </div>
         </div>
+        {this.renderExitModal(this.gtocStore.showExitModal)}
       </section>
     )
   }

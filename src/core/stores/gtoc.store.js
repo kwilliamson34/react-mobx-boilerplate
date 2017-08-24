@@ -83,6 +83,37 @@ class GTOCStore {
     // }
   }
 
+  //Modal actions
+  getBrowserCloseAlert = (event) => {
+    if (this.formHasEntries) {
+      event.returnValue = true;
+    } else {
+      return;
+    }
+  }
+
+  @action toggleExitModal() {
+      this.showExitModal = !this.showExitModal;
+  }
+
+  @action disableSaveDialogs() {
+      window.removeEventListener('beforeunload', this.getBrowserCloseAlert);
+      this.unblock();
+  }
+
+  @action enableSaveDialogs() {
+      window.addEventListener('beforeunload', this.getBrowserCloseAlert);
+      this.unblock = history.block((location) => {
+        this.interceptedRoute = location.pathname;
+        if (!this.formHasEntries) {
+          return true;
+        } else {
+          this.showExitModal = true;
+          return false;
+        }
+    });
+  }
+
   //other actions
   @action toggleAlertBar() {
     this.showAlertBar = !this.showAlertBar;
@@ -120,6 +151,12 @@ class GTOCStore {
     return true;
   }
 
+  @computed get formHasEntries() {
+    return !this.isEmpty(this.gtocObject.gtoc_email);
+  }
+
+  @observable showExitModal = false;
+  @observable interceptedRoute = '';
   @observable showAlertBar = false;
   @observable gtocObject = {
     gtoc_email: '',
