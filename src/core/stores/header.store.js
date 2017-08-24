@@ -1,5 +1,4 @@
 import {action, observable} from 'mobx';
-import config from 'config';
 
 class HeaderStore {
 
@@ -70,8 +69,6 @@ class HeaderStore {
   @observable adminSubMenuIsOpen = false;
   @observable helpSubMenuIsOpen = false;
   @observable footerSitemapExpanded = false;
-
-  @observable ATTSupportPhone = config.attCustomerSupportPhone || '800-574-7000';
 }
 
 export const headerStore = new HeaderStore();

@@ -4,6 +4,7 @@ import {inject, observer} from 'mobx-react';
 import {history} from '../core/services/history.service';
 import $ from 'jquery';
 import config from 'config';
+import {FormTemplate} from '../components/form-template/form-template';
 
 @inject('store')
 @observer
@@ -28,33 +29,9 @@ export default class FeedbackPage extends React.Component {
   componentWillUnmount() {
     this.clearModals();
     this.feedbackStore.disableSaveDialogs();
-    if (this.feedbackStore.hasBeenSubmitted) {
-      this.feedbackStore.toggleHasBeenSubmitted();
-    }
     if (!this.feedbackStore.formHasEntries && !this.feedbackStore.formIsValid) {
-      this.feedbackStore.clearFeedbackForm();
+      this.feedbackStore.clearForm();
     }
-  }
-
-  componentDidUpdate() {
-    if (this.feedbackStore.hasBeenSubmitted) {
-      this.refs.success.children[0].scrollIntoView();
-    }
-  }
-
-  handleSubmit = (e) => {
-    e.preventDefault();
-    this.feedbackStore.submitForm(e.target);
-  }
-
-  handleOnChange = (e, num) => {
-    e.preventDefault();
-    this.feedbackStore.changeValue(e.target, num);
-  }
-
-  handleOnBlur = (e) => {
-    e.preventDefault();
-    this.feedbackStore.validateInput(e.target);
   }
 
   toggleExitModal = (e) => {
@@ -69,19 +46,16 @@ export default class FeedbackPage extends React.Component {
 
   discardFormChanges = (e) => {
     e.preventDefault();
-    this.feedbackStore.clearFeedbackForm();
-    if (this.feedbackStore.hasBeenSubmitted) {
-      this.feedbackStore.toggleHasBeenSubmitted();
-    }
+    this.feedbackStore.clearForm();
     history.replace(this.feedbackStore.interceptedRoute);
   }
 
   showModal = (shouldShow, modalID) => {
     if (shouldShow) {
-      $(modalID).modal({backdrop:'static'});
+      $(modalID).modal({backdrop: 'static'});
     } else {
-     $(modalID).modal('hide');
-     $(modalID).data('bs.modal', null);
+      $(modalID).modal('hide');
+      $(modalID).data('bs.modal', null);
     }
   }
 
@@ -118,115 +92,88 @@ export default class FeedbackPage extends React.Component {
     )
   }
 
-  renderSuccessPage = () => {
-    return (
-      <div>
-        <div id="customer-feedback-success" ref="success">
-          <div className="success-content">
-            <h1>Thanks for your feedback!</h1>
-            <p>We appreciate you taking the time to provide your thoughts about this site. Your comments will help us to improve our tools going forward.</p>
-            <button className="fn-primary" onClick={this.discardFormChanges}>Return Home</button>
-          </div>
-        </div>
-      </div>
-    )
+  getInputList = () => {
+    let adminOptions = [
+      {value: 'System Performance', title: 'System Performance'},
+      {value: 'App Management', title: 'App Management'},
+      {value: 'Network Status', title: 'Network Status'},
+      {value: 'Purchasing and Provisioning', title: 'Purchasing and Provisioning'},
+      {value: 'Account Management', title: 'Account Management'},
+      {value: 'Other', title: 'Other'}
+    ];
+    let nonAdminOptions = [
+      {value: 'System Performance', title: 'System Performance'},
+      {value: 'Network Status', title: 'Network Status'},
+      {value: 'Other', title: 'Other'}
+    ];
+
+    return [
+      {
+        id: 'feedback_title',
+        label: 'Title',
+        value: this.feedbackStore.feedbackObject.feedback_title,
+        hasError: this.feedbackStore.hasErrors.feedback_title,
+        charLimit: 250
+      }, {
+        id: 'feedback_topic',
+        type: 'select',
+        label: 'Topic',
+        placeholder: 'Select Feedback Topic',
+        value: this.feedbackStore.feedbackObject.feedback_topic,
+        optionsList: this.userStore.isAdmin
+          ? adminOptions
+          : nonAdminOptions,
+        hasError: this.feedbackStore.hasErrors.feedback_topic
+      }, {
+        id: 'feedback_details',
+        type: 'textarea',
+        label: 'Details',
+        genericLabel: 'summary of your feedback',
+        value: this.feedbackStore.feedbackObject.feedback_details,
+        hasError: this.feedbackStore.hasErrors.feedback_details,
+        charLimit: 10000
+      }, {
+        type: 'textblock',
+        body: `Your feedback will help us improve your experience. We cannot respond directly to feedback comments, but can follow up with you if you leave your email below. For immediate help, please contact us directly at <a href='tel:${config.attCustomerSupportPhone}'>${config.attCustomerSupportPhone}</a>.`
+      }, {
+        id: 'feedback_email',
+        label: 'Email (Optional)',
+        genericLabel: 'valid email address',
+        value: this.feedbackStore.feedbackObject.feedback_email,
+        hasError: this.feedbackStore.hasErrors.feedback_email,
+        charLimit: 10000
+      }
+    ];
   }
 
-  renderAlertBar = () => {
+  render = () => {
     return (
-      <div id="feedback-alert" className="alert alert-error">
-        <button type="button" className="close_btn" onClick={this.toggleAlertBar}>
-          <span aria-hidden="true" className="icon-close" />
-          <span className="sr-only">Close alert</span>
-        </button>
-        <p role="alert" aria-live="assertive">
-          <strong>Error:&nbsp;</strong>Please correct the errors below.
-        </p>
-      </div>
-    )
-  }
-
-  renderFeedbackForm = () => {
-    return (
-      <section>
+      <section id="customer-feedback-page">
         <div className="content-wrapper">
           <div className="container">
-              <div className="row text-center">
-                <div className="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
-                  <h1>Give Us Feedback</h1>
-                </div>
-              </div>
-              <div className="row">
-
-                <section>
-                  <form id="feedback-form" className="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6" noValidate onSubmit={this.handleSubmit}>
-                    {this.feedbackStore.showAlertBar && this.renderAlertBar()}
-                    <div className={this.feedbackStore.hasErrors.feedback_title ? 'form-group has-error' : 'form-group'}>
-                      <label className="control-label" htmlFor="feedback_title">Title<span className="required-asterisks"> *</span></label><br />
-                      {this.feedbackStore.hasErrors.feedback_title &&
-                        <label className="control-label" htmlFor="feedback_title"><span>Please title your feedback</span></label>
-                      }
-                      <input type="text" id="feedback_title" className="form-control input-lg" value={this.feedbackStore.feedbackObject.feedback_title} onChange={(e) => this.handleOnChange(e, 250)} onBlur={this.handleOnBlur}/>
-                    </div>
-                    <div className={this.feedbackStore.hasErrors.feedback_topic ? 'form-group has-error' : 'form-group'}>
-                      <label className="control-label" htmlFor="feedback_topic">Topic<span className="required-asterisks"> *</span></label><br />
-                      {this.feedbackStore.hasErrors.feedback_topic &&
-                        <label className="control-label" htmlFor="feedback_topic"><span>Please select a topic</span></label>
-                      }
-                      <select id="feedback_topic" className="form-control form-control-lg" value={this.feedbackStore.feedbackObject.feedback_topic} onChange={(e) => this.handleOnChange(e, 10000)} onBlur={this.handleOnBlur}>
-                        <option value="" hidden>Select Feedback Topic</option>
-                        <option value="System Performance">System Performance</option>
-                        {this.userStore.isAdmin && <option value="App Management">App Management</option> }
-                        <option value="Network Status">Network Status</option>
-                        {this.userStore.isAdmin && <option value="Purchasing and Provisioning">Purchasing & Provisioning</option>}
-                        {this.userStore.isAdmin && <option value="Account Management">Account Management</option>}
-                        <option value="Other">Other</option>
-                      </select>
-                    </div>
-                    <div className={this.feedbackStore.hasErrors.feedback_details ? 'form-group has-error' : 'form-group'}>
-                      <label className="control-label" htmlFor="feedback_details">Details<span className="required-asterisks"> *</span></label><br />
-                      {this.feedbackStore.hasErrors.feedback_details &&
-                        <label className="control-label" htmlFor="feedback_details"><span>Please summarize your feedback</span></label>
-                      }
-                      <textarea type="text" id="feedback_details" className="form-control" value={this.feedbackStore.feedbackObject.feedback_details} onChange={(e) => this.handleOnChange(e, 10000)} onBlur={this.handleOnBlur}/>
-                    </div>
-                    <div>
-                      <p className="feedback-text">
-                        Your feedback will help us improve your experience. We cannot respond directly to feedback comments, but can follow up with you if you leave your email below. For immediate help, please contact us directly at <a href={`tel:${config.attCustomerSupportPhone}`}>{`${config.attCustomerSupportPhone}`}</a>.
-                      </p>
-                    </div>
-                    <div className={this.feedbackStore.hasErrors.feedback_email ? 'form-group has-error' : 'form-group'}>
-                      <label className="control-label" htmlFor="feedback_email">Email (Optional)</label>
-                        {this.feedbackStore.hasErrors.feedback_email &&
-                          <label className="control-label" htmlFor="feedback_email"><span>Please enter a valid email address</span></label>
-                        }
-                      <input type="email" id="feedback_email" className="form-control input-lg" value={this.feedbackStore.feedbackObject.feedback_email} onChange={(e) => this.handleOnChange(e, 10000)} onBlur={this.handleOnBlur} />
-                    </div>
-                    <div className="form-group text-center">
-                      <button type="submit" className={`feedback-btn fn-primary ${this.feedbackStore.requiredFieldsEntered ? '' : 'disabled'}`} aria-labelledby="feedback-form">
-                        Submit Feedback
-                      </button>
-                    </div>
-                  </form>
-                </section>
+            <div className="row text-center">
+              <div className="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
+                <h1>Give Us Feedback</h1>
               </div>
             </div>
+            <div className="row">
+              <section className="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
+                <FormTemplate id="feedback-form"
+                  ref={ref => this.form = ref}
+                  inputList={this.getInputList() || []}
+                  onSubmit={this.feedbackStore.handleSubmit.bind(this.feedbackStore)}
+                  onChange={this.feedbackStore.handleChange.bind(this.feedbackStore)}
+                  onBlur={this.feedbackStore.handleBlur.bind(this.feedbackStore)}
+                  errorBody={this.feedbackStore.showAlertBar ? 'Please correct the errors below.' : ''}
+                  toggleAlertBar={this.feedbackStore.toggleAlertBar.bind(this.feedbackStore)}
+                  submitButtonDisabled={!this.feedbackStore.requiredFieldsEntered}
+                  submitButtonText='Submit Feedback'/>
+              </section>
+            </div>
           </div>
-
-          {this.renderExitModal(this.feedbackStore.showExitModal)}
-
-        </section>
-    )
-  }
-
-  render() {
-    return (
-      <article id="customer-feedback-page">
-          {this.feedbackStore.hasBeenSubmitted
-            ? this.renderSuccessPage()
-            : this.renderFeedbackForm()
-          }
-      </article>
+        </div>
+        {this.renderExitModal(this.feedbackStore.showExitModal)}
+      </section>
     )
   }
 }

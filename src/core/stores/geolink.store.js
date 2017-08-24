@@ -104,34 +104,14 @@ class GeolinkStore {
 
   @action addWeather() {
     this.mapIframeRef.contentWindow.postMessage({
-      eventName: 'loadRadar',
+      eventName: 'animateRadar',
       options: {
-        opacity: .7
+        frameSpeed: 1500 //milliseconds
       }
     }, '*');
-
-    this.mapIframeRef.contentWindow.postMessage({
-      eventName: 'showHurricane',
-      flag: true
-    }, '*');
-
-    //Weather layer animation. Call to animate must be last.
-    setTimeout(() => {
-      this.mapIframeRef.contentWindow.postMessage({
-        eventName: 'animateRadar',
-        options: {
-          frameSpeed: 1500 //milliseconds
-        }
-      }, '*');
-    }, 100);
   }
 
   @action removeWeather() {
-    this.mapIframeRef.contentWindow.postMessage({
-      eventName: 'showHurricane',
-      flag: false
-    }, '*');
-
     this.mapIframeRef.contentWindow.postMessage({
       eventName: 'removeRadar'
     }, '*');

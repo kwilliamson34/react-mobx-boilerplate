@@ -75,16 +75,20 @@
     label.ratings-container {
       position: absolute;
       width: 50px;
-      left: -50px;
+      left: -58px;
       top: 0;
       line-height: 1;
       vertical-align: middle;
+
+      .ratings-number,
+      .ratings-star {
+        padding-right: 8px;
+      }
 
       .ratings-number {
         color: $fn-dkgrey;
         font-size: $fn-content-page-text-desktop;
         font-weight: $fn-normal-weight;
-        padding-left: 8px;
       }
 
       .ratings-star {

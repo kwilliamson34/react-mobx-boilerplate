@@ -1,0 +1,65 @@
+a.skipnav {
+  left: -999px;
+  position: absolute;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: -999;
+
+  &:active,
+  &:focus {
+    position: relative;
+    display: inline-block;
+    left: auto;
+    top: auto;
+    height: auto;
+    width: auto;
+    overflow: auto;
+    margin: 2px;
+    padding: 5px;
+    border-radius: 8px;
+    border: 1px solid $fn-blue;
+    text-align: center;
+    z-index: 999;
+    color: $fn-black;
+  }
+}
+
+a,
+.as-link {
+  color: $active-link-color;
+  text-decoration: none;
+  font-weight: $fn-medium-weight;
+  &.hover,
+  &:hover {
+    color: $active-link-color;
+    text-decoration: underline;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &.visited,
+  &:visited {
+    color: $inactive-link-color;
+  }
+}
+
+.as-link {
+  border: none;
+  background: transparent;
+
+  &.active,
+  &:active,
+  &:active:focus {
+    color: $inactive-link-color;
+    box-shadow: none;
+  }
+
+  &:focus {
+    color: $inactive-link-color;
+    text-decoration: underline;
+  }
+}

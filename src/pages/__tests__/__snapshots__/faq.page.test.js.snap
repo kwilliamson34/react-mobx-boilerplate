@@ -40,7 +40,7 @@ exports[`<FAQPage /> render matches previous snapshot 1`] = `
                       href="#"
                       onClick={[Function anonymous]}
                       role="button">
-                      ALL 
+                      ALL
                     </a>
                   </li>
                 </ul>

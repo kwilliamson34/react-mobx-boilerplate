@@ -55,7 +55,7 @@ module.exports = {
 				secure: false
 			},
 			'/oauth/validate': {
-				target: 'https://pse-internal-qa.sapientfirst.net',
+				target: 'https://test-localcontrol.firstnet.att.com',
 				secure: false
 			}
 		}

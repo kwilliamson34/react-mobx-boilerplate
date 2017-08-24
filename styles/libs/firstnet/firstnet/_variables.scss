@@ -17,6 +17,7 @@ $fn-ltgrey: #FAFAFA;
 $fn-white: #FFFFFF;
 $fn-bordergrey: #d8d8d8;
 $fn-disabledgrey: #707070;
+$fn-disabledgrey-chkboxlabel: #8a8a8a;
 $fn-admin-red: #b60016;
 $fn-alert-red: #D0011B;
 
@@ -36,6 +37,7 @@ $inactive-link-color: $fn-blue !default;
 //focus halo colors
 $focus-lightbg: #4A4A4A !default;
 $focus-darkbg: #e4e4e4 !default;
+$focus-shadow-depth: 1px;
 
 //social colors
 $fn-social-grey: #9b9b9b !default;
@@ -62,6 +64,7 @@ $fn-h1-mobile: 3.6rem !default;
 $fn-h2-mobile: 3rem !default;
 $fn-h3-mobile: 2.4rem !default;
 $fn-h4-mobile: 1.8rem !default;
+$fn-h5-mobile: 1.4rem !default;
 $fn-intro-mobile: 1.8rem !default;
 $fn-content-page-text-mobile: 1.8rem !default;
 $fn-landing-page-text-mobile: 1.6rem !default;

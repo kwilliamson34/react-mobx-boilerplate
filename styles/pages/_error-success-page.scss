@@ -1,6 +1,10 @@
 .error-page {
-	background: $fn-grey;
 	min-height: 100vh;
+}
+
+.error-page,
+.success-page {
+	background: $fn-grey;
 	padding: 60px 20px;
 
 	.logo-container {
@@ -97,11 +101,14 @@ section.session-timeout {
 }
 
 @media #{$tablet} {
-	.error-page {
+	.error-page,
+	.success-page {
 		padding: 100px 0;
+
 		.logo-container img{
 			max-width: 320px;
 		}
+
 		.container{
 			> div{
 				padding: 60px 65px;
@@ -122,7 +129,8 @@ section.session-timeout {
 }
 
 @media #{$desktop} {
-	.error-page {
+	.error-page,
+	.success-page {
 		padding: 120px 0;
 
 		.logo-container img {

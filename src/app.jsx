@@ -44,6 +44,7 @@ import SolutionsCategoryTemplate from './pages/solutions-category.template';
 import HelpCenterPage from './pages/help-center.page';
 import FAQPage from './pages/faq.page';
 import FeedbackPage from './pages/feedback.page';
+import FeedbackSuccessPage from './pages/feedback-success.page';
 
 //Footer pages
 import PrivacyPage from './pages/privacy.page';
@@ -132,6 +133,7 @@ export default class App extends React.Component {
             <Route path="/app/:appPsk" component={this.getAdminRoutes(AppDetailsPage)/*TODO redirect to error/404 if psk has no match*/}/>
             <Route path="/network-status" component={NetworkStatusPage}/>
             <Route path="/feedback" component={FeedbackPage}/>
+            <Route path="/feedback-success" component={FeedbackSuccessPage}/>
             <Route path="/faq" component={FAQPage}/>
             <Route path="/help-center" component={HelpCenterPage}/>
             <Route path="/privacy" component={PrivacyPage}/>

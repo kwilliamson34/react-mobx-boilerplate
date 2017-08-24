@@ -92,7 +92,9 @@ export class CardList extends React.Component {
 
         {this.props.isLoading || this.canLoadMore && this.props.handleLoadMoreClick &&
           <div className="card-list-load-more">
-            <button id="card-list-load-more-btn" className="btn fn-primary" onClick={this.props.handleLoadMoreClick}>Load More</button>
+            <button id="card-list-load-more-btn" className="btn fn-secondary" onClick={this.props.handleLoadMoreClick}>
+              Load More
+            </button>
           </div>
         }
         {this.showNoResultsBlock &&

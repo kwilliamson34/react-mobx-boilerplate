@@ -51,9 +51,9 @@ export class Rating extends React.Component {
       <div className="ratings-container">
         {this.props.reviewCount > 0
           ? <span>
+              <div className="sr-only">This app has a rating of {this.props.rating} stars out of 5.</div>
               {this.props.showRatingNumber &&
-                <span className="ratings-number">
-                  <span className="sr-only">Rating of&nbsp;</span>
+                <span className="ratings-number" aria-hidden>
                   {utilsService.formatRating(this.props.rating)}&nbsp;
                 </span>
               }
@@ -64,9 +64,8 @@ export class Rating extends React.Component {
               </span>
               {this.props.showReviewCount &&
                 <span className="app-reviews-count hidden-xs">
-                  <span className="sr-only">Reviewed by</span>
-                  &nbsp;({this.props.reviewCount})
-                  <span className="sr-only">&nbsp;people</span>
+                  <span className="sr-only">Reviewed by {this.props.reviewCount} people.</span>
+                  <span aria-hidden="true">&nbsp;({this.props.reviewCount})</span>
                 </span>
               }
             </span>

@@ -15,6 +15,14 @@ i {
 
 main {
   background: #fff;
+
+  > article {
+    padding-top: 30px;
+  }
+}
+
+.content-wrapper {
+    min-height: 635px;
 }
 
 .row.is-flex {
@@ -25,4 +33,8 @@ main {
 .row.is-flex > [class*='col-'] {
   display: flex;
   flex-direction: column;
+}
+
+form p {
+  font-size: $fn-label-desktop;
 }

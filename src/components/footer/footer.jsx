@@ -157,10 +157,10 @@ export default class Footer extends React.Component {
 						}
 						<li role="presentation">
 							FirstNet Customer Svc:<br className={`visible-xs-inline-block visible-md-inline-block ${this.props.showInternalLinks ? '' : 'visible-lg-inline-block'}`} />
-							<a href={'tel:' + this.headerStore.ATTSupportPhone}>
+							<a href={'tel:' + config.attCustomerSupportPhone}>
 								<phone><i className="icon-phone-number footer-support-phone" aria-hidden='true'></i>
 									<span className="sr-only">Call&nbsp;</span>
-									{this.headerStore.ATTSupportPhone}
+									{config.attCustomerSupportPhone}
 									<span className="sr-only">&nbsp;to speak with FirstNet Customer Service</span>
 								</phone>
 							</a>

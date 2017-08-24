@@ -33,7 +33,10 @@ export class AppDetailBanner extends React.Component {
       <div className="app-rating app-details">
         {/*Mobile*/}
         <div className="hidden-sm hidden-md hidden-lg">
-          <Rating rating={this.data.rating} reviewCount={this.data.reviews_count} showRatingNumber={true} truncateStars={true}/>
+          <span className="rating-as-text">
+            <p>{this.data.rating} Stars</p>
+            <p>{this.data.reviews_count ? this.data.reviews_count : 'No'} Review{this.data.reviews_count === 1 ? '' : 's'}</p>
+          </span>
         </div>
         {/*Tablet*/}
         <div className="hidden-xs hidden-md hidden-lg">
@@ -66,25 +69,28 @@ export class AppDetailBanner extends React.Component {
 
     return (
       <div className="app-details">
-        <div className="version">
+        <p className="version">
           <strong>Version:&nbsp;</strong>
           {this.data.version.version_num}
-        </div>
-        <div className="updated">
+        </p>
+        <p className="updated">
           <strong>Released:&nbsp;</strong>
           <br className="hidden-xs hidden-md hidden-lg"/>
           {dateToRender}
-        </div>
-        <div className="platform">
+        </p>
+        <p className="platform">
           <strong>Platform:&nbsp;</strong>
           {this.properCaseOS(this.data.platform)}
-        </div>
+        </p>
       </div>
     )
   }
 
   author() {
-    return <div className="publisher app-details">{this.data.custom_metadata.author}</div>
+    if (this.data.custom_metadata.author) {
+      return <p className="publisher app-details">{this.data.custom_metadata.author}</p>
+    }
+    return '';
   }
 
   metadata() {
