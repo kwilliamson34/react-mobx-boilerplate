@@ -78,9 +78,9 @@ class GTOCStore {
     if (input.id.indexOf('gtoc_email') > -1) {
       this.hasErrors.gtoc_email = !this.isEmpty(input.value) && !utilsService.isValidEmailAddress(input.value);
     }
-    // else if(input.type === 'checkbox'){
-    //   this.hasErrors.gtoc_femaList = !this.hasErrors.gtoc_femaList.length;
-    // }
+    else if(input.type === 'checkbox'){
+      this.hasErrors.gtoc_femaList = this.gtocObject.gtoc_femaList.length === 0;
+    }
   }
 
   //Modal actions
