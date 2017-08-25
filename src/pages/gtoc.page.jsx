@@ -105,6 +105,16 @@ export default class SubscribeToGTOC extends React.Component {
 
     return [
       {
+        id: 'gtoc_femaList',
+        type: 'checkbox',
+        label: 'CHOOSE YOUR DESTROYER',
+        genericLabel: 'at least one option',
+        checkboxList: checkboxList,
+        checkedByDefault: false,
+        showSelectAllButton: true,
+        hasError: this.gtocStore.hasErrors.gtoc_femaList
+      },
+      {
         id: 'gtoc_email',
         type: 'text',
         label: 'Email',
@@ -112,13 +122,6 @@ export default class SubscribeToGTOC extends React.Component {
         value: this.gtocStore.gtocObject.gtoc_email,
         hasError: this.gtocStore.hasErrors.gtoc_email,
         charLimit: 10000
-      }, {
-        id: 'gtoc_femaList',
-        type: 'checkbox',
-        label: 'CHOOSE YOUR DESTROYER',
-        genericLabel: 'at least one option',
-        checkboxList: checkboxList,
-        hasError: this.gtocStore.hasErrors.gtoc_femaList
       }
     ]
   }
@@ -131,6 +134,7 @@ export default class SubscribeToGTOC extends React.Component {
             <div className="row text-center">
               <div className="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
                 <h1>Subscribe to Alerts</h1>
+                <img src="/images/fema-regions-map.png" alt=""/>
               </div>
             </div>
             <div className="row">

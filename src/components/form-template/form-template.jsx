@@ -78,18 +78,28 @@ export class FormTemplate extends React.Component {
     )
   }
 
-  renderCheckbox = ({id, label, genericLabel, hasError, checkboxList}) => {
+  renderCheckbox = ({id, label, genericLabel, hasError, checkboxList, showSelectAllButton, checkedByDefault}) => {
+
+    let defaultChecked = checkedByDefault || false;
+
     return (
       <div className={`form-group has-feedback ${hasError ? 'has-error' : ''}`} key={id}>
       <label className="control-label" htmlFor={id}>{label}<span className="required-asterisks"> *</span></label>
       {hasError && <div className="msgBlock error error-list" role="alert" aria-live="assertive">
         <span>Please enter a {genericLabel || label.toLowerCase()}.</span>
       </div>}
+      {showSelectAllButton &&
+        <div className="select-all-button">
+          <button type="button" className="btn-link">
+            select all
+          </button>
+        </div>
+      }
       <div id={id}>
         {checkboxList.map((name, i) => {
           return (
             <label className="custom-control custom-checkbox" key={`${id}-checkbox-${i}`}>
-              <input type="checkbox" className="custom-control-input" value={name}/>
+              <input type="checkbox" className="custom-control-input" defaultChecked={defaultChecked} value={name}/>
               <span className="custom-control-indicator" />
               <span className="custom-control-description">{name}</span>
             </label>

@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import config from 'config'
 
 export default class SubscribeToGTOCSuccess extends React.Component {
   render() {
@@ -7,9 +8,11 @@ export default class SubscribeToGTOCSuccess extends React.Component {
       <section className="success-page">
         <div className="container">
           <div className="col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
-            <h1>Thank you for your subscription!</h1>
-            <p>Yabba Daddy Doobie</p>
-            <Link to="/" className="fn-primary">Return to Home Page</Link>
+            <h1>We've received your request.</h1>
+            <p>
+              Processing your subscription can take up to 14 days, after which you will start receiving alert notifications. If you have any questions, please contact FirstNet Customer Service at {config.attCustomerSupportPhone}. 
+            </p>
+            <Link to="/network-status" className="fn-primary">Network Status</Link>
           </div>
         </div>
       </section>
