@@ -120,7 +120,7 @@ $map-height-mobile: 400px;
     margin: 0;
 
     input {
-      background-color: white!important;
+      background-color: white !important;
     }
 
     .checkbox {
@@ -164,6 +164,14 @@ $map-height-mobile: 400px;
       width: 100%;
       height: 21px;
       border-radius: 11px;
+    }
+  }
+
+  .network-subscription-link {
+    a {
+      font-size: 16px;
+      line-height: 1;
+      text-transform: uppercase;
     }
   }
 
@@ -234,7 +242,8 @@ $map-height-mobile: 400px;
 /**********************************************/
 @media #{$mobile} {
   .geolink-controls {
-    .network-contact-info {
+    .network-contact-info,
+    .network-subscription-link {
       margin: 20px 0;
     }
 
@@ -278,9 +287,19 @@ $map-height-mobile: 400px;
       }
     }
 
-    .network-contact-info {
-      float: right;
+    .network-subscription-link {
+      float: left;
+      min-height: 50px;
       margin-top: 0;
+      width: 57%;
+      line-height: 1.11;
+    }
+
+    .network-contact-info {
+      float: left;
+      min-height: 50px;
+      margin-top: 0;
+      width: 43%;
       line-height: 1.11;
     }
   }
@@ -314,7 +333,8 @@ $map-height-mobile: 400px;
       }
     }
 
-    .network-contact-info {
+    .network-contact-info,
+    .network-subscription-link {
       margin-top: 40px;
     }
   }

@@ -161,7 +161,7 @@ export default class GeolinkControls extends React.Component {
   renderNetworkLegend = () => {
     return (
       <div>
-        <span className="visible-sm-inline">
+        <span className="visible-sm">
           {this.renderNetworkSubscriptionLink()}
           {this.renderContactInfo()}
         </span>
