@@ -139,8 +139,8 @@ class ExternalLinkStore {
   }
 
   @computed get filteredDeviceCategoryData() {
-    const _items = this.allSpecializedDevices.filter((ele) => {
-      return this.currentDeviceCategory.toLowerCase() == ele.device_category.toLowerCase();
+    const _items = this.allSpecializedDevices.filter((device) => {
+      return this.currentDeviceCategory.toLowerCase() == device.device_category.toLowerCase();
     });
 
     return {
@@ -161,26 +161,17 @@ class ExternalLinkStore {
   }
 
   @computed get currentDevicePurchasingInfo() {
-    let contactInfoObject = _.pick(this.currentDeviceDetailRaw, Object.keys(this.currentDeviceDetailRaw).filter((p) => p.includes('contact_')));
-    let contactInfoObjectIsEmpty = true;
-    for (let key in contactInfoObject) {
-      if (contactInfoObject[key] !== '') {
-        contactInfoObjectIsEmpty = false;
-      }
-    }
-    return contactInfoObjectIsEmpty ? null : contactInfoObject;
-    //TODO streamline empty checker logic
+    let contactInfoObject = _.pick(this.currentDeviceDetailRaw, Object.keys(this.currentDeviceDetailRaw).filter((key) => {
+      return key.includes('contact_') && this.currentDeviceDetailRaw[key] !== ''
+    }));
+    return Object.keys(contactInfoObject).length > 0 ? contactInfoObject : null;
   }
 
   @computed get currentSolutionPurchasingInfo() {
-    let contactInfoObject = _.pick(this.currentSolutionDetail, Object.keys(this.currentSolutionDetail).filter((p) => p.includes('contact_')));
-    let contactInfoObjectIsEmpty = true;
-    for (let key in contactInfoObject) {
-      if (contactInfoObject[key] !== '') {
-        contactInfoObjectIsEmpty = false;
-      }
-    }
-    return contactInfoObjectIsEmpty ? null : contactInfoObject;
+    let contactInfoObject = _.pick(this.currentSolutionDetail, Object.keys(this.currentSolutionDetail).filter((key) => {
+      return key.includes('contact_') && this.currentDeviceDetailRaw[key] !== ''
+    }));
+    return Object.keys(contactInfoObject).length > 0 ? contactInfoObject : null;
   }
 
   @observable allSolutionDetails = [];
