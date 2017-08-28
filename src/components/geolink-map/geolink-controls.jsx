@@ -97,7 +97,7 @@ export default class GeolinkControls extends React.Component {
                 </fieldset>
               </form>
             </div>
-            <div className="col-md-4 hidden-xs hidden-sm">
+            <div className="col-md-4 hidden-xs hidden-sm map-network-legend">
               {this.renderNetworkLegend()}
               {this.renderContactInfo()}
             </div>

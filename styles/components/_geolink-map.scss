@@ -234,6 +234,13 @@ $map-height-mobile: 400px;
 /**********************************************/
 @media #{$mobile} {
   .geolink-controls {
+
+    .map-search,
+    .map-layers,
+    .map-network-legend{
+      flex-basis: auto;
+    }
+
     .network-contact-info {
       margin: 20px 0;
     }
@@ -251,7 +258,14 @@ $map-height-mobile: 400px;
   .geolink-controls {
     padding: auto 0;
 
+    .map-network-legend{
+      flex-basis: auto;
+    }
+    .map-search{
+      flex-basis: 60%;
+    }
     .map-layers {
+      flex-basis: 33%;
       padding-left: 0;
 
       h2 {
@@ -287,6 +301,11 @@ $map-height-mobile: 400px;
 }
 @media #{$desktop} {
   .geolink-controls {
+    .map-search,
+    .map-layers,
+    .map-network-legend{
+      flex-basis: 33%;
+    }
     .map-layers {
       fieldset {
         border-left: 1px solid $fn-grey;
