@@ -20,19 +20,29 @@ export default class DeviceDetailTemplate extends React.Component {
 	}
 
 	componentWillMount() {
-		//checking if the user was on this page previously, eliminating need for new request
 		if(this.props.match.params.deviceId != this.externalLinkStore.currentDeviceDetail.path){
+			let newPath = this.props.match.params.deviceId;
 			this.externalLinkStore.resetDeviceDetail();
 			if (this.externalLinkStore.allSpecializedDevices.length) {
-				this.externalLinkStore.fetchAndShowDeviceDetails(this.props.match.params.deviceId);
+				this.fetchDeviceDetails(newPath);
 			} else {
 				this.externalLinkStore.getDevicesData().then(() => {
-					this.externalLinkStore.fetchAndShowDeviceDetails(this.props.match.params.deviceId);
+					this.fetchDeviceDetails(newPath);
 				});
 			}
 		}
 	}
 
+	fetchDeviceDetails(devicePath) {
+		this.externalLinkStore.fetchDeviceDetails({
+			devicePath,
+			setAsCurrent: true
+		});
+	}
+
+	componentWillUnmount() {
+		this.externalLinkStore.resetDeviceDetail();
+	}
 
 	render() {
 		const crumbs = [
@@ -75,8 +85,8 @@ export default class DeviceDetailTemplate extends React.Component {
 							<h1 className="hidden-xs hidden-sm"><span dangerouslySetInnerHTML={{__html: this.externalLinkStore.currentDeviceDetail.deviceName}} /></h1>
 							<div className="feature-list" dangerouslySetInnerHTML={{__html: this.externalLinkStore.currentDeviceDetail.features}}></div>
 							<div className="hidden-xs hidden-sm contact-info">
-								{this.externalLinkStore.currentPurchasingInfo && this.externalLinkStore.showPurchasingInfo &&
-									<PurchasingInfo contactInfo={this.externalLinkStore.currentPurchasingInfo} />
+								{this.externalLinkStore.currentDevicePurchasingInfo &&
+									<PurchasingInfo contactInfo={this.externalLinkStore.currentDevicePurchasingInfo} />
 								}
 							</div>
 						</div>
@@ -84,8 +94,8 @@ export default class DeviceDetailTemplate extends React.Component {
 							visible-xs-block visible-sm-block
 							col-xs-offset-0 col-xs-12
 							col-md-offset-4 col-md-7">
-							{this.externalLinkStore.currentPurchasingInfo && this.externalLinkStore.showPurchasingInfo &&
-								<PurchasingInfo contactInfo={this.externalLinkStore.currentPurchasingInfo} />
+							{this.externalLinkStore.currentDevicePurchasingInfo &&
+								<PurchasingInfo contactInfo={this.externalLinkStore.currentDevicePurchasingInfo} />
 							}
 						</div>
 					</div>

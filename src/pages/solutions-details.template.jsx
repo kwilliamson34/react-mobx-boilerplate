@@ -65,8 +65,8 @@ export default class SolutionsDetailsTemplate extends React.Component {
           </div>
         </section>
         <div className="col-lg-offset-1 col-lg-10">
-          {this.externalLinkStore.currentPurchasingInfo && this.externalLinkStore.showPurchasingInfo &&
-            <PurchasingInfo contactInfo={this.externalLinkStore.currentPurchasingInfo} />
+          {this.externalLinkStore.currentSolutionPurchasingInfo &&
+            <PurchasingInfo contactInfo={this.externalLinkStore.currentSolutionPurchasingInfo} />
           }
         </div>
       </div>

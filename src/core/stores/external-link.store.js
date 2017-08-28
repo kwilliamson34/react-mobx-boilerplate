@@ -2,16 +2,15 @@ import {action, observable, computed} from 'mobx';
 import {apiService} from '../services/api.service';
 import {utilsService} from '../services/utils.service';
 import {history} from '../services/history.service';
-import {externalDeviceContentService} from '../services/external-device-content.service';
-import {externalSolutionsService} from '../services/external-solutions.service';
+import _ from 'lodash';
 
 class ExternalLinkStore {
   /*
-  ** Retrieve Devices from Marketing Portal
-  */
+   * Retrieve Devices from Marketing Portal
+   */
   @action getDevicesData() {
     const success = (res) => {
-      this.allSpecializedDevices = externalDeviceContentService.filterDeviceData(res);
+      this.allSpecializedDevices = res.filter((device) => device.device_is_specialized === '1');
     }
     const fail = (res) => {
       utilsService.handleError(res);
@@ -19,45 +18,34 @@ class ExternalLinkStore {
     return apiService.getMarketingPortalDevices().then(success, fail);
   }
 
-  @action fetchDeviceLandingData() {
-    let _devicesData = externalDeviceContentService.filterDeviceLandingData(this.allSpecializedDevices);
-    this.devicesData = _devicesData;
-  }
-
   @action fetchAndShowDeviceCategory() {
-    if(this.deviceCategoryIsValid){
-      this.currentDeviceCategoryData = externalDeviceContentService.filterDeviceCategoryData(this.allSpecializedDevices, this.currentDeviceCategory);
+    if (this.deviceCategoryIsValid) {
+      this.currentDeviceCategoryData = this.filteredDeviceCategoryData;
     } else {
       history.replace('/admin/devices');
     }
   }
 
-  @action fetchAndShowDeviceDetails(devicePath) {
-    let device = this.fetchDeviceDetails(devicePath);
-    if (device.length === 1) {
-      this.currentDeviceDetail = externalDeviceContentService.filterDeviceDetailData(device[0]);
-      this.currentPurchasingInfo = externalDeviceContentService.filterPurchasingInfo(device[0]);
-    } else {
+  @action fetchDeviceDetails({devicePath, setAsCurrent}) {
+    let matches = this.allSpecializedDevices.filter((device) => {
+      return devicePath === utilsService.getDevicesAndSolutionsUrl(device.device_title);
+    });
+    if(matches.length !== 1){
       history.replace('/error');
     }
-  }
-
-  @action fetchDeviceDetails(devicePath) {
-    return this.allSpecializedDevices.filter((device) => {
-      let _devicePath = utilsService.getDevicesAndSolutionsUrl(device.device_title);
-      return  _devicePath === devicePath;
-    })
+    if(setAsCurrent) {
+      this.currentDeviceDetailRaw = matches[0];
+    }
+    return matches[0];
   }
 
   @action getSolutionDetails() {
     const success = (res) => {
       this.allSolutionDetails = res;
     }
-
     const fail = (res) => {
       utilsService.handleError(res);
     }
-
     return apiService.getMarketingPortalSolutionDetails().then(success, fail);
   }
 
@@ -65,36 +53,29 @@ class ExternalLinkStore {
     const success = (res) => {
       this.solutionCategories = res.solution_category;
     }
-
     const fail = (res) => {
       utilsService.handleError(res);
     }
-
     return apiService.getMarketingPortalSolutionCategories().then(success, fail);
   }
 
   @action fetchAndShowSolutionCategory() {
-    if(this.solutionCategoryIsValid){
-      this.currentSolutionCategoryData = externalSolutionsService.filterSolutionCategoryData(this.allSolutionDetails, this.currentSolutionCategory);
+    if (this.solutionCategoryIsValid) {
+      this.currentSolutionCategoryData = this.filteredSolutionCategoryData();
     } else {
       history.replace('/admin/solutions');
     }
   }
 
   @action fetchAndShowSolutionDetails(solutionPath) {
-    let solution = this.fetchSolutionDetails(solutionPath);
+    let solution = this.allSolutionDetails.filter((solution) => {
+      return solutionPath === utilsService.getDevicesAndSolutionsUrl(solution.promo_title);
+    });
     if (solution.length === 1) {
-      this.currentSolutionDetail = externalSolutionsService.filterSolutionDetailData(solution[0]);
-      this.currentPurchasingInfo = externalDeviceContentService.filterPurchasingInfo(solution[0]);
+      this.currentSolutionDetail = solution[0].body;
     } else {
       history.replace('/error');
     }
-  }
-
-  @action fetchSolutionDetails(solutionPath) {
-    return this.allSolutionDetails.filter((solution) => {
-      return solutionPath === utilsService.getDevicesAndSolutionsUrl(solution.promo_title);
-    })
   }
 
   @action resetDeviceCategoryData() {
@@ -111,13 +92,7 @@ class ExternalLinkStore {
   }
 
   @action resetDeviceDetail() {
-    this.currentDeviceDetail  = {
-      path: '',
-      features: [],
-      deviceName: '',
-      deviceImg: '',
-      deviceImgAlt: ''
-    };
+    this.currentDeviceDetailRaw = {};
   }
 
   @action resetSolutionCategoryData() {
@@ -140,14 +115,78 @@ class ExternalLinkStore {
     return categoryIndex >= 0;
   }
 
-  @computed get showPurchasingInfo() {
-    let showPurchasingInfo = false;
-    for (let key in this.currentPurchasingInfo) {
-      if (this.currentPurchasingInfo[key] !== '') {
-        showPurchasingInfo = true;
+  @computed get filteredSolutionCategoryData() {
+    const _category = this.currentSolutionCategory.replace(/-/g, ' ');
+    let _cards = this.allSolutionDetails.filter((solution) => solution.page_category.toUpperCase() === _category.toUpperCase());
+
+    _cards.forEach((card) => {
+      card.promo_title = card.promo_title;
+      card.promo_description = card.promo_description;
+    });
+    return {
+      title: _category,
+      cards: _cards
+    }
+  }
+
+  @computed get devicesData() {
+    const devicesObj = {
+      phones: [],
+      tablets: [],
+      invehicle: [],
+      accessories: []
+    }
+
+    this.allSpecializedDevices.forEach((obj) => {
+      let category = obj.device_category.replace('-', '').toLowerCase();
+      devicesObj[category].push(obj);
+    });
+    return devicesObj;
+  }
+
+  @computed get filteredDeviceCategoryData() {
+    const _items = this.allSpecializedDevices.filter((ele) => {
+      return this.currentDeviceCategory.toLowerCase() == ele.device_category.toLowerCase();
+    });
+
+    return {
+      items: _items
+    }
+  }
+
+  @computed get currentDeviceDetail() {
+    let device = this.currentDeviceDetailRaw;
+    return {
+      path: encodeURIComponent(device.device_title).replace(/%20/g, '+'),
+      features: device.device_features,
+      deviceName: device.device_title,
+      deviceImg: device.device_image_url,
+      deviceImgAlt: device.device_image_alt,
+      terms: (device.device_tnc && device.device_tnc.length > 0) ? device.device_tnc : null
+    }
+  }
+
+  @computed get currentDevicePurchasingInfo() {
+    let contactInfoObject = _.pick(this.currentDeviceDetailRaw, Object.keys(this.currentDeviceDetailRaw).filter((p) => p.includes('contact_')));
+    let contactInfoObjectIsEmpty = true;
+    for (let key in contactInfoObject) {
+      if (contactInfoObject[key] !== '') {
+        contactInfoObjectIsEmpty = false;
       }
     }
-    return showPurchasingInfo;
+    return contactInfoObjectIsEmpty ? null : contactInfoObject;
+    //TODO streamline empty checker logic
+  }
+
+  @computed get currentSolutionPurchasingInfo() {
+    let contactInfoObject = _.pick(this.currentSolutionDetail, Object.keys(this.currentSolutionDetail).filter((p) => p.includes('contact_')));
+    let contactInfoObjectIsEmpty = true;
+    for (let key in contactInfoObject) {
+      if (contactInfoObject[key] !== '') {
+        contactInfoObjectIsEmpty = false;
+      }
+    }
+    return contactInfoObjectIsEmpty ? null : contactInfoObject;
   }
 
   @observable allSolutionDetails = [];
@@ -163,24 +202,11 @@ class ExternalLinkStore {
 
   @observable allSpecializedDevices = [];
   @observable currentDeviceCategory = '';
-  @observable devicesData = {
-    phones: [],
-    tablets: [],
-    invehicle: [],
-    accessories: []
-  };
   @observable currentDeviceCategoryData = {
     items: []
   };
-  @observable currentDeviceDetail = {
-    path: '',
-    features: '',
-    deviceName: '',
-    deviceImg: '',
-    deviceImgAlt: ''
-  };
-
-  @observable currentPurchasingInfo: {};
+  @observable currentDeviceDetailRaw = {};
+  @observable currentDevicePath = '';
 
   @observable firstnetFacebook = 'https://www.facebook.com/firstnetgov/';
   @observable firstnetLinkedIn = 'https://www.linkedin.com/company/first-responder-network-authority-firstnet-';

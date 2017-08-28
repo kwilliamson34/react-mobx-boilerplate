@@ -20,12 +20,8 @@ export default class DevicesLandingPage extends React.Component {
 	}
 
 	componentWillMount() {
-		if (this.externalLinkStore.allSpecializedDevices.length) {
-			this.externalLinkStore.fetchDeviceLandingData();
-		} else {
-			this.externalLinkStore.getDevicesData().then(() => {
-				this.externalLinkStore.fetchDeviceLandingData()
-			});
+		if (!this.externalLinkStore.allSpecializedDevices.length) {
+			this.externalLinkStore.getDevicesData();
 		}
 	}
 

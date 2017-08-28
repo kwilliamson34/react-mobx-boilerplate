@@ -30,15 +30,10 @@ describe('<SolutionsDetailsTemplate />', () => {
       promo_description: 'description'
     }
 
-    test('matches snapshot with and without purchasing info', () => {
+    test('matches snapshot', () => {
       let component, tree;
 
       component = renderer.create(<SolutionsDetailsTemplate {...props}/>);
-      tree = component.toJSON();
-      expect(tree).toMatchSnapshot();
-
-      props.store.externalLinkStore.showPurchasingInfo = true;
-      component = renderer.create(<SolutionsDetailsTemplate { ...props}/>);
       tree = component.toJSON();
       expect(tree).toMatchSnapshot();
     });
