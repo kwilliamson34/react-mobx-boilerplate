@@ -61,7 +61,7 @@ class ExternalLinkStore {
 
   @action fetchAndShowSolutionCategory() {
     if (this.solutionCategoryIsValid) {
-      this.currentSolutionCategoryData = this.filteredSolutionCategoryData();
+      this.currentSolutionCategoryData = this.filteredSolutionCategoryData;
     } else {
       history.replace('/admin/solutions');
     }
