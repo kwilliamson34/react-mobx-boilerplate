@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
+import {observable} from 'mobx';
 
 import 'bootstrap';
 
@@ -29,6 +30,8 @@ export class FormTemplate extends React.Component {
     this.localRefList = [];
     this.alertJsx = null;
   }
+
+  @observable selectAllButtonActive = true;
 
   renderSubmitButton = () => {
     return (
@@ -79,8 +82,11 @@ export class FormTemplate extends React.Component {
   }
 
   renderCheckbox = ({id, label, genericLabel, hasError, checkboxList, showSelectAllButton, checkedByDefault}) => {
-
+    // let refList = this.props.refList || this.localRefList;
+    let refList = [];
     let defaultChecked = checkedByDefault || false;
+
+    console.log('refList', refList);
 
     return (
       <div className={`form-group has-feedback ${hasError ? 'has-error' : ''}`} key={id}>
@@ -90,23 +96,28 @@ export class FormTemplate extends React.Component {
       </div>}
       {showSelectAllButton &&
         <div className="select-all-button">
-          <button type="button" className="btn-link">
-            select all
+          <button type="button" className="btn-link" onClick={(e) => {
+              e.preventDefault();
+              this.selectAllButtonActive = refList.filter((ref) => ref.checked).length === 0;
+              console.log('selectAllActive', this.selectAllButtonActive);
+              refList.forEach((ref) => ref.checked = true);
+            }}>
+            {this.selectAllButtonActive ? 'Select All' : 'Clear All'}
           </button>
         </div>
       }
-      <div id={id}>
+      <fieldset id={id}>
         {checkboxList.map((name, i) => {
           return (
             <label className="custom-control custom-checkbox" key={`${id}-checkbox-${i}`}>
-              <input type="checkbox" className="custom-control-input" defaultChecked={defaultChecked} value={name}/>
+              <input type="checkbox" ref={ref => refList.push(ref)} className="custom-control-input" defaultChecked={defaultChecked} value={name}/>
               <span className="custom-control-indicator" />
               <span className="custom-control-description">{name}</span>
             </label>
           )
         })
       }
-      </div>
+    </fieldset>
     </div>
     )
   }
