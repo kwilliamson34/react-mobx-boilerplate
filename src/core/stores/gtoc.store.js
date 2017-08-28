@@ -8,7 +8,7 @@ class GTOCStore {
   //Form event handler actions
   @action handleChange(e) {
     let input = e.target;
-    // console.log('change', input);
+    console.log('change', input);
     if(input.id === 'gtoc_email') {
       this.gtocObject[input.id] = input.value;
     } else if (input.type === 'checkbox') {

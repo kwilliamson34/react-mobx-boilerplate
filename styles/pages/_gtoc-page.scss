@@ -1,9 +1,88 @@
 #subscribe-to-gtoc-page {
   padding: 0;
 
-  .content-wrapper h1 {
-    margin: 6rem 0;
+  .form-group {
+    margin-top: 30px;
   }
+
+  .content-wrapper {
+    position: relative;
+
+    h1 {
+      margin: 6rem 0;
+    }
+
+    figure {
+
+      figcaption {
+        text-align: left;
+        font-size: $fn-small-text-desktop;
+        margin-bottom: 20px;
+      }
+
+      img {
+        margin-bottom: 30px;
+      }
+    }
+
+    .control-label {
+      font-size: $fn-h5-desktop;
+      font-weight: $fn-normal-weight;
+
+      &[for="gtoc_email"] {
+        font-size: $fn-label-desktop;
+      }
+    }
+
+    .select-all-button {
+      position: absolute;
+      right: 0;
+      top: 10px;
+      text-transform: uppercase;
+      font-weight: $fn-medium-weight;
+      margin: 0;
+      border: 0;
+      outline: 0;
+
+      :focus {
+        border-radius: 8px;
+        @include focus();
+      }
+    }
+
+    .checkbox {
+      margin: 20px 0;
+      vertical-align: middle;
+      border-bottom: 1px solid $fn-grey;
+
+      label {
+        strong {
+          display: inline-block;
+          vertical-align: top;
+          margin-left: 5px;
+          width: 30%;
+
+          + span {
+            display: inline-block;
+            width: 100%;
+            margin-left: 30px;
+          }
+        }
+
+        .template-checkbox-description {
+          font-weight: $fn-normal-weight;
+          //override default alert text color
+          color: $fn-black;
+        }
+      }
+
+      &:first-of-type {
+        padding-top: 15px;
+        border-top: 1px solid $fn-grey;
+      }
+    }
+  }
+
 
   form button:not(.close_btn) {
     margin: 3rem 0 6rem 0;
@@ -19,6 +98,32 @@
   #subscribe-to-gtoc-page {
     .content-wrapper h1 {
       margin: 3rem 0;
+    }
+  }
+}
+
+@media #{$tablet, $desktop} {
+  #subscribe-to-gtoc-page {
+    .content-wrapper {
+
+      .control-label {
+        font-size: $fn-h4-desktop;
+      }
+
+      .select-all-button {
+        top: 15px;
+      }
+      .checkbox {
+        label {
+          strong {
+            width: 15%;
+            + span {
+              width: 75%;
+              margin-left: 0;
+            }
+          }
+        }
+      }
     }
   }
 }

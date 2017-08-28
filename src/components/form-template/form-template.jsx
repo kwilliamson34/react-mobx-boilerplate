@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {observer} from 'mobx-react';
-import {observable} from 'mobx';
+import {observer, inject} from 'mobx-react';
 
 import 'bootstrap';
 
+@inject('store')
 @observer
 export class FormTemplate extends React.Component {
 
@@ -26,12 +26,15 @@ export class FormTemplate extends React.Component {
     inputList: []
   }
 
+  constructor(props) {
+    super(props);
+    this.formTemplateStore = this.props.store.formTemplateStore;
+  }
+
   componentWillMount() {
     this.localRefList = [];
     this.alertJsx = null;
   }
-
-  @observable selectAllButtonActive = true;
 
   renderSubmitButton = () => {
     return (
@@ -81,43 +84,48 @@ export class FormTemplate extends React.Component {
     )
   }
 
-  renderCheckbox = ({id, label, genericLabel, hasError, checkboxList, showSelectAllButton, checkedByDefault}) => {
-    // let refList = this.props.refList || this.localRefList;
-    let refList = [];
-    let defaultChecked = checkedByDefault || false;
-
+  renderCheckbox = ({id, label, genericLabel, hasError, checkboxList, showSelectAllButton}) => {
+    let refList = this.props.refList || this.localRefList;
     console.log('refList', refList);
 
     return (
       <div className={`form-group has-feedback ${hasError ? 'has-error' : ''}`} key={id}>
       <label className="control-label" htmlFor={id}>{label}<span className="required-asterisks"> *</span></label>
       {hasError && <div className="msgBlock error error-list" role="alert" aria-live="assertive">
-        <span>Please enter a {genericLabel || label.toLowerCase()}.</span>
+        <span>Please select {genericLabel || label.toLowerCase()}.</span>
       </div>}
       {showSelectAllButton &&
-        <div className="select-all-button">
-          <button type="button" className="btn-link" onClick={(e) => {
-              e.preventDefault();
-              this.selectAllButtonActive = refList.filter((ref) => ref.checked).length === 0;
-              console.log('selectAllActive', this.selectAllButtonActive);
-              refList.forEach((ref) => ref.checked = true);
-            }}>
-            {this.selectAllButtonActive ? 'Select All' : 'Clear All'}
-          </button>
-        </div>
+        <button type="button" className="btn-link select-all-button" onClick={(e) => {
+            e.preventDefault();
+            let noCheckedBoxes = true;
+            for (let key in refList[id].elements) {
+              if (refList[id].elements[key].checked) noCheckedBoxes = false;
+            }
+            console.log(noCheckedBoxes);
+            this.formTemplateStore.handleSelectAll(noCheckedBoxes);
+            for (let key in refList[id].elements) {
+              if (refList[id].elements[key].localName === 'input' && refList[id].elements[key].checked === !this.formTemplateStore.selectAllButtonSelectsAll) {
+                refList[id].elements[key].click();
+              }
+            }
+            this.formTemplateStore.handleSelectAll(!noCheckedBoxes);
+          }}>
+          {this.formTemplateStore.selectAllButtonSelectsAll ? 'Select All' : 'Clear All'}
+        </button>
       }
-      <fieldset id={id}>
-        {checkboxList.map((name, i) => {
+      <fieldset id={id} ref={ref => refList[id] = ref}>
+        {checkboxList.map((checkbox, i) => {
           return (
-            <label className="custom-control custom-checkbox" key={`${id}-checkbox-${i}`}>
-              <input type="checkbox" ref={ref => refList.push(ref)} className="custom-control-input" defaultChecked={defaultChecked} value={name}/>
-              <span className="custom-control-indicator" />
-              <span className="custom-control-description">{name}</span>
-            </label>
+            <div className="checkbox" key={`${id}-checkbox-${i}`}>
+              <label>
+                <input type="checkbox" className="template-checkbox-input" value={checkbox.value}/>
+                <span className="cr"></span>
+                <span className="template-checkbox-description" dangerouslySetInnerHTML={{__html: checkbox.label || checkbox.value}}></span>
+              </label>
+            </div>
           )
-        })
-      }
-    </fieldset>
+        })}
+      </fieldset>
     </div>
     )
   }
