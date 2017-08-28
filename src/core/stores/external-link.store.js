@@ -117,15 +117,9 @@ class ExternalLinkStore {
 
   @computed get filteredSolutionCategoryData() {
     const _category = this.currentSolutionCategory.replace(/-/g, ' ');
-    let _cards = this.allSolutionDetails.filter((solution) => solution.page_category.toUpperCase() === _category.toUpperCase());
-
-    _cards.forEach((card) => {
-      card.promo_title = card.promo_title;
-      card.promo_description = card.promo_description;
-    });
     return {
       title: _category,
-      cards: _cards
+      cards: this.allSolutionDetails.filter((solution) => solution.page_category.toUpperCase() == _category.toUpperCase())
     }
   }
 
