@@ -1,10 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {observer, inject} from 'mobx-react';
+import {observer} from 'mobx-react';
 
-import 'bootstrap';
-
-@inject('store')
 @observer
 export class FormTemplate extends React.Component {
 
@@ -24,11 +21,6 @@ export class FormTemplate extends React.Component {
 
   static defaultProps = {
     inputList: []
-  }
-
-  constructor(props) {
-    super(props);
-    this.formTemplateStore = this.props.store.formTemplateStore;
   }
 
   componentWillMount() {
@@ -84,10 +76,8 @@ export class FormTemplate extends React.Component {
     )
   }
 
-  renderCheckbox = ({id, label, genericLabel, hasError, checkboxList, showSelectAllButton}) => {
+  renderCheckbox = ({id, label, genericLabel, hasError, checkboxList, showSelectAllButton, checklistHasEntries}) => {
     let refList = this.props.refList || this.localRefList;
-    console.log('refList', refList);
-
     return (
       <div className={`form-group has-feedback ${hasError ? 'has-error' : ''}`} key={id}>
       <label className="control-label" htmlFor={id}>{label}<span className="required-asterisks"> *</span></label>
@@ -97,20 +87,13 @@ export class FormTemplate extends React.Component {
       {showSelectAllButton &&
         <button type="button" className="btn-link select-all-button" onClick={(e) => {
             e.preventDefault();
-            let noCheckedBoxes = true;
             for (let key in refList[id].elements) {
-              if (refList[id].elements[key].checked) noCheckedBoxes = false;
-            }
-            console.log(noCheckedBoxes);
-            this.formTemplateStore.handleSelectAll(noCheckedBoxes);
-            for (let key in refList[id].elements) {
-              if (refList[id].elements[key].localName === 'input' && refList[id].elements[key].checked === !this.formTemplateStore.selectAllButtonSelectsAll) {
+              if (refList[id].elements[key].localName === 'input' && refList[id].elements[key].checked === checklistHasEntries) {
                 refList[id].elements[key].click();
               }
             }
-            this.formTemplateStore.handleSelectAll(!noCheckedBoxes);
           }}>
-          {this.formTemplateStore.selectAllButtonSelectsAll ? 'Select All' : 'Clear All'}
+          {checklistHasEntries ? 'Clear All' : 'Select All'}
         </button>
       }
       <fieldset id={id} ref={ref => refList[id] = ref}>

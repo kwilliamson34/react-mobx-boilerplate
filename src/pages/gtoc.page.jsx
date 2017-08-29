@@ -26,7 +26,7 @@ export default class SubscribeToGTOC extends React.Component {
   componentWillUnmount() {
     this.clearModals();
     this.gtocStore.disableSaveDialogs();
-    if (!this.gtocStore.formHasEntries && !this.gtocStore.formIsValid) {
+    if (!this.gtocStore.formIsValid && !this.gtocStore.formHasEntries || this.gtocStore.checklistHasEntries) {
       this.gtocStore.clearForm();
     }
   }
@@ -142,6 +142,7 @@ export default class SubscribeToGTOC extends React.Component {
         checkboxList: checkboxList,
         checkedByDefault: false,
         showSelectAllButton: true,
+        checklistHasEntries: this.gtocStore.checklistHasEntries,
         hasError: this.gtocStore.hasErrors.gtoc_femaList
       },
       {

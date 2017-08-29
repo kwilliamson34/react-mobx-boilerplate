@@ -8,16 +8,13 @@ class GTOCStore {
   //Form event handler actions
   @action handleChange(e) {
     let input = e.target;
-    console.log('change', input);
     if(input.id === 'gtoc_email') {
       this.gtocObject[input.id] = input.value;
     } else if (input.type === 'checkbox') {
-      // console.log('GO GO GO', this.gtocObject.gtoc_femaList.indexOf(input.value));
       this.gtocObject.gtoc_femaList.indexOf(input.value) < 0
         ? this.gtocObject.gtoc_femaList.push(input.value)
         : this.gtocObject.gtoc_femaList.remove(input.value);
     }
-    // console.log('this.gtocObject', this.gtocObject.gtoc_femaList);
   }
 
   @action handleBlur(e) {
@@ -34,7 +31,6 @@ class GTOCStore {
     e.preventDefault();
     let form = e.target;
     const inputs = this.parseForm(form);
-    console.log('inputs', inputs);
     this.showAlertBar = false;
     for (var i = 0; i < inputs.length; ++i) {
       this.validateInput(inputs[i]);
@@ -45,21 +41,17 @@ class GTOCStore {
         data[key.replace('gtoc_', '')] = this.gtocObject[key];
       }
       const success = () => {
-        console.log('SUCCEED');
         this.clearForm();
         history.push('/subscribe-to-alerts-success');
       }
       const failure = (res) => {
         //prevent the unsaved changes modal from showing, and change history to allow user to navigate back to here from error page.
-        console.log('FAIL');
         this.disableSaveDialogs();
         history.push('/subscribe-to-alerts');
         utilsService.handleError(res);
       }
-      console.log('DATA    ', data);
       apiService.submitGTOCSubscriptionForm(data).then(success, failure);
     } else {
-      console.log('DUHOH');
       this.showAlertBar = true;
     }
   }
@@ -155,6 +147,10 @@ class GTOCStore {
 
   @computed get formHasEntries() {
     return !this.isEmpty(this.gtocObject.gtoc_email);
+  }
+
+  @computed get checklistHasEntries() {
+    return this.gtocObject.gtoc_femaList.length > 0;
   }
 
   @observable showExitModal = false;

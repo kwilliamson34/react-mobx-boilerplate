@@ -6,7 +6,6 @@ import {cardListStore} from './card-list.store';
 import {contentStore} from './content.store';
 import {externalLinkStore} from './external-link.store';
 import {geolinkStore} from './geolink.store';
-import {formTemplateStore} from './form-template.store';
 import {feedbackStore} from './feedback.store';
 import {gtocStore} from './gtoc.store';
 import {mdmStore} from './mdm.store';
@@ -21,7 +20,6 @@ class PSEStore {
 		this.cardListStore = cardListStore;
 		this.externalLinkStore = externalLinkStore;
 		this.geolinkStore = geolinkStore;
-		this.formTemplateStore = formTemplateStore;
 		this.feedbackStore = feedbackStore;
 		this.gtocStore = gtocStore;
 		this.mdmStore = mdmStore;
