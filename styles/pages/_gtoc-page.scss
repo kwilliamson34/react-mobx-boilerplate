@@ -37,14 +37,21 @@
     .select-all-button {
       position: absolute;
       right: 0;
-      top: 10px;
-      text-transform: uppercase;
+      top: 2px;
+      height: 30px;
+      line-height: 30px;
+      width: 110px;
+      background: none;
+      font-size: $fn-button-desktop;
       font-weight: $fn-medium-weight;
+      color: $fn-ltblue;
+      text-transform: uppercase;
+      border: none;
+      outline: none;
       margin: 0;
-      border: 0;
-      outline: 0;
+      text-decoration: none;
 
-      :focus {
+      &:focus {
         border-radius: 8px;
         @include focus();
       }
@@ -57,7 +64,7 @@
 
       label {
         padding-bottom: 20px;
-        
+
         strong {
           display: inline-block;
           vertical-align: top;
@@ -113,7 +120,7 @@
       }
 
       .select-all-button {
-        top: 15px;
+        top: 10px;
       }
       .checkbox {
         label {
