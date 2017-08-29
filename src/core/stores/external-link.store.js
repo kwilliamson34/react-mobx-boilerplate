@@ -59,17 +59,14 @@ class ExternalLinkStore {
       history.replace('/error');
     }
     if(setAsCurrent) {
-      this.currentSolutionDetail = matches[0].body;
-      this.currentSolutionPsk = '977'; //TODO temporary
+      this.currentSolutionDetail = matches[0];
+      this.currentSolutionDetail.relatedPsk = '977'; //TODO temporary
     }
     return matches[0];
   }
 
   @action resetSolutionDetail() {
-    this.currentSolutionDetail = {
-      title: '',
-      body: ''
-    }
+    this.currentSolutionDetail = {}
   }
 
   @action resetDeviceDetail() {
@@ -143,7 +140,7 @@ class ExternalLinkStore {
 
   @computed get currentSolutionPurchasingInfo() {
     let contactInfoObject = _.pick(this.currentSolutionDetail, Object.keys(this.currentSolutionDetail).filter((key) => {
-      return key.includes('contact_') && this.currentDeviceDetailRaw[key] !== ''
+      return key.includes('contact_') && this.currentSolutionDetail[key] !== ''
     }));
     return Object.keys(contactInfoObject).length > 0 ? contactInfoObject : null;
   }
@@ -151,8 +148,7 @@ class ExternalLinkStore {
   @observable allSolutionDetails = [];
   @observable solutionCategories = [];
   @observable currentSolutionCategory = '';
-  @observable currentSolutionDetail = '';
-  @observable currentSolutionPsk = '';
+  @observable currentSolutionDetail = {};
 
   @observable allSpecializedDevices = [];
   @observable currentDeviceCategory = '';

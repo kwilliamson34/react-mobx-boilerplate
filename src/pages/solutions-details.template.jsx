@@ -24,8 +24,8 @@ export default class SolutionsDetailsTemplate extends React.Component {
   componentWillMount() {
     // checking if the user was on this page previously, eliminating need for new request
     if (this.props.match.params.solutionDetail != this.externalLinkStore.currentSolutionDetail.path) {
-      this.externalLinkStore.resetSolutionDetail();
       let solutionPath = this.props.match.params.solutionDetail;
+      this.externalLinkStore.resetSolutionDetail();
       if (this.externalLinkStore.allSolutionDetails.length) {
         this.fetchSolutionDetails(solutionPath);
       } else {
@@ -38,7 +38,7 @@ export default class SolutionsDetailsTemplate extends React.Component {
 
   fetchSolutionDetails(solutionPath) {
     this.externalLinkStore.fetchSolutionDetails({solutionPath, setAsCurrent: true});
-    const psk = this.externalLinkStore.currentSolutionPsk;
+    const psk = this.externalLinkStore.currentSolutionDetail.relatedPsk;
     if(psk) {
       if(this.appCatalogStore.getMatchingApp(psk)) {
         this.appCatalogStore.setCurrentApp(psk)
@@ -72,28 +72,33 @@ export default class SolutionsDetailsTemplate extends React.Component {
       <article id="solutions-details-page">
         <BreadcrumbNav links={crumbs}/>
         <div className="container">
-          <section className="details-wrapper col-lg-offset-1 col-lg-10">
-            <div className="row">
-              <div className="col-xs-12 content-wrapper">
+
+          <div className="row">
+            <section className="details-wrapper col-lg-offset-1 col-lg-10">
+              <div className="content-wrapper">
                 <div dangerouslySetInnerHTML={{
-                  __html: this.externalLinkStore.currentSolutionDetail
+                  __html: this.externalLinkStore.currentSolutionDetail.body
                 }}></div>
               </div>
-            </div>
-          </section>
-          <div className="related-app-block col xs-12">
-            {this.externalLinkStore.currentSolutionPsk && this.appCatalogStore.currentAppObject &&
-              <div>
+            </section>
+          </div>
+
+          {this.externalLinkStore.currentSolutionDetail.relatedPsk && this.appCatalogStore.currentAppObject &&
+            <div className="row related-app-block">
+              <div className="col xs-12">
                 <h2>Related App</h2>
                 <hr />
                 <AppDetailBanner appCatalogStore={this.appCatalogStore} includeLinkToDetails={true}/>
               </div>
-            }
-          </div>
-          <div>
-            {this.externalLinkStore.currentSolutionPurchasingInfo &&
-              <PurchasingInfo contactInfo={this.externalLinkStore.currentSolutionPurchasingInfo}/>}
-          </div>
+            </div>}
+
+          {this.externalLinkStore.currentSolutionPurchasingInfo &&
+            <div className="row">
+              <div className="col xs-12">
+                <PurchasingInfo contactInfo={this.externalLinkStore.currentSolutionPurchasingInfo}/>
+              </div>
+            </div>}
+
         </div>
       </article>
     )
