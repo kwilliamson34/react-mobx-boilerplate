@@ -20,7 +20,6 @@ class GTOCStore {
   @action handleBlur(e) {
     e.preventDefault();
     let input = e.target;
-    // console.log('input', input);
     this.validateInput(input);
     if (this.showAlertBar && this.requiredFieldsEntered) {
       this.toggleAlertBar();
