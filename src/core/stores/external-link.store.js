@@ -23,7 +23,7 @@ class ExternalLinkStore {
       return devicePath === utilsService.getDevicesAndSolutionsUrl(device.device_title);
     });
     this.checkMatches({matches, shouldBeOne: true});
-    
+
     if(setAsCurrent) {
       this.currentDeviceDetailRaw = matches[0];
     }
@@ -58,7 +58,7 @@ class ExternalLinkStore {
 
     if(setAsCurrent) {
       this.currentSolutionDetail = matches[0];
-      this.currentSolutionDetail.relatedPsk = '977'; //TODO temporary
+      this.currentSolutionDetail.related_app_psk = '977'; //TODO temporary
     }
     return matches[0];
   }

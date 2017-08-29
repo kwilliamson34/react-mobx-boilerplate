@@ -36,10 +36,16 @@ export default class SolutionsDetailsTemplate extends React.Component {
     }
   }
 
+  showRelatedApp() {
+    const psk = this.externalLinkStore.currentSolutionDetail.related_app_psk;
+    const digitsRegex = /^[0-9]+$/;
+    return psk && digitsRegex.test(psk);
+  }
+
   fetchSolutionDetails(solutionPath) {
     this.externalLinkStore.fetchSolutionDetails({solutionPath, setAsCurrent: true});
-    const psk = this.externalLinkStore.currentSolutionDetail.relatedPsk;
-    if(psk) {
+    const psk = this.externalLinkStore.currentSolutionDetail.related_app_psk;
+    if(this.showRelatedApp()) {
       if(this.appCatalogStore.getMatchingApp(psk)) {
         this.appCatalogStore.setCurrentApp(psk)
       } else {
@@ -83,7 +89,7 @@ export default class SolutionsDetailsTemplate extends React.Component {
             </section>
           </div>
 
-          {this.externalLinkStore.currentSolutionDetail.relatedPsk && this.appCatalogStore.currentAppObject &&
+          {this.showRelatedApp() && this.appCatalogStore.currentAppObject &&
             <div className="row related-app-block">
               <div className="col xs-12">
                 <h2>Related App</h2>
