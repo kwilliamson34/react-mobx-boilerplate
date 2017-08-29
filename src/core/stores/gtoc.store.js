@@ -68,7 +68,7 @@ class GTOCStore {
   }
 
   @action validateInput(input) {
-    if (input.id === "gtoc_email") {
+    if (input.id === 'gtoc_email') {
       this.hasErrors.gtoc_email = this.isEmpty(input.value) || !utilsService.isValidEmailAddress(input.value);
     }
     else if(input.type === 'checkbox'){
