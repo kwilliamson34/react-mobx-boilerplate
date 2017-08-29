@@ -38,7 +38,7 @@ export default class SolutionsCategoryTemplate extends React.Component {
           <div className="card-wrapper has-shadow">
             <Link to={cardUrl}>
               <div className="card-img-wrapper">
-                {card.appPsk ? <p className="is-linked"><span className="sr-only">This solution can be found in the&nbsp;</span>App Store</p> : ''}
+                {card.related_app_psk ? <p className="is-linked"><span className="sr-only">This solution can be found in the&nbsp;</span>App Store</p> : ''}
                 <img src={card.promo_image_url} alt={card.promo_title}/>
               </div>
               <div className="card-contents-wrapper">
