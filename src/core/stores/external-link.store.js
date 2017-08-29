@@ -18,14 +18,6 @@ class ExternalLinkStore {
     return apiService.getMarketingPortalDevices().then(success, fail);
   }
 
-  @action fetchAndShowDeviceCategory() {
-    if (this.deviceCategoryIsValid) {
-      this.currentDeviceCategoryData = this.filteredDeviceCategoryData;
-    } else {
-      history.replace('/admin/devices');
-    }
-  }
-
   @action fetchDeviceDetails({devicePath, setAsCurrent}) {
     let matches = this.allSpecializedDevices.filter((device) => {
       return devicePath === utilsService.getDevicesAndSolutionsUrl(device.device_title);
@@ -59,29 +51,18 @@ class ExternalLinkStore {
     return apiService.getMarketingPortalSolutionCategories().then(success, fail);
   }
 
-  @action fetchAndShowSolutionCategory() {
-    if (this.solutionCategoryIsValid) {
-      this.currentSolutionCategoryData = this.filteredSolutionCategoryData;
-    } else {
-      history.replace('/admin/solutions');
-    }
-  }
-
-  @action fetchAndShowSolutionDetails(solutionPath) {
-    let solution = this.allSolutionDetails.filter((solution) => {
+  @action fetchSolutionDetails({solutionPath, setAsCurrent}) {
+    let matches = this.allSolutionDetails.filter((solution) => {
       return solutionPath === utilsService.getDevicesAndSolutionsUrl(solution.promo_title);
     });
-    if (solution.length === 1) {
-      this.currentSolutionDetail = solution[0].body;
-    } else {
+    if(matches.length !== 1){
       history.replace('/error');
     }
-  }
-
-  @action resetDeviceCategoryData() {
-    this.currentDeviceCategoryData = {
-      items: []
-    };
+    if(setAsCurrent) {
+      this.currentSolutionDetail = matches[0].body;
+      this.currentSolutionPsk = '977'; //TODO temporary
+    }
+    return matches[0];
   }
 
   @action resetSolutionDetail() {
@@ -93,13 +74,6 @@ class ExternalLinkStore {
 
   @action resetDeviceDetail() {
     this.currentDeviceDetailRaw = {};
-  }
-
-  @action resetSolutionCategoryData() {
-    this.currentSolutionCategoryData = {
-      title: '',
-      cards: []
-    }
   }
 
   //COMPUTEDS
@@ -176,22 +150,13 @@ class ExternalLinkStore {
 
   @observable allSolutionDetails = [];
   @observable solutionCategories = [];
-
   @observable currentSolutionCategory = '';
-  @observable currentSolutionCategoryData = {
-    title: '',
-    cards: []
-  }
   @observable currentSolutionDetail = '';
-  @observable currentSolutionDetailData = '';
+  @observable currentSolutionPsk = '';
 
   @observable allSpecializedDevices = [];
   @observable currentDeviceCategory = '';
-  @observable currentDeviceCategoryData = {
-    items: []
-  };
   @observable currentDeviceDetailRaw = {};
-  @observable currentDevicePath = '';
 
   @observable firstnetFacebook = 'https://www.facebook.com/firstnetgov/';
   @observable firstnetLinkedIn = 'https://www.linkedin.com/company/first-responder-network-authority-firstnet-';

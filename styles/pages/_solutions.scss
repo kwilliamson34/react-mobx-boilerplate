@@ -48,10 +48,16 @@
       }
 
       .card-img-wrapper {
-
         > img {
           width: 100%;
           object-fit: cover;
+        }
+
+        .is-linked {
+          position: absolute;
+          right: 30px;
+          top: 15px;
+          color: white;
         }
       }
 

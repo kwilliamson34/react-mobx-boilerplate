@@ -34,10 +34,7 @@ export default class DeviceDetailTemplate extends React.Component {
 	}
 
 	fetchDeviceDetails(devicePath) {
-		this.externalLinkStore.fetchDeviceDetails({
-			devicePath,
-			setAsCurrent: true
-		});
+		this.externalLinkStore.fetchDeviceDetails({devicePath, setAsCurrent: true});
 	}
 
 	componentWillUnmount() {
@@ -64,7 +61,9 @@ export default class DeviceDetailTemplate extends React.Component {
 				<BreadcrumbNav links={crumbs} />
 				<div className="container detail-block">
 					<div className="row">
-					<div className="col-xs-10 col-xs-offset-1 text-center visible-xs-block visible-sm-block"><h1 dangerouslySetInnerHTML={{__html: this.externalLinkStore.currentDeviceDetail.deviceName}} /></div>
+						<div className="col-xs-10 col-xs-offset-1 text-center visible-xs-block visible-sm-block">
+							<h1 dangerouslySetInnerHTML={{__html: this.externalLinkStore.currentDeviceDetail.deviceName}}></h1>
+						</div>
 					</div>
 					<div className="row is-flex">
 						<div className="
@@ -82,7 +81,7 @@ export default class DeviceDetailTemplate extends React.Component {
 							col-sm-offset-0 col-sm-6
 							col-md-offset-0 col-md-7
 							col-lg-offset-0 col-lg-8">
-							<h1 className="hidden-xs hidden-sm"><span dangerouslySetInnerHTML={{__html: this.externalLinkStore.currentDeviceDetail.deviceName}} /></h1>
+							<h1 className="hidden-xs hidden-sm" dangerouslySetInnerHTML={{__html: this.externalLinkStore.currentDeviceDetail.deviceName}}></h1>
 							<div className="feature-list" dangerouslySetInnerHTML={{__html: this.externalLinkStore.currentDeviceDetail.features}}></div>
 							<div className="hidden-xs hidden-sm contact-info">
 								{this.externalLinkStore.currentDevicePurchasingInfo &&

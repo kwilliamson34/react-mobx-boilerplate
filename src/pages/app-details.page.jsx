@@ -159,7 +159,13 @@ export default class AppDetailsPage extends React.Component {
         </div>
         {(this.appStore.currentAppObject && this.appStore.currentAppObject.detailsFetched)
           ? <div>
-              <AppDetailBanner data={this.appStore.currentAppObject} appCatalogStore={this.appStore} configuredMDMType={this.mdmStore.pseMDMObject.toJS().mdm_type} pushToMDM={this.mdmStore.pushToMDM.bind(this.mdmStore)} appCatalogMDMStatuses={this.mdmStore.appCatalogMDMStatuses.toJS()}/>
+              <AppDetailBanner
+                isWithinCard={true}
+                containsPrimaryHeader={true}
+                appCatalogStore={this.appStore}
+                configuredMDMType={this.mdmStore.pseMDMObject.toJS().mdm_type}
+                pushToMDM={this.mdmStore.pushToMDM.bind(this.mdmStore)}
+                appCatalogMDMStatuses={this.mdmStore.appCatalogMDMStatuses.toJS()}/>
               {this.renderScreenshotGallery(this.appStore.currentAppObject)}
               <section className="app-description">
                 <div className="container">

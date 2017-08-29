@@ -22,21 +22,15 @@ export default class SolutionsCategoryTemplate extends React.Component {
 
   componentWillMount() {
     //User has navigated to a different category page so will make request for new category
-    if (this.externalLinkStore.currentCategory != this.props.match.params.solutionCategory){
-      this.externalLinkStore.resetSolutionCategoryData();
+    if (this.externalLinkStore.currentSolutionCategory != this.props.match.params.solutionCategory){
       this.externalLinkStore.currentSolutionCategory = this.props.match.params.solutionCategory;
-      if (this.externalLinkStore.allSolutionDetails.length) {
-        this.externalLinkStore.fetchAndShowSolutionCategory();
-      } else {
-        this.externalLinkStore.getSolutionDetails().then(() => {
-          this.externalLinkStore.fetchAndShowSolutionCategory();
-        });
+      if (!this.externalLinkStore.allSolutionDetails.length) {
+        this.externalLinkStore.getSolutionDetails();
       }
     }
   }
 
   renderCards = (cardsArray) => {
-
     return cardsArray.map((card) => {
       const cardUrl = `${this.props.match.url}/${utilsService.getDevicesAndSolutionsUrl(card.promo_title)}`;
       return (
@@ -44,6 +38,7 @@ export default class SolutionsCategoryTemplate extends React.Component {
           <div className="card-wrapper has-shadow">
             <Link to={cardUrl}>
               <div className="card-img-wrapper">
+                {card.appPsk ? <p className="is-linked"><span className="sr-only">This solution can be found in the&nbsp;</span>App Store</p> : ''}
                 <img src={card.promo_image_url} alt={card.promo_title}/>
               </div>
               <div className="card-contents-wrapper">
@@ -84,8 +79,8 @@ export default class SolutionsCategoryTemplate extends React.Component {
           </section>
           <section className="all-cards-wrapper text-center">
             <nav className="center-block">
-              {this.externalLinkStore.currentSolutionCategoryData.cards.length > 0
-                && this.renderCards(this.externalLinkStore.currentSolutionCategoryData.cards)}
+              {this.externalLinkStore.filteredSolutionCategoryData.cards.length > 0
+                && this.renderCards(this.externalLinkStore.filteredSolutionCategoryData.cards)}
             </nav>
           </section>
         </div>
