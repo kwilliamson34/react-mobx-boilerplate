@@ -22,9 +22,8 @@ class ExternalLinkStore {
     let matches = this.allSpecializedDevices.filter((device) => {
       return devicePath === utilsService.getDevicesAndSolutionsUrl(device.device_title);
     });
-    if(matches.length !== 1){
-      history.replace('/error');
-    }
+    this.checkMatches({matches, shouldBeOne: true});
+    
     if(setAsCurrent) {
       this.currentDeviceDetailRaw = matches[0];
     }
@@ -55,9 +54,8 @@ class ExternalLinkStore {
     let matches = this.allSolutionDetails.filter((solution) => {
       return solutionPath === utilsService.getDevicesAndSolutionsUrl(solution.promo_title);
     });
-    if(matches.length !== 1){
-      history.replace('/error');
-    }
+    this.checkMatches({matches, shouldBeOne: true});
+
     if(setAsCurrent) {
       this.currentSolutionDetail = matches[0];
       this.currentSolutionDetail.relatedPsk = '977'; //TODO temporary
@@ -73,12 +71,36 @@ class ExternalLinkStore {
     this.currentDeviceDetailRaw = {};
   }
 
+  @action checkMatches({matches, shouldBeOne, shouldNotBeZero}) {
+    if(shouldNotBeZero && matches.length < 1){
+      history.replace('/error');
+    } else if (shouldBeOne && matches.length !== 1) {
+      history.replace('/error');
+    }
+  }
+
   //COMPUTEDS
   @computed get filteredSolutionCategoryData() {
     const _category = this.currentSolutionCategory.replace(/-/g, ' ');
+    const matches = this.allSolutionDetails.filter((solution) => {
+      return solution.page_category.toLowerCase() == _category.toLowerCase();
+    });
+    this.checkMatches({matches, shouldNotBeZero: true});
+
     return {
       title: _category,
-      cards: this.allSolutionDetails.filter((solution) => solution.page_category.toUpperCase() == _category.toUpperCase())
+      cards: matches
+    }
+  }
+
+  @computed get filteredDeviceCategoryData() {
+    const matches = this.allSpecializedDevices.filter((device) => {
+      return this.currentDeviceCategory.toLowerCase() == device.device_category.toLowerCase();
+    });
+    this.checkMatches({matches, shouldNotBeZero: true});
+
+    return {
+      items: matches
     }
   }
 
@@ -95,16 +117,6 @@ class ExternalLinkStore {
       devicesObj[category].push(obj);
     });
     return devicesObj;
-  }
-
-  @computed get filteredDeviceCategoryData() {
-    const _items = this.allSpecializedDevices.filter((device) => {
-      return this.currentDeviceCategory.toLowerCase() == device.device_category.toLowerCase();
-    });
-
-    return {
-      items: _items
-    }
   }
 
   @computed get currentDeviceDetail() {

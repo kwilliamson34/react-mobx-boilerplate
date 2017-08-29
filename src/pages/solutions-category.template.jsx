@@ -54,9 +54,7 @@ export default class SolutionsCategoryTemplate extends React.Component {
   }
 
   render() {
-
     const categoryTitle = this.props.match.params.solutionCategory.replace('-', ' ');
-
     const crumbs = [
       {	pageHref: '/admin',
         pageTitle: 'Administration Dashboard'
@@ -69,7 +67,6 @@ export default class SolutionsCategoryTemplate extends React.Component {
       }
     ];
 
-
     return (
       <article id="solutions-category-page">
         <BreadcrumbNav links={crumbs} />
@@ -79,7 +76,7 @@ export default class SolutionsCategoryTemplate extends React.Component {
           </section>
           <section className="all-cards-wrapper text-center">
             <nav className="center-block">
-              {this.externalLinkStore.filteredSolutionCategoryData.cards.length > 0
+              {this.externalLinkStore.allSolutionDetails.length > 0
                 && this.renderCards(this.externalLinkStore.filteredSolutionCategoryData.cards)}
             </nav>
           </section>
