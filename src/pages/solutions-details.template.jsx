@@ -90,19 +90,19 @@ export default class SolutionsDetailsTemplate extends React.Component {
           </div>
 
           {this.showRelatedApp() && this.appCatalogStore.currentAppObject &&
-            <div className="row related-app-block">
-              <div className="col xs-12">
+            <div className="row">
+              <section className="col-lg-offset-1 col-lg-10">
                 <h2>Related App</h2>
                 <hr />
                 <AppDetailBanner appCatalogStore={this.appCatalogStore} includeLinkToDetails={true}/>
-              </div>
+              </section>
             </div>}
 
           {this.externalLinkStore.currentSolutionPurchasingInfo &&
             <div className="row">
-              <div className="col xs-12">
+              <section className="col-lg-offset-1 col-lg-10">
                 <PurchasingInfo contactInfo={this.externalLinkStore.currentSolutionPurchasingInfo}/>
-              </div>
+              </section>
             </div>}
 
         </div>
