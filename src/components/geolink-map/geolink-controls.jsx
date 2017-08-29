@@ -164,6 +164,7 @@ export default class GeolinkControls extends React.Component {
         <span className="visible-sm">
           {this.renderNetworkSubscriptionLink()}
           {this.renderContactInfo()}
+          <hr className="visible-sm col-xs-12"/>
         </span>
         <h2 className="as-h5">
           Network<span className="sr-only">&nbsp;color key</span>

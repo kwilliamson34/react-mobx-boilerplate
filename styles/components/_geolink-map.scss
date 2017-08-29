@@ -303,7 +303,6 @@ $map-height-mobile: 400px;
 
     .network-subscription-link {
       float: left;
-      min-height: 50px;
       margin-top: 0;
       width: 57%;
       line-height: 1.11;
@@ -311,10 +310,14 @@ $map-height-mobile: 400px;
 
     .network-contact-info {
       float: left;
-      min-height: 50px;
       margin-top: 0;
       width: 43%;
       line-height: 1.11;
+
+      + hr {
+        margin-top: 10px;
+        padding: 0 0 30px 0;
+      }
     }
   }
 }

@@ -51,11 +51,13 @@
     }
 
     .checkbox {
-      margin: 20px 0;
+      margin-top: 20px;
       vertical-align: middle;
       border-bottom: 1px solid $fn-grey;
 
       label {
+        padding-bottom: 20px;
+        
         strong {
           display: inline-block;
           vertical-align: top;
