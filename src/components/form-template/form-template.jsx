@@ -76,6 +76,14 @@ export class FormTemplate extends React.Component {
     )
   }
 
+  handleSelectAllButton = (refList, checklistHasEntries) => {
+    for (let key in refList.elements) {
+      if (refList.elements[key].localName === 'input' && refList.elements[key].checked === checklistHasEntries) {
+        refList.elements[key].click();
+      }
+    }
+  }
+
   renderCheckbox = ({id, label, genericLabel, hasError, checkboxList, showSelectAllButton, checklistHasEntries}) => {
     let refList = this.props.refList || this.localRefList;
     return (
@@ -85,14 +93,7 @@ export class FormTemplate extends React.Component {
         <span>Please select {genericLabel || label.toLowerCase()}.</span>
       </div>}
       {showSelectAllButton &&
-        <button type="button" className="btn-link select-all-button" onClick={(e) => {
-            e.preventDefault();
-            for (let key in refList[id].elements) {
-              if (refList[id].elements[key].localName === 'input' && refList[id].elements[key].checked === checklistHasEntries) {
-                refList[id].elements[key].click();
-              }
-            }
-          }}>
+        <button type="button" className="btn-link select-all-button" onClick={() => this.handleSelectAllButton(refList[id], checklistHasEntries)}>
           {checklistHasEntries ? 'Clear All' : 'Select All'}
         </button>
       }
