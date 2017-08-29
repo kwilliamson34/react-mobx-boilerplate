@@ -74,18 +74,6 @@ class ExternalLinkStore {
   }
 
   //COMPUTEDS
-  @computed get deviceCategoryIsValid() {
-    let deviceCategories = ['phones', 'tablets', 'in-vehicle', 'accessories'];
-    let categoryIndex = deviceCategories.indexOf(this.currentDeviceCategory);
-    return categoryIndex >= 0;
-  }
-
-  @computed get solutionCategoryIsValid() {
-    let solutionCategories = ['tools', 'device-security', 'secured-connections', 'cloud-services'];
-    let categoryIndex = solutionCategories.indexOf(this.currentSolutionCategory);
-    return categoryIndex >= 0;
-  }
-
   @computed get filteredSolutionCategoryData() {
     const _category = this.currentSolutionCategory.replace(/-/g, ' ');
     return {
@@ -94,7 +82,7 @@ class ExternalLinkStore {
     }
   }
 
-  @computed get devicesData() {
+  @computed get categorizedDeviceData() {
     const devicesObj = {
       phones: [],
       tablets: [],

@@ -83,10 +83,10 @@ export default class DevicesLandingPage extends React.Component {
 						</div>
 					</div>
 				</div>
-				{this.renderDeviceSection('phone', 'Phones', this.externalLinkStore.devicesData.phones)}
-				{this.renderDeviceSection('tablet', 'Tablets', this.externalLinkStore.devicesData.tablets)}
-				{this.renderDeviceSection('invehicle', 'In-Vehicle', this.externalLinkStore.devicesData.invehicle)}
-				{this.renderDeviceSection('accessories', 'Accessories', this.externalLinkStore.devicesData.accessories)}
+				{this.renderDeviceSection('phone', 'Phones', this.externalLinkStore.categorizedDeviceData.phones)}
+				{this.renderDeviceSection('tablet', 'Tablets', this.externalLinkStore.categorizedDeviceData.tablets)}
+				{this.renderDeviceSection('invehicle', 'In-Vehicle', this.externalLinkStore.categorizedDeviceData.invehicle)}
+				{this.renderDeviceSection('accessories', 'Accessories', this.externalLinkStore.categorizedDeviceData.accessories)}
 			</div>
 		)
 	}
