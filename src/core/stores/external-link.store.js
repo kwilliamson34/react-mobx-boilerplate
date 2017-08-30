@@ -89,7 +89,7 @@ class ExternalLinkStore {
 
     return {
       title: _category,
-      cards: matches
+      solutions: matches
     }
   }
 
@@ -98,10 +98,7 @@ class ExternalLinkStore {
       return this.currentDeviceCategory.toLowerCase() == device.device_category.toLowerCase();
     });
     this.checkMatches({matches, shouldNotBeZero: true});
-
-    return {
-      items: matches
-    }
+    return matches;
   }
 
   @computed get categorizedDeviceData() {

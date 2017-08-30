@@ -43,12 +43,12 @@ export default class DeviceCategoryTemplate extends React.Component {
 
 	loadDevices = () => {
 		let endingIndex = (this.paginationCount * this.devicesPerPagination) + this.devicesPerPagination;
-		this.devicesToLoad = this.externalLinkStore.filteredDeviceCategoryData.items.slice(0, endingIndex);
+		this.devicesToLoad = this.externalLinkStore.filteredDeviceCategoryData.slice(0, endingIndex);
 		this.paginationCount++;
 	}
 
 	showLoadMoreButton = () => {
-		return this.devicesToLoad.length < this.externalLinkStore.filteredDeviceCategoryData.items.length;
+		return this.devicesToLoad.length < this.externalLinkStore.filteredDeviceCategoryData.length;
 	}
 
 	loadMoreButton = () => {
@@ -83,14 +83,14 @@ export default class DeviceCategoryTemplate extends React.Component {
 					<div className="row">
 						<div className="col-xs-offset-2 col-xs-8 col-sm-12 col-sm-offset-0 col-md-offset-1 col-md-10">
 							<ul className="mp-content left">
-								{this.externalLinkStore.filteredDeviceCategoryData.items && this.devicesToLoad.map((item, idx) => {
-									let itemRoute = utilsService.getDevicesAndSolutionsUrl(item.device_title);
+								{this.externalLinkStore.filteredDeviceCategoryData && this.devicesToLoad.map((device, idx) => {
+									let devicePath = utilsService.getDevicesAndSolutionsUrl(device.device_title);
 									return (
 										<li key={idx}>
-											<Link to={`/admin/devices/${item.device_category.toLowerCase()}/${itemRoute}`}>
-												<h3 dangerouslySetInnerHTML={{__html: item.device_title}} />
+											<Link to={`/admin/devices/${device.device_category.toLowerCase()}/${devicePath}`}>
+												<h3 dangerouslySetInnerHTML={{__html: device.device_title}} />
 												<div className="card-img-wrapper">
-													<img src={item.device_image_url} alt={item.device_image_alt} />
+													<img src={device.device_image_url} alt={device.device_image_alt} />
 												</div>
 											</Link>
 										</li>

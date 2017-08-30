@@ -30,20 +30,22 @@ export default class SolutionsCategoryTemplate extends React.Component {
     }
   }
 
-  renderCards = (cardsArray) => {
-    return cardsArray.map((card) => {
-      const cardUrl = `${this.props.match.url}/${utilsService.getDevicesAndSolutionsUrl(card.promo_title)}`;
+  renderCards = (solutionsArray) => {
+    return solutionsArray.map((solution) => {
+      const solutionUrl = `${this.props.match.url}/${utilsService.getDevicesAndSolutionsUrl(solution.promo_title)}`;
       return (
-        <div key={card.promo_title} className="col-xs-12 col-sm-6 col-md-6 col-lg-4 solutions-card">
+        <div key={solution.promo_title} className="col-xs-12 col-sm-6 col-md-6 col-lg-4 solutions-card">
           <div className="card-wrapper has-shadow">
-            <Link to={cardUrl}>
+            <Link to={solutionUrl}>
               <div className="card-img-wrapper">
-                {card.related_app_psk ? <p className="is-linked"><span className="sr-only">This solution can be found in the&nbsp;</span>App Store</p> : ''}
-                <img src={card.promo_image_url} alt={card.promo_title}/>
+                {solution.related_app_psk
+                  ? <p className="is-linked"><span className="sr-only">This solution can be found in the&nbsp;</span>App Store</p>
+                  : ''}
+                <img src={solution.promo_image_url} alt={solution.promo_title}/>
               </div>
               <div className="card-contents-wrapper">
-                <h3 className="card-title" dangerouslySetInnerHTML={{__html: card.promo_title}}></h3>
-                <div className="card-desc" dangerouslySetInnerHTML={{__html: card.promo_description}}></div>
+                <h3 className="card-title" dangerouslySetInnerHTML={{__html: solution.promo_title}}></h3>
+                <div className="card-desc" dangerouslySetInnerHTML={{__html: solution.promo_description}}></div>
               </div>
               <div className="learn-more">Learn More<i className="icon-arrowRight" aria-hidden="true" /></div>
             </Link>
@@ -77,7 +79,7 @@ export default class SolutionsCategoryTemplate extends React.Component {
           <section className="all-cards-wrapper text-center">
             <nav className="center-block">
               {this.externalLinkStore.allSolutionDetails.length > 0
-                && this.renderCards(this.externalLinkStore.filteredSolutionCategoryData.cards)}
+                && this.renderCards(this.externalLinkStore.filteredSolutionCategoryData.solutions)}
             </nav>
           </section>
         </div>
