@@ -46,9 +46,10 @@
       }
 
       .card-img-wrapper {
-        > img {
+        .img {
           width: 100%;
-          object-fit: cover;
+          min-height: 150px;
+          z-index: 0;
         }
 
         .is-linked {
@@ -56,6 +57,9 @@
           right: 30px;
           top: 15px;
           color: white;
+          font-weight: $fn-medium-weight;
+          z-index: 1;
+          letter-spacing: 1px;
         }
       }
 

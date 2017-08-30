@@ -30,6 +30,17 @@ export default class SolutionsCategoryTemplate extends React.Component {
     }
   }
 
+  getGradientStyles(imageUrl) {
+    const shadowLength = '39%';
+    const shadowOpacity = '0.85';
+    // validated in Firefox, Safari and Chrome
+    // adapted from https://stackoverflow.com/a/16590040
+    return {
+      background: `linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) ${shadowLength}, rgba(0, 0, 0, ${shadowOpacity}) 100%), url('${imageUrl}') no-repeat`,
+      backgroundSize: 'cover'
+    }
+  }
+
   renderCards = (solutionsArray) => {
     return solutionsArray.map((solution) => {
       const solutionUrl = `${this.props.match.url}/${utilsService.getDevicesAndSolutionsUrl(solution.promo_title)}`;
@@ -38,10 +49,10 @@ export default class SolutionsCategoryTemplate extends React.Component {
           <div className="card-wrapper has-shadow">
             <Link to={solutionUrl}>
               <div className="card-img-wrapper">
-                {solution.related_app_psk
-                  ? <p className="is-linked"><span className="sr-only">This solution can be found in the&nbsp;</span>App Store</p>
+                {this.externalLinkStore.hasRelatedApp(solution)
+                  ? <p className="is-linked">App Available</p>
                   : ''}
-                <img src={solution.promo_image_url} alt={solution.promo_title}/>
+                <div className="img" style={this.getGradientStyles(solution.promo_image_url)} alt={solution.promo_title}></div>
               </div>
               <div className="card-contents-wrapper">
                 <h3 className="card-title" dangerouslySetInnerHTML={{__html: solution.promo_title}}></h3>

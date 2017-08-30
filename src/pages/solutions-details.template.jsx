@@ -36,16 +36,11 @@ export default class SolutionsDetailsTemplate extends React.Component {
     }
   }
 
-  showRelatedApp() {
-    const psk = this.externalLinkStore.currentSolutionDetail.related_app_psk;
-    const digitsRegex = /^[0-9]+$/;
-    return psk && digitsRegex.test(psk);
-  }
-
   fetchSolutionDetails(solutionPath) {
     this.externalLinkStore.fetchSolutionDetails({solutionPath, setAsCurrent: true});
-    const psk = this.externalLinkStore.currentSolutionDetail.related_app_psk;
-    if(this.showRelatedApp()) {
+    const solutionDetail = this.externalLinkStore.currentSolutionDetail;
+    if(this.externalLinkStore.hasRelatedApp(solutionDetail)) {
+      const psk = solutionDetail.related_app_psk
       if(this.appCatalogStore.getMatchingApp(psk)) {
         this.appCatalogStore.setCurrentApp(psk)
       } else {
@@ -55,8 +50,10 @@ export default class SolutionsDetailsTemplate extends React.Component {
   }
 
   render() {
-    const solutionCategory = this.props.match.params.solutionCategory.replace(/-/g, ' ');
-    const solutionDetail = this.props.match.params.solutionDetail.replace(/\+/g, ' ');
+    const solutionCategoryTitle = this.props.match.params.solutionCategory.replace(/-/g, ' ');
+    const solutionDetailTitle = this.props.match.params.solutionDetail.replace(/\+/g, ' ');
+    const solutionDetail = this.externalLinkStore.currentSolutionDetail;
+    const purchasingInfo = this.externalLinkStore.currentSolutionPurchasingInfo;
 
     const crumbs = [
       {
@@ -67,10 +64,10 @@ export default class SolutionsDetailsTemplate extends React.Component {
         pageTitle: 'Public Safety Solutions'
       }, {
         pageHref: `/admin/solutions/${this.props.match.params.solutionCategory}`,
-        pageTitle: solutionCategory
+        pageTitle: solutionCategoryTitle
       }, {
         pageHref: `/${this.props.match.url}`,
-        pageTitle: solutionDetail
+        pageTitle: solutionDetailTitle
       }
     ];
 
@@ -83,13 +80,13 @@ export default class SolutionsDetailsTemplate extends React.Component {
             <section className="details-wrapper col-lg-offset-1 col-lg-10">
               <div className="content-wrapper">
                 <div dangerouslySetInnerHTML={{
-                  __html: this.externalLinkStore.currentSolutionDetail.body
+                  __html: solutionDetail.body
                 }}></div>
               </div>
             </section>
           </div>
 
-          {this.showRelatedApp() && this.appCatalogStore.currentAppObject &&
+          {this.externalLinkStore.hasRelatedApp(solutionDetail) && this.appCatalogStore.currentAppObject &&
             <div className="row">
               <section className="col-lg-offset-1 col-lg-10">
                 <h2>Related App</h2>
@@ -98,10 +95,10 @@ export default class SolutionsDetailsTemplate extends React.Component {
               </section>
             </div>}
 
-          {this.externalLinkStore.currentSolutionPurchasingInfo &&
+          {purchasingInfo &&
             <div className="row">
               <section className="col-lg-offset-1 col-lg-10">
-                <PurchasingInfo contactInfo={this.externalLinkStore.currentSolutionPurchasingInfo}/>
+                <PurchasingInfo contactInfo={purchasingInfo}/>
               </section>
             </div>}
 
