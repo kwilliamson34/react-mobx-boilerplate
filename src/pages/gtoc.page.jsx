@@ -143,7 +143,6 @@ export default class SubscribeToGTOC extends React.Component {
         checkedByDefault: false,
         showSelectAllButton: true,
         checklistHasEntries: this.gtocStore.checklistHasEntries,
-        // checklistEntries: this.gtocStore.gtocObject.gtoc_femaList,
         hasError: this.gtocStore.hasErrors.gtoc_femaList
       },
       {

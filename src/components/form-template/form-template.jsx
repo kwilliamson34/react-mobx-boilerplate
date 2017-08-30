@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
 
-// import Checkbox from '../toggle/checkbox';
-
 @observer
 export class FormTemplate extends React.Component {
 
@@ -85,9 +83,6 @@ export class FormTemplate extends React.Component {
       }
     }
   }
-
-
-  // <Checkbox id={`${id}-checkbox-${i}`} value={checkbox.value} checked={checklistEntries.indexOf(checkbox.value) > -1} disabled={false} onChange={this.props.onChange} label={checkbox.label || checkbox.value} />
 
   renderCheckbox = ({id, label, genericLabel, hasError, checkboxList, showSelectAllButton, checklistHasEntries}) => {
     let refList = this.props.refList || this.localRefList;
