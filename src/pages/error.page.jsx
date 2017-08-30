@@ -17,10 +17,10 @@ export default class ErrorPage extends React.Component {
     super(props)
     this.userStore = this.props.store.userStore;
   }
-  
+
   handleLogout = (e) => {
     e.preventDefault();
-    this.userStore.logoutUser();    
+    this.userStore.logoutUser();
   }
 
   render() {
