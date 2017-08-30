@@ -165,6 +165,10 @@ class UtilsService {
   getIsMobile() {
     return this.getMobileOperatingSystem() !== 'unknown';
   }
+
+  getIsInternetExplorer() {
+    return this.getUserAgent().indexOf('MSIE ') > -1;
+  }
 }
 
 export const utilsService = new UtilsService();

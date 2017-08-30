@@ -41,18 +41,28 @@ export default class SolutionsCategoryTemplate extends React.Component {
     }
   }
 
+  getNormalStyles(imageUrl) {
+    return {
+      background: `url('${imageUrl}') no-repeat`,
+      backgroundSize: 'cover'
+    }
+  }
+
   renderCards = (solutionsArray) => {
     return solutionsArray.map((solution) => {
       const solutionUrl = `${this.props.match.url}/${utilsService.getDevicesAndSolutionsUrl(solution.promo_title)}`;
+      const hasRelatedApp = this.externalLinkStore.hasRelatedApp(solution);
       return (
         <div key={solution.promo_title} className="col-xs-12 col-sm-6 col-md-6 col-lg-4 solutions-card">
           <div className="card-wrapper has-shadow">
             <Link to={solutionUrl}>
               <div className="card-img-wrapper">
-                {this.externalLinkStore.hasRelatedApp(solution)
+                {hasRelatedApp
                   ? <p className="is-linked">App Available</p>
                   : ''}
-                <div className="img" style={this.getGradientStyles(solution.promo_image_url)} alt={solution.promo_title}></div>
+                {hasRelatedApp && !utilsService.getIsInternetExplorer()
+                  ? <div className="img" style={this.getGradientStyles(solution.promo_image_url)} alt={solution.promo_title}></div>
+                  : <div className="img" style={this.getNormalStyles(solution.promo_image_url)} alt={solution.promo_title}></div>}
               </div>
               <div className="card-contents-wrapper">
                 <h3 className="card-title" dangerouslySetInnerHTML={{__html: solution.promo_title}}></h3>
