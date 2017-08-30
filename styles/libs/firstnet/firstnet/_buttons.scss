@@ -314,10 +314,7 @@ button {
   }
 
   &.active,
-  &:active {
-    color: $fn-blue;
-  }
-
+  &:active,
   &.visited,
   &:visited {
     color: $fn-blue;
