@@ -189,8 +189,8 @@ class ExternalLinkStore {
   @observable firstnetYoutube = 'https://www.youtube.com/user/FirstNetGov';
 
   @observable termsOfUse = 'https://www.att.com/legal/terms.attWebsiteTermsOfUse.html';
-  @observable accessibilityLink = 'https://www.firstnet.gov/accessibility';
-  @observable privacyPolicyLink = 'https://www.firstnet.gov/privacy-policy';
+  @observable accessibilityLink = 'https://www.firstnet.com/accessibility';
+  @observable privacyPolicyLink = 'https://www.firstnet.com/privacy-policy';
 
 }
 
