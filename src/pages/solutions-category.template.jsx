@@ -33,12 +33,13 @@ export default class SolutionsCategoryTemplate extends React.Component {
   getGradientStyles(imageUrl) {
     const shadowLength = '39%';
     const shadowOpacity = '0.85';
-    // validated in Firefox, Safari and Chrome
-    // adapted from https://stackoverflow.com/a/16590040
-    return {
-      background: `linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) ${shadowLength}, rgba(0, 0, 0, ${shadowOpacity}) 100%), url('${imageUrl}') no-repeat`,
-      backgroundSize: 'cover'
+    let backgroundImage = '';
+    if(utilsService.getIsInternetExplorer()) {
+      backgroundImage = `-ms-linear-gradient(bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) ${shadowLength}, rgba(0, 0, 0, ${shadowOpacity}) 100%), url('${imageUrl}')`
+    } else {
+      backgroundImage = `linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) ${shadowLength}, rgba(0, 0, 0, ${shadowOpacity}) 100%), url('${imageUrl}')`
     }
+    return {backgroundImage}
   }
 
   getNormalStyles(imageUrl) {
@@ -60,7 +61,7 @@ export default class SolutionsCategoryTemplate extends React.Component {
                 {hasRelatedApp
                   ? <p className="is-linked">App Available</p>
                   : ''}
-                {hasRelatedApp && !utilsService.getIsInternetExplorer()
+                {hasRelatedApp
                   ? <div className="img" style={this.getGradientStyles(solution.promo_image_url)} alt={solution.promo_title}></div>
                   : <div className="img" style={this.getNormalStyles(solution.promo_image_url)} alt={solution.promo_title}></div>}
               </div>

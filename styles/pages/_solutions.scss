@@ -46,11 +46,12 @@
       }
 
       .card-img-wrapper {
-        img,
-        .img {
+        div.img {
           width: 100%;
           min-height: 200px;
           z-index: 0;
+          background-size: cover;
+          background-repeat: no-repeat;
         }
 
         .is-linked {
@@ -171,6 +172,10 @@
     .solutions-card {
       max-width: 480px;
     }
+
+    .all-cards-wrapper .solutions-card .card-img-wrapper div.img {
+      min-height: 140px;
+    }
   }
 }
 @media #{$desktop} {
@@ -181,6 +186,10 @@
         width: 80%;
         padding-right: 50px; //due to word breaks, the picture looks offcenter w/r to the text if padding is absent
       }
+    }
+
+    .all-cards-wrapper .solutions-card .card-img-wrapper div.img {
+      min-height: 150px;
     }
   }
 }
