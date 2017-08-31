@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { observer, inject } from 'mobx-react';
 import { Link } from 'react-router-dom';
-import config from 'config';
 
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 
@@ -74,7 +73,7 @@ export default class ShopSolutionsPage extends React.Component {
                 FirstNet is cultivating a dedicated public safety applications development program, with participation from leading providers across the applications development community. Many more solutions will be added in response to these focused efforts and as public safety needs evolve.
               </p>
               <p>
-                <strong>Contact your FirstNet Solutions Consultant or call {config.solutionsContactPhone} to learn more about FirstNet Solutions and pricing details.</strong>
+                <strong>Contact your FirstNet Solutions Consultant or call <a href={'tel:' + this.externalLinkStore.solutionsConsultantPhone}><phone>{this.externalLinkStore.solutionsConsultantPhone}</phone></a> to learn more about FirstNet Solutions and pricing details.</strong>
               </p>
             </section>
             <section className="all-cards-wrapper">

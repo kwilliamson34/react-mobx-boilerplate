@@ -10,7 +10,6 @@ const config = {
   mktgPortalImgBaseUrl: 'https://www.firstnet.ws',
   apiBase: '/api',
   attCustomerSupportPhone: '800-574-7000',
-  solutionsContactPhone: '1-833-717-8638',
   firstnetGov: 'https://firstnet.gov/',
   firstnetCom: 'https://www.firstnet.com/',
   appStore: 'https://test-apps.firstnet.att.com',
