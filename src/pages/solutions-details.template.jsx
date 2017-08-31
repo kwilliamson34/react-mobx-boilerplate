@@ -88,7 +88,7 @@ export default class SolutionsDetailsTemplate extends React.Component {
 
           {this.externalLinkStore.hasRelatedApp(solutionDetail) && this.appCatalogStore.currentAppObject &&
             <div className="row">
-              <section className="col-lg-offset-1 col-lg-10">
+              <section className="col-xs-12 col-lg-offset-1 col-lg-10">
                 <h2>Related App</h2>
                 <hr />
                 <AppDetailBanner appCatalogStore={this.appCatalogStore} includeLinkToDetails={true}/>
@@ -97,7 +97,7 @@ export default class SolutionsDetailsTemplate extends React.Component {
 
           {purchasingInfo &&
             <div className="row">
-              <section className="col-lg-offset-1 col-lg-10">
+              <section className="col-xs-12 col-lg-offset-1 col-lg-10">
                 <PurchasingInfo contactInfo={purchasingInfo}/>
               </section>
             </div>}

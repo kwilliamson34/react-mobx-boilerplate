@@ -25,7 +25,6 @@ export class AppDetailBanner extends React.Component {
   componentWillMount() {
     this.appStore = this.props.appCatalogStore;
     this.data = this.props.appCatalogStore.currentAppObject;
-    this.showMdmBlock = this.props.configuredMDMType && this.props.pushToMDM && this.props.appCatalogMDMStatuses;
   }
 
   rating() {
@@ -159,6 +158,8 @@ export class AppDetailBanner extends React.Component {
   }
 
   render() {
+    this.showMdmBlock = this.props.configuredMDMType && this.props.pushToMDM && this.props.appCatalogMDMStatuses;
+
     return (
       <section className="app-summary">
         <div className={this.props.isWithinCard ? 'container' : ''}>
