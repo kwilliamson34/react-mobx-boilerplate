@@ -91,7 +91,7 @@ export default class SolutionsDetailsTemplate extends React.Component {
               <section className="col-xs-12 col-lg-offset-1 col-lg-10">
                 <h2>Related App</h2>
                 <hr />
-                <AppDetailBanner appCatalogStore={this.appCatalogStore} includeLinkToDetails={true}/>
+                <AppDetailBanner actionBlock="link_to_details" appCatalogStore={this.appCatalogStore}/>
               </section>
             </div>}
 

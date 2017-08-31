@@ -18,8 +18,8 @@ export class AppDetailBanner extends React.Component {
     pushToMDM: PropTypes.func,
     appCatalogMDMStatuses: PropTypes.object,
     isWithinCard: PropTypes.bool,
-    includeLinkToDetails: PropTypes.bool,
-    containsPrimaryHeader: PropTypes.bool
+    containsPrimaryHeader: PropTypes.bool,
+    actionBlock: PropTypes.string.isRequired
   }
 
   componentWillMount() {
@@ -137,9 +137,17 @@ export class AppDetailBanner extends React.Component {
   }
 
   actionBlock() {
-    if(this.showMdmBlock) {
-      return this.appManagement();
-    } else if(this.props.includeLinkToDetails) {
+    if(this.props.actionBlock === 'app_managment_block') {
+      return <AppManagementBlock
+              name={this.data.app_name}
+              psk={this.data.app_psk}
+              getMatchingApp={this.appStore.getMatchingApp.bind(this.appStore)}
+              changeAppAvailability={this.appStore.changeAppAvailability.bind(this.appStore)}
+              changeAppRecommended={this.appStore.changeAppRecommended.bind(this.appStore)}
+              configuredMDMType={this.props.configuredMDMType}
+              pushToMDM={this.props.pushToMDM}
+              appCatalogMDMStatuses={this.props.appCatalogMDMStatuses}/>
+    } else if(this.props.actionBlock === 'link_to_details') {
       return (
         <div className="link-to-details">
           <Link to={'/app/' + this.data.app_psk} className="fn-primary">Go to App</Link>
@@ -147,18 +155,6 @@ export class AppDetailBanner extends React.Component {
       )
     }
     return '';
-  }
-
-  appManagement() {
-    return <AppManagementBlock
-            name={this.data.app_name}
-            psk={this.data.app_psk}
-            getMatchingApp={this.appStore.getMatchingApp.bind(this.appStore)}
-            changeAppAvailability={this.appStore.changeAppAvailability.bind(this.appStore)}
-            changeAppRecommended={this.appStore.changeAppRecommended.bind(this.appStore)}
-            configuredMDMType={this.props.configuredMDMType}
-            pushToMDM={this.props.pushToMDM}
-            appCatalogMDMStatuses={this.props.appCatalogMDMStatuses}/>
   }
 
   render() {

@@ -160,6 +160,7 @@ export default class AppDetailsPage extends React.Component {
         {(this.appStore.currentAppObject && this.appStore.currentAppObject.detailsFetched)
           ? <div>
               <AppDetailBanner
+                actionBlock="app_managment_block"
                 isWithinCard={true}
                 containsPrimaryHeader={true}
                 appCatalogStore={this.appStore}
