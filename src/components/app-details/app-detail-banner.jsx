@@ -149,7 +149,7 @@ export class AppDetailBanner extends React.Component {
               appCatalogMDMStatuses={this.props.appCatalogMDMStatuses}/>
     } else if(this.props.actionBlock === 'link_to_details') {
       return (
-        <div className="link-to-details">
+        <div className="action-block">
           <Link to={'/app/' + this.data.app_psk} className="fn-primary">Go to App</Link>
         </div>
       )
