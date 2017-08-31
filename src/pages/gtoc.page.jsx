@@ -141,8 +141,7 @@ export default class SubscribeToGTOC extends React.Component {
         genericLabel: 'at least one option',
         checkboxList: checkboxList,
         checkedByDefault: false,
-        showSelectAllButton: true,
-        checklistHasEntries: this.gtocStore.checklistHasEntries,
+        showSelectionButtons: true,
         hasError: this.gtocStore.hasErrors.gtoc_femaList
       },
       {
@@ -183,6 +182,7 @@ export default class SubscribeToGTOC extends React.Component {
                   onBlur={this.gtocStore.handleBlur.bind(this.gtocStore)}
                   errorBody={this.gtocStore.showAlertBar ? 'Please correct the errors below.' : ''}
                   toggleAlertBar={this.gtocStore.toggleAlertBar.bind(this.gtocStore)}
+                  selectAllButtonChecked={this.gtocStore.selectAllButtonChecked}
                   submitButtonDisabled={!this.gtocStore.requiredFieldsEntered}
                   submitButtonText='Subscribe'/>
               </section>

@@ -148,9 +148,6 @@ class GTOCStore {
     return !this.isEmpty(this.gtocObject.gtoc_email);
   }
 
-  @computed get checklistHasEntries() {
-    return this.gtocObject.gtoc_femaList.length > 0;
-  }
 
   @observable showExitModal = false;
   @observable interceptedRoute = '';

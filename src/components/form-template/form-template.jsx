@@ -41,7 +41,7 @@ export class FormTemplate extends React.Component {
   renderSelect = ({id, label, value, genericLabel, placeholder, disabled, optionsList, hasError}) => {
     let refList = this.props.refList || this.localRefList;
     return (
-      <div className={`form-group has-feedback ${hasError ? 'has-error' : ''}`} key={id}>
+      <div className={`form-group has-feedback ${id} ${hasError ? 'has-error' : ''}`} key={id}>
         <label className="control-label" htmlFor={id}>{label}<span className="required-asterisks"> *</span></label>
         {hasError && <div className="msgBlock error error-list" role="alert" aria-live="assertive">
           <span>Please select a {genericLabel || label.toLowerCase()}.</span>
@@ -58,7 +58,7 @@ export class FormTemplate extends React.Component {
     let Tag = type === 'textarea' ? 'textarea' : 'input';
     let refList = this.props.refList || this.localRefList;
     return (
-      <div className={`form-group has-feedback ${hasError ? 'has-error' : ''}`} key={id}>
+      <div className={`form-group has-feedback ${id} ${hasError ? 'has-error' : ''}`} key={id}>
         <label className="control-label" htmlFor={id}>{label}<span className="required-asterisks"> *</span></label>
         {hasError && <div className="msgBlock error error-list" role="alert" aria-live="assertive">
           <span>Please enter a {genericLabel || label.toLowerCase()}.</span>
@@ -76,26 +76,39 @@ export class FormTemplate extends React.Component {
     )
   }
 
-  handleSelectAllButton = (refList, checklistHasEntries) => {
+  handleSelectAllButton = (refList) => {
     for (let key in refList.elements) {
-      if (refList.elements[key].localName === 'input' && refList.elements[key].checked === checklistHasEntries) {
+      if (refList.elements[key].localName === 'input' && !refList.elements[key].checked) {
         refList.elements[key].click();
       }
     }
   }
 
-  renderCheckbox = ({id, label, genericLabel, hasError, checkboxList, showSelectAllButton, checklistHasEntries}) => {
+  handleClearAllButton = (refList) => {
+    for (let key in refList.elements) {
+      if (refList.elements[key].localName === 'input' && refList.elements[key].checked) {
+        refList.elements[key].click();
+      }
+    }
+  }
+
+  renderCheckbox = ({id, label, genericLabel, hasError, checkboxList, showSelectionButtons}) => {
     let refList = this.props.refList || this.localRefList;
     return (
-      <div className={`form-group has-feedback ${hasError ? 'has-error' : ''}`} key={id}>
+      <div className={`form-group has-feedback ${id} ${hasError ? 'has-error' : ''}`} key={id}>
       <label className="control-label" htmlFor={id}>{label}<span className="required-asterisks"> *</span></label>
       {hasError && <div className="msgBlock error error-list" role="alert" aria-live="assertive">
         <span>Please select {genericLabel || label.toLowerCase()}.</span>
       </div>}
-      {showSelectAllButton &&
-        <button type="button" className="btn-link select-all-button" onClick={() => this.handleSelectAllButton(refList[id], checklistHasEntries)}>
-          {checklistHasEntries ? 'Clear All' : 'Select All'}
-        </button>
+      {showSelectionButtons &&
+        <div className="selection-buttons">
+          <button type="button" className="select-all-button" onClick={() => this.handleSelectAllButton(refList[id])}>
+            Select All
+          </button>
+          <button type="button" className="clear-all-button" onClick={() => this.handleClearAllButton(refList[id])}>
+            Clear All
+          </button>
+        </div>
       }
       <fieldset id={id} ref={ref => refList[id] = ref}>
         {checkboxList.map((checkbox, i) => {

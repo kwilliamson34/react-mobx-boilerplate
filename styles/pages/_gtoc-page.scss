@@ -34,27 +34,31 @@
       }
     }
 
-    .select-all-button {
-      position: absolute;
-      right: 0;
-      top: 2px;
-      height: 30px;
-      line-height: 30px;
-      width: 110px;
-      background: none;
-      font-size: $fn-button-desktop;
-      font-weight: $fn-medium-weight;
-      color: $fn-ltblue;
-      text-transform: uppercase;
-      border: none;
-      outline: none;
-      margin: 0;
-      padding: 0;
-      text-decoration: none;
+    .selection-buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-top: 15px;
 
-      &:focus {
-        border-radius: 8px;
-        @include focus();
+      button {
+        line-height: 30px;
+        width: 110px;
+        background: none;
+        font-size: $fn-button-desktop;
+        font-weight: $fn-medium-weight;
+        color: $fn-ltblue;
+        text-transform: uppercase;
+        border: none;
+        outline: none;
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+
+        &:focus {
+          border-radius: 8px;
+          @include focus();
+        }
       }
     }
 
@@ -88,7 +92,11 @@
 
       &:first-of-type {
         padding-top: 15px;
-        border-top: 1px solid $fn-grey;
+        border-top: 1px solid $fn-mdgrey;
+      }
+
+      &:last-of-type {
+        border-bottom: 1px solid $fn-mdgrey;
       }
     }
   }
@@ -114,6 +122,11 @@
 
 @media #{$tablet, $desktop} {
   #subscribe-to-gtoc-page {
+
+    .gtoc_email {
+      margin-top: 60px;
+    }
+
     .content-wrapper {
 
       .control-label {
