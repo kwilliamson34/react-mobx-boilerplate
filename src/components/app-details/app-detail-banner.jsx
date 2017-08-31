@@ -140,7 +140,11 @@ export class AppDetailBanner extends React.Component {
     if(this.showMdmBlock) {
       return this.appManagement();
     } else if(this.props.includeLinkToDetails) {
-      return <Link to={'/app/' + this.data.app_psk} className="fn-primary">View App Details</Link>
+      return (
+        <div className="link-to-details">
+          <Link to={'/app/' + this.data.app_psk} className="fn-primary">Go to App</Link>
+        </div>
+      )
     }
     return '';
   }

@@ -109,10 +109,16 @@
       margin-right: auto;
     }
 
-    .app-management {
+    .app-management,
+    .link-to-details {
       border-top: 1px solid $fn-grey;
       width: 100%;
       padding-top: 2rem;
+      text-align: center;
+
+      .checkbox {
+        text-align: left;
+      }
     }
   }
 }
