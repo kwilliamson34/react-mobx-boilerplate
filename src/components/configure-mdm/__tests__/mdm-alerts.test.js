@@ -5,8 +5,7 @@ import {MDMAlerts} from '../mdm-alerts';
 describe('<MDMAlerts />', () => {
   let props = {
     store: {
-      removeAlert: jest.fn(),
-      clearAppsReferencedByAlert: jest.fn()
+      removeAlert: jest.fn()
     },
     alertList: [],
     clearSelectedCards: jest.fn()

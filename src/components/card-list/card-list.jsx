@@ -24,14 +24,16 @@ export class CardList extends React.Component {
     configuredMDMType: PropTypes.string,
     pushToMDM: PropTypes.func.isRequired,
     appCatalogMDMStatuses: PropTypes.object,
-    appsReferencedByAlert: PropTypes.object
+    appsReferencedBySuccessAlert: PropTypes.object,
+    appsReferencedByErrorAlert: PropTypes.object
   }
 
   static defaultProps = {
     cards: [],
     title: '',
     appCatalogMDMStatuses: {},
-    appsReferencedByAlert: []
+    appsReferencedBySuccessAlert: [],
+    appsReferencedByErrorAlert: []
   }
 
   get canLoadMore() {
@@ -49,8 +51,7 @@ export class CardList extends React.Component {
         <SummaryCard
           display={card}
           shouldFocus={i === this.props.idToFocus}
-          error={this.props.appCatalogMDMStatuses[card.app_psk] === 'FAILED'}
-          selected={this.props.appsReferencedByAlert.indexOf(card.app_psk) > -1}/>
+          error={this.props.appsReferencedByErrorAlert.indexOf(card.app_psk) > -1}/>
         <AppManagementBlock
           name={card.name}
           psk={card.app_psk}
