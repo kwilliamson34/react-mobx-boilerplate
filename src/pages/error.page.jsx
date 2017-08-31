@@ -18,6 +18,11 @@ export default class ErrorPage extends React.Component {
     this.userStore = this.props.store.userStore;
   }
 
+  handleLogout = (e) => {
+    e.preventDefault();
+    this.userStore.logoutUser();
+  }
+
   render() {
     let title = '';
     let body_content = '';
@@ -65,7 +70,7 @@ export default class ErrorPage extends React.Component {
             {showLinksforOtherPortals &&
               <nav className="sites-list" aria-label="FirstNet Sites">
                 <ul>
-                  <li><a href={config.appStore}>Apps</a></li>
+                  <li><a href={config.appStore}>App Store</a></li>
                   <li><a href={config.appControl}>App Control</a></li>
                   <li><a href={config.localControl}>Local Control</a></li>
                 </ul>
@@ -74,7 +79,7 @@ export default class ErrorPage extends React.Component {
             {showLogout &&
               <div className="logout-block">
                 <hr className="or" />
-                <a href={config.haloLogout}>Log Out</a>
+                <a href="#" onClick={this.handleLogout}>Log Out</a>
               </div>
             }
             {showLinkToGoBack &&
