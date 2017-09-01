@@ -58,7 +58,6 @@ class ExternalLinkStore {
 
     if(setAsCurrent) {
       this.currentSolutionDetail = matches[0];
-      this.currentSolutionDetail.related_app_psk = '977'; //TODO temporary
     }
     return matches[0];
   }
