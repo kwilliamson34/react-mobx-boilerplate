@@ -122,21 +122,25 @@ export default class ManageAppsPage extends React.Component {
           <div className="row">
             <div className="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-12 col-lg-offset-1 col-lg-10">
               <CardList
-                filteredAppsCount={this.cardListStore.filteredSearchResults.length}
                 cards={this.paginatedCards}
                 numPagesShown={this.props.store.pages[this.pageId]}
                 itemsPerPage={this.itemsPerPage}
-                isLoading={this.cardListStore.isLoading || this.appCatalogStore.isLoading}
-                idToFocus={this.cardListStore.idToFocus}
                 handleLoadMoreClick={this.handleLoadMoreClick}
                 handleViewAllAppsClick={this.handleViewAllAppsClick}
+
+                filteredAppsCount={this.cardListStore.filteredSearchResults.length}
+                isLoading={this.cardListStore.isLoading || this.appCatalogStore.isLoading}
+                idToFocus={this.cardListStore.idToFocus}
+
                 changeAppAvailability={this.appCatalogStore.changeAppAvailability.bind(this.appCatalogStore)}
                 changeAppRecommended={this.appCatalogStore.changeAppRecommended.bind(this.appCatalogStore)}
-                appsReferencedByAlert={this.mdmStore.appsReferencedByAlert}
                 getMatchingApp={this.appCatalogStore.getMatchingApp.bind(this.appCatalogStore)}
+
                 configuredMDMType={this.mdmStore.pseMDMObject.toJS().mdm_type}
                 pushToMDM={this.mdmStore.pushToMDM.bind(this.mdmStore)}
-                appCatalogMDMStatuses={this.mdmStore.appCatalogMDMStatuses.toJS()}/>
+                appCatalogMDMStatuses={this.mdmStore.appCatalogMDMStatuses.toJS()}
+                appsReferencedBySuccessAlert={this.mdmStore.appsReferencedBySuccessAlert}
+                appsReferencedByErrorAlert={this.mdmStore.appsReferencedByErrorAlert}/>
             </div>
           </div>
         </div>
