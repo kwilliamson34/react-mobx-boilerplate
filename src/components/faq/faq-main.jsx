@@ -65,7 +65,7 @@ export class FaqMain extends React.Component {
             <option value="ALL">All Categories</option>
             {this.store.faqs.categories.map((category, i) => {
               return (
-                <option key={i} value={category.toUpperCase()}>{category}</option>
+                <option key={i} value={category}>{category}</option>
               )
             })}
           </select>
