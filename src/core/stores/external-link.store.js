@@ -2,16 +2,15 @@ import {action, observable, computed} from 'mobx';
 import {apiService} from '../services/api.service';
 import {utilsService} from '../services/utils.service';
 import {history} from '../services/history.service';
-import {externalDeviceContentService} from '../services/external-device-content.service';
-import {externalSolutionsService} from '../services/external-solutions.service';
+import _ from 'lodash';
 
 class ExternalLinkStore {
   /*
-  ** Retrieve Devices from Marketing Portal
-  */
+   * Retrieve Devices from Marketing Portal
+   */
   @action getDevicesData() {
     const success = (res) => {
-      this.allSpecializedDevices = externalDeviceContentService.filterDeviceData(res);
+      this.allSpecializedDevices = res.filter((device) => device.device_is_specialized === '1');
     }
     const fail = (res) => {
       utilsService.handleError(res);
@@ -19,45 +18,25 @@ class ExternalLinkStore {
     return apiService.getMarketingPortalDevices().then(success, fail);
   }
 
-  @action fetchDeviceLandingData() {
-    let _devicesData = externalDeviceContentService.filterDeviceLandingData(this.allSpecializedDevices);
-    this.devicesData = _devicesData;
-  }
+  @action fetchDeviceDetails({devicePath, setAsCurrent}) {
+    let matches = this.allSpecializedDevices.filter((device) => {
+      return devicePath === utilsService.getDevicesAndSolutionsUrl(device.device_title);
+    });
+    this.checkMatches({matches, shouldBeOne: true});
 
-  @action fetchAndShowDeviceCategory() {
-    if(this.deviceCategoryIsValid){
-      this.currentDeviceCategoryData = externalDeviceContentService.filterDeviceCategoryData(this.allSpecializedDevices, this.currentDeviceCategory);
-    } else {
-      history.replace('/admin/devices');
+    if(setAsCurrent) {
+      this.currentDeviceDetailRaw = matches[0];
     }
-  }
-
-  @action fetchAndShowDeviceDetails(devicePath) {
-    let device = this.fetchDeviceDetails(devicePath);
-    if (device.length === 1) {
-      this.currentDeviceDetail = externalDeviceContentService.filterDeviceDetailData(device[0]);
-      this.currentPurchasingInfo = externalDeviceContentService.filterPurchasingInfo(device[0]);
-    } else {
-      history.replace('/error');
-    }
-  }
-
-  @action fetchDeviceDetails(devicePath) {
-    return this.allSpecializedDevices.filter((device) => {
-      let _devicePath = utilsService.getDevicesAndSolutionsUrl(device.device_title);
-      return  _devicePath === devicePath;
-    })
+    return matches[0];
   }
 
   @action getSolutionDetails() {
     const success = (res) => {
       this.allSolutionDetails = res;
     }
-
     const fail = (res) => {
       utilsService.handleError(res);
     }
-
     return apiService.getMarketingPortalSolutionDetails().then(success, fail);
   }
 
@@ -65,122 +44,120 @@ class ExternalLinkStore {
     const success = (res) => {
       this.solutionCategories = res.solution_category;
     }
-
     const fail = (res) => {
       utilsService.handleError(res);
     }
-
     return apiService.getMarketingPortalSolutionCategories().then(success, fail);
   }
 
-  @action fetchAndShowSolutionCategory() {
-    if(this.solutionCategoryIsValid){
-      this.currentSolutionCategoryData = externalSolutionsService.filterSolutionCategoryData(this.allSolutionDetails, this.currentSolutionCategory);
-    } else {
-      history.replace('/admin/solutions');
+  @action fetchSolutionDetails({solutionPath, setAsCurrent}) {
+    let matches = this.allSolutionDetails.filter((solution) => {
+      return solutionPath === utilsService.getDevicesAndSolutionsUrl(solution.promo_title);
+    });
+    this.checkMatches({matches, shouldBeOne: true});
+
+    if(setAsCurrent) {
+      this.currentSolutionDetail = matches[0];
     }
+    return matches[0];
   }
 
-  @action fetchAndShowSolutionDetails(solutionPath) {
-    let solution = this.fetchSolutionDetails(solutionPath);
-    if (solution.length === 1) {
-      this.currentSolutionDetail = externalSolutionsService.filterSolutionDetailData(solution[0]);
-      this.currentPurchasingInfo = externalDeviceContentService.filterPurchasingInfo(solution[0]);
-    } else {
+  @action resetSolutionDetail() {
+    this.currentSolutionDetail = {}
+  }
+
+  @action resetDeviceDetail() {
+    this.currentDeviceDetailRaw = {};
+  }
+
+  @action checkMatches({matches, shouldBeOne, shouldNotBeZero}) {
+    if(shouldNotBeZero && matches.length < 1){
+      history.replace('/error');
+    } else if (shouldBeOne && matches.length !== 1) {
       history.replace('/error');
     }
   }
 
-  @action fetchSolutionDetails(solutionPath) {
-    return this.allSolutionDetails.filter((solution) => {
-      return solutionPath === utilsService.getDevicesAndSolutionsUrl(solution.promo_title);
-    })
-  }
-
-  @action resetDeviceCategoryData() {
-    this.currentDeviceCategoryData = {
-      items: []
-    };
-  }
-
-  @action resetSolutionDetail() {
-    this.currentSolutionDetail = {
-      title: '',
-      body: ''
+  @action hasRelatedApp(solutionObject) {
+    if(solutionObject.related_app_psk) {
+      const digitsRegex = /^[0-9]+$/;
+      return digitsRegex.test(solutionObject.related_app_psk);
     }
-  }
-
-  @action resetDeviceDetail() {
-    this.currentDeviceDetail  = {
-      path: '',
-      features: [],
-      deviceName: '',
-      deviceImg: '',
-      deviceImgAlt: ''
-    };
-  }
-
-  @action resetSolutionCategoryData() {
-    this.currentSolutionCategoryData = {
-      title: '',
-      cards: []
-    }
+    return false;
   }
 
   //COMPUTEDS
-  @computed get deviceCategoryIsValid() {
-    let deviceCategories = ['phones', 'tablets', 'in-vehicle', 'accessories'];
-    let categoryIndex = deviceCategories.indexOf(this.currentDeviceCategory);
-    return categoryIndex >= 0;
-  }
+  @computed get filteredSolutionCategoryData() {
+    const _category = this.currentSolutionCategory.replace(/-/g, ' ');
+    const matches = this.allSolutionDetails.filter((solution) => {
+      return solution.page_category.toLowerCase() == _category.toLowerCase();
+    });
+    this.checkMatches({matches, shouldNotBeZero: true});
 
-  @computed get solutionCategoryIsValid() {
-    let solutionCategories = ['tools', 'device-security', 'secured-connections', 'cloud-services'];
-    let categoryIndex = solutionCategories.indexOf(this.currentSolutionCategory);
-    return categoryIndex >= 0;
-  }
-
-  @computed get showPurchasingInfo() {
-    let showPurchasingInfo = false;
-    for (let key in this.currentPurchasingInfo) {
-      if (this.currentPurchasingInfo[key] !== '') {
-        showPurchasingInfo = true;
-      }
+    return {
+      title: _category,
+      solutions: matches
     }
-    return showPurchasingInfo;
+  }
+
+  @computed get filteredDeviceCategoryData() {
+    const matches = this.allSpecializedDevices.filter((device) => {
+      return this.currentDeviceCategory.toLowerCase() == device.device_category.toLowerCase();
+    });
+    this.checkMatches({matches, shouldNotBeZero: true});
+    return matches;
+  }
+
+  @computed get categorizedDeviceData() {
+    const devicesObj = {
+      phones: [],
+      tablets: [],
+      invehicle: [],
+      accessories: []
+    }
+
+    this.allSpecializedDevices.forEach((obj) => {
+      let category = obj.device_category.replace('-', '').toLowerCase();
+      devicesObj[category].push(obj);
+    });
+    return devicesObj;
+  }
+
+  @computed get currentDeviceDetail() {
+    let device = this.currentDeviceDetailRaw;
+    return {
+      path: encodeURIComponent(device.device_title).replace(/%20/g, '+'),
+      features: device.device_features,
+      deviceName: device.device_title,
+      deviceImg: device.device_image_url,
+      deviceImgAlt: device.device_image_alt,
+      terms: (device.device_tnc && device.device_tnc.length > 0) ? device.device_tnc : null
+    }
+  }
+
+  @computed get currentDevicePurchasingInfo() {
+    let contactInfoObject = _.pick(this.currentDeviceDetailRaw, Object.keys(this.currentDeviceDetailRaw).filter((key) => {
+      return key.includes('contact_') && this.currentDeviceDetailRaw[key] !== ''
+    }));
+    return Object.keys(contactInfoObject).length > 0 ? contactInfoObject : null;
+  }
+
+  @computed get currentSolutionPurchasingInfo() {
+    let contactInfoObject = _.pick(this.currentSolutionDetail, Object.keys(this.currentSolutionDetail).filter((key) => {
+      return key.includes('contact_') && this.currentSolutionDetail[key] !== ''
+    }));
+    return Object.keys(contactInfoObject).length > 0 ? contactInfoObject : null;
   }
 
   @observable allSolutionDetails = [];
   @observable solutionCategories = [];
-
   @observable currentSolutionCategory = '';
-  @observable currentSolutionCategoryData = {
-    title: '',
-    cards: []
-  }
-  @observable currentSolutionDetail = '';
-  @observable currentSolutionDetailData = '';
+  @observable currentSolutionDetail = {};
 
   @observable allSpecializedDevices = [];
   @observable currentDeviceCategory = '';
-  @observable devicesData = {
-    phones: [],
-    tablets: [],
-    invehicle: [],
-    accessories: []
-  };
-  @observable currentDeviceCategoryData = {
-    items: []
-  };
-  @observable currentDeviceDetail = {
-    path: '',
-    features: '',
-    deviceName: '',
-    deviceImg: '',
-    deviceImgAlt: ''
-  };
+  @observable currentDeviceDetailRaw = {};
 
-  @observable currentPurchasingInfo: {};
   @observable solutionsConsultantPhone = '1-833-717-8638';
 
   @observable firstnetFacebook = 'https://www.facebook.com/firstnetgov/';

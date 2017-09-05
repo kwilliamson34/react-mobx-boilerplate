@@ -11,8 +11,8 @@ article.faq-article {
       height: 20px;
       border-bottom: 2px solid $fn-dkgrey;
       text-align: left;
-      padding-top: 60px;
-      margin-bottom: 52px;
+      padding-top: 25px;
+      margin-bottom: 30px;
       padding-bottom: 8px;
 
       h2 {
@@ -111,20 +111,22 @@ article.faq-article {
   }
 
   .faq-category-tabs {
-    margin-top: 30px;
+    margin-top: 60px;
 
     ul {
       list-style: none;
     }
 
     li {
-      display: inline;
-      padding: 0 10px;
+      display: inline-block;
+      padding: 0 15px;
+      margin-bottom: 25px;
+      white-space: nowrap;
+      text-transform: uppercase;
       border-left: solid 1px $fn-dkgrey;
       font-size: $fn-content-page-text-desktop;
       font-weight: $fn-medium-weight;
       color: $fn-ltblue;
-      line-height: 4rem;
     }
 
     li > a.active {

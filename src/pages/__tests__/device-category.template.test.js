@@ -26,7 +26,7 @@ describe('<DeviceCategoryTemplate />', () => {
       device_category: 'category1'
     }
     props.store.externalLinkStore.currentCategory = 'category1';
-    props.store.externalLinkStore.currentDeviceCategoryData = {
+    props.store.externalLinkStore.allSpecializedDevices = {
       items: []
     }
 
@@ -38,14 +38,14 @@ describe('<DeviceCategoryTemplate />', () => {
       tree = component.toJSON();
       expect(tree).toMatchSnapshot();
 
-      props.store.externalLinkStore.currentDeviceCategoryData.items = [card];
+      props.store.externalLinkStore.allSpecializedDevices.items = [card];
       component = renderer.create(<MemoryRouter>
         <DeviceCategoryTemplate { ...props}/>
       </MemoryRouter>);
       tree = component.toJSON();
       expect(tree).toMatchSnapshot();
 
-      props.store.externalLinkStore.currentDeviceCategoryData.items = [card, card, card, card, card, card, card, card, card, card];
+      props.store.externalLinkStore.allSpecializedDevices.items = [card, card, card, card, card, card, card, card, card, card];
       component = renderer.create(<MemoryRouter>
         <DeviceCategoryTemplate { ...props}/>
       </MemoryRouter>);

@@ -28,15 +28,10 @@ describe('<DeviceDetailTemplate />', () => {
     props.store.externalLinkStore.currentCategory = 'category1';
     props.store.externalLinkStore.allSpecializedDevices = [{}, {}];
 
-    test('matches snapshot with and without purchasing info', () => {
+    test('matches snapshot', () => {
       let component, tree;
 
       component = renderer.create(<DeviceDetailTemplate {...props}/>);
-      tree = component.toJSON();
-      expect(tree).toMatchSnapshot();
-
-      props.store.externalLinkStore.showPurchasingInfo = true;
-      component = renderer.create(<DeviceDetailTemplate { ...props}/>);
       tree = component.toJSON();
       expect(tree).toMatchSnapshot();
     });

@@ -35,7 +35,7 @@ export default class ShopSolutionsPage extends React.Component {
           <div className="card-wrapper has-shadow">
             <Link to={`solutions/${path}`}>
               <div className="card-img-wrapper">
-                <img src={card.thumbnail_url} alt={card.thumbnail_alt}/>
+                <div className="img" style={{backgroundImage: `url('${card.thumbnail_url}')`}} alt={card.thumbnail_alt}></div>
               </div>
               <div className="card-contents-wrapper">
                 <h3 className="card-title" dangerouslySetInnerHTML={{__html: card.name}}></h3>
