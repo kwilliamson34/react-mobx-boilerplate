@@ -31,14 +31,13 @@ export class FaqMain extends React.Component {
   }
 
   renderSingleButton = (category, key) => {
-    const value = category.toUpperCase();
-    const isActive = this.store.faqCategoryFilter === value;
+    const isActive = this.store.faqCategoryFilter === category;
     return (
       <li key={key}>
-        <a href="#" role="button" data-value={value} onClick={this.updateCategory} className={`category-tab-button ${isActive
+        <a href="#" role="button" data-value={category} onClick={this.updateCategory} className={`category-tab-button ${isActive
           ? 'active'
           : ''}`}>
-          {value.replace(/\s/g, '\u00a0')}
+          {category}
         </a>
       </li>
     )
@@ -66,7 +65,7 @@ export class FaqMain extends React.Component {
             <option value="ALL">All Categories</option>
             {this.store.faqs.categories.map((category, i) => {
               return (
-                <option key={i} value={category.toUpperCase()}>{category}</option>
+                <option key={i} value={category}>{category}</option>
               )
             })}
           </select>

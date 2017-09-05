@@ -30,15 +30,10 @@ describe('<SolutionsDetailsTemplate />', () => {
       promo_description: 'description'
     }
 
-    test('matches snapshot with and without purchasing info', () => {
+    test('matches snapshot', () => {
       let component, tree;
 
       component = renderer.create(<SolutionsDetailsTemplate {...props}/>);
-      tree = component.toJSON();
-      expect(tree).toMatchSnapshot();
-
-      props.store.externalLinkStore.showPurchasingInfo = true;
-      component = renderer.create(<SolutionsDetailsTemplate { ...props}/>);
       tree = component.toJSON();
       expect(tree).toMatchSnapshot();
     });
@@ -59,12 +54,12 @@ describe('<SolutionsDetailsTemplate />', () => {
 
     test('displays if the details have been retrieved', () => {
       let component, tree;
-      props.store.externalLinkStore.fetchAndShowSolutionDetails = jest.fn();
+      props.store.externalLinkStore.fetchSolutionDetails = jest.fn();
 
       props.store.externalLinkStore.allSolutionDetails = [{},{}];
       component = renderer.create(<SolutionsDetailsTemplate { ...props}/>);
 
-      expect(props.store.externalLinkStore.fetchAndShowSolutionDetails).toBeCalled();
+      expect(props.store.externalLinkStore.fetchSolutionDetails).toBeCalled();
     });
 
     test('fetches if the details are missing', () => {

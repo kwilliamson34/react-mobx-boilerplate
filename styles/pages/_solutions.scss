@@ -1,25 +1,23 @@
 #solutions-hub-page {
-  padding: 0 0 70px 0;
+  padding: 0 0 70px;
 
   .all-cards-wrapper {
-
     .solutions-card {
       display: flex;
       flex-wrap: wrap;
       position: relative;
       margin: 15px 0;
-      min-height: 380px;
 
       .card-wrapper {
         text-align: left;
         width: 100%;
+        min-height: 380px;
 
         > a {
           text-decoration: none;
 
           &:focus,
           &:hover {
-
             .card-title,
             .learn-more {
               text-decoration: underline;
@@ -48,10 +46,22 @@
       }
 
       .card-img-wrapper {
-
-        > img {
+        div.img {
           width: 100%;
-          object-fit: cover;
+          min-height: 200px;
+          z-index: 0;
+          background-size: cover;
+          background-repeat: no-repeat;
+        }
+
+        .is-linked {
+          position: absolute;
+          right: 30px;
+          top: 15px;
+          color: white;
+          font-weight: $fn-medium-weight;
+          z-index: 1;
+          letter-spacing: 1px;
         }
       }
 
@@ -64,8 +74,8 @@
           padding: 30px 10px 10px 20px;
           letter-spacing: 0.38px;
           line-height: 30px;
-
         }
+
         .card-desc {
           height: 100%;
           width: 100%;
@@ -73,7 +83,6 @@
           font-size: $fn-landing-page-text-desktop;
           font-weight: $fn-normal-weight;
           line-height: 20px;
-
         }
       }
     }
@@ -103,7 +112,8 @@
       padding: 0;
     }
 
-    h1, h2 {
+    h1,
+    h2 {
       @extend .as-h1;
       padding: 20px 0;
     }
@@ -112,9 +122,11 @@
       padding-bottom: 20px;
     }
 
-    ul, ol {
+    ol,
+    ul {
       list-style: disc;
       padding-left: 30px;
+
       li {
         margin-bottom: 15px;
         line-height: 1.6;
@@ -124,71 +136,60 @@
       figcaption {
         font-weight: $fn-normal-weight;
         font-size: $fn-content-page-text-desktop;
-        margin: 10px 0 50px 0;
+        margin: 10px 0 50px;
       }
+    }
+
+    .card__title,
+    img {
+      display: block;
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     img {
       object-fit: cover;
+      padding-top: 20px;
     }
 
     .card__title {
-      font-weight: $fn-normal-weight;
       font-size: $fn-small-text-desktop;
-      margin: 10px 0 50px 0;
+      padding-top: 10px;
+      padding-bottom: 50px;
     }
   }
 }
-
 @media #{$mobile} {
   #solutions-hub-page {
     .solutions-card {
       max-width: 480px;
     }
   }
-
-  .details-wrapper {
-    img {
-      width: 90%;
-      padding: 45px 0 0 20px;
-    }
-
-    .card__title {
-      padding-left: 20px;
-    }
-  }
 }
-
 @media #{$tablet} {
   #solutions-hub-page {
     .solutions-card {
       max-width: 480px;
     }
 
-    .details-wrapper {
-      img {
-        width: 90%;
-        padding: 45px 0 0 70px;
-      }
-    }
-
-    .card__title {
-      padding-left: 70px;
+    .all-cards-wrapper .solutions-card .card-img-wrapper div.img {
+      min-height: 140px;
     }
   }
 }
-
 @media #{$desktop} {
   #solutions-hub-page {
     .details-wrapper {
+      .card__title,
       img {
         width: 80%;
-        padding: 45px 0 0 100px;
+        padding-right: 50px; //due to word breaks, the picture looks offcenter w/r to the text if padding is absent
       }
+    }
 
-      .card__title {
-        padding-left: 100px;
-      }
+    .all-cards-wrapper .solutions-card .card-img-wrapper div.img {
+      min-height: 150px;
     }
   }
 }

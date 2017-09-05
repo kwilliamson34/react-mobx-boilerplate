@@ -22,33 +22,52 @@ export default class SolutionsCategoryTemplate extends React.Component {
 
   componentWillMount() {
     //User has navigated to a different category page so will make request for new category
-    if (this.externalLinkStore.currentCategory != this.props.match.params.solutionCategory){
-      this.externalLinkStore.resetSolutionCategoryData();
+    if (this.externalLinkStore.currentSolutionCategory != this.props.match.params.solutionCategory){
       this.externalLinkStore.currentSolutionCategory = this.props.match.params.solutionCategory;
-      if (this.externalLinkStore.allSolutionDetails.length) {
-        this.externalLinkStore.fetchAndShowSolutionCategory();
-      } else {
-        this.externalLinkStore.getSolutionDetails().then(() => {
-          this.externalLinkStore.fetchAndShowSolutionCategory();
-        });
+      if (!this.externalLinkStore.allSolutionDetails.length) {
+        this.externalLinkStore.getSolutionDetails();
       }
     }
   }
 
-  renderCards = (cardsArray) => {
+  getGradientStyles(imageUrl) {
+    const shadowLength = '39%';
+    const shadowOpacity = '0.85';
+    let backgroundImage = '';
+    if(utilsService.getIsInternetExplorer()) {
+      backgroundImage = `-ms-linear-gradient(bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) ${shadowLength}, rgba(0, 0, 0, ${shadowOpacity}) 100%), url('${imageUrl}')`
+    } else {
+      backgroundImage = `linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) ${shadowLength}, rgba(0, 0, 0, ${shadowOpacity}) 100%), url('${imageUrl}')`
+    }
+    return {backgroundImage}
+  }
 
-    return cardsArray.map((card) => {
-      const cardUrl = `${this.props.match.url}/${utilsService.getDevicesAndSolutionsUrl(card.promo_title)}`;
+  getNormalStyles(imageUrl) {
+    return {
+      background: `url('${imageUrl}') no-repeat`,
+      backgroundSize: 'cover'
+    }
+  }
+
+  renderCards = (solutionsArray) => {
+    return solutionsArray.map((solution) => {
+      const solutionUrl = `${this.props.match.url}/${utilsService.getDevicesAndSolutionsUrl(solution.promo_title)}`;
+      const hasRelatedApp = this.externalLinkStore.hasRelatedApp(solution);
       return (
-        <div key={card.promo_title} className="col-xs-12 col-sm-6 col-md-6 col-lg-4 solutions-card">
+        <div key={solution.promo_title} className="col-xs-12 col-sm-6 col-md-6 col-lg-4 solutions-card">
           <div className="card-wrapper has-shadow">
-            <Link to={cardUrl}>
+            <Link to={solutionUrl}>
               <div className="card-img-wrapper">
-                <img src={card.promo_image_url} alt={card.promo_title}/>
+                {hasRelatedApp
+                  ? <p className="is-linked">App Available</p>
+                  : ''}
+                {hasRelatedApp
+                  ? <div className="img" style={this.getGradientStyles(solution.promo_image_url)} alt={solution.promo_title}></div>
+                  : <div className="img" style={this.getNormalStyles(solution.promo_image_url)} alt={solution.promo_title}></div>}
               </div>
               <div className="card-contents-wrapper">
-                <h3 className="card-title" dangerouslySetInnerHTML={{__html: card.promo_title}}></h3>
-                <div className="card-desc" dangerouslySetInnerHTML={{__html: card.promo_description}}></div>
+                <h3 className="card-title" dangerouslySetInnerHTML={{__html: solution.promo_title}}></h3>
+                <div className="card-desc" dangerouslySetInnerHTML={{__html: solution.promo_description}}></div>
               </div>
               <div className="learn-more">Learn More<i className="icon-arrowRight" aria-hidden="true" /></div>
             </Link>
@@ -59,9 +78,7 @@ export default class SolutionsCategoryTemplate extends React.Component {
   }
 
   render() {
-
     const categoryTitle = this.props.match.params.solutionCategory.replace('-', ' ');
-
     const crumbs = [
       {	pageHref: '/admin',
         pageTitle: 'Administration Dashboard'
@@ -74,7 +91,6 @@ export default class SolutionsCategoryTemplate extends React.Component {
       }
     ];
 
-
     return (
       <article id="solutions-category-page">
         <BreadcrumbNav links={crumbs} />
@@ -84,8 +100,8 @@ export default class SolutionsCategoryTemplate extends React.Component {
           </section>
           <section className="all-cards-wrapper text-center">
             <nav className="center-block">
-              {this.externalLinkStore.currentSolutionCategoryData.cards.length > 0
-                && this.renderCards(this.externalLinkStore.currentSolutionCategoryData.cards)}
+              {this.externalLinkStore.allSolutionDetails.length > 0
+                && this.renderCards(this.externalLinkStore.filteredSolutionCategoryData.solutions)}
             </nav>
           </section>
         </div>
