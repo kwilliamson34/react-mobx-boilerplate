@@ -100,12 +100,16 @@ class MDMStore {
     }
   }
 
-  @action clearAlerts() {
+  @action clearAlerts({clearSuccessTally}) {
     this.mdm_form_alerts = [];
     this.manage_apps_alerts = [];
     this.app_detail_alerts = [];
     this.appsReferencedByErrorAlert = [];
-    //do not clear appsReferencedBySuccessAlert, as we want a running total
+    /* Do not clear appsReferencedBySuccessAlert unless connection is broken,
+    as we generally want a running total */
+    if(clearSuccessTally) {
+      this.appsReferencedBySuccessAlert = [];
+    }
   }
 
   @action addPushErrorAlert(psk) {
@@ -294,7 +298,7 @@ class MDMStore {
 
   @action breakMDMConnection() {
     const success = () => {
-      this.clearAlerts();
+      this.clearAlerts({clearSuccessTally: true});
       this.pseMDMObject.clear();
       this.hasBeenSubmitted = false;
       this.formData.mdm_type = '';
@@ -305,7 +309,7 @@ class MDMStore {
       });
     }
     const fail = () => {
-      this.clearAlerts();
+      this.clearAlerts({clearSuccessTally: true});
       this.hasBeenSubmitted = true;
       this.showErrorAlert({
         alertList: this.mdm_form_alerts,
