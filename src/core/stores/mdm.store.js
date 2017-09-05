@@ -294,9 +294,7 @@ class MDMStore {
 
   @action breakMDMConnection() {
     const success = () => {
-      this.mdm_form_alerts = [];
-      this.manage_apps_alerts = [];
-      this.app_detail_alerts = [];
+      this.clearAlerts();
       this.pseMDMObject.clear();
       this.hasBeenSubmitted = false;
       this.formData.mdm_type = '';
@@ -307,7 +305,7 @@ class MDMStore {
       });
     }
     const fail = () => {
-      this.mdm_form_alerts = [];
+      this.clearAlerts();
       this.hasBeenSubmitted = true;
       this.showErrorAlert({
         alertList: this.mdm_form_alerts,
