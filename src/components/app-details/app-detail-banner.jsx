@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import dateFns from 'date-fns/format';
 import isValid from 'date-fns/is_valid'
+import {Link} from 'react-router-dom';
 
 import {observer} from 'mobx-react';
 import {Rating} from '../rating/rating.jsx';
@@ -13,19 +14,17 @@ export class AppDetailBanner extends React.Component {
 
   static propTypes = {
     appCatalogStore: PropTypes.object.isRequired,
-    data: PropTypes.object.isRequired,
     configuredMDMType: PropTypes.string,
-    pushToMDM: PropTypes.func.isRequired,
-    appCatalogMDMStatuses: PropTypes.object
-  }
-
-  static defaultProps = {
-    data: {}
+    pushToMDM: PropTypes.func,
+    appCatalogMDMStatuses: PropTypes.object,
+    isWithinCard: PropTypes.bool,
+    containsPrimaryHeader: PropTypes.bool,
+    actionBlock: PropTypes.string.isRequired
   }
 
   componentWillMount() {
-    this.data = this.props.data;
     this.appStore = this.props.appCatalogStore;
+    this.data = this.props.appCatalogStore.currentAppObject;
   }
 
   rating() {
@@ -51,9 +50,10 @@ export class AppDetailBanner extends React.Component {
   }
 
   title() {
+    const AppNameTag = this.props.containsPrimaryHeader ? 'h1' : 'h3';
     return (
       <div className="app-title">
-        <h1>{this.data.app_name}</h1>
+        <AppNameTag>{this.data.app_name}</AppNameTag>
       </div>
     )
   }
@@ -64,14 +64,14 @@ export class AppDetailBanner extends React.Component {
 
   details() {
     //normalize the date string, variant formats of which have caused unpredictable behavior.
-    const newDate = this.data.custom_metadata.release_date.split('T')[0];
+    const newDate = this.data.custom_metadata ? this.data.custom_metadata.release_date.split('T')[0] : '';
     const dateToRender = isValid(new Date(newDate)) ? dateFns(newDate, 'MMMM DD, YYYY') : 'Invalid Date';
 
     return (
       <div className="app-details">
         <p className="version">
           <strong>Version:&nbsp;</strong>
-          {this.data.version.version_num}
+          {this.data.version ? this.data.version.version_num : ''}
         </p>
         <p className="updated">
           <strong>Released:&nbsp;</strong>
@@ -87,7 +87,7 @@ export class AppDetailBanner extends React.Component {
   }
 
   author() {
-    if (this.data.custom_metadata.author) {
+    if (this.data.custom_metadata && this.data.custom_metadata.author) {
       return <p className="publisher app-details">{this.data.custom_metadata.author}</p>
     }
     return '';
@@ -112,7 +112,7 @@ export class AppDetailBanner extends React.Component {
             {this.details()}
           </div>
           <div className="col-sm-4">
-            {this.appManagement()}
+            {this.actionBlock()}
           </div>
         </div>
 
@@ -129,30 +129,41 @@ export class AppDetailBanner extends React.Component {
             {this.details()}
           </div>
           <div className="col-md-4">
-            {this.appManagement()}
+            {this.actionBlock()}
           </div>
         </div>
       </div>
     )
   }
 
-  appManagement() {
-    return <AppManagementBlock
-            name={this.data.app_name}
-            psk={this.data.app_psk}
-            getMatchingApp={this.appStore.getMatchingApp.bind(this.appStore)}
-            changeAppAvailability={this.appStore.changeAppAvailability.bind(this.appStore)}
-            changeAppRecommended={this.appStore.changeAppRecommended.bind(this.appStore)}
-            configuredMDMType={this.props.configuredMDMType}
-            pushToMDM={this.props.pushToMDM}
-            appCatalogMDMStatuses={this.props.appCatalogMDMStatuses}/>
+  actionBlock() {
+    if(this.props.actionBlock === 'app_managment_block') {
+      return <AppManagementBlock
+              name={this.data.app_name}
+              psk={this.data.app_psk}
+              getMatchingApp={this.appStore.getMatchingApp.bind(this.appStore)}
+              changeAppAvailability={this.appStore.changeAppAvailability.bind(this.appStore)}
+              changeAppRecommended={this.appStore.changeAppRecommended.bind(this.appStore)}
+              configuredMDMType={this.props.configuredMDMType}
+              pushToMDM={this.props.pushToMDM}
+              appCatalogMDMStatuses={this.props.appCatalogMDMStatuses}/>
+    } else if(this.props.actionBlock === 'link_to_details') {
+      return (
+        <div className="action-block">
+          <Link to={'/app/' + this.data.app_psk} className="fn-primary">Go to App</Link>
+        </div>
+      )
+    }
+    return '';
   }
 
   render() {
+    this.showMdmBlock = this.props.configuredMDMType && this.props.pushToMDM && this.props.appCatalogMDMStatuses;
+
     return (
       <section className="app-summary">
-        <div className="container">
-          <div className="white-card">
+        <div className={this.props.isWithinCard ? 'container' : ''}>
+          <div className={this.props.isWithinCard ? 'white-card' : ''}>
             <div className="row">
               <div className="col-xs-12 col-sm-12 hidden-md hidden-lg">
                 {this.title()}
@@ -173,7 +184,7 @@ export class AppDetailBanner extends React.Component {
             </div>
             <div className="row hidden-sm hidden-md hidden-lg">
               <div className="col-xs-offset-1 col-xs-10">
-                {this.appManagement()}
+                {this.actionBlock()}
               </div>
             </div>
           </div>

@@ -29,7 +29,7 @@ describe('<SolutionsCategoryTemplate />', () => {
 
     test('matches snapshot with zero, one and many cards', () => {
       let component, tree;
-      props.store.externalLinkStore.currentSolutionCategoryData = {
+      props.store.externalLinkStore.allSolutionDetails = {
         cards: []
       };
 
@@ -37,14 +37,14 @@ describe('<SolutionsCategoryTemplate />', () => {
       tree = component.toJSON();
       expect(tree).toMatchSnapshot();
 
-      props.store.externalLinkStore.currentSolutionCategoryData.cards = [card];
+      props.store.externalLinkStore.allSolutionDetails.cards = [card];
       component = renderer.create(<MemoryRouter>
         <SolutionsCategoryTemplate { ...props}/>
       </MemoryRouter>);
       tree = component.toJSON();
       expect(tree).toMatchSnapshot();
 
-      props.store.externalLinkStore.currentSolutionCategoryData.cards = [card, card, card, card, card];
+      props.store.externalLinkStore.allSolutionDetails.cards = [card, card, card, card, card];
       component = renderer.create(<MemoryRouter>
         <SolutionsCategoryTemplate { ...props}/>
       </MemoryRouter>);
@@ -64,18 +64,6 @@ describe('<SolutionsCategoryTemplate />', () => {
         }
       }
     }
-
-    test('displays if the category has been retrieved', () => {
-      let component, tree;
-      props.store.externalLinkStore.fetchAndShowSolutionCategory = jest.fn();
-
-      props.store.externalLinkStore.allSolutionDetails = [{},{}];
-      component = renderer.create(<MemoryRouter>
-        <SolutionsCategoryTemplate { ...props}/>
-      </MemoryRouter>);
-
-      expect(props.store.externalLinkStore.fetchAndShowSolutionCategory).toBeCalled();
-    });
 
     test('fetches if the category is missing', () => {
       let component, tree;

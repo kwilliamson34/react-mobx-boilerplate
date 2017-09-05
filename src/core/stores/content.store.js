@@ -12,12 +12,12 @@ class ContentStore {
   }
 
   @action updateFilter(filter) {
-    this.faqCategoryFilter = filter.toUpperCase();
+    this.faqCategoryFilter = filter;
 
     if (filter === 'ALL') {
       this.filteredFaqEntries = this.faqs.entries;
     } else {
-      this.filteredFaqEntries = this.faqs.entries.filter(faq => faq.category.toUpperCase() === filter.toUpperCase());
+      this.filteredFaqEntries = this.faqs.entries.filter(faq => faq.category === filter);
     }
   }
 }
