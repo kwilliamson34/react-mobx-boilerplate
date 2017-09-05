@@ -134,7 +134,7 @@ export default class FeedbackPage extends React.Component {
         charLimit: 10000
       }, {
         type: 'textblock',
-        body: `Your feedback will help us improve your experience. We cannot respond directly to feedback comments, but can follow up with you if you leave your email below.&nbsp;<span aria-hidden='true'>For immediate help, please contact us directly at&nbsp;</span><a href='tel:${config.attCustomerSupportPhone}'><phone><span class='sr-only'>For immediate help, please contact us directly at&nbsp;</span>${config.attCustomerSupportPhone}</phone></a>.`
+        body: `Your feedback will help us improve your experience. We cannot respond directly to feedback comments, but can follow up with you if you leave your email below.&nbsp;<span aria-hidden='true'>For immediate help, please contact us directly at&nbsp;</span><a href='tel:${config.attCustomerSupportPhone}'><span class='sr-only'>For immediate help, please contact us directly at&nbsp;</span>${config.attCustomerSupportPhone}</a>.`
       }, {
         id: 'feedback_email',
         label: 'Email (Optional)',

@@ -75,11 +75,9 @@ export default class ShopSolutionsPage extends React.Component {
               <p>
                 <strong>Contact your FirstNet Solutions Consultant or&nbsp;<span aria-hidden>call&nbsp;</span>
                   <a href={'tel:' + this.externalLinkStore.solutionsConsultantPhone}>
-                    <phone>
-                      <span className="sr-only">call&nbsp;</span>
-                      {this.externalLinkStore.solutionsConsultantPhone}
-                      <span className="sr-only">&nbsp;to learn more about FirstNet Solutions and pricing details.</span>
-                    </phone>
+                    <span className="sr-only">call&nbsp;</span>
+                    {this.externalLinkStore.solutionsConsultantPhone}
+                    <span className="sr-only">&nbsp;to learn more about FirstNet Solutions and pricing details.</span>
                   </a><span aria-hidden>&nbsp;to learn more about FirstNet Solutions and pricing details.</span>
                 </strong>
               </p>

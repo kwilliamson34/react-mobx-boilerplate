@@ -331,10 +331,9 @@ export default class PSEHeader extends React.Component {
 											<a href={'tel:' + config.attCustomerSupportPhone}>
 												<div className="multi-line-item">
 													<span aria-hidden="true">FirstNet Customer Svc:&nbsp;</span><br />
-													<phone><i className="icon-phone-number" aria-hidden="true"></i>
-														<span className="sr-only">FirstNet Customer Service Phone&nbsp;</span>
-															{config.attCustomerSupportPhone}
-													</phone>
+													<i className="icon-phone-number" aria-hidden="true"></i>
+													<span className="sr-only">FirstNet Customer Service Phone&nbsp;</span>
+													{config.attCustomerSupportPhone}
 												</div>
 											</a>
 										</li>
@@ -408,10 +407,9 @@ export default class PSEHeader extends React.Component {
 										<li role="presentation">
 											<a href={'tel:' + config.attCustomerSupportPhone} className="tel-cell">
 												<span aria-hidden="true">FirstNet Customer Svc:&nbsp;</span><br />
-												<phone><i className="icon-phone-number" aria-hidden="true"></i>
-													<span className="sr-only">FirstNet Customer Service Phone&nbsp;</span>
-														{config.attCustomerSupportPhone}
-												</phone>
+												<i className="icon-phone-number" aria-hidden="true"></i>
+												<span className="sr-only">FirstNet Customer Service Phone&nbsp;</span>
+												{config.attCustomerSupportPhone}
 											</a>
 										</li>
 									</ul>

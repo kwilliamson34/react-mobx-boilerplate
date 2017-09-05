@@ -36,10 +36,8 @@ export default class PurchasingInfo extends React.Component {
                 <li>
                   <strong aria-hidden="true">Phone:</strong>
                   <a href={`tel:${this.props.contactInfo.contact_phone}`}>
-                    <phone>
-                      <span className="sr-only">Phone:&nbsp;</span>
-                      {this.props.contactInfo.contact_phone}
-                    </phone>
+                    <span className="sr-only">Phone:&nbsp;</span>
+                    {this.props.contactInfo.contact_phone}
                   </a>
                 </li>
               }
