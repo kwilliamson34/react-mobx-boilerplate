@@ -173,7 +173,7 @@
       },
       {
         "question": "Do you have a question that wasn’t covered here?",
-        "answer": "<p>Please use the Live Chat feature on the right side of this window or call the FirstNet Customer Service line at <a href=\"tel:+18005747000\">800-574-7000</a>.</p>",
+        "answer": "<p>Please use the Live Chat feature on the right side of this window or&nbsp;<span aria-hidden=\"true\">call the FirstNet Customer Service line at&nbsp;</span><a href=\"tel:+18005747000\"><span class=\"sr-only\">call the FirstNet Customer Service line at&nbsp;</span>800-574-7000</a>.</p>",
         "id": 26,
         "maxStringLength": 500,
         "category": "Other"

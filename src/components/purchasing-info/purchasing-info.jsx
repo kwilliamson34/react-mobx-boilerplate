@@ -23,7 +23,6 @@ export default class PurchasingInfo extends React.Component {
     return(
       <section className="purchasing-info">
         <h2>For Purchasing</h2>
-        <hr />
         <div>
           <ul className="purchase-options-list">
             {this.props.contactInfo.contact_name !== '' &&
@@ -34,14 +33,17 @@ export default class PurchasingInfo extends React.Component {
             }
             {this.props.contactInfo.contact_phone !== '' &&
               <li>
-                <strong>Phone:</strong>
-                <a href={`tel:${this.props.contactInfo.contact_phone}`}>{this.props.contactInfo.contact_phone}</a>
+                <strong aria-hidden="true">Phone:</strong>
+                <a href={`tel:${this.props.contactInfo.contact_phone}`}>
+                  <span className="sr-only">Phone:&nbsp;</span>
+                  {this.props.contactInfo.contact_phone}
+                </a>
               </li>
             }
             {this.props.contactInfo.contact_email !== '' &&
               <li>
-                <strong>Email:</strong>
-                <a href={`mailto:${this.props.contactInfo.contact_email}`}>{this.props.contactInfo.contact_email}</a>
+                <strong aria-hidden="true">Email:</strong>
+                <a href={`mailto:${this.props.contactInfo.contact_email}`}><span className="sr-only">Email:&nbsp;</span>{this.props.contactInfo.contact_email}</a>
               </li>
             }
             {this.props.contactInfo.contact_company !== '' &&
@@ -52,8 +54,8 @@ export default class PurchasingInfo extends React.Component {
             }
             {this.props.contactInfo.contact_website !== '' &&
               <li>
-                <strong>Website:</strong>
-                <a href={this.props.contactInfo.contact_website}>{this.cutContactWebsite(this.props.contactInfo.contact_website)}</a>
+                <strong aria-hidden="true">Website:</strong>
+                <a href={this.props.contactInfo.contact_website}><span className="sr-only">Website:&nbsp;</span>{this.cutContactWebsite(this.props.contactInfo.contact_website)}</a>
               </li>
             }
           </ul>

@@ -73,7 +73,14 @@ export default class ShopSolutionsPage extends React.Component {
                 FirstNet is cultivating a dedicated public safety applications development program, with participation from leading providers across the applications development community. Many more solutions will be added in response to these focused efforts and as public safety needs evolve.
               </p>
               <p>
-                Contact a FirstNet Specialist to learn more about FirstNet Solutions and pricing details.
+                <strong>
+                  Contact your FirstNet Solutions Consultant or call&nbsp;
+                  <a href={'tel:' + this.externalLinkStore.solutionsConsultantPhone}>
+                    <span className="sr-only">FirstNet Solutions Phone:&nbsp;</span>
+                    {this.externalLinkStore.solutionsConsultantPhone}
+                  </a>
+                  &nbsp;to learn more about FirstNet Solutions and pricing details.
+                </strong>
               </p>
             </section>
             <section className="all-cards-wrapper">

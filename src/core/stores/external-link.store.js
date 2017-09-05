@@ -158,6 +158,8 @@ class ExternalLinkStore {
   @observable currentDeviceCategory = '';
   @observable currentDeviceDetailRaw = {};
 
+  @observable solutionsConsultantPhone = '1-833-717-8638';
+
   @observable firstnetFacebook = 'https://www.facebook.com/firstnetgov/';
   @observable firstnetLinkedIn = 'https://www.linkedin.com/company/first-responder-network-authority-firstnet-';
   @observable firstnetTwitter = 'https://twitter.com/FirstNetGov';
@@ -167,7 +169,6 @@ class ExternalLinkStore {
   @observable termsOfUse = 'https://www.att.com/legal/terms.attWebsiteTermsOfUse.html';
   @observable accessibilityLink = 'https://www.firstnet.com/accessibility';
   @observable privacyPolicyLink = 'https://www.firstnet.com/privacy-policy';
-
 }
 
 export const externalLinkStore = new ExternalLinkStore();
