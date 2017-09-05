@@ -4,7 +4,7 @@
   "description": "FirstNet Local Control",
   "main": "index.jsx",
   "scripts": {
-    "copyassets": "copyfiles ./images/**/* ./fonts/**/* ./maps/* ./build/",
+    "copyassets": "copyfiles ./apple-touch-icon.png ./images/**/* ./fonts/**/* ./maps/* ./build/",
     "build": "rm -rf build & npm run copyassets & webpack -p",
     "start": "npm run copyassets & webpack-dev-server --hot --open --env=dev --progress",
     "test": "jest --coverage"
