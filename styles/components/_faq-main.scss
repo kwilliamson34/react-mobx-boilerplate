@@ -121,14 +121,12 @@ article.faq-article {
       display: inline-block;
       padding: 0 15px;
       margin-bottom: 25px;
-      max-height: 20px;
       white-space: nowrap;
       text-transform: uppercase;
       border-left: solid 1px $fn-dkgrey;
       font-size: $fn-content-page-text-desktop;
       font-weight: $fn-medium-weight;
       color: $fn-ltblue;
-      line-height: 2rem;
     }
 
     li > a.active {
