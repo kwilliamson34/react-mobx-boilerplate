@@ -1,10 +1,6 @@
-#purchasing-info {
-
+.purchasing-info {
   h2 {
-    font-weight: $fn-normal-weight;
-    margin-top: 30px;
-    padding-bottom: 25px;
-    border-bottom: 1px solid $fn-dkgrey;
+    padding-top: 6rem;
   }
 
   .purchase-options-list {
@@ -33,7 +29,7 @@
 }
 
 @media #{$mobile} {
-  #purchasing-info {
+  .purchasing-info {
     margin-left: 5px;
 
     .purchase-options-list {
@@ -45,7 +41,7 @@
 }
 
 @media #{$tablet} {
-  #purchasing-info {
+  .purchasing-info {
     margin-left: 0px;
 
     .purchase-options-list {
@@ -57,7 +53,7 @@
 }
 
 @media #{$desktop} {
-  #purchasing-info {
+  .purchasing-info {
     .purchase-options-list {
       strong {
         width: 140px;

@@ -21,45 +21,44 @@ export default class PurchasingInfo extends React.Component {
 
   render() {
     return(
-      <div id="purchasing-info" className="row">
-        <div className="col-xs-12">
-          <h2>For Purchasing</h2>
-          <div>
-            <ul className="purchase-options-list">
-              {this.props.contactInfo.contact_name !== '' &&
-                <li>
-                  <strong>Contact:</strong>
-                  <span dangerouslySetInnerHTML={{__html: this.props.contactInfo.contact_name}} />
-                </li>
-              }
-              {this.props.contactInfo.contact_phone !== '' &&
-                <li>
-                  <strong>Phone:</strong>
-                  <a href={`tel:${this.props.contactInfo.contact_phone}`}>{this.props.contactInfo.contact_phone}</a>
-                </li>
-              }
-              {this.props.contactInfo.contact_email !== '' &&
-                <li>
-                  <strong>Email:</strong>
-                  <a href={`mailto:${this.props.contactInfo.contact_email}`}>{this.props.contactInfo.contact_email}</a>
-                </li>
-              }
-              {this.props.contactInfo.contact_company !== '' &&
-                <li>
-                  <strong>Company:</strong>
-                  <span dangerouslySetInnerHTML={{__html: this.props.contactInfo.contact_company}} />
-                </li>
-              }
-              {this.props.contactInfo.contact_website !== '' &&
-                <li>
-                  <strong>Website:</strong>
-                  <a href={this.props.contactInfo.contact_website}>{this.cutContactWebsite(this.props.contactInfo.contact_website)}</a>
-                </li>
-              }
-            </ul>
-          </div>
+      <section className="purchasing-info">
+        <h2>For Purchasing</h2>
+        <hr />
+        <div>
+          <ul className="purchase-options-list">
+            {this.props.contactInfo.contact_name !== '' &&
+              <li>
+                <strong>Contact:</strong>
+                <span dangerouslySetInnerHTML={{__html: this.props.contactInfo.contact_name}} />
+              </li>
+            }
+            {this.props.contactInfo.contact_phone !== '' &&
+              <li>
+                <strong>Phone:</strong>
+                <a href={`tel:${this.props.contactInfo.contact_phone}`}>{this.props.contactInfo.contact_phone}</a>
+              </li>
+            }
+            {this.props.contactInfo.contact_email !== '' &&
+              <li>
+                <strong>Email:</strong>
+                <a href={`mailto:${this.props.contactInfo.contact_email}`}>{this.props.contactInfo.contact_email}</a>
+              </li>
+            }
+            {this.props.contactInfo.contact_company !== '' &&
+              <li>
+                <strong>Company:</strong>
+                <span dangerouslySetInnerHTML={{__html: this.props.contactInfo.contact_company}} />
+              </li>
+            }
+            {this.props.contactInfo.contact_website !== '' &&
+              <li>
+                <strong>Website:</strong>
+                <a href={this.props.contactInfo.contact_website}>{this.cutContactWebsite(this.props.contactInfo.contact_website)}</a>
+              </li>
+            }
+          </ul>
         </div>
-      </div>
+      </section>
     )
   }
 }

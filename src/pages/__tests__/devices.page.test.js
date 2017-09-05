@@ -19,7 +19,7 @@ describe('<DevicesPage />', () => {
       device_image_url: 'url',
       device_image_alt: 'alt'
     }
-    props.store.externalLinkStore.devicesData = {
+    props.store.externalLinkStore.categorizedDeviceData = {
       phones: [],
       tablets: [],
       invehicle: [],
@@ -34,17 +34,17 @@ describe('<DevicesPage />', () => {
       tree = component.toJSON();
       expect(tree).toMatchSnapshot();
 
-      props.store.externalLinkStore.devicesData.invehicle = [card];
+      props.store.externalLinkStore.categorizedDeviceData.invehicle = [card];
       component = renderer.create(<MemoryRouter>
         <DevicesPage { ...props}/>
       </MemoryRouter>);
       tree = component.toJSON();
       expect(tree).toMatchSnapshot();
 
-      props.store.externalLinkStore.devicesData.phones = [card];
-      props.store.externalLinkStore.devicesData.tablets = [card, card, card, card, card, card, card, card, card, card];
-      props.store.externalLinkStore.devicesData.invehicle = [card, card, card];
-      props.store.externalLinkStore.devicesData.accessories = [card, card, card, card, card];
+      props.store.externalLinkStore.categorizedDeviceData.phones = [card];
+      props.store.externalLinkStore.categorizedDeviceData.tablets = [card, card, card, card, card, card, card, card, card, card];
+      props.store.externalLinkStore.categorizedDeviceData.invehicle = [card, card, card];
+      props.store.externalLinkStore.categorizedDeviceData.accessories = [card, card, card, card, card];
       component = renderer.create(<MemoryRouter>
         <DevicesPage { ...props}/>
       </MemoryRouter>);
@@ -64,7 +64,7 @@ describe('<DevicesPage />', () => {
       device_image_url: 'url',
       device_image_alt: 'alt'
     }
-    props.store.externalLinkStore.devicesData = {
+    props.store.externalLinkStore.categorizedDeviceData = {
       phones: [],
       tablets: [],
       invehicle: [],
