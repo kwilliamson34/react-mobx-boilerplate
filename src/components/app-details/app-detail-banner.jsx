@@ -93,12 +93,23 @@ export class AppDetailBanner extends React.Component {
     return '';
   }
 
+  certified() {
+    if (this.data.custom_metadata && this.data.custom_metadata.app_type === 'CERTIFIED') {
+      return (<p className="certified-app-label app-details">
+        <i className="icon icon-circle-check" aria-hidden="true"></i>
+        <span>FirstNet Certified</span>
+      </p>);
+    }
+    return '';
+  }
+
   metadata() {
     return (
       <div className="app-meta row">
         {/*Mobile*/}
         <div className="col-xs-12 hidden-sm hidden-md hidden-lg">
           {this.author()}
+          {this.certified()}
           {this.details()}
         </div>
 
@@ -106,6 +117,7 @@ export class AppDetailBanner extends React.Component {
         <div className="hidden-xs hidden-md hidden-lg">
           <div className="col-sm-4">
             {this.author()}
+            {this.certified()}
             {this.rating()}
           </div>
           <div className="col-sm-4">
@@ -123,6 +135,7 @@ export class AppDetailBanner extends React.Component {
           </div>
           <div className="col-md-4">
             {this.author()}
+            {this.certified()}
             {this.rating()}
           </div>
           <div className="col-md-4">

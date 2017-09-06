@@ -27,6 +27,7 @@ class UtilsService {
         return {
           name: obj.app_name,
           publisher: obj.custom_metadata.author,
+          type: obj.custom_metadata.app_type,
           imageUrl: obj.icon_path,
           rating: obj.rating,
           reviews_count: obj.reviews_count,
