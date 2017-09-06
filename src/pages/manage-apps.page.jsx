@@ -46,6 +46,12 @@ export default class ManageAppsPage extends React.Component {
 
   componentWillUnmount() {
     this.cardListStore.resetIdToFocus();
+    this.appCatalogStore.catalogHasBeenViewed = true;
+
+    //FPSE-1064 clear all alerts from this page
+    this.mdmStore.manage_apps_alerts = [];
+    this.mdmStore.appsReferencedByErrorAlert = [];
+    this.mdmStore.appsReferencedBySuccessAlert = [];
   }
 
   handleLoadMoreClick = () => {

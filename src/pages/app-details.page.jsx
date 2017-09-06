@@ -46,6 +46,11 @@ export default class AppDetailsPage extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    //FPSE-1064 clear all alerts from this page
+    this.mdmStore.app_detail_alerts = [];
+  }
+
   updateCurrentApp() {
     const psk = this.props.match.params.appPsk;
     this.appStore.fetchAppDetailByPsk(psk);
