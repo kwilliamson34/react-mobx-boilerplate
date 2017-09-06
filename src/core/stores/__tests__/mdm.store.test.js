@@ -325,27 +325,6 @@ describe("MDMStore", () => {
     });
   });
 
-  test("getMDMStatusForAppCatalog sets all statuses on success", () => {
-    apiService.getAdminApps = jest.fn();
-    apiService.getAdminApps.mockReturnValue(Promise.resolve());
-    store.processMDMStatusForAppCatalog = jest.fn();
-
-    store.getMDMStatusForAppCatalog().then(() => {
-      expect(store.processMDMStatusForAppCatalog).toHaveBeenCalled();
-    });
-  });
-
-  test("getMDMStatusForAppCatalog pushes the right error onto the stack if fails", () => {
-    store.mdm_form_alerts = [];
-    apiService.getAdminApps = jest.fn();
-    apiService.getAdminApps.mockReturnValue(Promise.reject());
-
-    store.getMDMStatusForAppCatalog().then(() => {
-      expect(store.manage_apps_alerts.length).toBe(1);
-      expect(store.manage_apps_alerts[0].message).toBe(store.userMessages.connectFail);
-    });
-  });
-
   test("getSingleMDMStatus works as expected", () => {
     //TODO
   });

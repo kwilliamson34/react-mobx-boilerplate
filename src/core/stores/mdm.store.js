@@ -100,14 +100,14 @@ class MDMStore {
     }
   }
 
-  @action clearAlerts({clearSuccessTally}) {
+  @action clearAlerts(args) {
     this.mdm_form_alerts = [];
     this.manage_apps_alerts = [];
     this.app_detail_alerts = [];
     this.appsReferencedByErrorAlert = [];
     /* Do not clear appsReferencedBySuccessAlert unless connection is broken,
     as we generally want a running total */
-    if(clearSuccessTally) {
+    if(args && args.clearSuccessTally) {
       this.appsReferencedBySuccessAlert = [];
     }
   }
@@ -320,16 +320,6 @@ class MDMStore {
   }
 
   // MDM Status Management functions
-  @action getMDMStatusForAppCatalog() {
-    const success = (apps) => {
-      mdmStore.processMDMStatusForAppCatalog(apps);
-    }
-    const fail = () => {
-      this.throwConnectError();
-    }
-    return apiService.getAdminApps().then(success, fail);
-  }
-
   @action getSingleMDMStatus(psk, args) {
     const success = (statusObject) => {
       this.appCatalogMDMStatuses.set(psk, statusObject.mdm_install_status);
@@ -345,7 +335,7 @@ class MDMStore {
     return apiService.getSingleMDMStatus(psk).then(success, fail)
   }
 
-  @action processMDMStatusForAppCatalog(apps) {
+  @action processMDMStatusForAppCatalog({apps, addBatchAlerts}) {
     this.appsReferencedByErrorAlert = [];
     this.appsReferencedBySuccessAlert = [];
     apps.forEach(app => {
@@ -353,8 +343,8 @@ class MDMStore {
         /* Only show success message if the user has just tried
         to install; NOT on initial render. */
         this.addPushSuccessAlert(app.app_psk);
-      } else if (app.mdm_install_status === 'FAILED') {
-        /* Always show error banner if failed installs are present.
+      } else if (app.mdm_install_status === 'FAILED' && addBatchAlerts) {
+        /* Show error banner on initial render if failed installs are present.
         This case should be second so that it overwrites the success
         message on the catalog page, if present (error takes priority). */
         this.addPushErrorAlert(app.app_psk);
@@ -462,7 +452,7 @@ class MDMStore {
 
   @computed get pushSuccessMultiple() {
     const num = this.appsReferencedBySuccessAlert.length;
-    return num + ' app' + (num === 1 ? '' : 's') + ' have been pushed to MDM.';
+    return num + ' app' + (num === 1 ? ' has' : 's have') + ' been pushed to MDM.';
   }
 
   @computed get pushFailMultiple() {
