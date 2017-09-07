@@ -112,12 +112,14 @@ export default class FeedbackPage extends React.Component {
         id: 'feedback_title',
         label: 'Title',
         value: this.feedbackStore.feedbackObject.feedback_title,
+        required: true,
         hasError: this.feedbackStore.hasErrors.feedback_title,
         charLimit: 250
       }, {
         id: 'feedback_topic',
         type: 'select',
         label: 'Topic',
+        required: true,
         placeholder: 'Select Feedback Topic',
         value: this.feedbackStore.feedbackObject.feedback_topic,
         optionsList: this.userStore.isAdmin
@@ -128,16 +130,18 @@ export default class FeedbackPage extends React.Component {
         id: 'feedback_details',
         type: 'textarea',
         label: 'Details',
+        required: true,
         genericLabel: 'summary of your feedback',
         value: this.feedbackStore.feedbackObject.feedback_details,
         hasError: this.feedbackStore.hasErrors.feedback_details,
         charLimit: 10000
       }, {
         type: 'textblock',
-        body: `Your feedback will help us improve your experience. We cannot respond directly to feedback comments, but can follow up with you if you leave your email below. For immediate help, please contact us directly at <a href='tel:${config.attCustomerSupportPhone}'>${config.attCustomerSupportPhone}</a>.`
+        body: `Your feedback will help us improve your experience. We cannot respond directly to feedback comments, but can follow up with you if you leave your email below.&nbsp;<span aria-hidden='true'>For immediate help, please contact us directly at&nbsp;</span><a href='tel:${config.attCustomerSupportPhone}'><span class='sr-only'>For immediate help, please contact us directly at&nbsp;</span>${config.attCustomerSupportPhone}</a>.`
       }, {
         id: 'feedback_email',
         label: 'Email (Optional)',
+        required: false,
         genericLabel: 'valid email address',
         value: this.feedbackStore.feedbackObject.feedback_email,
         hasError: this.feedbackStore.hasErrors.feedback_email,

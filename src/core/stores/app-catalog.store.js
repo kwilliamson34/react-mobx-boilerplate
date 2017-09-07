@@ -12,7 +12,7 @@ class AppCatalogStore {
 			this.allApps = res;
 			cardListStore.setCardList(res);
 			this.isLoading = false;
-			mdmStore.processMDMStatusForAppCatalog(res);
+			mdmStore.processMDMStatusForAppCatalog({apps: res, addBatchAlerts: !this.catalogHasBeenViewed});
 			return this.allApps;
 		}
 		const fail = (err) => {
@@ -98,6 +98,7 @@ class AppCatalogStore {
 	@observable currentAppObject = {};
 	@observable screenshots = [];
 	@observable isLoading = false;
+	@observable catalogHasBeenViewed = false;
 }
 
 export const appCatalogStore = new AppCatalogStore();

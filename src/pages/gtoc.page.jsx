@@ -139,6 +139,7 @@ export default class SubscribeToGTOC extends React.Component {
         type: 'checkbox',
         label: 'Select Network Regions',
         genericLabel: 'at least one option',
+        required: true,
         checkboxList: checkboxList,
         checkedByDefault: false,
         showSelectionButtons: true,
@@ -149,6 +150,7 @@ export default class SubscribeToGTOC extends React.Component {
         type: 'text',
         label: 'Email',
         genericLabel: 'valid email address',
+        required: true,
         value: this.gtocStore.gtocObject.gtoc_email,
         hasError: this.gtocStore.hasErrors.gtoc_email,
         charLimit: 10000

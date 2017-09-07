@@ -21,7 +21,6 @@ export class MDMAlerts extends React.Component {
 
   onCloseButtonClick = (idx) => {
     this.props.store.removeAlert(this.props.alertList, idx);
-    this.props.store.clearAppsReferencedByAlert();
   };
 
   render() {

@@ -19,10 +19,6 @@ export class PushToMDM extends React.Component {
     this.ariaLiveMessage = '';
   }
 
-  getMDMStatusForAppCatalog = (psk) => {
-    return this.props.appCatalogMDMStatuses[psk];
-  }
-
   handleButtonClick = (event) => {
     event.preventDefault();
     if(this.props.configuredMDMType){
@@ -44,7 +40,7 @@ export class PushToMDM extends React.Component {
     let iconClass = '';
 
     if(enabled) {
-      switch(this.getMDMStatusForAppCatalog(this.props.psk)) {
+      switch(this.props.appCatalogMDMStatuses[this.props.psk]) {
         case 'IN_PROGRESS':
         case 'PENDING':
           btnClass = 'fn-primary deaden';

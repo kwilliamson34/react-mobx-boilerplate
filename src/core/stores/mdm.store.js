@@ -92,28 +92,42 @@ class MDMStore {
 
   // Alert functions
   @action removeAlert(alertList, idx) {
+    const alertToRemove = alertList[idx];
     alertList.splice(idx, 1);
+
+    if(alertToRemove.type === 'error') {
+      this.appsReferencedByErrorAlert = [];
+    }
   }
 
-  @action clearAlerts() {
+  @action clearAlerts(args) {
     this.mdm_form_alerts = [];
     this.manage_apps_alerts = [];
     this.app_detail_alerts = [];
-    this.clearAppsReferencedByAlert();
-  }
-
-  @action clearAppsReferencedByAlert = () => {
-    this.appsReferencedByAlert = [];
+    this.appsReferencedByErrorAlert = [];
+    /* Do not clear appsReferencedBySuccessAlert unless connection is broken,
+    as we generally want a running total */
+    if(args && args.clearSuccessTally) {
+      this.appsReferencedBySuccessAlert = [];
+    }
   }
 
   @action addPushErrorAlert(psk) {
     this.manage_apps_alerts = [];
+
+    //add to reference list if not already there
+    if(!this.appsReferencedByErrorAlert.find(item => item == psk)) {
+      this.appsReferencedByErrorAlert.push(psk);
+    }
+
+    //show alert on Manage Apps page
     this.showErrorAlert({
       alertList: this.manage_apps_alerts,
-      message: this.userMessages.pushFailMultiple
+      message: this.pushFailMultiple
     });
 
     if(psk) {
+      //show alert on App Details page
       this.updateAlert({
         alertList: this.app_detail_alerts,
         type: 'error',
@@ -125,12 +139,20 @@ class MDMStore {
 
   @action addPushSuccessAlert(psk) {
     this.manage_apps_alerts = [];
+
+    //add to reference list if not already there
+    if(!this.appsReferencedByErrorAlert.find(item => item == psk)) {
+      this.appsReferencedBySuccessAlert.push(psk);
+    }
+
+    //show alert on Manage Apps page
     this.showSuccessAlert({
       alertList: this.manage_apps_alerts,
-      message: this.userMessages.pushSuccessMultiple
+      message: this.pushSuccessMultiple
     });
 
     if(psk) {
+      //show alert on App Details page
       this.updateAlert({
         alertList: this.app_detail_alerts,
         type: 'success',
@@ -276,9 +298,7 @@ class MDMStore {
 
   @action breakMDMConnection() {
     const success = () => {
-      this.mdm_form_alerts = [];
-      this.manage_apps_alerts = [];
-      this.app_detail_alerts = [];
+      this.clearAlerts({clearSuccessTally: true});
       this.pseMDMObject.clear();
       this.hasBeenSubmitted = false;
       this.formData.mdm_type = '';
@@ -289,7 +309,7 @@ class MDMStore {
       });
     }
     const fail = () => {
-      this.mdm_form_alerts = [];
+      this.clearAlerts({clearSuccessTally: true});
       this.hasBeenSubmitted = true;
       this.showErrorAlert({
         alertList: this.mdm_form_alerts,
@@ -300,16 +320,6 @@ class MDMStore {
   }
 
   // MDM Status Management functions
-  @action getMDMStatusForAppCatalog() {
-    const success = (apps) => {
-      mdmStore.processMDMStatusForAppCatalog(apps);
-    }
-    const fail = () => {
-      this.throwConnectError();
-    }
-    return apiService.getAdminApps().then(success, fail);
-  }
-
   @action getSingleMDMStatus(psk, args) {
     const success = (statusObject) => {
       this.appCatalogMDMStatuses.set(psk, statusObject.mdm_install_status);
@@ -317,7 +327,6 @@ class MDMStore {
         this.addPushErrorAlert(psk);
       } else if (args.showUserMessageOnSuccess && statusObject.mdm_install_status === 'INSTALLED'){
         this.addPushSuccessAlert(psk);
-        this.appsReferencedByAlert.push(psk);
       }
     }
     const fail = () => {
@@ -326,16 +335,16 @@ class MDMStore {
     return apiService.getSingleMDMStatus(psk).then(success, fail)
   }
 
-  @action processMDMStatusForAppCatalog(apps) {
-    this.appsReferencedByAlert = [];
+  @action processMDMStatusForAppCatalog({apps, addBatchAlerts}) {
+    this.appsReferencedByErrorAlert = [];
+    this.appsReferencedBySuccessAlert = [];
     apps.forEach(app => {
       if (app.mdm_install_status === 'INSTALLED' && this.mdmStatusIsUnresolved(app.app_psk)) {
         /* Only show success message if the user has just tried
         to install; NOT on initial render. */
         this.addPushSuccessAlert(app.app_psk);
-        this.appsReferencedByAlert.push(app.app_psk);
-      } else if (app.mdm_install_status === 'FAILED') {
-        /* Always show error banner if failed installs are present.
+      } else if (app.mdm_install_status === 'FAILED' && addBatchAlerts) {
+        /* Show error banner on initial render if failed installs are present.
         This case should be second so that it overwrites the success
         message on the catalog page, if present (error takes priority). */
         this.addPushErrorAlert(app.app_psk);
@@ -441,6 +450,16 @@ class MDMStore {
     return data;
   }
 
+  @computed get pushSuccessMultiple() {
+    const num = this.appsReferencedBySuccessAlert.length;
+    return num + ' app' + (num === 1 ? ' has' : 's have') + ' been pushed to MDM.';
+  }
+
+  @computed get pushFailMultiple() {
+    const num = this.appsReferencedByErrorAlert.length;
+    return num + ' app' + (num === 1 ? '' : 's') + ' could not be pushed to MDM.';
+  }
+
   // OBSERVABLES
   // API
   @observable pseMDMObject = observable.map({});
@@ -461,7 +480,8 @@ class MDMStore {
   @observable mdm_form_alerts = [];
   @observable manage_apps_alerts = [];
   @observable app_detail_alerts = [];
-  @observable appsReferencedByAlert = [];
+  @observable appsReferencedBySuccessAlert = [];
+  @observable appsReferencedByErrorAlert = [];
   @observable userMessages = {
     missingMdm: 'Please select any MDM.',
     formError: 'Please correct the errors below.',
@@ -470,9 +490,7 @@ class MDMStore {
     breakConnectionSuccess: 'The connection to MDM has been broken.',
     breakConnectionFail: 'There was a problem breaking the connection with MDM.',
     pushSuccess: 'This app has been pushed to MDM.',
-    pushSuccessMultiple: 'The selected apps have been pushed to MDM.',
-    pushFail: 'This app could not be pushed to MDM.',
-    pushFailMultiple: 'Some or all of the selected apps could not be pushed to MDM.'
+    pushFail: 'This app could not be pushed to MDM.'
   }
 }
 
