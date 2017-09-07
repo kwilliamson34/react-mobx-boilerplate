@@ -176,7 +176,7 @@
         padding: 40px 0 25px 0;
 
         img {
-          max-width: 150px;
+          max-width: 80px;
         }
 
         h3 {
@@ -191,6 +191,18 @@
     .solutions-card {
       max-width: 480px;
     }
+
+    .solutions-details-page {
+      .app-details-section {
+        .app-summary {
+          .action-block {
+            a {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
   }
 }
 @media #{$tablet} {
@@ -202,13 +214,24 @@
     .all-cards-wrapper .solutions-card .card-img-wrapper div.img {
       min-height: 140px;
     }
+
+    .solutions-details-page {
+      .app-details-section {
+        .app-summary {
+          img {
+            max-width: 125px;
+          }
+        }
+      }
+    }
   }
 }
 @media #{$desktop} {
   #solutions-hub-page {
     .solutions-details-page {
       .details-wrapper {
-        p {
+        p,
+        ul {
           margin-bottom: 40px;
         }
 
@@ -218,18 +241,23 @@
           padding-right: 50px; //due to word breaks, the picture looks offcenter w/r to the text if padding is absent
         }
       }
-    }
+      .app-details-section {
+        h2 {
+          padding-top: 60px;
+        }
+        .app-summary {
 
-    .app-details-section {
-      h2 {
-        padding-top: 60px;
-      }
-      .app-summary {
-        .action-block {
-          text-align: right;
+          img {
+            max-width: 150px;
+          }
+
+          .action-block {
+            text-align: right;
+          }
         }
       }
     }
+
 
     .all-cards-wrapper .solutions-card .card-img-wrapper div.img {
       min-height: 150px;
