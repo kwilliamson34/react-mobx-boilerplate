@@ -39,8 +39,7 @@ class GTOCStore {
       for (let key in this.gtocObject) {
         data[key.replace('gtoc_', '')] = this.gtocObject[key];
       }
-      const success = (res) => {
-        console.log('res', res);
+      const success = () => {
         this.clearForm();
         history.push('/subscribe-to-alerts-success');
       }

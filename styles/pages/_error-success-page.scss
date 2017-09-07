@@ -23,13 +23,17 @@
 			padding: 60px 30px;
 		}
 
-		h1,
+		// h1 {
+		// 	margin-bottom: 30px;
+		// }
+
 		p {
-			margin-bottom: 30px;
+			margin: 30px 0 0 0;
 		}
 
 		a,
 		.as-link {
+			margin-top: 40px;
 			font-size: $fn-button-desktop;
 		}
 	}
@@ -114,6 +118,10 @@ section.session-timeout {
 				padding: 60px 65px;
 			}
 
+			a,
+			.as-link {
+				margin-top: 60px;
+			}
 		}
 	}
 
@@ -140,6 +148,11 @@ section.session-timeout {
 		.container {
 			> div {
 				padding: 80px 90px;
+			}
+
+			a,
+			.as-link {
+				margin-top: 60px;
 			}
 		}
 	}

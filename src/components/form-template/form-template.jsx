@@ -125,7 +125,7 @@ export class FormTemplate extends React.Component {
       <fieldset id={id} ref={ref => refList[id] = ref}>
         {checkboxList.map((checkbox, i) => {
           return (
-            <div className="checkbox" key={`${id}-checkbox-${i}`}>
+            <div className="checkbox" key={`${id}-${i}`}>
               <label>
                 <input type="checkbox" className="template-checkbox-input" value={checkbox.value}/>
                 <span className="cr"></span>
