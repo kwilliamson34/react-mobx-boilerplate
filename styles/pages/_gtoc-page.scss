@@ -1,0 +1,148 @@
+#subscribe-to-gtoc-page {
+  padding: 0;
+
+  .form-group {
+    margin-top: 30px;
+  }
+
+  .content-wrapper {
+    position: relative;
+
+    h1 {
+      margin: 6rem 0;
+    }
+
+    figure {
+      figcaption {
+        text-align: left;
+        font-size: $fn-small-text-desktop;
+        margin-bottom: 20px;
+      }
+
+      img {
+        margin-bottom: 30px;
+      }
+    }
+
+    .control-label {
+      font-size: $fn-h5-desktop;
+      font-weight: $fn-normal-weight;
+
+      &[for="gtoc_email"] {
+        font-size: $fn-label-desktop;
+      }
+    }
+
+    .selection-buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-top: 15px;
+
+      button {
+        line-height: 30px;
+        width: 110px;
+        background: none;
+        font-size: $fn-button-desktop;
+        font-weight: $fn-medium-weight;
+        color: $fn-ltblue;
+        text-transform: uppercase;
+        border: none;
+        outline: none;
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+
+        &:focus {
+          border-radius: 8px;
+          @include focus();
+        }
+      }
+    }
+
+    .checkbox {
+      margin-top: 20px;
+      vertical-align: middle;
+      border-bottom: 1px solid $fn-grey;
+
+      label {
+        padding-bottom: 20px;
+
+        strong {
+          display: inline-block;
+          vertical-align: top;
+          margin-left: 5px;
+          width: 30%;
+
+          + span {
+            display: inline-block;
+            width: 100%;
+            margin-left: 30px;
+          }
+        }
+
+        .template-checkbox-description {
+          font-weight: $fn-normal-weight;
+          //override default alert text color
+          color: $fn-black;
+        }
+      }
+
+      &:first-of-type {
+        padding-top: 15px;
+        border-top: 1px solid $fn-mdgrey;
+      }
+
+      &:last-of-type {
+        border-bottom: 1px solid $fn-mdgrey;
+      }
+    }
+  }
+
+  form button:not(.close_btn) {
+    margin: 3rem 0 6rem;
+
+    &.disabled {
+      cursor: auto;
+      pointer-events: auto;
+    }
+  }
+}
+@media #{$mobile} {
+  #subscribe-to-gtoc-page {
+    .content-wrapper h1 {
+      margin: 3rem 0;
+    }
+  }
+}
+@media #{$tablet, $desktop} {
+  #subscribe-to-gtoc-page {
+    .gtoc_email {
+      margin-top: 60px;
+    }
+
+    .content-wrapper {
+      .control-label {
+        font-size: $fn-h4-desktop;
+      }
+
+      .select-all-button {
+        top: 8px;
+      }
+
+      .checkbox {
+        label {
+          strong {
+            width: 15%;
+
+            + span {
+              width: 75%;
+              margin-left: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

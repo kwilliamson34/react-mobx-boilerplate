@@ -1,7 +1,9 @@
 import React from 'react';
-import Checkbox from '../toggle/checkbox';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
+
+import Checkbox from '../toggle/checkbox';
 
 @observer
 export default class GeolinkControls extends React.Component {
@@ -99,6 +101,7 @@ export default class GeolinkControls extends React.Component {
             </div>
             <div className="col-md-4 hidden-xs hidden-sm map-network-legend">
               {this.renderNetworkLegend()}
+              {this.renderNetworkSubscriptionLink()}
               {this.renderContactInfo()}
             </div>
           </div>
@@ -107,6 +110,7 @@ export default class GeolinkControls extends React.Component {
             <div className="legend-divider col-xs-12">
               <hr />
               <div className="visible-xs-inline">
+                {this.renderNetworkSubscriptionLink()}
                 {this.renderContactInfo()}
                 <hr />
               </div>
@@ -128,6 +132,16 @@ export default class GeolinkControls extends React.Component {
     );
   }
 
+  renderNetworkSubscriptionLink = () => {
+    return (
+      <div className="network-subscription-link">
+        <Link to="/subscribe-to-alerts">
+          Subscribe to Network Alerts
+        </Link>
+      </div>
+    )
+  }
+
   renderContactInfo = () => {
     return (
       <div className="network-contact-info">
@@ -146,7 +160,11 @@ export default class GeolinkControls extends React.Component {
   renderNetworkLegend = () => {
     return (
       <div>
-        <span className="visible-sm-inline">{this.renderContactInfo()}</span>
+        <span className="visible-sm">
+          {this.renderNetworkSubscriptionLink()}
+          {this.renderContactInfo()}
+          <hr className="visible-sm col-xs-12"/>
+        </span>
         <h2 className="as-h5">
           Network<span className="sr-only">&nbsp;color key</span>
         </h2>

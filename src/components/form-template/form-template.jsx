@@ -84,6 +84,61 @@ export class FormTemplate extends React.Component {
     )
   }
 
+  handleSelectAllButton = (refList) => {
+    for (let key in refList.elements) {
+      if (refList.elements[key].localName === 'input' && !refList.elements[key].checked) {
+        refList.elements[key].click();
+      }
+    }
+  }
+
+  handleClearAllButton = (refList) => {
+    for (let key in refList.elements) {
+      if (refList.elements[key].localName === 'input' && refList.elements[key].checked) {
+        refList.elements[key].click();
+      }
+    }
+  }
+
+  renderCheckbox = ({id, label, genericLabel, hasError, required, checkboxList, showSelectionButtons}) => {
+    let refList = this.props.refList || this.localRefList;
+    return (
+      <div className={`form-group has-feedback ${id} ${hasError ? 'has-error' : ''}`} key={id}>
+      <label className="control-label" htmlFor={id}>{label}
+        {required &&
+          <span className="required-asterisks"> *</span>
+        }
+      </label>
+      {hasError && <div className="msgBlock error error-list" role="alert" aria-live="assertive">
+        <span>Please select {genericLabel || label.toLowerCase()}.</span>
+      </div>}
+      {showSelectionButtons &&
+        <div className="selection-buttons">
+          <button type="button" className="select-all-button" onClick={() => this.handleSelectAllButton(refList[id])}>
+            Select All
+          </button>
+          <button type="button" className="clear-all-button" onClick={() => this.handleClearAllButton(refList[id])}>
+            Clear All
+          </button>
+        </div>
+      }
+      <fieldset id={id} ref={ref => refList[id] = ref}>
+        {checkboxList.map((checkbox, i) => {
+          return (
+            <div className="checkbox" key={`${id}-${i}`}>
+              <label>
+                <input type="checkbox" className="template-checkbox-input" value={checkbox.value}/>
+                <span className="cr"></span>
+                <span className="template-checkbox-description" dangerouslySetInnerHTML={{__html: checkbox.label || checkbox.value}}></span>
+              </label>
+            </div>
+          )
+        })}
+      </fieldset>
+    </div>
+    )
+  }
+
   renderInput = (inputData) => {
     let inputJsx = '';
     switch(inputData.type) {
@@ -92,6 +147,9 @@ export class FormTemplate extends React.Component {
         break;
       case 'select' :
         inputJsx = this.renderSelect(inputData);
+        break;
+      case 'checkbox' :
+        inputJsx = this.renderCheckbox(inputData);
         break;
       case 'textarea':
       case 'text':
