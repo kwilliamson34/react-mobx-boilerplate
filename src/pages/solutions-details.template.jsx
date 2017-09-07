@@ -72,7 +72,7 @@ export default class SolutionsDetailsTemplate extends React.Component {
     ];
 
     return (
-      <article id="solutions-details-page">
+      <article id="solutions-details-page" className="solutions-details-page">
         <BreadcrumbNav links={crumbs}/>
         <div className="container">
 
@@ -92,6 +92,7 @@ export default class SolutionsDetailsTemplate extends React.Component {
                 <h2>Related App</h2>
                 <hr />
                 <AppDetailBanner actionBlock="link_to_details" appCatalogStore={this.appCatalogStore}/>
+                <hr />
               </section>
             </div>}
 

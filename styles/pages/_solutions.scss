@@ -104,59 +104,77 @@
     }
   }
 
-  .details-wrapper {
-    display: block;
-    text-align: left;
-
-    .content-wrapper {
-      padding: 0;
-    }
-
-    h1,
-    h2 {
-      @extend .as-h1;
-      padding: 20px 0;
-    }
-
-    h3 {
-      padding-bottom: 20px;
-    }
-
-    ol,
-    ul {
-      list-style: disc;
-      padding-left: 30px;
-
-      li {
-        margin-bottom: 15px;
-        line-height: 1.6;
-        font-size: $fn-content-page-text-desktop;
-      }
-
-      figcaption {
-        font-weight: $fn-normal-weight;
-        font-size: $fn-content-page-text-desktop;
-        margin: 10px 0 50px;
-      }
-    }
-
-    .card__title,
-    img {
+  .solutions-details-page {
+    .details-wrapper {
       display: block;
-      width: 90%;
-      margin-left: auto;
-      margin-right: auto;
+      text-align: left;
+
+      .content-wrapper {
+        padding: 0;
+      }
+
+      h1,
+      h2 {
+        @extend .as-h1;
+        padding: 20px 0;
+      }
+
+      h3 {
+        padding-bottom: 20px;
+      }
+
+      ol,
+      ul {
+        list-style: disc;
+        padding-left: 30px;
+
+        li {
+          margin-bottom: 15px;
+          line-height: 1.6;
+          font-size: $fn-content-page-text-desktop;
+        }
+
+        figcaption {
+          font-weight: $fn-normal-weight;
+          font-size: $fn-content-page-text-desktop;
+          margin: 10px 0 50px;
+        }
+      }
+
+      .card__title,
+      img {
+        display: block;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      img {
+        object-fit: cover;
+        padding-top: 20px;
+      }
+
+      .card__title {
+        font-size: $fn-small-text-desktop;
+        padding-top: 20px;
+        padding-bottom: 60px;
+      }
     }
 
-    img {
-      object-fit: cover;
-      padding-top: 20px;
-    }
+    .app-summary {
+      padding: 20px 0;
 
-    .card__title {
-      font-size: $fn-small-text-desktop;
-      padding-top: 10px;
-      padding-bottom: 50px;
+      img {
+        max-width: 150px;
+      }
+
+      h3 {
+        padding-bottom: 30px;
+      }
+
+      .action-block {
+        text-align: right;
+      }
     }
   }
 }
@@ -180,11 +198,13 @@
 }
 @media #{$desktop} {
   #solutions-hub-page {
-    .details-wrapper {
-      .card__title,
-      img {
-        width: 80%;
-        padding-right: 50px; //due to word breaks, the picture looks offcenter w/r to the text if padding is absent
+    .solutions-details-page {
+      .details-wrapper {
+        .card__title,
+        img {
+          width: 80%;
+          padding-right: 50px; //due to word breaks, the picture looks offcenter w/r to the text if padding is absent
+        }
       }
     }
 
