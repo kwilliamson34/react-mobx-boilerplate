@@ -13,7 +13,6 @@
     }
 
     figure {
-
       figcaption {
         text-align: left;
         font-size: $fn-small-text-desktop;
@@ -101,9 +100,8 @@
     }
   }
 
-
   form button:not(.close_btn) {
-    margin: 3rem 0 6rem 0;
+    margin: 3rem 0 6rem;
 
     &.disabled {
       cursor: auto;
@@ -111,7 +109,6 @@
     }
   }
 }
-
 @media #{$mobile} {
   #subscribe-to-gtoc-page {
     .content-wrapper h1 {
@@ -119,16 +116,13 @@
     }
   }
 }
-
 @media #{$tablet, $desktop} {
   #subscribe-to-gtoc-page {
-
     .gtoc_email {
       margin-top: 60px;
     }
 
     .content-wrapper {
-
       .control-label {
         font-size: $fn-h4-desktop;
       }
@@ -136,10 +130,12 @@
       .select-all-button {
         top: 8px;
       }
+
       .checkbox {
         label {
           strong {
             width: 15%;
+
             + span {
               width: 75%;
               margin-left: 0;

@@ -301,19 +301,19 @@ $map-height-mobile: 400px;
       }
     }
 
-    .network-subscription-link {
-      float: left;
-      margin-top: 0;
-      width: 57%;
-      line-height: 1.11;
-    }
-
+    .network-subscription-link,
     .network-contact-info {
       float: left;
       margin-top: 0;
-      width: 43%;
       line-height: 1.11;
+    }
 
+    .network-subscription-link {
+      width: 57%;
+    }
+
+    .network-contact-info {
+      width: 43%;
       + hr {
         margin-top: 10px;
         padding: 0 0 30px 0;
