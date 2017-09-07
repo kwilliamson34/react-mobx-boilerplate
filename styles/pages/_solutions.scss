@@ -161,19 +161,28 @@
       }
     }
 
-    .app-summary {
-      padding: 20px 0;
-
-      img {
-        max-width: 150px;
+    .app-details-section {
+      hr {
+        margin: 0;
       }
 
-      h3 {
-        padding-bottom: 30px;
+      h2 {
+        padding-bottom: 20px;
       }
+      .app-summary {
+        padding: 40px 0 25px 0;
 
-      .action-block {
-        text-align: right;
+        img {
+          max-width: 150px;
+        }
+
+        h3 {
+          padding-bottom: 30px;
+        }
+
+        .action-block {
+          text-align: right;
+        }
       }
     }
   }

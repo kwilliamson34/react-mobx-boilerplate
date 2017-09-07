@@ -88,7 +88,7 @@ export default class SolutionsDetailsTemplate extends React.Component {
 
           {this.externalLinkStore.hasRelatedApp(solutionDetail) && this.appCatalogStore.currentAppObject &&
             <div className="row">
-              <section className="col-xs-12 col-lg-offset-1 col-lg-10">
+              <section className="col-xs-12 col-lg-offset-1 col-lg-10 app-details-section">
                 <h2>Related App</h2>
                 <hr />
                 <AppDetailBanner actionBlock="link_to_details" appCatalogStore={this.appCatalogStore}/>
