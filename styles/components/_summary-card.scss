@@ -1,11 +1,19 @@
 .card-wrapper {
+  position: relative;
   cursor: pointer;
 
   a {
     &:focus,
-    &:hover {
+    &:hover,
+    &:visited {
       color: $fn-dkgrey;
     }
+  }
+  .certified-app-label {
+    position: absolute;
+    top: 13px;
+    left: 10px;
+    z-index: 1;
   }
 }
 

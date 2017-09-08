@@ -41,12 +41,13 @@ form p {
 
 .certified-app-label {
   color: $fn-certified-grey;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: $fn-normal-weight;
 
   i:before {
     color: $fn-certified-blue;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     padding-right: 5px;
+    text-decoration: none !important;
   }
 }

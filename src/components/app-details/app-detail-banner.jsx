@@ -96,7 +96,7 @@ export class AppDetailBanner extends React.Component {
   certified() {
     if (this.data.custom_metadata && this.data.custom_metadata.app_type === 'CERTIFIED') {
       return (<p className="certified-app-label app-details">
-        <i className="icon icon-circle-check" aria-hidden="true"></i>
+        <i className="icon icon-check-circle" aria-hidden="true"></i>
         <span>FirstNet Certified</span>
       </p>);
     }
