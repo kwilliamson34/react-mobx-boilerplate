@@ -1,8 +1,5 @@
-import {
-	action,
-	observable,
-	isObservable,
-} from 'mobx';
+import {action, observable} from 'mobx';
+import {walkthruSteps} from '../../content/walkthru-steps.json';
 
 class JoyrideStore {
 
@@ -43,7 +40,7 @@ class JoyrideStore {
 	@observable joyrideType = 'continuous';
 	@observable isReady = false;
 	@observable isRunning = false;
-	@observable steps = [{}];
+	@observable steps = walkthruSteps;
 	@observable stepIndex = 0;
 	@observable selector = '';
 

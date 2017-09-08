@@ -42,6 +42,11 @@ export default class ScrollToTop extends React.Component {
 		window.addEventListener('scroll', this.manageBackToTopVisibility);
 		console.log('this.joyride', this.joyride);
 		this.joyrideStore.initJoyride(this.joyride);
+		// init joyride
+		$(() => {
+			//this.joyrideStore.addJoyrideSteps();
+			console.log('steps', this.joyrideStore.steps);
+		});
 	}
 
 	componentWillUnmount() {

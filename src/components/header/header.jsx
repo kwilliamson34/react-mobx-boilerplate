@@ -73,44 +73,6 @@ export default class PSEHeader extends React.Component {
 		});
 
 		window.addEventListener('resize', this.updateWindowDimensions);
-
-		// init joyride
-		const headerstep = {
-			title: 'First Step',
-			text: 'Start using the <strong>joyride</strong>', // supports html tags
-			selector: '.first-step',
-			position: 'bottom-left',
-			type: 'hover',
-			style: {
-				backgroundColor: 'rgba(0, 0, 0, 0.8)',
-				borderRadius: '0',
-				color: '#fff',
-				mainColor: '#ff4456',
-				textAlign: 'center',
-				width: '29rem',
-				beacon: {
-					offsetX: 10,
-					offsetY: 10,
-					inner: '#000',
-					outer: '#000'
-				},
-				button: {
-					display: 'none'
-					// or any style attribute
-				},
-				skip: {
-					color: '#f04'
-				},
-				hole: {
-					backgroundColor: 'RGBA(201, 23, 33, 0.2)'
-				}
-			}
-		}
-		$( () => {
-			this.joyrideStore.addJoyrideSteps(headerstep);
-			console.log('steps', this.joyrideStore.steps);
-			// this.joyrideStore.joyrideStart();
-		});
 	}
 
 	componentWillUnmount() {

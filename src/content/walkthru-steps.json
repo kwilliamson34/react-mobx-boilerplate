@@ -1,0 +1,56 @@
+{
+  "walkthruSteps": [
+    {
+      "title": "Logo",
+      "text": "Start using the <strong>joyride</strong>",
+      "selector": ".fnnav__header",
+      "position": "top",
+      "style": {
+        "mainColor": "#a350f0",
+        "beacon": {
+          "inner": "#333",
+          "outer": "#333"
+        }
+      }
+    },
+    {
+      "title": "Profile",
+      "text": "Start using the <strong>joyride</strong>",
+      "selector": "#profile-header-dropdown",
+      "position": "top",
+      "style": {
+        "mainColor": "#a350f0",
+        "beacon": {
+          "inner": "#a350f0",
+          "outer": "#a350f0"
+        }
+      }
+    },
+    {
+      "title": "Manage Users",
+      "text": "Start using the <strong>joyride</strong>",
+      "selector": ".manage-users",
+      "position": "top",
+      "style": {
+        "mainColor": "#a350f0",
+        "beacon": {
+          "inner": "#a350f0",
+          "outer": "#a350f0"
+        }
+      }
+    },
+    {
+      "title": "Map Overlays",
+      "text": "Start using the <strong>joyride</strong>",
+      "selector": ".coverage-layers",
+      "position": "top",
+      "style": {
+        "mainColor": "#a350f0",
+        "beacon": {
+          "inner": "#a350f0",
+          "outer": "#a350f0"
+        }
+      }
+    }
+  ]
+}
