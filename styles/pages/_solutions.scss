@@ -188,6 +188,10 @@
 }
 @media #{$mobile} {
   #solutions-hub-page {
+    .solutions-card {
+      max-width: 480px;
+    }
+
     .solutions-details-page {
       .app-details-section {
         .app-summary {
