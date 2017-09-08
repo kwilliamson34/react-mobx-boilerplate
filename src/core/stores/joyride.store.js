@@ -38,6 +38,7 @@ class JoyrideStore {
 		this.joyride.start();
 	}
 
+
   joyride = {};
 	@observable joyrideOverlay = true;
 	@observable joyrideType = 'continuous';

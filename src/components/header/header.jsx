@@ -78,7 +78,7 @@ export default class PSEHeader extends React.Component {
 		const headerstep = {
 			title: 'First Step',
 			text: 'Start using the <strong>joyride</strong>', // supports html tags
-			selector: '.first-step',
+			selector: '#help-header-dropdown',
 			position: 'bottom-left',
 			type: 'hover',
 			style: {
