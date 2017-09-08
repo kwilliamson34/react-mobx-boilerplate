@@ -11,7 +11,7 @@
       .card-wrapper {
         text-align: left;
         width: 100%;
-        min-height: 380px;
+        min-height: 440px;
 
         > a {
           text-decoration: none;
@@ -188,10 +188,6 @@
 }
 @media #{$mobile} {
   #solutions-hub-page {
-    .solutions-card {
-      max-width: 480px;
-    }
-
     .solutions-details-page {
       .app-details-section {
         .app-summary {
@@ -207,8 +203,14 @@
 }
 @media #{$tablet} {
   #solutions-hub-page {
-    .solutions-card {
-      max-width: 480px;
+    .all-cards-wrapper {
+      .solutions-card {
+        max-width: 480px;
+
+        .card-wrapper {
+          min-height: 380px;
+        }
+      }
     }
 
     .all-cards-wrapper .solutions-card .card-img-wrapper div.img {
@@ -228,6 +230,14 @@
 }
 @media #{$desktop} {
   #solutions-hub-page {
+    .all-cards-wrapper {
+      .solutions-card {
+        .card-wrapper {
+          min-height: 380px;
+        }
+      }
+    }
+
     .solutions-details-page {
       .details-wrapper {
         p,
