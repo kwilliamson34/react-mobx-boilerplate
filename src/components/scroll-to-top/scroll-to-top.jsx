@@ -1,13 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {history} from '../../core/services/history.service';
+import { observer, inject } from 'mobx-react';
 import _ from 'lodash';
 import $ from 'jquery';
 import Joyride from 'react-joyride';
 
+@inject('store')
+@observer
 export default class ScrollToTop extends React.Component {
 	static propTypes = {
-		children: PropTypes.node
+		children: PropTypes.node,
+		store: PropTypes.object
 	};
 
 	constructor(props) {
@@ -19,15 +23,9 @@ export default class ScrollToTop extends React.Component {
 			documentHeight: 0,
 			viewportHeight: 0,
 			viewportWidth: 0,
-			showBackToTopBtn: false,
-			joyrideOverlay: true,
-      joyrideType: 'continuous',
-      isReady: false,
-      isRunning: false,
-			walkthruSteps: [],
-      stepIndex: 0,
-      selector: ''
+			showBackToTopBtn: false
 		}
+		this.joyrideStore = this.props.store.joyrideStore;
 	}
 
 	componentDidUpdate() {
@@ -42,13 +40,7 @@ export default class ScrollToTop extends React.Component {
 		this.updateWindowDimensions();
 		window.addEventListener('resize', this.updateWindowDimensions);
 		window.addEventListener('scroll', this.manageBackToTopVisibility);
-		setTimeout(() => {
-      this.setState({
-        isReady: true,
-        isRunning: true
-      });
-			console.log('joyride ready: ' + this.state.isReady);
-    }, 1000);
+		this.joyrideStore.initJoyride(this.joyride);
 	}
 
 	componentWillUnmount() {
@@ -131,11 +123,10 @@ export default class ScrollToTop extends React.Component {
 				</span>
 				<Joyride
 					ref={c => (this.joyride = c)}
-					steps={this.state.walkthruSteps}
-					run={this.state.isReady}
-					debug={true}
-					showOverlay={true}
-					type="continuous"
+					steps={this.joyrideStore.steps}
+					run={this.joyrideStore.isReady}
+					showOverlay={this.joyrideStore.joyrideOverlay}
+					type={this.joyrideStore.joyrideType}
 				/>
 				{this.props.children}
 				<a id="btn-back-top" href="#" className={`back-to-top btn ${!this.state.showBackToTopBtn && 'faded'}`} onClick={this.handleBackToTopClick}>

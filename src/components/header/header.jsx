@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link, NavLink, withRouter } from 'react-router-dom';
+import {Link, NavLink, withRouter} from 'react-router-dom';
 import NewTabLink from '../link/new-tab-link';
-import { observer, inject, PropTypes } from 'mobx-react';
+import {observer, inject, PropTypes} from 'mobx-react';
 import config from 'config';
 import $ from 'jquery';
 import _ from 'lodash';
@@ -19,21 +19,22 @@ export default class PSEHeader extends React.Component {
 		super(props);
 		this.headerStore = this.props.store.headerStore;
 		this.userStore = this.props.store.userStore;
+		this.joyrideStore = this.props.store.joyrideStore;
 	}
 
 	componentDidUpdate(prevProps) {
-    if (this.props.location !== prevProps.location) {
-      this.handleRouteChange();
-    }
-  }
+		if (this.props.location !== prevProps.location) {
+			this.handleRouteChange();
+		}
+	}
 
 	componentDidMount() {
 		$('#btn-admin').hover(() => {
-			if(window.innerWidth > 992 ){
+			if (window.innerWidth > 992) {
 				this.openDesktopAdminSubmenu();
 			}
 		}, () => {
-			if(window.innerWidth > 992){
+			if (window.innerWidth > 992) {
 				this.headerStore.adminSubMenuIsOpen = false;
 			}
 		});
@@ -46,7 +47,7 @@ export default class PSEHeader extends React.Component {
 			$('.dropdown.open').removeClass('open');
 		});
 
-		$('.dropdown-menu li:last-child a').keydown((e)=>{
+		$('.dropdown-menu li:last-child a').keydown((e) => {
 			// if user uses keyboard navigation, need to make sure we arent closing menu when user Shift+Tabs(goes to previous item)
 			if (e.which == 9 && e.shiftKey) {
 				// do nothing
@@ -57,21 +58,56 @@ export default class PSEHeader extends React.Component {
 
 		$('#linkBtn-networkStatus, .logo-home-link').focus(() => {
 			//Per FPSE-966, focus listener was deadening the network status link on mobile/tablet, so limiting this function call to affect desktop only
-			if(window.innerWidth > 992 ){
+			if (window.innerWidth > 992) {
 				this.headerStore.adminSubMenuIsOpen = false;
 			}
 		});
 
 		$('body').click((e) => {
 			let targetIds = ['admin-submenu', 'pse-admin-nav', 'pse-aside-nav', 'linkBtn-admin'];
-			if (this.headerStore.adminSubMenuIsOpen
-				&& !this.headerStore.mainMenuIsOpen
-				&& !_.includes(targetIds, e.target.id)) {
-					this.toggleAdminSubMenu();
-				}
+			if (this.headerStore.adminSubMenuIsOpen &&
+				!this.headerStore.mainMenuIsOpen &&
+				!_.includes(targetIds, e.target.id)) {
+				this.toggleAdminSubMenu();
+			}
 		});
 
 		window.addEventListener('resize', this.updateWindowDimensions);
+
+		// init joyride
+		const headerstep = {
+			title: 'First Step',
+			text: 'Start using the <strong>joyride</strong>', // supports html tags
+			selector: '.first-step',
+			position: 'bottom-left',
+			type: 'hover',
+			style: {
+				backgroundColor: 'rgba(0, 0, 0, 0.8)',
+				borderRadius: '0',
+				color: '#fff',
+				mainColor: '#ff4456',
+				textAlign: 'center',
+				width: '29rem',
+				beacon: {
+					offsetX: 10,
+					offsetY: 10,
+					inner: '#000',
+					outer: '#000'
+				},
+				button: {
+					display: 'none'
+					// or any style attribute
+				},
+				skip: {
+					color: '#f04'
+				},
+				hole: {
+					backgroundColor: 'RGBA(201, 23, 33, 0.2)'
+				}
+			}
+		}
+		this.joyrideStore.addJoyrideSteps(headerstep);
+		this.joyrideStore.start();
 	}
 
 	componentWillUnmount() {
@@ -80,13 +116,13 @@ export default class PSEHeader extends React.Component {
 
 	handleRouteChange() {
 		this.closeMainMenu();
-		if(this.headerStore.viewportWidth >= 768){
+		if (this.headerStore.viewportWidth >= 768) {
 			this.headerStore.closeAdminSubMenu();
 		}
 	}
 
 	openDesktopAdminSubmenu() {
-		if(!this.headerStore.adminSubMenuIsOpen){
+		if (!this.headerStore.adminSubMenuIsOpen) {
 			this.headerStore.adminSubMenuIsOpen = true;
 			$('.dropdown.open').removeClass('open');
 			$('#linkBtn-admin').focus();
@@ -95,7 +131,10 @@ export default class PSEHeader extends React.Component {
 
 	updateWindowDimensions = _.debounce(() => {
 		this.closeMainMenu();
-	}, 200, { leading: true, trailing: false });
+	}, 200, {
+		leading: true,
+		trailing: false
+	});
 
 	toggleMainMenu = () => {
 		this.headerStore.toggleMainMenu();
@@ -131,16 +170,16 @@ export default class PSEHeader extends React.Component {
 	};
 
 	toggleContentScrolling() {
-    if (this.headerStore.mainMenuIsOpen) {
-      $('body:not(.fnnav__main)').css('overflow', 'hidden');
-      $('body:not(.fnnav__main)').css('position', 'fixed');
-      $('body').css('width', '100%');
-    } else {
-      $('body').css('overflow', 'auto');
-      $('body').css('position', 'relative');
-      $('body').css('width', 'auto');
-    }
-  }
+		if (this.headerStore.mainMenuIsOpen) {
+			$('body:not(.fnnav__main)').css('overflow', 'hidden');
+			$('body:not(.fnnav__main)').css('position', 'fixed');
+			$('body').css('width', '100%');
+		} else {
+			$('body').css('overflow', 'auto');
+			$('body').css('position', 'relative');
+			$('body').css('width', 'auto');
+		}
+	}
 
 	renderProfileBlock = () => {
 		return (
@@ -155,7 +194,7 @@ export default class PSEHeader extends React.Component {
 	}
 
 	renderBrandArea = () => {
-		return(
+		return (
 			<div className="fnnav__header">
 				<div className="fnnav__brand">
 					<Link className="logo-home-link" to="/">
@@ -179,7 +218,7 @@ export default class PSEHeader extends React.Component {
 	}
 
 	renderMobileOnlyUserMenu = () => {
-		return(
+		return (
 			<li className="mainnav-item yellow" role="presentation">
 				<button
 					className="btnSubmenu"

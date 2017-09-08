@@ -9,6 +9,7 @@ import {geolinkStore} from './geolink.store';
 import {feedbackStore} from './feedback.store';
 import {mdmStore} from './mdm.store';
 import {userStore} from './user.store';
+import {joyrideStore} from './joyride.store';
 
 class PSEStore {
 	constructor() {
@@ -22,6 +23,7 @@ class PSEStore {
 		this.feedbackStore = feedbackStore;
 		this.mdmStore = mdmStore;
 		this.userStore = userStore;
+		this.joyrideStore = joyrideStore;
 	}
 
 	getUser() {
