@@ -1,12 +1,17 @@
 import {
 	action,
-	observable
+	observable,
+	isObservable,
 } from 'mobx';
 
 class JoyrideStore {
 
 	@action initJoyride(joyrideRef) {
-    this.joyride = joyrideRef;
+		console.log('joyrideRef', joyrideRef);
+    // extendObservable(this.joyride, joyrideRef);
+		// console.log('isObservable', isObservable(this.joyride));
+		this.joyride = joyrideRef;
+		console.log('this.joyRide', this.joyride);
 		setTimeout(() => {
 			this.isReady = true;
 			this.isRunning = true;
@@ -22,14 +27,18 @@ class JoyrideStore {
 			return false;
 		}
 
-		this.steps = this.steps.concat(this.joyride.parseSteps(steps));
+		this.steps = this.steps.concat(steps);
 	}
 
 	@action addJoyrideTooltip(data) {
 		this.joyride.addTooltip(data);
 	}
 
-  @observable joyride = {};
+	@action joyrideStart() {
+		this.joyride.start();
+	}
+
+  joyride = {};
 	@observable joyrideOverlay = true;
 	@observable joyrideType = 'continuous';
 	@observable isReady = false;

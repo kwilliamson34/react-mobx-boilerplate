@@ -40,6 +40,7 @@ export default class ScrollToTop extends React.Component {
 		this.updateWindowDimensions();
 		window.addEventListener('resize', this.updateWindowDimensions);
 		window.addEventListener('scroll', this.manageBackToTopVisibility);
+		console.log('this.joyride', this.joyride);
 		this.joyrideStore.initJoyride(this.joyride);
 	}
 

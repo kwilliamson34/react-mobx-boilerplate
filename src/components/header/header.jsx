@@ -106,8 +106,11 @@ export default class PSEHeader extends React.Component {
 				}
 			}
 		}
-		this.joyrideStore.addJoyrideSteps(headerstep);
-		this.joyrideStore.start();
+		$( () => {
+			this.joyrideStore.addJoyrideSteps(headerstep);
+			console.log('steps', this.joyrideStore.steps);
+			// this.joyrideStore.joyrideStart();
+		});
 	}
 
 	componentWillUnmount() {
