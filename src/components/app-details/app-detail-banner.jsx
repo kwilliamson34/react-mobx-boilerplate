@@ -25,8 +25,8 @@ export class AppDetailBanner extends React.Component {
 
   componentWillMount() {
     this.appStore = this.props.appCatalogStore;
+    
     this.appStore.setCurrentApp(this.props.pskToRender);
-
     if(!this.appStore.currentAppObject || !this.appStore.currentAppObject.detailsFetched) {
       this.appStore.fetchAppDetailByPsk(this.props.pskToRender);
     }
@@ -80,11 +80,11 @@ export class AppDetailBanner extends React.Component {
           <strong>Version:&nbsp;</strong>
           {this.appStore.currentAppObject.version ? this.appStore.currentAppObject.version.version_num : ''}
         </p>
-        {dateToRender && <p className="updated">
+        <p className="updated">
           <strong>Released:&nbsp;</strong>
           <br className="hidden-xs hidden-md hidden-lg"/>
-          {dateToRender}
-        </p>}
+          {dateToRender ? dateToRender : ''}
+        </p>
         <p className="platform">
           <strong>Platform:&nbsp;</strong>
           {this.properCaseOS(this.appStore.currentAppObject.platform)}

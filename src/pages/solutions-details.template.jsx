@@ -42,6 +42,9 @@ export default class SolutionsDetailsTemplate extends React.Component {
     const solutionDetail = this.externalLinkStore.currentSolutionDetail;
     if(this.externalLinkStore.hasValidRelatedApp(solutionDetail)) {
       this.appCatalogStore.setCurrentApp(solutionDetail.related_app_psk);
+      if(!this.appCatalogStore.currentAppObject || !this.appCatalogStore.currentAppObject.detailsFetched) {
+        this.appCatalogStore.fetchAppDetailByPsk(solutionDetail.related_app_psk);
+      }
     }
   }
 
@@ -82,7 +85,7 @@ export default class SolutionsDetailsTemplate extends React.Component {
             </section>
           </div>
 
-          {this.externalLinkStore.hasValidRelatedApp(solutionDetail) &&
+          {this.externalLinkStore.hasValidRelatedApp(solutionDetail) && this.appCatalogStore.currentAppObject.app_psk &&
             <div className="row">
               <section className="col-xs-12 col-lg-offset-1 col-lg-10 app-details-section">
                 <h2>Related App</h2>
