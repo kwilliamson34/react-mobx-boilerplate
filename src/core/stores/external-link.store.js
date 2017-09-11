@@ -78,7 +78,7 @@ class ExternalLinkStore {
     }
   }
 
-  @action hasRelatedApp(solutionObject) {
+  @action hasValidRelatedApp(solutionObject) {
     if(solutionObject.related_app_psk) {
       const digitsRegex = /^[0-9]+$/;
       return digitsRegex.test(solutionObject.related_app_psk);

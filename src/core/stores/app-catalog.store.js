@@ -26,7 +26,7 @@ class AppCatalogStore {
 	@action setCurrentApp(psk){
 		this.currentAppObject = this.allApps.filter((app) => {
 			return psk.toString() == app.app_psk.toString();
-		})[0];
+		})[0] || {};
 	}
 
 	@action getMatchingApp(psk){
