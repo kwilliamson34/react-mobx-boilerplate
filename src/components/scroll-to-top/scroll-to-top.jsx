@@ -1,13 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {history} from '../../core/services/history.service';
-import { observer, inject } from 'mobx-react';
 import _ from 'lodash';
 import $ from 'jquery';
-import Joyride from 'react-joyride';
+import JoyrideBase from '../joyride-base/joyride-base';
 
-@inject('store')
-@observer
 export default class ScrollToTop extends React.Component {
 	static propTypes = {
 		children: PropTypes.node,
@@ -25,7 +22,6 @@ export default class ScrollToTop extends React.Component {
 			viewportWidth: 0,
 			showBackToTopBtn: false
 		}
-		this.joyrideStore = this.props.store.joyrideStore;
 	}
 
 	componentDidUpdate() {
@@ -40,13 +36,6 @@ export default class ScrollToTop extends React.Component {
 		this.updateWindowDimensions();
 		window.addEventListener('resize', this.updateWindowDimensions);
 		window.addEventListener('scroll', this.manageBackToTopVisibility);
-		console.log('this.joyride', this.joyride);
-		this.joyrideStore.initJoyride(this.joyride);
-		// init joyride
-		$(() => {
-			//this.joyrideStore.addJoyrideSteps();
-			console.log('steps', this.joyrideStore.steps);
-		});
 	}
 
 	componentWillUnmount() {
@@ -127,13 +116,7 @@ export default class ScrollToTop extends React.Component {
 				<span id="root-anchor" ref={ref => this.rootAnchor = ref} className="sr-only" tabIndex="-1">
 					Top of Page
 				</span>
-				<Joyride
-					ref={c => (this.joyride = c)}
-					steps={this.joyrideStore.steps}
-					run={this.joyrideStore.isReady}
-					showOverlay={this.joyrideStore.joyrideOverlay}
-					type={this.joyrideStore.joyrideType}
-				/>
+				<JoyrideBase />
 				{this.props.children}
 				<a id="btn-back-top" href="#" className={`back-to-top btn ${!this.state.showBackToTopBtn && 'faded'}`} onClick={this.handleBackToTopClick}>
 					<i aria-hidden="true" className="icon-arrowUp"/>
