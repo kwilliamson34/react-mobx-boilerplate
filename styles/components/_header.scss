@@ -128,7 +128,7 @@ $fn-mobile-item-height: 60px;
       }
     }
 
-    > li:not(:last-child) {
+    li:not(:last-child) {
       border-bottom: 1px solid $mobile-border-grey;
     }
   }
