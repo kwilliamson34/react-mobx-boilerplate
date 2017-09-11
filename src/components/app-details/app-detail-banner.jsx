@@ -65,7 +65,7 @@ export class AppDetailBanner extends React.Component {
   details() {
     //normalize the date string, variant formats of which have caused unpredictable behavior.
     const newDate = this.data.custom_metadata ? this.data.custom_metadata.release_date.split('T')[0] : '';
-    const dateToRender = isValid(new Date(newDate)) ? dateFns(newDate, 'MMMM DD, YYYY') : 'Invalid Date';
+    const dateToRender = isValid(new Date(newDate)) ? dateFns(newDate, 'MMM DD, YYYY') : 'Invalid Date';
 
     return (
       <div className="app-details">
