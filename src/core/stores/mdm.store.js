@@ -100,22 +100,6 @@ class MDMStore {
     }
   }
 
-  @action removeSuccessAlerts(alertList) {
-    for(var i = 0; i < alertList.length; i++) {
-      if(alertList[i].type === 'success') {
-        alertList.splice(i, 1);
-      }
-    }
-  }
-
-  @action removeErrorAlerts(alertList) {
-    for(var i = 0; i < alertList.length; i++) {
-      if(alertList[i].type === 'error') {
-        alertList.splice(i, 1);
-      }
-    }
-  }
-
   @action clearAlerts(args) {
     this.mdm_form_alerts = [];
     this.manage_apps_alerts = [];
@@ -129,17 +113,17 @@ class MDMStore {
   }
 
   @action addPushErrorAlert(psk) {
-    this.removeErrorAlerts(this.manage_apps_alerts);
-
     //add to reference list if not already there
     if(!this.appsReferencedByErrorAlert.find(item => item == psk)) {
       this.appsReferencedByErrorAlert.push(psk);
     }
 
     //show alert on Manage Apps page
-    this.showErrorAlert({
+    this.updateAlert({
       alertList: this.manage_apps_alerts,
-      message: this.pushFailMultiple
+      type: 'error',
+      message: this.pushFailMultiple,
+      psk: 'generic_error'
     });
 
     if(psk) {
@@ -154,17 +138,17 @@ class MDMStore {
   }
 
   @action addPushSuccessAlert(psk) {
-    this.removeSuccessAlerts(this.manage_apps_alerts);
-
     //add to reference list if not already there
     if(!this.appsReferencedBySuccessAlert.find(item => item == psk)) {
       this.appsReferencedBySuccessAlert.push(psk);
     }
 
     //show alert on Manage Apps page
-    this.showSuccessAlert({
+    this.updateAlert({
       alertList: this.manage_apps_alerts,
-      message: this.pushSuccessMultiple
+      type: 'success',
+      message: this.pushSuccessMultiple,
+      psk: 'generic_success'
     });
 
     if(psk) {
@@ -188,8 +172,8 @@ class MDMStore {
   @action updateAlert({alertList = this.mdm_form_alerts, type = 'error', message, psk}) {
     let alertForThisPsk = alertList.filter(alert => {
       return alert.psk === psk;
-    });
-    if(alertForThisPsk[0]) {
+    })[0];
+    if(alertForThisPsk) {
       alertForThisPsk.type = type;
       alertForThisPsk.headline = type === 'error' ? 'Error: ' : 'Success! ';
       alertForThisPsk.message = message;
