@@ -25,7 +25,7 @@ export class AppDetailBanner extends React.Component {
 
   componentWillMount() {
     this.appStore = this.props.appCatalogStore;
-    
+
     this.appStore.setCurrentApp(this.props.pskToRender);
     if(!this.appStore.currentAppObject || !this.appStore.currentAppObject.detailsFetched) {
       this.appStore.fetchAppDetailByPsk(this.props.pskToRender);
@@ -72,7 +72,7 @@ export class AppDetailBanner extends React.Component {
   details() {
     //normalize the date string, variant formats of which have caused unpredictable behavior.
     const newDate = this.appStore.currentAppObject.custom_metadata ? this.appStore.currentAppObject.custom_metadata.release_date.split('T')[0] : '';
-    const dateToRender = isValid(new Date(newDate)) ? dateFns(newDate, 'MMMM DD, YYYY') : '';
+    const dateToRender = isValid(new Date(newDate)) ? dateFns(newDate, 'MMM DD, YYYY') : '';
 
     return (
       <div className="app-details">
