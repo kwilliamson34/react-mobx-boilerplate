@@ -38,13 +38,12 @@ export default class SolutionsDetailsTemplate extends React.Component {
 
   fetchSolutionDetails(solutionPath) {
     this.externalLinkStore.fetchSolutionDetails({solutionPath, setAsCurrent: true});
+
     const solutionDetail = this.externalLinkStore.currentSolutionDetail;
-    if(this.externalLinkStore.hasRelatedApp(solutionDetail)) {
-      const psk = solutionDetail.related_app_psk
-      if(this.appCatalogStore.getMatchingApp(psk)) {
-        this.appCatalogStore.setCurrentApp(psk)
-      } else {
-        this.appCatalogStore.fetchAppDetailByPsk(psk);
+    if(this.externalLinkStore.hasValidRelatedApp(solutionDetail)) {
+      this.appCatalogStore.setCurrentApp(solutionDetail.related_app_psk);
+      if(!this.appCatalogStore.currentAppObject || !this.appCatalogStore.currentAppObject.detailsFetched) {
+        this.appCatalogStore.fetchAppDetailByPsk(solutionDetail.related_app_psk);
       }
     }
   }
@@ -86,12 +85,15 @@ export default class SolutionsDetailsTemplate extends React.Component {
             </section>
           </div>
 
-          {this.externalLinkStore.hasRelatedApp(solutionDetail) && this.appCatalogStore.currentAppObject &&
+          {this.externalLinkStore.hasValidRelatedApp(solutionDetail) && this.appCatalogStore.currentAppObject.app_psk &&
             <div className="row">
               <section className="col-xs-12 col-lg-offset-1 col-lg-10 app-details-section">
                 <h2>Related App</h2>
                 <hr />
-                <AppDetailBanner actionBlock="link_to_details" appCatalogStore={this.appCatalogStore}/>
+                <AppDetailBanner
+                  pskToRender={solutionDetail.related_app_psk}
+                  actionBlock="link_to_details"
+                  appCatalogStore={this.appCatalogStore}/>
                 <hr />
               </section>
             </div>}

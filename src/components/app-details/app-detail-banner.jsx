@@ -19,31 +19,34 @@ export class AppDetailBanner extends React.Component {
     appCatalogMDMStatuses: PropTypes.object,
     isWithinCard: PropTypes.bool,
     containsPrimaryHeader: PropTypes.bool,
-    actionBlock: PropTypes.string.isRequired
+    actionBlock: PropTypes.string.isRequired,
+    pskToRender: PropTypes.string.isRequired
   }
 
   componentWillMount() {
     this.appStore = this.props.appCatalogStore;
-    this.data = this.props.appCatalogStore.currentAppObject;
+
+    this.appStore.setCurrentApp(this.props.pskToRender);
+    if(!this.appStore.currentAppObject || !this.appStore.currentAppObject.detailsFetched) {
+      this.appStore.fetchAppDetailByPsk(this.props.pskToRender);
+    }
   }
 
   rating() {
+    const reviewCount = this.appStore.currentAppObject.reviews_count;
+    const rating = this.appStore.currentAppObject.rating;
     return (
       <div className="app-rating app-details">
         {/*Mobile*/}
         <div className="hidden-sm hidden-md hidden-lg">
           <span className="rating-as-text">
-            <p>{this.data.rating} Stars</p>
-            <p>{this.data.reviews_count ? this.data.reviews_count : 'No'} Review{this.data.reviews_count === 1 ? '' : 's'}</p>
+            <p>{rating} Stars</p>
+            <p>{reviewCount ? reviewCount : 'No'} Review{reviewCount === 1 ? '' : 's'}</p>
           </span>
         </div>
-        {/*Tablet*/}
-        <div className="hidden-xs hidden-md hidden-lg">
-          <Rating rating={this.data.rating} reviewCount={this.data.reviews_count} showReviewCount={true}/>
-        </div>
-        {/*Desktop*/}
-        <div className="hidden-xs hidden-sm">
-          <Rating rating={this.data.rating} reviewCount={this.data.reviews_count} showReviewCount={true}/>
+        {/*Tablet and Desktop*/}
+        <div className="hidden-xs">
+          <Rating rating={rating} reviewCount={reviewCount} showReviewCount={true}/>
         </div>
       </div>
     )
@@ -53,7 +56,7 @@ export class AppDetailBanner extends React.Component {
     const AppNameTag = this.props.containsPrimaryHeader ? 'h1' : 'h3';
     return (
       <div className="app-title">
-        <AppNameTag>{this.data.app_name}</AppNameTag>
+        <AppNameTag>{this.appStore.currentAppObject.app_name || 'Loading app details...'}</AppNameTag>
       </div>
     )
   }
@@ -64,37 +67,37 @@ export class AppDetailBanner extends React.Component {
 
   details() {
     //normalize the date string, variant formats of which have caused unpredictable behavior.
-    const newDate = this.data.custom_metadata ? this.data.custom_metadata.release_date.split('T')[0] : '';
-    const dateToRender = isValid(new Date(newDate)) ? dateFns(newDate, 'MMM DD, YYYY') : 'Invalid Date';
+    const newDate = this.appStore.currentAppObject.custom_metadata ? this.appStore.currentAppObject.custom_metadata.release_date.split('T')[0] : '';
+    const dateToRender = isValid(new Date(newDate)) ? dateFns(newDate, 'MMM DD, YYYY') : '';
 
     return (
       <div className="app-details">
         <p className="version">
           <strong>Version:&nbsp;</strong>
-          {this.data.version ? this.data.version.version_num : ''}
+          {this.appStore.currentAppObject.version ? this.appStore.currentAppObject.version.version_num : ''}
         </p>
         <p className="updated">
           <strong>Released:&nbsp;</strong>
           <br className="hidden-xs hidden-md hidden-lg"/>
-          {dateToRender}
+          {dateToRender ? dateToRender : ''}
         </p>
         <p className="platform">
           <strong>Platform:&nbsp;</strong>
-          {this.properCaseOS(this.data.platform)}
+          {this.properCaseOS(this.appStore.currentAppObject.platform)}
         </p>
       </div>
     )
   }
 
   author() {
-    if (this.data.custom_metadata && this.data.custom_metadata.author) {
-      return <p className="publisher app-details">{this.data.custom_metadata.author}</p>
+    if (this.appStore.currentAppObject.custom_metadata && this.appStore.currentAppObject.custom_metadata.author) {
+      return <p className="publisher app-details">{this.appStore.currentAppObject.custom_metadata.author}</p>
     }
     return '';
   }
 
   certified() {
-    if (this.data.custom_metadata && this.data.custom_metadata.app_type === 'CERTIFIED') {
+    if (this.appStore.currentAppObject.custom_metadata && this.appStore.currentAppObject.custom_metadata.app_type === 'CERTIFIED') {
       return (<p className="certified-app-label app-details">
         <i className="icon icon-check-circle" aria-hidden="true"></i>
         <span>FirstNet Certified</span>
@@ -152,8 +155,8 @@ export class AppDetailBanner extends React.Component {
   actionBlock() {
     if(this.props.actionBlock === 'app_managment_block') {
       return <AppManagementBlock
-              name={this.data.app_name}
-              psk={this.data.app_psk}
+              name={this.appStore.currentAppObject.app_name}
+              psk={this.appStore.currentAppObject.app_psk}
               getMatchingApp={this.appStore.getMatchingApp.bind(this.appStore)}
               changeAppAvailability={this.appStore.changeAppAvailability.bind(this.appStore)}
               changeAppRecommended={this.appStore.changeAppRecommended.bind(this.appStore)}
@@ -163,7 +166,7 @@ export class AppDetailBanner extends React.Component {
     } else if(this.props.actionBlock === 'link_to_details') {
       return (
         <div className="action-block">
-          <Link to={'/app/' + this.data.app_psk} className="fn-primary">Go to App</Link>
+          <Link to={'/app/' + this.appStore.currentAppObject.app_psk} className="fn-primary">Go to App</Link>
         </div>
       )
     }
@@ -185,7 +188,7 @@ export class AppDetailBanner extends React.Component {
             <div className="row">
               <div className="col-xs-4 col-sm-3 col-md-3 col-lg-3 appicon-wrapper">
                 <div className="app-icon">
-                  <img src={this.data.icon_path} alt={this.data.app_name}/>
+                  <img src={this.appStore.currentAppObject.icon_path} alt={this.appStore.currentAppObject.app_name}/>
                 </div>
                 <div className="hidden-sm hidden-md hidden-lg">
                   {this.rating()}

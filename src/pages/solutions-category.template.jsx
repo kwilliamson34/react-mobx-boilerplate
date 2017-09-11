@@ -53,16 +53,16 @@ export default class SolutionsCategoryTemplate extends React.Component {
   renderCards = (solutionsArray) => {
     return solutionsArray.map((solution) => {
       const solutionUrl = `${this.props.match.url}/${utilsService.getDevicesAndSolutionsUrl(solution.promo_title)}`;
-      const hasRelatedApp = this.externalLinkStore.hasRelatedApp(solution);
+      const hasValidRelatedApp = this.externalLinkStore.hasValidRelatedApp(solution);
       return (
         <div key={solution.promo_title} className="col-xs-12 col-sm-6 col-md-6 col-lg-4 solutions-card">
           <div className="card-wrapper has-shadow">
             <Link to={solutionUrl}>
               <div className="card-img-wrapper">
-                {hasRelatedApp
+                {hasValidRelatedApp
                   ? <p className="is-linked">App Available</p>
                   : ''}
-                {hasRelatedApp
+                {hasValidRelatedApp
                   ? <div className="img" style={this.getGradientStyles(solution.promo_image_url)} alt={solution.promo_title}></div>
                   : <div className="img" style={this.getNormalStyles(solution.promo_image_url)} alt={solution.promo_title}></div>}
               </div>
