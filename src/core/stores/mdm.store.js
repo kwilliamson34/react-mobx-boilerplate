@@ -100,6 +100,22 @@ class MDMStore {
     }
   }
 
+  @action removeSuccessAlerts(alertList) {
+    for(var i = 0; i < alertList.length; i++) {
+      if(alertList[i].type === 'success') {
+        alertList.splice(i, 1);
+      }
+    }
+  }
+
+  @action removeErrorAlerts(alertList) {
+    for(var i = 0; i < alertList.length; i++) {
+      if(alertList[i].type === 'error') {
+        alertList.splice(i, 1);
+      }
+    }
+  }
+
   @action clearAlerts(args) {
     this.mdm_form_alerts = [];
     this.manage_apps_alerts = [];
@@ -113,7 +129,7 @@ class MDMStore {
   }
 
   @action addPushErrorAlert(psk) {
-    this.manage_apps_alerts = [];
+    this.removeErrorAlerts(this.manage_apps_alerts);
 
     //add to reference list if not already there
     if(!this.appsReferencedByErrorAlert.find(item => item == psk)) {
@@ -138,10 +154,10 @@ class MDMStore {
   }
 
   @action addPushSuccessAlert(psk) {
-    this.manage_apps_alerts = [];
+    this.removeSuccessAlerts(this.manage_apps_alerts);
 
     //add to reference list if not already there
-    if(!this.appsReferencedByErrorAlert.find(item => item == psk)) {
+    if(!this.appsReferencedBySuccessAlert.find(item => item == psk)) {
       this.appsReferencedBySuccessAlert.push(psk);
     }
 
