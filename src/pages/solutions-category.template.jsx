@@ -45,6 +45,7 @@ export default class SolutionsCategoryTemplate extends React.Component {
   getNormalStyles(imageUrl) {
     return {
       background: `url('${imageUrl}') no-repeat`,
+      backgroundPosition: 'center',
       backgroundSize: 'cover'
     }
   }
