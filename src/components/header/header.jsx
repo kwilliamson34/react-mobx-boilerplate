@@ -146,6 +146,10 @@ export default class PSEHeader extends React.Component {
 		}
 	}
 
+	onToggleWalkthru = () => {
+		this.joyrideStore.toggleWalkthru();
+	}
+
 	renderProfileBlock = () => {
 		return (
 			<div className="multi-line-item">
@@ -407,6 +411,11 @@ export default class PSEHeader extends React.Component {
 											<NavLink to="/feedback" activeClassName="active">
 												Give Us Feedback
 											</NavLink>
+										</li>
+										<li role="presentation">
+											<a href="#" role="button" className="walkthru-toggle" onClick={this.onToggleWalkthru}>
+												{`${this.joyrideStore.showWalkthru ? 'Disable' : 'Enable'}`} Walkthru
+											</a>
 										</li>
 										<li role="presentation">
 											<a href={'tel:' + config.attCustomerSupportPhone} className="tel-cell">

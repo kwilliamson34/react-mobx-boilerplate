@@ -36,7 +36,8 @@
         background: $fn-ltgrey;
       }
 
-      > a {
+      > a,
+      > button {
         line-height: 3.4;
         font-size: $fn-label-desktop;
         text-transform: uppercase;
