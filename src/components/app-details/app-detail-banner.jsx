@@ -44,12 +44,8 @@ export class AppDetailBanner extends React.Component {
             <p>{reviewCount ? reviewCount : 'No'} Review{reviewCount === 1 ? '' : 's'}</p>
           </span>
         </div>
-        {/*Tablet*/}
-        <div className="hidden-xs hidden-md hidden-lg">
-          <Rating rating={rating} reviewCount={reviewCount} showReviewCount={true}/>
-        </div>
-        {/*Desktop*/}
-        <div className="hidden-xs hidden-sm">
+        {/*Tablet and Desktop*/}
+        <div className="hidden-xs">
           <Rating rating={rating} reviewCount={reviewCount} showReviewCount={true}/>
         </div>
       </div>
