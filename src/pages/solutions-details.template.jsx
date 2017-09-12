@@ -85,7 +85,7 @@ export default class SolutionsDetailsTemplate extends React.Component {
             </section>
           </div>
 
-          {this.externalLinkStore.hasValidRelatedApp(solutionDetail) && this.appCatalogStore.currentAppObject.app_psk &&
+          {this.externalLinkStore.hasValidRelatedApp(solutionDetail) && this.appCatalogStore.currentAppObject.detailsFetched &&
             <div className="row">
               <section className="col-xs-12 col-lg-offset-1 col-lg-10 app-details-section">
                 <h2>Related App</h2>
