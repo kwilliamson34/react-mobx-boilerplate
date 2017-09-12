@@ -4,11 +4,7 @@ import {walkthruSteps} from '../../content/walkthru-steps.json';
 class JoyrideStore {
 
 	@action initJoyride(joyrideRef) {
-		console.log('joyrideRef', joyrideRef);
-    // extendObservable(this.joyride, joyrideRef);
-		// console.log('isObservable', isObservable(this.joyride));
 		this.joyride = joyrideRef;
-		console.log('this.joyRide', this.joyride);
 		setTimeout(() => {
 			this.isReady = true;
 			this.isRunning = true;
@@ -67,7 +63,6 @@ class JoyrideStore {
 	@action getWalkthruCookie(cname) {
 		var name = cname + '=';
 		var ca = document.cookie.split(';');
-		console.log('check A');
 		for(var i = 0; i < ca.length; i++) {
 			var c = ca[i];
 			while (c.charAt(0) == ' ') {
@@ -81,9 +76,8 @@ class JoyrideStore {
 	}
 
 	@action checkWalkthruCookie() {
-		console.log('check');
 		var walkthruIsEnabled = this.getWalkthruCookie('FNWalkthru');
-		console.log('check2 ' + walkthruIsEnabled);
+		console.log('xx: '  + walkthruIsEnabled);
 		if (walkthruIsEnabled != '') {
 			return walkthruIsEnabled;
 		} else {
@@ -91,11 +85,10 @@ class JoyrideStore {
 			this.setWalkthruCookie('FNWalkthru', true, 365);
 			return true;
 		}
-
 	}
 
   joyride = {};
-	@observable showWalkthru = this.checkWalkthruCookie();
+	@observable showWalkthru = false;
 	@observable joyrideOverlay = true;
 	@observable joyrideType = 'continuous';
 	@observable isReady = false;

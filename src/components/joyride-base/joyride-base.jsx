@@ -17,13 +17,23 @@ export default class JoyrideBase extends React.Component {
   }
 
   componentDidMount() {
-    this.joyrideStore.initJoyride(this.joyride);
-    // init joyride
-    $(() => {
-      //this.joyrideStore.addJoyrideSteps();
-      console.log('steps', this.joyrideStore.steps);
-    });
+    let cookieVal = this.joyrideStore.checkWalkthruCookie();
+    //check for presence of cookie
+    if(cookieVal){
+      this.joyrideStore.initJoyride();
+    } else if(cookieVal === ''){
+      //no cookie present; show walkthru intro
+      console.log('cookie not present');
+      
+    } else {
+      this.joyrideStore.disableWalkthru();
+    }
   }
+
+  startWalkthru() {
+    this.joyrideStore.initJoyride(this.joyride);
+  }
+
 
   render(){
     return(
@@ -31,7 +41,9 @@ export default class JoyrideBase extends React.Component {
         ref={c => (this.joyride = c)}
         steps={this.joyrideStore.steps}
         run={this.joyrideStore.isReady}
+        autoStart={true}
         showOverlay={this.joyrideStore.joyrideOverlay}
+        type={this.joyrideStore.joyrideType}
       />
     )
   }

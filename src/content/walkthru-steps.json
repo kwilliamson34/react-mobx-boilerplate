@@ -4,53 +4,25 @@
       "title": "Start using the tour",
       "text": "Click on the beacons below to activate the tooltip. To advance click 'NEXT'.",
       "selector": ".fnnav__header",
-      "position": "top",
-      "style": {
-        "mainColor": "#fff",
-        "beacon": {
-          "inner": "#1071BC",
-          "outer": "#1071BC"
-        }
-      }
+      "position": "top"
     },
     {
-      "title": "1. Utility Navigation",
+      "title": "Utility Navigation",
       "text": "Here you can manage your account, get help and contact us.",
       "selector": "#profile-header-dropdown",
-      "position": "top",
-      "style": {
-        "mainColor": "#18477E",
-        "beacon": {
-          "inner": "#1071BC",
-          "outer": "#1071BC"
-        }
-      }
+      "position": "top"
     },
     {
-      "title": "2. Manage Users",
+      "title": "Manage Users",
       "text": "Manage Users here",
       "selector": ".manage-users",
-      "position": "top",
-      "style": {
-        "mainColor": "#18477E",
-        "beacon": {
-          "inner": "#1071BC",
-          "outer": "#1071BC"
-        }
-      }
+      "position": "top"
     },
     {
       "title": "Map Overlays",
       "text": "Start using the <strong>joyride</strong>",
       "selector": ".coverage-layers",
-      "position": "top",
-      "style": {
-        "mainColor": "#a350f0",
-        "beacon": {
-          "inner": "#1071BC",
-          "outer": "#1071BC"
-        }
-      }
+      "position": "top"
     }
   ]
 }
