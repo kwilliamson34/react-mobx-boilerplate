@@ -12,7 +12,7 @@
 
 		img {
 			width: 100%;
-			max-width: 220px;
+			max-width: 250px;
 		}
 	}
 
@@ -23,8 +23,17 @@
 			padding: 40px 30px;
 		}
 
+		h1{
+			margin-bottom: 30px;
+		}
+
 		p {
-			margin-top: 30px;
+			margin-bottom: 40px;
+
+			&:empty{
+				min-height: 1px;
+				margin-bottom: 10px;
+			}
 		}
 
 		a,
@@ -35,6 +44,9 @@
 	}
 
 	.sites-list {
+		li a{
+			font-size: $fn-content-page-text-desktop;
+		}
 		li:not(:last-child) {
 			margin-bottom: 30px;
 		}
@@ -105,12 +117,8 @@ section.session-timeout {
 	.success-page {
 		padding: 100px 0;
 
-		.logo-container img{
-			max-width: 320px;
-		}
-
-		.container {
-			> div {
+		.container{
+			> div{
 				padding: 60px 65px;
 			}
 			a,
@@ -135,10 +143,6 @@ section.session-timeout {
 	.error-page,
 	.success-page {
 		padding: 120px 0;
-
-		.logo-container img {
-			max-width: 320px;
-		}
 
 		.container {
 			> div {

@@ -39,8 +39,8 @@ export default class ErrorPage extends React.Component {
       body_content = 'Unfortunately, you do not have permission to view this page. If you think this is in error, please contact your site administrator, or continue to one of the FirstNet Sites below:';
       showLogout = true;
     } else if (this.props.cause === '404') {
-      title = 'We\'re Sorry.';
-      body_content = 'The page you were looking for could not be found.';
+      title = 'This page could not be found.';
+      body_content = '';
       showLinksforOtherPortals = false;
       showLinkToGoBack = true;
     } else if (this.props.cause === '410') {
@@ -54,7 +54,7 @@ export default class ErrorPage extends React.Component {
       showLinksforOtherPortals = false;
       showLinkToGoBack = true;
     } else {
-      title = 'We\'re Sorry.';
+      title = 'This page could not be reached.';
       body_content = 'This page is experiencing an issue. Try again later, or continue to one of the FirstNet Sites below:';
     }
 
@@ -84,7 +84,7 @@ export default class ErrorPage extends React.Component {
             }
             {showLinkToGoBack &&
               <section>
-                <button type="button" className="as-link" onClick={() => {history.go(-1)}}>Go Back</button>
+                <button type="button" className="fn-primary" onClick={() => {history.go(-1)}}>Go Back</button>
               </section>
             }
             {showLinkToGoHome &&
