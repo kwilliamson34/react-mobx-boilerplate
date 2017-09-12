@@ -1,41 +1,41 @@
 {
   "walkthruSteps": [
     {
-      "title": "Logo",
-      "text": "Start using the <strong>joyride</strong>",
+      "title": "Start using the tour",
+      "text": "Click on the beacons below to activate the tooltip. To advance click 'NEXT'.",
       "selector": ".fnnav__header",
       "position": "top",
       "style": {
-        "mainColor": "#a350f0",
+        "mainColor": "#fff",
         "beacon": {
-          "inner": "#333",
-          "outer": "#333"
+          "inner": "#1071BC",
+          "outer": "#1071BC"
         }
       }
     },
     {
-      "title": "Profile",
-      "text": "Start using the <strong>joyride</strong>",
+      "title": "1. Utility Navigation",
+      "text": "Here you can manage your account, get help and contact us.",
       "selector": "#profile-header-dropdown",
       "position": "top",
       "style": {
-        "mainColor": "#a350f0",
+        "mainColor": "#18477E",
         "beacon": {
-          "inner": "#a350f0",
-          "outer": "#a350f0"
+          "inner": "#1071BC",
+          "outer": "#1071BC"
         }
       }
     },
     {
-      "title": "Manage Users",
-      "text": "Start using the <strong>joyride</strong>",
+      "title": "2. Manage Users",
+      "text": "Manage Users here",
       "selector": ".manage-users",
       "position": "top",
       "style": {
-        "mainColor": "#a350f0",
+        "mainColor": "#18477E",
         "beacon": {
-          "inner": "#a350f0",
-          "outer": "#a350f0"
+          "inner": "#1071BC",
+          "outer": "#1071BC"
         }
       }
     },
@@ -47,8 +47,8 @@
       "style": {
         "mainColor": "#a350f0",
         "beacon": {
-          "inner": "#a350f0",
-          "outer": "#a350f0"
+          "inner": "#1071BC",
+          "outer": "#1071BC"
         }
       }
     }
