@@ -55,3 +55,8 @@ form p {
 hr {
   border-color: $fn-grey;
 }
+
+h1 + hr,
+h2 + hr {
+  border-color: $fn-header-hr-grey;
+}
