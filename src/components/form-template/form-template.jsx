@@ -14,6 +14,8 @@ export class FormTemplate extends React.Component {
     onBlur: PropTypes.func,
     refList: PropTypes.array,
     submitButtonDisabled: PropTypes.bool,
+    allCheckboxesChecked: PropTypes.bool,
+    anyCheckboxesChecked: PropTypes.bool,
     submitButtonText: PropTypes.string,
     errorBody: PropTypes.string,
     toggleAlertBar: PropTypes.func
@@ -84,9 +86,9 @@ export class FormTemplate extends React.Component {
     )
   }
 
-  handleSelectAllButton = (refList) => {
+  handleSelectAllCheckbox = (refList) => {
     for (let key in refList.elements) {
-      if (refList.elements[key].localName === 'input' && !refList.elements[key].checked) {
+      if (refList.elements[key].localName === 'input' && refList.elements[key].checked === this.props.allCheckboxesChecked) {
         refList.elements[key].click();
       }
     }
@@ -103,20 +105,22 @@ export class FormTemplate extends React.Component {
   renderCheckbox = ({id, label, genericLabel, hasError, required, checkboxList, showSelectionButtons}) => {
     let refList = this.props.refList || this.localRefList;
     return (
-      <div className={`form-group has-feedback ${id} ${hasError ? 'has-error' : ''}`} key={id}>
+      <div className={`form-group has-feedback ${id + '-class'} ${!this.props.anyCheckboxesChecked ? 'has-error' : ''}`} key={id}>
       <label className="control-label" htmlFor={id}>{label}
         {required &&
           <span className="required-asterisks"> *</span>
         }
       </label>
-      {hasError && <div className="msgBlock error error-list" role="alert" aria-live="assertive">
+      {!this.props.anyCheckboxesChecked && <div className="msgBlock error error-list" role="alert" aria-live="assertive">
         <span>Please select {genericLabel || label.toLowerCase()}.</span>
       </div>}
       {showSelectionButtons &&
         <div className="selection-buttons">
-          <button type="button" className="select-all-button" onClick={() => this.handleSelectAllButton(refList[id])}>
-            Select All
-          </button>
+          <label>
+            <input type="checkbox" name="select-all-checkbox" className="select-all-checkbox" checked={this.props.allCheckboxesChecked} value="" onClick={() => this.handleSelectAllCheckbox(refList[id])}/>
+            <span className="cr"></span>
+            <span className="select-all-description">Select All</span>
+          </label>
           <button type="button" className="clear-all-button" onClick={() => this.handleClearAllButton(refList[id])}>
             Clear All
           </button>

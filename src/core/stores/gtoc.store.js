@@ -8,9 +8,10 @@ class GTOCStore {
   //Form event handler actions
   @action handleChange(e) {
     let input = e.target;
+    console.log('input', input);
     if(input.id === 'gtoc_email') {
       this.gtocObject[input.id] = input.value;
-    } else if (input.type === 'checkbox') {
+    } else if (input.type === 'checkbox' && input.name !== 'select-all-checkbox') {
       this.gtocObject.gtoc_femaList.indexOf(input.value) < 0
         ? this.gtocObject.gtoc_femaList.push(input.value)
         : this.gtocObject.gtoc_femaList.remove(input.value);
@@ -148,6 +149,14 @@ class GTOCStore {
     return !this.isEmpty(this.gtocObject.gtoc_email);
   }
 
+  @computed get allCheckboxesChecked() {
+    console.log(this.gtocObject.gtoc_femaList);
+    return this.gtocObject.gtoc_femaList.length === 10;
+  }
+
+  @computed get anyCheckboxesChecked() {
+    return this.gtocObject.gtoc_femaList.length > 0;
+  }
 
   @observable showExitModal = false;
   @observable interceptedRoute = '';
