@@ -37,11 +37,11 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      align-items: flex-end;
+      align-items: baseline;
       margin-top: 15px;
+      border: none;
 
       button {
-        line-height: 30px;
         width: 110px;
         background: none;
         font-size: $fn-button-desktop;
@@ -59,9 +59,18 @@
           @include focus();
         }
       }
+      .checkbox {
+        font-size: $fn-label-desktop;
+        font-weight: $fn-bold-weight;
+        //override default alert text color
+        color: $fn-black;
+        .select-all-description {
+          margin-left: 5px;
+        }
+      }
     }
 
-    .checkbox {
+    .template-checkbox {
       margin-top: 20px;
       vertical-align: middle;
       border-bottom: 1px solid $fn-grey;
@@ -90,7 +99,8 @@
       }
 
       &:first-of-type {
-        padding-top: 15px;
+        padding-top: 20px;
+        margin-top: 0px;
         border-top: 1px solid $fn-mdgrey;
       }
 
@@ -111,14 +121,16 @@
 }
 @media #{$mobile} {
   #subscribe-to-gtoc-page {
-    .content-wrapper h1 {
-      margin: 3rem 0;
+    .content-wrapper {
+      h1 {
+        margin: 3rem 0;
+      }
     }
   }
 }
 @media #{$tablet, $desktop} {
   #subscribe-to-gtoc-page {
-    .gtoc_email {
+    .gtoc_email-class {
       margin-top: 60px;
     }
 

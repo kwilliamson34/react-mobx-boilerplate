@@ -185,6 +185,8 @@ export default class SubscribeToGTOC extends React.Component {
                   errorBody={this.gtocStore.showAlertBar ? 'Please correct the errors below.' : ''}
                   toggleAlertBar={this.gtocStore.toggleAlertBar.bind(this.gtocStore)}
                   selectAllButtonChecked={this.gtocStore.selectAllButtonChecked}
+                  allCheckboxesChecked={this.gtocStore.allCheckboxesChecked}
+                  checkboxListHasError={this.gtocStore.checkboxListHasError}
                   submitButtonDisabled={!this.gtocStore.requiredFieldsEntered}
                   submitButtonText='Subscribe'/>
               </section>
