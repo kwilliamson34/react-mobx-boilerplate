@@ -42,7 +42,6 @@
       border: none;
 
       button {
-        line-height: 30px;
         width: 110px;
         background: none;
         font-size: $fn-button-desktop;
@@ -61,11 +60,13 @@
         }
       }
       .checkbox {
-        line-height: 30px;
         font-size: $fn-label-desktop;
         font-weight: $fn-bold-weight;
         //override default alert text color
         color: $fn-black;
+        .select-all-description {
+          margin-left: 5px;
+        }
       }
     }
 
@@ -98,7 +99,7 @@
       }
 
       &:first-of-type {
-        padding-top: 15px;
+        padding-top: 20px;
         margin-top: 0px;
         border-top: 1px solid $fn-mdgrey;
       }

@@ -8,7 +8,6 @@ class GTOCStore {
   //Form event handler actions
   @action handleChange(e) {
     let input = e.target;
-    console.log('input', input);
     if(input.id === 'gtoc_email') {
       this.gtocObject[input.id] = input.value;
     } else if (input.type === 'checkbox' && input.name !== 'select-all-checkbox') {
@@ -117,6 +116,7 @@ class GTOCStore {
   @action clearForm() {
     this.showExitModal = false;
     this.showAlertBar = false;
+    this.initialized = false;
     this.gtocObject = {
       gtoc_email: '',
       gtoc_femaList: []
