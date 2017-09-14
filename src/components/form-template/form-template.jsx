@@ -17,7 +17,6 @@ export class FormTemplate extends React.Component {
     refList: PropTypes.array,
     submitButtonDisabled: PropTypes.bool,
     allCheckboxesChecked: PropTypes.bool,
-    checkboxListHasError: PropTypes.bool,
     submitButtonText: PropTypes.string,
     errorBody: PropTypes.string,
     toggleAlertBar: PropTypes.func,
@@ -129,13 +128,13 @@ export class FormTemplate extends React.Component {
   renderCheckbox = ({id, label, genericLabel, hasError, required, checkboxList, showSelectionButtons}) => {
     let refList = this.props.refList || this.localRefList;
     return (
-      <div className={`form-group has-feedback ${id + '-class'} ${this.props.checkboxListHasError ? 'has-error' : ''}`} key={id}>
+      <div className={`form-group has-feedback ${id + '-class'} ${hasError ? 'has-error' : ''}`} key={id}>
       <label className="control-label" htmlFor={id}>{label}
         {required &&
           <span className="required-asterisks"> *</span>
         }
       </label>
-      {this.props.checkboxListHasError && <div className="msgBlock error error-list" role="alert" aria-live="assertive">
+      {hasError && <div className="msgBlock error error-list" role="alert" aria-live="assertive">
         <span>Please select {genericLabel || label.toLowerCase()}.</span>
       </div>}
       {showSelectionButtons &&
