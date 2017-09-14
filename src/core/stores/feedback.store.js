@@ -43,8 +43,7 @@ class FeedbackStore {
         history.push('/feedback-success');
       }
       const failure = (res) => {
-        //prevent the unsaved changes modal from showing, and change history to allow user to navigate back to here from error page.
-        this.disableSaveDialogs();
+        //change history to allow user to navigate back to here from error page.
         history.push('/feedback');
         utilsService.handleError(res);
       }
@@ -79,7 +78,6 @@ class FeedbackStore {
   }
 
   @action clearForm() {
-    this.showExitModal = false;
     this.showAlertBar = false;
     for (let key in this.feedbackObject) {
       if (key === 'feedback_email') {

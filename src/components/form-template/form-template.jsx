@@ -47,6 +47,11 @@ export class FormTemplate extends React.Component {
     this.unblock();
   }
 
+  //TODO onChange, updateProperty (then remove from stores)
+  //TODO onClick, updateArray (then remove from stores)
+  //TODO onBlur, if required, validateInput (then remove from stores)
+  //TODO onSubmit, if formIsValid, submit it (then update funciton in stores)
+
   renderSubmitButton = () => {
     return (
       <div className="form-group text-center">

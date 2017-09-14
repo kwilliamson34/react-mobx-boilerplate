@@ -44,8 +44,7 @@ class GTOCStore {
         history.push('/subscribe-to-alerts-success');
       }
       const failure = (res) => {
-        //prevent the unsaved changes modal from showing, and change history to allow user to navigate back to here from error page.
-        this.disableSaveDialogs();
+        //change history to allow user to navigate back to here from error page.
         history.push('/subscribe-to-alerts');
         utilsService.handleError(res);
       }
@@ -82,7 +81,6 @@ class GTOCStore {
   }
 
   @action clearForm() {
-    this.showExitModal = false;
     this.showAlertBar = false;
     this.gtocObject = {
       gtoc_email: '',
