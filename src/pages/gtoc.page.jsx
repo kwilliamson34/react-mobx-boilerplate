@@ -119,6 +119,8 @@ export default class SubscribeToGTOC extends React.Component {
                   clearForm={this.gtocStore.clearForm.bind(this.gtocStore)}
                   formHasEntries={this.gtocStore.formHasEntries}
                   selectAllButtonChecked={this.gtocStore.selectAllButtonChecked}
+                  allCheckboxesChecked={this.gtocStore.allCheckboxesChecked}
+                  checkboxListHasError={this.gtocStore.checkboxListHasError}
                   submitButtonDisabled={!this.gtocStore.requiredFieldsEntered}
                   submitButtonText='Subscribe'/>
               </section>
