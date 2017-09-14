@@ -75,7 +75,7 @@ export default class SubscribeToGTOC extends React.Component {
         checkboxList: checkboxList,
         checkedByDefault: false,
         showSelectionButtons: true,
-        hasError: this.gtocStore.hasErrors.gtoc_femaList
+        hasError: this.gtocStore.checkboxListHasError
       },
       {
         id: 'gtoc_email',
@@ -120,7 +120,6 @@ export default class SubscribeToGTOC extends React.Component {
                   formHasEntries={this.gtocStore.formHasEntries}
                   selectAllButtonChecked={this.gtocStore.selectAllButtonChecked}
                   allCheckboxesChecked={this.gtocStore.allCheckboxesChecked}
-                  checkboxListHasError={this.gtocStore.checkboxListHasError}
                   submitButtonDisabled={!this.gtocStore.requiredFieldsEntered}
                   submitButtonText='Subscribe'/>
               </section>
