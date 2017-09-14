@@ -11,20 +11,16 @@ class GTOCStore {
     if(input.id === 'gtoc_email') {
       this.gtocObject[input.id] = input.value;
     } else if (input.type === 'checkbox' && input.name !== 'select-all-checkbox') {
-      if (!this.initialized) this.initialized = true;
       this.gtocObject.gtoc_femaList.indexOf(input.value) < 0
         ? this.gtocObject.gtoc_femaList.push(input.value)
         : this.gtocObject.gtoc_femaList.remove(input.value);
     }
+    this.validateInput(input);
   }
 
   @action handleBlur(e) {
     e.preventDefault();
-    let input = e.target;
-    this.validateInput(input);
-    if (this.showAlertBar && this.requiredFieldsEntered) {
-      this.toggleAlertBar();
-    }
+    this.validateInput(e.target);
   }
 
   @action handleSubmit(e) {
@@ -70,9 +66,13 @@ class GTOCStore {
   @action validateInput(input) {
     if (input.id === 'gtoc_email') {
       this.hasErrors.gtoc_email = this.isEmpty(input.value) || !utilsService.isValidEmailAddress(input.value);
-    }
-    else if(input.type === 'checkbox'){
+    } else if(input.type === 'checkbox'){
       this.hasErrors.gtoc_femaList = this.gtocObject.gtoc_femaList.length === 0;
+    }
+
+    //hide alert bar if all problems are corrected
+    if (this.formIsValid) {
+      this.showAlertBar = false;
     }
   }
 
@@ -83,7 +83,6 @@ class GTOCStore {
 
   @action clearForm() {
     this.showAlertBar = false;
-    this.initialized = false;
     this.gtocObject = {
       gtoc_email: '',
       gtoc_femaList: []
@@ -121,11 +120,6 @@ class GTOCStore {
     return this.gtocObject.gtoc_femaList.length === 10;
   }
 
-  @computed get checkboxListHasError() {
-      return this.initialized && this.gtocObject.gtoc_femaList.length === 0;
-    }
-
-  @observable initialized = false;
   @observable showAlertBar = false;
   @observable gtocObject = {
     gtoc_email: '',
