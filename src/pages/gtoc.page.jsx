@@ -170,7 +170,7 @@ export default class SubscribeToGTOC extends React.Component {
               <div className="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
                 <figure>
                   <figcaption>FEMA Regions Map</figcaption>
-                  <img src="/images/fema-regions-map.png" alt=""/>
+                  <img className="img-responsive" src="/images/fema-regions-map.png" alt=""/>
                 </figure>
               </div>
             </div>
