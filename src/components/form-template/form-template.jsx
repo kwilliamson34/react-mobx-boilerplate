@@ -15,7 +15,7 @@ export class FormTemplate extends React.Component {
     refList: PropTypes.array,
     submitButtonDisabled: PropTypes.bool,
     allCheckboxesChecked: PropTypes.bool,
-    anyCheckboxesChecked: PropTypes.bool,
+    checkboxListHasError: PropTypes.bool,
     submitButtonText: PropTypes.string,
     errorBody: PropTypes.string,
     toggleAlertBar: PropTypes.func
@@ -64,7 +64,7 @@ export class FormTemplate extends React.Component {
     let Tag = type === 'textarea' ? 'textarea' : 'input';
     let refList = this.props.refList || this.localRefList;
     return (
-      <div className={`form-group has-feedback ${hasError ? 'has-error' : ''}`} key={id}>
+      <div className={`form-group has-feedback ${id + '-class'} ${hasError ? 'has-error' : ''}`} key={id}>
         <label className="control-label" htmlFor={id}>{label}
           {required &&
             <span className="required-asterisks"> *</span>
@@ -105,22 +105,24 @@ export class FormTemplate extends React.Component {
   renderCheckbox = ({id, label, genericLabel, hasError, required, checkboxList, showSelectionButtons}) => {
     let refList = this.props.refList || this.localRefList;
     return (
-      <div className={`form-group has-feedback ${id + '-class'} ${!this.props.anyCheckboxesChecked ? 'has-error' : ''}`} key={id}>
+      <div className={`form-group has-feedback ${id + '-class'} ${this.props.checkboxListHasError ? 'has-error' : ''}`} key={id}>
       <label className="control-label" htmlFor={id}>{label}
         {required &&
           <span className="required-asterisks"> *</span>
         }
       </label>
-      {!this.props.anyCheckboxesChecked && <div className="msgBlock error error-list" role="alert" aria-live="assertive">
+      {this.props.checkboxListHasError && <div className="msgBlock error error-list" role="alert" aria-live="assertive">
         <span>Please select {genericLabel || label.toLowerCase()}.</span>
       </div>}
       {showSelectionButtons &&
         <div className="selection-buttons">
-          <label>
-            <input type="checkbox" name="select-all-checkbox" className="select-all-checkbox" checked={this.props.allCheckboxesChecked} value="" onClick={() => this.handleSelectAllCheckbox(refList[id])}/>
-            <span className="cr"></span>
-            <span className="select-all-description">Select All</span>
-          </label>
+          <div className="checkbox">
+            <label>
+              <input type="checkbox" name="select-all-checkbox" checked={this.props.allCheckboxesChecked} value="" onClick={() => this.handleSelectAllCheckbox(refList[id])}/>
+              <span className="cr"></span>
+              <span className="select-all-description">Select All</span>
+            </label>
+          </div>
           <button type="button" className="clear-all-button" onClick={() => this.handleClearAllButton(refList[id])}>
             Clear All
           </button>
@@ -129,7 +131,7 @@ export class FormTemplate extends React.Component {
       <fieldset id={id} ref={ref => refList[id] = ref}>
         {checkboxList.map((checkbox, i) => {
           return (
-            <div className="checkbox" key={`${id}-${i}`}>
+            <div className="checkbox template-checkbox" key={`${id}-${i}`}>
               <label>
                 <input type="checkbox" className="template-checkbox-input" value={checkbox.value}/>
                 <span className="cr"></span>

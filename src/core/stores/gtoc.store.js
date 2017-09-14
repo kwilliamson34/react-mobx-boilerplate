@@ -12,6 +12,7 @@ class GTOCStore {
     if(input.id === 'gtoc_email') {
       this.gtocObject[input.id] = input.value;
     } else if (input.type === 'checkbox' && input.name !== 'select-all-checkbox') {
+      if (!this.initialized) this.initialized = true;
       this.gtocObject.gtoc_femaList.indexOf(input.value) < 0
         ? this.gtocObject.gtoc_femaList.push(input.value)
         : this.gtocObject.gtoc_femaList.remove(input.value);
@@ -150,14 +151,14 @@ class GTOCStore {
   }
 
   @computed get allCheckboxesChecked() {
-    console.log(this.gtocObject.gtoc_femaList);
     return this.gtocObject.gtoc_femaList.length === 10;
   }
 
-  @computed get anyCheckboxesChecked() {
-    return this.gtocObject.gtoc_femaList.length > 0;
-  }
+  @computed get checkboxListHasError() {
+      return this.initialized && this.gtocObject.gtoc_femaList.length === 0;
+    }
 
+  @observable initialized = false;
   @observable showExitModal = false;
   @observable interceptedRoute = '';
   @observable showAlertBar = false;
