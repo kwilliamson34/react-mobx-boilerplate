@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
+import {history} from '../../core/services/history.service';
+import $ from 'jquery';
 
 @observer
 export class FormTemplate extends React.Component {
@@ -18,7 +20,9 @@ export class FormTemplate extends React.Component {
     checkboxListHasError: PropTypes.bool,
     submitButtonText: PropTypes.string,
     errorBody: PropTypes.string,
-    toggleAlertBar: PropTypes.func
+    toggleAlertBar: PropTypes.func,
+    clearForm: PropTypes.func,
+    formHasEntries: PropTypes.bool
   }
 
   static defaultProps = {
@@ -28,7 +32,27 @@ export class FormTemplate extends React.Component {
   componentWillMount() {
     this.localRefList = [];
     this.alertJsx = null;
+    this.interceptedRoute = '';
+
+    //set up reroute blockade (returns unblocking function)
+    this.unblock = history.block((location) => {
+      if (this.props.formHasEntries && !this.interceptedRoute) {
+        this.interceptedRoute = location.pathname;
+        this.showExitModal();
+        return false; //does not allow to proceed to new page
+      }
+    });
   }
+
+  componentWillUnmount() {
+    //undo the reroute blockade
+    this.unblock();
+  }
+
+  //TODO onChange, updateProperty (then remove from stores)
+  //TODO onClick, updateArray (then remove from stores)
+  //TODO onBlur, if required, validateInput (then remove from stores)
+  //TODO onSubmit, if formIsValid, submit it (then update funciton in stores)
 
   renderSubmitButton = () => {
     return (
@@ -180,13 +204,66 @@ export class FormTemplate extends React.Component {
     )
   }
 
+  renderExitModal = () => {
+    return (
+      <div id="exit-modal" role="dialog" tabIndex="-1" className="modal fade" aria-labelledby="modal-title">
+        <div>
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <button type="button" className="fn-modal-close" onClick={this.hideExitModal}>
+                <i aria-hidden="true" className="icon-close"></i>
+                <span className="sr-only">Close window</span>
+              </button>
+              <div className="row no-gutters" id="fmodal-title">
+                <div className="col-xs-12">
+                  <h1 className="as-h2">Unsaved changes</h1>
+                  <p>Your form changes will not be saved if you navigate away from this page.</p>
+                </div>
+                <div className="col-xs-12 text-center">
+                  <button className="fn-primary" onClick={this.stayOnPage}>Stay on Page</button>
+                  <button className="fn-secondary" onClick={this.discardFormChanges}>Discard Changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  showExitModal = () => {
+    $('#exit-modal').modal({backdrop: 'static'});
+    $('#exit-modal').modal('show');
+  }
+
+  hideExitModal = () => {
+    $('#exit-modal').modal('hide');
+    $('#exit-modal').data('bs.modal', null);
+  }
+
+  stayOnPage = (e) => {
+    e.preventDefault();
+    this.hideExitModal();
+    this.interceptedRoute = '';
+  }
+
+  discardFormChanges = (e) => {
+    e.preventDefault();
+    this.hideExitModal();
+    this.props.clearForm();
+    history.replace(this.interceptedRoute);
+  }
+
   render() {
     return (
-      <form id={this.props.id} className={this.props.className} onSubmit={this.props.onSubmit} onChange={this.props.onChange} onBlur={this.props.onBlur} noValidate>
-        {this.renderErrorAlertBar()}
-        {this.props.inputList.map(input => this.renderInput(input))}
-        {this.renderSubmitButton()}
-      </form>
+      <section>
+        <form id={this.props.id} className={this.props.className} onSubmit={this.props.onSubmit} onChange={this.props.onChange} onBlur={this.props.onBlur} noValidate>
+          {this.renderErrorAlertBar()}
+          {this.props.inputList.map(input => this.renderInput(input))}
+          {this.renderSubmitButton()}
+        </form>
+        {this.renderExitModal()}
+      </section>
     );
   }
 }

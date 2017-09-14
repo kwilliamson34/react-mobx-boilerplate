@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {inject, observer} from 'mobx-react';
-import {history} from '../core/services/history.service';
-import $ from 'jquery';
 import config from 'config';
 import {FormTemplate} from '../components/form-template/form-template';
 
@@ -23,73 +21,11 @@ export default class FeedbackPage extends React.Component {
 
   componentWillMount() {
     this.feedbackStore.setDefaultEmail();
-    this.feedbackStore.enableSaveDialogs();
-  }
-
-  componentWillUnmount() {
-    this.clearModals();
-    this.feedbackStore.disableSaveDialogs();
-    if (!this.feedbackStore.formHasEntries && !this.feedbackStore.formIsValid) {
-      this.feedbackStore.clearForm();
-    }
-  }
-
-  toggleExitModal = (e) => {
-    e.preventDefault();
-    this.feedbackStore.toggleExitModal()
   }
 
   toggleAlertBar = (e) => {
     e.preventDefault();
     this.feedbackStore.toggleAlertBar();
-  }
-
-  discardFormChanges = (e) => {
-    e.preventDefault();
-    this.feedbackStore.clearForm();
-    history.replace(this.feedbackStore.interceptedRoute);
-  }
-
-  showModal = (shouldShow, modalID) => {
-    if (shouldShow) {
-      $(modalID).modal({backdrop: 'static'});
-    } else {
-      $(modalID).modal('hide');
-      $(modalID).data('bs.modal', null);
-    }
-  }
-
-  clearModals = () => {
-    $('.modal-backdrop, #customer-feedback-exit-modal').remove();
-    $('body').removeClass('modal-open');
-  }
-
-  renderExitModal = (showExitModal) => {
-    this.showModal(showExitModal, '#customer-feedback-exit-modal');
-    return (
-      <div id="customer-feedback-exit-modal" role="dialog" tabIndex="-1" className="modal fade" aria-labelledby="feedback-modal-title">
-        <div>
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <button type="button" className="fn-modal-close" onClick={this.toggleExitModal}>
-                <i aria-hidden="true" className="icon-close"></i>
-                <span className="sr-only">close window</span>
-              </button>
-              <div className="row no-gutters" id="feedback-modal-title">
-                <div className="col-xs-12">
-                  <h1 className="as-h2">Unsaved changes</h1>
-                  <p>Your form changes will not be saved if you navigate away from this page.</p>
-                </div>
-                <div className="col-xs-12 text-center">
-                  <button className="fn-primary" onClick={this.toggleExitModal}>Stay on Page</button>
-                  <button className="fn-secondary" onClick={this.discardFormChanges}>Discard Changes</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    )
   }
 
   getInputList = () => {
@@ -170,13 +106,14 @@ export default class FeedbackPage extends React.Component {
                   onBlur={this.feedbackStore.handleBlur.bind(this.feedbackStore)}
                   errorBody={this.feedbackStore.showAlertBar ? 'Please correct the errors below.' : ''}
                   toggleAlertBar={this.feedbackStore.toggleAlertBar.bind(this.feedbackStore)}
+                  clearForm={this.feedbackStore.clearForm.bind(this.feedbackStore)}
+                  formHasEntries={this.feedbackStore.formHasEntries}
                   submitButtonDisabled={!this.feedbackStore.requiredFieldsEntered}
                   submitButtonText='Submit Feedback'/>
               </section>
             </div>
           </div>
         </div>
-        {this.renderExitModal(this.feedbackStore.showExitModal)}
       </section>
     )
   }

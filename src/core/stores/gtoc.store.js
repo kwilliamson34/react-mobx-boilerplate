@@ -45,8 +45,7 @@ class GTOCStore {
         history.push('/subscribe-to-alerts-success');
       }
       const failure = (res) => {
-        //prevent the unsaved changes modal from showing, and change history to allow user to navigate back to here from error page.
-        this.disableSaveDialogs();
+        //change history to allow user to navigate back to here from error page.
         history.push('/subscribe-to-alerts');
         utilsService.handleError(res);
       }
@@ -77,44 +76,12 @@ class GTOCStore {
     }
   }
 
-  //Modal actions
-  getBrowserCloseAlert = (event) => {
-    if (this.formHasEntries) {
-      event.returnValue = true;
-    } else {
-      return;
-    }
-  }
-
-  @action toggleExitModal() {
-      this.showExitModal = !this.showExitModal;
-  }
-
-  @action disableSaveDialogs() {
-      window.removeEventListener('beforeunload', this.getBrowserCloseAlert);
-      this.unblock();
-  }
-
-  @action enableSaveDialogs() {
-      window.addEventListener('beforeunload', this.getBrowserCloseAlert);
-      this.unblock = history.block((location) => {
-        this.interceptedRoute = location.pathname;
-        if (!this.formHasEntries) {
-          return true;
-        } else {
-          this.showExitModal = true;
-          return false;
-        }
-    });
-  }
-
   //other actions
   @action toggleAlertBar() {
     this.showAlertBar = !this.showAlertBar;
   }
 
   @action clearForm() {
-    this.showExitModal = false;
     this.showAlertBar = false;
     this.initialized = false;
     this.gtocObject = {
@@ -159,8 +126,6 @@ class GTOCStore {
     }
 
   @observable initialized = false;
-  @observable showExitModal = false;
-  @observable interceptedRoute = '';
   @observable showAlertBar = false;
   @observable gtocObject = {
     gtoc_email: '',
