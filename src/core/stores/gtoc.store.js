@@ -10,7 +10,8 @@ class GTOCStore {
     let input = e.target;
     if(input.id === 'gtoc_email') {
       this.gtocObject[input.id] = input.value;
-    } else if (input.type === 'checkbox') {
+    } else if (input.type === 'checkbox' && input.name !== 'select-all-checkbox') {
+      if (!this.initialized) this.initialized = true;
       this.gtocObject.gtoc_femaList.indexOf(input.value) < 0
         ? this.gtocObject.gtoc_femaList.push(input.value)
         : this.gtocObject.gtoc_femaList.remove(input.value);
@@ -44,8 +45,7 @@ class GTOCStore {
         history.push('/subscribe-to-alerts-success');
       }
       const failure = (res) => {
-        //prevent the unsaved changes modal from showing, and change history to allow user to navigate back to here from error page.
-        this.disableSaveDialogs();
+        //change history to allow user to navigate back to here from error page.
         history.push('/subscribe-to-alerts');
         utilsService.handleError(res);
       }
@@ -76,45 +76,14 @@ class GTOCStore {
     }
   }
 
-  //Modal actions
-  getBrowserCloseAlert = (event) => {
-    if (this.formHasEntries) {
-      event.returnValue = true;
-    } else {
-      return;
-    }
-  }
-
-  @action toggleExitModal() {
-      this.showExitModal = !this.showExitModal;
-  }
-
-  @action disableSaveDialogs() {
-      window.removeEventListener('beforeunload', this.getBrowserCloseAlert);
-      this.unblock();
-  }
-
-  @action enableSaveDialogs() {
-      window.addEventListener('beforeunload', this.getBrowserCloseAlert);
-      this.unblock = history.block((location) => {
-        this.interceptedRoute = location.pathname;
-        if (!this.formHasEntries) {
-          return true;
-        } else {
-          this.showExitModal = true;
-          return false;
-        }
-    });
-  }
-
   //other actions
   @action toggleAlertBar() {
     this.showAlertBar = !this.showAlertBar;
   }
 
   @action clearForm() {
-    this.showExitModal = false;
     this.showAlertBar = false;
+    this.initialized = false;
     this.gtocObject = {
       gtoc_email: '',
       gtoc_femaList: []
@@ -148,9 +117,15 @@ class GTOCStore {
     return !this.isEmpty(this.gtocObject.gtoc_email);
   }
 
+  @computed get allCheckboxesChecked() {
+    return this.gtocObject.gtoc_femaList.length === 10;
+  }
 
-  @observable showExitModal = false;
-  @observable interceptedRoute = '';
+  @computed get checkboxListHasError() {
+      return this.initialized && this.gtocObject.gtoc_femaList.length === 0;
+    }
+
+  @observable initialized = false;
   @observable showAlertBar = false;
   @observable gtocObject = {
     gtoc_email: '',
