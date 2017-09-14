@@ -75,7 +75,7 @@ export default class SubscribeToGTOC extends React.Component {
         checkboxList: checkboxList,
         checkedByDefault: false,
         showSelectionButtons: true,
-        hasError: this.gtocStore.checkboxListHasError
+        hasError: this.gtocStore.hasErrors.gtoc_femaList
       },
       {
         id: 'gtoc_email',
