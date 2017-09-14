@@ -1,5 +1,5 @@
 import {action, observable} from 'mobx';
-import {walkthruSteps} from '../../content/walkthru-steps.json';
+import {TourSteps} from '../../content/tour-steps.json';
 
 class JoyrideStore {
 
@@ -27,33 +27,40 @@ class JoyrideStore {
 		this.joyride.addTooltip(data);
 	}
 
-	@action toggleWalkthru() {
-		if(this.showWalkthru){
-			this.disableWalkthru();
+	@action toggleTour() {
+		if(this.showTour){
+			this.disableTour();
 		}else{
-			this.enableWalkthru();
+			this.enableTour();
 		}
 	}
 
-	@action disableWalkthru() {
-		console.log('disableWalkthru called');
-		this.showWalkthru = false;
-		this.showWalkthruIntroModal = false;
+	@action disableTour() {
+		console.log('disableTour called');
+		this.showTour = false;
 		this.isReady = false;
 		this.isRunning = false;
-		this.setWalkthruCookie('_fn_walkthru', false, 365);
+		this.setCookie('_fn_tour', false, 365);
 	}
 
-	enableWalkthru(){
-		console.log('enableWalkthru called');
-		this.showWalkthru = true;
+	@action startTour(){
+		console.log('enableTour called');
+		this.setCookie('_fn_tour', true, 365);
 		this.isReady = true;
 		this.isRunning = true;
-		this.setWalkthruCookie('_fn_walkthru', true, 365);
+		this.showTour = true;
 	}
 
-	getWalkthruCookie(cname) {
-		console.log('getWalkthruCookie called');
+	@action enableTourIntro(){
+		this.showTourIntroModal = true;
+	}
+
+	@action disableTourIntro(){
+		this.showTourIntroModal = false;
+	}
+
+	getCookie(cname) {
+		console.log('getCookie called');
 		var name = cname + '=';
 		var ca = document.cookie.split(';');
 		console.log('ca:' + ca);
@@ -70,40 +77,36 @@ class JoyrideStore {
 		return '';
 	}
 
-	setWalkthruCookie(cname, cvalue, exdays) {
-		console.log('setWalkthruCookie called');
+	setCookie(cname, cvalue, exdays) {
+		console.log('setCookie called');
+		let expiryDays = exdays || 365;
 		var d = new Date();
-		d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+		d.setTime(d.getTime() + (expiryDays * 24 * 60 * 60 * 1000));
 		var expires = 'expires='+d.toUTCString();
 		document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
 	}
 
-	checkWalkthruCookie() {
-		console.log('checkWalkthruCookie called');
-		var walkthruIsEnabled = this.getWalkthruCookie('_fn_walkthru');
-		console.log('xx: '  + walkthruIsEnabled);
-		if (walkthruIsEnabled != '') {
-			console.log('ddd');
-			return walkthruIsEnabled;
-		} else {
-			//default to true
-			console.log('_fn_walkthru doesnt exist');
-			this.setWalkthruCookie('_fn_walkthru', this.showWalkthru, 365);
-			return true;
+	@action checkTourCookie() {
+		console.log('checkTourCookie called');
+		if(document.cookie.indexOf('_fn_tour') != -1){
+			this.showTour =  this.getCookie('_fn_tour');
+		}else{
+			//cookie doesnt exist.  set to true
+			console.log('cookie no here.  setting one up and show intro');
+			this.setCookie('_fn_tour', true, 365);
 		}
 	}
 
 	@action toggleIntroModal() {
-		this.showWalkthruIntroModal = !this.showWalkthruIntroModal;
+		this.showTourIntroModal = !this.showTourIntroModal;
 	}
 
-
   joyride = {};
-	@observable showWalkthruIntroModal = true;
-	@observable showWalkthru = true;
+	@observable showTourIntroModal = true;
+	@observable showTour = true;
 	@observable isReady = false;
 	@observable isRunning = false;
-	@observable steps = walkthruSteps;
+	@observable steps = TourSteps;
 	@observable stepIndex = 0;
 	@observable selector = '';
 }

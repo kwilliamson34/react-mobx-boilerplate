@@ -18,36 +18,20 @@ export default class JoyrideBase extends React.Component {
 
   componentDidMount() {
     console.log('base cdm');
-    let cookieVal = this.joyrideStore.checkWalkthruCookie();
-    console.log('cookieVal = ' + cookieVal);
-    //check for presence of cookie
-    if(cookieVal){
-      console.log('cookie reads true;');
-      if(!this.joyrideStore.showWalkthruIntroModal){
-        this.joyrideStore.initJoyride(this.joyride);
-      }
-
-    } else if(cookieVal === ''){
-      //no cookie present; show walkthru intro
-      console.log('cookie not present');
-      this.joyrideStore.showWalkthruIntroModal = true;
-    } else {
-      //cookie val is false
-      console.log('false cookie val');
-      this.joyrideStore.disableWalkthru();
-    }
+    this.joyrideStore.checkTourCookie();
   }
 
-  handleStartWalkthru  = () => {
-    this.joyrideStore.toggleIntroModal();
-    this.joyrideStore.initJoyride(this.joyride);
+  handleStartTour  = () => {
+    this.joyrideStore.disableTourIntro();
+    this.joyrideStore.startTour();
   }
 
-  handleDisableWalkthru = () => {
-    this.joyrideStore.disableWalkthru();
+  handleDisableTour = () => {
+    this.joyrideStore.disableTour();
   }
 
   showModal = (shouldShow, modalID) => {
+    console.log('showModal called with' + shouldShow);
     if (shouldShow) {
       $(modalID).modal({backdrop: 'static'});
     } else {
@@ -60,14 +44,14 @@ export default class JoyrideBase extends React.Component {
     this.joyrideStore.toggleIntroModal();
   }
 
-  renderWalkthruIntroModal(showIntroModal) {
-    this.showModal(showIntroModal, '#walkthru-intro-modal');
+  renderTourIntroModal(showIntroModal) {
+    this.showModal(showIntroModal, '#tour-intro-modal');
     return (
-      <div id="walkthru-intro-modal" className="modal fade" role="dialog" tabIndex="-1" aria-labelledby="feedback-modal-title">
+      <div id="tour-intro-modal" className="modal fade" role="dialog" tabIndex="-1" aria-labelledby="feedback-modal-title">
         <div>
           <div className="modal-dialog">
             <div className="modal-content">
-              <button type="button" className="fn-modal-close" onClick={this.hideIntroModal}>
+              <button type="button" className="fn-modal-close" onClick={this.handleStartTour}>
                 <i className="icon-close" aria-hidden="true"></i>
                 <span className="sr-only">close window</span>
               </button>
@@ -83,8 +67,8 @@ export default class JoyrideBase extends React.Component {
                   </ul>
                 </div>
                 <div className="col-xs-12 text-center">
-                  <button className="fn-secondary pull-left" onClick={this.handleDisableWalkthru}>Skip Tour</button>
-                  <button className="fn-primary pull-right" onClick={this.handleStartWalkthru}>Start Tour</button>
+                  <button className="fn-secondary pull-left" onClick={this.handleDisableTour}>Skip Tour</button>
+                  <button className="fn-primary pull-right" onClick={this.handleStartTour}>Start Tour</button>
                 </div>
               </div>
             </div>
@@ -98,10 +82,10 @@ export default class JoyrideBase extends React.Component {
   render(){
     return(
       <div id="walkthru">
-        {this.joyrideStore.showWalkthruIntroModal &&
-          this.renderWalkthruIntroModal(this.joyrideStore.showWalkthruIntroModal)
+        {this.joyrideStore.showTourIntroModal &&
+          this.renderTourIntroModal(this.joyrideStore.showTourIntroModal)
         }
-        {this.joyrideStore.showWalkthru &&  this.joyrideStore.showWalkthruIntroModal &&
+        {this.joyrideStore.showTour &&
           <Joyride
             ref={c => (this.joyride = c)}
             steps={this.joyrideStore.steps}
