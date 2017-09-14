@@ -14,8 +14,8 @@ class GTOCStore {
       this.gtocObject.gtoc_femaList.indexOf(input.value) < 0
         ? this.gtocObject.gtoc_femaList.push(input.value)
         : this.gtocObject.gtoc_femaList.remove(input.value);
+      this.validateInput(input);
     }
-    this.validateInput(input);
   }
 
   @action handleBlur(e) {
