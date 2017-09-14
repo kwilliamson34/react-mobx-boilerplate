@@ -54,37 +54,6 @@ class FeedbackStore {
     }
   }
 
-  //Modal actions
-  getBrowserCloseAlert = (event) => {
-    if (this.formHasEntries) {
-      event.returnValue = true;
-    } else {
-      return;
-    }
-  }
-
-  @action toggleExitModal() {
-      this.showExitModal = !this.showExitModal;
-  }
-
-  @action disableSaveDialogs() {
-      window.removeEventListener('beforeunload', this.getBrowserCloseAlert);
-      this.unblock();
-  }
-
-  @action enableSaveDialogs() {
-      window.addEventListener('beforeunload', this.getBrowserCloseAlert);
-      this.unblock = history.block((location) => {
-        this.interceptedRoute = location.pathname;
-        if (!this.formHasEntries) {
-          return true;
-        } else {
-          this.showExitModal = true;
-          return false;
-        }
-    });
-  }
-
   //Other actions
   @action validateInput(input) {
     if (input.id.indexOf('email') > -1) {
@@ -151,9 +120,7 @@ class FeedbackStore {
     return !this.isEmpty(this.feedbackObject.feedback_title) || !this.isEmpty(this.feedbackObject.feedback_details);
   }
 
-  @observable showExitModal = false;
   @observable showAlertBar = false;
-  @observable interceptedRoute = '';
   @observable feedbackObject = {
     feedback_title: '',
     feedback_details: '',
