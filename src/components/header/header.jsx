@@ -146,8 +146,8 @@ export default class PSEHeader extends React.Component {
 		}
 	}
 
-	onToggleWalkthru = () => {
-		this.joyrideStore.toggleWalkthru();
+	onToggleTour = () => {
+		this.joyrideStore.toggleTour();
 	}
 
 	renderProfileBlock = () => {
@@ -305,8 +305,8 @@ export default class PSEHeader extends React.Component {
 					</NavLink>
 				</li>
 				<li>
-					<a href="#" role="button" className="walkthru-toggle" onClick={this.onToggleWalkthru}>
-						{`${this.joyrideStore.showWalkthru ? 'Disable' : 'Enable'}`} Walkthru
+					<a href="#" role="button" className="walkthru-toggle" onClick={this.onToggleTour}>
+						{`${this.joyrideStore.showTour? 'Disable' : 'Enable'}`} Walkthru
 					</a>
 				</li>
 				<li>

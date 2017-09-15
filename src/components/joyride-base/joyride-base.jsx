@@ -18,11 +18,11 @@ export default class JoyrideBase extends React.Component {
 
   componentDidMount() {
     console.log('base cdm');
-    this.joyrideStore.checkTourCookie();
+    this.joyrideStore.checkTourCookie(this.joyride);
   }
 
   handleStartTour  = () => {
-    this.joyrideStore.disableTourIntro();
+    this.joyrideStore.endTourIntro();
     this.joyrideStore.startTour();
   }
 
@@ -30,21 +30,24 @@ export default class JoyrideBase extends React.Component {
     this.joyrideStore.disableTour();
   }
 
+
+  hideIntroModal = () => {
+    this.joyrideStore.toggleIntroModal();
+  }
+
   showModal = (shouldShow, modalID) => {
-    console.log('showModal called with' + shouldShow);
+    console.log('showModal called with ' + shouldShow);
     if (shouldShow) {
       $(modalID).modal({backdrop: 'static'});
+      $(modalID).modal('show');
     } else {
       $(modalID).modal('hide');
       $(modalID).data('bs.modal', null);
     }
   }
 
-  hideIntroModal = () => {
-    this.joyrideStore.toggleIntroModal();
-  }
-
   renderTourIntroModal(showIntroModal) {
+    console.log('rtim');
     this.showModal(showIntroModal, '#tour-intro-modal');
     return (
       <div id="tour-intro-modal" className="modal fade" role="dialog" tabIndex="-1" aria-labelledby="feedback-modal-title">
@@ -85,7 +88,7 @@ export default class JoyrideBase extends React.Component {
         {this.joyrideStore.showTourIntroModal &&
           this.renderTourIntroModal(this.joyrideStore.showTourIntroModal)
         }
-        {this.joyrideStore.showTour &&
+        {this.joyrideStore.showTour && !this.joyrideStore.showTourIntroModal &&
           <Joyride
             ref={c => (this.joyride = c)}
             steps={this.joyrideStore.steps}

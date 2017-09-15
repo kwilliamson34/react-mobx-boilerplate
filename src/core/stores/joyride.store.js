@@ -3,9 +3,7 @@ import {TourSteps} from '../../content/tour-steps.json';
 
 class JoyrideStore {
 
-	@action initJoyride(joyrideRef) {
-		console.log('initJoyride called');
-		this.joyride = joyrideRef;
+	@action initJoyride() {
 		setTimeout(() => {
 			this.isReady = true;
 			this.isRunning = true;
@@ -31,7 +29,7 @@ class JoyrideStore {
 		if(this.showTour){
 			this.disableTour();
 		}else{
-			this.enableTour();
+			this.startTour();
 		}
 	}
 
@@ -49,14 +47,25 @@ class JoyrideStore {
 		this.isReady = true;
 		this.isRunning = true;
 		this.showTour = true;
+		this.tourRef.reset();
 	}
 
-	@action enableTourIntro(){
+	/* Intro popup when cookie is not present */
+
+	@action startTourIntro(){
+		console.log('fn() startTourIntro');
 		this.showTourIntroModal = true;
+		console.log(this.showTourIntroModal);
 	}
 
-	@action disableTourIntro(){
+	@action endTourIntro(){
+		console.log('fn() endTourIntro');
 		this.showTourIntroModal = false;
+	}
+
+	@action toggleIntroModal() {
+		console.log('fn() toggleIntroModal');
+		this.showTourIntroModal = !this.showTourIntroModal;
 	}
 
 	getCookie(cname) {
@@ -70,14 +79,14 @@ class JoyrideStore {
 				c = c.substring(1);
 			}
 			if (c.indexOf(name) == 0) {
-				console.log('gwc:' + c.substring(name.length, c.length) );
-				return c.substring(name.length, c.length);
+				console.log('gwc:' + typeof (c.substring(name.length, c.length) === 'true') + ' '  + c.substring(name.length, c.length));
+				return (c.substring(name.length, c.length) === 'true');
 			}
 		}
 		return '';
 	}
 
-	setCookie(cname, cvalue, exdays) {
+	@action setCookie(cname, cvalue, exdays) {
 		console.log('setCookie called');
 		let expiryDays = exdays || 365;
 		var d = new Date();
@@ -86,22 +95,26 @@ class JoyrideStore {
 		document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
 	}
 
-	@action checkTourCookie() {
+	@action checkTourCookie(joyrideRef) {
 		console.log('checkTourCookie called');
+		this.tourRef = joyrideRef;
 		if(document.cookie.indexOf('_fn_tour') != -1){
+			//cookie present - do what it says
 			this.showTour =  this.getCookie('_fn_tour');
+			if(this.showTour){
+				this.startTour();
+			}
 		}else{
 			//cookie doesnt exist.  set to true
-			console.log('cookie no here.  setting one up and show intro');
-			this.setCookie('_fn_tour', true, 365);
+			console.log('cookie not here.  setting one up and show intro');
+			this.startTourIntro();
 		}
 	}
 
-	@action toggleIntroModal() {
-		this.showTourIntroModal = !this.showTourIntroModal;
-	}
+
 
   joyride = {};
+	@observable tourRef = {};
 	@observable showTourIntroModal = true;
 	@observable showTour = true;
 	@observable isReady = false;
