@@ -73,6 +73,7 @@ export default class PSEHeader extends React.Component {
 		});
 
 		window.addEventListener('resize', this.updateWindowDimensions);
+<<<<<<< HEAD
 
 		// init joyride
 		const headerstep = {
@@ -111,6 +112,8 @@ export default class PSEHeader extends React.Component {
 			console.log('steps', this.joyrideStore.steps);
 			// this.joyrideStore.joyrideStart();
 		});
+=======
+>>>>>>> 1519ab15e09da7741033d5f5784a64550329fddf
 	}
 
 	componentWillUnmount() {
@@ -182,6 +185,10 @@ export default class PSEHeader extends React.Component {
 			$('body').css('position', 'relative');
 			$('body').css('width', 'auto');
 		}
+	}
+
+	onToggleTour = () => {
+		this.joyrideStore.toggleTour();
 	}
 
 	renderProfileBlock = () => {
@@ -325,6 +332,38 @@ export default class PSEHeader extends React.Component {
 		)
 	}
 
+	renderHelpMenuItems = () => {
+		return (
+			<div>
+				<li>
+					<NavLink activeClassName="active" to="/faq">
+						FAQ
+					</NavLink>
+				</li>
+				<li>
+					<NavLink activeClassName="active" to="/feedback">
+						Give Us Feedback
+					</NavLink>
+				</li>
+				<li>
+					<a href="#" role="button" className="walkthru-toggle" onClick={this.onToggleTour}>
+						{`${this.joyrideStore.showTour? 'Disable' : 'Enable'}`} Walkthru
+					</a>
+				</li>
+				<li>
+					<a href={'tel:' + config.attCustomerSupportPhone}>
+						<div className="multi-line-item">
+							<span aria-hidden="true">FirstNet Customer Svc:&nbsp;</span><br />
+							<i className="icon-phone-number" aria-hidden="true"></i>
+							<span className="sr-only">FirstNet Customer Service Phone&nbsp;</span>
+							{config.attCustomerSupportPhone}
+						</div>
+					</a>
+				</li>
+			</div>
+		)
+	}
+
 	render() {
 		return (
 			<header className="fnnav pse" role="banner">
@@ -359,26 +398,7 @@ export default class PSEHeader extends React.Component {
 										id="pse-help-menu"
 										className={`collapse ${this.headerStore.helpSubMenuIsOpen ? 'in' : ''}`}
 										aria-labelledby="pse-help-mobile">
-										<li>
-											<NavLink activeClassName="active" to="/faq">
-												FAQ
-											</NavLink>
-										</li>
-										<li>
-											<NavLink activeClassName="active" to="/feedback">
-												Give Us Feedback
-											</NavLink>
-										</li>
-										<li>
-											<a href={'tel:' + config.attCustomerSupportPhone}>
-												<div className="multi-line-item">
-													<span aria-hidden="true">FirstNet Customer Svc:&nbsp;</span><br />
-													<i className="icon-phone-number" aria-hidden="true"></i>
-													<span className="sr-only">FirstNet Customer Service Phone&nbsp;</span>
-													{config.attCustomerSupportPhone}
-												</div>
-											</a>
-										</li>
+										{this.renderHelpMenuItems()}
 									</ul>
 								</li>
 								<li className="mainnav-item grey logout" role="presentation">
@@ -436,24 +456,7 @@ export default class PSEHeader extends React.Component {
 										id="pse-help-nav"
 										className="dropdown-menu dropdown-menu-right"
 										aria-labelledby="help-header-dropdown">
-										<li role="presentation">
-											<NavLink to="/faq" activeClassName="active">
-												FAQ
-											</NavLink>
-										</li>
-										<li role="presentation">
-											<NavLink to="/feedback" activeClassName="active">
-												Give Us Feedback
-											</NavLink>
-										</li>
-										<li role="presentation">
-											<a href={'tel:' + config.attCustomerSupportPhone} className="tel-cell">
-												<span aria-hidden="true">FirstNet Customer Svc:&nbsp;</span><br />
-												<i className="icon-phone-number" aria-hidden="true"></i>
-												<span className="sr-only">FirstNet Customer Service Phone&nbsp;</span>
-												{config.attCustomerSupportPhone}
-											</a>
-										</li>
+										{this.renderHelpMenuItems()}
 									</ul>
 								</li>
 							</ul>

@@ -28,6 +28,7 @@
     min-width: 295px;
     padding: 0;
 
+    > div > li,
     > li {
       border-bottom: 1px solid $fn-grey;
       line-height: 46px;
@@ -36,14 +37,17 @@
         background: $fn-ltgrey;
       }
 
-      > a {
+      > a,
+      > button {
+        display: block;
         line-height: 3.4;
         font-size: $fn-label-desktop;
         text-transform: uppercase;
         font-weight: $fn-medium-weight;
         color: $fn-dkgrey;
-        padding-left: 30px;
+        padding: 3px 20px 3px 30px;
         border: 2px solid transparent;
+        white-space: nowrap;
 
         &.tel-cell {
           line-height: 1.4;
