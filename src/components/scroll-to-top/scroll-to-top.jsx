@@ -118,7 +118,7 @@ export default class ScrollToTop extends React.Component {
 					Top of Page
 				</span>
 				{config.showOnboardingWalkthru &&
-					<JoyrideBase />
+					<JoyrideBase location={location.pathname} />
 				}
 				{this.props.children}
 				<a id="btn-back-top" href="#" className={`back-to-top btn ${!this.state.showBackToTopBtn && 'faded'}`} onClick={this.handleBackToTopClick}>

@@ -9,7 +9,7 @@ import $ from 'jquery';
 export default class JoyrideBase extends React.Component {
   static propTypes = {
 		store: PropTypes.object,
-    location: PropTypes.objectOrObservableObject
+    location: PropTypes.string
 	};
 
   constructor(props){
@@ -18,11 +18,11 @@ export default class JoyrideBase extends React.Component {
   }
 
   componentDidMount() {
-    this.joyrideStore.checkTourCookie(this.joyride, 'LandingPage');
+    this.joyrideStore.checkTourCookie(this.joyride, this.props.location);
   }
 
-  componentDidUpdate() {
-    console.log(this.props.location.pathname);
+  componentWillReceiveProps() {
+    this.joyrideStore.updateSteps(this.props.location);
   }
 
   handleStartTour  = () => {
@@ -81,7 +81,6 @@ export default class JoyrideBase extends React.Component {
       </div>
     )
   }
-
 
   render(){
     return(
