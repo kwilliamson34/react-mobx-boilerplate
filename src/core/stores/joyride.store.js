@@ -7,7 +7,6 @@ class JoyrideStore {
 		setTimeout(() => {
 			this.isReady = true;
 			this.isRunning = true;
-			console.log('joyride ready: ' + this.isReady);
 		}, 1000);
 	}
 
@@ -115,7 +114,6 @@ class JoyrideStore {
 
 	@action updateSteps(pathname){
 		if(pathname != this.tourPage){
-			console.log('--CC-- => ' + pathname + ' : ' + this.tourPage);
 			switch (pathname) {
 				case '/admin/manage-apps':
 					this.steps = Beacons.ManageApps;
@@ -133,7 +131,9 @@ class JoyrideStore {
 					this.steps = [];
 			}
 			this.tourPage = pathname;
-			this.tourRef.reset();
+			if(this.tourRef.reset){
+				this.tourRef.reset();
+			}
 		}
 	}
 

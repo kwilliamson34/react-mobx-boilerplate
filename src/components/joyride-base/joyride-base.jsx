@@ -8,9 +8,9 @@ import $ from 'jquery';
 @observer
 export default class JoyrideBase extends React.Component {
   static propTypes = {
-		store: PropTypes.object,
+    store: PropTypes.object,
     location: PropTypes.string
-	};
+  };
 
   constructor(props){
     super(props)
@@ -87,7 +87,7 @@ export default class JoyrideBase extends React.Component {
       <div id="walkthru">
         {this.renderTourIntroModal()}
         <Joyride
-          ref={c => (this.joyride = c)}
+          ref={el => (this.joyride = el)}
           steps={this.joyrideStore.steps}
           run={this.joyrideStore.isReady}
           autoStart={true}
