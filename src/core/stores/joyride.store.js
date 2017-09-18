@@ -94,8 +94,17 @@ class JoyrideStore {
 		document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
 	}
 
-	@action checkTourCookie(joyrideRef) {
+	@action checkTourCookie(joyrideRef, tourPage) {
 		console.log('checkTourCookie called');
+
+		let tourSteps = tourPage || '';
+		switch (tourSteps) {
+			case 'LandingPage':
+				this.steps = Beacons[tourSteps];
+				break;
+			default:
+				this.steps = [];
+		}
 		this.tourRef = joyrideRef;
 		if(document.cookie.indexOf('_fn_tour') != -1){
 			//cookie present - do what it says
@@ -112,7 +121,7 @@ class JoyrideStore {
 
   joyride = {};
 	@observable tourRef = {};
-	@observable showTourIntroModal = true;
+	@observable showTourIntroModal = false;
 	@observable showTour = true;
 	@observable isReady = false;
 	@observable isRunning = false;

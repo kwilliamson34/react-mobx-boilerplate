@@ -8,7 +8,8 @@ import $ from 'jquery';
 @observer
 export default class JoyrideBase extends React.Component {
   static propTypes = {
-		store: PropTypes.object
+		store: PropTypes.object,
+    location: PropTypes.objectOrObservableObject
 	};
 
   constructor(props){
@@ -17,8 +18,11 @@ export default class JoyrideBase extends React.Component {
   }
 
   componentDidMount() {
-    console.log('base cdm');
-    this.joyrideStore.checkTourCookie(this.joyride);
+    this.joyrideStore.checkTourCookie(this.joyride, 'LandingPage');
+  }
+
+  componentDidUpdate() {
+    console.log(this.props.location.pathname);
   }
 
   handleStartTour  = () => {
@@ -35,7 +39,6 @@ export default class JoyrideBase extends React.Component {
   }
 
   showModal = (shouldShow, modalID) => {
-    console.log('showModal called with ' + shouldShow);
     if (shouldShow) {
       $(modalID).modal({backdrop: 'static'});
       $(modalID).modal('show');
@@ -46,7 +49,6 @@ export default class JoyrideBase extends React.Component {
   }
 
   renderTourIntroModal() {
-    console.log('rtim');
     this.showModal(this.joyrideStore.showTourIntroModal, '#tour-intro-modal');
     return (
       <div id="tour-intro-modal" className="modal fade" role="dialog" tabIndex="-1" aria-labelledby="feedback-modal-title">
@@ -85,16 +87,14 @@ export default class JoyrideBase extends React.Component {
     return(
       <div id="walkthru">
         {this.renderTourIntroModal()}
-        {this.joyrideStore.showTour &&
-          <Joyride
-            ref={c => (this.joyride = c)}
-            steps={this.joyrideStore.steps}
-            run={this.joyrideStore.isReady}
-            autoStart={true}
-            showOverlay={true}
-            type="continuous"
-          />
-        }
+        <Joyride
+          ref={c => (this.joyride = c)}
+          steps={this.joyrideStore.steps}
+          run={this.joyrideStore.isReady}
+          autoStart={true}
+          showOverlay={true}
+          type="continuous"
+        />
       </div>
     )
   }

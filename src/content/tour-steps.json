@@ -65,6 +65,20 @@
         "selector": ".coverage-layers",
         "position": "top"
       }
+    ],
+    "NetworkStatus": [
+      {
+        "title": "Coverage",
+        "text": "<p>View the network coverage for a specific area.</p>",
+        "selector": ".coverage-layers",
+        "position": "bottom"
+      },
+      {
+        "title": "Map Controls",
+        "text": "<p>Enter any street address or ZIP code to center the map on a specific location.</p><p>Select map overlays to view current weather, traffic, and network specific alerts.</p><p>Report network issues and subscribe to get alerts.</p>",
+        "selector": ".coverage-layers",
+        "position": "top"
+      }
     ]
   }
 }

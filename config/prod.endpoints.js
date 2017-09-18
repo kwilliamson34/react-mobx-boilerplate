@@ -20,7 +20,8 @@ const config = {
   manageUsersLink: 'https://profilemgt.firstnet.att.com/ebiz/firstnet/index.jsp#/companyInfo/companyInfoProfile',
   manageServicesLink: 'https://wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn',
   viewWirelessReportsLink: 'https://wireless.firstnet.att.com/businesscare/reporting/tcm_inv_reports/requestreports.jsp?showsearch=null',
-  shopStandardDevicesLink: 'https://wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn'
+  shopStandardDevicesLink: 'https://wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn',
+  'showOnboardingWalkthru': true
 }
 
 export default config
