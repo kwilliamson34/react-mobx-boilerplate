@@ -30,13 +30,13 @@
       {
         "title": "Search and Filter",
         "text": "Search by keywords and/or filter apps.",
-        "selector": ".manage-apps-form row",
+        "selector": ".manage-apps-form",
         "position": "left"
       },
       {
         "title": "App Summary",
         "text": "View high level info about the app, such as its name, developer, and average rating.",
-        "selector": ".card-list-wrapper",
+        "selector": ".card-wrapper",
         "position": "left"
       },
       {

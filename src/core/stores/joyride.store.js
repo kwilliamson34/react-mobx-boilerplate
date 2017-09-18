@@ -131,8 +131,8 @@ class JoyrideStore {
 					this.steps = [];
 			}
 			this.tourPage = pathname;
-			if(this.tourRef.reset){
-				this.tourRef.reset();
+			if(this.tourRef.start){
+				this.tourRef.start(true, this.steps, 0);
 			}
 		}
 	}
