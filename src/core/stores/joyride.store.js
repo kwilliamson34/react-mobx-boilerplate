@@ -1,5 +1,5 @@
 import {action, observable} from 'mobx';
-import {TourSteps} from '../../content/tour-steps.json';
+import {Beacons} from '../../content/tour-steps.json';
 
 class JoyrideStore {
 
@@ -55,7 +55,6 @@ class JoyrideStore {
 	@action startTourIntro(){
 		console.log('fn() startTourIntro');
 		this.showTourIntroModal = true;
-		console.log(this.showTourIntroModal);
 	}
 
 	@action endTourIntro(){
@@ -106,12 +105,10 @@ class JoyrideStore {
 			}
 		}else{
 			//cookie doesnt exist.  set to true
-			console.log('cookie not here.  setting one up and show intro');
+			console.log('Cookie doesnt exist.  Show intro');
 			this.startTourIntro();
 		}
 	}
-
-
 
   joyride = {};
 	@observable tourRef = {};
@@ -119,7 +116,7 @@ class JoyrideStore {
 	@observable showTour = true;
 	@observable isReady = false;
 	@observable isRunning = false;
-	@observable steps = TourSteps;
+	@observable steps = Beacons.LandingPage;
 	@observable stepIndex = 0;
 	@observable selector = '';
 }

@@ -30,7 +30,6 @@ export default class JoyrideBase extends React.Component {
     this.joyrideStore.disableTour();
   }
 
-
   hideIntroModal = () => {
     this.joyrideStore.toggleIntroModal();
   }
@@ -46,9 +45,9 @@ export default class JoyrideBase extends React.Component {
     }
   }
 
-  renderTourIntroModal(showIntroModal) {
+  renderTourIntroModal() {
     console.log('rtim');
-    this.showModal(showIntroModal, '#tour-intro-modal');
+    this.showModal(this.joyrideStore.showTourIntroModal, '#tour-intro-modal');
     return (
       <div id="tour-intro-modal" className="modal fade" role="dialog" tabIndex="-1" aria-labelledby="feedback-modal-title">
         <div>
@@ -65,8 +64,8 @@ export default class JoyrideBase extends React.Component {
                   <p>You can:</p>
                   <ul>
                     <li>To cancel the tour at any time, use the close icon "x".</li>
-                    <li>To reactivate your tour, simply click 'Enable Tour' in the Help Menu in the header.</li>
-                    <li>To disable the tour, please click on 'Disable Tour' in the Help menu.</li>
+                    <li>To reactivate your tour, simply click 'Enable Tour' in the <i className="icon-help" aria-hidden="true" /> Help Menu in the header.</li>
+                    <li>To disable the tour, please click on 'Disable Tour' in the <i className="icon-help" aria-hidden="true" /> Help menu.</li>
                   </ul>
                 </div>
                 <div className="col-xs-12 text-center">
@@ -85,10 +84,8 @@ export default class JoyrideBase extends React.Component {
   render(){
     return(
       <div id="walkthru">
-        {this.joyrideStore.showTourIntroModal &&
-          this.renderTourIntroModal(this.joyrideStore.showTourIntroModal)
-        }
-        {this.joyrideStore.showTour && !this.joyrideStore.showTourIntroModal &&
+        {this.renderTourIntroModal()}
+        {this.joyrideStore.showTour &&
           <Joyride
             ref={c => (this.joyride = c)}
             steps={this.joyrideStore.steps}

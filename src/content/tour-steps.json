@@ -1,28 +1,70 @@
 {
-  "TourSteps": [
-    {
-      "title": "Start using the tour",
-      "text": "Click on the beacons below to activate the tooltip. To advance click 'NEXT'.",
-      "selector": ".fnnav__header",
-      "position": "top"
-    },
-    {
-      "title": "Utility Navigation",
-      "text": "Here you can manage your account, get help and contact us.",
-      "selector": "#profile-header-dropdown",
-      "position": "top"
-    },
-    {
-      "title": "Manage Users",
-      "text": "Manage Users here",
-      "selector": ".manage-users",
-      "position": "top"
-    },
-    {
-      "title": "Map Overlays",
-      "text": "Start using the <strong>joyride</strong>",
-      "selector": ".coverage-layers",
-      "position": "top"
-    }
-  ]
+  "Beacons": {
+    "LandingPage": [
+      {
+        "title": "Navigation Menu",
+        "text": "Navigate to other Local Control capabilities, manage account, and access help pages.",
+        "selector": "#profile-header-dropdown",
+        "position": "top"
+      },
+      {
+        "title": "Administrative Dashboard",
+        "text": "Manage users and apps, assign devices, and view reports.<p>Explore, shop, and provision devices.</p>",
+        "selector": ".manage-users",
+        "position": "top"
+      },
+      {
+        "title": "Live Help",
+        "text": "Chat with a customer care specialist 24/7",
+        "selector": ".coverage-layers",
+        "position": "top"
+      }
+    ],
+    "ManageApps": [
+      {
+        "title": "Configure",
+        "text": "Configure the connection to your Mobile Device Management (MDM) solution.",
+        "selector": ".coverage-layers",
+        "position": "left"
+      },
+      {
+        "title": "Search and Filter",
+        "text": "Search by keywords and/or filter apps.",
+        "selector": ".coverage-layers",
+        "position": "left"
+      },
+      {
+        "title": "App Summary",
+        "text": "View high level info about the app, such as its name, developer, and average rating.",
+        "selector": ".coverage-layers",
+        "position": "left"
+      },
+      {
+        "title": "Manage Help",
+        "text": "Control which apps will be available and/or recommended to your agency’s users in the App Store. <p>Push an app to a Mobile Device Management (MDM) solution to control its distribution.</p>",
+        "selector": ".coverage-layers",
+        "position": "left"
+      }
+    ],
+    "AppDetail": [
+      {
+        "title": "App Summary",
+        "text": "View key info about the app.<p>Manage the app through Available, Recommended, and Push to MDM options.</p>",
+        "selector": ".coverage-layers",
+        "position": "bottom"
+      },
+      {
+        "title": "App Details",
+        "text": "View detailed information about the app.",
+        "selector": ".coverage-layers",
+        "position": "top"
+      },
+      {
+        "title": "Ratings and Reviews",
+        "text": "Read reviews submitted by App Store users.",
+        "selector": ".coverage-layers",
+        "position": "top"
+      }
+    ]
+  }
 }
