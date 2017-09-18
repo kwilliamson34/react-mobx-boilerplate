@@ -7,7 +7,6 @@ class JoyrideStore {
 		setTimeout(() => {
 			this.isReady = true;
 			this.isRunning = true;
-			console.log('joyride ready: ' + this.isReady);
 		}, 1000);
 	}
 
@@ -94,8 +93,11 @@ class JoyrideStore {
 		document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
 	}
 
-	@action checkTourCookie(joyrideRef) {
-		console.log('checkTourCookie called');
+	@action checkTourCookie(joyrideRef, pagePathname) {
+		console.log('checkTourCookie called: ' + pagePathname);
+		let tourPath = pagePathname || '';
+		console.log('tp: ' + tourPath);
+		this.updateSteps(tourPath);
 		this.tourRef = joyrideRef;
 		if(document.cookie.indexOf('_fn_tour') != -1){
 			//cookie present - do what it says
@@ -110,14 +112,39 @@ class JoyrideStore {
 		}
 	}
 
+	@action updateSteps(pathname){
+		if(pathname != this.tourPage){
+			switch (pathname) {
+				case '/admin/manage-apps':
+					this.steps = Beacons.ManageApps;
+					break;
+				case '/admin':
+					this.steps = Beacons.AdminDashboard;
+					break;
+				case '/admin/network-status':
+					this.steps = Beacons.NetworkStatus;
+					break;
+				case '/app/':
+					this.steps = Beacons.AppDetails;
+					break;
+				default:
+					this.steps = [];
+			}
+			this.tourPage = pathname;
+			if(this.tourRef.reset){
+				this.tourRef.reset();
+			}
+		}
+	}
 
   joyride = {};
+	@observable tourPage = '';
 	@observable tourRef = {};
-	@observable showTourIntroModal = true;
+	@observable showTourIntroModal = false;
 	@observable showTour = true;
 	@observable isReady = false;
 	@observable isRunning = false;
-	@observable steps = Beacons.LandingPage;
+	@observable steps = Beacons.AdminDashboard;
 	@observable stepIndex = 0;
 	@observable selector = '';
 }
