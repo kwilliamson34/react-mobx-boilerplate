@@ -10,6 +10,10 @@ export default class NewTabLink extends React.Component {
     onClick: PropTypes.func
   }
 
+  static defaultProps = {
+    className: ''
+  }
+
   render() {
     return (
       <a href={this.props.to}
