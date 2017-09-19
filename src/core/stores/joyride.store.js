@@ -176,7 +176,7 @@ class JoyrideStore {
 
 	get stepsSeen() {
 		let stepsSeen = this.getCookie('_fn_tour_steps_seen');
-		if (stepsSeen === '') {
+		if (!stepsSeen || stepsSeen === '') {
 			return [];
 		} else {
 			return JSON.parse(stepsSeen)
@@ -184,7 +184,7 @@ class JoyrideStore {
 	}
 
 	@action resetStepsSeen() {
-		this.setCookie('_fn_tour_steps_seen', '', 365);		
+		this.setCookie('_fn_tour_steps_seen', '', 365);
 	}
 
 	joyride = {};
