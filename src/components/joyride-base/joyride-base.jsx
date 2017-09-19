@@ -1,28 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Joyride from 'react-joyride';
-import { observer, inject } from 'mobx-react';
+import { observer } from 'mobx-react';
 import $ from 'jquery';
 
-@inject('store')
 @observer
 export default class JoyrideBase extends React.Component {
   static propTypes = {
-    store: PropTypes.object,
+    joyrideStore: PropTypes.object,
     location: PropTypes.string
   };
 
   constructor(props){
     super(props)
-    this.joyrideStore = this.props.store.joyrideStore;
+    this.joyrideStore = this.props.joyrideStore;
   }
 
   componentDidMount() {
     this.joyrideStore.checkTourCookie(this.joyride, this.props.location);
   }
 
-  componentWillReceiveProps() {
-    this.joyrideStore.updateSteps(this.props.location);
+  componentWillReceiveProps(nextProps) {
+    this.joyrideStore.updateSteps(nextProps.location);
   }
 
   handleStartTour  = () => {
@@ -32,6 +31,10 @@ export default class JoyrideBase extends React.Component {
 
   handleDisableTour = () => {
     this.joyrideStore.disableTour();
+  }
+
+  handleStepChange = (stepInfo) => {
+    this.joyrideStore.handleStepChange(stepInfo);
   }
 
   hideIntroModal = () => {
@@ -82,7 +85,6 @@ export default class JoyrideBase extends React.Component {
   }
 
   render(){
-    console.log('render', this.joyrideStore.showTourIntroModal);
     return(
       <div id="walkthru">
         {this.renderTourIntroModal()}
@@ -92,6 +94,7 @@ export default class JoyrideBase extends React.Component {
           run={this.joyrideStore.isReady}
           autoStart={true}
           showOverlay={true}
+          callback={this.handleStepChange}
           type="continuous"
           showStepsProgress={true}
           holePadding="0"
