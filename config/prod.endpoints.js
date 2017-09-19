@@ -21,7 +21,8 @@ const config = {
   manageServicesLink: 'https://wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn',
   viewWirelessReportsLink: 'https://wireless.firstnet.att.com/businesscare/reporting/tcm_inv_reports/requestreports.jsp?showsearch=null',
   shopStandardDevicesLink: 'https://wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn',
-  'showOnboardingWalkthru': true
+  'showOnboardingWalkthru': true,
+  'videoTutorialLink': 'https://www.youtube.com/user/FirstNetGov'
 }
 
 export default config

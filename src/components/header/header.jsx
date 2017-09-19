@@ -310,9 +310,9 @@ export default class PSEHeader extends React.Component {
 					</a>
 				</li>
 				<li>
-					<a href="#" role="button" className="walkthru-toggle" >
+					<NewTabLink to={config.videoTutorialLink} onClick={this.handleExternalTabOpen} showIcon={false}>
 						Watch Video Tutorial <i className="icon-external-site" aria-hidden="true"></i>
-					</a>
+					</NewTabLink>
 				</li>
 				<li>
 					<a href={'tel:' + config.attCustomerSupportPhone}>

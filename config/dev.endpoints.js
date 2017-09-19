@@ -21,7 +21,8 @@ const config = {
   manageServicesLink: 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn',
   viewWirelessReportsLink: 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn?requestedPage=downloadReports',
   shopStandardDevicesLink: 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn',
-  'showOnboardingWalkthru': true
+  'showOnboardingWalkthru': true,
+  'videoTutorialLink': 'https://youtu.be/dQw4w9WgXcQ'
 }
 
 export default config

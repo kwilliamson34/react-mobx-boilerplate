@@ -94,7 +94,6 @@ export default class JoyrideBase extends React.Component {
           showOverlay={true}
           type="continuous"
           showStepsProgress={true}
-          showSkipButton={true}
           holePadding="0"
           locale={{ back: 'Back', close: 'Close', last: 'Last', next: 'Next', skip: 'Skip Tour' }}
         />

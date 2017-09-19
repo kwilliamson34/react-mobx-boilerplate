@@ -363,7 +363,10 @@ $joyride-tooltip-arrow-scale: ($joyride-tooltip-arrow-size / ($joyride-tooltip-a
     }
 
     &__footer {
-      text-align: right;
+      @extend .clearfix;
+      .joyride-tooltip__button--primary{
+        float: right;
+      }
     }
 
     &__button {
