@@ -46,7 +46,7 @@ class JoyrideStore {
 		this.isReady = true;
 		this.isRunning = true;
 		this.showTour = true;
-		this.tourRef.reset();
+		this.tourRef.reset(true);
 	}
 
 	/* Intro popup when cookie is not present */
@@ -121,7 +121,7 @@ class JoyrideStore {
 				case '/admin':
 					this.steps = Beacons.AdminDashboard;
 					break;
-				case '/admin/network-status':
+				case '/network-status':
 					this.steps = Beacons.NetworkStatus;
 					break;
 				case '/app/':
@@ -131,8 +131,8 @@ class JoyrideStore {
 					this.steps = [];
 			}
 			this.tourPage = pathname;
-			if(this.tourRef.start){
-				this.tourRef.start(true, this.steps, 0);
+			if(this.tourRef.reset){
+				this.tourRef.reset(true);
 			}
 		}
 	}

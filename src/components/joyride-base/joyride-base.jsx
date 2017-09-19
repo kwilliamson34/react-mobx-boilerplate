@@ -83,12 +83,13 @@ export default class JoyrideBase extends React.Component {
   }
 
   render(){
+    console.log('render', this.joyrideStore.showTourIntroModal);
     return(
       <div id="walkthru">
         {this.renderTourIntroModal()}
         <Joyride
-          ref={el => (this.joyride = el)}
-          steps={this.joyrideStore.steps}
+          ref={el => this.joyride = el}
+          steps={this.joyrideStore.steps.peek()}
           run={this.joyrideStore.isReady}
           autoStart={true}
           showOverlay={true}
