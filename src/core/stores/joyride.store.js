@@ -93,9 +93,7 @@ class JoyrideStore {
 			}
 			if (c.indexOf(name) == 0) {
 				console.log('gwc:' + typeof (c.substring(name.length, c.length) === 'true') + ' ' + c.substring(name.length, c.length));
-				console.log("-----------------------", c.substring(name.length, c.length), "-----------------------")
 				return c.substring(name.length, c.length);
-				// return (c.substring(name.length, c.length) === 'true');
 			}
 		}
 		return '';
@@ -149,7 +147,7 @@ class JoyrideStore {
 				allStepsToShow = Beacons.AdminDashboard;
 				break;
 				case '/network-status':
-				this.steps = Beacons.NetworkStatus;
+				allStepsToShow = Beacons.NetworkStatus;
 				break;
 				case '/app/':
 				allStepsToShow = Beacons.AppDetails;
