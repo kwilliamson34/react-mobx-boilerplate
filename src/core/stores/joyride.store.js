@@ -71,7 +71,7 @@ class JoyrideStore {
 		var name = cname + '=';
 		var ca = document.cookie.split(';');
 		console.log('ca:' + ca);
-		for(var i = 0; i < ca.length; i++) {
+		for(let i = 0; i < ca.length; i++) {
 			var c = ca[i];
 			while (c.charAt(0) == ' ') {
 				c = c.substring(1);
@@ -114,6 +114,7 @@ class JoyrideStore {
 
 	@action updateSteps(pathname){
 		if(pathname != this.tourPage){
+			this.isReady = false;
 			switch (pathname) {
 				case '/admin/manage-apps':
 					this.steps = Beacons.ManageApps;

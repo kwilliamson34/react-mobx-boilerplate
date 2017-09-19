@@ -1,6 +1,6 @@
-$joyride-color: #1071BC !default;
+$joyride-color: #1559a8 !default;
 $joyride-zindex: 110 !default;
-$joyride-overlay-color: rgba(#000, 0.5) !default;
+$joyride-overlay-color: rgba(#093E67, 0.85) !default;
 
 $joyride-beacon-color: $joyride-color !default;
 $joyride-beacon-size: 36px !default;
@@ -14,7 +14,7 @@ $joyride-tooltip-animation-timing: cubic-bezier(0, 1.05, 0.55, 1.18);
 $joyride-tooltip-arrow-size: 36px !default;
 $joyride-tooltip-bg-color: #fff !default;
 $joyride-tooltip-border-radius: 4px !default;
-$joyride-tooltip-color: #555 !default;
+$joyride-tooltip-color: #000 !default;
 $joyride-tooltip-font-size: 16px !default;
 $joyride-tooltip-padding: 20px !default;
 $joyride-tooltip-shadow: (x: 1px, y: 2px, blur: 3px, color: rgba(#000, 0.3)) !default;
@@ -24,7 +24,7 @@ $joyride-close: (color: rgba($joyride-tooltip-color, 0.5), size: 12px, top: 10px
 $joyride-close-visible: true !default;
 $joyride-close-image: 'data:image/svg+xml,%3Csvg%20width%3D%22#{map-get($joyride-close, 'size')}%22%20height%3D%22#{map-get($joyride-close, 'size')}%22%20viewBox%3D%220%200%2016%2016%22%20version%3D%221.1%22%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M14.117.323l-6.073%206.075-5.449-6.075c-.431-.431-1.131-.431-1.562%200-.431.431-.431%201.131%200%201.562l5.449%206.075-6.159%206.159c-.431.431-.431%201.134%200%201.562.431.431%201.131.431%201.562%200l6.075-6.073%205.449%206.073c.429.431%201.131.431%201.56%200%20.431-.429.431-1.131%200-1.562l-5.452-6.073%206.159-6.161c.431-.431.431-1.131%200-1.562-.431-.431-1.129-.431-1.56%200z%22%20fill%3D%22#{map-get($joyride-close, 'color')}%22%2F%3E%3C%2Fsvg%3E';
 
-$joyride-header-color: $joyride-tooltip-color !default;
+$joyride-header-color: #000 !default;
 $joyride-header-font-size: 20px !default;
 $joyride-header-border-color: $joyride-color !default;
 $joyride-header-border-width: 1px !default;
@@ -69,12 +69,77 @@ $joyride-tooltip-arrow-scale: ($joyride-tooltip-arrow-size / ($joyride-tooltip-a
   line-height: 1;
   padding: 0;
 
-  &:active,
-  &:focus,
-  &:hover {
-    outline: none;
+  .show-focus-styles & {
+    &:active,
+    &:focus,{
+      box-shadow:
+        1px 1px 0 0 $fn-white,
+        1px -1px 0 0 $fn-white,
+        -1px 1px 0 0 $fn-white,
+        -1px -1px 0 0 $fn-white,
+        0 0 10px 0 rgba(0, 0, 0, 0.70);
+    }
+  }
+
+}
+
+#tour-intro-modal{
+  border-radius: 4px;
+  .modal{
+    &-content{
+      padding: 45px 60px;
+      border-radius: 4px;
+    }
+    &-header{
+      border-bottom: $joyride-header-border-width solid $joyride-header-border-color;
+      color: $joyride-header-color;
+      padding: 0;
+      margin-bottom: 30px;
+      h1{
+        font-size: $joyride-header-font-size;
+        font-weight: $fn-medium-weight;
+        text-align: left;
+        margin-bottom: 15px;
+      }
+      .fn-modal-close{
+        top: 30px;
+        right: 60px;
+      }
+
+    }
+    &-body{
+      text-align: left;
+      font-size: 14px;
+      padding: 0 0 80px 0;
+      p {
+        font-size: $joyride-tooltip-font-size;
+        text-align: left;
+        margin-bottom: 14px;
+      }
+      ul{
+        list-style: disc;
+        margin-left: 15px;
+
+        li{
+          font-size: $joyride-tooltip-font-size;
+          line-height: 1.6;
+          margin-bottom: 5px;
+          i:before{
+            font-size: 16px;
+            vertical-align: baseline;
+          }
+        }
+      }
+
+    }
+    &-footer{
+      @extend .clearfix;
+      border: 0 none;
+      padding: 0;
+    }
   }
 }
+
 
 .joyride {
   &-beacon {
@@ -273,6 +338,7 @@ $joyride-tooltip-arrow-scale: ($joyride-tooltip-arrow-size / ($joyride-tooltip-a
       border-bottom: $joyride-header-border-width solid $joyride-header-border-color;
       color: $joyride-header-color;
       font-size: $joyride-header-font-size;
+      font-weight: $fn-medium-weight;
       padding-bottom: 6px;
       padding-right: 18px;
       position: relative;
@@ -284,8 +350,16 @@ $joyride-tooltip-arrow-scale: ($joyride-tooltip-arrow-size / ($joyride-tooltip-a
 
     &__main {
       font-size: $joyride-tooltip-font-size;
-      padding-bottom: 18px;
-      padding-right: 18px;
+      padding-bottom: 12px;
+      color: #000;
+      line-height: 1.4;
+
+      p{
+        font-size: $joyride-tooltip-font-size;
+        &:not(:last-of-type){
+          margin-bottom: 10px;
+        }
+      }
     }
 
     &__footer {
@@ -299,26 +373,87 @@ $joyride-tooltip-arrow-scale: ($joyride-tooltip-arrow-size / ($joyride-tooltip-a
         background-color: $joyride-button-bg-color;
         border-radius: $joyride-button-border-radius;
         color: $joyride-button-color;
-        padding: 6px 12px;
         transition: background-color 0.2s ease-in-out;
 
+        height: 48px;
+        border-radius: 24px;
+        min-width: 65px;
+        padding: 0 30px;
+        text-transform: uppercase;
+
+        &:hover,
         &:active,
-        &:focus,
-        &:hover {
-          background-color: lighten($joyride-button-bg-color, 6);
-          color: $joyride-button-color;
+        &:active:focus,
+        &:focus  {
+          box-shadow: inset 0px 0px 16px 0px rgba(50, 50, 50, 0.5);
         }
+
+        &:focus {
+          outline: 0;
+          box-shadow:
+            1px 1px 0 0 $fn-white,
+            1px -1px 0 0 $fn-white,
+            -1px 1px 0 0 $fn-white,
+            -1px -1px 0 0 $fn-white,
+            0 0 10px 0 rgba(0, 0, 0, 0.70);
+        }
+
       }
 
       &--secondary {
         color: $joyride-back-button-color;
         margin-right: 10px;
+        height: 48px;
+        border-radius: 24px;
+        min-width: 65px;
+        padding: 0 12px;
+        text-transform: uppercase;
+
+        border: 2px solid $joyride-back-button-color;
+        color: $joyride-back-button-color;
+        height: 48px;
+        border-radius: 24px;
+        min-width: 65px;
+        padding: 0 30px;
+        text-transform: uppercase;
+
+        &:hover,
+        &:active,
+        &:active:focus,
+        &:focus {
+          background: $joyride-back-button-color;
+          color: $fn-white;
+          border-color: $fn-white;
+          box-shadow: inset 0px 0px 16px 0px rgba(50, 50, 50, 0.5);
+        }
+        &:focus {
+          outline: 0;
+          box-shadow:
+            1px 1px 0 0 $fn-white,
+            1px -1px 0 0 $fn-white,
+            -1px 1px 0 0 $fn-white,
+            -1px -1px 0 0 $fn-white,
+            0 0 10px 0 rgba(0, 0, 0, 0.70);
+          color: $fn-blue;
+          border-color: $fn-blue;
+          background: transparent;
+        }
       }
 
       &--skip {
-        color: $joyride-skip-button-color;
+        color: $fn-dkblue;
         float: left;
         margin-right: 10px;
+        height: 48px;
+        text-transform: uppercase;
+        &:hover,
+        &:focus{
+          text-decoration: underline;
+        }
+        &:focus{
+          outline: none;
+          box-shadow:none;
+        }
       }
     }
 
