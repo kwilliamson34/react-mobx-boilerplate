@@ -1,6 +1,5 @@
 import { action, observable } from 'mobx';
 import { Beacons } from '../../content/tour-steps.json';
-import _ from 'lodash';
 
 
 class JoyrideStore {
@@ -14,10 +13,10 @@ class JoyrideStore {
 
 	@action isTourIncomplete() {
 		let totalStepCount = 0;
-		for ( let page in Beacons ) {
+		for (let page in Beacons) {
 			totalStepCount += Beacons[page].length;
 		}
-		if ( totalStepCount !== this.stepsSeen.length ) {
+		if (totalStepCount !== this.stepsSeen.length) {
 			// there are things we haven't seen yet, show the tour.
 			return true;
 		} else {
@@ -130,11 +129,13 @@ class JoyrideStore {
 	}
 
 	@action handleStepChange(stepInfo) {
-		if (stepInfo.type === 'step:after') {
+		if (stepInfo.action === 'next' && stepInfo.type === 'step:after') {
 			let stepsAlreadySeen = this.stepsSeen;
 			let stepSelector = stepInfo.step.selector;
-			stepsAlreadySeen.push(stepSelector);
-			this.setCookie('_fn_tour_steps_seen', JSON.stringify(stepsAlreadySeen), 365);
+			if (stepsAlreadySeen.indexOf(stepSelector) === -1) {
+				stepsAlreadySeen.push(stepSelector);
+				this.setCookie('_fn_tour_steps_seen', JSON.stringify(stepsAlreadySeen), 365);
+			}
 		}
 	}
 
@@ -143,30 +144,36 @@ class JoyrideStore {
 			let allStepsToShow;
 			switch (pathname) {
 				case '/admin/manage-apps':
-				allStepsToShow = Beacons.ManageApps;
-				break;
+					allStepsToShow = Beacons.ManageApps;
+					break;
 				case '/admin':
-				allStepsToShow = Beacons.AdminDashboard;
-				break;
+					allStepsToShow = Beacons.AdminDashboard;
+					break;
 				case '/network-status':
-				allStepsToShow = Beacons.NetworkStatus;
-				break;
+					allStepsToShow = Beacons.NetworkStatus;
+					break;
 				case '/app/':
-				allStepsToShow = Beacons.AppDetails;
-				break;
+					allStepsToShow = Beacons.AppDetails;
+					break;
 				default:
-				allStepsToShow = [];
+					allStepsToShow = [];
 			}
 			this.steps = this.hideStepsAlreadySeen(allStepsToShow);
 			this.tourPage = pathname;
-			if(this.tourRef.reset){
+			if (this.tourRef.reset) {
 				this.tourRef.reset(true);
 			}
 		}
 	}
 
-	hideStepsAlreadySeen(stepsToShow) {
-		let stepsToActuallyShow = _.difference(stepsToShow, this.stepsSeen);
+	hideStepsAlreadySeen(allStepsToShow) {
+		let stepsAlreadySeen = this.stepsSeen;
+		let stepsToActuallyShow = [];
+		for (let step in allStepsToShow) {
+			if (stepsAlreadySeen.indexOf(allStepsToShow[step].selector) === -1) {
+				stepsToActuallyShow.push(allStepsToShow[step]);
+			}
+		}
 		return stepsToActuallyShow;
 	}
 

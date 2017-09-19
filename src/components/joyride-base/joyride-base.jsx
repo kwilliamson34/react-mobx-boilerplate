@@ -7,7 +7,7 @@ import $ from 'jquery';
 @observer
 export default class JoyrideBase extends React.Component {
   static propTypes = {
-    store: PropTypes.object,
+    joyrideStore: PropTypes.object,
     location: PropTypes.string
   };
 
