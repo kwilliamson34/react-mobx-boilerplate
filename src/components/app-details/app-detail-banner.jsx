@@ -20,7 +20,8 @@ export class AppDetailBanner extends React.Component {
     isWithinCard: PropTypes.bool,
     containsPrimaryHeader: PropTypes.bool,
     actionBlock: PropTypes.string.isRequired,
-    pskToRender: PropTypes.string.isRequired
+    pskToRender: PropTypes.string.isRequired,
+    suppressFetchFailure: PropTypes.bool
   }
 
   componentWillMount() {
@@ -28,7 +29,10 @@ export class AppDetailBanner extends React.Component {
 
     this.appStore.setCurrentApp(this.props.pskToRender);
     if(!this.appStore.currentAppObject || !this.appStore.currentAppObject.detailsFetched) {
-      this.appStore.fetchAppDetailByPsk(this.props.pskToRender);
+      this.appStore.fetchAppDetailByPsk({
+        psk: this.props.pskToRender,
+        suppressFetchFailure: this.props.suppressFetchFailure
+      });
     }
   }
 

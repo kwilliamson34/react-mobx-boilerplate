@@ -52,8 +52,7 @@ export default class AppDetailsPage extends React.Component {
   }
 
   updateCurrentApp() {
-    const psk = this.props.match.params.appPsk;
-    this.appStore.fetchAppDetailByPsk(psk);
+    this.appStore.fetchAppDetailByPsk({psk: this.props.match.params.appPsk});
   }
 
   renderScreenshotGallery = (currentAppObject) => {

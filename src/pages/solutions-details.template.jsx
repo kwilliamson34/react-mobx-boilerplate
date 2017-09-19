@@ -43,7 +43,10 @@ export default class SolutionsDetailsTemplate extends React.Component {
     if(this.externalLinkStore.hasValidRelatedApp(solutionDetail)) {
       this.appCatalogStore.setCurrentApp(solutionDetail.related_app_psk);
       if(!this.appCatalogStore.currentAppObject || !this.appCatalogStore.currentAppObject.detailsFetched) {
-        this.appCatalogStore.fetchAppDetailByPsk(solutionDetail.related_app_psk);
+        this.appCatalogStore.fetchAppDetailByPsk({
+          psk: solutionDetail.related_app_psk,
+          suppressFetchFailure: true
+        });
       }
     }
   }
@@ -93,7 +96,8 @@ export default class SolutionsDetailsTemplate extends React.Component {
                 <AppDetailBanner
                   pskToRender={solutionDetail.related_app_psk}
                   actionBlock="link_to_details"
-                  appCatalogStore={this.appCatalogStore}/>
+                  appCatalogStore={this.appCatalogStore}
+                  suppressFetchFailure={true}/>
                 <hr />
               </section>
             </div>}
