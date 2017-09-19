@@ -15,13 +15,10 @@ class JoyrideStore {
 		for ( let page in Beacons ) {
 			totalStepCount += Beacons[page].length;
 		}
-		console.log("isTourIncomplete", totalStepCount, this.stepsSeen.length)
 		if ( totalStepCount !== this.stepsSeen.length ) {
 			// there are things we haven't seen yet, show the tour.
-			console.log("render the tour, it's incomplete")
 			return true;
 		} else {
-			console.log("don't render the tour, we're good")
 			// We've seen everything, don't render anything
 			return false;
 		}
@@ -64,7 +61,7 @@ class JoyrideStore {
 		this.isReady = true;
 		this.isRunning = true;
 		this.showTour = true;
-		this.tourRef.reset();
+		this.tourRef.reset(true);
 	}
 
 	/* Intro popup when cookie is not present */
@@ -136,9 +133,7 @@ class JoyrideStore {
 		if (stepInfo.type === 'step:after') {
 			let stepsAlreadySeen = this.stepsSeen;
 			let stepSelector = stepInfo.step.selector;
-			console.log("before", stepsAlreadySeen)
 			stepsAlreadySeen.push(stepSelector);
-			console.log("after", stepsAlreadySeen);
 			this.setCookie('_fn_tour_steps_seen', JSON.stringify(stepsAlreadySeen), 365);
 		}
 	}
@@ -148,24 +143,24 @@ class JoyrideStore {
 			let allStepsToShow;
 			switch (pathname) {
 				case '/admin/manage-apps':
-					allStepsToShow = Beacons.ManageApps;
-					break;
+				allStepsToShow = Beacons.ManageApps;
+				break;
 				case '/admin':
-					allStepsToShow = Beacons.AdminDashboard;
-					break;
-				case '/admin/network-status':
-					allStepsToShow = Beacons.NetworkStatus;
-					break;
+				allStepsToShow = Beacons.AdminDashboard;
+				break;
+				case '/network-status':
+				this.steps = Beacons.NetworkStatus;
+				break;
 				case '/app/':
-					allStepsToShow = Beacons.AppDetails;
-					break;
+				allStepsToShow = Beacons.AppDetails;
+				break;
 				default:
-					allStepsToShow = [];
+				allStepsToShow = [];
 			}
 			this.steps = this.hideStepsAlreadySeen(allStepsToShow);
 			this.tourPage = pathname;
-			if (this.tourRef.start) {
-				this.tourRef.start(true, this.steps, 0);
+			if(this.tourRef.reset){
+				this.tourRef.reset(true);
 			}
 		}
 	}
@@ -174,7 +169,6 @@ class JoyrideStore {
 		let stepsAlreadySeen = this.stepsSeen;
 		let stepsToActuallyShow = [];
 		for (let step in stepsToShow) {
-			console.log("checking step:", step), stepsToShow[step].selector, stepsAlreadySeen.indexOf(stepsToShow[step].selector);
 			if (stepsAlreadySeen.indexOf(stepsToShow[step].selector) === -1) {
 				stepsToActuallyShow.push(stepsToShow[step]);
 			}
@@ -184,7 +178,6 @@ class JoyrideStore {
 
 	get stepsSeen() {
 		let stepsSeen = this.getCookie('_fn_tour_steps_seen');
-		console.log("steps ", stepsSeen);
 		if (stepsSeen === '') {
 			return [];
 		} else {

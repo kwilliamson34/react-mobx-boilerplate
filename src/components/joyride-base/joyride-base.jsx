@@ -20,8 +20,8 @@ export default class JoyrideBase extends React.Component {
     this.joyrideStore.checkTourCookie(this.joyride, this.props.location);
   }
 
-  componentWillReceiveProps() {
-    this.joyrideStore.updateSteps(this.props.location);
+  componentWillReceiveProps(nextProps) {
+    this.joyrideStore.updateSteps(nextProps.location);
   }
 
   handleStartTour  = () => {
@@ -90,8 +90,8 @@ export default class JoyrideBase extends React.Component {
       <div id="walkthru">
         {this.renderTourIntroModal()}
         <Joyride
-          ref={el => (this.joyride = el)}
-          steps={this.joyrideStore.steps}
+          ref={el => this.joyride = el}
+          steps={this.joyrideStore.steps.peek()}
           run={this.joyrideStore.isReady}
           autoStart={true}
           showOverlay={true}

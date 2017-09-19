@@ -59,6 +59,13 @@ export default class App extends React.Component {
     routing: PropTypes.obj
   }
 
+  constructor(props) {
+		super(props);
+		this.state = {
+			prevLocation: history.location.pathname
+		}
+	}
+
   componentWillMount() {
     //check for URL token parameter
 		const urlToken = utilsService.getUrlParameter('token');
