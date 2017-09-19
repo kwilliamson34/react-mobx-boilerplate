@@ -95,7 +95,6 @@ export default class JoyrideBase extends React.Component {
           type="continuous"
           showStepsProgress={true}
           holePadding="0"
-          locale={{ back: 'Back', close: 'Close', last: 'Last', next: 'Next', skip: 'Skip Tour' }}
         />
       </div>
     )
