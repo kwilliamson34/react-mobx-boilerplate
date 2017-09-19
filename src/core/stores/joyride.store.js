@@ -1,5 +1,7 @@
 import { action, observable } from 'mobx';
 import { Beacons } from '../../content/tour-steps.json';
+import _ from 'lodash';
+
 
 class JoyrideStore {
 
@@ -164,13 +166,7 @@ class JoyrideStore {
 	}
 
 	hideStepsAlreadySeen(stepsToShow) {
-		let stepsAlreadySeen = this.stepsSeen;
-		let stepsToActuallyShow = [];
-		for (let step in stepsToShow) {
-			if (stepsAlreadySeen.indexOf(stepsToShow[step].selector) === -1) {
-				stepsToActuallyShow.push(stepsToShow[step]);
-			}
-		}
+		let stepsToActuallyShow = _.difference(stepsToShow, this.stepsSeen);
 		return stepsToActuallyShow;
 	}
 
