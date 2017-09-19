@@ -1,5 +1,6 @@
-import {action, observable} from 'mobx';
-import {Beacons} from '../../content/tour-steps.json';
+import { action, observable } from 'mobx';
+import { Beacons } from '../../content/tour-steps.json';
+
 
 class JoyrideStore {
 
@@ -10,24 +11,19 @@ class JoyrideStore {
 		}, 1000);
 	}
 
-	@action addJoyrideSteps(steps) {
-		if (!Array.isArray(steps)) {
-			steps = [steps];
+	@action isTourIncomplete() {
+		let totalStepCount = 0;
+		for (let page in Beacons) {
+			totalStepCount += Beacons[page].length;
 		}
-		if (!steps.length) {
-			return false;
-		}
-		this.steps = this.steps.concat(steps);
-	}
-
-	@action addJoyrideTooltip(data) {
-		this.joyride.addTooltip(data);
+		return this.stepsSeen.length < totalStepCount;
 	}
 
 	@action toggleTour() {
-		if(this.showTour){
+		if (this.showTour) {
 			this.disableTour();
-		}else{
+		} else {
+			this.resetStepsSeen();
 			this.startTour();
 		}
 	}
@@ -40,7 +36,7 @@ class JoyrideStore {
 		this.setCookie('_fn_tour', false, 365);
 	}
 
-	@action startTour(){
+	@action startTour() {
 		console.log('enableTour called');
 		this.setCookie('_fn_tour', true, 365);
 		this.isReady = true;
@@ -51,12 +47,12 @@ class JoyrideStore {
 
 	/* Intro popup when cookie is not present */
 
-	@action startTourIntro(){
+	@action startTourIntro() {
 		console.log('fn() startTourIntro');
 		this.showTourIntroModal = true;
 	}
 
-	@action endTourIntro(){
+	@action endTourIntro() {
 		console.log('fn() endTourIntro');
 		this.showTourIntroModal = false;
 	}
@@ -71,14 +67,14 @@ class JoyrideStore {
 		var name = cname + '=';
 		var ca = document.cookie.split(';');
 		console.log('ca:' + ca);
-		for(var i = 0; i < ca.length; i++) {
+		for (var i = 0; i < ca.length; i++) {
 			var c = ca[i];
 			while (c.charAt(0) == ' ') {
 				c = c.substring(1);
 			}
 			if (c.indexOf(name) == 0) {
-				console.log('gwc:' + typeof (c.substring(name.length, c.length) === 'true') + ' '  + c.substring(name.length, c.length));
-				return (c.substring(name.length, c.length) === 'true');
+				console.log('gwc:' + typeof (c.substring(name.length, c.length) === 'true') + ' ' + c.substring(name.length, c.length));
+				return c.substring(name.length, c.length);
 			}
 		}
 		return '';
@@ -89,7 +85,7 @@ class JoyrideStore {
 		let expiryDays = exdays || 365;
 		var d = new Date();
 		d.setTime(d.getTime() + (expiryDays * 24 * 60 * 60 * 1000));
-		var expires = 'expires='+d.toUTCString();
+		var expires = 'expires=' + d.toUTCString();
 		document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
 	}
 
@@ -99,45 +95,78 @@ class JoyrideStore {
 		console.log('tp: ' + tourPath);
 		this.updateSteps(tourPath);
 		this.tourRef = joyrideRef;
-		if(document.cookie.indexOf('_fn_tour') != -1){
+		if (document.cookie.indexOf('_fn_tour') != -1) {
 			//cookie present - do what it says
-			this.showTour =  this.getCookie('_fn_tour');
-			if(this.showTour){
+			this.showTour = this.getCookie('_fn_tour');
+			if (this.showTour === 'true') {
 				this.startTour();
 			}
-		}else{
+		} else {
 			//cookie doesnt exist.  set to true
 			console.log('Cookie doesnt exist.  Show intro');
 			this.startTourIntro();
 		}
 	}
 
-	@action updateSteps(pathname){
-		if(pathname != this.tourPage){
+	@action handleStepChange(stepInfo) {
+		if (stepInfo.action === 'next' && stepInfo.type === 'step:after') {
+			let stepsAlreadySeen = this.stepsSeen;
+			let stepSelector = stepInfo.step.selector;
+			if (stepsAlreadySeen.indexOf(stepSelector) === -1) {
+				stepsAlreadySeen.push(stepSelector);
+				this.setCookie('_fn_tour_steps_seen', JSON.stringify(stepsAlreadySeen), 365);
+			}
+		}
+	}
+
+	@action updateSteps(pathname) {
+		if (pathname != this.tourPage) {
+			let allStepsToShow;
 			switch (pathname) {
 				case '/admin/manage-apps':
-					this.steps = Beacons.ManageApps;
+					allStepsToShow = Beacons.ManageApps;
 					break;
 				case '/admin':
-					this.steps = Beacons.AdminDashboard;
+					allStepsToShow = Beacons.AdminDashboard;
 					break;
 				case '/network-status':
-					this.steps = Beacons.NetworkStatus;
+					allStepsToShow = Beacons.NetworkStatus;
 					break;
 				case '/app/':
-					this.steps = Beacons.AppDetails;
+					allStepsToShow = Beacons.AppDetails;
 					break;
 				default:
-					this.steps = [];
+					allStepsToShow = [];
 			}
+			this.steps = this.hideStepsAlreadySeen(allStepsToShow);
 			this.tourPage = pathname;
-			if(this.tourRef.reset){
+			if (this.tourRef.reset) {
 				this.tourRef.reset(true);
 			}
 		}
 	}
 
-  joyride = {};
+	hideStepsAlreadySeen(allStepsToShow) {
+		let stepsAlreadySeen = this.stepsSeen;
+		let stepsToActuallyShow = allStepsToShow.filter(step => {
+			return stepsAlreadySeen.indexOf(step.selector) < 0;
+		});
+		return stepsToActuallyShow;
+	}
+
+	get stepsSeen() {
+		let stepsSeen = this.getCookie('_fn_tour_steps_seen');
+		if (!stepsSeen || stepsSeen === '') {
+			return [];
+		} else {
+			return JSON.parse(stepsSeen)
+		}
+	}
+
+	@action resetStepsSeen() {
+		this.setCookie('_fn_tour_steps_seen', '', 365);
+	}
+
 	@observable tourPage = '';
 	@observable tourRef = {};
 	@observable showTourIntroModal = false;
