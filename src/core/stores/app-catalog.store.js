@@ -39,7 +39,7 @@ class AppCatalogStore {
 		})[0];
 	}
 
-	@action fetchAppDetailByPsk(psk) {
+	@action fetchAppDetailByPsk({psk, suppressFetchFailure = false}) {
 		this.setCurrentApp(psk);
 
 		let success = (response) => {
@@ -52,7 +52,10 @@ class AppCatalogStore {
 		}
 
 		let failure = (err) => {
-			utilsService.handleError(err);
+			if(!suppressFetchFailure) {
+				utilsService.handleError(err);
+			}
+
 			this.isLoading = false;
 		}
 
