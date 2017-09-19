@@ -16,13 +16,7 @@ class JoyrideStore {
 		for (let page in Beacons) {
 			totalStepCount += Beacons[page].length;
 		}
-		if (totalStepCount !== this.stepsSeen.length) {
-			// there are things we haven't seen yet, show the tour.
-			return true;
-		} else {
-			// We've seen everything, don't render anything
-			return false;
-		}
+		return this.stepsSeen.length < totalStepCount;
 	}
 
 	@action addJoyrideSteps(steps) {
@@ -168,12 +162,9 @@ class JoyrideStore {
 
 	hideStepsAlreadySeen(allStepsToShow) {
 		let stepsAlreadySeen = this.stepsSeen;
-		let stepsToActuallyShow = [];
-		for (let step in allStepsToShow) {
-			if (stepsAlreadySeen.indexOf(allStepsToShow[step].selector) === -1) {
-				stepsToActuallyShow.push(allStepsToShow[step]);
-			}
-		}
+		let stepsToActuallyShow = allStepsToShow.filter( step => {
+			return stepsAlreadySeen.indexOf( step.selector ) < 0;
+		});
 		return stepsToActuallyShow;
 	}
 
