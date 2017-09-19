@@ -19,20 +19,6 @@ class JoyrideStore {
 		return this.stepsSeen.length < totalStepCount;
 	}
 
-	@action addJoyrideSteps(steps) {
-		if (!Array.isArray(steps)) {
-			steps = [steps];
-		}
-		if (!steps.length) {
-			return false;
-		}
-		this.steps = this.steps.concat(steps);
-	}
-
-	@action addJoyrideTooltip(data) {
-		this.joyride.addTooltip(data);
-	}
-
 	@action toggleTour() {
 		if (this.showTour) {
 			this.disableTour();
@@ -162,8 +148,8 @@ class JoyrideStore {
 
 	hideStepsAlreadySeen(allStepsToShow) {
 		let stepsAlreadySeen = this.stepsSeen;
-		let stepsToActuallyShow = allStepsToShow.filter( step => {
-			return stepsAlreadySeen.indexOf( step.selector ) < 0;
+		let stepsToActuallyShow = allStepsToShow.filter(step => {
+			return stepsAlreadySeen.indexOf(step.selector) < 0;
 		});
 		return stepsToActuallyShow;
 	}
@@ -181,7 +167,6 @@ class JoyrideStore {
 		this.setCookie('_fn_tour_steps_seen', '', 365);
 	}
 
-	joyride = {};
 	@observable tourPage = '';
 	@observable tourRef = {};
 	@observable showTourIntroModal = false;
