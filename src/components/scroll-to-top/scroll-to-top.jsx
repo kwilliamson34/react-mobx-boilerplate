@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import {history} from '../../core/services/history.service';
 import _ from 'lodash';
 import $ from 'jquery';
-import config from 'config';
-import JoyrideBase from '../joyride-base/joyride-base';
 
 export default class ScrollToTop extends React.Component {
 	static propTypes = {
@@ -117,9 +115,6 @@ export default class ScrollToTop extends React.Component {
 				<span id="root-anchor" ref={ref => this.rootAnchor = ref} className="sr-only" tabIndex="-1">
 					Top of Page
 				</span>
-				{config.showOnboardingWalkthru &&
-					<JoyrideBase location={location.pathname} />
-				}
 				{this.props.children}
 				<a id="btn-back-top" href="#" className={`back-to-top btn ${!this.state.showBackToTopBtn && 'faded'}`} onClick={this.handleBackToTopClick}>
 					<i aria-hidden="true" className="icon-arrowUp"/>
