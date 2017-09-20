@@ -124,7 +124,7 @@ export default class App extends React.Component {
   getMainLayoutComponent = () => {
     return (
       <div>
-        {config.showOnboardingWalkthru && pseMasterStore.joyrideStore.isTourIncomplete() &&
+        {config.showOnboardingWalkthrough && pseMasterStore.joyrideStore.isTourIncomplete() &&
 					<JoyrideBase location={location.pathname} joyrideStore={pseMasterStore.joyrideStore} />
 				}
         <ScrollToTop>

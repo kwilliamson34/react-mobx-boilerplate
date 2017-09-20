@@ -6,7 +6,7 @@
 @import
   "base/bootstrap",
   "libs/firstnet/firstnet",
-  "libs/joyride/react-joyride";
+  "~react-joyride/lib/react-joyride";
 
 //Utils
 @import "abstracts/utils";
@@ -17,7 +17,8 @@
   "base/mixins",
   "base/typography",
   "base/bootstrap-overrides",
-  "base/buttons";
+  "base/buttons",
+  "base/joyride-overrides";
 
 //Components
 @import
