@@ -25,6 +25,8 @@ import JoyrideBase from './components/joyride-base/joyride-base';
 import NetworkStatusPage from './pages/network-status.page';
 import ErrorPage from './pages/error.page.jsx';
 import SessionTimeoutPage from './pages/session-timeout.page';
+import SubscribeToGTOC from './pages/gtoc.page';
+import SubscribeToGTOCSuccess from './pages/gtoc-success.page';
 
 //Admin pages
 import ManageAppsPage from './pages/manage-apps.page';
@@ -150,7 +152,7 @@ export default class App extends React.Component {
           <Footer/>
         </ScrollToTop>
       </div>
-      );
+    );
   }
 
   getAdminRoutes = (component) => {

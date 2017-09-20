@@ -155,7 +155,7 @@ module.exports = {
 		}),
 
 		new HtmlWebpackPlugin({
-			template: './index.ejs',
+			template: './index.dev.ejs',
 			hash: false
 		}),
 

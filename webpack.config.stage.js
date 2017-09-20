@@ -124,7 +124,7 @@ module.exports = {
 		}),
 
 		new HtmlWebpackPlugin({
-			template: './index.ejs',
+			template: './index.qa.ejs',
 			hash: false
 		}),
 

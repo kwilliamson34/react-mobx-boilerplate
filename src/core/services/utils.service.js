@@ -27,6 +27,7 @@ class UtilsService {
         return {
           name: obj.app_name,
           publisher: obj.custom_metadata.author,
+          type: obj.custom_metadata.app_type,
           imageUrl: obj.icon_path,
           rating: obj.rating,
           reviews_count: obj.reviews_count,
@@ -87,7 +88,7 @@ class UtilsService {
 
   getDevicesAndSolutionsUrl(string) {
     //removes HTML code entities and any special characters, before replacing spaces with plus symbol;
-    return string.replace(/&\w{2,8}; ?/g, '').replace(/[^A-Z\s\d]?/ig, '').replace(/ /g, '+').toLowerCase();
+    return string.trim().replace(/&\w{2,8}; ?/g, '').replace(/[^A-Z\s\d]?/ig, '').replace(/ /g, '+').toLowerCase();
   }
 
   isValidEmailAddress(string) {

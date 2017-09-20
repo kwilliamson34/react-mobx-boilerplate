@@ -193,7 +193,7 @@ export default class Footer extends React.Component {
 							Terms of Use
 						</NewTabLink>
 					</li>
-					<br className="visible-xs-inline-block" />
+					<li className="xs-line-break"></li>
 					<li role="presentation">
 						<NewTabLink to={this.externalLinkStore.accessibilityLink}>
 							Accessibility

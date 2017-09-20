@@ -120,7 +120,7 @@ $map-height-mobile: 400px;
     margin: 0;
 
     input {
-      background-color: white!important;
+      background-color: white !important;
     }
 
     .checkbox {
@@ -136,7 +136,6 @@ $map-height-mobile: 400px;
   }
 
   hr {
-    border-color: $fn-grey;
     border-width: 1px;
     margin-bottom: 0;
   }
@@ -167,15 +166,32 @@ $map-height-mobile: 400px;
     }
   }
 
+  .network-subscription-link {
+    a {
+      font-size: 16px;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+  }
+
   .network-contact-info {
     p {
       font-size: 16px;
       line-height: 1;
+      span {
+        margin-right: 5px;
+      }
     }
 
-    .icon-phone-number:before {
-      margin: 0 5px;
-      font-size: 16px;
+    a {
+      span {
+        display: inline-block;
+        white-space: nowrap;
+        .icon-phone-number:before {
+          margin-right: 5px;
+          font-size: 16px;
+        }
+      }
     }
   }
 
@@ -241,8 +257,9 @@ $map-height-mobile: 400px;
       flex-basis: auto;
     }
 
-    .network-contact-info {
-      margin: 20px 0;
+    .network-contact-info,
+    .network-subscription-link {
+      margin: 30px 0;
     }
 
     .traffic-legend-wrapper {
@@ -292,10 +309,20 @@ $map-height-mobile: 400px;
       }
     }
 
+    .network-subscription-link,
     .network-contact-info {
-      float: right;
+      float: left;
       margin-top: 0;
       line-height: 1.11;
+      width: 50%;
+    }
+
+    .network-contact-info {
+      text-align: right;
+      + hr {
+        margin-top: 10px;
+        padding: 0 0 30px 0;
+      }
     }
   }
 }
@@ -333,8 +360,9 @@ $map-height-mobile: 400px;
       }
     }
 
-    .network-contact-info {
-      margin-top: 40px;
+    .network-contact-info,
+    .network-subscription-link {
+      margin-top: 25px;
     }
   }
 }
