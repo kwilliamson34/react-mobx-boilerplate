@@ -140,6 +140,8 @@ export default class App extends React.Component {
               <Route path="/admin" component={this.getAdminRoutes(AdminDashboardPage)}/>
               <Route path="/app/:appPsk" component={this.getAdminRoutes(AppDetailsPage)/*TODO redirect to error/404 if psk has no match*/}/>
               <Route path="/network-status" component={NetworkStatusPage}/>
+              <Route path="/subscribe-to-alerts" component={SubscribeToGTOC}/>
+              <Route path="/subscribe-to-alerts-success" component={SubscribeToGTOCSuccess}/>
               <Route path="/feedback" component={FeedbackPage}/>
               <Route path="/feedback-success" component={FeedbackSuccessPage}/>
               <Route path="/faq" component={FAQPage}/>
