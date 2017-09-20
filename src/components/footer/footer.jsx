@@ -25,11 +25,16 @@ export default class Footer extends React.Component {
 		this.externalLinkStore = this.props.store.externalLinkStore;
 		this.user = this.props.store.userStore;
 		this.handleSitemapClick = this.handleSitemapClick.bind(this);
+		this.joyrideStore = this.props.store.joyrideStore;
 	}
 
 	handleSitemapClick(e){
 		e.preventDefault();
 		this.headerStore.toggleFooterSitemap();
+	}
+
+	onToggleTour = () => {
+		this.joyrideStore.toggleTour();
 	}
 
 	renderSitemapColumn() {
@@ -153,6 +158,13 @@ export default class Footer extends React.Component {
 						{this.props.showInternalLinks &&
 							<li role="presentation">
 								<Link to="/feedback">Give Us Feedback</Link>
+							</li>
+						}
+						{this.props.showInternalLinks &&
+							<li role="presentation">
+								<a href="#" role="button" className="walkthru-toggle" onClick={this.onToggleTour}>
+									{`${this.joyrideStore.showTour? 'Disable' : 'Enable'}`} Site Walkthrough
+								</a>
 							</li>
 						}
 						<li role="presentation">
