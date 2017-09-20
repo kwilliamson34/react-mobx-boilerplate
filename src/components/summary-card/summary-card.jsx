@@ -13,6 +13,7 @@ export class SummaryCard extends React.Component {
     display: PropTypes.shape({
       name: PropTypes.string,
       publisher: PropTypes.string, //author
+      type: PropTypes.string,
       imageUrl: PropTypes.string,
       rating: PropTypes.number,
       reviews_count: PropTypes.number,
@@ -45,8 +46,13 @@ export class SummaryCard extends React.Component {
     const cardClass = `card-focus has-shadow card-container center-block ${errorClass} ${selectedClass}`;
     return (
       <div className="card-wrapper" ref="div">
+        {this.props.display.type == 'CERTIFIED' &&
+          <div className="certified-app-label">
+            <i className="icon icon-check-circle" aria-hidden="true"></i>
+            <span>FirstNet Certified</span>
+          </div>
+        }
         <Link to={'/app/' + this.props.display.app_psk} id={'appCard' + this.props.display.app_psk} className={cardClass}>
-          <div className="">
             <div className="card-logo">
               <img src={this.props.display.imageUrl} alt={this.props.display.name + ' Logo'}/>
             </div>
@@ -68,7 +74,6 @@ export class SummaryCard extends React.Component {
                 <span className="sr-only">&nbsp;app store</span>
               </div>}
             </div>
-          </div>
         </Link>
       </div>
     );

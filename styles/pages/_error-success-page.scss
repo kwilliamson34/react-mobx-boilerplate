@@ -12,7 +12,7 @@
 
 		img {
 			width: 100%;
-			max-width: 220px;
+			max-width: 250px;
 		}
 	}
 
@@ -20,21 +20,33 @@
 		> div {
 			background: $fn-white;
 			text-align: center;
-			padding: 60px 30px;
+			padding: 40px 30px;
 		}
 
-		h1,
-		p {
+		h1{
 			margin-bottom: 30px;
+		}
+
+		p {
+			margin-bottom: 40px;
+
+			&:empty{
+				min-height: 1px;
+				margin-bottom: 10px;
+			}
 		}
 
 		a,
 		.as-link {
+			margin-top: 40px;
 			font-size: $fn-button-desktop;
 		}
 	}
 
 	.sites-list {
+		li a{
+			font-size: $fn-content-page-text-desktop;
+		}
 		li:not(:last-child) {
 			margin-bottom: 30px;
 		}
@@ -105,15 +117,14 @@ section.session-timeout {
 	.success-page {
 		padding: 100px 0;
 
-		.logo-container img{
-			max-width: 320px;
-		}
-
 		.container{
 			> div{
 				padding: 60px 65px;
 			}
-
+			a,
+			.as-link {
+				margin-top: 60px;
+			}
 		}
 	}
 
@@ -133,13 +144,13 @@ section.session-timeout {
 	.success-page {
 		padding: 120px 0;
 
-		.logo-container img {
-			max-width: 320px;
-		}
-
 		.container {
 			> div {
-				padding: 80px 90px;
+				padding: 60px 90px;
+			}
+			a,
+			.as-link {
+				margin-top: 60px;
 			}
 		}
 	}

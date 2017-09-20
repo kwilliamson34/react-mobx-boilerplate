@@ -251,7 +251,7 @@ describe('AppCatalogStore', () => {
 			.mockReturnValue(new Promise(resolve => resolve(mockAppDetail)));
 
 		beforeEach(() => {
-			return store.fetchAppDetailByPsk(25);
+			return store.fetchAppDetailByPsk({psk: 25});
 		});
 
 		it('retrieves and populates currentAppObject', () => {

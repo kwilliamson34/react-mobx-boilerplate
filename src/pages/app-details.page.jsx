@@ -52,8 +52,7 @@ export default class AppDetailsPage extends React.Component {
   }
 
   updateCurrentApp() {
-    const psk = this.props.match.params.appPsk;
-    this.appStore.fetchAppDetailByPsk(psk);
+    this.appStore.fetchAppDetailByPsk({psk: this.props.match.params.appPsk});
   }
 
   renderScreenshotGallery = (currentAppObject) => {
@@ -165,6 +164,7 @@ export default class AppDetailsPage extends React.Component {
         {(this.appStore.currentAppObject && this.appStore.currentAppObject.detailsFetched)
           ? <div>
               <AppDetailBanner
+                pskToRender={this.appStore.currentAppObject.app_psk}
                 actionBlock="app_managment_block"
                 isWithinCard={true}
                 containsPrimaryHeader={true}

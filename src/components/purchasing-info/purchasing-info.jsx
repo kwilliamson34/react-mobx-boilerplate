@@ -23,6 +23,7 @@ export default class PurchasingInfo extends React.Component {
     return(
       <section className="purchasing-info">
         <h2>For Purchasing</h2>
+        <hr />
         <div>
           <ul className="purchase-options-list">
             {this.props.contactInfo.contact_name !== '' &&

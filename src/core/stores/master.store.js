@@ -7,6 +7,7 @@ import {contentStore} from './content.store';
 import {externalLinkStore} from './external-link.store';
 import {geolinkStore} from './geolink.store';
 import {feedbackStore} from './feedback.store';
+import {gtocStore} from './gtoc.store';
 import {mdmStore} from './mdm.store';
 import {userStore} from './user.store';
 import {joyrideStore} from './joyride.store';
@@ -21,6 +22,7 @@ class PSEStore {
 		this.externalLinkStore = externalLinkStore;
 		this.geolinkStore = geolinkStore;
 		this.feedbackStore = feedbackStore;
+		this.gtocStore = gtocStore;
 		this.mdmStore = mdmStore;
 		this.userStore = userStore;
 		this.joyrideStore = joyrideStore;
