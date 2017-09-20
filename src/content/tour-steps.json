@@ -50,7 +50,7 @@
       {
         "title": "App Summary",
         "text": "View key info about the app.<p>Manage the app through Available, Recommended, and Push to MDM options.</p>",
-        "selector": ".white-card",
+        "selector": ".app-summary-wrapper",
         "position": "bottom"
       },
       {

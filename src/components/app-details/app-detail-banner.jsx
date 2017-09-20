@@ -183,7 +183,7 @@ export class AppDetailBanner extends React.Component {
     return (
       <section className="app-summary">
         <div className={this.props.isWithinCard ? 'container' : ''}>
-          <div className={this.props.isWithinCard ? 'white-card' : ''}>
+          <div className={`app-summary-wrapper ${this.props.isWithinCard ? 'white-card' : ''}`}>
             <div className="row">
               <div className="col-xs-12 col-sm-12 hidden-md hidden-lg">
                 {this.title()}

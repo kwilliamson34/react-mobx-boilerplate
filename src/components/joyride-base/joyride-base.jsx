@@ -14,6 +14,8 @@ export default class JoyrideBase extends React.Component {
   constructor(props){
     super(props)
     this.joyrideStore = this.props.joyrideStore;
+    this.mountMaxTries = 7;
+    this.mountTries = 0;
   }
 
   componentDidMount() {
@@ -33,13 +35,8 @@ export default class JoyrideBase extends React.Component {
     this.joyrideStore.disableTour();
   }
 
-  maxTries = 3;
-  tries = 0;
   handleStepChange = (stepInfo) => {
-    console.log('stepInfo', stepInfo);
-    // console.log('get?', $(stepInfo.step.selector).get(0));
-    if (stepInfo.type && stepInfo.type === 'error:target_not_found' && stepInfo.type !== 'finished') {
-      console.log('DING DONG');
+    if (stepInfo.type && stepInfo.type === 'error:target_not_found') {
       this.joyrideStore.isReady = false;
       setTimeout(() => {
         if ($(stepInfo.step.selector).get(0) !== undefined) {
@@ -47,11 +44,7 @@ export default class JoyrideBase extends React.Component {
           this.joyrideStore.handleStepChange(stepInfo);
           return;
         } else {
-          if (++this.tries >= this.maxTries) {
-            console.warn(`Walkthrough failed at step index ${stepInfo.index}.`);
-            return;
-          }
-          console.log('FAILURE', this.tries);
+          if (++this.mountTries >= this.mountMaxTries) return;
           this.handleStepChange(stepInfo);
         }
       }, 2000);
