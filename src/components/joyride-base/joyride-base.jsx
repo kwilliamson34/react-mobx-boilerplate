@@ -60,24 +60,11 @@ export default class JoyrideBase extends React.Component {
     });
   }
 
-  modifyStepPopup = () => {
-    setTimeout(() => {
-      if ($('.joyride-tooltip').get(0) !== undefined) {
-        this.trapFocusWithinPopup($('.joyride-tooltip'));
-        return;
-      } else {
-        this.modifyStepPopup();
-      }
-    }, 100);
-  }
-
   handleStepChange = (stepInfo) => {
-    this.modifyStepPopup();
     if (stepInfo.type && stepInfo.type === 'error:target_not_found') {
       this.joyrideStore.isReady = false;
       setTimeout(() => {
         if ($(stepInfo.step.selector).get(0) !== undefined) {
-          this.modifyStepPopup();
           this.joyrideStore.isReady = true;
           this.joyrideStore.handleStepChange(stepInfo);
           return;
@@ -86,8 +73,13 @@ export default class JoyrideBase extends React.Component {
           this.handleStepChange(stepInfo);
         }
       }, 2000);
+    } else if(stepInfo.type && stepInfo.type === 'tooltip:before') {
+      //add jquery task to end of rendering queue
+      setTimeout(() => {
+        this.trapFocusWithinPopup($('.joyride-tooltip'));
+      });
     }
-    this.joyrideStore.handleStepChange(stepInfo);
+    this.joyrideStore.recordStepAsSeenInCookie(stepInfo);
   }
 
   hideIntroModal = () => {
