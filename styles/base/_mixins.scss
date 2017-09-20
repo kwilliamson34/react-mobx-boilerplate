@@ -32,3 +32,18 @@
     animation: card-hover-motion 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
   }
 }
+
+@mixin after-link() {
+  &:after {
+    content: '›';
+    font-size: 1.9rem;
+    padding-left: 5px;
+  }
+}
+
+@mixin sr-friendly-hidden() {
+  //hide from view but not screen reader
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+}

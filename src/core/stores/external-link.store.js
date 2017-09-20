@@ -78,7 +78,7 @@ class ExternalLinkStore {
     }
   }
 
-  @action hasRelatedApp(solutionObject) {
+  @action hasValidRelatedApp(solutionObject) {
     if(solutionObject.related_app_psk) {
       const digitsRegex = /^[0-9]+$/;
       return digitsRegex.test(solutionObject.related_app_psk);
@@ -158,7 +158,7 @@ class ExternalLinkStore {
   @observable currentDeviceCategory = '';
   @observable currentDeviceDetailRaw = {};
 
-  @observable solutionsConsultantPhone = '1-833-717-8638';
+  @observable solutionsConsultantPhone = '833-717-8638';
 
   @observable firstnetFacebook = 'https://www.facebook.com/firstnetgov/';
   @observable firstnetLinkedIn = 'https://www.linkedin.com/company/first-responder-network-authority-firstnet-';

@@ -39,7 +39,7 @@ export default class ConfigureMDM extends React.Component {
     this.store.form = undefined;
 
     //FPSE-1064 clear all alerts from this page
-    this.mdmStore.mdm_form_alerts = [];
+    this.store.mdm_form_alerts = [];
   }
 
   // Configure MDM Form Functions

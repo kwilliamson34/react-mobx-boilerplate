@@ -133,7 +133,6 @@ class JoyrideStore {
 					allStepsToShow = Beacons.NetworkStatus;
 					break;
 				case (/(\/app\/\w{1,})/).test(pathname):
-					console.log('DING DING');
 					allStepsToShow = Beacons.AppDetail;
 					break;
 				default:

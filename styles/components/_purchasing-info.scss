@@ -3,6 +3,10 @@
     padding-top: 6rem;
   }
 
+  hr {
+    margin-bottom: 0;
+  }
+
   .purchase-options-list {
     @extend .clearfix;
 

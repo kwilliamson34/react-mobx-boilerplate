@@ -264,7 +264,7 @@ footer {
       margin-right: 45px;
 
       > span {
-        display: none;
+        @include sr-friendly-hidden();
       }
     }
   }
@@ -275,12 +275,16 @@ footer {
     }
 
     li {
-      margin-bottom: 30px;
+      margin-bottom: 15px;
 
       &:nth-child(1),
       &:nth-child(4) {
         border-right: 1px solid $fn-blue;
       }
+    }
+
+    .xs-line-break {
+      width: 100%;
     }
   }
 }
@@ -337,7 +341,7 @@ footer {
       margin-right: 45px;
 
       > span {
-        display: none;
+        @include sr-friendly-hidden();
       }
     }
   }

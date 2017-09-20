@@ -155,6 +155,14 @@ class ApiService {
         data: feedbackObject
       });
     }
+
+    submitGTOCSubscriptionForm(gtocObject) {
+      return axios({
+        method: 'post',
+        url: `${base}/gtocalertssubscription`,
+        data: gtocObject
+      });
+    }
 }
 
 export const apiService = new ApiService();
