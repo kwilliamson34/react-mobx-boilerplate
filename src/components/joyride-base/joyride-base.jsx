@@ -66,7 +66,7 @@ export default class JoyrideBase extends React.Component {
         this.trapFocusWithinPopup($('.joyride-tooltip'));
         return;
       } else {
-        this.getPopup();
+        this.modifyStepPopup();
       }
     }, 2000);
   }
