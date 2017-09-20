@@ -35,11 +35,49 @@ export default class JoyrideBase extends React.Component {
     this.joyrideStore.disableTour();
   }
 
+  trapFocusWithinPopup = (popup) => {
+    const buttonArray = popup.find('button');
+    const firstInput = buttonArray.first();
+    const lastInput = buttonArray.last();
+
+    /*set focus on first input*/
+    firstInput.focus();
+
+    /*redirect last tab to first input*/
+    lastInput.on('keydown', function (e) {
+     if ((e.which === 9 && !e.shiftKey)) {
+       e.preventDefault();
+       firstInput.focus();
+     }
+    });
+
+    /*redirect first shift+tab to last input*/
+    firstInput.on('keydown', function (e) {
+      if ((e.which === 9 && e.shiftKey)) {
+        e.preventDefault();
+        lastInput.focus();
+      }
+    });
+  }
+
+  modifyStepPopup = () => {
+    setTimeout(() => {
+      if ($('.joyride-tooltip').get(0) !== undefined) {
+        this.trapFocusWithinPopup($('.joyride-tooltip'));
+        return;
+      } else {
+        this.getPopup();
+      }
+    }, 2000);
+  }
+
   handleStepChange = (stepInfo) => {
+    this.modifyStepPopup();
     if (stepInfo.type && stepInfo.type === 'error:target_not_found') {
       this.joyrideStore.isReady = false;
       setTimeout(() => {
         if ($(stepInfo.step.selector).get(0) !== undefined) {
+          this.modifyStepPopup();
           this.joyrideStore.isReady = true;
           this.joyrideStore.handleStepChange(stepInfo);
           return;
