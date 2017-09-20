@@ -109,6 +109,7 @@ export default class JoyrideBase extends React.Component {
           run={this.joyrideStore.isReady}
           autoStart={true}
           showOverlay={true}
+          locale={{last: 'Finished'}}
           callback={this.handleStepChange}
           type="continuous"
           showStepsProgress={true}
