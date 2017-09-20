@@ -122,18 +122,19 @@ class JoyrideStore {
 	@action updateSteps(pathname) {
 		if (pathname != this.tourPage) {
 			let allStepsToShow;
-			switch (pathname) {
-				case '/admin/manage-apps':
+			switch (true) {
+				case (/(\/admin\/manage\-apps)/).test(pathname):
 					allStepsToShow = Beacons.ManageApps;
 					break;
-				case '/admin':
+				case (/(\/admin)/).test(pathname):
 					allStepsToShow = Beacons.AdminDashboard;
 					break;
-				case '/network-status':
+				case (/(\/network\-status)/).test(pathname):
 					allStepsToShow = Beacons.NetworkStatus;
 					break;
-				case '/app/':
-					allStepsToShow = Beacons.AppDetails;
+				case (/(\/app\/\w{1,})/).test(pathname):
+					console.log('DING DING');
+					allStepsToShow = Beacons.AppDetail;
 					break;
 				default:
 					allStepsToShow = [];
