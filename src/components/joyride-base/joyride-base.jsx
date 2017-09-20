@@ -68,7 +68,7 @@ export default class JoyrideBase extends React.Component {
       } else {
         this.modifyStepPopup();
       }
-    }, 2000);
+    }, 100);
   }
 
   handleStepChange = (stepInfo) => {
