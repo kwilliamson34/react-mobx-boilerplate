@@ -180,13 +180,9 @@ $fn-mobile-item-height: 60px;
       }
     }
   }
-
-  phone {
-    white-space: nowrap;
-  }
 }
-//profile-block
 
+//profile-block
 .multi-line-item {
   display: table-cell;
   vertical-align: middle;
@@ -556,10 +552,6 @@ $fn-mobile-item-height: 60px;
           &:focus {
             @include focus();
             border-radius: 4px;
-
-            i {
-             visibility: visible;
-            }
           }
 
           &:active,
@@ -567,20 +559,6 @@ $fn-mobile-item-height: 60px;
           &:hover {
             text-decoration: underline;
             box-shadow: none !important;
-
-             i {
-              visibility: visible;
-            }
-          }
-
-          i {
-            display: inline-block;
-            vertical-align: sub;
-            visibility: hidden;
-
-            &:before {
-              font-size: 1.4rem;
-            }
           }
         }
       }
@@ -590,6 +568,30 @@ $fn-mobile-item-height: 60px;
   #pse-admin-nav {
     > li:last-child {
       border-bottom: 0 none;
+    }
+  }
+
+  //external link icon
+  .header-submenu a,
+  .dropdown .dropdown-menu > li > a {
+    i.icon-external-site {
+      display: inline-block;
+      vertical-align: sub;
+      visibility: hidden;
+      margin-left: 5px;
+
+      &:before {
+        font-size: 1.4rem;
+      }
+    }
+
+    &:focus,
+    &:active,
+    &:active:focus,
+    &:hover {
+      i.icon-external-site {
+        visibility: visible;
+      }
     }
   }
 }

@@ -20,6 +20,7 @@ export default class PSEHeader extends React.Component {
 		this.headerStore = this.props.store.headerStore;
 		this.userStore = this.props.store.userStore;
 		this.joyrideStore = this.props.store.joyrideStore;
+		this.externalLinkStore = this.props.store.externalLinkStore;
 	}
 
 	componentDidUpdate(prevProps) {
@@ -308,6 +309,11 @@ export default class PSEHeader extends React.Component {
 					<a href="#" role="button" className="walkthru-toggle" onClick={this.onToggleTour}>
 						{`${this.joyrideStore.showTour? 'Disable' : 'Enable'}`} Site Walkthrough
 					</a>
+				</li>
+				<li>
+					<NewTabLink to={this.externalLinkStore.firstnetTraining} onClick={this.handleExternalTabOpen} showIcon={true}>
+						Training
+					</NewTabLink>
 				</li>
 				<li>
 					<a href={'tel:' + config.attCustomerSupportPhone}>

@@ -42,7 +42,7 @@ export default class SessionTimeoutPage extends React.Component {
             </div>
           </div>
         </section>
-        <Footer showInternalLinks={false} />
+        <Footer showPrivateLinks={false} />
       </article>
     );
   }
