@@ -120,24 +120,27 @@ class JoyrideStore {
 		}
 	}
 
-	@action updateSteps(pathname) {
+@action updateSteps(pathname) {
+		// let path = location.pathname.match(/(\/([\w\d]*-?[\w\d]*)?)/gi)[0];
+		console.log('---regex path: ' + pathname);
 		if (pathname != this.tourPage) {
 			let allStepsToShow;
-			switch (pathname) {
-				case '/admin/manage-apps':
-					allStepsToShow = Beacons.ManageApps;
-					break;
+			if (pathname.includes('/app')) {
+				allStepsToShow = Beacons.AppDetail;
+			} else {
+				switch (pathname) {
 				case '/admin':
 					allStepsToShow = Beacons.AdminDashboard;
+					break;
+				case '/admin/manage-apps':
+					allStepsToShow = Beacons.ManageApps;
 					break;
 				case '/network-status':
 					allStepsToShow = Beacons.NetworkStatus;
 					break;
-				case '/app/':
-					allStepsToShow = Beacons.AppDetails;
-					break;
 				default:
 					allStepsToShow = [];
+				}
 			}
 			this.steps = this.hideStepsAlreadySeen(allStepsToShow);
 			this.tourPage = pathname;

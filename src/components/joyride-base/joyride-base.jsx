@@ -14,6 +14,8 @@ export default class JoyrideBase extends React.Component {
   constructor(props){
     super(props)
     this.joyrideStore = this.props.joyrideStore;
+    this.mountMaxTries = 7;
+    this.mountTries = 0;
   }
 
   componentDidMount() {
@@ -34,6 +36,19 @@ export default class JoyrideBase extends React.Component {
   }
 
   handleStepChange = (stepInfo) => {
+    if (stepInfo.type && stepInfo.type === 'error:target_not_found') {
+      this.joyrideStore.isReady = false;
+      setTimeout(() => {
+        if ($(stepInfo.step.selector).get(0) !== undefined) {
+          this.joyrideStore.isReady = true;
+          this.joyrideStore.handleStepChange(stepInfo);
+          return;
+        } else {
+          if (++this.mountTries >= this.mountMaxTries) return;
+          this.handleStepChange(stepInfo);
+        }
+      }, 2000);
+    }
     this.joyrideStore.handleStepChange(stepInfo);
   }
 
