@@ -19,6 +19,7 @@ export default class PSEHeader extends React.Component {
 		super(props);
 		this.headerStore = this.props.store.headerStore;
 		this.userStore = this.props.store.userStore;
+		this.externalLinkStore = this.props.store.externalLinkStore;
 	}
 
 	componentDidUpdate(prevProps) {
@@ -323,6 +324,11 @@ export default class PSEHeader extends React.Component {
 											</NavLink>
 										</li>
 										<li>
+											<NewTabLink to={this.externalLinkStore.firstnetTraining} onClick={this.handleExternalTabOpen} showIcon={true}>
+												Training
+											</NewTabLink>
+										</li>
+										<li>
 											<NavLink activeClassName="active" to="/feedback">
 												Give Us Feedback
 											</NavLink>
@@ -398,6 +404,11 @@ export default class PSEHeader extends React.Component {
 											<NavLink to="/faq" activeClassName="active">
 												FAQ
 											</NavLink>
+										</li>
+										<li role="presentation">
+											<NewTabLink to={this.externalLinkStore.firstnetTraining} activeClassName="active" onClick={this.handleExternalTabOpen} showIcon={true}>
+												Training
+											</NewTabLink>
 										</li>
 										<li role="presentation">
 											<NavLink to="/feedback" activeClassName="active">
