@@ -120,25 +120,26 @@ class JoyrideStore {
 	}
 
 @action updateSteps(pathname) {
-		let path = location.pathname.match(/(\/([\w\d]*-?[\w\d]*\/)?)/gi)[0];
-		console.log('---regex path: ' + path);
-		if (path != this.tourPage) {
+		// let path = location.pathname.match(/(\/([\w\d]*-?[\w\d]*)?)/gi)[0];
+		console.log('---regex path: ' + pathname);
+		if (pathname != this.tourPage) {
 			let allStepsToShow;
-			switch (path) {
-				case '/':
+			if (pathname.includes('/app')) {
+				allStepsToShow = Beacons.AppDetail;
+			} else {
+				switch (pathname) {
+				case '/admin':
+					allStepsToShow = Beacons.AdminDashboard;
+					break;
+				case '/admin/manage-apps':
 					allStepsToShow = Beacons.ManageApps;
 					break;
-				case '/my-apps':
-					allStepsToShow = Beacons.ManageApps;
-					break;
-				case '/new-application/':
-					allStepsToShow = Beacons.SubmitApp;
-					break;
-				case '/app-detail':
-					allStepsToShow = Beacons.AppDetail;
+				case '/network-status':
+					allStepsToShow = Beacons.NetworkStatus;
 					break;
 				default:
 					allStepsToShow = [];
+				}
 			}
 			this.steps = this.hideStepsAlreadySeen(allStepsToShow);
 			this.tourPage = pathname;
@@ -147,7 +148,6 @@ class JoyrideStore {
 			}
 		}
 	}
-
 
 	hideStepsAlreadySeen(allStepsToShow) {
 		let stepsAlreadySeen = this.stepsSeen;
