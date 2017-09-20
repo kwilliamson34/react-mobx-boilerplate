@@ -34,6 +34,7 @@ class JoyrideStore {
 		this.isReady = false;
 		this.isRunning = false;
 		this.setCookie('_fn_lc_tour', false, 365);
+		this.endTourIntro();
 	}
 
 	@action startTour() {
