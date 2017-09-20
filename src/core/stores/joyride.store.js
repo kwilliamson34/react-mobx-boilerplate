@@ -33,12 +33,12 @@ class JoyrideStore {
 		this.showTour = false;
 		this.isReady = false;
 		this.isRunning = false;
-		this.setCookie('_fn_tour', false, 365);
+		this.setCookie('_fn_lc_tour', false, 365);
 	}
 
 	@action startTour() {
 		console.log('enableTour called');
-		this.setCookie('_fn_tour', true, 365);
+		this.setCookie('_fn_lc_tour', true, 365);
 		this.isReady = true;
 		this.isRunning = true;
 		this.showTour = true;
@@ -95,9 +95,9 @@ class JoyrideStore {
 		console.log('tp: ' + tourPath);
 		this.updateSteps(tourPath);
 		this.tourRef = joyrideRef;
-		if (document.cookie.indexOf('_fn_tour') != -1) {
+		if (document.cookie.indexOf('_fn_lc_tour') != -1) {
 			//cookie present - do what it says
-			this.showTour = this.getCookie('_fn_tour');
+			this.showTour = this.getCookie('_fn_lc_tour');
 			if (this.showTour === 'true') {
 				this.startTour();
 			}
@@ -114,7 +114,7 @@ class JoyrideStore {
 			let stepSelector = stepInfo.step.selector;
 			if (stepsAlreadySeen.indexOf(stepSelector) === -1) {
 				stepsAlreadySeen.push(stepSelector);
-				this.setCookie('_fn_tour_steps_seen', JSON.stringify(stepsAlreadySeen), 365);
+				this.setCookie('_fn_lc_tour_steps_seen', JSON.stringify(stepsAlreadySeen), 365);
 			}
 		}
 	}
@@ -155,7 +155,7 @@ class JoyrideStore {
 	}
 
 	get stepsSeen() {
-		let stepsSeen = this.getCookie('_fn_tour_steps_seen');
+		let stepsSeen = this.getCookie('_fn_lc_tour_steps_seen');
 		if (!stepsSeen || stepsSeen === '') {
 			return [];
 		} else {
@@ -164,7 +164,7 @@ class JoyrideStore {
 	}
 
 	@action resetStepsSeen() {
-		this.setCookie('_fn_tour_steps_seen', '', 365);
+		this.setCookie('_fn_lc_tour_steps_seen', '', 365);
 	}
 
 	@observable tourPage = '';
