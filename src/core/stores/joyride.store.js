@@ -43,7 +43,13 @@ class JoyrideStore {
 		this.isReady = true;
 		this.isRunning = true;
 		this.showTour = true;
-		this.tourRef.reset(true);
+		this.resetTour();
+	}
+
+	resetTour() {
+		if(this.tourRef.start) {
+			this.tourRef.start(true, this.steps, 0);
+		}
 	}
 
 	@action disableAutoStart() {
@@ -152,9 +158,7 @@ class JoyrideStore {
 			}
 			this.steps = this.hideStepsAlreadySeen(allStepsToShow);
 			this.tourPage = pathname;
-			if (this.tourRef.reset) {
-				this.tourRef.reset(true);
-			}
+			this.resetTour();
 		}
 	}
 
