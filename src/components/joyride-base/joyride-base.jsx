@@ -14,14 +14,17 @@ export default class JoyrideBase extends React.Component {
   constructor(props){
     super(props)
     this.joyrideStore = this.props.joyrideStore;
-    this.mountMaxTries = 7;
+    this.mountMaxTries = 100;
     this.mountTries = 0;
+    this.mountTimeoutInterval = 100;
   }
 
   componentDidMount() {
     this.joyrideStore.checkTourCookie(this.joyride, this.props.location);
-    console.log('this.joyride', this.joyride);
+    //remove buggy joyride keydown listener affecting behavior of back button;
     document.body.removeEventListener('keydown', this.joyride.listeners.keyboard);
+    //replace escape key functionality now missing after removing the previous listener;
+    document.body.addEventListener('keydown', this.handleTourEscapeKey);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -35,6 +38,13 @@ export default class JoyrideBase extends React.Component {
 
   handleDisableTour = () => {
     this.joyrideStore.disableTour();
+  }
+
+  handleTourEscapeKey = (e) => {
+    const keyDown = (window.Event) ? e.which : e.keyCode;
+    if (this.joyrideStore.isReady && keyDown === 27) {
+      this.joyrideStore.isReady = false;
+    }
   }
 
   trapFocusWithinPopup = (popup) => {
@@ -63,19 +73,18 @@ export default class JoyrideBase extends React.Component {
   }
 
   handleStepChange = (stepInfo) => {
-    console.log('STEP CHAAAANGE MOTHERFUCKER');
     if (stepInfo.type && stepInfo.type === 'error:target_not_found') {
       this.joyrideStore.isReady = false;
       setTimeout(() => {
         if ($(stepInfo.step.selector).get(0) !== undefined) {
           this.joyrideStore.isReady = true;
-          this.joyrideStore.handleStepChange(stepInfo);
+          this.joyrideStore.recordStepAsSeenInCookie(stepInfo);
           return;
         } else {
           if (++this.mountTries >= this.mountMaxTries) return;
           this.handleStepChange(stepInfo);
         }
-      }, 2000);
+      }, this.mountTimeoutInterval);
     } else if(stepInfo.type && stepInfo.type === 'tooltip:before') {
       //add jquery task to end of rendering queue
       setTimeout(() => {
