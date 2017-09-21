@@ -301,9 +301,9 @@ export default class PSEHeader extends React.Component {
 					</NavLink>
 				</li>
 				<li>
-					<NavLink activeClassName="active" to="/feedback">
-						Give Us Feedback
-					</NavLink>
+					<NewTabLink to={this.externalLinkStore.firstnetTraining} onClick={this.handleExternalTabOpen} showIcon={true}>
+						Training
+					</NewTabLink>
 				</li>
 				<li>
 					<a href="#" role="button" className="walkthru-toggle" onClick={this.onToggleWalkthrough}>
@@ -311,9 +311,9 @@ export default class PSEHeader extends React.Component {
 					</a>
 				</li>
 				<li>
-					<NewTabLink to={this.externalLinkStore.firstnetTraining} onClick={this.handleExternalTabOpen} showIcon={true}>
-						Training
-					</NewTabLink>
+					<NavLink activeClassName="active" to="/feedback">
+						Give Us Feedback
+					</NavLink>
 				</li>
 				<li>
 					<a href={'tel:' + config.attCustomerSupportPhone}>

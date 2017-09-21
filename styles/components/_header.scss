@@ -573,7 +573,7 @@ $fn-mobile-item-height: 60px;
 
   //external link icon
   .header-submenu a,
-  .dropdown .dropdown-menu > li > a {
+  .dropdown .dropdown-menu > div > li > a {
     i.icon-external-site {
       display: inline-block;
       vertical-align: sub;
