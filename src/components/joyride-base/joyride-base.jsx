@@ -20,6 +20,8 @@ export default class JoyrideBase extends React.Component {
 
   componentDidMount() {
     this.joyrideStore.checkTourCookie(this.joyride, this.props.location);
+    console.log('this.joyride', this.joyride);
+    document.body.removeEventListener('keydown', this.joyride.listeners.keyboard);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -48,8 +50,9 @@ export default class JoyrideBase extends React.Component {
           this.handleStepChange(stepInfo);
         }
       }, 2000);
+    } else {
+      this.joyrideStore.handleStepChange(stepInfo);
     }
-    this.joyrideStore.handleStepChange(stepInfo);
   }
 
   hideIntroModal = () => {
