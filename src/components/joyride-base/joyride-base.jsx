@@ -108,20 +108,32 @@ export default class JoyrideBase extends React.Component {
     }
   }
 
+  toggleIntroEnableWalkthrough = () => {
+    this.joyrideStore.disableAutoStart();
+    this.handleStartTour();
+  }
+
   renderTourIntroModal() {
+    if(this.joyrideStore.showTourIntroModal){
+      document.onkeydown = (evt) => {
+        evt = evt || window.event;
+        if (evt.keyCode == 27) {
+          this.toggleIntroEnableWalkthrough();
+        }
+      };
+    }
     this.showModal(this.joyrideStore.showTourIntroModal, '#tour-intro-modal');
     return (
       <div id="tour-intro-modal" className="modal fade" role="dialog" tabIndex="-1" aria-labelledby="tour-modal-title">
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <button type="button" className="fn-modal-close" onClick={this.handleStartTour}>
+              <button type="button" className="fn-modal-close" onClick={this.toggleIntroEnableWalkthrough}>
                 <i className="icon-close" aria-hidden="true"></i>
                 <span className="sr-only">close window</span>
               </button>
               <h1 id="tour-modal-title">Welcome to Local Control</h1>
             </div>
-
               <div className="modal-body">
                 <p>Follow the beacons to take a tour of the important features of this site.</p>
                 <ul>
@@ -129,12 +141,10 @@ export default class JoyrideBase extends React.Component {
                   <li>To disable the tour, please click on 'Disable Site Walkthrough' in the <i className="icon-help" aria-hidden="true" /> Help menu.</li>
                 </ul>
               </div>
-
               <div className="modal-footer">
                 <button className="fn-secondary pull-left" onClick={this.handleDisableTour}>Disable Walkthrough</button>
                 <button className="fn-primary pull-right" onClick={this.handleStartTour}>Start Walkthrough</button>
               </div>
-
           </div>
         </div>
       </div>
@@ -149,7 +159,7 @@ export default class JoyrideBase extends React.Component {
           ref={el => this.joyride = el}
           steps={this.joyrideStore.steps.peek()}
           run={this.joyrideStore.isReady}
-          autoStart={true}
+          autoStart={this.joyrideStore.tourAutoStart}
           showOverlay={true}
           locale={{
             last: 'Finished',
