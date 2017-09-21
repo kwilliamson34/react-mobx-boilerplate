@@ -173,13 +173,6 @@ export default class Footer extends React.Component {
 								<Link to="/feedback">Give Us Feedback</Link>
 							</li>
 						}
-						{this.props.showPrivateLinks &&
-							<li role="presentation">
-								<a href="#" role="button" className="walkthru-toggle" onClick={this.onToggleTour}>
-									{`${this.joyrideStore.showTour? 'Disable' : 'Enable'}`} Site Walkthrough
-								</a>
-							</li>
-						}
 						<li role="presentation">
 							<span aria-hidden>FirstNet Customer Svc:</span><br className={`visible-xs-inline-block visible-md-inline-block ${this.props.showPrivateLinks ? '' : 'visible-lg-inline-block'}`} />
 							<a href={'tel:' + config.attCustomerSupportPhone}>
