@@ -3,6 +3,7 @@ import { Link, NavLink, withRouter } from 'react-router-dom';
 import NewTabLink from '../link/new-tab-link';
 import { observer, inject, PropTypes } from 'mobx-react';
 import config from 'config';
+import {utilsService} from '../../core/services/utils.service';
 import $ from 'jquery';
 import _ from 'lodash';
 
@@ -71,6 +72,13 @@ export default class PSEHeader extends React.Component {
 					this.toggleAdminSubMenu();
 				}
 		});
+
+		console.log('IE: ' + utilsService.getIsInternetExplorer());
+    if(utilsService.getIsInternetExplorer()){
+      console.log('isIE');
+      $('body').addClass('isIE');
+    }
+
 
 		window.addEventListener('resize', this.updateWindowDimensions);
 	}

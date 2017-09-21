@@ -71,10 +71,6 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    if(utilsService.getIsInternetExplorer()){
-      $('body').addClass('isIE');
-    }
-    
     document.addEventListener('keydown', function (e) {
       if (e.keyCode === 9) {
         $('body').addClass('show-focus-styles');
