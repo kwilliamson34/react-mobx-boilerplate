@@ -37,7 +37,33 @@ export default class JoyrideBase extends React.Component {
     this.joyrideStore.disableTour();
   }
 
+  trapFocusWithinPopup = (popup) => {
+    const buttonArray = popup.find('button');
+    const firstInput = buttonArray.first();
+    const lastInput = buttonArray.last();
+
+    /*set focus on first input*/
+    firstInput.focus();
+
+    /*redirect last tab to first input*/
+    lastInput.on('keydown', function (e) {
+     if ((e.which === 9 && !e.shiftKey)) {
+       e.preventDefault();
+       firstInput.focus();
+     }
+    });
+
+    /*redirect first shift+tab to last input*/
+    firstInput.on('keydown', function (e) {
+      if ((e.which === 9 && e.shiftKey)) {
+        e.preventDefault();
+        lastInput.focus();
+      }
+    });
+  }
+
   handleStepChange = (stepInfo) => {
+    console.log('STEP CHAAAANGE MOTHERFUCKER');
     if (stepInfo.type && stepInfo.type === 'error:target_not_found') {
       this.joyrideStore.isReady = false;
       setTimeout(() => {
@@ -50,9 +76,13 @@ export default class JoyrideBase extends React.Component {
           this.handleStepChange(stepInfo);
         }
       }, 2000);
-    } else {
-      this.joyrideStore.handleStepChange(stepInfo);
+    } else if(stepInfo.type && stepInfo.type === 'tooltip:before') {
+      //add jquery task to end of rendering queue
+      setTimeout(() => {
+        this.trapFocusWithinPopup($('.joyride-tooltip'));
+      });
     }
+    this.joyrideStore.recordStepAsSeenInCookie(stepInfo);
   }
 
   hideIntroModal = () => {
@@ -112,7 +142,10 @@ export default class JoyrideBase extends React.Component {
           run={this.joyrideStore.isReady}
           autoStart={true}
           showOverlay={true}
-          locale={{last: 'Finished'}}
+          locale={{
+            last: 'Finished',
+            back: 'Back'
+          }}
           callback={this.handleStepChange}
           type="continuous"
           showStepsProgress={true}
