@@ -109,7 +109,7 @@ class JoyrideStore {
 		}
 	}
 
-	@action handleStepChange(stepInfo) {
+	@action recordStepAsSeenInCookie(stepInfo) {
 		if (stepInfo.action === 'next' && stepInfo.type === 'step:after') {
 			let stepsAlreadySeen = this.stepsSeen;
 			let stepSelector = stepInfo.step.selector;

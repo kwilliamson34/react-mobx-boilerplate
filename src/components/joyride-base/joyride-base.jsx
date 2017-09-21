@@ -35,6 +35,31 @@ export default class JoyrideBase extends React.Component {
     this.joyrideStore.disableTour();
   }
 
+  trapFocusWithinPopup = (popup) => {
+    const buttonArray = popup.find('button');
+    const firstInput = buttonArray.first();
+    const lastInput = buttonArray.last();
+
+    /*set focus on first input*/
+    firstInput.focus();
+
+    /*redirect last tab to first input*/
+    lastInput.on('keydown', function (e) {
+     if ((e.which === 9 && !e.shiftKey)) {
+       e.preventDefault();
+       firstInput.focus();
+     }
+    });
+
+    /*redirect first shift+tab to last input*/
+    firstInput.on('keydown', function (e) {
+      if ((e.which === 9 && e.shiftKey)) {
+        e.preventDefault();
+        lastInput.focus();
+      }
+    });
+  }
+
   handleStepChange = (stepInfo) => {
     if (stepInfo.type && stepInfo.type === 'error:target_not_found') {
       this.joyrideStore.isReady = false;
@@ -48,8 +73,13 @@ export default class JoyrideBase extends React.Component {
           this.handleStepChange(stepInfo);
         }
       }, 2000);
+    } else if(stepInfo.type && stepInfo.type === 'tooltip:before') {
+      //add jquery task to end of rendering queue
+      setTimeout(() => {
+        this.trapFocusWithinPopup($('.joyride-tooltip'));
+      });
     }
-    this.joyrideStore.handleStepChange(stepInfo);
+    this.joyrideStore.recordStepAsSeenInCookie(stepInfo);
   }
 
   hideIntroModal = () => {
