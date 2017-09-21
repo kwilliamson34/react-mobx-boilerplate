@@ -70,7 +70,7 @@ export default class GeolinkControls extends React.Component {
         <div className="container">
           <div className="row is-flex">
             <div className="col-xs-12 col-sm-8 col-md-4 map-search">
-              <h2 className="as-h5">Search {`${utilsService.getIsInternetExplorer() ? 'frefer':'hyyhy'}`}</h2>
+              <h2 className="as-h5">Search</h2>
               <form className="search-form form-group" onSubmit={this.handleSubmit}>
                 <div className="search-input input-group">
                   <label htmlFor="search-field" className="control-label">Location</label>

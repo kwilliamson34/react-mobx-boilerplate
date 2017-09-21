@@ -29,14 +29,6 @@ export default class NetworkStatusPage extends React.Component {
     }
   }
 
-  componentDidMount() {
-    console.log('IE: ' + utilsService.getIsInternetExplorer());
-    if(utilsService.getIsInternetExplorer()){
-      console.log('isIE');
-      $('#network-page').addClass('isIE');
-    }
-  }
-
   renderPlaceholder() {
     return (
       <div className="map-placeholder">
