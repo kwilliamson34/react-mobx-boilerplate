@@ -4,6 +4,8 @@ import {inject, observer} from 'mobx-react';
 import config from 'config';
 import GeolinkMap from '../components/geolink-map/geolink-map';
 import GeolinkControls from '../components/geolink-map/geolink-controls';
+import {utilsService} from '../core/services/utils.service';
+import $ from 'jquery';
 
 @inject('store')
 @observer
@@ -24,6 +26,14 @@ export default class NetworkStatusPage extends React.Component {
           this.geoStore.authIsComplete = true;
         }
       }, false);
+    }
+  }
+
+  componentDidMount() {
+    console.log('IE: ' + utilsService.getIsInternetExplorer());
+    if(utilsService.getIsInternetExplorer()){
+      console.log('isIE');
+      $('#network-page').addClass('isIE');
     }
   }
 
