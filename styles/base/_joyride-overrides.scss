@@ -48,6 +48,12 @@
       }
     }
 
+    &__close {
+      &:focus {
+        @include focus();
+      }
+    }
+
     &__button {
       &--primary {
         height: 48px;
