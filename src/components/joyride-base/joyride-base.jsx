@@ -147,7 +147,7 @@ export default class JoyrideBase extends React.Component {
           ref={el => this.joyride = el}
           steps={this.joyrideStore.steps.peek()}
           run={this.joyrideStore.isReady}
-          autoStart={this.tourAutoStart}
+          autoStart={this.joyrideStore.tourAutoStart}
           showOverlay={true}
           locale={{last: 'Finished'}}
           callback={this.handleStepChange}
