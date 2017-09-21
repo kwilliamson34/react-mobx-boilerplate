@@ -1,4 +1,9 @@
 {
+"globals": {
+    "document": true,
+    "window": true,
+    "Promise": true
+},
     "parser": "babel-eslint",
     "parserOptions": {
       "ecmaVersion": 6,
