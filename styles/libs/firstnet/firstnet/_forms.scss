@@ -114,6 +114,7 @@ select {
     appearance: none;
     border: 1px solid $input-outline;
     padding: 0 0.75em;
+    padding-right: 30px;
     color: black;
     font-weight: $fn-medium-weight;
     background: $fn-ltgrey url('/images/down-arrow.svg') no-repeat;
