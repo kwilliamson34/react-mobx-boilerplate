@@ -11,17 +11,10 @@
       "react"
     ],
     "rules": {
-      "comma-dangle": 1,
-      "quotes": [ 1, "single" ],
-      "global-strict": 0,
-      "no-extra-semi": 1,
-      "no-underscore-dangle": 0,
-      "no-trailing-spaces": [1, { "skipBlankLines": true }],
-      "no-unreachable": 1,
       "no-undef": "warn",
+      "no-console": "warn",
       "no-unused-vars": "warn",
-      "react/prop-types": "warn",
-      "no-console": "off"
+      "react/prop-types": "warn"
     },
     "env": {
       "browser": true,
