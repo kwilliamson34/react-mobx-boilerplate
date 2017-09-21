@@ -4,10 +4,12 @@ body{
 .isIE{
   @media #{$tablet} {
     .geolink-controls {
-      .map-search,
+      .map-search{
+        flex-basis: 50%;
+      }
       .map-layers,
       .map-network-legend{
-        flex-basis: 23% !important;
+        flex-basis: 23%;
       }
     }
   }
@@ -17,7 +19,7 @@ body{
       .map-search,
       .map-layers,
       .map-network-legend{
-        flex-basis: 26% !important;
+        flex-basis: 25%;
       }
     }
   }
