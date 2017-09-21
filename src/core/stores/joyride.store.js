@@ -46,6 +46,14 @@ class JoyrideStore {
 		this.tourRef.reset(true);
 	}
 
+	@action disableAutoStart() {
+
+	}
+
+	@action enableAutoStart(){
+
+	}
+
 	/* Intro popup when cookie is not present */
 
 	@action startTourIntro() {
@@ -173,6 +181,7 @@ class JoyrideStore {
 
 	@observable tourPage = '';
 	@observable tourRef = {};
+	@observable tourAutoStart = true;
 	@observable showTourIntroModal = false;
 	@observable showTour = true;
 	@observable isReady = false;
