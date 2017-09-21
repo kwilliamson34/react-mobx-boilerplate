@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
+import {utilsService} from '../../core/services/utils.service';
 
 import Checkbox from '../toggle/checkbox';
 
@@ -65,11 +66,11 @@ export default class GeolinkControls extends React.Component {
 
   render() {
     return (
-      <section className="geolink-controls">
+      <section className={`geolink-controls ${utilsService.getIsInternetExplorer() ? 'isIE' : ''}`}>
         <div className="container">
           <div className="row is-flex">
             <div className="col-xs-12 col-sm-8 col-md-4 map-search">
-							<h2 className="as-h5">Search</h2>
+              <h2 className="as-h5">Search {`${utilsService.getIsInternetExplorer() ? 'frefer':'hyyhy'}`}</h2>
               <form className="search-form form-group" onSubmit={this.handleSubmit}>
                 <div className="search-input input-group">
                   <label htmlFor="search-field" className="control-label">Location</label>
