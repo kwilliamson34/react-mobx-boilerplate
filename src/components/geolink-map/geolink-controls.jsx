@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
-import {utilsService} from '../../core/services/utils.service';
 
 import Checkbox from '../toggle/checkbox';
 
@@ -66,7 +65,7 @@ export default class GeolinkControls extends React.Component {
 
   render() {
     return (
-      <section className={`geolink-controls ${utilsService.getIsInternetExplorer() ? 'isIE' : ''}`}>
+      <section className="geolink-controls">
         <div className="container">
           <div className="row is-flex">
             <div className="col-xs-12 col-sm-8 col-md-4 map-search">

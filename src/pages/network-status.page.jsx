@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {inject, observer} from 'mobx-react';
 import config from 'config';
+import {utilsService} from '../core/services/utils.service';
+
 import GeolinkMap from '../components/geolink-map/geolink-map';
 import GeolinkControls from '../components/geolink-map/geolink-controls';
 
@@ -41,7 +43,7 @@ export default class NetworkStatusPage extends React.Component {
   render() {
     const showMap = this.geoStore.iframeIsFullyLoaded;
     return (
-      <article id="network-page" className="content-wrapper">
+      <article id="network-page" className={`content-wrapper ${utilsService.getIsInternetExplorer() ? 'isIE' : ''}`}>
         <h1 className="sr-only">Network Status</h1>
         <iframe src={config.geolinkAuthScript} aria-hidden="true" className="hidden-iframe"></iframe>
 
