@@ -96,9 +96,7 @@ export default class JoyrideBase extends React.Component {
     }
   }
 
-  toggleIntroEnableWalkthrough(){
-    console.log('closeIntro but enable Walkthrough');
-    //turn off autorun
+  toggleIntroEnableWalkthrough = () => {
     this.joyrideStore.disableAutoStart();
     this.handleStartTour();
   }
@@ -106,10 +104,10 @@ export default class JoyrideBase extends React.Component {
   renderTourIntroModal() {
     if(this.joyrideStore.showTourIntroModal){
       document.onkeydown = (evt) => {
-          evt = evt || window.event;
-          if (evt.keyCode == 27) {
-              this.toggleIntroEnableWalkthrough();
-          }
+        evt = evt || window.event;
+        if (evt.keyCode == 27) {
+          this.toggleIntroEnableWalkthrough();
+        }
       };
     }
     this.showModal(this.joyrideStore.showTourIntroModal, '#tour-intro-modal');
@@ -124,7 +122,6 @@ export default class JoyrideBase extends React.Component {
               </button>
               <h1 id="tour-modal-title">Welcome to Local Control</h1>
             </div>
-
               <div className="modal-body">
                 <p>Follow the beacons to take a tour of the important features of this site.</p>
                 <ul>
@@ -132,12 +129,10 @@ export default class JoyrideBase extends React.Component {
                   <li>To disable the tour, please click on 'Disable Site Walkthrough' in the <i className="icon-help" aria-hidden="true" /> Help menu.</li>
                 </ul>
               </div>
-
               <div className="modal-footer">
                 <button className="fn-secondary pull-left" onClick={this.handleDisableTour}>Disable Walkthrough</button>
                 <button className="fn-primary pull-right" onClick={this.handleStartTour}>Start Walkthrough</button>
               </div>
-
           </div>
         </div>
       </div>

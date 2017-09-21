@@ -47,11 +47,11 @@ class JoyrideStore {
 	}
 
 	@action disableAutoStart() {
-
+		this.tourAutoStart = false;
 	}
 
 	@action enableAutoStart(){
-
+		this.tourAutoStart = true;
 	}
 
 	/* Intro popup when cookie is not present */
