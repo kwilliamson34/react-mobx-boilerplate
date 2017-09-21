@@ -144,7 +144,8 @@ export default class JoyrideBase extends React.Component {
           showOverlay={true}
           locale={{
             last: 'Finished',
-            back: 'Back'
+            back: 'Back',
+            next: 'Next'
           }}
           callback={this.handleStepChange}
           type="continuous"
