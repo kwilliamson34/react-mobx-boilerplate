@@ -168,7 +168,12 @@ class UtilsService {
   }
 
   getIsInternetExplorer() {
-    return this.getUserAgent().indexOf('MSIE ') > -1;
+    if (navigator.appName == 'Microsoft Internet Explorer'){
+      return true; // IE
+    } else if(navigator.appName == "Netscape"){
+      return navigator.appVersion.indexOf('Edge') > -1; // EDGE
+    }
+    return false;
   }
 }
 
