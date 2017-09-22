@@ -122,7 +122,7 @@ class JoyrideStore {
 	}
 
 	@action updateSteps(pathname) {
-		if (pathname != this.tourPage) {            
+		if (pathname != this.tourPage) {
 			this.steps = this.hideStepsAlreadySeen(this.stepsToShow(pathname));
 			this.tourPage = pathname;
 			this.resetTour();

@@ -9,9 +9,15 @@
       },
       {
         "title": "Administrative Dashboard",
-        "text": "<p>Manage users and apps, assign devices, and view reports.</p><p>Explore, shop, and provision devices.</p>",
-        "selector": ".manage-actions",
+        "text": "<p>Manage users and apps, assign devices, and view reports.</p>",
+        "selector": "aside",
         "position": "right"
+      },
+      {
+        "title": "Purchasing and Provisioning",
+        "text": "<p>Explore, shop, and provision devices.</p>",
+        "selector": ".manage-actions",
+        "position": "top-left"
       },
       {
         "title": "Live Help",
