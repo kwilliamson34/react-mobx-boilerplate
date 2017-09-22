@@ -14,9 +14,9 @@ export default class JoyrideBase extends React.Component {
   constructor(props){
     super(props)
     this.joyrideStore = this.props.joyrideStore;
-    this.mountMaxTries = 100;
     this.mountTries = 0;
-    this.mountTimeoutInterval = 100;
+    this.mountMaxTries = 50;
+    this.checkAnchorExistsTimeoutInterval = 500;
   }
 
   componentDidMount() {
@@ -28,11 +28,14 @@ export default class JoyrideBase extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.joyrideStore.updateSteps(nextProps.location);
+    this.joyrideStore.updateSteps({
+      pathname: nextProps.location,
+      runImmediately: true
+    });
   }
 
   handleStartTour  = () => {
-    this.joyrideStore.endTourIntro();
+    this.joyrideStore.showTourIntroModal = false;
     this.joyrideStore.startTour();
   }
 
@@ -42,7 +45,7 @@ export default class JoyrideBase extends React.Component {
 
   handleTourEscapeKey = (e) => {
     const keyDown = (window.Event) ? e.which : e.keyCode;
-    if (this.joyrideStore.isReady && keyDown === 27) {
+    if (this.joyrideStore.runNow && keyDown === 27) {
       document.querySelector('.joyride-tooltip__close').click();
     }
   }
@@ -72,30 +75,32 @@ export default class JoyrideBase extends React.Component {
     });
   }
 
-  handleStepChange = (stepInfo) => {
-    if (stepInfo.type && stepInfo.type === 'error:target_not_found') {
-      this.joyrideStore.isReady = false;
-      setTimeout(() => {
-        if ($(stepInfo.step.selector).get(0) !== undefined) {
-          this.joyrideStore.isReady = true;
-          this.joyrideStore.recordStepAsSeenInCookie(stepInfo);
-          return;
-        } else {
-          if (++this.mountTries >= this.mountMaxTries) return;
-          this.handleStepChange(stepInfo);
+  checkAnchorExists = (stepInfo) => {
+    if(stepInfo.step) {
+      if($(stepInfo.step.selector).get(0) !== undefined) {
+        this.joyrideStore.recordStepAsSeenInCookie(stepInfo);
+      } else {
+        //retry. the component it's supposed to attach to may not be fully rendered.
+        if(this.mountTries++ < this.mountMaxTries) {
+          setTimeout(() => {
+            this.checkAnchorExists(stepInfo);
+          }, this.checkAnchorExistsTimeoutInterval);
         }
-      }, this.mountTimeoutInterval);
-    } else if(stepInfo.type && stepInfo.type === 'tooltip:before') {
-      //add jquery task to end of rendering queue
+      }
+    }
+  }
+
+  handleStepChange = (stepInfo) => {
+    this.checkAnchorExists(stepInfo);
+
+    /* Step type lifecycle:
+    'error:target_not_found','step:before','tooltip:before','step:after','finished'*/
+    if(stepInfo.type && stepInfo.type === 'tooltip:before') {
+      //add jquery task to end of rendering queue. No time delay needed.
       setTimeout(() => {
         this.trapFocusWithinPopup($('.joyride-tooltip'));
       });
     }
-    this.joyrideStore.recordStepAsSeenInCookie(stepInfo);
-  }
-
-  hideIntroModal = () => {
-    this.joyrideStore.toggleIntroModal();
   }
 
   showModal = (shouldShow, modalID) => {
@@ -108,9 +113,9 @@ export default class JoyrideBase extends React.Component {
     }
   }
 
-  toggleIntroEnableWalkthrough = () => {
-    this.joyrideStore.disableAutoStart();
-    this.handleStartTour();
+  handleCloseIntro = () => {
+    this.joyrideStore.tourAutoStart = false;
+    this.joyrideStore.showTourIntroModal = false;
   }
 
   renderTourIntroModal() {
@@ -128,7 +133,7 @@ export default class JoyrideBase extends React.Component {
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <button type="button" className="fn-modal-close" onClick={this.toggleIntroEnableWalkthrough}>
+              <button type="button" className="fn-modal-close" onClick={this.handleCloseIntro}>
                 <i className="icon-close" aria-hidden="true"></i>
                 <span className="sr-only">close window</span>
               </button>
@@ -157,8 +162,8 @@ export default class JoyrideBase extends React.Component {
         {this.renderTourIntroModal()}
         <Joyride
           ref={el => this.joyride = el}
-          steps={this.joyrideStore.steps.peek()}
-          run={this.joyrideStore.isReady}
+          steps={this.joyrideStore.stepsToShow}
+          run={this.joyrideStore.runNow}
           autoStart={this.joyrideStore.tourAutoStart}
           showOverlay={true}
           locale={{
