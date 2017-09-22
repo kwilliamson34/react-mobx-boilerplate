@@ -43,7 +43,7 @@ export default class JoyrideBase extends React.Component {
   handleTourEscapeKey = (e) => {
     const keyDown = (window.Event) ? e.which : e.keyCode;
     if (this.joyrideStore.isReady && keyDown === 27) {
-      this.joyrideStore.isReady = false;
+      document.querySelector('.joyride-tooltip__close').click();
     }
   }
 
@@ -73,6 +73,7 @@ export default class JoyrideBase extends React.Component {
   }
 
   handleStepChange = (stepInfo) => {
+    console.log('stepINof', stepInfo);
     if (stepInfo.type && stepInfo.type === 'error:target_not_found') {
       this.joyrideStore.isReady = false;
       setTimeout(() => {
