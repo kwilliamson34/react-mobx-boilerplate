@@ -45,7 +45,7 @@ class JoyrideStore {
 
 	resetTour() {
 		if(this.tourRef.start) {
-			this.tourRef.start(true, this.steps, 0);
+			this.tourRef.start(true, this.steps.peek(), 0);
 		}
 	}
 
