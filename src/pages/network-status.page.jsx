@@ -16,6 +16,7 @@ export default class NetworkStatusPage extends React.Component {
   constructor(props) {
     super(props);
     this.geoStore = this.props.store.geolinkStore;
+    this.joyrideStore = this.props.store.joyrideStore;
 
     if(!this.geoStore.authIsComplete) {
       window.addEventListener('message', (event) => {
@@ -25,6 +26,10 @@ export default class NetworkStatusPage extends React.Component {
         }
       }, false);
     }
+  }
+
+  componentDidUpdate() {
+    this.joyrideStore.updatePlacement();
   }
 
   renderPlaceholder() {

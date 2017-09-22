@@ -46,7 +46,7 @@ export default class JoyrideBase extends React.Component {
   handleTourEscapeKey = (e) => {
     const keyDown = (window.Event) ? e.which : e.keyCode;
     if (this.joyrideStore.runNow && keyDown === 27) {
-      this.joyrideStore.runNow = false;
+      document.querySelector('.joyride-tooltip__close').click();
     }
   }
 

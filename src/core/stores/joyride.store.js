@@ -89,7 +89,7 @@ class JoyrideStore {
 	}
 
 	@action recordStepAsSeenInCookie(stepInfo) {
-		if (stepInfo.action === 'next' && stepInfo.type === 'step:after') {
+		if (stepInfo.action === 'next' || stepInfo.action === 'close' && stepInfo.type === 'step:after') {
 			let stepsAlreadySeen = this.stepsSeen;
 			let stepSelector = stepInfo.step.selector;
 			if (stepsAlreadySeen.indexOf(stepSelector) === -1) {
@@ -97,6 +97,10 @@ class JoyrideStore {
 				this.setCookie('_fn_lc_tour_steps_seen', JSON.stringify(stepsAlreadySeen), 365);
 			}
 		}
+	}
+
+	@action updatePlacement() {
+		this.tourRef.calcPlacement();
 	}
 
 	@action updateSteps({pathname, runImmediately}) {
