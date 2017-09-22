@@ -170,7 +170,7 @@ export default class JoyrideBase extends React.Component {
           callback={this.handleStepChange}
           type="continuous"
           showStepsProgress={true}
-          holePadding="0"
+          holePadding="2"
         />
       </div>
     )
