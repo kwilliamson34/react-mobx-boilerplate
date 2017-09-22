@@ -15,7 +15,8 @@ export default class JoyrideBase extends React.Component {
     super(props)
     this.joyrideStore = this.props.joyrideStore;
     this.mountTries = 0;
-    this.mountMaxTries = 20;
+    this.mountMaxTries = 50;
+    this.checkAnchorExistsTimeoutInterval = 500;
   }
 
   componentDidMount() {
@@ -83,7 +84,7 @@ export default class JoyrideBase extends React.Component {
         if(this.mountTries++ < this.mountMaxTries) {
           setTimeout(() => {
             this.checkAnchorExists(stepInfo);
-          }, 500);
+          }, this.checkAnchorExistsTimeoutInterval);
         }
       }
     }
