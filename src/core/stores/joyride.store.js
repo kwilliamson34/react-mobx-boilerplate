@@ -37,13 +37,8 @@ class JoyrideStore {
 		this.showTourIntroModal = false;
 	}
 
+
 	@action startTour() {
-		if(!this.nextStepAnchorHasRendered) {
-			//Required anchor(s) have not been rendered yet. Wait to start the tour.
-			setTimeout(() => {
-				this.startTour();
-			}, 500);
-		}
 
 		this.setCookie('_fn_lc_tour', true, 365);
 		this.tourAutoStart = true;
@@ -78,6 +73,7 @@ class JoyrideStore {
 	}
 
 	@action checkTourCookie(joyrideRef, pagePathname) {
+		console.log('checkTourCookie');
 		let pathname = pagePathname || '';
 		this.updateSteps({pathname, runImmediately: false});
 		this.tourRef = joyrideRef;
@@ -89,7 +85,9 @@ class JoyrideStore {
 	}
 
 	@action recordStepAsSeenInCookie(stepInfo) {
+		console.log('recordStepAsSeenInCookie step one');
 		if (stepInfo.action === 'next' || stepInfo.action === 'close' && stepInfo.type === 'step:after') {
+			console.log('recordStepAsSeenInCookie step two');
 			let stepsAlreadySeen = this.stepsSeen;
 			let stepSelector = stepInfo.step.selector;
 			if (stepsAlreadySeen.indexOf(stepSelector) === -1) {
@@ -151,17 +149,6 @@ class JoyrideStore {
 
 	@computed get tourCookieIsPresent() {
 		return document.cookie.indexOf('_fn_lc_tour') != -1 && this.getCookie('_fn_lc_tour') === 'true';
-	}
-
-	@computed get nextStepAnchorHasRendered() {
-		let nextStepAnchorHasRendered = true;
-		const numStepsToPreload = 1;
-		this.stepsToShow.slice(0, numStepsToPreload + 1).forEach(step => {
-			if($(step.selector).get(0) == undefined) {
-				nextStepAnchorHasRendered = false;
-			}
-		});
-		return nextStepAnchorHasRendered;
 	}
 
 	@observable tourPage = '';
