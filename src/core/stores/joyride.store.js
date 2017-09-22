@@ -37,9 +37,8 @@ class JoyrideStore {
 	}
 
 	@action startTour() {
-		//make sure all anchors exist first
 		if(!this.nextStepAnchorHasRendered) {
-			console.log('Required anchor(s) have not been rendered yet. Waiting to start the tour.');
+			//Required anchor(s) have not been rendered yet. Wait to start the tour.
 			setTimeout(() => {
 				this.startTour();
 			}, 500);
@@ -100,13 +99,10 @@ class JoyrideStore {
 	}
 
 	@action updateSteps({pathname, runImmediately}) {
-		console.log('updating steps')
 		if (pathname != this.tourPage) {
-			console.log('mismatch detected');
 			this.tourPage = pathname;
 
 			if(runImmediately && this.tourAutoStart) {
-				console.log('starting tour')
 				this.startTour();
 			}
 		}

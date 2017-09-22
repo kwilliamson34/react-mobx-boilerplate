@@ -90,20 +90,12 @@ export default class JoyrideBase extends React.Component {
   }
 
   handleStepChange = (stepInfo) => {
-    console.log('------ ' + stepInfo.type);
-
     this.checkAnchorExists(stepInfo);
 
-    /* Step type lifecycle
-    'error:target_not_found'
-    'step:before'
-    'tooltip:before'
-    'step:after'
-    'finished'
-    */
-
+    /* Step type lifecycle:
+    'error:target_not_found','step:before','tooltip:before','step:after','finished'*/
     if(stepInfo.type && stepInfo.type === 'tooltip:before') {
-      //add jquery task to end of rendering queue
+      //add jquery task to end of rendering queue. No time delay needed.
       setTimeout(() => {
         this.trapFocusWithinPopup($('.joyride-tooltip'));
       });
