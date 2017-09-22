@@ -78,10 +78,11 @@ export default class JoyrideBase extends React.Component {
   checkAnchorExists = (stepInfo) => {
     if(stepInfo.step) {
       if($(stepInfo.step.selector).get(0) !== undefined) {
+        console.log('recordStepAsSeenInCookie');
         this.joyrideStore.recordStepAsSeenInCookie(stepInfo);
       } else {
         //retry. the component it's supposed to attach to may not be fully rendered.
-        if(this.mountTries++ < this.mountMaxTries) {
+        if (this.mountTries++ < this.mountMaxTries) {
           setTimeout(() => {
             this.checkAnchorExists(stepInfo);
           }, this.checkAnchorExistsTimeoutInterval);
@@ -91,6 +92,7 @@ export default class JoyrideBase extends React.Component {
   }
 
   handleStepChange = (stepInfo) => {
+    console.log('STEPINFO', stepInfo);
     this.checkAnchorExists(stepInfo);
 
     /* Step type lifecycle:
