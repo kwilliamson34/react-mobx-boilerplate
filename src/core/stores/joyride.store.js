@@ -1,7 +1,6 @@
 import { action, observable } from 'mobx';
 import { Beacons } from '../../content/tour-steps.json';
 
-
 class JoyrideStore {
 
 	@action initJoyride() {
@@ -29,7 +28,6 @@ class JoyrideStore {
 	}
 
 	@action disableTour() {
-		console.log('disableTour called');
 		this.showTour = false;
 		this.isReady = false;
 		this.isRunning = false;
@@ -38,7 +36,6 @@ class JoyrideStore {
 	}
 
 	@action startTour() {
-		console.log('enableTour called');
 		this.setCookie('_fn_lc_tour', true, 365);
 		this.isReady = true;
 		this.isRunning = true;
@@ -63,32 +60,26 @@ class JoyrideStore {
 	/* Intro popup when cookie is not present */
 
 	@action startTourIntro() {
-		console.log('fn() startTourIntro');
 		this.showTourIntroModal = true;
 	}
 
 	@action endTourIntro() {
-		console.log('fn() endTourIntro');
 		this.showTourIntroModal = false;
 	}
 
 	@action toggleIntroModal() {
-		console.log('fn() toggleIntroModal');
 		this.showTourIntroModal = !this.showTourIntroModal;
 	}
 
 	getCookie(cname) {
-		console.log('getCookie called');
 		var name = cname + '=';
 		var ca = document.cookie.split(';');
-		console.log('ca:' + ca);
 		for(let i = 0; i < ca.length; i++) {
 			var c = ca[i];
 			while (c.charAt(0) == ' ') {
 				c = c.substring(1);
 			}
 			if (c.indexOf(name) == 0) {
-				console.log('gwc:' + typeof (c.substring(name.length, c.length) === 'true') + ' ' + c.substring(name.length, c.length));
 				return c.substring(name.length, c.length);
 			}
 		}
@@ -96,7 +87,6 @@ class JoyrideStore {
 	}
 
 	@action setCookie(cname, cvalue, exdays) {
-		console.log('setCookie called');
 		let expiryDays = exdays || 365;
 		var d = new Date();
 		d.setTime(d.getTime() + (expiryDays * 24 * 60 * 60 * 1000));
@@ -105,20 +95,17 @@ class JoyrideStore {
 	}
 
 	@action checkTourCookie(joyrideRef, pagePathname) {
-		console.log('checkTourCookie called: ' + pagePathname);
 		let tourPath = pagePathname || '';
-		console.log('tp: ' + tourPath);
 		this.updateSteps(tourPath);
 		this.tourRef = joyrideRef;
 		if (document.cookie.indexOf('_fn_lc_tour') != -1) {
 			//cookie present - do what it says
-			this.showTour = this.getCookie('_fn_lc_tour');
-			if (this.showTour === 'true') {
+			this.showTour = (this.getCookie('_fn_lc_tour') === 'true');
+			if (this.showTour) {
 				this.startTour();
 			}
 		} else {
 			//cookie doesnt exist.  set to true
-			console.log('Cookie doesnt exist.  Show intro');
 			this.startTourIntro();
 		}
 	}
@@ -135,45 +122,48 @@ class JoyrideStore {
 	}
 
 	@action updatePlacement() {
-		console.log('DING DONG');
 		this.tourRef.calcPlacement();
 	}
 
-@action updateSteps(pathname) {
-		// let path = location.pathname.match(/(\/([\w\d]*-?[\w\d]*)?)/gi)[0];
-		console.log('---regex path: ' + pathname);
+	@action updateSteps(pathname) {
 		if (pathname != this.tourPage) {
-			let allStepsToShow;
-			if (pathname.includes('/app')) {
-				allStepsToShow = Beacons.AppDetail;
-			} else {
-				switch (pathname) {
-				case '/admin':
-					allStepsToShow = Beacons.AdminDashboard;
-					break;
-				case '/admin/manage-apps':
-					allStepsToShow = Beacons.ManageApps;
-					break;
-				case '/network-status':
-					allStepsToShow = Beacons.NetworkStatus;
-					break;
-				default:
-					allStepsToShow = [];
-				}
-			}
-			this.steps = this.hideStepsAlreadySeen(allStepsToShow);
+			this.steps = this.hideStepsAlreadySeen(this.stepsToShow(pathname));
 			this.tourPage = pathname;
 			this.resetTour();
 		}
 	}
 
-	hideStepsAlreadySeen(allStepsToShow) {
+	stepsToShow(pathname) {
+		// let path = location.pathname.match(/(\/([\w\d]*-?[\w\d]*)?)/gi)[0];
+		let stepsToShow;
+		if (pathname.includes('/app')) {
+			stepsToShow = Beacons.AppDetail;
+		} else {
+			switch (pathname) {
+			case '/admin':
+				stepsToShow = Beacons.AdminDashboard;
+				break;
+			case '/admin/manage-apps':
+				stepsToShow = Beacons.ManageApps;
+				break;
+			case '/network-status':
+				stepsToShow = Beacons.NetworkStatus;
+				break;
+			default:
+				stepsToShow = [];
+			}
+		}
+		return stepsToShow
+	}
+
+	hideStepsAlreadySeen(stepsToShow) {
 		let stepsAlreadySeen = this.stepsSeen;
-		let stepsToActuallyShow = allStepsToShow.filter(step => {
+		let stepsToActuallyShow = stepsToShow.filter(step => {
 			return stepsAlreadySeen.indexOf(step.selector) < 0;
 		});
 		return stepsToActuallyShow;
 	}
+
 
 	get stepsSeen() {
 		let stepsSeen = this.getCookie('_fn_lc_tour_steps_seen');
@@ -186,6 +176,7 @@ class JoyrideStore {
 
 	@action resetStepsSeen() {
 		this.setCookie('_fn_lc_tour_steps_seen', '', 365);
+		this.steps = this.stepsToShow(this.tourPage);
 	}
 
 	@observable tourPage = '';
