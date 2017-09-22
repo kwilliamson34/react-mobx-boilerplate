@@ -34,7 +34,7 @@ module.exports = {
 		},
 	},
 	node: {
-    console: true,
+    console: false,
     fs: 'empty',
     net: 'empty',
     tls: 'empty'
