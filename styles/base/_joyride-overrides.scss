@@ -16,7 +16,7 @@
 
     &__main {
       font-size: $joyride-tooltip-font-size;
-      padding-bottom: 5px;
+      padding-bottom: 0;
       color: #000;
       line-height: 1.4;
 
@@ -24,7 +24,7 @@
         font-size: $joyride-tooltip-font-size;
 
         &:not(:last-of-type) {
-          margin-bottom: 10px;
+          margin-bottom: 8px;
         }
       }
 
