@@ -43,6 +43,10 @@
       @extend .clearfix;
       text-align: left;
 
+      .joyride-tooltip__button--secondary {
+        float: left;
+      }
+
       .joyride-tooltip__button--primary {
         float: right;
       }
