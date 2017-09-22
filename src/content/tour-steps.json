@@ -36,7 +36,7 @@
       {
         "title": "Search and Filter",
         "text": "<p>Search by keywords and/or filter apps.</p>",
-        "selector": ".muggle-manage-apps-form",
+        "selector": ".manage-apps-form",
         "position": "left"
       },
       {
