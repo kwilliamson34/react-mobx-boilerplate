@@ -34,8 +34,13 @@ export default class JoyrideBase extends React.Component {
     });
   }
 
+  /* called when ESC or close button used on intro modal; enables tour but doesnot autostart */
+  handleCloseIntro = () => {
+    this.joyrideStore.tourAutoStart = false;
+    this.joyrideStore.startTour();
+  }
+
   handleStartTour  = () => {
-    this.joyrideStore.showTourIntroModal = false;
     this.joyrideStore.startTour();
   }
 
@@ -45,7 +50,7 @@ export default class JoyrideBase extends React.Component {
 
   handleTourEscapeKey = (e) => {
     const keyDown = (window.Event) ? e.which : e.keyCode;
-    if (!this.joyrideStore.showTourIntroModal && this.joyrideStore.runNow && keyDown === 27) {
+    if (this.joyrideStore.showTourIntroModal && this.joyrideStore.runNow && keyDown === 27) {
       document.querySelector('.joyride-tooltip__close').click();
     }
   }
@@ -78,7 +83,6 @@ export default class JoyrideBase extends React.Component {
   checkAnchorExists = (stepInfo) => {
     if(stepInfo.step) {
       if($(stepInfo.step.selector).get(0) !== undefined) {
-        console.log('recordStepAsSeenInCookie');
         this.joyrideStore.recordStepAsSeenInCookie(stepInfo);
       } else {
         //retry. the component it's supposed to attach to may not be fully rendered.
@@ -92,7 +96,6 @@ export default class JoyrideBase extends React.Component {
   }
 
   handleStepChange = (stepInfo) => {
-    console.log('STEPINFO', stepInfo);
     this.checkAnchorExists(stepInfo);
 
     /* Step type lifecycle:
@@ -112,12 +115,8 @@ export default class JoyrideBase extends React.Component {
     } else {
       $(modalID).modal('hide');
       $(modalID).data('bs.modal', null);
+      $('.modal-backdrop').remove();
     }
-  }
-
-  handleCloseIntro = () => {
-    this.joyrideStore.tourAutoStart = false;
-    this.joyrideStore.showTourIntroModal = false;
   }
 
   renderTourIntroModal() {
