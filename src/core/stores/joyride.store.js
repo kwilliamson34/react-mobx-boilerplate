@@ -22,6 +22,7 @@ class JoyrideStore {
 			this.disableTour();
 		} else {
 			this.resetStepsSeen();
+			this.tourAutoStart = true;
 			this.startTour();
 		}
 	}
@@ -32,11 +33,10 @@ class JoyrideStore {
 	}
 
 	@action disableTour() {
+		this.setCookie('_fn_lc_tour', false);
 		this.runNow = false;
-		this.setCookie('_fn_lc_tour', false, 365);
 		this.showTourIntroModal = false;
 	}
-
 
 	@action startTour() {
 		if(!this.nextStepAnchorHasRendered) {
@@ -46,7 +46,6 @@ class JoyrideStore {
 			}, 500);
 		}
 
-
 		this.showTourIntroModal = false;
 		this.setCookie('_fn_lc_tour', true, 365);
 		this.tourAutoStart = true;
@@ -54,6 +53,14 @@ class JoyrideStore {
 		if(this.tourRef.start) {
 			this.tourRef.start(true, this.stepsToShow, 0);
 		}
+	}
+
+	@action pauseTour() {
+		this.runNow = false;
+	}
+
+	@action unpauseTour() {
+		this.runNow = true;
 	}
 
 	getCookie(cname) {
@@ -83,9 +90,12 @@ class JoyrideStore {
 		let pathname = pagePathname || '';
 		this.updateSteps({pathname, runImmediately: false});
 		this.tourRef = joyrideRef;
-		if (this.tourCookieIsPresent) {
-			this.startTour();
-		} else {
+		if(document.cookie.indexOf('_fn_lc_tour') != -1) {
+			this.showTourIntroModal = false;
+			if(this.tourCookieValue()){
+				this.startTour();
+			}
+		}else{
 			this.showTourIntroModal = true;
 		}
 	}
@@ -96,7 +106,7 @@ class JoyrideStore {
 			let stepSelector = stepInfo.step.selector;
 			if (stepsAlreadySeen.indexOf(stepSelector) === -1) {
 				stepsAlreadySeen.push(stepSelector);
-				this.setCookie('_fn_lc_tour_steps_seen', JSON.stringify(stepsAlreadySeen), 365);
+				this.setCookie('_fn_lc_tour_steps_seen', JSON.stringify(stepsAlreadySeen));
 			}
 		}
 	}
@@ -149,7 +159,7 @@ class JoyrideStore {
 		}
 	}
 
-	@computed get tourCookieIsPresent() {
+	tourCookieValue() {
 		return document.cookie.indexOf('_fn_lc_tour') != -1 && this.getCookie('_fn_lc_tour') === 'true';
 	}
 
