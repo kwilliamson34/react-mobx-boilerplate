@@ -14,8 +14,7 @@ export default class JoyrideBase extends React.Component {
   constructor(props){
     super(props)
     this.joyrideStore = this.props.joyrideStore;
-    this.mountTries = 0;
-    this.mountMaxTries = 100;
+    this.mountMaxTries = 25;
     this.checkAnchorExistsTimeoutInterval = 500;
   }
 
@@ -79,26 +78,24 @@ export default class JoyrideBase extends React.Component {
     });
   }
 
-  checkAnchorExists = (stepInfo) => {
-    if(stepInfo.step) {
+  checkAnchorExists = (number, stepInfo) => {
+    if (number < this.mountMaxTries && stepInfo.step) {
       if($(stepInfo.step.selector).get(0) !== undefined) {
-        this.joyrideStore.unpauseTour();
-        this.joyrideStore.recordStepAsSeenInCookie(stepInfo);
+        this.joyride.start(true, this.joyrideStore.currentSteps.peek(), stepInfo.index)
       } else {
-        this.joyrideStore.pauseTour();
         //retry. the component it's supposed to attach to may not be fully rendered.
-        if (this.mountTries++ < this.mountMaxTries) {
-          setTimeout(() => {
-            this.checkAnchorExists(stepInfo);
-          }, this.checkAnchorExistsTimeoutInterval);
-        }
+        setTimeout(() => {
+          this.checkAnchorExists(number + 1, stepInfo);
+        }, this.checkAnchorExistsTimeoutInterval);
       }
     }
+    return;
   }
 
   handleStepChange = (stepInfo) => {
-    this.checkAnchorExists(stepInfo);
-
+    if (stepInfo.step && stepInfo.type === 'error:target_not_found') {
+      this.checkAnchorExists(0, stepInfo);
+    }
     /* Step type lifecycle:
     'error:target_not_found','step:before','tooltip:before','step:after','finished'*/
     if(stepInfo.type && stepInfo.type === 'tooltip:before') {
@@ -106,6 +103,9 @@ export default class JoyrideBase extends React.Component {
       setTimeout(() => {
         this.trapFocusWithinPopup($('.joyride-tooltip'));
       });
+    }
+    if (stepInfo.type && stepInfo.type !== 'finished') {
+      this.joyrideStore.recordStepAsSeenInCookie(stepInfo);
     }
   }
 

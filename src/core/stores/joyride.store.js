@@ -35,20 +35,12 @@ class JoyrideStore {
 
 		this.showTourIntroModal = false;
 		this.setCookie('_fn_lc_tour', true, 365);
-		this.tourAutoStart = true;
 		this.runNow = true;
+		this.tourAutoStart = true;
 		this.currentSteps = this.stepsToShow;
 		if(this.tourRef.start) {
 			this.tourRef.start(true, this.currentSteps.peek(), 0);
 		}
-	}
-
-	@action pauseTour() {
-		this.runNow = false;
-	}
-
-	@action unpauseTour() {
-		this.runNow = true;
 	}
 
 	getCookie(cname) {
