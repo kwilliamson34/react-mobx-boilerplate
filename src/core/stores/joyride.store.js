@@ -16,6 +16,7 @@ class JoyrideStore {
 
 	@action resetStepsSeen() {
 		this.setCookie('_fn_lc_tour_steps_seen', '', 365);
+		this.currentSteps = this.stepsToShow;
 	}
 
 	@action disableTour() {
@@ -36,8 +37,9 @@ class JoyrideStore {
 		this.setCookie('_fn_lc_tour', true, 365);
 		this.tourAutoStart = true;
 		this.runNow = true;
+		this.currentSteps = this.stepsToShow;
 		if(this.tourRef.start) {
-			this.tourRef.start(true, this.stepsToShow, 0);
+			this.tourRef.start(true, this.currentSteps.peek(), 0);
 		}
 	}
 
@@ -160,6 +162,7 @@ class JoyrideStore {
 		return nextStepAnchorHasRendered;
 	}
 
+	@observable currentSteps = [];
 	@observable tourPage = '';
 	@observable tourRef = {};
 	@observable tourAutoStart = true;
