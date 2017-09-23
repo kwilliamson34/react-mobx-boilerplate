@@ -1,6 +1,5 @@
 import { action, observable, computed } from 'mobx';
 import { Beacons } from '../../content/tour-steps.json';
-import $ from 'jquery';
 
 class JoyrideStore {
 
@@ -19,7 +18,7 @@ class JoyrideStore {
 	}
 
 	@action toggleTour() {
-		if (this.showTour) {
+		if (this.runNow) {
 			this.disableTour();
 		} else {
 			this.resetStepsSeen();
@@ -39,7 +38,7 @@ class JoyrideStore {
 
 
 	@action startTour() {
-
+		this.showTourIntroModal = false;
 		this.setCookie('_fn_lc_tour', true, 365);
 		this.tourAutoStart = true;
 		this.runNow = true;

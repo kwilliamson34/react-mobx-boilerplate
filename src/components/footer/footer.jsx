@@ -33,7 +33,7 @@ export default class Footer extends React.Component {
 		this.headerStore.toggleFooterSitemap();
 	}
 
-	onToggleWalkthrough = () => {
+	handleToggleWalkthrough = () => {
 		this.joyrideStore.toggleTour();
 	}
 
@@ -164,7 +164,7 @@ export default class Footer extends React.Component {
 						}
 						{this.props.showPrivateLinks &&
 							<li>
-								<a href="#" role="button" className="walkthru-toggle" onClick={this.onToggleWalkthrough}>{`${this.joyrideStore.showTour? 'Disable' : 'Enable'}`} Site Walkthrough
+								<a href="#" role="button" className="walkthru-toggle" onClick={this.handleToggleWalkthrough}>{`${this.joyrideStore.runNow? 'Disable' : 'Enable'}`} Site Walkthrough
 								</a>
 							</li>
 						}
