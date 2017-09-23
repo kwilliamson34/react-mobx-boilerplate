@@ -26,8 +26,6 @@ class JoyrideStore {
 	}
 
 	@action startTour() {
-		this.runNow = true;
-		this.tourAutoStart = true;
 		if(!this.nextStepAnchorHasRendered) {
 			//Required anchor(s) have not been rendered yet. Wait to start the tour.
 			setTimeout(() => {
@@ -35,20 +33,14 @@ class JoyrideStore {
 			}, 500);
 		}
 
+		this.runNow = true;
+		this.tourAutoStart = true;
 		this.showTourIntroModal = false;
 		this.setCookie('_fn_lc_tour', true, 365);
 		this.currentSteps = this.stepsToShow;
 		if(this.tourRef.start) {
 			this.tourRef.start(true, this.currentSteps.peek(), 0);
 		}
-	}
-
-	@action pauseTour() {
-		this.runNow = false;
-	}
-
-	@action unpauseTour() {
-		this.runNow = true;
 	}
 
 	getCookie(cname) {
@@ -106,7 +98,6 @@ class JoyrideStore {
 	@action updateSteps({pathname, runImmediately}) {
 		if (pathname != this.tourPage) {
 			this.tourPage = pathname;
-			this.runNow = true;
 
 			if(runImmediately && this.tourAutoStart) {
 				this.startTour();
@@ -115,7 +106,6 @@ class JoyrideStore {
 	}
 
 	@computed get stepsToShow() {
-		console.log('this.runNow', this.runNow);
 		let allStepsForThisPage;
 		if (this.tourPage.includes('/app/')) {
 			allStepsForThisPage = Beacons.AppDetail;
