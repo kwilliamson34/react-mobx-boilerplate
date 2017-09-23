@@ -81,13 +81,6 @@ export default class JoyrideBase extends React.Component {
   checkAnchorExists = (number, stepInfo) => {
     if (number < this.mountMaxTries && stepInfo.step) {
       if($(stepInfo.step.selector).get(0) !== undefined) {
-        const newStepInfo = {
-          action: 'next',
-          index: stepInfo.index,
-          type: 'step:after',
-          step: stepInfo.step
-        }
-        this.handleStepChange(newStepInfo);
         this.joyride.start(true, this.joyrideStore.currentSteps.peek(), stepInfo.index)
       } else {
         //retry. the component it's supposed to attach to may not be fully rendered.
