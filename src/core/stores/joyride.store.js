@@ -16,7 +16,6 @@ class JoyrideStore {
 
 	@action resetStepsSeen() {
 		this.setCookie('_fn_lc_tour_steps_seen', '', 365);
-		this.currentSteps = [];
 	}
 
 	@action disableTour() {
