@@ -15,7 +15,7 @@ export default class JoyrideBase extends React.Component {
     super(props)
     this.joyrideStore = this.props.joyrideStore;
     this.mountTries = 0;
-    this.mountMaxTries = 50;
+    this.mountMaxTries = 100;
     this.checkAnchorExistsTimeoutInterval = 500;
   }
 
@@ -82,8 +82,10 @@ export default class JoyrideBase extends React.Component {
   checkAnchorExists = (stepInfo) => {
     if(stepInfo.step) {
       if($(stepInfo.step.selector).get(0) !== undefined) {
+        this.joyrideStore.unpauseTour();
         this.joyrideStore.recordStepAsSeenInCookie(stepInfo);
       } else {
+        this.joyrideStore.pauseTour();
         //retry. the component it's supposed to attach to may not be fully rendered.
         if (this.mountTries++ < this.mountMaxTries) {
           setTimeout(() => {
@@ -162,7 +164,7 @@ export default class JoyrideBase extends React.Component {
         {this.renderTourIntroModal()}
         <Joyride
           ref={el => this.joyride = el}
-          steps={this.joyrideStore.stepsToShow}
+          steps={this.joyrideStore.currentSteps.peek()}
           run={this.joyrideStore.runNow}
           autoStart={this.joyrideStore.tourAutoStart}
           showOverlay={true}

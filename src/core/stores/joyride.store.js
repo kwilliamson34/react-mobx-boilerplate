@@ -1,21 +1,8 @@
 import { action, observable, computed } from 'mobx';
 import { Beacons } from '../../content/tour-steps.json';
+import $ from 'jquery';
 
 class JoyrideStore {
-
-	@action initJoyride() {
-		setTimeout(() => {
-			this.runNow = false;
-		}, 1000);
-	}
-
-	@action isTourIncomplete() {
-		let totalStepCount = 0;
-		for (let page in Beacons) {
-			totalStepCount += Beacons[page].length;
-		}
-		return this.stepsSeen.length < totalStepCount;
-	}
 
 	@action toggleTour() {
 		if (this.runNow) {
@@ -29,6 +16,7 @@ class JoyrideStore {
 
 	@action resetStepsSeen() {
 		this.setCookie('_fn_lc_tour_steps_seen', '', 365);
+		this.currentSteps = this.stepsToShow;
 	}
 
 	@action disableTour() {
@@ -38,12 +26,29 @@ class JoyrideStore {
 	}
 
 	@action startTour() {
-		this.setCookie('_fn_lc_tour', true);
-		this.runNow = true;
-		this.showTourIntroModal = false;
-		if(this.tourRef.start) {
-			this.tourRef.start(true, this.stepsToShow, 0);
+		if(!this.nextStepAnchorHasRendered) {
+			//Required anchor(s) have not been rendered yet. Wait to start the tour.
+			setTimeout(() => {
+				this.startTour();
+			}, 500);
 		}
+
+		this.showTourIntroModal = false;
+		this.setCookie('_fn_lc_tour', true, 365);
+		this.tourAutoStart = true;
+		this.runNow = true;
+		this.currentSteps = this.stepsToShow;
+		if(this.tourRef.start) {
+			this.tourRef.start(true, this.currentSteps.peek(), 0);
+		}
+	}
+
+	@action pauseTour() {
+		this.runNow = false;
+	}
+
+	@action unpauseTour() {
+		this.runNow = true;
 	}
 
 	getCookie(cname) {
@@ -127,11 +132,9 @@ class JoyrideStore {
 				allStepsForThisPage = [];
 			}
 		}
-
-		//hide steps already seen
 		let unseenSteps = allStepsForThisPage.filter(step => {
-			return this.stepsSeen.indexOf(step.selector) < 0;
-		});
+				return this.stepsSeen.indexOf(step.selector) < 0;
+			});
 		return unseenSteps;
 	}
 
@@ -148,6 +151,18 @@ class JoyrideStore {
 		return document.cookie.indexOf('_fn_lc_tour') != -1 && this.getCookie('_fn_lc_tour') === 'true';
 	}
 
+	@computed get nextStepAnchorHasRendered() {
+		let nextStepAnchorHasRendered = true;
+		const numStepsToPreload = 1;
+		this.stepsToShow.slice(0, numStepsToPreload + 1).forEach(step => {
+			if($(step.selector).get(0) == undefined) {
+				nextStepAnchorHasRendered = false;
+			}
+		});
+		return nextStepAnchorHasRendered;
+	}
+
+	@observable currentSteps = [];
 	@observable tourPage = '';
 	@observable tourRef = {};
 	@observable tourAutoStart = true;
