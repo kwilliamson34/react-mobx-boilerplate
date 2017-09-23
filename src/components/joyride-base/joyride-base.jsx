@@ -15,8 +15,8 @@ export default class JoyrideBase extends React.Component {
     super(props)
     this.joyrideStore = this.props.joyrideStore;
     this.mountTries = 0;
-    this.mountMaxTries = 50;
-    this.checkAnchorExistsTimeoutInterval = 500;
+    this.mountMaxTries = 200;
+    this.checkAnchorExistsTimeoutInterval = 100;
   }
 
   componentDidMount() {
@@ -45,7 +45,7 @@ export default class JoyrideBase extends React.Component {
 
   handleTourEscapeKey = (e) => {
     const keyDown = (window.Event) ? e.which : e.keyCode;
-    if (!this.joyrideStore.showTourIntroModal && this.joyrideStore.runNow && keyDown === 27) {
+    if (this.joyrideStore.runNow && keyDown === 27) {
       document.querySelector('.joyride-tooltip__close').click();
     }
   }
@@ -78,7 +78,6 @@ export default class JoyrideBase extends React.Component {
   checkAnchorExists = (stepInfo) => {
     if(stepInfo.step) {
       if($(stepInfo.step.selector).get(0) !== undefined) {
-        console.log('recordStepAsSeenInCookie');
         this.joyrideStore.recordStepAsSeenInCookie(stepInfo);
       } else {
         //retry. the component it's supposed to attach to may not be fully rendered.
@@ -92,7 +91,6 @@ export default class JoyrideBase extends React.Component {
   }
 
   handleStepChange = (stepInfo) => {
-    console.log('STEPINFO', stepInfo);
     this.checkAnchorExists(stepInfo);
 
     /* Step type lifecycle:
@@ -125,7 +123,7 @@ export default class JoyrideBase extends React.Component {
       document.onkeydown = (evt) => {
         evt = evt || window.event;
         if (evt.keyCode == 27) {
-          this.handleCloseIntro();
+          this.toggleIntroEnableWalkthrough();
         }
       };
     }
