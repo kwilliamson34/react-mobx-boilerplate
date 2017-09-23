@@ -4,20 +4,6 @@ import $ from 'jquery';
 
 class JoyrideStore {
 
-	@action initJoyride() {
-		setTimeout(() => {
-			this.runNow = false;
-		}, 1000);
-	}
-
-	@action isTourIncomplete() {
-		let totalStepCount = 0;
-		for (let page in Beacons) {
-			totalStepCount += Beacons[page].length;
-		}
-		return this.stepsSeen.length < totalStepCount;
-	}
-
 	@action toggleTour() {
 		if (this.runNow) {
 			this.disableTour();
