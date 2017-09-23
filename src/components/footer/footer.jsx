@@ -226,7 +226,7 @@ export default class Footer extends React.Component {
 									? <Link to="/" className="logo-home-link-footer">
 											<img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Local Control Home" />
 										</Link>
-									: <img src="/images/logo-FirstNet-local-control.svg" alt="" aria-hidden="true"/>
+									: <img src="/images/logo-FirstNet-local-control.svg" alt="" aria-hidden="true" />
 								}
 							</div>
 						</div>

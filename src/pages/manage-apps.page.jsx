@@ -98,7 +98,7 @@ export default class ManageAppsPage extends React.Component {
           <div className="row">
             <div className="configure-mdm-container col-xs-12 col-lg-offset-1 col-lg-10">
               <div className="configure-mdm-wrapper">
-                <Link to="/admin/configure-mdm" className=" configure-mdm-btn fn-primary">Configure MDM</Link>
+                <Link to="/admin/configure-mdm" className="configure-mdm-btn fn-primary">Configure MDM</Link>
               </div>
               <h1>Manage Apps</h1>
             </div>
@@ -106,7 +106,7 @@ export default class ManageAppsPage extends React.Component {
         </div>
         <div className="container">
           <div className="row">
-            <div className="col-xs-12 col-lg-offset-1 col-lg-10">
+            <div className="col-xs-12 col-lg-offset-1 col-lg-10" aria-live="assertive" aria-relevant="additions">
               <MDMAlerts store={this.mdmStore} alertList={this.mdmStore.manage_apps_alerts}/>
             </div>
           </div>

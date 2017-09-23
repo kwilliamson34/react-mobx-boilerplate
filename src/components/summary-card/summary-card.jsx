@@ -46,22 +46,22 @@ export class SummaryCard extends React.Component {
     const cardClass = `card-focus has-shadow card-container center-block ${errorClass} ${selectedClass}`;
     return (
       <div className="card-wrapper" ref="div">
+        <Link to={'/app/' + this.props.display.app_psk} id={'appCard' + this.props.display.app_psk} className={cardClass}>
         {this.props.display.type == 'CERTIFIED' &&
           <div className="certified-app-label">
             <i className="icon icon-check-circle" aria-hidden="true"></i>
-            <span>FirstNet Certified</span>
+            <span className="sr-only">This app is </span><span>FirstNet Certified</span>
           </div>
         }
-        <Link to={'/app/' + this.props.display.app_psk} id={'appCard' + this.props.display.app_psk} className={cardClass}>
             <div className="card-logo">
-              <img src={this.props.display.imageUrl} alt={this.props.display.name + ' Logo'}/>
+              <img src={this.props.display.imageUrl} alt="" aria-hidden="true" />
             </div>
             <section className="card-info">
               <div className="card-name">
                 {this.props.display.name}
               </div>
               <div className="card-publisher">
-                {this.props.display.publisher}
+                <span className="sr-only">Published By </span>{this.props.display.publisher}
               </div>
             </section>
             <div className="card-lower-meta">

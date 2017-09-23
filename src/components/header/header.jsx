@@ -73,6 +73,7 @@ export default class PSEHeader extends React.Component {
 			}
 		});
 
+
 		window.addEventListener('resize', this.updateWindowDimensions);
 	}
 
