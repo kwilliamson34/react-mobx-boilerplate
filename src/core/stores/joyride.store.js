@@ -1,5 +1,6 @@
 import { action, observable, computed } from 'mobx';
 import { Beacons } from '../../content/tour-steps.json';
+import $ from 'jquery';
 
 class JoyrideStore {
 
