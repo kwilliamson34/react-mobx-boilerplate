@@ -6,7 +6,8 @@ import $ from 'jquery';
 
 export default class ScrollToTop extends React.Component {
 	static propTypes = {
-		children: PropTypes.node
+		children: PropTypes.node,
+		store: PropTypes.object
 	};
 
 	constructor(props) {

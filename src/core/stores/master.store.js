@@ -10,6 +10,7 @@ import {feedbackStore} from './feedback.store';
 import {gtocStore} from './gtoc.store';
 import {mdmStore} from './mdm.store';
 import {userStore} from './user.store';
+import {joyrideStore} from './joyride.store';
 
 class PSEStore {
 	constructor() {
@@ -24,6 +25,7 @@ class PSEStore {
 		this.gtocStore = gtocStore;
 		this.mdmStore = mdmStore;
 		this.userStore = userStore;
+		this.joyrideStore = joyrideStore;
 	}
 
 	getUser() {

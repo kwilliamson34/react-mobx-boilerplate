@@ -5,7 +5,8 @@
 //libs
 @import
   "base/bootstrap",
-  "libs/firstnet/firstnet";
+  "libs/firstnet/firstnet",
+  "~react-joyride/lib/react-joyride";
 
 //Utils
 @import "abstracts/utils";
@@ -16,30 +17,31 @@
   "base/mixins",
   "base/typography",
   "base/bootstrap-overrides",
-  "base/buttons";
+  "base/buttons",
+  "base/joyride-overrides";
 
 //Components
 @import
   "components/alert",
-  "components/header",
-  "components/footer",
+  "components/app-availability",
+  "components/app-detail-banner",
+  "components/app-management-block",
+  "components/app-reviews",
   "components/breadcrumb-nav",
   "components/card-list",
   "components/faq",
-  "components/summary-card",
-  "components/search",
   "components/filters",
-  "components/toggle",
-  "components/app-detail-banner",
-  "components/app-management-block",
-  "components/purchasing-info",
-  "components/app-availability",
-  "components/app-reviews",
-  "components/truncate",
+  "components/footer",
   "components/geolink-map",
-  "components/screenshot-gallery",
+  "components/header",
+  "components/purchasing-info",
+  "components/rating",
   "components/ratings-chart",
-  "components/rating";
+  "components/screenshot-gallery",
+  "components/search",
+  "components/summary-card",
+  "components/toggle",
+  "components/truncate";
 
 //Pages
 @import

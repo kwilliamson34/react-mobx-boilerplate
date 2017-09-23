@@ -1,0 +1,90 @@
+{
+  "Beacons": {
+    "AdminDashboard": [
+      {
+        "title": "Navigation Menu",
+        "text": "<p>Navigate to other Local Control capabilities, manage account, and access help pages.</p>",
+        "selector": ".fnnav__main",
+        "position": "top"
+      },
+      {
+        "title": "Administrative Dashboard",
+        "text": "<p>Manage users and apps, assign devices, and view reports.</p>",
+        "selector": ".manage-actions",
+        "position": "top"
+      },
+      {
+        "title": "Purchasing & Provisioning Options",
+        "text": "<p>Explore, shop, and provision devices.</p>",
+        "selector": "aside",
+        "position": "top"
+      },
+      {
+        "title": "Live Help",
+        "text": "<p>Chat with a customer care specialist 24/7</p>",
+        "selector": ".tc-large-chattab-side",
+        "position": "left"
+      }
+    ],
+    "ManageApps": [
+      {
+        "title": "Configure",
+        "text": "<p>Configure the connection to your Mobile Device Management (MDM) solution.</p>",
+        "selector": ".configure-mdm-btn",
+        "position": "left"
+      },
+      {
+        "title": "Search and Filter",
+        "text": "<p>Search by keywords and/or filter apps.</p>",
+        "selector": ".manage-apps-form",
+        "position": "left"
+      },
+      {
+        "title": "App Summary",
+        "text": "<p>View high level info about the app, such as its name, developer, and average rating.</p>",
+        "selector": ".card-wrapper",
+        "position": "left"
+      },
+      {
+        "title": "Manage Help",
+        "text": "<p>Control which apps will be available and/or recommended to your agency’s users in the App Store.</p><p>Push an app to a Mobile Device Management (MDM) solution to control its distribution.</p>",
+        "selector": ".app-management",
+        "position": "left"
+      }
+    ],
+    "AppDetail": [
+      {
+        "title": "App Summary",
+        "text": "<p>View key info about the app.</p><p>Manage the app through Available, Recommended, and Push to MDM options.</p>",
+        "selector": ".white-card",
+        "position": "bottom"
+      },
+      {
+        "title": "App Details",
+        "text": "<p>View detailed information about the app.</p>",
+        "selector": ".app-description-block",
+        "position": "top"
+      },
+      {
+        "title": "Ratings and Reviews",
+        "text": "<p>Read reviews submitted by App Store users.</p>",
+        "selector": ".app-ratings",
+        "position": "top"
+      }
+    ],
+    "NetworkStatus": [
+      {
+        "title": "Coverage",
+        "text": "<p>View the network coverage for a specific area.</p>",
+        "selector": ".map-wrapper",
+        "position": "bottom"
+      },
+      {
+        "title": "Map Controls",
+        "text": "<p>Enter any street address or ZIP code to center the map on a specific location.</p><p>Select map overlays to view current weather, traffic, and network specific alerts.</p><p>Report network issues and subscribe to get alerts.</p>",
+        "selector": ".geolink-controls",
+        "position": "top"
+      }
+    ]
+  }
+}

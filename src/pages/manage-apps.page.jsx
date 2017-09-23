@@ -25,6 +25,7 @@ export default class ManageAppsPage extends React.Component {
     this.appCatalogStore = this.props.store.appCatalogStore;
     this.mdmStore = this.props.store.mdmStore;
     this.userStore = this.props.store.userStore;
+    this.joyrideStore = this.props.store.joyrideStore;
     this.pageId = 'manageAppsPage';
     this.itemsPerPage = 20;
     this.viewedAlert = false;
@@ -52,6 +53,10 @@ export default class ManageAppsPage extends React.Component {
     this.mdmStore.manage_apps_alerts = [];
     this.mdmStore.appsReferencedByErrorAlert = [];
     this.mdmStore.appsReferencedBySuccessAlert = [];
+  }
+
+  componentDidUpdate() {
+    this.joyrideStore.updatePlacement();
   }
 
   handleLoadMoreClick = () => {

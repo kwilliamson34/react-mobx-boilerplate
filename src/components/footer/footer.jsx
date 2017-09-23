@@ -25,11 +25,16 @@ export default class Footer extends React.Component {
 		this.externalLinkStore = this.props.store.externalLinkStore;
 		this.user = this.props.store.userStore;
 		this.handleSitemapClick = this.handleSitemapClick.bind(this);
+		this.joyrideStore = this.props.store.joyrideStore;
 	}
 
 	handleSitemapClick(e){
 		e.preventDefault();
 		this.headerStore.toggleFooterSitemap();
+	}
+
+	handleToggleWalkthrough = () => {
+		this.joyrideStore.toggleTour();
 	}
 
 	renderSitemapColumn() {
@@ -155,6 +160,12 @@ export default class Footer extends React.Component {
 								<NewTabLink to={this.externalLinkStore.firstnetTraining}>
 									Training
 								</NewTabLink>
+							</li>
+						}
+						{this.props.showPrivateLinks &&
+							<li>
+								<a href="#" role="button" className="walkthru-toggle" onClick={this.handleToggleWalkthrough}>{`${this.joyrideStore.runNow? 'Disable' : 'Enable'}`} Site Walkthrough
+								</a>
 							</li>
 						}
 						{this.props.showPrivateLinks &&

@@ -172,17 +172,19 @@ export default class AppDetailsPage extends React.Component {
                 configuredMDMType={this.mdmStore.pseMDMObject.toJS().mdm_type}
                 pushToMDM={this.mdmStore.pushToMDM.bind(this.mdmStore)}
                 appCatalogMDMStatuses={this.mdmStore.appCatalogMDMStatuses.toJS()}/>
-              {this.renderScreenshotGallery(this.appStore.currentAppObject)}
-              <section className="app-description">
-                <div className="container">
-                  <div className="row">
-                    <div className="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
-                      {this.renderDescription(this.appStore.currentAppObject)}
-                      {this.appStore.currentAppObject.version && this.renderWhatsNewSection(this.appStore.currentAppObject.version)}
+              <div className="app-description-block">
+                {this.renderScreenshotGallery(this.appStore.currentAppObject)}
+                <section className="app-description">
+                  <div className="container">
+                    <div className="row">
+                      <div className="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
+                        {this.renderDescription(this.appStore.currentAppObject)}
+                        {this.appStore.currentAppObject.version && this.renderWhatsNewSection(this.appStore.currentAppObject.version)}
+                      </div>
                     </div>
                   </div>
-                </div>
-              </section>
+                </section>
+              </div>
               {this.renderReviewsSection(this.appStore.currentAppObject)}
               {this.renderDeveloperSection(this.appStore.currentAppObject.custom_metadata)}
             </div>

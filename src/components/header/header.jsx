@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link, NavLink, withRouter } from 'react-router-dom';
+import {Link, NavLink, withRouter} from 'react-router-dom';
 import NewTabLink from '../link/new-tab-link';
-import { observer, inject, PropTypes } from 'mobx-react';
+import {observer, inject, PropTypes} from 'mobx-react';
 import config from 'config';
 import $ from 'jquery';
 import _ from 'lodash';
@@ -19,22 +19,23 @@ export default class PSEHeader extends React.Component {
 		super(props);
 		this.headerStore = this.props.store.headerStore;
 		this.userStore = this.props.store.userStore;
+		this.joyrideStore = this.props.store.joyrideStore;
 		this.externalLinkStore = this.props.store.externalLinkStore;
 	}
 
 	componentDidUpdate(prevProps) {
-    if (this.props.location !== prevProps.location) {
-      this.handleRouteChange();
-    }
-  }
+		if (this.props.location !== prevProps.location) {
+			this.handleRouteChange();
+		}
+	}
 
 	componentDidMount() {
 		$('#btn-admin').hover(() => {
-			if(window.innerWidth > 992 ){
+			if (window.innerWidth > 992) {
 				this.openDesktopAdminSubmenu();
 			}
 		}, () => {
-			if(window.innerWidth > 992){
+			if (window.innerWidth > 992) {
 				this.headerStore.adminSubMenuIsOpen = false;
 			}
 		});
@@ -47,7 +48,7 @@ export default class PSEHeader extends React.Component {
 			$('.dropdown.open').removeClass('open');
 		});
 
-		$('.dropdown-menu li:last-child a').keydown((e)=>{
+		$('.dropdown-menu li:last-child a').keydown((e) => {
 			// if user uses keyboard navigation, need to make sure we arent closing menu when user Shift+Tabs(goes to previous item)
 			if (e.which == 9 && e.shiftKey) {
 				// do nothing
@@ -58,18 +59,18 @@ export default class PSEHeader extends React.Component {
 
 		$('#linkBtn-networkStatus, .logo-home-link').focus(() => {
 			//Per FPSE-966, focus listener was deadening the network status link on mobile/tablet, so limiting this function call to affect desktop only
-			if(window.innerWidth > 992 ){
+			if (window.innerWidth > 992) {
 				this.headerStore.adminSubMenuIsOpen = false;
 			}
 		});
 
 		$('body').click((e) => {
 			let targetIds = ['admin-submenu', 'pse-admin-nav', 'pse-aside-nav', 'linkBtn-admin'];
-			if (this.headerStore.adminSubMenuIsOpen
-				&& !this.headerStore.mainMenuIsOpen
-				&& !_.includes(targetIds, e.target.id)) {
-					this.toggleAdminSubMenu();
-				}
+			if (this.headerStore.adminSubMenuIsOpen &&
+				!this.headerStore.mainMenuIsOpen &&
+				!_.includes(targetIds, e.target.id)) {
+				this.toggleAdminSubMenu();
+			}
 		});
 
 
@@ -82,13 +83,13 @@ export default class PSEHeader extends React.Component {
 
 	handleRouteChange() {
 		this.closeMainMenu();
-		if(this.headerStore.viewportWidth >= 768){
+		if (this.headerStore.viewportWidth >= 768) {
 			this.headerStore.closeAdminSubMenu();
 		}
 	}
 
 	openDesktopAdminSubmenu() {
-		if(!this.headerStore.adminSubMenuIsOpen){
+		if (!this.headerStore.adminSubMenuIsOpen) {
 			this.headerStore.adminSubMenuIsOpen = true;
 			$('.dropdown.open').removeClass('open');
 			$('#linkBtn-admin').focus();
@@ -97,7 +98,10 @@ export default class PSEHeader extends React.Component {
 
 	updateWindowDimensions = _.debounce(() => {
 		this.closeMainMenu();
-	}, 200, { leading: true, trailing: false });
+	}, 200, {
+		leading: true,
+		trailing: false
+	});
 
 	toggleMainMenu = () => {
 		this.headerStore.toggleMainMenu();
@@ -133,16 +137,20 @@ export default class PSEHeader extends React.Component {
 	};
 
 	toggleContentScrolling() {
-    if (this.headerStore.mainMenuIsOpen) {
-      $('body:not(.fnnav__main)').css('overflow', 'hidden');
-      $('body:not(.fnnav__main)').css('position', 'fixed');
-      $('body').css('width', '100%');
-    } else {
-      $('body').css('overflow', 'auto');
-      $('body').css('position', 'relative');
-      $('body').css('width', 'auto');
-    }
-  }
+		if (this.headerStore.mainMenuIsOpen) {
+			$('body:not(.fnnav__main)').css('overflow', 'hidden');
+			$('body:not(.fnnav__main)').css('position', 'fixed');
+			$('body').css('width', '100%');
+		} else {
+			$('body').css('overflow', 'auto');
+			$('body').css('position', 'relative');
+			$('body').css('width', 'auto');
+		}
+	}
+
+	handleToggleWalkthrough = () => {
+		this.joyrideStore.toggleTour();
+	}
 
 	renderProfileBlock = () => {
 		return (
@@ -157,7 +165,7 @@ export default class PSEHeader extends React.Component {
 	}
 
 	renderBrandArea = () => {
-		return(
+		return (
 			<div className="fnnav__header">
 				<div className="fnnav__brand">
 					<Link className="logo-home-link" to="/">
@@ -181,7 +189,7 @@ export default class PSEHeader extends React.Component {
 	}
 
 	renderMobileOnlyUserMenu = () => {
-		return(
+		return (
 			<li className="mainnav-item yellow" role="presentation">
 				<button
 					className="btnSubmenu"
@@ -285,6 +293,43 @@ export default class PSEHeader extends React.Component {
 		)
 	}
 
+	renderHelpMenuItems = () => {
+		return (
+			<div>
+				<li>
+					<NavLink activeClassName="active" to="/faq">
+						FAQ
+					</NavLink>
+				</li>
+				<li>
+					<NewTabLink to={this.externalLinkStore.firstnetTraining} onClick={this.handleExternalTabOpen} showIcon={true}>
+						Training
+					</NewTabLink>
+				</li>
+				<li>
+					<a href="#" role="button" className="walkthru-toggle" onClick={this.handleToggleWalkthrough}>
+						{`${this.joyrideStore.runNow? 'Disable' : 'Enable'}`} Site Walkthrough
+					</a>
+				</li>
+				<li>
+					<NavLink activeClassName="active" to="/feedback">
+						Give Us Feedback
+					</NavLink>
+				</li>
+				<li>
+					<a href={'tel:' + config.attCustomerSupportPhone}>
+						<div className="multi-line-item">
+							<span aria-hidden="true">FirstNet Customer Svc:&nbsp;</span><br />
+							<i className="icon-phone-number" aria-hidden="true"></i>
+							<span className="sr-only">FirstNet Customer Service Phone&nbsp;</span>
+							{config.attCustomerSupportPhone}
+						</div>
+					</a>
+				</li>
+			</div>
+		)
+	}
+
 	render() {
 		return (
 			<header className="fnnav pse" role="banner">
@@ -319,31 +364,7 @@ export default class PSEHeader extends React.Component {
 										id="pse-help-menu"
 										className={`collapse ${this.headerStore.helpSubMenuIsOpen ? 'in' : ''}`}
 										aria-labelledby="pse-help-mobile">
-										<li>
-											<NavLink activeClassName="active" to="/faq">
-												FAQ
-											</NavLink>
-										</li>
-										<li>
-											<NewTabLink to={this.externalLinkStore.firstnetTraining} onClick={this.handleExternalTabOpen} showIcon={true}>
-												Training
-											</NewTabLink>
-										</li>
-										<li>
-											<NavLink activeClassName="active" to="/feedback">
-												Give Us Feedback
-											</NavLink>
-										</li>
-										<li>
-											<a href={'tel:' + config.attCustomerSupportPhone}>
-												<div className="multi-line-item">
-													<span aria-hidden="true">FirstNet Customer Svc:&nbsp;</span><br />
-													<i className="icon-phone-number" aria-hidden="true"></i>
-													<span className="sr-only">FirstNet Customer Service Phone&nbsp;</span>
-													{config.attCustomerSupportPhone}
-												</div>
-											</a>
-										</li>
+										{this.renderHelpMenuItems()}
 									</ul>
 								</li>
 								<li className="mainnav-item grey logout" role="presentation">
@@ -401,29 +422,7 @@ export default class PSEHeader extends React.Component {
 										id="pse-help-nav"
 										className="dropdown-menu dropdown-menu-right"
 										aria-labelledby="help-header-dropdown">
-										<li role="presentation">
-											<NavLink to="/faq" activeClassName="active">
-												FAQ
-											</NavLink>
-										</li>
-										<li role="presentation">
-											<NewTabLink to={this.externalLinkStore.firstnetTraining} activeClassName="active" onClick={this.handleExternalTabOpen} showIcon={true}>
-												Training
-											</NewTabLink>
-										</li>
-										<li role="presentation">
-											<NavLink to="/feedback" activeClassName="active">
-												Give Us Feedback
-											</NavLink>
-										</li>
-										<li role="presentation">
-											<a href={'tel:' + config.attCustomerSupportPhone} className="tel-cell">
-												<span aria-hidden="true">FirstNet Customer Svc:&nbsp;</span><br />
-												<i className="icon-phone-number" aria-hidden="true"></i>
-												<span className="sr-only">FirstNet Customer Service Phone&nbsp;</span>
-												{config.attCustomerSupportPhone}
-											</a>
-										</li>
+										{this.renderHelpMenuItems()}
 									</ul>
 								</li>
 							</ul>

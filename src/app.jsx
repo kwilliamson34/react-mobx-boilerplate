@@ -3,6 +3,7 @@ import {Router, Route, Switch, Redirect} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {history} from './core/services/history.service';
 import $ from 'jquery';
+import config from 'config';
 
 //State Management
 import {Provider, observer} from 'mobx-react';
@@ -18,6 +19,7 @@ import '../styles/app.scss';
 import Header from './components/header/header';
 import Footer from './components/footer/footer.jsx';
 import ScrollToTop from './components/scroll-to-top/scroll-to-top';
+import JoyrideBase from './components/joyride-base/joyride-base';
 
 //Pages
 import NetworkStatusPage from './pages/network-status.page';
@@ -121,33 +123,38 @@ export default class App extends React.Component {
 
   getMainLayoutComponent = () => {
     return (
-      <ScrollToTop>
-        <a href="#main-content" className="skipnav">Skip Navigation</a>
-        <Header/>
-        <main id="main-content" tabIndex="-1">
-          <Switch>
-            <Route exact path="/" component={this.getLandingPage}/>
-            <Route path="/admin/manage-apps" component={this.getAdminRoutes(ManageAppsPage)}/>
-            <Route path="/admin/configure-mdm" component={this.getAdminRoutes(ConfigureMDM)}/>
-            <Route path="/admin/devices" component={this.getAdminRoutes(this.getSpecializedDevicesComponent)}/>
-            <Route path="/admin/solutions" component={this.getAdminRoutes(this.getPublicSafetySolutionsComponent)}/>
-            <Route path="/admin" component={this.getAdminRoutes(AdminDashboardPage)}/>
-            <Route path="/app/:appPsk" component={this.getAdminRoutes(AppDetailsPage)/*TODO redirect to error/404 if psk has no match*/}/>
-            <Route path="/network-status" component={NetworkStatusPage}/>
-            <Route path="/feedback" component={FeedbackPage}/>
-            <Route path="/feedback-success" component={FeedbackSuccessPage}/>
-            <Route path="/subscribe-to-alerts" component={SubscribeToGTOC}/>
-            <Route path="/subscribe-to-alerts-success" component={SubscribeToGTOCSuccess}/>
-            <Route path="/faq" component={FAQPage}/>
-            <Route path="/help-center" component={HelpCenterPage}/>
-            <Route path="/privacy" component={PrivacyPage}/>
-            <Route path="/accessibility" component={AccessibilityPage}/>
-            <Route component={() => <Redirect to="/error/404"/>}/>
-          </Switch>
-        </main>
-        <Footer/>
-      </ScrollToTop>
-      );
+      <div>
+        {config.showOnboardingWalkthrough &&
+					<JoyrideBase location={location.pathname} joyrideStore={pseMasterStore.joyrideStore} />
+				}
+        <ScrollToTop>
+          <a href="#main-content" className="skipnav">Skip Navigation</a>
+          <Header/>
+          <main id="main-content" tabIndex="-1">
+            <Switch>
+              <Route exact path="/" component={this.getLandingPage}/>
+              <Route path="/admin/manage-apps" component={this.getAdminRoutes(ManageAppsPage)}/>
+              <Route path="/admin/configure-mdm" component={this.getAdminRoutes(ConfigureMDM)}/>
+              <Route path="/admin/devices" component={this.getAdminRoutes(this.getSpecializedDevicesComponent)}/>
+              <Route path="/admin/solutions" component={this.getAdminRoutes(this.getPublicSafetySolutionsComponent)}/>
+              <Route path="/admin" component={this.getAdminRoutes(AdminDashboardPage)}/>
+              <Route path="/app/:appPsk" component={this.getAdminRoutes(AppDetailsPage)/*TODO redirect to error/404 if psk has no match*/}/>
+              <Route path="/network-status" component={NetworkStatusPage}/>
+              <Route path="/subscribe-to-alerts" component={SubscribeToGTOC}/>
+              <Route path="/subscribe-to-alerts-success" component={SubscribeToGTOCSuccess}/>
+              <Route path="/feedback" component={FeedbackPage}/>
+              <Route path="/feedback-success" component={FeedbackSuccessPage}/>
+              <Route path="/faq" component={FAQPage}/>
+              <Route path="/help-center" component={HelpCenterPage}/>
+              <Route path="/privacy" component={PrivacyPage}/>
+              <Route path="/accessibility" component={AccessibilityPage}/>
+              <Route component={() => <Redirect to="/error/404"/>}/>
+            </Switch>
+          </main>
+          <Footer/>
+        </ScrollToTop>
+      </div>
+    );
   }
 
   getAdminRoutes = (component) => {

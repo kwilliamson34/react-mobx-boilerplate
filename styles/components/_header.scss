@@ -128,7 +128,7 @@ $fn-mobile-item-height: 60px;
       }
     }
 
-    > li:not(:last-child) {
+    li:not(:last-child) {
       border-bottom: 1px solid $mobile-border-grey;
     }
   }
@@ -421,6 +421,11 @@ $fn-mobile-item-height: 60px;
           padding-left: 23px;
         }
       }
+      .walkthru-toggle{
+        background: none;
+        line-height: 48px;
+        border: 0;
+      }
     }
 
     .desktop-textlink {
@@ -494,7 +499,7 @@ $fn-mobile-item-height: 60px;
       left: 0;
       right: 0;
       margin: 0 auto;
-      z-index: 111;
+      z-index: 101;
       transition: none;
       border: 0;
       border-top: 5px solid $fn-ltblue;
@@ -568,7 +573,7 @@ $fn-mobile-item-height: 60px;
 
   //external link icon
   .header-submenu a,
-  .dropdown .dropdown-menu > li > a {
+  .dropdown .dropdown-menu > div > li > a {
     i.icon-external-site {
       display: inline-block;
       vertical-align: sub;
