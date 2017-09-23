@@ -40,7 +40,7 @@ export class Filters extends React.Component {
   renderSelect({id, label, initialValue, defaultDisplayName, changeHandler, optionsArray}) {
     return (
       <div>
-        <label className="control-label" htmlFor={id}>{label}</label>
+        <label className="control-label" htmlFor={id} tabIndex="0">{label}</label>
         <select id={id} ref={ref => this.store.addFilterElementRef(id, ref)} className="form-control" defaultValue={initialValue} onChange={changeHandler}>
           <option value="">{defaultDisplayName}</option>
           {optionsArray.map((option, index) => {
@@ -99,7 +99,7 @@ export class Filters extends React.Component {
       <section className="filters">
         <div className="row">
           <div className="col-xs-12 hidden-xs">
-            <span className="form-group-title">Filter</span>
+            <span className="form-group-title" tabIndex="0">Filters</span>
           </div>
           {this.store.showFilters && <div className="col-xs-12 hidden-sm hidden-md hidden-lg">
             <button className="filters-button with-caret" onClick={this.handleFilterShowHideClick}>

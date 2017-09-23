@@ -25,6 +25,10 @@
   padding-left: 10px;
   font-weight: $fn-bold-weight;
   line-height: 2;
+
+  &:focus {
+    @include focus();
+  }
 }
 
 .as-label,
