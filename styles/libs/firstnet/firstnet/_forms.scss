@@ -22,10 +22,17 @@
 .form-group-title {
   font-size: $fn-label-desktop;
   text-transform: uppercase;
-  padding-left: 10px;
+  padding: 0 10px;
   font-weight: $fn-bold-weight;
   line-height: 2;
 
+  &:focus {
+    @include focus();
+  }
+}
+
+.filter-category-label {
+  padding-right: 10px;
   &:focus {
     @include focus();
   }

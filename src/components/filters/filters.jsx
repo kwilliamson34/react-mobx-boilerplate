@@ -40,7 +40,7 @@ export class Filters extends React.Component {
   renderSelect({id, label, initialValue, defaultDisplayName, changeHandler, optionsArray}) {
     return (
       <div>
-        <label className="control-label" htmlFor={id} tabIndex="0">{label}</label>
+        <label className="control-label filter-category-label" htmlFor={id} tabIndex="0">{label}</label>
         <select id={id} ref={ref => this.store.addFilterElementRef(id, ref)} className="form-control" defaultValue={initialValue} onChange={changeHandler}>
           <option value="">{defaultDisplayName}</option>
           {optionsArray.map((option, index) => {
