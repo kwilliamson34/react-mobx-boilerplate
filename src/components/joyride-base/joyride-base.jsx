@@ -125,7 +125,7 @@ export default class JoyrideBase extends React.Component {
       document.onkeydown = (evt) => {
         evt = evt || window.event;
         if (evt.keyCode == 27) {
-          this.toggleIntroEnableWalkthrough();
+          this.handleCloseIntro();
         }
       };
     }
