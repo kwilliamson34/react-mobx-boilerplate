@@ -37,7 +37,7 @@ class JoyrideStore {
 
 		this.showTourIntroModal = false;
 		this.setCookie('_fn_lc_tour', true, 365);
-		this.currentSteps = this.stepsToShow();
+		this.currentSteps = this.stepsToShow;
 		if(this.tourRef.start) {
 			this.tourRef.start(true, this.currentSteps.peek(), 0);
 		}
@@ -114,9 +114,8 @@ class JoyrideStore {
 		}
 	}
 
-	@action stepsToShow() {
+	@computed get stepsToShow() {
 		console.log('this.runNow', this.runNow);
-		this.runNow = true;
 		let allStepsForThisPage;
 		if (this.tourPage.includes('/app/')) {
 			allStepsForThisPage = Beacons.AppDetail;
@@ -157,7 +156,7 @@ class JoyrideStore {
 	@computed get nextStepAnchorHasRendered() {
 		let nextStepAnchorHasRendered = true;
 		const numStepsToPreload = 1;
-		this.stepsToShow().slice(0, numStepsToPreload + 1).forEach(step => {
+		this.stepsToShow.slice(0, numStepsToPreload + 1).forEach(step => {
 			if($(step.selector).get(0) == undefined) {
 				nextStepAnchorHasRendered = false;
 			}
