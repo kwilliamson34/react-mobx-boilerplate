@@ -68,7 +68,7 @@ export class PushToMDM extends React.Component {
         <span className="sr-only" role="alert" aria-live="assertive">{this.ariaLiveMessage}</span>
         <button type="button" id={'pushBtn' + this.props.psk} onClick={this.handleButtonClick} className={`push-button ${btnClass} ${enabled ? '' : 'disabled'}`}>
           {iconClass && <i className={iconClass} aria-hidden="true"></i>}
-          <span aria-hidden="true" dangerouslySetInnerHTML={{__html: btnLabel}}></span>
+          <span dangerouslySetInnerHTML={{__html: btnLabel}}></span>
         </button>
       </div>
     );
