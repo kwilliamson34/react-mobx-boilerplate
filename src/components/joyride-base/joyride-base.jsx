@@ -15,7 +15,7 @@ export default class JoyrideBase extends React.Component {
     super(props)
     this.joyrideStore = this.props.joyrideStore;
     this.mountTries = 0;
-    this.mountMaxTries = 100;
+    this.mountMaxTries = 75;
     this.checkAnchorExistsTimeoutInterval = 500;
   }
 
