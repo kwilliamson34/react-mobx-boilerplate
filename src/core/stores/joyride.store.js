@@ -101,7 +101,6 @@ class JoyrideStore {
 	@action updateSteps({pathname, runImmediately}) {
 		if (pathname != this.tourPage) {
 			this.tourPage = pathname;
-			console.log('this.tourPage', this.tourPage);
 
 			if(runImmediately && this.tourAutoStart) {
 				this.startTour();
