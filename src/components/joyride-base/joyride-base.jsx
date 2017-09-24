@@ -27,10 +27,12 @@ export default class JoyrideBase extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.joyrideStore.updateSteps({
-      pathname: nextProps.location,
-      runImmediately: true
-    });
+    if(this.joyrideStore.runNow && this.joyrideStore.tourAutoStart) {
+			this.joyrideStore.updateSteps({
+				pathname: nextProps.location,
+				runImmediately: true
+			});
+    }
   }
 
   /* called when ESC or close button used on intro modal; autostarts tour*/

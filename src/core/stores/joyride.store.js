@@ -26,7 +26,6 @@ class JoyrideStore {
 	@action enableTour() {
 		this.setCookie('_fn_lc_tour', true);
 		this.resetStepsSeen();
-		this.tourAutoStart = true;
 		this.startTour();
 	}
 
@@ -103,7 +102,7 @@ class JoyrideStore {
 		if (pathname != this.tourPage) {
 			this.tourPage = pathname;
 
-			if(runImmediately && this.tourAutoStart && this.tourCookieValue()) {
+			if(runImmediately && this.tourAutoStart) {
 				this.startTour();
 			}
 		}
