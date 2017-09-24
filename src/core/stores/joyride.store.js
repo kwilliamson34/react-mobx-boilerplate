@@ -101,6 +101,7 @@ class JoyrideStore {
 	@action updateSteps({pathname, runImmediately}) {
 		if (pathname != this.tourPage) {
 			this.tourPage = pathname;
+			console.log('this.tourPage', this.tourPage);
 
 			if(runImmediately && this.tourAutoStart) {
 				this.startTour();
@@ -115,6 +116,7 @@ class JoyrideStore {
 		} else {
 			switch (this.tourPage) {
 			case '/admin':
+			case '/':
 				allStepsForThisPage = Beacons.AdminDashboard;
 				break;
 			case '/admin/manage-apps':
