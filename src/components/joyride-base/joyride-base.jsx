@@ -35,11 +35,11 @@ export default class JoyrideBase extends React.Component {
 
   /* called when ESC or close button used on intro modal; autostarts tour*/
   handleCloseIntro = () => {
-    this.joyrideStore.startTour();
+    this.joyrideStore.enableTour();
   }
 
   handleStartTour  = () => {
-    this.joyrideStore.startTour();
+    this.joyrideStore.enableTour();
   }
 
   handleDisableTour = () => {
