@@ -47,10 +47,10 @@ class JoyrideStore {
 	}
 
 	getCookie(cname) {
-		var name = cname + '=';
-		var ca = document.cookie.split(';');
+		let name = cname + '=';
+		let ca = document.cookie.split(';');
 		for(let i = 0; i < ca.length; i++) {
-			var c = ca[i];
+			let c = ca[i];
 			while (c.charAt(0) == ' ') {
 				c = c.substring(1);
 			}
@@ -63,9 +63,9 @@ class JoyrideStore {
 
 	@action setCookie(cname, cvalue, exdays) {
 		let expiryDays = exdays || 365;
-		var d = new Date();
+		let d = new Date();
 		d.setTime(d.getTime() + (expiryDays * 24 * 60 * 60 * 1000));
-		var expires = 'expires=' + d.toUTCString();
+		let expires = 'expires=' + d.toUTCString();
 		document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
 	}
 
