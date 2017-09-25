@@ -4,6 +4,11 @@ import {userStore} from './user.store';
 import {history} from '../services/history.service';
 
 class FeedbackStore {
+
+  @action onChange(target, value) {
+    this.values[target] = value;
+  }
+
   @action submitForm() {
     const success = () => {
       this.clearForm();
@@ -35,16 +40,16 @@ class FeedbackStore {
   @observable showAlert = false;
   @observable hasError = false;
   @observable defaultValues = {
-    title: '',
-    details: '',
-    topic: '',
-    email: userStore.user.email
+    feedback_title: '',
+    feedback_details: '',
+    feedback_topic: '',
+    feedback_email: userStore.user.email
   };
   @observable values = {
-    title: '',
-    details: '',
-    topic: '',
-    email: userStore.user.email
+    feedback_title: '',
+    feedback_details: '',
+    feedback_topic: '',
+    feedback_email: userStore.user.email
   };
 }
 

@@ -5,6 +5,9 @@ import asForm from './asForm.js';
 import config from 'config';
 import {userStore} from '../../core/stores/user.store';
 
+import TextInput from './text-input';
+import SelectInput from './select-input';
+
 @observer
 class FeedbackForm extends React.Component {
 
@@ -34,22 +37,12 @@ class FeedbackForm extends React.Component {
     ];
   }
 
-  //TODO temporary-- remove when components are done
-  renderTextInput = ({id, label, value, genericLabel, type, disabled, hasError, required, charLimit}) => {
-    let Tag = type === 'textarea' ? 'textarea' : 'input';
-    return (
-      <div className={`form-group has-feedback ${id + '-class'} ${hasError ? 'has-error' : ''}`} key={id}>
-        <label className="control-label" htmlFor={id}>{label}
-          {required &&
-            <span className="required-asterisks"> *</span>
-          }
-        </label>
-        {hasError && <div className="msgBlock error error-list" role="alert" aria-live="assertive">
-          <span>Please enter a {genericLabel || label.toLowerCase()}.</span>
-        </div>}
-        <Tag id={id} type="text" className="form-control" disabled={disabled} defaultValue={value} data-charlimit={charLimit}/>
-      </div>
-    )
+  renderTextInput(props) {
+    return <TextInput {...props}/>
+  }
+
+  renderSelectInput({id, type, labelText, required, placeholder, value, optionsList}) {
+    return <SelectInput {...arguments[0]}/>
   }
 
   render() {
@@ -57,18 +50,22 @@ class FeedbackForm extends React.Component {
       <div id="feedback-form">
         {this.renderTextInput({
           id: 'feedback_title',
-          label: 'Title',
-          value: this.store.values.title,
+          type: 'input',
+          labelText: 'Title',
+          errorMessage: 'Please enter a title',
+          value: this.store.values.feedback_title,
+          onChange: this.store.onChange.bind(this.store),
           required: true,
           charLimit: 250
         })}
-        {this.renderTextInput({
+        {this.renderSelectInput({
           id: 'feedback_topic',
           type: 'select',
-          label: 'Topic',
+          labelText: 'Topic',
           required: true,
           placeholder: 'Select Feedback Topic',
-          value: this.store.values.topic,
+          value: this.store.values.feedback_topic,
+          onChange: this.store.onChange.bind(this.store),
           optionsList: userStore.isAdmin
             ? this.adminOptions
             : this.nonAdminOptions
@@ -76,10 +73,11 @@ class FeedbackForm extends React.Component {
         {this.renderTextInput({
           id: 'feedback_details',
           type: 'textarea',
-          label: 'Details',
+          labelText: 'Details',
           required: true,
-          genericLabel: 'summary of your feedback',
-          value: this.store.values.details,
+          errorMessage: 'Please enter a summary of your feedback',
+          value: this.store.values.feedback_details,
+          onChange: this.store.onChange.bind(this.store),
           charLimit: 10000
         })}
 
@@ -93,11 +91,12 @@ class FeedbackForm extends React.Component {
 
         {this.renderTextInput({
           id: 'feedback_email',
-          label: 'Email (Optional)',
+          type: 'input',
+          labelText: 'Email (Optional)',
           required: false,
-          genericLabel: 'valid email address',
-          value: this.store.values.email,
-          charLimit: 10000
+          errorMessage: 'Please enter a valid email address',
+          onChange: this.store.onChange.bind(this.store),
+          value: this.store.values.feedback_email
         })}
       </div>
     );

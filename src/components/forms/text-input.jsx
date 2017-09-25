@@ -10,25 +10,31 @@ export default class TextInput extends React.Component {
 
   static propTypes = {
     type: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired,
+    id: PropTypes.string.isRequired,
     value: PropTypes.string,
-    isRequired: PropTypes.bool,
+    required: PropTypes.bool,
+    charLimit: PropTypes.number,
     disabled: PropTypes.bool,
     labelText: PropTypes.string,
-    errorMessage: PropTypes.string
+    errorMessage: PropTypes.string,
+    onChange: PropTypes.func,
+    onBlur: PropTypes.func
   }
 
   static defaultProps = {
     value: '',
-    isRequired: false,
+    required: false,
     disabled: false
   }
 
   @observable hasError = false;
 
   handleOnChange = (e) => {
-    this.props.onChange(e.target.name, e.target.value);
+    this.props.onChange(e.target.id, e.target.value);
+  }
+
+  charLimitedValue = (value, charLimit) => {
+    return value.substr(0, charLimit);
   }
 
   render() {
@@ -37,18 +43,31 @@ export default class TextInput extends React.Component {
     return (
       <div>
         <FormLabel
-          id={this.props.name}
+          id={this.props.id}
           hasError={this.hasError}
-          fieldIsRequired={this.props.isRequired}
+          fieldIsRequired={this.props.required}
           labelText={this.props.labelText}
           errorMessage={this.props.errorMessage}/>
         <Tag
           className="form-control"
-          name={this.props.name}
+          id={this.props.id}
           type={this.props.type}
           disabled={this.props.disabled}
-          onChange={this.handleOnChange}
-          value={this.props.value}/>
+          onChange={
+            this.props.onChange
+            ? this.handleOnChange
+            : () => {}
+          }
+          onBlur={
+            this.props.onBlur
+            ? this.handleOnBlur
+            : () => {}
+          }
+          value={
+            this.props.charLimit
+            ? this.charLimitedValue(this.props.value, this.props.charLimit)
+            : this.props.value
+          }/>
       </div>
     )
   }

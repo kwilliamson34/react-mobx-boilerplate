@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
+import {observable} from 'mobx';
 
 import FormLabel from './form-label';
 
@@ -9,12 +10,12 @@ export default class SelectInput extends React.Component {
 
   static propTypes = {
     id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired,
-    optionsList: PropTypes.object,
+    labelText: PropTypes.string,
+    optionsList: PropTypes.array,
     value: PropTypes.string,
     placeholder: PropTypes.string,
-    disabled: PropTypes.bool
+    disabled: PropTypes.bool,
+    onChange: PropTypes.func
   }
 
   static defaultProps = {
@@ -23,6 +24,8 @@ export default class SelectInput extends React.Component {
     disabled: false
   }
 
+  @observable hasError = false;
+
   handleOnChange = (e) => {
     this.props.onChange(e.target.id, e.target.value);
   }
@@ -30,15 +33,22 @@ export default class SelectInput extends React.Component {
   render() {
     return (
       <div>
-        
-        <select
+        <FormLabel
           id={this.props.id}
-          name={this.props.name}
-          onChange={this.handleOnChange}
-          value={this.props.value}
+          hasError={this.hasError}
+          fieldIsRequired={this.props.required}
+          labelText={this.props.labelText}
+          errorMessage={this.props.errorMessage}/>
+        <select
           className="form-control form-control-lg"
-          disabled={this.props.disabled}
-          >
+          id={this.props.id}
+          onChange={
+            this.props.onChange
+            ? this.handleOnChange
+            : () => {}
+          }
+          value={this.props.value}
+          disabled={this.props.disabled}>
           {this.props.placeholder && <option value="">{this.props.placeholder}</option>}
           {this.props.optionsList.map(option => <option value={option.value} key={option.value}>{option.title}</option> )}
         </select>
