@@ -11,6 +11,7 @@ class FeedbackStore {
     }
     const failure = () => {
       this.showAlert = true;
+      this.hasError = true;
     }
     apiService.submitCustomerFeedbackForm(this.values).then(success, failure);
   }
@@ -18,6 +19,7 @@ class FeedbackStore {
   @action clearForm() {
     this.values = this.defaultValues;
     this.showAlert = false;
+    this.hasError = false;
   }
 
   @computed get formIsDirty() {
