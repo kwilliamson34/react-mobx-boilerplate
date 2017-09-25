@@ -223,15 +223,18 @@ footer {
 }
 
 .help-hdr {
-  display: block;
+  display: inline-block;
   position: relative;
+  line-height: 1;
+  vertical-align: top;
 
-  &:before {
-    content: '\61';
-    text-transform: none;
-    font-family: $icon-font;
-    vertical-align: middle;
+  i.icon-help {
     margin-right: 5px;
+    vertical-align: sub;
+
+    &:before {
+      vertical-align: top;
+    }
   }
 }
 

@@ -148,7 +148,10 @@ export default class Footer extends React.Component {
 		return (
 			<div className={`col-xs-12 ${this.props.showPrivateLinks ? 'col-md-3' : 'col-md-4'}`}>
 				<nav aria-describedby="helpLinks">
-					<h2 id="helpLinks" className="help-hdr">Help</h2>
+					<h2 id="helpLinks" className="help-hdr">
+						<i className="icon-help" aria-hidden="true" />
+						Help
+					</h2>
 					<ul className="help-link-block">
 						{this.props.showPrivateLinks &&
 							<li role="presentation">
