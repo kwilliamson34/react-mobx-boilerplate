@@ -1,7 +1,6 @@
 import {action, observable, computed} from 'mobx';
 import {apiService} from '../services/api.service';
 import {userStore} from './user.store';
-import {utilsService} from '../services/utils.service';
 import {history} from '../services/history.service';
 
 class FeedbackStore {
@@ -10,7 +9,7 @@ class FeedbackStore {
       this.clearForm();
       history.push('/feedback-success');
     }
-    const failure = (res) => {
+    const failure = () => {
       this.showAlert = true;
     }
     apiService.submitCustomerFeedbackForm(this.values).then(success, failure);
