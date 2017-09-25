@@ -1,7 +1,6 @@
 import {action, observable, computed} from 'mobx';
 import {apiService} from '../services/api.service';
 import {userStore} from './user.store';
-import {utilsService} from '../services/utils.service';
 import {history} from '../services/history.service';
 
 class FeedbackStore {
@@ -10,26 +9,27 @@ class FeedbackStore {
       this.clearForm();
       history.push('/feedback-success');
     }
-    const failure = (res) => {
+    const failure = () => {
       this.showAlert = true;
+      this.hasError = true;
     }
     apiService.submitCustomerFeedbackForm(this.values).then(success, failure);
-  }
-
-  isEmpty = (string) => {
-    if(string && string.trim()) {
-      return false;
-    }
-    return true;
   }
 
   @action clearForm() {
     this.values = this.defaultValues;
     this.showAlert = false;
+    this.hasError = false;
   }
 
   @computed get formIsDirty() {
-    return !this.isEmpty(this.values._title) || !this.isEmpty(this.values.details);
+    let formHasChanged = false;
+    Object.keys(this.values).forEach(key => {
+      if(this.values[key] !== this.defaultValues[key]) {
+        formHasChanged = true;
+      }
+    });
+    return formHasChanged;
   }
 
   @observable showAlert = false;
