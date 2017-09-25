@@ -21,14 +21,13 @@ class FeedbackStore {
   }
 
   @computed get formIsDirty() {
-    return !this.isEmpty(this.values._title) || !this.isEmpty(this.values.details);
-  }
-
-  isEmpty = (string) => {
-    if(string && string.trim()) {
-      return false;
-    }
-    return true;
+    let formHasChanged = false;
+    Object.keys(this.values).forEach(key => {
+      if(this.values[key] !== this.defaultValues[key]) {
+        formHasChanged = true;
+      }
+    });
+    return formHasChanged;
   }
 
   @observable showAlert = false;
