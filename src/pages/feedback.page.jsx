@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {inject, observer} from 'mobx-react';
 import config from 'config';
-import {FormTemplate} from '../components/form-template/form-template';
+import FeedbackForm from '../components/forms/feedback-form';
 
 @inject('store')
 @observer
@@ -98,18 +98,7 @@ export default class FeedbackPage extends React.Component {
             </div>
             <div className="row">
               <section className="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
-                <FormTemplate id="feedback-form"
-                  ref={ref => this.form = ref}
-                  inputList={this.getInputList() || []}
-                  onSubmit={this.feedbackStore.handleSubmit.bind(this.feedbackStore)}
-                  onChange={this.feedbackStore.handleChange.bind(this.feedbackStore)}
-                  onBlur={this.feedbackStore.handleBlur.bind(this.feedbackStore)}
-                  errorBody={this.feedbackStore.showAlertBar ? 'Please correct the errors below.' : ''}
-                  toggleAlertBar={this.feedbackStore.toggleAlertBar.bind(this.feedbackStore)}
-                  clearForm={this.feedbackStore.clearForm.bind(this.feedbackStore)}
-                  formHasEntries={this.feedbackStore.formHasEntries}
-                  submitButtonDisabled={!this.feedbackStore.requiredFieldsEntered}
-                  submitButtonText='Submit Feedback'/>
+                <FeedbackForm store={this.feedbackStore} submitButtonText='Submit Feedback'/>
               </section>
             </div>
           </div>

@@ -1,28 +1,28 @@
 /**
  * asForm Higher Order Component
  */
-import React, {Component} from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
+import {history} from '../../core/services/history.service';
+import $ from 'jquery';
 
-export default function asForm (MyComponent, formDataProp) {
-  return class Form extends Component {
+export default function asForm (MyComponent, attributes) {
+  return class Form extends React.Component {
     static propTypes = {
       store: PropTypes.shape({
         clearForm: PropTypes.func,
-        submitForm: PropTypes.func
-      }),
-      alertText: PropTypes.string,
-      submitButtonText: PropTypes.string
+        submitForm: PropTypes.func,
+        formIsDirty: PropTypes.bool
+      })
     }
 
     static defaultProps = {
-      alertText: 'Please fix the following errors.',
-      submitButtonText: 'Submit'
     }
 
     constructor (props) {
       super(props)
       this.store = this.props.store;
-
+      
       this.state = {
         hasError: false,
         showAlert: false
@@ -31,15 +31,22 @@ export default function asForm (MyComponent, formDataProp) {
 
     componentWillMount() {
       this.interceptedRoute = '';
+      this.alertText = attributes && attributes.alertText ? attributes.alertText : 'Please fix the following errors.';
+      this.submitButtonText = attributes && attributes.submitButtonText ? attributes.submitButtonText : 'Submit';
 
       //set up reroute blockade (returns unblocking function)
       this.unblock = history.block((location) => {
-        if (this.props.formHasEntries && !this.interceptedRoute) {
+        if (this.store.formIsDirty && !this.interceptedRoute) {
           this.interceptedRoute = location.pathname;
           this.showExitModal();
           return false; //does not allow to proceed to new page
         }
       });
+    }
+
+    componentWillUnmount() {
+      //undo the reroute blockade
+      this.unblock();
     }
 
     updateHasError = (value) => {
@@ -61,7 +68,7 @@ export default function asForm (MyComponent, formDataProp) {
             <span className="sr-only">Close alert</span>
           </button>
           <p role="alert" aria-live="assertive">
-            <strong>Error:&nbsp;</strong>{this.props.alertText}
+            <strong>Error:&nbsp;</strong>{this.alertText}
           </p>
         </div>
       )
@@ -71,7 +78,7 @@ export default function asForm (MyComponent, formDataProp) {
       return (
         <div className="form-group text-center">
           <button type="button" onClick={this.handleSubmit} className={`fn-primary ${this.state.hasError ? 'disabled' : ''}`}>
-            {this.props.submitButtonText}
+            {this.submitButtonText}
           </button>
         </div>
       )
@@ -79,7 +86,7 @@ export default function asForm (MyComponent, formDataProp) {
 
     handleSubmit = (event) => {
       event.preventDefault();
-      this.props.submitForm();
+      this.store.submitForm();
     }
 
     renderExitModal = () => {
