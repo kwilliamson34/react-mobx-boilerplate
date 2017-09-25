@@ -15,13 +15,6 @@ class FeedbackStore {
     apiService.submitCustomerFeedbackForm(this.values).then(success, failure);
   }
 
-  isEmpty = (string) => {
-    if(string && string.trim()) {
-      return false;
-    }
-    return true;
-  }
-
   @action clearForm() {
     this.values = this.defaultValues;
     this.showAlert = false;
@@ -29,6 +22,13 @@ class FeedbackStore {
 
   @computed get formIsDirty() {
     return !this.isEmpty(this.values._title) || !this.isEmpty(this.values.details);
+  }
+
+  isEmpty = (string) => {
+    if(string && string.trim()) {
+      return false;
+    }
+    return true;
   }
 
   @observable showAlert = false;
