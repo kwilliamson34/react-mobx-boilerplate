@@ -37,49 +37,38 @@ class FeedbackForm extends React.Component {
     ];
   }
 
-  renderTextInput(props) {
-    return <TextInput {...props}/>
-  }
-
-  renderSelectInput({id, type, labelText, required, placeholder, value, optionsList}) {
-    return <SelectInput {...arguments[0]}/>
-  }
-
   render() {
     return (
       <div id="feedback-form">
-        {this.renderTextInput({
-          id: 'feedback_title',
-          type: 'input',
-          labelText: 'Title',
-          errorMessage: 'Please enter a title',
-          value: this.store.values.feedback_title,
-          onChange: this.store.onChange.bind(this.store),
-          required: true,
-          charLimit: 250
-        })}
-        {this.renderSelectInput({
-          id: 'feedback_topic',
-          type: 'select',
-          labelText: 'Topic',
-          required: true,
-          placeholder: 'Select Feedback Topic',
-          value: this.store.values.feedback_topic,
-          onChange: this.store.onChange.bind(this.store),
-          optionsList: userStore.isAdmin
+        <TextInput
+          dataObject={this.store.values}
+          id="title"
+          type="input"
+          labelText="Title"
+          required={true}
+          errorMessage="Please enter title."
+          charLimit={250}/>
+
+        <SelectInput
+          dataObject={this.store.values}
+          id="topic"
+          type="select"
+          labelText="Topic"
+          required={true}
+          placeholder="Select Feedback Topic"
+          errorMessage="Please choose a topic."
+          optionsList={userStore.isAdmin
             ? this.adminOptions
-            : this.nonAdminOptions
-        })}
-        {this.renderTextInput({
-          id: 'feedback_details',
-          type: 'textarea',
-          labelText: 'Details',
-          required: true,
-          errorMessage: 'Please enter a summary of your feedback',
-          value: this.store.values.feedback_details,
-          onChange: this.store.onChange.bind(this.store),
-          charLimit: 10000
-        })}
+            : this.nonAdminOptions}/>
+
+        <TextInput
+          dataObject={this.store.values}
+          id="details"
+          type="textarea"
+          labelText="Details"
+          required={true}
+          errorMessage="Please enter a summary of your feedback."
+          charLimit={10000}/>
 
         <p>Your feedback will help us improve your experience. We cannot respond directly to feedback comments, but can follow up with you if you leave your email below.&nbsp;
           <span aria-hidden='true'>For immediate help, please contact us directly at&nbsp;</span>
@@ -89,15 +78,13 @@ class FeedbackForm extends React.Component {
           </a>.
         </p>
 
-        {this.renderTextInput({
-          id: 'feedback_email',
-          type: 'input',
-          labelText: 'Email (Optional)',
-          required: false,
-          errorMessage: 'Please enter a valid email address',
-          onChange: this.store.onChange.bind(this.store),
-          value: this.store.values.feedback_email
-        })}
+        <TextInput
+          dataObject={this.store.values}
+          id="email"
+          type="input"
+          labelText="Email (Optional)"
+          required={false}
+          errorMessage="Please enter a valid email address."/>
       </div>
     );
   }

@@ -40,16 +40,16 @@ class FeedbackStore {
   @observable showAlert = false;
   @observable hasError = false;
   @observable defaultValues = {
-    feedback_title: '',
-    feedback_details: '',
-    feedback_topic: '',
-    feedback_email: userStore.user.email
+    title: '',
+    details: '',
+    topic: '',
+    email: userStore.user.email
   };
   @observable values = {
-    feedback_title: '',
-    feedback_details: '',
-    feedback_topic: '',
-    feedback_email: userStore.user.email
+    title: '',
+    details: '',
+    topic: '',
+    email: userStore.user.email
   };
 }
 
