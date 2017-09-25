@@ -5,6 +5,20 @@ import React, {Component} from 'react'
 
 export default function asForm (MyComponent, formDataProp) {
   return class Form extends Component {
+    static propTypes = {
+      store: PropTypes.shape({
+        clearForm: PropTypes.func,
+        submitForm: PropTypes.func
+      }),
+      alertText: PropTypes.string,
+      submitButtonText: PropTypes.string
+    }
+
+    static defaultProps = {
+      alertText: 'Please fix the following errors.',
+      submitButtonText: 'Submit'
+    }
+
     constructor (props) {
       super(props)
       this.store = this.props.store;
@@ -15,45 +29,121 @@ export default function asForm (MyComponent, formDataProp) {
       }
     }
 
+    componentWillMount() {
+      this.interceptedRoute = '';
+
+      //set up reroute blockade (returns unblocking function)
+      this.unblock = history.block((location) => {
+        if (this.props.formHasEntries && !this.interceptedRoute) {
+          this.interceptedRoute = location.pathname;
+          this.showExitModal();
+          return false; //does not allow to proceed to new page
+        }
+      });
+    }
+
+    updateHasError = (value) => {
+      this.setState({hasError: value});
+    }
+
+    showAlert = () => {
+      this.setState({showAlert: true});
+    }
+
+    clearAlert = () => {
+      this.setState({showAlert: false});
+    }
+
     renderAlert = () => {
-      //TODO
-      return '';
+      return (
+        <div className="alert alert-error">
+          <button type="button" className="close_btn icon-close" onClick={this.clearAlert}>
+            <span className="sr-only">Close alert</span>
+          </button>
+          <p role="alert" aria-live="assertive">
+            <strong>Error:&nbsp;</strong>{this.props.alertText}
+          </p>
+        </div>
+      )
     }
 
     renderSubmitButton = () => {
-      //TODO
-      //attach handleSubmit event listener
-      return '';
+      return (
+        <div className="form-group text-center">
+          <button type="button" onClick={this.handleSubmit} className={`fn-primary ${this.state.hasError ? 'disabled' : ''}`}>
+            {this.props.submitButtonText}
+          </button>
+        </div>
+      )
     }
 
     handleSubmit = (event) => {
-      //TODO
-      //disable if this.state.hasError
-      //call this.props.submit()
+      event.preventDefault();
+      this.props.submitForm();
     }
 
     renderExitModal = () => {
-      //TODO
-      return '';
+      return (
+        <div id="exit-modal" role="dialog" tabIndex="-1" className="modal fade" aria-labelledby="modal-title">
+          <div>
+            <div className="modal-dialog">
+              <div className="modal-content">
+                <button type="button" className="fn-modal-close" onClick={this.hideExitModal}>
+                  <i aria-hidden="true" className="icon-close"></i>
+                  <span className="sr-only">Close window</span>
+                </button>
+                <div className="row no-gutters" id="fmodal-title">
+                  <div className="col-xs-12">
+                    <h1 className="as-h2">Unsaved changes</h1>
+                    <p>Your form changes will not be saved if you navigate away from this page.</p>
+                  </div>
+                  <div className="col-xs-12 text-center">
+                    <button className="fn-primary" onClick={this.stayOnPage}>Stay on Page</button>
+                    <button className="fn-secondary" onClick={this.discardFormChanges}>Discard Changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
     }
 
     showExitModal = () => {
-      //TODO
+      $('#exit-modal').modal({backdrop: 'static'});
+      $('#exit-modal').modal('show');
     }
 
     hideExitModal = () => {
-      //TODO
+      $('#exit-modal').modal('hide');
+      $('#exit-modal').data('bs.modal', null);
+    }
+
+    stayOnPage = (e) => {
+      e.preventDefault();
+      this.hideExitModal();
+      this.interceptedRoute = '';
+    }
+
+    discardFormChanges = (e) => {
+      e.preventDefault();
+      this.hideExitModal();
+      this.store.clearForm();
+      history.replace(this.interceptedRoute);
     }
 
     render () {
       return (
-        <div>
-          {this.state.showAlert && this.renderAlert()}
-          <MyComponent {...this.props}
-            showExitModal={this.showExitModal}
-            hideExitModal={this.hideExitModal}/>
-          {this.renderSubmitButton()}
-        </div>
+        <section>
+          <form noValidate>
+            {this.state.showAlert && this.renderAlert()}
+            <MyComponent {...this.props}
+              showExitModal={this.showExitModal}
+              hideExitModal={this.hideExitModal}/>
+            {this.renderSubmitButton()}
+          </form>
+          {this.renderExitModal()}
+        </section>
       )
     }
   }
