@@ -85,16 +85,16 @@ export default class Footer extends React.Component {
 					<h2 id="firstnet-sites">Firstnet Sites</h2>
 					<ul >
 						<li role="presentation">
-							<NewTabLink to={config.firstnetCom}>FirstNet.com</NewTabLink>
+							<NewTabLink to={config.firstnetCom} showIcon={true}>FirstNet.com</NewTabLink>
 						</li>
 						<li role="presentation">
-							<NewTabLink to={config.devPortal}>Developer Portal</NewTabLink>
+							<NewTabLink to={config.devPortal} showIcon={true}>Developer Portal</NewTabLink>
 						</li>
 						<li role="presentation">
-							<NewTabLink to={config.appControl}>App Control</NewTabLink>
+							<NewTabLink to={config.appControl} showIcon={true}>App Control</NewTabLink>
 						</li>
 						<li role="presentation">
-							<NewTabLink to={config.appStore}>App Store</NewTabLink>
+							<NewTabLink to={config.appStore} showIcon={true}>App Store</NewTabLink>
 						</li>
 					</ul>
 				</nav>
@@ -157,7 +157,7 @@ export default class Footer extends React.Component {
 						}
 						{this.props.showPrivateLinks &&
 							<li role="presentation">
-								<NewTabLink to={this.externalLinkStore.firstnetTraining}>
+								<NewTabLink to={this.externalLinkStore.firstnetTraining} showIcon={true}>
 									Training
 								</NewTabLink>
 							</li>

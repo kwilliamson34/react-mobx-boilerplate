@@ -50,6 +50,19 @@ footer {
         font-weight: $fn-normal-weight;
         color: $footer-font-color;
         padding: 2px;
+        line-height: 1;
+
+        i.icon-external-site {
+          display: inline-block;
+          margin-left: 5px;
+          text-decoration: none;
+          vertical-align: top;
+          color: $footer-font-color;
+
+          &:before {
+            font-size: 1.6rem;
+          }
+        }
 
         span {
           margin-left: 10px;
