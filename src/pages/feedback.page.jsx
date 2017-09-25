@@ -19,15 +19,6 @@ export default class FeedbackPage extends React.Component {
     this.headerStore = this.props.store.headerStore;
   }
 
-  componentWillMount() {
-    this.feedbackStore.setDefaultEmail();
-  }
-
-  toggleAlertBar = (e) => {
-    e.preventDefault();
-    this.feedbackStore.toggleAlertBar();
-  }
-
   getInputList = () => {
     let adminOptions = [
       {value: 'System Performance', title: 'System Performance'},

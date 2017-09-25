@@ -67,11 +67,6 @@ describe("FeedbackStore", () => {
       feedbackStore.validateInput(emailInput);
       expect(feedbackStore.hasErrors.feedback_email).toBe(true);
     });
-    test('setDefaultEmail should set email to the userStore.user.email value if value is blank', () => {
-      feedbackStore.feedbackObject.feedback_email = '';
-      feedbackStore.setDefaultEmail();
-      expect(feedbackStore.feedbackObject.feedback_email).toBe('testy@testface.com');
-    })
   });
 
   describe('text input tests ', () => {

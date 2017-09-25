@@ -12,21 +12,15 @@ export default function asForm (MyComponent, attributes) {
       store: PropTypes.shape({
         clearForm: PropTypes.func,
         submitForm: PropTypes.func,
-        formIsDirty: PropTypes.bool
+        formIsDirty: PropTypes.bool,
+        showAlert: PropTypes.bool,
+        hasError: PropTypes.bool
       })
-    }
-
-    static defaultProps = {
     }
 
     constructor (props) {
       super(props)
       this.store = this.props.store;
-      
-      this.state = {
-        hasError: false,
-        showAlert: false
-      }
     }
 
     componentWillMount() {
@@ -50,15 +44,15 @@ export default function asForm (MyComponent, attributes) {
     }
 
     updateHasError = (value) => {
-      this.setState({hasError: value});
+      this.store.hasError = value;
     }
 
     showAlert = () => {
-      this.setState({showAlert: true});
+      this.store.showAlert = true;
     }
 
     clearAlert = () => {
-      this.setState({showAlert: false});
+      this.store.showAlert = false;
     }
 
     renderAlert = () => {
@@ -77,7 +71,7 @@ export default function asForm (MyComponent, attributes) {
     renderSubmitButton = () => {
       return (
         <div className="form-group text-center">
-          <button type="button" onClick={this.handleSubmit} className={`fn-primary ${this.state.hasError ? 'disabled' : ''}`}>
+          <button type="button" onClick={this.handleSubmit} className={`fn-primary ${this.store.hasError ? 'disabled' : ''}`}>
             {this.submitButtonText}
           </button>
         </div>
@@ -143,7 +137,7 @@ export default function asForm (MyComponent, attributes) {
       return (
         <section>
           <form noValidate>
-            {this.state.showAlert && this.renderAlert()}
+            {this.store.showAlert && this.renderAlert()}
             <MyComponent {...this.props}
               showExitModal={this.showExitModal}
               hideExitModal={this.hideExitModal}/>
