@@ -186,7 +186,7 @@ export default class App extends React.Component {
           <Route component={this.getMainLayoutComponent}/>
         </Switch>
 			) : (
-				pseMasterStore.isSubscriber ?
+				pseMasterStore.userStore.isSubscriber ?
           <ExternalRedirect externalUrl={config.appStore} /> : <ErrorPage cause="unauthorized" />
 			)
 		) : (
