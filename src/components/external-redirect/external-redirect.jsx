@@ -6,10 +6,6 @@ export default class ExternalRedirect extends React.Component {
     externalUrl: PropTypes.string
   };
 
-  constructor(props){
-    super(props);
-  }
-
   componentWillMount(){
     window.location.href = this.props.externalUrl;
   }
