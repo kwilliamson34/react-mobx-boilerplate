@@ -54,6 +54,8 @@ import FeedbackSuccessPage from './pages/feedback-success.page';
 import PrivacyPage from './pages/privacy.page';
 import AccessibilityPage from './pages/accessibility.page';
 
+import ExternalRedirect from './components/external-redirect/external-redirect';
+
 @observer
 export default class App extends React.Component {
 
@@ -184,7 +186,8 @@ export default class App extends React.Component {
           <Route component={this.getMainLayoutComponent}/>
         </Switch>
 			) : (
-				<ErrorPage cause="unauthorized" />
+				pseMasterStore.isSubscriber ?
+          <ExternalRedirect externalUrl={config.appStore} /> : <ErrorPage cause="unauthorized" />
 			)
 		) : (
 			<p>Securing Session...</p>

@@ -62,6 +62,10 @@ class PSEStore {
 		return this.userStore.authentic_user;
 	}
 
+	@computed get isSubscriber() {
+		return this.userStore.isSubscriber;
+	}
+
 	// OBSERVABLES
 	@observable names = [];
 	@observable pages = {};
