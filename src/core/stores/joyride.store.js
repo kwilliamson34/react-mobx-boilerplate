@@ -30,19 +30,28 @@ class JoyrideStore {
 	}
 
 	@action startTour() {
-		if(!this.nextStepAnchorHasRendered) {
-			//Required anchor(s) have not been rendered yet. Wait to start the tour.
-			setTimeout(() => {
-				this.startTour();
-			}, 500);
-		}
+		if(this.stepsToShow.length > 0) {
+			if(!this.nextStepAnchorHasRendered && this.nextStepRenderAttempts++ < this.nextStepMaxRenderAttempts) {
+				//Required anchor(s) have not been rendered yet. Wait to start the tour.
+				setTimeout(() => {
+					this.startTour();
+				}, 500);
+				return;
+			}
 
-		this.showTourIntroModal = false;
-		this.runNow = true;
-		this.tourAutoStart = true;
-		this.currentSteps = this.stepsToShow;
-		if(this.tourRef.start) {
-			this.tourRef.start(true, this.currentSteps.peek(), 0);
+			this.nextStepRenderAttempts = 0;
+			this.showTourIntroModal = false;
+			this.runNow = true;
+			this.tourAutoStart = true;
+			this.currentSteps = this.stepsToShow;
+			if(this.tourRef.start) {
+				this.tourRef.start(true, this.currentSteps.peek(), 0);
+			}
+		} else {
+			//All steps have been completed in this page.
+			if(this.tourRef.stop) {
+				this.tourRef.stop();
+			}
 		}
 	}
 
@@ -129,8 +138,8 @@ class JoyrideStore {
 			}
 		}
 		let unseenSteps = allStepsForThisPage.filter(step => {
-				return this.stepsSeen.indexOf(step.selector) < 0;
-			});
+			return this.stepsSeen.indexOf(step.selector) < 0;
+		});
 		return unseenSteps;
 	}
 
@@ -166,6 +175,9 @@ class JoyrideStore {
 	@observable runNow = false;
 	@observable stepIndex = 0;
 	@observable selector = '';
+
+	nextStepRenderAttempts = 0;
+	nextStepMaxRenderAttempts = 10;
 }
 
 export const joyrideStore = new JoyrideStore();
