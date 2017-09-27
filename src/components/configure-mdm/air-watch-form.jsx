@@ -19,41 +19,13 @@ class AirWatchForm extends React.Component {
     const disabled = this.store.mdmIsConfigured;
     return (
       <div>
-        <TextInput
-					dataObject={this.store.values}
-					id="aw_hostName"
-					type="input"
-					labelText="Host Name"
-					required={true}
-					disabled={disabled}
-					errorMessage="Please enter a host name."/>
+        <TextInput dataObject={this.store.values} id="aw_hostName" type="input" labelText="Host Name" required={true} disabled={disabled} errorMessage="Please enter a host name."/>
 
-        <TextInput
-					dataObject={this.store.values}
-					id="aw_tenantCode"
-					type="input"
-					labelText="Tenant Code"
-					required={true}
-					disabled={disabled}
-					errorMessage="Please enter a tenant code."/>
+        <TextInput dataObject={this.store.values} id="aw_tenantCode" type="input" labelText="Tenant Code" required={true} disabled={disabled} errorMessage="Please enter a tenant code."/>
 
-        <TextInput
-					dataObject={this.store.values}
-					id="aw_userName"
-					type="input"
-					labelText="Airwatch Username"
-					required={true}
-					disabled={disabled}
-					errorMessage="Please enter a valid AirWatch username."/>
+        <TextInput dataObject={this.store.values} id="aw_userName" type="input" labelText="Airwatch Username" required={true} disabled={disabled} errorMessage="Please enter a valid AirWatch username."/>
 
-        <TextInput
-					dataObject={this.store.values}
-					id="aw_password"
-					type="password"
-					labelText="Airwatch Password"
-					required={true}
-					disabled={disabled}
-					errorMessage="Please enter a valid AirWatch password."/>
+        <TextInput dataObject={this.store.values} id="aw_password" type="password" labelText="Airwatch Password" required={true} disabled={disabled} errorMessage="Please enter a valid AirWatch password."/>
       </div>
     );
   }
