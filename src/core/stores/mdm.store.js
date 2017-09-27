@@ -22,7 +22,7 @@ class MDMStore {
 
   @action clearForm() {
     this.clearAlerts();
-    this.values = this.defaultValues;
+    this.values = Object.assign({}, this.defaultValues);
     this.showbreakMDMConnection = false;
   }
 
@@ -291,6 +291,18 @@ class MDMStore {
   @computed get pushFailMultiple() {
     const num = this.appsReferencedByErrorAlert.length;
     return num + ' app' + (num === 1 ? '' : 's') + ' could not be pushed to MDM.';
+  }
+
+  @computed get formIsDirty() {
+    let formHasChanged = false;
+    Object.keys(this.values).forEach(key => {
+      console.log(this.values[key]);
+      console.log(this.defaultValues[key]);
+      if(this.values[key] !== this.defaultValues[key]) {
+        formHasChanged = true;
+      }
+    });
+    return formHasChanged;
   }
 
   // OBSERVABLES
