@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
 import config from 'config';
 import {userStore} from '../../core/stores/user.store';
+import {utilsService} from '../../core/services/utils.service';
 
 import asForm from '../forms/asForm.js';
 import TextInput from '../forms/text-input';
@@ -13,9 +14,6 @@ class FeedbackForm extends React.Component {
 
   static propTypes = {
     store: PropTypes.object
-  }
-
-  static defaultProps = {
   }
 
   constructor (props) {
@@ -84,6 +82,7 @@ class FeedbackForm extends React.Component {
           type="input"
           labelText="Email (Optional)"
           required={false}
+          validate={utilsService.isValidEmailAddress}
           errorMessage="Please enter a valid email address."/>
       </div>
     );

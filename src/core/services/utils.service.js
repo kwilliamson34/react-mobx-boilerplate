@@ -191,7 +191,6 @@ class UtilsService {
     // other browser
     return false;
   }
-
 }
 
 export const utilsService = new UtilsService();

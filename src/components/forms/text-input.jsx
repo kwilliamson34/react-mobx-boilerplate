@@ -45,14 +45,14 @@ export default class TextInput extends React.Component {
       this.hasError = false;
     }
     if(this.props.validate) {
-      this.hasError = this.props.validate();
+      this.hasError = !this.props.validate(this.valueInStore);
     }
   }
 
   handleOnBlur = () => {
     //check emptiness last, as it should overwrite a truthy validation response
     if(this.props.validate) {
-      this.hasError = this.props.validate();
+      this.hasError = !this.props.validate(this.valueInStore);
     }
     if(this.props.required && !this.valueInStore) {
       this.hasError = true;

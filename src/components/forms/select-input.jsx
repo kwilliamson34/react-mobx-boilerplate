@@ -16,7 +16,6 @@ export default class SelectInput extends React.Component {
     optionsList: PropTypes.array,
     placeholder: PropTypes.string,
     disabled: PropTypes.bool,
-    validate: PropTypes.func,
     errorMessage: PropTypes.string
   }
 
@@ -38,11 +37,6 @@ export default class SelectInput extends React.Component {
   }
 
   handleOnBlur = () => {
-    console.log('select on blur');
-    //check emptiness last, as it should overwrite a truthy validation response
-    if(this.props.validate) {
-      this.hasError = this.props.validate();
-    }
     if(this.props.required && !this.valueInStore) {
       this.hasError = true;
     }
