@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {inject, observer} from 'mobx-react';
-import {history} from '../core/services/history.service';
 
 import {MDMAlerts} from '../components/configure-mdm/mdm-alerts';
-import {AirWatchForm} from '../components/configure-mdm/air-watch-form';
-import {IBMForm} from '../components/configure-mdm/ibm-form';
-import {MobileIronForm} from '../components/configure-mdm/mobile-iron-form';
+import AirWatchForm from '../components/configure-mdm/air-watch-form';
+import IBMForm from '../components/configure-mdm/ibm-form';
+import MobileIronForm from '../components/configure-mdm/mobile-iron-form';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 import $ from 'jquery';
 
@@ -24,95 +23,40 @@ export default class ConfigureMDM extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.store = this.props.store.mdmStore;
+		this.mdmStore = this.props.store.mdmStore;
 	}
 
   componentWillMount() {
-    this.store.hasBeenSubmitted = false;
-    this.store.getMDMConfiguration();
-    this.store.enableSaveDialogs();
+    this.mdmStore.hasBeenSubmitted = false;
+    this.mdmStore.getMDMConfiguration();
   }
 
   componentWillUnmount() {
-    this.clearModals();
-    this.store.disableSaveDialogs();
-    this.store.form = undefined;
+    this.mdmStore.form = undefined;
 
     //FPSE-1064 clear all alerts from this page
-    this.store.mdm_form_alerts = [];
+    this.mdmStore.mdm_form_alerts = [];
   }
 
-  // Configure MDM Form Functions
 	handleSelectChange = (event) => {
-		this.store.updateMDM(event.target.value);
+		this.mdmStore.updateMDM(event.target.value);
 	}
-
-  updateForm = (event) => {
-    event.preventDefault();
-    if(event.target.id !== 'mdm_submit_btn'){
-      this.store.updateForm(event.target);
-    }
-  }
-
-  handleSubmit = (event) => {
-    event.preventDefault();
-    this.store.submitForm();
-  }
-
-  // MDM Modals Functions
-  discardFormChanges = (event) => {
-    event.preventDefault();
-    this.store.resetMDMForm();
-    history.push(this.store.interceptedRoute);
-  }
 
   breakMDMConnection = (event) => {
     event.preventDefault();
-    this.store.breakMDMConnection();
+    this.mdmStore.breakMDMConnection();
     this.togglebreakMDMConnection(event);
-  }
-
-  toggleExitModal = (event) => {
-    event.preventDefault();
-    this.store.toggleExitModal();
   }
 
   togglebreakMDMConnection = (event) => {
     event.preventDefault();
-    this.store.togglebreakMDMConnection();
-  }
-
-  renderExitModal = (showExitModal) => {
-    this.showModal(showExitModal, '#exitModal')
-
-    return (
-      <div id="exitModal" className="modal fade" tabIndex="-1" role="dialog" aria-labelledby="exit-modal-title">
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <button type="button" autoFocus="true" id="exitModalCloseBtn" className="fn-modal-close" onClick={this.toggleExitModal}>
-              <i aria-hidden="true" className="icon-close"></i>
-              <span className="sr-only">Close window</span>
-            </button>
-            <div className="row no-gutters" id="exit-modal-title">
-              <div className="col-xs-12">
-                <h1 className="as-h2">Unsaved changes</h1>
-                <p>Your form changes will not be saved if you navigate away from this page.</p>
-              </div>
-              <div className="col-xs-12 text-center">
-                <button className="fn-primary" onClick={this.toggleExitModal}>Stay on Page</button>
-                <button className="fn-secondary" onClick={this.discardFormChanges}>Discard Changes</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    )
+    this.mdmStore.togglebreakMDMConnection();
   }
 
   renderBreakConnectionModal = (showbreakMDMConnection) => {
     this.showModal(showbreakMDMConnection, '#breakConnectionModal');
     return (
-      <div id="breakConnectionModal"  className="modal fade" tabIndex="-1" role="dialog" aria-labelledby="break-connection-modal-title">
+      <div id="breakConnectionModal" className="modal fade" tabIndex="-1" role="dialog" aria-labelledby="break-connection-modal-title">
         <div className="modal-dialog">
           <div className="modal-content">
             <button type="button" className="fn-modal-close" onClick={this.togglebreakMDMConnection}>
@@ -174,10 +118,10 @@ export default class ConfigureMDM extends React.Component {
           Your MDM<span className="required-asterisks"> *</span>
         </label>
         <select id="mdm_type"
-          className={`form-control ${this.store.formData.mdm_type ? '' : 'placeholder'}`}
+          className='form-control'
           onChange={this.handleSelectChange}
-          value={this.store.formData.mdm_type}
-          disabled={this.store.isConfigured}>
+          value={this.mdmStore.values.mdm_type}
+          disabled={this.mdmStore.mdmIsConfigured}>
           <option value="">Select MDM</option>
           <option value="AIRWATCH">Airwatch</option>
           <option value="MAAS360">IBM MaaS360</option>
@@ -188,8 +132,8 @@ export default class ConfigureMDM extends React.Component {
   }
 
   renderProperMDMForm = () => {
-    let MDMFormComponent = null;
-    switch(this.store.formData.mdm_type) {
+    let MDMFormComponent;
+    switch(this.mdmStore.values.mdm_type) {
       case 'AIRWATCH':
         MDMFormComponent = AirWatchForm;
         break;
@@ -203,46 +147,16 @@ export default class ConfigureMDM extends React.Component {
         MDMFormComponent = null;
     }
     if (MDMFormComponent) {
-      return <MDMFormComponent renderFormInput={this.renderFormInput}/>
+      return <MDMFormComponent store={this.mdmStore} disabled={this.mdmStore.mdmIsConfigured}/>
     }
     return null;
-  }
-
-  renderFormInput = ({id, label, genericLabel, type}) => {
-    const value = this.store.formData[id];
-    const hasError = value === '';
-    return (
-      <div className={`form-group has-feedback ${hasError ? 'has-error' : ''}`}>
-        <label className="control-label" htmlFor={id}>{label}<span className="required-asterisks"> *</span></label>
-        {hasError && <div className="msgBlock error error-list" role="alert" aria-live="assertive">
-          <span>Please enter a valid {genericLabel || label.toLowerCase()}.</span>
-        </div>}
-        <input id={id} ref={ref => this.store.formFieldRefs[id] = ref} type={type || 'text'} className="form-control" disabled={this.store.isConfigured} defaultValue={value}/>
-      </div>
-    )
-  }
-
-  renderSubmitButton = () => {
-    const disabled = !this.store.mdmFormIsValid || this.store.isConfigured || this.store.beingSubmitted;
-    return (
-      <div className="form-group text-center">
-        <button id="mdm_submit_btn" aria-labelledby="configure-mdm-form" type="submit" className={`fn-primary ${disabled ? 'disabled' : ''}`}>
-        {this.store.beingSubmitted
-          ? <span>
-              <i className="icon-reload" aria-label="Still Submitting Form"></i>
-              &nbsp;&nbsp;Submitting&hellip;
-            </span>
-          : <span>Submit</span>}
-        </button>
-      </div>
-    )
   }
 
   renderBreakConnectionButton = () => {
     return (
       <div className="break-mdm-wrapper col-xs-12">
         <div className="container">
-          <button onClick={this.togglebreakMDMConnection} className="break-mdm-btn fn-primary" aria-labelledby="break-mdm-connection" aria-disabled={!this.store.isConfigured}>Break Connection</button>
+          <button onClick={this.togglebreakMDMConnection} className="break-mdm-btn fn-primary" aria-labelledby="break-mdm-connection" aria-disabled={!this.mdmStore.mdmIsConfigured}>Break Connection</button>
         </div>
       </div>
     )
@@ -252,7 +166,7 @@ export default class ConfigureMDM extends React.Component {
     return (
       <article id="configure-mdm-page">
         {this.renderBreadcrumb()}
-        {this.store.isConfigured && this.renderBreakConnectionButton()}
+        {this.mdmStore.mdmIsConfigured && this.renderBreakConnectionButton()}
         <div className="mdm-form-wrapper container">
           <div className="col-xs-12 text-center">
             <h1>
@@ -264,19 +178,17 @@ export default class ConfigureMDM extends React.Component {
           <div className="row no-gutters">
             <section className="col-xs-12 col-lg-10 col-lg-offset-1">
               <div className="mdm-form col-md-offset-2 col-xs-12 col-md-8 col-md">
-                <MDMAlerts store={this.store} alertList={this.store.mdm_form_alerts}/>
-                <form id="configure-mdm-form" onSubmit={this.handleSubmit} noValidate onChange={this.updateForm} onBlur={this.updateForm}>
-                  {this.store.isConfigured && <p className="mdm-description">Only one MDM can be configured at a time. To configure a new MDM, the existing connection must be broken. Once the existing connection is broken, a new one can be configured.</p>}
+                <MDMAlerts store={this.mdmStore} alertList={this.mdmStore.mdm_form_alerts}/>
+                <section>
+                  {this.mdmStore.mdmIsConfigured && <p className="mdm-description">Only one MDM can be configured at a time. To configure a new MDM, the existing connection must be broken. Once the existing connection is broken, a new one can be configured.</p>}
                   {this.renderMDMSelectMenu()}
                   {this.renderProperMDMForm()}
-                  {this.renderSubmitButton()}
-                </form>
+                </section>
               </div>
             </section>
           </div>
         </div>
-        {this.renderExitModal(this.store.showExitModal)}
-        {this.renderBreakConnectionModal(this.store.showbreakMDMConnection)}
+        {this.renderBreakConnectionModal(this.mdmStore.showbreakMDMConnection)}
       </article>
     )
   }

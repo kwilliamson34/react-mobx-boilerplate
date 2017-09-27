@@ -1,64 +1,98 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 import PropTypes from 'prop-types';
+import asForm from '../forms/asForm.js';
+import TextInput from '../forms/text-input';
 
 @observer
-export class IBMForm extends React.Component {
+class IBMForm extends React.Component {
 	static propTypes = {
-		renderFormInput: PropTypes.func.isRequired
+		store: PropTypes.object
+	}
+
+	constructor(props) {
+	  super(props)
+	  this.store = this.props.store;
 	}
 
 	render() {
+		const disabled = this.store.mdmIsConfigured;
 		return (
 			<div>
-				{this.props.renderFormInput({
-					id: 'ibm_rootURL',
-					label: 'Root URL',
-					genericLabel: 'root URL'
-				})}
+				<TextInput
+					dataObject={this.store.values}
+					id="ibm_rootURL"
+					type="input"
+					labelText="Root URL"
+					required={true}
+					disabled={disabled}
+					errorMessage="Please enter a valid root URL."/>
 
-				{this.props.renderFormInput({
-					id: 'ibm_billingID',
-					label: 'Billing ID',
-					genericLabel: 'billing ID'
-				})}
+				<TextInput
+					dataObject={this.store.values}
+					id="ibm_billingID"
+					type="input"
+					labelText="Billing ID"
+					required={true}
+					disabled={disabled}
+					errorMessage="Please enter a valid billing ID."/>
 
-				{this.props.renderFormInput({
-					id: 'ibm_userName',
-					label: 'MaaS360 Username',
-					genericLabel: 'username'
-				})}
+				<TextInput
+					dataObject={this.store.values}
+					id="ibm_userName"
+					type="input"
+					labelText="MaaS360 Username"
+					required={true}
+					disabled={disabled}
+					errorMessage="Please enter a valid MaaS360 username."/>
 
-				{this.props.renderFormInput({
-					id: 'ibm_password',
-					label: 'MaaS360 Password',
-					genericLabel: 'password',
-					type: 'password'
-				})}
+				<TextInput
+					dataObject={this.store.values}
+					id="ibm_password"
+					type="password"
+					labelText="MaaS360 Password"
+					required={true}
+					disabled={disabled}
+					errorMessage="Please enter a valid MaaS360 password."/>
 
-				{this.props.renderFormInput({
-					id: 'ibm_platformID',
-					label: 'Platform ID',
-					genericLabel: 'platform ID'
-				})}
+				<TextInput
+					dataObject={this.store.values}
+					id="ibm_platformID"
+					type="input"
+					labelText="Platform ID"
+					required={true}
+					disabled={disabled}
+					errorMessage="Please enter a valid platform ID."/>
 
-				{this.props.renderFormInput({
-					id: 'ibm_appID',
-					label: 'App ID',
-					genericLabel: 'app ID'
-				})}
+				<TextInput
+					dataObject={this.store.values}
+					id="ibm_appID"
+					type="input"
+					labelText="App ID"
+					required={true}
+					disabled={disabled}
+					errorMessage="Please enter a valid app ID."/>
 
-				{this.props.renderFormInput({
-					id: 'ibm_appVersion',
-					label: 'App Version'
-				})}
+				<TextInput
+					dataObject={this.store.values}
+					id="ibm_appVersion"
+					type="input"
+					labelText="App Version"
+					required={true}
+					disabled={disabled}
+					errorMessage="Please enter a valid app version."/>
 
-				{this.props.renderFormInput({
-					id: 'ibm_appAccessKey',
-					label: 'App Access Key'
-				})}
+				<TextInput
+					dataObject={this.store.values}
+					id="ibm_appAccessKey"
+					type="input"
+					labelText="App Access Key"
+					required={true}
+					disabled={disabled}
+					errorMessage="Please enter a valid app access key."/>
 			</div>
 		);
 	}
-
 }
+
+export default asForm(IBMForm)
