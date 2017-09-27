@@ -22,7 +22,7 @@ class FeedbackStore {
   }
 
   @action clearForm() {
-    this.values = this.defaultValues;
+    this.values = Object.assign({}, this.defaultValues);
     this.showAlert = false;
     this.hasError = false;
   }
