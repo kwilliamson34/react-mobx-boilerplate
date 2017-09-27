@@ -167,12 +167,6 @@ export default class PSEHeader extends React.Component {
 	renderBrandArea = () => {
 		return (
 			<div className="fnnav__header">
-				<div className="fnnav__brand">
-					<Link className="logo-home-link" to="/">
-						<img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Logo"/>
-						<span className="sr-only">Go Home</span>
-					</Link>
-				</div>
 				<button
 					type="button"
 					className="navbar-toggle"
@@ -184,6 +178,12 @@ export default class PSEHeader extends React.Component {
 					<span className="icon-bar" />
 					<span className="icon-bar" />
 				</button>
+				<div className="fnnav__brand">
+					<Link className="logo-home-link" to="/">
+						<img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Logo"/>
+						<span className="sr-only">Go Home</span>
+					</Link>
+				</div>
 			</div>
 		)
 	}
