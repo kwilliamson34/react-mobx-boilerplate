@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
-import asForm from './asForm.js';
 import config from 'config';
 import {userStore} from '../../core/stores/user.store';
 
-import TextInput from './text-input';
-import SelectInput from './select-input';
+import asForm from '../forms/asForm.js';
+import TextInput from '../forms/text-input';
+import SelectInput from '../forms/select-input';
 
 @observer
 class FeedbackForm extends React.Component {

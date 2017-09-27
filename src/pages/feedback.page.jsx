@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {inject, observer} from 'mobx-react';
-import FeedbackForm from '../components/forms/feedback-form';
+import FeedbackForm from '../components/feedback/feedback-form';
 
 @inject('store')
 @observer
