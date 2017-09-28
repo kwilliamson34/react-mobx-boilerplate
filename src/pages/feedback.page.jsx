@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {inject, observer} from 'mobx-react';
 import config from 'config';
 import {FormTemplate} from '../components/form-template/form-template';
+import PageTitle from '../components/page-title/page-title';
 
 @inject('store')
 @observer
@@ -93,7 +94,7 @@ export default class FeedbackPage extends React.Component {
           <div className="container">
             <div className="row text-center">
               <div className="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
-                <h1>Give Us Feedback</h1>
+                <PageTitle>Give Us Feedback</PageTitle>
               </div>
             </div>
             <div className="row">

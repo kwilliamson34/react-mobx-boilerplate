@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { observer, inject } from 'mobx-react';
 import { Link } from 'react-router-dom';
 
+import PageTitle from '../components/page-title/page-title';
 import {utilsService} from '../core/services/utils.service';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 
@@ -96,7 +97,9 @@ export default class SolutionsCategoryTemplate extends React.Component {
       <article id="solutions-category-page">
         <BreadcrumbNav links={crumbs} />
         <div className="container">
-          <h1 className="intro-block">{categoryTitle}</h1>
+          <section className="intro-block">
+            <PageTitle className="intro-block">{categoryTitle}</PageTitle>
+          </section>
           <section className="all-cards-wrapper text-center">
             <nav className="center-block">
               {this.externalLinkStore.allSolutionDetails.length > 0
