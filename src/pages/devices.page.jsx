@@ -40,10 +40,11 @@ export default class DevicesLandingPage extends React.Component {
 									return (
 										<li key={sectionId + '_' +idx}>
 											<Link to={`/admin/devices/${sectionTitle.toLowerCase()}/${itemRoute}`} id={sectionId + '_' +idx}>
-											<h3 dangerouslySetInnerHTML={{__html: item.device_title}} />
-											<div className="card-img-wrapper">
-												<img src={item.device_image_url} alt={item.device_image_alt} />
-											</div>
+												<h3 dangerouslySetInnerHTML={{__html: item.device_title}}/>
+												<figure className="card-img-wrapper">
+													<img src={item.device_image_url} alt="" />
+													<figcaption className="sr-only">{item.device_image_alt}</figcaption>
+												</figure>
 											</Link>
 										</li>
 									)
