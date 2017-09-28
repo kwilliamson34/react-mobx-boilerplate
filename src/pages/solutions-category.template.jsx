@@ -67,7 +67,7 @@ export default class SolutionsCategoryTemplate extends React.Component {
                   : <div className="img" style={this.getNormalStyles(solution.promo_image_url)} alt={solution.promo_title}></div>}
               </div>
               <div className="card-contents-wrapper">
-                <h3 className="card-title" dangerouslySetInnerHTML={{__html: solution.promo_title}}></h3>
+                <h2 className="card-title as-h3" dangerouslySetInnerHTML={{__html: solution.promo_title}}></h2>
                 <div className="card-desc" dangerouslySetInnerHTML={{__html: solution.promo_description}}></div>
               </div>
               <div className="learn-more">Learn More<i className="icon-arrowRight" aria-hidden="true" /></div>
@@ -96,9 +96,7 @@ export default class SolutionsCategoryTemplate extends React.Component {
       <article id="solutions-category-page">
         <BreadcrumbNav links={crumbs} />
         <div className="container">
-          <section className="intro-block">
-            <h1 className="centered">{categoryTitle}</h1>
-          </section>
+          <h1 className="intro-block">{categoryTitle}</h1>
           <section className="all-cards-wrapper text-center">
             <nav className="center-block">
               {this.externalLinkStore.allSolutionDetails.length > 0

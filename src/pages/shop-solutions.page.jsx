@@ -38,8 +38,8 @@ export default class ShopSolutionsPage extends React.Component {
                 <div className="img" style={{backgroundImage: `url('${card.thumbnail_url}')`}} alt={card.thumbnail_alt}></div>
               </div>
               <div className="card-contents-wrapper">
-                <h3 className="card-title" dangerouslySetInnerHTML={{__html: card.name}}></h3>
-                <div className="card-desc" dangerouslySetInnerHTML={{__html: card.description}} />
+                <h2 className="card-title as-h3" dangerouslySetInnerHTML={{__html: card.name}}></h2>
+                <div className="card-desc" dangerouslySetInnerHTML={{__html: card.description}}></div>
               </div>
               <div className="learn-more">Learn More<i className="icon-arrowRight" aria-hidden="true" /></div>
             </Link>
@@ -50,7 +50,6 @@ export default class ShopSolutionsPage extends React.Component {
   }
 
   render() {
-
     const crumbs = [
       {	pageHref: '/admin',
         pageTitle: 'Administration Dashboard'
