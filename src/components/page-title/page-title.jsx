@@ -51,7 +51,7 @@ export default class PageTitle extends React.Component {
 	render() {
 		const documentTitlePrefix = 'FirstNet Local Control';
 		return (
-			<DocumentTitle title={`${documentTitlePrefix} - ${this.props.children}`}>
+			<DocumentTitle title={`${documentTitlePrefix}: ${this.props.children}`}>
         {this.getH1Elem()}
       </DocumentTitle>
 		);
