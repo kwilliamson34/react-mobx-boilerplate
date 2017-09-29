@@ -17,8 +17,6 @@ export default class PageTitle extends React.Component {
 
   constructor(props) {
 		super(props);
-		this.announceTitle = this.announceTitle.bind(this);
-		this.getH1Elem = this.getH1Elem.bind(this);
 	}
 
 	componentDidMount() {
@@ -29,7 +27,7 @@ export default class PageTitle extends React.Component {
 		this.announceTitle(this.props.children);
 	}
 
-	getH1Elem() {
+	getH1Elem = () => {
 		if (this.props.childrenContainHTML) {
 			return (
 				<h1 dangerouslySetInnerHTML={{__html: this.props.children}}></h1>
@@ -41,7 +39,7 @@ export default class PageTitle extends React.Component {
 		}
 	}
 
-	announceTitle(title) {
+	announceTitle = (title) => {
 		if (title) {
 			a11yAnnounce({
 				message: title,

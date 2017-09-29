@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import dateFns from 'date-fns/format';
 import isValid from 'date-fns/is_valid'
 import {Link} from 'react-router-dom';
-import PageTitle from '../page-title/page-title';
+
 import {observer} from 'mobx-react';
 import {Rating} from '../rating/rating.jsx';
 import {utilsService} from '../../core/services/utils.service';
@@ -57,13 +57,10 @@ export class AppDetailBanner extends React.Component {
   }
 
   title() {
+    const AppNameTag = this.props.containsPrimaryHeader ? 'h1' : 'h3';
     return (
       <div className="app-title">
-        {this.props.containsPrimaryHeader ?
-        <PageTitle>{this.appStore.currentAppObject.app_name || 'Loading app details...'}</PageTitle>
-        :
-        <h3>{this.appStore.currentAppObject.app_name || 'Loading app details...'}</h3>
-        }
+        <AppNameTag>{this.appStore.currentAppObject.app_name || 'Loading app details...'}</AppNameTag>
       </div>
     )
   }

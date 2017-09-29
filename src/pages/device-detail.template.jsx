@@ -63,7 +63,7 @@ export default class DeviceDetailTemplate extends React.Component {
 				<div className="container detail-block">
 					<div className="row">
 						<div className="col-xs-10 col-xs-offset-1 text-center visible-xs-block visible-sm-block">
-							<PageTitle childrenContainHTML>{this.externalLinkStore.currentDeviceDetail.deviceName}>
+							<PageTitle childrenContainHTML={true}>{this.externalLinkStore.currentDeviceDetail.deviceName}>
 							</PageTitle>
 						</div>
 					</div>
