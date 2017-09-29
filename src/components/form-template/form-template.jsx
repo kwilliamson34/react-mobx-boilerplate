@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
 import {history} from '../../core/services/history.service';
-import PageTitle from '../page-title/page-title';
 import $ from 'jquery';
 
 @observer
@@ -216,7 +215,7 @@ export class FormTemplate extends React.Component {
               </button>
               <div className="row no-gutters" id="fmodal-title">
                 <div className="col-xs-12">
-                  <PageTitle className="as-h2">Unsaved changes</PageTitle>
+                  <h1 className="as-h2">Unsaved changes</h1>
                   <p>Your form changes will not be saved if you navigate away from this page.</p>
                 </div>
                 <div className="col-xs-12 text-center">
