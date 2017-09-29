@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {observer, inject} from 'mobx-react';
 import {Link} from 'react-router-dom';
 import {history} from '../core/services/history.service';
+import PageTitle from '../components/page-title/page-title';
 import config from 'config';
 
 @inject('store')
@@ -65,7 +66,7 @@ export default class ErrorPage extends React.Component {
             <div className="logo-container">
               <img src="/images/logo-FirstNet-local-control.svg" alt="" aria-hidden="true" />
             </div>
-            <h1 className="as-h3">{title}</h1>
+            <PageTitle className="as-h3">{title}</PageTitle>
             <p dangerouslySetInnerHTML={{__html: body_content}} />
             {showLinksforOtherPortals &&
               <nav className="sites-list" aria-label="FirstNet Sites">

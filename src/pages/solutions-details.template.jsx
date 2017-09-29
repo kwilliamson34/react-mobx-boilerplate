@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {observer, inject} from 'mobx-react';
 
+import PageTitle from '../components/page-title/page-title';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 import PurchasingInfo from '../components/purchasing-info/purchasing-info';
 import {AppDetailBanner} from '../components/app-details/app-detail-banner';
@@ -81,6 +82,7 @@ export default class SolutionsDetailsTemplate extends React.Component {
           <div className="row">
             <section className="details-wrapper col-lg-offset-1 col-lg-10">
               <div className="content-wrapper">
+                <PageTitle className="sr-only">Solution Details</PageTitle>
                 <div dangerouslySetInnerHTML={{
                   __html: solutionDetail.body
                 }}></div>
