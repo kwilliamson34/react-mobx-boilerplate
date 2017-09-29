@@ -130,7 +130,7 @@ export default class App extends React.Component {
         <ScrollToTop>
           <a href="#main-content" className="skipnav">Skip Navigation</a>
           <Header/>
-          <main id="main-content" tabIndex="-1">
+          <main id="main-content">
             <Switch>
               <Route exact path="/" component={this.getLandingPage}/>
               <Route path="/admin/manage-apps" component={this.getAdminRoutes(ManageAppsPage)}/>
