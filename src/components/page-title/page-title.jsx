@@ -11,12 +11,8 @@ export default class PageTitle extends React.Component {
 		childrenContainHTML: PropTypes.bool,
 		className: PropTypes.string
 	}
-  static defaultProps ={
-    childrenContainHTML: false
-  }
-
-  constructor(props) {
-		super(props);
+	static defaultProps = {
+		childrenContainHTML: false
 	}
 
 	componentDidMount() {
