@@ -110,22 +110,16 @@ export class FormTemplate extends React.Component {
   }
 
   handleSelectAllCheckbox = (refList) => {
-    console.log('handleSelectAllCheckbox', refList.childNodes[0].className);
-    console.log('this.props.reflist', this.props.refList);
-    console.log('this.localReflist', this.localRefList);
     for (let key in refList.childNodes) {
       if (refList.childNodes[key].className === 'checkbox template-checkbox' && refList.childNodes[key].childNodes[0].childNodes[0].checked === this.props.allCheckboxesChecked) {
-        console.log('DING');
         refList.childNodes[key].childNodes[0].childNodes[0].click();
       }
     }
   }
 
   handleClearAllButton = (refList) => {
-    console.log('handleClearAllButton', refList.elements);
     for (let key in refList.childNodes) {
       if (refList.childNodes[key].className === 'checkbox template-checkbox' && refList.childNodes[key].childNodes[0].childNodes[0].checked) {
-        console.log('DING');
         refList.childNodes[key].childNodes[0].childNodes[0].click();
       }
     }
