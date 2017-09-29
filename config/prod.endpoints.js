@@ -19,7 +19,7 @@ const config = {
   manageMyProfileLink: 'https://profilemgt.firstnet.att.com/ebiz/firstnet/userDetails/viewMyProfile',
   manageUsersLink: 'https://profilemgt.firstnet.att.com/ebiz/firstnet/index.jsp#/companyInfo/companyInfoProfile',
   manageServicesLink: 'https://wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn',
-  viewWirelessReportsLink: 'https://wireless.firstnet.att.com/businesscare/reporting/tcm_inv_reports/requestreports.jsp?showsearch=null',
+  viewWirelessReportsLink: 'https://wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn?requestedPage=downloadReports',
   shopStandardDevicesLink: 'https://wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn',
   showOnboardingWalkthrough: true
 }
