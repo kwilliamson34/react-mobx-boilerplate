@@ -308,7 +308,7 @@ export default class PSEHeader extends React.Component {
 				</li>
 				<li>
 					<a href="#" role="button" className="walkthru-toggle" onClick={this.handleToggleWalkthrough}>
-						{`${this.joyrideStore.runNow? 'Disable' : 'Enable'}`} Site Walkthrough
+						{`${this.joyrideStore.tourIsDisabled ? 'Enable' : 'Disable'}`} Site Walkthrough
 					</a>
 				</li>
 				<li>
