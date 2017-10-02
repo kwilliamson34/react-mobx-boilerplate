@@ -296,8 +296,6 @@ class MDMStore {
   @computed get formIsDirty() {
     let formHasChanged = false;
     Object.keys(this.values).forEach(key => {
-      console.log(this.values[key]);
-      console.log(this.defaultValues[key]);
       if(this.values[key] !== this.defaultValues[key]) {
         formHasChanged = true;
       }
