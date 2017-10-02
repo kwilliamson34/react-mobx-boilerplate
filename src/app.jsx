@@ -50,6 +50,9 @@ import FAQPage from './pages/faq.page';
 import FeedbackPage from './pages/feedback.page';
 import FeedbackSuccessPage from './pages/feedback-success.page';
 
+//Components
+import ExternalRedirect from './components/external-redirect/external-redirect';
+
 @observer
 export default class App extends React.Component {
 
@@ -170,19 +173,17 @@ export default class App extends React.Component {
   }
 
   getSessionDependentContent() {
-    return pseMasterStore.userStore.userValidationDone ? (
-			pseMasterStore.isLoggedIn ? (
-        <Switch>
-          <Route exact path="/session-timeout" component={SessionTimeoutPage}/>
-          <Route path="/error" component={this.getPlainLayoutComponent}/>
-          <Route component={this.getMainLayoutComponent}/>
-        </Switch>
-			) : (
-				<ErrorPage cause="unauthorized" />
-			)
-		) : (
-			<p>Securing Session...</p>
-		);
+    return pseMasterStore.userStore.userValidationDone
+      ? (pseMasterStore.isLoggedIn
+        ? <Switch>
+            <Route exact path="/session-timeout" component={SessionTimeoutPage}/>
+            <Route path="/error" component={this.getPlainLayoutComponent}/>
+            <Route component={this.getMainLayoutComponent}/>
+          </Switch>
+        : (pseMasterStore.userStore.isSubscriber
+          ? <ExternalRedirect externalUrl={config.appStore}/>
+          : <ErrorPage cause="unauthorized"/>))
+      : <p>Securing Session...</p>
   }
 
   render() {

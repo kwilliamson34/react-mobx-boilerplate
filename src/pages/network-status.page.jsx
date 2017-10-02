@@ -53,8 +53,11 @@ export default class NetworkStatusPage extends React.Component {
         <PageTitle className="sr-only">Network Status</PageTitle>
         <iframe src={config.geolinkAuthScript} aria-hidden="true" className="hidden-iframe"></iframe>
 
-        {!showMap && this.renderPlaceholder()}
-        <GeolinkMap geolinkStore={this.geoStore} hidden={!showMap} />
+        <section id="map-section">
+          {!showMap && this.renderPlaceholder()}
+          <GeolinkMap geolinkStore={this.geoStore} hidden={!showMap} />
+        </section>
+
         <GeolinkControls geolinkStore={this.geoStore} disabled={!showMap} />
 
       </article>

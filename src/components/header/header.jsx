@@ -358,7 +358,8 @@ export default class PSEHeader extends React.Component {
 										</span>
 									</button>
 									<a id="pse-help-mobile" href="/manage-profile" className="deaden">
-										<i className="icon-help" aria-hidden="true" /> Help
+										<i className="icon-help" aria-hidden="true"/>
+										Help
 									</a>
 									<ul
 										id="pse-help-menu"
