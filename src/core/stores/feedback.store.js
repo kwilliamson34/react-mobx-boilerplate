@@ -4,11 +4,6 @@ import {userStore} from './user.store';
 import {history} from '../services/history.service';
 
 class FeedbackStore {
-
-  @action onChange(target, value) {
-    this.values[target] = value;
-  }
-
   @action submitForm() {
     const success = () => {
       this.clearForm();
