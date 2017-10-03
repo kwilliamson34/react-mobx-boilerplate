@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { observer, inject } from 'mobx-react';
-import { Link } from 'react-router-dom';
 import PageTitle from '../components/page-title/page-title';
+
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
+import SolutionCard from '../components/solutions/solution-card';
 
 @inject('store')
 @observer
@@ -30,22 +31,12 @@ export default class ShopSolutionsPage extends React.Component {
 
     return redactedArray.map((card) => {
       const path = card.name.replace(/ /g, '-').toLowerCase();
-      return (
-        <div key={card.name} className="col-xs-12 col-sm-6 col-md-6 col-lg-4 solutions-card">
-          <div className="card-wrapper has-shadow">
-            <Link to={`solutions/${path}`}>
-              <div className="card-img-wrapper">
-                <div className="img" style={{backgroundImage: `url('${card.thumbnail_url}')`}} alt={card.thumbnail_alt}></div>
-              </div>
-              <div className="card-contents-wrapper">
-                <h2 className="card-title as-h3" dangerouslySetInnerHTML={{__html: card.name}}></h2>
-                <div className="card-desc" dangerouslySetInnerHTML={{__html: card.description}}></div>
-              </div>
-              <div className="learn-more">Learn More<i className="icon-arrowRight" aria-hidden="true" /></div>
-            </Link>
-          </div>
-        </div>
-      )
+      return <SolutionCard
+          key={card.name}
+          linkTo={`solutions/${path}`}
+          title={card.name}
+          imageUrl={card.thumbnail_url}
+          description={card.description}/>
     })
   }
 
