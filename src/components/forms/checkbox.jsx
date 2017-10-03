@@ -48,9 +48,9 @@ export default class Checkbox extends React.Component {
           <span className="cr"></span>
           <span className="label-text">
             {this.props.strongLabel
-              ? <strong>{this.props.strongLabel}&nbsp;</strong>
+              ? <strong>{this.props.strongLabel}:&nbsp;</strong>
               : ''}
-            {this.props.label}
+            <span className="label-text-normal">{this.props.label}</span>
           </span>
         </label>
       </div>
