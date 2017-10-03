@@ -65,7 +65,6 @@ export default function asForm (MyComponent, attributes) {
     }
 
     renderSubmitButton = () => {
-      console.log('button rendering');
       return (
         <div className="form-group text-center">
           <button type="button" onClick={this.handleSubmit} className={`fn-primary ${this.store.formHasError ? 'disabled' : ''}`}>
