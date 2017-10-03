@@ -36,7 +36,11 @@ export default class SessionTimeoutPage extends React.Component {
         <section className="session-timeout">
           <div className="container">
             <div className="col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10 ">
-              <PageTitle childrenContainHTML={true} className="as-h2">Your session has timed out. <br className="hidden-xs" />Please log in again.</PageTitle>
+              <PageTitle
+                plainTextTitle="Your session has timed out."
+                className="as-h2">
+                Your session has timed out. <br className="hidden-xs" /><span>Please log in again.</span>
+              </PageTitle>
               <div className="text-center">
                 <a href={config.haloLogin} className="fn-primary">Go to Login</a>
               </div>
