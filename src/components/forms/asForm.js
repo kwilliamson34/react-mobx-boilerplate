@@ -48,10 +48,6 @@ export default function asForm (MyComponent, attributes) {
       this.unblock();
     }
 
-    updateHasError = (value) => {
-      this.store.hasError = value;
-    }
-
     showAlert = () => {
       this.store.showAlert = true;
     }
