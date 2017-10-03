@@ -15,15 +15,20 @@ class MobileIronForm extends React.Component {
     this.store = this.props.store;
   }
 
+  componentWillMount() {
+    this.store.formFieldRefList = [];
+    this.store.formHasError = true;
+  }
+
   render() {
     const disabled = this.store.mdmIsConfigured;
     return (
       <div>
-        <TextInput dataObject={this.store.values} id="mi_hostName" type="input" labelText="Host Name" required={true} disabled={disabled} errorMessage="Please enter a valid host name."/>
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} checkFormForErrors={this.store.checkFormForErrors.bind(this.store)} dataObject={this.store.values} id="mi_hostName" type="input" labelText="Host Name" required={true} disabled={disabled} errorMessage="Please enter a valid host name."/>
 
-        <TextInput dataObject={this.store.values} id="mi_userName" type="input" labelText="MobileIron Core Username" required={true} disabled={disabled} errorMessage="Please enter a valid MobileIron Core username."/>
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} checkFormForErrors={this.store.checkFormForErrors.bind(this.store)} dataObject={this.store.values} id="mi_userName" type="input" labelText="MobileIron Core Username" required={true} disabled={disabled} errorMessage="Please enter a valid MobileIron Core username."/>
 
-        <TextInput dataObject={this.store.values} id="mi_password" type="password" labelText="MobileIron Core Password" required={true} disabled={disabled} errorMessage="Please enter a valid MobileIron Core password."/>
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} checkFormForErrors={this.store.checkFormForErrors.bind(this.store)} dataObject={this.store.values} id="mi_password" type="password" labelText="MobileIron Core Password" required={true} disabled={disabled} errorMessage="Please enter a valid MobileIron Core password."/>
       </div>
     );
   }

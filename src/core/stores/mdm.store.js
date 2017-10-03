@@ -303,6 +303,18 @@ class MDMStore {
     return formHasChanged;
   }
 
+  @action checkFormForErrors() {
+    let hasError = false;
+    this.formFieldRefList.forEach(ref => {
+      if(ref && ref.hasFunctionalError) {
+        console.log('ref with error:');
+        console.log(ref);
+        hasError = true;
+      }
+    });
+    this.formHasError = hasError;
+  }
+
   // OBSERVABLES
   // API
   @observable appCatalogMDMStatuses = observable.map({});
@@ -310,6 +322,8 @@ class MDMStore {
 
   // Form
   @observable showbreakMDMConnection = false;
+  @observable formFieldRefList = [];
+  @observable formHasError = true;
 
   // Alerts
   @observable mdm_form_alerts = [];
