@@ -35,10 +35,13 @@ class FeedbackForm extends React.Component {
     ];
   }
 
+
   render() {
     return (
       <div id="feedback-form">
         <TextInput
+          ref={ref => this.store.formFieldRefList.push(ref)}
+          checkFormForErrors={this.store.checkFormForErrors.bind(this.store)}
           dataObject={this.store.values}
           id="title"
           type="input"
@@ -48,6 +51,8 @@ class FeedbackForm extends React.Component {
           charLimit={250}/>
 
         <SelectInput
+          ref={ref => this.store.formFieldRefList.push(ref)}
+          checkFormForErrors={this.store.checkFormForErrors.bind(this.store)}
           dataObject={this.store.values}
           id="topic"
           type="select"
@@ -60,6 +65,8 @@ class FeedbackForm extends React.Component {
             : this.nonAdminOptions}/>
 
         <TextInput
+          ref={ref => this.store.formFieldRefList.push(ref)}
+          checkFormForErrors={this.store.checkFormForErrors.bind(this.store)}
           dataObject={this.store.values}
           id="details"
           type="textarea"
@@ -77,12 +84,14 @@ class FeedbackForm extends React.Component {
         </p>
 
         <TextInput
+          ref={ref => this.store.formFieldRefList.push(ref)}
+          checkFormForErrors={this.store.checkFormForErrors.bind(this.store)}
           dataObject={this.store.values}
           id="email"
           type="input"
           labelText="Email (Optional)"
           required={false}
-          validate={utilsService.isValidEmailAddress}
+          getIsValid={utilsService.isValidEmailAddress}
           errorMessage="Please enter a valid email address."/>
       </div>
     );
