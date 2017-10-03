@@ -99,8 +99,9 @@ class UtilsService {
   }
 
   normalizedDate(date, format) {
-    //split to remove localization data, to prevent discrepencies. then check if date is in a valid format, else return an empty string.
+    //to prevent discrepencies, split the date string at 'T' and ignore the localization data which follows; before the 'T' is the simple date, with month, day, year;
     const newDate = date.split('T')[0];
+    //check if date is in a valid format, else return an empty string;
     const dateToRender = isValid(new Date(newDate)) ? dateFns(newDate, format) : '';
     return dateToRender;
   }
