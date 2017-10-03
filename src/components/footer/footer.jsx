@@ -167,7 +167,8 @@ export default class Footer extends React.Component {
 						}
 						{this.props.showPrivateLinks &&
 							<li>
-								<a href="#" role="button" className="walkthru-toggle" onClick={this.handleToggleWalkthrough}>{`${this.joyrideStore.runNow? 'Disable' : 'Enable'}`} Site Walkthrough
+								<a href="#" role="button" className="walkthru-toggle" onClick={this.handleToggleWalkthrough}>
+									{`${this.joyrideStore.tourIsDisabled ? 'Enable' : 'Disable'}`} Site Walkthrough
 								</a>
 							</li>
 						}
