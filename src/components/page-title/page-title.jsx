@@ -4,53 +4,54 @@ import DocumentTitle from 'react-document-title';
 import {a11yAnnounce} from '../../core/services/a11y-announce.service';
 
 export default class PageTitle extends React.Component {
-
 	static propTypes = {
 		children: PropTypes.node.isRequired,
-		/* Whether children contains any HTML that needs to be stripped out before passing to a11yAnnounce and DocumentTitle title attr */
-		childrenContainHTML: PropTypes.bool,
-		className: PropTypes.string
-	}
+		className: PropTypes.string,
+		plainTextTitle: PropTypes.string
+	};
+
 	static defaultProps = {
-		childrenContainHTML: false
+		className: ''
 	}
 
 	componentDidMount() {
-		this.announceTitle(this.props.children);
+		this.announceTitle();
 	}
 
 	componentDidUpdate() {
-		this.announceTitle(this.props.children);
+		this.announceTitle();
 	}
 
-	getH1Elem = () => {
-		if (this.props.childrenContainHTML) {
-			return (
-				<h1 dangerouslySetInnerHTML={{__html: this.props.children}}></h1>
-			);
-		} else if (!this.props.childrenContainHTML) {
-			return (
-				<h1 className={this.props.className}>{this.props.children}</h1>
-			);
-		}
+	shouldComponentUpdate(nextProps) {
+		if (
+			nextProps.children !== this.props.children ||
+			nextProps.className !== this.props.className
+		) {
+			return true;
+		} else return false;
 	}
 
-	announceTitle = (title) => {
-		if (title) {
-			a11yAnnounce({
-				message: title,
-				messageType: 'status'
-			});
-		}
-	}
+	getPlainTitle = () => {
+		return this.props.plainTextTitle
+			? this.props.plainTextTitle
+			: this.props.children;
+	};
+
+	announceTitle = () => {
+		a11yAnnounce({
+			message: this.getPlainTitle(),
+			messageType: 'status'
+		});
+	};
 
 	render() {
 		const documentTitlePrefix = 'FirstNet Local Control';
 		return (
-			<DocumentTitle title={`${documentTitlePrefix}: ${this.props.children}`}>
-        {this.getH1Elem()}
-      </DocumentTitle>
+			<DocumentTitle title={`${documentTitlePrefix}: ${this.getPlainTitle()}`}>
+				<h1 className={this.props.className}>
+					{this.props.children}
+				</h1>
+			</DocumentTitle>
 		);
 	}
-
 }
