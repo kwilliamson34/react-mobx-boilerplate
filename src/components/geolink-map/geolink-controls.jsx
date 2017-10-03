@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
 
-import Checkbox from '../toggle/checkbox';
+import Checkbox from '../forms/checkbox';
 
 @observer
 export default class GeolinkControls extends React.Component {
@@ -39,26 +39,26 @@ export default class GeolinkControls extends React.Component {
     }
   };
 
-  toggleNetwork = event => {
-    if (event.target.type === 'checkbox') {
+  toggleNetwork = input => {
+    if (input.type === 'checkbox') {
       this.geoStore.toggleNetwork();
     }
   };
 
-  toggleTraffic = event => {
-    if (event.target.type === 'checkbox') {
+  toggleTraffic = input => {
+    if (input.type === 'checkbox') {
       this.geoStore.toggleTraffic();
     }
   };
 
-  toggleWeather = event => {
-    if (event.target.type === 'checkbox') {
+  toggleWeather = input => {
+    if (input.type === 'checkbox') {
       this.geoStore.toggleWeather();
     }
   };
 
-  toggleAlerts = event => {
-    if (event.target.type === 'checkbox') {
+  toggleAlerts = input => {
+    if (input.type === 'checkbox') {
       this.geoStore.toggleAlerts();
     }
   };
@@ -89,12 +89,12 @@ export default class GeolinkControls extends React.Component {
                 <fieldset className="coverage-layers">
                   <legend className="sr-only">Coverage layers</legend>
                   <div className="col-xs-6 col-sm-12 no-gutters">
-                    <Checkbox id="network-toggle" value="Network" label="Network" onChange={this.toggleNetwork} checked={this.geoStore.showNetworkLayer} disabled={this.props.disabled}/>
-                    <Checkbox id="weather-toggle" value="Weather" label="Weather" onChange={this.toggleWeather} checked={this.geoStore.showWeatherLayer} disabled={this.props.disabled}/>
+                    <Checkbox id="network-toggle" value="Network" label="Network" handleOnChange={this.toggleNetwork} checked={this.geoStore.showNetworkLayer} disabled={this.props.disabled}/>
+                    <Checkbox id="weather-toggle" value="Weather" label="Weather" handleOnChange={this.toggleWeather} checked={this.geoStore.showWeatherLayer} disabled={this.props.disabled}/>
                   </div>
                   <div className="col-xs-6 col-sm-12 no-gutters">
-                    <Checkbox id="traffic-toggle" value="Traffic" label="Traffic" onChange={this.toggleTraffic} checked={this.geoStore.showTrafficLayer} disabled={this.props.disabled}/>
-                    <Checkbox id="alerts-toggle" value="Alerts" label="Alerts" onChange={this.toggleAlerts} checked={this.geoStore.showAlertLayer} disabled={this.props.disabled || !this.geoStore.authIsComplete}/>
+                    <Checkbox id="traffic-toggle" value="Traffic" label="Traffic" handleOnChange={this.toggleTraffic} checked={this.geoStore.showTrafficLayer} disabled={this.props.disabled}/>
+                    <Checkbox id="alerts-toggle" value="Alerts" label="Alerts" handleOnChange={this.toggleAlerts} checked={this.geoStore.showAlertLayer} disabled={this.props.disabled || !this.geoStore.authIsComplete}/>
                   </div>
                 </fieldset>
               </form>

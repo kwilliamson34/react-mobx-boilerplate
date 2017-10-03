@@ -28,7 +28,7 @@ export default class FeedbackPage extends React.Component {
             </div>
             <div className="row">
               <section className="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
-                <FeedbackForm store={this.feedbackStore} submitButtonText='Submit Feedback'/>
+                <FeedbackForm store={this.feedbackStore}/>
               </section>
             </div>
           </div>

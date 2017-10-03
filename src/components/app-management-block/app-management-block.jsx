@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
-import Checkbox from '../toggle/checkbox.jsx';
+import Checkbox from '../forms/checkbox.jsx';
 import {PushToMDM} from '../push-to-mdm/push-to-mdm';
 
 import $ from 'jquery';

@@ -29,7 +29,7 @@
       font-size: $fn-h5-desktop;
       font-weight: $fn-normal-weight;
 
-      &[for="gtoc_email"] {
+      &[for="email"] {
         font-size: $fn-label-desktop;
       }
     }
@@ -71,7 +71,7 @@
       }
     }
 
-    .template-checkbox {
+    fieldset .checkbox {
       margin-top: 20px;
       vertical-align: middle;
       border-bottom: 1px solid $fn-grey;
@@ -83,7 +83,6 @@
           display: inline-block;
           vertical-align: top;
           margin-left: 5px;
-          width: 30%;
 
           + span {
             display: inline-block;
@@ -92,7 +91,7 @@
           }
         }
 
-        .template-checkbox-description {
+        .label-text {
           font-weight: $fn-normal-weight;
           //override default alert text color
           color: $fn-black;
