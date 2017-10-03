@@ -16,7 +16,8 @@ export default class SelectInput extends React.Component {
     optionsList: PropTypes.array,
     placeholder: PropTypes.string,
     disabled: PropTypes.bool,
-    errorMessage: PropTypes.string
+    errorMessage: PropTypes.string,
+    checkFormForErrors: PropTypes.func
   }
 
   static defaultProps = {
@@ -27,29 +28,41 @@ export default class SelectInput extends React.Component {
     errorMessage: 'This entry is not valid.'
   }
 
-  @observable hasError = false;
+  @observable hasVisibleError = false;
   @computed get valueInStore() {
     return this.props.dataObject[this.props.id];
+  }
+  @computed get hasFunctionalError() {
+    let hasError = false;
+
+    //empty check
+    if(this.props.required && this.valueInStore === '') {
+      hasError = true;
+    }
+
+    return hasError;
   }
 
   handleOnChange = (e) => {
     this.props.dataObject[this.props.id] = e.target.value;
+    this.props.checkFormForErrors();
   }
 
   handleOnBlur = () => {
     if(this.props.required && !this.valueInStore) {
-      this.hasError = true;
+      this.hasVisibleError = true;
     }
+    this.props.checkFormForErrors();
   }
 
   render() {
     const value = this.props.dataObject[this.props.id];
 
     return (
-      <div className={`form-group ${this.hasError ? 'has-error' : ''}`}>
+      <div className={`form-group ${this.hasVisibleError ? 'has-error' : ''}`}>
         <FormLabel
           id={this.props.id}
-          hasError={this.hasError}
+          hasError={this.hasVisibleError}
           fieldIsRequired={this.props.required}
           labelText={this.props.labelText}
           errorMessage={this.props.errorMessage}/>
