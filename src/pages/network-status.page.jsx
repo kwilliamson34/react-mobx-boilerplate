@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {inject, observer} from 'mobx-react';
 import config from 'config';
 import {utilsService} from '../core/services/utils.service';
+import PageTitle from '../components/page-title/page-title';
 
 import GeolinkMap from '../components/geolink-map/geolink-map';
 import GeolinkControls from '../components/geolink-map/geolink-controls';
@@ -49,11 +50,14 @@ export default class NetworkStatusPage extends React.Component {
     const showMap = this.geoStore.iframeIsFullyLoaded;
     return (
       <article id="network-page" className={`content-wrapper ${utilsService.getIsInternetExplorer() ? 'isIE' : ''}`}>
-        <h1 className="sr-only">Network Status</h1>
+        <PageTitle className="sr-only">Network Status</PageTitle>
         <iframe src={config.geolinkAuthScript} aria-hidden="true" className="hidden-iframe"></iframe>
 
-        {!showMap && this.renderPlaceholder()}
-        <GeolinkMap geolinkStore={this.geoStore} hidden={!showMap} />
+        <section id="map-section">
+          {!showMap && this.renderPlaceholder()}
+          <GeolinkMap geolinkStore={this.geoStore} hidden={!showMap} />
+        </section>
+
         <GeolinkControls geolinkStore={this.geoStore} disabled={!showMap} />
 
       </article>

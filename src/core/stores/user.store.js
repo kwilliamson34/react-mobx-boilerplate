@@ -57,7 +57,10 @@ class UserStore {
     this.checkPermissions();
     if (this.user.roles && (this.user.roles.indexOf('G_FN_ADM') >= 0 || this.user.roles.indexOf('G_FN_IM') >= 0)) {
       this.authentic_user = true;
+    } else if (this.user.roles && this.user.roles.indexOf('G_FN_SUB') >= 0){
+      this.isSubscriber = true;
     }
+
     this.userValidationDone = true;
   }
 
@@ -102,6 +105,7 @@ class UserStore {
   @observable userValidationDone = false;
   @observable authentic_user = false;
   @observable isAdmin = false;
+  @observable isSubscriber = false;
   @observable validationPromise = '';
 
 }

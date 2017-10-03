@@ -76,7 +76,7 @@
       {
         "title": "Coverage",
         "text": "<p>View the network coverage for a specific area.</p>",
-        "selector": ".map-wrapper",
+        "selector": "#map-section",
         "position": "bottom"
       },
       {

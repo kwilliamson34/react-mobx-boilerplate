@@ -50,9 +50,8 @@ import FAQPage from './pages/faq.page';
 import FeedbackPage from './pages/feedback.page';
 import FeedbackSuccessPage from './pages/feedback-success.page';
 
-//Footer pages
-import PrivacyPage from './pages/privacy.page';
-import AccessibilityPage from './pages/accessibility.page';
+//Components
+import ExternalRedirect from './components/external-redirect/external-redirect';
 
 @observer
 export default class App extends React.Component {
@@ -130,7 +129,7 @@ export default class App extends React.Component {
         <ScrollToTop>
           <a href="#main-content" className="skipnav">Skip Navigation</a>
           <Header/>
-          <main id="main-content" tabIndex="-1">
+          <main id="main-content">
             <Switch>
               <Route exact path="/" component={this.getLandingPage}/>
               <Route path="/admin/manage-apps" component={this.getAdminRoutes(ManageAppsPage)}/>
@@ -146,8 +145,6 @@ export default class App extends React.Component {
               <Route path="/feedback-success" component={FeedbackSuccessPage}/>
               <Route path="/faq" component={FAQPage}/>
               <Route path="/help-center" component={HelpCenterPage}/>
-              <Route path="/privacy" component={PrivacyPage}/>
-              <Route path="/accessibility" component={AccessibilityPage}/>
               <Route component={() => <Redirect to="/error/404"/>}/>
             </Switch>
           </main>
@@ -176,19 +173,17 @@ export default class App extends React.Component {
   }
 
   getSessionDependentContent() {
-    return pseMasterStore.userStore.userValidationDone ? (
-			pseMasterStore.isLoggedIn ? (
-        <Switch>
-          <Route exact path="/session-timeout" component={SessionTimeoutPage}/>
-          <Route path="/error" component={this.getPlainLayoutComponent}/>
-          <Route component={this.getMainLayoutComponent}/>
-        </Switch>
-			) : (
-				<ErrorPage cause="unauthorized" />
-			)
-		) : (
-			<p>Securing Session...</p>
-		);
+    return pseMasterStore.userStore.userValidationDone
+      ? (pseMasterStore.isLoggedIn
+        ? <Switch>
+            <Route exact path="/session-timeout" component={SessionTimeoutPage}/>
+            <Route path="/error" component={this.getPlainLayoutComponent}/>
+            <Route component={this.getMainLayoutComponent}/>
+          </Switch>
+        : (pseMasterStore.userStore.isSubscriber
+          ? <ExternalRedirect externalUrl={config.appStore}/>
+          : <ErrorPage cause="unauthorized"/>))
+      : <p>Securing Session...</p>
   }
 
   render() {

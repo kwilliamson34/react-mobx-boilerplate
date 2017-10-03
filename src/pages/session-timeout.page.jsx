@@ -2,6 +2,7 @@ import React from 'react';
 import {observer, inject, PropTypes} from 'mobx-react';
 import config from 'config';
 import Footer from '../components/footer/footer.jsx';
+import PageTitle from '../components/page-title/page-title';
 
 @inject('store')
 @observer
@@ -25,7 +26,7 @@ export default class SessionTimeoutPage extends React.Component {
               <div className="fnnav__header">
                 <div className="fnnav__brand">
                   <div className="logo-container">
-                    <img src="/images/logo-FirstNet-local-control.svg" alt="" aria-hidden="true"/>
+                    <img src="/images/logo-FirstNet-local-control.svg" alt="" aria-hidden="true" />
                   </div>
                 </div>
               </div>
@@ -35,7 +36,7 @@ export default class SessionTimeoutPage extends React.Component {
         <section className="session-timeout">
           <div className="container">
             <div className="col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10 ">
-              <h1 className="as-h2">Your session has timed out.&nbsp;<br className="hidden-xs"/>Please log in again.</h1>
+              <PageTitle childrenContainHTML={true} className="as-h2">Your session has timed out. <br className="hidden-xs" />Please log in again.</PageTitle>
               <div className="text-center">
                 <a href={config.haloLogin} className="fn-primary">Go to Login</a>
               </div>

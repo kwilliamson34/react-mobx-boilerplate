@@ -4,6 +4,7 @@ import {observer, inject} from 'mobx-react';
 import {utilsService} from '../core/services/utils.service';
 import dateFns from 'date-fns/format';
 
+import PageTitle from '../components/page-title/page-title';
 import {AppDetailBanner} from '../components/app-details/app-detail-banner';
 import RatingsChart from '../components/ratings-chart/ratings-chart';
 import AppReviews from '../components/app-reviews/app-reviews';
@@ -156,6 +157,7 @@ export default class AppDetailsPage extends React.Component {
           <div className="container">
             <div className="row">
               <div className="col-xs-12">
+                <PageTitle className="sr-only">App Details</PageTitle>
                 <MDMAlerts store={this.mdmStore} alertList={this.mdmStore.app_detail_alerts} psk={this.props.match.params.appPsk}/>
               </div>
             </div>
