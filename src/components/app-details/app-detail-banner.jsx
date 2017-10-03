@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import dateFns from 'date-fns/format';
-import isValid from 'date-fns/is_valid'
 import {Link} from 'react-router-dom';
 
 import {observer} from 'mobx-react';
@@ -70,9 +68,7 @@ export class AppDetailBanner extends React.Component {
   }
 
   details() {
-    //normalize the date string, variant formats of which have caused unpredictable behavior.
-    const newDate = this.appStore.currentAppObject.custom_metadata ? this.appStore.currentAppObject.custom_metadata.release_date.split('T')[0] : '';
-    const dateToRender = isValid(new Date(newDate)) ? dateFns(newDate, 'MMM DD, YYYY') : '';
+    const dateToRender = this.appStore.currentAppObject.custom_metadata ? utilsService.normalizedDate(this.appStore.currentAppObject.custom_metadata.release_date, 'MMM DD, YYYY') : '';
 
     return (
       <div className="app-details">
@@ -83,7 +79,7 @@ export class AppDetailBanner extends React.Component {
         <p className="updated">
           <strong>Released:&nbsp;</strong>
           <br className="hidden-xs hidden-md hidden-lg"/>
-          {dateToRender ? dateToRender : ''}
+          {dateToRender}
         </p>
         <p className="platform">
           <strong>Platform:&nbsp;</strong>

@@ -1,3 +1,5 @@
+import dateFns from 'date-fns/format';
+import isValid from 'date-fns/is_valid'
 import {userStore} from '../stores/user.store';
 import {history} from './history.service';
 import $ from 'jquery';
@@ -94,6 +96,13 @@ class UtilsService {
   isValidEmailAddress(string) {
     const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     return emailRegex.test(string);
+  }
+
+  normalizedDate(date, format) {
+    //split to remove localization data, to prevent discrepencies. then check if date is in a valid format, else return an empty string.
+    const newDate = date.split('T')[0];
+    const dateToRender = isValid(new Date(newDate)) ? dateFns(newDate, format) : '';
+    return dateToRender;
   }
 
   handleError(err) {
