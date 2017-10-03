@@ -10,6 +10,10 @@ export default class PageTitle extends React.Component {
 		plainTextTitle: PropTypes.string
 	};
 
+	static defaultProps = {
+		className: ''
+	}
+
 	componentDidMount() {
 		this.announceTitle();
 	}
@@ -19,7 +23,6 @@ export default class PageTitle extends React.Component {
 	}
 
 	shouldComponentUpdate(nextProps) {
-		/* Adding a guard here, because opening the full size image modal (but not the video modal) is causing this to try to re-render about 10 times a second */
 		if (
 			nextProps.children !== this.props.children ||
 			nextProps.className !== this.props.className
@@ -45,8 +48,7 @@ export default class PageTitle extends React.Component {
 		const documentTitlePrefix = 'FirstNet Local Control';
 		return (
 			<DocumentTitle title={`${documentTitlePrefix}: ${this.getPlainTitle()}`}>
-				<h1
-					className={`${this.props.className} ? ${this.props.className} : ''}`}>
+				<h1 className={this.props.className}>
 					{this.props.children}
 				</h1>
 			</DocumentTitle>
