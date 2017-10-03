@@ -11,7 +11,6 @@ class FeedbackStore {
     }
     const failure = () => {
       this.showAlert = true;
-      this.hasError = true;
     }
     apiService.submitCustomerFeedbackForm(this.values).then(success, failure);
   }
@@ -19,7 +18,6 @@ class FeedbackStore {
   @action clearForm() {
     this.values = Object.assign({}, this.defaultValues);
     this.showAlert = false;
-    this.hasError = false;
   }
 
   @computed get formIsDirty() {
@@ -32,8 +30,19 @@ class FeedbackStore {
     return formHasChanged;
   }
 
+  @action checkFormForErrors() {
+    let hasError = false;
+    this.formFieldRefList.forEach(ref => {
+      if(ref.hasFunctionalError) {
+        hasError = true;
+      }
+    });
+    this.formHasError = hasError;
+  }
+
+  @observable formFieldRefList = [];
+  @observable formHasError = true;
   @observable showAlert = false;
-  @observable hasError = false;
   @observable defaultValues = {
     title: '',
     details: '',

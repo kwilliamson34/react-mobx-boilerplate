@@ -14,7 +14,7 @@ export default function asForm (MyComponent, attributes) {
         submitForm: PropTypes.func,
         formIsDirty: PropTypes.bool,
         showAlert: PropTypes.bool,
-        hasError: PropTypes.bool
+        formHasError: PropTypes.bool
       }),
       disabled: PropTypes.bool
     }
@@ -72,7 +72,7 @@ export default function asForm (MyComponent, attributes) {
     renderSubmitButton = () => {
       return (
         <div className="form-group text-center">
-          <button type="button" onClick={this.handleSubmit} className={`fn-primary ${(this.props.disabled || this.store.hasError) ? 'disabled' : ''}`}>
+          <button type="button" onClick={this.handleSubmit} className={`fn-primary ${(this.props.disabled || this.store.formHasError) ? 'disabled' : ''}`}>
             {this.submitButtonText}
           </button>
         </div>

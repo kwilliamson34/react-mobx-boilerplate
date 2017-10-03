@@ -16,7 +16,8 @@ export default class TextInput extends React.Component {
     charLimit: PropTypes.number,
     disabled: PropTypes.bool,
     labelText: PropTypes.string,
-    validate: PropTypes.func,
+    getIsValid: PropTypes.func,
+    checkFormForErrors: PropTypes.func,
     errorMessage: PropTypes.string
   }
 
@@ -27,9 +28,24 @@ export default class TextInput extends React.Component {
     errorMessage: 'This entry is not valid.'
   }
 
-  @observable hasError = false;
+  @observable hasVisibleError = false;
   @computed get valueInStore() {
     return this.props.dataObject[this.props.id];
+  }
+  @computed get hasFunctionalError() {
+    let hasError = false;
+
+    //empty check
+    if(this.props.required && this.valueInStore === '') {
+      hasError = true;
+    }
+
+    //other validation rules
+    if(this.props.getIsValid !== undefined && !this.props.getIsValid(this.valueInStore)) {
+      hasError = true;
+    }
+
+    return hasError;
   }
 
   handleOnChange = (e) => {
@@ -39,33 +55,22 @@ export default class TextInput extends React.Component {
     } else {
       this.props.dataObject[this.props.id] = newValue;
     }
-
-    //check emptiness first, as it should be overwritten by a falsey validation response
-    if(this.props.required && this.valueInStore) {
-      this.hasError = false;
-    }
-    if(this.props.validate) {
-      this.hasError = !this.props.validate(this.valueInStore);
-    }
+    this.hasVisibleError = this.hasFunctionalError;
+    this.props.checkFormForErrors();
   }
 
   handleOnBlur = () => {
-    //check emptiness last, as it should overwrite a truthy validation response
-    if(this.props.validate) {
-      this.hasError = !this.props.validate(this.valueInStore);
-    }
-    if(this.props.required && !this.valueInStore) {
-      this.hasError = true;
-    }
+    this.hasVisibleError = this.hasFunctionalError;
+    this.props.checkFormForErrors();
   }
 
   render() {
     const Tag = this.props.type === 'textarea' ? 'textarea' : 'input';
     return (
-      <div className={`form-group ${this.hasError ? 'has-error' : ''}`}>
+      <div className={`form-group ${this.hasVisibleError ? 'has-error' : ''}`}>
         <FormLabel
           id={this.props.id}
-          hasError={this.hasError}
+          hasError={this.hasVisibleError}
           fieldIsRequired={this.props.required}
           labelText={this.props.labelText}
           errorMessage={this.props.errorMessage}/>
