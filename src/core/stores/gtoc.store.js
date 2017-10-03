@@ -39,6 +39,14 @@ class GTOCStore {
     this.formHasError = hasError;
   }
 
+  @action selectAll() {
+    this.values.femaList = ['Region I: Connecticut, Maine, Massachusetts, New Hampshire, Rhode Island, Vermont','Region II: New Jersey, New York, Puerto Rico, Virgin Islands','Region III: District of Columbia, Delaware, Maryland, Pennsylvania, Virginia, West Virginia','Region IV: Alabama, Florida, Georgia, Kentucky, Mississippi, North Carolina, South Carolina, Tennessee','Region V: Illinois, Indiana, Michigan, Minnesota, Ohio, Wisconsin','Region VI: Arkansas, Louisiana, New Mexico, Oklahoma, Texas','Region VII: Iowa, Kansas, Missouri, Nebraska','Region VIII: Colorado, Montana, North Dakota, South Dakota, Utah, Wyoming','Region IX: Arizona, California, Hawaii, Nevada, Pacific Islands','Region X: Alaska, Idaho, Oregon, Washington'];
+  }
+
+  @action clearAll() {
+    this.values.femaList = [];
+  }
+
   @observable formFieldRefList = [];
   @observable formHasError = true;
   @observable showAlert = false;

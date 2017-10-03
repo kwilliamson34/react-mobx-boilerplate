@@ -48,6 +48,18 @@ export default class CheckboxList extends React.Component {
     return this.valueInStore.length === this.props.children.length;
   }
 
+  selectAll = () => {
+    if(this.allCheckboxesChecked) {
+      this.clearAll();
+    } else {
+      this.props.selectAll();
+    }
+  }
+
+  clearAll = () => {
+    this.props.clearAll();
+  }
+
   render() {
     return (
       <div className={`form-group ${this.props.id + '-class'} ${this.hasVisibleError ? 'has-error' : ''}`}>
@@ -61,12 +73,12 @@ export default class CheckboxList extends React.Component {
         <div className="selection-buttons">
           <div className="checkbox">
             <label>
-              <input type="checkbox" name="select-all-checkbox" checked={this.allCheckboxesChecked} value="" onClick={this.props.selectAll}/>
+              <input type="checkbox" name="select-all-checkbox" checked={this.allCheckboxesChecked} value="" onClick={this.selectAll}/>
               <span className="cr"></span>
               <span className="select-all-description">Select All</span>
             </label>
           </div>
-          <button type="button" className="clear-all-button" onClick={this.props.clearAll}>
+          <button type="button" className="clear-all-button" onClick={this.clearAll}>
             Clear All
           </button>
         </div>

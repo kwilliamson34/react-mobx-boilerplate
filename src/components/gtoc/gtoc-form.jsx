@@ -48,7 +48,9 @@ class GtocForm extends React.Component {
           id="femaList"
           labelText="Select Network Regions"
           required={true}
-          errorMessage="Please select at least one option.">
+          errorMessage="Please select at least one option."
+          selectAll={this.store.selectAll.bind(this.store)}
+          clearAll={this.store.clearAll.bind(this.store)}>
 
           {this.renderCheckbox('Region I', 'Connecticut, Maine, Massachusetts, New Hampshire, Rhode Island, Vermont')}
           {this.renderCheckbox('Region II', 'New Jersey, New York, Puerto Rico, Virgin Islands')}
