@@ -51,7 +51,7 @@ export default class TextInput extends React.Component {
   handleOnChange = (e) => {
     const newValue = e.target.value;
     if(this.props.charLimit) {
-      this.props.dataObject[this.props.id] = newValue.substr(0, this.props.charLimit + 1);
+      this.props.dataObject[this.props.id] = newValue.substr(0, this.props.charLimit);
     } else {
       this.props.dataObject[this.props.id] = newValue;
     }
