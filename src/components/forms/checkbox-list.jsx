@@ -20,14 +20,15 @@ export default class CheckboxList extends React.Component {
     errorMessage: PropTypes.string,
     selectAll: PropTypes.func,
     clearAll: PropTypes.func,
-    children: PropTypes.array.isRequired
+    children: PropTypes.array
   }
 
   static defaultProps = {
     labelText: '',
     required: false,
     disabled: false,
-    errorMessage: 'This entry is not valid.'
+    errorMessage: 'Please select at least one option.',
+    children: []
   }
 
   @observable hasVisibleError = false;
@@ -48,16 +49,32 @@ export default class CheckboxList extends React.Component {
     return this.valueInStore.length === this.props.children.length;
   }
 
+  //this handler should be passed to all checkbox children in the list.
+  handleCheckboxOnChange = (input) => {
+    const newValue = input.value;
+    this.props.dataObject[this.props.id].indexOf(newValue) > -1
+      ? this.props.dataObject[this.props.id].remove(newValue)
+      : this.props.dataObject[this.props.id].push(newValue);
+    this.displayErrors();
+  }
+
   selectAll = () => {
     if(this.allCheckboxesChecked) {
       this.clearAll();
     } else {
       this.props.selectAll();
     }
+    this.displayErrors();
   }
 
   clearAll = () => {
     this.props.clearAll();
+    this.displayErrors();
+  }
+
+  displayErrors = () => {
+    this.hasVisibleError = this.hasFunctionalError;
+    this.props.checkFormForErrors();
   }
 
   render() {

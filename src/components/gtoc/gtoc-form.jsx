@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
+import {observable} from 'mobx';
 import {utilsService} from '../../core/services/utils.service';
 
 import asForm from '../forms/asForm.js';
@@ -20,12 +21,13 @@ class GtocForm extends React.Component {
     this.store = this.props.store;
   }
 
-  handleOnChange = (input) => {
-    const newValue = input.value;
-    this.store.values.femaList.indexOf(newValue) > -1
-      ? this.store.values.femaList.remove(newValue)
-      : this.store.values.femaList.push(newValue);
-    this.store.checkFormForErrors();
+  @observable checkboxListRef = {
+    handleCheckboxOnChange: () => {}
+  }
+
+  saveCheckboxListRef = (ref) => {
+    this.store.formFieldRefList.push(ref);
+    this.checkboxListRef = ref;
   }
 
   renderCheckbox = (strongLabel, label) => {
@@ -35,20 +37,19 @@ class GtocForm extends React.Component {
       strongLabel={strongLabel}
       label={label}
       checked={this.store.values.femaList.indexOf(fullLabel) > -1}
-      handleOnChange={this.handleOnChange} />
+      handleOnChange={this.checkboxListRef.handleCheckboxOnChange} />
   }
 
   render() {
     return (
       <div id="gtoc-form">
         <CheckboxList
-          ref={ref => this.store.formFieldRefList.push(ref)}
+          ref={this.saveCheckboxListRef}
           checkFormForErrors={this.store.checkFormForErrors.bind(this.store)}
           dataObject={this.store.values}
           id="femaList"
           labelText="Select Network Regions"
           required={true}
-          errorMessage="Please select at least one option."
           selectAll={this.store.selectAll.bind(this.store)}
           clearAll={this.store.clearAll.bind(this.store)}>
 
