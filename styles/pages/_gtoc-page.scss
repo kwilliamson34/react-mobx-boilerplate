@@ -127,8 +127,13 @@
         margin: 3rem 0;
       }
 
+      label {
+        padding: 0;
+      }
+
       fieldset .checkbox label span.label-text-normal {
-        width: 90%;
+        width: 100%;
+        padding-left: 30px;
       }
     }
   }
