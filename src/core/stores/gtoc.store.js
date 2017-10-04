@@ -22,7 +22,7 @@ class GTOCStore {
   @computed get formIsDirty() {
     let formHasChanged = false;
     Object.keys(this.values).forEach(key => {
-      if(this.values[key] !== this.defaultValues[key]) {
+      if(this.values[key].toString() !== this.defaultValues[key].toString()) {
         formHasChanged = true;
       }
     });

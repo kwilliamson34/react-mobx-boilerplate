@@ -30,7 +30,7 @@ export default function asForm (MyComponent, attributes) {
 
       //set up reroute blockade (returns unblocking function)
       this.unblock = history.block((location) => {
-        if (this.store.formIsDirty && !this.interceptedRoute) {
+        if (this.store.formIsDirty) {
           this.interceptedRoute = location.pathname;
           this.showExitModal();
           return false; //does not allow to proceed to new page

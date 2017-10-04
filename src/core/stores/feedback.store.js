@@ -33,7 +33,7 @@ class FeedbackStore {
   @action checkFormForErrors() {
     let hasError = false;
     this.formFieldRefList.forEach(ref => {
-      if(ref.hasFunctionalError) {
+      if(ref && ref.hasFunctionalError) {
         hasError = true;
       }
     });
