@@ -1,93 +1,29 @@
 import {action, computed, observable} from 'mobx';
 import {apiService} from '../services/api.service';
-import {history} from '../services/history.service';
 
 class MDMStore {
   // ACTIONS
   // Form Functions
   @action updateMDM(mdm_type) {
-    this.clearAlerts();
-    this.resetMDMForm();
-
-    //set mdm_type to determine which form to show
-    this.formData.mdm_type = mdm_type;
-    this.initializeFormData({mdm_type});
-  }
-
-  @action updateForm(input) {
-    this.formHasChanged = true;
-    this.formData[input.id] = input.value;
-    this.validateMDMForm();
-  }
-
-  @action resetMDMForm() {
-    this.formData.mdm_type = '';
-    this.beingSubmitted = false;
-    this.formHasChanged = false;
-    this.showExitModal = false;
-    this.showbreakMDMConnection = false;
-
-    Object.keys(this.formData).forEach(key => {
-      this.formData[key] = undefined;
-    });
-
-    this.validateMDMForm();
-  }
-
-  @action clearFormField(id) {
-    //trigger error by replacing value with empty string
-    this.formData[id] = '';
-
-    //change value of uncontrolled form component
-    this.formFieldRefs[id].value = '';
-
-    this.validateMDMForm();
+    this.clearForm();
+    this.values.mdm_type = mdm_type;
   }
 
   @action clearStoredCredentials() {
-    switch (this.formData.mdm_type) {
-      case 'AIRWATCH':
-        this.clearFormField('aw_password');
-        this.clearFormField('aw_userName');
-        break;
-      case 'MAAS360':
-        this.clearFormField('ibm_password');
-        this.clearFormField('ibm_userName');
-        break;
-      case 'MOBILE_IRON':
-        this.clearFormField('mi_password');
-        this.clearFormField('mi_userName');
-        break;
-    }
-  }
-
-  @action initializeFormData(responseData) {
-    /* Note: important to initialize to 'undefined' so errors are not shown
-    on the initial form load. */
-    let formData = {};
-    this.visibleInputArray.forEach(key => {
-      formData[key] = responseData ? responseData[key] : undefined;
+    this.values = Object.assign(this.values, {
+      aw_password: '',
+      aw_userName: '',
+      ibm_password: '',
+      ibm_userName: '',
+      mi_password: '',
+      mi_userName: ''
     });
-    this.formData = formData;
   }
 
-  @action submitForm() {
-    if (this.isConfigured) {
-      //the user is looking at a completed, disabled form
-      return;
-    } else if (this.mdmFormIsValid) {
-      this.beingSubmitted = true;
-      this.setMDMConfiguration();
-    } else {
-      this.mdm_form_alerts = [];
-      let message = this.formData.mdm_type
-        ? this.userMessages.formError
-        : this.userMessages.missingMdm;
-      this.showErrorAlert({
-        alertList: this.mdm_form_alerts,
-        message
-      });
-    }
+  @action clearForm() {
+    this.clearAlerts();
+    this.values = Object.assign({}, this.defaultValues);
+    this.showbreakMDMConnection = false;
   }
 
   // Alert functions
@@ -208,60 +144,28 @@ class MDMStore {
   }
 
   // Modal functions
-  @action toggleExitModal() {
-    this.showExitModal = !this.showExitModal;
-  }
-
   @action togglebreakMDMConnection() {
     this.showbreakMDMConnection = !this.showbreakMDMConnection;
   }
 
-  @action disableSaveDialogs() {
-    window.removeEventListener('beforeunload', this.getBrowserCloseAlert);
-    this.unblock();
-  }
-
-  @action enableSaveDialogs() {
-    window.addEventListener('beforeunload', this.getBrowserCloseAlert);
-    this.unblock = history.block((location) => {
-      this.interceptedRoute = location.pathname;
-      if (this.formHasUnsavedChanges) {
-        this.showExitModal = true;
-        return false;
-      } else {
-        return true;
-      }
-    });
-  }
-
-  @action getBrowserCloseAlert = (event) => {
-    // Determine if the beforeUnload event should fire in the browser
-    if (this.formHasUnsavedChanges) {
-      event.returnValue = true;
-    }
-  };
-
   // MDM Connection functions
   @action getMDMConfiguration() {
     const success = (resp) => {
-      const serviceResponse = resp.data;
-      this.pseMDMObject.merge(serviceResponse);
-
-      //set mdm_type to determine which form to show
-      this.formData.mdm_type = serviceResponse.mdm_type;
-      this.initializeFormData(serviceResponse);
+      this.values = Object.assign(this.defaultValues, resp.data);
+      if(this.values.mdm_type) {
+        this.mdmIsConfigured = true;
+      }
     }
     const fail = () => {
       this.throwConnectError({alertList: this.mdm_form_alerts});
+      this.mdmIsConfigured = false;
     }
     return apiService.getMDMConfiguration().then(success, fail);
   }
 
-  @action setMDMConfiguration() {
-    let mdmConfig = this.mdmConfigDataPacket;
+  @action submitForm() {
     const success = (resp) => {
       let messageObj = resp.data;
-      this.beingSubmitted = false;
       this.mdm_form_alerts = [];
 
       if (messageObj.error) {
@@ -274,14 +178,7 @@ class MDMStore {
           this.clearStoredCredentials();
         }
       } else {
-        this.showExitModal = false;
-        this.formHasChanged = false;
-        this.hasBeenSubmitted = true;
-
-        /* Update the pseMDMObject to reflect the new service status,
-        including mdm_type/isConfigured */
-        this.pseMDMObject.merge(mdmConfig);
-
+        this.mdmIsConfigured = true;
         this.showSuccessAlert({
           alertList: this.mdm_form_alerts,
           message: this.userMessages.connectSuccess
@@ -290,19 +187,17 @@ class MDMStore {
     }
     const fail = () => {
       this.mdm_form_alerts = [];
-      this.beingSubmitted = false;
       this.throwConnectError({alertList: this.mdm_form_alerts});
     }
-    return apiService.setMDMConfiguration(mdmConfig).then(success, fail);
+    return apiService.setMDMConfiguration(this.values).then(success, fail);
   }
 
   @action breakMDMConnection() {
     const success = () => {
       this.clearAlerts({clearSuccessTally: true});
-      this.pseMDMObject.clear();
-      this.hasBeenSubmitted = false;
-      this.formData.mdm_type = '';
-      this.resetMDMForm();
+      this.clearForm();
+      this.mdmIsConfigured = false;
+
       this.showSuccessAlert({
         alertList: this.mdm_form_alerts,
         message: this.userMessages.breakConnectionSuccess
@@ -310,7 +205,6 @@ class MDMStore {
     }
     const fail = () => {
       this.clearAlerts({clearSuccessTally: true});
-      this.hasBeenSubmitted = true;
       this.showErrorAlert({
         alertList: this.mdm_form_alerts,
         message: this.userMessages.breakConnectionFail
@@ -388,68 +282,7 @@ class MDMStore {
     return apiService.pushToMDM(psk).then(success, fail);
   }
 
-  @action validateMDMForm() {
-    let hasError = false;
-
-    /* Note: 'undefined' is reserved for when the form is first initialized,
-    or if the field has been cleared due to an error.
-    Empty string occurs if the user has modified the field but ultimately
-    left it blank.
-    Compare to both to determine if error should be shown. */
-    Object.keys(this.formData).forEach(key => {
-      if(this.formData[key] === '' || this.formData[key] === undefined) {
-        hasError = true;
-      }
-    });
-
-    this.mdmFormIsValid = !hasError;
-  }
-
   // COMPUTEDS
-  @computed get isConfigured() {
-    return this.pseMDMObject.get('mdm_type') ? true : false
-  }
-
-  @computed get formHasUnsavedChanges() {
-    return this.formData.mdm_type !== '' && this.formHasChanged
-  }
-
-  @computed get visibleInputArray() {
-    switch (this.formData.mdm_type) {
-      case 'AIRWATCH':
-        return ['mdm_type', 'aw_hostName', 'aw_tenantCode', 'aw_userName', 'aw_password'];
-      case 'MAAS360':
-        return ['mdm_type', 'ibm_rootURL', 'ibm_billingID', 'ibm_userName', 'ibm_password', 'ibm_platformID', 'ibm_appID', 'ibm_appVersion', 'ibm_appAccessKey'];
-      case 'MOBILE_IRON':
-        return ['mdm_type', 'mi_hostName', 'mi_userName', 'mi_password'];
-      default:
-        return [];
-    }
-  }
-
-  @computed get mdmConfigDataPacket() {
-    let structure = {
-      mdm_type: '',
-      aw_hostName: '',
-      aw_password: '',
-      aw_tenantCode: '',
-      aw_userName: '',
-      ibm_appAccessKey: '',
-      ibm_appID: '',
-      ibm_appVersion: '',
-      ibm_billingID: '',
-      ibm_password: '',
-      ibm_platformID: '',
-      ibm_rootURL: '',
-      ibm_userName: '',
-      mi_hostName: '',
-      mi_password: '',
-      mi_userName: ''
-    };
-    let data = Object.assign(structure, this.formData);
-    return data;
-  }
-
   @computed get pushSuccessMultiple() {
     const num = this.appsReferencedBySuccessAlert.length;
     return num + ' app' + (num === 1 ? ' has' : 's have') + ' been pushed to MDM.';
@@ -460,21 +293,35 @@ class MDMStore {
     return num + ' app' + (num === 1 ? '' : 's') + ' could not be pushed to MDM.';
   }
 
+  @computed get formIsDirty() {
+    let formHasChanged = false;
+    Object.keys(this.values).forEach(key => {
+      if(this.values[key] !== this.defaultValues[key]) {
+        formHasChanged = true;
+      }
+    });
+    return formHasChanged;
+  }
+
+  @action checkFormForErrors() {
+    let hasError = false;
+    this.formFieldRefList.forEach(ref => {
+      if(ref && ref.hasFunctionalError) {
+        hasError = true;
+      }
+    });
+    this.formHasError = hasError;
+  }
+
   // OBSERVABLES
   // API
-  @observable pseMDMObject = observable.map({});
   @observable appCatalogMDMStatuses = observable.map({});
+  @observable mdmIsConfigured = false;
 
   // Form
-  @observable formFieldRefs = [];
-  @observable formData = observable.map({});
-  @observable beingSubmitted = false;
-  @observable hasBeenSubmitted = false;
-  @observable formHasChanged = false;
-  @observable showExitModal = false;
   @observable showbreakMDMConnection = false;
-  @observable interceptedRoute = '';
-  @observable mdmFormIsValid = false;
+  @observable formFieldRefList = [];
+  @observable formHasError = true;
 
   // Alerts
   @observable mdm_form_alerts = [];
@@ -491,6 +338,43 @@ class MDMStore {
     breakConnectionFail: 'There was a problem breaking the connection with MDM.',
     pushSuccess: 'This app has been pushed to MDM.',
     pushFail: 'This app could not be pushed to MDM.'
+  }
+
+  @observable defaultValues = {
+    mdm_type: '',
+    aw_hostName: '',
+    aw_password: '',
+    aw_tenantCode: '',
+    aw_userName: '',
+    ibm_appAccessKey: '',
+    ibm_appID: '',
+    ibm_appVersion: '',
+    ibm_billingID: '',
+    ibm_password: '',
+    ibm_platformID: '',
+    ibm_rootURL: '',
+    ibm_userName: '',
+    mi_hostName: '',
+    mi_password: '',
+    mi_userName: ''
+  }
+  @observable values = {
+    mdm_type: '',
+    aw_hostName: '',
+    aw_password: '',
+    aw_tenantCode: '',
+    aw_userName: '',
+    ibm_appAccessKey: '',
+    ibm_appID: '',
+    ibm_appVersion: '',
+    ibm_billingID: '',
+    ibm_password: '',
+    ibm_platformID: '',
+    ibm_rootURL: '',
+    ibm_userName: '',
+    mi_hostName: '',
+    mi_password: '',
+    mi_userName: ''
   }
 }
 
