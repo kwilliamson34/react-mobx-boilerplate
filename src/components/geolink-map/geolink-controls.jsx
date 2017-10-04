@@ -89,12 +89,12 @@ export default class GeolinkControls extends React.Component {
                 <fieldset className="coverage-layers">
                   <legend className="sr-only">Coverage layers</legend>
                   <div className="col-xs-6 col-sm-12 no-gutters">
-                    <Checkbox id="network-toggle" value="Network" label="Network" handleOnChange={this.toggleNetwork} checked={this.geoStore.showNetworkLayer} disabled={this.props.disabled}/>
-                    <Checkbox id="weather-toggle" value="Weather" label="Weather" handleOnChange={this.toggleWeather} checked={this.geoStore.showWeatherLayer} disabled={this.props.disabled}/>
+                    <Checkbox label="Network" handleOnChange={this.toggleNetwork} checked={this.geoStore.showNetworkLayer} disabled={this.props.disabled}/>
+                    <Checkbox label="Weather" handleOnChange={this.toggleWeather} checked={this.geoStore.showWeatherLayer} disabled={this.props.disabled}/>
                   </div>
                   <div className="col-xs-6 col-sm-12 no-gutters">
-                    <Checkbox id="traffic-toggle" value="Traffic" label="Traffic" handleOnChange={this.toggleTraffic} checked={this.geoStore.showTrafficLayer} disabled={this.props.disabled}/>
-                    <Checkbox id="alerts-toggle" value="Alerts" label="Alerts" handleOnChange={this.toggleAlerts} checked={this.geoStore.showAlertLayer} disabled={this.props.disabled || !this.geoStore.authIsComplete}/>
+                    <Checkbox label="Traffic" handleOnChange={this.toggleTraffic} checked={this.geoStore.showTrafficLayer} disabled={this.props.disabled}/>
+                    <Checkbox label="Alerts" handleOnChange={this.toggleAlerts} checked={this.geoStore.showAlertLayer} disabled={this.props.disabled || !this.geoStore.authIsComplete}/>
                   </div>
                 </fieldset>
               </form>
