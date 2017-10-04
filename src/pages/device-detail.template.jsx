@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {observer, inject} from 'mobx-react';
 
+import PageTitle from '../components/page-title/page-title';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 import PurchasingInfo from '../components/purchasing-info/purchasing-info';
 
@@ -62,7 +63,7 @@ export default class DeviceDetailTemplate extends React.Component {
 				<div className="container detail-block">
 					<div className="row">
 						<div className="col-xs-10 col-xs-offset-1 text-center visible-xs-block visible-sm-block">
-							<h1 dangerouslySetInnerHTML={{__html: this.externalLinkStore.currentDeviceDetail.deviceName}}></h1>
+							<PageTitle>{this.externalLinkStore.currentDeviceDetail.deviceName}></PageTitle>
 						</div>
 					</div>
 					<div className="row is-flex">
@@ -81,7 +82,8 @@ export default class DeviceDetailTemplate extends React.Component {
 							col-sm-offset-0 col-sm-6
 							col-md-offset-0 col-md-7
 							col-lg-offset-0 col-lg-8">
-							<h1 className="hidden-xs hidden-sm" dangerouslySetInnerHTML={{__html: this.externalLinkStore.currentDeviceDetail.deviceName}}></h1>
+							<PageTitle className="hidden-xs hidden-sm"> {this.externalLinkStore.currentDeviceDetail.deviceName}
+							</PageTitle>
 							<div className="feature-list" dangerouslySetInnerHTML={{__html: this.externalLinkStore.currentDeviceDetail.features}}></div>
 							<div className="hidden-xs hidden-sm contact-info">
 								{this.externalLinkStore.currentDevicePurchasingInfo &&

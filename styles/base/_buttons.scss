@@ -17,7 +17,7 @@
   border-right: 1px solid $fn-grey;
   text-align: center;
   background: $fn-white;
-  z-index: 100;
+  z-index: 101;
 
   &:focus {
     @include focus();

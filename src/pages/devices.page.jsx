@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {observer,inject} from 'mobx-react';
 import {Link} from 'react-router-dom';
-
+import PageTitle from '../components/page-title/page-title';
 import {utilsService} from '../core/services/utils.service';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 
@@ -40,10 +40,11 @@ export default class DevicesLandingPage extends React.Component {
 									return (
 										<li key={sectionId + '_' +idx}>
 											<Link to={`/admin/devices/${sectionTitle.toLowerCase()}/${itemRoute}`} id={sectionId + '_' +idx}>
-											<h3 dangerouslySetInnerHTML={{__html: item.device_title}} />
-											<div className="card-img-wrapper">
-												<img src={item.device_image_url} alt={item.device_image_alt} />
-											</div>
+												<h3 dangerouslySetInnerHTML={{__html: item.device_title}}/>
+												<figure className="card-img-wrapper">
+													<img src={item.device_image_url} alt="" />
+													<figcaption className="sr-only">{item.device_image_alt}</figcaption>
+												</figure>
 											</Link>
 										</li>
 									)
@@ -76,7 +77,7 @@ export default class DevicesLandingPage extends React.Component {
 				<div className="container">
 					<div className="row">
 						<div className="col-xs-12 col-sm-10 col-sm-offset-1 catalog-header">
-							<h1>Specialized Devices</h1>
+							<PageTitle>Specialized Devices</PageTitle>
 							<p>
 								FirstNet offers an extensive selection of devices and accessories. Check out a small selection of our portfolio. To learn more about our full portfolio, contact a FirstNet Specialist.
 							</p>
