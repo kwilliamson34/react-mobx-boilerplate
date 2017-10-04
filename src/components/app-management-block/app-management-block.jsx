@@ -64,7 +64,8 @@ export default class AppManagementBlock extends React.Component {
     this.matchingApp = this.props.getMatchingApp(this.props.psk);
 
     return (
-      <div>
+      <fieldset>
+        <legend className="sr-only">Catalog status:</legend>
         {this.matchingApp && <div className="app-management">
           <Checkbox
             label="Available"
@@ -84,7 +85,7 @@ export default class AppManagementBlock extends React.Component {
             pushToMDM={this.props.pushToMDM}
             appCatalogMDMStatuses={this.props.appCatalogMDMStatuses}/>
         </div>}
-      </div>
+      </fieldset>
     );
   }
 }

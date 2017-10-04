@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {observer, inject} from 'mobx-react';
 import {observable} from 'mobx';
 import {Link} from 'react-router-dom';
+import PageTitle from '../components/page-title/page-title';
 
 import {utilsService} from '../core/services/utils.service';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
@@ -77,7 +78,7 @@ export default class DeviceCategoryTemplate extends React.Component {
 				<div className="container">
 					<div className="row">
 						<div className="col-xs-12 catalog-header">
-							<h1>{this.externalLinkStore.currentDeviceCategory}</h1>
+							<PageTitle>{this.externalLinkStore.currentDeviceCategory}</PageTitle>
 						</div>
 					</div>
 					<div className="row">

@@ -85,16 +85,16 @@ export default class Footer extends React.Component {
 					<h2 id="firstnet-sites">Firstnet Sites</h2>
 					<ul >
 						<li role="presentation">
-							<NewTabLink to={config.firstnetCom}>FirstNet.com</NewTabLink>
+							<NewTabLink to={config.firstnetCom} showIcon={true}>FirstNet.com</NewTabLink>
 						</li>
 						<li role="presentation">
-							<NewTabLink to={config.devPortal}>Developer Portal</NewTabLink>
+							<NewTabLink to={config.devPortal} showIcon={true}>Developer Portal</NewTabLink>
 						</li>
 						<li role="presentation">
-							<NewTabLink to={config.appControl}>App Control</NewTabLink>
+							<NewTabLink to={config.appControl} showIcon={true}>App Control</NewTabLink>
 						</li>
 						<li role="presentation">
-							<NewTabLink to={config.appStore}>App Store</NewTabLink>
+							<NewTabLink to={config.appStore} showIcon={true}>App Store</NewTabLink>
 						</li>
 					</ul>
 				</nav>
@@ -148,7 +148,10 @@ export default class Footer extends React.Component {
 		return (
 			<div className={`col-xs-12 ${this.props.showPrivateLinks ? 'col-md-3' : 'col-md-4'}`}>
 				<nav aria-describedby="helpLinks">
-					<h2 id="helpLinks" className="help-hdr">Help</h2>
+					<h2 id="helpLinks" className="help-hdr">
+						<i className="icon-help" aria-hidden="true" />
+						Help
+					</h2>
 					<ul className="help-link-block">
 						{this.props.showPrivateLinks &&
 							<li role="presentation">
@@ -157,14 +160,15 @@ export default class Footer extends React.Component {
 						}
 						{this.props.showPrivateLinks &&
 							<li role="presentation">
-								<NewTabLink to={this.externalLinkStore.firstnetTraining}>
+								<NewTabLink to={this.externalLinkStore.firstnetTraining} showIcon={true}>
 									Training
 								</NewTabLink>
 							</li>
 						}
 						{this.props.showPrivateLinks &&
 							<li>
-								<a href="#" role="button" className="walkthru-toggle" onClick={this.handleToggleWalkthrough}>{`${this.joyrideStore.runNow? 'Disable' : 'Enable'}`} Site Walkthrough
+								<a href="#" role="button" className="walkthru-toggle" onClick={this.handleToggleWalkthrough}>
+									{`${this.joyrideStore.tourIsDisabled ? 'Enable' : 'Disable'}`} Site Walkthrough
 								</a>
 							</li>
 						}
@@ -192,7 +196,9 @@ export default class Footer extends React.Component {
 			<nav>
 				<ul className="sub-links">
 					<li role="presentation">
-						<NewTabLink to={this.externalLinkStore.privacyPolicyLink}>Privacy Policy</NewTabLink>
+						<NewTabLink to={this.externalLinkStore.privacyPolicyLink}>
+							Privacy Policy
+						</NewTabLink>
 					</li>
 					<li role="presentation">
 						<NewTabLink to={this.externalLinkStore.termsOfUse}>

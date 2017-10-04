@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {inject, observer} from 'mobx-react';
 
+import PageTitle from '../components/page-title/page-title';
 import {MDMAlerts} from '../components/configure-mdm/mdm-alerts';
 import AirWatchForm from '../components/configure-mdm/air-watch-form';
 import IBMForm from '../components/configure-mdm/ibm-form';
@@ -65,7 +66,7 @@ export default class ConfigureMDM extends React.Component {
             </button>
             <div className="row no-gutters" id="break-connection-modal-title">
               <div className="col-xs-12">
-                <h1 className="as-h2">Confirm break connection</h1>
+                <PageTitle className="as-h2">Confirm break connection</PageTitle>
                 <p>This cannot be undone. If you break this application’s connection to MDM, you will have to re-configure it using this form to establish a new connection.</p>
               </div>
               <div className="col-xs-12 text-center">
@@ -169,10 +170,10 @@ export default class ConfigureMDM extends React.Component {
         {this.mdmStore.mdmIsConfigured && this.renderBreakConnectionButton()}
         <div className="mdm-form-wrapper container">
           <div className="col-xs-12 text-center">
-            <h1>
+            <PageTitle childrenContainHTML>
               <span className="hidden-xs">Configure Mobile Device Management (MDM)</span>
               <span className="visible-xs-inline">Configure MDM</span>
-            </h1>
+            </PageTitle>
           </div>
 
           <div className="row no-gutters">

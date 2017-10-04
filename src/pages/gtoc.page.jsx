@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {observer, inject} from 'mobx-react';
 import GtocForm from '../components/gtoc/gtoc-form';
+import PageTitle from '../components/page-title/page-title';
 
 @inject('store')
 @observer
@@ -18,7 +19,7 @@ export default class SubscribeToGTOC extends React.Component {
           <div className="container">
             <div className="row text-center">
               <div className="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8">
-                <h1>Subscribe to Network Alerts</h1>
+                <PageTitle>Subscribe to Network Alerts</PageTitle>
               </div>
               <div className="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
                 <figure>

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {inject, observer} from 'mobx-react';
 import {Link} from 'react-router-dom';
 import {utilsService} from '../core/services/utils.service';
-
+import PageTitle from '../components/page-title/page-title';
 import {CardList} from '../components/card-list/card-list';
 import {SearchForm} from '../components/search/search-form';
 import {Filters} from '../components/filters/filters';
@@ -100,7 +100,7 @@ export default class ManageAppsPage extends React.Component {
               <div className="configure-mdm-wrapper">
                 <Link to="/admin/configure-mdm" className="configure-mdm-btn fn-primary">Configure MDM</Link>
               </div>
-              <h1>Manage Apps</h1>
+              <PageTitle>Manage Apps</PageTitle>
             </div>
           </div>
         </div>
