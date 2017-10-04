@@ -151,7 +151,7 @@ class MDMStore {
   // MDM Connection functions
   @action getMDMConfiguration() {
     const success = (resp) => {
-      this.values = Object.assign(this.defaultValues, resp.data);
+      this.values = Object.assign({}, this.defaultValues, resp.data);
       if(this.values.mdm_type) {
         this.mdmIsConfigured = true;
       }
