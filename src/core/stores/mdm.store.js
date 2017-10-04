@@ -307,8 +307,6 @@ class MDMStore {
     let hasError = false;
     this.formFieldRefList.forEach(ref => {
       if(ref && ref.hasFunctionalError) {
-        console.log('ref with error:');
-        console.log(ref);
         hasError = true;
       }
     });
