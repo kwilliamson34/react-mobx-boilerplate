@@ -41,7 +41,7 @@ export default class TextInput extends React.Component {
     }
 
     //other validation rules
-    if(this.props.getIsValid !== undefined && !this.props.getIsValid(this.valueInStore)) {
+    if(this.valueInStore !== '' && this.props.getIsValid !== undefined && !this.props.getIsValid(this.valueInStore)) {
       hasError = true;
     }
 

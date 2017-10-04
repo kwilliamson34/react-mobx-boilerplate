@@ -3,7 +3,7 @@ jest.unmock('date-fns');
 jest.unmock('axios');
 
 jest.unmock('../../push-to-mdm/push-to-mdm');
-jest.unmock('../../toggle/checkbox');
+jest.unmock('../../forms/checkbox');
 
 import {AppDetailBanner} from '../app-detail-banner';
 
