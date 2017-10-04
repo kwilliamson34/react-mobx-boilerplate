@@ -74,6 +74,7 @@ class AppCatalogStore {
 		} else {
 			apiService.removeAppFromGroup(appPSK, 'Available');
 
+			//an app can't be recommended if it's not available
 			if (this.currentAppObject.isRecommended) {
 				this.currentAppObject.isRecommended = false;
 				apiService.removeAppFromGroup(appPSK, 'Recommended');
