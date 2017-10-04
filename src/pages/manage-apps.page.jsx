@@ -147,7 +147,7 @@ export default class ManageAppsPage extends React.Component {
                 changeAppRecommended={this.appCatalogStore.changeAppRecommended.bind(this.appCatalogStore)}
                 getMatchingApp={this.appCatalogStore.getMatchingApp.bind(this.appCatalogStore)}
 
-                configuredMDMType={this.mdmStore.pseMDMObject.toJS().mdm_type}
+                configuredMDMType={this.mdmStore.values.mdm_type}
                 pushToMDM={this.mdmStore.pushToMDM.bind(this.mdmStore)}
                 appCatalogMDMStatuses={this.mdmStore.appCatalogMDMStatuses.toJS()}
                 appsReferencedBySuccessAlert={this.mdmStore.appsReferencedBySuccessAlert}

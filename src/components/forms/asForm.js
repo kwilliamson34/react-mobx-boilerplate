@@ -15,7 +15,12 @@ export default function asForm (MyComponent, attributes) {
         formIsDirty: PropTypes.bool,
         showAlert: PropTypes.bool,
         formHasError: PropTypes.bool
-      })
+      }),
+      disabled: PropTypes.bool
+    }
+
+    static defaultProps = {
+      disabled: false
     }
 
     constructor (props) {
@@ -30,7 +35,7 @@ export default function asForm (MyComponent, attributes) {
 
       //set up reroute blockade (returns unblocking function)
       this.unblock = history.block((location) => {
-        if (this.store.formIsDirty) {
+        if (this.store.formIsDirty && !this.props.disabled) {
           this.interceptedRoute = location.pathname;
           this.showExitModal();
           return false; //does not allow to proceed to new page
@@ -67,7 +72,7 @@ export default function asForm (MyComponent, attributes) {
     renderSubmitButton = () => {
       return (
         <div className="form-group text-center">
-          <button type="button" onClick={this.handleSubmit} className={`fn-primary ${this.store.formHasError ? 'disabled' : ''}`}>
+          <button type="button" onClick={this.handleSubmit} className={`fn-primary ${(this.props.disabled || this.store.formHasError) ? 'disabled' : ''}`}>
             {this.submitButtonText}
           </button>
         </div>
