@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
 
 import Checkbox from '../forms/checkbox';
-import MapSearch from './map-search';
+import TextInput from '../forms/text-input';
 
 @observer
 export default class GeolinkControls extends React.Component {
@@ -59,7 +59,7 @@ export default class GeolinkControls extends React.Component {
           <span className="sr-only">Close alert</span>
         </button>
         <p role="alert" aria-live="assertive">
-          <strong>Success!&nbsp;</strong>{"\"" + this.geoStore.values.locationName + "\""} has been added.
+          <strong>Success!&nbsp;</strong>{'"' + this.geoStore.values.locationName + '"'} has been added.
         </p>
       </div>
     )
@@ -81,11 +81,18 @@ export default class GeolinkControls extends React.Component {
           <div className="row is-flex">
             <div className="col-xs-12 col-sm-8 col-md-4 map-search">
               <h2 className="as-h5">Search</h2>
-              <MapSearch
-                geolinkStore={this.geoStore}
+              <TextInput
                 ref={ref => this.geoStore.formFieldRefList.push(ref)}
+                checkFormForErrors={this.geoStore.checkFormForErrors.bind(this.store)}
                 dataObject={this.geoStore.values}
-                id="locationAddress"/>
+                id="locationAddress"
+                type="search"
+                labelText="Address"
+                labelIsSrOnly={true}
+                className="search-form"
+                showClearButton={true}
+                handleSubmit={this.geoStore.searchMap.bind(this.geoStore)}
+                submitIcon="icon-search"/>
               <button className={`as-link ${this.geoStore.values.locationAddress ? '' : 'disabled'}`} ref="addFavoriteBtn" onClick={this.showAddLocationForm}>Add Favorite</button>
             </div>
             <div className="col-xs-12 col-sm-4 col-md-4 map-layers">

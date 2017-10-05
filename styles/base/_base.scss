@@ -67,21 +67,21 @@ h2 + hr {
 
 
 
-.input-group {
-  input {
-    padding-right: 35px;
-    font-weight: $fn-medium-weight;
-    width: 100%;
+.form-group {
+  .input-wrapper {
+    display: flex;
   }
 
-  //hide pseudo-element for clear on IE
-  &::-ms-clear {
-    display: none;
+  input {
+    //hide pseudo-element for clear on IE
+    &::-ms-clear {
+      display: none;
+    }
   }
 
   .clear-btn {
     position: absolute;
-    right: 47px;
+    right: 62px;
     background-color: transparent;
     z-index: 30;
     border-radius: 0;
@@ -93,6 +93,7 @@ h2 + hr {
   }
 
   .submit-btn {
+    display: table-cell;
     border-color: $input-outline;
     margin-left: -1px;
     border-top-left-radius: 0;
@@ -129,5 +130,12 @@ h2 + hr {
     &:focus {
       background-color: $fn-blue;
     }
+  }
+}
+
+.search-form {
+  input.form-control {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
   }
 }

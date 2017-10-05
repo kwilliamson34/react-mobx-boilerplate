@@ -16,10 +16,15 @@ export default class TextInput extends React.Component {
     charLimit: PropTypes.number,
     disabled: PropTypes.bool,
     labelText: PropTypes.string,
+    labelIsSrOnly: PropTypes.bool,
     getIsValid: PropTypes.func,
     checkFormForErrors: PropTypes.func,
     errorMessage: PropTypes.string,
-    className: PropTypes.string
+    className: PropTypes.string,
+    showClearButton: PropTypes.bool,
+    handleClearClick: PropTypes.func,
+    handleSubmit: PropTypes.func,
+    submitIcon: PropTypes.string
   }
 
   static defaultProps = {
@@ -27,7 +32,9 @@ export default class TextInput extends React.Component {
     required: false,
     disabled: false,
     errorMessage: 'This entry is not valid.',
-    className: ''
+    className: '',
+    showClearButton: false,
+    checkFormForErrors: () => {}
   }
 
   @observable hasVisibleError = false;
@@ -50,6 +57,11 @@ export default class TextInput extends React.Component {
     return hasError;
   }
 
+  showErrors = () => {
+    this.hasVisibleError = this.hasFunctionalError;
+    this.props.checkFormForErrors();
+  }
+
   handleOnChange = (e) => {
     const newValue = e.target.value;
     if(this.props.charLimit) {
@@ -57,13 +69,32 @@ export default class TextInput extends React.Component {
     } else {
       this.props.dataObject[this.props.id] = newValue;
     }
-    this.hasVisibleError = this.hasFunctionalError;
-    this.props.checkFormForErrors();
+    this.showErrors();
   }
 
   handleOnBlur = () => {
-    this.hasVisibleError = this.hasFunctionalError;
-    this.props.checkFormForErrors();
+    this.showErrors();
+  }
+
+  handleKeyPress = (e) => {
+    if (this.props.handleSubmit && e.key == 'Enter') {
+      e.preventDefault();
+      this.props.handleSubmit();
+    }
+  }
+
+  handleClearClick = () => {
+    this.props.dataObject[this.props.id] = '';
+    this.refs.btnSubmit.focus();
+    this.showErrors();
+    if(this.props.handleClearClick) {
+      this.props.handleClearClick();
+    }
+  }
+
+  handleSubmit = () => {
+    this.refs.input.blur();
+    this.props.handleSubmit();
   }
 
   render() {
@@ -76,14 +107,29 @@ export default class TextInput extends React.Component {
           fieldIsRequired={this.props.required}
           labelText={this.props.labelText}
           errorMessage={this.props.errorMessage}/>
-        <Tag
-          className="form-control"
-          id={this.props.id}
-          type={this.props.type}
-          disabled={this.props.disabled}
-          onChange={this.handleOnChange}
-          onBlur={this.handleOnBlur}
-          value={this.valueInStore}/>
+        <div className="input-wrapper">
+          <Tag
+            className="form-control"
+            ref="input"
+            id={this.props.id}
+            type={this.props.type}
+            disabled={this.props.disabled}
+            onChange={this.handleOnChange}
+            onBlur={this.handleOnBlur}
+            onKeyPress={this.handleKeyPress}
+            value={this.valueInStore}/>
+          {this.props.showClearButton && this.valueInStore !== '' &&
+            <button className="btn clear-btn" type="button" ref="btnClear" onClick={this.handleClearClick}>
+              <span className="sr-only">Clear</span>
+              <span aria-hidden="true" className="icon-close"/>
+            </button>
+          }
+          {this.props.handleSubmit && this.props.submitIcon &&
+            <button className="btn submit-btn" type="button" ref="btnSubmit" onClick={this.handleSubmit} disabled={this.props.disabled}>
+              <span className="sr-only">Submit</span>
+              <span aria-hidden="true" className={this.props.submitIcon}/>
+            </button>}
+        </div>
       </div>
     )
   }

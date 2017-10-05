@@ -4,7 +4,6 @@ import {observer} from 'mobx-react';
 
 import asForm from '../forms/asForm.js';
 import TextInput from '../forms/text-input';
-import MapSearch from './map-search';
 
 @observer
 class LocationFavoriteForm extends React.Component {
@@ -22,16 +21,19 @@ class LocationFavoriteForm extends React.Component {
   render() {
     return (
       <div className="location-favorite-form">
-        <MapSearch
-          geolinkStore={this.store}
+        <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
+          checkFormForErrors={this.store.checkFormForErrors.bind(this.store)}
           dataObject={this.store.values}
           id="locationAddress"
-          checkFormForErrors={this.store.checkFormForErrors.bind(this.store)}
+          type="search"
           labelText="Address"
+          required={true}
           errorMessage="Please enter an address."
-          className="col-xs-12 col-sm-6"
-          required={true}/>
+          className="col-xs-12 col-sm-6 search-form"
+          showClearButton={true}
+          handleSubmit={this.store.searchMap.bind(this.geoStore)}
+          submitIcon="icon-search"/>
 
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
