@@ -172,18 +172,18 @@ select::-ms-value {
   .cr {
     position: relative;
     display: inline-block;
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     float: left;
-    margin: 4px 8px 8px 2px;
+    margin: 2px 8px 8px 2px;
   }
   //keyboard-only fallback
-  input[type="checkbox"],
-  input[type="radio"] {
+  input[type="radio"],
+  input[type="checkbox"] {
     @include sr-only;
-
     &:focus +.cr {
       @include focus();
+      border-radius: 4px;
     }
   }
 
@@ -201,15 +201,14 @@ select::-ms-value {
     &+ .cr {
       background: url('/images/radio-unchecked.svg') no-repeat;
       background-size: 16px 16px;
-      background-position: 0 0;
+      background-position: 2px 2px;
     }
 
-    &.disabled,
     &:disabled {
       &+ .cr {
         background: url('/images/radio-unchecked-disabled.svg') no-repeat;
         background-size: 16px 16px;
-        background-position: 0 0;
+        background-position: 2px 2px;
       }
     }
 
@@ -217,15 +216,14 @@ select::-ms-value {
       &+ .cr {
         background: url('/images/radio-checked.svg') no-repeat;
         background-size: 16px 16px;
-        background-position: 0 0;
+        background-position: 2px 2px;
       }
 
-      &.disabled,
       &:disabled {
         &+ .cr {
           background: url('/images/radio-checked-disabled.svg') no-repeat;
           background-size: 16px 16px;
-          background-position: 0 0;
+          background-position: 2px 2px;
         }
       }
     }
@@ -237,15 +235,15 @@ select::-ms-value {
     &+ .cr {
       background: url('/images/chkbox.svg') no-repeat;
       background-size: 16px 16px;
-      background-position: 0 0;
+      background-position: 2px 2px;
     }
 
-    &.disabled,
-    &:disabled {
+    &:disabled,
+    &.disabled {
       &+ .cr {
         background: url('/images/chkbox-disabled.svg') no-repeat;
         background-size: 16px 16px;
-        background-position: 0 0;
+        background-position: 2px 2px;
       }
     }
 
@@ -253,15 +251,15 @@ select::-ms-value {
       &+ .cr {
         background: url('/images/chkbox-checked.svg') no-repeat;
         background-size: 16px 16px;
-        background-position: 0 0;
+        background-position: 2px 2px;
       }
 
-      &.disabled,
-      &:disabled {
+      &:disabled,
+      &.disabled {
         &+ .cr {
           background: url('/images/chkbox-disabled.svg') no-repeat;
           background-size: 16px 16px;
-          background-position: 0 0;
+          background-position: 2px 2px;
         }
       }
     }

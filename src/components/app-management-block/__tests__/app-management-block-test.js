@@ -1,6 +1,6 @@
 jest.unmock('axios');
 jest.unmock('../app-management-block');
-jest.unmock('../../toggle/checkbox');
+jest.unmock('../../forms/checkbox');
 jest.unmock('jquery');
 
 import AppManagementBlock from '../app-management-block';

@@ -1,7 +1,7 @@
 jest.unmock('../geolink-controls');
 
 // unmocking because we want to test all the way down the chain.
-jest.unmock('../../toggle/checkbox');
+jest.unmock('../../forms/checkbox');
 
 import GeolinkControls from '../geolink-controls';
 import { MemoryRouter } from 'react-router-dom';

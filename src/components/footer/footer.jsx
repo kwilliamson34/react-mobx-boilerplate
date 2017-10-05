@@ -196,7 +196,9 @@ export default class Footer extends React.Component {
 			<nav>
 				<ul className="sub-links">
 					<li role="presentation">
-						<NewTabLink to={this.externalLinkStore.privacyPolicyLink}>Privacy Policy</NewTabLink>
+						<NewTabLink to={this.externalLinkStore.privacyPolicyLink}>
+							Privacy Policy
+						</NewTabLink>
 					</li>
 					<li role="presentation">
 						<NewTabLink to={this.externalLinkStore.termsOfUse}>

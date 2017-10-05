@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import NewTabLink from '../components/link/new-tab-link';
 import config from 'config';
+import PageTitle from '../components/page-title/page-title';
 
 export default class AdminDashboardPage extends React.Component {
 
@@ -10,7 +11,7 @@ export default class AdminDashboardPage extends React.Component {
       <article id="admin-dashboard-page">
         <div className="container">
           <div className="col-xs-12">
-            <h1>Administration</h1>
+            <PageTitle>Administration</PageTitle>
           </div>
           <div className="row no-gutters">
             <section className="col-xs-12 col-lg-8 manage-actions">
