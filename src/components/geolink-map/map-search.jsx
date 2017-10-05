@@ -15,14 +15,15 @@ export default class MapSearch extends React.Component {
     disabled: PropTypes.bool,
     labelText: PropTypes.string,
     checkFormForErrors: PropTypes.func,
-    errorMessage: PropTypes.string
+    errorMessage: PropTypes.string,
+    className: PropTypes.string
   };
 
   static defaultProps = {
-    labelText: 'Location',
     required: false,
     disabled: false,
-    errorMessage: 'Please enter an address to search.'
+    errorMessage: 'Please enter an address to search.',
+    className: ''
   }
 
   constructor(props) {
@@ -72,14 +73,15 @@ export default class MapSearch extends React.Component {
 
   render() {
     return (
-      <div className="search-form form-group">
+      <div className={`search-form form-group ${this.props.className}`}>
         <div className="search-input input-group">
           <FormLabel
             id={this.props.id}
             hasError={this.hasVisibleError}
             fieldIsRequired={this.props.required}
-            labelText={this.props.labelText}
-            errorMessage={this.props.errorMessage}/>
+            labelText={this.props.labelText || 'Location'}
+            errorMessage={this.props.errorMessage}
+            srOnly={!this.props.labelText}/>
           <div className="search-bar">
             <input
               id={this.props.id}

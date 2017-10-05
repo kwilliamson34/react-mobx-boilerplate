@@ -2,6 +2,7 @@ import {action, observable, computed} from 'mobx';
 import axios from 'axios';
 import config from 'config';
 import {utilsService} from '../services/utils.service';
+import {apiService} from '../services/api.service';
 
 const networkLayerNames = [
   'FirstNet:Coverage2G',
@@ -127,21 +128,25 @@ class GeolinkStore {
 
 
   @action submitForm() {
-    //TODO wait for service to integrate with
-    console.log(this.values);
-    // const success = () => {
-    //   this.clearForm();
-    //   history.push('/subscribe-to-alerts-success');
-    // }
-    // const failure = () => {
-    //   this.showAlert = true;
-    // }
-    // apiService.submitGTOCSubscriptionForm(this.values).then(success, failure);
+    const success = () => {
+      this.pageMode = 'MAP_CONTROLS';
+      this.showSuccess = true;
+    }
+    const failure = () => {
+      this.showAlert = true;
+    }
+    apiService.addLocationFavorite(this.values).then(success, failure);
   }
 
   @action clearForm() {
     this.values = Object.assign({}, this.defaultValues);
+    this.clearAlerts();
+    this.pageMode = 'MAP_CONTROLS';
+  }
+
+  @action clearAlerts() {
     this.showAlert = false;
+    this.showSuccess = false;
   }
 
   @computed get formIsDirty() {
@@ -185,6 +190,7 @@ class GeolinkStore {
   @observable formFieldRefList = [];
   @observable formHasError = true;
   @observable showAlert = false;
+  @observable showSuccess = false;
   @observable defaultValues = {
     locationAddress: '',
     locationName: ''

@@ -47,19 +47,46 @@ export default class GeolinkControls extends React.Component {
     }
   };
 
+  showAddLocationForm = () => {
+    this.geoStore.pageMode = 'ADD_LOCATION';
+    this.geoStore.clearAlerts();
+  }
+
+  renderSuccess = () => {
+    return (
+      <div className="alert alert-success">
+        <button type="button" className="close_btn icon-close" onClick={this.clearSuccess}>
+          <span className="sr-only">Close alert</span>
+        </button>
+        <p role="alert" aria-live="assertive">
+          <strong>Success!&nbsp;</strong>{"\"" + this.geoStore.values.locationName + "\""} has been added.
+        </p>
+      </div>
+    )
+  }
+
   render() {
     return (
       <section className={`geolink-controls has-transition ${this.geoStore.pageMode === 'MAP_CONTROLS' ? 'transition-in' : 'transition-out'}`}>
+        {this.geoStore.showSuccess &&
+          <div className="container">
+            <div className="row">
+              <div className="col-xs-12">
+                {this.renderSuccess()}
+              </div>
+            </div>
+          </div>
+        }
         <div className="container">
           <div className="row is-flex">
             <div className="col-xs-12 col-sm-8 col-md-4 map-search">
               <h2 className="as-h5">Search</h2>
-                <MapSearch
-                  geolinkStore={this.geoStore}
-                  ref={ref => this.geoStore.formFieldRefList.push(ref)}
-                  dataObject={this.geoStore.values}
-                  id="locationAddress"
-                  labelText="Location"/>
+              <MapSearch
+                geolinkStore={this.geoStore}
+                ref={ref => this.geoStore.formFieldRefList.push(ref)}
+                dataObject={this.geoStore.values}
+                id="locationAddress"/>
+              <button className={`as-link ${this.geoStore.values.locationAddress ? '' : 'disabled'}`} ref="addFavoriteBtn" onClick={this.showAddLocationForm}>Add Favorite</button>
             </div>
             <div className="col-xs-12 col-sm-4 col-md-4 map-layers">
               <h2 className="as-h5">Layers</h2>

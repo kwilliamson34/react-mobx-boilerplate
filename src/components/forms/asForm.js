@@ -31,6 +31,7 @@ export default function asForm (MyComponent, attributes) {
     componentWillMount() {
       this.interceptedRoute = '';
       this.alertText = attributes && attributes.alertText ? attributes.alertText : 'Please fix the following errors.';
+      this.successText = attributes && attributes.successText ? attributes.successText : 'Your submission was successful.';
       this.submitButtonText = attributes && attributes.submitButtonText ? attributes.submitButtonText : 'Submit';
       this.discardButtonText = attributes && attributes.discardButtonText ? attributes.discardButtonText : '';
 
@@ -57,6 +58,14 @@ export default function asForm (MyComponent, attributes) {
       this.store.showAlert = false;
     }
 
+    showSuccess = () => {
+      this.store.showSuccess = true;
+    }
+
+    clearSuccess = () => {
+      this.store.showSuccess = false;
+    }
+
     renderAlert = () => {
       return (
         <div className="alert alert-error">
@@ -70,9 +79,22 @@ export default function asForm (MyComponent, attributes) {
       )
     }
 
+    renderSuccess = () => {
+      return (
+        <div className="alert alert-success">
+          <button type="button" className="close_btn icon-close" onClick={this.clearSuccess}>
+            <span className="sr-only">Close alert</span>
+          </button>
+          <p role="alert" aria-live="assertive">
+            <strong>Success!&nbsp;</strong>{this.successText}
+          </p>
+        </div>
+      )
+    }
+
     renderSubmitButton = () => {
       return (
-        <div className="form-group text-center">
+        <div className="form-group text-center submit-button-wrapper">
           <button type="button" onClick={this.handleSubmit} className={`fn-primary form-submit ${(this.props.disabled || this.store.formHasError) ? 'disabled' : ''}`}>
             {this.submitButtonText}
           </button>
@@ -82,7 +104,7 @@ export default function asForm (MyComponent, attributes) {
 
     renderDiscardButton = () => {
       return (
-        <div className="form-group text-center">
+        <div className="form-group text-center submit-button-wrapper">
           <button type="button" onClick={this.handleDiscard} className='fn-secondary form-submit'>
             {this.discardButtonText}
           </button>
@@ -156,6 +178,7 @@ export default function asForm (MyComponent, attributes) {
         <section>
           <form noValidate>
             {this.store.showAlert && this.renderAlert()}
+            {this.store.showSuccess && this.renderSuccess()}
             <MyComponent {...this.props}
               showExitModal={this.showExitModal}
               hideExitModal={this.hideExitModal}/>

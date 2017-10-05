@@ -18,14 +18,16 @@ export default class TextInput extends React.Component {
     labelText: PropTypes.string,
     getIsValid: PropTypes.func,
     checkFormForErrors: PropTypes.func,
-    errorMessage: PropTypes.string
+    errorMessage: PropTypes.string,
+    className: PropTypes.string
   }
 
   static defaultProps = {
     labelText: '',
     required: false,
     disabled: false,
-    errorMessage: 'This entry is not valid.'
+    errorMessage: 'This entry is not valid.',
+    className: ''
   }
 
   @observable hasVisibleError = false;
@@ -67,7 +69,7 @@ export default class TextInput extends React.Component {
   render() {
     const Tag = this.props.type === 'textarea' ? 'textarea' : 'input';
     return (
-      <div className={`form-group ${this.hasVisibleError ? 'has-error' : ''}`}>
+      <div className={`form-group ${this.props.className} ${this.hasVisibleError ? 'has-error' : ''}`}>
         <FormLabel
           id={this.props.id}
           hasError={this.hasVisibleError}

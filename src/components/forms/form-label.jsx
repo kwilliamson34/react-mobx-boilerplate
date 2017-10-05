@@ -10,7 +10,8 @@ export default class FormLabel extends React.Component {
     labelText: PropTypes.string.isRequired,
     hasError: PropTypes.bool,
     errorMessage: PropTypes.string,
-    fieldIsRequired: PropTypes.bool
+    fieldIsRequired: PropTypes.bool,
+    srOnly: PropTypes.bool
   }
 
   static defaultProps = {
@@ -22,7 +23,7 @@ export default class FormLabel extends React.Component {
   render() {
     return (
       <div>
-        <label className="control-label" htmlFor={this.props.id}>
+        <label className={`control-label ${this.props.srOnly ? 'sr-only' : ''}`} htmlFor={this.props.id}>
           {this.props.labelText}
           {this.props.fieldIsRequired &&
             <span className="required-asterisks"> *</span>

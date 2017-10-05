@@ -62,12 +62,13 @@ export default class NetworkStatusPage extends React.Component {
         <GeolinkControls geolinkStore={this.geoStore} disabled={!showMap}/>
 
         {(this.geoStore.pageMode === 'ADD_LOCATION' || this.geoStore.pageMode === 'EDIT_LOCATION') &&
-          <div className="container">
+          <div className="container location-favorites">
             <div className="row">
               <div className="col-xs-12">
                 <h2 className="as-h1">Add New Favorite</h2>
-                <LocationFavoriteForm store={this.geoStore} mode={this.geoStore.pageMode}/>
+
               </div>
+              <LocationFavoriteForm store={this.geoStore} mode={this.geoStore.pageMode}/>
             </div>
           </div>}
       </article>

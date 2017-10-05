@@ -30,6 +30,7 @@ class LocationFavoriteForm extends React.Component {
           checkFormForErrors={this.store.checkFormForErrors.bind(this.store)}
           labelText="Address"
           errorMessage="Please enter an address."
+          className="col-xs-12 col-sm-6"
           required={true}/>
 
         <TextInput
@@ -40,10 +41,15 @@ class LocationFavoriteForm extends React.Component {
           type="input"
           labelText="Name"
           required={true}
-          errorMessage="Please enter a name."/>
+          errorMessage="Please enter a name."
+          className="col-xs-12 col-sm-6"/>
       </div>
     );
   }
 }
 
-export default asForm(LocationFavoriteForm, {submitButtonText: 'Save Favorite', discardButtonText: 'Discard & Go Back'})
+export default asForm(LocationFavoriteForm, {
+  submitButtonText: 'Save Favorite',
+  discardButtonText: 'Discard & Go Back',
+  successText: 'Your favorite has been added.'
+})
