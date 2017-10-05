@@ -11,13 +11,13 @@
         "title": "Administrative Dashboard",
         "text": "<p>Manage users and apps, assign devices, and view reports.</p>",
         "selector": ".manage-actions",
-        "position": "top"
+        "position": "right"
       },
       {
         "title": "Purchasing & Provisioning Options",
         "text": "<p>Explore, shop, and provision devices.</p>",
         "selector": "aside",
-        "position": "top"
+        "position": "left"
       },
       {
         "title": "Live Help",
