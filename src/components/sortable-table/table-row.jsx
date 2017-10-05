@@ -6,7 +6,7 @@ import {observer} from 'mobx-react';
 export class SortableTableRow extends React.Component {
 
   static propTypes = {
-    data: PropTypes.object.isRequired,
+    id: PropTypes.string.isRequired,
     button: PropTypes.object,
     checked: PropTypes.bool
   }
@@ -15,7 +15,7 @@ export class SortableTableRow extends React.Component {
     checked: false
   }
 
-  handleFocus = (e) => {
+  handleOnChange = (e) => {
 
   }
 
@@ -23,6 +23,11 @@ export class SortableTableRow extends React.Component {
     return (
       <tr className={`sortable-table-row ${this.props.checked ? 'active' : ''}`} tabIndex="0">
         <th scope="row">
+          <input
+            role="checkbox"
+            checked={this.props.checked}
+            value={this.props.data.id}
+            onChange={this.onChange}/>
         </th>
       </tr>
     )
