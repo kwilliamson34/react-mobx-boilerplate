@@ -118,7 +118,6 @@ $map-height-mobile: 400px;
 
   form,
   .form-group,
-  .search-form .search-input.input-group,
   .input-group {
     padding: 0;
     margin: 0;
@@ -277,10 +276,6 @@ $map-height-mobile: 400px;
   .submit-button-wrapper {
     float: left;
     padding: 0 15px;
-  }
-
-  .search-form .search-input.input-group {
-    padding: 0;
   }
 }
 /**********************************************/

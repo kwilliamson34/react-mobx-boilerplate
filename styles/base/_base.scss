@@ -64,3 +64,70 @@ h1 + hr,
 h2 + hr {
   border-color: $fn-header-hr-grey;
 }
+
+
+
+.input-group {
+  input {
+    padding-right: 35px;
+    font-weight: $fn-medium-weight;
+    width: 100%;
+  }
+
+  //hide pseudo-element for clear on IE
+  &::-ms-clear {
+    display: none;
+  }
+
+  .clear-btn {
+    position: absolute;
+    right: 47px;
+    background-color: transparent;
+    z-index: 30;
+    border-radius: 0;
+
+    .icon-close {
+      font-size: 14px;
+      color: $fn-dkgrey;
+    }
+  }
+
+  .submit-btn {
+    border-color: $input-outline;
+    margin-left: -1px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .clear-btn,
+  .submit-btn {
+    height: 48px;
+    width: 48px;
+
+    [class^="icon-"]:before {
+      line-height: 3;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      border: 1px solid $input-outline;
+      box-shadow: none;
+      z-index: 30;
+
+      .icon-close,
+      .icon-search:before {
+        color: white;
+      }
+    }
+
+    &:hover {
+      background-color: $fn-ltblue;
+    }
+
+    &:active,
+    &:focus {
+      background-color: $fn-blue;
+    }
+  }
+}

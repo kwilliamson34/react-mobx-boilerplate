@@ -51,7 +51,7 @@ export class SearchForm extends React.Component {
                 <span aria-hidden="true" className="icon-close"/>
               </button>
             }
-            <button className="btn search-btn" type="submit" ref="btnSearch">
+            <button className="btn submit-btn" type="submit" ref="btnSubmit">
               <span className="sr-only">Search</span>
               <span aria-hidden="true" className="icon-search"/>
             </button>

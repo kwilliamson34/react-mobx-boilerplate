@@ -56,7 +56,7 @@ export default class MapSearch extends React.Component {
 
   handleSearchSubmit = () => {
     this.geoStore.searchMap();
-    this.refs.searchInput.blur(); //close native keyboard on mobile, to show search result
+    this.refs.input.blur(); //close native keyboard on mobile, to show search result
   }
 
   handleOnKeyPress = (e) => {
@@ -68,7 +68,7 @@ export default class MapSearch extends React.Component {
 
   handleClearClick = () => {
     this.props.dataObject[this.props.id] = '';
-    this.refs.btnSearch.focus();
+    this.refs.btnSubmit.focus();
   }
 
   render() {
@@ -86,7 +86,7 @@ export default class MapSearch extends React.Component {
             <input
               id={this.props.id}
               type="search"
-              ref="searchInput"
+              ref="input"
               disabled={this.props.disabled}
               className="form-control"
               value={this.valueInStore}
@@ -98,7 +98,7 @@ export default class MapSearch extends React.Component {
                 <span aria-hidden="true" className="icon-close"/>
               </button>
             }
-            <button className="btn search-btn" type="button" ref="btnSearch" onClick={this.handleSearchSubmit} disabled={this.props.disabled}>
+            <button className="btn submit-btn" type="button" ref="btnSubmit" onClick={this.handleSearchSubmit} disabled={this.props.disabled}>
               <span className="sr-only">Search</span>
               <span aria-hidden="true" className="icon-search"/>
             </button>
