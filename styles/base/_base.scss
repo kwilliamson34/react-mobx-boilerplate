@@ -39,6 +39,10 @@ form p {
   font-size: $fn-label-desktop;
 }
 
+form button.form-submit {
+  margin: 3rem 0 6rem;
+}
+
 .certified-app-label {
   color: $fn-certified-grey;
   font-size: 1.4rem;

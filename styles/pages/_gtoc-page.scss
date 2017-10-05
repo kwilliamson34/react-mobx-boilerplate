@@ -110,15 +110,6 @@
       }
     }
   }
-
-  form button:not(.close_btn) {
-    margin: 3rem 0 6rem;
-
-    &.disabled {
-      cursor: auto;
-      pointer-events: auto;
-    }
-  }
 }
 @media #{$mobile} {
   #subscribe-to-gtoc-page {

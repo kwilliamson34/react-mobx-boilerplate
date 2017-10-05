@@ -72,7 +72,7 @@ export default function asForm (MyComponent, attributes) {
     renderSubmitButton = () => {
       return (
         <div className="form-group text-center">
-          <button type="button" onClick={this.handleSubmit} className={`fn-primary ${(this.props.disabled || this.store.formHasError) ? 'disabled' : ''}`}>
+          <button type="button" onClick={this.handleSubmit} className={`fn-primary form-submit ${(this.props.disabled || this.store.formHasError) ? 'disabled' : ''}`}>
             {this.submitButtonText}
           </button>
         </div>
