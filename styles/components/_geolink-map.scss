@@ -272,6 +272,8 @@ $map-height-mobile: 400px;
 
 .container.location-favorites {
   margin-top: 6rem;
+  margin-bottom: 6rem;
+  display: block;
 
   .submit-button-wrapper {
     float: left;
@@ -298,6 +300,14 @@ $map-height-mobile: 400px;
         span {
           padding-top: 15px;
         }
+      }
+    }
+  }
+
+  .container.location-favorites {
+    .submit-button-wrapper {
+      button {
+        margin: 0;
       }
     }
   }
