@@ -33,7 +33,7 @@ export default class JoyrideBase extends React.Component {
       this.joyrideStore.stopTour();
       this.joyrideStore.tourPage = nextProps.location;
 
-      if(!this.joyrideStore.tourIsDisabled) {
+      if(!this.joyrideStore.tourIsDisabled && !this.joyrideStore.showTourIntroModal) {
         this.joyrideStore.runNow = this.joyrideStore.tourAutoStart;
         this.joyrideStore.setupTour();
       }
