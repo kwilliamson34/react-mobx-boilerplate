@@ -2,22 +2,50 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
 
+import SortableColumn from './sortable-column';
+
 @observer
 export class SortableTable extends React.Component {
 
   static propTypes = {
     store: PropTypes.object.isRequired,
     caption: PropTypes.string.isRequired,
-    list: PropTypes.string.isRequired,
+    columns: PropTypes.array,
+    rows: PropTypes.array,
     tableId: PropTypes.string
   };
+
+  static defaultProps = {
+    columns: [],
+    rows: []
+  }
 
   constructor(props) {
     super(props);
     this.store = this.props.store;
   }
 
-  noResults(){
+  handleRowSelection = (e, app) => {
+    if (e.key === 'Enter' || e.type === 'click') {
+      this.store.rowSelected(app);
+    }
+  };
+
+  handleToggleSort = (key) => {
+    this.store.toggleSort(key);
+  }
+
+  showLoadingOrRenderRows = () => {
+    if (this.store.isLoading){
+      return [<LoadingRow key={1} extended={this.props.extended} />, <LoadingRow key={2} extended={this.props.extended} />]
+    } else if (this.store.apps[this.props.list]) {
+      return this.store[this.props.list].map((app, i) => {
+        return <AppRow app={app} extended={this.props.extended} key={i} onAppRowSelected={this.handleRowSelection} />
+      })
+    }
+  }
+
+  noResults = () => {
     if (this.store.myApps[`${this.props.list}Apps`] && this.store.myApps[`${this.props.list}Apps`].length < 1) {
       return (<div className="my-apps-not-found" ref="noApps">
         <div className="as-h2">You don't have any {this.props.list.toLowerCase()} apps yet.</div>
@@ -28,7 +56,6 @@ export class SortableTable extends React.Component {
         <div className="as-h2">Sorry, no results were found.</div>
         <div className="as-h3">Adjust the filters to view your apps.</div>
       </div>)
-
     }
   }
 
@@ -37,40 +64,29 @@ export class SortableTable extends React.Component {
       <div className="">
         <span className="sr-only" aria-live="assertive" aria-atomic="true">{this.props.caption}
           is now sorted by {this.store.sorts[this.props.list]}
-          by {this.props.store.sortDirection[this.props.list] === 'asc' ? 'ascending' : 'descending'}</span>
+          by {this.props.store.sortDirection[this.props.list] ? 'ascending' : 'descending'}</span>
         <table className="my-apps-table" id={this.props.tableId}>
           <caption>{this.props.caption}</caption>
           <thead>
             <tr>
-              <th scope="col" className="col-xs-5">
-                <Sort store={this.store}
-                  key="app_name"
-                  val="app_name"
-                  list={this.props.list}>App</Sort>
-              </th>
-              <th scope="col" className='col-xs-1'>
-                <Sort
-                  store={this.store} key="platform" val="platform"
-                  list={this.props.list}>Platform</Sort>
-              </th>
-              <th scope="col" className="col-xs-3">
-                <Sort store={this.store}
-                  key={this.props.extended ? "custom_metadata.release_date" : "custom_metadata.submitted_date"}
-                  val={this.props.extended ? "custom_metadata.release_date" : "custom_metadata.submitted_date"}
-                  list={this.props.list}>{this.props.extended ? 'Release' : 'Submission'} Date
-                </Sort>
-              </th>
-              <th scope="col" className={this.props.extended ? 'col-xs-1' : 'col-xs-3'}>
-                <Sort store={this.store}
-                  key="custom_metadata.status"
-                  val="custom_metadata.status"
-                  list={this.props.list}>Status
-                </Sort>
-              </th>
+              {
+                this.props.columns.map(col => {
+                  const sortDirection = this.store.sortDirections[col.key];
+                  const isActive = this.store.activeColumn === col.key;
+                  return (
+                    <SortableColumn
+                      toggleSort={this.handleToggleSort}
+                      sortDirection={sortDirection}
+                      isActive={isActive}
+                      columnToSort={col.key}
+                      columnWidth={col.columnWidth}/>
+                  )
+                })
+              }
             </tr>
           </thead>
           <tbody>
-            {this.showAppsOrLoadingIndicator()}
+            {this.showLoadingOrRenderRows()}
           </tbody>
         </table>
         {!this.store.isLoading && this.noResults()}
