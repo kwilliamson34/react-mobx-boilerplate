@@ -79,7 +79,9 @@ export class SortableTable extends React.Component {
                       sortDirection={sortDirection}
                       isActive={isActive}
                       columnToSort={col.key}
-                      columnWidth={col.columnWidth}/>
+                      columnWidth={col.columnWidth}>
+                      {col.name}
+                    </SortableColumn>
                   )
                 })
               }
