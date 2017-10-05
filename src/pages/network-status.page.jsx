@@ -66,7 +66,6 @@ export default class NetworkStatusPage extends React.Component {
             <div className="row">
               <div className="col-xs-12">
                 <h2 className="as-h1">Add New Favorite</h2>
-
               </div>
               <LocationFavoriteForm store={this.geoStore} mode={this.geoStore.pageMode}/>
             </div>

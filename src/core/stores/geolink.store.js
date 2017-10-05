@@ -171,7 +171,7 @@ class GeolinkStore {
 
   //OBSERVABLES
   //Page
-  @observable pageMode = 'ADD_LOCATION'; //TODO change to 'MAP_CONTROLS'
+  @observable pageMode = 'MAP_CONTROLS';
 
   //Map
   @observable iframeIsFullyLoaded = false;

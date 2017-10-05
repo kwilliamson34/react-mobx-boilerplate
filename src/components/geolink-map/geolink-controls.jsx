@@ -67,7 +67,7 @@ export default class GeolinkControls extends React.Component {
 
   render() {
     return (
-      <section className={`geolink-controls has-transition ${this.geoStore.pageMode === 'MAP_CONTROLS' ? 'transition-in' : 'transition-out'}`}>
+      <section className={`geolink-controls ${this.geoStore.pageMode === 'MAP_CONTROLS' ? 'show' : 'hide'}`}>
         {this.geoStore.showSuccess &&
           <div className="container">
             <div className="row">
