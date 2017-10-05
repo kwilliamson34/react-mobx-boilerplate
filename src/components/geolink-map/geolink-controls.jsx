@@ -63,6 +63,28 @@ export default class GeolinkControls extends React.Component {
     }
   };
 
+  getPredictiveDropdown = () => {
+    if(this.geoStore.searchTerm) return (
+      <div className="predictive-dropdown">
+        <ul>
+          {this.geoStore.predictedFavorites.map((favorite, index) => {
+            return (
+              <li key={index}>
+                <i className="icon icon-star"></i>
+                <span>{favorite.name}</span>
+                <small>{favorite.address}</small>
+              </li>
+            )
+          })}
+          <li>
+            Manage all favorites
+          </li>
+        </ul>
+      </div>
+    );
+    return '';
+  }
+
   render() {
     return (
       <section className="geolink-controls">
@@ -73,13 +95,14 @@ export default class GeolinkControls extends React.Component {
               <form className="search-form form-group" onSubmit={this.handleSubmit}>
                 <div className="search-input input-group">
                   <label htmlFor="search-field" className="control-label">Location</label>
-                  <div className="search-bar">
+                  <div className={`search-bar ${this.geoStore.searchTerm ? ' dropdown': ''}`}>
                     <input id="search-field" type="search" ref="searchInput" disabled={this.props.disabled} className="form-control" onChange={this.handleSearchInput} onKeyPress={this.handleSearchKeyPress}/>
                     <button className="btn search-btn" type="button" onClick={this.handleSearchSubmit} disabled={this.props.disabled}>
                       <span className="sr-only">Search for locations</span>
                       <span aria-hidden="true" className="icon-search"/>
                     </button>
                   </div>
+                  {this.getPredictiveDropdown()}
                 </div>
               </form>
             </div>

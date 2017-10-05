@@ -1,4 +1,4 @@
-import {action, observable} from 'mobx';
+import {action, observable, computed} from 'mobx';
 import axios from 'axios';
 import config from 'config';
 import {utilsService} from '../services/utils.service';
@@ -133,6 +133,25 @@ class GeolinkStore {
     this.showAlertLayer = false;
   }
 
+  @computed get searchTerms() {
+    return this.searchTerm.split(' ');
+  }
+
+  @computed get predictedFavorites() {
+    let termsMatchFavorite = null;
+    let re = null;
+    return this.favorites.filter(favorite => {
+      termsMatchFavorite = true;
+      this.searchTerms.forEach(term => {
+        re = new RegExp(term, 'i');
+        if(!re.test(favorite.name) && !re.test(favorite.address)) {
+          termsMatchFavorite = false;
+        }
+      })
+      return termsMatchFavorite;
+    });
+  }
+
   @observable iframeIsFullyLoaded = false;
   @observable authIsComplete = false;
 
@@ -147,6 +166,17 @@ class GeolinkStore {
   @observable showAlertLayer = false;
 
   @observable networkIssueNumber = '800-574-7000';
+
+  @observable favorites = [
+    { name: 'Sapient Corporation', address: '40 Fulton Street, New York, NY' },
+    { name: 'Sapient', address: '40 Fulton Street' },
+    { name: 'Sapient', address: '40 Fulton Street' },
+    { name: 'Sapient', address: '40 Fulton Street' },
+    { name: 'Saaaaaaaaaapient', address: '40 Fulton Street' },
+    { name: 'Sapient', address: '40 Fulton Streeeeeeeeet' },
+    { name: 'Sapient', address: '40 Fulton Street' },
+    { name: 'Sapient', address: '40 Fulton Street' }
+  ]
 }
 
 export const geolinkStore = new GeolinkStore();
