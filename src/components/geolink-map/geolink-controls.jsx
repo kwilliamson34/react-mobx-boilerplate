@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
 
 import Checkbox from '../forms/checkbox';
+import MapSearch from './map-search';
 
 @observer
 export default class GeolinkControls extends React.Component {
@@ -15,29 +16,12 @@ export default class GeolinkControls extends React.Component {
   constructor(props) {
     super(props);
     this.geoStore = this.props.geolinkStore;
+    this.geoStore.formFieldRefList = [];
   }
 
   componentWillMount() {
     this.geoStore.resetLayerToggles();
   }
-
-  handleSearchInput = event => {
-    this.geoStore.updateSearchTerm(event.target.value);
-  };
-
-  handleSearchSubmit = () => {
-    this.geoStore.searchMap();
-
-    //close native keyboard on mobile, to show search result
-    this.refs.searchInput.blur();
-  };
-
-  handleSearchKeyPress = event => {
-    if (event.key == 'Enter') {
-      event.preventDefault();
-      this.handleSearchSubmit();
-    }
-  };
 
   toggleNetwork = input => {
     if (input.type === 'checkbox') {
@@ -65,23 +49,17 @@ export default class GeolinkControls extends React.Component {
 
   render() {
     return (
-      <section className="geolink-controls">
+      <section className={`geolink-controls has-transition ${this.geoStore.pageMode === 'MAP_CONTROLS' ? 'transition-in' : 'transition-out'}`}>
         <div className="container">
           <div className="row is-flex">
             <div className="col-xs-12 col-sm-8 col-md-4 map-search">
               <h2 className="as-h5">Search</h2>
-              <form className="search-form form-group" onSubmit={this.handleSubmit}>
-                <div className="search-input input-group">
-                  <label htmlFor="search-field" className="control-label">Location</label>
-                  <div className="search-bar">
-                    <input id="search-field" type="search" ref="searchInput" disabled={this.props.disabled} className="form-control" onChange={this.handleSearchInput} onKeyPress={this.handleSearchKeyPress}/>
-                    <button className="btn search-btn" type="button" onClick={this.handleSearchSubmit} disabled={this.props.disabled}>
-                      <span className="sr-only">Search for locations</span>
-                      <span aria-hidden="true" className="icon-search"/>
-                    </button>
-                  </div>
-                </div>
-              </form>
+                <MapSearch
+                  geolinkStore={this.geoStore}
+                  ref={ref => this.geoStore.formFieldRefList.push(ref)}
+                  dataObject={this.geoStore.values}
+                  id="locationAddress"
+                  labelText="Location"/>
             </div>
             <div className="col-xs-12 col-sm-4 col-md-4 map-layers">
               <h2 className="as-h5">Layers</h2>

@@ -7,6 +7,7 @@ import PageTitle from '../components/page-title/page-title';
 
 import GeolinkMap from '../components/geolink-map/geolink-map';
 import GeolinkControls from '../components/geolink-map/geolink-controls';
+import LocationFavoriteForm from '../components/geolink-map/location-favorite-form';
 
 @inject('store')
 @observer
@@ -58,8 +59,17 @@ export default class NetworkStatusPage extends React.Component {
           <GeolinkMap geolinkStore={this.geoStore} hidden={!showMap} />
         </section>
 
-        <GeolinkControls geolinkStore={this.geoStore} disabled={!showMap} />
+        <GeolinkControls geolinkStore={this.geoStore} disabled={!showMap}/>
 
+        {(this.geoStore.pageMode === 'ADD_LOCATION' || this.geoStore.pageMode === 'EDIT_LOCATION') &&
+          <div className="container">
+            <div className="row">
+              <div className="col-xs-12">
+                <h2 className="as-h1">Add New Favorite</h2>
+                <LocationFavoriteForm store={this.geoStore} mode={this.geoStore.pageMode}/>
+              </div>
+            </div>
+          </div>}
       </article>
     )
   }

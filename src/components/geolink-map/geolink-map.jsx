@@ -30,9 +30,9 @@ export default class GeolinkMap extends React.Component {
     //set map defaults
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition(position => {
-        const defaultSearchTerm = position.coords.latitude + ', ' + position.coords.longitude;
-        this.props.geolinkStore.updateDefaultSearchTerm(defaultSearchTerm);
-        this.props.geolinkStore.updateSearchTerm(defaultSearchTerm);
+        const defaultAddress = position.coords.latitude + ', ' + position.coords.longitude;
+        this.props.geolinkStore.defaultValues.locationAddress = defaultAddress;
+        this.props.geolinkStore.values.locationAddress = defaultAddress;
         this.props.geolinkStore.searchMap();
       });
     } else {

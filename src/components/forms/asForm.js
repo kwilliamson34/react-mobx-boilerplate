@@ -32,6 +32,7 @@ export default function asForm (MyComponent, attributes) {
       this.interceptedRoute = '';
       this.alertText = attributes && attributes.alertText ? attributes.alertText : 'Please fix the following errors.';
       this.submitButtonText = attributes && attributes.submitButtonText ? attributes.submitButtonText : 'Submit';
+      this.discardButtonText = attributes && attributes.discardButtonText ? attributes.discardButtonText : '';
 
       //set up reroute blockade (returns unblocking function)
       this.unblock = history.block((location) => {
@@ -79,9 +80,25 @@ export default function asForm (MyComponent, attributes) {
       )
     }
 
+    renderDiscardButton = () => {
+      return (
+        <div className="form-group text-center">
+          <button type="button" onClick={this.handleDiscard} className='fn-secondary form-submit'>
+            {this.discardButtonText}
+          </button>
+        </div>
+      )
+    }
+
     handleSubmit = (event) => {
       event.preventDefault();
       this.store.submitForm();
+    }
+
+    handleDiscard = (event) => {
+      event.preventDefault();
+      this.store.clearForm();
+      history.go(-1);
     }
 
     renderExitModal = () => {
@@ -143,6 +160,7 @@ export default function asForm (MyComponent, attributes) {
               showExitModal={this.showExitModal}
               hideExitModal={this.hideExitModal}/>
             {this.renderSubmitButton()}
+            {this.discardButtonText ? this.renderDiscardButton() : ''}
           </form>
           {this.renderExitModal()}
         </section>

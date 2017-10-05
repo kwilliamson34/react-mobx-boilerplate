@@ -19,6 +19,7 @@ class GtocForm extends React.Component {
   constructor (props) {
     super(props)
     this.store = this.props.store;
+    this.store.formFieldRefList = [];
   }
 
   @observable checkboxListRef = {
