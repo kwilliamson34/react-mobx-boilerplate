@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import {observer, inject} from 'mobx-react';
 
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
-import SortableTable from '../components/sortable-table/sortable-table';
+import {SortableTable} from '../components/sortable-table/sortable-table';
 
 @inject('store')
 @observer
-export default class ManageLocations extends React.Component {
+export default class ManageLocationsPage extends React.Component {
 
   static propTypes = {
     store: PropTypes.object
@@ -25,8 +25,8 @@ export default class ManageLocations extends React.Component {
         pageHref: '/network-status',
         pageTitle: 'Network Status'
       }, {
-        pageHref: '/network-status/manage-favorites',
-        pageTitle: 'Manage Favorites'
+        pageHref: '/manage-favorites',
+        pageTitle: 'Manage Locations'
       }
     ];
 
@@ -52,7 +52,7 @@ export default class ManageLocations extends React.Component {
               <h1>Manage Location Favorites</h1>
             </div>
             <div className="col-xs-12 col-lg-offset-1 col-lg-10">
-              <SortableTable columns={tableColumns} rows={this.manageLocationsStore.sortedRows} store={this.manageLocationsStore} />
+              <SortableTable caption="Manage Locations" columns={tableColumns} rows={this.manageLocationsStore.sortedRows} store={this.manageLocationsStore} />
             </div>
           </div>
         </div>

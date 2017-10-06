@@ -53,12 +53,14 @@ class ManageLocationsStore {
   }
 
   @computed get sortedRows() {
-  	return _.orderBy(this.rows, row => this.sortRows(row, this.activeColumn), this.sortDirections[this.activeColumn]);
+    //let's just get it rendering
+    return this.rows;
+  	// return _.orderBy(this.rows, row => this.sortRows(row, this.activeColumn), this.sortDirections[this.activeColumn]);
   }
 
   @observable rows = [];
 
-  @observable activeColumn = null;
+  @observable activeColumn = 'locationFavoriteId';
   //up is true, down is false;
   @observable sortDirections = {
     'favoriteName': false,
@@ -173,4 +175,4 @@ const convertExternalAppsToUnavailableReviewCount = (appsArray) => {
 };
 
 
-export const myAppsStore = new MyAppsStore();
+export const manageLocationsStore = new ManageLocationsStore();

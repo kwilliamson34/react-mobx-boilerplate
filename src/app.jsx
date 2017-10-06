@@ -27,7 +27,7 @@ import ErrorPage from './pages/error.page.jsx';
 import SessionTimeoutPage from './pages/session-timeout.page';
 import SubscribeToGTOC from './pages/gtoc.page';
 import SubscribeToGTOCSuccess from './pages/gtoc-success.page';
-import ManageLocations from './pages/manage-locations.page';
+import ManageLocationsPage from './pages/manage-locations.page';
 
 //Admin pages
 import ManageAppsPage from './pages/manage-apps.page';
@@ -140,7 +140,7 @@ export default class App extends React.Component {
               <Route path="/admin" component={this.getAdminRoutes(AdminDashboardPage)}/>
               <Route path="/app/:appPsk" component={this.getAdminRoutes(AppDetailsPage)/*TODO redirect to error/404 if psk has no match*/}/>
               <Route path="/network-status" component={NetworkStatusPage}/>
-              <Route path="/manage-locations" component={ManageLocations}/>
+              <Route path="/manage-locations" component={ManageLocationsPage}/>
               <Route path="/subscribe-to-alerts" component={SubscribeToGTOC}/>
               <Route path="/subscribe-to-alerts-success" component={SubscribeToGTOCSuccess}/>
               <Route path="/feedback" component={FeedbackPage}/>

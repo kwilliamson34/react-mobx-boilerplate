@@ -2,7 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
 
-import SortableColumn from './sortable-column';
+import _ from 'lodash';
+
+import {SortableColumn} from './sortable-column';
+import {TableRow} from './table-row';
 
 @observer
 export class SortableTable extends React.Component {
@@ -11,7 +14,7 @@ export class SortableTable extends React.Component {
     store: PropTypes.object.isRequired,
     caption: PropTypes.string.isRequired,
     columns: PropTypes.array,
-    rows: PropTypes.array,
+    rows: PropTypes.object,
     tableId: PropTypes.string
   };
 
@@ -35,46 +38,44 @@ export class SortableTable extends React.Component {
     this.store.toggleSort(key);
   }
 
-  showLoadingOrRenderRows = () => {
-    if (this.store.isLoading){
-      return [<LoadingRow key={1} extended={this.props.extended} />, <LoadingRow key={2} extended={this.props.extended} />]
-    } else if (this.store.apps[this.props.list]) {
-      return this.store[this.props.list].map((app, i) => {
-        return <AppRow app={app} extended={this.props.extended} key={i} onAppRowSelected={this.handleRowSelection} />
-      })
-    }
+  handleCheckboxChange = (e) => {
+    console.log('handleCheckboxChange', e.target);
+  }
+
+  renderRows = (rows) => {
+    //we'll just make sure this is formatted right in the computed
+    //for now I just want it rendering;
+    return rows.map((row, i) => {
+      return <TableRow id={row.locationFavoriteId} row={row} checked={row.checked} onChange={this.handleCheckboxChange} key={`${this.props.caption}-table-${i}`}/>
+    })
   }
 
   noResults = () => {
-    if (this.store.myApps[`${this.props.list}Apps`] && this.store.myApps[`${this.props.list}Apps`].length < 1) {
-      return (<div className="my-apps-not-found" ref="noApps">
-        <div className="as-h2">You don't have any {this.props.list.toLowerCase()} apps yet.</div>
-      </div>)
-
-    } else if (this.store[this.props.list] && this.store[this.props.list].length < 1) {
-      return (<div className="my-apps-not-found" ref="noResults">
+    return (
+      <div className="my-apps-not-found" ref="noResults">
         <div className="as-h2">Sorry, no results were found.</div>
         <div className="as-h3">Adjust the filters to view your apps.</div>
-      </div>)
-    }
+      </div>
+    )
   }
 
   render() {
     return (
       <div className="">
         <span className="sr-only" aria-live="assertive" aria-atomic="true">{this.props.caption}
-          is now sorted by {this.store.sorts[this.props.list]}
-          by {this.props.store.sortDirection[this.props.list] ? 'ascending' : 'descending'}</span>
+          is now sorted by {this.store.activeColumn}
+          in {this.props.store.sortDirections[this.props.list] ? 'ascending' : 'descending'}</span>
         <table className="my-apps-table" id={this.props.tableId}>
           <caption>{this.props.caption}</caption>
           <thead>
             <tr>
               {
-                this.props.columns.map(col => {
+                this.props.columns.map((col, i) => {
                   const sortDirection = this.store.sortDirections[col.key];
                   const isActive = this.store.activeColumn === col.key;
                   return (
                     <SortableColumn
+                      key={`sortable-column-${i}`}
                       toggleSort={this.handleToggleSort}
                       sortDirection={sortDirection}
                       isActive={isActive}
@@ -88,7 +89,7 @@ export class SortableTable extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {this.showLoadingOrRenderRows()}
+            {this.renderRows(this.props.rows)}
           </tbody>
         </table>
         {!this.store.isLoading && this.noResults()}

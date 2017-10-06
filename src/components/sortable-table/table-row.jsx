@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
 
 @observer
-export class SortableTableRow extends React.Component {
+export class TableRow extends React.Component {
 
   static propTypes = {
     id: PropTypes.string.isRequired,
-    button: PropTypes.object,
+    row: PropTypes.object,
+    onChange: PropTypes.func,
+    buttonJsx: PropTypes.object,
     checked: PropTypes.bool
   }
 
@@ -16,7 +18,7 @@ export class SortableTableRow extends React.Component {
   }
 
   handleOnChange = (e) => {
-
+    console.log('handleOnChange', e.target);
   }
 
   render() {
@@ -27,8 +29,17 @@ export class SortableTableRow extends React.Component {
             role="checkbox"
             checked={this.props.checked}
             value={this.props.data.id}
-            onChange={this.onChange}/>
+            onChange={this.handleOnChange}/>
         </th>
+        {Object.keys(this.props.row).map(col => {
+          return (
+            <td>
+              <p>
+                {this.props.row[col]}
+              </p>
+            </td>
+          )
+        })}
       </tr>
     )
   }
