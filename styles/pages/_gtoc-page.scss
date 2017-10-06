@@ -29,7 +29,7 @@
       font-size: $fn-h5-desktop;
       font-weight: $fn-normal-weight;
 
-      &[for="gtoc_email"] {
+      &[for="email"] {
         font-size: $fn-label-desktop;
       }
     }
@@ -71,31 +71,31 @@
       }
     }
 
-    .template-checkbox {
+    fieldset .checkbox {
       margin-top: 20px;
       vertical-align: middle;
       border-bottom: 1px solid $fn-grey;
 
       label {
         padding-bottom: 20px;
+        color: $fn-black;
 
-        strong {
-          display: inline-block;
-          vertical-align: top;
-          margin-left: 5px;
-          width: 30%;
-
-          + span {
-            display: inline-block;
-            width: 100%;
-            margin-left: 30px;
-          }
+        .label-text-normal {
+          display: block;
+          width: 100%;
         }
 
-        .template-checkbox-description {
+        strong {
+          vertical-align: top;
+          margin-left: 5px;
+          width: 20%;
+        }
+
+        span.label-text-normal {
+          display: inline-block;
           font-weight: $fn-normal-weight;
-          //override default alert text color
-          color: $fn-black;
+          width: 75%;
+          float: right;
         }
       }
 
@@ -110,21 +110,21 @@
       }
     }
   }
-
-  form button:not(.close_btn) {
-    margin: 3rem 0 6rem;
-
-    &.disabled {
-      cursor: auto;
-      pointer-events: auto;
-    }
-  }
 }
 @media #{$mobile} {
   #subscribe-to-gtoc-page {
     .content-wrapper {
       h1 {
         margin: 3rem 0;
+      }
+
+      label {
+        padding: 0;
+      }
+
+      fieldset .checkbox label span.label-text-normal {
+        width: 100%;
+        padding-left: 30px;
       }
     }
   }
@@ -142,19 +142,6 @@
 
       .select-all-button {
         top: 8px;
-      }
-
-      .checkbox {
-        label {
-          strong {
-            width: 15%;
-
-            + span {
-              width: 75%;
-              margin-left: 0;
-            }
-          }
-        }
       }
     }
   }

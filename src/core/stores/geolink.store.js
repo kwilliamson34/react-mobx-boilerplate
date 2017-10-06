@@ -2,6 +2,7 @@ import {action, observable, computed} from 'mobx';
 import axios from 'axios';
 import config from 'config';
 import {utilsService} from '../services/utils.service';
+import {apiService} from '../services/api.service';
 
 const networkLayerNames = [
   'FirstNet:Coverage2G',
@@ -29,20 +30,12 @@ class GeolinkStore {
     }).then(success, fail);
   }
 
-  @action updateSearchTerm(searchTerm) {
-    this.searchTerm = searchTerm;
-  }
-
-  @action updateDefaultSearchTerm(defaultSearchTerm) {
-    this.defaultSearchTerm = defaultSearchTerm;
-  }
-
   @action searchMap() {
-    if(this.searchTerm) {
-      console.log('Searching map for ' + this.searchTerm + '...');
+    if(this.values.locationAddress) {
+      console.log('Searching map for ' + this.values.locationAddress + '...');
       this.mapIframeRef.contentWindow.postMessage({
         eventName: 'doMapGeocode',
-        value: this.searchTerm || this.defaultSearchTerm
+        value: this.values.locationAddress
       }, '*');
     }
   }
@@ -152,19 +145,78 @@ class GeolinkStore {
     }).splice(0, 8);
   }
 
+  @action showAddLocationForm() {
+    this.pageMode = 'ADD_LOCATION';
+    this.values.locationName = '';
+    this.clearAlerts();
+  }
+
+  @action showEditLocationForm() {
+    this.pageMode = 'EDIT_LOCATION';
+    this.clearAlerts();
+  }
+
+  @action submitForm() {
+    const success = () => {
+      this.pageMode = 'MAP_CONTROLS';
+      this.successText = '"' + this.store.values.locationName + '" has been added.';
+      this.showSuccess = true;
+    }
+    const failure = (err) => {
+      this.alertText = err.response && err.response.data && err.response.data.message.indexOf('already exists') > -1
+        ? 'You already have a favorite named "' + this.values.locationName + '".'
+        : 'Please fix the following errors.';
+      this.showAlert = true;
+    }
+    apiService.addLocationFavorite(this.values).then(success, failure);
+  }
+
+  @action clearForm() {
+    this.values = Object.assign({}, this.defaultValues);
+    this.clearAlerts();
+    this.pageMode = 'MAP_CONTROLS';
+  }
+
+  @action clearAlerts() {
+    this.showAlert = false;
+    this.showSuccess = false;
+  }
+
+  @computed get formIsDirty() {
+    let formHasChanged = false;
+    Object.keys(this.values).forEach(key => {
+      if(this.values[key].toString() !== this.defaultValues[key].toString()) {
+        formHasChanged = true;
+      }
+    });
+    return formHasChanged;
+  }
+
+  @action checkFormForErrors() {
+    let hasError = false;
+    this.formFieldRefList.forEach(ref => {
+      if(ref && ref.hasFunctionalError) {
+        hasError = true;
+      }
+    });
+    this.formHasError = hasError;
+  }
+
+  //OBSERVABLES
+  //Page
+  @observable pageMode = 'MAP_CONTROLS';
+
+  //Map
   @observable iframeIsFullyLoaded = false;
   @observable authIsComplete = false;
-
   @observable geolinkHtml = null;
   @observable mapIframeRef = null;
-  @observable searchTerm = '';
-  @observable defaultSearchTerm = '';
 
+  //Controls
   @observable showNetworkLayer = true;
   @observable showWeatherLayer = false;
   @observable showTrafficLayer = false;
   @observable showAlertLayer = false;
-
   @observable networkIssueNumber = '800-574-7000';
 
   @observable favorites = [
@@ -177,6 +229,22 @@ class GeolinkStore {
     { name: 'Sapient', address: '40 Fulton Street' },
     { name: 'Sapient', address: '40 Fulton Street' }
   ]
+
+  //Map Search, Add and Edit Location Favorites
+  @observable formFieldRefList = [];
+  @observable formHasError = true;
+  @observable showAlert = false;
+  @observable alertText = '';
+  @observable showSuccess = false;
+  @observable successText = '';
+  @observable defaultValues = {
+    locationAddress: '',
+    locationName: ''
+  };
+  @observable values = {
+    locationAddress: '',
+    locationName: ''
+  };
 }
 
 export const geolinkStore = new GeolinkStore();

@@ -18,21 +18,21 @@ describe("MDMStore", () => {
 
   test("getBrowserCloseAlert updates event properly", () => {
     let event = {};
-    store.formData.mdm_type = '';
+    store.values.mdm_type = '';
     store.getBrowserCloseAlert(event);
     expect(event.returnValue).toBe(undefined);
 
-    store.formData.mdm_type = 'AIRWATCH';
+    store.values.mdm_type = 'AIRWATCH';
     store.formHasChanged = true;
     store.getBrowserCloseAlert(event);
     expect(event.returnValue).toBe(true);
   });
 
   test("formHasChanged returns true iff the user has entered info", () => {
-    store.formData.mdm_type = '';
+    store.values.mdm_type = '';
     expect(store.formHasUnsavedChanges).toBe(false);
 
-    store.formData.mdm_type = 'AIRWATCH';
+    store.values.mdm_type = 'AIRWATCH';
     store.formHasChanged = false;
     expect(store.formHasUnsavedChanges).toBe(false);
 
@@ -41,29 +41,14 @@ describe("MDMStore", () => {
   });
 
   test("updateMDM sets the MDM and resets the form", () => {
-    store.formData.mdm_type = 'AIRWATCH';
+    store.values.mdm_type = 'AIRWATCH';
 
     store.updateMDM('MAAS360');
 
-    expect(store.formData.mdm_type).toBe('MAAS360');
-    expect(store.beingSubmitted).toBe(false);
+    expect(store.values.mdm_type).toBe('MAAS360');
     expect(store.formHasChanged).toBe(false);
     expect(store.showExitModal).toBe(false);
     expect(store.showbreakMDMConnection).toBe(false);
-  });
-
-  test("updateForm properly updates store based on input", () => {
-    store.formHasChanged = false;
-    store.formData['text-input'] = 'old value';
-
-    let input = {
-      id: 'text-input',
-      value: 'new value'
-    }
-
-    store.updateForm(input);
-    expect(store.formHasChanged).toBe(true);
-    expect(store.formData['text-input']).toBe('new value');
   });
 
   test("clearStoredCredentials works as expected", () => {
@@ -203,7 +188,7 @@ describe("MDMStore", () => {
     }));
 
     store.getMDMConfiguration().then(() => {
-      expect(store.formData.mdm_type).toBe('AIRWATCH');
+      expect(store.values.mdm_type).toBe('AIRWATCH');
     });
 
     apiService.getMDMConfiguration.mockReturnValue(Promise.resolve({
@@ -213,7 +198,7 @@ describe("MDMStore", () => {
     }));
 
     store.getMDMConfiguration().then(() => {
-      expect(store.formData.mdm_type).toBe('MAAS360');
+      expect(store.values.mdm_type).toBe('MAAS360');
     });
 
     apiService.getMDMConfiguration.mockReturnValue(Promise.resolve({
@@ -223,7 +208,7 @@ describe("MDMStore", () => {
     }));
 
     store.getMDMConfiguration().then(() => {
-      expect(store.formData.mdm_type).toBe('MOBILE_IRON');
+      expect(store.values.mdm_type).toBe('MOBILE_IRON');
     });
   });
 
@@ -240,7 +225,7 @@ describe("MDMStore", () => {
 
   test("setMDMConfiguration shows success message on success", () => {
     store.mdm_form_alerts = [];
-    store.formData.mdm_type = 'AIRWATCH';
+    store.values.mdm_type = 'AIRWATCH';
     apiService.setMDMConfiguration = jest.fn();
     apiService.setMDMConfiguration.mockReturnValue(Promise.resolve({
       data: {
@@ -266,28 +251,28 @@ describe("MDMStore", () => {
       }
     }));
 
-    store.formData.mdm_type = 'AIRWATCH';
-    store.formData.aw_password = 'password';
-    store.formData.aw_userName = 'username';
+    store.values.mdm_type = 'AIRWATCH';
+    store.values.aw_password = 'password';
+    store.values.aw_userName = 'username';
     store.setMDMConfiguration().then(() => {
-      expect(store.formData.aw_password).toBe('');
-      expect(store.formData.aw_userName).toBe('');
+      expect(store.values.aw_password).toBe('');
+      expect(store.values.aw_userName).toBe('');
     });
 
-    store.formData.mdm_type = 'MAAS360';
-    store.formData.ibm_password = 'password';
-    store.formData.ibm_userName = 'username';
+    store.values.mdm_type = 'MAAS360';
+    store.values.ibm_password = 'password';
+    store.values.ibm_userName = 'username';
     store.setMDMConfiguration().then(() => {
-      expect(store.formData.ibm_password).toBe('');
-      expect(store.formData.ibm_userName).toBe('');
+      expect(store.values.ibm_password).toBe('');
+      expect(store.values.ibm_userName).toBe('');
     });
 
-    store.formData.mdm_type = 'MOBILE_IRON';
-    store.formData.mi_password = 'password';
-    store.formData.mi_userName = 'username';
+    store.values.mdm_type = 'MOBILE_IRON';
+    store.values.mi_password = 'password';
+    store.values.mi_userName = 'username';
     store.setMDMConfiguration().then(() => {
-      expect(store.formData.mi_password).toBe('');
-      expect(store.formData.mi_userName).toBe('');
+      expect(store.values.mi_password).toBe('');
+      expect(store.values.mi_userName).toBe('');
     });
   });
 

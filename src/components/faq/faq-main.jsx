@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
 import {FaqEntry} from './faq-entry.jsx';
+import PageTitle from '../page-title/page-title';
 import $ from 'jquery';
 
 @observer
@@ -92,7 +93,7 @@ export class FaqMain extends React.Component {
             <div className="container">
               <div className="row">
                 <div className="col-xs-12 col-sm-10 col-sm-offset-1 faq-header-box">
-                  <h1>Frequently Asked&nbsp;Questions</h1>
+                  <PageTitle>Frequently Asked&nbsp;Questions</PageTitle>
                 </div>
               </div>
             </div>

@@ -172,9 +172,12 @@ $map-height-mobile: 400px;
     padding-bottom: 20px;
   }
 
+  .alert {
+    margin: 30px 0 0;
+  }
+
   form,
   .form-group,
-  .search-form .search-input.input-group,
   .input-group {
     padding: 0;
     margin: 0;
@@ -191,6 +194,29 @@ $map-height-mobile: 400px;
         min-height: 16px + 25px;
         padding-left: 0;
         width: auto;
+      }
+    }
+  }
+
+  .form-group .clear-btn {
+    right: 87px;
+  }
+
+  .map-search {
+    button.as-link {
+      text-transform: uppercase;
+      width: 50%;
+      text-align: left;
+      margin: 20px 0;
+      padding: 0;
+
+      &.disabled {
+        pointer-events: none;
+        color: $fn-mdgrey;
+
+        &:focus {
+          text-decoration: none;
+        }
       }
     }
   }
@@ -307,6 +333,17 @@ $map-height-mobile: 400px;
     }
   }
 }
+
+.container.location-favorites {
+  margin-top: 6rem;
+  margin-bottom: 6rem;
+  display: block;
+
+  .submit-button-wrapper {
+    float: left;
+    padding-right: 30px;
+  }
+}
 /**********************************************/
 @media #{$mobile} {
   .geolink-controls {
@@ -327,6 +364,14 @@ $map-height-mobile: 400px;
         span {
           padding-top: 15px;
         }
+      }
+    }
+  }
+
+  .container.location-favorites {
+    .submit-button-wrapper {
+      button {
+        margin: 0;
       }
     }
   }

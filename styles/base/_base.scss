@@ -39,6 +39,10 @@ form p {
   font-size: $fn-label-desktop;
 }
 
+form button.form-submit {
+  margin: 3rem 0 6rem;
+}
+
 .certified-app-label {
   color: $fn-certified-grey;
   font-size: 1.4rem;
@@ -59,4 +63,79 @@ hr {
 h1 + hr,
 h2 + hr {
   border-color: $fn-header-hr-grey;
+}
+
+
+
+.form-group {
+  .input-wrapper {
+    display: flex;
+  }
+
+  input {
+    //hide pseudo-element for clear on IE
+    &::-ms-clear {
+      display: none;
+    }
+  }
+
+  .clear-btn {
+    position: absolute;
+    right: 62px;
+    background-color: transparent;
+    z-index: 30;
+    border-radius: 0;
+
+    .icon-close {
+      font-size: 14px;
+      color: $fn-dkgrey;
+    }
+  }
+
+  .submit-btn {
+    display: table-cell;
+    border-color: $input-outline;
+    margin-left: -1px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .clear-btn,
+  .submit-btn {
+    height: 48px;
+    width: 48px;
+
+    [class^="icon-"]:before {
+      line-height: 3;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      border: 1px solid $input-outline;
+      box-shadow: none;
+      z-index: 30;
+
+      .icon-close,
+      .icon-search:before {
+        color: white;
+      }
+    }
+
+    &:hover {
+      background-color: $fn-ltblue;
+    }
+
+    &:active,
+    &:focus {
+      background-color: $fn-blue;
+    }
+  }
+}
+
+.search-form {
+  input.form-control {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
 }

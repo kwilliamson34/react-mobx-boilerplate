@@ -41,10 +41,9 @@
     line-height: 16px;
   }
 
-  #mdm_submit_btn {
-    min-width: 200px;
+  button.form-submit {
+    margin-bottom: 0;
   }
-
 }
 
 @media #{$mobile} {
