@@ -149,7 +149,7 @@ class GeolinkStore {
         }
       })
       return termsMatchFavorite;
-    });
+    }).splice(0, 8);
   }
 
   @observable iframeIsFullyLoaded = false;
