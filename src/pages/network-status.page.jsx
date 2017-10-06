@@ -51,7 +51,7 @@ export default class NetworkStatusPage extends React.Component {
     const showMap = this.geoStore.iframeIsFullyLoaded;
     return (
       <article id="network-page" className={`content-wrapper ${utilsService.getIsInternetExplorer() ? 'isIE' : ''}`}>
-        <PageTitle className="sr-only">Network Status</PageTitle>
+        <PageTitle className="sr-only">{this.geoStore.pageTitle}</PageTitle>
         <iframe src={config.geolinkAuthScript} aria-hidden="true" className="hidden-iframe"></iframe>
 
         <section id="map-section">
@@ -61,13 +61,13 @@ export default class NetworkStatusPage extends React.Component {
 
         <GeolinkControls geolinkStore={this.geoStore} disabled={!showMap}/>
 
-        {(this.geoStore.pageMode === 'ADD_LOCATION' || this.geoStore.pageMode === 'EDIT_LOCATION') &&
+        {(this.geoStore.pageTitle === 'Add New Favorite' || this.geoStore.pageTitle === 'Edit Favorite') &&
           <div className="container location-favorites">
             <div className="row">
               <div className="col-xs-12">
-                <h2 className="as-h1">Add New Favorite</h2>
+                <h2 className="as-h1">{this.geoStore.pageTitle}</h2>
               </div>
-              <LocationFavoriteForm store={this.geoStore} mode={this.geoStore.pageMode}/>
+              <LocationFavoriteForm store={this.geoStore}/>
             </div>
           </div>}
       </article>

@@ -127,19 +127,19 @@ class GeolinkStore {
   }
 
   @action showAddLocationForm() {
-    this.pageMode = 'ADD_LOCATION';
+    this.pageTitle = 'Add New Favorite';
     this.values.locationName = '';
     this.clearAlerts();
   }
 
   @action showEditLocationForm() {
-    this.pageMode = 'EDIT_LOCATION';
+    this.pageTitle = 'Edit Favorite';
     this.clearAlerts();
   }
 
   @action submitForm() {
     const success = () => {
-      this.pageMode = 'MAP_CONTROLS';
+      this.pageTitle = 'Network Status';
       this.successText = '"' + this.values.locationName + '" has been added.';
       this.showSuccess = true;
     }
@@ -155,7 +155,7 @@ class GeolinkStore {
   @action clearForm() {
     this.values = Object.assign({}, this.defaultValues);
     this.clearAlerts();
-    this.pageMode = 'MAP_CONTROLS';
+    this.pageTitle = 'MAP_CONTROLS';
   }
 
   @action clearAlerts() {
@@ -185,7 +185,7 @@ class GeolinkStore {
 
   //OBSERVABLES
   //Page
-  @observable pageMode = 'MAP_CONTROLS';
+  @observable pageTitle = 'Network Status';
 
   //Map
   @observable iframeIsFullyLoaded = false;
