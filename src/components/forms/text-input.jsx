@@ -16,6 +16,7 @@ export default class TextInput extends React.Component {
     charLimit: PropTypes.number,
     disabled: PropTypes.bool,
     labelText: PropTypes.string,
+    helperText: PropTypes.string,
     labelIsSrOnly: PropTypes.bool,
     getIsValid: PropTypes.func,
     checkFormForErrors: PropTypes.func,
@@ -29,6 +30,7 @@ export default class TextInput extends React.Component {
 
   static defaultProps = {
     labelText: '',
+    helperText: '',
     required: false,
     disabled: false,
     errorMessage: 'This entry is not valid.',
@@ -106,6 +108,7 @@ export default class TextInput extends React.Component {
           hasError={this.hasVisibleError}
           fieldIsRequired={this.props.required}
           labelText={this.props.labelText}
+          helperText={this.props.helperText}
           errorMessage={this.props.errorMessage}/>
         <div className="input-wrapper">
           <Tag

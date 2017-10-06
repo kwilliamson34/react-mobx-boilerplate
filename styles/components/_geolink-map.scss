@@ -282,6 +282,10 @@ $map-height-mobile: 400px;
   .submit-button-wrapper {
     float: left;
     padding-right: 30px;
+
+    button {
+      margin-top: 0;
+    }
   }
 }
 /**********************************************/

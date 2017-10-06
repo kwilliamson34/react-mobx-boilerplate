@@ -32,6 +32,7 @@ export default function asForm (MyComponent, attributes) {
 
     componentWillMount() {
       this.interceptedRoute = '';
+      this.includeDivider = attributes && attributes.includeDivider;
       this.submitButtonText = attributes && attributes.submitButtonText ? attributes.submitButtonText : 'Submit';
       this.discardButtonText = attributes && attributes.discardButtonText ? attributes.discardButtonText : '';
       this.formColClass = attributes && attributes.formColClass ? attributes.formColClass : ''
@@ -194,6 +195,7 @@ export default function asForm (MyComponent, attributes) {
               hideExitModal={this.hideExitModal}/>
 
             <div className={`form-actions ${this.formColClass}`}>
+              {this.includeDivider ? <hr/> : ''}
               {this.renderSubmitButton()}
               {this.discardButtonText ? this.renderDiscardButton() : ''}
             </div>

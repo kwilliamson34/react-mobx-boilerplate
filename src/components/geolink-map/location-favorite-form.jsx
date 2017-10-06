@@ -31,6 +31,7 @@ class LocationFavoriteForm extends React.Component {
           id="locationAddress"
           type="search"
           labelText="Address"
+          helperText="Favorites will display with a star next time you search."
           required={true}
           errorMessage="Please enter an address."
           className="col-xs-12 col-sm-6 search-form"
@@ -56,5 +57,6 @@ class LocationFavoriteForm extends React.Component {
 export default asForm(LocationFavoriteForm, {
   submitButtonText: 'Save Favorite',
   discardButtonText: 'Discard & Go Back',
-  formColClass: 'col-xs-12'
+  formColClass: 'col-xs-12',
+  includeDivider: true
 })
