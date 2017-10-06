@@ -101,7 +101,7 @@ h2 + hr {
   .submit-btn {
     display: table-cell;
     border-color: $input-outline;
-    margin-left: -1px;
+    border-left: 0;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }
@@ -115,11 +115,22 @@ h2 + hr {
       line-height: 3;
     }
 
+    &:hover {
+      background: $fn-ltblue;
+      border: 1px solid $fn-ltblue;
+    }
+
+    &:focus,
+    &:active {
+      background: $fn-blue;
+      border: 1px solid $fn-blue;
+    }
+
     &:hover,
     &:active,
     &:focus {
-      border: 1px solid $input-outline;
       box-shadow: none;
+      outline: none;
       z-index: 30;
 
       .icon-close,

@@ -31,10 +31,9 @@ class LocationFavoriteForm extends React.Component {
           id="locationAddress"
           type="search"
           labelText="Address"
-          helperText="Favorites will display with a star next time you search."
           required={true}
           errorMessage="Please enter an address."
-          className="col-xs-12 col-sm-6 search-form"
+          className="col-xs-12 col-sm-7 search-form"
           showClearButton={true}
           handleSubmit={this.store.searchMap.bind(this.geoStore)}
           submitIcon="icon-search"/>
@@ -48,7 +47,7 @@ class LocationFavoriteForm extends React.Component {
           labelText="Name"
           required={true}
           errorMessage="Please enter a name."
-          className="col-xs-12 col-sm-6"/>
+          className="col-xs-12 col-sm-5"/>
       </div>
     );
   }

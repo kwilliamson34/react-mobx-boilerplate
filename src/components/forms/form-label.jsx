@@ -24,7 +24,7 @@ export default class FormLabel extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="form-label">
         <label className={`control-label ${this.props.srOnly ? 'sr-only' : ''}`} htmlFor={this.props.id}>
           {this.props.labelText}
           {this.props.fieldIsRequired &&

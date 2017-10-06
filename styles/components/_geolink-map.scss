@@ -279,6 +279,10 @@ $map-height-mobile: 400px;
   margin-bottom: 6rem;
   display: block;
 
+  .form-label .error {
+    display: inline-block;
+  }
+
   .submit-button-wrapper {
     float: left;
     padding-right: 30px;
