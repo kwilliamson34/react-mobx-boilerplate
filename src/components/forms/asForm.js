@@ -12,6 +12,7 @@ export default function asForm (MyComponent, attributes) {
       store: PropTypes.shape({
         clearForm: PropTypes.func,
         submitForm: PropTypes.func,
+        handleSecondaryAction: PropTypes.func,
         formIsDirty: PropTypes.bool,
         formHasError: PropTypes.bool,
         showAlert: PropTypes.bool,
@@ -34,7 +35,7 @@ export default function asForm (MyComponent, attributes) {
       this.interceptedRoute = '';
       this.includeDivider = attributes && attributes.includeDivider;
       this.submitButtonText = attributes && attributes.submitButtonText ? attributes.submitButtonText : 'Submit';
-      this.discardButtonText = attributes && attributes.discardButtonText ? attributes.discardButtonText : '';
+      this.secondaryButtonText = attributes && attributes.secondaryButtonText ? attributes.secondaryButtonText : '';
       this.formColClass = attributes && attributes.formColClass ? attributes.formColClass : ''
       if(!this.store.alertText) {
         this.store.alertText = 'Please fix the following errors.';
@@ -110,11 +111,11 @@ export default function asForm (MyComponent, attributes) {
       )
     }
 
-    renderDiscardButton = () => {
+    renderSecondaryButton = () => {
       return (
         <div className="form-group text-center submit-button-wrapper">
-          <button type="button" onClick={this.handleDiscard} className='fn-secondary form-submit'>
-            {this.discardButtonText}
+          <button type="button" onClick={this.handleSecondaryAction} className='fn-secondary form-submit'>
+            {this.secondaryButtonText}
           </button>
         </div>
       )
@@ -125,10 +126,11 @@ export default function asForm (MyComponent, attributes) {
       this.store.submitForm();
     }
 
-    handleDiscard = (event) => {
+    handleSecondaryAction = (event) => {
       event.preventDefault();
-      this.store.clearForm();
-      history.go(-1);
+      if(this.store.handleSecondaryAction) {
+        this.store.handleSecondaryAction();
+      }
     }
 
     renderExitModal = () => {
@@ -197,7 +199,7 @@ export default function asForm (MyComponent, attributes) {
             <div className={`form-actions ${this.formColClass}`}>
               {this.includeDivider ? <hr/> : ''}
               {this.renderSubmitButton()}
-              {this.discardButtonText ? this.renderDiscardButton() : ''}
+              {this.secondaryButtonText ? this.renderSecondaryButton() : ''}
             </div>
           </form>
           {this.renderExitModal()}

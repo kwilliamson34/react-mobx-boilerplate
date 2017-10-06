@@ -56,7 +56,7 @@ class LocationFavoriteForm extends React.Component {
 
 export default asForm(LocationFavoriteForm, {
   submitButtonText: 'Save Favorite',
-  discardButtonText: 'Discard & Go Back',
+  secondaryButtonText: 'Discard & Go Back',
   formColClass: 'col-xs-12',
   includeDivider: true
 })

@@ -152,10 +152,17 @@ class GeolinkStore {
     apiService.addLocationFavorite(this.values).then(success, failure);
   }
 
+  @action handleSecondaryAction() {
+    this.clearForm();
+    if(this.pageTitle === 'Edit Favorite') {
+      history.go(-1);
+    }
+  }
+
   @action clearForm() {
     this.values = Object.assign({}, this.defaultValues);
     this.clearAlerts();
-    this.pageTitle = 'MAP_CONTROLS';
+    this.pageTitle = 'Network Status';
   }
 
   @action clearAlerts() {
