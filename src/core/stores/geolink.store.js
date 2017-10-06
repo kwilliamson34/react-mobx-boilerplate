@@ -140,7 +140,7 @@ class GeolinkStore {
   @action submitForm() {
     const success = () => {
       this.pageMode = 'MAP_CONTROLS';
-      this.successText = '"' + this.store.values.locationName + '" has been added.';
+      this.successText = '"' + this.values.locationName + '" has been added.';
       this.showSuccess = true;
     }
     const failure = (err) => {
