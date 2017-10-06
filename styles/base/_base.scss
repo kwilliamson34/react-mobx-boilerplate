@@ -79,6 +79,12 @@ h2 + hr {
     }
   }
 
+  &.has-clear {
+    input {
+      padding-right: 40px;
+    }
+  }
+
   .clear-btn {
     position: absolute;
     right: 62px;

@@ -101,8 +101,10 @@ export default class TextInput extends React.Component {
 
   render() {
     const Tag = this.props.type === 'textarea' ? 'textarea' : 'input';
+    const clearButtonVisible = this.props.showClearButton && this.valueInStore !== '';
+    const submitButtonVisible = this.props.handleSubmit && this.props.submitIcon;
     return (
-      <div className={`form-group ${this.props.className} ${this.hasVisibleError ? 'has-error' : ''}`}>
+      <div className={`form-group ${this.props.className} ${this.hasVisibleError ? 'has-error' : ''} ${clearButtonVisible ? 'has-clear' : ''}`}>
         <FormLabel
           id={this.props.id}
           hasError={this.hasVisibleError}
@@ -121,13 +123,13 @@ export default class TextInput extends React.Component {
             onBlur={this.handleOnBlur}
             onKeyPress={this.handleKeyPress}
             value={this.valueInStore}/>
-          {this.props.showClearButton && this.valueInStore !== '' &&
+          {clearButtonVisible &&
             <button className="btn clear-btn" type="button" ref="btnClear" onClick={this.handleClearClick}>
               <span className="sr-only">Clear</span>
               <span aria-hidden="true" className="icon-close"/>
             </button>
           }
-          {this.props.handleSubmit && this.props.submitIcon &&
+          {submitButtonVisible &&
             <button className="btn submit-btn" type="button" ref="btnSubmit" onClick={this.handleSubmit} disabled={this.props.disabled}>
               <span className="sr-only">Submit</span>
               <span aria-hidden="true" className={this.props.submitIcon}/>
