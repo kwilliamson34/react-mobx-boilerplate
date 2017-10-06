@@ -175,6 +175,10 @@ class ApiService {
         }
       });
     }
+
+    getLocationFavorites() {
+      return axios.get(`${base}/user/location/favorite?pseId=${userStore.user.pse}`);
+    }
 }
 
 export const apiService = new ApiService();

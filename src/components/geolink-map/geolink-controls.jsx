@@ -21,6 +21,7 @@ export default class GeolinkControls extends React.Component {
   componentWillMount() {
     this.store.formFieldRefList = [];
     this.store.resetLayerToggles();
+    this.store.loadFavorites();
   }
 
   toggleNetwork = input => {
@@ -64,20 +65,40 @@ export default class GeolinkControls extends React.Component {
     )
   }
 
+  onFavoriteClick = (favorite) => {
+    this.store.selectFavorite(favorite);
+  }
+
+  onFavoriteEnter = (event, favorite) => {
+    if(event.charCode === 13) {
+      this.store.selectFavorite(favorite);
+    }
+  }
+
+  onManageClick = () => {
+    console.log('go to manage favorites');
+  }
+
+  onManageEnter = (event) => {
+    if(event.charCode === 13) {
+      console.log('go to manage favorites');
+    }
+  }
+
   getPredictiveDropdown = () => {
-    if(this.geoStore.searchTerm) return (
+    if(this.store.dropdownIsVisible) return (
       <div className="predictive-dropdown">
         <ul>
-          {this.geoStore.predictedFavorites.map((favorite, index) => {
+          {this.store.predictedFavorites.map((favorite, index) => {
             return (
-              <li key={index}>
+              <li role="button" tabIndex="0" onClick={() => this.onFavoriteClick(favorite)} onKeyPress={(e) => this.onFavoriteEnter(e, favorite)} key={index}>
                 <i className="icon icon-star"></i>
-                <span>{favorite.name}</span>
-                <small>{favorite.address}</small>
+                <span>{favorite.favoriteName}</span>
+                <small>{favorite.locationFavoriteAddress}</small>
               </li>
             )
           })}
-          <li>
+          <li role="button" tabIndex="0" onClick={this.onManageClick} onKeyPress={this.onManageEnter}>
             Manage all favorites
           </li>
         </ul>
@@ -100,9 +121,8 @@ export default class GeolinkControls extends React.Component {
         }
         <div className="container">
           <div className="row is-flex">
-            <div className="col-xs-12 col-sm-8 col-md-4 map-search">
+            <div className={`col-xs-12 col-sm-8 col-md-4 map-search ${this.store.dropdownIsVisible ? 'dropdown-visible' : ''}`}>
               <h2 className="as-h5">Search</h2>
-
               <TextInput
                 ref={ref => this.store.formFieldRefList.push(ref)}
                 checkFormForErrors={this.store.checkFormForErrors.bind(this.store)}
@@ -115,14 +135,13 @@ export default class GeolinkControls extends React.Component {
                 showClearButton={true}
                 handleSubmit={this.store.searchMap.bind(this.store)}
                 submitIcon="icon-search"/>
+              {this.getPredictiveDropdown()}
               <button
                 className={`as-link ${this.store.values.locationAddress ? '' : 'disabled'}`}
                 ref="addFavoriteBtn"
                 onClick={this.store.showAddLocationForm.bind(this.store)}>
                 Add Favorite
               </button>
-
-              {this.getPredictiveDropdown()}
             </div>
             <div className="col-xs-12 col-sm-4 col-md-4 map-layers">
               <h2 className="as-h5">Layers</h2>

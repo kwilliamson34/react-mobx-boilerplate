@@ -1,4 +1,4 @@
-import {action, observable, computed} from 'mobx';
+import {action, observable, computed, autorun} from 'mobx';
 import axios from 'axios';
 import config from 'config';
 import {utilsService} from '../services/utils.service';
@@ -12,6 +12,19 @@ const networkLayerNames = [
 ];
 
 class GeolinkStore {
+
+  constructor() {
+    this.selectedFavorite = '';
+    autorun(() => {
+      if(this.values.locationAddress === this.selectedFavorite || !/\w+/.test(this.values.locationAddress)) {
+        this.dropdownIsVisible = false;
+        this.selectedFavorite = '';
+      } else if(this.values.locationAddress) {
+        this.dropdownIsVisible = true;
+      }
+    });
+  }
+
   @action loadGeolinkHtml() {
     const success = (response) => {
       let html = response.data;
@@ -31,6 +44,7 @@ class GeolinkStore {
   }
 
   @action searchMap() {
+    this.dropdownIsVisible = false;
     if(this.values.locationAddress) {
       console.log('Searching map for ' + this.values.locationAddress + '...');
       this.mapIframeRef.contentWindow.postMessage({
@@ -126,25 +140,6 @@ class GeolinkStore {
     this.showAlertLayer = false;
   }
 
-  @computed get searchTerms() {
-    return this.searchTerm.split(' ');
-  }
-
-  @computed get predictedFavorites() {
-    let termsMatchFavorite = null;
-    let re = null;
-    return this.favorites.filter(favorite => {
-      termsMatchFavorite = true;
-      this.searchTerms.forEach(term => {
-        re = new RegExp(term, 'i');
-        if(!re.test(favorite.name) && !re.test(favorite.address)) {
-          termsMatchFavorite = false;
-        }
-      })
-      return termsMatchFavorite;
-    }).splice(0, 8);
-  }
-
   @action showAddLocationForm() {
     this.pageMode = 'ADD_LOCATION';
     this.values.locationName = '';
@@ -202,6 +197,52 @@ class GeolinkStore {
     this.formHasError = hasError;
   }
 
+  @action loadFavorites() {
+    const success = (res) => {
+      // this.favorites = res.data.userlocationfavorite;
+      this.favorites = [
+        { favoriteName: 'Sapient Corporation', locationFavoriteAddress: '40 Fulton Street, New York, NY' },
+        { favoriteName: 'Williamsburg', locationFavoriteAddress: 'Bedford Ave, Brooklyn, NY' },
+        { favoriteName: 'Sapient', locationFavoriteAddress: '40 Fulton Street' },
+        { favoriteName: 'Sapient', locationFavoriteAddress: '40 Fulton Street' },
+        { favoriteName: 'Saaaaaaaaaapient', locationFavoriteAddress: '40 Fulton Street' },
+        { favoriteName: 'Sapient', locationFavoriteAddress: '40 Fulton Streeeeeeeeet' },
+        { favoriteName: 'Sapient', locationFavoriteAddress: '40 Fulton Street' },
+        { favoriteName: 'Sapient', locationFavoriteAddress: '40 Fulton Street' }
+      ]
+    }
+    const fail = (err) => {
+      utilsService.handleError(err);
+    }
+    apiService.getLocationFavorites().then(success, fail);
+  }
+
+  @action selectFavorite(favorite) {
+    this.selectedFavorite = favorite.locationFavoriteAddress;
+    this.values.locationAddress = favorite.locationFavoriteAddress;
+    this.values.locationName = favorite.favoriteName;
+    this.searchMap();
+  }
+
+  @computed get searchTerms() {
+    return this.values.locationAddress.split(' ');
+  }
+
+  @computed get predictedFavorites() {
+    let areSearchTermsMatchingFavorite = null;
+    let searchTermRegex = null;
+    return this.favorites.filter(favorite => {
+      areSearchTermsMatchingFavorite = true;
+      this.searchTerms.forEach(term => {
+        searchTermRegex = new RegExp(term, 'i');
+        if(!searchTermRegex.test(favorite.favoriteName) && !searchTermRegex.test(favorite.locationFavoriteAddress)) {
+          areSearchTermsMatchingFavorite = false;
+        }
+      })
+      return areSearchTermsMatchingFavorite;
+    }).splice(0, 8);
+  }
+
   //OBSERVABLES
   //Page
   @observable pageMode = 'MAP_CONTROLS';
@@ -219,17 +260,6 @@ class GeolinkStore {
   @observable showAlertLayer = false;
   @observable networkIssueNumber = '800-574-7000';
 
-  @observable favorites = [
-    { name: 'Sapient Corporation', address: '40 Fulton Street, New York, NY' },
-    { name: 'Sapient', address: '40 Fulton Street' },
-    { name: 'Sapient', address: '40 Fulton Street' },
-    { name: 'Sapient', address: '40 Fulton Street' },
-    { name: 'Saaaaaaaaaapient', address: '40 Fulton Street' },
-    { name: 'Sapient', address: '40 Fulton Streeeeeeeeet' },
-    { name: 'Sapient', address: '40 Fulton Street' },
-    { name: 'Sapient', address: '40 Fulton Street' }
-  ]
-
   //Map Search, Add and Edit Location Favorites
   @observable formFieldRefList = [];
   @observable formHasError = true;
@@ -245,6 +275,8 @@ class GeolinkStore {
     locationAddress: '',
     locationName: ''
   };
+  @observable dropdownIsVisible = false;
+  @observable favorites = [];
 }
 
 export const geolinkStore = new GeolinkStore();
