@@ -15,41 +15,40 @@ export default class GeolinkControls extends React.Component {
 
   constructor(props) {
     super(props);
-    this.geoStore = this.props.geolinkStore;
-    this.geoStore.formFieldRefList = [];
+    this.store = this.props.geolinkStore;
   }
 
   componentWillMount() {
-    this.geoStore.resetLayerToggles();
+    this.store.formFieldRefList = [];
+    this.store.resetLayerToggles();
   }
 
   toggleNetwork = input => {
     if (input.type === 'checkbox') {
-      this.geoStore.toggleNetwork();
+      this.store.toggleNetwork();
     }
   };
 
   toggleTraffic = input => {
     if (input.type === 'checkbox') {
-      this.geoStore.toggleTraffic();
+      this.store.toggleTraffic();
     }
   };
 
   toggleWeather = input => {
     if (input.type === 'checkbox') {
-      this.geoStore.toggleWeather();
+      this.store.toggleWeather();
     }
   };
 
   toggleAlerts = input => {
     if (input.type === 'checkbox') {
-      this.geoStore.toggleAlerts();
+      this.store.toggleAlerts();
     }
   };
 
-  showAddLocationForm = () => {
-    this.geoStore.pageMode = 'ADD_LOCATION';
-    this.geoStore.clearAlerts();
+  clearSuccess = () => {
+    this.store.showSuccess = false;
   }
 
   renderSuccess = () => {
@@ -59,7 +58,7 @@ export default class GeolinkControls extends React.Component {
           <span className="sr-only">Close alert</span>
         </button>
         <p role="alert" aria-live="assertive">
-          <strong>Success!&nbsp;</strong>{'"' + this.geoStore.values.locationName + '"'} has been added.
+          <strong>Success!&nbsp;</strong>{this.store.successText}
         </p>
       </div>
     )
@@ -67,8 +66,8 @@ export default class GeolinkControls extends React.Component {
 
   render() {
     return (
-      <section className={`geolink-controls ${this.geoStore.pageMode === 'MAP_CONTROLS' ? 'show' : 'hide'}`}>
-        {this.geoStore.showSuccess &&
+      <section className={`geolink-controls ${this.store.pageMode === 'MAP_CONTROLS' ? 'show' : 'hide'}`}>
+        {this.store.showSuccess &&
           <div className="container">
             <div className="row">
               <div className="col-xs-12">
@@ -82,18 +81,23 @@ export default class GeolinkControls extends React.Component {
             <div className="col-xs-12 col-sm-8 col-md-4 map-search">
               <h2 className="as-h5">Search</h2>
               <TextInput
-                ref={ref => this.geoStore.formFieldRefList.push(ref)}
-                checkFormForErrors={this.geoStore.checkFormForErrors.bind(this.store)}
-                dataObject={this.geoStore.values}
+                ref={ref => this.store.formFieldRefList.push(ref)}
+                checkFormForErrors={this.store.checkFormForErrors.bind(this.store)}
+                dataObject={this.store.values}
                 id="locationAddress"
                 type="search"
                 labelText="Address"
                 labelIsSrOnly={true}
                 className="search-form"
                 showClearButton={true}
-                handleSubmit={this.geoStore.searchMap.bind(this.geoStore)}
+                handleSubmit={this.store.searchMap.bind(this.store)}
                 submitIcon="icon-search"/>
-              <button className={`as-link ${this.geoStore.values.locationAddress ? '' : 'disabled'}`} ref="addFavoriteBtn" onClick={this.showAddLocationForm}>Add Favorite</button>
+              <button
+                className={`as-link ${this.store.values.locationAddress ? '' : 'disabled'}`}
+                ref="addFavoriteBtn"
+                onClick={this.store.showAddLocationForm.bind(this.store)}>
+                Add Favorite
+              </button>
             </div>
             <div className="col-xs-12 col-sm-4 col-md-4 map-layers">
               <h2 className="as-h5">Layers</h2>
@@ -101,12 +105,12 @@ export default class GeolinkControls extends React.Component {
                 <fieldset className="coverage-layers">
                   <legend className="sr-only">Coverage layers</legend>
                   <div className="col-xs-6 col-sm-12 no-gutters">
-                    <Checkbox label="Network" handleOnChange={this.toggleNetwork} checked={this.geoStore.showNetworkLayer} disabled={this.props.disabled}/>
-                    <Checkbox label="Weather" handleOnChange={this.toggleWeather} checked={this.geoStore.showWeatherLayer} disabled={this.props.disabled}/>
+                    <Checkbox label="Network" handleOnChange={this.toggleNetwork} checked={this.store.showNetworkLayer} disabled={this.props.disabled}/>
+                    <Checkbox label="Weather" handleOnChange={this.toggleWeather} checked={this.store.showWeatherLayer} disabled={this.props.disabled}/>
                   </div>
                   <div className="col-xs-6 col-sm-12 no-gutters">
-                    <Checkbox label="Traffic" handleOnChange={this.toggleTraffic} checked={this.geoStore.showTrafficLayer} disabled={this.props.disabled}/>
-                    <Checkbox label="Alerts" handleOnChange={this.toggleAlerts} checked={this.geoStore.showAlertLayer} disabled={this.props.disabled || !this.geoStore.authIsComplete}/>
+                    <Checkbox label="Traffic" handleOnChange={this.toggleTraffic} checked={this.store.showTrafficLayer} disabled={this.props.disabled}/>
+                    <Checkbox label="Alerts" handleOnChange={this.toggleAlerts} checked={this.store.showAlertLayer} disabled={this.props.disabled || !this.store.authIsComplete}/>
                   </div>
                 </fieldset>
               </form>
@@ -159,11 +163,11 @@ export default class GeolinkControls extends React.Component {
       <div className="network-contact-info">
         <p><span aria-hidden="true">Report Network Issue:</span>
           <br className="visible-md-inline"/>
-          <a href={'tel:' + this.geoStore.networkIssueNumber}>
+          <a href={'tel:' + this.store.networkIssueNumber}>
             <span>
               <i className="icon-phone-number footer-support-phone" aria-hidden='true'></i>
               <span className="sr-only">Report Network Issue: Phone&nbsp;</span>
-              {this.geoStore.networkIssueNumber}
+              {this.store.networkIssueNumber}
             </span>
           </a>
         </p>

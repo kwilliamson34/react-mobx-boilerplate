@@ -15,6 +15,9 @@ class LocationFavoriteForm extends React.Component {
   constructor (props) {
     super(props)
     this.store = this.props.store;
+  }
+
+  componentWillMount() {
     this.store.formFieldRefList = [];
   }
 
@@ -53,5 +56,5 @@ class LocationFavoriteForm extends React.Component {
 export default asForm(LocationFavoriteForm, {
   submitButtonText: 'Save Favorite',
   discardButtonText: 'Discard & Go Back',
-  successText: 'Your favorite has been added.'
+  formColClass: 'col-xs-12'
 })

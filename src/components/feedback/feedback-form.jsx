@@ -19,7 +19,6 @@ class FeedbackForm extends React.Component {
   constructor (props) {
     super(props)
     this.store = this.props.store;
-    this.store.formFieldRefList = [];
 
     this.adminOptions = [
       {value: 'System Performance', title: 'System Performance'},
@@ -36,6 +35,9 @@ class FeedbackForm extends React.Component {
     ];
   }
 
+  componentWillMount() {
+    this.store.formFieldRefList = [];
+  }
 
   render() {
     return (

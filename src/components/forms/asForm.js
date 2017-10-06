@@ -13,14 +13,18 @@ export default function asForm (MyComponent, attributes) {
         clearForm: PropTypes.func,
         submitForm: PropTypes.func,
         formIsDirty: PropTypes.bool,
+        formHasError: PropTypes.bool,
         showAlert: PropTypes.bool,
-        formHasError: PropTypes.bool
+        alertText: PropTypes.string,
+        successText: PropTypes.string
       }),
-      disabled: PropTypes.bool
+      disabled: PropTypes.bool,
+      addColClasses: PropTypes.bool
     }
 
     static defaultProps = {
-      disabled: false
+      disabled: false,
+      addColClasses: false
     }
 
     constructor (props) {
@@ -30,10 +34,15 @@ export default function asForm (MyComponent, attributes) {
 
     componentWillMount() {
       this.interceptedRoute = '';
-      this.alertText = attributes && attributes.alertText ? attributes.alertText : 'Please fix the following errors.';
-      this.successText = attributes && attributes.successText ? attributes.successText : 'Your submission was successful.';
       this.submitButtonText = attributes && attributes.submitButtonText ? attributes.submitButtonText : 'Submit';
       this.discardButtonText = attributes && attributes.discardButtonText ? attributes.discardButtonText : '';
+      this.formColClass = attributes && attributes.formColClass ? attributes.formColClass : ''
+      if(!this.store.alertText) {
+        this.store.alertText = 'Please fix the following errors.';
+      }
+      if(!this.store.successText) {
+        this.store.successText = 'Your submission was successful.';
+      }
 
       //set up reroute blockade (returns unblocking function)
       this.unblock = history.block((location) => {
@@ -73,7 +82,7 @@ export default function asForm (MyComponent, attributes) {
             <span className="sr-only">Close alert</span>
           </button>
           <p role="alert" aria-live="assertive">
-            <strong>Error:&nbsp;</strong>{this.alertText}
+            <strong>Error:&nbsp;</strong>{this.store.alertText}
           </p>
         </div>
       )
@@ -86,7 +95,7 @@ export default function asForm (MyComponent, attributes) {
             <span className="sr-only">Close alert</span>
           </button>
           <p role="alert" aria-live="assertive">
-            <strong>Success!&nbsp;</strong>{this.successText}
+            <strong>Success!&nbsp;</strong>{this.store.successText}
           </p>
         </div>
       )
@@ -177,13 +186,19 @@ export default function asForm (MyComponent, attributes) {
       return (
         <section>
           <form noValidate>
-            {this.store.showAlert && this.renderAlert()}
-            {this.store.showSuccess && this.renderSuccess()}
+            <div className={`alert-bars ${this.formColClass}`}>
+              {this.store.showAlert && this.renderAlert()}
+              {this.store.showSuccess && this.renderSuccess()}
+            </div>
+
             <MyComponent {...this.props}
               showExitModal={this.showExitModal}
               hideExitModal={this.hideExitModal}/>
-            {this.renderSubmitButton()}
-            {this.discardButtonText ? this.renderDiscardButton() : ''}
+
+            <div className={`form-actions ${this.formColClass}`}>
+              {this.renderSubmitButton()}
+              {this.discardButtonText ? this.renderDiscardButton() : ''}
+            </div>
           </form>
           {this.renderExitModal()}
         </section>

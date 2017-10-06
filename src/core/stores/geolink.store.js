@@ -126,13 +126,27 @@ class GeolinkStore {
     this.showAlertLayer = false;
   }
 
+  @action showAddLocationForm() {
+    this.pageMode = 'ADD_LOCATION';
+    this.values.locationName = '';
+    this.clearAlerts();
+  }
+
+  @action showEditLocationForm() {
+    this.pageMode = 'EDIT_LOCATION';
+    this.clearAlerts();
+  }
 
   @action submitForm() {
     const success = () => {
       this.pageMode = 'MAP_CONTROLS';
+      this.successText = '"' + this.store.values.locationName + '" has been added.';
       this.showSuccess = true;
     }
-    const failure = () => {
+    const failure = (err) => {
+      this.alertText = err.response && err.response.data && err.response.data.message.indexOf('already exists') > -1
+        ? 'You already have a favorite named "' + this.values.locationName + '".'
+        : 'Please fix the following errors.';
       this.showAlert = true;
     }
     apiService.addLocationFavorite(this.values).then(success, failure);
@@ -190,7 +204,9 @@ class GeolinkStore {
   @observable formFieldRefList = [];
   @observable formHasError = true;
   @observable showAlert = false;
+  @observable alertText = '';
   @observable showSuccess = false;
+  @observable successText = '';
   @observable defaultValues = {
     locationAddress: '',
     locationName: ''
