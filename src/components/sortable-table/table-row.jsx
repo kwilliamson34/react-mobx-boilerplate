@@ -6,14 +6,16 @@ import {observer} from 'mobx-react';
 export class TableRow extends React.Component {
 
   static propTypes = {
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     row: PropTypes.object,
     onChange: PropTypes.func,
     buttonJsx: PropTypes.object,
+    hasCheckbox: PropTypes.bool,
     checked: PropTypes.bool
   }
 
   static defaultProps = {
+    hasCheckbox: false,
     checked: false
   }
 
@@ -24,16 +26,20 @@ export class TableRow extends React.Component {
   render() {
     return (
       <tr className={`sortable-table-row ${this.props.checked ? 'active' : ''}`} tabIndex="0">
-        <th scope="row">
-          <input
-            role="checkbox"
-            checked={this.props.checked}
-            value={this.props.data.id}
-            onChange={this.handleOnChange}/>
-        </th>
-        {Object.keys(this.props.row).map(col => {
+        {
+          this.props.hasCheckbox &&
+          <th scope="row" className="col-xs-1">
+            <input
+              type="checkbox"
+              checked={this.props.checked}
+              value={this.props.id}
+              id={this.props.id}
+              onChange={this.handleOnChange}/>
+          </th>
+        }
+        {Object.keys(this.props.row).map((col, i) => {
           return (
-            <td>
+            <td key={`table-row-${i}`}>
               <p>
                 {this.props.row[col]}
               </p>

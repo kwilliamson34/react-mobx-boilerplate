@@ -18,6 +18,21 @@ export default class ManageLocationsPage extends React.Component {
     this.manageLocationsStore = this.props.store.manageLocationsStore;
   }
 
+  componentWillMount() {
+    this.manageLocationsStore.isLoading = true;
+    this.manageLocationsStore.fetchRows();
+  }
+
+  noResultsJsx = () => {
+    return (
+      <div>
+        <div className="as-h2">No Favorites</div>
+        <div className="as-h3">No favorite locations have been added yet. Add some!</div>
+        <button className="fn-primary">Add From Map</button>
+      </div>
+    )
+  }
+
   render() {
 
     const crumbs = [
@@ -52,7 +67,13 @@ export default class ManageLocationsPage extends React.Component {
               <h1>Manage Location Favorites</h1>
             </div>
             <div className="col-xs-12 col-lg-offset-1 col-lg-10">
-              <SortableTable caption="Manage Locations" columns={tableColumns} rows={this.manageLocationsStore.sortedRows} store={this.manageLocationsStore} />
+              <SortableTable
+                columns={tableColumns}
+                rows={this.manageLocationsStore.sortedRows}
+                store={this.manageLocationsStore}
+                noResultsJsx={this.noResultsJsx()}
+                hasCheckboxRow={true}
+                />
             </div>
           </div>
         </div>

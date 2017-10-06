@@ -10,6 +10,18 @@ class ManageLocationsStore {
 
   @action fetchRows() {
     //fetch rows from service;
+    const success = (res) => {
+      console.log('success!', res);
+      this.rows = res.userlocationfavorite;
+      this.isLoading = false;
+    }
+
+    const fail = (res) => {
+      console.log('fail!', res);
+      this.isLoading = false;
+    }
+
+    return apiService.getLocationFavorites().then(success, fail);
   }
 
 	@action rowSelected(row) {
@@ -58,6 +70,7 @@ class ManageLocationsStore {
   	// return _.orderBy(this.rows, row => this.sortRows(row, this.activeColumn), this.sortDirections[this.activeColumn]);
   }
 
+  @observable isLoading = false;
   @observable rows = [];
 
   @observable activeColumn = 'locationFavoriteId';

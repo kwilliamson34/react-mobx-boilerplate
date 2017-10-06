@@ -12,15 +12,17 @@ export class SortableTable extends React.Component {
 
   static propTypes = {
     store: PropTypes.object.isRequired,
-    caption: PropTypes.string.isRequired,
+    caption: PropTypes.string,
     columns: PropTypes.array,
     rows: PropTypes.object,
+    hasCheckboxRow: PropTypes.bool,
     tableId: PropTypes.string
   };
 
   static defaultProps = {
     columns: [],
-    rows: []
+    rows: [],
+    hasCheckboxRow: false
   }
 
   constructor(props) {
@@ -42,19 +44,26 @@ export class SortableTable extends React.Component {
     console.log('handleCheckboxChange', e.target);
   }
 
-  renderRows = (rows) => {
-    //we'll just make sure this is formatted right in the computed
-    //for now I just want it rendering;
+  renderRows = (rows, columns) => {
+    console.log('rows???', rows);
+    //we have to definitively tie rows to columns, so that we only show those items off the row object that correspond to desired columns
     return rows.map((row, i) => {
-      return <TableRow id={row.locationFavoriteId} row={row} checked={row.checked} onChange={this.handleCheckboxChange} key={`${this.props.caption}-table-${i}`}/>
+      return (
+        <TableRow
+          id={row.locationFavoriteId}
+          row={row}
+          checked={row.checked}
+          onChange={this.handleCheckboxChange}
+          key={`${this.props.caption}-table-${i}`}
+          hasCheckbox={this.props.hasCheckboxRow}/>
+      )
     })
   }
 
   noResults = () => {
     return (
-      <div className="my-apps-not-found" ref="noResults">
-        <div className="as-h2">Sorry, no results were found.</div>
-        <div className="as-h3">Adjust the filters to view your apps.</div>
+      <div className="no-results-block" ref="noResults">
+        {this.props.noResultsJsx}
       </div>
     )
   }
@@ -66,9 +75,15 @@ export class SortableTable extends React.Component {
           is now sorted by {this.store.activeColumn}
           in {this.props.store.sortDirections[this.props.list] ? 'ascending' : 'descending'}</span>
         <table className="my-apps-table" id={this.props.tableId}>
-          <caption>{this.props.caption}</caption>
+          {this.props.caption && <caption>{this.props.caption}</caption>}
           <thead>
             <tr>
+              {
+                this.props.hasCheckboxRow &&
+                  <th className="col-xs-1">
+                    <input type="checkbox"/>
+                  </th>
+              }
               {
                 this.props.columns.map((col, i) => {
                   const sortDirection = this.store.sortDirections[col.key];
@@ -89,10 +104,10 @@ export class SortableTable extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {this.renderRows(this.props.rows)}
+            {this.renderRows(this.props.rows, this.props.columns)}
           </tbody>
         </table>
-        {!this.store.isLoading && this.noResults()}
+        {!this.store.isLoading && this.store.noResults && this.noResults()}
       </div>
     )
   }
