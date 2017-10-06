@@ -18,13 +18,11 @@ export default function asForm (MyComponent, attributes) {
         alertText: PropTypes.string,
         successText: PropTypes.string
       }),
-      disabled: PropTypes.bool,
-      addColClasses: PropTypes.bool
+      disabled: PropTypes.bool
     }
 
     static defaultProps = {
-      disabled: false,
-      addColClasses: false
+      disabled: false
     }
 
     constructor (props) {
