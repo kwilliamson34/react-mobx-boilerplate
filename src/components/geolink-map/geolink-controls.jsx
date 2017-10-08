@@ -16,6 +16,7 @@ export default class GeolinkControls extends React.Component {
   constructor(props) {
     super(props);
     this.store = this.props.geolinkStore;
+    this.ENTER_KEY_CODE = 13;
   }
 
   componentWillMount() {
@@ -70,22 +71,22 @@ export default class GeolinkControls extends React.Component {
   }
 
   onFavoriteEnter = (event, favorite) => {
-    if(event.charCode === 13) {
+    if(event.charCode === this.ENTER_KEY_CODE) {
       this.store.selectFavorite(favorite);
     }
   }
 
-  onManageClick = () => {
+  onManageFavoritesClick = () => {
     console.log('go to manage favorites');
   }
 
-  onManageEnter = (event) => {
-    if(event.charCode === 13) {
+  onManageFavoritesEnter = (event) => {
+    if(event.charCode === this.ENTER_KEY_CODE) {
       console.log('go to manage favorites');
     }
   }
 
-  getPredictiveDropdown = () => {
+  renderPredictiveDropdown = () => {
     if(this.store.dropdownIsVisible) return (
       <div className="predictive-dropdown">
         <ul>
@@ -98,7 +99,7 @@ export default class GeolinkControls extends React.Component {
               </li>
             )
           })}
-          <li role="button" tabIndex="0" onClick={this.onManageClick} onKeyPress={this.onManageEnter}>
+          <li role="button" tabIndex="0" onClick={this.onManageFavoritesClick} onKeyPress={this.onManageFavoritesEnter}>
             Manage all favorites
           </li>
         </ul>
@@ -135,7 +136,7 @@ export default class GeolinkControls extends React.Component {
                 showClearButton={true}
                 handleSubmit={this.store.searchMap.bind(this.store)}
                 submitIcon="icon-search"/>
-              {this.getPredictiveDropdown()}
+              {this.renderPredictiveDropdown()}
               <button
                 className={`as-link ${this.store.values.locationAddress ? '' : 'disabled'}`}
                 ref="addFavoriteBtn"

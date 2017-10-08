@@ -16,7 +16,9 @@ class GeolinkStore {
   constructor() {
     this.selectedFavorite = '';
     autorun(() => {
-      if(this.values.locationAddress === this.selectedFavorite || !/\w+/.test(this.values.locationAddress)) {
+      let inputContentMatchesSelection = this.values.locationAddress === this.selectedFavorite;
+      let inputIsEmptyOrSpaces = !/\w+/.test(this.values.locationAddress);
+      if(inputContentMatchesSelection || inputIsEmptyOrSpaces) {
         this.dropdownIsVisible = false;
         this.selectedFavorite = '';
       } else if(this.values.locationAddress) {
@@ -200,15 +202,28 @@ class GeolinkStore {
   @action loadFavorites() {
     const success = (res) => {
       // this.favorites = res.data.userlocationfavorite;
+      /*
+        NOTE
+        the below hard-coded array is of the same form as the server response;
+        not sure which users have real favorites saved yet at this early stage
+      */
       this.favorites = [
         { favoriteName: 'Sapient Corporation', locationFavoriteAddress: '40 Fulton Street, New York, NY' },
         { favoriteName: 'Williamsburg', locationFavoriteAddress: 'Bedford Ave, Brooklyn, NY' },
-        { favoriteName: 'Sapient', locationFavoriteAddress: '40 Fulton Street' },
-        { favoriteName: 'Sapient', locationFavoriteAddress: '40 Fulton Street' },
-        { favoriteName: 'Saaaaaaaaaapient', locationFavoriteAddress: '40 Fulton Street' },
-        { favoriteName: 'Sapient', locationFavoriteAddress: '40 Fulton Streeeeeeeeet' },
-        { favoriteName: 'Sapient', locationFavoriteAddress: '40 Fulton Street' },
-        { favoriteName: 'Sapient', locationFavoriteAddress: '40 Fulton Street' }
+        { favoriteName: 'Sapient Corporation', locationFavoriteAddress: '40 Fulton Street, New York, NY' },
+        { favoriteName: 'Williamsburg', locationFavoriteAddress: 'Bedford Ave, Brooklyn, NY' },
+        { favoriteName: 'Sapient Corporation', locationFavoriteAddress: '40 Fulton Street, New York, NY' },
+        { favoriteName: 'Williamsburg', locationFavoriteAddress: 'Bedford Ave, Brooklyn, NY' },
+        { favoriteName: 'Sapient Corporation', locationFavoriteAddress: '40 Fulton Street, New York, NY' },
+        { favoriteName: 'Williamsburg', locationFavoriteAddress: 'Bedford Ave, Brooklyn, NY' },
+        { favoriteName: 'Sapient Corporation', locationFavoriteAddress: '40 Fulton Street, New York, NY' },
+        { favoriteName: 'Williamsburg', locationFavoriteAddress: 'Bedford Ave, Brooklyn, NY' },
+        { favoriteName: 'Sapient Corporation', locationFavoriteAddress: '40 Fulton Street, New York, NY' },
+        { favoriteName: 'Williamsburg', locationFavoriteAddress: 'Bedford Ave, Brooklyn, NY' },
+        { favoriteName: 'Sapient Corporation', locationFavoriteAddress: '40 Fulton Street, New York, NY' },
+        { favoriteName: 'Williamsburg', locationFavoriteAddress: 'Bedford Ave, Brooklyn, NY' },
+        { favoriteName: 'Sapient Corporation', locationFavoriteAddress: '40 Fulton Street, New York, NY' },
+        { favoriteName: 'Williamsburg', locationFavoriteAddress: 'Bedford Ave, Brooklyn, NY' }
       ]
     }
     const fail = (err) => {
@@ -229,17 +244,17 @@ class GeolinkStore {
   }
 
   @computed get predictedFavorites() {
-    let areSearchTermsMatchingFavorite = null;
+    let searchTermsAreMatchingFavorite = null;
     let searchTermRegex = null;
     return this.favorites.filter(favorite => {
-      areSearchTermsMatchingFavorite = true;
+      searchTermsAreMatchingFavorite = true;
       this.searchTerms.forEach(term => {
         searchTermRegex = new RegExp(term, 'i');
         if(!searchTermRegex.test(favorite.favoriteName) && !searchTermRegex.test(favorite.locationFavoriteAddress)) {
-          areSearchTermsMatchingFavorite = false;
+          searchTermsAreMatchingFavorite = false;
         }
       })
-      return areSearchTermsMatchingFavorite;
+      return searchTermsAreMatchingFavorite;
     }).splice(0, 8);
   }
 
