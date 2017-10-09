@@ -15,7 +15,7 @@ export class SortableTable extends React.Component {
     idKey: PropTypes.string.isRequired,
     caption: PropTypes.string,
     columns: PropTypes.array,
-    rows: PropTypes.object,
+    rows: PropTypes.array,
     hasCheckboxRow: PropTypes.bool,
     tableId: PropTypes.string
   };
@@ -38,28 +38,32 @@ export class SortableTable extends React.Component {
   };
 
   handleToggleSort = (key) => {
+    console.log('handleToggleSort', key);
     this.store.toggleSort(key);
   }
 
-  handleCheckboxChange = (e) => {
-    console.log('handleCheckboxChange', e.target);
+  handleOnChange = (e) => {
+    console.log('handleOnChange', e.target);
+    if (e.target.type === 'checkbox') {
+      console.log('DING');
+      this.store.handleCheckboxChange(e.target.value);
+    }
   }
 
   renderRows = (rows, columns) => {
-    console.log('rows???', rows);
-    console.log('columns', columns);
-    //we have to definitively tie rows to columns, so that we only show those items off the row object that correspond to desired columns
-    let enforcedOrder = columns.map(col => col.key);
-    console.log('enforcedOrder', enforcedOrder);
-    let enforcedOrderRows = [];
-    return rows.map((row, i) => {
+    //as rows are objects, enforce render selection and order by pulling the keys off the original columns array;
+    const enforcedOrder = columns.map(col => col.key);
+    return rows.map(row => {
+      //identify which field we want to use as the id value;
+      const targetedId = row[this.props.idKey];
       return (
         <TableRow
-          id={row[this.props.idKey]}
+          id={targetedId}
+          order={enforcedOrder}
           row={row}
-          checked={row.checked}
-          onChange={this.handleCheckboxChange}
-          key={row[this.props.idKey]}
+          checked={this.store.rowIsChecked}
+          onChange={this.handleOnChange}
+          key={targetedId}
           hasCheckbox={this.props.hasCheckboxRow}/>
       )
     })

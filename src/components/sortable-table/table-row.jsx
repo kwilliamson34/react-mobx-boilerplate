@@ -7,7 +7,8 @@ export class TableRow extends React.Component {
 
   static propTypes = {
     id: PropTypes.number.isRequired,
-    row: PropTypes.object,
+    row: PropTypes.object.isRequired,
+    order: PropTypes.array.isRequired,
     onChange: PropTypes.func,
     buttonJsx: PropTypes.object,
     hasCheckbox: PropTypes.bool,
@@ -17,10 +18,6 @@ export class TableRow extends React.Component {
   static defaultProps = {
     hasCheckbox: false,
     checked: false
-  }
-
-  handleOnChange = (e) => {
-    console.log('handleOnChange', e.target);
   }
 
   render() {
@@ -34,14 +31,14 @@ export class TableRow extends React.Component {
               checked={this.props.checked}
               value={this.props.id}
               id={this.props.id}
-              onChange={this.handleOnChange}/>
+              onChange={this.props.onChange}/>
           </th>
         }
-        {Object.keys(this.props.row).map((col, i) => {
+        {this.props.order.map((column, i) => {
           return (
             <td key={`table-row-${i}`}>
               <p>
-                {this.props.row[col]}
+                {this.props.row[column]}
               </p>
             </td>
           )

@@ -14,6 +14,11 @@ export class SortableColumn extends React.Component {
     children: PropTypes.node
   }
 
+  static defaultProps = {
+    columnWidth: '',
+    children: []
+  }
+
   toggleSort = () => {
     this.props.toggleSort(this.props.columnToSort);
   }
