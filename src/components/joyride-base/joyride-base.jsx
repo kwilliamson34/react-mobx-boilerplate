@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Joyride from 'react-joyride';
+import Joyride from 'fn-joyride-ui';
 import { observer } from 'mobx-react';
 import $ from 'jquery';
 
