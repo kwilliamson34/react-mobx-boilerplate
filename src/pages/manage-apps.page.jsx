@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import {inject, observer} from 'mobx-react';
 import {Link} from 'react-router-dom';
 import {utilsService} from '../core/services/utils.service';
-import $ from 'jquery';
 
 import PageTitle from '../components/page-title/page-title';
 import {CardList} from '../components/card-list/card-list';
@@ -62,7 +61,7 @@ export default class ManageAppsPage extends React.Component {
 
   handleLoadMoreClick = () => {
     this.props.store.changePage(this.pageId);
-    $('#card-list-load-more-btn').blur();
+    this.refs.cardList.blurLoadMoreButton();
     this.cardListStore.setIdToFocus((this.props.store.pages[this.pageId] - 1) * this.itemsPerPage);
   }
 
@@ -152,6 +151,7 @@ export default class ManageAppsPage extends React.Component {
           <div className="row">
             <div className="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-12 col-lg-offset-1 col-lg-10">
               <CardList
+                ref="cardList"
                 cards={this.paginatedCards}
                 numPagesShown={this.props.store.pages[this.pageId]}
                 itemsPerPage={this.itemsPerPage}
