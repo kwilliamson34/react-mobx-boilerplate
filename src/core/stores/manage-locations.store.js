@@ -9,12 +9,11 @@ class ManageLocationsStore {
 	// ACTIONS
 
   @action fetchRows() {
-    //fetch rows from service;
     const success = (res) => {
       console.log('success!', res);
       this.rows = res.userlocationfavorite;
       this.isLoading = false;
-      this.handlePagination();
+      this.advancePagination();
     }
 
     const fail = (res) => {
@@ -25,11 +24,40 @@ class ManageLocationsStore {
     return apiService.getLocationFavorites().then(success, fail);
   }
 
-  @action handlePagination() {
+  @action advancePagination() {
     this.paginationCount++;
+    this.handlePagination();
+  }
+
+  @action handlePagination() {
     const endingIndex = this.paginationCount * this.paginationInterval;
     this.paginatedRows = this.rows.slice(0, endingIndex);
     this.moreToLoad = this.paginatedRows < this.rows;
+  }
+
+  @action handleDelete() {
+    console.log('this.rows before', this.rows.length, this.checkedRows);
+    _.remove(this.rows, (row) => {
+      const idToFind = row.locationFavoriteId.toString();
+      return this.checkedRows.indexOf(idToFind) > -1;
+    })
+    this.clearAllCheckboxes();
+    this.handlePagination();
+    console.log('this.rows after delete', this.rows.length, this.rows);
+
+    // const success = (res) => {
+    //   console.log('delete success!!', res);
+    //   _.remove(this.rows, (row => {
+    //     const idToFind = row.locationFavoriteId;
+    //     return this.checked.indexOf(idToFind) > 0;
+    //   }))
+    //   console.log('this.rows after delete', this.rows);
+    // }
+    // const fail = (res) => {
+    //   console.log('delete fail!', res);
+    // }
+    //
+    // return apiService.deleteLocationFavorites().then(success, fail);
   }
 
 	@action handleCheckboxChange(row) {

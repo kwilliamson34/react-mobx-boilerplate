@@ -54,8 +54,15 @@ export class SortableTable extends React.Component {
       : this.store.selectAllCheckboxes();
   }
 
+  handleDelete = (e) => {
+    e.preventDefault();
+    if (this.store.checkedRows.length > 0) {
+      this.store.handleDelete();
+    }
+  }
+
   advancePagination = () => {
-    this.store.handlePagination();
+    this.store.advancePagination();
   }
 
   renderRows = (sortedRows, columns) => {
@@ -77,10 +84,10 @@ export class SortableTable extends React.Component {
     })
   }
 
-  renderPaginationAndSelectionCounts = () => {
+  renderPaginationCountsAndDeleteButton = () => {
     //onClick here is temp. Need comps for button func.
     return (
-      <div className="pagination-and-selection-count">
+      <div className="pagination-count-delete-wrapper">
         {
           this.props.pagination &&
           <div className="pagination-count" onClick={this.advancePagination}>
@@ -93,6 +100,20 @@ export class SortableTable extends React.Component {
             {`${this.store.checkedRows.length} Selected`}
           </div>
         }
+        {this.renderDeleteButton()}
+      </div>
+    )
+  }
+
+  renderDeleteButton = () => {
+    const disableButton = this.store.checkedRows.length === 0;
+    const oneItemSelected = this.store.checkedRows.length === 1;
+    return (
+      <div className="delete-selection-button">
+        <button onClick={this.handleDelete}>
+          {(disableButton || oneItemSelected) && `Delete Favorite`}
+          {(!disableButton && !oneItemSelected) && `Delete ${this.store.checkedRows.length} Favorites`}
+        </button>
       </div>
     )
   }
@@ -114,7 +135,9 @@ export class SortableTable extends React.Component {
       <div className="">
         <span className="sr-only" aria-live="assertive" aria-atomic="true">{this.props.caption}
           is now sorted by {this.store.activeColumn}
-          in {this.store.sortDirections[this.props.id] ? 'ascending' : 'descending'}</span>
+          in {this.store.sortDirections[this.props.id] ? 'ascending' : 'descending'}
+        </span>
+        {!this.store.isLoading && this.renderPaginationCountsAndDeleteButton()}
         <table className="my-apps-table" id={this.props.tableId}>
           {this.props.caption && <caption>{this.props.caption}</caption>}
           <thead>
@@ -153,7 +176,7 @@ export class SortableTable extends React.Component {
             {this.renderRows(this.props.sortedRows, this.props.columns)}
           </tbody>
         </table>
-        {!this.store.isLoading && this.renderPaginationAndSelectionCounts()}
+        {!this.store.isLoading && this.renderPaginationCountsAndDeleteButton()}
       </div>
     )
   }
