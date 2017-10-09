@@ -10,19 +10,24 @@ import Checkbox from  '../forms/checkbox';
 @observer
 export class SortableTable extends React.Component {
 
+  //checkedRows is from store. We should pass certain things in as props.
+
   static propTypes = {
     store: PropTypes.object.isRequired,
     idKey: PropTypes.string.isRequired,
     caption: PropTypes.string,
     columns: PropTypes.array,
-    rows: PropTypes.array,
+    sortedRows: PropTypes.array,
+    allRowsCount: PropTypes.number,
     hasCheckboxRow: PropTypes.bool,
+    pagination: PropTypes.bool,
     tableId: PropTypes.string
   };
 
   static defaultProps = {
     columns: [],
-    rows: [],
+    sortedRows: [],
+    allRowsCount: 0,
     hasCheckboxRow: false
   }
 
@@ -44,15 +49,19 @@ export class SortableTable extends React.Component {
   }
 
   handleSelectAll = () => {
-    this.store.checkedRows.length === this.props.rows.length
+    this.store.checkedRows.length === this.props.sortedRows.length
       ? this.store.clearAllCheckboxes()
       : this.store.selectAllCheckboxes();
   }
 
-  renderRows = (rows, columns) => {
+  advancePagination = () => {
+    this.store.handlePagination();
+  }
+
+  renderRows = (sortedRows, columns) => {
     //as rows are objects, enforce render selection and order by pulling the keys off the original columns array;
     const enforcedOrder = columns.map(col => col.key);
-    return rows.map(row => {
+    return sortedRows.map(row => {
       //identify which field we want to use as the id value;
       const targetedId = row[this.props.idKey];
       return (
@@ -68,6 +77,26 @@ export class SortableTable extends React.Component {
     })
   }
 
+  renderPaginationAndSelectionCounts = () => {
+    //onClick here is temp. Need comps for button func.
+    return (
+      <div className="pagination-and-selection-count">
+        {
+          this.props.pagination &&
+          <div className="pagination-count" onClick={this.advancePagination}>
+            {`Showing 1-${this.props.sortedRows.length} of ${this.props.allRowsCount}`}
+          </div>
+        }
+        {
+          this.store.checkedRows.length > 0 &&
+          <div className="selection-count">
+            {`${this.store.checkedRows.length} Selected`}
+          </div>
+        }
+      </div>
+    )
+  }
+
   noResults = () => {
     return (
       <div className="no-results-block" ref="noResults">
@@ -75,6 +104,10 @@ export class SortableTable extends React.Component {
       </div>
     )
   }
+
+  //don't forget to add noResults back in;
+  // {!this.store.isLoading && this.store.noResults && this.noResults()}
+
 
   render() {
     return (
@@ -94,7 +127,7 @@ export class SortableTable extends React.Component {
                       id={'select-all-checkbox'}
                       value={''}
                       handleOnChange={this.handleSelectAll}
-                      checked={this.store.checkedRows.length === this.props.rows.length}/>
+                      checked={this.store.checkedRows.length === this.props.sortedRows.length}/>
                   </th>
               }
               {
@@ -117,10 +150,10 @@ export class SortableTable extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {this.renderRows(this.props.rows, this.props.columns)}
+            {this.renderRows(this.props.sortedRows, this.props.columns)}
           </tbody>
         </table>
-        {!this.store.isLoading && this.store.noResults && this.noResults()}
+        {!this.store.isLoading && this.renderPaginationAndSelectionCounts()}
       </div>
     )
   }

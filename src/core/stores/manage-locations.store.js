@@ -14,6 +14,7 @@ class ManageLocationsStore {
       console.log('success!', res);
       this.rows = res.userlocationfavorite;
       this.isLoading = false;
+      this.handlePagination();
     }
 
     const fail = (res) => {
@@ -24,6 +25,13 @@ class ManageLocationsStore {
     return apiService.getLocationFavorites().then(success, fail);
   }
 
+  @action handlePagination() {
+    this.paginationCount++;
+    const endingIndex = this.paginationCount * this.paginationInterval;
+    this.paginatedRows = this.rows.slice(0, endingIndex);
+    this.moreToLoad = this.paginatedRows < this.rows;
+  }
+
 	@action handleCheckboxChange(row) {
     this.checkedRows.indexOf(row) > -1
       ? this.checkedRows.remove(row)
@@ -31,13 +39,14 @@ class ManageLocationsStore {
 	}
 
   @action selectAllCheckboxes() {
-    this.rows.forEach(row => {
+    this.paginatedRows.forEach(row => {
       const id = row.locationFavoriteId.toString();
       if (this.checkedRows.indexOf(id) < 0) {
         this.checkedRows.push(id);
       }
     });
   }
+
 
   @action clearAllCheckboxes() {
     this.checkedRows = [];
@@ -53,14 +62,6 @@ class ManageLocationsStore {
 		this.searchQuery = val;
 	}
 
-	// @action resetApps(){
-	// 	this.myApps = {releasedApps: [], unReleasedApps: []};
-	// 	this.apps = {
-	// 		released: [],
-	// 		unReleased: []
-	// 	};
-	// }
-
 	@action clearSearchQuery(){
 		this.searchQuery = '';
 	}
@@ -75,7 +76,7 @@ class ManageLocationsStore {
 
   @computed get sortedRows() {
     let sortOrder = this.sortDirections[this.activeColumn] ? 'asc' : 'desc';
-  	return _.orderBy(this.rows, [this.activeColumn], [sortOrder]);
+  	return _.orderBy(this.paginatedRows, [this.activeColumn], [sortOrder]);
   }
 
   @computed get rowIsChecked() {
@@ -84,6 +85,14 @@ class ManageLocationsStore {
 
   @observable isLoading = false;
   @observable rows = [];
+
+  @observable paginatedRows = [];
+  @observable paginationCount = 0;
+  @observable paginationInterval = 5;
+  @observable moreToLoad = false;
+
+  @observable checkedRows = [];
+
   //rows will load with locationFavoriteId in descending order, which corresponds to most recent first;
   @observable activeColumn = 'locationFavoriteId';
   //to keep the order toggling simple, true is ascending and false is descending;
@@ -92,7 +101,6 @@ class ManageLocationsStore {
     'locationFavoriteAddress': false,
     'locationFavoriteId': false
   };
-  @observable checkedRows = [];
 
 }
 

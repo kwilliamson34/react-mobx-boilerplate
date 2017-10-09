@@ -70,10 +70,12 @@ export default class ManageLocationsPage extends React.Component {
               <SortableTable
                 idKey={'locationFavoriteId'}
                 columns={tableColumns}
-                rows={this.manageLocationsStore.sortedRows}
+                sortedRows={this.manageLocationsStore.sortedRows}
+                allRowsCount={this.manageLocationsStore.rows.length}
                 store={this.manageLocationsStore}
                 noResultsJsx={this.noResultsJsx()}
                 hasCheckboxRow={true}
+                pagination={true}
                 />
             </div>
           </div>
