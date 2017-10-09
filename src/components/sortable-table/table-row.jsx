@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
 
+import Checkbox from '../forms/checkbox';
+
 @observer
 export class TableRow extends React.Component {
 
@@ -9,16 +11,23 @@ export class TableRow extends React.Component {
     id: PropTypes.number.isRequired,
     row: PropTypes.object.isRequired,
     order: PropTypes.array.isRequired,
-    onChange: PropTypes.func,
+    handleOnChange: PropTypes.func,
     buttonJsx: PropTypes.object,
     hasCheckbox: PropTypes.bool,
-    checked: PropTypes.bool
+    checkedRows: PropTypes.array
   }
 
   static defaultProps = {
     hasCheckbox: false,
-    checked: false
+    checkedRows: []
   }
+
+  // <input
+  //   type="checkbox"
+  //   checked={this.props.checked}
+  //   value={this.props.id}
+  //   id={this.props.id}
+  //   onChange={this.props.onChange}/>
 
   render() {
     return (
@@ -26,12 +35,12 @@ export class TableRow extends React.Component {
         {
           this.props.hasCheckbox &&
           <th scope="row" className="col-xs-1">
-            <input
-              type="checkbox"
-              checked={this.props.checked}
-              value={this.props.id}
-              id={this.props.id}
-              onChange={this.props.onChange}/>
+            <Checkbox
+              id={this.props.id.toString()}
+              value={this.props.id.toString()}
+              handleOnChange={this.props.handleOnChange}
+              checked={this.props.checkedRows.indexOf(this.props.id.toString()) > -1}
+              label={''}/>
           </th>
         }
         {this.props.order.map((column, i) => {

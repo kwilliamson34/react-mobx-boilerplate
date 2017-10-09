@@ -1,7 +1,7 @@
 import {action, observable, computed} from 'mobx';
 import {apiService} from '../services/api.service';
-import {history} from '../services/history.service';
-import {utilsService} from '../services/utils.service';
+// import {history} from '../services/history.service';
+// import {utilsService} from '../services/utils.service';
 import _ from 'lodash';
 
 class ManageLocationsStore {
@@ -25,14 +25,23 @@ class ManageLocationsStore {
   }
 
 	@action handleCheckboxChange(row) {
-    console.log('handleCheckboxChange', row);
-    this.activeRow = row;
-    console.log('this.activeRow', this.activeRow);
-    this.checkedRows.indexOf(row) >= 0
+    this.checkedRows.indexOf(row) > -1
       ? this.checkedRows.remove(row)
       : this.checkedRows.push(row);
-    console.log('this.checkedRows', this.checkedRows);
 	}
+
+  @action selectAllCheckboxes() {
+    this.rows.forEach(row => {
+      const id = row.locationFavoriteId.toString();
+      if (this.checkedRows.indexOf(id) < 0) {
+        this.checkedRows.push(id);
+      }
+    });
+  }
+
+  @action clearAllCheckboxes() {
+    this.checkedRows = [];
+  }
 
 	@action searchLocations() {
 
@@ -75,7 +84,6 @@ class ManageLocationsStore {
 
   @observable isLoading = false;
   @observable rows = [];
-  @observable activeRow = undefined;
   //rows will load with locationFavoriteId in descending order, which corresponds to most recent first;
   @observable activeColumn = 'locationFavoriteId';
   //to keep the order toggling simple, true is ascending and false is descending;

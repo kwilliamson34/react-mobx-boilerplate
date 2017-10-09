@@ -49,12 +49,12 @@ export default class ManageLocationsPage extends React.Component {
       {
         name: 'Name',
         key: 'favoriteName',
-        columnWidth: 'col-xs-5'
+        className: 'col-xs-5'
       },
       {
         name: 'Location/Address',
         key: 'locationFavoriteAddress',
-        columnWidth: 'col-xs-5'
+        className: 'col-xs-5'
       }
     ];
 

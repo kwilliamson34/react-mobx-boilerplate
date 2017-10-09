@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
-
 import _ from 'lodash';
 
 import {SortableColumn} from './sortable-column';
 import {TableRow} from './table-row';
+import Checkbox from  '../forms/checkbox';
 
 @observer
 export class SortableTable extends React.Component {
@@ -31,23 +31,22 @@ export class SortableTable extends React.Component {
     this.store = this.props.store;
   }
 
-  handleRowSelection = (e, app) => {
-    if (e.key === 'Enter' || e.type === 'click') {
-      this.store.rowSelected(app);
-    }
-  };
-
   handleToggleSort = (key) => {
     console.log('handleToggleSort', key);
     this.store.toggleSort(key);
   }
 
-  handleOnChange = (e) => {
-    console.log('handleOnChange', e.target);
-    if (e.target.type === 'checkbox') {
-      console.log('DING');
-      this.store.handleCheckboxChange(e.target.value);
+  handleOnChange = (target) => {
+    console.log('handleOnChange', target);
+    if (target.type === 'checkbox') {
+      this.store.handleCheckboxChange(target.value);
     }
+  }
+
+  handleSelectAll = () => {
+    this.store.checkedRows.length === this.props.rows.length
+      ? this.store.clearAllCheckboxes()
+      : this.store.selectAllCheckboxes();
   }
 
   renderRows = (rows, columns) => {
@@ -61,10 +60,10 @@ export class SortableTable extends React.Component {
           id={targetedId}
           order={enforcedOrder}
           row={row}
-          checked={this.store.rowIsChecked}
-          onChange={this.handleOnChange}
-          key={targetedId}
-          hasCheckbox={this.props.hasCheckboxRow}/>
+          checkedRows={this.store.checkedRows.peek()}
+          hasCheckbox={this.props.hasCheckboxRow}
+          handleOnChange={this.handleOnChange}
+          key={targetedId}/>
       )
     })
   }
@@ -82,7 +81,7 @@ export class SortableTable extends React.Component {
       <div className="">
         <span className="sr-only" aria-live="assertive" aria-atomic="true">{this.props.caption}
           is now sorted by {this.store.activeColumn}
-          in {this.props.store.sortDirections[this.props.list] ? 'ascending' : 'descending'}</span>
+          in {this.store.sortDirections[this.props.id] ? 'ascending' : 'descending'}</span>
         <table className="my-apps-table" id={this.props.tableId}>
           {this.props.caption && <caption>{this.props.caption}</caption>}
           <thead>
@@ -90,7 +89,12 @@ export class SortableTable extends React.Component {
               {
                 this.props.hasCheckboxRow &&
                   <th className="col-xs-1">
-                    <input type="checkbox"/>
+                    <Checkbox
+                      label={''}
+                      id={'select-all-checkbox'}
+                      value={''}
+                      handleOnChange={this.handleSelectAll}
+                      checked={this.store.checkedRows.length === this.props.rows.length}/>
                   </th>
               }
               {
@@ -104,7 +108,7 @@ export class SortableTable extends React.Component {
                       sortDirection={sortDirection}
                       isActive={isActive}
                       columnToSort={col.key}
-                      columnWidth={col.columnWidth}>
+                      className={col.className}>
                       {col.name}
                     </SortableColumn>
                   )
