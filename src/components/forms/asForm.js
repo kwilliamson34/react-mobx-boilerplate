@@ -4,8 +4,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {history} from '../../core/services/history.service';
+import {observer} from 'mobx-react';
 import $ from 'jquery';
 
+@observer
 export default function asForm (MyComponent, attributes) {
   return class Form extends React.Component {
     static propTypes = {
