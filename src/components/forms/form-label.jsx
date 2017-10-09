@@ -8,12 +8,15 @@ export default class FormLabel extends React.Component {
   static propTypes = {
     id: PropTypes.string.isRequired,
     labelText: PropTypes.string.isRequired,
+    helperText: PropTypes.string,
     hasError: PropTypes.bool,
     errorMessage: PropTypes.string,
-    fieldIsRequired: PropTypes.bool
+    fieldIsRequired: PropTypes.bool,
+    srOnly: PropTypes.bool
   }
 
   static defaultProps = {
+    helperText: '',
     hasError: false,
     errorMessage: 'This field has an error',
     fieldIsRequired: false
@@ -21,12 +24,13 @@ export default class FormLabel extends React.Component {
 
   render() {
     return (
-      <div>
-        <label className="control-label" htmlFor={this.props.id}>
+      <div className="form-label">
+        <label className={`control-label ${this.props.srOnly ? 'sr-only' : ''}`} htmlFor={this.props.id}>
           {this.props.labelText}
           {this.props.fieldIsRequired &&
             <span className="required-asterisks"> *</span>
           }
+          {this.props.helperText ? <span className="help-text">{this.props.helperText}</span> : ''}
         </label>
         {this.props.hasError && <div className="msgBlock error error-list" role="alert" aria-live="assertive">
           <span>{this.props.errorMessage}</span>

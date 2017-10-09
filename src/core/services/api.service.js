@@ -163,6 +163,18 @@ class ApiService {
         data: gtocObject
       });
     }
+
+    addLocationFavorite(data) {
+      return axios({
+        method: 'post',
+        url: `${base}/user/location/favorite/`,
+        data: {
+          favoriteName: data.locationName,
+          locationFavoriteAddress: data.locationAddress,
+          pseId: userStore.user.pse
+        }
+      });
+    }
 }
 
 export const apiService = new ApiService();

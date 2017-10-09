@@ -31,7 +31,7 @@ export default class Checkbox extends React.Component {
   }
 
   isChecked() {
-    return this.input.checked;
+    return this.refs.input.checked;
   }
 
   render() {
@@ -44,7 +44,7 @@ export default class Checkbox extends React.Component {
           <input
             type="checkbox"
             id={this.props.id}
-            ref={ref => this.input = ref}
+            ref="input"
             aria-disabled={this.props.disabled}
             className={disabledClass}
             value={this.props.value || this.props.label}
