@@ -45,13 +45,12 @@ export default class SelectInput extends React.Component {
 
   handleOnChange = (e) => {
     this.props.dataObject[this.props.id] = e.target.value;
+    this.hasVisibleError = this.hasFunctionalError;
     this.props.checkFormForErrors();
   }
 
   handleOnBlur = () => {
-    if(this.props.required && !this.valueInStore) {
-      this.hasVisibleError = true;
-    }
+    this.hasVisibleError = this.hasFunctionalError;
     this.props.checkFormForErrors();
   }
 
