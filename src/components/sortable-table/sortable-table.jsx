@@ -12,6 +12,7 @@ export class SortableTable extends React.Component {
 
   static propTypes = {
     store: PropTypes.object.isRequired,
+    idKey: PropTypes.string.isRequired,
     caption: PropTypes.string,
     columns: PropTypes.array,
     rows: PropTypes.object,
@@ -46,15 +47,19 @@ export class SortableTable extends React.Component {
 
   renderRows = (rows, columns) => {
     console.log('rows???', rows);
+    console.log('columns', columns);
     //we have to definitively tie rows to columns, so that we only show those items off the row object that correspond to desired columns
+    let enforcedOrder = columns.map(col => col.key);
+    console.log('enforcedOrder', enforcedOrder);
+    let enforcedOrderRows = [];
     return rows.map((row, i) => {
       return (
         <TableRow
-          id={row.locationFavoriteId}
+          id={row[this.props.idKey]}
           row={row}
           checked={row.checked}
           onChange={this.handleCheckboxChange}
-          key={`${this.props.caption}-table-${i}`}
+          key={row[this.props.idKey]}
           hasCheckbox={this.props.hasCheckboxRow}/>
       )
     })

@@ -68,6 +68,7 @@ export default class ManageLocationsPage extends React.Component {
             </div>
             <div className="col-xs-12 col-lg-offset-1 col-lg-10">
               <SortableTable
+                idKey={'locationFavoriteId'}
                 columns={tableColumns}
                 rows={this.manageLocationsStore.sortedRows}
                 store={this.manageLocationsStore}
