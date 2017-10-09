@@ -65,11 +65,11 @@ h2 + hr {
   border-color: $fn-header-hr-grey;
 }
 
-
-
 .form-group {
   .input-wrapper {
+    position: relative;
     display: flex;
+    width: 100%;
   }
 
   input {
@@ -77,37 +77,16 @@ h2 + hr {
     &::-ms-clear {
       display: none;
     }
-  }
 
-  &.has-clear {
-    input {
-      padding-right: 40px;
+    &.form-control:not(:last-child) {
+      padding: 6px 6px 6px 12px;
+      border-right: 0;
     }
-  }
-
-  .clear-btn {
-    position: absolute;
-    right: 62px;
-    background-color: transparent;
-    z-index: 30;
-    border-radius: 0;
-
-    .icon-close {
-      font-size: 14px;
-      color: $fn-dkgrey;
-    }
-  }
-
-  .submit-btn {
-    display: table-cell;
-    border-color: $input-outline;
-    border-left: 0;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
   }
 
   .clear-btn,
   .submit-btn {
+    @extend .btn;
     height: 48px;
     width: 48px;
 
@@ -148,6 +127,29 @@ h2 + hr {
       background-color: $fn-blue;
     }
   }
+
+  .clear-btn {
+    background-color: $fn-white;
+    border-radius: 0;
+    border-top: 1px solid $input-outline;
+    border-bottom: 1px solid $input-outline;
+    border-left: 0 none;
+
+    .icon-close {
+      font-size: 14px;
+      color: $fn-dkgrey;
+    }
+  }
+
+  .submit-btn {
+    display: table-cell;
+    border-color: $input-outline;
+    border-left: 1px solid $input-outline;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+
 }
 
 .search-form {
