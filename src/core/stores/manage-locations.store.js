@@ -35,15 +35,14 @@ class ManageLocationsStore {
     this.moreToLoad = this.paginatedRows < this.rows;
   }
 
-  @action handleDelete() {
-    console.log('this.rows before', this.rows.length, this.checkedRows);
+  @action deleteFavorites() {
     _.remove(this.rows, (row) => {
       const idToFind = row.locationFavoriteId.toString();
       return this.checkedRows.indexOf(idToFind) > -1;
     })
     this.clearAllCheckboxes();
     this.handlePagination();
-    console.log('this.rows after delete', this.rows.length, this.rows);
+    this.showDeleteModal = false;
 
     // const success = (res) => {
     //   console.log('delete success!!', res);
@@ -79,31 +78,28 @@ class ManageLocationsStore {
   @action clearAllCheckboxes() {
     this.checkedRows = [];
   }
-
-	@action searchLocations() {
-
-    //should be searchLocationFavorites or something
-
-	}
-
-	@action handleInput(val) {
-		this.searchQuery = val;
-	}
-
-	@action clearSearchQuery(){
-		this.searchQuery = '';
-	}
-
+  //
+	// @action searchLocations() {
+  //
+	// }
+  //
+	// @action handleInput(val) {
+	// 	this.searchQuery = val;
+	// }
+  //
+	// @action clearSearchQuery(){
+	// 	this.searchQuery = '';
+	// }
 
 	@action toggleSort(key) {
     this.activeColumn = key;
-    console.log('this.activeColumn', this.activeColumn);
     this.sortDirections[key] = !this.sortDirections[key];
+    console.log('this.activeColumn', this.activeColumn);
     console.log('this.sortDirections[key]', this.sortDirections[key]);
 	}
 
   @computed get sortedRows() {
-    let sortOrder = this.sortDirections[this.activeColumn] ? 'asc' : 'desc';
+    const sortOrder = this.sortDirections[this.activeColumn] ? 'asc' : 'desc';
   	return _.orderBy(this.paginatedRows, [this.activeColumn], [sortOrder]);
   }
 
@@ -129,7 +125,6 @@ class ManageLocationsStore {
     'locationFavoriteAddress': false,
     'locationFavoriteId': false
   };
-
 }
 
 export const manageLocationsStore = new ManageLocationsStore();

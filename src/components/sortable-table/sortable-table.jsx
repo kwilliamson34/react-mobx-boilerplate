@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
 import _ from 'lodash';
+import $ from 'jquery';
 
 import {SortableColumn} from './sortable-column';
 import {TableRow} from './table-row';
@@ -36,6 +37,7 @@ export class SortableTable extends React.Component {
     this.store = this.props.store;
   }
 
+
   handleToggleSort = (key) => {
     console.log('handleToggleSort', key);
     this.store.toggleSort(key);
@@ -54,34 +56,64 @@ export class SortableTable extends React.Component {
       : this.store.selectAllCheckboxes();
   }
 
-  handleDelete = (e) => {
-    e.preventDefault();
-    if (this.store.checkedRows.length > 0) {
-      this.store.handleDelete();
-    }
-  }
-
   advancePagination = () => {
     this.store.advancePagination();
   }
 
-  renderRows = (sortedRows, columns) => {
-    //as rows are objects, enforce render selection and order by pulling the keys off the original columns array;
-    const enforcedOrder = columns.map(col => col.key);
-    return sortedRows.map(row => {
-      //identify which field we want to use as the id value;
-      const targetedId = row[this.props.idKey];
-      return (
-        <TableRow
-          id={targetedId}
-          order={enforcedOrder}
-          row={row}
-          checkedRows={this.store.checkedRows.peek()}
-          hasCheckbox={this.props.hasCheckboxRow}
-          handleOnChange={this.handleOnChange}
-          key={targetedId}/>
-      )
-    })
+  handleDeleteAction = (e) => {
+    e.preventDefault();
+    //temp gating
+    if (this.store.checkedRows.length > 0) {
+      this.showDeleteModal();
+    }
+  }
+
+  renderDeleteModal = () => {
+    return (
+      <div id="delete-modal" role="dialog" tabIndex="-1" className="modal fade" aria-labelledby="modal-title">
+        <div>
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <button type="button" className="fn-modal-close" onClick={this.hideDeleteModal}>
+                <i aria-hidden="true" className="icon-close"></i>
+                <span className="sr-only">Close window</span>
+              </button>
+              <div className="row no-gutters" id="fmodal-title">
+                <div className="col-xs-12">
+                  <h1 className="as-h2">{`Delete these ${this.store.checkedRows.length} favorites?`}</h1>
+                  <p>This cannot be undone. New favorites can be added at any time.</p>
+                </div>
+                <div className="col-xs-12 text-center">
+                  <button className="fn-primary" onClick={this.keepFavorites}>Keep Favorites</button>
+                  <button className="fn-secondary" onClick={this.deleteFavorites}>Delete Favorites</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  showDeleteModal = () => {
+    $('#delete-modal').modal({backdrop: 'static'});
+    $('#delete-modal').modal('show');
+  }
+
+  hideDeleteModal = () => {
+    $('#delete-modal').modal('hide');
+    $('#delete-modal').data('bs.modal', null);
+  }
+
+  keepFavorites = (e) => {
+    e.preventDefault();
+    this.hideDeleteModal();
+  }
+
+  deleteFavorites = (e) => {
+    e.preventDefault();
+    this.store.deleteFavorites();
+    this.hideDeleteModal();
   }
 
   renderPaginationCountsAndDeleteButton = () => {
@@ -110,7 +142,7 @@ export class SortableTable extends React.Component {
     const oneItemSelected = this.store.checkedRows.length === 1;
     return (
       <div className="delete-selection-button">
-        <button onClick={this.handleDelete}>
+        <button onClick={this.handleDeleteAction}>
           {(disableButton || oneItemSelected) && `Delete Favorite`}
           {(!disableButton && !oneItemSelected) && `Delete ${this.store.checkedRows.length} Favorites`}
         </button>
@@ -124,6 +156,23 @@ export class SortableTable extends React.Component {
         {this.props.noResultsJsx}
       </div>
     )
+  }
+
+  renderRows = (sortedRows, columns) => {
+    return sortedRows.map(row => {
+      //identify which field we want to use as the id/value;
+      const targetedId = row[this.props.idKey];
+      return (
+        <TableRow
+          id={targetedId}
+          columns={columns}
+          row={row}
+          checkedRows={this.store.checkedRows.peek()}
+          hasCheckbox={this.props.hasCheckboxRow}
+          handleOnChange={this.handleOnChange}
+          key={targetedId}/>
+      )
+    })
   }
 
   //don't forget to add noResults back in;
@@ -146,8 +195,8 @@ export class SortableTable extends React.Component {
                 this.props.hasCheckboxRow &&
                   <th className="col-xs-1">
                     <Checkbox
-                      label={''}
                       id={'select-all-checkbox'}
+                      label={''}
                       value={''}
                       handleOnChange={this.handleSelectAll}
                       checked={this.store.checkedRows.length === this.props.sortedRows.length}/>
@@ -177,6 +226,7 @@ export class SortableTable extends React.Component {
           </tbody>
         </table>
         {!this.store.isLoading && this.renderPaginationCountsAndDeleteButton()}
+        {this.renderDeleteModal()}
       </div>
     )
   }

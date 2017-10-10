@@ -33,8 +33,27 @@ export default class ManageLocationsPage extends React.Component {
     )
   }
 
-  render() {
+  renderEditButton = () => {
+    return (
+      <div className="edit-location-button">
+        <button>
+          Edit
+        </button>
+      </div>
+    )
+  }
 
+  renderMapItButton = () => {
+    return (
+      <div className="map-it-button">
+        <button>
+          Map It
+        </button>
+      </div>
+    )
+  }
+
+  render() {
     const crumbs = [
       {
         pageHref: '/network-status',
@@ -49,11 +68,13 @@ export default class ManageLocationsPage extends React.Component {
       {
         name: 'Name',
         key: 'favoriteName',
+        inlineButtonJsx: this.renderEditButton(),
         className: 'col-xs-5'
       },
       {
         name: 'Location/Address',
         key: 'locationFavoriteAddress',
+        inlineButtonJsx: this.renderMapItButton(),
         className: 'col-xs-5'
       }
     ];

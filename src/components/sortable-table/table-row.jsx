@@ -10,9 +10,9 @@ export class TableRow extends React.Component {
   static propTypes = {
     id: PropTypes.number.isRequired,
     row: PropTypes.object.isRequired,
-    order: PropTypes.array.isRequired,
+    columns: PropTypes.array.isRequired,
     handleOnChange: PropTypes.func,
-    buttonJsx: PropTypes.object,
+    inlineButtonJsx: PropTypes.object,
     hasCheckbox: PropTypes.bool,
     checkedRows: PropTypes.array
   }
@@ -43,12 +43,13 @@ export class TableRow extends React.Component {
               label={''}/>
           </th>
         }
-        {this.props.order.map((column, i) => {
+        {this.props.columns.map((column, i) => {
           return (
             <td key={`table-row-${i}`}>
               <p>
-                {this.props.row[column]}
+                {this.props.row[column.key]}
               </p>
+              {column.inlineButtonJsx}
             </td>
           )
         })}
