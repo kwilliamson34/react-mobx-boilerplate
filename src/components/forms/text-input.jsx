@@ -31,6 +31,7 @@ export default class TextInput extends React.Component {
   static defaultProps = {
     labelText: '',
     helperText: '',
+    labelIsSrOnly: false,
     required: false,
     disabled: false,
     errorMessage: 'This entry is not valid.',
@@ -110,6 +111,7 @@ export default class TextInput extends React.Component {
           hasError={this.hasVisibleError}
           fieldIsRequired={this.props.required}
           labelText={this.props.labelText}
+          srOnly={this.props.labelIsSrOnly}
           helperText={this.props.helperText}
           errorMessage={this.props.errorMessage} />
         <div className="input-group">
