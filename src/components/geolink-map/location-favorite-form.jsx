@@ -45,6 +45,7 @@ class LocationFavoriteForm extends React.Component {
           id="locationName"
           type="input"
           labelText="Name"
+          charLimit={100}
           required={true}
           errorMessage="Please enter a name."
           className="col-xs-12 col-sm-5" />
