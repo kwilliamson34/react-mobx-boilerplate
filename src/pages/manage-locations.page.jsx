@@ -68,7 +68,7 @@ export default class ManageLocationsPage extends React.Component {
   renderMapItButton = () => {
     return (
       <button className="as-link map-it-button" onClick={this.handleMapItButton}>
-        <i className="icon-search" aria-hidden="true" />
+        <i className="icon-map-marker" aria-hidden="true" />
         Map It
       </button>
     )
