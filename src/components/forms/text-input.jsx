@@ -24,7 +24,8 @@ export default class TextInput extends React.Component {
     showClearButton: PropTypes.bool,
     handleClearClick: PropTypes.func,
     handleSubmit: PropTypes.func,
-    submitIcon: PropTypes.string
+    submitIcon: PropTypes.string,
+    iconClass: PropTypes.string
   }
 
   static defaultProps = {
@@ -107,7 +108,7 @@ export default class TextInput extends React.Component {
           fieldIsRequired={this.props.required}
           labelText={this.props.labelText}
           errorMessage={this.props.errorMessage}/>
-        <div className="input-wrapper">
+        <div className={`input-wrapper ${this.props.iconClass ? 'has-icon' : ''}`}>
           <Tag
             className="form-control"
             ref="input"
@@ -118,6 +119,7 @@ export default class TextInput extends React.Component {
             onBlur={this.handleOnBlur}
             onKeyPress={this.handleKeyPress}
             value={this.valueInStore}/>
+          {this.props.iconClass && <i className={this.props.iconClass}></i>}
           {this.props.showClearButton && this.valueInStore !== '' &&
             <button className="btn clear-btn" type="button" ref="btnClear" onClick={this.handleClearClick}>
               <span className="sr-only">Clear</span>

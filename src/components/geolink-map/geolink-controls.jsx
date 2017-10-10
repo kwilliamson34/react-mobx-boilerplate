@@ -128,14 +128,15 @@ export default class GeolinkControls extends React.Component {
                 ref={ref => this.store.formFieldRefList.push(ref)}
                 checkFormForErrors={this.store.checkFormForErrors.bind(this.store)}
                 dataObject={this.store.values}
-                id="locationAddress"
+                id={this.store.shouldDisplayLocationName ? 'locationName' : 'locationAddress'}
                 type="search"
                 labelText="Address"
                 labelIsSrOnly={true}
                 className="search-form"
                 showClearButton={true}
                 handleSubmit={this.store.searchMap.bind(this.store)}
-                submitIcon="icon-search"/>
+                submitIcon="icon-search"
+                iconClass={this.store.shouldDisplayLocationName ? 'icon-star' : ''}/>
               {this.renderPredictiveDropdown()}
               <button
                 className={`as-link ${this.store.values.locationAddress ? '' : 'disabled'}`}

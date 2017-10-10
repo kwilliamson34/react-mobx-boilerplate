@@ -70,6 +70,18 @@ h2 + hr {
 .form-group {
   .input-wrapper {
     display: flex;
+    &.has-icon {
+      input {
+        padding-left: 30px;
+      }
+      i {
+        position: absolute;
+        top: 16px;
+        left: 20px;
+        font-size: $fn-label-desktop;
+        color: $fn-ltblue;
+      }
+    }
   }
 
   input {

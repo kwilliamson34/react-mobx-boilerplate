@@ -14,13 +14,22 @@ const networkLayerNames = [
 class GeolinkStore {
 
   constructor() {
-    this.selectedFavorite = '';
+    this.selectedFavoriteAddress = '';
+    this.selectedFavoriteName = '';
     autorun(() => {
-      let inputContentMatchesSelection = this.values.locationAddress === this.selectedFavorite;
+      if(this.values.locationName !== this.selectedFavoriteName && this.shouldDisplayLocationName && this.values.locationName !== '') {
+        this.values.locationAddress = this.values.locationName;
+        this.values.locationName = '';
+        this.selectedFavoriteName = '';
+        this.shouldDisplayLocationName = false;
+      }
+    });
+    autorun(() => {
+      let inputContentMatchesSelection = this.values.locationAddress === this.selectedFavoriteAddress;
       let inputIsEmptyOrSpaces = !/\w+/.test(this.values.locationAddress);
       if(inputContentMatchesSelection || inputIsEmptyOrSpaces) {
         this.dropdownIsVisible = false;
-        this.selectedFavorite = '';
+        this.selectedFavoriteAddress = '';
       } else if(this.values.locationAddress) {
         this.dropdownIsVisible = true;
       }
@@ -47,6 +56,7 @@ class GeolinkStore {
 
   @action searchMap() {
     this.dropdownIsVisible = false;
+    this.shouldDisplayLocationName = false;
     if(this.values.locationAddress) {
       console.log('Searching map for ' + this.values.locationAddress + '...');
       this.mapIframeRef.contentWindow.postMessage({
@@ -233,10 +243,12 @@ class GeolinkStore {
   }
 
   @action selectFavorite(favorite) {
-    this.selectedFavorite = favorite.locationFavoriteAddress;
+    this.selectedFavoriteAddress = favorite.locationFavoriteAddress;
     this.values.locationAddress = favorite.locationFavoriteAddress;
     this.values.locationName = favorite.favoriteName;
     this.searchMap();
+    this.shouldDisplayLocationName = true;
+    this.selectedFavoriteName = favorite.favoriteName;
   }
 
   @computed get searchTerms() {
@@ -292,6 +304,8 @@ class GeolinkStore {
   };
   @observable dropdownIsVisible = false;
   @observable favorites = [];
+
+  @observable shouldDisplayLocationName = false;
 }
 
 export const geolinkStore = new GeolinkStore();
