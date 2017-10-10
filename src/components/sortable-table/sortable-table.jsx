@@ -127,12 +127,12 @@ export class SortableTable extends React.Component {
           </div>
         }
         {
-          this.store.checkedRows.length > 0 &&
+          this.props.hasCheckboxRow && this.store.checkedRows.length > 0 &&
           <div className="selection-count">
             {`${this.store.checkedRows.length} Selected`}
           </div>
         }
-        {this.renderDeleteButton()}
+        {this.props.hasCheckboxRow && this.renderDeleteButton()}
       </div>
     )
   }
@@ -142,7 +142,8 @@ export class SortableTable extends React.Component {
     const oneItemSelected = this.store.checkedRows.length === 1;
     return (
       <div className="delete-selection-button">
-        <button onClick={this.handleDeleteAction}>
+        <button className="as-link" onClick={this.handleDeleteAction}>
+          <i className="icon-trash" aria-hidden="true" />
           {(disableButton || oneItemSelected) && `Delete Favorite`}
           {(!disableButton && !oneItemSelected) && `Delete ${this.store.checkedRows.length} Favorites`}
         </button>
@@ -180,7 +181,6 @@ export class SortableTable extends React.Component {
 
 
   render() {
-    console.log('rows', this.props.rows);
     return (
       <div className="">
         <span className="sr-only" aria-live="assertive" aria-atomic="true">{this.props.caption}
@@ -188,13 +188,13 @@ export class SortableTable extends React.Component {
           in {this.store.sortDirections[this.props.id] ? 'ascending' : 'descending'}
         </span>
         {!this.store.isLoading && this.renderPaginationCountsAndDeleteButton()}
-        <table className="my-apps-table" id={this.props.tableId}>
+        <table className={`${this.props.tableId}-class sortable-table`} id={this.props.tableId}>
           {this.props.caption && <caption>{this.props.caption}</caption>}
           <thead>
             <tr>
               {
                 this.props.hasCheckboxRow &&
-                  <th className="col-xs-1">
+                  <th className="select-all-checkbox col-xs-1">
                     <Checkbox
                       id={'select-all-checkbox'}
                       label={''}

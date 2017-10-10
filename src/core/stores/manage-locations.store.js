@@ -1,6 +1,6 @@
 import {action, observable, computed} from 'mobx';
 import {apiService} from '../services/api.service';
-// import {history} from '../services/history.service';
+import {history} from '../services/history.service';
 import {utilsService} from '../services/utils.service';
 import _ from 'lodash';
 
@@ -81,18 +81,18 @@ class ManageLocationsStore {
   @action clearAllCheckboxes() {
     this.checkedRows = [];
   }
-  //
-	// @action searchLocations() {
-  //
-	// }
-  //
-	// @action handleInput(val) {
-	// 	this.searchQuery = val;
-	// }
-  //
-	// @action clearSearchQuery(){
-	// 	this.searchQuery = '';
-	// }
+
+	@action searchLocations() {
+    console.log('DING DONG YOU SEARCHED', this.searchQuery);
+	}
+
+  @action resetSearch() {
+    console.log('DING DONG YOU CLEARED');
+  }
+
+	@action clearSearchQuery(){
+		this.searchQuery = '';
+	}
 
 	@action toggleSort(key) {
     this.activeColumn = key;
@@ -119,6 +119,8 @@ class ManageLocationsStore {
     });
     return formHasChanged;
   }
+
+  @observable searchQuery = '';
 
   @observable isLoading = false;
   @observable rows = [];

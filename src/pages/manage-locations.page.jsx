@@ -1,8 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {observer, inject} from 'mobx-react';
+import {Link} from 'react-router-dom';
+import $ from 'jquery';
 
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
+import TextInput from '../components/forms/text-input';
 import {SortableTable} from '../components/sortable-table/sortable-table';
 
 @inject('store')
@@ -16,6 +19,7 @@ export default class ManageLocationsPage extends React.Component {
   constructor(props) {
     super(props);
     this.manageLocationsStore = this.props.store.manageLocationsStore;
+    this.geolinkStore = this.props.store.geolinkStore;
   }
 
   componentWillMount() {
@@ -33,24 +37,47 @@ export default class ManageLocationsPage extends React.Component {
     )
   }
 
+  renderSearchBar = () => {
+    return (
+      <TextInput
+        dataObject={this.manageLocationsStore}
+        id="searchQuery"
+        type="search"
+        labelText="Search"
+        className="col-xs-12 search-form"
+        showClearButton={true}
+        handleSubmit={this.manageLocationsStore.searchLocations.bind(this.manageLocationsStore)}
+        handleClearClick={this.manageLocationsStore.resetSearch.bind(this.manageLocationsStore)}
+        submitIcon="icon-search" />
+    )
+  }
+
   renderEditButton = () => {
     return (
-      <div className="edit-location-button">
-        <button>
-          Edit
-        </button>
-      </div>
+      <button className="as-link edit-location-button">
+        <i className="icon-pencil" aria-hidden="true" />
+        Edit
+      </button>
     )
+  }
+
+  handleEditButton = () => {
+
   }
 
   renderMapItButton = () => {
     return (
-      <div className="map-it-button">
-        <button>
-          Map It
-        </button>
-      </div>
+      <button className="as-link map-it-button" onClick={this.handleMapItButton}>
+        <i className="icon-search" aria-hidden="true" />
+        Map It
+      </button>
     )
+  }
+
+  handleMapItButton = (e) => {
+    e.preventDefault();
+    let location = $(e.target).prev().text();
+    this.geolinkStore.performExternalSearch(location);
   }
 
   render() {
@@ -60,7 +87,7 @@ export default class ManageLocationsPage extends React.Component {
         pageTitle: 'Network Status'
       }, {
         pageHref: '/manage-favorites',
-        pageTitle: 'Manage Locations'
+        pageTitle: 'Manage Favorites'
       }
     ];
 
@@ -84,13 +111,15 @@ export default class ManageLocationsPage extends React.Component {
         <BreadcrumbNav links={crumbs}/>
         <div className="container">
           <div className="row">
-            <div className="col-xs-12 col-lg-offset-1 col-lg-10">
-              <h1>Manage Location Favorites</h1>
+            <div className="col-xs-12">
+              <h1>Manage Favorites</h1>
             </div>
-            <div className="col-xs-12 col-lg-offset-1 col-lg-10">
+            {this.renderSearchBar()}
+            <div className="col-xs-12">
               <SortableTable
                 store={this.manageLocationsStore}
-                idKey={'locationFavoriteId'}
+                tableId="manage-locations-table"
+                idKey="locationFavoriteId"
                 columns={tableColumns}
                 rows={this.manageLocationsStore.sortedRows}
                 allRowsCount={this.manageLocationsStore.rows.length}

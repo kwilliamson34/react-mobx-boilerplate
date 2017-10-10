@@ -3,6 +3,7 @@ import axios from 'axios';
 import config from 'config';
 import {utilsService} from '../services/utils.service';
 import {apiService} from '../services/api.service';
+import {history} from '../services/history.service';
 
 const networkLayerNames = [
   'FirstNet:Coverage2G',
@@ -38,6 +39,12 @@ class GeolinkStore {
         value: this.values.locationAddress
       }, '*');
     }
+  }
+
+  @action performExternalSearch(address) {
+    this.externalSearchRequest = true;
+    this.values.locationAddress = address;
+    history.push('/network-status');
   }
 
   @action addAllNetworkLayers() {
@@ -200,6 +207,7 @@ class GeolinkStore {
   @observable geolinkHtml = null;
   @observable mapIframeRef = null;
   @observable disableSearch = false;
+  @observable externalSearchRequest = false;
 
   //Controls
   @observable showNetworkLayer = true;

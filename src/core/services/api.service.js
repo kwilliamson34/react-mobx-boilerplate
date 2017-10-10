@@ -170,6 +170,12 @@ class ApiService {
       });
     }
 
+    searchLocationFavorites(query) {
+      return axios.get(`${base}/user/location/favorite?pseId=${userStore.user.pse}`).then((res) => {
+        return res.data;
+      });
+    }
+
     addLocationFavorite(data) {
       return axios({
         method: 'post',

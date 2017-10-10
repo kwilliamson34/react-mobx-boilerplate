@@ -26,7 +26,7 @@ export class TableRow extends React.Component {
       <tr className={`sortable-table-row ${this.props.checked ? 'active' : ''}`} tabIndex="0">
         {
           this.props.hasCheckbox &&
-          <th scope="row" className="col-xs-1">
+          <th scope="row" className="table-row-checkbox col-xs-1">
             <Checkbox
               id={this.props.id.toString()}
               value={this.props.id.toString()}
@@ -37,7 +37,7 @@ export class TableRow extends React.Component {
         }
         {this.props.columns.map((column, i) => {
           return (
-            <td key={`table-row-${i}`}>
+            <td key={`table-row-${i}`} data-id={this.props.id}>
               <p>
                 {this.props.row[column.key]}
               </p>
