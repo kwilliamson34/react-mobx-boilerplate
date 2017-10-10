@@ -35,7 +35,7 @@ class LocationFavoriteForm extends React.Component {
           errorMessage="Please enter an address."
           className="col-xs-12 col-sm-7 search-form"
           showClearButton={true}
-          handleSubmit={this.store.searchMap.bind(this.geoStore)}
+          handleSubmit={this.store.searchMap.bind(this.store)}
           submitIcon="icon-search" />
 
         <TextInput
