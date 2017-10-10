@@ -13,24 +13,13 @@ export class TableRow extends React.Component {
     columns: PropTypes.array.isRequired,
     handleOnChange: PropTypes.func,
     hasCheckbox: PropTypes.bool,
-    checkedRows: PropTypes.array
+    checkedRows: PropTypes.object
   }
 
   static defaultProps = {
     hasCheckbox: false,
     checkedRows: []
   }
-
-  componentDidMount() {
-    console.log('WHERE YOU AT?', this.props.checkedRows);
-  }
-
-  // <input
-  //   type="checkbox"
-  //   checked={this.props.checked}
-  //   value={this.props.id}
-  //   id={this.props.id}
-  //   onChange={this.props.onChange}/>
 
   render() {
     return (

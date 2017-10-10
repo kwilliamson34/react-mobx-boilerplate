@@ -92,7 +92,7 @@ export default class ManageLocationsPage extends React.Component {
                 store={this.manageLocationsStore}
                 idKey={'locationFavoriteId'}
                 columns={tableColumns}
-                sortedRows={this.manageLocationsStore.sortedRows}
+                rows={this.manageLocationsStore.sortedRows}
                 allRowsCount={this.manageLocationsStore.rows.length}
                 noResultsJsx={this.noResultsJsx()}
                 hasCheckboxRow={true}

@@ -1,7 +1,7 @@
 import {action, observable, computed} from 'mobx';
 import {apiService} from '../services/api.service';
 // import {history} from '../services/history.service';
-// import {utilsService} from '../services/utils.service';
+import {utilsService} from '../services/utils.service';
 import _ from 'lodash';
 
 class ManageLocationsStore {
@@ -11,14 +11,16 @@ class ManageLocationsStore {
   @action fetchRows() {
     const success = (res) => {
       console.log('success!', res);
-      this.rows = res.userlocationfavorite;
+      //initially ordering rows by locationFavoriteId in desc order, which corresponds to 'most recent' first.
+      this.rows = _.orderBy(res.userlocationfavorite, ['locationFavoriteId'], ['desc']);;
       this.isLoading = false;
       this.advancePagination();
     }
 
-    const fail = (res) => {
-      console.log('fail!', res);
+    const fail = (err) => {
+      console.log('fail!', err);
       this.isLoading = false;
+      utilsService.handleError(err);
     }
 
     return apiService.getLocationFavorites().then(success, fail);
@@ -108,6 +110,16 @@ class ManageLocationsStore {
     return this.checkedRows.indexOf(this.activeRow) > -1;
   }
 
+  @computed get formIsDirty() {
+    let formHasChanged = false;
+    Object.keys(this.sortDirections).forEach(key => {
+      if(this.sortDirections[key] !== this.sortDirectionsDefaults[key]) {
+        formHasChanged = true;
+      }
+    });
+    return formHasChanged;
+  }
+
   @observable isLoading = false;
   @observable rows = [];
 
@@ -118,7 +130,6 @@ class ManageLocationsStore {
 
   @observable checkedRows = [];
 
-  //rows will load with locationFavoriteId in descending order, which corresponds to most recent first;
   @observable activeColumn = 'locationFavoriteId';
   //to keep the order toggling simple, true is ascending and false is descending;
   @observable sortDirections = {
@@ -126,6 +137,12 @@ class ManageLocationsStore {
     'locationFavoriteAddress': false,
     'locationFavoriteId': false
   };
+
+  @observable sortDirectionsDefaults = {
+    'favoriteName': false,
+    'locationFavoriteAddress': false,
+    'locationFavoriteId': false
+  }
 }
 
 export const manageLocationsStore = new ManageLocationsStore();

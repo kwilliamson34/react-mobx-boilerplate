@@ -11,14 +11,14 @@ import Checkbox from  '../forms/checkbox';
 @observer
 export class SortableTable extends React.Component {
 
-  //checkedRows is from store. We should pass certain things in as props.
+  //TODO: checkedRows is from store. We should pass certain things in as props.
 
   static propTypes = {
     store: PropTypes.object.isRequired,
     idKey: PropTypes.string.isRequired,
     caption: PropTypes.string,
     columns: PropTypes.array,
-    sortedRows: PropTypes.array,
+    rows: PropTypes.array,
     allRowsCount: PropTypes.number,
     hasCheckboxRow: PropTypes.bool,
     pagination: PropTypes.bool,
@@ -27,7 +27,7 @@ export class SortableTable extends React.Component {
 
   static defaultProps = {
     columns: [],
-    sortedRows: [],
+    rows: [],
     allRowsCount: 0,
     hasCheckboxRow: false
   }
@@ -36,7 +36,6 @@ export class SortableTable extends React.Component {
     super(props);
     this.store = this.props.store;
   }
-
 
   handleToggleSort = (key) => {
     console.log('handleToggleSort', key);
@@ -52,7 +51,7 @@ export class SortableTable extends React.Component {
   }
 
   handleSelectAll = () => {
-    this.store.checkedRows.length === this.props.sortedRows.length
+    this.store.checkedRows.length === this.props.rows.length
       ? this.store.clearAllCheckboxes()
       : this.store.selectAllCheckboxes();
   }
@@ -124,7 +123,7 @@ export class SortableTable extends React.Component {
         {
           this.props.pagination &&
           <div className="pagination-count" onClick={this.advancePagination}>
-            {`Showing 1-${this.props.sortedRows.length} of ${this.props.allRowsCount}`}
+            {`Showing 1-${this.props.rows.length} of ${this.props.allRowsCount}`}
           </div>
         }
         {
@@ -159,8 +158,8 @@ export class SortableTable extends React.Component {
     )
   }
 
-  renderRows = (sortedRows, columns) => {
-    return sortedRows.map(row => {
+  renderRows = (rows, columns) => {
+    return rows.map(row => {
       //identify which field we want to use as the id/value;
       const targetedId = row[this.props.idKey];
       return (
@@ -181,6 +180,7 @@ export class SortableTable extends React.Component {
 
 
   render() {
+    console.log('rows', this.props.rows);
     return (
       <div className="">
         <span className="sr-only" aria-live="assertive" aria-atomic="true">{this.props.caption}
@@ -200,7 +200,7 @@ export class SortableTable extends React.Component {
                       label={''}
                       value={''}
                       handleOnChange={this.handleSelectAll}
-                      checked={this.store.checkedRows.length === this.props.sortedRows.length}/>
+                      checked={this.store.checkedRows.length === this.props.rows.length}/>
                   </th>
               }
               {
@@ -223,7 +223,7 @@ export class SortableTable extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {this.renderRows(this.props.sortedRows, this.props.columns)}
+            {this.renderRows(this.props.rows, this.props.columns)}
           </tbody>
         </table>
         {!this.store.isLoading && this.renderPaginationCountsAndDeleteButton()}
