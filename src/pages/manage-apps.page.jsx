@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import {inject, observer} from 'mobx-react';
 import {Link} from 'react-router-dom';
 import {utilsService} from '../core/services/utils.service';
+
 import PageTitle from '../components/page-title/page-title';
 import {CardList} from '../components/card-list/card-list';
-import {SearchForm} from '../components/search/search-form';
 import {Filters} from '../components/filters/filters';
 import {MDMAlerts} from '../components/configure-mdm/mdm-alerts';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
-import $ from 'jquery';
+import TextInput from '../components/forms/text-input';
 
 @inject('store')
 @observer
@@ -61,7 +61,7 @@ export default class ManageAppsPage extends React.Component {
 
   handleLoadMoreClick = () => {
     this.props.store.changePage(this.pageId);
-    $('#card-list-load-more-btn').blur();
+    this.refs.cardList.blurLoadMoreButton();
     this.cardListStore.setIdToFocus((this.props.store.pages[this.pageId] - 1) * this.itemsPerPage);
   }
 
@@ -78,6 +78,24 @@ export default class ManageAppsPage extends React.Component {
   get paginatedCards() {
     let totalCards = this.props.store.pages[this.pageId] * this.itemsPerPage;
     return this.cardListStore.filteredSearchResults.slice(0, totalCards);
+  }
+
+  handleSearchSubmit = () => {
+    this.resetPagination();
+    this.cardListStore.getSearchResults();
+  }
+
+  renderSearchBar = () => {
+    return <TextInput
+      dataObject={this.cardListStore}
+      id="searchQuery"
+      type="search"
+      labelText="Search"
+      showClearButton={true}
+      handleSubmit={this.handleSearchSubmit}
+      handleClearClick={this.resetPagination}
+      className="search-form"
+      submitIcon="icon-search"/>
   }
 
   render() {
@@ -115,7 +133,7 @@ export default class ManageAppsPage extends React.Component {
           <div className="container">
             <div className="row">
               <div className="col-xs-12 col-lg-offset-1 col-lg-10">
-                <SearchForm resetPagination={this.resetPagination} store={this.cardListStore}/>
+                {this.renderSearchBar()}
                 <hr/>
                 <Filters ref={ref => this.filterForm = ref} resetPagination={this.resetPagination} store={this.cardListStore}/>
               </div>
@@ -133,6 +151,7 @@ export default class ManageAppsPage extends React.Component {
           <div className="row">
             <div className="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-12 col-lg-offset-1 col-lg-10">
               <CardList
+                ref="cardList"
                 cards={this.paginatedCards}
                 numPagesShown={this.props.store.pages[this.pageId]}
                 itemsPerPage={this.itemsPerPage}

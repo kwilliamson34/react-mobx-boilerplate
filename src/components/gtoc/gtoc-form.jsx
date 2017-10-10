@@ -21,6 +21,10 @@ class GtocForm extends React.Component {
     this.store = this.props.store;
   }
 
+  componentWillMount() {
+    this.store.formFieldRefList = [];
+  }
+
   @observable checkboxListRef = {
     handleCheckboxOnChange: () => {}
   }

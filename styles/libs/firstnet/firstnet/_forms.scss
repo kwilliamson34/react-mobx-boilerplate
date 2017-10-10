@@ -105,8 +105,7 @@ textarea[disabled] {
 
 .help-block,
 .help-text {
-  color: $fn-mdgrey;
-  font-size: $fn-small-text-desktop;
+  font-weight: $fn-normal-weight;
   text-transform: none;
   font-style: italic;
 }
