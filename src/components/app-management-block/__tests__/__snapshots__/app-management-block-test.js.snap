@@ -1,24 +1,32 @@
 exports[`<AppManagementBlock /> render matches snapshots with all group combinations 1`] = `
-<div>
+<fieldset>
+  <legend
+    className="sr-only">
+    Catalog status:
+  </legend>
   <div
     className="app-management">
     <div
       className="checkbox ">
       <label>
         <input
-          aria-disabled={undefined}
+          aria-disabled={false}
           checked={false}
           className=""
           data-checked={false}
           id="Available-123"
-          onChange={[Function bound onChange]}
+          onChange={[Function anonymous]}
           type="checkbox"
           value="Available" />
         <span
           className="cr" />
         <span
-          className="layer-label">
-          Available
+          className="label-text">
+          
+          <span
+            className="label-text-normal">
+            Available
+          </span>
         </span>
       </label>
     </div>
@@ -31,42 +39,54 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
           className="disabled"
           data-checked={false}
           id="Recommended-123"
-          onChange={[Function bound onChange]}
+          onChange={[Function anonymous]}
           type="checkbox"
           value="Recommended" />
         <span
           className="cr" />
         <span
-          className="layer-label">
-          Recommended
+          className="label-text">
+          
+          <span
+            className="label-text-normal">
+            Recommended
+          </span>
         </span>
       </label>
     </div>
   </div>
-</div>
+</fieldset>
 `;
 
 exports[`<AppManagementBlock /> render matches snapshots with all group combinations 2`] = `
-<div>
+<fieldset>
+  <legend
+    className="sr-only">
+    Catalog status:
+  </legend>
   <div
     className="app-management">
     <div
       className="checkbox ">
       <label>
         <input
-          aria-disabled={undefined}
+          aria-disabled={false}
           checked={true}
           className=""
           data-checked={true}
           id="Available-123"
-          onChange={[Function bound onChange]}
+          onChange={[Function anonymous]}
           type="checkbox"
           value="Available" />
         <span
           className="cr" />
         <span
-          className="layer-label">
-          Available
+          className="label-text">
+          
+          <span
+            className="label-text-normal">
+            Available
+          </span>
         </span>
       </label>
     </div>
@@ -79,42 +99,54 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
           className=""
           data-checked={false}
           id="Recommended-123"
-          onChange={[Function bound onChange]}
+          onChange={[Function anonymous]}
           type="checkbox"
           value="Recommended" />
         <span
           className="cr" />
         <span
-          className="layer-label">
-          Recommended
+          className="label-text">
+          
+          <span
+            className="label-text-normal">
+            Recommended
+          </span>
         </span>
       </label>
     </div>
   </div>
-</div>
+</fieldset>
 `;
 
 exports[`<AppManagementBlock /> render matches snapshots with all group combinations 3`] = `
-<div>
+<fieldset>
+  <legend
+    className="sr-only">
+    Catalog status:
+  </legend>
   <div
     className="app-management">
     <div
       className="checkbox ">
       <label>
         <input
-          aria-disabled={undefined}
+          aria-disabled={false}
           checked={true}
           className=""
           data-checked={true}
           id="Available-123"
-          onChange={[Function bound onChange]}
+          onChange={[Function anonymous]}
           type="checkbox"
           value="Available" />
         <span
           className="cr" />
         <span
-          className="layer-label">
-          Available
+          className="label-text">
+          
+          <span
+            className="label-text-normal">
+            Available
+          </span>
         </span>
       </label>
     </div>
@@ -127,42 +159,54 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
           className=""
           data-checked={true}
           id="Recommended-123"
-          onChange={[Function bound onChange]}
+          onChange={[Function anonymous]}
           type="checkbox"
           value="Recommended" />
         <span
           className="cr" />
         <span
-          className="layer-label">
-          Recommended
+          className="label-text">
+          
+          <span
+            className="label-text-normal">
+            Recommended
+          </span>
         </span>
       </label>
     </div>
   </div>
-</div>
+</fieldset>
 `;
 
 exports[`<AppManagementBlock /> render matches snapshots with all group combinations 4`] = `
-<div>
+<fieldset>
+  <legend
+    className="sr-only">
+    Catalog status:
+  </legend>
   <div
     className="app-management">
     <div
       className="checkbox ">
       <label>
         <input
-          aria-disabled={undefined}
+          aria-disabled={false}
           checked={false}
           className=""
           data-checked={false}
           id="Available-123"
-          onChange={[Function bound onChange]}
+          onChange={[Function anonymous]}
           type="checkbox"
           value="Available" />
         <span
           className="cr" />
         <span
-          className="layer-label">
-          Available
+          className="label-text">
+          
+          <span
+            className="label-text-normal">
+            Available
+          </span>
         </span>
       </label>
     </div>
@@ -175,17 +219,21 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
           className="disabled"
           data-checked={true}
           id="Recommended-123"
-          onChange={[Function bound onChange]}
+          onChange={[Function anonymous]}
           type="checkbox"
           value="Recommended" />
         <span
           className="cr" />
         <span
-          className="layer-label">
-          Recommended
+          className="label-text">
+          
+          <span
+            className="label-text-normal">
+            Recommended
+          </span>
         </span>
       </label>
     </div>
   </div>
-</div>
+</fieldset>
 `;

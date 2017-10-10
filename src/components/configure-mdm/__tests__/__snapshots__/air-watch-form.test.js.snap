@@ -1,9 +1,0 @@
-exports[`<AirWatchForm /> renders displays an error when any field is empty 1`] = `<div />`;
-
-exports[`<AirWatchForm /> renders displays an error when any field is empty 2`] = `<div />`;
-
-exports[`<AirWatchForm /> renders displays an error when any field is empty 3`] = `<div />`;
-
-exports[`<AirWatchForm /> renders displays an error when any field is empty 4`] = `<div />`;
-
-exports[`<AirWatchForm /> renders matches previous snapshot 1`] = `<div />`;

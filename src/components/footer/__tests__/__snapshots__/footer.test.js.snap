@@ -100,6 +100,9 @@ exports[`<Footer /> renders matches previous footer snapshot 1`] = `
             <h2
               className="help-hdr"
               id="helpLinks">
+              <i
+                aria-hidden="true"
+                className="icon-help" />
               Help
             </h2>
             <ul
@@ -113,6 +116,18 @@ exports[`<Footer /> renders matches previous footer snapshot 1`] = `
                 </a>
               </li>
               <li
+                role="presentation" />
+              <li>
+                <a
+                  className="walkthru-toggle"
+                  href="#"
+                  onClick={[Function anonymous]}
+                  role="button">
+                  Disable
+                   Site Walkthrough
+                </a>
+              </li>
+              <li
                 role="presentation">
                 <a
                   href="/feedback"
@@ -122,25 +137,22 @@ exports[`<Footer /> renders matches previous footer snapshot 1`] = `
               </li>
               <li
                 role="presentation">
-                FirstNet Customer Svc:
+                <span
+                  aria-hidden={true}>
+                  FirstNet Customer Svc:
+                </span>
                 <br
                   className="visible-xs-inline-block visible-md-inline-block " />
                 <a
                   href="tel:800-574-7000">
-                  <phone>
-                    <i
-                      aria-hidden="true"
-                      className="icon-phone-number footer-support-phone" />
-                    <span
-                      className="sr-only">
-                      Call 
-                    </span>
-                    800-574-7000
-                    <span
-                      className="sr-only">
-                       to speak with FirstNet Customer Service
-                    </span>
-                  </phone>
+                  <i
+                    aria-hidden="true"
+                    className="icon-phone-number footer-support-phone" />
+                  <span
+                    className="sr-only">
+                    FirstNet Customer Service Phone 
+                  </span>
+                  800-574-7000
                 </a>
               </li>
             </ul>
@@ -164,8 +176,8 @@ exports[`<Footer /> renders matches previous footer snapshot 1`] = `
                 role="presentation" />
               <li
                 role="presentation" />
-              <br
-                className="visible-xs-inline-block" />
+              <li
+                className="xs-line-break" />
               <li
                 role="presentation" />
               <li

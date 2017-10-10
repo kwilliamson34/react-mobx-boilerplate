@@ -149,37 +149,38 @@ exports[`<AppDetailsPage /> render matches snapshot when app has not been matche
     </div>
   </div>
   <div>
-    
-    <section
-      className="app-description">
-      <div
-        className="container">
+    <div
+      className="app-description-block">
+      
+      <section
+        className="app-description">
         <div
-          className="row">
+          className="container">
           <div
-            className="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
-            <div>
-              <h2
-                id="app-details-description">
-                Description
-              </h2>
-            </div>
-            <section
-              className="whats-new">
-              <h2
-                className="whats-new-title"
-                id="app-details-whats-new">
-                What\'s New
-              </h2>
-              <div
-                className="whats-new-date">
-                October 31, 2011
+            className="row">
+            <div
+              className="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
+              <div>
+                <h2
+                  id="app-details-description">
+                  Description
+                </h2>
               </div>
-            </section>
+              <section
+                className="whats-new">
+                <h2
+                  className="whats-new-title"
+                  id="app-details-whats-new">
+                  What\'s New
+                </h2>
+                <div
+                  className="whats-new-date" />
+              </section>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
     <section
       className="app-ratings">
       <div
@@ -204,7 +205,7 @@ exports[`<AppDetailsPage /> render matches snapshot when app has not been matche
           <div
             className="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
             <h2>
-              About the Developer
+              About this Developer
             </h2>
             <p
               className="dev-description"

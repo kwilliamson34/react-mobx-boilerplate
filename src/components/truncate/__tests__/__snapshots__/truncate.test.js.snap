@@ -9,19 +9,19 @@ exports[`<Truncate /> standard snapshot tests: render tests; should render one l
           "__html": "Vm1cfC6mnH0k0yrMIsz6EDIwIO5CiDaYhtZ99gTbtwEJH6RsaxwYCEQhA3jM2W96lmw6q8xuXXk8VJHBUzrMOhm6ykN5uxg22683LvxxqwMPFhQuc0kLlMfpHXeGVHt8GfEwZuO4TqBPJ3BCDSCF4rN03i7EWWIG3fTcnp7ZVIJpyylBplkHkPF5vWLmU24GBOCvlXq6wKSaBif9V3y5kQo6NiCKFogqqxsWmuopO9FiYNsEgfzSvtNB2rEQApIkhXiepOcapn8LwNJj1VrKhVC2IRQyzwpvJHTAS7EAJ78JnjQenvT9roXRyH1Cm5Q0nA5H9EXv9rQYOnqNqAfxX2qIIJs7NR6OCbO2jC15rtvqyLKUC5tpAUK6VmwTDqYYW9KLWU7Z7hPjHDsT…"
         }
       } />
-    <button
-      aria-expanded={false}
-      aria-haspopup="true"
-      className="btn-link truncate-button"
-      onClick={[Function anonymous]}>
-      <span>
-        SHOW MORE
-      </span>
-      <i
-        aria-hidden="true"
-        className="icon-arrowDown" />
-    </button>
   </span>
+  <button
+    aria-expanded={false}
+    aria-haspopup="true"
+    className="btn-link truncate-button"
+    onClick={[Function anonymous]}>
+    <span>
+      Show more
+    </span>
+    <i
+      aria-hidden="true"
+      className="icon-arrowDown" />
+  </button>
 </div>
 `;
 
@@ -36,19 +36,19 @@ exports[`<Truncate /> standard snapshot tests: render tests; should render with 
           "__html": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse …"
         }
       } />
-    <button
-      aria-expanded={false}
-      aria-haspopup="true"
-      className="btn-link truncate-button"
-      onClick={[Function anonymous]}>
-      <span>
-        SHOW MORE
-      </span>
-      <i
-        aria-hidden="true"
-        className="icon-arrowDown" />
-    </button>
   </span>
+  <button
+    aria-expanded={false}
+    aria-haspopup="true"
+    className="btn-link truncate-button"
+    onClick={[Function anonymous]}>
+    <span>
+      Show more
+    </span>
+    <i
+      aria-hidden="true"
+      className="icon-arrowDown" />
+  </button>
 </div>
 `;
 
@@ -63,19 +63,19 @@ exports[`<Truncate /> standard snapshot tests: render tests; should render with 
           "__html": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa …"
         }
       } />
-    <button
-      aria-expanded={false}
-      aria-haspopup="true"
-      className="btn-link truncate-button"
-      onClick={[Function anonymous]}>
-      <span>
-        SHOW MORE
-      </span>
-      <i
-        aria-hidden="true"
-        className="icon-arrowDown" />
-    </button>
   </span>
+  <button
+    aria-expanded={false}
+    aria-haspopup="true"
+    className="btn-link truncate-button"
+    onClick={[Function anonymous]}>
+    <span>
+      Show more
+    </span>
+    <i
+      aria-hidden="true"
+      className="icon-arrowDown" />
+  </button>
 </div>
 `;
 
@@ -90,18 +90,18 @@ exports[`<Truncate /> standard snapshot tests: render tests; should render with 
           "__html": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut ›"
         }
       } />
-    <button
-      aria-expanded={false}
-      aria-haspopup="true"
-      className="btn-link truncate-button"
-      onClick={[Function anonymous]}>
-      <span>
-        SHOW MORE
-      </span>
-      <i
-        aria-hidden="true"
-        className="icon-arrowDown" />
-    </button>
   </span>
+  <button
+    aria-expanded={false}
+    aria-haspopup="true"
+    className="btn-link truncate-button"
+    onClick={[Function anonymous]}>
+    <span>
+      Show more
+    </span>
+    <i
+      aria-hidden="true"
+      className="icon-arrowDown" />
+  </button>
 </span>
 `;

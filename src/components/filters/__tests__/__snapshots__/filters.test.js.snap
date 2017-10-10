@@ -6,8 +6,9 @@ exports[`<Filters /> matches previous snapshot 1`] = `
     <div
       className="col-xs-12 hidden-xs">
       <span
-        className="form-group-title">
-        Filter
+        className="form-group-title"
+        tabIndex="0">
+        Filters
       </span>
     </div>
     <div
@@ -18,8 +19,9 @@ exports[`<Filters /> matches previous snapshot 1`] = `
           className="form-group">
           <div>
             <label
-              className="control-label"
-              htmlFor="category-filter">
+              className="control-label filter-category-label"
+              htmlFor="category-filter"
+              tabIndex="0">
               Category
             </label>
             <select
@@ -41,8 +43,9 @@ exports[`<Filters /> matches previous snapshot 1`] = `
           className="form-group">
           <div>
             <label
-              className="control-label"
-              htmlFor="segment-filter">
+              className="control-label filter-category-label"
+              htmlFor="segment-filter"
+              tabIndex="0">
               Branch/Discipline
             </label>
             <select
@@ -64,8 +67,9 @@ exports[`<Filters /> matches previous snapshot 1`] = `
           className="form-group">
           <div>
             <label
-              className="control-label"
-              htmlFor="platform-filter">
+              className="control-label filter-category-label"
+              htmlFor="platform-filter"
+              tabIndex="0">
               Platform
             </label>
             <select
@@ -122,8 +126,9 @@ exports[`<Filters /> matches previous snapshot 2`] = `
     <div
       className="col-xs-12 hidden-xs">
       <span
-        className="form-group-title">
-        Filter
+        className="form-group-title"
+        tabIndex="0">
+        Filters
       </span>
     </div>
     <div
@@ -134,8 +139,9 @@ exports[`<Filters /> matches previous snapshot 2`] = `
           className="form-group">
           <div>
             <label
-              className="control-label"
-              htmlFor="category-filter">
+              className="control-label filter-category-label"
+              htmlFor="category-filter"
+              tabIndex="0">
               Category
             </label>
             <select
@@ -161,8 +167,9 @@ exports[`<Filters /> matches previous snapshot 2`] = `
           className="form-group">
           <div>
             <label
-              className="control-label"
-              htmlFor="segment-filter">
+              className="control-label filter-category-label"
+              htmlFor="segment-filter"
+              tabIndex="0">
               Branch/Discipline
             </label>
             <select
@@ -184,8 +191,9 @@ exports[`<Filters /> matches previous snapshot 2`] = `
           className="form-group">
           <div>
             <label
-              className="control-label"
-              htmlFor="platform-filter">
+              className="control-label filter-category-label"
+              htmlFor="platform-filter"
+              tabIndex="0">
               Platform
             </label>
             <select
@@ -242,8 +250,9 @@ exports[`<Filters /> matches previous snapshot 3`] = `
     <div
       className="col-xs-12 hidden-xs">
       <span
-        className="form-group-title">
-        Filter
+        className="form-group-title"
+        tabIndex="0">
+        Filters
       </span>
     </div>
     <div
@@ -254,8 +263,9 @@ exports[`<Filters /> matches previous snapshot 3`] = `
           className="form-group">
           <div>
             <label
-              className="control-label"
-              htmlFor="category-filter">
+              className="control-label filter-category-label"
+              htmlFor="category-filter"
+              tabIndex="0">
               Category
             </label>
             <select
@@ -281,8 +291,9 @@ exports[`<Filters /> matches previous snapshot 3`] = `
           className="form-group">
           <div>
             <label
-              className="control-label"
-              htmlFor="segment-filter">
+              className="control-label filter-category-label"
+              htmlFor="segment-filter"
+              tabIndex="0">
               Branch/Discipline
             </label>
             <select
@@ -308,8 +319,9 @@ exports[`<Filters /> matches previous snapshot 3`] = `
           className="form-group">
           <div>
             <label
-              className="control-label"
-              htmlFor="platform-filter">
+              className="control-label filter-category-label"
+              htmlFor="platform-filter"
+              tabIndex="0">
               Platform
             </label>
             <select
@@ -366,8 +378,9 @@ exports[`<Filters /> matches previous snapshot 4`] = `
     <div
       className="col-xs-12 hidden-xs">
       <span
-        className="form-group-title">
-        Filter
+        className="form-group-title"
+        tabIndex="0">
+        Filters
       </span>
     </div>
     <div
@@ -378,8 +391,9 @@ exports[`<Filters /> matches previous snapshot 4`] = `
           className="form-group">
           <div>
             <label
-              className="control-label"
-              htmlFor="category-filter">
+              className="control-label filter-category-label"
+              htmlFor="category-filter"
+              tabIndex="0">
               Category
             </label>
             <select
@@ -405,8 +419,9 @@ exports[`<Filters /> matches previous snapshot 4`] = `
           className="form-group">
           <div>
             <label
-              className="control-label"
-              htmlFor="segment-filter">
+              className="control-label filter-category-label"
+              htmlFor="segment-filter"
+              tabIndex="0">
               Branch/Discipline
             </label>
             <select
@@ -432,8 +447,9 @@ exports[`<Filters /> matches previous snapshot 4`] = `
           className="form-group">
           <div>
             <label
-              className="control-label"
-              htmlFor="platform-filter">
+              className="control-label filter-category-label"
+              htmlFor="platform-filter"
+              tabIndex="0">
               Platform
             </label>
             <select
