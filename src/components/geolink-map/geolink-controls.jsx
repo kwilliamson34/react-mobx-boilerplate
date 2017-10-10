@@ -97,30 +97,11 @@ export default class GeolinkControls extends React.Component {
                 </fieldset>
               </form>
             </div>
-
-            {/* desktop layout */}
-            <div className="col-md-4 hidden-xs hidden-sm map-network-legend">
-              {this.renderNetworkLegend()}
-              {this.renderContactInfo()}
-            </div>
+            {this.renderDesktopOnlyNetworkBlock()}
           </div>
 
-          {/* tablet and phone layout */}
-          <div className="row is-flex visible-xs visible-sm">
-            <div className="col-xs-12 no-gutters">
-              <hr />
-            </div>
-            <div className="col-xs-12 col-sm-6">
-              {this.renderNetworkSubscriptionLink()}
-            </div>
-            <div className="col-xs-12 col-sm-6">
-              {this.renderContactInfo()}
-            </div>
-            <div className="col-xs-12 no-gutters">
-              <hr />
-            </div>
-          </div>
-
+          {this.renderMobileOnlyContactBlock()}
+          
           <div className="row is-flex">
             <div className="col-xs-12 visible-xs-inline visible-sm-inline">
               {this.renderNetworkLegend()}
@@ -164,6 +145,34 @@ export default class GeolinkControls extends React.Component {
           onClick={this.store.showAddLocationForm.bind(this.store)}>
           Add Favorite
         </button>
+      </div>
+    )
+  }
+
+  renderDesktopOnlyNetworkBlock = () => {
+    return (
+      <div className="col-md-4 hidden-xs hidden-sm map-network-legend">
+        {this.renderNetworkLegend()}
+        {this.renderContactInfo()}
+      </div>
+    )
+  }
+
+  renderMobileOnlyContactBlock = () => {
+    return (
+      <div className="row is-flex visible-xs visible-sm">
+        <div className="col-xs-12 no-gutters">
+          <hr />
+        </div>
+        <div className="col-xs-12 col-sm-6">
+          {this.renderNetworkSubscriptionLink()}
+        </div>
+        <div className="col-xs-12 col-sm-6">
+          {this.renderContactInfo()}
+        </div>
+        <div className="col-xs-12 no-gutters">
+          <hr />
+        </div>
       </div>
     )
   }
