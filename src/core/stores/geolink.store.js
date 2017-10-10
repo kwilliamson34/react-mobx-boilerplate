@@ -144,9 +144,13 @@ class GeolinkStore {
       this.showSuccess = true;
     }
     const failure = (err) => {
-      this.alertText = err.response && err.response.data && err.response.data.message.indexOf('already exists') > -1
-        ? 'You already have a favorite named "' + this.values.locationName + '".'
-        : 'Please fix the following errors.';
+      if (this.formHasError){
+        this.alertText = 'Please fix the following errors.';
+      } else if(err.response && err.response.data && err.response.data.message && err.response.data.message.indexOf('already exists') > -1) {
+        this.alertText = 'You already have a favorite named "' + this.values.locationName + '".';
+      } else {
+        this.alertText = 'The system encountered a problem. Please try again later.';
+      }
       this.showAlert = true;
     }
     apiService.addLocationFavorite(this.values).then(success, failure);
