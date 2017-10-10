@@ -93,7 +93,7 @@ export default class GeolinkControls extends React.Component {
           {this.store.predictedFavorites.map((favorite, index) => {
             return (
               <li role="button" tabIndex="0" onClick={() => this.onFavoriteClick(favorite)} onKeyPress={(e) => this.onFavoriteEnter(e, favorite)} key={index}>
-                <i className="icon icon-star"></i>
+                <i className="icon-star" aria-hidden></i>
                 <span>{favorite.favoriteName}</span>
                 <small>{favorite.locationFavoriteAddress}</small>
               </li>

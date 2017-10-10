@@ -244,17 +244,17 @@ class GeolinkStore {
   }
 
   @computed get predictedFavorites() {
-    let searchTermsAreMatchingFavorite = null;
+    let searchTermsAMatchingFavorite = null;
     let searchTermRegex = null;
     return this.favorites.filter(favorite => {
-      searchTermsAreMatchingFavorite = true;
+      searchTermsAMatchingFavorite = true;
       this.searchTerms.forEach(term => {
         searchTermRegex = new RegExp(term, 'i');
         if(!searchTermRegex.test(favorite.favoriteName) && !searchTermRegex.test(favorite.locationFavoriteAddress)) {
-          searchTermsAreMatchingFavorite = false;
+          searchTermsAMatchingFavorite = false;
         }
       })
-      return searchTermsAreMatchingFavorite;
+      return searchTermsAMatchingFavorite;
     }).splice(0, 8);
   }
 
