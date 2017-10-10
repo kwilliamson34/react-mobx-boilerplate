@@ -163,6 +163,7 @@ class GeolinkStore {
     this.values = Object.assign({}, this.defaultValues);
     this.clearAlerts();
     this.pageTitle = 'Network Status';
+    this.searchMap();
   }
 
   @action clearAlerts() {
