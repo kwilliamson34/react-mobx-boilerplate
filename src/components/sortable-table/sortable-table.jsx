@@ -46,6 +46,7 @@ export class SortableTable extends React.Component {
   handleOnChange = (target) => {
     console.log('handleOnChange', target);
     if (target.type === 'checkbox') {
+      console.log('ding', target.value);
       this.store.handleCheckboxChange(target.value);
     }
   }
@@ -167,7 +168,7 @@ export class SortableTable extends React.Component {
           id={targetedId}
           columns={columns}
           row={row}
-          checkedRows={this.store.checkedRows.peek()}
+          checkedRows={this.store.checkedRows}
           hasCheckbox={this.props.hasCheckboxRow}
           handleOnChange={this.handleOnChange}
           key={targetedId}/>

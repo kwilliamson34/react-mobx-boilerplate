@@ -59,10 +59,11 @@ class ManageLocationsStore {
     // return apiService.deleteLocationFavorites().then(success, fail);
   }
 
-	@action handleCheckboxChange(row) {
-    this.checkedRows.indexOf(row) > -1
-      ? this.checkedRows.remove(row)
-      : this.checkedRows.push(row);
+	@action handleCheckboxChange(rowId) {
+    console.log('WHERE???', rowId);
+    this.checkedRows.indexOf(rowId) > -1
+      ? this.checkedRows.remove(rowId)
+      : this.checkedRows.push(rowId);
 	}
 
   @action selectAllCheckboxes() {

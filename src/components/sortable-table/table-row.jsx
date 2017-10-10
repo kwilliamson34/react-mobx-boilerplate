@@ -12,7 +12,6 @@ export class TableRow extends React.Component {
     row: PropTypes.object.isRequired,
     columns: PropTypes.array.isRequired,
     handleOnChange: PropTypes.func,
-    inlineButtonJsx: PropTypes.object,
     hasCheckbox: PropTypes.bool,
     checkedRows: PropTypes.array
   }
@@ -20,6 +19,10 @@ export class TableRow extends React.Component {
   static defaultProps = {
     hasCheckbox: false,
     checkedRows: []
+  }
+
+  componentDidMount() {
+    console.log('WHERE YOU AT?', this.props.checkedRows);
   }
 
   // <input
