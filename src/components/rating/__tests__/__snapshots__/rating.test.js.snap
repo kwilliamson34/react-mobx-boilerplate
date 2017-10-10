@@ -2,6 +2,12 @@ exports[`<Rating />  render tests should match previous snapshot with alternativ
 <div
   className="ratings-container">
   <span>
+    <div
+      className="sr-only">
+      This app has a rating of 
+      1.5
+       stars out of 5.
+    </div>
     <span
       className="ratings-stars">
       <span
@@ -28,12 +34,15 @@ exports[`<Rating />  render tests should match previous snapshot with default pr
 <div
   className="ratings-container">
   <span>
+    <div
+      className="sr-only">
+      This app has a rating of 
+      1
+       stars out of 5.
+    </div>
     <span
+      aria-hidden={true}
       className="ratings-number">
-      <span
-        className="sr-only">
-        Rating of 
-      </span>
        
     </span>
     <span
@@ -46,14 +55,15 @@ exports[`<Rating />  render tests should match previous snapshot with default pr
       className="app-reviews-count hidden-xs">
       <span
         className="sr-only">
-        Reviewed by
+        Reviewed by 
+        1
+         people.
       </span>
-       (
-      1
-      )
       <span
-        className="sr-only">
-         people
+        aria-hidden="true">
+         (
+        1
+        )
       </span>
     </span>
   </span>

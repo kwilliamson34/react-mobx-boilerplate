@@ -52,30 +52,33 @@ exports[`<CardList /> renders matches snapshot before and after loading 2`] = `
           id="appCardundefined"
           onClick={[Function anonymous]}>
           <div
-            className="">
+            className="card-logo">
+            <img
+              alt=""
+              aria-hidden="true"
+              src={undefined} />
+          </div>
+          <section
+            className="card-info">
             <div
-              className="card-logo">
-              <img
-                alt="undefined Logo"
-                src={undefined} />
+              className="card-name" />
+            <div
+              className="card-publisher">
+              <span
+                className="sr-only">
+                Published By 
+              </span>
             </div>
-            <section
-              className="card-info">
-              <div
-                className="card-name" />
-              <div
-                className="card-publisher" />
-            </section>
+          </section>
+          <div
+            className="card-lower-meta">
             <div
-              className="card-lower-meta">
+              className="card-rating">
               <div
-                className="card-rating">
-                <div
-                  className="ratings-container">
-                  <span>
-                    No Reviews
-                  </span>
-                </div>
+                className="ratings-container">
+                <span>
+                  No Reviews
+                </span>
               </div>
             </div>
           </div>
@@ -92,30 +95,33 @@ exports[`<CardList /> renders matches snapshot before and after loading 2`] = `
           id="appCardundefined"
           onClick={[Function anonymous]}>
           <div
-            className="">
+            className="card-logo">
+            <img
+              alt=""
+              aria-hidden="true"
+              src={undefined} />
+          </div>
+          <section
+            className="card-info">
             <div
-              className="card-logo">
-              <img
-                alt="undefined Logo"
-                src={undefined} />
+              className="card-name" />
+            <div
+              className="card-publisher">
+              <span
+                className="sr-only">
+                Published By 
+              </span>
             </div>
-            <section
-              className="card-info">
-              <div
-                className="card-name" />
-              <div
-                className="card-publisher" />
-            </section>
+          </section>
+          <div
+            className="card-lower-meta">
             <div
-              className="card-lower-meta">
+              className="card-rating">
               <div
-                className="card-rating">
-                <div
-                  className="ratings-container">
-                  <span>
-                    No Reviews
-                  </span>
-                </div>
+                className="ratings-container">
+                <span>
+                  No Reviews
+                </span>
               </div>
             </div>
           </div>
@@ -132,30 +138,33 @@ exports[`<CardList /> renders matches snapshot before and after loading 2`] = `
           id="appCardundefined"
           onClick={[Function anonymous]}>
           <div
-            className="">
+            className="card-logo">
+            <img
+              alt=""
+              aria-hidden="true"
+              src={undefined} />
+          </div>
+          <section
+            className="card-info">
             <div
-              className="card-logo">
-              <img
-                alt="undefined Logo"
-                src={undefined} />
+              className="card-name" />
+            <div
+              className="card-publisher">
+              <span
+                className="sr-only">
+                Published By 
+              </span>
             </div>
-            <section
-              className="card-info">
-              <div
-                className="card-name" />
-              <div
-                className="card-publisher" />
-            </section>
+          </section>
+          <div
+            className="card-lower-meta">
             <div
-              className="card-lower-meta">
+              className="card-rating">
               <div
-                className="card-rating">
-                <div
-                  className="ratings-container">
-                  <span>
-                    No Reviews
-                  </span>
-                </div>
+                className="ratings-container">
+                <span>
+                  No Reviews
+                </span>
               </div>
             </div>
           </div>
@@ -172,30 +181,33 @@ exports[`<CardList /> renders matches snapshot before and after loading 2`] = `
           id="appCardundefined"
           onClick={[Function anonymous]}>
           <div
-            className="">
+            className="card-logo">
+            <img
+              alt=""
+              aria-hidden="true"
+              src={undefined} />
+          </div>
+          <section
+            className="card-info">
             <div
-              className="card-logo">
-              <img
-                alt="undefined Logo"
-                src={undefined} />
+              className="card-name" />
+            <div
+              className="card-publisher">
+              <span
+                className="sr-only">
+                Published By 
+              </span>
             </div>
-            <section
-              className="card-info">
-              <div
-                className="card-name" />
-              <div
-                className="card-publisher" />
-            </section>
+          </section>
+          <div
+            className="card-lower-meta">
             <div
-              className="card-lower-meta">
+              className="card-rating">
               <div
-                className="card-rating">
-                <div
-                  className="ratings-container">
-                  <span>
-                    No Reviews
-                  </span>
-                </div>
+                className="ratings-container">
+                <span>
+                  No Reviews
+                </span>
               </div>
             </div>
           </div>
@@ -212,30 +224,33 @@ exports[`<CardList /> renders matches snapshot before and after loading 2`] = `
           id="appCardundefined"
           onClick={[Function anonymous]}>
           <div
-            className="">
+            className="card-logo">
+            <img
+              alt=""
+              aria-hidden="true"
+              src={undefined} />
+          </div>
+          <section
+            className="card-info">
             <div
-              className="card-logo">
-              <img
-                alt="undefined Logo"
-                src={undefined} />
+              className="card-name" />
+            <div
+              className="card-publisher">
+              <span
+                className="sr-only">
+                Published By 
+              </span>
             </div>
-            <section
-              className="card-info">
-              <div
-                className="card-name" />
-              <div
-                className="card-publisher" />
-            </section>
+          </section>
+          <div
+            className="card-lower-meta">
             <div
-              className="card-lower-meta">
+              className="card-rating">
               <div
-                className="card-rating">
-                <div
-                  className="ratings-container">
-                  <span>
-                    No Reviews
-                  </span>
-                </div>
+                className="ratings-container">
+                <span>
+                  No Reviews
+                </span>
               </div>
             </div>
           </div>
@@ -261,30 +276,33 @@ exports[`<CardList /> renders matches snapshot with no results 1`] = `
           id="appCardundefined"
           onClick={[Function anonymous]}>
           <div
-            className="">
+            className="card-logo">
+            <img
+              alt=""
+              aria-hidden="true"
+              src={undefined} />
+          </div>
+          <section
+            className="card-info">
             <div
-              className="card-logo">
-              <img
-                alt="undefined Logo"
-                src={undefined} />
+              className="card-name" />
+            <div
+              className="card-publisher">
+              <span
+                className="sr-only">
+                Published By 
+              </span>
             </div>
-            <section
-              className="card-info">
-              <div
-                className="card-name" />
-              <div
-                className="card-publisher" />
-            </section>
+          </section>
+          <div
+            className="card-lower-meta">
             <div
-              className="card-lower-meta">
+              className="card-rating">
               <div
-                className="card-rating">
-                <div
-                  className="ratings-container">
-                  <span>
-                    No Reviews
-                  </span>
-                </div>
+                className="ratings-container">
+                <span>
+                  No Reviews
+                </span>
               </div>
             </div>
           </div>
@@ -301,30 +319,33 @@ exports[`<CardList /> renders matches snapshot with no results 1`] = `
           id="appCardundefined"
           onClick={[Function anonymous]}>
           <div
-            className="">
+            className="card-logo">
+            <img
+              alt=""
+              aria-hidden="true"
+              src={undefined} />
+          </div>
+          <section
+            className="card-info">
             <div
-              className="card-logo">
-              <img
-                alt="undefined Logo"
-                src={undefined} />
+              className="card-name" />
+            <div
+              className="card-publisher">
+              <span
+                className="sr-only">
+                Published By 
+              </span>
             </div>
-            <section
-              className="card-info">
-              <div
-                className="card-name" />
-              <div
-                className="card-publisher" />
-            </section>
+          </section>
+          <div
+            className="card-lower-meta">
             <div
-              className="card-lower-meta">
+              className="card-rating">
               <div
-                className="card-rating">
-                <div
-                  className="ratings-container">
-                  <span>
-                    No Reviews
-                  </span>
-                </div>
+                className="ratings-container">
+                <span>
+                  No Reviews
+                </span>
               </div>
             </div>
           </div>
@@ -341,30 +362,33 @@ exports[`<CardList /> renders matches snapshot with no results 1`] = `
           id="appCardundefined"
           onClick={[Function anonymous]}>
           <div
-            className="">
+            className="card-logo">
+            <img
+              alt=""
+              aria-hidden="true"
+              src={undefined} />
+          </div>
+          <section
+            className="card-info">
             <div
-              className="card-logo">
-              <img
-                alt="undefined Logo"
-                src={undefined} />
+              className="card-name" />
+            <div
+              className="card-publisher">
+              <span
+                className="sr-only">
+                Published By 
+              </span>
             </div>
-            <section
-              className="card-info">
-              <div
-                className="card-name" />
-              <div
-                className="card-publisher" />
-            </section>
+          </section>
+          <div
+            className="card-lower-meta">
             <div
-              className="card-lower-meta">
+              className="card-rating">
               <div
-                className="card-rating">
-                <div
-                  className="ratings-container">
-                  <span>
-                    No Reviews
-                  </span>
-                </div>
+                className="ratings-container">
+                <span>
+                  No Reviews
+                </span>
               </div>
             </div>
           </div>
@@ -381,30 +405,33 @@ exports[`<CardList /> renders matches snapshot with no results 1`] = `
           id="appCardundefined"
           onClick={[Function anonymous]}>
           <div
-            className="">
+            className="card-logo">
+            <img
+              alt=""
+              aria-hidden="true"
+              src={undefined} />
+          </div>
+          <section
+            className="card-info">
             <div
-              className="card-logo">
-              <img
-                alt="undefined Logo"
-                src={undefined} />
+              className="card-name" />
+            <div
+              className="card-publisher">
+              <span
+                className="sr-only">
+                Published By 
+              </span>
             </div>
-            <section
-              className="card-info">
-              <div
-                className="card-name" />
-              <div
-                className="card-publisher" />
-            </section>
+          </section>
+          <div
+            className="card-lower-meta">
             <div
-              className="card-lower-meta">
+              className="card-rating">
               <div
-                className="card-rating">
-                <div
-                  className="ratings-container">
-                  <span>
-                    No Reviews
-                  </span>
-                </div>
+                className="ratings-container">
+                <span>
+                  No Reviews
+                </span>
               </div>
             </div>
           </div>
@@ -421,30 +448,33 @@ exports[`<CardList /> renders matches snapshot with no results 1`] = `
           id="appCardundefined"
           onClick={[Function anonymous]}>
           <div
-            className="">
+            className="card-logo">
+            <img
+              alt=""
+              aria-hidden="true"
+              src={undefined} />
+          </div>
+          <section
+            className="card-info">
             <div
-              className="card-logo">
-              <img
-                alt="undefined Logo"
-                src={undefined} />
+              className="card-name" />
+            <div
+              className="card-publisher">
+              <span
+                className="sr-only">
+                Published By 
+              </span>
             </div>
-            <section
-              className="card-info">
-              <div
-                className="card-name" />
-              <div
-                className="card-publisher" />
-            </section>
+          </section>
+          <div
+            className="card-lower-meta">
             <div
-              className="card-lower-meta">
+              className="card-rating">
               <div
-                className="card-rating">
-                <div
-                  className="ratings-container">
-                  <span>
-                    No Reviews
-                  </span>
-                </div>
+                className="ratings-container">
+                <span>
+                  No Reviews
+                </span>
               </div>
             </div>
           </div>
@@ -489,30 +519,33 @@ exports[`<CardList /> renders matches snapshot with zero, one, and many cards 2`
           id="appCardundefined"
           onClick={[Function anonymous]}>
           <div
-            className="">
+            className="card-logo">
+            <img
+              alt=""
+              aria-hidden="true"
+              src={undefined} />
+          </div>
+          <section
+            className="card-info">
             <div
-              className="card-logo">
-              <img
-                alt="undefined Logo"
-                src={undefined} />
+              className="card-name" />
+            <div
+              className="card-publisher">
+              <span
+                className="sr-only">
+                Published By 
+              </span>
             </div>
-            <section
-              className="card-info">
-              <div
-                className="card-name" />
-              <div
-                className="card-publisher" />
-            </section>
+          </section>
+          <div
+            className="card-lower-meta">
             <div
-              className="card-lower-meta">
+              className="card-rating">
               <div
-                className="card-rating">
-                <div
-                  className="ratings-container">
-                  <span>
-                    No Reviews
-                  </span>
-                </div>
+                className="ratings-container">
+                <span>
+                  No Reviews
+                </span>
               </div>
             </div>
           </div>
@@ -538,30 +571,33 @@ exports[`<CardList /> renders matches snapshot with zero, one, and many cards 3`
           id="appCardundefined"
           onClick={[Function anonymous]}>
           <div
-            className="">
+            className="card-logo">
+            <img
+              alt=""
+              aria-hidden="true"
+              src={undefined} />
+          </div>
+          <section
+            className="card-info">
             <div
-              className="card-logo">
-              <img
-                alt="undefined Logo"
-                src={undefined} />
+              className="card-name" />
+            <div
+              className="card-publisher">
+              <span
+                className="sr-only">
+                Published By 
+              </span>
             </div>
-            <section
-              className="card-info">
-              <div
-                className="card-name" />
-              <div
-                className="card-publisher" />
-            </section>
+          </section>
+          <div
+            className="card-lower-meta">
             <div
-              className="card-lower-meta">
+              className="card-rating">
               <div
-                className="card-rating">
-                <div
-                  className="ratings-container">
-                  <span>
-                    No Reviews
-                  </span>
-                </div>
+                className="ratings-container">
+                <span>
+                  No Reviews
+                </span>
               </div>
             </div>
           </div>

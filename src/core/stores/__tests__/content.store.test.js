@@ -19,7 +19,7 @@ describe("FilterStore", () => {
         store.updateFilter(store.faqs.categories[0]);
         let newFilterCount = store.faqs.entries.filter(faq => faq.category.toUpperCase() === store.faqs.categories[0].toUpperCase()).length;
         expect(store.filteredFaqEntries.length).toBe(newFilterCount);
-        expect(store.faqCategoryFilter).toBe(store.faqs.categories[0].toUpperCase());
+        expect(store.faqCategoryFilter.toUpperCase()).toBe(store.faqs.categories[0].toUpperCase());
     });
 
     test("filters all functionality working", () => {

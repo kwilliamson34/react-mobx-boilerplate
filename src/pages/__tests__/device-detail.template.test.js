@@ -86,19 +86,6 @@ describe('<DeviceDetailTemplate />', () => {
       expect(props.store.externalLinkStore.fetchAndShowDeviceDetails).not.toBeCalled();
     });
 
-    test('rerenders if user navigates to another detail page', () => {
-      let component, tree;
-      props.store.externalLinkStore.currentDeviceDetail.path = 'deviceID2';
-      props.store.externalLinkStore.fetchAndShowDeviceDetails = jest.fn();
-
-      props.store.externalLinkStore.allSpecializedDevices = [{},{}];
-      component = renderer.create(<MemoryRouter>
-        <DeviceDetailTemplate { ...props}/>
-      </MemoryRouter>);
-
-      expect(props.store.externalLinkStore.fetchAndShowDeviceDetails).toBeCalled();
-    });
-
     test('fetches if the details are missing', () => {
       let component, tree;
       props.store.externalLinkStore.currentDeviceDetail.path = 'deviceID2';

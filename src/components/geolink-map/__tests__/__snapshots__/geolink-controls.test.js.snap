@@ -1,56 +1,35 @@
 exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 1`] = `
 <section
-  className="geolink-controls">
+  className="geolink-controls hide">
   <div
     className="container">
     <div
       className="row is-flex">
       <div
-        className="col-xs-12 col-sm-8 col-md-4 map-search">
-        <h2
-          className="as-h5">
-          Search
-        </h2>
-        <form
-          className="search-form form-group"
-          onSubmit={undefined}>
-          <div
-            className="search-input input-group">
-            <label
-              className="control-label"
-              htmlFor="search-field">
-              Location
-            </label>
-            <div
-              className="search-bar">
-              <input
-                className="form-control"
-                disabled={true}
-                id="search-field"
-                onChange={[Function anonymous]}
-                onKeyPress={[Function anonymous]}
-                type="search" />
-              <button
-                className="btn search-btn"
-                disabled={true}
-                onClick={[Function anonymous]}
-                type="button">
-                <span
-                  className="sr-only">
-                  Search for locations
-                </span>
-                <span
-                  aria-hidden="true"
-                  className="icon-search" />
-              </button>
-            </div>
-          </div>
-        </form>
+        className="col-xs-12 col-sm-7 col-md-4 map-search">
+        <div>
+          <span
+            className="top-right-link">
+            <a
+              href="/manage-favorites"
+              onClick={[Function anonymous]}>
+              Manage Favorites
+            </a>
+          </span>
+          <h2
+            className="as-h5">
+            Search
+          </h2>
+          <button
+            className="as-link disabled"
+            onClick={[Function bound mockConstructor]}>
+            Add Favorite
+          </button>
+        </div>
       </div>
       <div
-        className="col-xs-12 col-sm-4 col-md-4 map-layers">
-        <h2
-          className="as-h5">
+        className="col-xs-12 col-sm-5 col-md-4 map-layers">
+        <h2>
           Layers
         </h2>
         <form
@@ -62,7 +41,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
               Coverage layers
             </legend>
             <div
-              className="col-xs-6 col-sm-12 no-gutters">
+              className="col-xs-6 no-gutters">
               <div
                 className="checkbox disabled">
                 <label>
@@ -71,15 +50,19 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     checked={false}
                     className="disabled"
                     data-checked={false}
-                    id="network-toggle"
-                    onChange={[Function bound onChange]}
+                    id=""
+                    onChange={[Function anonymous]}
                     type="checkbox"
                     value="Network" />
                   <span
                     className="cr" />
                   <span
-                    className="layer-label">
-                    Network
+                    className="label-text">
+                    
+                    <span
+                      className="label-text-normal">
+                      Network
+                    </span>
                   </span>
                 </label>
               </div>
@@ -91,21 +74,25 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     checked={false}
                     className="disabled"
                     data-checked={false}
-                    id="weather-toggle"
-                    onChange={[Function bound onChange]}
+                    id=""
+                    onChange={[Function anonymous]}
                     type="checkbox"
                     value="Weather" />
                   <span
                     className="cr" />
                   <span
-                    className="layer-label">
-                    Weather
+                    className="label-text">
+                    
+                    <span
+                      className="label-text-normal">
+                      Weather
+                    </span>
                   </span>
                 </label>
               </div>
             </div>
             <div
-              className="col-xs-6 col-sm-12 no-gutters">
+              className="col-xs-6 no-gutters">
               <div
                 className="checkbox disabled">
                 <label>
@@ -114,15 +101,19 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     checked={false}
                     className="disabled"
                     data-checked={false}
-                    id="traffic-toggle"
-                    onChange={[Function bound onChange]}
+                    id=""
+                    onChange={[Function anonymous]}
                     type="checkbox"
                     value="Traffic" />
                   <span
                     className="cr" />
                   <span
-                    className="layer-label">
-                    Traffic
+                    className="label-text">
+                    
+                    <span
+                      className="label-text-normal">
+                      Traffic
+                    </span>
                   </span>
                 </label>
               </div>
@@ -134,15 +125,19 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     checked={false}
                     className="disabled"
                     data-checked={false}
-                    id="alerts-toggle"
-                    onChange={[Function bound onChange]}
+                    id=""
+                    onChange={[Function anonymous]}
                     type="checkbox"
                     value="Alerts" />
                   <span
                     className="cr" />
                   <span
-                    className="layer-label">
-                    Alerts
+                    className="label-text">
+                    
+                    <span
+                      className="label-text-normal">
+                      Alerts
+                    </span>
                   </span>
                 </label>
               </div>
@@ -151,35 +146,25 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
         </form>
       </div>
       <div
-        className="col-md-4 hidden-xs hidden-sm">
+        className="col-md-4 hidden-xs hidden-sm map-network-legend">
         <div>
           <span
-            className="visible-sm-inline">
+            className="hidden-xs hidden-sm">
             <div
-              className="network-contact-info">
-              <p>
-                Report Network Issue:
-                <br
-                  className="visible-md-inline" />
-                <a
-                  href="tel:undefined">
-                  <i
-                    aria-hidden="true"
-                    className="icon-phone-number footer-support-phone" />
-                  <span
-                    className="sr-only">
-                    Call 
-                  </span>
-                  <span
-                    className="sr-only">
-                     to report a network issue
-                  </span>
-                </a>
-              </p>
+              className="network-subscription-link">
+              <a
+                href="/subscribe-to-alerts"
+                onClick={[Function anonymous]}>
+                Subscribe to 
+                <span
+                  className="visible-xs-inline visible-sm-inline">
+                  Network 
+                </span>
+                Alerts
+              </a>
             </div>
           </span>
-          <h2
-            className="as-h5">
+          <h2>
             Network
             <span
               className="sr-only">
@@ -212,61 +197,78 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
               src="/images/network-legend.png" />
           </div>
         </div>
-        <div
+        <p
           className="network-contact-info">
-          <p>
+          <span
+            aria-hidden="true">
             Report Network Issue:
-            <br
-              className="visible-md-inline" />
-            <a
-              href="tel:undefined">
+          </span>
+          <br
+            className="visible-md-inline" />
+          <a
+            href="tel:undefined">
+            <span>
               <i
                 aria-hidden="true"
                 className="icon-phone-number footer-support-phone" />
               <span
                 className="sr-only">
-                Call 
+                Report Network Issue: Phone 
               </span>
-              <span
-                className="sr-only">
-                 to report a network issue
-              </span>
-            </a>
-          </p>
-        </div>
+            </span>
+          </a>
+        </p>
       </div>
     </div>
     <div
-      className="row">
+      className="row is-flex visible-xs visible-sm">
       <div
-        className="legend-divider col-xs-12">
+        className="col-xs-12 no-gutters">
         <hr />
+      </div>
+      <div
+        className="col-xs-12 col-sm-6">
         <div
-          className="visible-xs-inline">
-          <div
-            className="network-contact-info">
-            <p>
-              Report Network Issue:
-              <br
-                className="visible-md-inline" />
-              <a
-                href="tel:undefined">
-                <i
-                  aria-hidden="true"
-                  className="icon-phone-number footer-support-phone" />
-                <span
-                  className="sr-only">
-                  Call 
-                </span>
-                <span
-                  className="sr-only">
-                   to report a network issue
-                </span>
-              </a>
-            </p>
-          </div>
-          <hr />
+          className="network-subscription-link">
+          <a
+            href="/subscribe-to-alerts"
+            onClick={[Function anonymous]}>
+            Subscribe to 
+            <span
+              className="visible-xs-inline visible-sm-inline">
+              Network 
+            </span>
+            Alerts
+          </a>
         </div>
+      </div>
+      <div
+        className="col-xs-12 col-sm-6">
+        <p
+          className="network-contact-info">
+          <span
+            aria-hidden="true">
+            Report Network Issue:
+          </span>
+          <br
+            className="visible-md-inline" />
+          <a
+            href="tel:undefined">
+            <span>
+              <i
+                aria-hidden="true"
+                className="icon-phone-number footer-support-phone" />
+              <span
+                className="sr-only">
+                Report Network Issue: Phone 
+              </span>
+            </span>
+          </a>
+        </p>
+      </div>
+      <div
+        className="col-xs-12 no-gutters">
+        <hr />
       </div>
     </div>
     <div
@@ -275,32 +277,22 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
         className="col-xs-12 visible-xs-inline visible-sm-inline">
         <div>
           <span
-            className="visible-sm-inline">
+            className="hidden-xs hidden-sm">
             <div
-              className="network-contact-info">
-              <p>
-                Report Network Issue:
-                <br
-                  className="visible-md-inline" />
-                <a
-                  href="tel:undefined">
-                  <i
-                    aria-hidden="true"
-                    className="icon-phone-number footer-support-phone" />
-                  <span
-                    className="sr-only">
-                    Call 
-                  </span>
-                  <span
-                    className="sr-only">
-                     to report a network issue
-                  </span>
-                </a>
-              </p>
+              className="network-subscription-link">
+              <a
+                href="/subscribe-to-alerts"
+                onClick={[Function anonymous]}>
+                Subscribe to 
+                <span
+                  className="visible-xs-inline visible-sm-inline">
+                  Network 
+                </span>
+                Alerts
+              </a>
             </div>
           </span>
-          <h2
-            className="as-h5">
+          <h2>
             Network
             <span
               className="sr-only">
@@ -334,11 +326,12 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
           </div>
         </div>
       </div>
+      <hr
+        className="col-xs-12 hidden-xs hidden-sm" />
       <div
         className="col-xs-12 col-md-6">
         <div>
-          <h2
-            className="as-h5">
+          <h2>
             Weather
             <span
               className="sr-only">
@@ -375,8 +368,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
       <div
         className="col-xs-12 col-md-6">
         <div>
-          <h2
-            className="as-h5">
+          <h2>
             Traffic
             <span
               className="sr-only">
@@ -438,57 +430,36 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
 
 exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 2`] = `
 <section
-  className="geolink-controls">
+  className="geolink-controls hide">
   <div
     className="container">
     <div
       className="row is-flex">
       <div
-        className="col-xs-12 col-sm-8 col-md-4 map-search">
-        <h2
-          className="as-h5">
-          Search
-        </h2>
-        <form
-          className="search-form form-group"
-          onSubmit={undefined}>
-          <div
-            className="search-input input-group">
-            <label
-              className="control-label"
-              htmlFor="search-field">
-              Location
-            </label>
-            <div
-              className="search-bar">
-              <input
-                className="form-control"
-                disabled={false}
-                id="search-field"
-                onChange={[Function anonymous]}
-                onKeyPress={[Function anonymous]}
-                type="search" />
-              <button
-                className="btn search-btn"
-                disabled={false}
-                onClick={[Function anonymous]}
-                type="button">
-                <span
-                  className="sr-only">
-                  Search for locations
-                </span>
-                <span
-                  aria-hidden="true"
-                  className="icon-search" />
-              </button>
-            </div>
-          </div>
-        </form>
+        className="col-xs-12 col-sm-7 col-md-4 map-search">
+        <div>
+          <span
+            className="top-right-link">
+            <a
+              href="/manage-favorites"
+              onClick={[Function anonymous]}>
+              Manage Favorites
+            </a>
+          </span>
+          <h2
+            className="as-h5">
+            Search
+          </h2>
+          <button
+            className="as-link disabled"
+            onClick={[Function bound mockConstructor]}>
+            Add Favorite
+          </button>
+        </div>
       </div>
       <div
-        className="col-xs-12 col-sm-4 col-md-4 map-layers">
-        <h2
-          className="as-h5">
+        className="col-xs-12 col-sm-5 col-md-4 map-layers">
+        <h2>
           Layers
         </h2>
         <form
@@ -500,7 +471,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
               Coverage layers
             </legend>
             <div
-              className="col-xs-6 col-sm-12 no-gutters">
+              className="col-xs-6 no-gutters">
               <div
                 className="checkbox ">
                 <label>
@@ -509,15 +480,19 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     checked={false}
                     className=""
                     data-checked={false}
-                    id="network-toggle"
-                    onChange={[Function bound onChange]}
+                    id=""
+                    onChange={[Function anonymous]}
                     type="checkbox"
                     value="Network" />
                   <span
                     className="cr" />
                   <span
-                    className="layer-label">
-                    Network
+                    className="label-text">
+                    
+                    <span
+                      className="label-text-normal">
+                      Network
+                    </span>
                   </span>
                 </label>
               </div>
@@ -529,21 +504,25 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     checked={false}
                     className=""
                     data-checked={false}
-                    id="weather-toggle"
-                    onChange={[Function bound onChange]}
+                    id=""
+                    onChange={[Function anonymous]}
                     type="checkbox"
                     value="Weather" />
                   <span
                     className="cr" />
                   <span
-                    className="layer-label">
-                    Weather
+                    className="label-text">
+                    
+                    <span
+                      className="label-text-normal">
+                      Weather
+                    </span>
                   </span>
                 </label>
               </div>
             </div>
             <div
-              className="col-xs-6 col-sm-12 no-gutters">
+              className="col-xs-6 no-gutters">
               <div
                 className="checkbox ">
                 <label>
@@ -552,15 +531,19 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     checked={false}
                     className=""
                     data-checked={false}
-                    id="traffic-toggle"
-                    onChange={[Function bound onChange]}
+                    id=""
+                    onChange={[Function anonymous]}
                     type="checkbox"
                     value="Traffic" />
                   <span
                     className="cr" />
                   <span
-                    className="layer-label">
-                    Traffic
+                    className="label-text">
+                    
+                    <span
+                      className="label-text-normal">
+                      Traffic
+                    </span>
                   </span>
                 </label>
               </div>
@@ -572,15 +555,19 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     checked={false}
                     className="disabled"
                     data-checked={false}
-                    id="alerts-toggle"
-                    onChange={[Function bound onChange]}
+                    id=""
+                    onChange={[Function anonymous]}
                     type="checkbox"
                     value="Alerts" />
                   <span
                     className="cr" />
                   <span
-                    className="layer-label">
-                    Alerts
+                    className="label-text">
+                    
+                    <span
+                      className="label-text-normal">
+                      Alerts
+                    </span>
                   </span>
                 </label>
               </div>
@@ -589,35 +576,25 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
         </form>
       </div>
       <div
-        className="col-md-4 hidden-xs hidden-sm">
+        className="col-md-4 hidden-xs hidden-sm map-network-legend">
         <div>
           <span
-            className="visible-sm-inline">
+            className="hidden-xs hidden-sm">
             <div
-              className="network-contact-info">
-              <p>
-                Report Network Issue:
-                <br
-                  className="visible-md-inline" />
-                <a
-                  href="tel:undefined">
-                  <i
-                    aria-hidden="true"
-                    className="icon-phone-number footer-support-phone" />
-                  <span
-                    className="sr-only">
-                    Call 
-                  </span>
-                  <span
-                    className="sr-only">
-                     to report a network issue
-                  </span>
-                </a>
-              </p>
+              className="network-subscription-link">
+              <a
+                href="/subscribe-to-alerts"
+                onClick={[Function anonymous]}>
+                Subscribe to 
+                <span
+                  className="visible-xs-inline visible-sm-inline">
+                  Network 
+                </span>
+                Alerts
+              </a>
             </div>
           </span>
-          <h2
-            className="as-h5">
+          <h2>
             Network
             <span
               className="sr-only">
@@ -650,61 +627,78 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
               src="/images/network-legend.png" />
           </div>
         </div>
-        <div
+        <p
           className="network-contact-info">
-          <p>
+          <span
+            aria-hidden="true">
             Report Network Issue:
-            <br
-              className="visible-md-inline" />
-            <a
-              href="tel:undefined">
+          </span>
+          <br
+            className="visible-md-inline" />
+          <a
+            href="tel:undefined">
+            <span>
               <i
                 aria-hidden="true"
                 className="icon-phone-number footer-support-phone" />
               <span
                 className="sr-only">
-                Call 
+                Report Network Issue: Phone 
               </span>
-              <span
-                className="sr-only">
-                 to report a network issue
-              </span>
-            </a>
-          </p>
-        </div>
+            </span>
+          </a>
+        </p>
       </div>
     </div>
     <div
-      className="row">
+      className="row is-flex visible-xs visible-sm">
       <div
-        className="legend-divider col-xs-12">
+        className="col-xs-12 no-gutters">
         <hr />
+      </div>
+      <div
+        className="col-xs-12 col-sm-6">
         <div
-          className="visible-xs-inline">
-          <div
-            className="network-contact-info">
-            <p>
-              Report Network Issue:
-              <br
-                className="visible-md-inline" />
-              <a
-                href="tel:undefined">
-                <i
-                  aria-hidden="true"
-                  className="icon-phone-number footer-support-phone" />
-                <span
-                  className="sr-only">
-                  Call 
-                </span>
-                <span
-                  className="sr-only">
-                   to report a network issue
-                </span>
-              </a>
-            </p>
-          </div>
-          <hr />
+          className="network-subscription-link">
+          <a
+            href="/subscribe-to-alerts"
+            onClick={[Function anonymous]}>
+            Subscribe to 
+            <span
+              className="visible-xs-inline visible-sm-inline">
+              Network 
+            </span>
+            Alerts
+          </a>
         </div>
+      </div>
+      <div
+        className="col-xs-12 col-sm-6">
+        <p
+          className="network-contact-info">
+          <span
+            aria-hidden="true">
+            Report Network Issue:
+          </span>
+          <br
+            className="visible-md-inline" />
+          <a
+            href="tel:undefined">
+            <span>
+              <i
+                aria-hidden="true"
+                className="icon-phone-number footer-support-phone" />
+              <span
+                className="sr-only">
+                Report Network Issue: Phone 
+              </span>
+            </span>
+          </a>
+        </p>
+      </div>
+      <div
+        className="col-xs-12 no-gutters">
+        <hr />
       </div>
     </div>
     <div
@@ -713,32 +707,22 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
         className="col-xs-12 visible-xs-inline visible-sm-inline">
         <div>
           <span
-            className="visible-sm-inline">
+            className="hidden-xs hidden-sm">
             <div
-              className="network-contact-info">
-              <p>
-                Report Network Issue:
-                <br
-                  className="visible-md-inline" />
-                <a
-                  href="tel:undefined">
-                  <i
-                    aria-hidden="true"
-                    className="icon-phone-number footer-support-phone" />
-                  <span
-                    className="sr-only">
-                    Call 
-                  </span>
-                  <span
-                    className="sr-only">
-                     to report a network issue
-                  </span>
-                </a>
-              </p>
+              className="network-subscription-link">
+              <a
+                href="/subscribe-to-alerts"
+                onClick={[Function anonymous]}>
+                Subscribe to 
+                <span
+                  className="visible-xs-inline visible-sm-inline">
+                  Network 
+                </span>
+                Alerts
+              </a>
             </div>
           </span>
-          <h2
-            className="as-h5">
+          <h2>
             Network
             <span
               className="sr-only">
@@ -772,11 +756,12 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
           </div>
         </div>
       </div>
+      <hr
+        className="col-xs-12 hidden-xs hidden-sm" />
       <div
         className="col-xs-12 col-md-6">
         <div>
-          <h2
-            className="as-h5">
+          <h2>
             Weather
             <span
               className="sr-only">
@@ -813,8 +798,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
       <div
         className="col-xs-12 col-md-6">
         <div>
-          <h2
-            className="as-h5">
+          <h2>
             Traffic
             <span
               className="sr-only">
@@ -876,57 +860,36 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
 
 exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 3`] = `
 <section
-  className="geolink-controls">
+  className="geolink-controls hide">
   <div
     className="container">
     <div
       className="row is-flex">
       <div
-        className="col-xs-12 col-sm-8 col-md-4 map-search">
-        <h2
-          className="as-h5">
-          Search
-        </h2>
-        <form
-          className="search-form form-group"
-          onSubmit={undefined}>
-          <div
-            className="search-input input-group">
-            <label
-              className="control-label"
-              htmlFor="search-field">
-              Location
-            </label>
-            <div
-              className="search-bar">
-              <input
-                className="form-control"
-                disabled={false}
-                id="search-field"
-                onChange={[Function anonymous]}
-                onKeyPress={[Function anonymous]}
-                type="search" />
-              <button
-                className="btn search-btn"
-                disabled={false}
-                onClick={[Function anonymous]}
-                type="button">
-                <span
-                  className="sr-only">
-                  Search for locations
-                </span>
-                <span
-                  aria-hidden="true"
-                  className="icon-search" />
-              </button>
-            </div>
-          </div>
-        </form>
+        className="col-xs-12 col-sm-7 col-md-4 map-search">
+        <div>
+          <span
+            className="top-right-link">
+            <a
+              href="/manage-favorites"
+              onClick={[Function anonymous]}>
+              Manage Favorites
+            </a>
+          </span>
+          <h2
+            className="as-h5">
+            Search
+          </h2>
+          <button
+            className="as-link disabled"
+            onClick={[Function bound mockConstructor]}>
+            Add Favorite
+          </button>
+        </div>
       </div>
       <div
-        className="col-xs-12 col-sm-4 col-md-4 map-layers">
-        <h2
-          className="as-h5">
+        className="col-xs-12 col-sm-5 col-md-4 map-layers">
+        <h2>
           Layers
         </h2>
         <form
@@ -938,7 +901,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
               Coverage layers
             </legend>
             <div
-              className="col-xs-6 col-sm-12 no-gutters">
+              className="col-xs-6 no-gutters">
               <div
                 className="checkbox ">
                 <label>
@@ -947,15 +910,19 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     checked={false}
                     className=""
                     data-checked={false}
-                    id="network-toggle"
-                    onChange={[Function bound onChange]}
+                    id=""
+                    onChange={[Function anonymous]}
                     type="checkbox"
                     value="Network" />
                   <span
                     className="cr" />
                   <span
-                    className="layer-label">
-                    Network
+                    className="label-text">
+                    
+                    <span
+                      className="label-text-normal">
+                      Network
+                    </span>
                   </span>
                 </label>
               </div>
@@ -967,21 +934,25 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     checked={false}
                     className=""
                     data-checked={false}
-                    id="weather-toggle"
-                    onChange={[Function bound onChange]}
+                    id=""
+                    onChange={[Function anonymous]}
                     type="checkbox"
                     value="Weather" />
                   <span
                     className="cr" />
                   <span
-                    className="layer-label">
-                    Weather
+                    className="label-text">
+                    
+                    <span
+                      className="label-text-normal">
+                      Weather
+                    </span>
                   </span>
                 </label>
               </div>
             </div>
             <div
-              className="col-xs-6 col-sm-12 no-gutters">
+              className="col-xs-6 no-gutters">
               <div
                 className="checkbox ">
                 <label>
@@ -990,15 +961,19 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     checked={false}
                     className=""
                     data-checked={false}
-                    id="traffic-toggle"
-                    onChange={[Function bound onChange]}
+                    id=""
+                    onChange={[Function anonymous]}
                     type="checkbox"
                     value="Traffic" />
                   <span
                     className="cr" />
                   <span
-                    className="layer-label">
-                    Traffic
+                    className="label-text">
+                    
+                    <span
+                      className="label-text-normal">
+                      Traffic
+                    </span>
                   </span>
                 </label>
               </div>
@@ -1010,15 +985,19 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     checked={false}
                     className=""
                     data-checked={false}
-                    id="alerts-toggle"
-                    onChange={[Function bound onChange]}
+                    id=""
+                    onChange={[Function anonymous]}
                     type="checkbox"
                     value="Alerts" />
                   <span
                     className="cr" />
                   <span
-                    className="layer-label">
-                    Alerts
+                    className="label-text">
+                    
+                    <span
+                      className="label-text-normal">
+                      Alerts
+                    </span>
                   </span>
                 </label>
               </div>
@@ -1027,35 +1006,25 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
         </form>
       </div>
       <div
-        className="col-md-4 hidden-xs hidden-sm">
+        className="col-md-4 hidden-xs hidden-sm map-network-legend">
         <div>
           <span
-            className="visible-sm-inline">
+            className="hidden-xs hidden-sm">
             <div
-              className="network-contact-info">
-              <p>
-                Report Network Issue:
-                <br
-                  className="visible-md-inline" />
-                <a
-                  href="tel:undefined">
-                  <i
-                    aria-hidden="true"
-                    className="icon-phone-number footer-support-phone" />
-                  <span
-                    className="sr-only">
-                    Call 
-                  </span>
-                  <span
-                    className="sr-only">
-                     to report a network issue
-                  </span>
-                </a>
-              </p>
+              className="network-subscription-link">
+              <a
+                href="/subscribe-to-alerts"
+                onClick={[Function anonymous]}>
+                Subscribe to 
+                <span
+                  className="visible-xs-inline visible-sm-inline">
+                  Network 
+                </span>
+                Alerts
+              </a>
             </div>
           </span>
-          <h2
-            className="as-h5">
+          <h2>
             Network
             <span
               className="sr-only">
@@ -1088,61 +1057,78 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
               src="/images/network-legend.png" />
           </div>
         </div>
-        <div
+        <p
           className="network-contact-info">
-          <p>
+          <span
+            aria-hidden="true">
             Report Network Issue:
-            <br
-              className="visible-md-inline" />
-            <a
-              href="tel:undefined">
+          </span>
+          <br
+            className="visible-md-inline" />
+          <a
+            href="tel:undefined">
+            <span>
               <i
                 aria-hidden="true"
                 className="icon-phone-number footer-support-phone" />
               <span
                 className="sr-only">
-                Call 
+                Report Network Issue: Phone 
               </span>
-              <span
-                className="sr-only">
-                 to report a network issue
-              </span>
-            </a>
-          </p>
-        </div>
+            </span>
+          </a>
+        </p>
       </div>
     </div>
     <div
-      className="row">
+      className="row is-flex visible-xs visible-sm">
       <div
-        className="legend-divider col-xs-12">
+        className="col-xs-12 no-gutters">
         <hr />
+      </div>
+      <div
+        className="col-xs-12 col-sm-6">
         <div
-          className="visible-xs-inline">
-          <div
-            className="network-contact-info">
-            <p>
-              Report Network Issue:
-              <br
-                className="visible-md-inline" />
-              <a
-                href="tel:undefined">
-                <i
-                  aria-hidden="true"
-                  className="icon-phone-number footer-support-phone" />
-                <span
-                  className="sr-only">
-                  Call 
-                </span>
-                <span
-                  className="sr-only">
-                   to report a network issue
-                </span>
-              </a>
-            </p>
-          </div>
-          <hr />
+          className="network-subscription-link">
+          <a
+            href="/subscribe-to-alerts"
+            onClick={[Function anonymous]}>
+            Subscribe to 
+            <span
+              className="visible-xs-inline visible-sm-inline">
+              Network 
+            </span>
+            Alerts
+          </a>
         </div>
+      </div>
+      <div
+        className="col-xs-12 col-sm-6">
+        <p
+          className="network-contact-info">
+          <span
+            aria-hidden="true">
+            Report Network Issue:
+          </span>
+          <br
+            className="visible-md-inline" />
+          <a
+            href="tel:undefined">
+            <span>
+              <i
+                aria-hidden="true"
+                className="icon-phone-number footer-support-phone" />
+              <span
+                className="sr-only">
+                Report Network Issue: Phone 
+              </span>
+            </span>
+          </a>
+        </p>
+      </div>
+      <div
+        className="col-xs-12 no-gutters">
+        <hr />
       </div>
     </div>
     <div
@@ -1151,32 +1137,22 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
         className="col-xs-12 visible-xs-inline visible-sm-inline">
         <div>
           <span
-            className="visible-sm-inline">
+            className="hidden-xs hidden-sm">
             <div
-              className="network-contact-info">
-              <p>
-                Report Network Issue:
-                <br
-                  className="visible-md-inline" />
-                <a
-                  href="tel:undefined">
-                  <i
-                    aria-hidden="true"
-                    className="icon-phone-number footer-support-phone" />
-                  <span
-                    className="sr-only">
-                    Call 
-                  </span>
-                  <span
-                    className="sr-only">
-                     to report a network issue
-                  </span>
-                </a>
-              </p>
+              className="network-subscription-link">
+              <a
+                href="/subscribe-to-alerts"
+                onClick={[Function anonymous]}>
+                Subscribe to 
+                <span
+                  className="visible-xs-inline visible-sm-inline">
+                  Network 
+                </span>
+                Alerts
+              </a>
             </div>
           </span>
-          <h2
-            className="as-h5">
+          <h2>
             Network
             <span
               className="sr-only">
@@ -1210,11 +1186,12 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
           </div>
         </div>
       </div>
+      <hr
+        className="col-xs-12 hidden-xs hidden-sm" />
       <div
         className="col-xs-12 col-md-6">
         <div>
-          <h2
-            className="as-h5">
+          <h2>
             Weather
             <span
               className="sr-only">
@@ -1251,8 +1228,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
       <div
         className="col-xs-12 col-md-6">
         <div>
-          <h2
-            className="as-h5">
+          <h2>
             Traffic
             <span
               className="sr-only">

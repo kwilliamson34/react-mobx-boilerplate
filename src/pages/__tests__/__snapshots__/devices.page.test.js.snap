@@ -7,9 +7,6 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
       className="row">
       <div
         className="col-xs-12 col-sm-10 col-sm-offset-1 catalog-header">
-        <h1>
-          Specialized Devices
-        </h1>
         <p>
           FirstNet offers an extensive selection of devices and accessories. Check out a small selection of our portfolio. To learn more about our full portfolio, contact a FirstNet Specialist.
         </p>
@@ -96,9 +93,6 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
       className="row">
       <div
         className="col-xs-12 col-sm-10 col-sm-offset-1 catalog-header">
-        <h1>
-          Specialized Devices
-        </h1>
         <p>
           FirstNet offers an extensive selection of devices and accessories. Check out a small selection of our portfolio. To learn more about our full portfolio, contact a FirstNet Specialist.
         </p>
@@ -163,12 +157,16 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
                       "__html": "title"
                     }
                   } />
-                <div
+                <figure
                   className="card-img-wrapper">
                   <img
-                    alt="alt"
+                    alt=""
                     src="url" />
-                </div>
+                  <figcaption
+                    className="sr-only">
+                    alt
+                  </figcaption>
+                </figure>
               </a>
             </li>
           </ul>
@@ -205,9 +203,6 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
       className="row">
       <div
         className="col-xs-12 col-sm-10 col-sm-offset-1 catalog-header">
-        <h1>
-          Specialized Devices
-        </h1>
         <p>
           FirstNet offers an extensive selection of devices and accessories. Check out a small selection of our portfolio. To learn more about our full portfolio, contact a FirstNet Specialist.
         </p>
@@ -238,12 +233,16 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
                       "__html": "title"
                     }
                   } />
-                <div
+                <figure
                   className="card-img-wrapper">
                   <img
-                    alt="alt"
+                    alt=""
                     src="url" />
-                </div>
+                  <figcaption
+                    className="sr-only">
+                    alt
+                  </figcaption>
+                </figure>
               </a>
             </li>
           </ul>
@@ -275,12 +274,16 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
                       "__html": "title"
                     }
                   } />
-                <div
+                <figure
                   className="card-img-wrapper">
                   <img
-                    alt="alt"
+                    alt=""
                     src="url" />
-                </div>
+                  <figcaption
+                    className="sr-only">
+                    alt
+                  </figcaption>
+                </figure>
               </a>
             </li>
             <li>
@@ -294,12 +297,16 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
                       "__html": "title"
                     }
                   } />
-                <div
+                <figure
                   className="card-img-wrapper">
                   <img
-                    alt="alt"
+                    alt=""
                     src="url" />
-                </div>
+                  <figcaption
+                    className="sr-only">
+                    alt
+                  </figcaption>
+                </figure>
               </a>
             </li>
             <li>
@@ -313,12 +320,16 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
                       "__html": "title"
                     }
                   } />
-                <div
+                <figure
                   className="card-img-wrapper">
                   <img
-                    alt="alt"
+                    alt=""
                     src="url" />
-                </div>
+                  <figcaption
+                    className="sr-only">
+                    alt
+                  </figcaption>
+                </figure>
               </a>
             </li>
             <li>
@@ -332,12 +343,16 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
                       "__html": "title"
                     }
                   } />
-                <div
+                <figure
                   className="card-img-wrapper">
                   <img
-                    alt="alt"
+                    alt=""
                     src="url" />
-                </div>
+                  <figcaption
+                    className="sr-only">
+                    alt
+                  </figcaption>
+                </figure>
               </a>
             </li>
           </ul>
@@ -379,12 +394,16 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
                       "__html": "title"
                     }
                   } />
-                <div
+                <figure
                   className="card-img-wrapper">
                   <img
-                    alt="alt"
+                    alt=""
                     src="url" />
-                </div>
+                  <figcaption
+                    className="sr-only">
+                    alt
+                  </figcaption>
+                </figure>
               </a>
             </li>
             <li>
@@ -398,12 +417,16 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
                       "__html": "title"
                     }
                   } />
-                <div
+                <figure
                   className="card-img-wrapper">
                   <img
-                    alt="alt"
+                    alt=""
                     src="url" />
-                </div>
+                  <figcaption
+                    className="sr-only">
+                    alt
+                  </figcaption>
+                </figure>
               </a>
             </li>
             <li>
@@ -417,12 +440,16 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
                       "__html": "title"
                     }
                   } />
-                <div
+                <figure
                   className="card-img-wrapper">
                   <img
-                    alt="alt"
+                    alt=""
                     src="url" />
-                </div>
+                  <figcaption
+                    className="sr-only">
+                    alt
+                  </figcaption>
+                </figure>
               </a>
             </li>
           </ul>
@@ -454,12 +481,16 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
                       "__html": "title"
                     }
                   } />
-                <div
+                <figure
                   className="card-img-wrapper">
                   <img
-                    alt="alt"
+                    alt=""
                     src="url" />
-                </div>
+                  <figcaption
+                    className="sr-only">
+                    alt
+                  </figcaption>
+                </figure>
               </a>
             </li>
             <li>
@@ -473,12 +504,16 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
                       "__html": "title"
                     }
                   } />
-                <div
+                <figure
                   className="card-img-wrapper">
                   <img
-                    alt="alt"
+                    alt=""
                     src="url" />
-                </div>
+                  <figcaption
+                    className="sr-only">
+                    alt
+                  </figcaption>
+                </figure>
               </a>
             </li>
             <li>
@@ -492,12 +527,16 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
                       "__html": "title"
                     }
                   } />
-                <div
+                <figure
                   className="card-img-wrapper">
                   <img
-                    alt="alt"
+                    alt=""
                     src="url" />
-                </div>
+                  <figcaption
+                    className="sr-only">
+                    alt
+                  </figcaption>
+                </figure>
               </a>
             </li>
             <li>
@@ -511,12 +550,16 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
                       "__html": "title"
                     }
                   } />
-                <div
+                <figure
                   className="card-img-wrapper">
                   <img
-                    alt="alt"
+                    alt=""
                     src="url" />
-                </div>
+                  <figcaption
+                    className="sr-only">
+                    alt
+                  </figcaption>
+                </figure>
               </a>
             </li>
           </ul>

@@ -243,21 +243,4 @@ describe('AppCatalogStore', () => {
 		store.changeAppRecommended(73869, true);
 		expect(store.currentAppObject.isRecommended).toBe(true);
 	});
-
-
-	describe('Fetches App Details', () => {
-
-		apiService.getAppDetails = jest.fn()
-			.mockReturnValue(new Promise(resolve => resolve(mockAppDetail)));
-
-		beforeEach(() => {
-			return store.fetchAppDetailByPsk({psk: 25});
-		});
-
-		it('retrieves and populates currentAppObject', () => {
-			expect(store.currentAppObject.version.version_num).toBe('2.6.0');
-		});
-
-	});
-
 });

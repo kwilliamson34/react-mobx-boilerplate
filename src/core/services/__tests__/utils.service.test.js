@@ -58,7 +58,8 @@ describe('UtilsService', () => {
         screenshots: {
           mobile: [],
           tablet: []
-        }
+        },
+        type: 'ENDORSED'
       }
 
       expect(utilsService.mapAppsToCards([appResponseObj]).length).toBe(1);
