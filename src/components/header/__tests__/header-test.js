@@ -2,6 +2,7 @@ jest.unmock('axios');
 jest.unmock('../../../core/stores/header.store');
 jest.unmock('../../../core/stores/user.store');
 jest.unmock('../../../core/stores/external-link.store');
+jest.unmock('../../../core/stores/joyride.store');
 jest.unmock('../header');
 jest.unmock('jquery');
 
@@ -11,13 +12,15 @@ import {MemoryRouter} from 'react-router-dom';
 import {headerStore} from '../../../core/stores/header.store';
 import {userStore} from '../../../core/stores/user.store';
 import {externalLinkStore} from '../../../core/stores/external-link.store';
+import {joyrideStore} from '../../../core/stores/joyride.store';
 
 describe('<PSEHeader />', () => {
   let props = {
     store: {
       headerStore,
       userStore,
-      externalLinkStore
+      externalLinkStore,
+      joyrideStore
     }
   };
 

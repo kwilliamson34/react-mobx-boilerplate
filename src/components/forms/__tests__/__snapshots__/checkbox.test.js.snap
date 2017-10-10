@@ -1,0 +1,161 @@
+exports[`<Checkbox /> renders matches previous snapshot 1`] = `
+<div
+  className="checkbox ">
+  <label>
+    <input
+      aria-disabled={false}
+      checked={false}
+      className=""
+      data-checked={false}
+      id=""
+      onChange={[Function anonymous]}
+      type="checkbox"
+      value="testVal" />
+    <span
+      className="cr" />
+    <span
+      className="label-text">
+      
+      <span
+        className="label-text-normal">
+        testLabel
+      </span>
+    </span>
+  </label>
+</div>
+`;
+
+exports[`<Checkbox /> renders matches previous snapshot 2`] = `
+<div
+  className="checkbox ">
+  <label>
+    <input
+      aria-disabled={false}
+      checked={false}
+      className=""
+      data-checked={false}
+      id=""
+      onChange={[Function anonymous]}
+      type="checkbox"
+      value="testVal" />
+    <span
+      className="cr" />
+    <span
+      className="label-text">
+      
+      <span
+        className="label-text-normal">
+        testLabel
+      </span>
+    </span>
+  </label>
+</div>
+`;
+
+exports[`<Checkbox /> renders matches previous snapshot 3`] = `
+<div
+  className="checkbox ">
+  <label>
+    <input
+      aria-disabled={false}
+      checked={false}
+      className=""
+      data-checked={false}
+      id=""
+      onChange={[Function anonymous]}
+      type="checkbox"
+      value="testVal" />
+    <span
+      className="cr" />
+    <span
+      className="label-text">
+      
+      <span
+        className="label-text-normal">
+        testLabel
+      </span>
+    </span>
+  </label>
+</div>
+`;
+
+exports[`<Checkbox /> renders matches previous snapshot 4`] = `
+<div
+  className="checkbox ">
+  <label>
+    <input
+      aria-disabled={false}
+      checked={false}
+      className=""
+      data-checked={false}
+      id=""
+      onChange={[Function anonymous]}
+      type="checkbox"
+      value="testVal" />
+    <span
+      className="cr" />
+    <span
+      className="label-text">
+      
+      <span
+        className="label-text-normal">
+        testLabel
+      </span>
+    </span>
+  </label>
+</div>
+`;
+
+exports[`<Checkbox /> renders matches previous snapshot 5`] = `
+<div
+  className="checkbox disabled">
+  <label>
+    <input
+      aria-disabled={true}
+      checked={false}
+      className="disabled"
+      data-checked={false}
+      id=""
+      onChange={[Function anonymous]}
+      type="checkbox"
+      value="testVal" />
+    <span
+      className="cr" />
+    <span
+      className="label-text">
+      
+      <span
+        className="label-text-normal">
+        testLabel
+      </span>
+    </span>
+  </label>
+</div>
+`;
+
+exports[`<Checkbox /> renders matches previous snapshot 6`] = `
+<div
+  className="checkbox ">
+  <label>
+    <input
+      aria-disabled={false}
+      checked={false}
+      className=""
+      data-checked={false}
+      id=""
+      onChange={[Function anonymous]}
+      type="checkbox"
+      value="testVal" />
+    <span
+      className="cr" />
+    <span
+      className="label-text">
+      
+      <span
+        className="label-text-normal">
+        testLabel
+      </span>
+    </span>
+  </label>
+</div>
+`;

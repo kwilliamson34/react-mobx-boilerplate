@@ -71,18 +71,6 @@ describe('<DevicesPage />', () => {
       accessories: []
     }
 
-    test('displays if the device landing data has been retrieved', () => {
-      let component, tree;
-      props.store.externalLinkStore.fetchDeviceLandingData = jest.fn();
-
-      props.store.externalLinkStore.allSpecializedDevices = [{},{}];
-      component = renderer.create(<MemoryRouter>
-        <DevicesPage { ...props}/>
-      </MemoryRouter>);
-
-      expect(props.store.externalLinkStore.fetchDeviceLandingData).toBeCalled();
-    });
-
     test('fetches if the device landing data is missing', () => {
       let component, tree;
       props.store.externalLinkStore.getDevicesData = jest.fn();

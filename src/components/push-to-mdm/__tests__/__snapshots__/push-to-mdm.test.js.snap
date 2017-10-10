@@ -13,7 +13,6 @@ exports[`<PushToMDM />  render tests  should match snapshot if configuredMDMType
     type="button">
     
     <span
-      aria-hidden="true"
       dangerouslySetInnerHTML={
         Object {
           "__html": "Re-Push to MDM"
@@ -38,7 +37,6 @@ exports[`<PushToMDM />  render tests  should match snapshot if configuredMDMType
     type="button">
     
     <span
-      aria-hidden="true"
       dangerouslySetInnerHTML={
         Object {
           "__html": "Push to MDM"
@@ -63,7 +61,6 @@ exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match s
     type="button">
     
     <span
-      aria-hidden="true"
       dangerouslySetInnerHTML={
         Object {
           "__html": "Push to MDM"
@@ -88,7 +85,6 @@ exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match s
     type="button">
     
     <span
-      aria-hidden="true"
       dangerouslySetInnerHTML={
         Object {
           "__html": "Re-Push to MDM"
@@ -113,7 +109,6 @@ exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match s
     type="button">
     
     <span
-      aria-hidden="true"
       dangerouslySetInnerHTML={
         Object {
           "__html": "Push to MDM"
@@ -140,7 +135,6 @@ exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match s
       aria-hidden="true"
       className="icon-reload" />
     <span
-      aria-hidden="true"
       dangerouslySetInnerHTML={
         Object {
           "__html": "Submitting&hellip;"
@@ -165,7 +159,6 @@ exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match s
     type="button">
     
     <span
-      aria-hidden="true"
       dangerouslySetInnerHTML={
         Object {
           "__html": "Push to MDM"
@@ -192,7 +185,6 @@ exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match s
       aria-hidden="true"
       className="icon-reload" />
     <span
-      aria-hidden="true"
       dangerouslySetInnerHTML={
         Object {
           "__html": "Submitting&hellip;"

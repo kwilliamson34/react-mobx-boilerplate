@@ -4,11 +4,7 @@ exports[`<AdminDashboard /> renders matches previous snapshot 1`] = `
   <div
     className="container">
     <div
-      className="col-xs-12">
-      <h1>
-        Administration
-      </h1>
-    </div>
+      className="col-xs-12" />
     <div
       className="row no-gutters">
       <section
