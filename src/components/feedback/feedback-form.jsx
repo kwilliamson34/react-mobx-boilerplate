@@ -35,6 +35,9 @@ class FeedbackForm extends React.Component {
     ];
   }
 
+  componentWillMount() {
+    this.store.formFieldRefList = [];
+  }
 
   render() {
     return (

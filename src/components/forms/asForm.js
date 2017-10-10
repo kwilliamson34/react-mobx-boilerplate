@@ -14,9 +14,12 @@ export default function asForm (MyComponent, attributes) {
       store: PropTypes.shape({
         clearForm: PropTypes.func,
         submitForm: PropTypes.func,
+        handleSecondaryAction: PropTypes.func,
         formIsDirty: PropTypes.bool,
+        formHasError: PropTypes.bool,
         showAlert: PropTypes.bool,
-        formHasError: PropTypes.bool
+        alertText: PropTypes.string,
+        successText: PropTypes.string
       }),
       disabled: PropTypes.bool
     }
@@ -32,8 +35,16 @@ export default function asForm (MyComponent, attributes) {
 
     componentWillMount() {
       this.interceptedRoute = '';
-      this.alertText = attributes && attributes.alertText ? attributes.alertText : 'Please fix the following errors.';
+      this.includeDivider = attributes && attributes.includeDivider;
       this.submitButtonText = attributes && attributes.submitButtonText ? attributes.submitButtonText : 'Submit';
+      this.secondaryButtonText = attributes && attributes.secondaryButtonText ? attributes.secondaryButtonText : '';
+      this.formColClass = attributes && attributes.formColClass ? attributes.formColClass : ''
+      if(!this.store.alertText) {
+        this.store.alertText = 'Please fix the following errors.';
+      }
+      if(!this.store.successText) {
+        this.store.successText = 'Your submission was successful.';
+      }
 
       //set up reroute blockade (returns unblocking function)
       this.unblock = history.block((location) => {
@@ -58,6 +69,14 @@ export default function asForm (MyComponent, attributes) {
       this.store.showAlert = false;
     }
 
+    showSuccess = () => {
+      this.store.showSuccess = true;
+    }
+
+    clearSuccess = () => {
+      this.store.showSuccess = false;
+    }
+
     renderAlert = () => {
       return (
         <div className="alert alert-error">
@@ -65,7 +84,20 @@ export default function asForm (MyComponent, attributes) {
             <span className="sr-only">Close alert</span>
           </button>
           <p role="alert" aria-live="assertive">
-            <strong>Error:&nbsp;</strong>{this.alertText}
+            <strong>Error:&nbsp;</strong>{this.store.alertText}
+          </p>
+        </div>
+      )
+    }
+
+    renderSuccess = () => {
+      return (
+        <div className="alert alert-success">
+          <button type="button" className="close_btn icon-close" onClick={this.clearSuccess}>
+            <span className="sr-only">Close alert</span>
+          </button>
+          <p role="alert" aria-live="assertive">
+            <strong>Success!&nbsp;</strong>{this.store.successText}
           </p>
         </div>
       )
@@ -73,9 +105,19 @@ export default function asForm (MyComponent, attributes) {
 
     renderSubmitButton = () => {
       return (
-        <div className="form-group text-center">
+        <div className="form-group text-center submit-button-wrapper">
           <button type="button" onClick={this.handleSubmit} className={`fn-primary form-submit ${(this.props.disabled || this.store.formHasError) ? 'disabled' : ''}`}>
             {this.submitButtonText}
+          </button>
+        </div>
+      )
+    }
+
+    renderSecondaryButton = () => {
+      return (
+        <div className="form-group text-center submit-button-wrapper">
+          <button type="button" onClick={this.handleSecondaryAction} className='fn-secondary form-submit'>
+            {this.secondaryButtonText}
           </button>
         </div>
       )
@@ -84,6 +126,13 @@ export default function asForm (MyComponent, attributes) {
     handleSubmit = (event) => {
       event.preventDefault();
       this.store.submitForm();
+    }
+
+    handleSecondaryAction = (event) => {
+      event.preventDefault();
+      if(this.store.handleSecondaryAction) {
+        this.store.handleSecondaryAction();
+      }
     }
 
     renderExitModal = () => {
@@ -140,11 +189,20 @@ export default function asForm (MyComponent, attributes) {
       return (
         <section>
           <form noValidate>
-            {this.store.showAlert && this.renderAlert()}
+            <div className={`alert-bars ${this.formColClass}`}>
+              {this.store.showAlert && this.renderAlert()}
+              {this.store.showSuccess && this.renderSuccess()}
+            </div>
+
             <MyComponent {...this.props}
               showExitModal={this.showExitModal}
               hideExitModal={this.hideExitModal}/>
-            {this.renderSubmitButton()}
+
+            <div className={`form-actions ${this.formColClass}`}>
+              {this.includeDivider ? <hr/> : ''}
+              {this.renderSubmitButton()}
+              {this.secondaryButtonText ? this.renderSecondaryButton() : ''}
+            </div>
           </form>
           {this.renderExitModal()}
         </section>
