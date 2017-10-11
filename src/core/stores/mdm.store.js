@@ -164,6 +164,13 @@ class MDMStore {
   }
 
   @action submitForm() {
+    if(this.formHasError) {
+      this.showErrorAlert({
+        alertList: this.mdm_form_alerts,
+        message: 'Please fix the following errors.'
+      });
+      return;
+    }
     const success = (resp) => {
       let messageObj = resp.data;
       this.mdm_form_alerts = [];
