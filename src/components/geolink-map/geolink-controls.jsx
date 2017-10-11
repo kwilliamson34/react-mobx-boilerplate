@@ -81,6 +81,7 @@ export default class GeolinkControls extends React.Component {
             <div className="col-xs-12 col-sm-7 col-md-4 map-search">
               {this.renderSearchArea()}
             </div>
+            <hr className="col-xs-12 visible-xs"/>
             <div className="col-xs-12 col-sm-5 col-md-4 map-layers">
               <h2>Layers</h2>
               <form className="form-group">
@@ -101,16 +102,16 @@ export default class GeolinkControls extends React.Component {
           </div>
 
           {this.renderMobileOnlyContactBlock()}
-          
+
           <div className="row is-flex">
-            <div className="col-xs-12 visible-xs-inline visible-sm-inline">
+            <div className="legend-block col-xs-12 visible-xs-inline visible-sm-inline">
               {this.renderNetworkLegend()}
             </div>
             <hr className="col-xs-12 hidden-xs hidden-sm" />
-            <div className="col-xs-12 col-md-6">
+            <div className="legend-block col-xs-12 col-md-6">
               {this.renderWeatherLegend()}
             </div>
-            <div className="col-xs-12 col-md-6">
+            <div className="legend-block col-xs-12 col-md-6">
               {this.renderTrafficLegend()}
             </div>
           </div>
@@ -140,7 +141,7 @@ export default class GeolinkControls extends React.Component {
           handleSubmit={this.store.searchMap.bind(this.store)}
           submitIcon="icon-search"/>
         <button
-          className={`as-link ${this.store.values.locationAddress ? '' : 'disabled'}`}
+          className={`as-link add-favorite-button ${this.store.values.locationAddress ? '' : 'disabled'}`}
           ref="addFavoriteBtn"
           onClick={this.store.showAddLocationForm.bind(this.store)}>
           Add Favorite
