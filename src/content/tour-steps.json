@@ -77,7 +77,10 @@
         "title": "Coverage",
         "text": "<p>View the network coverage for a specific area.</p>",
         "selector": "#map-section",
-        "position": "bottom"
+        "position": "bottom",
+        "style": {
+          "marginTop": "-60px"
+        }
       },
       {
         "title": "Map Controls",
