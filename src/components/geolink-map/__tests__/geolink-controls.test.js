@@ -17,6 +17,8 @@ describe('<GeolinkControls />', () => {
       resetLayerToggles: jest.fn(),
       checkFormForErrors: jest.fn(),
       showAddLocationForm: jest.fn(),
+      loadFavorites: jest.fn(),
+      selectFavorite: jest.fn(),
       values: {
         locationName: '',
         locationAddress: ''
@@ -56,13 +58,15 @@ describe('<GeolinkControls />', () => {
     test('matches snapshot when dropdown is showing', () => {
       let component, tree;
 
-      props.geolinkStore.favorites = [
+      props.geolinkStore.predictedFavorites = [
         { favoriteName: 'Sapient Corporation', locationFavoriteAddress: '40 Fulton Street, New York, NY' },
         { favoriteName: 'Williamsburg', locationFavoriteAddress: 'Bedford Ave, Brooklyn, NY' }
       ]
 
-      props.geolinkStore.values.locationAddress = 'a';
-      component = renderer.create(<GeolinkControls {...props}/>);
+      props.geolinkStore.dropdownIsVisible = true;
+      component = renderer.create(<MemoryRouter>
+        <GeolinkControls {...props}/>
+      </MemoryRouter>);
       tree = component.toJSON();
       expect(tree).toMatchSnapshot();
     });
@@ -156,6 +160,16 @@ describe('<GeolinkControls />', () => {
 
     test('able to search geolink store', () => {
 
+    });
+
+    test('displaying controls loads list of favorites', () => {
+      //determine the function to spy on
+      const functionToWatch = props.geolinkStore.loadFavorites;
+
+      //trigger the action
+      TestUtils.renderIntoDocument(<MemoryRouter><GeolinkControls {...props} /></MemoryRouter>);
+
+      expect(functionToWatch).toHaveBeenCalled();
     });
   });
 });

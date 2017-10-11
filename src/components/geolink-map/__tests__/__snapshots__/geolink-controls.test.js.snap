@@ -1,3 +1,475 @@
+exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1`] = `
+<section
+  className="geolink-controls hide">
+  <div
+    className="container">
+    <div
+      className="row is-flex">
+      <div
+        className="col-xs-12 col-sm-7 col-md-4 map-search">
+        <div>
+          <span
+            className="top-right-link">
+            <a
+              href="/manage-favorites"
+              onClick={[Function anonymous]}>
+              Manage Favorites
+            </a>
+          </span>
+          <h2
+            className="as-h5">
+            Search
+          </h2>
+          <div
+            className="predictive-dropdown">
+            <ul>
+              <li
+                onClick={[Function onClick]}
+                onKeyPress={[Function onKeyPress]}
+                role="button"
+                tabIndex="0">
+                <i
+                  aria-hidden={true}
+                  className="icon-star" />
+                <span>
+                  Sapient Corporation
+                </span>
+                <small>
+                  40 Fulton Street, New York, NY
+                </small>
+              </li>
+              <li
+                onClick={[Function onClick]}
+                onKeyPress={[Function onKeyPress]}
+                role="button"
+                tabIndex="0">
+                <i
+                  aria-hidden={true}
+                  className="icon-star" />
+                <span>
+                  Williamsburg
+                </span>
+                <small>
+                  Bedford Ave, Brooklyn, NY
+                </small>
+              </li>
+              <li
+                onClick={[Function anonymous]}
+                onKeyPress={[Function anonymous]}
+                role="button"
+                tabIndex="0">
+                Manage all favorites
+              </li>
+            </ul>
+          </div>
+          <button
+            className="as-link disabled"
+            onClick={[Function bound mockConstructor]}>
+            Add Favorite
+          </button>
+        </div>
+      </div>
+      <div
+        className="col-xs-12 col-sm-5 col-md-4 map-layers">
+        <h2>
+          Layers
+        </h2>
+        <form
+          className="form-group">
+          <fieldset
+            className="coverage-layers">
+            <legend
+              className="sr-only">
+              Coverage layers
+            </legend>
+            <div
+              className="col-xs-6 no-gutters">
+              <div
+                className="checkbox ">
+                <label>
+                  <input
+                    aria-disabled={false}
+                    checked={false}
+                    className=""
+                    data-checked={false}
+                    id=""
+                    onChange={[Function anonymous]}
+                    type="checkbox"
+                    value="Network" />
+                  <span
+                    className="cr" />
+                  <span
+                    className="label-text">
+                    
+                    <span
+                      className="label-text-normal">
+                      Network
+                    </span>
+                  </span>
+                </label>
+              </div>
+              <div
+                className="checkbox ">
+                <label>
+                  <input
+                    aria-disabled={false}
+                    checked={false}
+                    className=""
+                    data-checked={false}
+                    id=""
+                    onChange={[Function anonymous]}
+                    type="checkbox"
+                    value="Weather" />
+                  <span
+                    className="cr" />
+                  <span
+                    className="label-text">
+                    
+                    <span
+                      className="label-text-normal">
+                      Weather
+                    </span>
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div
+              className="col-xs-6 no-gutters">
+              <div
+                className="checkbox ">
+                <label>
+                  <input
+                    aria-disabled={false}
+                    checked={false}
+                    className=""
+                    data-checked={false}
+                    id=""
+                    onChange={[Function anonymous]}
+                    type="checkbox"
+                    value="Traffic" />
+                  <span
+                    className="cr" />
+                  <span
+                    className="label-text">
+                    
+                    <span
+                      className="label-text-normal">
+                      Traffic
+                    </span>
+                  </span>
+                </label>
+              </div>
+              <div
+                className="checkbox ">
+                <label>
+                  <input
+                    aria-disabled={false}
+                    checked={false}
+                    className=""
+                    data-checked={false}
+                    id=""
+                    onChange={[Function anonymous]}
+                    type="checkbox"
+                    value="Alerts" />
+                  <span
+                    className="cr" />
+                  <span
+                    className="label-text">
+                    
+                    <span
+                      className="label-text-normal">
+                      Alerts
+                    </span>
+                  </span>
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+      <div
+        className="col-md-4 hidden-xs hidden-sm map-network-legend">
+        <div>
+          <span
+            className="hidden-xs hidden-sm">
+            <div
+              className="network-subscription-link">
+              <a
+                href="/subscribe-to-alerts"
+                onClick={[Function anonymous]}>
+                Subscribe to 
+                <span
+                  className="visible-xs-inline visible-sm-inline">
+                  Network 
+                </span>
+                Alerts
+              </a>
+            </div>
+          </span>
+          <h2>
+            Network
+            <span
+              className="sr-only">
+               color key
+            </span>
+          </h2>
+          <div
+            className="key-labels">
+            <span
+              className="as-label">
+              4G LTE
+            </span>
+            <span
+              className="as-label">
+              4G
+            </span>
+            <span
+              className="as-label">
+              3G
+            </span>
+            <span
+              className="as-label">
+              2G
+            </span>
+          </div>
+          <div
+            className="legend-gradient">
+            <img
+              alt=""
+              src="/images/network-legend.png" />
+          </div>
+        </div>
+        <p
+          className="network-contact-info">
+          <span
+            aria-hidden="true">
+            Report Network Issue:
+          </span>
+          <br
+            className="visible-md-inline" />
+          <a
+            href="tel:undefined">
+            <span>
+              <i
+                aria-hidden="true"
+                className="icon-phone-number footer-support-phone" />
+              <span
+                className="sr-only">
+                Report Network Issue: Phone 
+              </span>
+            </span>
+          </a>
+        </p>
+      </div>
+    </div>
+    <div
+      className="row is-flex visible-xs visible-sm">
+      <div
+        className="col-xs-12 no-gutters">
+        <hr />
+      </div>
+      <div
+        className="col-xs-12 col-sm-6">
+        <div
+          className="network-subscription-link">
+          <a
+            href="/subscribe-to-alerts"
+            onClick={[Function anonymous]}>
+            Subscribe to 
+            <span
+              className="visible-xs-inline visible-sm-inline">
+              Network 
+            </span>
+            Alerts
+          </a>
+        </div>
+      </div>
+      <div
+        className="col-xs-12 col-sm-6">
+        <p
+          className="network-contact-info">
+          <span
+            aria-hidden="true">
+            Report Network Issue:
+          </span>
+          <br
+            className="visible-md-inline" />
+          <a
+            href="tel:undefined">
+            <span>
+              <i
+                aria-hidden="true"
+                className="icon-phone-number footer-support-phone" />
+              <span
+                className="sr-only">
+                Report Network Issue: Phone 
+              </span>
+            </span>
+          </a>
+        </p>
+      </div>
+      <div
+        className="col-xs-12 no-gutters">
+        <hr />
+      </div>
+    </div>
+    <div
+      className="row is-flex">
+      <div
+        className="col-xs-12 visible-xs-inline visible-sm-inline">
+        <div>
+          <span
+            className="hidden-xs hidden-sm">
+            <div
+              className="network-subscription-link">
+              <a
+                href="/subscribe-to-alerts"
+                onClick={[Function anonymous]}>
+                Subscribe to 
+                <span
+                  className="visible-xs-inline visible-sm-inline">
+                  Network 
+                </span>
+                Alerts
+              </a>
+            </div>
+          </span>
+          <h2>
+            Network
+            <span
+              className="sr-only">
+               color key
+            </span>
+          </h2>
+          <div
+            className="key-labels">
+            <span
+              className="as-label">
+              4G LTE
+            </span>
+            <span
+              className="as-label">
+              4G
+            </span>
+            <span
+              className="as-label">
+              3G
+            </span>
+            <span
+              className="as-label">
+              2G
+            </span>
+          </div>
+          <div
+            className="legend-gradient">
+            <img
+              alt=""
+              src="/images/network-legend.png" />
+          </div>
+        </div>
+      </div>
+      <hr
+        className="col-xs-12 hidden-xs hidden-sm" />
+      <div
+        className="col-xs-12 col-md-6">
+        <div>
+          <h2>
+            Weather
+            <span
+              className="sr-only">
+               color key
+            </span>
+          </h2>
+          <div
+            className="key-labels">
+            <span
+              className="as-label">
+              Light Rain
+            </span>
+            <span
+              className="as-label">
+              Heavy Rain
+            </span>
+            <span
+              className="as-label">
+              Snow
+            </span>
+            <span
+              className="as-label">
+              Ice
+            </span>
+          </div>
+          <div
+            className="legend-gradient">
+            <img
+              alt=""
+              src="/images/weather-legend.png" />
+          </div>
+        </div>
+      </div>
+      <div
+        className="col-xs-12 col-md-6">
+        <div>
+          <h2>
+            Traffic
+            <span
+              className="sr-only">
+               color key
+            </span>
+          </h2>
+          <div
+            className="traffic-legend-wrapper ">
+            <div
+              className="traffic-bars">
+              <div
+                className="key-labels traffic">
+                <span
+                  className="as-label">
+                  Fast
+                </span>
+                <span
+                  className="as-label">
+                  Normal
+                </span>
+                <span
+                  className="as-label">
+                  Slow
+                </span>
+              </div>
+              <div
+                className="traffic-legend">
+                <div />
+                <div />
+                <div />
+              </div>
+            </div>
+            <div
+              className="hazards-legend">
+              <span
+                className="as-label">
+                Construction
+                <br />
+                <i
+                  aria-hidden="true"
+                  className="icon-warning construction" />
+              </span>
+              <span
+                className="as-label">
+                Vehicle Incident
+                <br />
+                <i
+                  aria-hidden="true"
+                  className="icon-warning incident" />
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+`;
+
 exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 1`] = `
 <section
   className="geolink-controls hide">
@@ -20,6 +492,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
             className="as-h5">
             Search
           </h2>
+          
           <button
             className="as-link disabled"
             onClick={[Function bound mockConstructor]}>
@@ -450,6 +923,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
             className="as-h5">
             Search
           </h2>
+          
           <button
             className="as-link disabled"
             onClick={[Function bound mockConstructor]}>
@@ -880,6 +1354,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
             className="as-h5">
             Search
           </h2>
+          
           <button
             className="as-link disabled"
             onClick={[Function bound mockConstructor]}>
