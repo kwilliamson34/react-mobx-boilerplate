@@ -41,6 +41,20 @@ describe('<GeolinkControls />', () => {
       tree = component.toJSON();
       expect(tree).toMatchSnapshot();
     });
+
+    test('matches snapshot when dropdown is showing', () => {
+      let component, tree;
+
+      props.geolinkStore.favorites = [
+        { favoriteName: 'Sapient Corporation', locationFavoriteAddress: '40 Fulton Street, New York, NY' },
+        { favoriteName: 'Williamsburg', locationFavoriteAddress: 'Bedford Ave, Brooklyn, NY' }
+      ]
+
+      props.geolinkStore.values.locationAddress = 'a';
+      component = renderer.create(<GeolinkControls {...props}/>);
+      tree = component.toJSON();
+      expect(tree).toMatchSnapshot();
+    });
   });
 
   describe('UI interaction', () => {

@@ -15,7 +15,18 @@ exports[`<ShopSolutionsPage /> render matches snapshot with zero, one and many c
         FirstNet is cultivating a dedicated public safety applications development program, with participation from leading providers across the applications development community. Many more solutions will be added in response to these focused efforts and as public safety needs evolve.
       </p>
       <p>
-        Contact a FirstNet Specialist to learn more about FirstNet Solutions and pricing details.
+        <strong>
+          Contact your FirstNet Solutions Consultant or call 
+          <a
+            href="tel:833-717-8638">
+            <span
+              className="sr-only">
+              FirstNet Solutions Phone: 
+            </span>
+            833-717-8638
+          </a>
+           to learn more about FirstNet Solutions and pricing details.
+        </strong>
       </p>
     </section>
     <section
@@ -43,53 +54,23 @@ exports[`<ShopSolutionsPage /> render matches snapshot with zero, one and many c
         FirstNet is cultivating a dedicated public safety applications development program, with participation from leading providers across the applications development community. Many more solutions will be added in response to these focused efforts and as public safety needs evolve.
       </p>
       <p>
-        Contact a FirstNet Specialist to learn more about FirstNet Solutions and pricing details.
+        <strong>
+          Contact your FirstNet Solutions Consultant or call 
+          <a
+            href="tel:833-717-8638">
+            <span
+              className="sr-only">
+              FirstNet Solutions Phone: 
+            </span>
+            833-717-8638
+          </a>
+           to learn more about FirstNet Solutions and pricing details.
+        </strong>
       </p>
     </section>
     <section
       className="all-cards-wrapper">
-      <nav>
-        <div
-          className="col-xs-12 col-sm-6 col-md-6 col-lg-4 solutions-card">
-          <div
-            className="card-wrapper has-shadow">
-            <a
-              href="solutions/name"
-              onClick={[Function anonymous]}>
-              <div
-                className="card-img-wrapper">
-                <img
-                  alt="alt"
-                  src="url" />
-              </div>
-              <div
-                className="card-contents-wrapper">
-                <h3
-                  className="card-title"
-                  dangerouslySetInnerHTML={
-                    Object {
-                      "__html": "name"
-                    }
-                  } />
-                <div
-                  className="card-desc"
-                  dangerouslySetInnerHTML={
-                    Object {
-                      "__html": "description"
-                    }
-                  } />
-              </div>
-              <div
-                className="learn-more">
-                Learn More
-                <i
-                  aria-hidden="true"
-                  className="icon-arrowRight" />
-              </div>
-            </a>
-          </div>
-        </div>
-      </nav>
+      <nav />
     </section>
   </div>
 </article>
@@ -112,53 +93,23 @@ exports[`<ShopSolutionsPage /> render matches snapshot with zero, one and many c
         FirstNet is cultivating a dedicated public safety applications development program, with participation from leading providers across the applications development community. Many more solutions will be added in response to these focused efforts and as public safety needs evolve.
       </p>
       <p>
-        Contact a FirstNet Specialist to learn more about FirstNet Solutions and pricing details.
+        <strong>
+          Contact your FirstNet Solutions Consultant or call 
+          <a
+            href="tel:833-717-8638">
+            <span
+              className="sr-only">
+              FirstNet Solutions Phone: 
+            </span>
+            833-717-8638
+          </a>
+           to learn more about FirstNet Solutions and pricing details.
+        </strong>
       </p>
     </section>
     <section
       className="all-cards-wrapper">
-      <nav>
-        <div
-          className="col-xs-12 col-sm-6 col-md-6 col-lg-4 solutions-card">
-          <div
-            className="card-wrapper has-shadow">
-            <a
-              href="solutions/name"
-              onClick={[Function anonymous]}>
-              <div
-                className="card-img-wrapper">
-                <img
-                  alt="alt"
-                  src="url" />
-              </div>
-              <div
-                className="card-contents-wrapper">
-                <h3
-                  className="card-title"
-                  dangerouslySetInnerHTML={
-                    Object {
-                      "__html": "name"
-                    }
-                  } />
-                <div
-                  className="card-desc"
-                  dangerouslySetInnerHTML={
-                    Object {
-                      "__html": "description"
-                    }
-                  } />
-              </div>
-              <div
-                className="learn-more">
-                Learn More
-                <i
-                  aria-hidden="true"
-                  className="icon-arrowRight" />
-              </div>
-            </a>
-          </div>
-        </div>
-      </nav>
+      <nav />
     </section>
   </div>
 </article>

@@ -17,6 +17,7 @@ class GeolinkStore {
     this.selectedFavoriteAddress = '';
     this.selectedFavoriteName = '';
 
+    // determines whether to show address or favorite name
     autorun(() => {
       if(this.values.locationName !== this.selectedFavoriteName && this.shouldDisplayLocationName && this.values.locationName !== '') {
         this.values.locationAddress = this.values.locationName;
@@ -25,6 +26,7 @@ class GeolinkStore {
         this.shouldDisplayLocationName = false;
       }
     });
+    // hides and shows dropdown
     autorun(() => {
       let inputContentMatchesSelection = this.values.locationAddress === this.selectedFavoriteAddress;
       let inputIsEmptyOrSpaces = !/\w+/.test(this.values.locationAddress);
@@ -35,6 +37,7 @@ class GeolinkStore {
         this.dropdownIsVisible = true;
       }
     });
+    // necessary in order to hide favorite star when value is removed via 'clear' button
     autorun(() => {
       if(this.values.locationName === '' && this.selectedFavoriteName !== '') {
         this.shouldDisplayLocationName = false;
@@ -263,17 +266,17 @@ class GeolinkStore {
   }
 
   @computed get predictedFavorites() {
-    let searchTermsAMatchingFavorite = null;
+    let searchTermsAreMatchingFavorite = null;
     let searchTermRegex = null;
     return this.favorites.filter(favorite => {
-      searchTermsAMatchingFavorite = true;
+      searchTermsAreMatchingFavorite = true;
       this.searchTerms.forEach(term => {
         searchTermRegex = new RegExp(term, 'i');
         if(!searchTermRegex.test(favorite.favoriteName) && !searchTermRegex.test(favorite.locationFavoriteAddress)) {
-          searchTermsAMatchingFavorite = false;
+          searchTermsAreMatchingFavorite = false;
         }
       })
-      return searchTermsAMatchingFavorite;
+      return searchTermsAreMatchingFavorite;
     }).splice(0, 8);
   }
 

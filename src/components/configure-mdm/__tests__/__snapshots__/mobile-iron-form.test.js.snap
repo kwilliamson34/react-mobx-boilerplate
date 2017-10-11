@@ -1,7 +1,0 @@
-exports[`<MobileIronForm /> renders displays an error when any field is empty 1`] = `<div />`;
-
-exports[`<MobileIronForm /> renders displays an error when any field is empty 2`] = `<div />`;
-
-exports[`<MobileIronForm /> renders displays an error when any field is empty 3`] = `<div />`;
-
-exports[`<MobileIronForm /> renders matches previous snapshot 1`] = `<div />`;
