@@ -18,12 +18,6 @@
         "text": "<p>Explore, shop, and provision devices.</p>",
         "selector": "aside",
         "position": "left"
-      },
-      {
-        "title": "Live Help",
-        "text": "<p>Chat with a customer care specialist 24/7</p>",
-        "selector": ".tc-large-chattab-side",
-        "position": "left"
       }
     ],
     "ManageApps": [
