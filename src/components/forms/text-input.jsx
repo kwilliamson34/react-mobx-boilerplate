@@ -119,7 +119,7 @@ export default class TextInput extends React.Component {
             onBlur={this.handleOnBlur}
             onKeyPress={this.handleKeyPress}
             value={this.valueInStore}/>
-          {this.props.iconClass && <i className={this.props.iconClass}></i>}
+          {this.props.iconClass && <i className={`prefix-icon ${this.props.iconClass}`}></i>}
           {this.props.showClearButton && this.valueInStore !== '' &&
             <button className="btn clear-btn" type="button" ref="btnClear" onClick={this.handleClearClick}>
               <span className="sr-only">Clear</span>

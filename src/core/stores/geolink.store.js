@@ -16,6 +16,7 @@ class GeolinkStore {
   constructor() {
     this.selectedFavoriteAddress = '';
     this.selectedFavoriteName = '';
+
     autorun(() => {
       if(this.values.locationName !== this.selectedFavoriteName && this.shouldDisplayLocationName && this.values.locationName !== '') {
         this.values.locationAddress = this.values.locationName;
@@ -34,6 +35,12 @@ class GeolinkStore {
         this.dropdownIsVisible = true;
       }
     });
+    autorun(() => {
+      if(this.values.locationName === '' && this.selectedFavoriteName !== '') {
+        this.shouldDisplayLocationName = false;
+        this.values.locationAddress = '';
+      }
+    })
   }
 
   @action loadGeolinkHtml() {
