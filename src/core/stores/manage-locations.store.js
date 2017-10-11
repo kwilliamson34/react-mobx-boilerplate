@@ -3,6 +3,7 @@ import {apiService} from '../services/api.service';
 import {history} from '../services/history.service';
 import {utilsService} from '../services/utils.service';
 import _ from 'lodash';
+import $ from 'jquery';
 
 class ManageLocationsStore {
 
@@ -41,12 +42,7 @@ class ManageLocationsStore {
       : this.paginatedRows < this.rows;
   }
 
-  @action resetPagination() {
-    this.paginationCount = 0;
-  }
-
   @action deleteFavorites() {
-
     const success = (res) => {
       console.log('delete success!!', res);
       _.remove(this.rows, (row) => {
@@ -92,6 +88,13 @@ class ManageLocationsStore {
     return apiService.searchLocationFavorites(this.searchQuery).then(success, fail);
   }
 
+  @action findRowData(target) {
+    const targetId = $(target).parent()[0].dataset.id;
+    return this.sortedRows.find((row) => {
+      return row.locationFavoriteId == targetId;
+    });
+  }
+
 	@action handleCheckboxChange(rowId) {
     this.checkedRows.indexOf(rowId) > -1
       ? this.checkedRows.remove(rowId)
@@ -115,9 +118,16 @@ class ManageLocationsStore {
     });
   }
 
+  @action resetPagination() {
+    this.paginationCount = 0;
+  }
 
   @action clearAllCheckboxes() {
     this.checkedRows = [];
+  }
+
+  @action clearSearchQuery(){
+    this.searchQuery = '';
   }
 
   @action resetSearch() {
@@ -126,10 +136,6 @@ class ManageLocationsStore {
     this.resetPagination();
     this.advancePagination();
   }
-
-	@action clearSearchQuery(){
-		this.searchQuery = '';
-	}
 
 	@action toggleSort(key) {
     this.activeColumn = key;

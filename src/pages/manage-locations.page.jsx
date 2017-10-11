@@ -60,15 +60,11 @@ export default class ManageLocationsPage extends React.Component {
 
   renderEditButton = () => {
     return (
-      <button className="as-link edit-location-button">
+      <button className="as-link edit-location-button" onClick={this.handleEditButton}>
         <i className="icon-pencil" aria-hidden="true" />
         Edit
       </button>
     )
-  }
-
-  handleEditButton = () => {
-    console.log('PUT SOME EDIT FUNCTION HERE');
   }
 
   renderMapItButton = () => {
@@ -82,8 +78,18 @@ export default class ManageLocationsPage extends React.Component {
 
   handleMapItButton = (e) => {
     e.preventDefault();
-    let location = $(e.target).prev().text();
-    this.geolinkStore.performExternalSearch(location);
+    let rowData = this.manageLocationsStore.findRowData(e.target);
+    this.geolinkStore.performExternalSearch(rowData.locationFavoriteAddress);
+  }
+
+  handleEditButton = (e) => {
+    let rowData = this.manageLocationsStore.findRowData(e.target);
+    //TODO: awaiting integration;
+    // this.geolinkStore.pageTitle = 'Edit Favorite';
+    // this.geolinkStore.values = {
+    //   locationAddress: rowData.locationFavoriteAddress,
+    //   locationName: rowData.favoriteName
+    // };
   }
 
   render() {
