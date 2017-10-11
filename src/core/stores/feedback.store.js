@@ -5,6 +5,10 @@ import {history} from '../services/history.service';
 
 class FeedbackStore {
   @action submitForm() {
+    if(this.formHasError) {
+      this.showAlert = true;
+      return;
+    }
     const success = () => {
       this.clearForm();
       history.push('/feedback-success');

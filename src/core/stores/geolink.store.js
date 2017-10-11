@@ -138,15 +138,19 @@ class GeolinkStore {
   }
 
   @action submitForm() {
+    if(this.formHasError) {
+      this.alertText = 'Please fix the following errors.';
+      this.showAlert = true;
+      return;
+    }
     const success = () => {
       this.pageTitle = 'Network Status';
       this.successText = '"' + this.values.locationName + '" has been added.';
+      this.showAlert = false;
       this.showSuccess = true;
     }
     const failure = (err) => {
-      if (this.formHasError){
-        this.alertText = 'Please fix the following errors.';
-      } else if(err.response && err.response.data && err.response.data.message && err.response.data.message.indexOf('already exists') > -1) {
+      if(err.response && err.response.data && err.response.data.message && err.response.data.message.indexOf('already exists') > -1) {
         this.alertText = 'You already have a favorite named "' + this.values.locationName + '".';
       } else {
         this.alertText = 'The system encountered a problem. Please try again later.';
