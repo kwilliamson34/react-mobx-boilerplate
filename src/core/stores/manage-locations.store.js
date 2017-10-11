@@ -74,6 +74,7 @@ class ManageLocationsStore {
 
   @action searchLocations() {
     console.log('DING DONG YOU SEARCHED', this.searchQuery);
+    this.searchResults = [];
 
     const success = (res) => {
       console.log('success search!', res.userlocationfavorite);
@@ -96,6 +97,14 @@ class ManageLocationsStore {
       ? this.checkedRows.remove(rowId)
       : this.checkedRows.push(rowId);
 	}
+
+  @action resetPage() {
+    this.resetPagination();
+    this.clearSearchQuery();
+    this.rows = [];
+    this.searchResults = [];
+    this.checkedRows = [];
+  }
 
   @action selectAllCheckboxes() {
     this.paginatedRows.forEach(row => {

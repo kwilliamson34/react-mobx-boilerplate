@@ -102,13 +102,13 @@ export default class ManageLocationsPage extends React.Component {
         name: 'Name',
         key: 'favoriteName',
         inlineButtonJsx: this.renderEditButton(),
-        className: 'col-xs-5'
+        className: 'favorite-name-column'
       },
       {
         name: 'Location/Address',
         key: 'locationFavoriteAddress',
         inlineButtonJsx: this.renderMapItButton(),
-        className: 'col-xs-5'
+        className: 'location-address-column'
       }
     ];
 

@@ -117,19 +117,35 @@ export class SortableTable extends React.Component {
   renderPaginationCountsAndDeleteButton = () => {
     return (
       <div className="pagination-count-delete-wrapper">
-        {
-          this.props.pagination &&
-          <div className="pagination-count">
-            {`Showing 1-${this.props.rows.length} of ${this.props.allRowsCount}`}
-          </div>
-        }
-        {
-          this.props.hasCheckboxRow && this.store.checkedRows.length > 0 &&
-          <div className="selection-count">
-            {`${this.store.checkedRows.length} Selected`}
-          </div>
-        }
+        <div className="counts-wrapper">
+          {
+            this.props.pagination &&
+            <div className="pagination-count">
+              {`Showing 1-${this.props.rows.length} of ${this.props.allRowsCount}`}
+            </div>
+          }
+          {
+            this.props.hasCheckboxRow && this.store.checkedRows.length > 0 &&
+            <div className="selection-count">
+              {`${this.store.checkedRows.length} Selected`}
+            </div>
+          }
+        </div>
         {this.props.hasCheckboxRow && this.renderDeleteButton()}
+      </div>
+    )
+  }
+
+  renderDeleteButton = () => {
+    const disableButton = this.store.checkedRows.length === 0;
+    const oneItemSelected = this.store.checkedRows.length === 1;
+    return (
+      <div className="delete-selection-button">
+        <button className={`as-link ${disableButton ? 'disabled' : ''}`} onClick={this.handleDeleteAction}>
+          <i className="icon-trash" aria-hidden="true" />
+          {(disableButton || oneItemSelected) && `Delete Favorite`}
+          {(!disableButton && !oneItemSelected) && `Delete ${this.store.checkedRows.length} Favorites`}
+        </button>
       </div>
     )
   }
@@ -137,7 +153,7 @@ export class SortableTable extends React.Component {
   renderLoadMoreButton = () => {
     return (
       <div className="load-more-button">
-        <button className="fn-primary" onClick={this.advancePagination}>
+        <button className="fn-secondary" onClick={this.advancePagination}>
           Load More
         </button>
       </div>
@@ -150,20 +166,6 @@ export class SortableTable extends React.Component {
 
   @computed get showLoadMoreButton() {
     return this.props.pagination && this.props.allRowsCount > this.props.rows.length;
-  }
-
-  renderDeleteButton = () => {
-    const disableButton = this.store.checkedRows.length === 0;
-    const oneItemSelected = this.store.checkedRows.length === 1;
-    return (
-      <div className="delete-selection-button">
-        <button className="as-link" onClick={this.handleDeleteAction}>
-          <i className="icon-trash" aria-hidden="true" />
-          {(disableButton || oneItemSelected) && `Delete Favorite`}
-          {(!disableButton && !oneItemSelected) && `Delete ${this.store.checkedRows.length} Favorites`}
-        </button>
-      </div>
-    )
   }
 
   renderRows = (rows, columns) => {
@@ -184,7 +186,6 @@ export class SortableTable extends React.Component {
   }
 
   @computed get rowsCanRender() {
-    console.log('this.store.isLoading', this.store.isLoading);
     return this.props.rows.length > 0;
   }
 
@@ -205,7 +206,7 @@ export class SortableTable extends React.Component {
 
   renderSelectAllCheckbox = () => {
     return (
-      <th className="select-all-checkbox col-xs-1">
+      <th className="select-all-checkbox">
         <Checkbox
           id={'select-all-checkbox'}
           label={''}
