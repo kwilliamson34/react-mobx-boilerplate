@@ -1,4 +1,4 @@
-jest.unmock('axios');
+
 jest.unmock('../../core/stores/master.store');
 jest.unmock('../device-category.template');
 
@@ -29,6 +29,7 @@ describe('<DeviceCategoryTemplate />', () => {
     props.store.externalLinkStore.allSpecializedDevices = {
       items: []
     }
+    props.store.externalLinkStore.filteredDeviceCategoryData = [];
 
     test('matches snapshot with zero, one and many cards', () => {
       let component, tree;
@@ -86,19 +87,6 @@ describe('<DeviceCategoryTemplate />', () => {
 
       expect(props.store.externalLinkStore.getDevicesData).not.toBeCalled();
       expect(props.store.externalLinkStore.fetchAndShowDeviceCategory).not.toBeCalled();
-    });
-
-    test('rerenders if user navigates to another category', () => {
-      let component, tree;
-      props.store.externalLinkStore.currentCategory = 'category2';
-      props.store.externalLinkStore.fetchAndShowDeviceCategory = jest.fn();
-
-      props.store.externalLinkStore.allSpecializedDevices = [{},{}];
-      component = renderer.create(<MemoryRouter>
-        <DeviceCategoryTemplate { ...props}/>
-      </MemoryRouter>);
-
-      expect(props.store.externalLinkStore.fetchAndShowDeviceCategory).toBeCalled();
     });
 
     test('fetches if the category is missing', () => {

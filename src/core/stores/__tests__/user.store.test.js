@@ -1,4 +1,4 @@
-jest.unmock('axios');
+
 jest.unmock('../user.store');
 
 import {observable, useStrict} from 'mobx';

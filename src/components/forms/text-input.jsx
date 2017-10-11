@@ -16,6 +16,7 @@ export default class TextInput extends React.Component {
     charLimit: PropTypes.number,
     disabled: PropTypes.bool,
     labelText: PropTypes.string,
+    helperText: PropTypes.string,
     labelIsSrOnly: PropTypes.bool,
     getIsValid: PropTypes.func,
     checkFormForErrors: PropTypes.func,
@@ -30,6 +31,8 @@ export default class TextInput extends React.Component {
 
   static defaultProps = {
     labelText: '',
+    helperText: '',
+    labelIsSrOnly: false,
     required: false,
     disabled: false,
     errorMessage: 'This entry is not valid.',
@@ -100,15 +103,19 @@ export default class TextInput extends React.Component {
 
   render() {
     const Tag = this.props.type === 'textarea' ? 'textarea' : 'input';
+    const clearButtonVisible = this.props.showClearButton && this.valueInStore !== '';
+    const submitButtonVisible = this.props.handleSubmit && this.props.submitIcon;
     return (
-      <div className={`form-group ${this.props.className} ${this.hasVisibleError ? 'has-error' : ''}`}>
+      <div className={`form-group ${this.props.className} ${this.hasVisibleError ? 'has-error' : ''} `}>
         <FormLabel
           id={this.props.id}
           hasError={this.hasVisibleError}
           fieldIsRequired={this.props.required}
           labelText={this.props.labelText}
-          errorMessage={this.props.errorMessage}/>
-        <div className={`input-wrapper ${this.props.iconClass ? 'has-icon' : ''}`}>
+          srOnly={this.props.labelIsSrOnly}
+          helperText={this.props.helperText}
+          errorMessage={this.props.errorMessage} />
+        <div className={`input-group ${this.props.iconClass ? 'has-icon' : ''}`}>
           <Tag
             className="form-control"
             ref="input"
@@ -120,17 +127,22 @@ export default class TextInput extends React.Component {
             onKeyPress={this.handleKeyPress}
             value={this.valueInStore}/>
           {this.props.iconClass && <i className={`prefix-icon ${this.props.iconClass}`}></i>}
-          {this.props.showClearButton && this.valueInStore !== '' &&
-            <button className="btn clear-btn" type="button" ref="btnClear" onClick={this.handleClearClick}>
-              <span className="sr-only">Clear</span>
-              <span aria-hidden="true" className="icon-close"/>
-            </button>
+          {clearButtonVisible &&
+            <span className="input-group-btn">
+              <button className="clear-btn" type="button" ref="btnClear" onClick={this.handleClearClick}>
+                <span className="sr-only">Clear</span>
+                <span aria-hidden="true" className="icon-close" />
+              </button>
+            </span>
           }
-          {this.props.handleSubmit && this.props.submitIcon &&
-            <button className="btn submit-btn" type="button" ref="btnSubmit" onClick={this.handleSubmit} disabled={this.props.disabled}>
-              <span className="sr-only">Submit</span>
-              <span aria-hidden="true" className={this.props.submitIcon}/>
-            </button>}
+          {submitButtonVisible &&
+            <span className="input-group-btn">
+              <button className="submit-btn" type="button" ref="btnSubmit" onClick={this.handleSubmit} disabled={this.props.disabled}>
+                <span className="sr-only">Submit</span>
+                <span aria-hidden="true" className={this.props.submitIcon} />
+              </button>
+            </span>
+          }
         </div>
       </div>
     )

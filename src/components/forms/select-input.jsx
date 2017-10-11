@@ -13,6 +13,7 @@ export default class SelectInput extends React.Component {
     id: PropTypes.string.isRequired,
     required: PropTypes.bool,
     labelText: PropTypes.string,
+    helperText: PropTypes.string,
     optionsList: PropTypes.array,
     placeholder: PropTypes.string,
     disabled: PropTypes.bool,
@@ -23,6 +24,7 @@ export default class SelectInput extends React.Component {
   static defaultProps = {
     optionsList: [],
     labelText: '',
+    helperText: '',
     required: false,
     disabled: false,
     errorMessage: 'This entry is not valid.'
@@ -45,13 +47,12 @@ export default class SelectInput extends React.Component {
 
   handleOnChange = (e) => {
     this.props.dataObject[this.props.id] = e.target.value;
+    this.hasVisibleError = this.hasFunctionalError;
     this.props.checkFormForErrors();
   }
 
   handleOnBlur = () => {
-    if(this.props.required && !this.valueInStore) {
-      this.hasVisibleError = true;
-    }
+    this.hasVisibleError = this.hasFunctionalError;
     this.props.checkFormForErrors();
   }
 
@@ -65,6 +66,7 @@ export default class SelectInput extends React.Component {
           hasError={this.hasVisibleError}
           fieldIsRequired={this.props.required}
           labelText={this.props.labelText}
+          helperText={this.props.helperText}
           errorMessage={this.props.errorMessage}/>
         <select
           className="form-control form-control-lg"

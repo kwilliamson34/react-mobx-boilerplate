@@ -1,4 +1,4 @@
-jest.unmock('axios');
+
 jest.unmock('lodash');
 jest.unmock('../card-list.store');
 jest.unmock('react-router-dom');

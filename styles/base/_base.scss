@@ -65,56 +65,44 @@ h2 + hr {
   border-color: $fn-header-hr-grey;
 }
 
-
-
 .form-group {
-  .input-wrapper {
-    display: flex;
-    &.has-icon {
-      input {
-        padding-left: 35px;
-      }
-    }
-  }
 
   input {
     //hide pseudo-element for clear on IE
     &::-ms-clear {
       display: none;
     }
-  }
 
-  .prefix-icon {
-    position: absolute;
-    left: 54px;
-    top: 117px;
-    font-size: $fn-label-desktop;
-    color: $fn-ltblue;
-  }
-
-  .clear-btn {
-    position: absolute;
-    right: 62px;
-    background-color: transparent;
-    z-index: 30;
-    border-radius: 0;
-
-    .icon-close {
-      font-size: 14px;
-      color: $fn-dkgrey;
+    &.form-control:not(:last-child) {
+      padding: 6px 6px 6px 12px;
+      border-right: 0;
     }
   }
 
-  .submit-btn {
-    display: table-cell;
-    border-color: $input-outline;
-    margin-left: -1px;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+  .has-icon {
+    position: relative;
+    input {
+      padding-left: 35px !important;
+    }
+    .prefix-icon {
+      position: absolute;
+      left: 14px;
+      top: 16px;
+      font-size: $fn-label-desktop;
+      color: $fn-ltblue;
+      z-index: 2;
+    }
+  }
+
+  &.has-error {
+    input.form-control {
+      border-right: 1px solid $fn-red;
+    }
   }
 
   .clear-btn,
   .submit-btn {
+    @extend .btn;
     height: 48px;
     width: 48px;
 
@@ -122,16 +110,26 @@ h2 + hr {
       line-height: 3;
     }
 
+    &:hover {
+      background: $fn-ltblue;
+      border: 1px solid $fn-ltblue;
+    }
+
+    &:focus,
+    &:active {
+      background: $fn-blue;
+      border: 1px solid $fn-blue;
+    }
+
     &:hover,
     &:active,
     &:focus {
-      border: 1px solid $input-outline;
       box-shadow: none;
-      z-index: 30;
+      outline: none;
 
       .icon-close,
       .icon-search:before {
-        color: white;
+        color: $fn-white;
       }
     }
 
@@ -144,6 +142,28 @@ h2 + hr {
       background-color: $fn-blue;
     }
   }
+
+  .clear-btn {
+    border-radius: 0;
+    border-top: 1px solid $input-outline;
+    border-bottom: 1px solid $input-outline;
+    border-left: 0 none;
+
+    .icon-close {
+      font-size: 14px;
+      color: $fn-dkgrey;
+    }
+  }
+
+  .submit-btn {
+    display: table-cell;
+    border-color: $input-outline;
+    border-left: 1px solid $input-outline;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+
 }
 
 .search-form {

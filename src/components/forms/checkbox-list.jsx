@@ -33,7 +33,7 @@ export default class CheckboxList extends React.Component {
 
   @observable hasVisibleError = false;
   @computed get valueInStore() {
-    return this.props.dataObject[this.props.id];
+    return this.props.dataObject[this.props.id] || '';
   }
   @computed get hasFunctionalError() {
     let hasError = false;

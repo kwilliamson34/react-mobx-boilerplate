@@ -31,23 +31,12 @@ class FeedbackStore {
   }
 
   @action checkFormForErrors() {
-    console.log('----------------------------------------');
-    console.log('current formFieldRefList:');
-    console.log(this.formFieldRefList.peek());
-    console.log('values in store:');
-    console.log(this.values);
     let hasError = false;
     this.formFieldRefList.forEach(ref => {
       if(ref && ref.hasFunctionalError) {
-        console.warn('feedback store ref has an error:');//xxx
-        console.log(ref);//xxx
         hasError = true;
       }
     });
-
-    if(!hasError) {
-      console.log('feedback store has no errors');
-    }
     this.formHasError = hasError;
   }
 

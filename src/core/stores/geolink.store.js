@@ -163,35 +163,46 @@ class GeolinkStore {
   }
 
   @action showAddLocationForm() {
-    this.pageMode = 'ADD_LOCATION';
+    this.pageTitle = 'Add New Favorite';
     this.values.locationName = '';
     this.clearAlerts();
   }
 
   @action showEditLocationForm() {
-    this.pageMode = 'EDIT_LOCATION';
+    this.pageTitle = 'Edit Favorite';
     this.clearAlerts();
   }
 
   @action submitForm() {
     const success = () => {
-      this.pageMode = 'MAP_CONTROLS';
-      this.successText = '"' + this.store.values.locationName + '" has been added.';
+      this.pageTitle = 'Network Status';
+      this.successText = '"' + this.values.locationName + '" has been added.';
       this.showSuccess = true;
     }
     const failure = (err) => {
-      this.alertText = err.response && err.response.data && err.response.data.message.indexOf('already exists') > -1
-        ? 'You already have a favorite named "' + this.values.locationName + '".'
-        : 'Please fix the following errors.';
+      if (this.formHasError){
+        this.alertText = 'Please fix the following errors.';
+      } else if(err.response && err.response.data && err.response.data.message && err.response.data.message.indexOf('already exists') > -1) {
+        this.alertText = 'You already have a favorite named "' + this.values.locationName + '".';
+      } else {
+        this.alertText = 'The system encountered a problem. Please try again later.';
+      }
       this.showAlert = true;
     }
     apiService.addLocationFavorite(this.values).then(success, failure);
   }
 
+  @action handleSecondaryAction() {
+    this.clearForm();
+    if(this.pageTitle === 'Edit Favorite') {
+      history.go(-1);
+    }
+  }
+
   @action clearForm() {
     this.values = Object.assign({}, this.defaultValues);
     this.clearAlerts();
-    this.pageMode = 'MAP_CONTROLS';
+    this.pageTitle = 'Network Status';
   }
 
   @action clearAlerts() {
@@ -282,13 +293,14 @@ class GeolinkStore {
 
   //OBSERVABLES
   //Page
-  @observable pageMode = 'MAP_CONTROLS';
+  @observable pageTitle = 'Network Status';
 
   //Map
   @observable iframeIsFullyLoaded = false;
   @observable authIsComplete = false;
   @observable geolinkHtml = null;
   @observable mapIframeRef = null;
+  @observable disableSearch = false;
 
   //Controls
   @observable showNetworkLayer = true;

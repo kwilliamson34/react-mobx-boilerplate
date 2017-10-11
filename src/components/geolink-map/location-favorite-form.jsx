@@ -33,10 +33,10 @@ class LocationFavoriteForm extends React.Component {
           labelText="Address"
           required={true}
           errorMessage="Please enter an address."
-          className="col-xs-12 col-sm-6 search-form"
+          className="col-xs-12 col-sm-7 search-form"
           showClearButton={true}
-          handleSubmit={this.store.searchMap.bind(this.geoStore)}
-          submitIcon="icon-search"/>
+          handleSubmit={this.store.searchMap.bind(this.store)}
+          submitIcon="icon-search" />
 
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
@@ -45,9 +45,10 @@ class LocationFavoriteForm extends React.Component {
           id="locationName"
           type="input"
           labelText="Name"
+          charLimit={100}
           required={true}
           errorMessage="Please enter a name."
-          className="col-xs-12 col-sm-6"/>
+          className="col-xs-12 col-sm-5" />
       </div>
     );
   }
@@ -55,6 +56,7 @@ class LocationFavoriteForm extends React.Component {
 
 export default asForm(LocationFavoriteForm, {
   submitButtonText: 'Save Favorite',
-  discardButtonText: 'Discard & Go Back',
-  formColClass: 'col-xs-12'
+  secondaryButtonText: 'Discard & Go Back',
+  formColClass: 'col-xs-12',
+  includeDivider: true
 })

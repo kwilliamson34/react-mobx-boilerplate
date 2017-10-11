@@ -1,4 +1,4 @@
-jest.unmock('axios');
+
 jest.unmock('history/createBrowserHistory');
 jest.unmock('../../stores/user.store');
 jest.unmock('../utils.service');
@@ -58,7 +58,8 @@ describe('UtilsService', () => {
         screenshots: {
           mobile: [],
           tablet: []
-        }
+        },
+        type: 'ENDORSED'
       }
 
       expect(utilsService.mapAppsToCards([appResponseObj]).length).toBe(1);

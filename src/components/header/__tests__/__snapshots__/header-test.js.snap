@@ -1,0 +1,992 @@
+exports[`<PSEHeader /> render matches snapshot when header store is not initialized 1`] = `
+<header
+  className="fnnav pse"
+  role="banner">
+  <div
+    className="fnnav__mainbar ">
+    <div
+      className="container">
+      <div
+        className="fnnav__header">
+        <button
+          aria-expanded={undefined}
+          aria-haspopup="true"
+          className="navbar-toggle"
+          onClick={[Function anonymous]}
+          type="button">
+          <span
+            className="sr-only">
+            Toggle navigation
+          </span>
+          <span
+            className="icon-bar" />
+          <span
+            className="icon-bar" />
+          <span
+            className="icon-bar" />
+        </button>
+        <div
+          className="fnnav__brand">
+          <a
+            className="logo-home-link"
+            href="/"
+            onClick={[Function anonymous]}>
+            <img
+              alt="FirstNet Logo"
+              src="/images/logo-FirstNet-local-control.svg" />
+            <span
+              className="sr-only">
+              Go Home
+            </span>
+          </a>
+        </div>
+      </div>
+      <nav
+        aria-label="Main Menu"
+        id="main-menu">
+        <ul
+          className="fnnav__main">
+          <li
+            className="mainnav-item yellow"
+            role="presentation">
+            <button
+              aria-expanded={undefined}
+              aria-haspopup="true"
+              className="btnSubmenu"
+              onClick={[Function anonymous]}>
+              <span
+                className="sr-only">
+                Expand Profile Menu
+              </span>
+            </button>
+            <a
+              className="deaden"
+              href="#profile"
+              id="pse-profile">
+              <div
+                className="multi-line-item">
+                <div
+                  className="profile-display">
+                  <i
+                    aria-hidden="true"
+                    className="icon-profile" />
+                  undefined undefined
+                </div>
+              </div>
+            </a>
+            <ul
+              aria-labelledby="pse-profile"
+              className="collapse ">
+              <li
+                role="presentation" />
+            </ul>
+          </li>
+          <li
+            className="mainnav-item desktop-textlink"
+            id="hdr-network-status"
+            role="presentation">
+            <a
+              aria-current={false}
+              className={undefined}
+              href="/network-status"
+              id="linkBtn-networkStatus"
+              onClick={[Function anonymous]}
+              style={undefined}>
+              Network Status
+            </a>
+          </li>
+          <li
+            className="mainnav-item grey">
+            <button
+              aria-expanded={undefined}
+              aria-haspopup="true"
+              className="btnSubmenu"
+              onClick={[Function anonymous]}>
+              <span
+                className="sr-only">
+                Expand Help Menu
+              </span>
+            </button>
+            <a
+              className="deaden"
+              href="/manage-profile"
+              id="pse-help-mobile">
+              <i
+                aria-hidden="true"
+                className="icon-help" />
+              Help
+            </a>
+            <ul
+              aria-labelledby="pse-help-mobile"
+              className="collapse "
+              id="pse-help-menu">
+              <div>
+                <li>
+                  <a
+                    aria-current={false}
+                    className={undefined}
+                    href="/faq"
+                    onClick={[Function anonymous]}
+                    style={undefined}>
+                    FAQ
+                  </a>
+                </li>
+                <li />
+                <li>
+                  <a
+                    className="walkthru-toggle"
+                    href="#"
+                    onClick={[Function anonymous]}
+                    role="button">
+                    Disable
+                     Site Walkthrough
+                  </a>
+                </li>
+                <li>
+                  <a
+                    aria-current={false}
+                    className={undefined}
+                    href="/feedback"
+                    onClick={[Function anonymous]}
+                    style={undefined}>
+                    Give Us Feedback
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="tel:800-574-7000">
+                    <div
+                      className="multi-line-item">
+                      <span
+                        aria-hidden="true">
+                        FirstNet Customer Svc: 
+                      </span>
+                      <br />
+                      <i
+                        aria-hidden="true"
+                        className="icon-phone-number" />
+                      <span
+                        className="sr-only">
+                        FirstNet Customer Service Phone 
+                      </span>
+                      800-574-7000
+                    </div>
+                  </a>
+                </li>
+              </div>
+            </ul>
+          </li>
+          <li
+            className="mainnav-item grey logout"
+            role="presentation">
+            <a
+              href="#"
+              onClick={[Function anonymous]}>
+              <i
+                aria-hidden="true"
+                className="icon-logout" />
+              Log Out
+            </a>
+          </li>
+          <li
+            className="desktop-iconItem dropdown">
+            <button
+              aria-expanded="false"
+              className="dropdown-toggle"
+              data-toggle="dropdown"
+              id="profile-header-dropdown"
+              type="button">
+              <i
+                aria-hidden="true"
+                className="icon-profile" />
+              <span
+                className="sr-only">
+                Toggle Profile Dropdown
+              </span>
+            </button>
+            <ul
+              aria-labelledby="profile-header-dropdown"
+              className="dropdown-menu dropdown-menu-right"
+              id="pse-profile-nav">
+              <li
+                className="desktop-profile-display"
+                role="presentation">
+                <a
+                  className="deaden"
+                  href="#profile"
+                  id="pse-profile-desktop"
+                  tabIndex="-1">
+                  <div
+                    className="multi-line-item">
+                    <div
+                      className="profile-display">
+                      <i
+                        aria-hidden="true"
+                        className="icon-profile" />
+                      undefined undefined
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li
+                role="presentation" />
+              <li
+                role="presentation">
+                <a
+                  href="#"
+                  onClick={[Function anonymous]}>
+                  <i
+                    aria-hidden="true"
+                    className="icon-logout" />
+                  Log Out
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li
+            className="desktop-iconItem dropdown">
+            <button
+              aria-expanded="false"
+              className="dropdown-toggle"
+              data-toggle="dropdown"
+              id="help-header-dropdown"
+              type="button">
+              <i
+                aria-hidden="true"
+                className="icon-help" />
+              <span
+                className="sr-only">
+                Toggle Help Dropdown
+              </span>
+            </button>
+            <ul
+              aria-labelledby="help-header-dropdown"
+              className="dropdown-menu dropdown-menu-right"
+              id="pse-help-nav">
+              <div>
+                <li>
+                  <a
+                    aria-current={false}
+                    className={undefined}
+                    href="/faq"
+                    onClick={[Function anonymous]}
+                    style={undefined}>
+                    FAQ
+                  </a>
+                </li>
+                <li />
+                <li>
+                  <a
+                    className="walkthru-toggle"
+                    href="#"
+                    onClick={[Function anonymous]}
+                    role="button">
+                    Disable
+                     Site Walkthrough
+                  </a>
+                </li>
+                <li>
+                  <a
+                    aria-current={false}
+                    className={undefined}
+                    href="/feedback"
+                    onClick={[Function anonymous]}
+                    style={undefined}>
+                    Give Us Feedback
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="tel:800-574-7000">
+                    <div
+                      className="multi-line-item">
+                      <span
+                        aria-hidden="true">
+                        FirstNet Customer Svc: 
+                      </span>
+                      <br />
+                      <i
+                        aria-hidden="true"
+                        className="icon-phone-number" />
+                      <span
+                        className="sr-only">
+                        FirstNet Customer Service Phone 
+                      </span>
+                      800-574-7000
+                    </div>
+                  </a>
+                </li>
+              </div>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div
+    className="pageMask hidden-xs hidden-md hidden-lg"
+    onClick={[Function anonymous]} />
+</header>
+`;
+
+exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
+<header
+  className="fnnav pse"
+  role="banner">
+  <div
+    className="fnnav__mainbar ">
+    <div
+      className="container">
+      <div
+        className="fnnav__header">
+        <button
+          aria-expanded={false}
+          aria-haspopup="true"
+          className="navbar-toggle"
+          onClick={[Function anonymous]}
+          type="button">
+          <span
+            className="sr-only">
+            Toggle navigation
+          </span>
+          <span
+            className="icon-bar" />
+          <span
+            className="icon-bar" />
+          <span
+            className="icon-bar" />
+        </button>
+        <div
+          className="fnnav__brand">
+          <a
+            className="logo-home-link"
+            href="/"
+            onClick={[Function anonymous]}>
+            <img
+              alt="FirstNet Logo"
+              src="/images/logo-FirstNet-local-control.svg" />
+            <span
+              className="sr-only">
+              Go Home
+            </span>
+          </a>
+        </div>
+      </div>
+      <nav
+        aria-label="Main Menu"
+        id="main-menu">
+        <ul
+          className="fnnav__main">
+          <li
+            className="mainnav-item yellow"
+            role="presentation">
+            <button
+              aria-expanded={false}
+              aria-haspopup="true"
+              className="btnSubmenu"
+              onClick={[Function anonymous]}>
+              <span
+                className="sr-only">
+                Expand Profile Menu
+              </span>
+            </button>
+            <a
+              className="deaden"
+              href="#profile"
+              id="pse-profile">
+              <div
+                className="multi-line-item">
+                <div
+                  className="profile-display">
+                  <i
+                    aria-hidden="true"
+                    className="icon-profile" />
+                  undefined undefined
+                </div>
+              </div>
+            </a>
+            <ul
+              aria-labelledby="pse-profile"
+              className="collapse ">
+              <li
+                role="presentation" />
+            </ul>
+          </li>
+          <li
+            className="mainnav-item desktop-textlink"
+            id="hdr-network-status"
+            role="presentation">
+            <a
+              aria-current={false}
+              className={undefined}
+              href="/network-status"
+              id="linkBtn-networkStatus"
+              onClick={[Function anonymous]}
+              style={undefined}>
+              Network Status
+            </a>
+          </li>
+          <li
+            className="mainnav-item grey">
+            <button
+              aria-expanded={false}
+              aria-haspopup="true"
+              className="btnSubmenu"
+              onClick={[Function anonymous]}>
+              <span
+                className="sr-only">
+                Expand Help Menu
+              </span>
+            </button>
+            <a
+              className="deaden"
+              href="/manage-profile"
+              id="pse-help-mobile">
+              <i
+                aria-hidden="true"
+                className="icon-help" />
+              Help
+            </a>
+            <ul
+              aria-labelledby="pse-help-mobile"
+              className="collapse "
+              id="pse-help-menu">
+              <div>
+                <li>
+                  <a
+                    aria-current={false}
+                    className={undefined}
+                    href="/faq"
+                    onClick={[Function anonymous]}
+                    style={undefined}>
+                    FAQ
+                  </a>
+                </li>
+                <li />
+                <li>
+                  <a
+                    className="walkthru-toggle"
+                    href="#"
+                    onClick={[Function anonymous]}
+                    role="button">
+                    Disable
+                     Site Walkthrough
+                  </a>
+                </li>
+                <li>
+                  <a
+                    aria-current={false}
+                    className={undefined}
+                    href="/feedback"
+                    onClick={[Function anonymous]}
+                    style={undefined}>
+                    Give Us Feedback
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="tel:800-574-7000">
+                    <div
+                      className="multi-line-item">
+                      <span
+                        aria-hidden="true">
+                        FirstNet Customer Svc: 
+                      </span>
+                      <br />
+                      <i
+                        aria-hidden="true"
+                        className="icon-phone-number" />
+                      <span
+                        className="sr-only">
+                        FirstNet Customer Service Phone 
+                      </span>
+                      800-574-7000
+                    </div>
+                  </a>
+                </li>
+              </div>
+            </ul>
+          </li>
+          <li
+            className="mainnav-item grey logout"
+            role="presentation">
+            <a
+              href="#"
+              onClick={[Function anonymous]}>
+              <i
+                aria-hidden="true"
+                className="icon-logout" />
+              Log Out
+            </a>
+          </li>
+          <li
+            className="desktop-iconItem dropdown">
+            <button
+              aria-expanded="false"
+              className="dropdown-toggle"
+              data-toggle="dropdown"
+              id="profile-header-dropdown"
+              type="button">
+              <i
+                aria-hidden="true"
+                className="icon-profile" />
+              <span
+                className="sr-only">
+                Toggle Profile Dropdown
+              </span>
+            </button>
+            <ul
+              aria-labelledby="profile-header-dropdown"
+              className="dropdown-menu dropdown-menu-right"
+              id="pse-profile-nav">
+              <li
+                className="desktop-profile-display"
+                role="presentation">
+                <a
+                  className="deaden"
+                  href="#profile"
+                  id="pse-profile-desktop"
+                  tabIndex="-1">
+                  <div
+                    className="multi-line-item">
+                    <div
+                      className="profile-display">
+                      <i
+                        aria-hidden="true"
+                        className="icon-profile" />
+                      undefined undefined
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li
+                role="presentation" />
+              <li
+                role="presentation">
+                <a
+                  href="#"
+                  onClick={[Function anonymous]}>
+                  <i
+                    aria-hidden="true"
+                    className="icon-logout" />
+                  Log Out
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li
+            className="desktop-iconItem dropdown">
+            <button
+              aria-expanded="false"
+              className="dropdown-toggle"
+              data-toggle="dropdown"
+              id="help-header-dropdown"
+              type="button">
+              <i
+                aria-hidden="true"
+                className="icon-help" />
+              <span
+                className="sr-only">
+                Toggle Help Dropdown
+              </span>
+            </button>
+            <ul
+              aria-labelledby="help-header-dropdown"
+              className="dropdown-menu dropdown-menu-right"
+              id="pse-help-nav">
+              <div>
+                <li>
+                  <a
+                    aria-current={false}
+                    className={undefined}
+                    href="/faq"
+                    onClick={[Function anonymous]}
+                    style={undefined}>
+                    FAQ
+                  </a>
+                </li>
+                <li />
+                <li>
+                  <a
+                    className="walkthru-toggle"
+                    href="#"
+                    onClick={[Function anonymous]}
+                    role="button">
+                    Disable
+                     Site Walkthrough
+                  </a>
+                </li>
+                <li>
+                  <a
+                    aria-current={false}
+                    className={undefined}
+                    href="/feedback"
+                    onClick={[Function anonymous]}
+                    style={undefined}>
+                    Give Us Feedback
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="tel:800-574-7000">
+                    <div
+                      className="multi-line-item">
+                      <span
+                        aria-hidden="true">
+                        FirstNet Customer Svc: 
+                      </span>
+                      <br />
+                      <i
+                        aria-hidden="true"
+                        className="icon-phone-number" />
+                      <span
+                        className="sr-only">
+                        FirstNet Customer Service Phone 
+                      </span>
+                      800-574-7000
+                    </div>
+                  </a>
+                </li>
+              </div>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div
+    className="pageMask hidden-xs hidden-md hidden-lg"
+    onClick={[Function anonymous]} />
+</header>
+`;
+
+exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
+<header
+  className="fnnav pse"
+  role="banner">
+  <div
+    className="fnnav__mainbar open">
+    <div
+      className="container">
+      <div
+        className="fnnav__header">
+        <button
+          aria-expanded={true}
+          aria-haspopup="true"
+          className="navbar-toggle"
+          onClick={[Function anonymous]}
+          type="button">
+          <span
+            className="sr-only">
+            Toggle navigation
+          </span>
+          <span
+            className="icon-bar" />
+          <span
+            className="icon-bar" />
+          <span
+            className="icon-bar" />
+        </button>
+        <div
+          className="fnnav__brand">
+          <a
+            className="logo-home-link"
+            href="/"
+            onClick={[Function anonymous]}>
+            <img
+              alt="FirstNet Logo"
+              src="/images/logo-FirstNet-local-control.svg" />
+            <span
+              className="sr-only">
+              Go Home
+            </span>
+          </a>
+        </div>
+      </div>
+      <nav
+        aria-label="Main Menu"
+        id="main-menu">
+        <ul
+          className="fnnav__main">
+          <li
+            className="mainnav-item yellow"
+            role="presentation">
+            <button
+              aria-expanded={false}
+              aria-haspopup="true"
+              className="btnSubmenu"
+              onClick={[Function anonymous]}>
+              <span
+                className="sr-only">
+                Expand Profile Menu
+              </span>
+            </button>
+            <a
+              className="deaden"
+              href="#profile"
+              id="pse-profile">
+              <div
+                className="multi-line-item">
+                <div
+                  className="profile-display">
+                  <i
+                    aria-hidden="true"
+                    className="icon-profile" />
+                  undefined undefined
+                </div>
+              </div>
+            </a>
+            <ul
+              aria-labelledby="pse-profile"
+              className="collapse ">
+              <li
+                role="presentation" />
+            </ul>
+          </li>
+          <li
+            className="mainnav-item desktop-textlink"
+            id="hdr-network-status"
+            role="presentation">
+            <a
+              aria-current={false}
+              className={undefined}
+              href="/network-status"
+              id="linkBtn-networkStatus"
+              onClick={[Function anonymous]}
+              style={undefined}>
+              Network Status
+            </a>
+          </li>
+          <li
+            className="mainnav-item grey">
+            <button
+              aria-expanded={false}
+              aria-haspopup="true"
+              className="btnSubmenu"
+              onClick={[Function anonymous]}>
+              <span
+                className="sr-only">
+                Expand Help Menu
+              </span>
+            </button>
+            <a
+              className="deaden"
+              href="/manage-profile"
+              id="pse-help-mobile">
+              <i
+                aria-hidden="true"
+                className="icon-help" />
+              Help
+            </a>
+            <ul
+              aria-labelledby="pse-help-mobile"
+              className="collapse "
+              id="pse-help-menu">
+              <div>
+                <li>
+                  <a
+                    aria-current={false}
+                    className={undefined}
+                    href="/faq"
+                    onClick={[Function anonymous]}
+                    style={undefined}>
+                    FAQ
+                  </a>
+                </li>
+                <li />
+                <li>
+                  <a
+                    className="walkthru-toggle"
+                    href="#"
+                    onClick={[Function anonymous]}
+                    role="button">
+                    Disable
+                     Site Walkthrough
+                  </a>
+                </li>
+                <li>
+                  <a
+                    aria-current={false}
+                    className={undefined}
+                    href="/feedback"
+                    onClick={[Function anonymous]}
+                    style={undefined}>
+                    Give Us Feedback
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="tel:800-574-7000">
+                    <div
+                      className="multi-line-item">
+                      <span
+                        aria-hidden="true">
+                        FirstNet Customer Svc: 
+                      </span>
+                      <br />
+                      <i
+                        aria-hidden="true"
+                        className="icon-phone-number" />
+                      <span
+                        className="sr-only">
+                        FirstNet Customer Service Phone 
+                      </span>
+                      800-574-7000
+                    </div>
+                  </a>
+                </li>
+              </div>
+            </ul>
+          </li>
+          <li
+            className="mainnav-item grey logout"
+            role="presentation">
+            <a
+              href="#"
+              onClick={[Function anonymous]}>
+              <i
+                aria-hidden="true"
+                className="icon-logout" />
+              Log Out
+            </a>
+          </li>
+          <li
+            className="desktop-iconItem dropdown">
+            <button
+              aria-expanded="false"
+              className="dropdown-toggle"
+              data-toggle="dropdown"
+              id="profile-header-dropdown"
+              type="button">
+              <i
+                aria-hidden="true"
+                className="icon-profile" />
+              <span
+                className="sr-only">
+                Toggle Profile Dropdown
+              </span>
+            </button>
+            <ul
+              aria-labelledby="profile-header-dropdown"
+              className="dropdown-menu dropdown-menu-right"
+              id="pse-profile-nav">
+              <li
+                className="desktop-profile-display"
+                role="presentation">
+                <a
+                  className="deaden"
+                  href="#profile"
+                  id="pse-profile-desktop"
+                  tabIndex="-1">
+                  <div
+                    className="multi-line-item">
+                    <div
+                      className="profile-display">
+                      <i
+                        aria-hidden="true"
+                        className="icon-profile" />
+                      undefined undefined
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li
+                role="presentation" />
+              <li
+                role="presentation">
+                <a
+                  href="#"
+                  onClick={[Function anonymous]}>
+                  <i
+                    aria-hidden="true"
+                    className="icon-logout" />
+                  Log Out
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li
+            className="desktop-iconItem dropdown">
+            <button
+              aria-expanded="false"
+              className="dropdown-toggle"
+              data-toggle="dropdown"
+              id="help-header-dropdown"
+              type="button">
+              <i
+                aria-hidden="true"
+                className="icon-help" />
+              <span
+                className="sr-only">
+                Toggle Help Dropdown
+              </span>
+            </button>
+            <ul
+              aria-labelledby="help-header-dropdown"
+              className="dropdown-menu dropdown-menu-right"
+              id="pse-help-nav">
+              <div>
+                <li>
+                  <a
+                    aria-current={false}
+                    className={undefined}
+                    href="/faq"
+                    onClick={[Function anonymous]}
+                    style={undefined}>
+                    FAQ
+                  </a>
+                </li>
+                <li />
+                <li>
+                  <a
+                    className="walkthru-toggle"
+                    href="#"
+                    onClick={[Function anonymous]}
+                    role="button">
+                    Disable
+                     Site Walkthrough
+                  </a>
+                </li>
+                <li>
+                  <a
+                    aria-current={false}
+                    className={undefined}
+                    href="/feedback"
+                    onClick={[Function anonymous]}
+                    style={undefined}>
+                    Give Us Feedback
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="tel:800-574-7000">
+                    <div
+                      className="multi-line-item">
+                      <span
+                        aria-hidden="true">
+                        FirstNet Customer Svc: 
+                      </span>
+                      <br />
+                      <i
+                        aria-hidden="true"
+                        className="icon-phone-number" />
+                      <span
+                        className="sr-only">
+                        FirstNet Customer Service Phone 
+                      </span>
+                      800-574-7000
+                    </div>
+                  </a>
+                </li>
+              </div>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div
+    className="pageMask hidden-xs hidden-md hidden-lg"
+    onClick={[Function anonymous]} />
+</header>
+`;

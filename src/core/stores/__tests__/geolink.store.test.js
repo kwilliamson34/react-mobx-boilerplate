@@ -1,4 +1,4 @@
-jest.unmock('axios');
+
 jest.unmock('../geolink.store');
 
 import {geolinkStore} from '../geolink.store';
@@ -54,23 +54,8 @@ describe("GeolinkStore", () => {
     expect(store.showAlertLayer).toBe(false);
   });
 
-  test("search uses the stored search term", () => {
-    const currentCallNum = store.mapIframeRef.contentWindow.postMessage.mock.calls.length;
-    store.updateSearchTerm('term1');
-    expect(store.searchTerm).toBe('term1');
-    store.searchMap();
-    expect(store.mapIframeRef.contentWindow.postMessage.mock.calls.length).toBe(currentCallNum + 1);
-
-    store.updateSearchTerm('');
-    store.updateDefaultSearchTerm('term2');
-    expect(store.defaultSearchTerm).toBe('term2');
-    store.searchMap();
-    expect(store.mapIframeRef.contentWindow.postMessage.mock.calls.length).toBe(currentCallNum + 1);
-  });
-
   test("loadGeolinkHtml asynchronously loads html file into observable", () => {
     expect(store.geolinkHtml).toBeFalsy();
     store.loadGeolinkHtml().resolves;
-    // expect(store.geolinkHtml).toBeTruthy();
   });
 });

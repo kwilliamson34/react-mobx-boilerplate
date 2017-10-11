@@ -1,0 +1,99 @@
+exports[`<FormLabel /> renders matches previous snapshot 1`] = `
+<div
+  className="form-label">
+  <label
+    className="control-label "
+    htmlFor="id">
+    testLabel
+    
+  </label>
+</div>
+`;
+
+exports[`<FormLabel /> renders matches previous snapshot 2`] = `
+<div
+  className="form-label">
+  <label
+    className="control-label "
+    htmlFor="id">
+    testLabel
+    <span
+      className="help-text">
+      helper text
+    </span>
+  </label>
+</div>
+`;
+
+exports[`<FormLabel /> renders matches previous snapshot 3`] = `
+<div
+  className="form-label">
+  <label
+    className="control-label "
+    htmlFor="id">
+    testLabel
+    <span
+      className="required-asterisks">
+       *
+    </span>
+    <span
+      className="help-text">
+      helper text
+    </span>
+  </label>
+</div>
+`;
+
+exports[`<FormLabel /> renders matches previous snapshot 4`] = `
+<div
+  className="form-label">
+  <label
+    className="control-label "
+    htmlFor="id">
+    testLabel
+    <span
+      className="required-asterisks">
+       *
+    </span>
+    <span
+      className="help-text">
+      helper text
+    </span>
+  </label>
+  <div
+    aria-live="assertive"
+    className="msgBlock error error-list"
+    role="alert">
+    <span>
+      This field has an error
+    </span>
+  </div>
+</div>
+`;
+
+exports[`<FormLabel /> renders matches previous snapshot 5`] = `
+<div
+  className="form-label">
+  <label
+    className="control-label sr-only"
+    htmlFor="id">
+    testLabel
+    <span
+      className="required-asterisks">
+       *
+    </span>
+    <span
+      className="help-text">
+      helper text
+    </span>
+  </label>
+  <div
+    aria-live="assertive"
+    className="msgBlock error error-list"
+    role="alert">
+    <span>
+      This field has an error
+    </span>
+  </div>
+</div>
+`;

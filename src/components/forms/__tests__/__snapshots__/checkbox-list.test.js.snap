@@ -1,0 +1,107 @@
+exports[`<CheckboxList /> renders matches previous snapshot 1`] = `
+<div
+  className="form-group key-class ">
+  <div
+    className="selection-buttons">
+    <div
+      className="checkbox">
+      <label>
+        <input
+          checked={true}
+          name="select-all-checkbox"
+          onClick={[Function anonymous]}
+          type="checkbox"
+          value="" />
+        <span
+          className="cr" />
+        <span
+          className="select-all-description">
+          Select All
+        </span>
+      </label>
+    </div>
+    <button
+      className="clear-all-button"
+      onClick={[Function anonymous]}
+      type="button">
+      Clear All
+    </button>
+  </div>
+  <fieldset
+    id="key" />
+</div>
+`;
+
+exports[`<CheckboxList /> renders matches previous snapshot 2`] = `
+<div
+  className="form-group key-class ">
+  <div
+    className="selection-buttons">
+    <div
+      className="checkbox">
+      <label>
+        <input
+          checked={false}
+          name="select-all-checkbox"
+          onClick={[Function anonymous]}
+          type="checkbox"
+          value="" />
+        <span
+          className="cr" />
+        <span
+          className="select-all-description">
+          Select All
+        </span>
+      </label>
+    </div>
+    <button
+      className="clear-all-button"
+      onClick={[Function anonymous]}
+      type="button">
+      Clear All
+    </button>
+  </div>
+  <fieldset
+    id="key">
+    1
+    2
+  </fieldset>
+</div>
+`;
+
+exports[`<CheckboxList /> renders matches previous snapshot 3`] = `
+<div
+  className="form-group key-class ">
+  <div
+    className="selection-buttons">
+    <div
+      className="checkbox">
+      <label>
+        <input
+          checked={false}
+          name="select-all-checkbox"
+          onClick={[Function anonymous]}
+          type="checkbox"
+          value="" />
+        <span
+          className="cr" />
+        <span
+          className="select-all-description">
+          Select All
+        </span>
+      </label>
+    </div>
+    <button
+      className="clear-all-button"
+      onClick={[Function anonymous]}
+      type="button">
+      Clear All
+    </button>
+  </div>
+  <fieldset
+    id="key">
+    1
+    2
+  </fieldset>
+</div>
+`;
