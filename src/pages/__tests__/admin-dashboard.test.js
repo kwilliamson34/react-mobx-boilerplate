@@ -1,4 +1,4 @@
-jest.unmock('axios');
+
 jest.unmock('../../core/stores/external-link.store');
 jest.unmock('../admin-dashboard.page');
 

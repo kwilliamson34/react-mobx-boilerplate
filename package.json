@@ -46,6 +46,7 @@
       "prop-types",
       "react-router-dom",
       "lodash",
+      "axios",
       "date-fns"
     ],
     "moduleFileExtensions": [

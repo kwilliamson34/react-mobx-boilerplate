@@ -1,4 +1,4 @@
-jest.unmock('axios');
+
 jest.unmock('../../core/stores/master.store');
 jest.unmock('../../core/stores/gtoc.store');
 jest.unmock('../../components/forms/asForm');

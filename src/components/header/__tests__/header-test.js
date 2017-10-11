@@ -1,4 +1,4 @@
-jest.unmock('axios');
+
 jest.unmock('../../../core/stores/header.store');
 jest.unmock('../../../core/stores/user.store');
 jest.unmock('../../../core/stores/external-link.store');

@@ -1,5 +1,5 @@
 jest.unmock('../app-catalog.store');
-jest.unmock('axios');
+
 
 import { observable, useStrict } from 'mobx';
 import { appCatalogStore } from '../app-catalog.store';

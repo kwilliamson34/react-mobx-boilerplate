@@ -1,4 +1,4 @@
-jest.unmock('axios');
+
 jest.unmock('history/createBrowserHistory');
 jest.unmock('../../stores/user.store');
 jest.unmock('../utils.service');

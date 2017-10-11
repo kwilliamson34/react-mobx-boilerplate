@@ -1,6 +1,6 @@
 jest.unmock('../app-detail-banner');
 jest.unmock('date-fns');
-jest.unmock('axios');
+
 
 jest.unmock('../../push-to-mdm/push-to-mdm');
 jest.unmock('../../forms/checkbox');

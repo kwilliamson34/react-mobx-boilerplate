@@ -1,4 +1,4 @@
-jest.unmock('axios');
+
 jest.unmock('../../core/stores/master.store');
 jest.unmock('../app-details.page');
 jest.unmock('date-fns');

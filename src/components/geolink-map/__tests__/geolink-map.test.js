@@ -1,4 +1,4 @@
-jest.unmock('axios');
+
 jest.unmock('../../../core/stores/geolink.store');
 jest.unmock('../geolink-map');
 

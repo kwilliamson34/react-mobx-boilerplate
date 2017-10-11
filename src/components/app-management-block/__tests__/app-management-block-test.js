@@ -1,4 +1,4 @@
-jest.unmock('axios');
+
 jest.unmock('../app-management-block');
 jest.unmock('../../forms/checkbox');
 jest.unmock('jquery');
