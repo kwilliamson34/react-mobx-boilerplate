@@ -21,6 +21,7 @@ export default class NetworkStatusPage extends React.Component {
     super(props);
     this.geoStore = this.props.store.geolinkStore;
     this.joyrideStore = this.props.store.joyrideStore;
+    this.manageLocationsStore = this.props.store.manageLocationsStore;
 
     if(!this.geoStore.authIsComplete) {
       window.addEventListener('message', (event) => {
@@ -36,7 +37,7 @@ export default class NetworkStatusPage extends React.Component {
     this.joyrideStore.updatePlacement();
   }
 
-  renderPlaceholder() {
+  renderPlaceholder = () => {
     return (
       <div className="map-placeholder">
         <p className="as-h2" aria-live="polite">
@@ -45,6 +46,24 @@ export default class NetworkStatusPage extends React.Component {
         </p>
       </div>
     )
+  }
+
+  renderEditLocationDeleteButton = () => {
+    return (
+      <div className="manage-favorites-delete-button">
+        <button className="as-link" onClick={this.handleEditLocationDelete}>
+          <i className="icon-trash" aria-hidden="true" />
+          Delete Favorite
+        </button>
+      </div>
+    )
+  }
+
+  handleEditLocationDelete = () => {
+    const idToDelete = this.geoStore.values.locationId;
+    //reset values so that the unsaved changes modal doesn't show;
+    this.geoStore.values = this.geoStore.defaultValues;
+    this.manageLocationsStore.deleteEditLocationFavorite(idToDelete);
   }
 
   render() {
@@ -66,6 +85,7 @@ export default class NetworkStatusPage extends React.Component {
             <div className="row">
               <div className="col-xs-12">
                 <h2 className="as-h1">{this.geoStore.pageTitle}</h2>
+                {this.geoStore.pageTitle === 'Edit Favorite' && this.renderEditLocationDeleteButton()}
               </div>
               <LocationFavoriteForm store={this.geoStore}/>
             </div>

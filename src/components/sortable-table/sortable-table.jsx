@@ -140,7 +140,7 @@ export class SortableTable extends React.Component {
     const disableButton = this.store.checkedRows.length === 0;
     const oneItemSelected = this.store.checkedRows.length === 1;
     return (
-      <div className="delete-selection-button">
+      <div className="manage-favorites-delete-button">
         <button className={`as-link ${disableButton ? 'disabled' : ''}`} onClick={this.handleDeleteAction}>
           <i className="icon-trash" aria-hidden="true" />
           {(disableButton || oneItemSelected) && `Delete Favorite`}
@@ -212,9 +212,13 @@ export class SortableTable extends React.Component {
           label={''}
           value={''}
           handleOnChange={this.handleSelectAll}
-          checked={this.store.checkedRows.length === this.props.rows.length}/>
+          checked={this.selectAllCheckboxIsChecked}/>
       </th>
     )
+  }
+
+  @computed get selectAllCheckboxIsChecked() {
+    return !this.store.isLoading && this.store.checkedRows.length === this.props.rows.length
   }
 
   renderColumns = () => {

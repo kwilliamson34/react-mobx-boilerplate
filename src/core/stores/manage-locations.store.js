@@ -1,7 +1,7 @@
 import {action, observable, computed} from 'mobx';
 import {apiService} from '../services/api.service';
-import {history} from '../services/history.service';
 import {utilsService} from '../services/utils.service';
+import {history} from '../services/history.service';
 import _ from 'lodash';
 import $ from 'jquery';
 
@@ -42,6 +42,13 @@ class ManageLocationsStore {
       : this.paginatedRows < this.rows;
   }
 
+  @action deleteEditLocationFavorite(id) {
+    this.checkedRows.push(id.toString());
+    console.log('this.checkedRows', this.checkedRows);
+    this.deleteFavorites();
+    history.replace('/manage-locations');
+  }
+
   @action deleteFavorites() {
     const success = (res) => {
       console.log('delete success!!', res);
@@ -55,9 +62,13 @@ class ManageLocationsStore {
           return this.checkedRows.indexOf(idToFind) > -1;
         })
       }
+      this.showSuccess = true;
+      this.successText = this.checkedRows.length > 1
+        ? `${this.checkedRows.length} favorites have been deleted.`
+        : `"${this.findRowData(this.checkedRows[0]).favoriteName}" has been deleted.`
+      this.showDeleteModal = false;
       this.clearAllCheckboxes();
       this.handlePagination();
-      this.showDeleteModal = false;
       console.log('rows after delete', this.rows);
     }
     const fail = (res) => {
@@ -88,8 +99,7 @@ class ManageLocationsStore {
     return apiService.searchLocationFavorites(this.searchQuery).then(success, fail);
   }
 
-  @action findRowData(target) {
-    const targetId = $(target).parent()[0].dataset.id;
+  @action findRowData(targetId) {
     return this.sortedRows.find((row) => {
       return row.locationFavoriteId == targetId;
     });
@@ -104,6 +114,7 @@ class ManageLocationsStore {
   @action resetPage() {
     this.resetPagination();
     this.clearSearchQuery();
+    this.clearSuccess();
     this.rows = [];
     this.searchResults = [];
     this.checkedRows = [];
@@ -128,6 +139,11 @@ class ManageLocationsStore {
 
   @action clearSearchQuery(){
     this.searchQuery = '';
+  }
+
+  @action clearSuccess() {
+    this.showSuccess = false;
+    this.successText = '';
   }
 
   @action resetSearch() {
@@ -170,6 +186,8 @@ class ManageLocationsStore {
   @observable showSearchResults = false;
 
   @observable isLoading = false;
+  @observable showSuccess = false;
+  @observable successText = '';
 
   @observable paginatedRows = [];
   @observable paginationCount = 0;

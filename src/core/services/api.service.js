@@ -204,7 +204,7 @@ class ApiService {
 
     editLocationFavorite(data) {
       return axios({
-        method: 'post',
+        method: 'put',
         url: `${base}/user/location/favorite/${data.locationId}`,
         data: {
           favoriteName: data.locationName,

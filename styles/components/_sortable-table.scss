@@ -127,17 +127,6 @@
       border-left: 1px solid $fn-mdgrey;
     }
   }
-
-  .delete-selection-button {
-    font-size: 16px;
-    button {
-      text-transform: uppercase;
-      &.disabled {
-        color: $fn-mdgrey;
-        pointer-events: none;
-      }
-    }
-  }
 }
 
 .search-form {
@@ -152,4 +141,15 @@
 .load-more-button {
   padding: 40px 0 20px;
   text-align: center;
+}
+
+.manage-favorites-delete-button {
+  font-size: 16px;
+  button {
+    text-transform: uppercase;
+    &.disabled {
+      color: $fn-mdgrey;
+      pointer-events: none;
+    }
+  }
 }

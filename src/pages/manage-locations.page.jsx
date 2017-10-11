@@ -4,6 +4,7 @@ import {observer, inject} from 'mobx-react';
 import {Link} from 'react-router-dom';
 import $ from 'jquery';
 
+import {history} from '../core/services/history.service';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 import TextInput from '../components/forms/text-input';
 import {SortableTable} from '../components/sortable-table/sortable-table';
@@ -29,6 +30,7 @@ export default class ManageLocationsPage extends React.Component {
 
   componentWillUnmount() {
     this.manageLocationsStore.resetPage();
+    this.clearSuccess();
   }
 
   noResultsJsx = () => {
@@ -54,15 +56,37 @@ export default class ManageLocationsPage extends React.Component {
         showClearButton={true}
         handleSubmit={this.manageLocationsStore.searchLocations.bind(this.manageLocationsStore)}
         handleClearClick={this.manageLocationsStore.resetSearch.bind(this.manageLocationsStore)}
-        submitIcon="icon-search" />
+        submitIcon="icon-search"
+        />
     )
+  }
+
+  renderSuccessBar = () => {
+    return (
+      <div className="alert alert-success">
+        <button type="button" className="close_btn icon-close" onClick={this.clearSuccess}>
+          <span className="sr-only">Close alert</span>
+        </button>
+        <p role="alert" aria-live="assertive">
+          <strong>Success!&nbsp;</strong>{this.manageLocationsStore.successText || this.geolinkStore.successText}
+        </p>
+      </div>
+    )
+  }
+
+  clearSuccess = () => {
+    this.manageLocationsStore.clearSuccess();
+    this.geolinkStore.showSuccess = false;
+    this.geolinkStore.successText = false;
   }
 
   renderEditButton = () => {
     return (
       <button className="as-link edit-location-button" onClick={this.handleEditButton}>
-        <i className="icon-pencil" aria-hidden="true" />
-        Edit
+        <Link to={'/network-status'}>
+          <i className="icon-pencil" aria-hidden="true" />
+          Edit
+        </Link>
       </button>
     )
   }
@@ -70,26 +94,24 @@ export default class ManageLocationsPage extends React.Component {
   renderMapItButton = () => {
     return (
       <button className="as-link map-it-button" onClick={this.handleMapItButton}>
-        <i className="icon-map-marker" aria-hidden="true" />
-        Map It
+        <Link to={'/network-status'}>
+          <i className="icon-map-marker" aria-hidden="true" />
+          Map It
+        </Link>
       </button>
     )
   }
 
   handleMapItButton = (e) => {
-    e.preventDefault();
-    let rowData = this.manageLocationsStore.findRowData(e.target);
+    const targetId = $(e.target).parent().parent()[0].dataset.id;
+    let rowData = this.manageLocationsStore.findRowData(targetId);
     this.geolinkStore.performExternalSearch(rowData.locationFavoriteAddress);
   }
 
   handleEditButton = (e) => {
-    let rowData = this.manageLocationsStore.findRowData(e.target);
-    //TODO: awaiting integration;
-    // this.geolinkStore.pageTitle = 'Edit Favorite';
-    // this.geolinkStore.values = {
-    //   locationAddress: rowData.locationFavoriteAddress,
-    //   locationName: rowData.favoriteName
-    // };
+    const targetId = $(e.target).parent().parent()[0].dataset.id;
+    let rowData = this.manageLocationsStore.findRowData(targetId);
+    this.geolinkStore.performEditLocationRequest(rowData);
   }
 
   render() {
@@ -125,8 +147,13 @@ export default class ManageLocationsPage extends React.Component {
           <div className="row">
             <div className="col-xs-12">
               <h1>Manage Favorites</h1>
+              <div className="favorites-search">
+                {this.renderSearchBar()}
+              </div>
             </div>
-            {this.renderSearchBar()}
+            <div className="alert-bars col-xs-12">
+              {(this.manageLocationsStore.showSuccess || this.geolinkStore.showSuccess) && this.renderSuccessBar()}
+            </div>
             <div className="col-xs-12">
               <SortableTable
                 store={this.manageLocationsStore}
