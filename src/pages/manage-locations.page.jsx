@@ -27,12 +27,18 @@ export default class ManageLocationsPage extends React.Component {
     this.manageLocationsStore.fetchRows();
   }
 
+  componentWillUnmount() {
+    this.manageLocationsStore.resetPage();
+  }
+
   noResultsJsx = () => {
     return (
-      <div>
+      <div className="no-results-block">
         <div className="as-h2">No Favorites</div>
         <div className="as-h3">No favorite locations have been added yet. Add some!</div>
-        <button className="fn-primary">Add From Map</button>
+        <button className="fn-primary">
+          <Link to={'/network-status'}>Add From Map</Link>
+        </button>
       </div>
     )
   }
@@ -62,7 +68,7 @@ export default class ManageLocationsPage extends React.Component {
   }
 
   handleEditButton = () => {
-
+    console.log('PUT SOME EDIT FUNCTION HERE');
   }
 
   renderMapItButton = () => {

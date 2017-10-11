@@ -166,14 +166,6 @@ export class SortableTable extends React.Component {
     )
   }
 
-  noResults = () => {
-    return (
-      <div className="no-results-block" ref="noResults">
-        {this.props.noResultsJsx}
-      </div>
-    )
-  }
-
   renderRows = (rows, columns) => {
     return rows.map(row => {
       //identify which field we want to use as the id/value;
@@ -191,12 +183,24 @@ export class SortableTable extends React.Component {
     })
   }
 
-  @computed get rowsExistToRender() {
-    return !this.store.isLoading && this.props.rows.length > 0;
+  @computed get rowsCanRender() {
+    console.log('this.store.isLoading', this.store.isLoading);
+    return this.props.rows.length > 0;
   }
 
-  renderNoResults() {
+  renderNoResults = () => {
     return this.props.noResultsJsx;
+  }
+
+  renderLoading = () => {
+    return (
+      <div className="loading-block">
+        <p className="as-h2" aria-live="polite">
+          <i className="as-h2 icon-reload" aria-hidden="true"></i>
+          Loading favorites&hellip;
+        </p>
+      </div>
+    )
   }
 
   renderSelectAllCheckbox = () => {
@@ -233,11 +237,13 @@ export class SortableTable extends React.Component {
   render() {
     return (
       <div>
-        <span className="sr-only" aria-live="assertive" aria-atomic="true">{this.props.caption}
+        <span className="sr-only" aria-live="assertive" aria-atomic="true">
+          {this.props.caption || 'The table'}
           is now sorted by {this.store.activeColumn}
           in {this.store.sortDirections[this.props.id] ? 'ascending' : 'descending'}
+          order.
         </span>
-        {!this.store.isLoading && this.rowsExistToRender && this.renderPaginationCountsAndDeleteButton()}
+        {!this.store.isLoading && this.rowsCanRender && this.renderPaginationCountsAndDeleteButton()}
         <table id={this.props.tableId} className={`${this.props.tableId}-class sortable-table`}>
           {this.props.caption && <caption>{this.props.caption}</caption>}
           <thead>
@@ -247,15 +253,13 @@ export class SortableTable extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {
-              this.rowsExistToRender
-                ? this.renderRows(this.props.rows, this.props.columns)
-                : this.renderNoResults()
-            }
+            {this.store.isLoading && this.renderLoading()}
+            {!this.store.isLoading && !this.rowsCanRender && this.renderNoResults()}
+            {!this.store.isLoading && this.rowsCanRender && this.renderRows(this.props.rows, this.props.columns)}
           </tbody>
         </table>
-        {!this.store.isLoading && this.rowsExistToRender && this.renderPaginationCountsAndDeleteButton()}
-        {this.showLoadMoreButton && this.rowsExistToRender && this.renderLoadMoreButton()}
+        {!this.store.isLoading && this.rowsCanRender && this.renderPaginationCountsAndDeleteButton()}
+        {this.showLoadMoreButton && this.rowsCanRender && this.renderLoadMoreButton()}
         {this.renderDeleteModal()}
       </div>
     )
