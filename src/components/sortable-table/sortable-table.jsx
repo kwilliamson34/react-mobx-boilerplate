@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
+import {computed} from 'mobx';
 import _ from 'lodash';
 import $ from 'jquery';
 
@@ -12,6 +13,7 @@ import Checkbox from  '../forms/checkbox';
 export class SortableTable extends React.Component {
 
   //TODO: checkedRows is from store. We should pass certain things in as props.
+  //TODO: don't forget to disable the freaking delete button broseph.
 
   static propTypes = {
     store: PropTypes.object.isRequired,
@@ -56,13 +58,9 @@ export class SortableTable extends React.Component {
       : this.store.selectAllCheckboxes();
   }
 
-  advancePagination = () => {
-    this.store.advancePagination();
-  }
-
   handleDeleteAction = (e) => {
     e.preventDefault();
-    //temp gating
+    //TODO: temp gating
     if (this.store.checkedRows.length > 0) {
       this.showDeleteModal();
     }
@@ -117,12 +115,11 @@ export class SortableTable extends React.Component {
   }
 
   renderPaginationCountsAndDeleteButton = () => {
-    //onClick here is temp. Need comps for button func.
     return (
       <div className="pagination-count-delete-wrapper">
         {
           this.props.pagination &&
-          <div className="pagination-count" onClick={this.advancePagination}>
+          <div className="pagination-count">
             {`Showing 1-${this.props.rows.length} of ${this.props.allRowsCount}`}
           </div>
         }
@@ -135,6 +132,24 @@ export class SortableTable extends React.Component {
         {this.props.hasCheckboxRow && this.renderDeleteButton()}
       </div>
     )
+  }
+
+  renderLoadMoreButton = () => {
+    return (
+      <div className="load-more-button">
+        <button className="fn-primary" onClick={this.advancePagination}>
+          Load More
+        </button>
+      </div>
+    )
+  }
+
+  advancePagination = () => {
+    this.store.advancePagination();
+  }
+
+  @computed get showLoadMoreButton() {
+    return this.props.pagination && this.props.allRowsCount > this.props.rows.length;
   }
 
   renderDeleteButton = () => {
@@ -176,57 +191,71 @@ export class SortableTable extends React.Component {
     })
   }
 
-  //don't forget to add noResults back in;
-  // {!this.store.isLoading && this.store.noResults && this.noResults()}
+  @computed get rowsExistToRender() {
+    return !this.store.isLoading && this.props.rows.length > 0;
+  }
 
+  renderNoResults() {
+    return this.props.noResultsJsx;
+  }
+
+  renderSelectAllCheckbox = () => {
+    return (
+      <th className="select-all-checkbox col-xs-1">
+        <Checkbox
+          id={'select-all-checkbox'}
+          label={''}
+          value={''}
+          handleOnChange={this.handleSelectAll}
+          checked={this.store.checkedRows.length === this.props.rows.length}/>
+      </th>
+    )
+  }
+
+  renderColumns = () => {
+    return this.props.columns.map((col, i) => {
+      const sortDirection = this.store.sortDirections[col.key];
+      const isActive = this.store.activeColumn === col.key;
+      return (
+        <SortableColumn
+          key={`sortable-column-${i}`}
+          toggleSort={this.handleToggleSort}
+          sortDirection={sortDirection}
+          isActive={isActive}
+          columnToSort={col.key}
+          className={col.className}>
+          {col.name}
+        </SortableColumn>
+      )
+    })
+  }
 
   render() {
     return (
-      <div className="">
+      <div>
         <span className="sr-only" aria-live="assertive" aria-atomic="true">{this.props.caption}
           is now sorted by {this.store.activeColumn}
           in {this.store.sortDirections[this.props.id] ? 'ascending' : 'descending'}
         </span>
-        {!this.store.isLoading && this.renderPaginationCountsAndDeleteButton()}
-        <table className={`${this.props.tableId}-class sortable-table`} id={this.props.tableId}>
+        {!this.store.isLoading && this.rowsExistToRender && this.renderPaginationCountsAndDeleteButton()}
+        <table id={this.props.tableId} className={`${this.props.tableId}-class sortable-table`}>
           {this.props.caption && <caption>{this.props.caption}</caption>}
           <thead>
             <tr>
-              {
-                this.props.hasCheckboxRow &&
-                  <th className="select-all-checkbox col-xs-1">
-                    <Checkbox
-                      id={'select-all-checkbox'}
-                      label={''}
-                      value={''}
-                      handleOnChange={this.handleSelectAll}
-                      checked={this.store.checkedRows.length === this.props.rows.length}/>
-                  </th>
-              }
-              {
-                this.props.columns.map((col, i) => {
-                  const sortDirection = this.store.sortDirections[col.key];
-                  const isActive = this.store.activeColumn === col.key;
-                  return (
-                    <SortableColumn
-                      key={`sortable-column-${i}`}
-                      toggleSort={this.handleToggleSort}
-                      sortDirection={sortDirection}
-                      isActive={isActive}
-                      columnToSort={col.key}
-                      className={col.className}>
-                      {col.name}
-                    </SortableColumn>
-                  )
-                })
-              }
+              {this.props.hasCheckboxRow && this.renderSelectAllCheckbox()}
+              {this.renderColumns()}
             </tr>
           </thead>
           <tbody>
-            {this.renderRows(this.props.rows, this.props.columns)}
+            {
+              this.rowsExistToRender
+                ? this.renderRows(this.props.rows, this.props.columns)
+                : this.renderNoResults()
+            }
           </tbody>
         </table>
-        {!this.store.isLoading && this.renderPaginationCountsAndDeleteButton()}
+        {!this.store.isLoading && this.rowsExistToRender && this.renderPaginationCountsAndDeleteButton()}
+        {this.showLoadMoreButton && this.rowsExistToRender && this.renderLoadMoreButton()}
         {this.renderDeleteModal()}
       </div>
     )
