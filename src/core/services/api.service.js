@@ -170,8 +170,22 @@ class ApiService {
       });
     }
 
+    deleteLocationFavorites(array) {
+      return axios({
+        method: 'delete',
+        url: `${base}/user/location/favorite/`,
+        data: {
+          pseId: userStore.user.pse,
+          userlocationfavoriteId: array
+        }
+      })
+      .then((res) => {
+        return res;
+      });
+    }
+
     searchLocationFavorites(query) {
-      return axios.get(`${base}/user/location/favorite?pseId=${userStore.user.pse}`).then((res) => {
+      return axios.get(`${base}/user/location/favorite/search?pseId=${userStore.user.pse}&location=${query}`).then((res) => {
         return res.data;
       });
     }

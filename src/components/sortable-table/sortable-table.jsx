@@ -253,11 +253,11 @@ export class SortableTable extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {this.store.isLoading && this.renderLoading()}
-            {!this.store.isLoading && !this.rowsCanRender && this.renderNoResults()}
             {!this.store.isLoading && this.rowsCanRender && this.renderRows(this.props.rows, this.props.columns)}
           </tbody>
         </table>
+        {this.store.isLoading && this.renderLoading()}
+        {!this.store.isLoading && !this.rowsCanRender && this.renderNoResults()}
         {!this.store.isLoading && this.rowsCanRender && this.renderPaginationCountsAndDeleteButton()}
         {this.showLoadMoreButton && this.rowsCanRender && this.renderLoadMoreButton()}
         {this.renderDeleteModal()}
