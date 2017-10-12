@@ -42,24 +42,12 @@
       margin-top: 15px;
       border: none;
 
-      button {
-        width: 110px;
-        background: none;
-        font-size: $fn-button-desktop;
-        font-weight: $fn-medium-weight;
-        color: $fn-ltblue;
+      .as-link {
         text-transform: uppercase;
-        border: none;
-        outline: none;
-        margin: 0;
-        padding: 0;
-        text-decoration: none;
-
-        &:focus {
-          border-radius: 8px;
-          @include focus();
-        }
+        font-weight: $fn-medium-weight;
+        font-size: $fn-button-desktop;
       }
+
       .checkbox {
         font-size: $fn-label-desktop;
         font-weight: $fn-bold-weight;
