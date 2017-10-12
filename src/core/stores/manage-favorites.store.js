@@ -46,7 +46,7 @@ class ManageLocationsStore {
     this.checkedRows.push(id.toString());
     console.log('this.checkedRows', this.checkedRows);
     this.deleteFavorites();
-    history.replace('/manage-locations');
+    history.replace('/manage-favorites');
   }
 
   @action deleteFavorites() {

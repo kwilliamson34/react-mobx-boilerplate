@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
 
+import {history} from '../../core/services/history.service';
 import Checkbox from '../forms/checkbox';
 import TextInput from '../forms/text-input';
 
@@ -77,12 +78,12 @@ export default class GeolinkControls extends React.Component {
   }
 
   onManageFavoritesClick = () => {
-    console.log('go to manage favorites');
+    history.push('/manage-favorites');
   }
 
   onManageFavoritesEnter = (event) => {
     if(event.charCode === this.ENTER_KEY_CODE) {
-      console.log('go to manage favorites');
+      history.push('/manage-favorites');
     }
   }
 

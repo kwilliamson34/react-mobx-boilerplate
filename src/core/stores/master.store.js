@@ -8,7 +8,7 @@ import {externalLinkStore} from './external-link.store';
 import {geolinkStore} from './geolink.store';
 import {feedbackStore} from './feedback.store';
 import {gtocStore} from './gtoc.store';
-import {manageLocationsStore} from './manage-locations.store';
+import {manageLocationsStore} from './manage-favorites.store';
 import {mdmStore} from './mdm.store';
 import {userStore} from './user.store';
 import {joyrideStore} from './joyride.store';

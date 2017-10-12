@@ -233,7 +233,7 @@ class GeolinkStore {
       this.pageTitle = 'Network Status';
       this.successText = '"' + this.values.locationName + '" has been updated.';
       this.showSuccess = true;
-      history.replace('/manage-locations');
+      history.replace('/manage-favorites');
     }
     const failure = (err) => {
       this.alertText = err.response && err.response.data && err.response.data.message.indexOf('already exists') > -1
@@ -247,7 +247,7 @@ class GeolinkStore {
   @action handleSecondaryAction() {
     this.clearForm();
     if (this.pageTitle === 'Edit Favorite') {
-      history.replace('/manage-locations');
+      history.replace('/manage-favorites');
     }
   }
 
