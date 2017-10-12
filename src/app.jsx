@@ -183,7 +183,26 @@ export default class App extends React.Component {
         : (pseMasterStore.userStore.isSubscriber
           ? <ExternalRedirect externalUrl={config.appStore}/>
           : <ErrorPage cause="unauthorized"/>))
-      : <p>Securing Session...</p>
+      : <div className="fn-loading">
+          <div className="fn-loading-logo">
+            <img src="/images/fn-logo.svg" width="173" height="51" alt="" aria-hidden="true" />
+          </div>
+          <h1 className="fn-loading-text">Loading</h1>
+          <div className="fn-loading-circle">
+            <div className="c1 c"></div>
+            <div className="c2 c"></div>
+            <div className="c3 c"></div>
+            <div className="c4 c"></div>
+            <div className="c5 c"></div>
+            <div className="c6 c"></div>
+            <div className="c7 c"></div>
+            <div className="c8 c"></div>
+            <div className="c9 c"></div>
+            <div className="c10 c"></div>
+            <div className="c11 c"></div>
+            <div className="c12 c"></div>
+          </div>
+        </div>
   }
 
   render() {
