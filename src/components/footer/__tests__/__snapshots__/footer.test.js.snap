@@ -37,16 +37,7 @@ exports[`<Footer /> renders matches previous footer snapshot 1`] = `
               Sitemap
             </a>
             <ul
-              className="sitemap-links">
-              <li
-                role="presentation">
-                <a
-                  href="/network-status"
-                  onClick={[Function anonymous]}>
-                  Network Status
-                </a>
-              </li>
-            </ul>
+              className="sitemap-links" />
           </nav>
         </div>
         <div

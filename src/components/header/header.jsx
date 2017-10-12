@@ -340,11 +340,12 @@ export default class PSEHeader extends React.Component {
 							<ul className="fnnav__main">
 								{this.renderMobileOnlyUserMenu()}
 								{this.userStore.isAdmin && this.renderAdminMenuItem() }
-								<li id="hdr-network-status" className="mainnav-item desktop-textlink" role="presentation">
-									<NavLink id="linkBtn-networkStatus" to="/network-status" activeClassName="active">
-										Network Status
-									</NavLink>
-								</li>
+								{this.userStore.canViewNetworkStatus &&
+									<li id="hdr-network-status" className="mainnav-item desktop-textlink" role="presentation">
+										<NavLink id="linkBtn-networkStatus" to="/network-status" activeClassName="active">
+											Network Status
+										</NavLink>
+									</li>}
 
 								{/* Mobile only menu items */}
 								<li className="mainnav-item grey">

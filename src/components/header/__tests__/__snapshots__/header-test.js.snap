@@ -82,19 +82,6 @@ exports[`<PSEHeader /> render matches snapshot when header store is not initiali
             </ul>
           </li>
           <li
-            className="mainnav-item desktop-textlink"
-            id="hdr-network-status"
-            role="presentation">
-            <a
-              className={undefined}
-              href="/network-status"
-              id="linkBtn-networkStatus"
-              onClick={[Function anonymous]}
-              style={undefined}>
-              Network Status
-            </a>
-          </li>
-          <li
             className="mainnav-item grey">
             <button
               aria-expanded={undefined}
@@ -122,6 +109,7 @@ exports[`<PSEHeader /> render matches snapshot when header store is not initiali
               <div>
                 <li>
                   <a
+                    aria-current={false}
                     className={undefined}
                     href="/faq"
                     onClick={[Function anonymous]}
@@ -142,6 +130,7 @@ exports[`<PSEHeader /> render matches snapshot when header store is not initiali
                 </li>
                 <li>
                   <a
+                    aria-current={false}
                     className={undefined}
                     href="/feedback"
                     onClick={[Function anonymous]}
@@ -263,6 +252,7 @@ exports[`<PSEHeader /> render matches snapshot when header store is not initiali
               <div>
                 <li>
                   <a
+                    aria-current={false}
                     className={undefined}
                     href="/faq"
                     onClick={[Function anonymous]}
@@ -283,6 +273,7 @@ exports[`<PSEHeader /> render matches snapshot when header store is not initiali
                 </li>
                 <li>
                   <a
+                    aria-current={false}
                     className={undefined}
                     href="/feedback"
                     onClick={[Function anonymous]}
@@ -408,19 +399,6 @@ exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
             </ul>
           </li>
           <li
-            className="mainnav-item desktop-textlink"
-            id="hdr-network-status"
-            role="presentation">
-            <a
-              className={undefined}
-              href="/network-status"
-              id="linkBtn-networkStatus"
-              onClick={[Function anonymous]}
-              style={undefined}>
-              Network Status
-            </a>
-          </li>
-          <li
             className="mainnav-item grey">
             <button
               aria-expanded={false}
@@ -448,6 +426,7 @@ exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
               <div>
                 <li>
                   <a
+                    aria-current={false}
                     className={undefined}
                     href="/faq"
                     onClick={[Function anonymous]}
@@ -468,6 +447,7 @@ exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
                 </li>
                 <li>
                   <a
+                    aria-current={false}
                     className={undefined}
                     href="/feedback"
                     onClick={[Function anonymous]}
@@ -589,6 +569,7 @@ exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
               <div>
                 <li>
                   <a
+                    aria-current={false}
                     className={undefined}
                     href="/faq"
                     onClick={[Function anonymous]}
@@ -609,6 +590,7 @@ exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
                 </li>
                 <li>
                   <a
+                    aria-current={false}
                     className={undefined}
                     href="/feedback"
                     onClick={[Function anonymous]}
@@ -734,19 +716,6 @@ exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
             </ul>
           </li>
           <li
-            className="mainnav-item desktop-textlink"
-            id="hdr-network-status"
-            role="presentation">
-            <a
-              className={undefined}
-              href="/network-status"
-              id="linkBtn-networkStatus"
-              onClick={[Function anonymous]}
-              style={undefined}>
-              Network Status
-            </a>
-          </li>
-          <li
             className="mainnav-item grey">
             <button
               aria-expanded={false}
@@ -774,6 +743,7 @@ exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
               <div>
                 <li>
                   <a
+                    aria-current={false}
                     className={undefined}
                     href="/faq"
                     onClick={[Function anonymous]}
@@ -794,6 +764,7 @@ exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
                 </li>
                 <li>
                   <a
+                    aria-current={false}
                     className={undefined}
                     href="/feedback"
                     onClick={[Function anonymous]}
@@ -915,6 +886,7 @@ exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
               <div>
                 <li>
                   <a
+                    aria-current={false}
                     className={undefined}
                     href="/faq"
                     onClick={[Function anonymous]}
@@ -935,6 +907,7 @@ exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
                 </li>
                 <li>
                   <a
+                    aria-current={false}
                     className={undefined}
                     href="/feedback"
                     onClick={[Function anonymous]}
