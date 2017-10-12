@@ -24,7 +24,7 @@ export class SortableColumn extends React.Component {
   }
 
   arrowDirection = () => {
-    return this.props.sortDirection ? 'icon-arrowup' : 'icon-arrowdown';
+    return this.props.sortDirection ? 'icon-arrowUp' : 'icon-arrowDown';
   }
 
   isActive = () => {

@@ -206,7 +206,7 @@ export class SortableTable extends React.Component {
 
   renderSelectAllCheckbox = () => {
     return (
-      <th className="select-all-checkbox">
+      <th className="select-all-checkbox col5">
         <Checkbox
           id={'select-all-checkbox'}
           label={''}

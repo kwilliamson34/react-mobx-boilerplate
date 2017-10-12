@@ -85,7 +85,7 @@ export default class ManageLocationsPage extends React.Component {
       <button className="as-link edit-location-button" onClick={this.handleEditButton}>
         <Link to={'/network-status'}>
           <i className="icon-pencil" aria-hidden="true" />
-          Edit
+          <span>Edit</span>
         </Link>
       </button>
     )
@@ -96,7 +96,7 @@ export default class ManageLocationsPage extends React.Component {
       <button className="as-link map-it-button" onClick={this.handleMapItButton}>
         <Link to={'/network-status'}>
           <i className="icon-map-marker" aria-hidden="true" />
-          Map It
+          <span>Map It</span>
         </Link>
       </button>
     )
@@ -130,13 +130,13 @@ export default class ManageLocationsPage extends React.Component {
         name: 'Name',
         key: 'favoriteName',
         inlineButtonJsx: this.renderEditButton(),
-        className: 'favorite-name-column'
+        className: 'favorite-name-column col40'
       },
       {
         name: 'Location/Address',
         key: 'locationFavoriteAddress',
         inlineButtonJsx: this.renderMapItButton(),
-        className: 'location-address-column'
+        className: 'location-address-column col40'
       }
     ];
 
