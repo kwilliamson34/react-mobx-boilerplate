@@ -107,7 +107,7 @@ class UserStore {
   }
 
   @computed get isSubscriber() {
-    return this.checkRolesString(['G_FN_SUB','G_FN_WOL_ADM','G_FN_VOL']);
+    return this.checkRolesString(['G_FN_SUB','G_FN_VOL_ADM','G_FN_VOL']);
   }
 
   @computed get canViewNetworkStatus() {
