@@ -10,7 +10,7 @@ import {SortableTable} from '../components/sortable-table/sortable-table';
 
 @inject('store')
 @observer
-export default class ManageLocationsPage extends React.Component {
+export default class ManageFavoritesPage extends React.Component {
 
   static propTypes = {
     store: PropTypes.object
