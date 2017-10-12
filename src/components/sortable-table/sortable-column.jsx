@@ -34,7 +34,7 @@ export class SortableColumn extends React.Component {
   render() {
     return (
       <th scope="col" className={this.props.className}>
-        <button type="button" ref={`${this.props.sortBy}Button`} className={this.isActive()} onClick={this.toggleSort}>
+        <button type="button" ref={`${this.props.columnToSort}Button`} className={this.isActive()} onClick={this.toggleSort}>
           <span className="sr-only">Sort By</span>
           <span className="sort-name">
             {this.props.children}

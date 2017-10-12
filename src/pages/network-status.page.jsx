@@ -21,7 +21,7 @@ export default class NetworkStatusPage extends React.Component {
     super(props);
     this.geoStore = this.props.store.geolinkStore;
     this.joyrideStore = this.props.store.joyrideStore;
-    this.manageLocationsStore = this.props.store.manageLocationsStore;
+    this.manageFavoritesStore = this.props.store.manageFavoritesStore;
 
     if(!this.geoStore.authIsComplete) {
       window.addEventListener('message', (event) => {
@@ -62,8 +62,8 @@ export default class NetworkStatusPage extends React.Component {
   handleEditLocationDelete = () => {
     const idToDelete = this.geoStore.values.locationId;
     //reset values so that the unsaved changes modal doesn't show;
-    this.geoStore.values = this.geoStore.defaultValues;
-    this.manageLocationsStore.deleteEditLocationFavorite(idToDelete);
+    this.geoStore.values = Object.assign({}, this.geoStore.defaultValues);
+    this.manageFavoritesStore.deleteEditLocationFavorite(idToDelete);
   }
 
   render() {

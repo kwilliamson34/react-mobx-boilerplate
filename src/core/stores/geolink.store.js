@@ -245,10 +245,11 @@ class GeolinkStore {
   }
 
   @action handleSecondaryAction() {
-    this.clearForm();
     if (this.pageTitle === 'Edit Favorite') {
+      this.values = Object.assign({}, this.defaultValues);
       history.replace('/manage-favorites');
     }
+    this.clearForm();
   }
 
   @action clearForm() {

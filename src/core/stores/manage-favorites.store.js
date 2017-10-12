@@ -5,21 +5,17 @@ import {history} from '../services/history.service';
 import _ from 'lodash';
 import $ from 'jquery';
 
-class ManageLocationsStore {
-
-	// ACTIONS
+class ManageFavoritesStore {
 
   @action fetchRows() {
     const success = (res) => {
-      console.log('success!', res.data);
       //initially ordering rows by locationFavoriteId in desc order, which corresponds to 'most recent' first.
-      this.rows = _.orderBy(res.data.userlocationfavorite, ['locationFavoriteId'], ['desc']);;
+      this.rows = _.orderBy(res.data.userlocationfavorite, ['locationFavoriteId'], ['desc']);
       this.isLoading = false;
       this.advancePagination();
     }
 
     const fail = (err) => {
-      console.log('fail!', err);
       this.isLoading = false;
       utilsService.handleError(err);
     }
@@ -44,14 +40,13 @@ class ManageLocationsStore {
 
   @action deleteEditLocationFavorite(id) {
     this.checkedRows.push(id.toString());
-    console.log('this.checkedRows', this.checkedRows);
-    this.deleteFavorites();
+    this.deleteRows();
     history.replace('/manage-favorites');
   }
 
-  @action deleteFavorites() {
-    const success = (res) => {
-      console.log('delete success!!', res);
+  @action deleteRows() {
+
+    const success = () => {
       _.remove(this.rows, (row) => {
         const idToFind = row.locationFavoriteId.toString();
         return this.checkedRows.indexOf(idToFind) > -1;
@@ -66,33 +61,28 @@ class ManageLocationsStore {
       this.successText = this.checkedRows.length > 1
         ? `${this.checkedRows.length} favorites have been deleted.`
         : `"${this.findRowData(this.checkedRows[0]).favoriteName}" has been deleted.`
-      this.showDeleteModal = false;
       this.clearAllCheckboxes();
       this.handlePagination();
-      console.log('rows after delete', this.rows);
     }
-    const fail = (res) => {
-      console.log('delete fail!', res);
-      this.showDeleteModal = false;
+
+    const fail = (err) => {
+      utilsService.handleError(err);
     }
 
     return apiService.deleteLocationFavorites(this.checkedRows.peek()).then(success, fail);
   }
 
   @action searchLocations() {
-    console.log('DING DONG YOU SEARCHED', this.searchQuery);
     this.searchResults = [];
 
     const success = (res) => {
-      console.log('success search!', res.userlocationfavorite);
       this.searchResults = res.userlocationfavorite;
       this.showSearchResults = true;
       this.resetPagination();
       this.advancePagination();
     }
 
-    const fail = (err) => {
-      console.warn('Search failed!', err);
+    const fail = () => {
       this.showSearchResults = false;
     }
 
@@ -118,6 +108,7 @@ class ManageLocationsStore {
     this.rows = [];
     this.searchResults = [];
     this.checkedRows = [];
+    this.showSearchResults = false;
   }
 
   @action selectAllCheckboxes() {
@@ -127,6 +118,16 @@ class ManageLocationsStore {
         this.checkedRows.push(id);
       }
     });
+  }
+
+  @action showDeleteModal = () => {
+    $('#delete-modal').modal({backdrop: 'static'});
+    $('#delete-modal').modal('show');
+  }
+
+  @action hideDeleteModal = () => {
+    $('#delete-modal').modal('hide');
+    $('#delete-modal').data('bs.modal', null);
   }
 
   @action resetPagination() {
@@ -156,30 +157,19 @@ class ManageLocationsStore {
 	@action toggleSort(key) {
     this.activeColumn = key;
     this.sortDirections[key] = !this.sortDirections[key];
-    console.log('this.activeColumn', this.activeColumn);
-    console.log('this.sortDirections[key]', this.sortDirections[key]);
 	}
 
   @computed get sortedRows() {
     const sortOrder = this.sortDirections[this.activeColumn] ? 'asc' : 'desc';
-  	return _.orderBy(this.paginatedRows, [this.activeColumn], [sortOrder]);
+    return _.orderBy(this.paginatedRows, [this.activeColumn], [sortOrder]);
   }
 
   @computed get rowIsChecked() {
     return this.checkedRows.indexOf(this.activeRow) > -1;
   }
 
-  @computed get formIsDirty() {
-    let formHasChanged = false;
-    Object.keys(this.sortDirections).forEach(key => {
-      if(this.sortDirections[key] !== this.sortDirectionsDefaults[key]) {
-        formHasChanged = true;
-      }
-    });
-    return formHasChanged;
-  }
-
   @observable rows = [];
+  @observable checkedRows = [];
 
   @observable searchQuery = '';
   @observable searchResults = [];
@@ -193,8 +183,6 @@ class ManageLocationsStore {
   @observable paginationCount = 0;
   @observable paginationInterval = 5;
   @observable moreToLoad = false;
-
-  @observable checkedRows = [];
 
   @observable activeColumn = 'locationFavoriteId';
   //to keep the order toggling simple, true is ascending and false is descending;
@@ -211,4 +199,4 @@ class ManageLocationsStore {
   }
 }
 
-export const manageLocationsStore = new ManageLocationsStore();
+export const manageFavoritesStore = new ManageFavoritesStore();

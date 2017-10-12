@@ -4,7 +4,6 @@ import {observer, inject} from 'mobx-react';
 import {Link} from 'react-router-dom';
 import $ from 'jquery';
 
-import {history} from '../core/services/history.service';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 import TextInput from '../components/forms/text-input';
 import {SortableTable} from '../components/sortable-table/sortable-table';
@@ -19,23 +18,61 @@ export default class ManageLocationsPage extends React.Component {
 
   constructor(props) {
     super(props);
-    this.manageLocationsStore = this.props.store.manageLocationsStore;
+    this.manageFavoritesStore = this.props.store.manageFavoritesStore;
     this.geolinkStore = this.props.store.geolinkStore;
   }
 
   componentWillMount() {
-    this.manageLocationsStore.isLoading = true;
-    this.manageLocationsStore.fetchRows();
+    this.manageFavoritesStore.isLoading = true;
+    this.manageFavoritesStore.fetchRows();
   }
 
   componentWillUnmount() {
-    this.manageLocationsStore.resetPage();
+    this.manageFavoritesStore.resetPage();
     this.clearSuccess();
   }
 
-  noResultsJsx = () => {
+  keepFavorites = (e) => {
+    e.preventDefault();
+    this.manageFavoritesStore.hideDeleteModal();
+  }
+
+  deleteFavorites = (e) => {
+    e.preventDefault();
+    this.manageFavoritesStore.deleteRows();
+    this.manageFavoritesStore.hideDeleteModal();
+  }
+
+  renderDeleteModal = () => {
     return (
-      <div className="no-results-block">
+      <div id="delete-modal" role="dialog" tabIndex="-1" className="modal fade" aria-labelledby="modal-title">
+        <div>
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <button type="button" className="fn-modal-close" onClick={this.manageFavoritesStore.hideDeleteModal}>
+                <i aria-hidden="true" className="icon-close"></i>
+                <span className="sr-only">Close window</span>
+              </button>
+              <div className="row no-gutters" id="fmodal-title">
+                <div className="col-xs-12">
+                  <h1 className="as-h2">{`Delete these ${this.manageFavoritesStore.checkedRows.length} favorites?`}</h1>
+                  <p>This cannot be undone. New favorites can be added at any time.</p>
+                </div>
+                <div className="col-xs-12 text-center">
+                  <button className="fn-primary" onClick={this.keepFavorites}>Keep Favorites</button>
+                  <button className="fn-secondary" onClick={this.deleteFavorites}>Delete Favorites</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  noFetchResultsJsx = () => {
+    return (
+      <div className="no-fetch-results">
         <div className="as-h2">No Favorites</div>
         <div className="as-h3">No favorite locations have been added yet. Add some!</div>
         <button className="fn-primary">
@@ -45,17 +82,29 @@ export default class ManageLocationsPage extends React.Component {
     )
   }
 
+  noSearchResultsJsx = () => {
+    return (
+      <div className="no-search-results">
+        <div className="as-h2">No Results</div>
+        <div className="as-h3">There are no results to display. Please retry your search.</div>
+        <button className="fn-primary" onClick={this.resetSearch}>
+          Load All Favorites
+        </button>
+      </div>
+    )
+  }
+
   renderSearchBar = () => {
     return (
       <TextInput
-        dataObject={this.manageLocationsStore}
+        dataObject={this.manageFavoritesStore}
         id="searchQuery"
         type="search"
         labelText="Search"
         className="col-xs-12 search-form"
         showClearButton={true}
-        handleSubmit={this.manageLocationsStore.searchLocations.bind(this.manageLocationsStore)}
-        handleClearClick={this.manageLocationsStore.resetSearch.bind(this.manageLocationsStore)}
+        handleSubmit={this.manageFavoritesStore.searchLocations.bind(this.manageFavoritesStore)}
+        handleClearClick={this.resetSearch}
         submitIcon="icon-search"
         />
     )
@@ -68,16 +117,20 @@ export default class ManageLocationsPage extends React.Component {
           <span className="sr-only">Close alert</span>
         </button>
         <p role="alert" aria-live="assertive">
-          <strong>Success!&nbsp;</strong>{this.manageLocationsStore.successText || this.geolinkStore.successText}
+          <strong>Success!&nbsp;</strong>{this.manageFavoritesStore.successText || this.geolinkStore.successText}
         </p>
       </div>
     )
   }
 
+  resetSearch = () => {
+    this.manageFavoritesStore.resetSearch();
+  }
+
   clearSuccess = () => {
-    this.manageLocationsStore.clearSuccess();
-    this.geolinkStore.showSuccess = false;
-    this.geolinkStore.successText = false;
+    this.manageFavoritesStore.clearSuccess();
+    this.geolinkStore.clearAlerts();
+    this.geolinkStore.successText = '';
   }
 
   renderEditButton = () => {
@@ -103,14 +156,14 @@ export default class ManageLocationsPage extends React.Component {
   }
 
   handleMapItButton = (e) => {
-    const targetId = $(e.target).parent().parent()[0].dataset.id;
-    let rowData = this.manageLocationsStore.findRowData(targetId);
+    const targetId = $(e.target).parent().parent().parent()[0].dataset.id;
+    let rowData = this.manageFavoritesStore.findRowData(targetId);
     this.geolinkStore.performExternalSearch(rowData.locationFavoriteAddress);
   }
 
   handleEditButton = (e) => {
-    const targetId = $(e.target).parent().parent()[0].dataset.id;
-    let rowData = this.manageLocationsStore.findRowData(targetId);
+    const targetId = $(e.target).parent().parent().parent()[0].dataset.id;
+    let rowData = this.manageFavoritesStore.findRowData(targetId);
     this.geolinkStore.performEditLocationRequest(rowData);
   }
 
@@ -152,23 +205,27 @@ export default class ManageLocationsPage extends React.Component {
               </div>
             </div>
             <div className="alert-bars col-xs-12">
-              {(this.manageLocationsStore.showSuccess || this.geolinkStore.showSuccess) && this.renderSuccessBar()}
+              {(this.manageFavoritesStore.showSuccess || this.geolinkStore.showSuccess) && this.renderSuccessBar()}
             </div>
             <div className="col-xs-12">
               <SortableTable
-                store={this.manageLocationsStore}
+                store={this.manageFavoritesStore}
                 tableId="manage-locations-table"
                 idKey="locationFavoriteId"
                 columns={tableColumns}
-                rows={this.manageLocationsStore.sortedRows}
-                allRowsCount={this.manageLocationsStore.rows.length}
-                noResultsJsx={this.noResultsJsx()}
+                rows={this.manageFavoritesStore.sortedRows}
+                activeColumn={this.manageFavoritesStore.activeColumn}
+                sortDirections={this.manageFavoritesStore.sortDirections}
+                allRowsCount={this.manageFavoritesStore.rows.length}
+                noFetchResultsJsx={this.noFetchResultsJsx()}
+                noSearchResultsJsx={this.noSearchResultsJsx()}
                 hasCheckboxRow={true}
                 pagination={true}
                 />
             </div>
           </div>
         </div>
+        {this.renderDeleteModal()}
       </article>
     )
   }

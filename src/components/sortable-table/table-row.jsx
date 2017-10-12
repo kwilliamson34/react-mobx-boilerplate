@@ -13,11 +13,13 @@ export class TableRow extends React.Component {
     columns: PropTypes.array.isRequired,
     handleOnChange: PropTypes.func,
     hasCheckbox: PropTypes.bool,
+    checked: PropTypes.bool,
     checkedRows: PropTypes.object
   }
 
   static defaultProps = {
     hasCheckbox: false,
+    checked: false,
     checkedRows: []
   }
 
@@ -43,7 +45,7 @@ export class TableRow extends React.Component {
               </div>
               {
                 column.inlineButtonJsx &&
-                <div className="inline-button-wrapper" data-id={this.props.id}>
+                <div className="inline-button-wrapper" data-id={this.props.id} ref="inlinebutton">
                   {column.inlineButtonJsx}
                 </div>
               }
