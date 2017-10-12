@@ -183,26 +183,26 @@ export default class App extends React.Component {
         : (pseMasterStore.userStore.isSubscriber
           ? <ExternalRedirect externalUrl={config.appStore}/>
           : <ErrorPage cause="unauthorized"/>))
-      : <div class="fn-loading">
-    			<div class="fn-loading-logo">
-    				<img src="/images/fn-logo.svg" width="173" height="51" alt="" aria-hidden="true" />
-    			</div>
-    			<h1 class="fn-loading-text">Loading</h1>
-    			<div class="fn-loading-circle">
-    				<div class="c1 c"></div>
-    				<div class="c2 c"></div>
-    				<div class="c3 c"></div>
-    				<div class="c4 c"></div>
-    				<div class="c5 c"></div>
-    				<div class="c6 c"></div>
-    				<div class="c7 c"></div>
-    				<div class="c8 c"></div>
-    				<div class="c9 c"></div>
-    				<div class="c10 c"></div>
-    				<div class="c11 c"></div>
-    				<div class="c12 c"></div>
-    			</div>
-    		</div>
+      : <div className="fn-loading">
+          <div className="fn-loading-logo">
+            <img src="/images/fn-logo.svg" width="173" height="51" alt="" aria-hidden="true" />
+          </div>
+          <h1 className="fn-loading-text">Loading</h1>
+          <div className="fn-loading-circle">
+            <div className="c1 c"></div>
+            <div className="c2 c"></div>
+            <div className="c3 c"></div>
+            <div className="c4 c"></div>
+            <div className="c5 c"></div>
+            <div className="c6 c"></div>
+            <div className="c7 c"></div>
+            <div className="c8 c"></div>
+            <div className="c9 c"></div>
+            <div className="c10 c"></div>
+            <div className="c11 c"></div>
+            <div className="c12 c"></div>
+          </div>
+        </div>
   }
 
   render() {
