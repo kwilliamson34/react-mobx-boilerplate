@@ -32,6 +32,7 @@ class LocationFavoriteForm extends React.Component {
           type="search"
           labelText="Address"
           required={true}
+          charLimit={1000}
           errorMessage="Please enter an address."
           className="col-xs-12 col-sm-7 search-form"
           showClearButton={true}
