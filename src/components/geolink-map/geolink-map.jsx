@@ -10,6 +10,9 @@ export default class GeolinkMap extends React.Component {
   componentWillMount() {
     window.iframeLoaded = this.onIframeLoad;
 
+    //don't allow search until the user's default location is detected
+    this.props.geolinkStore.disableSearch = true;
+
     this.props.geolinkStore.loadGeolinkHtml().then(() => {
       //write the html into the iframe
       var doc = this.props.geolinkStore.mapIframeRef.contentWindow.document;
@@ -46,15 +49,11 @@ export default class GeolinkMap extends React.Component {
       this.props.geolinkStore.disableSearch = false;
       this.props.geolinkStore.externalSearchRequest = false;
     } else if (!this.props.geolinkStore.externalSearchRequest && 'geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition(position => {
-      const defaultSearchTerm = position.coords.latitude + ', ' + position.coords.longitude;
-      this.props.geolinkStore.updateDefaultSearchTerm(defaultSearchTerm);
-      this.props.geolinkStore.updateSearchTerm(defaultSearchTerm);
-      this.props.geolinkStore.searchMap();
-      });
-     } else {
-       console.warn('Geolocation is not allowed by the browser.');
-     }
+      navigator.geolocation.getCurrentPosition(this.handleUserAllowingLocation, this.handleUserBlockingLocation);
+    } else {
+      console.warn('Geolocation is not allowed by the browser.');
+      this.props.geolinkStore.disableSearch = false;
+    }
 
     this.props.geolinkStore.addAllNetworkLayers();
   }
