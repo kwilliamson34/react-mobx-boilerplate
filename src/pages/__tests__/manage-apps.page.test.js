@@ -1,4 +1,4 @@
-jest.unmock('axios');
+
 jest.unmock('../../core/stores/master.store');
 jest.unmock('../manage-apps.page');
 jest.unmock('../../components/card-list/card-list');

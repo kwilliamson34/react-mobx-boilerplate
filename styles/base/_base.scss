@@ -66,6 +66,7 @@ h2 + hr {
 }
 
 .form-group {
+
   input {
     //hide pseudo-element for clear on IE
     &::-ms-clear {
@@ -75,6 +76,21 @@ h2 + hr {
     &.form-control:not(:last-child) {
       padding: 6px 6px 6px 12px;
       border-right: 0;
+    }
+  }
+
+  .has-icon {
+    position: relative;
+    input {
+      padding-left: 35px !important;
+    }
+    .prefix-icon {
+      position: absolute;
+      left: 14px;
+      top: 17px;
+      font-size: $fn-label-desktop;
+      color: $fn-ltblue;
+      z-index: 2;
     }
   }
 

@@ -1,6 +1,6 @@
 jest.unmock('../feedback.store');
 jest.unmock('../user.store');
-jest.unmock('axios');
+
 jest.unmock('../../services/utils.service');
 
 import {observable, useStrict} from 'mobx';

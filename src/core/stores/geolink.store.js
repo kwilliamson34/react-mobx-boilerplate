@@ -1,4 +1,4 @@
-import {action, observable, computed} from 'mobx';
+import {action, observable, computed, autorun} from 'mobx';
 import axios from 'axios';
 import config from 'config';
 import {utilsService} from '../services/utils.service';
@@ -13,6 +13,40 @@ const networkLayerNames = [
 ];
 
 class GeolinkStore {
+
+  constructor() {
+    this.selectedFavoriteAddress = '';
+    this.selectedFavoriteName = '';
+
+    // determines whether to show address or favorite name
+    autorun(() => {
+      if(this.values.locationName !== this.selectedFavoriteName && this.shouldDisplayLocationName && this.values.locationName !== '') {
+        this.values.locationAddress = this.values.locationName;
+        this.values.locationName = '';
+        this.selectedFavoriteName = '';
+        this.shouldDisplayLocationName = false;
+      }
+    });
+    // hides and shows dropdown
+    autorun(() => {
+      let inputContentMatchesSelection = this.values.locationAddress === this.selectedFavoriteAddress;
+      let inputIsEmptyOrSpaces = !/\w+/.test(this.values.locationAddress);
+      if(inputContentMatchesSelection || inputIsEmptyOrSpaces) {
+        this.dropdownIsVisible = false;
+        this.selectedFavoriteAddress = '';
+      } else if(this.values.locationAddress) {
+        this.dropdownIsVisible = true;
+      }
+    });
+    // necessary in order to hide favorite star when value is removed via 'clear' button
+    autorun(() => {
+      if(this.values.locationName === '' && this.selectedFavoriteName !== '') {
+        this.shouldDisplayLocationName = false;
+        this.values.locationAddress = '';
+      }
+    })
+  }
+
   @action loadGeolinkHtml() {
     const success = (response) => {
       let html = response.data;
@@ -32,6 +66,8 @@ class GeolinkStore {
   }
 
   @action searchMap() {
+    this.dropdownIsVisible = false;
+    this.shouldDisplayLocationName = false;
     if(this.values.locationAddress) {
       console.log('Searching map for ' + this.values.locationAddress + '...');
       this.mapIframeRef.contentWindow.postMessage({
@@ -154,6 +190,11 @@ class GeolinkStore {
   }
 
   @action submitForm() {
+    if(this.formHasError) {
+      this.alertText = 'Please fix the following errors.';
+      this.showAlert = true;
+      return;
+    }
     if(this.pageTitle === 'Edit Favorite') {
       this.editLocation();
     } else if(this.pageTitle === 'Add New Favorite') {
@@ -165,12 +206,15 @@ class GeolinkStore {
     const success = () => {
       this.pageTitle = 'Network Status';
       this.successText = '"' + this.values.locationName + '" has been added.';
+      this.showAlert = false;
       this.showSuccess = true;
     }
     const failure = (err) => {
-      this.alertText = err.response && err.response.data && err.response.data.message.indexOf('already exists') > -1
-        ? 'You already have a favorite named "' + this.values.locationName + '".'
-        : 'Please fix the following errors.';
+      if(err.response && err.response.data && err.response.data.message && err.response.data.message.indexOf('already exists') > -1) {
+        this.alertText = 'You already have a favorite named "' + this.values.locationName + '".';
+      } else {
+        this.alertText = 'The system encountered a problem. Please try again later.';
+      }
       this.showAlert = true;
     }
     apiService.addLocationFavorite(this.values).then(success, failure);
@@ -203,6 +247,7 @@ class GeolinkStore {
     this.values = Object.assign({}, this.defaultValues);
     this.clearAlerts();
     this.pageTitle = 'Network Status';
+    this.searchMap();
   }
 
   @action clearAlerts() {
@@ -228,6 +273,45 @@ class GeolinkStore {
       }
     });
     this.formHasError = hasError;
+  }
+
+  @action loadFavorites() {
+    const success = (res) => {
+      this.favorites = res.data.userlocationfavorite;
+    }
+    const fail = (err) => {
+      utilsService.handleError(err);
+    }
+    apiService.getLocationFavorites().then(success, fail);
+  }
+
+  @action selectFavorite(favorite) {
+    this.selectedFavoriteAddress = favorite.locationFavoriteAddress;
+    this.values.locationAddress = favorite.locationFavoriteAddress;
+    this.values.locationName = favorite.favoriteName;
+    this.searchMap();
+    this.shouldDisplayLocationName = true;
+    this.selectedFavoriteName = favorite.favoriteName;
+  }
+
+  @computed get searchTerms() {
+    return this.values.locationAddress.split(' ');
+  }
+
+  @computed get predictedFavorites() {
+    let allSearchTermsMatchFavorite = null;
+    let searchTermPattern = null;
+    return this.favorites.filter(favorite => {
+      allSearchTermsMatchFavorite = true;
+      for(let term of this.searchTerms) {
+        searchTermPattern = new RegExp(term, 'i');
+        if(!searchTermPattern.test(favorite.favoriteName) && !searchTermPattern.test(favorite.locationFavoriteAddress)) {
+          allSearchTermsMatchFavorite = false;
+          break;
+        }
+      }
+      return allSearchTermsMatchFavorite;
+    }).splice(0, 8);
   }
 
   //OBSERVABLES
@@ -266,6 +350,10 @@ class GeolinkStore {
     locationName: '',
     locationId: ''
   };
+  @observable dropdownIsVisible = false;
+  @observable favorites = [];
+
+  @observable shouldDisplayLocationName = false;
 }
 
 export const geolinkStore = new GeolinkStore();

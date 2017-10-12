@@ -26,6 +26,19 @@ export default class GeolinkMap extends React.Component {
     window.iframeLoaded = null;
   }
 
+  handleUserAllowingLocation = (position) => {
+    const defaultAddress = position.coords.latitude + ', ' + position.coords.longitude;
+    this.props.geolinkStore.defaultValues.locationAddress = defaultAddress;
+    this.props.geolinkStore.values.locationAddress = defaultAddress;
+    this.props.geolinkStore.searchMap();
+    this.props.geolinkStore.disableSearch = false;
+  }
+
+  handleUserBlockingLocation = () => {
+    console.log('User has blocked geolocation.');
+    this.props.geolinkStore.disableSearch = false;
+  }
+
   onIframeLoad = () => {
     //record isReady in store to swap the placeholder for the map
     this.props.geolinkStore.iframeIsFullyLoaded = true;
@@ -37,11 +50,10 @@ export default class GeolinkMap extends React.Component {
       this.props.geolinkStore.externalSearchRequest = false;
     } else if (!this.props.geolinkStore.externalSearchRequest && 'geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition(position => {
-        const defaultAddress = position.coords.latitude + ', ' + position.coords.longitude;
-        this.props.geolinkStore.defaultValues.locationAddress = defaultAddress;
-        this.props.geolinkStore.values.locationAddress = defaultAddress;
-        this.props.geolinkStore.searchMap();
-        this.props.geolinkStore.disableSearch = false;
+      const defaultSearchTerm = position.coords.latitude + ', ' + position.coords.longitude;
+      this.props.geolinkStore.updateDefaultSearchTerm(defaultSearchTerm);
+      this.props.geolinkStore.updateSearchTerm(defaultSearchTerm);
+      this.props.geolinkStore.searchMap();
       });
     } else {
       console.warn('Geolocation is not allowed by the browser.');

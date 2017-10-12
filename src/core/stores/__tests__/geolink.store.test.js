@@ -1,4 +1,4 @@
-jest.unmock('axios');
+
 jest.unmock('../geolink.store');
 
 import {geolinkStore} from '../geolink.store';

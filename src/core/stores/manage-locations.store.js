@@ -11,9 +11,9 @@ class ManageLocationsStore {
 
   @action fetchRows() {
     const success = (res) => {
-      console.log('success!', res);
+      console.log('success!', res.data);
       //initially ordering rows by locationFavoriteId in desc order, which corresponds to 'most recent' first.
-      this.rows = _.orderBy(res.userlocationfavorite, ['locationFavoriteId'], ['desc']);;
+      this.rows = _.orderBy(res.data.userlocationfavorite, ['locationFavoriteId'], ['desc']);;
       this.isLoading = false;
       this.advancePagination();
     }

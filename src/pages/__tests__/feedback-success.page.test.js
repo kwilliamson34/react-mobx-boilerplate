@@ -1,4 +1,4 @@
-jest.unmock('axios');
+
 jest.unmock('../feedback-success.page');
 
 import {observer, inject} from 'mobx-react';

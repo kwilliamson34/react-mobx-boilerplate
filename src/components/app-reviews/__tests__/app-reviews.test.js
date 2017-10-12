@@ -1,6 +1,6 @@
 jest.unmock('../app-reviews');
 jest.unmock('mobx');
-jest.unmock('axios');
+
 jest.unmock('date-fns');
 jest.unmock('../../truncate/truncate');
 jest.unmock('../../rating/rating');

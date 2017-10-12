@@ -1,4 +1,4 @@
-jest.unmock('axios');
+
 jest.unmock('../session-timeout.page');
 
 import {observer, inject} from 'mobx-react';

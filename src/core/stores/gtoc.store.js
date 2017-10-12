@@ -4,6 +4,10 @@ import {history} from '../services/history.service';
 
 class GTOCStore {
   @action submitForm() {
+    if(this.formHasError) {
+      this.showAlert = true;
+      return;
+    }
     const success = () => {
       this.clearForm();
       history.push('/subscribe-to-alerts-success');

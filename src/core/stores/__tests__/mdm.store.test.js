@@ -1,5 +1,5 @@
 jest.unmock('../mdm.store');
-jest.unmock('axios');
+
 jest.unmock('../../services/history.service');
 jest.unmock('mobx');
 
