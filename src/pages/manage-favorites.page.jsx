@@ -136,10 +136,8 @@ export default class ManageFavoritesPage extends React.Component {
   renderEditButton = () => {
     return (
       <button className="as-link edit-location-button" onClick={this.handleEditButton}>
-        <Link to={'/network-status'}>
-          <i className="icon-pencil" aria-hidden="true" />
-          <span>Edit</span>
-        </Link>
+        <i className="icon-pencil" aria-hidden="true" />
+        <span>Edit</span>
       </button>
     )
   }
@@ -147,22 +145,20 @@ export default class ManageFavoritesPage extends React.Component {
   renderMapItButton = () => {
     return (
       <button className="as-link map-it-button" onClick={this.handleMapItButton}>
-        <Link to={'/network-status'}>
-          <i className="icon-map-marker" aria-hidden="true" />
-          <span>Map It</span>
-        </Link>
+        <i className="icon-map-marker" aria-hidden="true" />
+        <span>Map It</span>
       </button>
     )
   }
 
   handleMapItButton = (e) => {
-    const targetId = $(e.target).parent().parent().parent()[0].dataset.id;
+    const targetId = $(e.target).parent().parent()[0].dataset.id;
     let rowData = this.manageFavoritesStore.findRowData(targetId);
     this.geolinkStore.performExternalSearch(rowData.locationFavoriteAddress);
   }
 
   handleEditButton = (e) => {
-    const targetId = $(e.target).parent().parent().parent()[0].dataset.id;
+    const targetId = $(e.target).parent().parent()[0].dataset.id;
     let rowData = this.manageFavoritesStore.findRowData(targetId);
     this.geolinkStore.performEditLocationRequest(rowData);
   }

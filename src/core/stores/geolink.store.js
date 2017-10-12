@@ -88,6 +88,7 @@ class GeolinkStore {
   @action performExternalSearch(address) {
     this.externalSearchRequest = true;
     this.values.locationAddress = address;
+    history.replace('/network-status');
   }
 
   @action performEditLocationRequest(locationData) {
@@ -98,6 +99,7 @@ class GeolinkStore {
       locationName: locationData.favoriteName,
       locationId: locationData.locationFavoriteId
     };
+    history.replace('/network-status');
   }
 
   @action addAllNetworkLayers() {
