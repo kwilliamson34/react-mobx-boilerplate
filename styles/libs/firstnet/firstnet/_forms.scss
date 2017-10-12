@@ -283,7 +283,8 @@ select::-ms-value {
       text-align: right;
       padding: 16px 10px;
       cursor: pointer;
-      font-size: $fn-button-desktop;
+      font-size: $fn-label-desktop;
+      line-height: normal;
       border: 1px solid $input-border;
       border-top: none;
       color: $fn-ltblue;
@@ -292,7 +293,7 @@ select::-ms-value {
       }
       i {
         position: absolute;
-        top: 16px;
+        top: 17px;
         left: 12px;
         font-size: $fn-label-desktop;
       }
@@ -316,7 +317,7 @@ select::-ms-value {
         text-transform: uppercase;
         text-align: center;
         padding: 20px 0px;
-        font-weight: $fn-bold-weight;
+        font-weight: $fn-medium-weight;
       }
     }
   }

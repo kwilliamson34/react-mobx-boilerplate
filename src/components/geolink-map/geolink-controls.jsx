@@ -186,7 +186,7 @@ export default class GeolinkControls extends React.Component {
           iconClass={this.store.shouldDisplayLocationName ? 'icon-star' : ''}/>
         {this.renderPredictiveDropdown()}
         <button
-          className={`as-link ${this.store.values.locationAddress ? '' : 'disabled'}`}
+          className={`as-link ${this.store.values.locationAddress && !this.store.shouldDisplayLocationName ? '' : 'disabled'}`}
           ref="addFavoriteBtn"
           onClick={this.store.showAddLocationForm.bind(this.store)}>
           Add Favorite

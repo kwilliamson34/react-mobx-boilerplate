@@ -254,14 +254,18 @@ class GeolinkStore {
   }
 
   @computed get predictedFavorites() {
-    let searchTermsMatchFavorite = null;
+    let allSearchTermsMatchFavorite = null;
     let searchTermPattern = null;
     return this.favorites.filter(favorite => {
-      searchTermsMatchFavorite = this.searchTerms.filter(term => {
+      allSearchTermsMatchFavorite = true;
+      for(let term of this.searchTerms) {
         searchTermPattern = new RegExp(term, 'i');
-        return (searchTermPattern.test(favorite.favoriteName) || searchTermPattern.test(favorite.locationFavoriteAddress));
-      }).length > 0;
-      return searchTermsMatchFavorite;
+        if(!searchTermPattern.test(favorite.favoriteName) && !searchTermPattern.test(favorite.locationFavoriteAddress)) {
+          allSearchTermsMatchFavorite = false;
+          break;
+        }
+      }
+      return allSearchTermsMatchFavorite;
     }).splice(0, 8);
   }
 
