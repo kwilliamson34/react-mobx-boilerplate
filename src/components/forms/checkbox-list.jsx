@@ -77,6 +77,10 @@ export default class CheckboxList extends React.Component {
     this.props.checkFormForErrors();
   }
 
+  onBlur = () => {
+    this.displayErrors();
+  }
+
   render() {
     return (
       <div className={`form-group ${this.props.id + '-class'} ${this.hasVisibleError ? 'has-error' : ''}`}>
@@ -95,12 +99,12 @@ export default class CheckboxList extends React.Component {
               <span className="select-all-description">Select All</span>
             </label>
           </div>
-          <button type="button" className="clear-all-button" onClick={this.clearAll}>
+          <button type="button" className="as-link" onClick={this.clearAll}>
             Clear All
           </button>
         </div>
 
-        <fieldset id={this.props.id}>
+        <fieldset id={this.props.id} onBlur={this.onBlur}>
           {this.props.children}
         </fieldset>
       </div>

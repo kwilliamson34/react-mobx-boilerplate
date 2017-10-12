@@ -174,6 +174,14 @@ class GeolinkStore {
   }
 
   @action submitForm() {
+    if(this.pageTitle === 'Edit Favorite') {
+      this.editLocation();
+    } else if(this.pageTitle === 'Add New Favorite') {
+      this.addLocation();
+    }
+  }
+
+  @action addLocation() {
     const success = () => {
       this.pageTitle = 'Network Status';
       this.successText = '"' + this.values.locationName + '" has been added.';
@@ -192,6 +200,22 @@ class GeolinkStore {
     apiService.addLocationFavorite(this.values).then(success, failure);
   }
 
+  @action editLocation() {
+    const success = () => {
+      this.pageTitle = 'Network Status';
+      this.successText = '"' + this.values.locationName + '" has been updated.';
+      this.showSuccess = true;
+      history.go(-1);
+    }
+    const failure = (err) => {
+      this.alertText = err.response && err.response.data && err.response.data.message.indexOf('already exists') > -1
+        ? 'You already have a favorite named "' + this.values.locationName + '".'
+        : 'Please fix the following errors.';
+      this.showAlert = true;
+    }
+    apiService.editLocationFavorite(this.values).then(success, failure);
+  }
+
   @action handleSecondaryAction() {
     this.clearForm();
     if(this.pageTitle === 'Edit Favorite') {
@@ -203,6 +227,7 @@ class GeolinkStore {
     this.values = Object.assign({}, this.defaultValues);
     this.clearAlerts();
     this.pageTitle = 'Network Status';
+    this.searchMap();
   }
 
   @action clearAlerts() {
@@ -296,11 +321,13 @@ class GeolinkStore {
   @observable successText = '';
   @observable defaultValues = {
     locationAddress: '',
-    locationName: ''
+    locationName: '',
+    locationId: ''
   };
   @observable values = {
     locationAddress: '',
-    locationName: ''
+    locationName: '',
+    locationId: ''
   };
   @observable dropdownIsVisible = false;
   @observable favorites = [];
