@@ -61,7 +61,7 @@ class PSEStore {
 	}
 
 	@computed get isLoggedIn() {
-		return this.userStore.authentic_user;
+		return this.userStore.isAuthenticUser;
 	}
 
 	// OBSERVABLES

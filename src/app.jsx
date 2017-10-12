@@ -139,7 +139,7 @@ export default class App extends React.Component {
               <Route path="/admin/solutions" component={this.getAdminRoutes(this.getPublicSafetySolutionsComponent)}/>
               <Route path="/admin" component={this.getAdminRoutes(AdminDashboardPage)}/>
               <Route path="/app/:appPsk" component={this.getAdminRoutes(AppDetailsPage)/*TODO redirect to error/404 if psk has no match*/}/>
-              <Route path="/network-status" component={NetworkStatusPage}/>
+              <Route path="/network-status" component={this.getNetworkStatusRoutes(NetworkStatusPage)}/>
               <Route path="/manage-favorites" component={ManageFavoritesPage}/>
               <Route path="/subscribe-to-alerts" component={SubscribeToGTOC}/>
               <Route path="/subscribe-to-alerts-success" component={SubscribeToGTOCSuccess}/>
@@ -158,6 +158,11 @@ export default class App extends React.Component {
 
   getAdminRoutes = (component) => {
     let roleBasedRoutes = pseMasterStore.userStore.isAdmin ? component : () => <Redirect to="/error/unauthorized"/>;
+    return roleBasedRoutes;
+  }
+
+  getNetworkStatusRoutes = (component) => {
+    let roleBasedRoutes = pseMasterStore.userStore.canViewNetworkStatus ? component : () => <Redirect to="/error/unauthorized"/>;
     return roleBasedRoutes;
   }
 

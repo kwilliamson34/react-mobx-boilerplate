@@ -21,14 +21,15 @@ exports[`<CheckboxList /> renders matches previous snapshot 1`] = `
       </label>
     </div>
     <button
-      className="clear-all-button"
+      className="as-link"
       onClick={[Function anonymous]}
       type="button">
       Clear All
     </button>
   </div>
   <fieldset
-    id="key" />
+    id="key"
+    onBlur={[Function anonymous]} />
 </div>
 `;
 
@@ -55,14 +56,15 @@ exports[`<CheckboxList /> renders matches previous snapshot 2`] = `
       </label>
     </div>
     <button
-      className="clear-all-button"
+      className="as-link"
       onClick={[Function anonymous]}
       type="button">
       Clear All
     </button>
   </div>
   <fieldset
-    id="key">
+    id="key"
+    onBlur={[Function anonymous]}>
     1
     2
   </fieldset>
@@ -92,14 +94,15 @@ exports[`<CheckboxList /> renders matches previous snapshot 3`] = `
       </label>
     </div>
     <button
-      className="clear-all-button"
+      className="as-link"
       onClick={[Function anonymous]}
       type="button">
       Clear All
     </button>
   </div>
   <fieldset
-    id="key">
+    id="key"
+    onBlur={[Function anonymous]}>
     1
     2
   </fieldset>
