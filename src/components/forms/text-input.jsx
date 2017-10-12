@@ -25,7 +25,8 @@ export default class TextInput extends React.Component {
     showClearButton: PropTypes.bool,
     handleClearClick: PropTypes.func,
     handleSubmit: PropTypes.func,
-    submitIcon: PropTypes.string
+    submitIcon: PropTypes.string,
+    iconClass: PropTypes.string
   }
 
   static defaultProps = {
@@ -114,7 +115,7 @@ export default class TextInput extends React.Component {
           srOnly={this.props.labelIsSrOnly}
           helperText={this.props.helperText}
           errorMessage={this.props.errorMessage} />
-        <div className="input-group">
+        <div className={`input-group ${this.props.iconClass ? 'has-icon' : ''}`}>
           <Tag
             className="form-control"
             ref="input"
@@ -124,7 +125,8 @@ export default class TextInput extends React.Component {
             onChange={this.handleOnChange}
             onBlur={this.handleOnBlur}
             onKeyPress={this.handleKeyPress}
-            value={this.valueInStore} />
+            value={this.valueInStore}/>
+          {this.props.iconClass && <i className={`prefix-icon ${this.props.iconClass}`}></i>}
           {clearButtonVisible &&
             <span className="input-group-btn">
               <button className="clear-btn" type="button" ref="btnClear" onClick={this.handleClearClick}>

@@ -102,6 +102,15 @@ $map-controls-text-line-height: 1.3;
   padding-bottom: 100px;
   padding-top: 30px;
 
+  .dropdown-visible {
+    .form-control {
+      border-bottom-left-radius: 0px;
+    }
+    .submit-btn {
+      border-bottom-right-radius: 0px;
+    }
+  }
+
   [class*='col-'] {
     padding-left: 40px;
     padding-right: 40px;

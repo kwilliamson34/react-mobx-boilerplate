@@ -86,7 +86,6 @@ exports[`<PSEHeader /> render matches snapshot when header store is not initiali
             id="hdr-network-status"
             role="presentation">
             <a
-              aria-current={false}
               className={undefined}
               href="/network-status"
               id="linkBtn-networkStatus"
@@ -123,7 +122,6 @@ exports[`<PSEHeader /> render matches snapshot when header store is not initiali
               <div>
                 <li>
                   <a
-                    aria-current={false}
                     className={undefined}
                     href="/faq"
                     onClick={[Function anonymous]}
@@ -144,7 +142,6 @@ exports[`<PSEHeader /> render matches snapshot when header store is not initiali
                 </li>
                 <li>
                   <a
-                    aria-current={false}
                     className={undefined}
                     href="/feedback"
                     onClick={[Function anonymous]}
@@ -266,7 +263,6 @@ exports[`<PSEHeader /> render matches snapshot when header store is not initiali
               <div>
                 <li>
                   <a
-                    aria-current={false}
                     className={undefined}
                     href="/faq"
                     onClick={[Function anonymous]}
@@ -287,7 +283,6 @@ exports[`<PSEHeader /> render matches snapshot when header store is not initiali
                 </li>
                 <li>
                   <a
-                    aria-current={false}
                     className={undefined}
                     href="/feedback"
                     onClick={[Function anonymous]}
@@ -417,7 +412,6 @@ exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
             id="hdr-network-status"
             role="presentation">
             <a
-              aria-current={false}
               className={undefined}
               href="/network-status"
               id="linkBtn-networkStatus"
@@ -454,7 +448,6 @@ exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
               <div>
                 <li>
                   <a
-                    aria-current={false}
                     className={undefined}
                     href="/faq"
                     onClick={[Function anonymous]}
@@ -475,7 +468,6 @@ exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
                 </li>
                 <li>
                   <a
-                    aria-current={false}
                     className={undefined}
                     href="/feedback"
                     onClick={[Function anonymous]}
@@ -597,7 +589,6 @@ exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
               <div>
                 <li>
                   <a
-                    aria-current={false}
                     className={undefined}
                     href="/faq"
                     onClick={[Function anonymous]}
@@ -618,7 +609,6 @@ exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
                 </li>
                 <li>
                   <a
-                    aria-current={false}
                     className={undefined}
                     href="/feedback"
                     onClick={[Function anonymous]}
@@ -748,7 +738,6 @@ exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
             id="hdr-network-status"
             role="presentation">
             <a
-              aria-current={false}
               className={undefined}
               href="/network-status"
               id="linkBtn-networkStatus"
@@ -785,7 +774,6 @@ exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
               <div>
                 <li>
                   <a
-                    aria-current={false}
                     className={undefined}
                     href="/faq"
                     onClick={[Function anonymous]}
@@ -806,7 +794,6 @@ exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
                 </li>
                 <li>
                   <a
-                    aria-current={false}
                     className={undefined}
                     href="/feedback"
                     onClick={[Function anonymous]}
@@ -928,7 +915,6 @@ exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
               <div>
                 <li>
                   <a
-                    aria-current={false}
                     className={undefined}
                     href="/faq"
                     onClick={[Function anonymous]}
@@ -949,7 +935,6 @@ exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
                 </li>
                 <li>
                   <a
-                    aria-current={false}
                     className={undefined}
                     href="/feedback"
                     onClick={[Function anonymous]}
