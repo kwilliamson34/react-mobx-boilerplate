@@ -51,6 +51,44 @@ describe('<PSEHeader />', () => {
       let tree = component.toJSON();
       expect(tree).toMatchSnapshot();
     });
+
+    test('user role-based snapshots', () => {
+      //Options: 'G_FN_IM','G_FN_ADM','G_FN_SUB','G_FN_VOL_ADM','G_FN_VOL'
+      props.store.userStore.user.roles = ['G_FN_IM'];
+      let component = renderer.create(<MemoryRouter>
+        <PSEHeader {...props}/>
+      </MemoryRouter>);
+      let tree = component.toJSON();
+      expect(tree).toMatchSnapshot();
+
+      props.store.userStore.user.roles = ['G_FN_ADM'];
+      component = renderer.create(<MemoryRouter>
+        <PSEHeader {...props}/>
+      </MemoryRouter>);
+      tree = component.toJSON();
+      expect(tree).toMatchSnapshot();
+
+      props.store.userStore.user.roles = ['G_FN_SUB'];
+      component = renderer.create(<MemoryRouter>
+        <PSEHeader {...props}/>
+      </MemoryRouter>);
+      tree = component.toJSON();
+      expect(tree).toMatchSnapshot();
+
+      props.store.userStore.user.roles = ['G_FN_VOL_ADM'];
+      component = renderer.create(<MemoryRouter>
+        <PSEHeader {...props}/>
+      </MemoryRouter>);
+      tree = component.toJSON();
+      expect(tree).toMatchSnapshot();
+
+      props.store.userStore.user.roles = ['G_FN_VOL'];
+      component = renderer.create(<MemoryRouter>
+        <PSEHeader {...props}/>
+      </MemoryRouter>);
+      tree = component.toJSON();
+      expect(tree).toMatchSnapshot();
+    });
   });
 
   describe('user interaction', () => {

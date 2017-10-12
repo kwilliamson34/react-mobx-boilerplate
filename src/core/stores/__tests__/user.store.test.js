@@ -56,8 +56,7 @@ describe("UserStore", () => {
 			});
 
 			it("where user does not have role 'G_FN_ADM'", () => {
-				store.user.roles.pop();
-				store.checkPermissions();
+				store.user.roles = [];
 				expect(store.isAdmin).toBe(false);
 			});
 

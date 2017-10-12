@@ -35,7 +35,7 @@ export default class ErrorPage extends React.Component {
     if (this.userStore.auth_error) {
       title = 'Service Issue.';
       body_content = 'This page is experiencing an issue. Try again later, or continue to one of the FirstNet Sites below:';
-    } else if (!this.userStore.authentic_user || this.props.cause === 'unauthorized') {
+    } else if (!this.userStore.isAuthenticUser || this.props.cause === 'unauthorized') {
       title = 'You\'ve encountered a permissions error.';
       body_content = 'Unfortunately, you do not have permission to view this page. If you think this is in error, please contact your site administrator, or continue to one of the FirstNet Sites below:';
       showLogout = true;
