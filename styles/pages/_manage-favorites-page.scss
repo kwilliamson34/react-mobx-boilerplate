@@ -1,5 +1,13 @@
 #manage-location-favorites-page {
 
+  .search-form {
+    padding: 0 20px 0 0;
+  }
+
+  .alert-bars {
+    padding: 0 35px 0 15px;
+  }
+
   .sortable-table {
     @include column-widths();
     position: relative;
@@ -70,7 +78,8 @@
             font-size: 16px;
             font-weight: $fn-bold-weight;
             &:hover,
-            &:active {
+            &:active,
+            &:focus {
               text-decoration: none;
             }
             a {
@@ -89,9 +98,18 @@
               }
             }
           }
+          &:hover,
+          &:focus,
+          &:active {
+            @include focus();
+            button {
+              visibility: visible;
+            }
+          }
         }
         &:hover,
-        &:focus {
+        &:focus,
+        &:active {
           .inline-button-wrapper {
             button {
               visibility: visible;
@@ -142,7 +160,7 @@
     flex-direction: row;
     align-items: baseline;
     justify-content: space-between;
-    margin: 30px 0 20px 0;
+    margin: 20px 0;
 
     .counts-wrapper {
       font-weight: $fn-bold-weight;
@@ -158,6 +176,13 @@
         padding-left: 10px;
         border-left: 1px solid $fn-mdgrey;
       }
+    }
+    .search-count {
+      font-size: 20px;
+      font-weight: $fn-bold-weight;
+    }
+    .manage-favorites-delete-button {
+      padding-right: 20px;
     }
   }
 
@@ -184,23 +209,5 @@
         pointer-events: none;
       }
     }
-  }
-
-  .arrow-up {
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-
-    border-bottom: 8px solid $table-sort-row-highlight;
-  }
-
-  .arrow-down {
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-
-    border-top: 8px solid $table-sort-row-highlight;
   }
 }

@@ -128,7 +128,7 @@ export default class ManageFavoritesPage extends React.Component {
 
   renderSuccessBar = () => {
     return (
-      <div className="alert alert-success">
+      <div className="alert alert-success col-xs-12">
         <button type="button" className="close_btn icon-close" onClick={this.clearSuccess}>
           <span className="sr-only">Close alert</span>
         </button>
@@ -202,7 +202,7 @@ export default class ManageFavoritesPage extends React.Component {
   renderSearchCounts = () => {
     let length = this.manageFavoritesStore.sortedRows.length;
     return (
-      <div className="search-counts">
+      <div className="search-count">
         {`${length} Result${length !== 1 ? 's' : ''}`}
       </div>
     )
@@ -240,7 +240,7 @@ export default class ManageFavoritesPage extends React.Component {
 
   renderEditButton = () => {
     return (
-      <button className="as-link edit-location-button" onClick={this.handleEditButton}>
+      <button className="as-link edit-location-button" onClick={this.handleEditButton} tabIndex="-1">
         <i className="icon-pencil" aria-hidden="true" />
         <span>Edit</span>
       </button>
@@ -249,7 +249,7 @@ export default class ManageFavoritesPage extends React.Component {
 
   renderMapItButton = () => {
     return (
-      <button className="as-link map-it-button" onClick={this.handleMapItButton}>
+      <button className="as-link map-it-button" onClick={this.handleMapItButton} tabIndex="-1">
         <i className="icon-map-marker" aria-hidden="true" />
         <span>Map It</span>
       </button>
@@ -283,8 +283,7 @@ export default class ManageFavoritesPage extends React.Component {
         key: 'favoriteName',
         inlineButtonJsx: this.renderEditButton(),
         className: 'favorite-name-column col40'
-      },
-      {
+      }, {
         name: 'Location/Address',
         key: 'locationFavoriteAddress',
         inlineButtonJsx: this.renderMapItButton(),
@@ -303,7 +302,7 @@ export default class ManageFavoritesPage extends React.Component {
                 {this.renderSearchBar()}
               </div>
             </div>
-            <div className="alert-bars col-xs-12">
+            <div className="alert-bars">
               {(this.manageFavoritesStore.showSuccess || this.geolinkStore.showSuccess) && this.renderSuccessBar()}
             </div>
             <div className="col-xs-12">
