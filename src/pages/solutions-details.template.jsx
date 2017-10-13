@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {observer, inject} from 'mobx-react';
+import {Link} from 'react-router-dom';
 
 import PageTitle from '../components/page-title/page-title';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
@@ -54,7 +55,7 @@ export default class SolutionsDetailsTemplate extends React.Component {
 
   render() {
     const solutionCategoryTitle = this.props.match.params.solutionCategory.replace(/-/g, ' ');
-    const solutionDetailTitle = this.props.match.params.solutionDetail.replace(/\+/g, ' ');
+    const solutionDetailTitle = decodeURIComponent(this.props.match.params.solutionDetail);
     const solutionDetail = this.externalLinkStore.currentSolutionDetail;
     const purchasingInfo = this.externalLinkStore.currentSolutionPurchasingInfo;
 
@@ -87,6 +88,17 @@ export default class SolutionsDetailsTemplate extends React.Component {
                   __html: solutionDetail.body
                 }}></div>
               </div>
+            </section>
+          </div>
+
+          <div className="row">
+            <section className="col-xs-12 col-lg-offset-1 col-lg-10 learn-more-section">
+              <h2>Learn More</h2>
+              <hr />
+              <p dangerouslySetInnerHTML={{
+                __html: solutionDetailTitle
+              }}></p>
+              <Link className="btn fn-primary" to={'/lead-capture/' + encodeURIComponent(solutionDetailTitle)}>Request Information</Link>
             </section>
           </div>
 

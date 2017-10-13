@@ -38,6 +38,7 @@ import DevicesLandingPage from './pages/devices.page';
 import DeviceCategoryTemplate from './pages/device-category.template';
 import DeviceDetailTemplate from './pages/device-detail.template';
 import ShopSolutionsPage from './pages/shop-solutions.page';
+import LeadCapturePage from './pages/lead-capture.page';
 
 //Content pages
 import AppDetailsPage from './pages/app-details.page';
@@ -143,6 +144,7 @@ export default class App extends React.Component {
               <Route path="/subscribe-to-alerts-success" component={SubscribeToGTOCSuccess}/>
               <Route path="/feedback" component={FeedbackPage}/>
               <Route path="/feedback-success" component={FeedbackSuccessPage}/>
+              <Route path="/lead-capture/:solutionName" component={LeadCapturePage}/>
               <Route path="/faq" component={FAQPage}/>
               <Route path="/help-center" component={HelpCenterPage}/>
               <Route component={() => <Redirect to="/error/404"/>}/>

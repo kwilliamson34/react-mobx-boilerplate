@@ -1,4 +1,4 @@
-#customer-feedback-page {
+.standalone-form-page {
   padding: 0;
 
   .content-wrapper h1 {
@@ -9,10 +9,15 @@
     height: 125px;
     line-height: 1.5;
   }
+
+  .checkbox label {
+    padding-left: 0;
+    padding-top: 15px;
+  }
 }
 
 @media #{$mobile} {
-  #customer-feedback-page {
+  .standalone-form-page {
     .content-wrapper h1 {
       margin: 3rem 0;
     }

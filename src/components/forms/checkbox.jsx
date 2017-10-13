@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {observable, computed} from 'mobx';
 
 export default class Checkbox extends React.Component {
   static propTypes = {
@@ -9,7 +10,8 @@ export default class Checkbox extends React.Component {
     strongLabel: PropTypes.string,
     handleOnChange: PropTypes.func,
     disabled: PropTypes.bool,
-    checked: PropTypes.bool
+    checked: PropTypes.bool,
+    required: PropTypes.bool
   }
 
   static defaultProps = {
@@ -20,18 +22,24 @@ export default class Checkbox extends React.Component {
     disabled: false
   }
 
+  @observable hasVisibleError = false;
+  @computed get hasFunctionalError() {
+    let hasError = false;
+    if(this.props.required && !this.props.checked) {
+      hasError = true;
+    }
+    return hasError;
+  }
+
   handleOnChange = (event) => {
     if (this.props.disabled) {
       event.preventDefault();
     } else {
+      this.hasVisibleError = this.props.required && this.hasFunctionalError;
       if (this.props.handleOnChange) {
         this.props.handleOnChange(event.target);
       }
     }
-  }
-
-  isChecked() {
-    return this.refs.input.checked;
   }
 
   render() {
@@ -57,6 +65,9 @@ export default class Checkbox extends React.Component {
               ? <strong>{this.props.strongLabel}:&nbsp;</strong>
               : ''}
             <span className="label-text-normal">{this.props.label}</span>
+            {this.props.required &&
+              <span className="required-asterisks"> *</span>
+            }
           </span>
         </label>
       </div>

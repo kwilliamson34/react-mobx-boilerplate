@@ -191,6 +191,20 @@ class ApiService {
         }
       });
     }
+
+    submitLeadCaptureForm(data, solutionName) {
+      return axios({
+        method: 'post',
+        url: `${base}/lead-capture`, //TODO
+        data: {
+          name: data.firstName + ' ' + data.lastName,
+          email: data.email,
+          phoneNumber: data.phone,
+          message: data.message,
+          solutionName: solutionName
+        }
+      });
+    }
 }
 
 export const apiService = new ApiService();

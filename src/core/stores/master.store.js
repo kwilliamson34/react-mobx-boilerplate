@@ -11,6 +11,7 @@ import {gtocStore} from './gtoc.store';
 import {mdmStore} from './mdm.store';
 import {userStore} from './user.store';
 import {joyrideStore} from './joyride.store';
+import {leadCaptureStore} from './lead-capture.store';
 
 class PSEStore {
 	constructor() {
@@ -26,6 +27,7 @@ class PSEStore {
 		this.mdmStore = mdmStore;
 		this.userStore = userStore;
 		this.joyrideStore = joyrideStore;
+		this.leadCaptureStore = leadCaptureStore;
 	}
 
 	getUser() {

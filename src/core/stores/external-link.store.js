@@ -20,7 +20,7 @@ class ExternalLinkStore {
 
   @action fetchDeviceDetails({devicePath, setAsCurrent}) {
     let matches = this.allSpecializedDevices.filter((device) => {
-      return devicePath === utilsService.getDevicesAndSolutionsUrl(device.device_title);
+      return devicePath === encodeURIComponent(device.device_title);
     });
     this.checkMatches({matches, shouldBeOne: true});
 
@@ -52,7 +52,7 @@ class ExternalLinkStore {
 
   @action fetchSolutionDetails({solutionPath, setAsCurrent}) {
     let matches = this.allSolutionDetails.filter((solution) => {
-      return solutionPath === utilsService.getDevicesAndSolutionsUrl(solution.promo_title);
+      return decodeURIComponent(solutionPath) === decodeURIComponent(solution.promo_title);
     });
     this.checkMatches({matches, shouldBeOne: true});
 

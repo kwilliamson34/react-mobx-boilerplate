@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { observer, inject } from 'mobx-react';
+import {observer, inject} from 'mobx-react';
 import PageTitle from '../components/page-title/page-title';
-import {utilsService} from '../core/services/utils.service';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 import SolutionCard from '../components/solutions/solution-card';
 
@@ -34,7 +33,7 @@ export default class SolutionsCategoryTemplate extends React.Component {
     return solutionsArray.map((solution) => {
       return <SolutionCard
                 key={solution.promo_title}
-                linkTo={`${this.props.match.url}/${utilsService.getDevicesAndSolutionsUrl(solution.promo_title)}`}
+                linkTo={`${this.props.match.url}/${encodeURIComponent(solution.promo_title)}`}
                 title={solution.promo_title}
                 imageUrl={solution.promo_image_url}
                 description={solution.promo_description}

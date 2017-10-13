@@ -160,11 +160,28 @@
       }
     }
 
-    .app-details-section {
+    .app-details-section,
+    .learn-more-section {
       h2 {
         padding-top: 6rem;
       }
+    }
 
+    .learn-more-section {
+      hr {
+        margin-bottom: 30px;
+      }
+      p {
+        font-size: 2rem;
+        display: inline-block;
+      }
+      a {
+        display: inline-block;
+        float: right;
+      }
+    }
+
+    .app-details-section {
       .app-summary {
         padding: 1.5rem 0;
 

@@ -88,11 +88,6 @@ class UtilsService {
     }
   }
 
-  getDevicesAndSolutionsUrl(string) {
-    //removes HTML code entities and any special characters, before replacing spaces with plus symbol;
-    return string.trim().replace(/&\w{2,8}; ?/g, '').replace(/[^A-Z\s\d]?/ig, '').replace(/ /g, '+').toLowerCase();
-  }
-
   isValidEmailAddress(string) {
     const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     return emailRegex.test(string);
