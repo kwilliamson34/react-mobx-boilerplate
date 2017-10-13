@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
+import {computed} from 'mobx';
 
 @observer
 export class SortableColumn extends React.Component {
@@ -19,12 +20,12 @@ export class SortableColumn extends React.Component {
     children: []
   }
 
-  toggleSort = () => {
-    this.props.toggleSort(this.props.columnToSort);
+  @computed get arrowDirection() {
+    return this.props.sortDirection ? 'arrow-up' : 'arrow-down';
   }
 
-  arrowDirection = () => {
-    return this.props.sortDirection ? 'icon-arrowUp' : 'icon-arrowDown';
+  toggleSort = () => {
+    this.props.toggleSort(this.props.columnToSort);
   }
 
   isActive = () => {
@@ -34,11 +35,11 @@ export class SortableColumn extends React.Component {
   render() {
     return (
       <th scope="col" className={this.props.className}>
-        <button type="button" ref={`${this.props.columnToSort}Button`} className={this.isActive()} onClick={this.toggleSort}>
+        <button type="button" className={this.isActive()} onClick={this.toggleSort}>
           <span className="sr-only">Sort By</span>
           <span className="sort-name">
             {this.props.children}
-            <i className={this.arrowDirection()} aria-hidden="true" />
+            <i className={this.arrowDirection} aria-hidden="true" />
           </span>
         </button>
       </th>

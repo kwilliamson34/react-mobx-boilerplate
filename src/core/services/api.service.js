@@ -165,9 +165,7 @@ class ApiService {
     }
 
     getLocationFavorites() {
-      return axios.get(`${base}/user/location/favorite?pseId=${userStore.user.pse}`).then((res) => {
-        return res;
-      });
+      return axios.get(`${base}/user/location/favorite?pseId=${userStore.user.pse}`);
     }
 
     deleteLocationFavorites(array) {
@@ -178,16 +176,11 @@ class ApiService {
           pseId: userStore.user.pse,
           userlocationfavoriteId: array
         }
-      })
-      .then((res) => {
-        return res;
       });
     }
 
     searchLocationFavorites(query) {
-      return axios.get(`${base}/user/location/favorite/search?pseId=${userStore.user.pse}&location=${query}`).then((res) => {
-        return res.data;
-      });
+      return axios.get(`${base}/user/location/favorite/search?pseId=${userStore.user.pse}&location=${query}`);
     }
 
     addLocationFavorite(data) {

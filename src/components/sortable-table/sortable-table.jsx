@@ -13,7 +13,6 @@ export class SortableTable extends React.Component {
   static propTypes = {
     store: PropTypes.shape({
       checkedRows: PropTypes.object,
-      isLoading: PropTypes.bool,
       toggleSort: PropTypes.func,
       handleCheckboxChange: PropTypes.func,
       clearAllCheckboxes: PropTypes.func,
@@ -63,8 +62,9 @@ export class SortableTable extends React.Component {
       <th className="select-all-checkbox col5">
         <Checkbox
           id={'select-all-checkbox'}
-          label={''}
-          value={''}
+          label={'Select or Deselect All Checkboxes'}
+          value={'Select or Deselect All Checkboxes'}
+          srOnlyLabel={true}
           handleOnChange={this.handleSelectAll}
           checked={this.store.checkSelectAllCheckbox}/>
       </th>
@@ -124,7 +124,7 @@ export class SortableTable extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {!this.store.isLoading && this.props.shouldRenderRows && this.renderRows(this.props.rows, this.props.columns)}
+            {this.props.shouldRenderRows && this.renderRows(this.props.rows, this.props.columns)}
           </tbody>
         </table>
       </div>

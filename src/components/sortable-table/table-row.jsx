@@ -34,7 +34,8 @@ export class TableRow extends React.Component {
               value={this.props.id.toString()}
               handleOnChange={this.props.handleOnChange}
               checked={this.props.checkedRows.indexOf(this.props.id.toString()) > -1}
-              label={''}/>
+              label={`Checkbox for row`}
+              srOnlyLabel={true}/>
           </th>
         }
         {this.props.columns.map((column, i) => {
@@ -45,7 +46,7 @@ export class TableRow extends React.Component {
               </div>
               {
                 column.inlineButtonJsx &&
-                <div className="inline-button-wrapper" data-id={this.props.id} ref="inlinebutton" tabIndex="0">
+                <div className="inline-button-wrapper" data-id={this.props.id} tabIndex="0">
                   {column.inlineButtonJsx}
                 </div>
               }
