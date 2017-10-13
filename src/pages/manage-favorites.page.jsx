@@ -212,7 +212,7 @@ export default class ManageFavoritesPage extends React.Component {
     return (
       <div className="counts-wrapper">
         <div className="pagination-count">
-          {`Showing 1-${this.manageFavoritesStore.sortedRows.length} of ${this.manageFavoritesStore.rows.length}`}
+          {`Showing 1`}&ndash;{`${this.manageFavoritesStore.sortedRows.length} of ${this.manageFavoritesStore.rows.length}`}
         </div>
         {
           this.manageFavoritesStore.checkedRows.length > 0 &&
@@ -231,8 +231,10 @@ export default class ManageFavoritesPage extends React.Component {
       <div className="manage-favorites-delete-button">
         <button className={`as-link ${disableButton ? 'disabled' : ''}`} onClick={this.handleDeleteAction}>
           <i className="icon-trash" aria-hidden="true" />
-          {(disableButton || oneItemSelected) && 'Delete Favorite'}
-          {(!disableButton && !oneItemSelected) && `Delete ${this.manageFavoritesStore.checkedRows.length} Favorites`}
+          <span>
+            {(disableButton || oneItemSelected) && 'Delete Favorite'}
+            {(!disableButton && !oneItemSelected) && `Delete ${this.manageFavoritesStore.checkedRows.length} Favorites`}
+          </span>
         </button>
       </div>
     )
@@ -282,7 +284,7 @@ export default class ManageFavoritesPage extends React.Component {
         name: 'Name',
         key: 'favoriteName',
         inlineButtonJsx: this.renderEditButton(),
-        className: 'favorite-name-column col40'
+        className: 'favorite-name-column col60'
       }, {
         name: 'Location/Address',
         key: 'locationFavoriteAddress',

@@ -12,6 +12,7 @@
     @include column-widths();
     position: relative;
     margin: 10px 0;
+    table-layout: fixed;
 
     th {
       padding: 0;
@@ -26,20 +27,23 @@
         }
       }
     }
-
     p {
       margin: 0;
     }
 
-    .sortable-table-row {
-      vertical-align: bottom;
+    .favorite-name-column {
+      padding-right: 40px;
     }
 
     .sortable-table-row {
       background-color: $fn-white;
       border-bottom: 1px solid $fn-dark;
+      vertical-align: bottom;
       th {
         background-color: $fn-white;
+        &.active {
+          background-color: rgba(16, 113, 188, 0.05);
+        }
       }
       td {
         position: relative;
@@ -72,19 +76,21 @@
         .inline-button-wrapper {
           width: 20%;
           float: right;
+          i {
+            padding-right: 5px;
+          }
           button {
             visibility: hidden;
             text-transform: uppercase;
             font-size: 16px;
             font-weight: $fn-bold-weight;
             &:hover,
-            &:active,
             &:focus {
               text-decoration: none;
             }
             a {
               &:hover,
-              &:active {
+              &:focus {
                 text-decoration: none;
               }
               i {
@@ -92,15 +98,14 @@
               }
               span {
                 &:hover,
-                &:active {
+                &:focus {
                   text-decoration: underline;
                 }
               }
             }
           }
           &:hover,
-          &:focus,
-          &:active {
+          &:focus {
             @include focus();
             button {
               visibility: visible;
@@ -108,14 +113,19 @@
           }
         }
         &:hover,
-        &:focus,
-        &:active {
+        &:focus {
+          @include focus();
           .inline-button-wrapper {
             button {
               visibility: visible;
             }
           }
         }
+      }
+      &:focus,
+      &.active {
+        @include focus();
+	      background-color: rgba(16, 113, 188, 0.05);
       }
     }
 
@@ -130,11 +140,13 @@
       border-bottom: 5px solid transparent;
 
       &:hover,
+      &:focus,
       &.active {
-          border-bottom: 5px solid $table-sort-row-highlight;
-          .sort-name i {
-            display: block;
-          }
+        @include focus();
+        border-bottom: 5px solid $table-sort-row-highlight;
+        .sort-name i {
+          display: block;
+        }
       }
 
       .sort-name {
@@ -147,7 +159,7 @@
           color: $table-sort-row-highlight;
           display: none;
           position: absolute;
-          right: 40px;
+          right: 20px;
           top: 20px;
 
         }
@@ -204,9 +216,16 @@
     font-size: 16px;
     button {
       text-transform: uppercase;
-      &.disabled {
-        color: $fn-mdgrey;
-        pointer-events: none;
+      text-decoration: none;
+      &:hover,
+      &:focus {
+        span {
+          text-decoration: underline;
+        }
+      }
+      i {
+        font-size: 16px;
+        padding-right: 10px;
       }
     }
   }

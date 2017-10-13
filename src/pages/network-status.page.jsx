@@ -53,7 +53,9 @@ export default class NetworkStatusPage extends React.Component {
       <div className="manage-favorites-delete-button">
         <button className="as-link" onClick={this.handleEditLocationDelete}>
           <i className="icon-trash" aria-hidden="true" />
-          Delete Favorite
+          <span>
+            Delete Favorite
+          </span>
         </button>
       </div>
     )
@@ -83,7 +85,7 @@ export default class NetworkStatusPage extends React.Component {
         {(this.geoStore.pageTitle === 'Add New Favorite' || this.geoStore.pageTitle === 'Edit Favorite') &&
           <div className="container location-favorites">
             <div className="row">
-              <div className="col-xs-12">
+              <div className="col-xs-12 title-wrapper">
                 <h2 className="as-h1">{this.geoStore.pageTitle}</h2>
                 {this.geoStore.pageTitle === 'Edit Favorite' && this.renderEditLocationDeleteButton()}
               </div>

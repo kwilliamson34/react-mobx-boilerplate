@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
+import {computed} from 'mobx';
 
 import Checkbox from '../forms/checkbox';
 
@@ -13,7 +14,6 @@ export class TableRow extends React.Component {
     columns: PropTypes.array.isRequired,
     handleOnChange: PropTypes.func,
     hasCheckbox: PropTypes.bool,
-    checked: PropTypes.bool,
     checkedRows: PropTypes.object
   }
 
@@ -23,17 +23,22 @@ export class TableRow extends React.Component {
     checkedRows: []
   }
 
+  @computed get rowIsChecked() {
+    return this.props.checkedRows.indexOf(this.props.id.toString()) > -1;
+  }
+
   render() {
+    console.log('checked', this.rowIsChecked);
     return (
-      <tr className={`sortable-table-row ${this.props.checked ? 'active' : ''}`} tabIndex="0">
+      <tr className={`sortable-table-row ${this.rowIsChecked ? 'active' : ''}`} tabIndex="0">
         {
           this.props.hasCheckbox &&
-          <th scope="row" className="table-row-checkbox">
+          <th scope="row" className={`table-row-checkbox ${this.rowIsChecked ? 'active' : ''}`}>
             <Checkbox
               id={this.props.id.toString()}
               value={this.props.id.toString()}
               handleOnChange={this.props.handleOnChange}
-              checked={this.props.checkedRows.indexOf(this.props.id.toString()) > -1}
+              checked={this.rowIsChecked}
               label={`Checkbox for row`}
               srOnlyLabel={true}/>
           </th>
