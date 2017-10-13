@@ -193,8 +193,7 @@ class GeolinkStore {
 
   @action submitForm() {
     if(this.formHasError) {
-      this.alertText = 'Please fix the following errors.';
-      this.showAlert = true;
+      this.showAllFormErrors();
       return;
     }
     if(this.pageTitle === 'Edit Favorite') {
@@ -266,6 +265,16 @@ class GeolinkStore {
       }
     });
     return formHasChanged;
+  }
+
+  @action showAllFormErrors() {
+    this.formFieldRefList.forEach(ref => {
+      if(ref && ref.hasFunctionalError) {
+        ref.hasVisibleError = ref.hasFunctionalError;
+      }
+    });
+    this.alertText = 'Please fix the following errors.';
+    this.showAlert = true;
   }
 
   @action checkFormForErrors() {
