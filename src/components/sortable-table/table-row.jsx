@@ -28,7 +28,6 @@ export class TableRow extends React.Component {
   }
 
   render() {
-    console.log('checked', this.rowIsChecked);
     return (
       <tr className={`sortable-table-row ${this.rowIsChecked ? 'active' : ''}`} tabIndex="0">
         {
@@ -39,7 +38,7 @@ export class TableRow extends React.Component {
               value={this.props.id.toString()}
               handleOnChange={this.props.handleOnChange}
               checked={this.rowIsChecked}
-              label={`Checkbox for row`}
+              label={'Checkbox for row'}
               srOnlyLabel={true}/>
           </th>
         }

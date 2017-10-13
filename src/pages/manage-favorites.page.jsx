@@ -212,7 +212,7 @@ export default class ManageFavoritesPage extends React.Component {
     return (
       <div className="counts-wrapper">
         <div className="pagination-count">
-          {`Showing 1`}&ndash;{`${this.manageFavoritesStore.sortedRows.length} of ${this.manageFavoritesStore.rows.length}`}
+          {'Showing 1'}&ndash;{`${this.manageFavoritesStore.sortedRows.length} of ${this.manageFavoritesStore.rows.length}`}
         </div>
         {
           this.manageFavoritesStore.checkedRows.length > 0 &&
@@ -284,12 +284,12 @@ export default class ManageFavoritesPage extends React.Component {
         name: 'Name',
         key: 'favoriteName',
         inlineButtonJsx: this.renderEditButton(),
-        className: 'favorite-name-column col60'
+        className: 'favorite-name-column col50'
       }, {
         name: 'Location/Address',
         key: 'locationFavoriteAddress',
         inlineButtonJsx: this.renderMapItButton(),
-        className: 'location-address-column col40'
+        className: 'location-address-column col45'
       }
     ];
 

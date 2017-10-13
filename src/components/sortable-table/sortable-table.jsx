@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
-import {computed} from 'mobx';
 
 import {SortableColumn} from './sortable-column';
 import {TableRow} from './table-row';
@@ -59,7 +58,7 @@ export class SortableTable extends React.Component {
 
   renderSelectAllCheckbox = () => {
     return (
-      <th className="select-all-checkbox col5">
+      <th className="select-all-checkbox col7">
         <Checkbox
           id={'select-all-checkbox'}
           label={'Select or Deselect All Checkboxes'}
