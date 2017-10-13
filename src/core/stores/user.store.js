@@ -125,7 +125,7 @@ class UserStore {
     shopStandardDevices: ['G_FN_ADM', 'G_FN_VOL'],
     shopSpecializedDevices: ['G_FN_ADM', 'G_FN_VOL'],
     shopPublicSafetySolutions: ['G_FN_ADM', 'G_FN_VOL_ADM', 'G_FN_VOL'],
-    manageUsers: ['G_FN_ADM', 'G_FN_ITM', 'G_FN_VOL_ADM', 'G_FN_VOL'],
+    manageUsers: ['G_FN_ADM', 'G_FN_ITM'],
     viewReports: ['G_FN_ADM', 'G_FN_VOL'],
     manageApps: ['G_FN_ADM', 'G_FN_ITM', 'G_FN_SUB', 'G_FN_VOL_ADM', 'G_FN_VOL']
   }
