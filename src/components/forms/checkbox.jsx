@@ -32,14 +32,22 @@ export default class Checkbox extends React.Component {
   }
 
   handleOnChange = (event) => {
-    if (this.props.disabled) {
-      event.preventDefault();
-    } else {
-      this.hasVisibleError = this.props.required && this.hasFunctionalError;
+    if (!this.props.disabled) {
       if (this.props.handleOnChange) {
         this.props.handleOnChange(event.target);
       }
+      // this.showErrorIfApplicable();
     }
+  }
+
+  handleOnBlur = (event) => {
+    if (!this.props.disabled) {
+      // this.showErrorIfApplicable();
+    }
+  }
+
+  showErrorIfApplicable = () => {
+    this.hasVisibleError = this.hasFunctionalError;
   }
 
   render() {
@@ -47,7 +55,7 @@ export default class Checkbox extends React.Component {
       ? 'disabled'
       : '';
     return (
-      <div className={`checkbox ${disabledClass}`}>
+      <div className={`checkbox ${disabledClass} ${this.hasVisibleError ? 'has-error' : ''}`}>
         <label>
           <input
             type="checkbox"
@@ -58,7 +66,8 @@ export default class Checkbox extends React.Component {
             value={this.props.value || this.props.label}
             checked={this.props.checked}
             data-checked={this.props.checked/*custom DOM prop included for automated testing*/}
-            onChange={this.handleOnChange}/>
+            onChange={this.handleOnChange}
+            onBlur={this.handleOnBlur}/>
           <span className="cr"></span>
           <span className="label-text">
             {this.props.strongLabel

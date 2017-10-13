@@ -38,8 +38,7 @@ class LeadCaptureForm extends React.Component {
           type="input"
           labelText="First Name"
           required={true}
-          errorMessage="Please enter a first name."
-          charLimit={100}/>
+          errorMessage="Please enter your name."/>
 
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
@@ -49,8 +48,7 @@ class LeadCaptureForm extends React.Component {
           type="input"
           labelText="Last Name"
           required={true}
-          errorMessage="Please enter a last name."
-          charLimit={100}/>
+          errorMessage="Please enter your name."/>
 
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
@@ -71,7 +69,7 @@ class LeadCaptureForm extends React.Component {
           type="input"
           labelText="Contact Number"
           required={true}
-          errorMessage="Please enter a contact number."
+          errorMessage="Please enter your phone number."
           charLimit={15}/>
 
         <TextInput
@@ -83,7 +81,7 @@ class LeadCaptureForm extends React.Component {
           labelText="Message (Optional)"
           required={false}
           errorMessage="Please enter a summary of your request."
-          charLimit={10000}/>
+          charLimit={250}/>
 
         <Checkbox
           ref={ref => this.store.formFieldRefList.push(ref)}

@@ -65,8 +65,8 @@ class LeadCaptureStore {
   @observable solutionName = '';
   @observable defaultValues = {
     title: '',
-    firstName: '',
-    lastName: '',
+    firstName: userStore.user.firstName,
+    lastName: userStore.user.lastName,
     email: userStore.user.email,
     phone: userStore.user.phone,
     message: '',
@@ -74,8 +74,8 @@ class LeadCaptureStore {
   };
   @observable values = {
     title: '',
-    firstName: '',
-    lastName: '',
+    firstName: userStore.user.firstName,
+    lastName: userStore.user.lastName,
     email: userStore.user.email,
     phone: userStore.user.phone,
     message: '',
