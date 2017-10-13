@@ -32,15 +32,56 @@ export default class ManageFavoritesPage extends React.Component {
     this.clearSuccess();
   }
 
+  resetSearch = () => {
+    this.manageFavoritesStore.resetSearch();
+  }
+
+  clearSuccess = () => {
+    this.manageFavoritesStore.clearSuccess();
+    this.geolinkStore.clearAlerts();
+    this.geolinkStore.successText = '';
+  }
+
   keepFavorites = (e) => {
     e.preventDefault();
-    this.manageFavoritesStore.hideDeleteModal();
+    this.hideDeleteModal();
   }
 
   deleteFavorites = (e) => {
     e.preventDefault();
     this.manageFavoritesStore.deleteRows();
-    this.manageFavoritesStore.hideDeleteModal();
+    this.hideDeleteModal();
+  }
+
+  advancePagination = () => {
+    this.manageFavoritesStore.advancePagination();
+  }
+
+  handleMapItButton = (e) => {
+    const targetId = $(e.target).parent().parent()[0].dataset.id;
+    let rowData = this.manageFavoritesStore.findRowData(targetId);
+    this.geolinkStore.performExternalSearch(rowData.locationFavoriteAddress);
+  }
+
+  handleEditButton = (e) => {
+    const targetId = $(e.target).parent().parent()[0].dataset.id;
+    let rowData = this.manageFavoritesStore.findRowData(targetId);
+    this.geolinkStore.performEditLocationRequest(rowData);
+  }
+
+  handleDeleteAction = (e) => {
+    e.preventDefault();
+    this.showDeleteModal();
+  }
+
+  showDeleteModal = () => {
+    $('#delete-modal').modal({backdrop: 'static'});
+    $('#delete-modal').modal('show');
+  }
+
+  hideDeleteModal = () => {
+    $('#delete-modal').modal('hide');
+    $('#delete-modal').data('bs.modal', null);
   }
 
   renderDeleteModal = () => {
@@ -49,7 +90,7 @@ export default class ManageFavoritesPage extends React.Component {
         <div>
           <div className="modal-dialog">
             <div className="modal-content">
-              <button type="button" className="fn-modal-close" onClick={this.manageFavoritesStore.hideDeleteModal}>
+              <button type="button" className="fn-modal-close" onClick={this.hideDeleteModal}>
                 <i aria-hidden="true" className="icon-close"></i>
                 <span className="sr-only">Close window</span>
               </button>
@@ -70,30 +111,6 @@ export default class ManageFavoritesPage extends React.Component {
     )
   }
 
-  noFetchResultsJsx = () => {
-    return (
-      <div className="no-fetch-results">
-        <div className="as-h2">No Favorites</div>
-        <div className="as-h3">No favorite locations have been added yet. Add some!</div>
-        <button className="fn-primary">
-          <Link to={'/network-status'}>Add From Map</Link>
-        </button>
-      </div>
-    )
-  }
-
-  noSearchResultsJsx = () => {
-    return (
-      <div className="no-search-results">
-        <div className="as-h2">No Results</div>
-        <div className="as-h3">There are no results to display. Please retry your search.</div>
-        <button className="fn-primary" onClick={this.resetSearch}>
-          Load All Favorites
-        </button>
-      </div>
-    )
-  }
-
   renderSearchBar = () => {
     return (
       <TextInput
@@ -105,8 +122,7 @@ export default class ManageFavoritesPage extends React.Component {
         showClearButton={true}
         handleSubmit={this.manageFavoritesStore.searchLocations.bind(this.manageFavoritesStore)}
         handleClearClick={this.resetSearch}
-        submitIcon="icon-search"
-        />
+        submitIcon="icon-search"/>
     )
   }
 
@@ -123,14 +139,103 @@ export default class ManageFavoritesPage extends React.Component {
     )
   }
 
-  resetSearch = () => {
-    this.manageFavoritesStore.resetSearch();
+  renderIsLoading = () => {
+    return (
+      <div className="loading-block">
+        <p className="as-h2" aria-live="polite">
+          <i className="as-h2 icon-reload" aria-hidden="true"></i>
+          Loading favorites&hellip;
+        </p>
+      </div>
+    )
   }
 
-  clearSuccess = () => {
-    this.manageFavoritesStore.clearSuccess();
-    this.geolinkStore.clearAlerts();
-    this.geolinkStore.successText = '';
+  renderNoResults = () => {
+    return (
+      <div className="no-results-wrapper">
+        {
+          this.manageFavoritesStore.showSearchResults
+            ? this.renderNoSearchResults()
+            : this.renderNoFetchResults()
+        }
+      </div>
+    )
+  }
+
+  renderNoFetchResults = () => {
+    return (
+      <div className="no-fetch-results">
+        <div className="as-h2">No Favorites</div>
+        <div className="as-h3">No favorite locations have been added yet. Add some!</div>
+        <button className="fn-primary">
+          <Link to={'/network-status'}>Add From Map</Link>
+        </button>
+      </div>
+    )
+  }
+
+  renderNoSearchResults = () => {
+    return (
+      <div className="no-search-results">
+        <div className="as-h2">No Results</div>
+        <div className="as-h3">There are no results to display. Please retry your search.</div>
+        <button className="fn-primary" onClick={this.resetSearch}>
+          Load All Favorites
+        </button>
+      </div>
+    )
+  }
+
+  renderTopAndBottomFeatures = () => {
+    return (
+      <div className="pagination-count-delete-wrapper">
+        {
+          this.manageFavoritesStore.showSearchResults
+            ? this.renderSearchCounts()
+            : this.renderStatCounts()
+        }
+        {this.renderDeleteButton()}
+      </div>
+    )
+  }
+
+  renderSearchCounts = () => {
+    let length = this.manageFavoritesStore.sortedRows.length;
+    return (
+      <div className="search-counts">
+        {`${length} Result${length !== 1 ? 's' : ''}`}
+      </div>
+    )
+  }
+
+  renderStatCounts = () => {
+    return (
+      <div className="counts-wrapper">
+        <div className="pagination-count">
+          {`Showing 1-${this.manageFavoritesStore.sortedRows.length} of ${this.manageFavoritesStore.rows.length}`}
+        </div>
+        {
+          this.manageFavoritesStore.checkedRows.length > 0 &&
+          <div className="selection-count">
+            {`${this.manageFavoritesStore.checkedRows.length} Selected`}
+          </div>
+        }
+      </div>
+    )
+  }
+
+  renderDeleteButton = () => {
+    const disableButton = this.manageFavoritesStore.checkedRows.length === 0;
+    const oneItemSelected = this.manageFavoritesStore.checkedRows.length === 1;
+    return (
+      <div className="manage-favorites-delete-button">
+        <button className={`as-link ${disableButton ? 'disabled' : ''}`} onClick={this.handleDeleteAction}>
+          <i className="icon-trash" aria-hidden="true" />
+          {(disableButton || oneItemSelected) && 'Delete Favorite'}
+          {(!disableButton && !oneItemSelected) && `Delete ${this.manageFavoritesStore.checkedRows.length} Favorites`}
+        </button>
+      </div>
+    )
   }
 
   renderEditButton = () => {
@@ -151,16 +256,14 @@ export default class ManageFavoritesPage extends React.Component {
     )
   }
 
-  handleMapItButton = (e) => {
-    const targetId = $(e.target).parent().parent()[0].dataset.id;
-    let rowData = this.manageFavoritesStore.findRowData(targetId);
-    this.geolinkStore.performExternalSearch(rowData.locationFavoriteAddress);
-  }
-
-  handleEditButton = (e) => {
-    const targetId = $(e.target).parent().parent()[0].dataset.id;
-    let rowData = this.manageFavoritesStore.findRowData(targetId);
-    this.geolinkStore.performEditLocationRequest(rowData);
+  renderLoadMoreButton = () => {
+    return (
+      <div className="load-more-button">
+        <button className="fn-secondary" onClick={this.advancePagination}>
+          Load More
+        </button>
+      </div>
+    )
   }
 
   render() {
@@ -204,20 +307,21 @@ export default class ManageFavoritesPage extends React.Component {
               {(this.manageFavoritesStore.showSuccess || this.geolinkStore.showSuccess) && this.renderSuccessBar()}
             </div>
             <div className="col-xs-12">
+              {(this.manageFavoritesStore.shouldRenderRows || this.manageFavoritesStore.showSearchResults) && this.renderTopAndBottomFeatures()}
               <SortableTable
                 store={this.manageFavoritesStore}
                 tableId="manage-locations-table"
                 idKey="locationFavoriteId"
                 columns={tableColumns}
                 rows={this.manageFavoritesStore.sortedRows}
+                shouldRenderRows={this.manageFavoritesStore.shouldRenderRows}
                 activeColumn={this.manageFavoritesStore.activeColumn}
                 sortDirections={this.manageFavoritesStore.sortDirections}
-                allRowsCount={this.manageFavoritesStore.rows.length}
-                noFetchResultsJsx={this.noFetchResultsJsx()}
-                noSearchResultsJsx={this.noSearchResultsJsx()}
-                hasCheckboxRow={true}
-                pagination={true}
-                />
+                hasCheckboxRow={true}/>
+              {this.manageFavoritesStore.isLoading && this.renderIsLoading()}
+              {!this.manageFavoritesStore.shouldRenderRows && this.renderNoResults()}
+              {this.manageFavoritesStore.shouldRenderRows && this.renderTopAndBottomFeatures()}
+              {this.manageFavoritesStore.showLoadMoreButton && this.manageFavoritesStore.shouldRenderRows && this.renderLoadMoreButton()}
             </div>
           </div>
         </div>

@@ -65,14 +65,6 @@ class GeolinkStore {
     }).then(success, fail);
   }
 
-  @action updateSearchTerm(searchTerm) {
-    this.searchTerm = searchTerm;
-  }
-
-  @action updateDefaultSearchTerm(defaultSearchTerm) {
-    this.defaultSearchTerm = defaultSearchTerm;
-  }
-
   @action searchMap() {
     this.dropdownIsVisible = false;
     this.shouldDisplayLocationName = false;

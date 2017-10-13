@@ -3,7 +3,6 @@ import {apiService} from '../services/api.service';
 import {utilsService} from '../services/utils.service';
 import {history} from '../services/history.service';
 import _ from 'lodash';
-import $ from 'jquery';
 
 class ManageFavoritesStore {
 
@@ -120,16 +119,6 @@ class ManageFavoritesStore {
     });
   }
 
-  @action showDeleteModal = () => {
-    $('#delete-modal').modal({backdrop: 'static'});
-    $('#delete-modal').modal('show');
-  }
-
-  @action hideDeleteModal = () => {
-    $('#delete-modal').modal('hide');
-    $('#delete-modal').data('bs.modal', null);
-  }
-
   @action resetPagination() {
     this.paginationCount = 0;
   }
@@ -167,6 +156,19 @@ class ManageFavoritesStore {
   @computed get rowIsChecked() {
     return this.checkedRows.indexOf(this.activeRow) > -1;
   }
+
+  @computed get shouldRenderRows() {
+    return !this.isLoading && this.sortedRows.length > 0;
+  }
+
+  @computed get checkSelectAllCheckbox() {
+    return !this.isLoading && this.checkedRows.length === this.sortedRows.length;
+  }
+
+  @computed get showLoadMoreButton() {
+    return this.rows.length > this.sortedRows.length;
+  }
+
 
   @observable rows = [];
   @observable checkedRows = [];
