@@ -165,10 +165,7 @@ class MDMStore {
 
   @action submitForm() {
     if(this.formHasError) {
-      this.showErrorAlert({
-        alertList: this.mdm_form_alerts,
-        message: 'Please fix the following errors.'
-      });
+      this.showAllFormErrors();
       return;
     }
     const success = (resp) => {
@@ -308,6 +305,18 @@ class MDMStore {
       }
     });
     return formHasChanged;
+  }
+
+  @action showAllFormErrors() {
+    this.formFieldRefList.forEach(ref => {
+      if(ref && ref.hasFunctionalError) {
+        ref.hasVisibleError = ref.hasFunctionalError;
+      }
+    });
+    this.showErrorAlert({
+      alertList: this.mdm_form_alerts,
+      message: 'Please fix the following errors.'
+    });
   }
 
   @action checkFormForErrors() {

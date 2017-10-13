@@ -50,7 +50,7 @@ class FeedbackForm extends React.Component {
           type="input"
           labelText="Title"
           required={true}
-          errorMessage="Please enter title."
+          errorMessage="Please enter a title."
           charLimit={250}/>
 
         <SelectInput
