@@ -35,12 +35,11 @@ describe('<ErrorPage />', () => {
 
     test('shows Access Denied for authorization problem', () => {
       props.store.userStore.auth_error = false;
-      props.store.userStore.authentic_user = false;
       component = renderer.create(<ErrorPage {...props}/>);
       tree = component.toJSON();
       expect(tree).toMatchSnapshot();
 
-      props.store.userStore.authentic_user = true;
+      props.store.userStore.user.roles = '';
       props.cause === 'unauthorized'
       component = renderer.create(<ErrorPage {...props}/>);
       tree = component.toJSON();

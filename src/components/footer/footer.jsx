@@ -23,7 +23,7 @@ export default class Footer extends React.Component {
 		super(props);
 		this.headerStore = this.props.store.headerStore;
 		this.externalLinkStore = this.props.store.externalLinkStore;
-		this.user = this.props.store.userStore;
+		this.userStore = this.props.store.userStore;
 		this.handleSitemapClick = this.handleSitemapClick.bind(this);
 		this.joyrideStore = this.props.store.joyrideStore;
 	}
@@ -52,7 +52,7 @@ export default class Footer extends React.Component {
 							aria-haspopup="true"
 							aria-expanded={this.headerStore.footerSitemapExpanded}>Sitemap</a>
 						<ul className="sitemap-links">
-							{this.user.isAdmin &&
+							{this.userStore.isAdmin &&
 							<div>
 								<li role="presentation">
 									<Link to="/admin">PSE Administration</Link>
@@ -68,9 +68,10 @@ export default class Footer extends React.Component {
 								</li>
 							</div>
 							}
-							<li role="presentation">
-								<Link to="/network-status">Network Status</Link>
-							</li>
+							{this.userStore.canViewNetworkStatus &&
+								<li role="presentation">
+									<Link to="/network-status">Network Status</Link>
+								</li>}
 						</ul>
 					</nav>
 				</div>

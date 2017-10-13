@@ -63,12 +63,14 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
             </ul>
           </div>
           <button
-            className="as-link disabled"
+            className="as-link add-favorite-button disabled"
             onClick={[Function bound mockConstructor]}>
             Add Favorite
           </button>
         </div>
       </div>
+      <hr
+        className="col-xs-12 visible-xs" />
       <div
         className="col-xs-12 col-sm-5 col-md-4 map-layers">
         <h2>
@@ -316,7 +318,7 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
     <div
       className="row is-flex">
       <div
-        className="col-xs-12 visible-xs-inline visible-sm-inline">
+        className="legend-block col-xs-12 visible-xs-inline visible-sm-inline">
         <div>
           <span
             className="hidden-xs hidden-sm">
@@ -371,7 +373,7 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
       <hr
         className="col-xs-12 hidden-xs hidden-sm" />
       <div
-        className="col-xs-12 col-md-6">
+        className="legend-block col-xs-12 col-md-6">
         <div>
           <h2>
             Weather
@@ -408,7 +410,7 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
         </div>
       </div>
       <div
-        className="col-xs-12 col-md-6">
+        className="legend-block col-xs-12 col-md-6">
         <div>
           <h2>
             Traffic
@@ -494,12 +496,14 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
           </h2>
           
           <button
-            className="as-link disabled"
+            className="as-link add-favorite-button disabled"
             onClick={[Function bound mockConstructor]}>
             Add Favorite
           </button>
         </div>
       </div>
+      <hr
+        className="col-xs-12 visible-xs" />
       <div
         className="col-xs-12 col-sm-5 col-md-4 map-layers">
         <h2>
@@ -747,7 +751,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
     <div
       className="row is-flex">
       <div
-        className="col-xs-12 visible-xs-inline visible-sm-inline">
+        className="legend-block col-xs-12 visible-xs-inline visible-sm-inline">
         <div>
           <span
             className="hidden-xs hidden-sm">
@@ -802,7 +806,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
       <hr
         className="col-xs-12 hidden-xs hidden-sm" />
       <div
-        className="col-xs-12 col-md-6">
+        className="legend-block col-xs-12 col-md-6">
         <div>
           <h2>
             Weather
@@ -839,7 +843,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
         </div>
       </div>
       <div
-        className="col-xs-12 col-md-6">
+        className="legend-block col-xs-12 col-md-6">
         <div>
           <h2>
             Traffic
@@ -925,12 +929,14 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
           </h2>
           
           <button
-            className="as-link disabled"
+            className="as-link add-favorite-button disabled"
             onClick={[Function bound mockConstructor]}>
             Add Favorite
           </button>
         </div>
       </div>
+      <hr
+        className="col-xs-12 visible-xs" />
       <div
         className="col-xs-12 col-sm-5 col-md-4 map-layers">
         <h2>
@@ -1178,7 +1184,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
     <div
       className="row is-flex">
       <div
-        className="col-xs-12 visible-xs-inline visible-sm-inline">
+        className="legend-block col-xs-12 visible-xs-inline visible-sm-inline">
         <div>
           <span
             className="hidden-xs hidden-sm">
@@ -1233,7 +1239,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
       <hr
         className="col-xs-12 hidden-xs hidden-sm" />
       <div
-        className="col-xs-12 col-md-6">
+        className="legend-block col-xs-12 col-md-6">
         <div>
           <h2>
             Weather
@@ -1270,7 +1276,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
         </div>
       </div>
       <div
-        className="col-xs-12 col-md-6">
+        className="legend-block col-xs-12 col-md-6">
         <div>
           <h2>
             Traffic
@@ -1356,12 +1362,14 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
           </h2>
           
           <button
-            className="as-link disabled"
+            className="as-link add-favorite-button disabled"
             onClick={[Function bound mockConstructor]}>
             Add Favorite
           </button>
         </div>
       </div>
+      <hr
+        className="col-xs-12 visible-xs" />
       <div
         className="col-xs-12 col-sm-5 col-md-4 map-layers">
         <h2>
@@ -1609,7 +1617,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
     <div
       className="row is-flex">
       <div
-        className="col-xs-12 visible-xs-inline visible-sm-inline">
+        className="legend-block col-xs-12 visible-xs-inline visible-sm-inline">
         <div>
           <span
             className="hidden-xs hidden-sm">
@@ -1664,7 +1672,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
       <hr
         className="col-xs-12 hidden-xs hidden-sm" />
       <div
-        className="col-xs-12 col-md-6">
+        className="legend-block col-xs-12 col-md-6">
         <div>
           <h2>
             Weather
@@ -1701,7 +1709,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
         </div>
       </div>
       <div
-        className="col-xs-12 col-md-6">
+        className="legend-block col-xs-12 col-md-6">
         <div>
           <h2>
             Traffic

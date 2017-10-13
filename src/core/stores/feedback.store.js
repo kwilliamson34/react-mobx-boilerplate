@@ -6,7 +6,7 @@ import {history} from '../services/history.service';
 class FeedbackStore {
   @action submitForm() {
     if(this.formHasError) {
-      this.showAlert = true;
+      this.showAllFormErrors();
       return;
     }
     const success = () => {
@@ -14,7 +14,7 @@ class FeedbackStore {
       history.push('/feedback-success');
     }
     const failure = () => {
-      this.showAlert = true;
+      this.showAllFormErrors();
     }
     apiService.submitCustomerFeedbackForm(this.values).then(success, failure);
   }
@@ -32,6 +32,15 @@ class FeedbackStore {
       }
     });
     return formHasChanged;
+  }
+
+  @action showAllFormErrors() {
+    this.formFieldRefList.forEach(ref => {
+      if(ref && ref.hasFunctionalError) {
+        ref.hasVisibleError = ref.hasFunctionalError;
+      }
+    });
+    this.showAlert = true;
   }
 
   @action checkFormForErrors() {
