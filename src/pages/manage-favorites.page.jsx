@@ -85,6 +85,15 @@ export default class ManageFavoritesPage extends React.Component {
   }
 
   renderDeleteModal = () => {
+    let deleteQuestion = '';
+    if (this.manageFavoritesStore.checkedRows.length === 1) {
+      const targetId = this.manageFavoritesStore.checkedRows[0];
+      const targetName = this.manageFavoritesStore.findRowData(targetId).favoriteName;
+      deleteQuestion = `Delete ${targetName}?`;
+    } else {
+      deleteQuestion = `Delete these ${this.manageFavoritesStore.checkedRows.length} favorites?`;
+    }
+
     return (
       <div id="delete-modal" role="dialog" tabIndex="-1" className="modal fade" aria-labelledby="modal-title">
         <div>
@@ -96,7 +105,9 @@ export default class ManageFavoritesPage extends React.Component {
               </button>
               <div className="row no-gutters" id="fmodal-title">
                 <div className="col-xs-12">
-                  <h1 className="as-h2">{`Delete these ${this.manageFavoritesStore.checkedRows.length} favorites?`}</h1>
+                  <h1 className="as-h2">
+                    {deleteQuestion}
+                  </h1>
                   <p>This cannot be undone. New favorites can be added at any time.</p>
                 </div>
                 <div className="col-xs-12 text-center">
@@ -212,7 +223,7 @@ export default class ManageFavoritesPage extends React.Component {
     return (
       <div className="counts-wrapper">
         <div className="pagination-count">
-          {'Showing 1'}&ndash;{`${this.manageFavoritesStore.sortedRows.length} of ${this.manageFavoritesStore.rows.length}`}
+          Showing 1&ndash;{`${this.manageFavoritesStore.sortedRows.length} of ${this.manageFavoritesStore.rows.length}`}
         </div>
         {
           this.manageFavoritesStore.checkedRows.length > 0 &&
