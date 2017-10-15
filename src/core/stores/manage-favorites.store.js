@@ -75,7 +75,7 @@ class ManageFavoritesStore {
     this.searchResults = [];
 
     const success = (res) => {
-      this.searchResults = res.userlocationfavorite;
+      this.searchResults = res.data.userlocationfavorite;
       this.showSearchResults = true;
       this.resetPagination();
       this.advancePagination();
@@ -162,7 +162,7 @@ class ManageFavoritesStore {
   }
 
   @computed get checkSelectAllCheckbox() {
-    return !this.isLoading && this.checkedRows.length === this.sortedRows.length;
+    return !this.isLoading && this.checkedRows.length === this.sortedRows.length && !(this.showSearchResults && this.sortedRows.length === 0);
   }
 
   @computed get showLoadMoreButton() {

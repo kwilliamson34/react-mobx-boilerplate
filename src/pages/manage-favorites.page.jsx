@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {observer, inject} from 'mobx-react';
-import {Link} from 'react-router-dom';
 import $ from 'jquery';
 
+import {history} from '../core/services/history.service';
+import PageTitle from '../components/page-title/page-title';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 import TextInput from '../components/forms/text-input';
 import {SortableTable} from '../components/sortable-table/sortable-table';
@@ -67,6 +68,12 @@ export default class ManageFavoritesPage extends React.Component {
     const targetId = $(e.target).parent().parent()[0].dataset.id;
     let rowData = this.manageFavoritesStore.findRowData(targetId);
     this.geolinkStore.performEditLocationRequest(rowData);
+  }
+
+  handleAddButton = () => {
+    //TODO: Ask if 'add from map' means the page proper or the add location page
+    // this.geolinkStore.pageTitle = 'Add New Favorite';
+    history.replace('/network-status');
   }
 
   handleDeleteAction = (e) => {
@@ -152,7 +159,7 @@ export default class ManageFavoritesPage extends React.Component {
 
   renderIsLoading = () => {
     return (
-      <div className="loading-block">
+      <div className="loading-container">
         <p className="as-h2" aria-live="polite">
           <i className="as-h2 icon-reload" aria-hidden="true"></i>
           Loading favorites&hellip;
@@ -163,7 +170,7 @@ export default class ManageFavoritesPage extends React.Component {
 
   renderNoResults = () => {
     return (
-      <div className="no-results-wrapper">
+      <div className="no-results-container">
         {
           this.manageFavoritesStore.showSearchResults
             ? this.renderNoSearchResults()
@@ -177,9 +184,9 @@ export default class ManageFavoritesPage extends React.Component {
     return (
       <div className="no-fetch-results">
         <div className="as-h2">No Favorites</div>
-        <div className="as-h3">No favorite locations have been added yet. Add some!</div>
-        <button className="fn-primary">
-          <Link to={'/network-status'}>Add From Map</Link>
+        <p>No favorite locations have been added yet. Add some!</p>
+        <button className="fn-primary" onClick={this.handleAddButton}>
+          Add From Map
         </button>
       </div>
     )
@@ -310,13 +317,24 @@ export default class ManageFavoritesPage extends React.Component {
         <div className="container">
           <div className="row">
             <div className="col-xs-12">
-              <h1>Manage Favorites</h1>
-              <div className="favorites-search">
-                {this.renderSearchBar()}
+              <PageTitle>Manage Favorites</PageTitle>
+            </div>
+            <div className="container">
+              <div className="row">
+                <div className="favorites-search col-xs-12">
+                  {this.renderSearchBar()}
+                </div>
               </div>
             </div>
-            <div className="alert-bars">
-              {(this.manageFavoritesStore.showSuccess || this.geolinkStore.showSuccess) && this.renderSuccessBar()}
+            <div className="container">
+              <div className="row">
+                <div className="col-xs-12">
+                  <hr/>
+                  <div className="alert-bars">
+                    {(this.manageFavoritesStore.showSuccess || this.geolinkStore.showSuccess) && this.renderSuccessBar()}
+                  </div>
+                </div>
+              </div>
             </div>
             <div className="col-xs-12">
               {(this.manageFavoritesStore.shouldRenderRows || this.manageFavoritesStore.showSearchResults) && this.renderTopAndBottomFeatures()}
@@ -331,7 +349,7 @@ export default class ManageFavoritesPage extends React.Component {
                 sortDirections={this.manageFavoritesStore.sortDirections}
                 hasCheckboxRow={true}/>
               {this.manageFavoritesStore.isLoading && this.renderIsLoading()}
-              {!this.manageFavoritesStore.shouldRenderRows && this.renderNoResults()}
+              {!this.manageFavoritesStore.isLoading && !this.manageFavoritesStore.shouldRenderRows && this.renderNoResults()}
               {this.manageFavoritesStore.shouldRenderRows && this.renderTopAndBottomFeatures()}
               {this.manageFavoritesStore.showLoadMoreButton && this.manageFavoritesStore.shouldRenderRows && this.renderLoadMoreButton()}
             </div>

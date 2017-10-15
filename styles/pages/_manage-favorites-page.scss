@@ -1,18 +1,60 @@
 #manage-location-favorites-page {
+  padding: 0;
+
+  h1 {
+    padding-top: 30px;
+  }
 
   .search-form {
     padding: 0 20px 0 0;
   }
 
   .alert-bars {
-    padding: 0 35px 0 15px;
+    margin-right: 20px;
   }
 
-  .sortable-table {
+  hr {
+    margin: 30px 20px 30px 0;
+  }
+
+  .loading-container {
+    text-align: center;
+
+    p {
+      font-size: $fn-h2-desktop;
+      margin: 25px 0 60px 0;
+
+      i {
+        transform: rotate(-90deg);
+        margin-right: 5px;
+        font-size: $fn-h2-desktop;
+        vertical-align: -5px;
+      }
+    }
+  }
+
+  .no-results-container {
+    text-align: center;
+
+    .as-h2 {
+      padding: 60px 0 30px 0;
+    }
+
+    p {
+      font-size: $fn-h4-desktop;
+    }
+
+    button {
+      margin: 45px 0 100px 0;
+    }
+  }
+
+  table {
     @include column-widths();
     position: relative;
     margin: 10px 0;
     table-layout: fixed;
+    vertical-align: middle;
 
     th {
       padding: 0;
@@ -34,16 +76,16 @@
     }
 
     .favorite-name-column {
-      padding-right: 40px;
+      padding-right: 30px;
     }
 
     .sortable-table-row {
       background-color: $fn-white;
       border-bottom: 1px solid $fn-dark;
-      vertical-align: bottom;
 
       th {
         background-color: $fn-white;
+        &:focus,
         &.active {
           background-color: rgba(16, 113, 188, 0.05);
         }
@@ -110,26 +152,35 @@
           }
           &:hover,
           &:focus {
-            @include focus();
             button {
               visibility: visible;
             }
           }
+          &:focus {
+            @include focus();
+          }
         }
         &:hover,
         &:focus {
-          @include focus();
           .inline-button-wrapper {
             button {
               visibility: visible;
             }
           }
         }
+        &:focus {
+          @include focus();
+        }
       }
       &:focus,
       &.active {
-        @include focus();
 	      background-color: rgba(16, 113, 188, 0.05);
+        th {
+          background-color: rgba(16, 113, 188, 0.05);
+        }
+      }
+      &:focus {
+        @include focus();
       }
     }
 
@@ -146,11 +197,14 @@
       &:hover,
       &:focus,
       &.active {
-        @include focus();
         border-bottom: 5px solid $table-sort-row-highlight;
         .sort-name i {
           display: block;
         }
+      }
+
+      &:focus {
+        @include focus();
       }
 
       .sort-name {
@@ -212,7 +266,7 @@
   }
 
   .load-more-button {
-    padding: 40px 0 20px;
+    padding: 40px 0 100px 0;
     text-align: center;
   }
 
@@ -231,6 +285,21 @@
         font-size: 16px;
         padding-right: 10px;
       }
+      &.disabled {
+        pointer-events: none;
+        color: $fn-mdgrey;
+      }
+    }
+  }
+}
+
+@media #{$mobile} {
+  #manage-location-favorites-page {
+    .sortable-table {
+      thead {
+        //test
+        display: none;
+      }
     }
   }
 }
@@ -238,6 +307,13 @@
 @media #{$tablet} {
   #manage-location-favorites-page {
     .sortable-table {
+      thead {
+        tr {
+          .col7 {
+            width: 8%;
+          }
+        }
+      }
       .sortable-table-row {
         td {
           .inline-button-wrapper {

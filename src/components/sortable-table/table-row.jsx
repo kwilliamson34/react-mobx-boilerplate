@@ -32,7 +32,7 @@ export class TableRow extends React.Component {
       <tr className={`sortable-table-row ${this.rowIsChecked ? 'active' : ''}`} tabIndex="0">
         {
           this.props.hasCheckbox &&
-          <th scope="row" className={`table-row-checkbox ${this.rowIsChecked ? 'active' : ''}`}>
+          <td scope="row" className={`table-row-checkbox ${this.rowIsChecked ? 'active' : ''}`}>
             <Checkbox
               id={this.props.id.toString()}
               value={this.props.id.toString()}
@@ -40,13 +40,13 @@ export class TableRow extends React.Component {
               checked={this.rowIsChecked}
               label={'Checkbox for row'}
               srOnlyLabel={true}/>
-          </th>
+          </td>
         }
         {this.props.columns.map((column, i) => {
           return (
             <td key={`table-row-${i}`} className={column.className} tabIndex="0">
               <div className="row-contents-wrapper">
-                {this.props.row[column.key]}
+                <span>{this.props.row[column.key]}</span>
               </div>
               {
                 column.inlineButtonJsx &&
