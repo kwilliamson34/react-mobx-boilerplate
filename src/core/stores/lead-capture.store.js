@@ -1,7 +1,8 @@
 import {action, observable, computed} from 'mobx';
-import {apiService} from '../services/api.service';
 import {userStore} from './user.store';
+import {apiService} from '../services/api.service';
 import {history} from '../services/history.service';
+import {utilsService} from '../services/utils.service';
 
 class LeadCaptureStore {
   @action toggleContactAgreement() {
@@ -10,12 +11,20 @@ class LeadCaptureStore {
     setTimeout(this.checkFormForErrors.bind(this), 100);
   }
 
+  @action recordSolutionRequestInCookie() {
+    if (this.solutionsRequested.indexOf(this.solutionName) === -1) {
+      this.solutionsRequested.push(this.solutionName);
+      utilsService.setCookie('_fn_lc_solutions_requested', JSON.stringify(this.solutionsRequested));
+    }
+  }
+
   @action submitForm() {
     if(this.formHasError) {
       this.showAllFormErrors();
       return;
     }
     const success = () => {
+      this.recordSolutionRequestInCookie();
       this.clearForm();
       this.showSuccess = true;
       history.back();
@@ -28,6 +37,7 @@ class LeadCaptureStore {
 
   @action clearForm() {
     this.values = Object.assign({}, this.defaultValues);
+    this.solutionName = '';
     this.showAlert = false;
   }
 
@@ -60,11 +70,16 @@ class LeadCaptureStore {
     this.formHasError = hasError;
   }
 
+  @computed get solutionAlreadyRequested() {
+    return utilsService.getCookie('_fn_lc_solutions_requested').indexOf(this.solutionName) > -1;
+  }
+  
   @observable formFieldRefList = [];
   @observable formHasError = true;
   @observable showAlert = false;
   @observable showSuccess = false;
   @observable solutionName = '';
+  @observable solutionsRequested = [];
   @observable defaultValues = {
     title: '',
     firstName: userStore.user.firstName,

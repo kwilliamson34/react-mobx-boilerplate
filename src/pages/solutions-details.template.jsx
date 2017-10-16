@@ -25,6 +25,8 @@ export default class SolutionsDetailsTemplate extends React.Component {
   }
 
   componentWillMount() {
+    this.leadCaptureStore.solutionName = this.props.match.params.solutionDetail;
+
     // checking if the user was on this page previously, eliminating need for new request
     if (this.props.match.params.solutionDetail != this.externalLinkStore.currentSolutionDetail.path) {
       let solutionPath = this.props.match.params.solutionDetail;
@@ -68,7 +70,6 @@ export default class SolutionsDetailsTemplate extends React.Component {
 
     const solutionDetail = this.externalLinkStore.currentSolutionDetail;
     const purchasingInfo = this.externalLinkStore.currentSolutionPurchasingInfo;
-    const leadCaptureHref = `/admin/solutions/${this.props.match.params.solutionCategory}/${this.props.match.params.solutionDetail}/request-info`;
 
     const crumbs = [
       {
@@ -102,29 +103,7 @@ export default class SolutionsDetailsTemplate extends React.Component {
             </section>
           </div>
 
-          <div className="row">
-            <section className="col-xs-12 col-lg-offset-1 col-lg-10 learn-more-section">
-              <h2>Learn More</h2>
-              <hr />
-              {this.leadCaptureStore.showSuccess
-                ? <div className="alert alert-success">
-                    <button type="button" className="close_btn icon-close" onClick={this.clearLeadCaptureSuccess}>
-                      <span className="sr-only">Close alert</span>
-                    </button>
-                    <p role="alert" aria-live="assertive">
-                      <strong>Success!&nbsp;</strong>Your request has been received. A specialist will be contacting you soon.
-                    </p>
-                  </div>
-                : <div>
-                    <span className="solution-name" dangerouslySetInnerHTML={{
-                      __html: solutionDetailTitle
-                    }}></span>
-                    <Link className="btn fn-primary" to={leadCaptureHref}>
-                      Request Information
-                    </Link>
-                  </div>}
-            </section>
-          </div>
+          {this.renderLeadCaptureSection()}
 
           {this.externalLinkStore.hasValidRelatedApp(solutionDetail) && this.appCatalogStore.currentAppObject.detailsFetched &&
             <div className="row">
@@ -151,4 +130,37 @@ export default class SolutionsDetailsTemplate extends React.Component {
       </article>
     )
   }
+
+  renderLeadCaptureSection = () => {
+    const solutionDetailTitle = decodeURIComponent(this.props.match.params.solutionDetail);
+    const leadCaptureHref = `/admin/solutions/${this.props.match.params.solutionCategory}/${this.props.match.params.solutionDetail}/request-info`;
+
+    return (
+      <div className="row">
+        <section className="col-xs-12 col-lg-offset-1 col-lg-10 learn-more-section">
+          <h2>Learn More</h2>
+          <hr/>
+          {this.leadCaptureStore.showSuccess
+            ? <div className="alert alert-success">
+                <button type="button" className="close_btn icon-close" onClick={this.clearLeadCaptureSuccess}>
+                  <span className="sr-only">Close alert</span>
+                </button>
+                <p role="alert" aria-live="assertive">
+                  <strong>Success!&nbsp;</strong>Your request has been received. A specialist will be contacting you soon.
+                </p>
+              </div>
+            : <div>
+              <span className="solution-name" dangerouslySetInnerHTML={{
+                __html: solutionDetailTitle
+              }}></span>
+              <Link to={leadCaptureHref} className={`btn fn-primary ${this.leadCaptureStore.solutionAlreadyRequested
+                ? 'disabled'
+                : ''}`}>
+                Request Information
+              </Link>
+            </div>}
+        </section>
+      </div>
+    )
+}
 }
