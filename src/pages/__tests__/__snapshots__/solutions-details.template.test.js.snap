@@ -19,6 +19,323 @@ exports[`<SolutionsDetailsTemplate /> render matches snapshot 1`] = `
         </div>
       </section>
     </div>
+    <div
+      className="row">
+      <section
+        className="col-xs-12 col-lg-offset-1 col-lg-10 learn-more-section">
+        <h2>
+          Learn More
+        </h2>
+        <hr />
+        <div>
+          <span
+            className="solution-name"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "detail1"
+              }
+            } />
+          <a
+            className="btn fn-primary "
+            href="/admin/solutions/category1/detail1/request-info"
+            onClick={[Function anonymous]}>
+            Request Information
+          </a>
+        </div>
+      </section>
+    </div>
+  </div>
+</article>
+`;
+
+exports[`<SolutionsDetailsTemplate /> render renders lead capture section 1`] = `
+<article
+  className="solutions-details-page"
+  id="solutions-details-page">
+  <div
+    className="container">
+    <div
+      className="row">
+      <section
+        className="details-wrapper col-lg-offset-1 col-lg-10">
+        <div
+          className="content-wrapper">
+          <div
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": undefined
+              }
+            } />
+        </div>
+      </section>
+    </div>
+    <div
+      className="row">
+      <section
+        className="col-xs-12 col-lg-offset-1 col-lg-10 learn-more-section">
+        <h2>
+          Learn More
+        </h2>
+        <hr />
+        <div>
+          <span
+            className="solution-name"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "detail1"
+              }
+            } />
+          <a
+            className="btn fn-primary "
+            href="/admin/solutions/category1/detail1/request-info"
+            onClick={[Function anonymous]}>
+            Request Information
+          </a>
+        </div>
+      </section>
+    </div>
+  </div>
+</article>
+`;
+
+exports[`<SolutionsDetailsTemplate /> render renders lead capture section 2`] = `
+<article
+  className="solutions-details-page"
+  id="solutions-details-page">
+  <div
+    className="container">
+    <div
+      className="row">
+      <section
+        className="details-wrapper col-lg-offset-1 col-lg-10">
+        <div
+          className="content-wrapper">
+          <div
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": undefined
+              }
+            } />
+        </div>
+      </section>
+    </div>
+    <div
+      className="row">
+      <section
+        className="col-xs-12 col-lg-offset-1 col-lg-10 learn-more-section">
+        <h2>
+          Learn More
+        </h2>
+        <hr />
+        <div
+          className="alert alert-success">
+          <button
+            className="close_btn icon-close"
+            onClick={[Function anonymous]}
+            type="button">
+            <span
+              className="sr-only">
+              Close alert
+            </span>
+          </button>
+          <p
+            aria-live="assertive"
+            role="alert">
+            <strong>
+              Success! 
+            </strong>
+            Your request has been received. A specialist will be contacting you soon.
+          </p>
+        </div>
+      </section>
+    </div>
+  </div>
+</article>
+`;
+
+exports[`<SolutionsDetailsTemplate /> render renders lead capture section 3`] = `
+<article
+  className="solutions-details-page"
+  id="solutions-details-page">
+  <div
+    className="container">
+    <div
+      className="row">
+      <section
+        className="details-wrapper col-lg-offset-1 col-lg-10">
+        <div
+          className="content-wrapper">
+          <div
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": undefined
+              }
+            } />
+        </div>
+      </section>
+    </div>
+    <div
+      className="row">
+      <section
+        className="col-xs-12 col-lg-offset-1 col-lg-10 learn-more-section">
+        <h2>
+          Learn More
+        </h2>
+        <hr />
+        <div
+          className="alert alert-success">
+          <button
+            className="close_btn icon-close"
+            onClick={[Function anonymous]}
+            type="button">
+            <span
+              className="sr-only">
+              Close alert
+            </span>
+          </button>
+          <p
+            aria-live="assertive"
+            role="alert">
+            <strong>
+              Success! 
+            </strong>
+            Your request has been received. A specialist will be contacting you soon.
+          </p>
+        </div>
+      </section>
+    </div>
+  </div>
+</article>
+`;
+
+exports[`<SolutionsDetailsTemplate /> render renders purchasing info section 1`] = `
+<article
+  className="solutions-details-page"
+  id="solutions-details-page">
+  <div
+    className="container">
+    <div
+      className="row">
+      <section
+        className="details-wrapper col-lg-offset-1 col-lg-10">
+        <div
+          className="content-wrapper">
+          <div
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": undefined
+              }
+            } />
+        </div>
+      </section>
+    </div>
+    <div
+      className="row">
+      <section
+        className="col-xs-12 col-lg-offset-1 col-lg-10 learn-more-section">
+        <h2>
+          Learn More
+        </h2>
+        <hr />
+        <div
+          className="alert alert-success">
+          <button
+            className="close_btn icon-close"
+            onClick={[Function anonymous]}
+            type="button">
+            <span
+              className="sr-only">
+              Close alert
+            </span>
+          </button>
+          <p
+            aria-live="assertive"
+            role="alert">
+            <strong>
+              Success! 
+            </strong>
+            Your request has been received. A specialist will be contacting you soon.
+          </p>
+        </div>
+      </section>
+    </div>
+    <div
+      className="row">
+      <section
+        className="col-xs-12 col-lg-offset-1 col-lg-10 app-details-section">
+        <h2>
+          Related App
+        </h2>
+        <hr />
+        <hr />
+      </section>
+    </div>
+  </div>
+</article>
+`;
+
+exports[`<SolutionsDetailsTemplate /> render renders related app section 1`] = `
+<article
+  className="solutions-details-page"
+  id="solutions-details-page">
+  <div
+    className="container">
+    <div
+      className="row">
+      <section
+        className="details-wrapper col-lg-offset-1 col-lg-10">
+        <div
+          className="content-wrapper">
+          <div
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": undefined
+              }
+            } />
+        </div>
+      </section>
+    </div>
+    <div
+      className="row">
+      <section
+        className="col-xs-12 col-lg-offset-1 col-lg-10 learn-more-section">
+        <h2>
+          Learn More
+        </h2>
+        <hr />
+        <div
+          className="alert alert-success">
+          <button
+            className="close_btn icon-close"
+            onClick={[Function anonymous]}
+            type="button">
+            <span
+              className="sr-only">
+              Close alert
+            </span>
+          </button>
+          <p
+            aria-live="assertive"
+            role="alert">
+            <strong>
+              Success! 
+            </strong>
+            Your request has been received. A specialist will be contacting you soon.
+          </p>
+        </div>
+      </section>
+    </div>
+    <div
+      className="row">
+      <section
+        className="col-xs-12 col-lg-offset-1 col-lg-10 app-details-section">
+        <h2>
+          Related App
+        </h2>
+        <hr />
+        <hr />
+      </section>
+    </div>
   </div>
 </article>
 `;

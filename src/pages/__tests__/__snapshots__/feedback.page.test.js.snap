@@ -1,5 +1,6 @@
 exports[`<FeedbackPage /> render matches previous snapshot 1`] = `
 <section
+  className="standalone-form-page"
   id="customer-feedback-page">
   <div
     className="content-wrapper">
