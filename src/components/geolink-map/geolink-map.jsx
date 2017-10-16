@@ -44,11 +44,10 @@ export default class GeolinkMap extends React.Component {
     this.props.geolinkStore.iframeIsFullyLoaded = true;
 
     //set map defaults
-    if (this.props.geolinkStore.externalSearchRequest) {
+    if (this.props.geolinkStore.locationAddress) {
       this.props.geolinkStore.searchMap();
       this.props.geolinkStore.disableSearch = false;
-      this.props.geolinkStore.externalSearchRequest = false;
-    } else if (!this.props.geolinkStore.externalSearchRequest && 'geolocation' in navigator) {
+    } else if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition(this.handleUserAllowingLocation, this.handleUserBlockingLocation);
     } else {
       console.warn('Geolocation is not allowed by the browser.');

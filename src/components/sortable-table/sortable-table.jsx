@@ -60,10 +60,10 @@ export class SortableTable extends React.Component {
     return (
       <th className="select-all-checkbox col7">
         <Checkbox
-          id={'select-all-checkbox'}
-          label={'Select or Deselect All Checkboxes'}
-          value={'Select or Deselect All Checkboxes'}
-          srOnlyLabel={true}
+          id="select-all-checkbox"
+          label="Select or Deselect All Checkboxes"
+          value="Select or Deselect All Checkboxes"
+          labelIsSrOnly={true}
           handleOnChange={this.handleSelectAll}
           checked={this.store.checkSelectAllCheckbox}/>
       </th>
@@ -72,13 +72,13 @@ export class SortableTable extends React.Component {
 
   renderColumns = () => {
     return this.props.columns.map((col, i) => {
-      const sortDirection = this.props.sortDirections[col.key];
+      const sortByAscending = this.props.sortDirections[col.key];
       const isActive = this.props.activeColumn === col.key;
       return (
         <SortableColumn
           key={`sortable-column-${i}`}
           toggleSort={this.handleToggleSort}
-          sortDirection={sortDirection}
+          sortByAscending={sortByAscending}
           isActive={isActive}
           columnName={col.name}
           columnToSort={col.key}

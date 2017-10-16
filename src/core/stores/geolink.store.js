@@ -78,13 +78,11 @@ class GeolinkStore {
   }
 
   @action performExternalSearch(address) {
-    this.externalSearchRequest = true;
     this.values.locationAddress = address;
     history.replace('/network-status');
   }
 
   @action performEditLocationRequest(locationData) {
-    this.externalSearchRequest = true;
     this.pageTitle = 'Edit Favorite';
     this.values = {
       locationAddress: locationData.locationFavoriteAddress,
@@ -337,7 +335,6 @@ class GeolinkStore {
   @observable geolinkHtml = null;
   @observable mapIframeRef = null;
   @observable disableSearch = false;
-  @observable externalSearchRequest = false;
 
   //Controls
   @observable showNetworkLayer = true;

@@ -204,11 +204,11 @@ export default class ManageFavoritesPage extends React.Component {
     )
   }
 
-  renderTopAndBottomFeatures = () => {
+  renderTopAndBottomFeatures = (position) => {
     return (
       <div className="pagination-count-delete-wrapper">
         {
-          this.manageFavoritesStore.showSearchResults
+          this.manageFavoritesStore.showSearchResults && position === 'top'
             ? this.renderSearchCounts()
             : this.renderStatCounts()
         }
@@ -218,7 +218,7 @@ export default class ManageFavoritesPage extends React.Component {
   }
 
   renderSearchCounts = () => {
-    let length = this.manageFavoritesStore.sortedRows.length;
+    let length = this.manageFavoritesStore.searchResults.length;
     return (
       <div className="search-count">
         {`${length} Result${length !== 1 ? 's' : ''}`}
@@ -250,8 +250,11 @@ export default class ManageFavoritesPage extends React.Component {
         <button className={`as-link ${disableButton ? 'disabled' : ''}`} onClick={this.handleDeleteAction}>
           <i className="icon-trash" aria-hidden="true" />
           <span>
-            {(disableButton || oneItemSelected) && 'Delete Favorite'}
-            {(!disableButton && !oneItemSelected) && `Delete ${this.manageFavoritesStore.checkedRows.length} Favorites`}
+            {
+              disableButton || oneItemSelected
+                ? 'Delete Favorite'
+                : `Delete ${this.manageFavoritesStore.checkedRows.length} Favorites`
+            }
           </span>
         </button>
       </div>
@@ -337,7 +340,7 @@ export default class ManageFavoritesPage extends React.Component {
               </div>
             </div>
             <div className="col-xs-12">
-              {(this.manageFavoritesStore.shouldRenderRows || this.manageFavoritesStore.showSearchResults) && this.renderTopAndBottomFeatures()}
+              {(this.manageFavoritesStore.shouldRenderRows || this.manageFavoritesStore.showSearchResults) && this.renderTopAndBottomFeatures('top')}
               <SortableTable
                 store={this.manageFavoritesStore}
                 tableId="manage-locations-table"
@@ -350,7 +353,7 @@ export default class ManageFavoritesPage extends React.Component {
                 hasCheckboxRow={true}/>
               {this.manageFavoritesStore.isLoading && this.renderIsLoading()}
               {!this.manageFavoritesStore.isLoading && !this.manageFavoritesStore.shouldRenderRows && this.renderNoResults()}
-              {this.manageFavoritesStore.shouldRenderRows && this.renderTopAndBottomFeatures()}
+              {this.manageFavoritesStore.shouldRenderRows && this.renderTopAndBottomFeatures('bottom')}
               {this.manageFavoritesStore.showLoadMoreButton && this.manageFavoritesStore.shouldRenderRows && this.renderLoadMoreButton()}
             </div>
           </div>

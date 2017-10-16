@@ -38,8 +38,8 @@ export class TableRow extends React.Component {
               value={this.props.id.toString()}
               handleOnChange={this.props.handleOnChange}
               checked={this.rowIsChecked}
-              label={'Checkbox for row'}
-              srOnlyLabel={true}/>
+              label="Checkbox for row"
+              labelIsSrOnly={true}/>
           </td>
         }
         {this.props.columns.map((column, i) => {

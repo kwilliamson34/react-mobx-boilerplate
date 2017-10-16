@@ -8,7 +8,7 @@ export class SortableColumn extends React.Component {
 
   static propTypes = {
     toggleSort: PropTypes.func.isRequired,
-    sortDirection: PropTypes.bool.isRequired,
+    sortByAscending: PropTypes.bool.isRequired,
     isActive: PropTypes.bool.isRequired,
     columnToSort: PropTypes.string.isRequired,
     columnName: PropTypes.string,
@@ -17,12 +17,11 @@ export class SortableColumn extends React.Component {
   }
 
   static defaultProps = {
-    columnWidth: '',
     children: []
   }
 
   @computed get arrowDirection() {
-    return this.props.sortDirection ? 'arrow-up' : 'arrow-down';
+    return this.props.sortByAscending ? 'arrow-up' : 'arrow-down';
   }
 
   toggleSort = () => {
@@ -38,7 +37,7 @@ export class SortableColumn extends React.Component {
       <th scope="col" className={this.props.className}>
         <span className="sr-only" aria-live="assertive" aria-relevant="text" aria-atomic="true">
           The table is now sorted by {this.props.columnName || this.props.columnToSort}
-          {this.props.sortDirection ? 'in ascending' : 'in descending'}
+          {this.props.sortByAscending ? 'in ascending' : 'in descending'}
           order.
         </span>
         <button type="button" className={this.isActive()} onClick={this.toggleSort}>

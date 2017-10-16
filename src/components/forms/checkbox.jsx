@@ -9,7 +9,7 @@ export default class Checkbox extends React.Component {
     strongLabel: PropTypes.string,
     handleOnChange: PropTypes.func,
     disabled: PropTypes.bool,
-    srOnlyLabel: PropTypes.bool,
+    labelIsSrOnly: PropTypes.bool,
     checked: PropTypes.bool
   }
 
@@ -57,7 +57,7 @@ export default class Checkbox extends React.Component {
             {this.props.strongLabel
               ? <strong>{this.props.strongLabel}:&nbsp;</strong>
               : ''}
-            <span className={`label-text-normal ${this.props.srOnlyLabel ? 'sr-only' : ''}`}>{this.props.label}</span>
+            <span className={`label-text-normal ${this.props.labelIsSrOnly ? 'sr-only' : ''}`}>{this.props.label}</span>
           </span>
         </label>
       </div>

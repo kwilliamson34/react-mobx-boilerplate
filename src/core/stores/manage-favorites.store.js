@@ -166,7 +166,9 @@ class ManageFavoritesStore {
   }
 
   @computed get showLoadMoreButton() {
-    return this.rows.length > this.sortedRows.length;
+    return this.showSearchResults
+      ? this.searchResults.length > this.sortedRows.length
+      : this.rows.length > this.sortedRows.length;
   }
 
 
