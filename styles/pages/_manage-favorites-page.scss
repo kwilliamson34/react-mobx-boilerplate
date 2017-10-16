@@ -66,7 +66,7 @@
           padding: 0;
 
           .cr {
-            margin: 20px;
+            margin: 15px;
           }
         }
       }
@@ -97,6 +97,19 @@
         padding: 20px 0;
         vertical-align: middle;
 
+        .checkbox {
+          height: 55px;
+          width: 100%;
+
+          label {
+            padding: 0;
+
+            .cr {
+              margin: 15px;
+            }
+          }
+        }
+
         button {
           width: 100%;
           white-space: nowrap;
@@ -115,13 +128,13 @@
           font-size: 16px;
           color: $fn-dkgrey;
           width: 80%;
-          float: left;
           word-wrap: break-word;
         }
 
         .inline-button-wrapper {
-          width: 20%;
-          float: right;
+          position: absolute;
+          right: 25px;
+          top: 35px;
 
           i {
             padding-right: 5px;
@@ -325,7 +338,7 @@
                 &:focus {
                   padding: 8px;
                   color: $fn-white;
-                  background-color: $fn-blue;
+                  background-color: $fn-ltblue;
                   border-radius: 100%;
                 }
               }
