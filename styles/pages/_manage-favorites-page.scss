@@ -1,5 +1,5 @@
 #manage-location-favorites-page {
-  padding: 0;
+  padding: 0 0 100px 0;
 
   h1 {
     padding-top: 30px;
@@ -128,8 +128,8 @@
 
         .inline-button-wrapper {
           position: absolute;
-          right: 25px;
-          top: 45%;
+          right: 5%;
+          top: 42%;
 
           i {
             padding-right: 5px;
@@ -238,7 +238,7 @@
     flex-direction: row;
     align-items: baseline;
     justify-content: space-between;
-    margin: 20px 0 60px 0;
+    margin: 20px 0;
 
     .counts-wrapper {
       font-weight: $fn-bold-weight;
@@ -274,7 +274,7 @@
   }
 
   .load-more-button {
-    padding-bottom: 100px;
+    padding-top: 10px;
     text-align: center;
   }
 
@@ -327,19 +327,22 @@
           .inline-button-wrapper {
             button {
               visibility: visible;
+              border-radius: 50%;
+              width: 30px;
+              height: 30px;
               i {
                 padding: 0;
-                &:hover,
-                &:focus {
-                  padding: 8px;
-                  color: $fn-white;
-                  background-color: $fn-ltblue;
-                  border-radius: 100%;
-                }
               }
               span {
                 display: none;
               }
+              &:hover,
+              &:focus {
+                background-color: $fn-ltblue;
+                i {
+                  color: $fn-white;
+                }
+            }
             }
           }
         }
