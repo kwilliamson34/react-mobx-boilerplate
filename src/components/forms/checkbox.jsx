@@ -40,7 +40,7 @@ export default class Checkbox extends React.Component {
     }
   }
 
-  handleOnBlur = (event) => {
+  handleOnBlur = () => {
     this.hasVisibleError = this.hasFunctionalError;
   }
 

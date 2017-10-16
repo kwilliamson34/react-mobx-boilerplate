@@ -23,7 +23,7 @@ class LeadCaptureForm extends React.Component {
     this.store.formFieldRefList = [];
   }
 
-  handleCheckboxOnChange = (input) => {
+  handleCheckboxOnChange = () => {
     this.store.toggleContactAgreement();
   }
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {inject, observer} from 'mobx-react';
-import {observable} from 'mobx';
 
 import LeadCaptureForm from '../components/lead-capture/lead-capture-form';
 import PageTitle from '../components/page-title/page-title';
@@ -14,7 +13,9 @@ export default class LeadCapturePage extends React.Component {
   static propTypes = {
     store: PropTypes.object,
     match: PropTypes.shape({
+      url: PropTypes.string,
       params: PropTypes.shape({
+        solutionCategory: PropTypes.string,
         solutionDetail: PropTypes.string
       })
     })
