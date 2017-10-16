@@ -16,6 +16,12 @@
   }
 }
 
+#lead-capture-page {
+  .checkbox .cr {
+    margin-bottom: 3rem; //checkbox text may wrap to 3 lines
+  }
+}
+
 @media #{$mobile} {
   .standalone-form-page {
     .content-wrapper h1 {
