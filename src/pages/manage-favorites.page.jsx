@@ -94,7 +94,7 @@ export default class ManageFavoritesPage extends React.Component {
     if (this.manageFavoritesStore.checkedRows.length === 1) {
       const targetId = this.manageFavoritesStore.checkedRows[0];
       const targetName = this.manageFavoritesStore.findRowData(targetId).favoriteName;
-      deleteQuestion = `Delete ${targetName}?`;
+      deleteQuestion = `Delete "${targetName}"?`;
     } else {
       deleteQuestion = `Delete these ${this.manageFavoritesStore.checkedRows.length} favorites?`;
     }
@@ -108,7 +108,7 @@ export default class ManageFavoritesPage extends React.Component {
                 <i aria-hidden="true" className="icon-close"></i>
                 <span className="sr-only">Close window</span>
               </button>
-              <div className="row no-gutters" id="fmodal-title">
+              <div className="row no-gutters" id="modal-title">
                 <div className="col-xs-12">
                   <h1 className="as-h2">
                     {deleteQuestion}
