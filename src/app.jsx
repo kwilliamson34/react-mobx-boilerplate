@@ -96,17 +96,18 @@ export default class App extends React.Component {
     )
   }
 
-	getPublicSafetySolutionsComponent = ({match}) => {
-		return (
-			<article id="solutions-hub-page">
-				<Switch>
-					<Route path={`${match.url}/:solutionCategory/:solutionDetail`} component={SolutionsDetailTemplate} />
-					<Route path={`${match.url}/:solutionCategory`} component={SolutionsCategoryTemplate} />
-					<Route path={match.url} component={ShopSolutionsPage} />
-				</Switch>
-			</article>
-		)
-	}
+  getPublicSafetySolutionsComponent = ({match}) => {
+    return (
+      <article id="solutions-hub-page">
+        <Switch>
+          <Route path={`${match.url}/:solutionCategory/:solutionDetail/request-info`} component={LeadCapturePage}/>
+          <Route path={`${match.url}/:solutionCategory/:solutionDetail`} component={SolutionsDetailTemplate}/>
+          <Route path={`${match.url}/:solutionCategory`} component={SolutionsCategoryTemplate}/>
+          <Route path={match.url} component={ShopSolutionsPage}/>
+        </Switch>
+      </article>
+    )
+  }
 
   getLandingPage = () => {
     const userIsAdmin = pseMasterStore.userStore.isAdmin;
@@ -144,7 +145,6 @@ export default class App extends React.Component {
               <Route path="/subscribe-to-alerts-success" component={SubscribeToGTOCSuccess}/>
               <Route path="/feedback" component={FeedbackPage}/>
               <Route path="/feedback-success" component={FeedbackSuccessPage}/>
-              <Route path="/lead-capture/:solutionName" component={LeadCapturePage}/>
               <Route path="/faq" component={FAQPage}/>
               <Route path="/help-center" component={HelpCenterPage}/>
               <Route component={() => <Redirect to="/error/404"/>}/>

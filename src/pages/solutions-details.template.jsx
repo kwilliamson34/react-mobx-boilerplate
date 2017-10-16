@@ -56,8 +56,10 @@ export default class SolutionsDetailsTemplate extends React.Component {
   render() {
     const solutionCategoryTitle = this.props.match.params.solutionCategory.replace(/-/g, ' ');
     const solutionDetailTitle = decodeURIComponent(this.props.match.params.solutionDetail);
+
     const solutionDetail = this.externalLinkStore.currentSolutionDetail;
     const purchasingInfo = this.externalLinkStore.currentSolutionPurchasingInfo;
+    const leadCaptureHref = `/admin/solutions/${this.props.match.params.solutionCategory}/${this.props.match.params.solutionDetail}/request-info`;
 
     const crumbs = [
       {
@@ -98,7 +100,9 @@ export default class SolutionsDetailsTemplate extends React.Component {
               <p dangerouslySetInnerHTML={{
                 __html: solutionDetailTitle
               }}></p>
-              <Link className="btn fn-primary" to={'/lead-capture/' + encodeURIComponent(solutionDetailTitle)}>Request Information</Link>
+              <Link className="btn fn-primary" to={leadCaptureHref}>
+                Request Information
+              </Link>
             </section>
           </div>
 

@@ -2,8 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {inject, observer} from 'mobx-react';
 import {observable} from 'mobx';
+
 import LeadCaptureForm from '../components/lead-capture/lead-capture-form';
 import PageTitle from '../components/page-title/page-title';
+import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 
 @inject('store')
 @observer
@@ -13,7 +15,7 @@ export default class LeadCapturePage extends React.Component {
     store: PropTypes.object,
     match: PropTypes.shape({
       params: PropTypes.shape({
-        productTitle: PropTypes.string
+        solutionDetail: PropTypes.string
       })
     })
   }
@@ -24,12 +26,34 @@ export default class LeadCapturePage extends React.Component {
   }
 
   componentWillMount() {
-    this.leadCaptureStore.solutionName = this.props.match.params.solutionName;
+    this.leadCaptureStore.solutionName = this.props.match.params.solutionDetail;
   }
 
   render = () => {
+    const solutionCategoryTitle = this.props.match.params.solutionCategory.replace(/-/g, ' ');
+    const solutionDetailTitle = decodeURIComponent(this.props.match.params.solutionDetail);
+    const crumbs = [
+      {
+        pageHref: '/admin',
+        pageTitle: 'Administration Dashboard'
+      }, {
+        pageHref: '/admin/solutions',
+        pageTitle: 'Public Safety Solutions'
+      }, {
+        pageHref: `/admin/solutions/${this.props.match.params.solutionCategory}`,
+        pageTitle: solutionCategoryTitle
+      }, {
+        pageHref: `/admin/solutions/${this.props.match.params.solutionCategory}/${this.props.match.params.solutionDetail}`,
+        pageTitle: solutionDetailTitle
+      }, {
+        pageHref: `/${this.props.match.url}`,
+        pageTitle: 'Request Information'
+      }
+    ];
+
     return (
       <section id="lead-capture-page" className="standalone-form-page">
+        <BreadcrumbNav links={crumbs}/>
         <div className="content-wrapper">
           <div className="container">
             <div className="row text-center">
