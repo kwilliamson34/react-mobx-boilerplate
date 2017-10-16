@@ -301,12 +301,54 @@
   }
 }
 
+//mobile is mostly test for design review.
 @media #{$mobile} {
   #manage-location-favorites-page {
-    .sortable-table {
+    table {
       thead {
-        //test
-        display: none;
+        //position off screen rather than display none for accessibility, but will that work?
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+
+      tbody {
+        .sortable-table-row {
+          display: block;
+          position: relative;
+          margin-bottom: 20px;
+          width: 100%;
+          border: 1px solid black;
+
+          td.favorite-name-column {
+            position: absolute;
+            top: -10px;
+            left: 20%;
+            .inline-button-wrapper {
+              top: 45%;
+              right: -70%;
+            }
+          }
+
+          td.location-address-column {
+            position: absolute;
+            top: 25%;
+            left: 20%;
+            width: 80%;
+            .inline-button-wrapper {
+              top: 45%;
+              right: -13%;
+            }
+          }
+        }
+        .inline-button-wrapper {
+          i {
+            visibility: visible;
+          }
+          span {
+            visibility: hidden;
+          }
+        }
       }
     }
   }
@@ -314,7 +356,7 @@
 
 @media #{$tablet} {
   #manage-location-favorites-page {
-    .sortable-table {
+    table {
       thead {
         tr {
           .col7 {

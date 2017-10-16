@@ -109,7 +109,7 @@ export class SortableTable extends React.Component {
   render() {
     return (
       <div>
-        <table id={this.props.tableId} className={`${this.props.tableId}-class sortable-table`}>
+        <table id={this.props.tableId} className={`${this.props.tableId}-class table-responsive sortable-table`}>
           {this.props.caption && <caption>{this.props.caption}</caption>}
           <thead>
             <tr>
