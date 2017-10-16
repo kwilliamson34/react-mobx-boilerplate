@@ -195,7 +195,7 @@ class ApiService {
     submitLeadCaptureForm(data, solutionName) {
       return axios({
         method: 'post',
-        url: `${base}/lead-capture`, //TODO
+        url: `${base}/leadcapture`,
         data: {
           name: data.firstName + ' ' + data.lastName,
           email: data.email,
