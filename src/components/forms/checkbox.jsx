@@ -25,28 +25,22 @@ export default class Checkbox extends React.Component {
   @observable hasVisibleError = false;
   @computed get hasFunctionalError() {
     let hasError = false;
-    if(this.props.required && !this.props.checked) {
+    /* Must use the input's checked value here, instead of the store's,
+    because the store is operating on a slight delay. */
+    if(this.props.required && !this.refs.input.checked) {
       hasError = true;
     }
     return hasError;
   }
 
   handleOnChange = (event) => {
-    if (!this.props.disabled) {
-      if (this.props.handleOnChange) {
-        this.props.handleOnChange(event.target);
-      }
-      // this.showErrorIfApplicable();
+    if (!this.props.disabled && this.props.handleOnChange) {
+      this.props.handleOnChange(event.target);
+      this.hasVisibleError = this.hasFunctionalError;
     }
   }
 
   handleOnBlur = (event) => {
-    if (!this.props.disabled) {
-      // this.showErrorIfApplicable();
-    }
-  }
-
-  showErrorIfApplicable = () => {
     this.hasVisibleError = this.hasFunctionalError;
   }
 
@@ -55,7 +49,7 @@ export default class Checkbox extends React.Component {
       ? 'disabled'
       : '';
     return (
-      <div className={`checkbox ${disabledClass} ${this.hasVisibleError ? 'has-error' : ''}`}>
+      <div className={`checkbox form-group ${disabledClass} ${this.hasVisibleError ? 'has-error' : ''}`}>
         <label>
           <input
             type="checkbox"
