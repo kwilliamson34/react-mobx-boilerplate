@@ -15,7 +15,6 @@ export default class AdminDashboardPage extends React.Component {
   }
 
   render() {
-    console.log(this.store.cardIsAllowed);
     return (
       <article id="admin-dashboard-page">
         <div className="container">
