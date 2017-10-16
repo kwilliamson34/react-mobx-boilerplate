@@ -5,6 +5,10 @@ import {history} from '../services/history.service';
 import {utilsService} from '../services/utils.service';
 
 class LeadCaptureStore {
+  @action setCurrentSolution(solutionName) {
+    this.solutionName = solutionName;
+  }
+
   @action toggleContactAgreement() {
     this.values.contactAgreement = !this.values.contactAgreement;
     //validate after render stack has finished
@@ -39,6 +43,11 @@ class LeadCaptureStore {
     this.values = Object.assign({}, this.defaultValues);
     this.solutionName = '';
     this.showAlert = false;
+    this.clearFormFieldRefList();
+  }
+
+  @action clearFormFieldRefList() {
+    this.formFieldRefList = [];
   }
 
   @computed get formIsDirty() {
@@ -70,8 +79,16 @@ class LeadCaptureStore {
     this.formHasError = hasError;
   }
 
+  @action showSuccess() {
+    this.showSuccess = true;
+  }
+
+  @action hideSuccess() {
+    this.showSuccess = false;
+  }
+
   @computed get solutionAlreadyRequested() {
-    return utilsService.getCookie('_fn_lc_solutions_requested').indexOf(this.solutionName) > -1;
+    return this.solutionName && utilsService.getCookie('_fn_lc_solutions_requested').indexOf(this.solutionName) > -1;
   }
 
   @observable formFieldRefList = [];

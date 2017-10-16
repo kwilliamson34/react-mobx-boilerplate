@@ -20,7 +20,7 @@ class LeadCaptureForm extends React.Component {
   }
 
   componentWillMount() {
-    this.store.formFieldRefList = [];
+    this.store.clearFormFieldRefList();
   }
 
   handleCheckboxOnChange = () => {

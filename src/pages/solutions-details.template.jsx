@@ -25,7 +25,7 @@ export default class SolutionsDetailsTemplate extends React.Component {
   }
 
   componentWillMount() {
-    this.leadCaptureStore.solutionName = this.props.match.params.solutionDetail;
+    this.leadCaptureStore.setCurrentSolution(this.props.match.params.solutionDetail);
 
     // checking if the user was on this page previously, eliminating need for new request
     if (this.props.match.params.solutionDetail != this.externalLinkStore.currentSolutionDetail.path) {
@@ -42,7 +42,7 @@ export default class SolutionsDetailsTemplate extends React.Component {
   }
 
   componentWillUnmount() {
-    this.clearLeadCaptureSuccess();
+    this.leadCaptureStore.hideSuccess();
   }
 
   fetchSolutionDetails(solutionPath) {
@@ -58,10 +58,6 @@ export default class SolutionsDetailsTemplate extends React.Component {
         });
       }
     }
-  }
-
-  clearLeadCaptureSuccess = () => {
-    this.leadCaptureStore.showSuccess = false;
   }
 
   render() {
@@ -142,7 +138,7 @@ export default class SolutionsDetailsTemplate extends React.Component {
           <hr/>
           {this.leadCaptureStore.showSuccess
             ? <div className="alert alert-success">
-                <button type="button" className="close_btn icon-close" onClick={this.clearLeadCaptureSuccess}>
+                <button type="button" className="close_btn icon-close" onClick={this.leadCaptureStore.hideSuccess.bind(this.leadCaptureStore)}>
                   <span className="sr-only">Close alert</span>
                 </button>
                 <p role="alert" aria-live="assertive">

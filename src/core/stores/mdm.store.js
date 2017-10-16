@@ -24,6 +24,12 @@ class MDMStore {
     this.clearAlerts();
     this.values = Object.assign({}, this.defaultValues);
     this.showbreakMDMConnection = false;
+    this.clearFormFieldRefList();
+  }
+
+  @action clearFormFieldRefList() {
+    this.formFieldRefList = [];
+    this.formHasError = true;
   }
 
   // Alert functions

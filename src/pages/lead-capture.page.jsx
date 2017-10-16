@@ -27,7 +27,7 @@ export default class LeadCapturePage extends React.Component {
   }
 
   componentWillMount() {
-    this.leadCaptureStore.solutionName = this.props.match.params.solutionDetail;
+    this.leadCaptureStore.setCurrentSolution(this.props.match.params.solutionDetail);
   }
 
   render = () => {
