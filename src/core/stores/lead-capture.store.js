@@ -7,8 +7,8 @@ import {utilsService} from '../services/utils.service';
 class LeadCaptureStore {
   @action toggleContactAgreement() {
     this.values.contactAgreement = !this.values.contactAgreement;
-    //validate after a short delay, allowing the store to re-render the checkbox
-    setTimeout(this.checkFormForErrors.bind(this), 100);
+    //validate after render stack has finished
+    setTimeout(this.checkFormForErrors.bind(this), 0);
   }
 
   @action recordSolutionRequestInCookie() {
