@@ -116,13 +116,8 @@
           padding: 0px;
         }
 
-        .row-contents-wrapper,
-        .inline-button-wrapper {
-          height: 100%;
-          padding-top: 5px;
-        }
-
         .row-contents-wrapper {
+          padding-top: 5px;
           text-transform: uppercase;
           font-weight: $fn-bold-weight;
           font-size: 16px;
@@ -134,7 +129,7 @@
         .inline-button-wrapper {
           position: absolute;
           right: 25px;
-          top: 35px;
+          top: 45%;
 
           i {
             padding-right: 5px;
