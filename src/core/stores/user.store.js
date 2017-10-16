@@ -5,6 +5,7 @@ import config from 'config';
 import _ from 'lodash';
 
 class UserStore {
+
   @action revalidateUser() {
     //throttle validation
     if (this.awaitingValidation) {
@@ -114,10 +115,31 @@ class UserStore {
     return this.isAdmin;
   }
 
+  @computed get destinationIsPermitted() {
+    let destinationIsPermitted = {};
+    for(let card in this.cardPermissions) {
+      if(_.intersection(this.cardPermissions[card], this.user.roles).length) {
+        destinationIsPermitted[card] = true;
+      } else {
+        destinationIsPermitted[card] = false;
+      }
+    }
+    return destinationIsPermitted;
+  }
+
   @observable user = {};
   @observable api_token = '';
   @observable userValidationDone = false;
   @observable validationPromise = '';
+  @observable cardPermissions = {
+    shopStandardDevices: ['G_FN_ADM', 'G_FN_VOL'],
+    shopSpecializedDevices: ['G_FN_ADM', 'G_FN_VOL'],
+    shopPublicSafetySolutions: ['G_FN_ADM', 'G_FN_VOL_ADM', 'G_FN_VOL'],
+    manageUsers: ['G_FN_ADM', 'G_FN_ITM'],
+    viewReports: ['G_FN_ADM', 'G_FN_VOL'],
+    manageApps: ['G_FN_ADM', 'G_FN_ITM', 'G_FN_SUB', 'G_FN_VOL_ADM', 'G_FN_VOL']
+  }
+
 }
 
 export const userStore = new UserStore();
