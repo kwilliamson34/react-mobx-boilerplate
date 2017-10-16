@@ -1,6 +1,6 @@
 exports[`<Checkbox /> renders matches previous snapshot 1`] = `
 <div
-  className="checkbox form-group  ">
+  className="checkbox form-group ">
   <label>
     <input
       aria-disabled={false}
@@ -28,7 +28,7 @@ exports[`<Checkbox /> renders matches previous snapshot 1`] = `
 
 exports[`<Checkbox /> renders matches previous snapshot 2`] = `
 <div
-  className="checkbox form-group  ">
+  className="checkbox form-group ">
   <label>
     <input
       aria-disabled={false}
@@ -56,7 +56,7 @@ exports[`<Checkbox /> renders matches previous snapshot 2`] = `
 
 exports[`<Checkbox /> renders matches previous snapshot 3`] = `
 <div
-  className="checkbox form-group  ">
+  className="checkbox form-group ">
   <label>
     <input
       aria-disabled={false}
@@ -84,7 +84,7 @@ exports[`<Checkbox /> renders matches previous snapshot 3`] = `
 
 exports[`<Checkbox /> renders matches previous snapshot 4`] = `
 <div
-  className="checkbox form-group  ">
+  className="checkbox form-group ">
   <label>
     <input
       aria-disabled={false}
@@ -112,7 +112,7 @@ exports[`<Checkbox /> renders matches previous snapshot 4`] = `
 
 exports[`<Checkbox /> renders matches previous snapshot 5`] = `
 <div
-  className="checkbox form-group disabled ">
+  className="checkbox form-group disabled">
   <label>
     <input
       aria-disabled={true}
@@ -140,7 +140,7 @@ exports[`<Checkbox /> renders matches previous snapshot 5`] = `
 
 exports[`<Checkbox /> renders matches previous snapshot 6`] = `
 <div
-  className="checkbox form-group  ">
+  className="checkbox form-group ">
   <label>
     <input
       aria-disabled={false}

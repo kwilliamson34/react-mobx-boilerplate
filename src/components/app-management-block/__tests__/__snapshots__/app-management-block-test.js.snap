@@ -7,7 +7,7 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
   <div
     className="app-management">
     <div
-      className="checkbox form-group  ">
+      className="checkbox form-group ">
       <label>
         <input
           aria-disabled={false}
@@ -32,7 +32,7 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
       </label>
     </div>
     <div
-      className="checkbox form-group disabled ">
+      className="checkbox form-group disabled">
       <label>
         <input
           aria-disabled={true}
@@ -69,7 +69,7 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
   <div
     className="app-management">
     <div
-      className="checkbox form-group  ">
+      className="checkbox form-group ">
       <label>
         <input
           aria-disabled={false}
@@ -94,7 +94,7 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
       </label>
     </div>
     <div
-      className="checkbox form-group  ">
+      className="checkbox form-group ">
       <label>
         <input
           aria-disabled={false}
@@ -131,7 +131,7 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
   <div
     className="app-management">
     <div
-      className="checkbox form-group  ">
+      className="checkbox form-group ">
       <label>
         <input
           aria-disabled={false}
@@ -156,7 +156,7 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
       </label>
     </div>
     <div
-      className="checkbox form-group  ">
+      className="checkbox form-group ">
       <label>
         <input
           aria-disabled={false}
@@ -193,7 +193,7 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
   <div
     className="app-management">
     <div
-      className="checkbox form-group  ">
+      className="checkbox form-group ">
       <label>
         <input
           aria-disabled={false}
@@ -218,7 +218,7 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
       </label>
     </div>
     <div
-      className="checkbox form-group disabled ">
+      className="checkbox form-group disabled">
       <label>
         <input
           aria-disabled={true}
