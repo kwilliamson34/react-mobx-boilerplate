@@ -20,7 +20,7 @@ class ExternalLinkStore {
 
   @action fetchDeviceDetails({devicePath, setAsCurrent}) {
     let matches = this.allSpecializedDevices.filter((device) => {
-      return devicePath === encodeURIComponent(device.device_title);
+      return decodeURIComponent(devicePath) === decodeURIComponent(device.device_title);
     });
     this.checkMatches({matches, shouldBeOne: true});
 
