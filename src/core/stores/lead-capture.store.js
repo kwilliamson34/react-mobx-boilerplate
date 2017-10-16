@@ -17,7 +17,8 @@ class LeadCaptureStore {
     }
     const success = () => {
       this.clearForm();
-      // history.push('/feedback-success');
+      this.showSuccess = true;
+      history.back();
     }
     const failure = () => {
       this.showAllFormErrors();
@@ -62,6 +63,7 @@ class LeadCaptureStore {
   @observable formFieldRefList = [];
   @observable formHasError = true;
   @observable showAlert = false;
+  @observable showSuccess = false;
   @observable solutionName = '';
   @observable defaultValues = {
     title: '',

@@ -21,6 +21,7 @@ export default class SolutionsDetailsTemplate extends React.Component {
     super(props);
     this.externalLinkStore = this.props.store.externalLinkStore;
     this.appCatalogStore = this.props.store.appCatalogStore;
+    this.leadCaptureStore = this.props.store.leadCaptureStore;
   }
 
   componentWillMount() {
@@ -38,6 +39,10 @@ export default class SolutionsDetailsTemplate extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    this.clearLeadCaptureSuccess();
+  }
+
   fetchSolutionDetails(solutionPath) {
     this.externalLinkStore.fetchSolutionDetails({solutionPath, setAsCurrent: true});
 
@@ -51,6 +56,10 @@ export default class SolutionsDetailsTemplate extends React.Component {
         });
       }
     }
+  }
+
+  clearLeadCaptureSuccess = () => {
+    this.leadCaptureStore.showSuccess = false;
   }
 
   render() {
@@ -97,12 +106,23 @@ export default class SolutionsDetailsTemplate extends React.Component {
             <section className="col-xs-12 col-lg-offset-1 col-lg-10 learn-more-section">
               <h2>Learn More</h2>
               <hr />
-              <p dangerouslySetInnerHTML={{
-                __html: solutionDetailTitle
-              }}></p>
-              <Link className="btn fn-primary" to={leadCaptureHref}>
-                Request Information
-              </Link>
+              {this.leadCaptureStore.showSuccess
+                ? <div className="alert alert-success">
+                    <button type="button" className="close_btn icon-close" onClick={this.clearLeadCaptureSuccess}>
+                      <span className="sr-only">Close alert</span>
+                    </button>
+                    <p role="alert" aria-live="assertive">
+                      <strong>Success!&nbsp;</strong>Your request has been received. A specialist will be contacting you soon.
+                    </p>
+                  </div>
+                : <div>
+                    <span className="solution-name" dangerouslySetInnerHTML={{
+                      __html: solutionDetailTitle
+                    }}></span>
+                    <Link className="btn fn-primary" to={leadCaptureHref}>
+                      Request Information
+                    </Link>
+                  </div>}
             </section>
           </div>
 
