@@ -11,6 +11,7 @@ export class SortableColumn extends React.Component {
     sortDirection: PropTypes.bool.isRequired,
     isActive: PropTypes.bool.isRequired,
     columnToSort: PropTypes.string.isRequired,
+    columnName: PropTypes.string,
     className: PropTypes.string,
     children: PropTypes.node
   }
@@ -35,6 +36,11 @@ export class SortableColumn extends React.Component {
   render() {
     return (
       <th scope="col" className={this.props.className}>
+        <span className="sr-only" aria-live="assertive" aria-relevant="text" aria-atomic="true">
+          The table is now sorted by {this.props.columnName || this.props.columnToSort}
+          {this.props.sortDirection ? 'in ascending' : 'in descending'}
+          order.
+        </span>
         <button type="button" className={this.isActive()} onClick={this.toggleSort}>
           <span className="sr-only">Sort By</span>
           <span className="sort-name">

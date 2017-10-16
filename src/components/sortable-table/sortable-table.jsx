@@ -80,6 +80,7 @@ export class SortableTable extends React.Component {
           toggleSort={this.handleToggleSort}
           sortDirection={sortDirection}
           isActive={isActive}
+          columnName={col.name}
           columnToSort={col.key}
           className={col.className}>
           {col.name}
@@ -108,12 +109,6 @@ export class SortableTable extends React.Component {
   render() {
     return (
       <div>
-        <span className="sr-only" aria-live="assertive" aria-atomic="true">
-          {this.props.caption || 'The table'}
-          is now sorted by {this.props.activeColumn}
-          in {this.props.sortDirections[this.props.activeColumn] ? 'ascending' : 'descending'}
-          order.
-        </span>
         <table id={this.props.tableId} className={`${this.props.tableId}-class sortable-table`}>
           {this.props.caption && <caption>{this.props.caption}</caption>}
           <thead>
