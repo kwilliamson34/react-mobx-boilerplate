@@ -58,15 +58,13 @@ export default class ManageFavoritesPage extends React.Component {
     this.manageFavoritesStore.advancePagination();
   }
 
-  handleMapItButton = (e) => {
-    const targetId = $(e.target).parent().parent()[0].dataset.id;
+  handleMapItButton = (targetId) => {
     let rowData = this.manageFavoritesStore.findRowData(targetId);
     this.geolinkStore.performExternalSearch(rowData.locationFavoriteAddress);
   }
 
-  handleEditButton = (e) => {
-    const targetId = $(e.target).parent().parent()[0].dataset.id;
-    let rowData = this.manageFavoritesStore.findRowData(targetId);
+  handleEditButton = (targetId) => {
+    let rowData = this.manageFavoritesStore.findRowData(targetId.toString());
     this.geolinkStore.performEditLocationRequest(rowData);
   }
 
@@ -263,7 +261,7 @@ export default class ManageFavoritesPage extends React.Component {
 
   renderEditButton = () => {
     return (
-      <button className="as-link edit-location-button" onClick={this.handleEditButton} tabIndex="-1">
+      <button className="as-link edit-location-button" tabIndex="-1">
         <i className="icon-pencil" aria-hidden="true" />
         <span>Edit</span>
       </button>
@@ -272,7 +270,7 @@ export default class ManageFavoritesPage extends React.Component {
 
   renderMapItButton = () => {
     return (
-      <button className="as-link map-it-button" onClick={this.handleMapItButton} tabIndex="-1">
+      <button className="as-link map-it-button" tabIndex="-1">
         <i className="icon-map-marker" aria-hidden="true" />
         <span>Map It</span>
       </button>
@@ -305,11 +303,13 @@ export default class ManageFavoritesPage extends React.Component {
         name: 'Name',
         key: 'favoriteName',
         inlineButtonJsx: this.renderEditButton(),
+        onButtonClick: this.handleEditButton,
         className: 'favorite-name-column col50'
       }, {
         name: 'Location/Address',
         key: 'locationFavoriteAddress',
         inlineButtonJsx: this.renderMapItButton(),
+        onButtonClick: this.handleMapItButton,
         className: 'location-address-column col45'
       }
     ];

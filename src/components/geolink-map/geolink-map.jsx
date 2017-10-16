@@ -44,7 +44,7 @@ export default class GeolinkMap extends React.Component {
     this.props.geolinkStore.iframeIsFullyLoaded = true;
 
     //set map defaults
-    if (this.props.geolinkStore.locationAddress) {
+    if (this.props.geolinkStore.values.locationAddress) {
       this.props.geolinkStore.searchMap();
       this.props.geolinkStore.disableSearch = false;
     } else if ('geolocation' in navigator) {

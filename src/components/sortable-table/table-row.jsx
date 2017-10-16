@@ -27,6 +27,10 @@ export class TableRow extends React.Component {
     return this.props.checkedRows.indexOf(this.props.id.toString()) > -1;
   }
 
+  handleInlineButtonClick = (callback, id) => {
+    callback(id);
+  }
+
   render() {
     return (
       <tr className={`sortable-table-row ${this.rowIsChecked ? 'active' : ''}`} tabIndex="0">
@@ -50,7 +54,7 @@ export class TableRow extends React.Component {
               </div>
               {
                 column.inlineButtonJsx &&
-                <div className="inline-button-wrapper" data-id={this.props.id} tabIndex="0">
+                <div className="inline-button-wrapper" onClick={() => this.handleInlineButtonClick(column.onButtonClick, this.props.id)} data-id={this.props.id} tabIndex="0">
                   {column.inlineButtonJsx}
                 </div>
               }
