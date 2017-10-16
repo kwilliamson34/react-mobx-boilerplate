@@ -88,6 +88,7 @@ class LeadCaptureForm extends React.Component {
           value="contactAgreement"
           label="By submitting this information, you agree to be contacted by FirstNet. We will never sell or share your information."
           required={true}
+          errorMessage="Please provide consent to be contacted by FirstNet."
           checked={this.store.values.contactAgreement}
           handleOnChange={this.handleCheckboxOnChange} />
       </div>

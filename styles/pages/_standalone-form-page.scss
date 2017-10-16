@@ -10,9 +10,13 @@
     line-height: 1.5;
   }
 
-  .checkbox label {
-    padding-left: 0;
+  .checkbox {
     padding-top: 15px;
+
+    .error,
+    label {
+      padding-left: 0;
+    }
   }
 }
 

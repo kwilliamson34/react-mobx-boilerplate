@@ -11,7 +11,8 @@ export default class Checkbox extends React.Component {
     handleOnChange: PropTypes.func,
     disabled: PropTypes.bool,
     checked: PropTypes.bool,
-    required: PropTypes.bool
+    required: PropTypes.bool,
+    errorMessage: PropTypes.string
   }
 
   static defaultProps = {
@@ -19,7 +20,8 @@ export default class Checkbox extends React.Component {
     value: '',
     strongLabel: '',
     checked: false, //Note: checked must always have a value so this can be a controlled component
-    disabled: false
+    disabled: false,
+    errorMessage: ''
   }
 
   @observable hasVisibleError = false;
@@ -49,7 +51,10 @@ export default class Checkbox extends React.Component {
       ? 'disabled'
       : '';
     return (
-      <div className={`checkbox form-group ${disabledClass} ${this.hasVisibleError ? 'has-error' : ''}`}>
+      <div className={`checkbox form-group ${disabledClass}`}>
+        {this.hasVisibleError && <div className="msgBlock error error-list" role="alert" aria-live="assertive">
+          <span>{this.props.errorMessage}</span>
+        </div>}
         <label>
           <input
             type="checkbox"
