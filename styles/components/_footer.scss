@@ -25,8 +25,8 @@ footer {
       font-size: 1.8rem;
       line-height: 1.12;
       text-transform: uppercase;
-      font-weight: $fn-medium-weight;
-      font-weight: bold;
+      font-weight: $fn-bold-weight;
+      letter-spacing: 1.35px;
     }
 
     h2 {
@@ -251,7 +251,7 @@ footer {
 
       img {
         width: 100%;
-        max-width: 295px;
+        max-width: 250px;
       }
     }
   }
@@ -307,10 +307,10 @@ footer {
 @media #{$tablet} {
   footer {
     .logoRow {
-      padding: 30px 15px;
+      padding: 40px 15px 30px;
 
       img {
-        max-width: 430px;
+        max-width: 300px;
       }
     }
   }
@@ -381,10 +381,10 @@ footer {
 @media #{$desktop} {
   footer {
     .logoRow {
-      padding: 60px 15px 40px;
+      padding: 45px 15px 40px;
 
       img {
-        max-width: 340px;
+        max-width: 300px;
       }
     }
 
@@ -419,7 +419,10 @@ footer {
 
     .footer-main {
       li {
-        margin-bottom: 23px;
+
+        &:not(:last-child) {
+          margin-bottom: 23px;
+        }
       }
       .is-flex {
         flex-wrap: nowrap;
