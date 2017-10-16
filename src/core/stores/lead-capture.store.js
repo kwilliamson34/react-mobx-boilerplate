@@ -27,7 +27,7 @@ class LeadCaptureStore {
       this.recordSolutionRequestInCookie();
       this.clearForm();
       this.showSuccess = true;
-      history.back();
+      history.go(-1);
     }
     const failure = () => {
       this.showAllFormErrors();
@@ -73,7 +73,7 @@ class LeadCaptureStore {
   @computed get solutionAlreadyRequested() {
     return utilsService.getCookie('_fn_lc_solutions_requested').indexOf(this.solutionName) > -1;
   }
-  
+
   @observable formFieldRefList = [];
   @observable formHasError = true;
   @observable showAlert = false;
