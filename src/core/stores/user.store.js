@@ -115,16 +115,16 @@ class UserStore {
     return this.isAdmin;
   }
 
-  @computed get cardIsAllowed() {
-    let cardIsAllowed = {};
+  @computed get destinationIsPermitted() {
+    let destinationIsPermitted = {};
     for(let card in this.cardPermissions) {
       if(_.intersection(this.cardPermissions[card], this.user.roles).length) {
-        cardIsAllowed[card] = true;
+        destinationIsPermitted[card] = true;
       } else {
-        cardIsAllowed[card] = false;
+        destinationIsPermitted[card] = false;
       }
     }
-    return cardIsAllowed;
+    return destinationIsPermitted;
   }
 
   @observable user = {};

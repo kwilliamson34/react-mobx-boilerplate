@@ -245,12 +245,12 @@ export default class PSEHeader extends React.Component {
 						<strong className="visible-md-block visible-lg-block" aria-hidden="true">
 							Management
 						</strong>
-						{this.userStore.cardIsAllowed.manageUsers && <li>
+						{this.userStore.destinationIsPermitted.manageUsers && <li>
 							<NewTabLink to={config.manageUsersLink} onClick={this.handleExternalTabOpen} showIcon={true}>
 								Manage Users
 							</NewTabLink>
 						</li>}
-						{this.userStore.cardIsAllowed.manageApps && <li>
+						{this.userStore.destinationIsPermitted.manageApps && <li>
 							<NavLink to="/admin/manage-apps">Manage Apps</NavLink>
 						</li>}
 						<li>
@@ -258,7 +258,7 @@ export default class PSEHeader extends React.Component {
 								Manage Services &amp; Billing
 							</NewTabLink>
 						</li>
-						{this.userStore.cardIsAllowed.viewReports && <li>
+						{this.userStore.destinationIsPermitted.viewReports && <li>
 							<NewTabLink to={config.viewWirelessReportsLink} onClick={this.handleExternalTabOpen} showIcon={true}>
 								View Wireless Reports
 							</NewTabLink>
@@ -272,17 +272,17 @@ export default class PSEHeader extends React.Component {
 						<strong className="visible-md-block visible-lg-block" aria-hidden="true">
 							Purchasing &amp; Provisioning
 						</strong>
-						{this.userStore.cardIsAllowed.shopStandardDevices && <li>
+						{this.userStore.destinationIsPermitted.shopStandardDevices && <li>
 							<NewTabLink to={config.shopStandardDevicesLink} onClick={this.handleExternalTabOpen} showIcon={true}>
 								Standard Devices &amp; Rate Plans
 							</NewTabLink>
 						</li>}
-						{this.userStore.cardIsAllowed.shopSpecializedDevices && <li>
+						{this.userStore.destinationIsPermitted.shopSpecializedDevices && <li>
 							<NavLink to="/admin/devices">
 								Specialized Devices
 							</NavLink>
 						</li>}
-						{this.userStore.cardIsAllowed.shopPublicSafetySolutions && <li>
+						{this.userStore.destinationIsPermitted.shopPublicSafetySolutions && <li>
 							<NavLink to="/admin/solutions">
 								Public Safety Solutions
 							</NavLink>

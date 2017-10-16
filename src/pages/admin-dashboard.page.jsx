@@ -28,7 +28,7 @@ export default class AdminDashboardPage extends React.Component {
               </div>
               <nav>
                 <ul>
-                  {this.store.cardIsAllowed.manageUsers && <li className="col-xs-12">
+                  {this.store.destinationIsPermitted.manageUsers && <li className="col-xs-12">
                     <NewTabLink to={config.manageUsersLink} className="dashboard-card manage-users has-shadow">
                       <div className="desc">
                         <h3>Manage users</h3>
@@ -46,7 +46,7 @@ export default class AdminDashboardPage extends React.Component {
                       <span>Manage services & billing <i className="icon-arrowRight" aria-hidden="true"></i></span>
                     </NewTabLink>
                   </li>
-                  {this.store.cardIsAllowed.manageApps &&   <li className="col-xs-12 col-sm-6">
+                  {this.store.destinationIsPermitted.manageApps &&   <li className="col-xs-12 col-sm-6">
                     <Link to="/admin/manage-apps" className="dashboard-card manage-apps has-shadow">
                       <div className="desc">
                         <h3>Manage apps</h3>
@@ -55,7 +55,7 @@ export default class AdminDashboardPage extends React.Component {
                       <span>Manage apps <i className="icon-arrowRight" aria-hidden="true"></i></span>
                     </Link>
                   </li>}
-                  {this.store.cardIsAllowed.viewReports && <li className="col-xs-12 col-sm-6">
+                  {this.store.destinationIsPermitted.viewReports && <li className="col-xs-12 col-sm-6">
                     <NewTabLink to={config.viewWirelessReportsLink} className="dashboard-card manage-wireless-reports has-shadow">
                       <div className="desc">
                         <h3>View wireless reports</h3>
@@ -73,7 +73,7 @@ export default class AdminDashboardPage extends React.Component {
               </div>
               <nav>
                 <ul>
-                  {this.store.cardIsAllowed.shopStandardDevices && <li className="col-xs-12 col-md-6 col-lg-12">
+                  {this.store.destinationIsPermitted.shopStandardDevices && <li className="col-xs-12 col-md-6 col-lg-12">
                     <NewTabLink to={config.shopStandardDevicesLink} className="dashboard-card shop-devices-rates has-shadow">
                       <div className="desc">
                         <h3>Shop standard devices &amp; rate plans</h3>
@@ -82,7 +82,7 @@ export default class AdminDashboardPage extends React.Component {
                       <span>Shop Devices &amp; Plans <i className="icon-arrowRight" aria-hidden="true"></i></span>
                     </NewTabLink>
                   </li>}
-                  {this.store.cardIsAllowed.shopSpecializedDevices && <li className="col-xs-12 col-md-6 col-lg-12">
+                  {this.store.destinationIsPermitted.shopSpecializedDevices && <li className="col-xs-12 col-md-6 col-lg-12">
                     <Link to="/admin/devices" className="dashboard-card shop-specialized-devices has-shadow">
                       <div className="desc">
                         <h3>Shop specialized devices</h3>
@@ -91,7 +91,7 @@ export default class AdminDashboardPage extends React.Component {
                       <span>Shop Specialized Devices<i className="icon-arrowRight" aria-hidden="true"></i></span>
                     </Link>
                   </li>}
-                  {this.store.cardIsAllowed.shopPublicSafetySolutions && <li className="col-xs-12 col-md-6 col-lg-12">
+                  {this.store.destinationIsPermitted.shopPublicSafetySolutions && <li className="col-xs-12 col-md-6 col-lg-12">
                     <Link to="/admin/solutions" className="dashboard-card shop-solutions has-shadow">
                       <div className="desc">
                         <h3>Shop public safety solutions</h3>
