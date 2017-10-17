@@ -1,16 +1,45 @@
-import {action, observable, computed} from 'mobx';
+import {action, observable, computed, autorun} from 'mobx';
 import {apiService} from '../services/api.service';
 import {utilsService} from '../services/utils.service';
 import {history} from '../services/history.service';
+import {userStore} from './user.store';
+import {appCatalogStore} from './app-catalog.store';
 import _ from 'lodash';
 
 class ExternalLinkStore {
   /*
    * Retrieve Devices from Marketing Portal
    */
+  constructor() {
+    //fetch related app
+    autorun(() => {
+      if (this.hasValidRelatedApp(this.currentSolutionDetail)) {
+        appCatalogStore.setCurrentApp(this.currentSolutionDetail.related_app_psk);
+        if (!appCatalogStore.currentAppObject || !appCatalogStore.currentAppObject.detailsFetched) {
+          appCatalogStore.fetchAppDetailByPsk({
+            psk: this.currentSolutionDetail.related_app_psk,
+            suppressFetchFailure: true
+          });
+        }
+      }
+    })
+  }
+
+  @action fetchMarketingPortalData() {
+    if(!this.allSpecializedDevices || !this.allSpecializedDevices.length) {
+      this.getDevicesData();
+    }
+    if(!this.solutionCategories || !this.solutionCategories.length) {
+      this.getSolutionCategories();
+    }
+    if(!this.allSolutionDetails || !this.allSolutionDetails.length) {
+      this.getSolutionDetails();
+    }
+  }
+
   @action getDevicesData() {
     const success = (res) => {
-      this.allSpecializedDevices = res.filter((device) => device.device_is_specialized === '1');
+      this.allSpecializedDevices = res.data.filter((device) => device.device_is_specialized === '1');
     }
     const fail = (res) => {
       utilsService.handleError(res);
@@ -18,21 +47,9 @@ class ExternalLinkStore {
     return apiService.getMarketingPortalDevices().then(success, fail);
   }
 
-  @action fetchDeviceDetails({devicePath, setAsCurrent}) {
-    let matches = this.allSpecializedDevices.filter((device) => {
-      return decodeURIComponent(devicePath) === decodeURIComponent(device.device_title);
-    });
-    this.checkMatches({matches, shouldBeOne: true});
-
-    if(setAsCurrent) {
-      this.currentDeviceDetailRaw = matches[0];
-    }
-    return matches[0];
-  }
-
   @action getSolutionDetails() {
     const success = (res) => {
-      this.allSolutionDetails = res;
+      this.allSolutionDetails = res.data;
     }
     const fail = (res) => {
       utilsService.handleError(res);
@@ -42,24 +59,12 @@ class ExternalLinkStore {
 
   @action getSolutionCategories() {
     const success = (res) => {
-      this.solutionCategories = res.solution_category;
+      this.solutionCategories = res.data.solution_category;
     }
     const fail = (res) => {
       utilsService.handleError(res);
     }
     return apiService.getMarketingPortalSolutionCategories().then(success, fail);
-  }
-
-  @action fetchSolutionDetails({solutionPath, setAsCurrent}) {
-    let matches = this.allSolutionDetails.filter((solution) => {
-      return decodeURIComponent(solutionPath) === decodeURIComponent(solution.promo_title);
-    });
-    this.checkMatches({matches, shouldBeOne: true});
-
-    if(setAsCurrent) {
-      this.currentSolutionDetail = matches[0];
-    }
-    return matches[0];
   }
 
   @action resetSolutionDetail() {
@@ -70,16 +75,8 @@ class ExternalLinkStore {
     this.currentDeviceDetailRaw = {};
   }
 
-  @action checkMatches({matches, shouldBeOne, shouldNotBeZero}) {
-    if(shouldNotBeZero && matches.length < 1){
-      history.replace('/error');
-    } else if (shouldBeOne && matches.length !== 1) {
-      history.replace('/error');
-    }
-  }
-
   @action hasValidRelatedApp(solutionObject) {
-    if(solutionObject.related_app_psk) {
+    if(solutionObject && solutionObject.related_app_psk) {
       const digitsRegex = /^[0-9]+$/;
       return digitsRegex.test(solutionObject.related_app_psk);
     }
@@ -92,19 +89,26 @@ class ExternalLinkStore {
     const matches = this.allSolutionDetails.filter((solution) => {
       return solution.page_category.toLowerCase() == _category.toLowerCase();
     });
-    this.checkMatches({matches, shouldNotBeZero: true});
-
     return {
       title: _category,
       solutions: matches
     }
   }
 
+  @computed get currentSolutionDetail() {
+    let matches = this.allSolutionDetails.filter((solution) => {
+      // Drupal allows trailing spaces, so make sure to trim
+      return decodeURIComponent(this.currentSolutionName).trim() == decodeURIComponent(solution.promo_title).trim();
+    });
+
+    // Return the first result, or fail gracefully
+    return matches[0];
+  }
+
   @computed get filteredDeviceCategoryData() {
     const matches = this.allSpecializedDevices.filter((device) => {
       return this.currentDeviceCategory.toLowerCase() == device.device_category.toLowerCase();
     });
-    this.checkMatches({matches, shouldNotBeZero: true});
     return matches;
   }
 
@@ -124,18 +128,30 @@ class ExternalLinkStore {
   }
 
   @computed get currentDeviceDetail() {
-    let device = this.currentDeviceDetailRaw;
-    return {
-      path: encodeURIComponent(device.device_title).replace(/%20/g, '+'),
-      features: device.device_features,
-      deviceName: device.device_title,
-      deviceImg: device.device_image_url,
-      deviceImgAlt: device.device_image_alt,
-      terms: (device.device_tnc && device.device_tnc.length > 0) ? device.device_tnc : null
+    let matches = this.allSpecializedDevices.filter((device) => {
+      // Drupal allows trailing spaces, so make sure to trim
+      return decodeURIComponent(this.currentDeviceName).trim() == decodeURIComponent(device.device_title).trim();
+    });
+
+    // Return the first result, or fail gracefully
+    let device = matches[0];
+    if(device) {
+      return {
+        path: encodeURIComponent(device.device_title).replace(/%20/g, '+'),
+        features: device.device_features,
+        deviceName: device.device_title,
+        deviceImg: device.device_image_url,
+        deviceImgAlt: device.device_image_alt,
+        terms: (device.device_tnc && device.device_tnc.length > 0) ? device.device_tnc : null
+      }
     }
+    return {};
   }
 
   @computed get currentDevicePurchasingInfo() {
+    if(!this.currentDeviceDetailRaw) {
+      return;
+    }
     let contactInfoObject = _.pick(this.currentDeviceDetailRaw, Object.keys(this.currentDeviceDetailRaw).filter((key) => {
       return key.includes('contact_') && this.currentDeviceDetailRaw[key] !== ''
     }));
@@ -143,6 +159,9 @@ class ExternalLinkStore {
   }
 
   @computed get currentSolutionPurchasingInfo() {
+    if(!this.currentSolutionDetail) {
+      return;
+    }
     let contactInfoObject = _.pick(this.currentSolutionDetail, Object.keys(this.currentSolutionDetail).filter((key) => {
       return key.includes('contact_') && this.currentSolutionDetail[key] !== ''
     }));
@@ -152,11 +171,11 @@ class ExternalLinkStore {
   @observable allSolutionDetails = [];
   @observable solutionCategories = [];
   @observable currentSolutionCategory = '';
-  @observable currentSolutionDetail = {};
+  @observable currentSolutionName = '';
 
   @observable allSpecializedDevices = [];
   @observable currentDeviceCategory = '';
-  @observable currentDeviceDetailRaw = {};
+  @observable currentDeviceName = '';
 
   @observable solutionsConsultantPhone = '833-717-8638';
   @observable firstnetTraining = 'http://mmsrv01b.intellor.com/att/digitalexperience/firstnet.html';

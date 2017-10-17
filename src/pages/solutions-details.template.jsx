@@ -25,46 +25,22 @@ export default class SolutionsDetailsTemplate extends React.Component {
   }
 
   componentWillMount() {
-    this.leadCaptureStore.setCurrentSolution(this.props.match.params.solutionDetail);
+    this.externalLinkStore.fetchMarketingPortalData();
 
-    // checking if the user was on this page previously, eliminating need for new request
-    if (this.props.match.params.solutionDetail != this.externalLinkStore.currentSolutionDetail.path) {
-      let solutionPath = this.props.match.params.solutionDetail;
-      this.externalLinkStore.resetSolutionDetail();
-      if (this.externalLinkStore.allSolutionDetails.length) {
-        this.fetchSolutionDetails(solutionPath);
-      } else {
-        this.externalLinkStore.getSolutionDetails().then(() => {
-          this.fetchSolutionDetails(solutionPath);
-        });
-      }
-    }
+    const solutionName = decodeURIComponent(this.props.match.params.solutionDetail);
+    this.externalLinkStore.currentSolutionName = solutionName;
+    this.leadCaptureStore.setCurrentSolution(solutionName);
   }
 
   componentWillUnmount() {
     this.leadCaptureStore.hideSuccess();
   }
 
-  fetchSolutionDetails(solutionPath) {
-    this.externalLinkStore.fetchSolutionDetails({solutionPath, setAsCurrent: true});
-
-    const solutionDetail = this.externalLinkStore.currentSolutionDetail;
-    if(this.externalLinkStore.hasValidRelatedApp(solutionDetail)) {
-      this.appCatalogStore.setCurrentApp(solutionDetail.related_app_psk);
-      if(!this.appCatalogStore.currentAppObject || !this.appCatalogStore.currentAppObject.detailsFetched) {
-        this.appCatalogStore.fetchAppDetailByPsk({
-          psk: solutionDetail.related_app_psk,
-          suppressFetchFailure: true
-        });
-      }
-    }
-  }
-
   render() {
     const solutionCategoryTitle = this.props.match.params.solutionCategory.replace(/-/g, ' ');
     const solutionDetailTitle = decodeURIComponent(this.props.match.params.solutionDetail);
 
-    const solutionDetail = this.externalLinkStore.currentSolutionDetail;
+    const solutionDetail = this.externalLinkStore.currentSolutionDetail || {};
     const purchasingInfo = this.externalLinkStore.currentSolutionPurchasingInfo;
 
     const crumbs = [
@@ -107,7 +83,7 @@ export default class SolutionsDetailsTemplate extends React.Component {
                 <h2>Related App</h2>
                 <hr />
                 <AppDetailBanner
-                  pskToRender={solutionDetail.related_app_psk}
+                  pskToRender={this.externalLinkStore.currentSolutionDetail.related_app_psk}
                   actionBlock="link_to_details"
                   appCatalogStore={this.appCatalogStore}
                   suppressFetchFailure={true}/>
@@ -158,5 +134,5 @@ export default class SolutionsDetailsTemplate extends React.Component {
         </section>
       </div>
     )
-}
+  }
 }

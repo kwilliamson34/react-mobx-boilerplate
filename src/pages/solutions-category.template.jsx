@@ -20,13 +20,8 @@ export default class SolutionsCategoryTemplate extends React.Component {
   }
 
   componentWillMount() {
-    //User has navigated to a different category page so will make request for new category
-    if (this.externalLinkStore.currentSolutionCategory != this.props.match.params.solutionCategory){
-      this.externalLinkStore.currentSolutionCategory = this.props.match.params.solutionCategory;
-      if (!this.externalLinkStore.allSolutionDetails.length) {
-        this.externalLinkStore.getSolutionDetails();
-      }
-    }
+    this.externalLinkStore.fetchMarketingPortalData();
+    this.externalLinkStore.currentSolutionCategory = this.props.match.params.solutionCategory;
   }
 
   renderCards = (solutionsArray) => {

@@ -20,9 +20,7 @@ export default class ShopSolutionsPage extends React.Component {
   }
 
   componentWillMount() {
-    if (!this.externalLinkStore.solutionCategories.length) {
-      this.externalLinkStore.getSolutionCategories();
-    }
+    this.externalLinkStore.fetchMarketingPortalData();
   }
 
   renderCards = (cardsArray) => {
