@@ -246,6 +246,35 @@ $map-height-mobile: 400px;
       }
     }
   }
+  .tooltip{
+    display: inline-block;
+    color: $fn-black;
+    margin: 0 0 0 5px;
+    position: relative;
+    &:before{
+      content: attr(title);
+      position: absolute;
+      display: none;
+      white-space: nowrap;
+      padding: 5px 15px;
+      color: white;
+      font-weight: $fn-normal-weight;
+      font-size: $fn-small-text-desktop;
+      background: $fn-black;
+      top: -32px;
+      right: -30px;
+      border-radius: 4px;
+    }
+    &:hover{
+      color: $fn-ltblue;
+      &:before{
+        display: block;
+      }
+    }
+    i {
+      font-size: 12px;
+    }
+  }
 }
 /**********************************************/
 @media #{$mobile} {
