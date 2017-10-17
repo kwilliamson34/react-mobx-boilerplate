@@ -1,9 +1,22 @@
-import {action, observable, computed} from 'mobx';
+import {action, observable, computed, autorun} from 'mobx';
 import {apiService} from '../services/api.service';
 import {userStore} from './user.store';
 import {history} from '../services/history.service';
 
 class FeedbackStore {
+  constructor() {
+    // check form for errors
+    autorun(() => {
+      let hasError = false;
+      this.formFieldRefList.forEach(ref => {
+        if(ref && ref.hasFunctionalError) {
+          hasError = true;
+        }
+      });
+      this.formHasError = hasError;
+    })
+  }
+
   @action submitForm() {
     if(this.formHasError) {
       this.showAllFormErrors();
@@ -21,7 +34,6 @@ class FeedbackStore {
 
   @action toggleContactAgreement() {
     this.values.contactAgreement = !this.values.contactAgreement;
-    setTimeout(this.checkFormForErrors.bind(this), 0);
   }
 
   @action clearForm() {
@@ -36,16 +48,6 @@ class FeedbackStore {
       }
     });
     this.showAlert = true;
-  }
-
-  @action checkFormForErrors() {
-    let hasError = false;
-    this.formFieldRefList.forEach(ref => {
-      if(ref && ref.hasFunctionalError) {
-        hasError = true;
-      }
-    });
-    this.formHasError = hasError;
   }
 
   @computed get formIsDirty() {
@@ -74,6 +76,7 @@ class FeedbackStore {
         emailIsRequired = true;
       }
     });
+    console.log('emailIsRequired', emailIsRequired);
     return emailIsRequired;
   }
 
@@ -85,20 +88,20 @@ class FeedbackStore {
     subject: '',
     details: '',
     operatingSystem: '',
-    email: userStore.user.email,
+    email: userStore.user.email || '',
     phone: '',
     likelihood: '',
-    contactAgreement: ''
+    contactAgreement: false
   };
   @observable values = {
     topic: '',
     subject: '',
     details: '',
     operatingSystem: '',
-    email: userStore.user.email,
+    email: userStore.user.email || '',
     phone: '',
     likelihood: '',
-    contactAgreement: ''
+    contactAgreement: false
   };
 }
 

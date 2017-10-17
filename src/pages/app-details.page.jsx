@@ -32,6 +32,7 @@ export default class AppDetailsPage extends React.Component {
   }
 
   componentWillMount() {
+    console.log(this.mdmStore.pseMDMObject);
     if (this.userStore.user.pse === '') {
       utilsService.handlePendingAuthorizationsMapping();
     } else {

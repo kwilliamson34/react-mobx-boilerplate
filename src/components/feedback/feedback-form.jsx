@@ -39,7 +39,7 @@ class FeedbackForm extends React.Component {
       {value: 'System Performance', title: 'System Performance'},
       {value: 'App Management', title: 'App Management'},
       {value: 'Portal Design', title: 'Portal Design'},
-      {value: 'Credential &Account Management', 'Credential &Account Management'},
+      {value: 'Credential & Account Management', title: 'Credential & Account Management'},
       {value: 'Purchasing & Provisioning', title: 'Purchasing & Provisioning'},
       {value: 'Billing & Payment', title: 'Billing & Payment'},
       {value: 'Other', title: 'Other'}
@@ -62,13 +62,16 @@ class FeedbackForm extends React.Component {
     this.store.formFieldRefList = [];
   }
 
+  handleCheckboxOnChange = () => {
+    this.store.toggleContactAgreement();
+  }
+
   render() {
     return (
       <div id="feedback-form">
 
         <SelectInput
           ref={ref => this.store.formFieldRefList.push(ref)}
-          checkFormForErrors={this.store.checkFormForErrors.bind(this.store)}
           dataObject={this.store.values}
           id="topic"
           type="select"
@@ -80,7 +83,6 @@ class FeedbackForm extends React.Component {
 
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
-          checkFormForErrors={this.store.checkFormForErrors.bind(this.store)}
           dataObject={this.store.values}
           id="subject"
           type="input"
@@ -91,7 +93,6 @@ class FeedbackForm extends React.Component {
 
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
-          checkFormForErrors={this.store.checkFormForErrors.bind(this.store)}
           dataObject={this.store.values}
           id="details"
           type="textarea"
@@ -102,7 +103,6 @@ class FeedbackForm extends React.Component {
 
         <SelectInput
           ref={ref => this.store.formFieldRefList.push(ref)}
-          checkFormForErrors={this.store.checkFormForErrors.bind(this.store)}
           dataObject={this.store.values}
           id="operatingSystem"
           type="select"
@@ -112,21 +112,18 @@ class FeedbackForm extends React.Component {
           errorMessage="Select your operating system."
           optionsList={this.operatingSystems}/>
 
-        //TODO: conditional requirement.
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
-          checkFormForErrors={this.store.checkFormForErrors.bind(this.store)}
           dataObject={this.store.values}
           id="email"
           type="input"
           labelText="Email"
-          required={true}
+          required={this.store.emailIsRequired}
           getIsValid={utilsService.isValidEmailAddress}
           errorMessage="Please enter an email address."/>
 
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
-          checkFormForErrors={this.store.checkFormForErrors.bind(this.store)}
           dataObject={this.store.values}
           id="phone"
           type="input"
@@ -137,7 +134,6 @@ class FeedbackForm extends React.Component {
 
         <SelectInput
           ref={ref => this.store.formFieldRefList.push(ref)}
-          checkFormForErrors={this.store.checkFormForErrors.bind(this.store)}
           dataObject={this.store.values}
           id="likelihood"
           type="select"

@@ -15,7 +15,6 @@ describe('<GeolinkControls />', () => {
       toggleWeather: jest.fn(),
       searchMap: jest.fn(),
       resetLayerToggles: jest.fn(),
-      checkFormForErrors: jest.fn(),
       showAddLocationForm: jest.fn(),
       loadFavorites: jest.fn(),
       selectFavorite: jest.fn(),
