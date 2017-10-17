@@ -23,13 +23,13 @@ class AirWatchForm extends React.Component {
     const disabled = this.store.mdmIsConfigured;
     return (
       <div>
-        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} checkFormForErrors={this.store.checkFormForErrors.bind(this.store)} dataObject={this.store.values} id="aw_hostName" type="input" labelText="Host Name" required={true} disabled={disabled} errorMessage="Please enter a host name."/>
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="aw_hostName" type="input" labelText="Host Name" required={true} disabled={disabled} errorMessage="Please enter a host name."/>
 
-        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} checkFormForErrors={this.store.checkFormForErrors.bind(this.store)} dataObject={this.store.values} id="aw_tenantCode" type="input" labelText="Tenant Code" required={true} disabled={disabled} errorMessage="Please enter a tenant code."/>
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="aw_tenantCode" type="input" labelText="Tenant Code" required={true} disabled={disabled} errorMessage="Please enter a tenant code."/>
 
-        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} checkFormForErrors={this.store.checkFormForErrors.bind(this.store)} dataObject={this.store.values} id="aw_userName" type="input" labelText="Airwatch Username" required={true} disabled={disabled} errorMessage="Please enter a valid AirWatch username."/>
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="aw_userName" type="input" labelText="Airwatch Username" required={true} disabled={disabled} errorMessage="Please enter a valid AirWatch username."/>
 
-        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} checkFormForErrors={this.store.checkFormForErrors.bind(this.store)} dataObject={this.store.values} id="aw_password" type="password" labelText="Airwatch Password" required={true} disabled={disabled} errorMessage="Please enter a valid AirWatch password."/>
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="aw_password" type="password" labelText="Airwatch Password" required={true} disabled={disabled} errorMessage="Please enter a valid AirWatch password."/>
       </div>
     );
   }

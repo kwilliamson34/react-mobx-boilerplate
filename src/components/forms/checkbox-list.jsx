@@ -16,7 +16,6 @@ export default class CheckboxList extends React.Component {
     disabled: PropTypes.bool,
     labelText: PropTypes.string,
     getIsValid: PropTypes.func,
-    checkFormForErrors: PropTypes.func,
     errorMessage: PropTypes.string,
     selectAll: PropTypes.func,
     clearAll: PropTypes.func,
@@ -74,7 +73,6 @@ export default class CheckboxList extends React.Component {
 
   displayErrors = () => {
     this.hasVisibleError = this.hasFunctionalError;
-    this.props.checkFormForErrors();
   }
 
   onBlur = () => {
