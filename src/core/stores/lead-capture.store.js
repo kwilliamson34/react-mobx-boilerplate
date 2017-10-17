@@ -16,14 +16,15 @@ class LeadCaptureStore {
   }
 
   @action recordSolutionRequestInCookie() {
-    if (this.solutionsRequested.indexOf(this.solutionName) === -1) {
-      this.solutionsRequested.push(this.solutionName);
-      utilsService.setCookie('_fn_lc_solutions_requested', JSON.stringify(this.solutionsRequested));
+    if (this.solutionsRequested.indexOf(this.solutionName) < 0) {
+      let solutionsRequestedCopy = this.solutionsRequested;
+      solutionsRequestedCopy.push(this.solutionName);
+      utilsService.setCookie('_fn_lc_solutions_requested', JSON.stringify(solutionsRequestedCopy));
     }
   }
 
   @action submitForm() {
-    if(this.formHasError) {
+    if (this.formHasError) {
       this.showAllFormErrors();
       return;
     }
@@ -53,7 +54,7 @@ class LeadCaptureStore {
   @computed get formIsDirty() {
     let formHasChanged = false;
     Object.keys(this.values).forEach(key => {
-      if(this.values[key] !== this.defaultValues[key]) {
+      if (this.values[key] !== this.defaultValues[key]) {
         formHasChanged = true;
       }
     });
@@ -62,7 +63,7 @@ class LeadCaptureStore {
 
   @action showAllFormErrors() {
     this.formFieldRefList.forEach(ref => {
-      if(ref && ref.hasFunctionalError) {
+      if (ref && ref.hasFunctionalError) {
         ref.hasVisibleError = ref.hasFunctionalError;
       }
     });
@@ -72,7 +73,7 @@ class LeadCaptureStore {
   @action checkFormForErrors() {
     let hasError = false;
     this.formFieldRefList.forEach(ref => {
-      if(ref && ref.hasFunctionalError) {
+      if (ref && ref.hasFunctionalError) {
         hasError = true;
       }
     });
@@ -91,12 +92,20 @@ class LeadCaptureStore {
     return this.solutionName && utilsService.getCookie('_fn_lc_solutions_requested').indexOf(this.solutionName) > -1;
   }
 
+  @computed get solutionsRequested() {
+    let solutionsRequested = utilsService.getCookie('_fn_lc_solutions_requested');
+    if (!solutionsRequested || solutionsRequested === '') {
+      return [];
+    } else {
+      return JSON.parse(solutionsRequested)
+    }
+  }
+
   @observable formFieldRefList = [];
   @observable formHasError = true;
   @observable showAlert = false;
   @observable showSuccess = false;
   @observable solutionName = '';
-  @observable solutionsRequested = [];
   @observable defaultValues = {
     title: '',
     firstName: userStore.user.firstName,
