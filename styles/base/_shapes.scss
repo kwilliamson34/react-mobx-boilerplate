@@ -4,7 +4,7 @@
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
 
-  border-bottom: 8px solid $table-sort-row-highlight;
+  border-bottom: 8px solid $table-active-column-highlight;
 }
 
 .arrow-down {
@@ -13,5 +13,5 @@
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
 
-  border-top: 8px solid $table-sort-row-highlight;
+  border-top: 8px solid $table-active-column-highlight;
 }
