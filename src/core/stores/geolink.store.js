@@ -3,6 +3,7 @@ import axios from 'axios';
 import config from 'config';
 import {utilsService} from '../services/utils.service';
 import {apiService} from '../services/api.service';
+import {history} from '../services/history.service';
 
 const networkLayerNames = [
   'FirstNet:Coverage2G',
@@ -74,6 +75,21 @@ class GeolinkStore {
         value: this.values.locationAddress
       }, '*');
     }
+  }
+
+  @action performExternalSearch(address) {
+    this.values.locationAddress = address;
+    history.replace('/network-status');
+  }
+
+  @action performEditLocationRequest(locationData) {
+    this.pageTitle = 'Edit Favorite';
+    this.values = {
+      locationAddress: locationData.locationFavoriteAddress,
+      locationName: locationData.favoriteName,
+      locationId: locationData.locationFavoriteId
+    };
+    history.replace('/network-status');
   }
 
   @action addAllNetworkLayers() {
@@ -208,7 +224,7 @@ class GeolinkStore {
       this.pageTitle = 'Network Status';
       this.successText = '"' + this.values.locationName + '" has been updated.';
       this.showSuccess = true;
-      history.go(-1);
+      history.replace('/manage-favorites');
     }
     const failure = (err) => {
       this.alertText = err.response && err.response.data && err.response.data.message.indexOf('already exists') > -1
@@ -220,14 +236,20 @@ class GeolinkStore {
   }
 
   @action handleSecondaryAction() {
-    this.clearForm();
-    if(this.pageTitle === 'Edit Favorite') {
-      history.go(-1);
+    if (this.pageTitle === 'Edit Favorite') {
+      //reset values so that the unsaved changes modal doesn't show, but don't clear alerts because they're needed on Manage Favorites page;
+      this.resetValues();
+      history.replace('/manage-favorites');
     }
+    this.clearForm();
+  }
+
+  @action setPageTitle(title) {
+    this.pageTitle = title;
   }
 
   @action clearForm() {
-    this.values = Object.assign({}, this.defaultValues);
+    this.resetValues();
     this.clearAlerts();
     this.pageTitle = 'Network Status';
     this.searchMap();
@@ -236,6 +258,15 @@ class GeolinkStore {
   @action clearAlerts() {
     this.showAlert = false;
     this.showSuccess = false;
+  }
+
+  @action clearAlertsText() {
+    this.successText = '';
+    this.alertText = '';
+  }
+
+  @action resetValues() {
+    this.values = Object.assign({}, this.defaultValues);
   }
 
   @computed get formIsDirty() {

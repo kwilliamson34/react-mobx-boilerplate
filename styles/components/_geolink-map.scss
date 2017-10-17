@@ -81,6 +81,29 @@ $map-controls-text-line-height: 1.3;
       background: none;
     }
   }
+  .title-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    .manage-favorites-delete-button {
+      font-size: 16px;
+      button {
+        text-transform: uppercase;
+        text-decoration: none;
+        &:hover,
+        &:focus {
+          span {
+            text-decoration: underline;
+          }
+        }
+        i {
+          font-size: 16px;
+          padding-right: 10px;
+        }
+      }
+    }
+  }
 }
 
 .geolink-map {
@@ -358,6 +381,18 @@ $map-controls-text-line-height: 1.3;
     .submit-button-wrapper {
       button {
         margin: 0;
+      }
+    }
+  }
+
+  #network-page {
+    .title-wrapper {
+      flex-direction: column;
+      .manage-favorites-delete-button {
+        button {
+          padding-top: 10px;
+          padding-left: 0;
+        }
       }
     }
   }

@@ -1,0 +1,190 @@
+exports[`<SortableTable> snapshot tests: render tests: should render with props 1`] = `
+<div>
+  <table
+    className="manage-locations-table-class sortable-table"
+    id="manage-locations-table">
+    <thead>
+      <tr>
+        <th
+          className="select-all-checkbox col7" />
+        <th
+          className="favorite-name-column col50"
+          scope="col">
+          <span
+            aria-atomic="true"
+            aria-live="assertive"
+            aria-relevant="text"
+            className="sr-only">
+            The table is now sorted by 
+            Name
+            in ascending
+            order.
+          </span>
+          <button
+            className="sort-button active"
+            onClick={[Function anonymous]}
+            type="button">
+            <span
+              className="sr-only">
+              Sort By
+            </span>
+            <span
+              className="sort-name">
+              Name
+              <i
+                aria-hidden="true"
+                className="arrow-up" />
+            </span>
+          </button>
+        </th>
+        <th
+          className="location-address-column col45"
+          scope="col">
+          <span
+            aria-atomic="true"
+            aria-live="assertive"
+            aria-relevant="text"
+            className="sr-only">
+            The table is now sorted by 
+            Location/Address
+            in ascending
+            order.
+          </span>
+          <button
+            className="sort-button"
+            onClick={[Function anonymous]}
+            type="button">
+            <span
+              className="sr-only">
+              Sort By
+            </span>
+            <span
+              className="sort-name">
+              Location/Address
+              <i
+                aria-hidden="true"
+                className="arrow-up" />
+            </span>
+          </button>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        className="sortable-table-row "
+        tabIndex="0">
+        <td
+          className="table-row-checkbox "
+          scope="row" />
+        <td
+          className="favorite-name-column col50"
+          tabIndex="0">
+          <div
+            className="row-contents-wrapper">
+            <span>
+              Best Pineapple Pizza
+            </span>
+          </div>
+          <div
+            className="inline-button-wrapper"
+            data-id="12345"
+            tabIndex="0">
+            <button
+              className="as-link edit-location-button"
+              tabIndex="-1">
+              <i
+                aria-hidden="true"
+                className="icon-pencil" />
+              <span>
+                Edit
+              </span>
+            </button>
+          </div>
+        </td>
+        <td
+          className="location-address-column col45"
+          tabIndex="0">
+          <div
+            className="row-contents-wrapper">
+            <span>
+              100 Hawaiian Street
+            </span>
+          </div>
+          <div
+            className="inline-button-wrapper"
+            data-id="12345"
+            tabIndex="0">
+            <button
+              className="as-link map-it-button"
+              tabIndex="-1">
+              <i
+                aria-hidden="true"
+                className="icon-map-marker" />
+              <span>
+                Map It
+              </span>
+            </button>
+          </div>
+        </td>
+      </tr>
+      <tr
+        className="sortable-table-row "
+        tabIndex="0">
+        <td
+          className="table-row-checkbox "
+          scope="row" />
+        <td
+          className="favorite-name-column col50"
+          tabIndex="0">
+          <div
+            className="row-contents-wrapper">
+            <span>
+              Best Coconut Slushies
+            </span>
+          </div>
+          <div
+            className="inline-button-wrapper"
+            data-id="54321"
+            tabIndex="0">
+            <button
+              className="as-link edit-location-button"
+              tabIndex="-1">
+              <i
+                aria-hidden="true"
+                className="icon-pencil" />
+              <span>
+                Edit
+              </span>
+            </button>
+          </div>
+        </td>
+        <td
+          className="location-address-column col45"
+          tabIndex="0">
+          <div
+            className="row-contents-wrapper">
+            <span>
+              1414 Cocostuff Plaza
+            </span>
+          </div>
+          <div
+            className="inline-button-wrapper"
+            data-id="54321"
+            tabIndex="0">
+            <button
+              className="as-link map-it-button"
+              tabIndex="-1">
+              <i
+                aria-hidden="true"
+                className="icon-map-marker" />
+              <span>
+                Map It
+              </span>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
