@@ -18,6 +18,7 @@ class FeedbackStore {
   }
 
   @action submitForm() {
+    console.log('this.values', this.values);
     if(this.formHasError) {
       this.showAllFormErrors();
       return;
@@ -39,6 +40,11 @@ class FeedbackStore {
   @action clearForm() {
     this.values = Object.assign({}, this.defaultValues);
     this.showAlert = false;
+    this.clearFormFieldRefList();
+  }
+
+  @action clearFormFieldRefList() {
+    this.formFieldRefList = [];
   }
 
   @action showAllFormErrors() {
@@ -61,6 +67,7 @@ class FeedbackStore {
   }
 
   @computed get showContactAgreement() {
+    console.log('showContactAgreement', this.values.email && this.values.email.length > 0);
     return this.values.email && this.values.email.length > 0;
   }
 
@@ -76,7 +83,7 @@ class FeedbackStore {
         emailIsRequired = true;
       }
     });
-    console.log('emailIsRequired', emailIsRequired);
+    console.log('emailIsRequired', emailIsRequired, this.values.email);
     return emailIsRequired;
   }
 

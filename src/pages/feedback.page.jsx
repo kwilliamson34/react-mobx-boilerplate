@@ -17,8 +17,9 @@ export default class FeedbackPage extends React.Component {
     this.feedbackStore = this.props.store.feedbackStore;
   }
 
-  componentWillMount() {
-    console.log('user', this.props.store.userStore.user.email);
+  componentDidMount() {
+    console.log('user', this.props.store.userStore.user);
+    console.log('values', this.feedbackStore.values);
   }
 
   render = () => {

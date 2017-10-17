@@ -68,7 +68,6 @@ class UserStore {
   }
 
   conditionUserObj(userInfo) {
-    console.log('userInfo', userInfo);
     this.user.uid = userInfo.id;
     this.user.email = userInfo.email;
     this.user.firstName = userInfo.firstName;

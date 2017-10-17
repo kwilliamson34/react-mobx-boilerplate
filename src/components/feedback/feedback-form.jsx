@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
 import config from 'config';
-import {userStore} from '../../core/stores/user.store';
+// import {userStore} from '../../core/stores/user.store';
 import {utilsService} from '../../core/services/utils.service';
 
 import asForm from '../forms/asForm.js';
@@ -59,7 +59,7 @@ class FeedbackForm extends React.Component {
   }
 
   componentWillMount() {
-    this.store.formFieldRefList = [];
+    this.store.clearFormFieldRefList();
   }
 
   handleCheckboxOnChange = () => {
@@ -125,7 +125,7 @@ class FeedbackForm extends React.Component {
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
           dataObject={this.store.values}
-          id="phone"
+          id="phoneNo"
           type="input"
           labelText="Phone (Optional)"
           required={false}
@@ -134,7 +134,7 @@ class FeedbackForm extends React.Component {
         <SelectInput
           ref={ref => this.store.formFieldRefList.push(ref)}
           dataObject={this.store.values}
-          id="likelihood"
+          id="likely"
           type="select"
           labelText="How likely are you to recommend FirstNet?"
           required={true}
@@ -142,10 +142,10 @@ class FeedbackForm extends React.Component {
           errorMessage="Select your likelihood."
           optionsList={this.likelihoods}/>
 
-        <p>Your feedback will help us improve your experience. We cannot respond directly to feedback comments, but can follow up with you if you leave your email below.&nbsp;
-          <span aria-hidden='true'>For immediate help, please contact us directly at&nbsp;</span>
+        <p>Your feedback will help us respond to issues and improve your overall experience.
+          <span aria-hidden='true'>If you are experiencing technical issues with devices/applications/network, please call </span>
           <a href={`tel:${config.attCustomerSupportPhone}`}>
-            <span className='sr-only'>For immediate help, please contact us directly at&nbsp;</span>
+            <span className='sr-only'>If you are experiencing technical issues with devices/applications/network, please call </span>
             {config.attCustomerSupportPhone}
           </a>.
         </p>
