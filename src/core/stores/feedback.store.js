@@ -19,19 +19,14 @@ class FeedbackStore {
     apiService.submitCustomerFeedbackForm(this.values).then(success, failure);
   }
 
+  @action toggleContactAgreement() {
+    this.values.contactAgreement = !this.values.contactAgreement;
+    setTimeout(this.checkFormForErrors.bind(this), 0);
+  }
+
   @action clearForm() {
     this.values = Object.assign({}, this.defaultValues);
     this.showAlert = false;
-  }
-
-  @computed get formIsDirty() {
-    let formHasChanged = false;
-    Object.keys(this.values).forEach(key => {
-      if(this.values[key] !== this.defaultValues[key]) {
-        formHasChanged = true;
-      }
-    });
-    return formHasChanged;
   }
 
   @action showAllFormErrors() {
@@ -53,20 +48,57 @@ class FeedbackStore {
     this.formHasError = hasError;
   }
 
+  @computed get formIsDirty() {
+    let formHasChanged = false;
+    Object.keys(this.values).forEach(key => {
+      if(this.values[key] !== this.defaultValues[key]) {
+        formHasChanged = true;
+      }
+    });
+    return formHasChanged;
+  }
+
+  @computed get showContactAgreement() {
+    return this.values.email.length > 0;
+  }
+
+  @computed get emailIsRequired() {
+    const topicsRequiringEmail = [
+      'Credential & Account Management',
+      'Purchasing & Provisioning',
+      'Billing & Payment'
+    ];
+    let emailIsRequired = false;
+    topicsRequiringEmail.forEach(topic => {
+      if (this.values.topic === topic) {
+        emailIsRequired = true;
+      }
+    });
+    return emailIsRequired;
+  }
+
   @observable formFieldRefList = [];
   @observable formHasError = true;
   @observable showAlert = false;
   @observable defaultValues = {
-    title: '',
-    details: '',
     topic: '',
-    email: userStore.user.email
+    subject: '',
+    details: '',
+    operatingSystem: '',
+    email: userStore.user.email,
+    phone: '',
+    likelihood: '',
+    contactAgreement: ''
   };
   @observable values = {
-    title: '',
-    details: '',
     topic: '',
-    email: userStore.user.email
+    subject: '',
+    details: '',
+    operatingSystem: '',
+    email: userStore.user.email,
+    phone: '',
+    likelihood: '',
+    contactAgreement: ''
   };
 }
 
