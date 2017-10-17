@@ -58,7 +58,7 @@ export default class Checkbox extends React.Component {
 					<span className="layer-label">{this.props.label}</span>
 				</label>
 				{this.props.tooltipText &&
-					<span
+					<button
 						className="tooltip"
 						id={'tooltip-' + this.props.id}
 						type="button"
@@ -67,7 +67,7 @@ export default class Checkbox extends React.Component {
 						data-placement="top"
 						title={this.props.tooltipText}>
 						<i className="icon-help" aria-hidden="true"></i>
-					</span>
+					</button>
 				}
 			</div>
 		)
