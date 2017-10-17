@@ -18,6 +18,8 @@
   "base/typography",
   "base/bootstrap-overrides",
   "base/buttons",
+  "base/tables",
+  "base/shapes",
   "base/joyride-overrides";
 
 //Components
@@ -52,7 +54,8 @@
   "pages/solutions",
   "pages/standalone-form-page",
   "pages/gtoc-page",
-  "pages/manage-apps-page";
+  "pages/manage-apps-page",
+  "pages/manage-favorites-page";
 
 //Shame
 @import "base/ie-styles";

@@ -57,15 +57,15 @@ export default class Footer extends React.Component {
 								<li role="presentation">
 									<Link to="/admin">PSE Administration</Link>
 								</li>
-								<li role="presentation">
+								{this.userStore.destinationIsPermitted.manageApps && <li role="presentation">
 									<Link to="/admin/manage-apps">Manage Apps</Link>
-								</li>
-								<li role="presentation">
+								</li>}
+								{this.userStore.destinationIsPermitted.shopSpecializedDevices && <li role="presentation">
 									<Link to="/admin/devices">Specialized Devices</Link>
-								</li>
-								<li role="presentation">
+								</li>}
+								{this.userStore.destinationIsPermitted.shopPublicSafetySolutions && <li role="presentation">
 									<Link to="/admin/solutions">Public Safety Solutions </Link>
-								</li>
+								</li>}
 							</div>
 							}
 							{this.userStore.canViewNetworkStatus &&

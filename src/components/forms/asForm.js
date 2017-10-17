@@ -145,7 +145,7 @@ export default function asForm (MyComponent, attributes) {
                   <i aria-hidden="true" className="icon-close"></i>
                   <span className="sr-only">Close window</span>
                 </button>
-                <div className="row no-gutters" id="fmodal-title">
+                <div className="row no-gutters" id="modal-title">
                   <div className="col-xs-12">
                     <h1 className="as-h2">Unsaved changes</h1>
                     <p>Your form changes will not be saved if you navigate away from this page.</p>
