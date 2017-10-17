@@ -37,7 +37,7 @@ class UserStore {
 
       } else if (err.response.status === 403) {
         //this is not an authorized user for anything
-        this.user.roles = '';
+        this.user.roles = [];
         this.userValidationDone = true;
         throw new Error('Authorization');
       }
@@ -78,12 +78,12 @@ class UserStore {
     if (userInfo.authorizations.length) {
       this.user.pse = userInfo.authorizations[0].pseId || '';
       this.user.pseName = userInfo.authorizations[0].pseName || '';
-      this.user.roles = userInfo.authorizations[0].pseUserRoles || '';
+      this.user.roles = userInfo.authorizations[0].pseUserRoles || [];
     } else {
       // FAN mapping hasn't happened; use HALO provided groups and roles
       this.user.pse = '';
       this.user.pseName = '';
-      this.user.roles = userInfo.roles || '';
+      this.user.roles = userInfo.roles || [];
     }
     this.userValidationDone = true;
   }

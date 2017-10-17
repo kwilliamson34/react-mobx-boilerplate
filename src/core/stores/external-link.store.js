@@ -1,8 +1,6 @@
 import {action, observable, computed, autorun} from 'mobx';
 import {apiService} from '../services/api.service';
 import {utilsService} from '../services/utils.service';
-import {history} from '../services/history.service';
-import {userStore} from './user.store';
 import {appCatalogStore} from './app-catalog.store';
 import _ from 'lodash';
 
