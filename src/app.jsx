@@ -157,7 +157,16 @@ export default class App extends React.Component {
   }
 
   getAdminRoutes = (component) => {
-    let roleBasedRoutes = pseMasterStore.userStore.isAdmin ? component : () => <Redirect to="/error/unauthorized"/>;
+    let destinationIsPermitted = false;
+    if(component === ManageAppsPage) {
+      destinationIsPermitted = pseMasterStore.userStore.destinationIsPermitted.manageApps;
+    } else if(component === this.getSpecializedDevicesComponent) {
+      destinationIsPermitted = pseMasterStore.userStore.destinationIsPermitted.shopSpecializedDevices;
+    } else if(component === this.getPublicSafetySolutionsComponent) {
+      destinationIsPermitted = pseMasterStore.userStore.destinationIsPermitted.shopPublicSafetySolutions;
+    }
+
+    let roleBasedRoutes = destinationIsPermitted || pseMasterStore.userStore.isAdmin ? component : () => <Redirect to="/error/unauthorized"/>;
     return roleBasedRoutes;
   }
 
