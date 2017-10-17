@@ -91,7 +91,7 @@
         background-color: $fn-white;
         &:focus,
         &.active {
-          background-color: rgba(16, 113, 188, 0.05);
+          background-color: $table-row-background-highlight;
         }
       }
 
@@ -124,7 +124,7 @@
           padding-top: 5px;
           text-transform: uppercase;
           font-weight: $fn-bold-weight;
-          font-size: 16px;
+          font-size: $fn-button-desktop;
           color: $fn-dkgrey;
           width: 80%;
           word-wrap: break-word;
@@ -142,7 +142,7 @@
           button {
             visibility: hidden;
             text-transform: uppercase;
-            font-size: 16px;
+            font-size: $fn-button-desktop;
             font-weight: $fn-bold-weight;
             &:hover,
             &:focus {
@@ -172,23 +172,12 @@
             @include focus();
           }
         }
-        // &:hover,
-        // &:focus {
-        //   .inline-button-wrapper {
-        //     button {
-        //       visibility: visible;
-        //     }
-        //   }
-        // }
-        // &:focus {
-        //   @include focus();
-        // }
       }
       &:focus,
       &.active {
-	      background-color: rgba(16, 113, 188, 0.05);
+	      background-color: $table-row-background-highlight;
         th {
-          background-color: rgba(16, 113, 188, 0.05);
+          background-color: $table-row-background-highlight;
         }
       }
       &:focus {
@@ -217,7 +206,7 @@
       &:hover,
       &:focus,
       &.active {
-        border-bottom: 5px solid $table-sort-row-highlight;
+        border-bottom: 5px solid $table-active-column-highlight;
         .sort-name i {
           display: block;
         }
@@ -234,7 +223,7 @@
         color: $fn-white;
         letter-spacing: 1px;
         i {
-          color: $table-sort-row-highlight;
+          color: $table-active-column-highlight;
           display: none;
           position: absolute;
           right: 20px;
@@ -254,7 +243,7 @@
 
     .counts-wrapper {
       font-weight: $fn-bold-weight;
-      font-size: 16px;
+      font-size: $fn-button-desktop;
       display: flex;
       align-items: baseline;
       flex-direction: row;
@@ -268,7 +257,7 @@
       }
     }
     .search-count {
-      font-size: 20px;
+      font-size: $fn-h4-desktop;
       font-weight: $fn-bold-weight;
     }
     .manage-favorites-delete-button {
@@ -291,7 +280,7 @@
   }
 
   .manage-favorites-delete-button {
-    font-size: 16px;
+    font-size: $fn-button-desktop;
     button {
       text-transform: uppercase;
       text-decoration: none;
@@ -302,7 +291,7 @@
         }
       }
       i {
-        font-size: 16px;
+        font-size: $fn-button-desktop;
         padding-right: 10px;
       }
       &.disabled {

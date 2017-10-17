@@ -227,7 +227,6 @@ class GeolinkStore {
       history.replace('/manage-favorites');
     }
     const failure = (err) => {
-      console.log('err', err);
       this.alertText = err.response && err.response.data && err.response.data.message.indexOf('already exists') > -1
         ? 'You already have a favorite named "' + this.values.locationName + '".'
         : 'Please fix the following errors.';
@@ -250,7 +249,7 @@ class GeolinkStore {
   }
 
   @action clearForm() {
-    this.values = Object.assign({}, this.defaultValues);
+    this.resetValues();
     this.clearAlerts();
     this.pageTitle = 'Network Status';
     this.searchMap();
