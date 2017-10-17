@@ -44,7 +44,6 @@ class FeedbackForm extends React.Component {
       <div id="feedback-form">
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
-          checkFormForErrors={this.store.checkFormForErrors.bind(this.store)}
           dataObject={this.store.values}
           id="title"
           type="input"
@@ -55,7 +54,6 @@ class FeedbackForm extends React.Component {
 
         <SelectInput
           ref={ref => this.store.formFieldRefList.push(ref)}
-          checkFormForErrors={this.store.checkFormForErrors.bind(this.store)}
           dataObject={this.store.values}
           id="topic"
           type="select"
@@ -69,7 +67,6 @@ class FeedbackForm extends React.Component {
 
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
-          checkFormForErrors={this.store.checkFormForErrors.bind(this.store)}
           dataObject={this.store.values}
           id="details"
           type="textarea"
@@ -88,7 +85,6 @@ class FeedbackForm extends React.Component {
 
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
-          checkFormForErrors={this.store.checkFormForErrors.bind(this.store)}
           dataObject={this.store.values}
           id="email"
           type="input"
