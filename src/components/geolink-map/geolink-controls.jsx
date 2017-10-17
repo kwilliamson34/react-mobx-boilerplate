@@ -174,7 +174,6 @@ export default class GeolinkControls extends React.Component {
         <h2 className="as-h5">Search</h2>
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
-          checkFormForErrors={this.store.checkFormForErrors.bind(this.store)}
           dataObject={this.store.values}
           id={this.store.shouldDisplayLocationName ? 'locationName' : 'locationAddress'}
           type="search"

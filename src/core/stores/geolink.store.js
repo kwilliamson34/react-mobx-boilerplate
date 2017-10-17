@@ -45,6 +45,16 @@ class GeolinkStore {
         this.values.locationAddress = '';
       }
     })
+    // check form for errors
+    autorun(() => {
+      let hasError = false;
+      this.formFieldRefList.forEach(ref => {
+        if(ref && ref.hasFunctionalError) {
+          hasError = true;
+        }
+      });
+      this.formHasError = hasError;
+    })
   }
 
   @action loadGeolinkHtml() {
@@ -287,16 +297,6 @@ class GeolinkStore {
     });
     this.alertText = 'Please fix the following errors.';
     this.showAlert = true;
-  }
-
-  @action checkFormForErrors() {
-    let hasError = false;
-    this.formFieldRefList.forEach(ref => {
-      if(ref && ref.hasFunctionalError) {
-        hasError = true;
-      }
-    });
-    this.formHasError = hasError;
   }
 
   @action loadFavorites() {
