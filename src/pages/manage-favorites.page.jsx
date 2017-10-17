@@ -24,7 +24,7 @@ export default class ManageFavoritesPage extends React.Component {
   }
 
   componentWillMount() {
-    this.manageFavoritesStore.isLoading = true;
+    this.manageFavoritesStore.pageIsLoading();
     this.manageFavoritesStore.fetchRows();
   }
 
@@ -40,7 +40,7 @@ export default class ManageFavoritesPage extends React.Component {
   clearSuccess = () => {
     this.manageFavoritesStore.clearSuccess();
     this.geolinkStore.clearAlerts();
-    this.geolinkStore.successText = '';
+    this.geolinkStore.clearAlertsText();
   }
 
   keepFavorites = (e) => {
@@ -69,8 +69,6 @@ export default class ManageFavoritesPage extends React.Component {
   }
 
   handleAddButton = () => {
-    //TODO: Ask if 'add from map' means the page proper or the add location page
-    // this.geolinkStore.pageTitle = 'Add New Favorite';
     history.replace('/network-status');
   }
 
@@ -194,7 +192,7 @@ export default class ManageFavoritesPage extends React.Component {
     return (
       <div className="no-search-results">
         <div className="as-h2">No Results</div>
-        <div className="as-h3">There are no results to display. Please retry your search.</div>
+        <div className="no-search-results-text">There are no results to display. Please retry your search.</div>
         <button className="fn-primary" onClick={this.resetSearch}>
           Load All Favorites
         </button>
@@ -225,10 +223,11 @@ export default class ManageFavoritesPage extends React.Component {
   }
 
   renderStatCounts = () => {
+    const fullCount = this.manageFavoritesStore.showSearchResults ? this.manageFavoritesStore.searchResults.length : this.manageFavoritesStore.rows.length;
     return (
       <div className="counts-wrapper">
         <div className="pagination-count">
-          Showing 1&ndash;{`${this.manageFavoritesStore.sortedRows.length} of ${this.manageFavoritesStore.rows.length}`}
+          Showing 1&ndash;{`${this.manageFavoritesStore.sortedRows.length} of ${fullCount}`}
         </div>
         {
           this.manageFavoritesStore.checkedRows.length > 0 &&

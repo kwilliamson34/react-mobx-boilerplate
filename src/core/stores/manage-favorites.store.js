@@ -88,6 +88,10 @@ class ManageFavoritesStore {
     return apiService.searchLocationFavorites(this.searchQuery).then(success, fail);
   }
 
+  @action pageIsLoading() {
+    this.isLoading = true;
+  }
+
   @action findRowData(targetId) {
     return this.sortedRows.find((row) => {
       return row.locationFavoriteId == targetId;
@@ -185,7 +189,7 @@ class ManageFavoritesStore {
 
   @observable paginatedRows = [];
   @observable paginationCount = 0;
-  @observable paginationInterval = 5;
+  @observable paginationInterval = 50;
   @observable moreToLoad = false;
 
   @observable activeColumn = 'locationFavoriteId';

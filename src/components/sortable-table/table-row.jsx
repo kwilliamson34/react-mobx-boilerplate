@@ -48,7 +48,7 @@ export class TableRow extends React.Component {
         }
         {this.props.columns.map((column, i) => {
           return (
-            <td key={`table-row-${i}`} className={column.className} tabIndex="0">
+            <td key={`table-row-${i}`} className={column.className}>
               <div className="row-contents-wrapper">
                 <span>{this.props.row[column.key]}</span>
               </div>

@@ -238,10 +238,15 @@ class GeolinkStore {
 
   @action handleSecondaryAction() {
     if (this.pageTitle === 'Edit Favorite') {
-      this.values = Object.assign({}, this.defaultValues);
+      //reset values so that the unsaved changes modal doesn't show, but don't clear alerts because they're needed on Manage Favorites page;
+      this.resetValues();
       history.replace('/manage-favorites');
     }
     this.clearForm();
+  }
+
+  @action setPageTitle(title) {
+    this.pageTitle = title;
   }
 
   @action clearForm() {
@@ -254,6 +259,15 @@ class GeolinkStore {
   @action clearAlerts() {
     this.showAlert = false;
     this.showSuccess = false;
+  }
+
+  @action clearAlertsText() {
+    this.successText = '';
+    this.alertText = '';
+  }
+
+  @action resetValues() {
+    this.values = Object.assign({}, this.defaultValues);
   }
 
   @computed get formIsDirty() {

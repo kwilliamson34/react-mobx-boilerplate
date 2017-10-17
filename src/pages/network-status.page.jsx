@@ -64,8 +64,9 @@ export default class NetworkStatusPage extends React.Component {
   handleEditLocationDelete = () => {
     const idToDelete = this.geoStore.values.locationId;
     //reset values so that the unsaved changes modal doesn't show;
-    this.geoStore.values = Object.assign({}, this.geoStore.defaultValues);
+    this.geoStore.resetValues();
     this.manageFavoritesStore.deleteEditLocationFavorite(idToDelete);
+    this.geoStore.setPageTitle('Network Status');
   }
 
   render() {
