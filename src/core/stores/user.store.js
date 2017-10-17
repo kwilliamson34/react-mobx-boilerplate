@@ -68,11 +68,13 @@ class UserStore {
   }
 
   conditionUserObj(userInfo) {
+    console.log('userInfo', userInfo);
     this.user.uid = userInfo.id;
     this.user.email = userInfo.email;
     this.user.firstName = userInfo.firstName;
     this.user.lastName = userInfo.lastName;
     this.user.username = userInfo.username;
+    this.user.phone = userInfo.phone;
     // check if FAN mapping has occurred and designate internal PSE roles
     if (userInfo.authorizations.length) {
       this.user.pse = userInfo.authorizations[0].pseId;

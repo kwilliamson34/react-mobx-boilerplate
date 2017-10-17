@@ -129,7 +129,6 @@ class FeedbackForm extends React.Component {
           type="input"
           labelText="Phone (Optional)"
           required={false}
-          getIsValid={utilsService.isValidPhoneNumber}
           errorMessage="Please enter a valid phone number."/>
 
         <SelectInput

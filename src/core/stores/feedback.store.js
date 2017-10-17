@@ -61,7 +61,7 @@ class FeedbackStore {
   }
 
   @computed get showContactAgreement() {
-    return this.values.email.length > 0;
+    return this.values.email && this.values.email.length > 0;
   }
 
   @computed get emailIsRequired() {
@@ -88,8 +88,8 @@ class FeedbackStore {
     subject: '',
     details: '',
     operatingSystem: '',
-    email: userStore.user.email || '',
-    phone: '',
+    email: userStore.user.email,
+    phone: userStore.user.phone,
     likelihood: '',
     contactAgreement: false
   };
@@ -98,8 +98,8 @@ class FeedbackStore {
     subject: '',
     details: '',
     operatingSystem: '',
-    email: userStore.user.email || '',
-    phone: '',
+    email: userStore.user.email,
+    phone: userStore.user.phone,
     likelihood: '',
     contactAgreement: false
   };
