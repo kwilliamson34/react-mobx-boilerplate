@@ -25,26 +25,31 @@ export default class Checkbox extends React.Component {
     errorMessage: ''
   }
 
+  @observable hasBeenVisited = false;
   @observable hasVisibleError = false;
   @computed get hasFunctionalError() {
-    let hasError = false;
-    /* Must use the input's checked value here, instead of the store's,
-    because the store is operating on a slight delay. */
-    if(this.props.required && !this.refs.input.checked) {
-      hasError = true;
-    }
-    return hasError;
+    return this.hasVisibleError || !this.hasBeenVisited;
   }
 
   handleOnChange = (event) => {
     if (!this.props.disabled && this.props.handleOnChange) {
       this.props.handleOnChange(event.target);
-      this.hasVisibleError = this.hasFunctionalError;
+      this.showError(event);
     }
+    this.hasBeenVisited = true;
   }
 
-  handleOnBlur = () => {
-    this.hasVisibleError = this.hasFunctionalError;
+  handleOnBlur = (event) => {
+    this.showError(event);
+    this.hasBeenVisited = true;
+  }
+
+  showError = (event) => {
+    if(!event.target.checked && this.props.required) {
+      this.hasVisibleError = true;
+    } else {
+      this.hasVisibleError = false;
+    }
   }
 
   render() {

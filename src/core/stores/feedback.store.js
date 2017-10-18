@@ -4,12 +4,25 @@ import {userStore} from './user.store';
 import {history} from '../services/history.service';
 
 class FeedbackStore {
+  constructor() {
+    // check form for errors
+    autorun(() => {
+      // check that initial values are available before valudating for the first time
+      if(userStore.userValidationDone) {
+        let hasError = false;
+        this.formFieldRefList.forEach(ref => {
+          if(ref && ref.hasFunctionalError) {
+            hasError = true;
+          }
+        });
+        this.formHasError = hasError;
 
-  @action fetchDefaultValues() {
-    this.values.email = userStore.user.email;
-    this.values.phone = userStore.user.phone;
-    this.defaultValues.email = userStore.user.email;
-    this.defaultValues.phone = userStore.user.phone;
+        // ensure contactAgreement doesn't render checked when user deletes their email and enters a new one;
+        if(!this.showContactAgreement) {
+          this.contactAgreement = false;
+        }
+      }
+    })
   }
 
   @action submitForm() {
@@ -30,8 +43,6 @@ class FeedbackStore {
 
   @action toggleContactAgreement() {
     this.contactAgreement = !this.contactAgreement;
-    //validate after render stack has finished
-    setTimeout(this.checkFormForErrors.bind(this), 0);
   }
 
   @action clearForm() {
@@ -51,16 +62,6 @@ class FeedbackStore {
       }
     });
     this.showAlert = true;
-  }
-
-  @action checkFormForErrors() {
-    let hasError = false;
-    this.formFieldRefList.forEach(ref => {
-      if (ref && ref.hasFunctionalError) {
-        hasError = true;
-      }
-    });
-    this.formHasError = hasError;
   }
 
   @computed get formIsDirty() {
@@ -101,8 +102,8 @@ class FeedbackStore {
     subject: '',
     details: '',
     operatingSystem: '',
-    email: '',
-    phone: '',
+    email: userStore.user.email,
+    phone: userStore.user.phone,
     likely: ''
   };
   @observable values = {
@@ -110,8 +111,8 @@ class FeedbackStore {
     subject: '',
     details: '',
     operatingSystem: '',
-    email: '',
-    phone: '',
+    email: userStore.user.email,
+    phone: userStore.user.phone,
     likely: ''
   };
 }

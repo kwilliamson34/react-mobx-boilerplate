@@ -27,8 +27,8 @@ class FeedbackForm extends React.Component {
       {title: 'Portal Design'},
       {title: 'Credential & Account Management'},
       {title: 'Purchasing & Provisioning'},
-      {value: 'Billing & Payment', title: 'Billing & Payment'},
-      {value: 'Other', title: 'Other'}
+      {title: 'Billing & Payment'},
+      {title: 'Other'}
     ];
     this.operatingSystems = [
       {title: 'iOS'},
@@ -46,7 +46,6 @@ class FeedbackForm extends React.Component {
 
   componentWillMount() {
     this.store.clearFormFieldRefList();
-    this.store.fetchDefaultValues();
   }
 
   handleCheckboxOnChange = () => {
