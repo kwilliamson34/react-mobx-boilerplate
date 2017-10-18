@@ -246,6 +246,47 @@ $map-height-mobile: 400px;
       }
     }
   }
+  .tooltip{
+    display: inline-block;
+    color: $fn-black;
+    margin: 0;
+    position: relative;
+    cursor: pointer;
+    background: none;
+    border: 0;
+    outline: none;
+    &:focus {
+      @include focus();
+    }
+    &:before{
+      content: attr(title);
+      position: absolute;
+      display: none;
+      white-space: nowrap;
+      padding: 10px;
+      color: $fn-white;
+      font-weight: $fn-normal-weight;
+      font-size: $fn-label-desktop;
+      background: $fn-black;
+      top: -45px;
+      right: -30px;
+      border-radius: 4px;
+      box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.35);
+      outline: none;
+    }
+    &:hover, &:focus{
+      &:before{
+        display: block;
+      }
+      i {
+        color: $fn-black;
+      }
+    }
+    i {
+      font-size: $fn-small-text-desktop;
+      color: $fn-ltblue;
+    }
+  }
 }
 /**********************************************/
 @media #{$mobile} {
@@ -279,10 +320,10 @@ $map-height-mobile: 400px;
       flex-basis: auto;
     }
     .map-search{
-      flex-basis: 60%;
+      flex-basis: 58%;
     }
     .map-layers {
-      flex-basis: 33%;
+      flex-basis: 38%;
       padding-left: 0;
 
       h2 {
