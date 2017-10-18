@@ -110,19 +110,6 @@ export default class App extends React.Component {
     )
   }
 
-  getLandingPage = () => {
-    const userIsAdmin = pseMasterStore.userStore.isAdmin;
-    return (
-      <Switch>
-        {
-          userIsAdmin
-          ? <Redirect to="/admin" />
-          : <Redirect to="/network-status" />
-        }
-      </Switch>
-    )
-  }
-
   getMainLayoutComponent = () => {
     return (
       <div>
@@ -134,12 +121,12 @@ export default class App extends React.Component {
           <Header/>
           <main id="main-content">
             <Switch>
-              <Route exact path="/" component={this.getLandingPage}/>
+              <Route exact path="/" component={AdminDashboardPage}/>
               <Route path="/admin/manage-apps" component={this.getAdminRoutes(ManageAppsPage)}/>
               <Route path="/admin/configure-mdm" component={this.getAdminRoutes(ConfigureMDM)}/>
               <Route path="/admin/devices" component={this.getAdminRoutes(this.getSpecializedDevicesComponent)}/>
               <Route path="/admin/solutions" component={this.getAdminRoutes(this.getPublicSafetySolutionsComponent)}/>
-              <Route path="/admin" component={this.getAdminRoutes(AdminDashboardPage)}/>
+              <Route path="/admin" component={AdminDashboardPage}/>
               <Route path="/app/:appPsk" component={this.getAdminRoutes(AppDetailsPage)/*TODO redirect to error/404 if psk has no match*/}/>
               <Route path="/network-status" component={this.getNetworkStatusRoutes(NetworkStatusPage)}/>
               <Route path="/manage-favorites" component={ManageFavoritesPage}/>
