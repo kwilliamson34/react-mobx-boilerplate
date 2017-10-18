@@ -60,6 +60,7 @@ class FeedbackForm extends React.Component {
 
   componentWillMount() {
     this.store.clearFormFieldRefList();
+    this.store.fetchDefaultValues();
   }
 
   handleCheckboxOnChange = () => {
@@ -150,21 +151,30 @@ class FeedbackForm extends React.Component {
           </a>.
         </p>
 
-        {
-          this.props.store.showContactAgreement &&
-          <Checkbox
-            ref={ref => this.store.formFieldRefList.push(ref)}
-            value="contactAgreement"
-            label="By submitting this information, you agree to be contacted by FirstNet. We will never sell or share your information."
-            required={true}
-            errorMessage="Please provide consent to be contacted by FirstNet."
-            checked={this.store.values.contactAgreement}
-            handleOnChange={this.handleCheckboxOnChange} />
-        }
+        <Checkbox
+          ref={ref => this.store.formFieldRefList.push(ref)}
+          value="contactAgreement"
+          label="By submitting this information, you agree to be contacted by FirstNet. We will never sell or share your information."
+          required={true}
+          errorMessage="Please provide consent to be contacted by FirstNet."
+          checked={this.store.contactAgreement}
+          handleOnChange={this.handleCheckboxOnChange} />
 
       </div>
     );
   }
 }
+
+// {
+//   this.store.showContactAgreement &&
+//   <Checkbox
+//     ref={ref => this.store.formFieldRefList.push(ref)}
+//     value="contactAgreement"
+//     label="By submitting this information, you agree to be contacted by FirstNet. We will never sell or share your information."
+//     required={true}
+//     errorMessage="Please provide consent to be contacted by FirstNet."
+//     checked={this.store.contactAgreement}
+//     handleOnChange={this.handleCheckboxOnChange} />
+// }
 
 export default asForm(FeedbackForm, {submitButtonText: 'Submit'})

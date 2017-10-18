@@ -7,7 +7,11 @@ class FeedbackStore {
   constructor() {
     // check form for errors
     autorun(() => {
+      console.log('reflist', this.formFieldRefList.peek());
       let hasError = false;
+      if(!this.contactAgreement && this.showContactAgreement) {
+        hasError = true;
+      }
       this.formFieldRefList.forEach(ref => {
         if(ref && ref.hasFunctionalError) {
           hasError = true;
@@ -17,8 +21,13 @@ class FeedbackStore {
     })
   }
 
+  @action fetchDefaultValues() {
+    this.values.email = userStore.user.email;
+    this.values.phone = userStore.user.phone;
+  }
+
   @action submitForm() {
-    console.log('this.values', this.values);
+
     if(this.formHasError) {
       this.showAllFormErrors();
       return;
@@ -34,7 +43,7 @@ class FeedbackStore {
   }
 
   @action toggleContactAgreement() {
-    this.values.contactAgreement = !this.values.contactAgreement;
+    this.contactAgreement = !this.contactAgreement;
   }
 
   @action clearForm() {
@@ -67,7 +76,6 @@ class FeedbackStore {
   }
 
   @computed get showContactAgreement() {
-    console.log('showContactAgreement', this.values.email && this.values.email.length > 0);
     return this.values.email && this.values.email.length > 0;
   }
 
@@ -83,32 +91,30 @@ class FeedbackStore {
         emailIsRequired = true;
       }
     });
-    console.log('emailIsRequired', emailIsRequired, this.values.email);
     return emailIsRequired;
   }
 
   @observable formFieldRefList = [];
   @observable formHasError = true;
   @observable showAlert = false;
+  @observable contactAgreement = false;
   @observable defaultValues = {
     topic: '',
     subject: '',
     details: '',
     operatingSystem: '',
-    email: userStore.user.email,
-    phone: userStore.user.phone,
-    likelihood: '',
-    contactAgreement: false
+    email: '',
+    phone: '',
+    likely: ''
   };
   @observable values = {
     topic: '',
     subject: '',
     details: '',
     operatingSystem: '',
-    email: userStore.user.email,
-    phone: userStore.user.phone,
-    likelihood: '',
-    contactAgreement: false
+    email: '',
+    phone: '',
+    likely: ''
   };
 }
 
