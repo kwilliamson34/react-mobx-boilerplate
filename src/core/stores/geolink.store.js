@@ -247,7 +247,6 @@ class GeolinkStore {
 
   @action handleSecondaryAction() {
     if (this.pageTitle === 'Edit Favorite') {
-      //reset values so that the unsaved changes modal doesn't show, but don't clear alerts because they're needed on Manage Favorites page;
       this.clearForm();
       history.replace('/manage-favorites');
     } else if (this.pageTitle === 'Add New Favorite') {
