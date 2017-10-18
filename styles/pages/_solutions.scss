@@ -160,11 +160,29 @@
       }
     }
 
-    .app-details-section {
+    .app-details-section,
+    .learn-more-section {
       h2 {
         padding-top: 6rem;
       }
+    }
 
+    .learn-more-section {
+      hr {
+        margin-bottom: 20px;
+      }
+      .solution-name {
+        line-height: 2;
+        font-size: 2.4rem;
+        display: inline-block;
+      }
+      a {
+        display: inline-block;
+        float: right;
+      }
+    }
+
+    .app-details-section {
       .app-summary {
         padding: 1.5rem 0;
 
@@ -193,6 +211,17 @@
               width: 100%;
             }
           }
+        }
+      }
+
+      .learn-more-section {
+        a {
+          margin-top: 15px;
+          float: none;
+          max-width: 250px;
+          margin-left: auto;
+          margin-right: auto;
+          display: block;
         }
       }
     }

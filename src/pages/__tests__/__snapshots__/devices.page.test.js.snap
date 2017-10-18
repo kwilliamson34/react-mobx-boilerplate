@@ -148,7 +148,7 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
             className="mp-content">
             <li>
               <a
-                href="/admin/devices/in-vehicle/undefined"
+                href="/admin/devices/in-vehicle/title"
                 id="invehicle_0"
                 onClick={[Function anonymous]}>
                 <h3
@@ -224,7 +224,7 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
             className="mp-content">
             <li>
               <a
-                href="/admin/devices/phones/undefined"
+                href="/admin/devices/phones/title"
                 id="phone_0"
                 onClick={[Function anonymous]}>
                 <h3
@@ -265,7 +265,7 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
             className="mp-content">
             <li>
               <a
-                href="/admin/devices/tablets/undefined"
+                href="/admin/devices/tablets/title"
                 id="tablet_0"
                 onClick={[Function anonymous]}>
                 <h3
@@ -288,7 +288,7 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
             </li>
             <li>
               <a
-                href="/admin/devices/tablets/undefined"
+                href="/admin/devices/tablets/title"
                 id="tablet_1"
                 onClick={[Function anonymous]}>
                 <h3
@@ -311,7 +311,7 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
             </li>
             <li>
               <a
-                href="/admin/devices/tablets/undefined"
+                href="/admin/devices/tablets/title"
                 id="tablet_2"
                 onClick={[Function anonymous]}>
                 <h3
@@ -334,7 +334,7 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
             </li>
             <li>
               <a
-                href="/admin/devices/tablets/undefined"
+                href="/admin/devices/tablets/title"
                 id="tablet_3"
                 onClick={[Function anonymous]}>
                 <h3
@@ -385,7 +385,7 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
             className="mp-content">
             <li>
               <a
-                href="/admin/devices/in-vehicle/undefined"
+                href="/admin/devices/in-vehicle/title"
                 id="invehicle_0"
                 onClick={[Function anonymous]}>
                 <h3
@@ -408,7 +408,7 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
             </li>
             <li>
               <a
-                href="/admin/devices/in-vehicle/undefined"
+                href="/admin/devices/in-vehicle/title"
                 id="invehicle_1"
                 onClick={[Function anonymous]}>
                 <h3
@@ -431,7 +431,7 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
             </li>
             <li>
               <a
-                href="/admin/devices/in-vehicle/undefined"
+                href="/admin/devices/in-vehicle/title"
                 id="invehicle_2"
                 onClick={[Function anonymous]}>
                 <h3
@@ -472,7 +472,7 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
             className="mp-content">
             <li>
               <a
-                href="/admin/devices/accessories/undefined"
+                href="/admin/devices/accessories/title"
                 id="accessories_0"
                 onClick={[Function anonymous]}>
                 <h3
@@ -495,7 +495,7 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
             </li>
             <li>
               <a
-                href="/admin/devices/accessories/undefined"
+                href="/admin/devices/accessories/title"
                 id="accessories_1"
                 onClick={[Function anonymous]}>
                 <h3
@@ -518,7 +518,7 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
             </li>
             <li>
               <a
-                href="/admin/devices/accessories/undefined"
+                href="/admin/devices/accessories/title"
                 id="accessories_2"
                 onClick={[Function anonymous]}>
                 <h3
@@ -541,7 +541,7 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
             </li>
             <li>
               <a
-                href="/admin/devices/accessories/undefined"
+                href="/admin/devices/accessories/title"
                 id="accessories_3"
                 onClick={[Function anonymous]}>
                 <h3

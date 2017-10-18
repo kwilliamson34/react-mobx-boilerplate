@@ -35,6 +35,11 @@ class FeedbackStore {
   @action clearForm() {
     this.values = Object.assign({}, this.defaultValues);
     this.showAlert = false;
+    this.clearFormFieldRefList();
+  }
+
+  @action clearFormFieldRefList() {
+    this.formFieldRefList = [];
   }
 
   @computed get formIsDirty() {

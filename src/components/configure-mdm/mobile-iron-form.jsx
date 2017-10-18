@@ -16,8 +16,7 @@ class MobileIronForm extends React.Component {
   }
 
   componentWillMount() {
-    this.store.formFieldRefList = [];
-    this.store.formHasError = true;
+    this.store.clearFormFieldRefList();
   }
 
   render() {

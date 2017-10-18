@@ -19,7 +19,7 @@ export default class FeedbackPage extends React.Component {
 
   render = () => {
     return (
-      <section id="customer-feedback-page">
+      <section id="customer-feedback-page" className="standalone-form-page">
         <div className="content-wrapper">
           <div className="container">
             <div className="row text-center">

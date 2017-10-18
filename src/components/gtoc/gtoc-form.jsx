@@ -22,7 +22,7 @@ class GtocForm extends React.Component {
   }
 
   componentWillMount() {
-    this.store.formFieldRefList = [];
+    this.store.clearFormFieldRefList();
   }
 
   @observable checkboxListRef = {
