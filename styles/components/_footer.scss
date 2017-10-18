@@ -57,10 +57,11 @@ footer {
           margin-left: 5px;
           text-decoration: none;
           vertical-align: top;
+          line-height: 0.9;
           color: $footer-font-color;
 
           &:before {
-            font-size: 1.6rem;
+            font-size: 1.2rem;
           }
         }
 
@@ -422,6 +423,20 @@ footer {
 
         &:not(:last-child) {
           margin-bottom: 23px;
+        }
+        .new-tab-link {
+          .icon-external-site {
+            display:none;
+          }
+          &:hover, &:focus{
+            .icon-external-site{
+              display: inline-block;
+            }
+          }
+          &:focus {
+            @include focus();
+            border-radius: 4px;
+          }
         }
       }
       .is-flex {
