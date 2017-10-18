@@ -21,20 +21,6 @@ class FeedbackForm extends React.Component {
     super(props)
     this.store = this.props.store;
 
-    // this.adminOptions = [
-    //   {value: 'System Performance', title: 'System Performance'},
-    //   {value: 'App Management', title: 'App Management'},
-    //   {value: 'Network Status', title: 'Network Status'},
-    //   {value: 'Purchasing and Provisioning', title: 'Purchasing and Provisioning'},
-    //   {value: 'Account Management', title: 'Account Management'},
-    //   {value: 'Other', title: 'Other'}
-    // ];
-    // this.nonAdminOptions = [
-    //   {value: 'System Performance', title: 'System Performance'},
-    //   {value: 'Network Status', title: 'Network Status'},
-    //   {value: 'Other', title: 'Other'}
-    // ];
-
     this.topics = [
       {value: 'System Performance', title: 'System Performance'},
       {value: 'App Management', title: 'App Management'},
@@ -78,7 +64,7 @@ class FeedbackForm extends React.Component {
           type="select"
           labelText="Topic"
           required={true}
-          placeholder="Select Feedback Topic"
+          placeholder="Select a topic"
           errorMessage="Please choose a topic."
           optionsList={this.topics}/>
 
@@ -109,7 +95,7 @@ class FeedbackForm extends React.Component {
           type="select"
           labelText="Operating System"
           required={true}
-          placeholder="Select Operating System"
+          placeholder="Select your operating system"
           errorMessage="Select your operating system."
           optionsList={this.operatingSystems}/>
 

@@ -8,6 +8,8 @@ class FeedbackStore {
   @action fetchDefaultValues() {
     this.values.email = userStore.user.email;
     this.values.phone = userStore.user.phone;
+    this.defaultValues.email = userStore.user.email;
+    this.defaultValues.phone = userStore.user.phone;
   }
 
   @action submitForm() {

@@ -47,7 +47,8 @@
       "react-router-dom",
       "lodash",
       "axios",
-      "date-fns"
+      "date-fns",
+      "history"
     ],
     "moduleFileExtensions": [
       "js",
