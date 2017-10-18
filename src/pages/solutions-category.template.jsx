@@ -21,7 +21,7 @@ export default class SolutionsCategoryTemplate extends React.Component {
 
   componentWillMount() {
     this.externalLinkStore.fetchMarketingPortalData();
-    this.externalLinkStore.currentSolutionCategory = this.props.match.params.solutionCategory;
+    this.externalLinkStore.setCurrentSolutionCategory(this.props.match.params.solutionCategory);
   }
 
   renderCards = (solutionsArray) => {

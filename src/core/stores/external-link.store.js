@@ -65,6 +65,22 @@ class ExternalLinkStore {
     return apiService.getMarketingPortalSolutionCategories().then(success, fail);
   }
 
+  @action setCurrentSolutionCategory(name) {
+    this.currentSolutionCategory = name;
+  }
+
+  @action setCurrentSolution(name) {
+    this.currentSolutionName = name;
+  }
+
+  @action setCurrentDeviceCategory(name) {
+    this.currentDeviceCategory = name;
+  }
+
+  @action setCurrentDevice(name) {
+    this.currentDeviceName = name;
+  }
+
   @action resetSolutionDetail() {
     this.currentSolutionDetail = {}
   }

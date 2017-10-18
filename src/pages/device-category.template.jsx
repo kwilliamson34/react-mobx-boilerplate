@@ -24,9 +24,9 @@ export default class DeviceCategoryTemplate extends React.Component {
 	}
 
 	componentWillMount() {
-		//User has navigated to a different category page so will make request for new category
+		//Check that user has navigated to a different category before resetting pagination
 		if (this.externalLinkStore.currentCategory != this.props.match.params.deviceCategory) {
-			this.externalLinkStore.currentDeviceCategory = this.props.match.params.deviceCategory;
+			this.externalLinkStore.setCurrentDeviceCategory(this.props.match.params.deviceCategory);
 			this.loadDevices();
 		}
 	}

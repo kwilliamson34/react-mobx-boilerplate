@@ -28,7 +28,7 @@ export default class SolutionsDetailsTemplate extends React.Component {
     this.externalLinkStore.fetchMarketingPortalData();
 
     const solutionName = decodeURIComponent(this.props.match.params.solutionDetail);
-    this.externalLinkStore.currentSolutionName = solutionName;
+    this.externalLinkStore.setCurrentSolution(solutionName);
     this.leadCaptureStore.setCurrentSolution(solutionName);
   }
 

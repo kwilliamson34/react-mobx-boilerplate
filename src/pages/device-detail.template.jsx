@@ -24,7 +24,7 @@ export default class DeviceDetailTemplate extends React.Component {
     this.externalLinkStore.fetchMarketingPortalData();
 
     const deviceName = decodeURIComponent(this.props.match.params.deviceId);
-    this.externalLinkStore.currentDeviceName = deviceName;
+    this.externalLinkStore.setCurrentDevice(deviceName);
   }
 
   componentWillUnmount() {
