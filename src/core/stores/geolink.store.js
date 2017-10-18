@@ -210,13 +210,16 @@ class GeolinkStore {
     }
   }
 
+  @action resetCurrentFavorite() {
+    this.selectedFavoriteAddress = this.values.locationAddress;
+    this.selectedFavoriteName = this.values.locationName;
+    this.shouldDisplayLocationName = true;
+    this.loadFavorites();
+  }
+
   @action addLocation() {
     const success = () => {
-      this.selectedFavoriteAddress = this.values.locationAddress;
-      this.selectedFavoriteName = this.values.locationName;
-      this.shouldDisplayLocationName = true;
-      this.loadFavorites();
-
+      this.resetCurrentFavorite();
       this.pageTitle = 'Network Status';
       this.successText = '"' + this.values.locationName + '" has been added.';
       this.showAlert = false;
@@ -235,11 +238,7 @@ class GeolinkStore {
 
   @action editLocation() {
     const success = () => {
-      this.selectedFavoriteAddress = this.values.locationAddress;
-      this.selectedFavoriteName = this.values.locationName;
-      this.shouldDisplayLocationName = true;
-      this.loadFavorites();
-
+      this.resetCurrentFavorite();
       this.pageTitle = 'Network Status';
       this.successText = '"' + this.values.locationName + '" has been updated.';
       this.showSuccess = true;
