@@ -9,7 +9,7 @@ class ManageFavoritesStore {
   @action fetchRows() {
     const success = (res) => {
       //initially ordering rows by locationFavoriteId in desc order, which corresponds to 'most recent' first.
-      this.rows = _.orderBy(res.data.userlocationfavorite, ['locationFavoriteId'], ['desc']);
+      this.rows = this.sortAndReturnRows(res.data.userlocationfavorite);
       this.isLoading = false;
       this.advancePagination();
     }
@@ -152,9 +152,23 @@ class ManageFavoritesStore {
     this.sortDirections[key] = !this.sortDirections[key];
 	}
 
+  sortAndReturnRows(rowsToSort) {
+    const sortOrder = this.sortDirections[this.activeColumn];
+    return rowsToSort.sort((x, y) => {
+      const rowX = x[this.activeColumn].toString().toLowerCase();
+      const rowY = y[this.activeColumn].toString().toLowerCase();
+      if (rowX < rowY) {
+        return sortOrder ? -1 : 1;
+      }
+      if (rowX > rowY) {
+        return sortOrder ? 1 : -1;
+      }
+      return 0;
+    });
+  }
+
   @computed get sortedRows() {
-    const sortOrder = this.sortDirections[this.activeColumn] ? 'asc' : 'desc';
-    return _.orderBy(this.paginatedRows, [this.activeColumn], [sortOrder]);
+    return this.sortAndReturnRows(this.paginatedRows);
   }
 
   @computed get rowIsChecked() {
