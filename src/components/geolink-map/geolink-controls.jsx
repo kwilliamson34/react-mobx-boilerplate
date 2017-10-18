@@ -21,7 +21,7 @@ export default class GeolinkControls extends React.Component {
   }
 
   componentWillMount() {
-    this.store.formFieldRefList = [];
+    this.store.clearFormFieldRefList();
     this.store.resetLayerToggles();
     this.store.loadFavorites();
   }

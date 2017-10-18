@@ -1,5 +1,4 @@
 import React from 'react';
-import {observer, inject, PropTypes} from 'mobx-react';
 import config from 'config';
 import Footer from '../components/footer/footer.jsx';
 import PageTitle from '../components/page-title/page-title';

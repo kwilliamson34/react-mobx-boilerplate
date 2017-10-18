@@ -88,11 +88,6 @@ class UtilsService {
     }
   }
 
-  getDevicesAndSolutionsUrl(string) {
-    //removes HTML code entities and any special characters, before replacing spaces with plus symbol;
-    return string.trim().replace(/&\w{2,8}; ?/g, '').replace(/[^A-Z\s\d]?/ig, '').replace(/ /g, '+').toLowerCase();
-  }
-
   isValidEmailAddress(string) {
     const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     return emailRegex.test(string);
@@ -200,6 +195,29 @@ class UtilsService {
 
     // other browser
     return false;
+  }
+  
+  getCookie(cname) {
+    let name = cname + '=';
+    let ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return '';
+  }
+
+  setCookie(cname, cvalue, exdays) {
+    let expiryDays = exdays || 365;
+    let d = new Date();
+    d.setTime(d.getTime() + (expiryDays * 24 * 60 * 60 * 1000));
+    let expires = 'expires=' + d.toUTCString();
+    document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
   }
 }
 

@@ -73,21 +73,15 @@ class ApiService {
     }
 
     getMarketingPortalDevices() {
-      return axios.get(`${base}/marketing/api/devices?_format=json`).then((res) => {
-        return res.data;
-      });
+      return axios.get(`${base}/marketing/api/devices?_format=json`);
     }
 
     getMarketingPortalSolutionDetails() {
-      return axios.get(`${base}/marketing/api/solutions?_format=json`).then((res) => {
-        return res.data;
-      });
+      return axios.get(`${base}/marketing/api/solutions?_format=json`);
     }
 
     getMarketingPortalSolutionCategories() {
-      return axios.get(`${base}/marketing/api/category/solutions?_format=json`).then((res) => {
-        return res.data;
-      });
+      return axios.get(`${base}/marketing/api/category/solutions?_format=json`);
     }
 
     addAppToGroup(appPsk, groupIdentifier) {
@@ -203,6 +197,20 @@ class ApiService {
           favoriteName: data.locationName,
           locationFavoriteAddress: data.locationAddress,
           pseId: userStore.user.pse
+        }
+      });
+    }
+
+    submitLeadCaptureForm(data, solutionName) {
+      return axios({
+        method: 'post',
+        url: `${base}/leadcapture`,
+        data: {
+          name: data.firstName + ' ' + data.lastName,
+          email: data.email,
+          phoneNumber: data.phone,
+          message: data.message,
+          solutionName: solutionName
         }
       });
     }

@@ -39,6 +39,7 @@ import DevicesLandingPage from './pages/devices.page';
 import DeviceCategoryTemplate from './pages/device-category.template';
 import DeviceDetailTemplate from './pages/device-detail.template';
 import ShopSolutionsPage from './pages/shop-solutions.page';
+import LeadCapturePage from './pages/lead-capture.page';
 
 //Content pages
 import AppDetailsPage from './pages/app-details.page';
@@ -96,17 +97,18 @@ export default class App extends React.Component {
     )
   }
 
-	getPublicSafetySolutionsComponent = ({match}) => {
-		return (
-			<article id="solutions-hub-page">
-				<Switch>
-					<Route path={`${match.url}/:solutionCategory/:solutionDetail`} component={SolutionsDetailTemplate} />
-					<Route path={`${match.url}/:solutionCategory`} component={SolutionsCategoryTemplate} />
-					<Route path={match.url} component={ShopSolutionsPage} />
-				</Switch>
-			</article>
-		)
-	}
+  getPublicSafetySolutionsComponent = ({match}) => {
+    return (
+      <article id="solutions-hub-page">
+        <Switch>
+          <Route path={`${match.url}/:solutionCategory/:solutionDetail/request-info`} component={LeadCapturePage}/>
+          <Route path={`${match.url}/:solutionCategory/:solutionDetail`} component={SolutionsDetailTemplate}/>
+          <Route path={`${match.url}/:solutionCategory`} component={SolutionsCategoryTemplate}/>
+          <Route path={match.url} component={ShopSolutionsPage}/>
+        </Switch>
+      </article>
+    )
+  }
 
   getLandingPage = () => {
     const userIsAdmin = pseMasterStore.userStore.isAdmin;

@@ -263,6 +263,11 @@ class GeolinkStore {
     this.clearAlerts();
     this.pageTitle = 'Network Status';
     this.searchMap();
+    this.clearFormFieldRefList();
+  }
+
+  @action clearFormFieldRefList() {
+    this.formFieldRefList = [];
   }
 
   @action clearAlerts() {
