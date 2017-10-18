@@ -20,7 +20,7 @@ class GeolinkStore {
 
     // determines whether to show address or favorite name
     autorun(() => {
-      if(this.values.locationName !== this.selectedFavoriteName && this.shouldDisplayLocationName && this.values.locationName !== '') {
+      if(this.values.locationName !== this.selectedFavoriteName && this.shouldDisplayLocationName && this.values.locationName !== '' && this.pageTitle === "Network Status") {
         this.values.locationAddress = this.values.locationName;
         this.values.locationName = '';
         this.selectedFavoriteName = '';
@@ -40,7 +40,7 @@ class GeolinkStore {
     });
     // necessary in order to hide favorite star when value is removed via 'clear' button
     autorun(() => {
-      if(this.values.locationName === '' && this.selectedFavoriteName !== '') {
+      if(this.values.locationName === '' && this.selectedFavoriteName !== '' && this.pageTitle === "Network Status") {
         this.shouldDisplayLocationName = false;
         this.values.locationAddress = '';
       }
@@ -77,7 +77,6 @@ class GeolinkStore {
 
   @action searchMap() {
     this.dropdownIsVisible = false;
-    this.shouldDisplayLocationName = false;
     if(this.values.locationAddress) {
       console.log('Searching map for ' + this.values.locationAddress + '...');
       this.mapIframeRef.contentWindow.postMessage({
@@ -211,8 +210,16 @@ class GeolinkStore {
     }
   }
 
+  @action resetCurrentFavorite() {
+    this.selectedFavoriteAddress = this.values.locationAddress;
+    this.selectedFavoriteName = this.values.locationName;
+    this.shouldDisplayLocationName = true;
+    this.loadFavorites();
+  }
+
   @action addLocation() {
     const success = () => {
+      this.resetCurrentFavorite();
       this.pageTitle = 'Network Status';
       this.successText = '"' + this.values.locationName + '" has been added.';
       this.showAlert = false;
@@ -231,6 +238,7 @@ class GeolinkStore {
 
   @action editLocation() {
     const success = () => {
+      this.resetCurrentFavorite();
       this.pageTitle = 'Network Status';
       this.successText = '"' + this.values.locationName + '" has been updated.';
       this.showSuccess = true;
