@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import {observer, inject} from 'mobx-react';
 import NewTabLink from '../components/link/new-tab-link';
@@ -8,6 +9,10 @@ import PageTitle from '../components/page-title/page-title';
 @inject('store')
 @observer
 export default class AdminDashboardPage extends React.Component {
+
+  static propTypes = {
+    store: PropTypes.object
+  }
 
   constructor(props) {
     super(props);

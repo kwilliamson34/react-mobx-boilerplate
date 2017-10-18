@@ -20,7 +20,7 @@ class GeolinkStore {
 
     // determines whether to show address or favorite name
     autorun(() => {
-      if(this.values.locationName !== this.selectedFavoriteName && this.shouldDisplayLocationName && this.values.locationName !== '' && this.pageTitle === "Network Status") {
+      if(this.values.locationName !== this.selectedFavoriteName && this.shouldDisplayLocationName && this.values.locationName !== '' && this.pageTitle === 'Network Status') {
         this.values.locationAddress = this.values.locationName;
         this.values.locationName = '';
         this.selectedFavoriteName = '';
@@ -40,7 +40,7 @@ class GeolinkStore {
     });
     // necessary in order to hide favorite star when value is removed via 'clear' button
     autorun(() => {
-      if(this.values.locationName === '' && this.selectedFavoriteName !== '' && this.pageTitle === "Network Status") {
+      if(this.values.locationName === '' && this.selectedFavoriteName !== '' && this.pageTitle === 'Network Status') {
         this.shouldDisplayLocationName = false;
         this.values.locationAddress = '';
       }
