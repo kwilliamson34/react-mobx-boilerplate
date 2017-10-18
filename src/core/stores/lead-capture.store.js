@@ -8,13 +8,16 @@ class LeadCaptureStore {
   constructor() {
     // check form for errors
     autorun(() => {
-      let hasError = false;
-      this.formFieldRefList.forEach(ref => {
-        if(ref && ref.hasFunctionalError) {
-          hasError = true;
-        }
-      });
-      this.formHasError = hasError;
+      // check that initial values are available before valudating for the first time
+      if(userStore.userValidationDone) {
+        let hasError = false;
+        this.formFieldRefList.forEach(ref => {
+          if(ref && ref.hasFunctionalError) {
+            hasError = true;
+          }
+        });
+        this.formHasError = hasError;
+      }
     })
   }
 
