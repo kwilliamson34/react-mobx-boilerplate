@@ -2,10 +2,12 @@
 jest.unmock('../../core/stores/master.store');
 jest.unmock('../../core/stores/feedback.store');
 jest.unmock('../../components/forms/asForm');
+jest.unmock('../../components/feedback/feedback-form');
 jest.unmock('../feedback.page');
 
 import {observer, inject} from 'mobx-react';
 import {feedbackStore} from '../../core/stores/feedback.store';
+import FeedbackForm from '../../components/feedback/feedback-form';
 import FeedbackPage from '../feedback.page';
 
 describe('<FeedbackPage />', () => {
