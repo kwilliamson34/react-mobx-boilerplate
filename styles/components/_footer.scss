@@ -433,10 +433,6 @@ footer {
               display: inline-block;
             }
           }
-          &:focus {
-            @include focus();
-            border-radius: 4px;
-          }
         }
       }
       .is-flex {
