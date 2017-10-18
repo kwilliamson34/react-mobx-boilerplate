@@ -1,18 +1,29 @@
-import {action, observable, computed} from 'mobx';
+import {action, observable, computed, autorun} from 'mobx';
 import {userStore} from './user.store';
 import {apiService} from '../services/api.service';
 import {history} from '../services/history.service';
 import {utilsService} from '../services/utils.service';
 
 class LeadCaptureStore {
+  constructor() {
+    // check form for errors
+    autorun(() => {
+      let hasError = false;
+      this.formFieldRefList.forEach(ref => {
+        if(ref && ref.hasFunctionalError) {
+          hasError = true;
+        }
+      });
+      this.formHasError = hasError;
+    })
+  }
+
   @action setCurrentSolution(solutionName) {
     this.solutionName = solutionName;
   }
 
   @action toggleContactAgreement() {
     this.values.contactAgreement = !this.values.contactAgreement;
-    //validate after render stack has finished
-    setTimeout(this.checkFormForErrors.bind(this), 0);
   }
 
   @action recordSolutionRequestInCookie() {
@@ -68,16 +79,6 @@ class LeadCaptureStore {
       }
     });
     this.showAlert = true;
-  }
-
-  @action checkFormForErrors() {
-    let hasError = false;
-    this.formFieldRefList.forEach(ref => {
-      if (ref && ref.hasFunctionalError) {
-        hasError = true;
-      }
-    });
-    this.formHasError = hasError;
   }
 
   @action showSuccess() {

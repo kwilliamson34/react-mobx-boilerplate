@@ -32,7 +32,6 @@ class LeadCaptureForm extends React.Component {
       <div id="lead-capture-form">
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
-          checkFormForErrors={this.store.checkFormForErrors.bind(this.store)}
           dataObject={this.store.values}
           id="firstName"
           type="input"
@@ -42,7 +41,6 @@ class LeadCaptureForm extends React.Component {
 
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
-          checkFormForErrors={this.store.checkFormForErrors.bind(this.store)}
           dataObject={this.store.values}
           id="lastName"
           type="input"
@@ -52,7 +50,6 @@ class LeadCaptureForm extends React.Component {
 
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
-          checkFormForErrors={this.store.checkFormForErrors.bind(this.store)}
           dataObject={this.store.values}
           id="email"
           type="input"
@@ -63,7 +60,6 @@ class LeadCaptureForm extends React.Component {
 
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
-          checkFormForErrors={this.store.checkFormForErrors.bind(this.store)}
           dataObject={this.store.values}
           id="phone"
           type="input"
@@ -74,7 +70,6 @@ class LeadCaptureForm extends React.Component {
 
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
-          checkFormForErrors={this.store.checkFormForErrors.bind(this.store)}
           dataObject={this.store.values}
           id="message"
           type="textarea"
