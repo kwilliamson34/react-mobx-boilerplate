@@ -143,38 +143,34 @@ class FeedbackForm extends React.Component {
           errorMessage="Select your likelihood."
           optionsList={this.likelihoods}/>
 
-        <p>Your feedback will help us respond to issues and improve your overall experience.
-          <span aria-hidden='true'>If you are experiencing technical issues with devices/applications/network, please call </span>
-          <a href={`tel:${config.attCustomerSupportPhone}`}>
-            <span className='sr-only'>If you are experiencing technical issues with devices/applications/network, please call </span>
-            {config.attCustomerSupportPhone}
-          </a>.
-        </p>
 
-        <Checkbox
-          ref={ref => this.store.formFieldRefList.push(ref)}
-          value="contactAgreement"
-          label="By submitting this information, you agree to be contacted by FirstNet. We will never sell or share your information."
-          required={true}
-          errorMessage="Please provide consent to be contacted by FirstNet."
-          checked={this.store.contactAgreement}
-          handleOnChange={this.handleCheckboxOnChange} />
+        <div className="text-block">
+          <p>Your feedback will help us respond to issues and improve your overall experience.&nbsp;
+            <span aria-hidden='true'>If you are experiencing technical issues with devices/applications/network, please call </span>
+            <a href={`tel:${config.attCustomerSupportPhone}`}>
+              <span className='sr-only'>If you are experiencing technical issues with devices/applications/network, please call </span>
+              {config.attCustomerSupportPhone}
+            </a>.
+          </p>
+        </div>
+
+        {
+          this.store.showContactAgreement &&
+          <Checkbox
+            ref={ref => this.store.formFieldRefList.push(ref)}
+            value="contactAgreement"
+            label="By submitting this information, you agree to be contacted by FirstNet. We will never sell or share your information."
+            required={true}
+            errorMessage="Please provide consent to be contacted by FirstNet."
+            checked={this.store.contactAgreement}
+            handleOnChange={this.handleCheckboxOnChange} />
+        }
 
       </div>
     );
   }
 }
 
-// {
-//   this.store.showContactAgreement &&
-//   <Checkbox
-//     ref={ref => this.store.formFieldRefList.push(ref)}
-//     value="contactAgreement"
-//     label="By submitting this information, you agree to be contacted by FirstNet. We will never sell or share your information."
-//     required={true}
-//     errorMessage="Please provide consent to be contacted by FirstNet."
-//     checked={this.store.contactAgreement}
-//     handleOnChange={this.handleCheckboxOnChange} />
-// }
+
 
 export default asForm(FeedbackForm, {submitButtonText: 'Submit'})

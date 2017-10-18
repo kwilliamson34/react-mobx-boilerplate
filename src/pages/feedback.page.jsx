@@ -17,11 +17,6 @@ export default class FeedbackPage extends React.Component {
     this.feedbackStore = this.props.store.feedbackStore;
   }
 
-  componentDidMount() {
-    console.log('user', this.props.store.userStore.user);
-    console.log('values', this.feedbackStore.values);
-  }
-
   render = () => {
     return (
       <section id="customer-feedback-page" className="standalone-form-page">

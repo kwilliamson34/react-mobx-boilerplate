@@ -4,22 +4,6 @@ import {userStore} from './user.store';
 import {history} from '../services/history.service';
 
 class FeedbackStore {
-  constructor() {
-    // check form for errors
-    autorun(() => {
-      console.log('reflist', this.formFieldRefList.peek());
-      let hasError = false;
-      if(!this.contactAgreement && this.showContactAgreement) {
-        hasError = true;
-      }
-      this.formFieldRefList.forEach(ref => {
-        if(ref && ref.hasFunctionalError) {
-          hasError = true;
-        }
-      });
-      this.formHasError = hasError;
-    })
-  }
 
   @action fetchDefaultValues() {
     this.values.email = userStore.user.email;
@@ -44,6 +28,8 @@ class FeedbackStore {
 
   @action toggleContactAgreement() {
     this.contactAgreement = !this.contactAgreement;
+    //validate after render stack has finished
+    setTimeout(this.checkFormForErrors.bind(this), 0);
   }
 
   @action clearForm() {
@@ -63,6 +49,16 @@ class FeedbackStore {
       }
     });
     this.showAlert = true;
+  }
+
+  @action checkFormForErrors() {
+    let hasError = false;
+    this.formFieldRefList.forEach(ref => {
+      if (ref && ref.hasFunctionalError) {
+        hasError = true;
+      }
+    });
+    this.formHasError = hasError;
   }
 
   @computed get formIsDirty() {

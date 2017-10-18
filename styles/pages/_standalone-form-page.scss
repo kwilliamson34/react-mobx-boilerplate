@@ -20,9 +20,26 @@
   }
 }
 
-#lead-capture-page {
+#lead-capture-page,
+#customer-feedback-page {
   .checkbox .cr {
     margin-bottom: 3rem; //checkbox text may wrap to 3 lines
+  }
+}
+
+#customer-feedback-page {
+  .form-group {
+    margin-top: 0px;
+    margin-bottom: 25px;
+  }
+
+  .checkbox {
+    margin-bottom: 20px;
+  }
+
+  .submit-button-wrapper {
+    margin-top: 0;
+    margin-bottom: 40px;
   }
 }
 
@@ -30,6 +47,12 @@
   .standalone-form-page {
     .content-wrapper h1 {
       margin: 3rem 0;
+    }
+  }
+
+  #customer-feedback-page {
+    .content-wrapper h1 {
+      margin: 2rem 0;
     }
   }
 }
