@@ -170,7 +170,7 @@ export default class AppDetailsPage extends React.Component {
                 isWithinCard={true}
                 containsPrimaryHeader={true}
                 appCatalogStore={this.appStore}
-                configuredMDMType={this.mdmStore.pseMDMObject.toJS().mdm_type}
+                configuredMDMType={this.mdmStore.values.mdm_type}
                 pushToMDM={this.mdmStore.pushToMDM.bind(this.mdmStore)}
                 appCatalogMDMStatuses={this.mdmStore.appCatalogMDMStatuses.toJS()}/>
               <div className="app-description-block">

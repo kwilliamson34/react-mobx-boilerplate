@@ -4,7 +4,8 @@
   /****** ERROR STATE ******/
   &.has-error {
 
-    .control-label {
+    .control-label,
+    label {
       color: $fn-alert-red!important;
     }
 

@@ -17,8 +17,7 @@ export default class SelectInput extends React.Component {
     optionsList: PropTypes.array,
     placeholder: PropTypes.string,
     disabled: PropTypes.bool,
-    errorMessage: PropTypes.string,
-    checkFormForErrors: PropTypes.func
+    errorMessage: PropTypes.string
   }
 
   static defaultProps = {
@@ -48,12 +47,10 @@ export default class SelectInput extends React.Component {
   handleOnChange = (e) => {
     this.props.dataObject[this.props.id] = e.target.value;
     this.hasVisibleError = this.hasFunctionalError;
-    this.props.checkFormForErrors();
   }
 
   handleOnBlur = () => {
     this.hasVisibleError = this.hasFunctionalError;
-    this.props.checkFormForErrors();
   }
 
   render() {

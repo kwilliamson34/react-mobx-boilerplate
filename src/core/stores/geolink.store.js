@@ -45,6 +45,16 @@ class GeolinkStore {
         this.values.locationAddress = '';
       }
     })
+    // check form for errors
+    autorun(() => {
+      let hasError = false;
+      this.formFieldRefList.forEach(ref => {
+        if(ref && ref.hasFunctionalError) {
+          hasError = true;
+        }
+      });
+      this.formHasError = hasError;
+    })
   }
 
   @action loadGeolinkHtml() {
@@ -246,11 +256,11 @@ class GeolinkStore {
 
   @action handleSecondaryAction() {
     if (this.pageTitle === 'Edit Favorite') {
-      //reset values so that the unsaved changes modal doesn't show, but don't clear alerts because they're needed on Manage Favorites page;
-      this.resetValues();
+      this.clearForm();
       history.replace('/manage-favorites');
+    } else if (this.pageTitle === 'Add New Favorite') {
+      this.pageTitle = 'Network Status';
     }
-    this.clearForm();
   }
 
   @action setPageTitle(title) {
@@ -262,6 +272,11 @@ class GeolinkStore {
     this.clearAlerts();
     this.pageTitle = 'Network Status';
     this.searchMap();
+    this.clearFormFieldRefList();
+  }
+
+  @action clearFormFieldRefList() {
+    this.formFieldRefList = [];
   }
 
   @action clearAlerts() {
@@ -296,16 +311,6 @@ class GeolinkStore {
     });
     this.alertText = 'Please fix the following errors.';
     this.showAlert = true;
-  }
-
-  @action checkFormForErrors() {
-    let hasError = false;
-    this.formFieldRefList.forEach(ref => {
-      if(ref && ref.hasFunctionalError) {
-        hasError = true;
-      }
-    });
-    this.formHasError = hasError;
   }
 
   @action loadFavorites() {

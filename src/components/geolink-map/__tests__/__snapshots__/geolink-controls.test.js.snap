@@ -87,7 +87,7 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
             <div
               className="col-xs-6 no-gutters">
               <div
-                className="checkbox ">
+                className="checkbox form-group ">
                 <label>
                   <input
                     aria-disabled={false}
@@ -95,6 +95,7 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
                     className=""
                     data-checked={false}
                     id=""
+                    onBlur={[Function anonymous]}
                     onChange={[Function anonymous]}
                     type="checkbox"
                     value="Network" />
@@ -111,7 +112,7 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
                 </label>
               </div>
               <div
-                className="checkbox ">
+                className="checkbox form-group ">
                 <label>
                   <input
                     aria-disabled={false}
@@ -119,6 +120,7 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
                     className=""
                     data-checked={false}
                     id=""
+                    onBlur={[Function anonymous]}
                     onChange={[Function anonymous]}
                     type="checkbox"
                     value="Weather" />
@@ -138,7 +140,7 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
             <div
               className="col-xs-6 no-gutters">
               <div
-                className="checkbox ">
+                className="checkbox form-group ">
                 <label>
                   <input
                     aria-disabled={false}
@@ -146,6 +148,7 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
                     className=""
                     data-checked={false}
                     id=""
+                    onBlur={[Function anonymous]}
                     onChange={[Function anonymous]}
                     type="checkbox"
                     value="Traffic" />
@@ -162,7 +165,7 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
                 </label>
               </div>
               <div
-                className="checkbox ">
+                className="checkbox form-group ">
                 <label>
                   <input
                     aria-disabled={false}
@@ -170,6 +173,7 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
                     className=""
                     data-checked={false}
                     id=""
+                    onBlur={[Function anonymous]}
                     onChange={[Function anonymous]}
                     type="checkbox"
                     value="Alerts" />
@@ -520,7 +524,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
             <div
               className="col-xs-6 no-gutters">
               <div
-                className="checkbox disabled">
+                className="checkbox form-group disabled">
                 <label>
                   <input
                     aria-disabled={true}
@@ -528,6 +532,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     className="disabled"
                     data-checked={false}
                     id=""
+                    onBlur={[Function anonymous]}
                     onChange={[Function anonymous]}
                     type="checkbox"
                     value="Network" />
@@ -544,7 +549,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                 </label>
               </div>
               <div
-                className="checkbox disabled">
+                className="checkbox form-group disabled">
                 <label>
                   <input
                     aria-disabled={true}
@@ -552,6 +557,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     className="disabled"
                     data-checked={false}
                     id=""
+                    onBlur={[Function anonymous]}
                     onChange={[Function anonymous]}
                     type="checkbox"
                     value="Weather" />
@@ -571,7 +577,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
             <div
               className="col-xs-6 no-gutters">
               <div
-                className="checkbox disabled">
+                className="checkbox form-group disabled">
                 <label>
                   <input
                     aria-disabled={true}
@@ -579,6 +585,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     className="disabled"
                     data-checked={false}
                     id=""
+                    onBlur={[Function anonymous]}
                     onChange={[Function anonymous]}
                     type="checkbox"
                     value="Traffic" />
@@ -595,7 +602,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                 </label>
               </div>
               <div
-                className="checkbox disabled">
+                className="checkbox form-group disabled">
                 <label>
                   <input
                     aria-disabled={true}
@@ -603,6 +610,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     className="disabled"
                     data-checked={false}
                     id=""
+                    onBlur={[Function anonymous]}
                     onChange={[Function anonymous]}
                     type="checkbox"
                     value="Alerts" />
@@ -953,7 +961,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
             <div
               className="col-xs-6 no-gutters">
               <div
-                className="checkbox ">
+                className="checkbox form-group ">
                 <label>
                   <input
                     aria-disabled={false}
@@ -961,6 +969,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     className=""
                     data-checked={false}
                     id=""
+                    onBlur={[Function anonymous]}
                     onChange={[Function anonymous]}
                     type="checkbox"
                     value="Network" />
@@ -977,7 +986,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                 </label>
               </div>
               <div
-                className="checkbox ">
+                className="checkbox form-group ">
                 <label>
                   <input
                     aria-disabled={false}
@@ -985,6 +994,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     className=""
                     data-checked={false}
                     id=""
+                    onBlur={[Function anonymous]}
                     onChange={[Function anonymous]}
                     type="checkbox"
                     value="Weather" />
@@ -1004,7 +1014,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
             <div
               className="col-xs-6 no-gutters">
               <div
-                className="checkbox ">
+                className="checkbox form-group ">
                 <label>
                   <input
                     aria-disabled={false}
@@ -1012,6 +1022,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     className=""
                     data-checked={false}
                     id=""
+                    onBlur={[Function anonymous]}
                     onChange={[Function anonymous]}
                     type="checkbox"
                     value="Traffic" />
@@ -1028,7 +1039,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                 </label>
               </div>
               <div
-                className="checkbox disabled">
+                className="checkbox form-group disabled">
                 <label>
                   <input
                     aria-disabled={true}
@@ -1036,6 +1047,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     className="disabled"
                     data-checked={false}
                     id=""
+                    onBlur={[Function anonymous]}
                     onChange={[Function anonymous]}
                     type="checkbox"
                     value="Alerts" />
@@ -1386,7 +1398,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
             <div
               className="col-xs-6 no-gutters">
               <div
-                className="checkbox ">
+                className="checkbox form-group ">
                 <label>
                   <input
                     aria-disabled={false}
@@ -1394,6 +1406,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     className=""
                     data-checked={false}
                     id=""
+                    onBlur={[Function anonymous]}
                     onChange={[Function anonymous]}
                     type="checkbox"
                     value="Network" />
@@ -1410,7 +1423,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                 </label>
               </div>
               <div
-                className="checkbox ">
+                className="checkbox form-group ">
                 <label>
                   <input
                     aria-disabled={false}
@@ -1418,6 +1431,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     className=""
                     data-checked={false}
                     id=""
+                    onBlur={[Function anonymous]}
                     onChange={[Function anonymous]}
                     type="checkbox"
                     value="Weather" />
@@ -1437,7 +1451,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
             <div
               className="col-xs-6 no-gutters">
               <div
-                className="checkbox ">
+                className="checkbox form-group ">
                 <label>
                   <input
                     aria-disabled={false}
@@ -1445,6 +1459,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     className=""
                     data-checked={false}
                     id=""
+                    onBlur={[Function anonymous]}
                     onChange={[Function anonymous]}
                     type="checkbox"
                     value="Traffic" />
@@ -1461,7 +1476,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                 </label>
               </div>
               <div
-                className="checkbox ">
+                className="checkbox form-group ">
                 <label>
                   <input
                     aria-disabled={false}
@@ -1469,6 +1484,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     className=""
                     data-checked={false}
                     id=""
+                    onBlur={[Function anonymous]}
                     onChange={[Function anonymous]}
                     type="checkbox"
                     value="Alerts" />

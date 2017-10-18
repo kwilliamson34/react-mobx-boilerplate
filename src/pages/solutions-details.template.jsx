@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {observer, inject} from 'mobx-react';
+import {Link} from 'react-router-dom';
 
 import PageTitle from '../components/page-title/page-title';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
@@ -20,42 +21,26 @@ export default class SolutionsDetailsTemplate extends React.Component {
     super(props);
     this.externalLinkStore = this.props.store.externalLinkStore;
     this.appCatalogStore = this.props.store.appCatalogStore;
+    this.leadCaptureStore = this.props.store.leadCaptureStore;
   }
 
   componentWillMount() {
-    // checking if the user was on this page previously, eliminating need for new request
-    if (this.props.match.params.solutionDetail != this.externalLinkStore.currentSolutionDetail.path) {
-      let solutionPath = this.props.match.params.solutionDetail;
-      this.externalLinkStore.resetSolutionDetail();
-      if (this.externalLinkStore.allSolutionDetails.length) {
-        this.fetchSolutionDetails(solutionPath);
-      } else {
-        this.externalLinkStore.getSolutionDetails().then(() => {
-          this.fetchSolutionDetails(solutionPath);
-        });
-      }
-    }
+    this.externalLinkStore.fetchMarketingPortalData();
+
+    const solutionName = decodeURIComponent(this.props.match.params.solutionDetail);
+    this.externalLinkStore.setCurrentSolution(solutionName);
+    this.leadCaptureStore.setCurrentSolution(solutionName);
   }
 
-  fetchSolutionDetails(solutionPath) {
-    this.externalLinkStore.fetchSolutionDetails({solutionPath, setAsCurrent: true});
-
-    const solutionDetail = this.externalLinkStore.currentSolutionDetail;
-    if(this.externalLinkStore.hasValidRelatedApp(solutionDetail)) {
-      this.appCatalogStore.setCurrentApp(solutionDetail.related_app_psk);
-      if(!this.appCatalogStore.currentAppObject || !this.appCatalogStore.currentAppObject.detailsFetched) {
-        this.appCatalogStore.fetchAppDetailByPsk({
-          psk: solutionDetail.related_app_psk,
-          suppressFetchFailure: true
-        });
-      }
-    }
+  componentWillUnmount() {
+    this.leadCaptureStore.hideSuccess();
   }
 
   render() {
     const solutionCategoryTitle = this.props.match.params.solutionCategory.replace(/-/g, ' ');
-    const solutionDetailTitle = this.props.match.params.solutionDetail.replace(/\+/g, ' ');
-    const solutionDetail = this.externalLinkStore.currentSolutionDetail;
+    const solutionDetailTitle = decodeURIComponent(this.props.match.params.solutionDetail);
+
+    const solutionDetail = this.externalLinkStore.currentSolutionDetail || {};
     const purchasingInfo = this.externalLinkStore.currentSolutionPurchasingInfo;
 
     const crumbs = [
@@ -90,13 +75,15 @@ export default class SolutionsDetailsTemplate extends React.Component {
             </section>
           </div>
 
+          {this.renderLeadCaptureSection()}
+
           {this.externalLinkStore.hasValidRelatedApp(solutionDetail) && this.appCatalogStore.currentAppObject.detailsFetched &&
             <div className="row">
               <section className="col-xs-12 col-lg-offset-1 col-lg-10 app-details-section">
                 <h2>Related App</h2>
                 <hr />
                 <AppDetailBanner
-                  pskToRender={solutionDetail.related_app_psk}
+                  pskToRender={this.externalLinkStore.currentSolutionDetail.related_app_psk}
                   actionBlock="link_to_details"
                   appCatalogStore={this.appCatalogStore}
                   suppressFetchFailure={true}/>
@@ -113,6 +100,39 @@ export default class SolutionsDetailsTemplate extends React.Component {
 
         </div>
       </article>
+    )
+  }
+
+  renderLeadCaptureSection = () => {
+    const solutionDetailTitle = decodeURIComponent(this.props.match.params.solutionDetail);
+    const leadCaptureHref = `/admin/solutions/${this.props.match.params.solutionCategory}/${this.props.match.params.solutionDetail}/request-info`;
+
+    return (
+      <div className="row">
+        <section className="col-xs-12 col-lg-offset-1 col-lg-10 learn-more-section">
+          <h2>Learn More</h2>
+          <hr/>
+          {this.leadCaptureStore.showSuccess
+            ? <div className="alert alert-success">
+                <button type="button" className="close_btn icon-close" onClick={this.leadCaptureStore.hideSuccess.bind(this.leadCaptureStore)}>
+                  <span className="sr-only">Close alert</span>
+                </button>
+                <p role="alert" aria-live="assertive">
+                  <strong>Success!&nbsp;</strong>Your request has been received. A specialist will be contacting you soon.
+                </p>
+              </div>
+            : <div>
+              <span className="solution-name" dangerouslySetInnerHTML={{
+                __html: solutionDetailTitle
+              }}></span>
+              <Link to={leadCaptureHref} className={`btn fn-primary ${this.leadCaptureStore.solutionAlreadyRequested
+                ? 'disabled'
+                : ''}`}>
+                Request Information
+              </Link>
+            </div>}
+        </section>
+      </div>
     )
   }
 }

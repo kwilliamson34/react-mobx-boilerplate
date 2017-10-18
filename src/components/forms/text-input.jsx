@@ -19,7 +19,6 @@ export default class TextInput extends React.Component {
     helperText: PropTypes.string,
     labelIsSrOnly: PropTypes.bool,
     getIsValid: PropTypes.func,
-    checkFormForErrors: PropTypes.func,
     errorMessage: PropTypes.string,
     className: PropTypes.string,
     showClearButton: PropTypes.bool,
@@ -37,8 +36,7 @@ export default class TextInput extends React.Component {
     disabled: false,
     errorMessage: 'This entry is not valid.',
     className: '',
-    showClearButton: false,
-    checkFormForErrors: () => {}
+    showClearButton: false
   }
 
   @observable hasVisibleError = false;
@@ -49,12 +47,13 @@ export default class TextInput extends React.Component {
     let hasError = false;
 
     //empty check
-    if(this.props.required && this.valueInStore === '') {
+    const inputIsEmptyOrSpaces = !this.valueInStore || !/\w+/.test(this.valueInStore);
+    if(this.props.required && inputIsEmptyOrSpaces) {
       hasError = true;
     }
 
     //other validation rules
-    if(this.valueInStore !== '' && this.props.getIsValid !== undefined && !this.props.getIsValid(this.valueInStore)) {
+    if(!inputIsEmptyOrSpaces && this.props.getIsValid !== undefined && !this.props.getIsValid(this.valueInStore)) {
       hasError = true;
     }
 
@@ -63,7 +62,6 @@ export default class TextInput extends React.Component {
 
   showErrors = () => {
     this.hasVisibleError = this.hasFunctionalError;
-    this.props.checkFormForErrors();
   }
 
   handleOnChange = (e) => {
@@ -106,7 +104,7 @@ export default class TextInput extends React.Component {
     const clearButtonVisible = this.props.showClearButton && this.valueInStore !== '';
     const submitButtonVisible = this.props.handleSubmit && this.props.submitIcon;
     return (
-      <div className={`form-group ${this.props.className} ${this.hasVisibleError ? 'has-error' : ''} `}>
+      <div className={`form-group ${this.props.className} ${this.hasVisibleError ? 'has-error' : ''}`}>
         <FormLabel
           id={this.props.id}
           hasError={this.hasVisibleError}

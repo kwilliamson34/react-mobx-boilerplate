@@ -18,7 +18,7 @@ class LocationFavoriteForm extends React.Component {
   }
 
   componentWillMount() {
-    this.store.formFieldRefList = [];
+    this.store.clearFormFieldRefList();
   }
 
   render() {
@@ -26,7 +26,6 @@ class LocationFavoriteForm extends React.Component {
       <div className="location-favorite-form">
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
-          checkFormForErrors={this.store.checkFormForErrors.bind(this.store)}
           dataObject={this.store.values}
           id="locationAddress"
           type="search"
@@ -41,7 +40,6 @@ class LocationFavoriteForm extends React.Component {
 
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
-          checkFormForErrors={this.store.checkFormForErrors.bind(this.store)}
           dataObject={this.store.values}
           id="locationName"
           type="input"

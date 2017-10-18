@@ -1,6 +1,6 @@
 exports[`<TextInput /> renders matches previous snapshot 1`] = `
 <div
-  className="form-group   ">
+  className="form-group  ">
   <div
     className="input-group ">
     <textarea
@@ -18,7 +18,7 @@ exports[`<TextInput /> renders matches previous snapshot 1`] = `
 
 exports[`<TextInput /> renders matches previous snapshot 2`] = `
 <div
-  className="form-group   ">
+  className="form-group  ">
   <div
     className="input-group ">
     <input
@@ -36,7 +36,7 @@ exports[`<TextInput /> renders matches previous snapshot 2`] = `
 
 exports[`<TextInput /> renders matches previous snapshot 3`] = `
 <div
-  className="form-group   ">
+  className="form-group  ">
   <div
     className="input-group ">
     <input
@@ -54,7 +54,7 @@ exports[`<TextInput /> renders matches previous snapshot 3`] = `
 
 exports[`<TextInput /> renders matches previous snapshot 4`] = `
 <div
-  className="form-group   ">
+  className="form-group  ">
   <div
     className="input-group ">
     <input
@@ -87,7 +87,7 @@ exports[`<TextInput /> renders matches previous snapshot 4`] = `
 
 exports[`<TextInput /> renders matches previous snapshot 5`] = `
 <div
-  className="form-group   ">
+  className="form-group  ">
   <div
     className="input-group ">
     <input
@@ -136,7 +136,7 @@ exports[`<TextInput /> renders matches previous snapshot 5`] = `
 
 exports[`<TextInput /> renders matches previous snapshot 6`] = `
 <div
-  className="form-group   ">
+  className="form-group  ">
   <div
     className="input-group ">
     <input
@@ -185,7 +185,7 @@ exports[`<TextInput /> renders matches previous snapshot 6`] = `
 
 exports[`<TextInput /> renders matches previous snapshot 7`] = `
 <div
-  className="form-group   ">
+  className="form-group  ">
   <div
     className="input-group ">
     <input

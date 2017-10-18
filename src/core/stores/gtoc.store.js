@@ -1,8 +1,21 @@
-import {action, observable, computed} from 'mobx';
+import {action, observable, computed, autorun} from 'mobx';
 import {apiService} from '../services/api.service';
 import {history} from '../services/history.service';
 
 class GTOCStore {
+  constructor() {
+    // check form for errors
+    autorun(() => {
+      let hasError = false;
+      this.formFieldRefList.forEach(ref => {
+        if(ref && ref.hasFunctionalError) {
+          hasError = true;
+        }
+      });
+      this.formHasError = hasError;
+    })
+  }
+
   @action submitForm() {
     if(this.formHasError) {
       this.showAllFormErrors();
@@ -21,6 +34,11 @@ class GTOCStore {
   @action clearForm() {
     this.values = Object.assign({}, this.defaultValues);
     this.showAlert = false;
+    this.clearFormFieldRefList();
+  }
+
+  @action clearFormFieldRefList() {
+    this.formFieldRefList = [];
   }
 
   @computed get formIsDirty() {
@@ -40,16 +58,6 @@ class GTOCStore {
       }
     });
     this.showAlert = true;
-  }
-
-  @action checkFormForErrors() {
-    let hasError = false;
-    this.formFieldRefList.forEach(ref => {
-      if(ref && ref.hasFunctionalError) {
-        hasError = true;
-      }
-    });
-    this.formHasError = hasError;
   }
 
   @action selectAll() {

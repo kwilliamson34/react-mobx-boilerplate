@@ -16,29 +16,28 @@ class IBMForm extends React.Component {
   }
 
   componentWillMount() {
-    this.store.formFieldRefList = [];
-    this.store.formHasError = true;
+    this.store.clearFormFieldRefList();
   }
 
   render() {
     const disabled = this.store.mdmIsConfigured;
     return (
       <div>
-        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} checkFormForErrors={this.store.checkFormForErrors.bind(this.store)} dataObject={this.store.values} id="ibm_rootURL" type="input" labelText="Root URL" required={true} disabled={disabled} errorMessage="Please enter a valid root URL."/>
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="ibm_rootURL" type="input" labelText="Root URL" required={true} disabled={disabled} errorMessage="Please enter a valid root URL."/>
 
-        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} checkFormForErrors={this.store.checkFormForErrors.bind(this.store)} dataObject={this.store.values} id="ibm_billingID" type="input" labelText="Billing ID" required={true} disabled={disabled} errorMessage="Please enter a valid billing ID."/>
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="ibm_billingID" type="input" labelText="Billing ID" required={true} disabled={disabled} errorMessage="Please enter a valid billing ID."/>
 
-        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} checkFormForErrors={this.store.checkFormForErrors.bind(this.store)} dataObject={this.store.values} id="ibm_userName" type="input" labelText="MaaS360 Username" required={true} disabled={disabled} errorMessage="Please enter a valid MaaS360 username."/>
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="ibm_userName" type="input" labelText="MaaS360 Username" required={true} disabled={disabled} errorMessage="Please enter a valid MaaS360 username."/>
 
-        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} checkFormForErrors={this.store.checkFormForErrors.bind(this.store)} dataObject={this.store.values} id="ibm_password" type="password" labelText="MaaS360 Password" required={true} disabled={disabled} errorMessage="Please enter a valid MaaS360 password."/>
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="ibm_password" type="password" labelText="MaaS360 Password" required={true} disabled={disabled} errorMessage="Please enter a valid MaaS360 password."/>
 
-        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} checkFormForErrors={this.store.checkFormForErrors.bind(this.store)} dataObject={this.store.values} id="ibm_platformID" type="input" labelText="Platform ID" required={true} disabled={disabled} errorMessage="Please enter a valid platform ID."/>
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="ibm_platformID" type="input" labelText="Platform ID" required={true} disabled={disabled} errorMessage="Please enter a valid platform ID."/>
 
-        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} checkFormForErrors={this.store.checkFormForErrors.bind(this.store)} dataObject={this.store.values} id="ibm_appID" type="input" labelText="App ID" required={true} disabled={disabled} errorMessage="Please enter a valid app ID."/>
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="ibm_appID" type="input" labelText="App ID" required={true} disabled={disabled} errorMessage="Please enter a valid app ID."/>
 
-        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} checkFormForErrors={this.store.checkFormForErrors.bind(this.store)} dataObject={this.store.values} id="ibm_appVersion" type="input" labelText="App Version" required={true} disabled={disabled} errorMessage="Please enter a valid app version."/>
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="ibm_appVersion" type="input" labelText="App Version" required={true} disabled={disabled} errorMessage="Please enter a valid app version."/>
 
-        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} checkFormForErrors={this.store.checkFormForErrors.bind(this.store)} dataObject={this.store.values} id="ibm_appAccessKey" type="input" labelText="App Access Key" required={true} disabled={disabled} errorMessage="Please enter a valid app access key."/>
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="ibm_appAccessKey" type="input" labelText="App Access Key" required={true} disabled={disabled} errorMessage="Please enter a valid app access key."/>
       </div>
     );
   }

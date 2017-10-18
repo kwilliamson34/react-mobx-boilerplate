@@ -1,7 +1,20 @@
-import {action, computed, observable} from 'mobx';
+import {action, computed, observable, autorun} from 'mobx';
 import {apiService} from '../services/api.service';
 
 class MDMStore {
+  constructor() {
+    // check form for errors
+    autorun(() => {
+      let hasError = false;
+      this.formFieldRefList.forEach(ref => {
+        if(ref && ref.hasFunctionalError) {
+          hasError = true;
+        }
+      });
+      this.formHasError = hasError;
+    })
+  }
+
   // ACTIONS
   // Form Functions
   @action updateMDM(mdm_type) {
@@ -24,6 +37,12 @@ class MDMStore {
     this.clearAlerts();
     this.values = Object.assign({}, this.defaultValues);
     this.showbreakMDMConnection = false;
+    this.clearFormFieldRefList();
+  }
+
+  @action clearFormFieldRefList() {
+    this.formFieldRefList = [];
+    this.formHasError = true;
   }
 
   // Alert functions
@@ -317,16 +336,6 @@ class MDMStore {
       alertList: this.mdm_form_alerts,
       message: 'Please fix the following errors.'
     });
-  }
-
-  @action checkFormForErrors() {
-    let hasError = false;
-    this.formFieldRefList.forEach(ref => {
-      if(ref && ref.hasFunctionalError) {
-        hasError = true;
-      }
-    });
-    this.formHasError = hasError;
   }
 
   // OBSERVABLES

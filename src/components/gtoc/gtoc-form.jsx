@@ -22,7 +22,7 @@ class GtocForm extends React.Component {
   }
 
   componentWillMount() {
-    this.store.formFieldRefList = [];
+    this.store.clearFormFieldRefList();
   }
 
   @observable checkboxListRef = {
@@ -49,7 +49,6 @@ class GtocForm extends React.Component {
       <div id="gtoc-form">
         <CheckboxList
           ref={this.saveCheckboxListRef}
-          checkFormForErrors={this.store.checkFormForErrors.bind(this.store)}
           dataObject={this.store.values}
           id="femaList"
           labelText="Select Network Regions"
@@ -71,7 +70,6 @@ class GtocForm extends React.Component {
 
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
-          checkFormForErrors={this.store.checkFormForErrors.bind(this.store)}
           dataObject={this.store.values}
           id="email"
           type="input"

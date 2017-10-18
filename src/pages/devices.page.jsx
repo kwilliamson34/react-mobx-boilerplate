@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import {observer,inject} from 'mobx-react';
 import {Link} from 'react-router-dom';
 import PageTitle from '../components/page-title/page-title';
-import {utilsService} from '../core/services/utils.service';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 
 @inject('store')
@@ -36,7 +35,7 @@ export default class DevicesLandingPage extends React.Component {
 							<ul className="mp-content">
 								{sectionArray.map((item, idx) => {
 									if (idx >= devicesPerRow) return;
-									let itemRoute = utilsService.getDevicesAndSolutionsUrl(item.device_title);
+									let itemRoute = encodeURIComponent(item.device_title);
 									return (
 										<li key={sectionId + '_' +idx}>
 											<Link to={`/admin/devices/${sectionTitle.toLowerCase()}/${itemRoute}`} id={sectionId + '_' +idx}>
