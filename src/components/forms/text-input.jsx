@@ -100,7 +100,6 @@ export default class TextInput extends React.Component {
   }
 
   render() {
-    console.log('tesssst', this.props.id, this.props.required);
     const Tag = this.props.type === 'textarea' ? 'textarea' : 'input';
     const clearButtonVisible = this.props.showClearButton && this.valueInStore !== '';
     const submitButtonVisible = this.props.handleSubmit && this.props.submitIcon;
