@@ -10,15 +10,12 @@ exports[`<ManageAppsPage /> render matches previous snapshot 1`] = `
         <div
           className="configure-mdm-wrapper">
           <a
-            className=" configure-mdm-btn fn-primary"
+            className="configure-mdm-btn fn-primary"
             href="/admin/configure-mdm"
             onClick={[Function anonymous]}>
             Configure MDM
           </a>
         </div>
-        <h1>
-          Manage Apps
-        </h1>
       </div>
     </div>
   </div>
@@ -27,6 +24,8 @@ exports[`<ManageAppsPage /> render matches previous snapshot 1`] = `
     <div
       className="row">
       <div
+        aria-live="assertive"
+        aria-relevant="additions"
         className="col-xs-12 col-lg-offset-1 col-lg-10" />
     </div>
   </div>
@@ -80,7 +79,7 @@ exports[`<ManageAppsPage /> render matches previous snapshot 1`] = `
               id="view-all-apps-button"
               onClick={[Function anonymous]}
               type="button">
-              View All Apps
+              Load All Apps
             </button>
           </div>
         </section>
@@ -102,15 +101,12 @@ exports[`<ManageAppsPage /> render matches previous snapshot 2`] = `
         <div
           className="configure-mdm-wrapper">
           <a
-            className=" configure-mdm-btn fn-primary"
+            className="configure-mdm-btn fn-primary"
             href="/admin/configure-mdm"
             onClick={[Function anonymous]}>
             Configure MDM
           </a>
         </div>
-        <h1>
-          Manage Apps
-        </h1>
       </div>
     </div>
   </div>
@@ -119,6 +115,8 @@ exports[`<ManageAppsPage /> render matches previous snapshot 2`] = `
     <div
       className="row">
       <div
+        aria-live="assertive"
+        aria-relevant="additions"
         className="col-xs-12 col-lg-offset-1 col-lg-10" />
     </div>
   </div>
@@ -172,7 +170,7 @@ exports[`<ManageAppsPage /> render matches previous snapshot 2`] = `
               id="view-all-apps-button"
               onClick={[Function anonymous]}
               type="button">
-              View All Apps
+              Load All Apps
             </button>
           </div>
         </section>
@@ -194,15 +192,12 @@ exports[`<ManageAppsPage /> render matches previous snapshot 3`] = `
         <div
           className="configure-mdm-wrapper">
           <a
-            className=" configure-mdm-btn fn-primary"
+            className="configure-mdm-btn fn-primary"
             href="/admin/configure-mdm"
             onClick={[Function anonymous]}>
             Configure MDM
           </a>
         </div>
-        <h1>
-          Manage Apps
-        </h1>
       </div>
     </div>
   </div>
@@ -211,6 +206,8 @@ exports[`<ManageAppsPage /> render matches previous snapshot 3`] = `
     <div
       className="row">
       <div
+        aria-live="assertive"
+        aria-relevant="additions"
         className="col-xs-12 col-lg-offset-1 col-lg-10" />
     </div>
   </div>
@@ -264,7 +261,7 @@ exports[`<ManageAppsPage /> render matches previous snapshot 3`] = `
               id="view-all-apps-button"
               onClick={[Function anonymous]}
               type="button">
-              View All Apps
+              Load All Apps
             </button>
           </div>
         </section>

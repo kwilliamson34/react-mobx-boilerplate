@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Joyride from 'react-joyride';
+import Joyride from 'fn-joyride-ui';
 import { observer } from 'mobx-react';
 import $ from 'jquery';
 
@@ -33,7 +33,7 @@ export default class JoyrideBase extends React.Component {
       this.joyrideStore.stopTour();
       this.joyrideStore.tourPage = nextProps.location;
 
-      if(!this.joyrideStore.tourIsDisabled) {
+      if(!this.joyrideStore.tourIsDisabled && !this.joyrideStore.showTourIntroModal) {
         this.joyrideStore.runNow = this.joyrideStore.tourAutoStart;
         this.joyrideStore.setupTour();
       }
@@ -186,7 +186,7 @@ export default class JoyrideBase extends React.Component {
           callback={this.handleStepChange}
           type="continuous"
           showStepsProgress={true}
-          holePadding="2"
+          holePadding={2}
         />
       </div>
     )
