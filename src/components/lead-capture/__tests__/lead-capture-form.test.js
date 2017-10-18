@@ -1,12 +1,27 @@
 jest.unmock('../../forms/asForm');
-jest.unmock('../../../core/stores/lead-capture.store');
+jest.unmock('../lead-capture-form');
+jest.unmock('../../../core/services/history.service');
 
-import {leadCaptureStore} from '../../../core/stores/lead-capture.store';
 import LeadCaptureForm from '../lead-capture-form';
 
 describe('<LeadCaptureForm />', () => {
   let props = {
-    store: leadCaptureStore
+    store: {
+      values: {
+        title: '',
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        message: '',
+        contactAgreement: false
+      },
+      formFieldRefList: [],
+      checkFormForErrors: jest.fn(),
+      clearFormFieldRefList: jest.fn(),
+      fetchDefaultValues: jest.fn(),
+      toggleContactAgreement: jest.fn()
+    }
   }
 
   describe('renders', () => {

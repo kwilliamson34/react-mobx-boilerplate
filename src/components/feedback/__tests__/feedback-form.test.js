@@ -3,8 +3,6 @@ jest.unmock('../feedback-form');
 jest.unmock('../../../core/services/history.service');
 
 import FeedbackForm from '../feedback-form';
-import {history} from '../../../core/services/history.service';
-import Form from '../../forms/asForm';
 
 describe('<FeedbackForm />', () => {
   let props = {

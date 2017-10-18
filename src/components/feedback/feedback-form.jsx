@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
 import config from 'config';
-// import {userStore} from '../../core/stores/user.store';
 import {utilsService} from '../../core/services/utils.service';
 
 import asForm from '../forms/asForm.js';
@@ -21,26 +20,27 @@ class FeedbackForm extends React.Component {
     super(props)
     this.store = this.props.store;
 
+    //title is set as the value, unless the value field is present;
     this.topics = [
-      {value: 'System Performance', title: 'System Performance'},
-      {value: 'App Management', title: 'App Management'},
-      {value: 'Portal Design', title: 'Portal Design'},
-      {value: 'Credential & Account Management', title: 'Credential & Account Management'},
-      {value: 'Purchasing & Provisioning', title: 'Purchasing & Provisioning'},
+      {title: 'System Performance'},
+      {title: 'App Management'},
+      {title: 'Portal Design'},
+      {title: 'Credential & Account Management'},
+      {title: 'Purchasing & Provisioning'},
       {value: 'Billing & Payment', title: 'Billing & Payment'},
       {value: 'Other', title: 'Other'}
     ];
     this.operatingSystems = [
-      {value: 'iOS', title: 'iOS'},
-      {value: 'MacOS', title: 'MacOS'},
-      {value: 'Android', title: 'Android'},
-      {value: 'Windows', title: 'Windows'},
-      {value: 'Other', title: 'Other'}
+      {title: 'iOS'},
+      {title: 'MacOS'},
+      {title: 'Android'},
+      {title: 'Windows'},
+      {title: 'Other'}
     ];
     this.likelihoods = [
-      {value: '1 – Not Likely', title: '1 – Not Likely'},
-      {value: '2 – Somewhat Likely', title: '2 – Somewhat Likely'},
-      {value: '3 – Very Likely', title: '3 – Very Likely'}
+      {title: '1 – Not Likely'},
+      {title: '2 – Somewhat Likely'},
+      {title: '3 – Very Likely'}
     ];
   }
 
@@ -104,7 +104,10 @@ class FeedbackForm extends React.Component {
           dataObject={this.store.values}
           id="email"
           type="input"
-          labelText="Email"
+          labelText={
+            this.store.emailIsRequired
+              ? 'Email'
+              : 'Email (Optional)'}
           required={this.store.emailIsRequired}
           getIsValid={utilsService.isValidEmailAddress}
           errorMessage="Please enter an email address."/>
@@ -134,7 +137,7 @@ class FeedbackForm extends React.Component {
           <p>Your feedback will help us respond to issues and improve your overall experience.&nbsp;
             <span aria-hidden='true'>If you are experiencing technical issues with devices/applications/network, please call </span>
             <a href={`tel:${config.attCustomerSupportPhone}`}>
-              <span className='sr-only'>If you are experiencing technical issues with devices/applications/network, please call </span>
+              <span className='sr-only'>If you are experiencing technical issues with devices/applications/network, please call&nbsp;</span>
               {config.attCustomerSupportPhone}
             </a>.
           </p>
