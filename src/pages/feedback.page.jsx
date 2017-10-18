@@ -24,7 +24,7 @@ export default class FeedbackPage extends React.Component {
           <div className="container">
             <div className="row text-center">
               <div className="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
-                <PageTitle>Give Us Feedback</PageTitle>
+                <PageTitle>Submit Feedback</PageTitle>
               </div>
             </div>
             <div className="row">

@@ -7,17 +7,26 @@ class FeedbackStore {
   constructor() {
     // check form for errors
     autorun(() => {
-      let hasError = false;
-      this.formFieldRefList.forEach(ref => {
-        if(ref && ref.hasFunctionalError) {
-          hasError = true;
+      // check that initial values are available before valudating for the first time
+      if(userStore.userValidationDone) {
+        let hasError = false;
+        this.formFieldRefList.forEach(ref => {
+          if(ref && ref.hasFunctionalError) {
+            hasError = true;
+          }
+        });
+        this.formHasError = hasError;
+
+        // ensure contactAgreement doesn't render checked when user deletes their email and enters a new one;
+        if(!this.showContactAgreement) {
+          this.contactAgreement = false;
         }
-      });
-      this.formHasError = hasError;
+      }
     })
   }
 
   @action submitForm() {
+
     if(this.formHasError) {
       this.showAllFormErrors();
       return;
@@ -32,6 +41,10 @@ class FeedbackStore {
     apiService.submitCustomerFeedbackForm(this.values).then(success, failure);
   }
 
+  @action toggleContactAgreement() {
+    this.contactAgreement = !this.contactAgreement;
+  }
+
   @action clearForm() {
     this.values = Object.assign({}, this.defaultValues);
     this.showAlert = false;
@@ -40,6 +53,15 @@ class FeedbackStore {
 
   @action clearFormFieldRefList() {
     this.formFieldRefList = [];
+  }
+
+  @action showAllFormErrors() {
+    this.formFieldRefList.forEach(ref => {
+      if(ref && ref.hasFunctionalError) {
+        ref.hasVisibleError = ref.hasFunctionalError;
+      }
+    });
+    this.showAlert = true;
   }
 
   @computed get formIsDirty() {
@@ -52,29 +74,46 @@ class FeedbackStore {
     return formHasChanged;
   }
 
-  @action showAllFormErrors() {
-    this.formFieldRefList.forEach(ref => {
-      if(ref && ref.hasFunctionalError) {
-        ref.hasVisibleError = ref.hasFunctionalError;
+  @computed get showContactAgreement() {
+    return this.values.email && this.values.email.length > 0;
+  }
+
+  @computed get emailIsRequired() {
+    const topicsRequiringEmail = [
+      'Credential & Account Management',
+      'Purchasing & Provisioning',
+      'Billing & Payment'
+    ];
+    let emailIsRequired = false;
+    topicsRequiringEmail.forEach(topic => {
+      if (this.values.topic === topic) {
+        emailIsRequired = true;
       }
     });
-    this.showAlert = true;
+    return emailIsRequired;
   }
 
   @observable formFieldRefList = [];
   @observable formHasError = true;
   @observable showAlert = false;
+  @observable contactAgreement = false;
   @observable defaultValues = {
-    title: '',
-    details: '',
     topic: '',
-    email: userStore.user.email
+    subject: '',
+    details: '',
+    operatingSystem: '',
+    email: userStore.user.email,
+    phone: userStore.user.phone,
+    likely: ''
   };
   @observable values = {
-    title: '',
-    details: '',
     topic: '',
-    email: userStore.user.email
+    subject: '',
+    details: '',
+    operatingSystem: '',
+    email: userStore.user.email,
+    phone: userStore.user.phone,
+    likely: ''
   };
 }
 

@@ -74,7 +74,7 @@ export default class SelectInput extends React.Component {
           value={value}
           disabled={this.props.disabled}>
           {this.props.placeholder && <option value="">{this.props.placeholder}</option>}
-          {this.props.optionsList.map(option => <option value={option.value} key={option.value}>{option.title}</option> )}
+          {this.props.optionsList.map(option => <option value={option.value || option.title} key={option.value || option.title}>{option.title}</option> )}
         </select>
       </div>
     )

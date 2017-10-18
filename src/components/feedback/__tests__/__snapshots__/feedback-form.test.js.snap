@@ -1,11 +1,31 @@
-exports[`<LeadCaptureForm /> renders matches previous snapshot 1`] = `
+exports[`<FeedbackForm /> renders matches previous snapshot 1`] = `
 <section>
   <form
     noValidate={true}>
     <div
       className="alert-bars " />
     <div
-      id="lead-capture-form" />
+      id="feedback-form">
+      <div
+        className="text-block">
+        <p>
+          Your feedback will help us respond to issues and improve your overall experience. 
+          <span
+            aria-hidden="true">
+            If you are experiencing technical issues with devices/applications/network, please call 
+          </span>
+          <a
+            href="tel:800-574-7000">
+            <span
+              className="sr-only">
+              If you are experiencing technical issues with devices/applications/network, please call 
+            </span>
+            800-574-7000
+          </a>
+          .
+        </p>
+      </div>
+    </div>
     <div
       className="form-actions ">
       

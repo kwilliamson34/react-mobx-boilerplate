@@ -1,23 +1,23 @@
 jest.unmock('../../forms/asForm');
-jest.unmock('../lead-capture-form');
+jest.unmock('../feedback-form');
 jest.unmock('../../../core/services/history.service');
 
-import LeadCaptureForm from '../lead-capture-form';
+import FeedbackForm from '../feedback-form';
 
-describe('<LeadCaptureForm />', () => {
+describe('<FeedbackForm />', () => {
   let props = {
     store: {
       values: {
-        title: '',
-        firstName: '',
-        lastName: '',
+        topic: '',
+        subject: '',
+        details: '',
+        operatingSystem: '',
         email: '',
         phone: '',
-        message: '',
-        contactAgreement: false
+        likely: ''
       },
+      emailIsRequired: true,
       formFieldRefList: [],
-      checkFormForErrors: jest.fn(),
       clearFormFieldRefList: jest.fn(),
       fetchDefaultValues: jest.fn(),
       toggleContactAgreement: jest.fn()
@@ -28,7 +28,9 @@ describe('<LeadCaptureForm />', () => {
     test('matches previous snapshot', () => {
       let component, tree;
 
-      component = renderer.create(<LeadCaptureForm {...props} />);
+      component = renderer.create(
+        <FeedbackForm {...props} />
+      );
       tree = component.toJSON();
       expect(tree).toMatchSnapshot();
     });
