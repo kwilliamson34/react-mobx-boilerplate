@@ -143,14 +143,15 @@ class FeedbackForm extends React.Component {
         </div>
 
         {
-          this.store.showContactAgreement &&
+          this.store.requireContactAgreement &&
           <Checkbox
             ref={ref => this.store.formFieldRefList.push(ref)}
             value="contactAgreement"
             label="By submitting this information, you agree to be contacted by FirstNet. We will never sell or share your information."
-            required={true}
+            required={this.store.requireContactAgreement}
             errorMessage="Please provide consent to be contacted by FirstNet."
             checked={this.store.contactAgreement}
+            disabled={this.store.requireContactAgreement}
             handleOnChange={this.handleCheckboxOnChange} />
         }
 

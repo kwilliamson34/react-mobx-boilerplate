@@ -17,10 +17,11 @@ class FeedbackStore {
         });
         this.formHasError = hasError;
 
-        // ensure contactAgreement doesn't render checked when user deletes their email and enters a new one;
-        if(!this.showContactAgreement) {
+        if(!this.requireContactAgreement) {
+          // ensure contactAgreement doesn't render checked when user deletes their email and enters a new one;
           this.contactAgreement = false;
         }
+        console.log('this.formFieldRefList', this.formFieldRefList.peek());
       }
     })
   }
@@ -52,6 +53,7 @@ class FeedbackStore {
   }
 
   @action clearFormFieldRefList() {
+    console.log('TING TING TING TING TING');
     this.formFieldRefList = [];
   }
 
@@ -74,8 +76,8 @@ class FeedbackStore {
     return formHasChanged;
   }
 
-  @computed get showContactAgreement() {
-    return this.values.email && this.values.email.length > 0;
+  @computed get requireContactAgreement() {
+    return this.values.email.length > 0;
   }
 
   @computed get emailIsRequired() {

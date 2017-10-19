@@ -17,6 +17,7 @@ class LeadCaptureStore {
           }
         });
         this.formHasError = hasError;
+        console.log('test', this.formFieldRefList.peek());
       }
     })
   }
