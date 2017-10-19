@@ -18,6 +18,9 @@ export default class GeolinkControls extends React.Component {
     super(props);
     this.store = this.props.geolinkStore;
     this.ENTER_KEY_CODE = 13;
+    this.UP_KEY_CODE = 38;
+    this.DOWN_KEY_CODE = 40;
+    this.focusedFavorite = 0;
   }
 
   componentWillMount() {
@@ -87,20 +90,49 @@ export default class GeolinkControls extends React.Component {
     }
   }
 
+  onKeyDown = (event) => {
+    if(event.keyCode === this.DOWN_KEY_CODE || event.keyCode === this.UP_KEY_CODE) {
+      event.preventDefault();
+    }
+    if(event.keyCode === this.DOWN_KEY_CODE) {
+      if(this.focusedFavorite === this.store.predictedFavorites.length - 1) {
+        this.focusedFavorite = -1;
+        this.refs.manageFavorites.focus();
+      } else if(this.focusedFavorite === -1) {
+        this.focusedFavorite = 0;
+        this.refs[`fav${this.focusedFavorite}`].focus();
+      } else {
+        this.focusedFavorite = (this.focusedFavorite + 1) % this.store.predictedFavorites.length;
+        this.refs[`fav${this.focusedFavorite}`].focus();
+      }
+    } else if(event.keyCode === this.UP_KEY_CODE) {
+      if(this.focusedFavorite === 0) {
+        this.focusedFavorite = -1;
+        this.refs.manageFavorites.focus();
+      } else if(this.focusedFavorite === -1) {
+        this.focusedFavorite = this.store.predictedFavorites.length - 1;
+        this.refs[`fav${this.focusedFavorite}`].focus();
+      } else {
+        this.focusedFavorite = (this.focusedFavorite + this.store.predictedFavorites.length - 1) % this.store.predictedFavorites.length;
+        this.refs[`fav${this.focusedFavorite}`].focus();
+      }
+    }
+  }
+
   renderPredictiveDropdown = () => {
     if(this.store.dropdownIsVisible) return (
       <div className="predictive-dropdown">
         <ul>
           {this.store.predictedFavorites.map((favorite, index) => {
             return (
-              <li role="button" tabIndex="0" onClick={() => this.onFavoriteClick(favorite)} onKeyPress={(e) => this.onFavoriteEnter(e, favorite)} key={index}>
+              <li role="button" tabIndex="0" ref={`fav${index}`} onFocus={() => this.focusedFavorite = index} onClick={() => this.onFavoriteClick(favorite)} onKeyPress={(e) => this.onFavoriteEnter(e, favorite)} onKeyDown={this.onKeyDown} key={index}>
                 <i className="icon-star" aria-hidden></i>
                 <span>{favorite.favoriteName}</span>
                 <small>{favorite.locationFavoriteAddress}</small>
               </li>
             )
           })}
-          <li role="button" tabIndex="0" onClick={this.onManageFavoritesClick} onKeyPress={this.onManageFavoritesEnter}>
+          <li role="button" tabIndex="0" ref="manageFavorites" onFocus={() => this.focusedFavorite = -1} onClick={this.onManageFavoritesClick} onKeyPress={this.onManageFavoritesEnter} onKeyDown={this.onKeyDown}>
             Manage all favorites
           </li>
         </ul>
