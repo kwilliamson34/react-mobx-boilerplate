@@ -119,9 +119,12 @@ $map-controls-text-line-height: 1.3;
   }
 }
 
+.light-grey-bg {
+  background-color: $fn-ltgrey;
+}
+
 .geolink-controls {
   border-top: 1px solid $fn-grey;
-  background-color: $fn-ltgrey;
   padding-bottom: 100px;
   padding-top: 30px;
 
@@ -322,9 +325,13 @@ $map-controls-text-line-height: 1.3;
 }
 
 .container.location-favorites {
-  margin-top: 60px;
-  margin-bottom: 60px;
+  padding-top: 60px;
+  padding-bottom: 60px;
   display: block;
+
+  .alert {
+    margin: 20px 0 5px;
+  }
 
   .form-label .error {
     display: inline-block;
