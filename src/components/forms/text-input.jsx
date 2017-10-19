@@ -25,7 +25,8 @@ export default class TextInput extends React.Component {
     handleClearClick: PropTypes.func,
     handleSubmit: PropTypes.func,
     submitIcon: PropTypes.string,
-    iconClass: PropTypes.string
+    iconClass: PropTypes.string,
+    onDropIntoList: PropTypes.func
   }
 
   static defaultProps = {
@@ -123,7 +124,8 @@ export default class TextInput extends React.Component {
             onChange={this.handleOnChange}
             onBlur={this.handleOnBlur}
             onKeyPress={this.handleKeyPress}
-            value={this.valueInStore}/>
+            value={this.valueInStore}
+            onKeyDown={this.props.onDropIntoList}/>
           {this.props.iconClass && <i className={`prefix-icon ${this.props.iconClass}`}></i>}
           {clearButtonVisible &&
             <span className="input-group-btn">
