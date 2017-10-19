@@ -28,7 +28,7 @@ export default class Checkbox extends React.Component {
   @observable hasBeenVisited = false;
   @observable hasVisibleError = false;
   @computed get hasFunctionalError() {
-    return this.hasVisibleError || (!this.hasBeenVisited && !this.props.disabled);
+    return this.hasVisibleError || !this.hasBeenVisited;
   }
 
   handleOnChange = (event) => {
