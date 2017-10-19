@@ -34,6 +34,12 @@ export default class NetworkStatusPage extends React.Component {
     }
   }
 
+  componentWillMount() {
+    if (this.geoStore.pageTitle === 'Edit Favorite') {
+      this.geoStore.holdInitialEditLocationValues(this.geoStore.values);
+    }
+  }
+
   componentDidUpdate() {
     this.joyrideStore.updatePlacement();
   }
@@ -141,7 +147,7 @@ export default class NetworkStatusPage extends React.Component {
                   <h2 className="as-h1">{this.geoStore.pageTitle}</h2>
                   {this.geoStore.pageTitle === 'Edit Favorite' && this.renderEditLocationDeleteButton()}
                 </div>
-                <LocationFavoriteForm store={this.geoStore}/>
+                <LocationFavoriteForm store={this.geoStore} disabled={!this.geoStore.editLocationValuesHaveChanged}/>
               </div>
             </div>
             {this.renderDeleteModal()}

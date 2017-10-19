@@ -109,6 +109,11 @@ class GeolinkStore {
     history.replace('/network-status');
   }
 
+  @action holdInitialEditLocationValues(values) {
+    this.initialEditLocationValues = Object.assign({}, values);
+    console.log('this.initialEditLocationValues', this.initialEditLocationValues);
+  }
+
   @action addAllNetworkLayers() {
     networkLayerNames.map(layerName => {
       this.addLayer(layerName);
@@ -298,6 +303,7 @@ class GeolinkStore {
 
   @action resetValues() {
     this.values = Object.assign({}, this.defaultValues);
+    this.initialEditLocationValues = {};
   }
 
   @computed get formIsDirty() {
@@ -359,6 +365,16 @@ class GeolinkStore {
     }).splice(0, 8);
   }
 
+  @computed get editLocationValuesHaveChanged() {
+    let changed = false;
+    for (let key in this.values) {
+      if (this.values[key] !== this.initialEditLocationValues[key]) {
+        changed = true;
+      }
+    }
+    return changed;
+  }
+
   //OBSERVABLES
   //Page
   @observable pageTitle = 'Network Status';
@@ -394,6 +410,7 @@ class GeolinkStore {
     locationName: '',
     locationId: ''
   };
+  @observable initialEditLocationValues = {};
   @observable dropdownIsVisible = false;
   @observable favorites = [];
 
