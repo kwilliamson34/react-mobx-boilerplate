@@ -59,8 +59,8 @@ export default class ManageFavoritesPage extends React.Component {
   }
 
   handleMapItButton = (targetId) => {
-    let rowData = this.manageFavoritesStore.findRowData(targetId);
-    this.geolinkStore.performExternalSearch(rowData.locationFavoriteAddress);
+    let rowData = this.manageFavoritesStore.findRowData(targetId.toString());
+    this.geolinkStore.performMapFavoriteRequest(rowData);
   }
 
   handleEditButton = (targetId) => {
