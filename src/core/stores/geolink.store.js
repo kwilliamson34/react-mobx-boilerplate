@@ -111,7 +111,6 @@ class GeolinkStore {
 
   @action holdInitialEditLocationValues(values) {
     this.initialEditLocationValues = Object.assign({}, values);
-    console.log('this.initialEditLocationValues', this.initialEditLocationValues);
   }
 
   @action addAllNetworkLayers() {
