@@ -111,7 +111,7 @@ export default class GeolinkControls extends React.Component {
 
   render() {
     return (
-      <section className={`geolink-controls ${this.store.pageTitle === 'Network Status' ? 'show' : 'hide'}`}>
+      <section className={`geolink-controls light-grey-bg ${this.store.pageTitle === 'Network Status' ? 'show' : 'hide'}`}>
         {this.store.showSuccess &&
           <div className="container">
             <div className="row">
