@@ -52,7 +52,6 @@ export default class Footer extends React.Component {
 							aria-haspopup="true"
 							aria-expanded={this.headerStore.footerSitemapExpanded}>Sitemap</a>
 						<ul className="sitemap-links">
-							{this.userStore.isAdmin &&
 							<div>
 								<li role="presentation">
 									<Link to="/admin">PSE Administration</Link>
@@ -67,7 +66,6 @@ export default class Footer extends React.Component {
 									<Link to="/admin/solutions">Public Safety Solutions </Link>
 								</li>}
 							</div>
-							}
 							{this.userStore.canViewNetworkStatus &&
 								<li role="presentation">
 									<Link to="/network-status">Network Status</Link>

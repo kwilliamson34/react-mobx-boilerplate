@@ -113,7 +113,7 @@ class UserStore {
   }
 
   @computed get canViewNetworkStatus() {
-    return this.isAdmin;
+    return this.checkRolesString(['G_FN_IM','G_FN_ADM']);
   }
 
   @computed get destinationIsPermitted() {
