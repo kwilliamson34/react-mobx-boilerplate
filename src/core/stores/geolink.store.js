@@ -368,7 +368,6 @@ class GeolinkStore {
   @observable authIsComplete = false;
   @observable geolinkHtml = null;
   @observable mapIframeRef = null;
-  @observable disableSearch = false;
 
   //Controls
   @observable showNetworkLayer = true;
