@@ -18,6 +18,9 @@ export default class GeolinkControls extends React.Component {
     super(props);
     this.store = this.props.geolinkStore;
     this.ENTER_KEY_CODE = 13;
+    this.UP_KEY_CODE = 38;
+    this.DOWN_KEY_CODE = 40;
+    this.focusedFavorite = null;
   }
 
   componentWillMount() {
@@ -69,11 +72,17 @@ export default class GeolinkControls extends React.Component {
 
   onFavoriteClick = (favorite) => {
     this.store.selectFavorite(favorite);
+    this.store.formFieldRefList.find((el) => {
+      return el.refs.input.id === 'locationName' || el.refs.input.id === 'locationAddress';
+    }).refs.input.focus();
   }
 
   onFavoriteEnter = (event, favorite) => {
     if(event.charCode === this.ENTER_KEY_CODE) {
       this.store.selectFavorite(favorite);
+      this.store.formFieldRefList.find((el) => {
+        return el.refs.input.id === 'locationName' || el.refs.input.id === 'locationAddress';
+      }).refs.input.focus();
     }
   }
 
@@ -87,20 +96,49 @@ export default class GeolinkControls extends React.Component {
     }
   }
 
+  onDropIntoList = (event) => {
+    if(event.keyCode === this.DOWN_KEY_CODE && this.store.dropdownIsVisible) {
+      event.preventDefault();
+      this.focusedFavorite = 0;
+      this.refs[`favItem${this.focusedFavorite}`].focus();
+    }
+  }
+
+  onKeyDown = (event) => {
+    if(event.keyCode === this.DOWN_KEY_CODE || event.keyCode === this.UP_KEY_CODE) {
+      event.preventDefault();
+    }
+    if(event.keyCode === this.DOWN_KEY_CODE) {
+      this.focusedFavorite = this.store.predictedFavorites.length ? (this.focusedFavorite + 1) % (this.store.predictedFavorites.length + 1) : 0;
+      this.refs[`favItem${this.focusedFavorite}`].focus();
+    } else if(event.keyCode === this.UP_KEY_CODE) {
+      if(this.focusedFavorite === 0) {
+        this.store.formFieldRefList.find((el) => {
+          return el.refs.input.id === 'locationName' || el.refs.input.id === 'locationAddress';
+        }).refs.input.focus();
+      } else {
+        this.focusedFavorite = this.store.predictedFavorites.length ? (this.focusedFavorite + this.store.predictedFavorites.length) % (this.store.predictedFavorites.length + 1) : 0;
+        this.refs[`favItem${this.focusedFavorite}`].focus();
+      }
+    }
+  }
+
   renderPredictiveDropdown = () => {
     if(this.store.dropdownIsVisible) return (
       <div className="predictive-dropdown">
         <ul>
           {this.store.predictedFavorites.map((favorite, index) => {
             return (
-              <li role="button" tabIndex="0" onClick={() => this.onFavoriteClick(favorite)} onKeyPress={(e) => this.onFavoriteEnter(e, favorite)} key={index}>
+              <li role="button" tabIndex="0" ref={`favItem${index}`} onFocus={() => this.focusedFavorite = index} onClick={() => this.onFavoriteClick(favorite)} onKeyPress={(e) => this.onFavoriteEnter(e, favorite)} onKeyDown={this.onKeyDown} key={index}>
                 <i className="icon-star" aria-hidden></i>
+                <span className="sr-only">Search for favorite named</span>
                 <span>{favorite.favoriteName}</span>
+                <span className="sr-only">at address</span>
                 <small>{favorite.locationFavoriteAddress}</small>
               </li>
             )
           })}
-          <li role="button" tabIndex="0" onClick={this.onManageFavoritesClick} onKeyPress={this.onManageFavoritesEnter}>
+          <li role="button" tabIndex="0" ref={`favItem${this.store.predictedFavorites.length}`} onFocus={() => this.focusedFavorite = this.store.predictedFavorites.length} onClick={this.onManageFavoritesClick} onKeyPress={this.onManageFavoritesEnter} onKeyDown={this.onKeyDown}>
             Manage all favorites
           </li>
         </ul>
@@ -177,14 +215,16 @@ export default class GeolinkControls extends React.Component {
           dataObject={this.store.values}
           id={this.store.shouldDisplayLocationName ? 'locationName' : 'locationAddress'}
           type="search"
-          labelText="Address"
+          labelText="Address. Use the arrow keys as you type to scroll through your saved favorites."
           labelIsSrOnly={true}
           disabled={this.store.disableSearch}
           className="search-form"
           showClearButton={true}
           handleSubmit={this.store.searchMap.bind(this.store)}
           submitIcon="icon-search"
-          iconClass={this.store.shouldDisplayLocationName ? 'icon-star' : ''}/>
+          iconClass={this.store.shouldDisplayLocationName ? 'icon-star' : ''}
+          onDropIntoList={this.onDropIntoList}
+          disableAutoComplete={true}/>
         {this.renderPredictiveDropdown()}
         <button
           className={`as-link add-favorite-button ${this.store.values.locationAddress && !this.store.shouldDisplayLocationName ? '' : 'disabled'}`}
