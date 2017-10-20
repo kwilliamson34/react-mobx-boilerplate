@@ -118,7 +118,8 @@ class FeedbackForm extends React.Component {
           type="input"
           labelText="Phone (Optional)"
           required={false}
-          errorMessage="Please enter a valid phone number."/>
+          errorMessage="Please enter a valid phone number."
+          charLimit={50}/>
 
         <SelectInput
           ref={ref => this.store.formFieldRefList.push(ref)}
