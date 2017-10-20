@@ -115,7 +115,7 @@ export default class TextInput extends React.Component {
     const submitButtonVisible = this.props.handleSubmit && this.props.submitIcon;
     return (
       <div className={`form-group ${this.props.className} ${this.hasVisibleError ? 'has-error' : ''}`}>
-				<span className="sr-only" aria-live="assertive">{this.charLimitMessage}</span>
+				<span className="sr-only" role="alert" aria-live="assertive">{this.charLimitMessage}</span>
         <FormLabel
           id={this.props.id}
           hasError={this.hasVisibleError}
