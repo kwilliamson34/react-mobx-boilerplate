@@ -66,7 +66,7 @@ class LeadCaptureForm extends React.Component {
           labelText="Contact Number"
           required={true}
           errorMessage="Please enter your phone number."
-          charLimit={15}/>
+          charLimit={50}/>
 
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
