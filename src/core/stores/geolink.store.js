@@ -86,18 +86,26 @@ class GeolinkStore {
     }
   }
 
-  @action performExternalSearch(address) {
-    this.values.locationAddress = address;
-    history.replace('/network-status');
-  }
-
-  @action performEditLocationRequest(locationData) {
-    this.pageTitle = 'Edit Favorite';
+  @action performMapFavoriteRequest(locationData) {
     this.values = {
       locationAddress: locationData.locationFavoriteAddress,
       locationName: locationData.favoriteName,
       locationId: locationData.locationFavoriteId
     };
+    this.resetCurrentFavorite(locationData)
+
+    this.pageTitle = 'Network Status';
+    history.replace('/network-status');
+  }
+
+  @action performEditLocationRequest(locationData) {
+    this.values = {
+      locationAddress: locationData.locationFavoriteAddress,
+      locationName: locationData.favoriteName,
+      locationId: locationData.locationFavoriteId
+    };
+
+    this.pageTitle = 'Edit Favorite';
     history.replace('/network-status');
   }
 

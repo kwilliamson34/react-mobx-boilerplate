@@ -12,13 +12,21 @@ class FeedbackStore {
         let hasError = false;
         this.formFieldRefList.forEach(ref => {
           if(ref && ref.hasFunctionalError) {
-            hasError = true;
+            // ensure that hidden checkbox doesn't prevent form submission if it still has a functional error;
+            if (ref.refs.input && ref.refs.input.id === 'contactAgreement' && !this.requireContactAgreement) {
+              return;
+            } else {
+              hasError = true;
+            }
           }
         });
         this.formHasError = hasError;
-
-        // ensure contactAgreement doesn't render checked when user deletes their email and enters a new one;
-        if(!this.showContactAgreement) {
+      }
+    });
+    autorun(() => {
+      // ensure contactAgreement doesn't render checked when user deletes their email and enters a new one;
+      if(userStore.userValidationDone) {
+        if(!this.requireContactAgreement) {
           this.contactAgreement = false;
         }
       }
@@ -46,9 +54,10 @@ class FeedbackStore {
   }
 
   @action clearForm() {
-    this.values = Object.assign({}, this.defaultValues);
-    this.showAlert = false;
     this.clearFormFieldRefList();
+    this.values = Object.assign({}, this.defaultValues);
+    this.contactAgreement = false;
+    this.showAlert = false;
   }
 
   @action clearFormFieldRefList() {
@@ -74,8 +83,8 @@ class FeedbackStore {
     return formHasChanged;
   }
 
-  @computed get showContactAgreement() {
-    return this.values.email && this.values.email.length > 0;
+  @computed get requireContactAgreement() {
+    return this.values.email.length > 0;
   }
 
   @computed get emailIsRequired() {
