@@ -145,7 +145,7 @@ export default class NetworkStatusPage extends React.Component {
                   <h2 className="as-h1">{this.geoStore.pageTitle}</h2>
                   {this.geoStore.pageTitle === 'Edit Favorite' && this.renderEditLocationDeleteButton()}
                 </div>
-                <LocationFavoriteForm store={this.geoStore} disabled={!this.geoStore.editLocationValuesHaveChanged}/>
+                <LocationFavoriteForm store={this.geoStore} disabled={!this.geoStore.formIsDirty}/>
               </div>
             </div>
             {this.renderDeleteModal()}

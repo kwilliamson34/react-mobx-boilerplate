@@ -370,16 +370,6 @@ class GeolinkStore {
     }).splice(0, 8);
   }
 
-  @computed get editLocationValuesHaveChanged() {
-    let changed = false;
-    for (let key in this.values) {
-      if (this.defaultValues[key] !== this.values[key]) {
-        changed = true;
-      }
-    }
-    return changed;
-  }
-
   //OBSERVABLES
   //Page
   @observable pageTitle = 'Network Status';
