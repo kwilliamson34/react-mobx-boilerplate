@@ -1,7 +1,7 @@
 exports[`<SortableTable> snapshot tests: render tests: should render with props 1`] = `
 <div>
   <table
-    className="manage-locations-table-class sortable-table"
+    className="manage-locations-table-class table-responsive sortable-table"
     id="manage-locations-table">
     <thead>
       <tr>
@@ -77,8 +77,7 @@ exports[`<SortableTable> snapshot tests: render tests: should render with props 
           className="table-row-checkbox "
           scope="row" />
         <td
-          className="favorite-name-column col50"
-          tabIndex="0">
+          className="favorite-name-column col50">
           <div
             className="row-contents-wrapper">
             <span>
@@ -88,6 +87,7 @@ exports[`<SortableTable> snapshot tests: render tests: should render with props 
           <div
             className="inline-button-wrapper"
             data-id="12345"
+            onClick={[Function onClick]}
             tabIndex="0">
             <button
               className="as-link edit-location-button"
@@ -102,8 +102,7 @@ exports[`<SortableTable> snapshot tests: render tests: should render with props 
           </div>
         </td>
         <td
-          className="location-address-column col45"
-          tabIndex="0">
+          className="location-address-column col45">
           <div
             className="row-contents-wrapper">
             <span>
@@ -113,6 +112,7 @@ exports[`<SortableTable> snapshot tests: render tests: should render with props 
           <div
             className="inline-button-wrapper"
             data-id="12345"
+            onClick={[Function onClick]}
             tabIndex="0">
             <button
               className="as-link map-it-button"
@@ -134,8 +134,7 @@ exports[`<SortableTable> snapshot tests: render tests: should render with props 
           className="table-row-checkbox "
           scope="row" />
         <td
-          className="favorite-name-column col50"
-          tabIndex="0">
+          className="favorite-name-column col50">
           <div
             className="row-contents-wrapper">
             <span>
@@ -145,6 +144,7 @@ exports[`<SortableTable> snapshot tests: render tests: should render with props 
           <div
             className="inline-button-wrapper"
             data-id="54321"
+            onClick={[Function onClick]}
             tabIndex="0">
             <button
               className="as-link edit-location-button"
@@ -159,8 +159,7 @@ exports[`<SortableTable> snapshot tests: render tests: should render with props 
           </div>
         </td>
         <td
-          className="location-address-column col45"
-          tabIndex="0">
+          className="location-address-column col45">
           <div
             className="row-contents-wrapper">
             <span>
@@ -170,6 +169,7 @@ exports[`<SortableTable> snapshot tests: render tests: should render with props 
           <div
             className="inline-button-wrapper"
             data-id="54321"
+            onClick={[Function onClick]}
             tabIndex="0">
             <button
               className="as-link map-it-button"

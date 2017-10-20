@@ -179,7 +179,7 @@ class ManageFavoritesStore {
   }
 
   @computed get checkSelectAllCheckbox() {
-    return !this.isLoading && this.checkedRows.length && this.checkedRows.length === this.sortedRows.length && !(this.showSearchResults && this.sortedRows.length === 0);
+    return !this.isLoading && this.checkedRows.length > 0 && this.checkedRows.length === this.sortedRows.length && !(this.showSearchResults && this.sortedRows.length === 0);
   }
 
   @computed get showLoadMoreButton() {
