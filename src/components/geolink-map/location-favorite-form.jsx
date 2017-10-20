@@ -21,6 +21,10 @@ class LocationFavoriteForm extends React.Component {
     this.store.clearFormFieldRefList();
   }
 
+  componentWillUnmount() {
+    this.store.setPageTitle('Network Status');
+  }
+
   render() {
     return (
       <div className="location-favorite-form">
