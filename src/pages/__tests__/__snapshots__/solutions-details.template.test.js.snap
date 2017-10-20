@@ -131,7 +131,7 @@ exports[`<SolutionsDetailsTemplate /> render renders lead capture section 2`] = 
           className="alert alert-success">
           <button
             className="close_btn icon-close"
-            onClick={[Function anonymous]}
+            onClick={[Function bound hideSuccess]}
             type="button">
             <span
               className="sr-only">
@@ -186,7 +186,7 @@ exports[`<SolutionsDetailsTemplate /> render renders lead capture section 3`] = 
           className="alert alert-success">
           <button
             className="close_btn icon-close"
-            onClick={[Function anonymous]}
+            onClick={[Function bound hideSuccess]}
             type="button">
             <span
               className="sr-only">
@@ -241,7 +241,7 @@ exports[`<SolutionsDetailsTemplate /> render renders purchasing info section 1`]
           className="alert alert-success">
           <button
             className="close_btn icon-close"
-            onClick={[Function anonymous]}
+            onClick={[Function bound hideSuccess]}
             type="button">
             <span
               className="sr-only">
@@ -269,6 +269,11 @@ exports[`<SolutionsDetailsTemplate /> render renders purchasing info section 1`]
         <hr />
         <hr />
       </section>
+    </div>
+    <div
+      className="row">
+      <section
+        className="col-xs-12 col-lg-offset-1 col-lg-10" />
     </div>
   </div>
 </article>
@@ -307,7 +312,7 @@ exports[`<SolutionsDetailsTemplate /> render renders related app section 1`] = `
           className="alert alert-success">
           <button
             className="close_btn icon-close"
-            onClick={[Function anonymous]}
+            onClick={[Function bound hideSuccess]}
             type="button">
             <span
               className="sr-only">

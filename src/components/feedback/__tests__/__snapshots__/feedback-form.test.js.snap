@@ -25,6 +25,8 @@ exports[`<FeedbackForm /> renders matches previous snapshot 1`] = `
           .
         </p>
       </div>
+      <span
+        className="contact-agreement hide" />
     </div>
     <div
       className="form-actions ">
