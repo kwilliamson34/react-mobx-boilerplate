@@ -9,7 +9,6 @@ class FeedbackStore {
     autorun(() => {
       // check that initial values are available before valudating for the first time
       if(userStore.userValidationDone) {
-        // console.log('this.formFieldRefList', this.formFieldRefList.peek());
         let hasError = false;
         this.formFieldRefList.forEach(ref => {
           if(ref && ref.hasFunctionalError) {
