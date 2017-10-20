@@ -34,14 +34,13 @@ export default class NetworkStatusPage extends React.Component {
     }
   }
 
-  componentWillMount() {
-    if (this.geoStore.pageTitle === 'Edit Favorite') {
-      this.geoStore.holdInitialEditLocationValues(this.geoStore.values);
-    }
-  }
-
   componentDidUpdate() {
     this.joyrideStore.updatePlacement();
+  }
+
+  componentWillUnmount() {
+    //restore default defaultValues changed during editLocation request;
+    this.geoStore.resetValues();
   }
 
   showDeleteModal = () => {
@@ -114,10 +113,9 @@ export default class NetworkStatusPage extends React.Component {
   deleteFavorite = (e) => {
     e.preventDefault();
     const idToDelete = this.geoStore.values.locationId;
-    //reset values so that the unsaved changes modal doesn't show;
-    this.geoStore.resetValues();
     this.manageFavoritesStore.deleteEditLocationFavorite(idToDelete);
     this.geoStore.setPageTitle('Network Status');
+    this.geoStore.resetValues();
   }
 
   keepFavorite = (e) => {

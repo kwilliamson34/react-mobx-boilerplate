@@ -104,13 +104,14 @@ class GeolinkStore {
       locationName: locationData.favoriteName,
       locationId: locationData.locationFavoriteId
     };
+    this.defaultValues = {
+      locationAddress: locationData.locationFavoriteAddress,
+      locationName: locationData.favoriteName,
+      locationId: locationData.locationFavoriteId
+    };
 
     this.pageTitle = 'Edit Favorite';
     history.replace('/network-status');
-  }
-
-  @action holdInitialEditLocationValues(values) {
-    this.initialEditLocationValues = Object.assign({}, values);
   }
 
   @action addAllNetworkLayers() {
@@ -255,6 +256,7 @@ class GeolinkStore {
       this.successText = '"' + this.values.locationName + '" has been updated.';
       this.showSuccess = true;
       history.replace('/manage-favorites');
+      this.resetValues();
     }
     const failure = (err) => {
       this.alertText = err.response && err.response.data && err.response.data.message.indexOf('already exists') > -1
@@ -301,8 +303,12 @@ class GeolinkStore {
   }
 
   @action resetValues() {
+    this.defaultValues = {
+      locationAddress: '',
+      locationName: '',
+      locationId: ''
+    };
     this.values = Object.assign({}, this.defaultValues);
-    this.initialEditLocationValues = {};
   }
 
   @computed get formIsDirty() {
@@ -367,7 +373,7 @@ class GeolinkStore {
   @computed get editLocationValuesHaveChanged() {
     let changed = false;
     for (let key in this.values) {
-      if (this.values[key] !== this.initialEditLocationValues[key]) {
+      if (this.defaultValues[key] !== this.values[key]) {
         changed = true;
       }
     }
@@ -409,7 +415,6 @@ class GeolinkStore {
     locationName: '',
     locationId: ''
   };
-  @observable initialEditLocationValues = {};
   @observable dropdownIsVisible = false;
   @observable favorites = [];
 
