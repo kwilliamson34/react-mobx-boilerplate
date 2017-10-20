@@ -101,7 +101,7 @@ export default class GeolinkControls extends React.Component {
           </div>
 
           {this.renderMobileOnlyContactBlock()}
-          
+
           <div className="row is-flex">
             <div className="col-xs-12 visible-xs-inline visible-sm-inline">
               {this.renderNetworkLegend()}
@@ -134,7 +134,6 @@ export default class GeolinkControls extends React.Component {
           type="search"
           labelText="Address"
           labelIsSrOnly={true}
-          disabled={this.store.disableSearch}
           className="search-form"
           showClearButton={true}
           handleSubmit={this.store.searchMap.bind(this.store)}
