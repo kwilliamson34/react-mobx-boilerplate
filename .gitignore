@@ -17,3 +17,5 @@ jest/*
 
 #Strange settings files
 .vscode/
+/.settings/
+/.project
