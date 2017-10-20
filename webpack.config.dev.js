@@ -51,11 +51,11 @@ module.exports = {
 		publicPath: '/',
 		proxy: {
 			'/api': {
-				target: 'https://qa1-localcontrol.sapientfirst.net',
+				target: 'https://troy-localcontrol.sapientfirst.net',
 				secure: false
 			},
 			'/oauth/validate': {
-				target: 'https://qa1-localcontrol.sapientfirst.net',
+				target: 'https://troy-localcontrol.sapientfirst.net',
 				secure: false
 			}
 		}
