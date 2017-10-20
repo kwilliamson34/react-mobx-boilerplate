@@ -142,7 +142,7 @@ class FeedbackForm extends React.Component {
           </p>
         </div>
 
-        <span className={`contact-agreement ${this.store.requireContactAgreement ? '' : 'hidden'}`}>
+        <span className={`contact-agreement ${this.store.requireContactAgreement ? '' : 'hide'}`}>
           <Checkbox
             ref={ref => this.store.formFieldRefList.push(ref)}
             id="contactAgreement"

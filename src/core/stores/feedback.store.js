@@ -9,11 +9,12 @@ class FeedbackStore {
     autorun(() => {
       // check that initial values are available before valudating for the first time
       if(userStore.userValidationDone) {
+        // console.log('this.formFieldRefList', this.formFieldRefList.peek());
         let hasError = false;
         this.formFieldRefList.forEach(ref => {
           if(ref && ref.hasFunctionalError) {
             // ensure that hidden checkbox doesn't prevent form submission if it still has a functional error;
-            if (ref.refs.input.id === 'contactAgreement' && !this.requireContactAgreement) {
+            if (ref.refs.input && ref.refs.input.id === 'contactAgreement' && !this.requireContactAgreement) {
               return;
             } else {
               hasError = true;
@@ -21,9 +22,12 @@ class FeedbackStore {
           }
         });
         this.formHasError = hasError;
-
+      }
+    });
+    autorun(() => {
+      // ensure contactAgreement doesn't render checked when user deletes their email and enters a new one;
+      if(userStore.userValidationDone) {
         if(!this.requireContactAgreement) {
-          // ensure contactAgreement doesn't render checked when user deletes their email and enters a new one;
           this.contactAgreement = false;
         }
       }
@@ -51,10 +55,10 @@ class FeedbackStore {
   }
 
   @action clearForm() {
+    this.clearFormFieldRefList();
     this.values = Object.assign({}, this.defaultValues);
     this.contactAgreement = false;
     this.showAlert = false;
-    this.clearFormFieldRefList();
   }
 
   @action clearFormFieldRefList() {
