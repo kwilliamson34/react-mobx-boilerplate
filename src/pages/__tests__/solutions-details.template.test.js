@@ -28,10 +28,7 @@ describe('<SolutionsDetailsTemplate />', () => {
   }
 
   describe('render', () => {
-    props.store.externalLinkStore.currentSolutionDetail = {
-      path: 'detail1'
-    };
-
+    props.store.externalLinkStore.currentSolutionName = 'detail1';
     let card = {
       promo_title: 'title',
       promo_image_url: 'url',
@@ -114,9 +111,7 @@ describe('<SolutionsDetailsTemplate />', () => {
     test('fetches if the details are missing', () => {
       let component, tree;
       props.store.externalLinkStore.getSolutionDetails = jest.fn().mockReturnValue(new Promise(resolve => resolve()));
-      props.store.externalLinkStore.currentSolutionDetail = {
-        path: 'detail2'
-      };
+      props.store.externalLinkStore.currentSolutionName = 'detail2';
 
       props.store.externalLinkStore.allSolutionDetails = [];
       component = renderer.create(<MemoryRouter>

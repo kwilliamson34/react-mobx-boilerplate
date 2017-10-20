@@ -18,7 +18,7 @@ exports[`<FeedbackForm /> renders matches previous snapshot 1`] = `
             href="tel:800-574-7000">
             <span
               className="sr-only">
-              If you are experiencing technical issues with devices/applications/network, please call 
+              If you are experiencing technical issues with devices/applications/network, please call 
             </span>
             800-574-7000
           </a>

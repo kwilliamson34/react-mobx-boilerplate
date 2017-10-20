@@ -22,7 +22,7 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
         <span
           className="cr" />
         <span
-          className="label-text">
+          className="label-text ">
           
           <span
             className="label-text-normal">
@@ -47,7 +47,7 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
         <span
           className="cr" />
         <span
-          className="label-text">
+          className="label-text ">
           
           <span
             className="label-text-normal">
@@ -84,7 +84,7 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
         <span
           className="cr" />
         <span
-          className="label-text">
+          className="label-text ">
           
           <span
             className="label-text-normal">
@@ -109,7 +109,7 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
         <span
           className="cr" />
         <span
-          className="label-text">
+          className="label-text ">
           
           <span
             className="label-text-normal">
@@ -146,7 +146,7 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
         <span
           className="cr" />
         <span
-          className="label-text">
+          className="label-text ">
           
           <span
             className="label-text-normal">
@@ -171,7 +171,7 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
         <span
           className="cr" />
         <span
-          className="label-text">
+          className="label-text ">
           
           <span
             className="label-text-normal">
@@ -208,7 +208,7 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
         <span
           className="cr" />
         <span
-          className="label-text">
+          className="label-text ">
           
           <span
             className="label-text-normal">
@@ -233,7 +233,7 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
         <span
           className="cr" />
         <span
-          className="label-text">
+          className="label-text ">
           
           <span
             className="label-text-normal">

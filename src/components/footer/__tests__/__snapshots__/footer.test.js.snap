@@ -37,7 +37,18 @@ exports[`<Footer /> renders matches previous footer snapshot 1`] = `
               Sitemap
             </a>
             <ul
-              className="sitemap-links" />
+              className="sitemap-links">
+              <div>
+                <li
+                  role="presentation">
+                  <a
+                    href="/admin"
+                    onClick={[Function anonymous]}>
+                    PSE Administration
+                  </a>
+                </li>
+              </div>
+            </ul>
           </nav>
         </div>
         <div
@@ -221,7 +232,26 @@ exports[`<Footer /> renders user role-based snapshots 1`] = `
               Sitemap
             </a>
             <ul
-              className="sitemap-links" />
+              className="sitemap-links">
+              <div>
+                <li
+                  role="presentation">
+                  <a
+                    href="/admin"
+                    onClick={[Function anonymous]}>
+                    PSE Administration
+                  </a>
+                </li>
+              </div>
+              <li
+                role="presentation">
+                <a
+                  href="/network-status"
+                  onClick={[Function anonymous]}>
+                  Network Status
+                </a>
+              </li>
+            </ul>
           </nav>
         </div>
         <div
@@ -405,7 +435,50 @@ exports[`<Footer /> renders user role-based snapshots 2`] = `
               Sitemap
             </a>
             <ul
-              className="sitemap-links" />
+              className="sitemap-links">
+              <div>
+                <li
+                  role="presentation">
+                  <a
+                    href="/admin"
+                    onClick={[Function anonymous]}>
+                    PSE Administration
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    href="/admin/manage-apps"
+                    onClick={[Function anonymous]}>
+                    Manage Apps
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    href="/admin/devices"
+                    onClick={[Function anonymous]}>
+                    Specialized Devices
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    href="/admin/solutions"
+                    onClick={[Function anonymous]}>
+                    Public Safety Solutions 
+                  </a>
+                </li>
+              </div>
+              <li
+                role="presentation">
+                <a
+                  href="/network-status"
+                  onClick={[Function anonymous]}>
+                  Network Status
+                </a>
+              </li>
+            </ul>
           </nav>
         </div>
         <div
@@ -589,7 +662,26 @@ exports[`<Footer /> renders user role-based snapshots 3`] = `
               Sitemap
             </a>
             <ul
-              className="sitemap-links" />
+              className="sitemap-links">
+              <div>
+                <li
+                  role="presentation">
+                  <a
+                    href="/admin"
+                    onClick={[Function anonymous]}>
+                    PSE Administration
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    href="/admin/manage-apps"
+                    onClick={[Function anonymous]}>
+                    Manage Apps
+                  </a>
+                </li>
+              </div>
+            </ul>
           </nav>
         </div>
         <div
@@ -773,7 +865,34 @@ exports[`<Footer /> renders user role-based snapshots 4`] = `
               Sitemap
             </a>
             <ul
-              className="sitemap-links" />
+              className="sitemap-links">
+              <div>
+                <li
+                  role="presentation">
+                  <a
+                    href="/admin"
+                    onClick={[Function anonymous]}>
+                    PSE Administration
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    href="/admin/manage-apps"
+                    onClick={[Function anonymous]}>
+                    Manage Apps
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    href="/admin/solutions"
+                    onClick={[Function anonymous]}>
+                    Public Safety Solutions 
+                  </a>
+                </li>
+              </div>
+            </ul>
           </nav>
         </div>
         <div
@@ -957,7 +1076,42 @@ exports[`<Footer /> renders user role-based snapshots 5`] = `
               Sitemap
             </a>
             <ul
-              className="sitemap-links" />
+              className="sitemap-links">
+              <div>
+                <li
+                  role="presentation">
+                  <a
+                    href="/admin"
+                    onClick={[Function anonymous]}>
+                    PSE Administration
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    href="/admin/manage-apps"
+                    onClick={[Function anonymous]}>
+                    Manage Apps
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    href="/admin/devices"
+                    onClick={[Function anonymous]}>
+                    Specialized Devices
+                  </a>
+                </li>
+                <li
+                  role="presentation">
+                  <a
+                    href="/admin/solutions"
+                    onClick={[Function anonymous]}>
+                    Public Safety Solutions 
+                  </a>
+                </li>
+              </div>
+            </ul>
           </nav>
         </div>
         <div

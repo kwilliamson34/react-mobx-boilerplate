@@ -1,5 +1,5 @@
 
-jest.unmock('../../../core/stores/master.store');
+jest.unmock('../../../core/stores/user.store');
 jest.unmock('../footer');
 
 import {observer, inject} from 'mobx-react';

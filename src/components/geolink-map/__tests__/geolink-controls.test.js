@@ -18,6 +18,8 @@ describe('<GeolinkControls />', () => {
       showAddLocationForm: jest.fn(),
       loadFavorites: jest.fn(),
       selectFavorite: jest.fn(),
+      clearFormFieldRefList: jest.fn(),
+      formFieldRefList: [],
       values: {
         locationName: '',
         locationAddress: ''
