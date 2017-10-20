@@ -82,6 +82,58 @@ exports[`<PSEHeader /> render matches snapshot when header store is not initiali
             </ul>
           </li>
           <li
+            className="mainnav-item desktop-textlink "
+            id="btn-admin">
+            <button
+              aria-expanded={undefined}
+              aria-haspopup="true"
+              className="btnSubmenu"
+              onClick={[Function anonymous]}>
+              <span
+                className="sr-only">
+                Expand Administration Menu
+              </span>
+            </button>
+            <a
+              aria-current={false}
+              aria-expanded={undefined}
+              aria-haspopup="true"
+              className={undefined}
+              href="/admin"
+              id="linkBtn-admin"
+              onClick={[Function anonymous]}
+              style={undefined}>
+              Administration
+            </a>
+            <div
+              className="header-submenu"
+              id="admin-submenu">
+              <ul
+                aria-labelledby="linkBtn-admin"
+                className="collapse "
+                id="pse-admin-nav"
+                role="navigation">
+                <strong
+                  aria-hidden="true"
+                  className="visible-md-block visible-lg-block">
+                  Management
+                </strong>
+                <li />
+              </ul>
+              <ul
+                aria-labelledby="linkBtn-admin"
+                className="collapse "
+                id="pse-aside-nav"
+                role="navigation">
+                <strong
+                  aria-hidden="true"
+                  className="visible-md-block visible-lg-block">
+                  Purchasing & Provisioning
+                </strong>
+              </ul>
+            </div>
+          </li>
+          <li
             className="mainnav-item grey">
             <button
               aria-expanded={undefined}
@@ -399,6 +451,58 @@ exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
             </ul>
           </li>
           <li
+            className="mainnav-item desktop-textlink "
+            id="btn-admin">
+            <button
+              aria-expanded={false}
+              aria-haspopup="true"
+              className="btnSubmenu"
+              onClick={[Function anonymous]}>
+              <span
+                className="sr-only">
+                Expand Administration Menu
+              </span>
+            </button>
+            <a
+              aria-current={false}
+              aria-expanded={false}
+              aria-haspopup="true"
+              className={undefined}
+              href="/admin"
+              id="linkBtn-admin"
+              onClick={[Function anonymous]}
+              style={undefined}>
+              Administration
+            </a>
+            <div
+              className="header-submenu"
+              id="admin-submenu">
+              <ul
+                aria-labelledby="linkBtn-admin"
+                className="collapse "
+                id="pse-admin-nav"
+                role="navigation">
+                <strong
+                  aria-hidden="true"
+                  className="visible-md-block visible-lg-block">
+                  Management
+                </strong>
+                <li />
+              </ul>
+              <ul
+                aria-labelledby="linkBtn-admin"
+                className="collapse "
+                id="pse-aside-nav"
+                role="navigation">
+                <strong
+                  aria-hidden="true"
+                  className="visible-md-block visible-lg-block">
+                  Purchasing & Provisioning
+                </strong>
+              </ul>
+            </div>
+          </li>
+          <li
             className="mainnav-item grey">
             <button
               aria-expanded={false}
@@ -714,6 +818,58 @@ exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
               <li
                 role="presentation" />
             </ul>
+          </li>
+          <li
+            className="mainnav-item desktop-textlink "
+            id="btn-admin">
+            <button
+              aria-expanded={false}
+              aria-haspopup="true"
+              className="btnSubmenu"
+              onClick={[Function anonymous]}>
+              <span
+                className="sr-only">
+                Expand Administration Menu
+              </span>
+            </button>
+            <a
+              aria-current={false}
+              aria-expanded={false}
+              aria-haspopup="true"
+              className={undefined}
+              href="/admin"
+              id="linkBtn-admin"
+              onClick={[Function anonymous]}
+              style={undefined}>
+              Administration
+            </a>
+            <div
+              className="header-submenu"
+              id="admin-submenu">
+              <ul
+                aria-labelledby="linkBtn-admin"
+                className="collapse "
+                id="pse-admin-nav"
+                role="navigation">
+                <strong
+                  aria-hidden="true"
+                  className="visible-md-block visible-lg-block">
+                  Management
+                </strong>
+                <li />
+              </ul>
+              <ul
+                aria-labelledby="linkBtn-admin"
+                className="collapse "
+                id="pse-aside-nav"
+                role="navigation">
+                <strong
+                  aria-hidden="true"
+                  className="visible-md-block visible-lg-block">
+                  Purchasing & Provisioning
+                </strong>
+              </ul>
+            </div>
           </li>
           <li
             className="mainnav-item grey">
@@ -1070,18 +1226,6 @@ exports[`<PSEHeader /> render user role-based snapshots 1`] = `
                   Management
                 </strong>
                 <li />
-                <li>
-                  <a
-                    aria-current={false}
-                    className={undefined}
-                    href="/admin/manage-apps"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
-                    Manage Apps
-                  </a>
-                </li>
-                <li />
-                <li />
               </ul>
               <ul
                 aria-labelledby="linkBtn-admin"
@@ -1093,27 +1237,6 @@ exports[`<PSEHeader /> render user role-based snapshots 1`] = `
                   className="visible-md-block visible-lg-block">
                   Purchasing & Provisioning
                 </strong>
-                <li />
-                <li>
-                  <a
-                    aria-current={false}
-                    className={undefined}
-                    href="/admin/devices"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
-                    Specialized Devices
-                  </a>
-                </li>
-                <li>
-                  <a
-                    aria-current={false}
-                    className={undefined}
-                    href="/admin/solutions"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
-                    Public Safety Solutions
-                  </a>
-                </li>
               </ul>
             </div>
           </li>
@@ -1865,6 +1988,68 @@ exports[`<PSEHeader /> render user role-based snapshots 3`] = `
             </ul>
           </li>
           <li
+            className="mainnav-item desktop-textlink "
+            id="btn-admin">
+            <button
+              aria-expanded={undefined}
+              aria-haspopup="true"
+              className="btnSubmenu"
+              onClick={[Function anonymous]}>
+              <span
+                className="sr-only">
+                Expand Administration Menu
+              </span>
+            </button>
+            <a
+              aria-current={false}
+              aria-expanded={undefined}
+              aria-haspopup="true"
+              className={undefined}
+              href="/admin"
+              id="linkBtn-admin"
+              onClick={[Function anonymous]}
+              style={undefined}>
+              Administration
+            </a>
+            <div
+              className="header-submenu"
+              id="admin-submenu">
+              <ul
+                aria-labelledby="linkBtn-admin"
+                className="collapse "
+                id="pse-admin-nav"
+                role="navigation">
+                <strong
+                  aria-hidden="true"
+                  className="visible-md-block visible-lg-block">
+                  Management
+                </strong>
+                <li>
+                  <a
+                    aria-current={false}
+                    className={undefined}
+                    href="/admin/manage-apps"
+                    onClick={[Function anonymous]}
+                    style={undefined}>
+                    Manage Apps
+                  </a>
+                </li>
+                <li />
+              </ul>
+              <ul
+                aria-labelledby="linkBtn-admin"
+                className="collapse "
+                id="pse-aside-nav"
+                role="navigation">
+                <strong
+                  aria-hidden="true"
+                  className="visible-md-block visible-lg-block">
+                  Purchasing & Provisioning
+                </strong>
+              </ul>
+            </div>
+          </li>
+          <li
             className="mainnav-item grey">
             <button
               aria-expanded={undefined}
@@ -2182,6 +2367,78 @@ exports[`<PSEHeader /> render user role-based snapshots 4`] = `
             </ul>
           </li>
           <li
+            className="mainnav-item desktop-textlink "
+            id="btn-admin">
+            <button
+              aria-expanded={undefined}
+              aria-haspopup="true"
+              className="btnSubmenu"
+              onClick={[Function anonymous]}>
+              <span
+                className="sr-only">
+                Expand Administration Menu
+              </span>
+            </button>
+            <a
+              aria-current={false}
+              aria-expanded={undefined}
+              aria-haspopup="true"
+              className={undefined}
+              href="/admin"
+              id="linkBtn-admin"
+              onClick={[Function anonymous]}
+              style={undefined}>
+              Administration
+            </a>
+            <div
+              className="header-submenu"
+              id="admin-submenu">
+              <ul
+                aria-labelledby="linkBtn-admin"
+                className="collapse "
+                id="pse-admin-nav"
+                role="navigation">
+                <strong
+                  aria-hidden="true"
+                  className="visible-md-block visible-lg-block">
+                  Management
+                </strong>
+                <li>
+                  <a
+                    aria-current={false}
+                    className={undefined}
+                    href="/admin/manage-apps"
+                    onClick={[Function anonymous]}
+                    style={undefined}>
+                    Manage Apps
+                  </a>
+                </li>
+                <li />
+              </ul>
+              <ul
+                aria-labelledby="linkBtn-admin"
+                className="collapse "
+                id="pse-aside-nav"
+                role="navigation">
+                <strong
+                  aria-hidden="true"
+                  className="visible-md-block visible-lg-block">
+                  Purchasing & Provisioning
+                </strong>
+                <li>
+                  <a
+                    aria-current={false}
+                    className={undefined}
+                    href="/admin/solutions"
+                    onClick={[Function anonymous]}
+                    style={undefined}>
+                    Public Safety Solutions
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li
             className="mainnav-item grey">
             <button
               aria-expanded={undefined}
@@ -2497,6 +2754,90 @@ exports[`<PSEHeader /> render user role-based snapshots 5`] = `
               <li
                 role="presentation" />
             </ul>
+          </li>
+          <li
+            className="mainnav-item desktop-textlink "
+            id="btn-admin">
+            <button
+              aria-expanded={undefined}
+              aria-haspopup="true"
+              className="btnSubmenu"
+              onClick={[Function anonymous]}>
+              <span
+                className="sr-only">
+                Expand Administration Menu
+              </span>
+            </button>
+            <a
+              aria-current={false}
+              aria-expanded={undefined}
+              aria-haspopup="true"
+              className={undefined}
+              href="/admin"
+              id="linkBtn-admin"
+              onClick={[Function anonymous]}
+              style={undefined}>
+              Administration
+            </a>
+            <div
+              className="header-submenu"
+              id="admin-submenu">
+              <ul
+                aria-labelledby="linkBtn-admin"
+                className="collapse "
+                id="pse-admin-nav"
+                role="navigation">
+                <strong
+                  aria-hidden="true"
+                  className="visible-md-block visible-lg-block">
+                  Management
+                </strong>
+                <li>
+                  <a
+                    aria-current={false}
+                    className={undefined}
+                    href="/admin/manage-apps"
+                    onClick={[Function anonymous]}
+                    style={undefined}>
+                    Manage Apps
+                  </a>
+                </li>
+                <li />
+                <li />
+              </ul>
+              <ul
+                aria-labelledby="linkBtn-admin"
+                className="collapse "
+                id="pse-aside-nav"
+                role="navigation">
+                <strong
+                  aria-hidden="true"
+                  className="visible-md-block visible-lg-block">
+                  Purchasing & Provisioning
+                </strong>
+                <li />
+                <li>
+                  <a
+                    aria-current={false}
+                    className={undefined}
+                    href="/admin/devices"
+                    onClick={[Function anonymous]}
+                    style={undefined}>
+                    Specialized Devices
+                  </a>
+                </li>
+                <li>
+                  <a
+                    aria-current={false}
+                    className={undefined}
+                    href="/admin/solutions"
+                    onClick={[Function anonymous]}
+                    style={undefined}>
+                    Public Safety Solutions
+                  </a>
+                </li>
+              </ul>
+            </div>
           </li>
           <li
             className="mainnav-item grey">

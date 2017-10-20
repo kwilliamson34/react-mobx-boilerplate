@@ -22,6 +22,7 @@ describe("FeedbackStore", () => {
 
   describe('submission tests ', () => {
     test('submission calls appropriate API method', () => {
+      feedbackStore.formHasError = false;
       feedbackStore.submitForm();
       expect(apiService.submitCustomerFeedbackForm).toHaveBeenCalled();
     });

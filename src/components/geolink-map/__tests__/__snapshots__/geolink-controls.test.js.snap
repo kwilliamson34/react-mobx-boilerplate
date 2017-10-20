@@ -1,6 +1,6 @@
 exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1`] = `
 <section
-  className="geolink-controls hide">
+  className="geolink-controls light-grey-bg hide">
   <div
     className="container">
     <div
@@ -102,7 +102,7 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
                   <span
                     className="cr" />
                   <span
-                    className="label-text">
+                    className="label-text ">
                     
                     <span
                       className="label-text-normal">
@@ -127,7 +127,7 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
                   <span
                     className="cr" />
                   <span
-                    className="label-text">
+                    className="label-text ">
                     
                     <span
                       className="label-text-normal">
@@ -155,7 +155,7 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
                   <span
                     className="cr" />
                   <span
-                    className="label-text">
+                    className="label-text ">
                     
                     <span
                       className="label-text-normal">
@@ -180,7 +180,7 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
                   <span
                     className="cr" />
                   <span
-                    className="label-text">
+                    className="label-text ">
                     
                     <span
                       className="label-text-normal">
@@ -478,7 +478,7 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
 
 exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 1`] = `
 <section
-  className="geolink-controls hide">
+  className="geolink-controls light-grey-bg hide">
   <div
     className="container">
     <div
@@ -539,7 +539,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                   <span
                     className="cr" />
                   <span
-                    className="label-text">
+                    className="label-text ">
                     
                     <span
                       className="label-text-normal">
@@ -564,7 +564,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                   <span
                     className="cr" />
                   <span
-                    className="label-text">
+                    className="label-text ">
                     
                     <span
                       className="label-text-normal">
@@ -592,7 +592,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                   <span
                     className="cr" />
                   <span
-                    className="label-text">
+                    className="label-text ">
                     
                     <span
                       className="label-text-normal">
@@ -617,7 +617,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                   <span
                     className="cr" />
                   <span
-                    className="label-text">
+                    className="label-text ">
                     
                     <span
                       className="label-text-normal">
@@ -915,7 +915,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
 
 exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 2`] = `
 <section
-  className="geolink-controls hide">
+  className="geolink-controls light-grey-bg hide">
   <div
     className="container">
     <div
@@ -976,7 +976,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                   <span
                     className="cr" />
                   <span
-                    className="label-text">
+                    className="label-text ">
                     
                     <span
                       className="label-text-normal">
@@ -1001,7 +1001,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                   <span
                     className="cr" />
                   <span
-                    className="label-text">
+                    className="label-text ">
                     
                     <span
                       className="label-text-normal">
@@ -1029,7 +1029,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                   <span
                     className="cr" />
                   <span
-                    className="label-text">
+                    className="label-text ">
                     
                     <span
                       className="label-text-normal">
@@ -1054,7 +1054,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                   <span
                     className="cr" />
                   <span
-                    className="label-text">
+                    className="label-text ">
                     
                     <span
                       className="label-text-normal">
@@ -1352,7 +1352,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
 
 exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 3`] = `
 <section
-  className="geolink-controls hide">
+  className="geolink-controls light-grey-bg hide">
   <div
     className="container">
     <div
@@ -1413,7 +1413,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                   <span
                     className="cr" />
                   <span
-                    className="label-text">
+                    className="label-text ">
                     
                     <span
                       className="label-text-normal">
@@ -1438,7 +1438,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                   <span
                     className="cr" />
                   <span
-                    className="label-text">
+                    className="label-text ">
                     
                     <span
                       className="label-text-normal">
@@ -1466,7 +1466,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                   <span
                     className="cr" />
                   <span
-                    className="label-text">
+                    className="label-text ">
                     
                     <span
                       className="label-text-normal">
@@ -1491,7 +1491,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                   <span
                     className="cr" />
                   <span
-                    className="label-text">
+                    className="label-text ">
                     
                     <span
                       className="label-text-normal">

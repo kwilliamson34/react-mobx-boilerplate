@@ -4,6 +4,7 @@ import {inject, observer} from 'mobx-react';
 import config from 'config';
 import {utilsService} from '../core/services/utils.service';
 import PageTitle from '../components/page-title/page-title';
+import $ from 'jquery';
 
 import GeolinkMap from '../components/geolink-map/geolink-map';
 import GeolinkControls from '../components/geolink-map/geolink-controls';
@@ -37,6 +38,50 @@ export default class NetworkStatusPage extends React.Component {
     this.joyrideStore.updatePlacement();
   }
 
+  componentWillUnmount() {
+    //restore default defaultValues changed during editLocation request;
+    this.geoStore.resetValues();
+  }
+
+  showDeleteModal = () => {
+    $('#delete-modal').modal({backdrop: 'static'});
+    $('#delete-modal').modal('show');
+  }
+
+  hideDeleteModal = () => {
+    $('#delete-modal').modal('hide');
+    $('#delete-modal').data('bs.modal', null);
+  }
+
+  renderDeleteModal = () => {
+    return (
+      <div id="delete-modal" role="dialog" tabIndex="-1" className="modal fade" aria-labelledby="modal-title">
+        <div>
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <button type="button" className="fn-modal-close" onClick={this.hideDeleteModal}>
+                <i aria-hidden="true" className="icon-close"></i>
+                <span className="sr-only">Close window</span>
+              </button>
+              <div className="row no-gutters" id="modal-title">
+                <div className="col-xs-12">
+                  <h1 className="as-h2">
+                    {`Delete ${this.geoStore.values.locationName}?`}
+                  </h1>
+                  <p>This cannot be undone. New favorites can be added at any time.</p>
+                </div>
+                <div className="col-xs-12 text-center">
+                  <button className="fn-primary" onClick={this.keepFavorite}>Keep Favorite</button>
+                  <button className="fn-secondary" onClick={this.deleteFavorite}>Delete Favorite</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   renderPlaceholder = () => {
     return (
       <div className="map-placeholder">
@@ -62,11 +107,20 @@ export default class NetworkStatusPage extends React.Component {
   }
 
   handleEditLocationDelete = () => {
+    this.showDeleteModal();
+  }
+
+  deleteFavorite = (e) => {
+    e.preventDefault();
     const idToDelete = this.geoStore.values.locationId;
-    //reset values so that the unsaved changes modal doesn't show;
-    this.geoStore.resetValues();
     this.manageFavoritesStore.deleteEditLocationFavorite(idToDelete);
     this.geoStore.setPageTitle('Network Status');
+    this.geoStore.resetValues();
+  }
+
+  keepFavorite = (e) => {
+    e.preventDefault();
+    this.hideDeleteModal();
   }
 
   render() {
@@ -81,7 +135,8 @@ export default class NetworkStatusPage extends React.Component {
           <GeolinkMap geolinkStore={this.geoStore} hidden={!showMap} />
         </section>
 
-        <GeolinkControls geolinkStore={this.geoStore} disabled={!showMap}/>
+        {this.geoStore.pageTitle === "Network Status" &&
+          <GeolinkControls geolinkStore={this.geoStore} disabled={!showMap}/>}
 
         {(this.geoStore.pageTitle === 'Add New Favorite' || this.geoStore.pageTitle === 'Edit Favorite') &&
           <section className="light-grey-bg">
@@ -91,9 +146,10 @@ export default class NetworkStatusPage extends React.Component {
                   <h2 className="as-h1">{this.geoStore.pageTitle}</h2>
                   {this.geoStore.pageTitle === 'Edit Favorite' && this.renderEditLocationDeleteButton()}
                 </div>
-                <LocationFavoriteForm store={this.geoStore}/>
+                <LocationFavoriteForm store={this.geoStore} disabled={!this.geoStore.formIsDirty}/>
               </div>
             </div>
+            {this.renderDeleteModal()}
           </section>}
       </article>
     )

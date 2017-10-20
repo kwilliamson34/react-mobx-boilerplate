@@ -15,7 +15,7 @@ exports[`<Checkbox /> renders matches previous snapshot 1`] = `
     <span
       className="cr" />
     <span
-      className="label-text">
+      className="label-text ">
       
       <span
         className="label-text-normal">
@@ -43,7 +43,7 @@ exports[`<Checkbox /> renders matches previous snapshot 2`] = `
     <span
       className="cr" />
     <span
-      className="label-text">
+      className="label-text ">
       
       <span
         className="label-text-normal">
@@ -71,7 +71,7 @@ exports[`<Checkbox /> renders matches previous snapshot 3`] = `
     <span
       className="cr" />
     <span
-      className="label-text">
+      className="label-text ">
       
       <span
         className="label-text-normal">
@@ -99,7 +99,7 @@ exports[`<Checkbox /> renders matches previous snapshot 4`] = `
     <span
       className="cr" />
     <span
-      className="label-text">
+      className="label-text ">
       
       <span
         className="label-text-normal">
@@ -127,7 +127,7 @@ exports[`<Checkbox /> renders matches previous snapshot 5`] = `
     <span
       className="cr" />
     <span
-      className="label-text">
+      className="label-text ">
       
       <span
         className="label-text-normal">
@@ -155,7 +155,7 @@ exports[`<Checkbox /> renders matches previous snapshot 6`] = `
     <span
       className="cr" />
     <span
-      className="label-text">
+      className="label-text ">
       
       <span
         className="label-text-normal">

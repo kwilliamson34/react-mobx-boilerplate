@@ -20,33 +20,6 @@ exports[`<AdminDashboard /> renders matches previous snapshot 1`] = `
           <ul>
             <li
               className="col-xs-12" />
-            <li
-              className="col-xs-12" />
-            <li
-              className="col-xs-12 col-sm-6">
-              <a
-                className="dashboard-card manage-apps has-shadow"
-                href="/admin/manage-apps"
-                onClick={[Function anonymous]}>
-                <div
-                  className="desc">
-                  <h3>
-                    Manage apps
-                  </h3>
-                  <p>
-                    Push an app to your Mobile Device Management(MDM) solution, recommend apps, block apps
-                  </p>
-                </div>
-                <span>
-                  Manage apps 
-                  <i
-                    aria-hidden="true"
-                    className="icon-arrowRight" />
-                </span>
-              </a>
-            </li>
-            <li
-              className="col-xs-12 col-sm-6" />
           </ul>
         </nav>
       </section>
@@ -60,56 +33,7 @@ exports[`<AdminDashboard /> renders matches previous snapshot 1`] = `
           </h2>
         </div>
         <nav>
-          <ul>
-            <li
-              className="col-xs-12 col-md-6 col-lg-12" />
-            <li
-              className="col-xs-12 col-md-6 col-lg-12">
-              <a
-                className="dashboard-card shop-specialized-devices has-shadow"
-                href="/admin/devices"
-                onClick={[Function anonymous]}>
-                <div
-                  className="desc">
-                  <h3>
-                    Shop specialized devices
-                  </h3>
-                  <p>
-                    Purchase ruggedized devices, vehicle routers, etc.
-                  </p>
-                </div>
-                <span>
-                  Shop Specialized Devices
-                  <i
-                    aria-hidden="true"
-                    className="icon-arrowRight" />
-                </span>
-              </a>
-            </li>
-            <li
-              className="col-xs-12 col-md-6 col-lg-12">
-              <a
-                className="dashboard-card shop-solutions has-shadow"
-                href="/admin/solutions"
-                onClick={[Function anonymous]}>
-                <div
-                  className="desc">
-                  <h3>
-                    Shop public safety solutions
-                  </h3>
-                  <p>
-                    Browse public safety solutions and choose which are best for your organization
-                  </p>
-                </div>
-                <span>
-                  Shop Public Safety Solutions 
-                  <i
-                    aria-hidden="true"
-                    className="icon-arrowRight" />
-                </span>
-              </a>
-            </li>
-          </ul>
+          <ul />
         </nav>
       </aside>
     </div>

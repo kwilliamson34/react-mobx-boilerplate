@@ -94,6 +94,8 @@ describe('<ErrorPage />', () => {
     test('Back link takes you back', () => {
       history.go = jest.fn();
 
+      props.store.userStore.auth_error = false;
+      props.store.userStore.isAuthenticUser = true;
       props.cause = 'pending';
       let component = TestUtils.renderIntoDocument(<ErrorPage {...props} />);
       let links = TestUtils.scryRenderedDOMComponentsWithTag(component, 'button');
