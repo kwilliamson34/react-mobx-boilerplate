@@ -131,7 +131,9 @@ export default class GeolinkControls extends React.Component {
             return (
               <li role="button" tabIndex="0" ref={`favItem${index}`} onFocus={() => this.focusedFavorite = index} onClick={() => this.onFavoriteClick(favorite)} onKeyPress={(e) => this.onFavoriteEnter(e, favorite)} onKeyDown={this.onKeyDown} key={index}>
                 <i className="icon-star" aria-hidden></i>
+                <span className="sr-only">Search for favorite named</span>
                 <span>{favorite.favoriteName}</span>
+                <span className="sr-only">at address</span>
                 <small>{favorite.locationFavoriteAddress}</small>
               </li>
             )
@@ -213,7 +215,7 @@ export default class GeolinkControls extends React.Component {
           dataObject={this.store.values}
           id={this.store.shouldDisplayLocationName ? 'locationName' : 'locationAddress'}
           type="search"
-          labelText="Address"
+          labelText="Address. Use the arrow keys as you type to scroll through your saved favorites."
           labelIsSrOnly={true}
           disabled={this.store.disableSearch}
           className="search-form"
@@ -221,7 +223,8 @@ export default class GeolinkControls extends React.Component {
           handleSubmit={this.store.searchMap.bind(this.store)}
           submitIcon="icon-search"
           iconClass={this.store.shouldDisplayLocationName ? 'icon-star' : ''}
-          onDropIntoList={this.onDropIntoList}/>
+          onDropIntoList={this.onDropIntoList}
+          disableAutoComplete={true}/>
         {this.renderPredictiveDropdown()}
         <button
           className={`as-link add-favorite-button ${this.store.values.locationAddress && !this.store.shouldDisplayLocationName ? '' : 'disabled'}`}

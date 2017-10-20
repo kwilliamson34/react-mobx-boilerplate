@@ -26,7 +26,8 @@ export default class TextInput extends React.Component {
     handleSubmit: PropTypes.func,
     submitIcon: PropTypes.string,
     iconClass: PropTypes.string,
-    onDropIntoList: PropTypes.func
+    onDropIntoList: PropTypes.func,
+    disableAutoComplete: PropTypes.bool
   }
 
   static defaultProps = {
@@ -37,7 +38,8 @@ export default class TextInput extends React.Component {
     disabled: false,
     errorMessage: 'This entry is not valid.',
     className: '',
-    showClearButton: false
+    showClearButton: false,
+    disabledAutocomplete: false
   }
 
   @observable hasVisibleError = false;
@@ -125,7 +127,8 @@ export default class TextInput extends React.Component {
             onBlur={this.handleOnBlur}
             onKeyPress={this.handleKeyPress}
             value={this.valueInStore}
-            onKeyDown={this.props.onDropIntoList}/>
+            onKeyDown={this.props.onDropIntoList}
+            autoComplete={this.props.disableAutoComplete ? 'off' : 'on'}/>
           {this.props.iconClass && <i className={`prefix-icon ${this.props.iconClass}`}></i>}
           {clearButtonVisible &&
             <span className="input-group-btn">

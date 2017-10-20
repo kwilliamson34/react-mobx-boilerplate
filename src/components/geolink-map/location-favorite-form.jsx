@@ -36,7 +36,8 @@ class LocationFavoriteForm extends React.Component {
           className="col-xs-12 col-sm-7 search-form"
           showClearButton={true}
           handleSubmit={this.store.searchMap.bind(this.store)}
-          submitIcon="icon-search" />
+          submitIcon="icon-search"
+          disableAutoComplete={true} />
 
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
