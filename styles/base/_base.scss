@@ -147,6 +147,7 @@ h2 + hr {
     border-top: 1px solid $input-outline;
     border-bottom: 1px solid $input-outline;
     border-left: 0 none;
+    background-color: $input-bgcolor;
 
     .icon-close {
       font-size: 14px;
