@@ -76,7 +76,7 @@ class LeadCaptureForm extends React.Component {
           labelText="Message (Optional)"
           required={false}
           errorMessage="Please enter a summary of your request."
-          charLimit={250}/>
+          charLimit={10}/>
 
         <Checkbox
           ref={ref => this.store.formFieldRefList.push(ref)}
