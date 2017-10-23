@@ -370,6 +370,10 @@ class GeolinkStore {
     }).splice(0, 8);
   }
 
+  @computed get submitButtonText() {
+    return this.pageTitle == 'Edit Favorite' ? 'Update Favorite' : 'Save Favorite';
+  }
+
   //OBSERVABLES
   //Page
   @observable pageTitle = 'Network Status';
