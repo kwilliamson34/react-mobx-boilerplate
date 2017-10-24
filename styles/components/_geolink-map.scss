@@ -255,6 +255,7 @@ $map-height-mobile: 400px;
     background: none;
     border: 0;
     outline: none;
+    z-index: 1;
     &:focus {
       @include focus();
     }
