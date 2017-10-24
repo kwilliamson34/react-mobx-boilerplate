@@ -7,7 +7,9 @@ const networkLayerNames = [
   'FirstNet:Coverage2G',
   'FirstNet:Coverage3G4GOutdoor',
   'FirstNet:CoverageLTEWithPriorityOutdoor',
-  'FirstNet:CoverageLTEWithoutPriority'
+  'FirstNet:CoverageLTEWithoutPriority',
+  'FirstNet:CellTowerOOSRange',
+  'FirstNet:FireAreas'
 ];
 
 class GeolinkStore {
@@ -125,12 +127,33 @@ class GeolinkStore {
       flag: this.showAlertLayer
     }, '*');
   }
+    
+  @action toggleFireAreas() {
+    this.showFireAreas = !this.showFireAreas;
+    if(this.showFireAreas) {
+        this.addLayer('FireAreas');
+      }else{
+        this.removeLayer('FireAreas');
+       }
+      }
+    
+  @action toggleCellTowerOOSRange() {
+    this.showCellTowerOOSRange = !this.showCellTowerOOSRange;
+    if(this.showCellTowerOOSRange) {
+        this.addLayer('CellTowerOOSRange');
+      }else{
+        this.removeLayer('CellTowerOOSRange');
+      }
+  }
+    
 
   @action resetLayerToggles() {
     this.showNetworkLayer = true;
     this.showWeatherLayer = false;
     this.showTrafficLayer = false;
     this.showAlertLayer = false;
+    this.showCellTowerOOSRange = false;
+    this.showFireAreas = false;
   }
 
   @observable iframeIsFullyLoaded = false;
@@ -145,6 +168,8 @@ class GeolinkStore {
   @observable showWeatherLayer = false;
   @observable showTrafficLayer = false;
   @observable showAlertLayer = false;
+  @observable showCellTowerOOSRange = false;
+  @observable showFireAreas = false;
 
   @observable networkIssueNumber = '800-574-7000';
 }

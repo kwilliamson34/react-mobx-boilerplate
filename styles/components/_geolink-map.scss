@@ -255,6 +255,7 @@ $map-height-mobile: 400px;
     background: none;
     border: 0;
     outline: none;
+    z-index: 1;
     &:focus {
       @include focus();
     }
@@ -369,8 +370,17 @@ $map-height-mobile: 400px;
 }
 @media #{$desktop} {
   .geolink-controls {
-    .map-search,
-    .map-layers,
+    .map-layers {
+      flex-basis: 36%;
+        .coverage-layers {
+          .no-gutters {
+            width: 50%;
+          }
+       }
+    }
+      .map-search {
+          flex-basis: 30%;
+      }
     .map-network-legend{
       flex-basis: 33%;
     }
