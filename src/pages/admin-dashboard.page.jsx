@@ -42,15 +42,6 @@ export default class AdminDashboardPage extends React.Component {
                       <span>Manage Users <i className="icon-arrowRight" aria-hidden="true"></i></span>
                     </NewTabLink>
                   </li>}
-                  <li className="col-xs-12">
-                    <NewTabLink to={config.manageServicesLink} className="dashboard-card manage-services has-shadow">
-                      <div className="desc">
-                        <h3>Manage services & billing</h3>
-                        <p>Assign or remove devices, change rate plans &amp; features, view & pay bills, update information, manage push-to-talk</p>
-                      </div>
-                      <span>Manage services & billing <i className="icon-arrowRight" aria-hidden="true"></i></span>
-                    </NewTabLink>
-                  </li>
                   {this.store.destinationIsPermitted.manageApps &&   <li className="col-xs-12 col-sm-6">
                     <Link to="/admin/manage-apps" className="dashboard-card manage-apps has-shadow">
                       <div className="desc">
@@ -59,6 +50,24 @@ export default class AdminDashboardPage extends React.Component {
                       </div>
                       <span>Manage apps <i className="icon-arrowRight" aria-hidden="true"></i></span>
                     </Link>
+                  </li>}
+                  <li className="col-xs-12 col-sm-6">
+                    <NewTabLink to={config.manageServicesLink} className="dashboard-card manage-services has-shadow">
+                      <div className="desc">
+                        <h3>Manage services & billing</h3>
+                        <p>Assign or remove devices, change rate plans &amp; features, view & pay bills, update information, manage push-to-talk</p>
+                      </div>
+                      <span>Manage services & billing <i className="icon-arrowRight" aria-hidden="true"></i></span>
+                    </NewTabLink>
+                  </li>
+                  {this.store.destinationIsPermitted.manageVoicemail && <li className="col-xs-12 col-sm-6">
+                    <NewTabLink to={config.manageVoicemailAndUsageLink} className="dashboard-card manage-voicemail-and-usage has-shadow">
+                      <div className="desc">
+                        <h3>Manage voicemail &amp; usage</h3>
+                        <p>This is a TEMPORARY description of how folks can take advantage of managing voicemail and usage.</p>
+                      </div>
+                      <span>Manage voicemail &amp; usage <i className="icon-arrowRight" aria-hidden="true"></i></span>
+                    </NewTabLink>
                   </li>}
                   {this.store.destinationIsPermitted.viewReports && <li className="col-xs-12 col-sm-6">
                     <NewTabLink to={config.viewWirelessReportsLink} className="dashboard-card manage-wireless-reports has-shadow">
