@@ -258,6 +258,11 @@ export default class PSEHeader extends React.Component {
 								Manage Services &amp; Billing
 							</NewTabLink>
 						</li>
+						{this.userStore.destinationIsPermitted.manageVoicemail && <li>
+							<NewTabLink to={config.manageVoicemailAndUsageLink} onClick={this.handleExternalTabOpen} showIcon={true}>
+								Manage Voicemail &amp; Usage
+							</NewTabLink>
+						</li>}
 						{this.userStore.destinationIsPermitted.viewReports && <li>
 							<NewTabLink to={config.viewWirelessReportsLink} onClick={this.handleExternalTabOpen} showIcon={true}>
 								View Wireless Reports

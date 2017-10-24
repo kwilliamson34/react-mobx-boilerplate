@@ -140,6 +140,7 @@ class UserStore {
     viewReports: ['G_FN_ADM', 'G_FN_VOL'],
     manageApps: ['G_FN_ADM', 'G_FN_ITM', 'G_FN_SUB', 'G_FN_VOL_ADM', 'G_FN_VOL'],
     manageVoicemail: ['G_FN_ADM', 'G_FN_ITM', 'G_FN_SUB', 'G_FN_VOL_ADM', 'G_FN_VOL']
+    // manageVoicemail: ['G_FN_SUB']
   }
 
 }
