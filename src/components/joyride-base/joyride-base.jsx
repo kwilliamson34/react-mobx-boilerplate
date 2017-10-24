@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Joyride from 'react-joyride';
+import Joyride from 'fn-joyride-ui';
 import { observer } from 'mobx-react';
 import $ from 'jquery';
 
@@ -19,28 +19,36 @@ export default class JoyrideBase extends React.Component {
   }
 
   componentDidMount() {
-    this.joyrideStore.checkTourCookie(this.joyride, this.props.location);
-    //remove buggy joyride keydown listener affecting behavior of back button;
+    this.joyrideStore.tourPage = this.props.location;
+    this.joyrideStore.initializeJoyride(this.joyride);
+
+    //replace buggy joyride keydown listener affecting behavior of back button;
     document.body.removeEventListener('keydown', this.joyride.listeners.keyboard);
-    //replace escape key functionality now missing after removing the previous listener;
     document.body.addEventListener('keydown', this.handleTourEscapeKey);
   }
 
   componentWillReceiveProps(nextProps) {
-    if(this.joyrideStore.runNow && this.joyrideStore.tourAutoStart) {
-			this.joyrideStore.updateSteps({
-				pathname: nextProps.location,
-				runImmediately: true
-			});
+    if(this.joyrideStore.tourPage !== nextProps.location) {
+      //page change
+      this.joyrideStore.stopTour();
+      this.joyrideStore.tourPage = nextProps.location;
+
+      if(!this.joyrideStore.tourIsDisabled && !this.joyrideStore.showTourIntroModal) {
+        this.joyrideStore.runNow = this.joyrideStore.tourAutoStart;
+        this.joyrideStore.setupTour();
+      }
     }
   }
 
-  /* called when ESC or close button used on intro modal; autostarts tour*/
   handleCloseIntro = () => {
+    // called when ESC or close button used on intro modal; Enable but do not start the tour
+    this.joyrideStore.runNow = false;
+    this.joyrideStore.tourAutoStart = false;
     this.joyrideStore.enableTour();
   }
 
   handleStartTour  = () => {
+    this.joyrideStore.runNow = true;
     this.joyrideStore.enableTour();
   }
 
@@ -178,7 +186,7 @@ export default class JoyrideBase extends React.Component {
           callback={this.handleStepChange}
           type="continuous"
           showStepsProgress={true}
-          holePadding="2"
+          holePadding={2}
         />
       </div>
     )

@@ -167,7 +167,8 @@ export default class Footer extends React.Component {
 						}
 						{this.props.showPrivateLinks &&
 							<li>
-								<a href="#" role="button" className="walkthru-toggle" onClick={this.handleToggleWalkthrough}>{`${this.joyrideStore.runNow? 'Disable' : 'Enable'}`} Site Walkthrough
+								<a href="#" role="button" className="walkthru-toggle" onClick={this.handleToggleWalkthrough}>
+									{`${this.joyrideStore.tourIsDisabled ? 'Enable' : 'Disable'}`} Site Walkthrough
 								</a>
 							</li>
 						}
@@ -195,7 +196,9 @@ export default class Footer extends React.Component {
 			<nav>
 				<ul className="sub-links">
 					<li role="presentation">
-						<NewTabLink to={this.externalLinkStore.privacyPolicyLink}>Privacy Policy</NewTabLink>
+						<NewTabLink to={this.externalLinkStore.privacyPolicyLink}>
+							Privacy Policy
+						</NewTabLink>
 					</li>
 					<li role="presentation">
 						<NewTabLink to={this.externalLinkStore.termsOfUse}>

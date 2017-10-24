@@ -12,9 +12,12 @@
   }
 
   .app-details-alerts {
-    background: white;
-    padding-bottom: 10px;
-  }
+   background: white;
+
+   .alerts-wrapper:not(:empty) {
+     padding-bottom: 10px;
+   }
+ }
 
   .app-gallery {
     background: $fn-white;

@@ -50,10 +50,7 @@ import FAQPage from './pages/faq.page';
 import FeedbackPage from './pages/feedback.page';
 import FeedbackSuccessPage from './pages/feedback-success.page';
 
-//Footer pages
-import PrivacyPage from './pages/privacy.page';
-import AccessibilityPage from './pages/accessibility.page';
-
+//Components
 import ExternalRedirect from './components/external-redirect/external-redirect';
 
 @observer
@@ -132,7 +129,7 @@ export default class App extends React.Component {
         <ScrollToTop>
           <a href="#main-content" className="skipnav">Skip Navigation</a>
           <Header/>
-          <main id="main-content" tabIndex="-1">
+          <main id="main-content">
             <Switch>
               <Route exact path="/" component={this.getLandingPage}/>
               <Route path="/admin/manage-apps" component={this.getAdminRoutes(ManageAppsPage)}/>
@@ -148,8 +145,6 @@ export default class App extends React.Component {
               <Route path="/feedback-success" component={FeedbackSuccessPage}/>
               <Route path="/faq" component={FAQPage}/>
               <Route path="/help-center" component={HelpCenterPage}/>
-              <Route path="/privacy" component={PrivacyPage}/>
-              <Route path="/accessibility" component={AccessibilityPage}/>
               <Route component={() => <Redirect to="/error/404"/>}/>
             </Switch>
           </main>
@@ -178,20 +173,36 @@ export default class App extends React.Component {
   }
 
   getSessionDependentContent() {
-    return pseMasterStore.userStore.userValidationDone ? (
-			pseMasterStore.isLoggedIn ? (
-        <Switch>
-          <Route exact path="/session-timeout" component={SessionTimeoutPage}/>
-          <Route path="/error" component={this.getPlainLayoutComponent}/>
-          <Route component={this.getMainLayoutComponent}/>
-        </Switch>
-			) : (
-				pseMasterStore.userStore.isSubscriber ?
-          <ExternalRedirect externalUrl={config.appStore} /> : <ErrorPage cause="unauthorized" />
-			)
-		) : (
-			<p>Securing Session...</p>
-		);
+    return pseMasterStore.userStore.userValidationDone
+      ? (pseMasterStore.isLoggedIn
+        ? <Switch>
+            <Route exact path="/session-timeout" component={SessionTimeoutPage}/>
+            <Route path="/error" component={this.getPlainLayoutComponent}/>
+            <Route component={this.getMainLayoutComponent}/>
+          </Switch>
+        : (pseMasterStore.userStore.isSubscriber
+          ? <ExternalRedirect externalUrl={config.appStore}/>
+          : <ErrorPage cause="unauthorized"/>))
+      : <div className="fn-loading">
+          <div className="fn-loading-logo">
+            <img src="/images/firstnet-logo.svg" width="173" height="51" alt="" aria-hidden="true" />
+          </div>
+          <h1 className="fn-loading-text">Loading</h1>
+          <div className="fn-loading-circle">
+            <div className="c1 c"></div>
+            <div className="c2 c"></div>
+            <div className="c3 c"></div>
+            <div className="c4 c"></div>
+            <div className="c5 c"></div>
+            <div className="c6 c"></div>
+            <div className="c7 c"></div>
+            <div className="c8 c"></div>
+            <div className="c9 c"></div>
+            <div className="c10 c"></div>
+            <div className="c11 c"></div>
+            <div className="c12 c"></div>
+          </div>
+        </div>
   }
 
   render() {

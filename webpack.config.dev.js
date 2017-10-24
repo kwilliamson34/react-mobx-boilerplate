@@ -15,6 +15,10 @@ console.log('Built for the \x1b[34m' + env + '\x1b[30m environment');
 module.exports = {
 	context: path.resolve(__dirname, 'src'),
 	entry: [
+		'babel-polyfill',
+		// babel doesn't handle Promise by default
+		// this enables promise polyfills for IE
+
 		'react-hot-loader/patch',
 		// activate HMR for React
 
@@ -26,9 +30,6 @@ module.exports = {
 		// bundle the client for hot reloading
 		// only- means to only hot reload for successful updates
 
-		'babel-polyfill',
-		// babel doesn't handle Promise by default
-		// this enables promise polyfills for IE
 		'./index.jsx'
 	],
 	output: {
@@ -51,11 +52,11 @@ module.exports = {
 		publicPath: '/',
 		proxy: {
 			'/api': {
-				target: 'https://pse-internal-qa.sapientfirst.net',
+				target: 'https://abed-localcontrol.sapientfirst.net',
 				secure: false
 			},
 			'/oauth/validate': {
-				target: 'https://pse-internal-qa.sapientfirst.net',
+				target: 'https://abed-localcontrol.sapientfirst.net',
 				secure: false
 			}
 		}
