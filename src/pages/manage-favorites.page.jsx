@@ -303,13 +303,13 @@ export default class ManageFavoritesPage extends React.Component {
         key: 'favoriteName',
         inlineButtonJsx: this.renderEditButton(),
         onButtonClick: this.handleEditButton,
-        className: 'favorite-name-column col50'
+        className: 'favorite-name-column col46'
       }, {
         name: 'Location/Address',
         key: 'locationFavoriteAddress',
         inlineButtonJsx: this.renderMapItButton(),
         onButtonClick: this.handleMapItButton,
-        className: 'location-address-column col45'
+        className: 'location-address-column col50'
       }
     ];
 

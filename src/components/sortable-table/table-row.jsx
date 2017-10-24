@@ -49,15 +49,17 @@ export class TableRow extends React.Component {
         {this.props.columns.map((column, i) => {
           return (
             <td key={`table-row-${i}`} className={column.className}>
-              <div className="row-contents-wrapper">
-                <span>{this.props.row[column.key]}</span>
-              </div>
-              {
-                column.inlineButtonJsx &&
-                <div className="inline-button-wrapper" onClick={() => this.handleInlineButtonClick(column.onButtonClick, this.props.id)} data-id={this.props.id} tabIndex="0">
-                  {column.inlineButtonJsx}
+              <div className="flex-wrapper">
+                <div className="row-contents-wrapper">
+                  <span>extra line <br /> extra line <br />{this.props.row[column.key]}</span>
                 </div>
-              }
+                {
+                  column.inlineButtonJsx &&
+                  <div className="button-wrapper" onClick={() => this.handleInlineButtonClick(column.onButtonClick, this.props.id)} data-id={this.props.id} tabIndex="0">
+                    {column.inlineButtonJsx}
+                  </div>
+                }
+            </div>
             </td>
           )
         })}

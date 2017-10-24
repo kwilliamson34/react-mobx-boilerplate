@@ -58,7 +58,7 @@ export class SortableTable extends React.Component {
 
   renderSelectAllCheckbox = () => {
     return (
-      <th className="select-all-checkbox col7">
+      <th className="select-all-checkbox col4">
         <Checkbox
           id="select-all-checkbox"
           label="Select or Deselect All Checkboxes"
