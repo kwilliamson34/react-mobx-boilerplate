@@ -6,6 +6,7 @@ export default class Checkbox extends React.Component {
 		id: PropTypes.string.isRequired,
 		value: PropTypes.string,
 		label: PropTypes.string.isRequired,
+		tooltipText: PropTypes.string,
 		onChange: PropTypes.func,
 		checked: PropTypes.bool,
 		disabled: PropTypes.bool
@@ -15,7 +16,6 @@ export default class Checkbox extends React.Component {
 		super(props);
 		this.onChange = this.onChange.bind(this);
 	}
-
 
 	onChange(event) {
 		if (this.props.disabled) {
@@ -52,10 +52,23 @@ export default class Checkbox extends React.Component {
 						value={this.props.value || this.props.label}
 						checked={this.props.checked || false /*checked must always have a value so this can be a controlled component*/}
 						data-checked={this.props.checked || false /*custom DOM prop included for automated testing*/}
-						onChange={this.onChange}/>
+						onChange={this.onChange}
+						aria-describedby={'tooltip-' + this.props.id} />
 					<span className="cr"></span>
 					<span className="layer-label">{this.props.label}</span>
 				</label>
+				{this.props.tooltipText &&
+					<button
+						className="tooltip"
+						id={'tooltip-' + this.props.id}
+						type="button"
+						role="tooltip"
+						data-toggle="tooltip"
+						data-placement="top"
+						title={this.props.tooltipText}>
+						<i className="icon-help" aria-hidden="true"></i>
+					</button>
+				}
 			</div>
 		)
 	}
