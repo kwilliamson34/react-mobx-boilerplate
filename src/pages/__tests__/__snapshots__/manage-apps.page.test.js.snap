@@ -79,7 +79,7 @@ exports[`<ManageAppsPage /> render matches previous snapshot 1`] = `
               id="view-all-apps-button"
               onClick={[Function anonymous]}
               type="button">
-              View All Apps
+              Load All Apps
             </button>
           </div>
         </section>
@@ -170,7 +170,7 @@ exports[`<ManageAppsPage /> render matches previous snapshot 2`] = `
               id="view-all-apps-button"
               onClick={[Function anonymous]}
               type="button">
-              View All Apps
+              Load All Apps
             </button>
           </div>
         </section>
@@ -261,7 +261,7 @@ exports[`<ManageAppsPage /> render matches previous snapshot 3`] = `
               id="view-all-apps-button"
               onClick={[Function anonymous]}
               type="button">
-              View All Apps
+              Load All Apps
             </button>
           </div>
         </section>

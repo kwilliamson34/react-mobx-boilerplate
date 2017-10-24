@@ -7,14 +7,17 @@ class JoyrideStore {
 	@action initializeJoyride(joyrideRef) {
 		this.tourRef = joyrideRef;
 		this.tourAutoStart = true;
-		this.tourIsDisabled = document.cookie.indexOf('_fn_lc_tour') != -1 && utilsService.getCookie('_fn_lc_tour') === 'false';
-		if(this.tourCookieIsPresentAndTruthy) {
-			this.showTourIntroModal = false;
-			this.runNow = true;
-			this.setupTour();
-		} else if(!this.tourIsDisabled) {
+		this.tourIsDisabled = document.cookie.indexOf('_fn_lc_tour') != -1 && this.getCookie('_fn_lc_tour') === 'false';
+		if(document.cookie.indexOf('_fn_lc_tour') < 0){
 			this.showTourIntroModal = true;
+		} else {
+			if(!this.tourIsDisabled) {
+				this.showTourIntroModal = false;
+				this.runNow = true;
+				this.setupTour();
+			}
 		}
+
 	}
 
 	@action toggleTour() {
@@ -127,10 +130,6 @@ class JoyrideStore {
 		} else {
 			return JSON.parse(stepsSeen)
 		}
-	}
-
-	@computed get tourCookieIsPresentAndTruthy() {
-		return document.cookie.indexOf('_fn_lc_tour') != -1 && utilsService.getCookie('_fn_lc_tour') === 'true';
 	}
 
 	@computed get nextStepAnchorHasRendered() {
