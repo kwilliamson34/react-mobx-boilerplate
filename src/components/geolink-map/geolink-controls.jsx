@@ -63,6 +63,18 @@ export default class GeolinkControls extends React.Component {
     }
   };
 
+ toggleFireAreas = event => {
+    if (event.target.type === 'checkbox') {
+      this.geoStore.toggleFireAreas();
+    }
+  };
+
+ toggleCellTowerOOSRange = event => {
+    if (event.target.type === 'checkbox') {
+      this.geoStore.toggleCellTowerOOSRange();
+    }
+  };
+
   render() {
     return (
       <section className="geolink-controls">
@@ -90,6 +102,13 @@ export default class GeolinkControls extends React.Component {
                   <legend className="sr-only">Coverage layers</legend>
                   <div className="col-xs-6 col-sm-12 no-gutters">
                     <Checkbox
+                      id="cell-tower-toggle"
+                      value="CellTowerOOSRange"
+                      label="Current Network Status"
+                      onChange={this.toggleCellTowerOOSRange}
+                      checked={this.geoStore.showCellTowerOOSRange}
+                      disabled={this.props.disabled} />
+                    <Checkbox
                       id="network-toggle"
                       value="Network"
                       label="Established Network"
@@ -112,6 +131,13 @@ export default class GeolinkControls extends React.Component {
                       label="Traffic"
                       onChange={this.toggleTraffic}
                       checked={this.geoStore.showTrafficLayer}
+                      disabled={this.props.disabled} />
+                      <Checkbox
+                      id="fire-areas-toggle"
+                      value="FireAreas"
+                      label="Active Events"
+                      onChange={this.toggleFireAreas}
+                      checked={this.geoStore.showFireAreas}
                       disabled={this.props.disabled} />
                     <Checkbox id="alerts-toggle"
                       value="Alerts"

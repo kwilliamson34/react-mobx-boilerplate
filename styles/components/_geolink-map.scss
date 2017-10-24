@@ -369,8 +369,19 @@ $map-height-mobile: 400px;
 }
 @media #{$desktop} {
   .geolink-controls {
-    .map-search,
-    .map-layers,
+      .map-layers {
+          .coverage-layers {
+              .no-gutters {
+                  width: 50%;
+              }
+          }
+      }
+      .map-search {
+          flex-basis: 30%;
+      }
+      .map-layers {
+          flex-basis: 36%;
+      }
     .map-network-legend{
       flex-basis: 33%;
     }
