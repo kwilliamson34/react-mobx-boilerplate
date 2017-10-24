@@ -16,8 +16,8 @@
 .fn-loading-text {
   font-family: $roboto;
   text-transform: uppercase;
-  font-weight: bold;
-  font-size: 1.4rem;
+  font-weight: $fn-bold-weight;
+  font-size: $fn-label-desktop;
 }
 
 .fn-loading-circle {
