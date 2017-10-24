@@ -22,8 +22,7 @@ export default class Checkbox extends React.Component {
     strongLabel: '',
     checked: false, //Note: checked must always have a value so this can be a controlled component
     disabled: false,
-    errorMessage: '',
-    hidden: false
+    errorMessage: ''
   }
 
   componentWillMount() {
@@ -63,26 +62,26 @@ export default class Checkbox extends React.Component {
       : '';
     return (
       <div className={`checkbox form-group ${disabledClass}`}>
-      {this.hasVisibleError && <div className="msgBlock error error-list" role="alert" aria-live="assertive">
-        <span>{this.props.errorMessage}</span>
-      </div>}
-      <label>
-        <input
-          type="checkbox"
-          id={this.props.id}
-          ref="input"
-          aria-disabled={this.props.disabled}
-          className={disabledClass}
-          value={this.props.value || this.props.label}
-          checked={this.props.checked}
-          data-checked={this.props.checked/*custom DOM prop included for automated testing*/}
-          onChange={this.handleOnChange}
-          onBlur={this.handleOnBlur}/>
-        <span className="cr"></span>
-        <span className={`label-text ${this.props.labelIsSrOnly ? 'sr-only' : ''}`}>
-          {this.props.strongLabel
-            ? <strong>{this.props.strongLabel}:&nbsp;</strong>
-            : ''}
+        {this.hasVisibleError && <div className="msgBlock error error-list" role="alert" aria-live="assertive">
+          <span>{this.props.errorMessage}</span>
+        </div>}
+        <label>
+          <input
+            type="checkbox"
+            id={this.props.id}
+            ref="input"
+            aria-disabled={this.props.disabled}
+            className={disabledClass}
+            value={this.props.value || this.props.label}
+            checked={this.props.checked}
+            data-checked={this.props.checked/*custom DOM prop included for automated testing*/}
+            onChange={this.handleOnChange}
+            onBlur={this.handleOnBlur}/>
+          <span className="cr"></span>
+          <span className={`label-text ${this.props.labelIsSrOnly ? 'sr-only' : ''}`}>
+            {this.props.strongLabel
+              ? <strong>{this.props.strongLabel}:&nbsp;</strong>
+              : ''}
             <span className="label-text-normal">{this.props.label}</span>
             {this.props.required &&
               <span className="required-asterisks"> *</span>
