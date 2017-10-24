@@ -107,17 +107,12 @@ h2 + hr {
 
     [class^="icon-"]:before {
       line-height: 3;
+      font-size: 16px;
+      color: $fn-dkgrey;
     }
 
-    &:hover {
-      background: $fn-ltblue;
-      border: 1px solid $fn-ltblue;
-    }
-
-    &:focus,
-    &:active {
-      background: $fn-blue;
-      border: 1px solid $fn-blue;
+    .icon-close:before {
+      font-size: 10px;
     }
 
     &:hover,
@@ -126,19 +121,20 @@ h2 + hr {
       box-shadow: none;
       outline: none;
 
-      .icon-close,
-      .icon-search:before {
+      [class^="icon-"]:before {
         color: $fn-white;
       }
     }
 
     &:hover {
       background-color: $fn-ltblue;
+      border: 1px solid $fn-ltblue;
     }
 
     &:active,
     &:focus {
       background-color: $fn-blue;
+      border: 1px solid $fn-blue;
     }
   }
 
@@ -148,11 +144,6 @@ h2 + hr {
     border-bottom: 1px solid $input-outline;
     border-left: 0 none;
     background-color: $input-bgcolor;
-
-    .icon-close {
-      font-size: 14px;
-      color: $fn-dkgrey;
-    }
   }
 
   .submit-btn {

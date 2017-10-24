@@ -105,7 +105,7 @@ export default class TextInput extends React.Component {
   render() {
     const Tag = this.props.type === 'textarea' ? 'textarea' : 'input';
     const clearButtonVisible = this.props.showClearButton && this.valueInStore !== '';
-    const submitButtonVisible = this.props.handleSubmit && this.props.submitIcon;
+    const submitButtonVisible = this.props.handleSubmit !== undefined;
     return (
       <div className={`form-group ${this.props.className} ${this.hasVisibleError ? 'has-error' : ''}`}>
         <FormLabel
@@ -141,8 +141,8 @@ export default class TextInput extends React.Component {
           {submitButtonVisible &&
             <span className="input-group-btn">
               <button className="submit-btn" type="button" ref="btnSubmit" onClick={this.handleSubmit} disabled={this.props.disabled}>
-                <span className="sr-only">Submit</span>
-                <span aria-hidden="true" className={this.props.submitIcon} />
+                <span className="sr-only">{this.props.type == 'search' ? 'Search' : 'Submit'}</span>
+                <span aria-hidden="true" className={this.props.type == 'search' ? 'icon-search' : 'icon-arrowRight'} />
               </button>
             </span>
           }
