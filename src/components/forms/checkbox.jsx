@@ -14,7 +14,7 @@ export default class Checkbox extends React.Component {
     checked: PropTypes.bool,
     required: PropTypes.bool,
     errorMessage: PropTypes.string,
-    tooltipText: PropTypes.string,
+    tooltipText: PropTypes.string
   }
 
   static defaultProps = {
