@@ -7,7 +7,7 @@ class JoyrideStore {
 	@action initializeJoyride(joyrideRef) {
 		this.tourRef = joyrideRef;
 		this.tourAutoStart = true;
-		this.tourIsDisabled = document.cookie.indexOf('_fn_lc_tour') != -1 && this.getCookie('_fn_lc_tour') === 'false';
+		this.tourIsDisabled = document.cookie.indexOf('_fn_lc_tour') != -1 && utilsService.getCookie('_fn_lc_tour') === 'false';
 		if(document.cookie.indexOf('_fn_lc_tour') < 0){
 			this.showTourIntroModal = true;
 		} else {
@@ -80,29 +80,6 @@ class JoyrideStore {
 		if(this.tourRef.stop) {
 			this.tourRef.stop();
 		}
-	}
-
-	getCookie(cname) {
-		let name = cname + '=';
-		let ca = document.cookie.split(';');
-		for(let i = 0; i < ca.length; i++) {
-			let c = ca[i];
-			while (c.charAt(0) == ' ') {
-				c = c.substring(1);
-			}
-			if (c.indexOf(name) == 0) {
-				return c.substring(name.length, c.length);
-			}
-		}
-		return '';
-	}
-
-	@action setCookie(cname, cvalue, exdays) {
-		let expiryDays = exdays || 365;
-		let d = new Date();
-		d.setTime(d.getTime() + (expiryDays * 24 * 60 * 60 * 1000));
-		let expires = 'expires=' + d.toUTCString();
-		document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
 	}
 
 	@action recordStepAsSeenInCookie(stepInfo) {
