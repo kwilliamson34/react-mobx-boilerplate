@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {observable, computed, autorun} from 'mobx';
+import {observable, computed} from 'mobx';
 
 export default class Checkbox extends React.Component {
   static propTypes = {
