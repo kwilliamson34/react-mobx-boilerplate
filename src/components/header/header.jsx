@@ -228,6 +228,7 @@ export default class PSEHeader extends React.Component {
 						Expand Administration Menu
 					</span>
 				</button>
+				{this.userStore.destinationIsPermitted.administration &&
 				<NavLink
 					id="linkBtn-admin"
 					to="/admin"
@@ -235,7 +236,7 @@ export default class PSEHeader extends React.Component {
 					aria-haspopup="true"
 					aria-expanded={this.headerStore.adminSubMenuIsOpen}>
 					Administration
-				</NavLink>
+				</NavLink>}
 				<div id="admin-submenu" className="header-submenu">
 					<ul
 						id="pse-admin-nav"
