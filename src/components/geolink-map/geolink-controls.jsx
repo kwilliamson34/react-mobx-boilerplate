@@ -73,7 +73,7 @@ export default class GeolinkControls extends React.Component {
   onFavoriteClick = (favorite) => {
     this.store.selectFavorite(favorite);
     this.store.formFieldRefList.find((el) => {
-      return el.refs.input.id === 'locationName' || el.refs.input.id === 'locationAddress';
+      return el && (el.refs.input.id === 'locationName' || el.refs.input.id === 'locationAddress');
     }).refs.input.focus();
   }
 
@@ -81,7 +81,7 @@ export default class GeolinkControls extends React.Component {
     if(event.charCode === this.ENTER_KEY_CODE) {
       this.store.selectFavorite(favorite);
       this.store.formFieldRefList.find((el) => {
-        return el.refs.input.id === 'locationName' || el.refs.input.id === 'locationAddress';
+        return el && (el.refs.input.id === 'locationName' || el.refs.input.id === 'locationAddress');
       }).refs.input.focus();
     }
   }
@@ -171,12 +171,26 @@ export default class GeolinkControls extends React.Component {
                 <fieldset className="coverage-layers">
                   <legend className="sr-only">Coverage layers</legend>
                   <div className="col-xs-6 no-gutters">
-                    <Checkbox label="Network" handleOnChange={this.toggleNetwork} checked={this.store.showNetworkLayer} disabled={this.props.disabled}/>
-                    <Checkbox label="Weather" handleOnChange={this.toggleWeather} checked={this.store.showWeatherLayer} disabled={this.props.disabled}/>
+                    <Checkbox label="Network"
+                      tooltipText="Represents our fully operational service"
+                      handleOnChange={this.toggleNetwork}
+                      checked={this.store.showNetworkLayer}
+                      disabled={this.props.disabled} />
+                    <Checkbox label="Weather"
+                      handleOnChange={this.toggleWeather}
+                      checked={this.store.showWeatherLayer}
+                      disabled={this.props.disabled} />
                   </div>
                   <div className="col-xs-6 no-gutters">
-                    <Checkbox label="Traffic" handleOnChange={this.toggleTraffic} checked={this.store.showTrafficLayer} disabled={this.props.disabled}/>
-                    <Checkbox label="Alerts" handleOnChange={this.toggleAlerts} checked={this.store.showAlertLayer} disabled={this.props.disabled || !this.store.authIsComplete}/>
+                    <Checkbox label="Traffic"
+                      handleOnChange={this.toggleTraffic}
+                      checked={this.store.showTrafficLayer}
+                      disabled={this.props.disabled} />
+                    <Checkbox label="Alerts"
+                      tooltipText="Highlights abnormal network malfunction"
+                      handleOnChange={this.toggleAlerts}
+                      checked={this.store.showAlertLayer}
+                      disabled={this.props.disabled || !this.store.authIsComplete} />
                   </div>
                 </fieldset>
               </form>
@@ -220,7 +234,6 @@ export default class GeolinkControls extends React.Component {
           className="search-form"
           showClearButton={true}
           handleSubmit={this.store.searchMap.bind(this.store)}
-          submitIcon="icon-search"
           iconClass={this.store.shouldDisplayLocationName ? 'icon-star' : ''}
           onDropIntoList={this.onDropIntoList}
           disableAutoComplete={true}/>

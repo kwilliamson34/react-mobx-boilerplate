@@ -2,14 +2,12 @@ $map-height-wide: 700px;
 $map-height-normal: 600px;
 $map-height-tablet: 600px;
 $map-height-mobile: 400px;
-
 $map-controls-text-size: 1.6rem;
 $map-controls-text-line-height: 1.3;
-
 @media #{screen and (min-width: #{1500px})} {
-  .map-placeholder,
   .geolink-map .map-wrapper,
-  .geolink-map iframe {
+  .geolink-map iframe,
+  .map-placeholder {
     height: $map-height-wide;
   }
 
@@ -18,9 +16,9 @@ $map-controls-text-line-height: 1.3;
   }
 }
 @media #{screen and (min-width: #{$screen-sm-max}) and (max-width: #{1500px})} {
-  .map-placeholder,
   .geolink-map .map-wrapper,
-  .geolink-map iframe {
+  .geolink-map iframe,
+  .map-placeholder {
     height: $map-height-normal;
   }
 
@@ -29,9 +27,9 @@ $map-controls-text-line-height: 1.3;
   }
 }
 @media #{$tablet} {
-  .map-placeholder,
   .geolink-map .map-wrapper,
-  .geolink-map iframe {
+  .geolink-map iframe,
+  .map-placeholder {
     height: $map-height-tablet;
   }
 
@@ -40,9 +38,9 @@ $map-controls-text-line-height: 1.3;
   }
 }
 @media #{$mobile} {
-  .map-placeholder,
   .geolink-map .map-wrapper,
-  .geolink-map iframe {
+  .geolink-map iframe,
+  .map-placeholder {
     height: $map-height-mobile;
   }
 
@@ -81,22 +79,27 @@ $map-controls-text-line-height: 1.3;
       background: none;
     }
   }
+
   .title-wrapper {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: baseline;
+
     .manage-favorites-delete-button {
       font-size: 16px;
+
       button {
         text-transform: uppercase;
         text-decoration: none;
-        &:hover,
-        &:focus {
+
+        &:focus,
+        &:hover {
           span {
             text-decoration: underline;
           }
         }
+
         i {
           font-size: 16px;
           padding-right: 10px;
@@ -125,15 +128,17 @@ $map-controls-text-line-height: 1.3;
 
 .geolink-controls {
   border-top: 1px solid $fn-grey;
-  padding-bottom: 100px;
   padding-top: 30px;
+  background-color: $fn-ltgrey;
+  padding-bottom: 80px;
 
   .dropdown-visible {
     .form-control {
-      border-bottom-left-radius: 0px;
+      border-bottom-left-radius: 0;
     }
+
     .submit-btn {
-      border-bottom-right-radius: 0px;
+      border-bottom-right-radius: 0;
     }
   }
 
@@ -161,9 +166,9 @@ $map-controls-text-line-height: 1.3;
     }
   }
 
-  form,
   .form-group,
-  .input-group {
+  .input-group,
+  form {
     padding: 0;
     margin: 0;
 
@@ -247,9 +252,10 @@ $map-controls-text-line-height: 1.3;
 
   .top-right-link {
     float: right;
-     a {
-       margin-top: 0;
-     }
+
+    a {
+      margin-top: 0;
+    }
   }
 
   .network-contact-info {
@@ -322,6 +328,55 @@ $map-controls-text-line-height: 1.3;
       }
     }
   }
+
+  .tooltip {
+    display: inline-block;
+    color: $fn-black;
+    margin: 0;
+    position: relative;
+    cursor: pointer;
+    background: none;
+    border: 0;
+    outline: none;
+    z-index: 1;
+
+    &:focus {
+      @include focus();
+    }
+
+    &:before {
+      content: attr(title);
+      position: absolute;
+      display: none;
+      white-space: nowrap;
+      padding: 10px;
+      color: $fn-white;
+      font-weight: $fn-normal-weight;
+      font-size: $fn-label-desktop;
+      background: $fn-black;
+      top: -45px;
+      right: -30px;
+      border-radius: 4px;
+      box-shadow: 0 2px 2px 0 rgba(0,0,0,0.35);
+      outline: none;
+    }
+
+    &:focus,
+    &:hover {
+      &:before {
+        display: block;
+      }
+
+      i {
+        color: $fn-black;
+      }
+    }
+
+    i {
+      font-size: $fn-small-text-desktop;
+      color: $fn-ltblue;
+    }
+  }
 }
 
 .container.location-favorites {
@@ -349,9 +404,9 @@ $map-controls-text-line-height: 1.3;
 /**********************************************/
 @media #{$mobile} {
   .geolink-controls {
-    .map-search,
     .map-layers,
-    .map-network-legend {
+    .map-network-legend,
+    .map-search {
       flex-basis: auto;
     }
 
@@ -395,6 +450,7 @@ $map-controls-text-line-height: 1.3;
   #network-page {
     .title-wrapper {
       flex-direction: column;
+
       .manage-favorites-delete-button {
         button {
           padding-top: 10px;
@@ -411,11 +467,13 @@ $map-controls-text-line-height: 1.3;
     .map-network-legend {
       flex-basis: auto;
     }
-    .map-search{
-      flex-basis: 60%;
+
+    .map-search {
+      flex-basis: 58%;
     }
+
     .map-layers {
-      flex-basis: 33%;
+      flex-basis: 38%;
       padding-left: 0;
       padding-right: 0;
 
@@ -446,11 +504,12 @@ $map-controls-text-line-height: 1.3;
 }
 @media #{$desktop} {
   .geolink-controls {
-    .map-search,
     .map-layers,
-    .map-network-legend{
+    .map-network-legend,
+    .map-search {
       flex-basis: 33%;
     }
+
     .map-layers {
       fieldset {
         border-left: 1px solid $fn-grey;
@@ -480,6 +539,7 @@ $map-controls-text-line-height: 1.3;
 
     .network-contact-info {
       margin-top: 25px;
+
       a {
         margin-top: 0;
       }
@@ -490,6 +550,7 @@ $map-controls-text-line-height: 1.3;
   .geolink-controls {
     .network-subscription-link {
       float: right;
+
       a {
         margin-top: 0;
         margin-bottom: 20px;

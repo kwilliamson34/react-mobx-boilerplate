@@ -258,6 +258,11 @@ export default class PSEHeader extends React.Component {
 								Manage Services &amp; Billing
 							</NewTabLink>
 						</li>
+						{this.userStore.destinationIsPermitted.manageVoicemail && <li>
+							<NewTabLink to={config.manageVoicemailAndUsageLink} onClick={this.handleExternalTabOpen} showIcon={true}>
+								Manage Voicemail &amp; Usage
+							</NewTabLink>
+						</li>}
 						{this.userStore.destinationIsPermitted.viewReports && <li>
 							<NewTabLink to={config.viewWirelessReportsLink} onClick={this.handleExternalTabOpen} showIcon={true}>
 								View Wireless Reports
@@ -339,7 +344,7 @@ export default class PSEHeader extends React.Component {
 						<nav id="main-menu" aria-label="Main Menu">
 							<ul className="fnnav__main">
 								{this.renderMobileOnlyUserMenu()}
-								{this.renderAdminMenuItem()}
+								{this.userStore.destinationIsPermitted.administration && this.renderAdminMenuItem()}
 								{this.userStore.canViewNetworkStatus &&
 									<li id="hdr-network-status" className="mainnav-item desktop-textlink" role="presentation">
 										<NavLink id="linkBtn-networkStatus" to="/network-status" activeClassName="active">

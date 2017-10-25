@@ -74,7 +74,9 @@ export default class ManageFavoritesPage extends React.Component {
 
   handleDeleteAction = (e) => {
     e.preventDefault();
-    this.showDeleteModal();
+    if (!this.manageFavoritesStore.disableDeleteButton) {
+      this.showDeleteModal();
+    }
   }
 
   showDeleteModal = () => {
@@ -240,18 +242,25 @@ export default class ManageFavoritesPage extends React.Component {
   }
 
   renderDeleteButton = () => {
-    const disableButton = this.manageFavoritesStore.checkedRows.length === 0;
     const oneItemSelected = this.manageFavoritesStore.checkedRows.length === 1;
     return (
       <div className="manage-favorites-delete-button">
-        <button className={`as-link ${disableButton ? 'disabled' : ''}`} onClick={this.handleDeleteAction}>
+        <button role="button" className={`as-link ${this.manageFavoritesStore.disableDeleteButton ? 'disabled' : ''}`} onClick={this.handleDeleteAction}>
           <i className="icon-trash" aria-hidden="true" />
           <span>
             {
-              disableButton || oneItemSelected
+              this.manageFavoritesStore.disableDeleteButton &&
+              <span className="sr-only">
+                Delete favorites button is inactive. Please select at least one favorite.
+              </span>
+            }
+            <span aria-hidden={this.manageFavoritesStore.disableDeleteButton}>
+              {
+                this.manageFavoritesStore.disableDeleteButton || oneItemSelected
                 ? 'Delete Favorite'
                 : `Delete ${this.manageFavoritesStore.checkedRows.length} Favorites`
-            }
+              }
+            </span>
           </span>
         </button>
       </div>
@@ -303,13 +312,13 @@ export default class ManageFavoritesPage extends React.Component {
         key: 'favoriteName',
         inlineButtonJsx: this.renderEditButton(),
         onButtonClick: this.handleEditButton,
-        className: 'favorite-name-column col50'
+        className: 'favorite-name-column col46'
       }, {
         name: 'Location/Address',
         key: 'locationFavoriteAddress',
         inlineButtonJsx: this.renderMapItButton(),
         onButtonClick: this.handleMapItButton,
-        className: 'location-address-column col45'
+        className: 'location-address-column col50'
       }
     ];
 

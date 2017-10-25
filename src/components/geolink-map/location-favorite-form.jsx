@@ -21,6 +21,10 @@ class LocationFavoriteForm extends React.Component {
     this.store.clearFormFieldRefList();
   }
 
+  componentDidMount() {
+    this.firstInput.refs.input.focus();
+  }
+
   componentWillUnmount() {
     this.store.setPageTitle('Network Status');
   }
@@ -29,7 +33,7 @@ class LocationFavoriteForm extends React.Component {
     return (
       <div className="location-favorite-form">
         <TextInput
-          ref={ref => this.store.formFieldRefList.push(ref)}
+          ref={ref => {this.store.formFieldRefList.push(ref); this.firstInput = ref;}}
           dataObject={this.store.values}
           id="locationAddress"
           type="search"
@@ -40,7 +44,6 @@ class LocationFavoriteForm extends React.Component {
           className="col-xs-12 col-sm-7 search-form"
           showClearButton={true}
           handleSubmit={this.store.searchMap.bind(this.store)}
-          submitIcon="icon-search"
           disableAutoComplete={true} />
 
         <TextInput
@@ -59,7 +62,6 @@ class LocationFavoriteForm extends React.Component {
 }
 
 export default asForm(LocationFavoriteForm, {
-  submitButtonText: 'Save Favorite',
   secondaryButtonText: 'Discard & Go Back',
   formColClass: 'col-xs-12',
   includeDivider: true

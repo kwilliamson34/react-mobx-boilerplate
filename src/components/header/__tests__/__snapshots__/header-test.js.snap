@@ -2035,6 +2035,7 @@ exports[`<PSEHeader /> render user role-based snapshots 3`] = `
                   </a>
                 </li>
                 <li />
+                <li />
               </ul>
               <ul
                 aria-labelledby="linkBtn-admin"

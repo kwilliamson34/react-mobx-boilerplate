@@ -77,6 +77,13 @@ export default class SolutionsDetailsTemplate extends React.Component {
 
           {this.renderLeadCaptureSection()}
 
+          {purchasingInfo &&
+            <div className="row">
+              <section className="col-xs-12 col-lg-offset-1 col-lg-10">
+                <PurchasingInfo contactInfo={purchasingInfo}/>
+              </section>
+            </div>}
+
           {this.externalLinkStore.hasValidRelatedApp(solutionDetail) && this.appCatalogStore.currentAppObject.detailsFetched &&
             <div className="row">
               <section className="col-xs-12 col-lg-offset-1 col-lg-10 app-details-section">
@@ -87,14 +94,6 @@ export default class SolutionsDetailsTemplate extends React.Component {
                   actionBlock="link_to_details"
                   appCatalogStore={this.appCatalogStore}
                   suppressFetchFailure={true}/>
-                <hr />
-              </section>
-            </div>}
-
-          {purchasingInfo &&
-            <div className="row">
-              <section className="col-xs-12 col-lg-offset-1 col-lg-10">
-                <PurchasingInfo contactInfo={purchasingInfo}/>
               </section>
             </div>}
 

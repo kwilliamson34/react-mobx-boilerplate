@@ -13,7 +13,8 @@ export default class Checkbox extends React.Component {
     labelIsSrOnly: PropTypes.bool,
     checked: PropTypes.bool,
     required: PropTypes.bool,
-    errorMessage: PropTypes.string
+    errorMessage: PropTypes.string,
+    tooltipText: PropTypes.string
   }
 
   static defaultProps = {
@@ -23,6 +24,10 @@ export default class Checkbox extends React.Component {
     checked: false, //Note: checked must always have a value so this can be a controlled component
     disabled: false,
     errorMessage: ''
+  }
+
+  componentWillMount() {
+    this.hasBeenVisited = false;
   }
 
   @observable hasBeenVisited = false;
@@ -58,7 +63,7 @@ export default class Checkbox extends React.Component {
       : '';
     return (
       <div className={`checkbox form-group ${disabledClass}`}>
-        {this.hasVisibleError && <div className="msgBlock error error-list" role="alert" aria-live="assertive">
+        {this.hasVisibleError && <div className="msgBlock error error-list" role="alert" aria-live="polite">
           <span>{this.props.errorMessage}</span>
         </div>}
         <label>
@@ -84,6 +89,18 @@ export default class Checkbox extends React.Component {
             }
           </span>
         </label>
+        {this.props.tooltipText &&
+					<button
+						className="tooltip"
+						id={'tooltip-' + this.props.id}
+						type="button"
+						role="tooltip"
+						data-toggle="tooltip"
+						data-placement="top"
+						title={this.props.tooltipText}>
+						<i className="icon-help" aria-hidden="true"></i>
+					</button>
+				}
       </div>
     )
   }

@@ -56,7 +56,8 @@ class LeadCaptureForm extends React.Component {
           labelText="Email"
           required={true}
           getIsValid={utilsService.isValidEmailAddress}
-          errorMessage="Please enter a valid email address."/>
+          errorMessage="Please enter a valid email address."
+          charLimit={50}/>
 
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}

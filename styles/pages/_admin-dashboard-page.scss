@@ -1,5 +1,5 @@
 #admin-dashboard-page {
-  padding-bottom: 70px;
+  padding-bottom: 60px;
 
   h1 {
     margin-bottom: 3rem;
@@ -43,6 +43,10 @@
 
     &.manage-services {
       background-image: url('/images/manage-services.svg');
+    }
+
+    &.manage-voicemail-and-usage {
+      background-image: url('/images/voicemail-and-usage.svg');
     }
 
     &.manage-wireless-reports {

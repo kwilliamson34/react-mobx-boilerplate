@@ -13,13 +13,11 @@
   }
 
   .slide-container {
-    position: relative;
     display: inline-block;
-    padding: 0 15px 60px;
-    width: 100%;
+    margin-bottom: 60px;
+    padding: 0 15px;
 
     &:first-child {
-      padding-left: 15px;
 
       @media #{$tablet} {
         padding-left: calc((100% - 750px) / 2 + 15px);
@@ -33,7 +31,6 @@
     }
 
     &:last-child {
-      padding-right: 15px;
 
       @media #{$tablet} {
         padding-right: calc((100% - 750px) / 2 + 15px);
@@ -46,17 +43,24 @@
       }
     }
 
+    figure{
+      position: relative;
+    }
+
     .slide-img {
       height: 440px;
-      min-width: 200px;
+      width: auto;
+      max-width:100%;
+      min-width: 240px;
       border: 1px solid $fn-grey;
+      margin-bottom: 20px;
     }
 
     .slide-caption {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      max-width: 200px;
+      position: absolute;
+      width: 100%;
+      top: 430px;
+      display: block;
       line-height: 2rem;
       margin: 15px 0;
     }

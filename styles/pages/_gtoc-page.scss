@@ -53,6 +53,7 @@
         font-weight: $fn-bold-weight;
         //override default alert text color
         color: $fn-black;
+
         .select-all-description {
           margin-left: 5px;
         }
@@ -89,7 +90,7 @@
 
       &:first-of-type {
         padding-top: 20px;
-        margin-top: 0px;
+        margin-top: 0;
         border-top: 1px solid $fn-mdgrey;
       }
 
@@ -98,7 +99,17 @@
       }
     }
   }
+
+  form button:not(.close_btn) {
+    margin: 3rem 0 8.5rem;
+
+    &.disabled {
+      cursor: auto;
+      pointer-events: auto;
+    }
+  }
 }
+
 @media #{$mobile} {
   #subscribe-to-gtoc-page {
     .content-wrapper {

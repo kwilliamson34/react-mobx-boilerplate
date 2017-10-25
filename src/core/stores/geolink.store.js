@@ -216,6 +216,13 @@ class GeolinkStore {
       this.showAllFormErrors();
       return;
     }
+
+    if(!this.formIsDirty) {
+      this.alertText = 'Please make a change to continue, or discard.';
+      this.showAlert = true;
+      return;
+    }
+
     if(this.pageTitle === 'Edit Favorite') {
       this.editLocation();
     } else if(this.pageTitle === 'Add New Favorite') {
@@ -227,6 +234,7 @@ class GeolinkStore {
     this.selectedFavoriteAddress = this.values.locationAddress;
     this.selectedFavoriteName = this.values.locationName;
     this.shouldDisplayLocationName = true;
+    this.dropdownIsVisible = false;
     this.loadFavorites();
   }
 
@@ -368,6 +376,10 @@ class GeolinkStore {
       }
       return allSearchTermsMatchFavorite;
     }).splice(0, 8);
+  }
+
+  @computed get submitButtonText() {
+    return this.pageTitle == 'Edit Favorite' ? 'Update Favorite' : 'Save Favorite';
   }
 
   //OBSERVABLES
