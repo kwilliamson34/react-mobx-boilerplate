@@ -32,7 +32,7 @@ export default class FormLabel extends React.Component {
           }
           {this.props.helperText ? <span className="help-text">{this.props.helperText}</span> : ''}
         </label>
-        {this.props.hasError && <div className="msgBlock error error-list" role="alert" aria-live="assertive">
+        {this.props.hasError && <div className="msgBlock error error-list" role="alert" aria-live="polite">
           <span>{this.props.errorMessage}</span>
         </div>}
       </div>
