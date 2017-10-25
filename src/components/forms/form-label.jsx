@@ -7,7 +7,7 @@ export default class FormLabel extends React.Component {
 
   static propTypes = {
     id: PropTypes.string.isRequired,
-		charLimitMessage: PropTypes.string,
+    charLimitMessage: PropTypes.string,
     labelText: PropTypes.string.isRequired,
     helperText: PropTypes.string,
     hasError: PropTypes.bool,
