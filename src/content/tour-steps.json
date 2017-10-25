@@ -11,18 +11,12 @@
         "title": "Administrative Dashboard",
         "text": "<p>Manage users and apps, assign devices, and view reports.</p>",
         "selector": ".manage-actions",
-        "position": "top"
+        "position": "right"
       },
       {
         "title": "Purchasing & Provisioning Options",
         "text": "<p>Explore, shop, and provision devices.</p>",
         "selector": "aside",
-        "position": "top"
-      },
-      {
-        "title": "Live Help",
-        "text": "<p>Chat with a customer care specialist 24/7</p>",
-        "selector": ".tc-large-chattab-side",
         "position": "left"
       }
     ],
@@ -77,7 +71,10 @@
         "title": "Coverage",
         "text": "<p>View the network coverage for a specific area.</p>",
         "selector": "#map-section",
-        "position": "bottom"
+        "position": "bottom",
+        "style": {
+          "marginTop": "-60px"
+        }
       },
       {
         "title": "Map Controls",
