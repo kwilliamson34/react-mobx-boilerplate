@@ -7,7 +7,7 @@ import {utilsService} from '../core/services/utils.service';
 import PageTitle from '../components/page-title/page-title';
 import {CardList} from '../components/card-list/card-list';
 import {Filters} from '../components/filters/filters';
-import {MDMAlerts} from '../components/configure-mdm/mdm-alerts';
+import Alerts from '../components/alerts/alerts';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 import TextInput from '../components/forms/text-input';
 
@@ -28,7 +28,6 @@ export default class ManageAppsPage extends React.Component {
     this.joyrideStore = this.props.store.joyrideStore;
     this.pageId = 'manageAppsPage';
     this.itemsPerPage = 20;
-    this.viewedAlert = false;
   }
 
   componentWillMount() {
@@ -48,11 +47,6 @@ export default class ManageAppsPage extends React.Component {
   componentWillUnmount() {
     this.cardListStore.resetIdToFocus();
     this.appCatalogStore.catalogHasBeenViewed = true;
-
-    //FPSE-1064 clear all alerts from this page
-    this.mdmStore.manage_apps_alerts = [];
-    this.mdmStore.appsReferencedByErrorAlert = [];
-    this.mdmStore.appsReferencedBySuccessAlert = [];
   }
 
   componentDidUpdate() {
@@ -125,7 +119,7 @@ export default class ManageAppsPage extends React.Component {
         <div className="container">
           <div className="row">
             <div className="col-xs-12 col-lg-offset-1 col-lg-10" aria-live="assertive" aria-relevant="additions">
-              <MDMAlerts store={this.mdmStore} alertList={this.mdmStore.manage_apps_alerts}/>
+              <Alerts showAlert={this.mdmStore.showAlertOnManageApps} alertText={this.mdmStore.pushFailMultiple} clearAlert={this.mdmStore.clearAlert.bind(this.mdmStore)} showSuccess={this.mdmStore.showSuccessOnManageApps} successText={this.mdmStore.pushSuccessMultiple} clearSuccess={this.mdmStore.clearSuccess.bind(this.mdmStore)}/>
             </div>
           </div>
         </div>

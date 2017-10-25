@@ -5,6 +5,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {history} from '../../core/services/history.service';
 import {observer} from 'mobx-react';
+import Alerts from '../alerts/alerts';
 import $ from 'jquery';
 
 @observer
@@ -61,48 +62,6 @@ export default function asForm (MyComponent, attributes) {
       this.unblock();
     }
 
-    showAlert = () => {
-      this.store.showAlert = true;
-    }
-
-    clearAlert = () => {
-      this.store.showAlert = false;
-    }
-
-    showSuccess = () => {
-      this.store.showSuccess = true;
-    }
-
-    clearSuccess = () => {
-      this.store.showSuccess = false;
-    }
-
-    renderAlert = () => {
-      return (
-        <div className="alert alert-error">
-          <button type="button" className="close_btn icon-close" onClick={this.clearAlert}>
-            <span className="sr-only">Close alert</span>
-          </button>
-          <p role="alert" aria-live="assertive">
-            <strong>Error:&nbsp;</strong>{this.store.alertText}
-          </p>
-        </div>
-      )
-    }
-
-    renderSuccess = () => {
-      return (
-        <div className="alert alert-success">
-          <button type="button" className="close_btn icon-close" onClick={this.clearSuccess}>
-            <span className="sr-only">Close alert</span>
-          </button>
-          <p role="alert" aria-live="assertive">
-            <strong>Success!&nbsp;</strong>{this.store.successText}
-          </p>
-        </div>
-      )
-    }
-
     renderSubmitButton = () => {
       let submitButtonText = 'Submit';
       if(attributes && attributes.submitButtonText) {
@@ -132,7 +91,24 @@ export default function asForm (MyComponent, attributes) {
 
     handleSubmit = (event) => {
       event.preventDefault();
-      this.store.submitForm();
+      if(this.store.formHasError) {
+        this.showAllFormErrors();
+      } else if(!this.store.formIsDirty) {
+        this.store.alertText = 'Please make a change to continue, or discard.';
+        this.store.showAlert = true;
+      } else {
+        this.store.submitForm();
+      }
+    }
+
+    showAllFormErrors = () => {
+      this.store.formFieldRefList.forEach(ref => {
+        if(ref && ref.hasFunctionalError) {
+          ref.hasVisibleError = ref.hasFunctionalError;
+        }
+      });
+      this.store.alertText = 'Please fix the following errors.';
+      this.store.showAlert = true;
     }
 
     handleSecondaryAction = (event) => {
@@ -196,10 +172,7 @@ export default function asForm (MyComponent, attributes) {
       return (
         <section>
           <form noValidate>
-            <div className={`alert-bars ${this.formColClass}`}>
-              {this.store.showAlert && this.renderAlert()}
-              {this.store.showSuccess && this.renderSuccess()}
-            </div>
+            <Alerts showAlert={this.store.showAlert} alertText={this.store.alertText} clearAlert={this.store.clearAlert.bind(this.store)} showSuccess={this.store.showSuccess} successText={this.store.successText} clearSuccess={this.store.clearSuccess.bind(this.store)} formColClass={this.formColClass}/>
 
             <MyComponent {...this.props}
               showExitModal={this.showExitModal}

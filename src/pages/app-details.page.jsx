@@ -9,7 +9,7 @@ import RatingsChart from '../components/ratings-chart/ratings-chart';
 import AppReviews from '../components/app-reviews/app-reviews';
 import ScreenshotGallery from '../components/screenshot-gallery/screenshot-gallery';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
-import {MDMAlerts} from '../components/configure-mdm/mdm-alerts';
+import Alerts from '../components/alerts/alerts';
 import Truncate from '../components/truncate/truncate';
 import NewTabLink from '../components/link/new-tab-link';
 
@@ -28,7 +28,6 @@ export default class AppDetailsPage extends React.Component {
     this.appStore = this.props.store.appCatalogStore;
     this.mdmStore = this.props.store.mdmStore;
     this.userStore = this.props.store.userStore;
-    this.viewedAlert = false;
   }
 
   componentWillMount() {
@@ -44,11 +43,6 @@ export default class AppDetailsPage extends React.Component {
         });
       }
     }
-  }
-
-  componentWillUnmount() {
-    //FPSE-1064 clear all alerts from this page
-    this.mdmStore.app_detail_alerts = [];
   }
 
   updateCurrentApp() {
@@ -157,7 +151,7 @@ export default class AppDetailsPage extends React.Component {
             <div className="row">
               <div className="col-xs-12">
                 <PageTitle className="sr-only">App Details</PageTitle>
-                <MDMAlerts store={this.mdmStore} alertList={this.mdmStore.app_detail_alerts} psk={this.props.match.params.appPsk}/>
+                <Alerts showAlert={this.mdmStore.showAlertOnAppDetails} alertText="This app could not be pushed to MDM." clearAlert={this.mdmStore.clearAlert.bind(this.mdmStore)} showSuccess={this.mdmStore.showSuccessOnAppDetails} successText="This app has been pushed to MDM." clearSuccess={this.mdmStore.clearSuccess.bind(this.mdmStore)}/>
               </div>
             </div>
           </div>

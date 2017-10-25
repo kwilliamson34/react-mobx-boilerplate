@@ -8,6 +8,7 @@ import PageTitle from '../components/page-title/page-title';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 import TextInput from '../components/forms/text-input';
 import {SortableTable} from '../components/sortable-table/sortable-table';
+import Alerts from '../components/alerts/alerts';
 
 @inject('store')
 @observer
@@ -35,12 +36,6 @@ export default class ManageFavoritesPage extends React.Component {
 
   resetSearch = () => {
     this.manageFavoritesStore.resetSearch();
-  }
-
-  clearSuccess = () => {
-    this.manageFavoritesStore.clearSuccess();
-    this.geolinkStore.clearAlerts();
-    this.geolinkStore.clearAlertsText();
   }
 
   keepFavorites = (e) => {
@@ -137,19 +132,6 @@ export default class ManageFavoritesPage extends React.Component {
         handleSubmit={this.manageFavoritesStore.searchLocations.bind(this.manageFavoritesStore)}
         handleClearClick={this.resetSearch}
         submitIcon="icon-search"/>
-    )
-  }
-
-  renderSuccessBar = () => {
-    return (
-      <div className="alert alert-success col-xs-12">
-        <button type="button" className="close_btn icon-close" onClick={this.clearSuccess}>
-          <span className="sr-only">Close alert</span>
-        </button>
-        <p role="alert" aria-live="assertive">
-          <strong>Success!&nbsp;</strong>{this.manageFavoritesStore.successText || this.geolinkStore.successText}
-        </p>
-      </div>
     )
   }
 
@@ -332,9 +314,7 @@ export default class ManageFavoritesPage extends React.Component {
               <div className="row">
                 <div className="col-xs-12">
                   <hr/>
-                  <div className="alert-bars">
-                    {(this.manageFavoritesStore.showSuccess || this.geolinkStore.showSuccess) && this.renderSuccessBar()}
-                  </div>
+                  <Alerts showSuccess={this.manageFavoritesStore.showSuccess} successText={this.manageFavoritesStore.successText} clearSuccess={this.manageFavoritesStore.clearSuccess.bind(this.manageFavoritesStore)} formColClass="col-xs-12"/>
                 </div>
               </div>
             </div>
