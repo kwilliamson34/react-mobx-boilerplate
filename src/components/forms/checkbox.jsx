@@ -25,6 +25,10 @@ export default class Checkbox extends React.Component {
     errorMessage: ''
   }
 
+  componentWillMount() {
+    this.hasBeenVisited = false;
+  }
+
   @observable hasBeenVisited = false;
   @observable hasVisibleError = false;
   @computed get hasFunctionalError() {

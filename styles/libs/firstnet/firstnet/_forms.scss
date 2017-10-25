@@ -292,6 +292,11 @@ select::-ms-value {
       &:hover {
         background-color: $fn-ltgrey;
       }
+      &:focus {
+        @include focus();
+        outline: none;
+        border: 1px solid $fn-ltblue;
+      }
       i {
         position: absolute;
         top: 17px;

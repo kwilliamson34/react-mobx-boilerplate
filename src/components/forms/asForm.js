@@ -19,7 +19,8 @@ export default function asForm (MyComponent, attributes) {
         formHasError: PropTypes.bool,
         showAlert: PropTypes.bool,
         alertText: PropTypes.string,
-        successText: PropTypes.string
+        successText: PropTypes.string,
+        submitButtonText: PropTypes.string //optional computed, overwrites attribute and default
       }),
       disabled: PropTypes.bool
     }
@@ -36,7 +37,6 @@ export default function asForm (MyComponent, attributes) {
     componentWillMount() {
       this.interceptedRoute = '';
       this.includeDivider = attributes && attributes.includeDivider;
-      this.submitButtonText = attributes && attributes.submitButtonText ? attributes.submitButtonText : 'Submit';
       this.secondaryButtonText = attributes && attributes.secondaryButtonText ? attributes.secondaryButtonText : '';
       this.formColClass = attributes && attributes.formColClass ? attributes.formColClass : ''
       if(!this.store.alertText) {
@@ -104,10 +104,17 @@ export default function asForm (MyComponent, attributes) {
     }
 
     renderSubmitButton = () => {
+      let submitButtonText = 'Submit';
+      if(attributes && attributes.submitButtonText) {
+        submitButtonText = attributes.submitButtonText;
+      }
+      if(this.store.submitButtonText) {
+        submitButtonText = this.store.submitButtonText;
+      }
       return (
         <div className="form-group text-center submit-button-wrapper">
           <button type="button" onClick={this.handleSubmit} className={`fn-primary form-submit ${(this.props.disabled || this.store.formHasError) ? 'disabled' : ''}`}>
-            {this.submitButtonText}
+            {submitButtonText}
           </button>
         </div>
       )
