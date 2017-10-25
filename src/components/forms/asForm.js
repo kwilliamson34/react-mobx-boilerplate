@@ -23,11 +23,13 @@ export default function asForm (MyComponent, attributes) {
         successText: PropTypes.string,
         submitButtonText: PropTypes.string //optional computed, overwrites attribute and default
       }),
-      disabled: PropTypes.bool
+      disabled: PropTypes.bool,
+      suppressAlertBars: PropTypes.bool
     }
 
     static defaultProps = {
-      disabled: false
+      disabled: false,
+      suppressAlertBars: false
     }
 
     constructor (props) {
@@ -172,7 +174,8 @@ export default function asForm (MyComponent, attributes) {
       return (
         <section>
           <form noValidate>
-            <Alerts showAlert={this.store.showAlert} alertText={this.store.alertText} clearAlert={this.store.clearAlert.bind(this.store)} showSuccess={this.store.showSuccess} successText={this.store.successText} clearSuccess={this.store.clearSuccess.bind(this.store)} formColClass={this.formColClass}/>
+            {!this.props.suppressAlertBars &&
+              <Alerts showAlert={this.store.showAlert} alertText={this.store.alertText} clearAlert={this.store.clearAlert.bind(this.store)} showSuccess={this.store.showSuccess} successText={this.store.successText} clearSuccess={this.store.clearSuccess.bind(this.store)} formColClass={this.formColClass}/>}
 
             <MyComponent {...this.props}
               showExitModal={this.showExitModal}

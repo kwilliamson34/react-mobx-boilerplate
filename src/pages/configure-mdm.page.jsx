@@ -7,6 +7,7 @@ import AirWatchForm from '../components/configure-mdm/air-watch-form';
 import IBMForm from '../components/configure-mdm/ibm-form';
 import MobileIronForm from '../components/configure-mdm/mobile-iron-form';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
+import Alerts from '../components/alerts/alerts';
 import $ from 'jquery';
 
 @inject('store')
@@ -144,7 +145,7 @@ export default class ConfigureMDM extends React.Component {
         MDMFormComponent = null;
     }
     if (MDMFormComponent) {
-      return <MDMFormComponent store={this.mdmStore} disabled={this.mdmStore.mdmIsConfigured}/>
+      return <MDMFormComponent store={this.mdmStore} disabled={this.mdmStore.mdmIsConfigured} suppressAlertBars={true}/>
     }
     return null;
   }
@@ -176,6 +177,7 @@ export default class ConfigureMDM extends React.Component {
             <section className="col-xs-12 col-lg-10 col-lg-offset-1">
               <div className="mdm-form col-md-offset-2 col-xs-12 col-md-8 col-md">
                 <section>
+                  <Alerts showAlert={this.mdmStore.showAlert} alertText={this.mdmStore.alertText} clearAlert={this.mdmStore.clearAlert.bind(this.mdmStore)} showSuccess={this.mdmStore.showSuccess} successText={this.mdmStore.successText} clearSuccess={this.mdmStore.clearSuccess.bind(this.mdmStore)}/>
                   {this.mdmStore.mdmIsConfigured && <p className="mdm-description">Only one MDM can be configured at a time. To configure a new MDM, the existing connection must be broken. Once the existing connection is broken, a new one can be configured.</p>}
                   {this.renderMDMSelectMenu()}
                   {this.renderProperMDMForm()}

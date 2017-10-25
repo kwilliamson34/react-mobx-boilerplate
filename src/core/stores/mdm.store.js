@@ -138,7 +138,6 @@ class MDMStore {
     const success = () => {
       this.clearForm();
       this.showAllFormErrors = false;
-      this.showAlertOnManageApps = false;
       this.appsReferencedByErrorAlert = [];
       this.appsReferencedBySuccessAlert = [];
       this.mdmIsConfigured = false;
