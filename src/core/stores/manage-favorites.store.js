@@ -102,11 +102,7 @@ class ManageFavoritesStore {
       ? this.checkedRows.remove(rowId)
       : this.checkedRows.push(rowId);
 	}
-
-  @action setDisabledDeleteButtonAnnouncement = (text) => {
-    this.disabledDeleteButtonAnnouncement = text;
-  }
-
+  
   @action resetPage() {
     this.resetPagination();
     this.clearSearchQuery();
@@ -207,7 +203,6 @@ class ManageFavoritesStore {
   @observable isLoading = false;
   @observable showSuccess = false;
   @observable successText = '';
-  @observable disabledDeleteButtonAnnouncement = '';
 
   @observable paginatedRows = [];
   @observable paginationCount = 0;

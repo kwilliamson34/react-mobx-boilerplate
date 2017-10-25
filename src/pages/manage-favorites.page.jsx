@@ -76,10 +76,6 @@ export default class ManageFavoritesPage extends React.Component {
     e.preventDefault();
     if (!this.manageFavoritesStore.disableDeleteButton) {
       this.showDeleteModal();
-      this.manageFavoritesStore.setDisabledDeleteButtonAnnouncement('');
-    }
-    else {
-      this.manageFavoritesStore.setDisabledDeleteButtonAnnouncement('Use the checkboxes to select favorites to delete.');
     }
   }
 
@@ -255,12 +251,7 @@ export default class ManageFavoritesPage extends React.Component {
             {
               this.manageFavoritesStore.disableDeleteButton &&
               <span className="sr-only">
-                Delete favorites button is inactive.
-                <span aria-live="assertive" aria-relevant="text">
-                  {
-                    this.manageFavoritesStore.disabledDeleteButtonAnnouncement
-                  }
-                </span>
+                Delete favorites button is inactive. Please select at least one favorite.
               </span>
             }
             <span aria-hidden={this.manageFavoritesStore.disableDeleteButton}>
