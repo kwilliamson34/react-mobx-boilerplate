@@ -31,7 +31,7 @@ export default class ManageFavoritesPage extends React.Component {
 
   componentWillUnmount() {
     this.manageFavoritesStore.resetPage();
-    this.clearSuccess();
+    this.manageFavoritesStore.clearSuccess();
   }
 
   resetSearch = () => {
@@ -323,7 +323,7 @@ export default class ManageFavoritesPage extends React.Component {
               <div className="row">
                 <div className="col-xs-12">
                   <hr/>
-                  <Alerts showSuccess={this.manageFavoritesStore.showSuccess} successText={this.manageFavoritesStore.successText} clearSuccess={this.manageFavoritesStore.clearSuccess.bind(this.manageFavoritesStore)} formColClass="col-xs-12"/>
+                  <Alerts showSuccess={this.manageFavoritesStore.showSuccess} successText={this.manageFavoritesStore.successText} clearSuccess={this.manageFavoritesStore.clearSuccess.bind(this.manageFavoritesStore)}/>
                 </div>
               </div>
             </div>
