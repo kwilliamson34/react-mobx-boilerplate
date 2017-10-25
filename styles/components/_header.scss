@@ -364,6 +364,7 @@ $fn-mobile-item-height: 60px;
     .desktop-iconItem {
       display: inline-block;
       background: $fn-white;
+      vertical-align: top;
 
       > button {
         display: block;
@@ -430,7 +431,6 @@ $fn-mobile-item-height: 60px;
 
     .desktop-textlink {
       display: inline-block;
-      float: left;
 
       > button {
         display: none;

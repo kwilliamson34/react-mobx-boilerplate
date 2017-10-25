@@ -53,9 +53,9 @@ export default class Footer extends React.Component {
 							aria-expanded={this.headerStore.footerSitemapExpanded}>Sitemap</a>
 						<ul className="sitemap-links">
 							<div>
-								<li role="presentation">
+								{this.userStore.destinationIsPermitted.administration && <li role="presentation">
 									<Link to="/admin">PSE Administration</Link>
-								</li>
+								</li>}
 								{this.userStore.destinationIsPermitted.manageApps && <li role="presentation">
 									<Link to="/admin/manage-apps">Manage Apps</Link>
 								</li>}
