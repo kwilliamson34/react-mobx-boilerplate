@@ -74,6 +74,13 @@ class MDMStore {
     }
   }
 
+  @action removePushErrorAlert(psk) {
+    //add to reference list if not already there
+    if(this.appsReferencedByErrorAlert.find(item => item == psk)) {
+      this.appsReferencedByErrorAlert.remove(psk);
+    }
+  }
+
   @action addPushSuccessAlert(psk) {
     //add to reference list if not already there
     if(!this.appsReferencedBySuccessAlert.find(item => item == psk)) {
@@ -153,6 +160,7 @@ class MDMStore {
         this.addPushErrorAlert(psk);
       } else if (args.showUserMessageOnSuccess && statusObject.mdm_install_status === 'INSTALLED'){
         this.addPushSuccessAlert(psk);
+        this.removePushErrorAlert(psk);
       }
     }
     const fail = () => {
