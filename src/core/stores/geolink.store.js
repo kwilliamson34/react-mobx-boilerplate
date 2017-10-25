@@ -216,6 +216,13 @@ class GeolinkStore {
       this.showAllFormErrors();
       return;
     }
+
+    if(!this.formIsDirty) {
+      this.alertText = 'Please make a change to continue, or discard.';
+      this.showAlert = true;
+      return;
+    }
+
     if(this.pageTitle === 'Edit Favorite') {
       this.editLocation();
     } else if(this.pageTitle === 'Add New Favorite') {
