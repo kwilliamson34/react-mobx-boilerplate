@@ -47,24 +47,15 @@ export default class TextInput extends React.Component {
     return this.props.dataObject[this.props.id];
   }
   @computed get hasFunctionalError() {
-    let hasError = false;
-
-    //empty check
-    const inputIsEmptyOrSpaces = !this.valueInStore || !/\w+/.test(this.valueInStore);
-    if(this.props.required && inputIsEmptyOrSpaces) {
-      hasError = true;
-    }
-
-    //other validation rules
-    if(!inputIsEmptyOrSpaces && this.props.getIsValid !== undefined && !this.props.getIsValid(this.valueInStore)) {
-      hasError = true;
-    }
-
-    return hasError;
+    return this.isEmpty || this.failsExtraValidation;
   }
-
-  showErrors = () => {
-    this.hasVisibleError = this.hasFunctionalError;
+  @computed get isEmpty() {
+    const inputIsEmptyOrSpaces = !this.valueInStore || !/\w+/.test(this.valueInStore);
+    return this.props.required && inputIsEmptyOrSpaces;
+  }
+  @computed get failsExtraValidation() {
+    const inputIsEmptyOrSpaces = !this.valueInStore || !/\w+/.test(this.valueInStore);
+    return !inputIsEmptyOrSpaces && this.props.getIsValid !== undefined && !this.props.getIsValid(this.valueInStore);
   }
 
   handleOnChange = (e) => {
@@ -74,11 +65,11 @@ export default class TextInput extends React.Component {
     } else {
       this.props.dataObject[this.props.id] = newValue;
     }
-    this.showErrors();
+    this.hasVisibleError = this.isEmpty;
   }
 
   handleOnBlur = () => {
-    this.showErrors();
+    this.hasVisibleError = this.hasFunctionalError;
   }
 
   handleKeyPress = (e) => {
@@ -91,7 +82,7 @@ export default class TextInput extends React.Component {
   handleClearClick = () => {
     this.props.dataObject[this.props.id] = '';
     this.refs.btnSubmit.focus();
-    this.showErrors();
+    this.hasVisibleError = this.isEmpty;
     if(this.props.handleClearClick) {
       this.props.handleClearClick();
     }
