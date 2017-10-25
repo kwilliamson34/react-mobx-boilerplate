@@ -51,7 +51,7 @@ export class TableRow extends React.Component {
             <td key={`table-row-${i}`} className={column.className}>
               <div className="flex-wrapper">
                 <div className="row-contents-wrapper">
-                  <span>extra line <br /> extra line <br />{this.props.row[column.key]}</span>
+                  <span>{this.props.row[column.key]}</span>
                 </div>
                 {
                   column.inlineButtonJsx &&
