@@ -155,6 +155,9 @@ export default class App extends React.Component {
       destinationIsPermitted = pseMasterStore.userStore.destinationIsPermitted.shopPublicSafetySolutions;
     } else if(component === AdminDashboardPage) {
       destinationIsPermitted = pseMasterStore.userStore.destinationIsPermitted.administration;
+      if(!destinationIsPermitted) {
+        return () => <Redirect to="/network-status"/>;
+      }
     }
 
     let roleBasedRoutes = destinationIsPermitted || pseMasterStore.userStore.isAdmin ? component : () => <Redirect to="/error/unauthorized"/>;
