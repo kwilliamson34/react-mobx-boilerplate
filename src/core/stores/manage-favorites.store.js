@@ -102,7 +102,7 @@ class ManageFavoritesStore {
       ? this.checkedRows.remove(rowId)
       : this.checkedRows.push(rowId);
 	}
-
+  
   @action resetPage() {
     this.resetPagination();
     this.clearSearchQuery();
@@ -168,6 +168,10 @@ class ManageFavoritesStore {
 
   @computed get sortedRows() {
     return this.sortAndReturnRows(this.paginatedRows);
+  }
+
+  @computed get disableDeleteButton() {
+    return this.checkedRows.length === 0;
   }
 
   @computed get rowIsChecked() {

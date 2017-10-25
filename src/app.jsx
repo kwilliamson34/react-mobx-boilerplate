@@ -188,7 +188,17 @@ export default class App extends React.Component {
         : (pseMasterStore.userStore.isSubscriber
           ? <ExternalRedirect externalUrl={config.appStore}/>
           : <ErrorPage cause="unauthorized"/>))
-      : <p>Securing Session...</p>
+      : <div className="fn-loading">
+          <div className="fn-loading-logo">
+            <img src="/images/firstnet-logo.svg" width="173" height="51" alt="" aria-hidden="true" />
+          </div>
+          <h1 className="fn-loading-text">Loading</h1>
+          <div className="fn-loading-circle">
+            {[...Array(12)].map((x, i) =>
+              <div key={i} className={`c${i+1} c`}></div>
+            )}
+          </div>
+        </div>
   }
 
   render() {
