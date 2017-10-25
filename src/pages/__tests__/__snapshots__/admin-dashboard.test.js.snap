@@ -19,7 +19,7 @@ exports[`<AdminDashboard /> renders matches previous snapshot 1`] = `
         <nav>
           <ul>
             <li
-              className="col-xs-12" />
+              className="col-xs-12 col-sm-6" />
           </ul>
         </nav>
       </section>
