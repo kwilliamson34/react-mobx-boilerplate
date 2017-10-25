@@ -141,8 +141,8 @@ export default class TextInput extends React.Component {
           {submitButtonVisible &&
             <span className="input-group-btn">
               <button className="submit-btn" type="button" ref="btnSubmit" onClick={this.handleSubmit} disabled={this.props.disabled}>
-                <span className="sr-only">{this.props.type == 'search' ? 'Search' : 'Submit'}</span>
-                <span aria-hidden="true" className={this.props.type == 'search' ? 'icon-search' : 'icon-arrowRight'} />
+                <span className="sr-only">{this.props.type === 'search' ? 'Search' : 'Submit'}</span>
+                <span aria-hidden="true" className={this.props.type === 'search' ? 'icon-search' : 'icon-arrowRight'} />
               </button>
             </span>
           }

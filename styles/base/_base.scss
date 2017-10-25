@@ -107,12 +107,12 @@ h2 + hr {
 
     [class^="icon-"]:before {
       line-height: 3;
-      font-size: 16px;
+      font-size: $fn-button-desktop;
       color: $fn-dkgrey;
     }
 
     .icon-close:before {
-      font-size: 10px;
+      font-size: 1rem;
     }
 
     &:hover,
