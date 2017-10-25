@@ -42,7 +42,6 @@ class MDMStore {
   }
 
   @action clearAlert() {
-    console.log('here');
     this.showAlert = false;
     this.appsReferencedByErrorAlert = [];
   }
@@ -75,7 +74,7 @@ class MDMStore {
   }
 
   @action removePushErrorAlert(psk) {
-    //add to reference list if not already there
+    //remove from reference list if already there
     if(this.appsReferencedByErrorAlert.find(item => item == psk)) {
       this.appsReferencedByErrorAlert.remove(psk);
     }
