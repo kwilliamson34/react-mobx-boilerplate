@@ -13,7 +13,8 @@ export default class Checkbox extends React.Component {
     labelIsSrOnly: PropTypes.bool,
     checked: PropTypes.bool,
     required: PropTypes.bool,
-    errorMessage: PropTypes.string
+    errorMessage: PropTypes.string,
+    tooltipText: PropTypes.string
   }
 
   static defaultProps = {
@@ -88,6 +89,18 @@ export default class Checkbox extends React.Component {
             }
           </span>
         </label>
+        {this.props.tooltipText &&
+					<button
+						className="tooltip"
+						id={'tooltip-' + this.props.id}
+						type="button"
+						role="tooltip"
+						data-toggle="tooltip"
+						data-placement="top"
+						title={this.props.tooltipText}>
+						<i className="icon-help" aria-hidden="true"></i>
+					</button>
+				}
       </div>
     )
   }

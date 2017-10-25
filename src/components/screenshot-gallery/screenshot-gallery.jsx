@@ -4,9 +4,6 @@ import {observer} from 'mobx-react';
 
 @observer
 export default class ScreenshotGallery extends React.Component {
-  constructor(props){
-    super(props);
-  }
 
   static propTypes = {
     detailObj: PropTypes.object.isRequired
@@ -21,15 +18,14 @@ export default class ScreenshotGallery extends React.Component {
         <div key={i} className='slide-container'>
           <figure className='img-responsive'>
             <img src={imgPath} className='slide-img' alt={node.description} aria-labelledby={'slide-caption-' + i} />
+            <figcaption className='slide-caption' id={'slide-caption-' + i}>{node.description}</figcaption>
           </figure>
-          <figcaption className='slide-caption' id={'slide-caption-' + i}>{node.description}</figcaption>
         </div>
       )
     }
   )};
 
   render() {
-
     return (
       <div className="gallery-container" role="region" aria-label="App screenshot gallery">
         <div className="scrollable-region">
