@@ -103,6 +103,10 @@ class ManageFavoritesStore {
       : this.checkedRows.push(rowId);
 	}
 
+  @action setDisabledDeleteButtonAnnouncement = (text) => {
+    this.disabledDeleteButtonAnnouncement = text;
+  }
+
   @action resetPage() {
     this.resetPagination();
     this.clearSearchQuery();
@@ -170,6 +174,10 @@ class ManageFavoritesStore {
     return this.sortAndReturnRows(this.paginatedRows);
   }
 
+  @computed get disableDeleteButton() {
+    return this.checkedRows.length === 0;
+  }
+
   @computed get rowIsChecked() {
     return this.checkedRows.indexOf(this.activeRow) > -1;
   }
@@ -199,6 +207,7 @@ class ManageFavoritesStore {
   @observable isLoading = false;
   @observable showSuccess = false;
   @observable successText = '';
+  @observable disabledDeleteButtonAnnouncement = '';
 
   @observable paginatedRows = [];
   @observable paginationCount = 0;
