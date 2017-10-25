@@ -234,7 +234,6 @@ export default class GeolinkControls extends React.Component {
           className="search-form"
           showClearButton={true}
           handleSubmit={this.store.searchMap.bind(this.store)}
-          submitIcon="icon-search"
           iconClass={this.store.shouldDisplayLocationName ? 'icon-star' : ''}
           onDropIntoList={this.onDropIntoList}
           disableAutoComplete={true}/>
