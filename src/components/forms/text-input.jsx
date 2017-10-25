@@ -81,7 +81,7 @@ export default class TextInput extends React.Component {
 
 	checkCharLimitMessage = (fieldValue) => {
 		if (fieldValue.length >= this.props.charLimit) {
-			this.charLimitMessage = `The ${this.props.charLimit} character limit for the ${this.props.labelText} field has been reached.`;
+      this.charLimitMessage = 'Character limit reached.';
 		} else {
 			this.charLimitMessage = '';
 		}
@@ -121,6 +121,7 @@ export default class TextInput extends React.Component {
 				<span className="sr-only" role="alert" aria-live="assertive">{this.charLimitMessage}</span>
         <FormLabel
           id={this.props.id}
+          charLimitMessage={this.charLimitMessage}
           hasError={this.hasVisibleError}
           fieldIsRequired={this.props.required}
           labelText={this.props.labelText}

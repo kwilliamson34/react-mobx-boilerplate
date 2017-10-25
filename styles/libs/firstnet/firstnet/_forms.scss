@@ -105,15 +105,29 @@ textarea[disabled] {
 }
 
 .help-block,
-.help-text {
+.help-text,
+.error-text {
   font-weight: $fn-normal-weight;
   text-transform: none;
   font-style: italic;
 }
 
+.control-label{
+  position: relative;
+  width: 100%;
+}
+
 .control-label .help-text {
   padding-left: 10px;
+  font-size: $fn-small-text-desktop;
 }
+
+.control-label .error-text {
+  position: absolute;
+  right: 0;
+  font-size: $fn-small-text-desktop;
+}
+
 
 select {
   &.form-control {
