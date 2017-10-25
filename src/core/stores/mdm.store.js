@@ -29,7 +29,9 @@ class MDMStore {
       ibm_password: '',
       ibm_userName: '',
       mi_password: '',
-      mi_userName: ''
+      mi_userName: '',
+      mic_password: '',
+      mic_userName: ''
     });
   }
 
@@ -381,7 +383,12 @@ class MDMStore {
     ibm_userName: '',
     mi_hostName: '',
     mi_password: '',
-    mi_userName: ''
+    mi_userName: '',
+    mic_clientId: '',
+    mic_clientSecret: '',
+    mic_tenantCode: '',
+    mic_userName: '',
+    mic_password: ''
   }
   @observable values = {
     mdm_type: '',
@@ -399,7 +406,12 @@ class MDMStore {
     ibm_userName: '',
     mi_hostName: '',
     mi_password: '',
-    mi_userName: ''
+    mi_userName: '',
+    mic_clientId: '',
+    mic_clientSecret: '',
+    mic_tenantCode: '',
+    mic_userName: '',
+    mic_password: ''
   }
 }
 
