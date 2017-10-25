@@ -64,7 +64,7 @@ export default class AdminDashboardPage extends React.Component {
                     <NewTabLink to={config.manageVoicemailAndUsageLink} className="dashboard-card manage-voicemail-and-usage has-shadow">
                       <div className="desc">
                         <h3>Manage voicemail &amp; usage</h3>
-                        <p>This is a TEMPORARY description of how folks can take advantage of managing voicemail and usage.</p>
+                        <p>Manage voicemail and data usage for your devices</p>
                       </div>
                       <span>Manage voicemail &amp; usage <i className="icon-arrowRight" aria-hidden="true"></i></span>
                     </NewTabLink>
