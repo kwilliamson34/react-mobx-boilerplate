@@ -17,16 +17,13 @@ class GTOCStore {
   }
 
   @action submitForm() {
-    if(this.formHasError) {
-      this.showAllFormErrors();
-      return;
-    }
     const success = () => {
       this.clearForm();
       history.push('/subscribe-to-alerts-success');
     }
     const failure = () => {
-      this.showAllFormErrors();
+      this.alertText = 'An unknown error occured. Please try again later.';
+      this.showAlert = true;
     }
     apiService.submitGTOCSubscriptionForm(this.values).then(success, failure);
   }
@@ -35,6 +32,14 @@ class GTOCStore {
     this.values = Object.assign({}, this.defaultValues);
     this.showAlert = false;
     this.clearFormFieldRefList();
+  }
+
+  @action clearAlert() {
+    this.showAlert = false;
+  }
+
+  @action clearSuccess() {
+    this.showSuccess = false;
   }
 
   @action clearFormFieldRefList() {
@@ -51,15 +56,6 @@ class GTOCStore {
     return formHasChanged;
   }
 
-  @action showAllFormErrors() {
-    this.formFieldRefList.forEach(ref => {
-      if(ref && ref.hasFunctionalError) {
-        ref.hasVisibleError = ref.hasFunctionalError;
-      }
-    });
-    this.showAlert = true;
-  }
-
   @action selectAll() {
     this.values.femaList = ['Region I: Connecticut, Maine, Massachusetts, New Hampshire, Rhode Island, Vermont','Region II: New Jersey, New York, Puerto Rico, Virgin Islands','Region III: District of Columbia, Delaware, Maryland, Pennsylvania, Virginia, West Virginia','Region IV: Alabama, Florida, Georgia, Kentucky, Mississippi, North Carolina, South Carolina, Tennessee','Region V: Illinois, Indiana, Michigan, Minnesota, Ohio, Wisconsin','Region VI: Arkansas, Louisiana, New Mexico, Oklahoma, Texas','Region VII: Iowa, Kansas, Missouri, Nebraska','Region VIII: Colorado, Montana, North Dakota, South Dakota, Utah, Wyoming','Region IX: Arizona, California, Hawaii, Nevada, Pacific Islands','Region X: Alaska, Idaho, Oregon, Washington'];
   }
@@ -70,6 +66,7 @@ class GTOCStore {
 
   @observable formFieldRefList = [];
   @observable formHasError = true;
+  @observable alertText = 'Please fix the following errors.';
   @observable showAlert = false;
   @observable defaultValues = {
     email: '',

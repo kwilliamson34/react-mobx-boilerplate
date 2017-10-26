@@ -3,8 +3,6 @@ exports[`<LeadCaptureForm /> renders matches previous snapshot 1`] = `
   <form
     noValidate={true}>
     <div
-      className="alert-bars " />
-    <div
       id="lead-capture-form" />
     <div
       className="form-actions ">
