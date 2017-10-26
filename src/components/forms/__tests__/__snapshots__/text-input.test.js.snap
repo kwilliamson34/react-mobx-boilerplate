@@ -4,11 +4,13 @@ exports[`<TextInput /> renders matches previous snapshot 1`] = `
   <div
     className="input-group ">
     <textarea
+      autoComplete="on"
       className="form-control"
       disabled={false}
       id="key"
       onBlur={[Function anonymous]}
       onChange={[Function anonymous]}
+      onKeyDown={undefined}
       onKeyPress={[Function anonymous]}
       type="textarea"
       value="" />
@@ -22,11 +24,13 @@ exports[`<TextInput /> renders matches previous snapshot 2`] = `
   <div
     className="input-group ">
     <input
+      autoComplete="on"
       className="form-control"
       disabled={false}
       id="key"
       onBlur={[Function anonymous]}
       onChange={[Function anonymous]}
+      onKeyDown={undefined}
       onKeyPress={[Function anonymous]}
       type="search"
       value="" />
@@ -40,11 +44,13 @@ exports[`<TextInput /> renders matches previous snapshot 3`] = `
   <div
     className="input-group ">
     <input
+      autoComplete="on"
       className="form-control"
       disabled={false}
       id="key"
       onBlur={[Function anonymous]}
       onChange={[Function anonymous]}
+      onKeyDown={undefined}
       onKeyPress={[Function anonymous]}
       type="input"
       value="" />
@@ -58,11 +64,13 @@ exports[`<TextInput /> renders matches previous snapshot 4`] = `
   <div
     className="input-group ">
     <input
+      autoComplete="on"
       className="form-control"
       disabled={false}
       id="key"
       onBlur={[Function anonymous]}
       onChange={[Function anonymous]}
+      onKeyDown={undefined}
       onKeyPress={[Function anonymous]}
       type="input"
       value="testvalue" />
@@ -91,11 +99,13 @@ exports[`<TextInput /> renders matches previous snapshot 5`] = `
   <div
     className="input-group ">
     <input
+      autoComplete="on"
       className="form-control"
       disabled={false}
       id="key"
       onBlur={[Function anonymous]}
       onChange={[Function anonymous]}
+      onKeyDown={undefined}
       onKeyPress={[Function anonymous]}
       type="input"
       value="testvalue" />
@@ -140,11 +150,13 @@ exports[`<TextInput /> renders matches previous snapshot 6`] = `
   <div
     className="input-group ">
     <input
+      autoComplete="on"
       className="form-control"
       disabled={false}
       id="key"
       onBlur={[Function anonymous]}
       onChange={[Function anonymous]}
+      onKeyDown={undefined}
       onKeyPress={[Function anonymous]}
       type="input"
       value="testvalue" />
@@ -189,11 +201,13 @@ exports[`<TextInput /> renders matches previous snapshot 7`] = `
   <div
     className="input-group ">
     <input
+      autoComplete="on"
       className="form-control"
       disabled={true}
       id="key"
       onBlur={[Function anonymous]}
       onChange={[Function anonymous]}
+      onKeyDown={undefined}
       onKeyPress={[Function anonymous]}
       type="input"
       value="testvalue" />

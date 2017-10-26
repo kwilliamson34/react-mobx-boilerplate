@@ -26,11 +26,5 @@ describe("FeedbackStore", () => {
       feedbackStore.submitForm();
       expect(apiService.submitCustomerFeedbackForm).toHaveBeenCalled();
     });
-
-    test('if form is not valid, error is noted for the alert bar', () => {
-      feedbackStore.values.email = 'junk';
-      feedbackStore.showAllFormErrors();
-      expect(feedbackStore.showAlert).toBe(true);
-    });
   });
 });

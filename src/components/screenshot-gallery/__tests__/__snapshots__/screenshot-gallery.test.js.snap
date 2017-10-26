@@ -14,12 +14,12 @@ exports[`<ScreenshotGallery /> standard snapshot tests: Render tests; should ren
           aria-labelledby="slide-caption-0"
           className="slide-img"
           src="imgpath.jpg" />
+        <figcaption
+          className="slide-caption"
+          id="slide-caption-0">
+          This is a mobile screenshot
+        </figcaption>
       </figure>
-      <figcaption
-        className="slide-caption"
-        id="slide-caption-0">
-        This is a mobile screenshot
-      </figcaption>
     </div>
     <div
       className="slide-container">
@@ -30,12 +30,12 @@ exports[`<ScreenshotGallery /> standard snapshot tests: Render tests; should ren
           aria-labelledby="slide-caption-1"
           className="slide-img"
           src="imgpath.jpg" />
+        <figcaption
+          className="slide-caption"
+          id="slide-caption-1">
+          This is a tablet screenshot
+        </figcaption>
       </figure>
-      <figcaption
-        className="slide-caption"
-        id="slide-caption-1">
-        This is a tablet screenshot
-      </figcaption>
     </div>
   </div>
 </div>

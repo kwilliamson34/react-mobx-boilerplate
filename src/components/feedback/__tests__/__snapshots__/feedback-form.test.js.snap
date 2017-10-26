@@ -3,8 +3,6 @@ exports[`<FeedbackForm /> renders matches previous snapshot 1`] = `
   <form
     noValidate={true}>
     <div
-      className="alert-bars " />
-    <div
       id="feedback-form">
       <div
         className="text-block">
@@ -25,8 +23,6 @@ exports[`<FeedbackForm /> renders matches previous snapshot 1`] = `
           .
         </p>
       </div>
-      <span
-        className="contact-agreement hide" />
     </div>
     <div
       className="form-actions ">
