@@ -240,7 +240,7 @@ export default class GeolinkControls extends React.Component {
         {this.renderPredictiveDropdown()}
         <button
           className={`as-link add-favorite-button ${this.store.values.locationAddress && !this.store.shouldDisplayLocationName ? '' : 'disabled'}`}
-          ref={(b) => {this.addFavoriteBtn = b; }}
+          ref={(i) => {this.addFavoriteBtn = i }}
           onClick={this.store.showAddLocationForm.bind(this.store)}>
           Add Favorite
         </button>

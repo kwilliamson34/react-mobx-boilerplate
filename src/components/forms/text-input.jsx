@@ -124,7 +124,7 @@ export default class TextInput extends React.Component {
           {clearButtonVisible &&
             <span className="input-group-btn">
               <button
-                ref={(bc) => {this.btnClear = bc; }}
+                ref={(i) => {this.btnClear = i }}
                 className="clear-btn"
                 type="button"
                 onClick={this.handleClearClick}>
@@ -135,7 +135,7 @@ export default class TextInput extends React.Component {
           }
           {submitButtonVisible &&
             <span className="input-group-btn">
-              <button className="submit-btn" type="button" ref={(bs) => { this.btnSubmit = bs }} onClick={this.handleSubmit} disabled={this.props.disabled}>
+              <button className="submit-btn" type="button" ref={(i) => { this.btnSubmit = i }} onClick={this.handleSubmit} disabled={this.props.disabled}>
                 <span className="sr-only">{this.props.type === 'search' ? 'Search' : 'Submit'}</span>
                 <span aria-hidden="true" className={this.props.type === 'search' ? 'icon-search' : 'icon-arrowRight'} />
               </button>

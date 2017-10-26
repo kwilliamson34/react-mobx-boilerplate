@@ -151,7 +151,7 @@ export default class ManageAppsPage extends React.Component {
           <div className="row">
             <div className="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-12 col-lg-offset-1 col-lg-10">
               <CardList
-                ref={(c) => { this.cardList = c; }}
+                ref={(i) => { this.cardList = i }}
                 cards={this.paginatedCards}
                 numPagesShown={this.props.store.pages[this.pageId]}
                 itemsPerPage={this.itemsPerPage}

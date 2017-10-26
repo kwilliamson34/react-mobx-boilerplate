@@ -30,7 +30,7 @@ export class MDMAlerts extends React.Component {
           if(!this.props.psk || this.props.psk === alert.psk) {
             return (
               <div
-                ref={(af) => { this.alert_focus = af; }}
+                ref={(i) => { this.alert_focus = i }}
                 className={`alert alert-${alert.type}`}
                 key={idx}>
                 <button type="button" className="close_btn icon-close" onClick={this.onCloseButtonClick.bind(this, idx)}>
