@@ -1,6 +1,6 @@
 exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1`] = `
 <section
-  className="geolink-controls light-grey-bg hide">
+  className="geolink-controls light-grey-bg">
   <div
     className="container">
     <div
@@ -25,14 +25,24 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
             <ul>
               <li
                 onClick={[Function onClick]}
+                onFocus={[Function onFocus]}
+                onKeyDown={[Function anonymous]}
                 onKeyPress={[Function onKeyPress]}
                 role="button"
                 tabIndex="0">
                 <i
                   aria-hidden={true}
                   className="icon-star" />
+                <span
+                  className="sr-only">
+                  Search for favorite named
+                </span>
                 <span>
                   Sapient Corporation
+                </span>
+                <span
+                  className="sr-only">
+                  at address
                 </span>
                 <small>
                   40 Fulton Street, New York, NY
@@ -40,14 +50,24 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
               </li>
               <li
                 onClick={[Function onClick]}
+                onFocus={[Function onFocus]}
+                onKeyDown={[Function anonymous]}
                 onKeyPress={[Function onKeyPress]}
                 role="button"
                 tabIndex="0">
                 <i
                   aria-hidden={true}
                   className="icon-star" />
+                <span
+                  className="sr-only">
+                  Search for favorite named
+                </span>
                 <span>
                   Williamsburg
+                </span>
+                <span
+                  className="sr-only">
+                  at address
                 </span>
                 <small>
                   Bedford Ave, Brooklyn, NY
@@ -55,6 +75,8 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
               </li>
               <li
                 onClick={[Function anonymous]}
+                onFocus={[Function onFocus]}
+                onKeyDown={[Function anonymous]}
                 onKeyPress={[Function anonymous]}
                 role="button"
                 tabIndex="0">
@@ -478,7 +500,7 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
 
 exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 1`] = `
 <section
-  className="geolink-controls light-grey-bg hide">
+  className="geolink-controls light-grey-bg">
   <div
     className="container">
     <div
@@ -915,7 +937,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
 
 exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 2`] = `
 <section
-  className="geolink-controls light-grey-bg hide">
+  className="geolink-controls light-grey-bg">
   <div
     className="container">
     <div
@@ -1352,7 +1374,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
 
 exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 3`] = `
 <section
-  className="geolink-controls light-grey-bg hide">
+  className="geolink-controls light-grey-bg">
   <div
     className="container">
     <div

@@ -34,14 +34,7 @@ export default class SelectInput extends React.Component {
     return this.props.dataObject[this.props.id];
   }
   @computed get hasFunctionalError() {
-    let hasError = false;
-
-    //empty check
-    if(this.props.required && this.valueInStore === '') {
-      hasError = true;
-    }
-
-    return hasError;
+    return this.props.required && this.valueInStore === '';
   }
 
   handleOnChange = (e) => {

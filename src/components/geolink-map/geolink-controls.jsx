@@ -73,7 +73,7 @@ export default class GeolinkControls extends React.Component {
   onFavoriteClick = (favorite) => {
     this.store.selectFavorite(favorite);
     this.store.formFieldRefList.find((el) => {
-      return el.refs.input.id === 'locationName' || el.refs.input.id === 'locationAddress';
+      return el && (el.refs.input.id === 'locationName' || el.refs.input.id === 'locationAddress');
     }).refs.input.focus();
   }
 
@@ -81,7 +81,7 @@ export default class GeolinkControls extends React.Component {
     if(event.charCode === this.ENTER_KEY_CODE) {
       this.store.selectFavorite(favorite);
       this.store.formFieldRefList.find((el) => {
-        return el.refs.input.id === 'locationName' || el.refs.input.id === 'locationAddress';
+        return el && (el.refs.input.id === 'locationName' || el.refs.input.id === 'locationAddress');
       }).refs.input.focus();
     }
   }
@@ -234,7 +234,6 @@ export default class GeolinkControls extends React.Component {
           className="search-form"
           showClearButton={true}
           handleSubmit={this.store.searchMap.bind(this.store)}
-          submitIcon="icon-search"
           iconClass={this.store.shouldDisplayLocationName ? 'icon-star' : ''}
           onDropIntoList={this.onDropIntoList}
           disableAutoComplete={true}/>

@@ -63,7 +63,7 @@ export default class Checkbox extends React.Component {
       : '';
     return (
       <div className={`checkbox form-group ${disabledClass}`}>
-        {this.hasVisibleError && <div className="msgBlock error error-list" role="alert" aria-live="assertive">
+        {this.hasVisibleError && <div className="msgBlock error error-list" role="alert" aria-live="polite">
           <span>{this.props.errorMessage}</span>
         </div>}
         <label>
