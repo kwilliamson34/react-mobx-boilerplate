@@ -76,7 +76,8 @@ class GtocForm extends React.Component {
           labelText="Email"
           required={true}
           getIsValid={utilsService.isValidEmailAddress}
-          errorMessage="Please enter a valid email address."/>
+          errorMessage="Please enter a valid email address."
+          charLimit={256}/>
       </div>
     );
   }

@@ -37,7 +37,8 @@ class LeadCaptureForm extends React.Component {
           type="input"
           labelText="First Name"
           required={true}
-          errorMessage="Please enter your name."/>
+          errorMessage="Please enter your name."
+          charLimit={256}/>
 
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
@@ -46,7 +47,8 @@ class LeadCaptureForm extends React.Component {
           type="input"
           labelText="Last Name"
           required={true}
-          errorMessage="Please enter your name."/>
+          errorMessage="Please enter your name."
+          charLimit={256}/>
 
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
@@ -57,7 +59,7 @@ class LeadCaptureForm extends React.Component {
           required={true}
           getIsValid={utilsService.isValidEmailAddress}
           errorMessage="Please enter a valid email address."
-          charLimit={50}/>
+          charLimit={256}/>
 
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
@@ -67,17 +69,18 @@ class LeadCaptureForm extends React.Component {
           labelText="Contact Number"
           required={true}
           errorMessage="Please enter your phone number."
-          charLimit={50}/>
+          charLimit={256}/>
 
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
           dataObject={this.store.values}
+          helperText="Max 600 Characters"
           id="message"
           type="textarea"
           labelText="Message (Optional)"
           required={false}
           errorMessage="Please enter a summary of your request."
-          charLimit={250}/>
+          charLimit={600}/>
 
         <Checkbox
           ref={ref => this.store.formFieldRefList.push(ref)}
