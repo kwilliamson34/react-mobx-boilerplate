@@ -11,11 +11,11 @@
     background: white;
   }
 
-  .app-details-alerts {
-   background: white;
+  .alert-bars {
+   margin-bottom: 0;
 
-   .alerts-wrapper:not(:empty) {
-     padding-bottom: 10px;
+   .alert {
+     margin: 30px 0 0;
    }
  }
 
@@ -82,18 +82,7 @@
     }
   }
 }
-@media (max-width: $screen-sm) {
-  #app-details-page {
-    .app-details-alerts {
-      background: transparent;
-      padding: 20px 0 0;
 
-      .alert {
-        margin-bottom: 0;
-      }
-    }
-  }
-}
 @media #{$desktop} {
   #app-details-page {
     .app-ratings {

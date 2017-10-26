@@ -38,10 +38,6 @@ class LeadCaptureStore {
   }
 
   @action submitForm() {
-    if (this.formHasError) {
-      this.showAllFormErrors();
-      return;
-    }
     const success = () => {
       this.recordSolutionRequestInCookie();
       this.clearForm();
@@ -49,7 +45,8 @@ class LeadCaptureStore {
       history.go(-1);
     }
     const failure = () => {
-      this.showAllFormErrors();
+      this.alertText = 'An unknown error occured. Please try again later.';
+      this.showAlert = true;
     }
     apiService.submitLeadCaptureForm(this.values, this.solutionName).then(success, failure);
   }
@@ -59,6 +56,14 @@ class LeadCaptureStore {
     this.solutionName = '';
     this.showAlert = false;
     this.clearFormFieldRefList();
+  }
+
+  @action clearAlert() {
+    this.showAlert = false;
+  }
+
+  @action clearSuccess() {
+    this.showSuccess = false;
   }
 
   @action clearFormFieldRefList() {
@@ -73,15 +78,6 @@ class LeadCaptureStore {
       }
     });
     return formHasChanged;
-  }
-
-  @action showAllFormErrors() {
-    this.formFieldRefList.forEach(ref => {
-      if (ref && ref.hasFunctionalError) {
-        ref.hasVisibleError = ref.hasFunctionalError;
-      }
-    });
-    this.showAlert = true;
   }
 
   @action showSuccess() {
@@ -107,6 +103,7 @@ class LeadCaptureStore {
 
   @observable formFieldRefList = [];
   @observable formHasError = true;
+  @observable alertText = 'Please fix the following errors.';
   @observable showAlert = false;
   @observable showSuccess = false;
   @observable solutionName = '';

@@ -132,6 +132,18 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
                     </span>
                   </span>
                 </label>
+                <button
+                  className="tooltip"
+                  data-placement="top"
+                  data-toggle="tooltip"
+                  id="tooltip-"
+                  role="tooltip"
+                  title="Represents our fully operational service"
+                  type="button">
+                  <i
+                    aria-hidden="true"
+                    className="icon-help" />
+                </button>
               </div>
               <div
                 className="checkbox form-group ">
@@ -210,6 +222,18 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
                     </span>
                   </span>
                 </label>
+                <button
+                  className="tooltip"
+                  data-placement="top"
+                  data-toggle="tooltip"
+                  id="tooltip-"
+                  role="tooltip"
+                  title="Highlights abnormal network malfunction"
+                  type="button">
+                  <i
+                    aria-hidden="true"
+                    className="icon-help" />
+                </button>
               </div>
             </div>
           </fieldset>
@@ -569,6 +593,18 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     </span>
                   </span>
                 </label>
+                <button
+                  className="tooltip"
+                  data-placement="top"
+                  data-toggle="tooltip"
+                  id="tooltip-"
+                  role="tooltip"
+                  title="Represents our fully operational service"
+                  type="button">
+                  <i
+                    aria-hidden="true"
+                    className="icon-help" />
+                </button>
               </div>
               <div
                 className="checkbox form-group disabled">
@@ -647,6 +683,18 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     </span>
                   </span>
                 </label>
+                <button
+                  className="tooltip"
+                  data-placement="top"
+                  data-toggle="tooltip"
+                  id="tooltip-"
+                  role="tooltip"
+                  title="Highlights abnormal network malfunction"
+                  type="button">
+                  <i
+                    aria-hidden="true"
+                    className="icon-help" />
+                </button>
               </div>
             </div>
           </fieldset>
@@ -1006,6 +1054,18 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     </span>
                   </span>
                 </label>
+                <button
+                  className="tooltip"
+                  data-placement="top"
+                  data-toggle="tooltip"
+                  id="tooltip-"
+                  role="tooltip"
+                  title="Represents our fully operational service"
+                  type="button">
+                  <i
+                    aria-hidden="true"
+                    className="icon-help" />
+                </button>
               </div>
               <div
                 className="checkbox form-group ">
@@ -1084,6 +1144,18 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     </span>
                   </span>
                 </label>
+                <button
+                  className="tooltip"
+                  data-placement="top"
+                  data-toggle="tooltip"
+                  id="tooltip-"
+                  role="tooltip"
+                  title="Highlights abnormal network malfunction"
+                  type="button">
+                  <i
+                    aria-hidden="true"
+                    className="icon-help" />
+                </button>
               </div>
             </div>
           </fieldset>
@@ -1443,6 +1515,18 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     </span>
                   </span>
                 </label>
+                <button
+                  className="tooltip"
+                  data-placement="top"
+                  data-toggle="tooltip"
+                  id="tooltip-"
+                  role="tooltip"
+                  title="Represents our fully operational service"
+                  type="button">
+                  <i
+                    aria-hidden="true"
+                    className="icon-help" />
+                </button>
               </div>
               <div
                 className="checkbox form-group ">
@@ -1521,6 +1605,18 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     </span>
                   </span>
                 </label>
+                <button
+                  className="tooltip"
+                  data-placement="top"
+                  data-toggle="tooltip"
+                  id="tooltip-"
+                  role="tooltip"
+                  title="Highlights abnormal network malfunction"
+                  type="button">
+                  <i
+                    aria-hidden="true"
+                    className="icon-help" />
+                </button>
               </div>
             </div>
           </fieldset>

@@ -19,11 +19,5 @@ describe("LeadCaptureStore", () => {
       leadCaptureStore.submitForm();
       expect(apiService.submitLeadCaptureForm).toHaveBeenCalled();
     });
-
-    test('if form is not valid, error is noted for the alert bar', () => {
-      leadCaptureStore.values.name = '';
-      leadCaptureStore.showAllFormErrors();
-      expect(leadCaptureStore.showAlert).toBe(true);
-    });
   });
 });

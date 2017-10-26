@@ -1,5 +1,6 @@
 import {action, computed, observable, autorun} from 'mobx';
 import {apiService} from '../services/api.service';
+import {appCatalogStore} from './app-catalog.store';
 
 class MDMStore {
   constructor() {
@@ -34,10 +35,20 @@ class MDMStore {
   }
 
   @action clearForm() {
-    this.clearAlerts();
+    this.showAlert = false;
     this.values = Object.assign({}, this.defaultValues);
     this.showbreakMDMConnection = false;
     this.clearFormFieldRefList();
+  }
+
+  @action clearAlert() {
+    this.showAlert = false;
+    this.appsReferencedByErrorAlert = [];
+  }
+
+  @action clearSuccess() {
+    this.showSuccess = false;
+    this.appsReferencedBySuccessAlert = [];
   }
 
   @action clearFormFieldRefList() {
@@ -55,40 +66,17 @@ class MDMStore {
     }
   }
 
-  @action clearAlerts(args) {
-    this.mdm_form_alerts = [];
-    this.manage_apps_alerts = [];
-    this.app_detail_alerts = [];
-    this.appsReferencedByErrorAlert = [];
-    /* Do not clear appsReferencedBySuccessAlert unless connection is broken,
-    as we generally want a running total */
-    if(args && args.clearSuccessTally) {
-      this.appsReferencedBySuccessAlert = [];
-    }
-  }
-
   @action addPushErrorAlert(psk) {
     //add to reference list if not already there
     if(!this.appsReferencedByErrorAlert.find(item => item == psk)) {
       this.appsReferencedByErrorAlert.push(psk);
     }
+  }
 
-    //show alert on Manage Apps page
-    this.updateAlert({
-      alertList: this.manage_apps_alerts,
-      type: 'error',
-      message: this.pushFailMultiple,
-      psk: 'generic_error'
-    });
-
-    if(psk) {
-      //show alert on App Details page
-      this.updateAlert({
-        alertList: this.app_detail_alerts,
-        type: 'error',
-        message: this.userMessages.pushFail,
-        psk
-      });
+  @action removePushErrorAlert(psk) {
+    //remove from reference list if already there
+    if(this.appsReferencedByErrorAlert.find(item => item == psk)) {
+      this.appsReferencedByErrorAlert.remove(psk);
     }
   }
 
@@ -97,69 +85,11 @@ class MDMStore {
     if(!this.appsReferencedBySuccessAlert.find(item => item == psk)) {
       this.appsReferencedBySuccessAlert.push(psk);
     }
-
-    //show alert on Manage Apps page
-    this.updateAlert({
-      alertList: this.manage_apps_alerts,
-      type: 'success',
-      message: this.pushSuccessMultiple,
-      psk: 'generic_success'
-    });
-
-    if(psk) {
-      //show alert on App Details page
-      this.updateAlert({
-        alertList: this.app_detail_alerts,
-        type: 'success',
-        message: this.userMessages.pushSuccess,
-        psk
-      });
-    }
   }
 
-  @action throwConnectError({alertList = this.manage_apps_alerts}) {
-    this.showErrorAlert({
-      alertList,
-      message: this.userMessages.connectFail
-    });
-  }
-
-  @action updateAlert({alertList = this.mdm_form_alerts, type = 'error', message, psk}) {
-    let alertForThisPsk = alertList.filter(alert => {
-      return alert.psk === psk;
-    })[0];
-    if(alertForThisPsk) {
-      alertForThisPsk.type = type;
-      alertForThisPsk.headline = type === 'error' ? 'Error: ' : 'Success! ';
-      alertForThisPsk.message = message;
-    } else {
-      const showAlertFn = type === 'error' ? this.showErrorAlert : this.showSuccessAlert;
-      showAlertFn({
-        alertList,
-        message,
-        psk
-      });
-    }
-  }
-
-  @action showErrorAlert({alertList = this.mdm_form_alerts, message, psk}) {
-    alertList.push({
-      type: 'error',
-      headline: 'Error: ',
-      message: message || this.userMessages.connectFail,
-      psk
-    });
-  }
-
-  @action showSuccessAlert({alertList = this.mdm_form_alerts, message, psk}) {
-    if(message) {
-      alertList.push({
-        type: 'success',
-        headline: 'Success! ',
-        message,
-        psk
-      });
-    }
+  @action throwConnectError() {
+    this.alertText = this.userMessages.connectFail;
+    this.showAlert = true;
   }
 
   // Modal functions
@@ -176,62 +106,46 @@ class MDMStore {
       }
     }
     const fail = () => {
-      this.throwConnectError({alertList: this.mdm_form_alerts});
+      this.throwConnectError();
       this.mdmIsConfigured = false;
     }
     return apiService.getMDMConfiguration().then(success, fail);
   }
 
   @action submitForm() {
-    if(this.formHasError) {
-      this.showAllFormErrors();
-      return;
-    }
     const success = (resp) => {
       let messageObj = resp.data;
-      this.mdm_form_alerts = [];
-
       if (messageObj.error) {
-        this.showErrorAlert({
-          alertList: this.mdm_form_alerts,
-          message: messageObj.error
-        });
-
+        this.alertText = messageObj.error;
+        this.showAlert = true;
         if (messageObj.error.toLowerCase().includes('credentials')) {
           this.clearStoredCredentials();
         }
       } else {
         this.mdmIsConfigured = true;
-        this.showSuccessAlert({
-          alertList: this.mdm_form_alerts,
-          message: this.userMessages.connectSuccess
-        });
+        this.successText = this.userMessages.connectSuccess;
+        this.showSuccess = true;
       }
     }
     const fail = () => {
-      this.mdm_form_alerts = [];
-      this.throwConnectError({alertList: this.mdm_form_alerts});
+      this.throwConnectError();
     }
     return apiService.setMDMConfiguration(this.values).then(success, fail);
   }
 
   @action breakMDMConnection() {
     const success = () => {
-      this.clearAlerts({clearSuccessTally: true});
       this.clearForm();
+      this.showAllFormErrors = false;
+      this.appsReferencedByErrorAlert = [];
+      this.appsReferencedBySuccessAlert = [];
       this.mdmIsConfigured = false;
-
-      this.showSuccessAlert({
-        alertList: this.mdm_form_alerts,
-        message: this.userMessages.breakConnectionSuccess
-      });
+      this.successText = this.userMessages.breakConnectionSuccess;
+      this.showSuccess = true;
     }
     const fail = () => {
-      this.clearAlerts({clearSuccessTally: true});
-      this.showErrorAlert({
-        alertList: this.mdm_form_alerts,
-        message: this.userMessages.breakConnectionFail
-      });
+      this.alertText = this.userMessages.breakConnectionFail;
+      this.showAlert = true;
     }
     return apiService.breakMDMConfiguration().then(success, fail);
   }
@@ -244,6 +158,7 @@ class MDMStore {
         this.addPushErrorAlert(psk);
       } else if (args.showUserMessageOnSuccess && statusObject.mdm_install_status === 'INSTALLED'){
         this.addPushSuccessAlert(psk);
+        this.removePushErrorAlert(psk);
       }
     }
     const fail = () => {
@@ -293,7 +208,6 @@ class MDMStore {
   }
 
   @action pushToMDM(psk) {
-    this.clearAlerts();
     const success = () => {
       this.pollUntilResolved(psk);
     }
@@ -316,6 +230,22 @@ class MDMStore {
     return num + ' app' + (num === 1 ? '' : 's') + ' could not be pushed to MDM.';
   }
 
+  @computed get showAlertOnManageApps() {
+    return this.appsReferencedByErrorAlert.length > 0;
+  }
+
+  @computed get showSuccessOnManageApps() {
+    return this.appsReferencedBySuccessAlert.length > 0;
+  }
+
+  @computed get showAlertOnAppDetails() {
+    return this.appsReferencedByErrorAlert.find(psk => psk == appCatalogStore.currentAppObject.app_psk) !== undefined;
+  }
+
+  @computed get showSuccessOnAppDetails() {
+    return this.appsReferencedBySuccessAlert.find(psk => psk == appCatalogStore.currentAppObject.app_psk) !== undefined;
+  }
+
   @computed get formIsDirty() {
     let formHasChanged = false;
     Object.keys(this.values).forEach(key => {
@@ -324,18 +254,6 @@ class MDMStore {
       }
     });
     return formHasChanged;
-  }
-
-  @action showAllFormErrors() {
-    this.formFieldRefList.forEach(ref => {
-      if(ref && ref.hasFunctionalError) {
-        ref.hasVisibleError = ref.hasFunctionalError;
-      }
-    });
-    this.showErrorAlert({
-      alertList: this.mdm_form_alerts,
-      message: 'Please fix the following errors.'
-    });
   }
 
   // OBSERVABLES
@@ -349,9 +267,11 @@ class MDMStore {
   @observable formHasError = true;
 
   // Alerts
-  @observable mdm_form_alerts = [];
-  @observable manage_apps_alerts = [];
-  @observable app_detail_alerts = [];
+  @observable alertText = 'Please fix the following errors.';
+  @observable showAlert = false;
+  @observable successText = '';
+  @observable showSuccess = false;
+
   @observable appsReferencedBySuccessAlert = [];
   @observable appsReferencedByErrorAlert = [];
   @observable userMessages = {
@@ -360,9 +280,7 @@ class MDMStore {
     connectSuccess: 'The MDM connection was successful.',
     connectFail: 'There was a problem establishing a connection with MDM.',
     breakConnectionSuccess: 'The connection to MDM has been broken.',
-    breakConnectionFail: 'There was a problem breaking the connection with MDM.',
-    pushSuccess: 'This app has been pushed to MDM.',
-    pushFail: 'This app could not be pushed to MDM.'
+    breakConnectionFail: 'There was a problem breaking the connection with MDM.'
   }
 
   @observable defaultValues = {
