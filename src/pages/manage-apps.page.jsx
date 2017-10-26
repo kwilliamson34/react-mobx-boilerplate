@@ -61,7 +61,7 @@ export default class ManageAppsPage extends React.Component {
 
   handleLoadMoreClick = () => {
     this.props.store.changePage(this.pageId);
-    this.refs.cardList.blurLoadMoreButton();
+    this.cardList.blurLoadMoreButton();
     this.cardListStore.setIdToFocus((this.props.store.pages[this.pageId] - 1) * this.itemsPerPage);
   }
 
@@ -151,7 +151,7 @@ export default class ManageAppsPage extends React.Component {
           <div className="row">
             <div className="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-12 col-lg-offset-1 col-lg-10">
               <CardList
-                ref="cardList"
+                ref={(c) => { this.cardList = c; }}
                 cards={this.paginatedCards}
                 numPagesShown={this.props.store.pages[this.pageId]}
                 itemsPerPage={this.itemsPerPage}

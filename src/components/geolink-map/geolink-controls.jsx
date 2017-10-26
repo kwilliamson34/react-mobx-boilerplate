@@ -100,7 +100,7 @@ export default class GeolinkControls extends React.Component {
     if(event.keyCode === this.DOWN_KEY_CODE && this.store.dropdownIsVisible) {
       event.preventDefault();
       this.focusedFavorite = 0;
-      this.refs[`favItem${this.focusedFavorite}`].focus();
+      this[`favItem${this.focusedFavorite}`].focus();
     }
   }
 
@@ -110,7 +110,7 @@ export default class GeolinkControls extends React.Component {
     }
     if(event.keyCode === this.DOWN_KEY_CODE) {
       this.focusedFavorite = this.store.predictedFavorites.length ? (this.focusedFavorite + 1) % (this.store.predictedFavorites.length + 1) : 0;
-      this.refs[`favItem${this.focusedFavorite}`].focus();
+      this[`favItem${this.focusedFavorite}`].focus();
     } else if(event.keyCode === this.UP_KEY_CODE) {
       if(this.focusedFavorite === 0) {
         this.store.formFieldRefList.find((el) => {
@@ -118,7 +118,7 @@ export default class GeolinkControls extends React.Component {
         }).refs.input.focus();
       } else {
         this.focusedFavorite = this.store.predictedFavorites.length ? (this.focusedFavorite + this.store.predictedFavorites.length) % (this.store.predictedFavorites.length + 1) : 0;
-        this.refs[`favItem${this.focusedFavorite}`].focus();
+        this[`favItem${this.focusedFavorite}`].focus();
       }
     }
   }
@@ -241,7 +241,7 @@ export default class GeolinkControls extends React.Component {
         {this.renderPredictiveDropdown()}
         <button
           className={`as-link add-favorite-button ${this.store.values.locationAddress && !this.store.shouldDisplayLocationName ? '' : 'disabled'}`}
-          ref="addFavoriteBtn"
+          ref={(b) => {this.addFavoriteBtn = b; }}
           onClick={this.store.showAddLocationForm.bind(this.store)}>
           Add Favorite
         </button>

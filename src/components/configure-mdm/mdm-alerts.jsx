@@ -14,8 +14,8 @@ export class MDMAlerts extends React.Component {
   }
 
   focus() {
-    if (this.refs.alert_focus) {
-      this.refs.alert_focus.focus();
+    if (this.alert_focus) {
+      this.alert_focus.focus();
     }
   }
 
@@ -29,7 +29,10 @@ export class MDMAlerts extends React.Component {
         {this.props.alertList.map((alert, idx) => {
           if(!this.props.psk || this.props.psk === alert.psk) {
             return (
-              <div ref="alert_focus" className={`alert alert-${alert.type}`} key={idx}>
+              <div
+                ref={(af) => { this.alert_focus = af; }}
+                className={`alert alert-${alert.type}`}
+                key={idx}>
                 <button type="button" className="close_btn icon-close" onClick={this.onCloseButtonClick.bind(this, idx)}>
                   <span className="sr-only">Close alert</span>
                 </button>

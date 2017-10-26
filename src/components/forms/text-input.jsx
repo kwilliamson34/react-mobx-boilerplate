@@ -90,7 +90,7 @@ export default class TextInput extends React.Component {
 
   handleClearClick = () => {
     this.props.dataObject[this.props.id] = '';
-    this.refs.btnSubmit.focus();
+    this.btnSubmit.focus();
     this.showErrors();
     if(this.props.handleClearClick) {
       this.props.handleClearClick();
@@ -98,7 +98,7 @@ export default class TextInput extends React.Component {
   }
 
   handleSubmit = () => {
-    this.refs.input.blur();
+    this.input.blur();
     this.props.handleSubmit();
   }
 
@@ -119,7 +119,7 @@ export default class TextInput extends React.Component {
         <div className={`input-group ${this.props.iconClass ? 'has-icon' : ''}`}>
           <Tag
             className="form-control"
-            ref="input"
+            ref={(i) => {this.input = i;}}
             id={this.props.id}
             type={this.props.type}
             disabled={this.props.disabled}
@@ -132,7 +132,11 @@ export default class TextInput extends React.Component {
           {this.props.iconClass && <i className={`prefix-icon ${this.props.iconClass}`}></i>}
           {clearButtonVisible &&
             <span className="input-group-btn">
-              <button className="clear-btn" type="button" ref="btnClear" onClick={this.handleClearClick}>
+              <button
+                ref={(bc) => {this.btnClear = bc; }}
+                className="clear-btn"
+                type="button"
+                onClick={this.handleClearClick}>
                 <span className="sr-only">Clear</span>
                 <span aria-hidden="true" className="icon-close" />
               </button>
@@ -140,7 +144,12 @@ export default class TextInput extends React.Component {
           }
           {submitButtonVisible &&
             <span className="input-group-btn">
-              <button className="submit-btn" type="button" ref="btnSubmit" onClick={this.handleSubmit} disabled={this.props.disabled}>
+              <button
+                ref={(bs) => {this.btnSubmit = bs; }}
+                className="submit-btn"
+                type="button"
+                onClick={this.handleSubmit}
+                disabled={this.props.disabled}>
                 <span className="sr-only">Submit</span>
                 <span aria-hidden="true" className={this.props.submitIcon} />
               </button>

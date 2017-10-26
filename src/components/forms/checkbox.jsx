@@ -70,7 +70,7 @@ export default class Checkbox extends React.Component {
           <input
             type="checkbox"
             id={this.props.id}
-            ref="input"
+            ref={(i) => { this.input = i; }}
             aria-disabled={this.props.disabled}
             className={disabledClass}
             value={this.props.value || this.props.label}
