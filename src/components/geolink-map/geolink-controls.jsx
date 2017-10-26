@@ -72,11 +72,13 @@ export default class GeolinkControls extends React.Component {
 
   onManageFavoritesClick = () => {
     history.push('/manage-favorites');
+    this.store.clearAlertBars();
   }
 
   onManageFavoritesEnter = (event) => {
     if(event.charCode === this.ENTER_KEY_CODE) {
       history.push('/manage-favorites');
+      this.store.clearAlertBars();
     }
   }
 
@@ -206,7 +208,7 @@ export default class GeolinkControls extends React.Component {
     return (
       <div>
         <span className="top-right-link">
-          <Link to="/manage-favorites">Manage Favorites</Link>
+          <button className="as-link" onClick={this.onManageFavoritesClick}>Manage Favorites</button>
         </span>
         <h2 className="as-h5">Search</h2>
         <TextInput
