@@ -31,11 +31,16 @@ export default class ManageFavoritesPage extends React.Component {
 
   componentWillUnmount() {
     this.manageFavoritesStore.resetPage();
-    this.manageFavoritesStore.clearSuccess();
+    this.clearSuccess();
   }
 
   resetSearch = () => {
     this.manageFavoritesStore.resetSearch();
+  }
+
+  clearSuccess = () => {
+    this.manageFavoritesStore.clearSuccess();
+    this.geolinkStore.clearAlertBars();
   }
 
   keepFavorites = (e) => {
@@ -323,7 +328,7 @@ export default class ManageFavoritesPage extends React.Component {
               <div className="row">
                 <div className="col-xs-12">
                   <hr/>
-                  <Alerts showSuccess={this.manageFavoritesStore.showSuccess} successText={this.manageFavoritesStore.successText} clearSuccess={this.manageFavoritesStore.clearSuccess.bind(this.manageFavoritesStore)}/>
+                  <Alerts showSuccess={this.manageFavoritesStore.showSuccess || this.geolinkStore.showSuccess} successText={this.manageFavoritesStore.successText || this.geolinkStore.successText} clearSuccess={this.clearSuccess}/>
                 </div>
               </div>
             </div>
