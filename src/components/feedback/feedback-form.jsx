@@ -75,17 +75,18 @@ class FeedbackForm extends React.Component {
           labelText="Subject"
           required={true}
           errorMessage="Please enter a subject."
-          charLimit={250}/>
+          charLimit={256}/>
 
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
           dataObject={this.store.values}
+          helperText="Max 2,500 Characters"
           id="details"
           type="textarea"
           labelText="Details"
           required={true}
           errorMessage="Please enter a summary of your feedback."
-          charLimit={10000}/>
+          charLimit={2500}/>
 
         <SelectInput
           ref={ref => this.store.formFieldRefList.push(ref)}
@@ -109,7 +110,8 @@ class FeedbackForm extends React.Component {
               : 'Email (Optional)'}
           required={this.store.emailIsRequired}
           getIsValid={utilsService.isValidEmailAddress}
-          errorMessage="Please enter an email address."/>
+          errorMessage="Please enter an email address."
+          charLimit={256}/>
 
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
@@ -119,7 +121,7 @@ class FeedbackForm extends React.Component {
           labelText="Phone (Optional)"
           required={false}
           errorMessage="Please enter a valid phone number."
-          charLimit={50}/>
+          charLimit={256}/>
 
         <SelectInput
           ref={ref => this.store.formFieldRefList.push(ref)}

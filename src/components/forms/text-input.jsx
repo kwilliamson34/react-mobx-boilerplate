@@ -42,6 +42,7 @@ export default class TextInput extends React.Component {
     disabledAutocomplete: false
   }
 
+	@observable charLimitMessage = '';
   @observable hasVisibleError = false;
   @computed get valueInStore() {
     return this.props.dataObject[this.props.id];
@@ -62,11 +63,20 @@ export default class TextInput extends React.Component {
     const newValue = e.target.value;
     if(this.props.charLimit) {
       this.props.dataObject[this.props.id] = newValue.substr(0, this.props.charLimit);
+			this.checkCharLimitMessage(e.target.value);
     } else {
       this.props.dataObject[this.props.id] = newValue;
     }
     this.hasVisibleError = this.isEmpty;
   }
+
+	checkCharLimitMessage = (fieldValue) => {
+		if (fieldValue.length >= this.props.charLimit) {
+      this.charLimitMessage = 'Character limit reached.';
+		} else {
+			this.charLimitMessage = '';
+		}
+	}
 
   handleOnBlur = () => {
     this.hasVisibleError = this.hasFunctionalError;
@@ -98,9 +108,10 @@ export default class TextInput extends React.Component {
     const clearButtonVisible = this.props.showClearButton && this.valueInStore !== '';
     const submitButtonVisible = this.props.handleSubmit !== undefined;
     return (
-      <div className={`form-group ${this.props.className} ${this.hasVisibleError ? 'has-error' : ''}`}>
+      <div className={`form-group ${this.props.className} ${this.hasVisibleError || this.charLimitMessage ? 'has-error' : ''}`}>
         <FormLabel
           id={this.props.id}
+          charLimitMessage={this.charLimitMessage}
           hasError={this.hasVisibleError}
           fieldIsRequired={this.props.required}
           labelText={this.props.labelText}
