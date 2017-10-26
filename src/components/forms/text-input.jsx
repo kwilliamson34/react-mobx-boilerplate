@@ -108,8 +108,7 @@ export default class TextInput extends React.Component {
     const clearButtonVisible = this.props.showClearButton && this.valueInStore !== '';
     const submitButtonVisible = this.props.handleSubmit !== undefined;
     return (
-      <div className={`form-group ${this.props.className} ${this.hasVisibleError ? 'has-error' : ''}`}>
-				<span className="sr-only" role="alert" aria-live="assertive">{this.charLimitMessage}</span>
+      <div className={`form-group ${this.props.className} ${this.hasVisibleError || this.charLimitMessage ? 'has-error' : ''}`}>
         <FormLabel
           id={this.props.id}
           charLimitMessage={this.charLimitMessage}

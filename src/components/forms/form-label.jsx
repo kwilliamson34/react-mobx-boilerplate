@@ -23,6 +23,19 @@ export default class FormLabel extends React.Component {
     fieldIsRequired: false
   }
 
+  renderFieldError () {
+    let markup = '';
+    if(this.props.charLimitMessage || this.props.hasError){
+      markup = (
+        <div className="msgBlock error error-list" role="alert" aria-live="polite">
+					{this.props.charLimitMessage && (this.props.charLimitMessage)}
+					{this.props.hasError && (<span>{this.props.errorMessage}</span>)}
+        </div>
+			);
+    }
+    return markup;
+  }
+
   render() {
     return (
       <div className="form-label">
@@ -32,11 +45,8 @@ export default class FormLabel extends React.Component {
             <span className="required-asterisks"> *</span>
           }
           {this.props.helperText ? <span className="help-text">{this.props.helperText}</span> : ''}
-          {this.props.charLimitMessage && <span className="error error-text">{this.props.charLimitMessage}</span>}
         </label>
-        {this.props.hasError && <div className="msgBlock error error-list" role="alert" aria-live="polite">
-          <span>{this.props.errorMessage}</span>
-        </div>}
+        {this.renderFieldError()}
       </div>
     )
   }
