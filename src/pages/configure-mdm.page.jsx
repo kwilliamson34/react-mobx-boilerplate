@@ -5,6 +5,7 @@ import {inject, observer} from 'mobx-react';
 import PageTitle from '../components/page-title/page-title';
 import AirWatchForm from '../components/configure-mdm/air-watch-form';
 import IBMForm from '../components/configure-mdm/ibm-form';
+import MicrosoftForm from '../components/configure-mdm/microsoft-form';
 import MobileIronForm from '../components/configure-mdm/mobile-iron-form';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 import Alerts from '../components/alerts/alerts';
@@ -124,6 +125,7 @@ export default class ConfigureMDM extends React.Component {
           <option value="AIRWATCH">Airwatch</option>
           <option value="MAAS360">IBM MaaS360</option>
           <option value="MOBILE_IRON">MobileIron</option>
+          <option value="MICROSOFT_INTUNE">Microsoft InTune</option>
         </select>
       </div>
     )
@@ -140,6 +142,9 @@ export default class ConfigureMDM extends React.Component {
         break;
       case 'MOBILE_IRON':
         MDMFormComponent = MobileIronForm;
+        break;
+      case 'MICROSOFT_INTUNE':
+        MDMFormComponent = MicrosoftForm;
         break;
       default:
         MDMFormComponent = null;
