@@ -121,12 +121,12 @@ export default class App extends React.Component {
           <Header/>
           <main id="main-content">
             <Switch>
-              <Route exact path="/" component={AdminDashboardPage}/>
+              <Route exact path="/" component={this.getAdminRoutes(AdminDashboardPage)}/>
               <Route path="/admin/manage-apps" component={this.getAdminRoutes(ManageAppsPage)}/>
               <Route path="/admin/configure-mdm" component={this.getAdminRoutes(ConfigureMDM)}/>
               <Route path="/admin/devices" component={this.getAdminRoutes(this.getSpecializedDevicesComponent)}/>
               <Route path="/admin/solutions" component={this.getAdminRoutes(this.getPublicSafetySolutionsComponent)}/>
-              <Route path="/admin" component={AdminDashboardPage}/>
+              <Route path="/admin" component={this.getAdminRoutes(AdminDashboardPage)}/>
               <Route path="/app/:appPsk" component={this.getAdminRoutes(AppDetailsPage)/*TODO redirect to error/404 if psk has no match*/}/>
               <Route path="/network-status" component={this.getNetworkStatusRoutes(NetworkStatusPage)}/>
               <Route path="/manage-favorites" component={ManageFavoritesPage}/>
@@ -153,6 +153,11 @@ export default class App extends React.Component {
       destinationIsPermitted = pseMasterStore.userStore.destinationIsPermitted.shopSpecializedDevices;
     } else if(component === this.getPublicSafetySolutionsComponent) {
       destinationIsPermitted = pseMasterStore.userStore.destinationIsPermitted.shopPublicSafetySolutions;
+    } else if(component === AdminDashboardPage) {
+      destinationIsPermitted = pseMasterStore.userStore.destinationIsPermitted.administration;
+      if(!destinationIsPermitted) {
+        return () => <Redirect to="/network-status"/>;
+      }
     }
 
     let roleBasedRoutes = destinationIsPermitted || pseMasterStore.userStore.isAdmin ? component : () => <Redirect to="/error/unauthorized"/>;
@@ -188,7 +193,17 @@ export default class App extends React.Component {
         : (pseMasterStore.userStore.isSubscriber
           ? <ExternalRedirect externalUrl={config.appStore}/>
           : <ErrorPage cause="unauthorized"/>))
-      : <p>Securing Session...</p>
+      : <div className="fn-loading">
+          <div className="fn-loading-logo">
+            <img src="/images/firstnet-logo.svg" width="173" height="51" alt="" aria-hidden="true" />
+          </div>
+          <h1 className="fn-loading-text">Loading</h1>
+          <div className="fn-loading-circle">
+            {[...Array(12)].map((x, i) =>
+              <div key={i} className={`c${i+1} c`}></div>
+            )}
+          </div>
+        </div>
   }
 
   render() {

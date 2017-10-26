@@ -262,18 +262,17 @@ exports[`<SolutionsDetailsTemplate /> render renders purchasing info section 1`]
     <div
       className="row">
       <section
+        className="col-xs-12 col-lg-offset-1 col-lg-10" />
+    </div>
+    <div
+      className="row">
+      <section
         className="col-xs-12 col-lg-offset-1 col-lg-10 app-details-section">
         <h2>
           Related App
         </h2>
         <hr />
-        <hr />
       </section>
-    </div>
-    <div
-      className="row">
-      <section
-        className="col-xs-12 col-lg-offset-1 col-lg-10" />
     </div>
   </div>
 </article>
@@ -337,7 +336,6 @@ exports[`<SolutionsDetailsTemplate /> render renders related app section 1`] = `
         <h2>
           Related App
         </h2>
-        <hr />
         <hr />
       </section>
     </div>

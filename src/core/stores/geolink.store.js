@@ -234,6 +234,7 @@ class GeolinkStore {
     this.selectedFavoriteAddress = this.values.locationAddress;
     this.selectedFavoriteName = this.values.locationName;
     this.shouldDisplayLocationName = true;
+    this.dropdownIsVisible = false;
     this.loadFavorites();
   }
 

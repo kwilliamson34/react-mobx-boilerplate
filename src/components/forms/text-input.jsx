@@ -48,24 +48,15 @@ export default class TextInput extends React.Component {
     return this.props.dataObject[this.props.id];
   }
   @computed get hasFunctionalError() {
-    let hasError = false;
-
-    //empty check
-    const inputIsEmptyOrSpaces = !this.valueInStore || !/\w+/.test(this.valueInStore);
-    if(this.props.required && inputIsEmptyOrSpaces) {
-      hasError = true;
-    }
-
-    //other validation rules
-    if(!inputIsEmptyOrSpaces && this.props.getIsValid !== undefined && !this.props.getIsValid(this.valueInStore)) {
-      hasError = true;
-    }
-
-    return hasError;
+    return this.isEmpty || this.failsExtraValidation;
   }
-
-  showErrors = () => {
-    this.hasVisibleError = this.hasFunctionalError;
+  @computed get isEmpty() {
+    const inputIsEmptyOrSpaces = !this.valueInStore || !/\w+/.test(this.valueInStore);
+    return this.props.required && inputIsEmptyOrSpaces;
+  }
+  @computed get failsExtraValidation() {
+    const inputIsEmptyOrSpaces = !this.valueInStore || !/\w+/.test(this.valueInStore);
+    return !inputIsEmptyOrSpaces && this.props.getIsValid !== undefined && !this.props.getIsValid(this.valueInStore);
   }
 
   handleOnChange = (e) => {
@@ -76,7 +67,7 @@ export default class TextInput extends React.Component {
     } else {
       this.props.dataObject[this.props.id] = newValue;
     }
-    this.showErrors();
+    this.hasVisibleError = this.isEmpty;
   }
 
 	checkCharLimitMessage = (fieldValue) => {
@@ -88,7 +79,7 @@ export default class TextInput extends React.Component {
 	}
 
   handleOnBlur = () => {
-    this.showErrors();
+    this.hasVisibleError = this.hasFunctionalError;
   }
 
   handleKeyPress = (e) => {
@@ -101,7 +92,7 @@ export default class TextInput extends React.Component {
   handleClearClick = () => {
     this.props.dataObject[this.props.id] = '';
     this.refs.btnSubmit.focus();
-    this.showErrors();
+    this.hasVisibleError = this.isEmpty;
     if(this.props.handleClearClick) {
       this.props.handleClearClick();
     }
@@ -115,7 +106,7 @@ export default class TextInput extends React.Component {
   render() {
     const Tag = this.props.type === 'textarea' ? 'textarea' : 'input';
     const clearButtonVisible = this.props.showClearButton && this.valueInStore !== '';
-    const submitButtonVisible = this.props.handleSubmit && this.props.submitIcon;
+    const submitButtonVisible = this.props.handleSubmit !== undefined;
     return (
       <div className={`form-group ${this.props.className} ${this.hasVisibleError ? 'has-error' : ''}`}>
 				<span className="sr-only" role="alert" aria-live="assertive">{this.charLimitMessage}</span>
@@ -153,8 +144,8 @@ export default class TextInput extends React.Component {
           {submitButtonVisible &&
             <span className="input-group-btn">
               <button className="submit-btn" type="button" ref="btnSubmit" onClick={this.handleSubmit} disabled={this.props.disabled}>
-                <span className="sr-only">Submit</span>
-                <span aria-hidden="true" className={this.props.submitIcon} />
+                <span className="sr-only">{this.props.type === 'search' ? 'Search' : 'Submit'}</span>
+                <span aria-hidden="true" className={this.props.type === 'search' ? 'icon-search' : 'icon-arrowRight'} />
               </button>
             </span>
           }

@@ -85,6 +85,7 @@ class UserStore {
       this.user.pseName = '';
       this.user.roles = userInfo.roles || [];
     }
+
     this.userValidationDone = true;
   }
 
@@ -99,13 +100,11 @@ class UserStore {
   }
 
   @computed get isAdmin() {
-    //TODO add G_FN_ITM role here if it gets approved
-    return this.checkRolesString(['G_FN_IM','G_FN_ADM']);
+    return this.checkRolesString(['G_FN_IM','G_FN_ADM','G_FN_ITM']);
   }
 
   @computed get isAuthenticUser() {
-    //TODO add G_FN_ITM role here if it gets approved'
-    return this.checkRolesString(['G_FN_IM','G_FN_ADM','G_FN_SUB','G_FN_VOL_ADM','G_FN_VOL']);
+    return this.checkRolesString(['G_FN_IM','G_FN_ADM','G_FN_SUB','G_FN_VOL_ADM','G_FN_VOL','G_FN_ITM']);
   }
 
   @computed get isSubscriber() {
@@ -113,7 +112,7 @@ class UserStore {
   }
 
   @computed get canViewNetworkStatus() {
-    return this.checkRolesString(['G_FN_IM','G_FN_ADM']);
+    return this.checkRolesString(['G_FN_IM','G_FN_ADM','G_FN_ITM']);
   }
 
   @computed get destinationIsPermitted() {
@@ -138,9 +137,10 @@ class UserStore {
     shopPublicSafetySolutions: ['G_FN_ADM', 'G_FN_VOL_ADM', 'G_FN_VOL'],
     manageUsers: ['G_FN_ADM', 'G_FN_ITM'],
     viewReports: ['G_FN_ADM', 'G_FN_VOL'],
-    manageApps: ['G_FN_ADM', 'G_FN_ITM', 'G_FN_SUB', 'G_FN_VOL_ADM', 'G_FN_VOL']
+    manageApps: ['G_FN_ADM', 'G_FN_ITM', 'G_FN_SUB', 'G_FN_VOL_ADM', 'G_FN_VOL'],
+    manageVoicemail: ['G_FN_SUB'],
+    administration: ['G_FN_ADM', 'G_FN_ITM', 'G_FN_SUB', 'G_FN_VOL_ADM', 'G_FN_VOL']
   }
-
 }
 
 export const userStore = new UserStore();

@@ -202,9 +202,9 @@ select::-ms-value {
   }
 
   &.disabled {
-    pointer-events: none;
 
     label {
+      pointer-events: none;
       color: $fn-disabledgrey-chkboxlabel;
     }
   }
