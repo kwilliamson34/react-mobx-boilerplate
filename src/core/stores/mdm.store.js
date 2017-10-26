@@ -30,8 +30,8 @@ class MDMStore {
       ibm_userName: '',
       mi_password: '',
       mi_userName: '',
-      mic_password: '',
-      mic_userName: ''
+      msintune_password: '',
+      msintune_userName: ''
     });
   }
 
@@ -384,11 +384,12 @@ class MDMStore {
     mi_hostName: '',
     mi_password: '',
     mi_userName: '',
-    mic_clientId: '',
-    mic_clientSecret: '',
-    mic_tenantCode: '',
-    mic_userName: '',
-    mic_password: ''
+    msintune_clientID: '',
+    msintune_clientSecret: '',
+    msintune_hostName: '',
+    msintune_tenantCode: '',
+    msintune_userName: '',
+    msintune_password: ''
   }
   @observable values = {
     mdm_type: '',
@@ -407,11 +408,12 @@ class MDMStore {
     mi_hostName: '',
     mi_password: '',
     mi_userName: '',
-    mic_clientId: '',
-    mic_clientSecret: '',
-    mic_tenantCode: '',
-    mic_userName: '',
-    mic_password: ''
+    msintune_clientID: '',
+    msintune_clientSecret: '',
+    msintune_hostName: '',
+    msintune_tenantCode: '',
+    msintune_userName: '',
+    msintune_password: ''
   }
 }
 
