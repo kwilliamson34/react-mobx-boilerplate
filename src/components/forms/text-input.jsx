@@ -42,7 +42,7 @@ export default class TextInput extends React.Component {
     disabledAutocomplete: false
   }
 
-	@observable charLimitMessage = '';
+  @observable charLimitMessage = '';
   @observable hasVisibleError = false;
   @computed get valueInStore() {
     return this.props.dataObject[this.props.id];
@@ -61,22 +61,22 @@ export default class TextInput extends React.Component {
 
   handleOnChange = (e) => {
     const newValue = e.target.value;
-    if(this.props.charLimit) {
+    if (this.props.charLimit) {
       this.props.dataObject[this.props.id] = newValue.substr(0, this.props.charLimit);
-			this.checkCharLimitMessage(e.target.value);
+      this.checkCharLimitMessage(newValue);
     } else {
       this.props.dataObject[this.props.id] = newValue;
     }
     this.hasVisibleError = this.isEmpty;
   }
 
-	checkCharLimitMessage = (fieldValue) => {
-		if (fieldValue.length >= this.props.charLimit) {
+  checkCharLimitMessage = (fieldValue) => {
+    if (fieldValue.length >= this.props.charLimit) {
       this.charLimitMessage = 'Character limit reached.';
-		} else {
-			this.charLimitMessage = '';
-		}
-	}
+    } else {
+      this.charLimitMessage = '';
+    }
+  }
 
   handleOnBlur = () => {
     this.hasVisibleError = this.hasFunctionalError;

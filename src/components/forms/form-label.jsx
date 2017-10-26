@@ -23,15 +23,17 @@ export default class FormLabel extends React.Component {
     fieldIsRequired: false
   }
 
-  renderFieldError () {
+  renderFieldError() {
     let markup = '';
-    if(this.props.charLimitMessage || this.props.hasError){
+    if (this.props.charLimitMessage || this.props.hasError) {
       markup = (
         <div className="msgBlock error error-list" role="alert" aria-live="polite">
-					{this.props.charLimitMessage && (this.props.charLimitMessage)}
-					{this.props.hasError && (<span>{this.props.errorMessage}</span>)}
+          {this.props.charLimitMessage && (this.props.charLimitMessage)}
+          {this.props.hasError && (
+            <span>{this.props.errorMessage}</span>
+          )}
         </div>
-			);
+      );
     }
     return markup;
   }
