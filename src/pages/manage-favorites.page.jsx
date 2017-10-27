@@ -7,7 +7,10 @@ import {history} from '../core/services/history.service';
 import PageTitle from '../components/page-title/page-title';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 import TextInput from '../components/forms/text-input';
+import Checkbox from '../components/forms/checkbox';
 import {SortableTable} from '../components/sortable-table/sortable-table';
+import {SortableColumn} from '../components/sortable-table/sortable-column';
+import {TableRow} from '../components/sortable-table/table-row';
 import Alerts from '../components/alerts/alerts';
 
 @inject('store')
@@ -77,6 +80,12 @@ export default class ManageFavoritesPage extends React.Component {
     if (!this.manageFavoritesStore.disableDeleteButton) {
       this.showDeleteModal();
     }
+  }
+
+  handleSelectAll = () => {
+    this.manageFavoritesStore.checkedRows.length === this.props.rows.length
+      ? this.manageFavoritesStore.clearAllCheckboxes()
+      : this.manageFavoritesStore.selectAllCheckboxes();
   }
 
   showDeleteModal = () => {
@@ -309,6 +318,17 @@ export default class ManageFavoritesPage extends React.Component {
       }
     ];
 
+    // <SortableTable
+    //   store={this.manageFavoritesStore}
+    //   tableId="manage-locations-table"
+    //   idKey="locationFavoriteId"
+    //   columns={tableColumns}
+    //   rows={this.manageFavoritesStore.sortedRows}
+    //   shouldRenderRows={this.manageFavoritesStore.shouldRenderRows}
+    //   activeColumn={this.manageFavoritesStore.activeColumn}
+    //   sortDirections={this.manageFavoritesStore.sortDirections}
+    //   hasCheckboxRow={true}/>
+
     return (
       <article id="manage-location-favorites-page">
         <BreadcrumbNav links={crumbs}/>
@@ -338,12 +358,36 @@ export default class ManageFavoritesPage extends React.Component {
                 store={this.manageFavoritesStore}
                 tableId="manage-locations-table"
                 idKey="locationFavoriteId"
-                columns={tableColumns}
-                rows={this.manageFavoritesStore.sortedRows}
                 shouldRenderRows={this.manageFavoritesStore.shouldRenderRows}
                 activeColumn={this.manageFavoritesStore.activeColumn}
-                sortDirections={this.manageFavoritesStore.sortDirections}
-                hasCheckboxRow={true}/>
+                sortDirections={this.manageFavoritesStore.sortDirections}>
+                <div table-role="header">
+                  <SortableColumn
+                    toggleSort={() => {}}
+                    sortByAscending={true}
+                    isActive={true}
+                    isSortable={false}
+                    columnName={'Checkbox'}
+                    dataToSort={'favoriteName'}
+                    className={'test-column'}>
+                    <Checkbox
+                      id="select-all-checkbox"
+                      label="Select or Deselect All Checkboxes"
+                      value="Select or Deselect All Checkboxes"
+                      labelIsSrOnly={true}
+                      handleOnChange={this.handleSelectAll}
+                      checked={this.manageFavoritesStore.checkSelectAllCheckbox}/>
+                  </SortableColumn>
+                </div>
+                <div table-role="all-rows">
+                  <div table-role="row">
+                    <TableRow
+                      rowData={{
+                        favoriteName: 'DING DONG'
+                      }} />
+                  </div>
+                </div>
+              </SortableTable>
               {this.manageFavoritesStore.isLoading && this.renderIsLoading()}
               {!this.manageFavoritesStore.isLoading && !this.manageFavoritesStore.shouldRenderRows && this.renderNoResults()}
               {this.manageFavoritesStore.shouldRenderRows && this.renderTopAndBottomFeatures('bottom')}

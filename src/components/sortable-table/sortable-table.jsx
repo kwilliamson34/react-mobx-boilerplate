@@ -18,6 +18,7 @@ export class SortableTable extends React.Component {
       selectAllCheckboxes: PropTypes.func,
       checkSelectAllCheckbox: PropTypes.bool
     }),
+    children: PropTypes.object,
     tableId: PropTypes.string,
     idKey: PropTypes.string.isRequired,
     caption: PropTypes.string,
@@ -38,6 +39,10 @@ export class SortableTable extends React.Component {
   constructor(props) {
     super(props);
     this.store = this.props.store;
+  }
+
+  componentDidMount() {
+    console.log('children', this.props.children);
   }
 
   handleToggleSort = (key) => {

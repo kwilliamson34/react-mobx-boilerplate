@@ -9,8 +9,8 @@ export class SortableColumn extends React.Component {
   static propTypes = {
     toggleSort: PropTypes.func.isRequired,
     sortByAscending: PropTypes.bool.isRequired,
-    isActive: PropTypes.bool.isRequired,
-    columnToSort: PropTypes.string.isRequired,
+    isActive: PropTypes.bool,
+    dataToSort: PropTypes.string,
     columnName: PropTypes.string,
     className: PropTypes.string,
     children: PropTypes.node
