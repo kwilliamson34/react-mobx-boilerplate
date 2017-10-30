@@ -195,5 +195,65 @@
         }
       }
     }
+
+    .manage-actions {
+      li {
+        width: 50%;
+      }
+
+      li:first-child, //first child should always be full width
+      li:first-child + li + li + li:last-child { //if 4 children, last should be full width
+        width: 100%;
+      }
+    }
+
+    .shop-actions {
+      li:first-child { //first child should always be full width
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media #{$desktop} {
+  #admin-dashboard-page {
+    .manage-actions {
+      li:first-child:nth-last-child(3) ~ li { //if 3 children, all should be full width
+        width: 100%;
+      }
+
+      &.hide-aside {
+        li {
+          width: 33%;
+        }
+
+        li:first-child,
+        li:first-child:nth-last-child(3) ~ li,
+        li:first-child + li + li + li:last-child {
+          width: 66%;
+        }
+      }
+    }
+  }
+}
+
+@media #{$tablet} {
+  #admin-dashboard-page {
+    .manage-actions {
+      li:first-child:nth-last-child(2) ~ li { //if 2 children, all should be full width
+        width: 100%;
+      }
+    }
+
+    .shop-actions {
+      li {
+        width: 50%;
+      }
+
+      li:first-child, //first child should always be full width
+      li:first-child:nth-last-child(2) ~ li { //if 2 children, all should be full width
+        width: 100%;
+      }
+    }
   }
 }
