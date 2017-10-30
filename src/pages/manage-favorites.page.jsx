@@ -11,7 +11,6 @@ import Checkbox from '../components/forms/checkbox';
 import {SortableTable} from '../components/sortable-table/sortable-table';
 import {SortableColumn} from '../components/sortable-table/sortable-column';
 import {RepeatingColumn} from '../components/sortable-table/repeating-column';
-import {TableRow} from '../components/sortable-table/table-row';
 import Alerts from '../components/alerts/alerts';
 
 @inject('store')
@@ -275,7 +274,6 @@ export default class ManageFavoritesPage extends React.Component {
   }
 
   renderRowButtons = (id) => {
-    // console.log('renderRowButtons id', id);
     return (
       <div className="row-buttons">
         <button className="as-link edit-location-button" onClick={() => this.handleEditButton(id)}>
@@ -387,9 +385,9 @@ export default class ManageFavoritesPage extends React.Component {
                 <RepeatingColumn
                   key="checkbox-column"
                   bindDataToEach={'locationFavoriteId'}
-                  className={'checkbox-column'}
                   repeatingJsx={this.renderRowCheckbox}
-                  headerContainsJsx={this.renderSelectAllCheckbox()} />
+                  headerContainsJsx={this.renderSelectAllCheckbox()}
+                  columnClassName={'checkbox-column col5'} />
                 <SortableColumn
                   key="favorite-name-column"
                   toggleSort={this.handleToggleSort}
@@ -397,7 +395,7 @@ export default class ManageFavoritesPage extends React.Component {
                   isActive={this.manageFavoritesStore.activeColumn === 'favoriteName'}
                   columnName={'Name'}
                   columnDataKey={'favoriteName'}
-                  className={'favorite-name-column'} />
+                  columnClassName={'favorite-name-column center-cells col40'} />
                 <SortableColumn
                   key="location-address-column"
                   toggleSort={this.handleToggleSort}
@@ -405,12 +403,12 @@ export default class ManageFavoritesPage extends React.Component {
                   isActive={this.manageFavoritesStore.activeColumn === 'locationFavoriteAddress'}
                   columnName={'Location/Address'}
                   columnDataKey={'locationFavoriteAddress'}
-                  className={'location-address-column'} />
+                  columnClassName={'location-address-column center-cells col40'} />
                 <RepeatingColumn
                   key="buttons-column"
                   bindDataToEach={'locationFavoriteId'}
                   repeatingJsx={this.renderRowButtons}
-                  className={'buttons-column'} />
+                  columnClassName={'buttons-column col15'} />
               </SortableTable>
               {this.manageFavoritesStore.isLoading && this.renderIsLoading()}
               {!this.manageFavoritesStore.isLoading && !this.manageFavoritesStore.shouldRenderRows && this.renderNoResults()}

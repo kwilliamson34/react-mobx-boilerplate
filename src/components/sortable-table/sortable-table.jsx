@@ -15,24 +15,19 @@ export class SortableTable extends React.Component {
     rows: PropTypes.array,
     activeRows: PropTypes.object,
     shouldRenderRows: PropTypes.bool,
-    activeColumn: PropTypes.string,
-    hasCheckboxRow: PropTypes.bool
+    activeColumn: PropTypes.string
   };
 
   static defaultProps = {
     rows: [],
-    hasCheckboxRow: false
-  }
-
-  componentDidMount() {
-    console.log('children', this.props.children);
+    activeRows: []
   }
 
   renderRows = (rows, columns) => {
     return rows.map(row => {
       //identify which field we want to use as the id/value;
       const targetedId = row[this.props.keyToUseAsId];
-      const rowIsActive = this.props.activeRows.indexOf(targetedId) > -1;
+      const rowIsActive = this.props.activeRows.indexOf(targetedId.toString()) > -1;
       return (
         <TableRow
           id={targetedId}
@@ -46,15 +41,13 @@ export class SortableTable extends React.Component {
 
   render() {
     return (
-      <div>
-        <div id={this.props.tableId} className={`${this.props.tableId}-class table-responsive sortable-table`}>
-          {this.props.caption && <caption>{this.props.caption}</caption>}
-          <div className="table-header">
-            {this.props.children}
-          </div>
-          <div className="table-body">
-            {this.props.shouldRenderRows && this.renderRows(this.props.rows, this.props.children)}
-          </div>
+      <div id={this.props.tableId} className={`sortable-table ${this.props.tableId}-class`}>
+        {this.props.caption && <caption>{this.props.caption}</caption>}
+        <div className="table-head">
+          {this.props.children}
+        </div>
+        <div className="table-body">
+          {this.props.shouldRenderRows && this.renderRows(this.props.rows, this.props.children)}
         </div>
       </div>
     )

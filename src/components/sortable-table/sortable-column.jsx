@@ -12,7 +12,7 @@ export class SortableColumn extends React.Component {
     isActive: PropTypes.bool,
     columnDataKey: PropTypes.string,
     columnName: PropTypes.string,
-    className: PropTypes.string,
+    columnClassName: PropTypes.string,
     children: PropTypes.node
   }
 
@@ -34,7 +34,7 @@ export class SortableColumn extends React.Component {
 
   render() {
     return (
-      <div className={`table-header-column ${this.props.className}`}>
+      <div className={`table-head-column ${this.props.columnClassName}`}>
         <span className="sr-only" aria-live="assertive" aria-relevant="text" aria-atomic="true">
           The table is now sorted by {this.props.columnName || this.props.columnDataKey}
           {this.props.sortByAscending ? 'in ascending' : 'in descending'}
