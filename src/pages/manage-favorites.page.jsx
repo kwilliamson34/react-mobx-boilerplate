@@ -10,6 +10,7 @@ import TextInput from '../components/forms/text-input';
 import Checkbox from '../components/forms/checkbox';
 import {SortableTable} from '../components/sortable-table/sortable-table';
 import {SortableColumn} from '../components/sortable-table/sortable-column';
+import {RepeatingColumn} from '../components/sortable-table/repeating-column';
 import {TableRow} from '../components/sortable-table/table-row';
 import Alerts from '../components/alerts/alerts';
 
@@ -61,6 +62,22 @@ export default class ManageFavoritesPage extends React.Component {
     this.manageFavoritesStore.advancePagination();
   }
 
+  handleToggleSort = (key) => {
+    this.manageFavoritesStore.toggleSort(key);
+  }
+
+  handleRowCheckboxOnChange = (e) => {
+    if (e.type === 'checkbox') {
+      this.manageFavoritesStore.handleCheckboxChange(e.value);
+    }
+  }
+
+  handleSelectAllCheckbox = () => {
+    this.manageFavoritesStore.checkedRows.length === this.manageFavoritesStore.rows.length
+      ? this.manageFavoritesStore.clearAllCheckboxes()
+      : this.manageFavoritesStore.selectAllCheckboxes();
+  }
+
   handleMapItButton = (targetId) => {
     let rowData = this.manageFavoritesStore.findRowData(targetId.toString());
     this.geolinkStore.performMapFavoriteRequest(rowData);
@@ -80,12 +97,6 @@ export default class ManageFavoritesPage extends React.Component {
     if (!this.manageFavoritesStore.disableDeleteButton) {
       this.showDeleteModal();
     }
-  }
-
-  handleSelectAll = () => {
-    this.manageFavoritesStore.checkedRows.length === this.props.rows.length
-      ? this.manageFavoritesStore.clearAllCheckboxes()
-      : this.manageFavoritesStore.selectAllCheckboxes();
   }
 
   showDeleteModal = () => {
@@ -263,9 +274,25 @@ export default class ManageFavoritesPage extends React.Component {
     )
   }
 
+  renderRowButtons = (id) => {
+    // console.log('renderRowButtons id', id);
+    return (
+      <div className="row-buttons">
+        <button className="as-link edit-location-button" onClick={() => this.handleEditButton(id)}>
+          <i className="icon-pencil" aria-hidden="true" />
+          <span>Edit</span>
+        </button>
+        <button className="as-link map-it-button" onClick={() => this.handleMapItButton(id)}>
+          <i className="icon-map-marker" aria-hidden="true" />
+          <span>Map It</span>
+        </button>
+      </div>
+    )
+  }
+
   renderEditButton = () => {
     return (
-      <button className="as-link edit-location-button" tabIndex="-1">
+      <button className="as-link edit-location-button">
         <i className="icon-pencil" aria-hidden="true" />
         <span>Edit</span>
       </button>
@@ -274,10 +301,34 @@ export default class ManageFavoritesPage extends React.Component {
 
   renderMapItButton = () => {
     return (
-      <button className="as-link map-it-button" tabIndex="-1">
+      <button className="as-link map-it-button">
         <i className="icon-map-marker" aria-hidden="true" />
         <span>Map It</span>
       </button>
+    )
+  }
+
+  renderRowCheckbox = (id) => {
+    return (
+      <Checkbox
+        id={id.toString()}
+        value={id.toString()}
+        handleOnChange={this.handleRowCheckboxOnChange}
+        checked={this.manageFavoritesStore.checkedRows.indexOf(id.toString()) > -1}
+        label="Checkbox for row"
+        labelIsSrOnly={true}/>
+    )
+  }
+
+  renderSelectAllCheckbox = () => {
+    return (
+      <Checkbox
+        id="select-all-checkbox"
+        label="Select or Deselect All Checkboxes"
+        value="Select or Deselect All Checkboxes"
+        labelIsSrOnly={true}
+        handleOnChange={this.handleSelectAllCheckbox}
+        checked={this.manageFavoritesStore.checkSelectAllCheckbox}/>
     )
   }
 
@@ -301,33 +352,6 @@ export default class ManageFavoritesPage extends React.Component {
         pageTitle: 'Manage Favorites'
       }
     ];
-
-    const tableColumns = [
-      {
-        name: 'Name',
-        key: 'favoriteName',
-        inlineButtonJsx: this.renderEditButton(),
-        onButtonClick: this.handleEditButton,
-        className: 'favorite-name-column col46'
-      }, {
-        name: 'Location/Address',
-        key: 'locationFavoriteAddress',
-        inlineButtonJsx: this.renderMapItButton(),
-        onButtonClick: this.handleMapItButton,
-        className: 'location-address-column col50'
-      }
-    ];
-
-    // <SortableTable
-    //   store={this.manageFavoritesStore}
-    //   tableId="manage-locations-table"
-    //   idKey="locationFavoriteId"
-    //   columns={tableColumns}
-    //   rows={this.manageFavoritesStore.sortedRows}
-    //   shouldRenderRows={this.manageFavoritesStore.shouldRenderRows}
-    //   activeColumn={this.manageFavoritesStore.activeColumn}
-    //   sortDirections={this.manageFavoritesStore.sortDirections}
-    //   hasCheckboxRow={true}/>
 
     return (
       <article id="manage-location-favorites-page">
@@ -355,38 +379,38 @@ export default class ManageFavoritesPage extends React.Component {
             <div className="col-xs-12">
               {(this.manageFavoritesStore.shouldRenderRows || this.manageFavoritesStore.showSearchResults) && this.renderTopAndBottomFeatures('top')}
               <SortableTable
-                store={this.manageFavoritesStore}
+                rows={this.manageFavoritesStore.sortedRows}
+                activeRows={this.manageFavoritesStore.checkedRows}
                 tableId="manage-locations-table"
-                idKey="locationFavoriteId"
-                shouldRenderRows={this.manageFavoritesStore.shouldRenderRows}
-                activeColumn={this.manageFavoritesStore.activeColumn}
-                sortDirections={this.manageFavoritesStore.sortDirections}>
-                <div table-role="header">
-                  <SortableColumn
-                    toggleSort={() => {}}
-                    sortByAscending={true}
-                    isActive={true}
-                    isSortable={false}
-                    columnName={'Checkbox'}
-                    dataToSort={'favoriteName'}
-                    className={'test-column'}>
-                    <Checkbox
-                      id="select-all-checkbox"
-                      label="Select or Deselect All Checkboxes"
-                      value="Select or Deselect All Checkboxes"
-                      labelIsSrOnly={true}
-                      handleOnChange={this.handleSelectAll}
-                      checked={this.manageFavoritesStore.checkSelectAllCheckbox}/>
-                  </SortableColumn>
-                </div>
-                <div table-role="all-rows">
-                  <div table-role="row">
-                    <TableRow
-                      rowData={{
-                        favoriteName: 'DING DONG'
-                      }} />
-                  </div>
-                </div>
+                keyToUseAsId="locationFavoriteId"
+                shouldRenderRows={this.manageFavoritesStore.shouldRenderRows} >
+                <RepeatingColumn
+                  key="checkbox-column"
+                  bindDataToEach={'locationFavoriteId'}
+                  className={'checkbox-column'}
+                  repeatingJsx={this.renderRowCheckbox}
+                  headerContainsJsx={this.renderSelectAllCheckbox()} />
+                <SortableColumn
+                  key="favorite-name-column"
+                  toggleSort={this.handleToggleSort}
+                  sortByAscending={this.manageFavoritesStore.sortDirections['favoriteName']}
+                  isActive={this.manageFavoritesStore.activeColumn === 'favoriteName'}
+                  columnName={'Name'}
+                  columnDataKey={'favoriteName'}
+                  className={'favorite-name-column'} />
+                <SortableColumn
+                  key="location-address-column"
+                  toggleSort={this.handleToggleSort}
+                  sortByAscending={this.manageFavoritesStore.sortDirections['locationFavoriteAddress']}
+                  isActive={this.manageFavoritesStore.activeColumn === 'locationFavoriteAddress'}
+                  columnName={'Location/Address'}
+                  columnDataKey={'locationFavoriteAddress'}
+                  className={'location-address-column'} />
+                <RepeatingColumn
+                  key="buttons-column"
+                  bindDataToEach={'locationFavoriteId'}
+                  repeatingJsx={this.renderRowButtons}
+                  className={'buttons-column'} />
               </SortableTable>
               {this.manageFavoritesStore.isLoading && this.renderIsLoading()}
               {!this.manageFavoritesStore.isLoading && !this.manageFavoritesStore.shouldRenderRows && this.renderNoResults()}

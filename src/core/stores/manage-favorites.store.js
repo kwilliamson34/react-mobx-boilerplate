@@ -102,7 +102,7 @@ class ManageFavoritesStore {
       ? this.checkedRows.remove(rowId)
       : this.checkedRows.push(rowId);
 	}
-  
+
   @action resetPage() {
     this.resetPagination();
     this.clearSearchQuery();

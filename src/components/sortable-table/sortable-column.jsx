@@ -10,7 +10,7 @@ export class SortableColumn extends React.Component {
     toggleSort: PropTypes.func.isRequired,
     sortByAscending: PropTypes.bool.isRequired,
     isActive: PropTypes.bool,
-    dataToSort: PropTypes.string,
+    columnDataKey: PropTypes.string,
     columnName: PropTypes.string,
     className: PropTypes.string,
     children: PropTypes.node
@@ -25,7 +25,7 @@ export class SortableColumn extends React.Component {
   }
 
   toggleSort = () => {
-    this.props.toggleSort(this.props.columnToSort);
+    this.props.toggleSort(this.props.columnDataKey);
   }
 
   isActive = () => {
@@ -34,20 +34,20 @@ export class SortableColumn extends React.Component {
 
   render() {
     return (
-      <th scope="col" className={this.props.className}>
+      <div className={`table-header-column ${this.props.className}`}>
         <span className="sr-only" aria-live="assertive" aria-relevant="text" aria-atomic="true">
-          The table is now sorted by {this.props.columnName || this.props.columnToSort}
+          The table is now sorted by {this.props.columnName || this.props.columnDataKey}
           {this.props.sortByAscending ? 'in ascending' : 'in descending'}
           order.
         </span>
         <button type="button" className={this.isActive()} onClick={this.toggleSort}>
           <span className="sr-only">Sort By</span>
           <span className="sort-name">
-            {this.props.children}
+            {this.props.columnName}
             <i className={this.arrowDirection} aria-hidden="true" />
           </span>
         </button>
-      </th>
+      </div>
     )
   }
 }

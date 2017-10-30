@@ -12,58 +12,44 @@ export class TableRow extends React.Component {
     id: PropTypes.number.isRequired,
     row: PropTypes.object.isRequired,
     columns: PropTypes.array.isRequired,
-    handleOnChange: PropTypes.func,
-    hasCheckbox: PropTypes.bool,
-    checkedRows: PropTypes.object
+    rowIsActive: PropTypes.bool
   }
 
   static defaultProps = {
-    hasCheckbox: false,
-    checked: false,
-    checkedRows: []
+    rowIsActive: false
   }
 
-  @computed get rowIsChecked() {
-    return this.props.checkedRows.indexOf(this.props.id.toString()) > -1;
-  }
-
-  handleInlineButtonClick = (callback, id) => {
-    callback(id);
-  }
+  // @computed get rowIsChecked() {
+  //   return this.props.checkedRows.indexOf(this.props.id.toString()) > -1;
+  // }
+  //
+  // handleInlineButtonClick = (callback, id) => {
+  //   callback(id);
+  // }
 
   render() {
     return (
-      <tr className={`sortable-table-row ${this.rowIsChecked ? 'active' : ''}`} tabIndex="0">
-        {
-          this.props.hasCheckbox &&
-          <td scope="row" className={`table-row-checkbox ${this.rowIsChecked ? 'active' : ''}`}>
-            <Checkbox
-              id={this.props.id.toString()}
-              value={this.props.id.toString()}
-              handleOnChange={this.props.handleOnChange}
-              checked={this.rowIsChecked}
-              label="Checkbox for row"
-              labelIsSrOnly={true}/>
-          </td>
-        }
+      <div className={`sortable-table-row ${this.props.rowIsActive ? 'active' : ''}`} tabIndex="0">
         {this.props.columns.map((column, i) => {
+          // console.log('column', column);
+          let renderString = '';
+          if (column.type.name === 'RepeatingColumn') {
+            renderString = column.props.repeatingJsx(this.props.id);
+          } else {
+            renderString = this.props.row[column.props.columnDataKey];
+          }
+          // console.log('renderString', renderString);
           return (
-            <td key={`table-row-${i}`} className={column.className}>
+            <div key={`table-row-${i}`} className={`table-row ${column.props.className}`}>
               <div className="flex-wrapper">
                 <div className="row-contents-wrapper">
-                  <span>{this.props.row[column.key]}</span>
+                  <span>{renderString}</span>
                 </div>
-                {
-                  column.inlineButtonJsx &&
-                  <div className="button-wrapper" onClick={() => this.handleInlineButtonClick(column.onButtonClick, this.props.id)} data-id={this.props.id} tabIndex="0">
-                    {column.inlineButtonJsx}
-                  </div>
-                }
+              </div>
             </div>
-            </td>
           )
         })}
-      </tr>
+      </div>
     )
   }
 }
