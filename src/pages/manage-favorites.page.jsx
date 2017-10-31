@@ -110,12 +110,15 @@ export default class ManageFavoritesPage extends React.Component {
 
   renderDeleteModal = () => {
     let deleteQuestion = '';
+    let favoriteString = ''
     if (this.manageFavoritesStore.checkedRows.length === 1) {
       const targetId = this.manageFavoritesStore.checkedRows[0];
       const targetName = this.manageFavoritesStore.findRowData(targetId).favoriteName;
       deleteQuestion = `Delete "${targetName}"?`;
+      favoriteString = 'Favorite';
     } else {
       deleteQuestion = `Delete these ${this.manageFavoritesStore.checkedRows.length} favorites?`;
+      favoriteString = 'Favorites';
     }
 
     return (
@@ -135,8 +138,8 @@ export default class ManageFavoritesPage extends React.Component {
                   <p>This cannot be undone. New favorites can be added at any time.</p>
                 </div>
                 <div className="col-xs-12 text-center">
-                  <button className="fn-primary" onClick={this.keepFavorites}>Keep Favorites</button>
-                  <button className="fn-secondary" onClick={this.deleteFavorites}>Delete Favorites</button>
+                  <button className="fn-primary" onClick={this.keepFavorites}>Keep {favoriteString}</button>
+                  <button className="fn-secondary" onClick={this.deleteFavorites}>Delete {favoriteString}</button>
                 </div>
               </div>
             </div>
