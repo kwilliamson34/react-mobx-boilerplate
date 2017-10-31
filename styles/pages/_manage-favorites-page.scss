@@ -53,26 +53,34 @@
     }
   }
 
+  .manage-favorites-delete-button {
+    display: none;
+  }
+
   .sortable-table {
     @include column-widths();
     display: flex;
     flex-direction: column;
     position: relative;
     margin: 10px 0;
-    vertical-align: middle;
+    // vertical-align: middle;
 
-    .select-all-checkbox > .checkbox {
-      text-align: center;
-    }
-
-    table-head.favorite-name-column,
-    table-row.favorite-name-column {
-      padding-right: 30px;
-    }
-
-    .table-head-column {
-      padding: 0;
-      vertical-align: middle;
+    // .select-all-checkbox > .checkbox {
+    //   text-align: center;
+    // }
+    //
+    // table-head.favorite-name-column,
+    // table-row.favorite-name-column {
+    //   padding-right: 30px;
+    // }
+    .table-head {
+      .mobile-header {
+        display: flex;
+        flex-direction: row;
+      }
+      .table-head-column {
+        display: none;
+      }
     }
 
     .checkbox {
@@ -93,12 +101,15 @@
     }
 
     .table-row {
+      @extend .has-shadow;
       display: flex;
       flex-direction: row;
-      justify-content: flex-start;
       align-items: center;
+      justify-content: space-between;
       background-color: $fn-white;
+      min-height: 90px;
       border: 1px solid $fn-dark;
+      margin-bottom: 10px;
 
       // believe these are the old checkbox thing;
       // th {
@@ -109,8 +120,58 @@
       //   }
       // }
 
-      .checkbox-column {
+      .checkbox-container {
+        width: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         align-self: stretch;
+        flex-grow: 1;
+      }
+
+      .center-container {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        text-align: left;
+        flex-grow: 5;
+        align-self: stretch;
+        background-color: $fn-ltgrey;
+        border-left: 1px solid $fn-dkgrey;
+        border-right: 1px solid $fn-dkgrey;
+
+        .favorite-name-column {
+          flex-grow: 1;
+        }
+        .location-address-column {
+          flex-grow: 2;
+        }
+      }
+
+      .buttons-container {
+        width: 10%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-self: stretch;
+        flex-grow: 1;
+
+        .buttons-column {
+          width: 100%;
+          button {
+            text-decoration: none;
+
+            span {
+              display: none;
+            }
+          }
+          &:first-of-type {
+            border-bottom: 1px solid $fn-dkgrey;
+          }
+        }
       }
 
       // .center-cells {
@@ -118,17 +179,16 @@
       //   flex-direction: column;
       // }
 
-      .table-cell {
-        @include column-widths();
-        padding: 5px 0;
-
-        .flex-wrapper {
-          display: flex;
-          align-items: center;
-          width: 100%;
-          min-height: 60px;
-        }
-      }
+      // .table-cell {
+      //   padding: 5px 0;
+      //
+      //   .flex-wrapper {
+      //     display: flex;
+      //     align-items: center;
+      //     width: 100%;
+      //     min-height: 60px;
+      //   }
+      // }
       // td {
       //   position: relative;
       //   border: none;
@@ -207,6 +267,15 @@
 
         span {
           display: none;
+        }
+      }
+    }
+
+    .mobile-header-button {
+      text-transform: uppercase;
+      .sort-name {
+        i {
+          color: inherit;
         }
       }
     }
@@ -342,14 +411,15 @@
   #manage-location-favorites-page {
     .sortable-table {
 
-      // .favorite-name-column {
-      //   .flex-wrapper {
-      //     padding-right: 15px;
-      //   }
-      // }
-
       .table-head {
         background-color: $table-header-bg;
+        .mobile-header {
+          display: none;
+        }
+        .table-head-column {
+          display: flex;
+          flex-direction: row;
+        }
       }
 
       .table-head,
@@ -359,6 +429,12 @@
         justify-content: flex-start;
         align-items: center;
 
+        .checkbox-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
         .center-container {
           display: flex;
           flex-direction: row;
@@ -366,7 +442,10 @@
           flex-grow: 1;
         }
 
-        .table-row {
+        .buttons-container {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
           .buttons-column {
             button {
               border-radius: 0;
@@ -395,17 +474,22 @@
 
               span {
                 visibility: hidden;
+
+                &:hover,
+                &:focus {
+                  text-decoration: underline;
+                }
               }
             }
           }
+        }
 
-          &:active,
-          &:focus,
-          &:hover,
-          &:focus-within {
-            .buttons-column button span {
-              visibility: visible;
-            }
+        &:active,
+        &:focus,
+        &:hover,
+        &:focus-within {
+          .buttons-column button span {
+            visibility: visible;
           }
         }
       }

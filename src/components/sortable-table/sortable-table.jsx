@@ -8,9 +8,9 @@ import {TableRow} from './table-row';
 export class SortableTable extends React.Component {
 
   static propTypes = {
+    keyToUseAsId: PropTypes.string.isRequired,
     children: PropTypes.array,
     tableId: PropTypes.string,
-    keyToUseAsId: PropTypes.string.isRequired,
     caption: PropTypes.string,
     rows: PropTypes.array,
     activeRows: PropTypes.object,
@@ -26,7 +26,7 @@ export class SortableTable extends React.Component {
   constructor(props) {
     super(props);
     this.columns = [];
-    this.cellContainers = {};
+    this.notColumns = [];
   }
 
   componentWillMount() {
@@ -51,9 +51,10 @@ export class SortableTable extends React.Component {
 
   parseChildren = () => {
     console.log('children', this.props.children);
-    this.props.children.map(child => {
-      console.log('child children', child.props.children);
+    this.columns = this.props.children.filter(child => {
+      return child.props.role === 'column';
     })
+    console.log('this.columns', this.columns);
   }
 
   render() {
@@ -64,7 +65,7 @@ export class SortableTable extends React.Component {
           {this.props.children}
         </div>
         <div className="table-body">
-          {this.props.shouldRenderRows && this.renderRows(this.props.rows, this.props.children)}
+          {this.props.shouldRenderRows && this.renderRows(this.props.rows, this.columns)}
         </div>
       </div>
     )

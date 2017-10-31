@@ -4,15 +4,16 @@ import {observer} from 'mobx-react';
 import {computed} from 'mobx';
 
 @observer
-export class SortableColumn extends React.Component {
+export class TableColumn extends React.Component {
 
   static propTypes = {
-    toggleSort: PropTypes.func.isRequired,
-    sortByAscending: PropTypes.bool.isRequired,
+    toggleSort: PropTypes.func,
+    sortByAscending: PropTypes.bool,
     isActive: PropTypes.bool,
     columnDataKey: PropTypes.string,
-    columnName: PropTypes.string,
     columnClassName: PropTypes.string,
+    headerLabel: PropTypes.string,
+    additionalHeaderJsx: PropTypes.object,
     children: PropTypes.node
   }
 
@@ -32,21 +33,36 @@ export class SortableColumn extends React.Component {
     return this.props.isActive ? 'sort-button active' : 'sort-button';
   }
 
-  render() {
+  renderSortableElements = () => {
     return (
-      <div className={`table-head-column ${this.props.columnClassName}`}>
+      <div>
         <span className="sr-only" aria-live="assertive" aria-relevant="text" aria-atomic="true">
-          The table is now sorted by {this.props.columnName || this.props.columnDataKey}
+          The table is now sorted by {this.props.headerLabel || this.props.columnDataKey}
           {this.props.sortByAscending ? 'in ascending' : 'in descending'}
           order.
         </span>
         <button type="button" className={this.isActive()} onClick={this.toggleSort}>
           <span className="sr-only">Sort By</span>
           <span className="sort-name">
-            {this.props.columnName}
+            {this.props.headerLabel}
             <i className={this.arrowDirection} aria-hidden="true" />
           </span>
         </button>
+      </div>
+    )
+  }
+
+  render() {
+    return (
+      <div className={`table-head-column ${this.props.columnClassName}`}>
+        {this.props.toggleSort && this.renderSortableElements()}
+        {this.props.additionalHeaderJsx}
+        {
+          this.props.headerLabel && !this.props.toggleSort &&
+          <div className="header-label">
+            {this.props.headerLabel}
+          </div>
+        }
       </div>
     )
   }

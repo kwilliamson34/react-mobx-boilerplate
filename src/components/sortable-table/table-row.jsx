@@ -19,17 +19,15 @@ export class TableRow extends React.Component {
   renderCells = (cells) => {
     return cells.map((cell, i) => {
       let renderString = '';
-      if (cell.type.name === 'RepeatingColumn') {
+      if (cell.props.repeatingJsx) {
         renderString = cell.props.repeatingJsx(this.props.id);
       } else {
         renderString = this.props.row[cell.props.columnDataKey];
       }
       return (
         <div key={`table-row-${i}`} className={`table-cell ${cell.props.columnClassName}`}>
-          <div className="flex-wrapper">
-            <div className="row-contents-wrapper">
-              <span>{renderString}</span>
-            </div>
+          <div className="row-contents-wrapper">
+            <span>{renderString}</span>
           </div>
         </div>
       )
