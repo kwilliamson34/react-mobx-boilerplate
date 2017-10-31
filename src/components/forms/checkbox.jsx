@@ -14,7 +14,8 @@ export default class Checkbox extends React.Component {
     checked: PropTypes.bool,
     required: PropTypes.bool,
     errorMessage: PropTypes.string,
-    tooltipText: PropTypes.string
+    tooltipText: PropTypes.string,
+    announceError: PropTypes.bool
   }
 
   static defaultProps = {
@@ -74,9 +75,11 @@ export default class Checkbox extends React.Component {
       : '';
     return (
       <div className={`checkbox form-group ${disabledClass}`}>
-        {this.hasVisibleError && <div className="msgBlock error error-list" role="alert" aria-live="polite">
-          <span>{this.props.errorMessage}</span>
-        </div>}
+        {this.hasVisibleError &&
+          <div className="msgBlock error error-list" role={this.props.announceError ? 'status' : ''} aria-live={this.props.announceError ? 'polite' : ''}>
+            <span>{this.props.errorMessage}</span>
+          </div>
+        }
         <label>
           <input
             type="checkbox"
