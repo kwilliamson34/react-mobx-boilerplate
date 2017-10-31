@@ -23,6 +23,16 @@ export class SortableTable extends React.Component {
     activeRows: []
   }
 
+  constructor(props) {
+    super(props);
+    this.columns = [];
+    this.cellContainers = {};
+  }
+
+  componentWillMount() {
+    this.parseChildren();
+  }
+
   renderRows = (rows, columns) => {
     return rows.map(row => {
       //identify which field we want to use as the id/value;
@@ -36,6 +46,13 @@ export class SortableTable extends React.Component {
           rowIsActive={rowIsActive}
           key={targetedId} />
       )
+    })
+  }
+
+  parseChildren = () => {
+    console.log('children', this.props.children);
+    this.props.children.map(child => {
+      console.log('child children', child.props.children);
     })
   }
 

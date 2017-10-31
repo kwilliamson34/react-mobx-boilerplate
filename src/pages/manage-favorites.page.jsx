@@ -385,33 +385,39 @@ export default class ManageFavoritesPage extends React.Component {
                 tableId="manage-locations-table"
                 keyToUseAsId="locationFavoriteId"
                 shouldRenderRows={this.manageFavoritesStore.shouldRenderRows} >
-                <RepeatingColumn
-                  key="checkbox-column"
-                  bindDataToEach={'locationFavoriteId'}
-                  repeatingJsx={this.renderRowCheckbox}
-                  headerContainsJsx={this.renderSelectAllCheckbox()}
-                  columnClassName={'checkbox-column col5'} />
-                <SortableColumn
-                  key="favorite-name-column"
-                  toggleSort={this.handleToggleSort}
-                  sortByAscending={this.manageFavoritesStore.sortDirections['favoriteName']}
-                  isActive={this.manageFavoritesStore.activeColumn === 'favoriteName'}
-                  columnName={'Name'}
-                  columnDataKey={'favoriteName'}
-                  columnClassName={'favorite-name-column center-cells col40'} />
-                <SortableColumn
-                  key="location-address-column"
-                  toggleSort={this.handleToggleSort}
-                  sortByAscending={this.manageFavoritesStore.sortDirections['locationFavoriteAddress']}
-                  isActive={this.manageFavoritesStore.activeColumn === 'locationFavoriteAddress'}
-                  columnName={'Location/Address'}
-                  columnDataKey={'locationFavoriteAddress'}
-                  columnClassName={'location-address-column center-cells col40'} />
-                <RepeatingColumn
-                  key="buttons-column"
-                  bindDataToEach={'locationFavoriteId'}
-                  repeatingJsx={this.renderRowButtons}
-                  columnClassName={'buttons-column col15'} />
+                <span className="table-container checkbox-container col5">
+                  <RepeatingColumn
+                    key="checkbox-column"
+                    bindDataToEach={'locationFavoriteId'}
+                    repeatingJsx={this.renderRowCheckbox}
+                    headerContainsJsx={this.renderSelectAllCheckbox()}
+                    columnClassName={'checkbox-column'} />
+                </span>
+                <span className="table-container center-container col75">
+                  <SortableColumn
+                    key="favorite-name-column"
+                    toggleSort={this.handleToggleSort}
+                    sortByAscending={this.manageFavoritesStore.sortDirections['favoriteName']}
+                    isActive={this.manageFavoritesStore.activeColumn === 'favoriteName'}
+                    columnName={'Name'}
+                    columnDataKey={'favoriteName'}
+                    columnClassName={'favorite-name-column col50'} />
+                  <SortableColumn
+                    key="location-address-column"
+                    toggleSort={this.handleToggleSort}
+                    sortByAscending={this.manageFavoritesStore.sortDirections['locationFavoriteAddress']}
+                    isActive={this.manageFavoritesStore.activeColumn === 'locationFavoriteAddress'}
+                    columnName={'Location/Address'}
+                    columnDataKey={'locationFavoriteAddress'}
+                    columnClassName={'location-address-column col50'} />
+                </span>
+                <span className="table-container buttons-container col20">
+                  <RepeatingColumn
+                    key="buttons-column"
+                    bindDataToEach={'locationFavoriteId'}
+                    repeatingJsx={this.renderRowButtons}
+                    columnClassName={'buttons-column'} />
+                </span>
               </SortableTable>
               {this.manageFavoritesStore.isLoading && this.renderIsLoading()}
               {!this.manageFavoritesStore.isLoading && !this.manageFavoritesStore.shouldRenderRows && this.renderNoResults()}

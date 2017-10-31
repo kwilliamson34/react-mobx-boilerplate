@@ -16,24 +16,39 @@ export class TableRow extends React.Component {
     rowIsActive: false
   }
 
+  renderCells = (cells) => {
+    return cells.map((cell, i) => {
+      let renderString = '';
+      if (cell.type.name === 'RepeatingColumn') {
+        renderString = cell.props.repeatingJsx(this.props.id);
+      } else {
+        renderString = this.props.row[cell.props.columnDataKey];
+      }
+      return (
+        <div key={`table-row-${i}`} className={`table-cell ${cell.props.columnClassName}`}>
+          <div className="flex-wrapper">
+            <div className="row-contents-wrapper">
+              <span>{renderString}</span>
+            </div>
+          </div>
+        </div>
+      )
+    })
+  }
+
   render() {
     return (
       <div className={`table-row ${this.props.rowIsActive ? 'active' : ''}`}>
         {this.props.columns.map((column, i) => {
-          let renderString = '';
-          if (column.type.name === 'RepeatingColumn') {
-            renderString = column.props.repeatingJsx(this.props.id);
-          } else {
-            renderString = this.props.row[column.props.columnDataKey];
-          }
+          let columnChildren = [];
+          //push individual children into an array so that we don't have to write out two render functions;
+          Array.isArray(column.props.children)
+            ? columnChildren = column.props.children
+            : columnChildren.push(column.props.children)
           return (
-            <div key={`table-row-${i}`} className={`table-cell ${column.props.columnClassName}`}>
-              <div className="flex-wrapper">
-                <div className="row-contents-wrapper">
-                  <span>{renderString}</span>
-                </div>
-              </div>
-            </div>
+            <span className={column.props.className} key={`table-column-${i}`}>
+              {this.renderCells(columnChildren)}
+            </span>
           )
         })}
       </div>
