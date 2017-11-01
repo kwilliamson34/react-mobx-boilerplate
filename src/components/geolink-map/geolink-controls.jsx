@@ -6,6 +6,7 @@ import {observer} from 'mobx-react';
 import {history} from '../../core/services/history.service';
 import Checkbox from '../forms/checkbox';
 import TextInput from '../forms/text-input';
+import Alerts from '../alerts/alerts';
 
 @observer
 export default class GeolinkControls extends React.Component {
@@ -53,23 +54,6 @@ export default class GeolinkControls extends React.Component {
     }
   };
 
-  clearSuccess = () => {
-    this.store.showSuccess = false;
-  }
-
-  renderSuccess = () => {
-    return (
-      <div className="alert alert-success">
-        <button type="button" className="close_btn icon-close" onClick={this.clearSuccess}>
-          <span className="sr-only">Close alert</span>
-        </button>
-        <p role="alert" aria-live="assertive">
-          <strong>Success!&nbsp;</strong>{this.store.successText}
-        </p>
-      </div>
-    )
-  }
-
   onFavoriteClick = (favorite) => {
     this.store.selectFavorite(favorite);
     this.store.formFieldRefList.find((el) => {
@@ -88,11 +72,13 @@ export default class GeolinkControls extends React.Component {
 
   onManageFavoritesClick = () => {
     history.push('/manage-favorites');
+    this.store.clearAlertBars();
   }
 
   onManageFavoritesEnter = (event) => {
     if(event.charCode === this.ENTER_KEY_CODE) {
       history.push('/manage-favorites');
+      this.store.clearAlertBars();
     }
   }
 
@@ -154,11 +140,12 @@ export default class GeolinkControls extends React.Component {
           <div className="container">
             <div className="row">
               <div className="col-xs-12">
-                {this.renderSuccess()}
+                <Alerts showSuccess={this.store.showSuccess} successText={this.store.successText} clearSuccess={this.store.clearSuccess.bind(this.store)} />
               </div>
             </div>
           </div>
         }
+
         <div className="container">
           <div className="row is-flex">
             <div className="col-xs-12 col-sm-7 col-md-4 map-search">
@@ -221,7 +208,7 @@ export default class GeolinkControls extends React.Component {
     return (
       <div>
         <span className="top-right-link">
-          <Link to="/manage-favorites">Manage Favorites</Link>
+          <button className="as-link" onClick={this.onManageFavoritesClick}>Manage Favorites</button>
         </span>
         <h2 className="as-h5">Search</h2>
         <TextInput

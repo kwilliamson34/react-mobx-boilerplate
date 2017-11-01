@@ -34,17 +34,13 @@ class FeedbackStore {
   }
 
   @action submitForm() {
-
-    if(this.formHasError) {
-      this.showAllFormErrors();
-      return;
-    }
     const success = () => {
       this.clearForm();
       history.push('/feedback-success');
     }
     const failure = () => {
-      this.showAllFormErrors();
+      this.alertText = 'An unknown error occured. Please try again later.';
+      this.showAlert = true;
     }
     apiService.submitCustomerFeedbackForm(this.values).then(success, failure);
   }
@@ -60,17 +56,16 @@ class FeedbackStore {
     this.showAlert = false;
   }
 
-  @action clearFormFieldRefList() {
-    this.formFieldRefList = [];
+  @action clearAlert() {
+    this.showAlert = false;
   }
 
-  @action showAllFormErrors() {
-    this.formFieldRefList.forEach(ref => {
-      if(ref && ref.hasFunctionalError) {
-        ref.hasVisibleError = ref.hasFunctionalError;
-      }
-    });
-    this.showAlert = true;
+  @action clearSuccess() {
+    this.showSuccess = false;
+  }
+
+  @action clearFormFieldRefList() {
+    this.formFieldRefList = [];
   }
 
   @computed get formIsDirty() {
@@ -104,6 +99,7 @@ class FeedbackStore {
 
   @observable formFieldRefList = [];
   @observable formHasError = true;
+  @observable alertText = 'Please fix the following errors.';
   @observable showAlert = false;
   @observable contactAgreement = false;
   @observable defaultValues = {

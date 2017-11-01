@@ -16,6 +16,8 @@ describe('<FeedbackForm />', () => {
         phone: '',
         likely: ''
       },
+      clearAlert: jest.fn(),
+      clearSuccess: jest.fn(),
       emailIsRequired: true,
       formFieldRefList: [],
       clearFormFieldRefList: jest.fn(),

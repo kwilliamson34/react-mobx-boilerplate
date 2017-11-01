@@ -16,6 +16,8 @@ describe('<LeadCaptureForm />', () => {
         message: '',
         contactAgreement: false
       },
+      clearAlert: jest.fn(),
+      clearSuccess: jest.fn(),
       formFieldRefList: [],
       checkFormForErrors: jest.fn(),
       clearFormFieldRefList: jest.fn(),

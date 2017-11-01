@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import {inject, observer} from 'mobx-react';
 
 import PageTitle from '../components/page-title/page-title';
-import {MDMAlerts} from '../components/configure-mdm/mdm-alerts';
 import AirWatchForm from '../components/configure-mdm/air-watch-form';
 import IBMForm from '../components/configure-mdm/ibm-form';
+import MicrosoftForm from '../components/configure-mdm/microsoft-form';
 import MobileIronForm from '../components/configure-mdm/mobile-iron-form';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
+import Alerts from '../components/alerts/alerts';
 import $ from 'jquery';
 
 @inject('store')
@@ -34,9 +35,6 @@ export default class ConfigureMDM extends React.Component {
 
   componentWillUnmount() {
     this.mdmStore.form = undefined;
-
-    //FPSE-1064 clear all alerts from this page
-    this.mdmStore.mdm_form_alerts = [];
   }
 
 	handleSelectChange = (event) => {
@@ -127,6 +125,7 @@ export default class ConfigureMDM extends React.Component {
           <option value="AIRWATCH">Airwatch</option>
           <option value="MAAS360">IBM MaaS360</option>
           <option value="MOBILE_IRON">MobileIron</option>
+          <option value="MICROSOFT_INTUNE">Microsoft InTune</option>
         </select>
       </div>
     )
@@ -144,11 +143,14 @@ export default class ConfigureMDM extends React.Component {
       case 'MOBILE_IRON':
         MDMFormComponent = MobileIronForm;
         break;
+      case 'MICROSOFT_INTUNE':
+        MDMFormComponent = MicrosoftForm;
+        break;
       default:
         MDMFormComponent = null;
     }
     if (MDMFormComponent) {
-      return <MDMFormComponent store={this.mdmStore} disabled={this.mdmStore.mdmIsConfigured}/>
+      return <MDMFormComponent store={this.mdmStore} disabled={this.mdmStore.mdmIsConfigured} suppressAlertBars={true}/>
     }
     return null;
   }
@@ -179,8 +181,8 @@ export default class ConfigureMDM extends React.Component {
           <div className="row no-gutters">
             <section className="col-xs-12 col-lg-10 col-lg-offset-1">
               <div className="mdm-form col-md-offset-2 col-xs-12 col-md-8 col-md">
-                <MDMAlerts store={this.mdmStore} alertList={this.mdmStore.mdm_form_alerts}/>
                 <section>
+                  <Alerts showAlert={this.mdmStore.showAlert} alertText={this.mdmStore.alertText} clearAlert={this.mdmStore.clearAlert.bind(this.mdmStore)} showSuccess={this.mdmStore.showSuccess} successText={this.mdmStore.successText} clearSuccess={this.mdmStore.clearSuccess.bind(this.mdmStore)}/>
                   {this.mdmStore.mdmIsConfigured && <p className="mdm-description">Only one MDM can be configured at a time. To configure a new MDM, the existing connection must be broken. Once the existing connection is broken, a new one can be configured.</p>}
                   {this.renderMDMSelectMenu()}
                   {this.renderProperMDMForm()}

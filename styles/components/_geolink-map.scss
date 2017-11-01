@@ -204,6 +204,17 @@ $map-controls-text-line-height: 1.3;
         }
       }
     }
+    .top-right-link {
+      float: right;
+
+      button {
+        margin-top: 0;
+        width: 100%;
+      }
+    }
+    .add-favorite-button {
+      margin: 25px 0 30px;
+    }
   }
 
   hr {
@@ -244,18 +255,6 @@ $map-controls-text-line-height: 1.3;
     line-height: $map-controls-text-line-height;
     text-transform: uppercase;
     margin: 20px 0;
-  }
-
-  .add-favorite-button {
-    margin: 25px 0 30px;
-  }
-
-  .top-right-link {
-    float: right;
-
-    a {
-      margin-top: 0;
-    }
   }
 
   .network-contact-info {

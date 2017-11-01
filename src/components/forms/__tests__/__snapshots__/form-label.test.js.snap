@@ -7,6 +7,7 @@ exports[`<FormLabel /> renders matches previous snapshot 1`] = `
     testLabel
     
   </label>
+  
 </div>
 `;
 
@@ -22,6 +23,7 @@ exports[`<FormLabel /> renders matches previous snapshot 2`] = `
       helper text
     </span>
   </label>
+  
 </div>
 `;
 
@@ -41,6 +43,7 @@ exports[`<FormLabel /> renders matches previous snapshot 3`] = `
       helper text
     </span>
   </label>
+  
 </div>
 `;
 
@@ -61,7 +64,7 @@ exports[`<FormLabel /> renders matches previous snapshot 4`] = `
     </span>
   </label>
   <div
-    aria-live="assertive"
+    aria-live="polite"
     className="msgBlock error error-list"
     role="alert">
     <span>
@@ -88,7 +91,7 @@ exports[`<FormLabel /> renders matches previous snapshot 5`] = `
     </span>
   </label>
   <div
-    aria-live="assertive"
+    aria-live="polite"
     className="msgBlock error error-list"
     role="alert">
     <span>

@@ -26,6 +26,11 @@ export default class Checkbox extends React.Component {
     errorMessage: ''
   }
 
+  constructor(props) {
+    super(props);
+    this.ENTER_KEY_CODE = 13;
+  }
+
   componentWillMount() {
     this.hasBeenVisited = false;
   }
@@ -42,6 +47,12 @@ export default class Checkbox extends React.Component {
       this.showError(event);
     }
     this.hasBeenVisited = true;
+  }
+
+  handleKeyPress = (event) => {
+    if(event.charCode === this.ENTER_KEY_CODE) {
+      this.handleOnChange(event);
+    }
   }
 
   handleOnBlur = (event) => {
@@ -77,6 +88,7 @@ export default class Checkbox extends React.Component {
             checked={this.props.checked}
             data-checked={this.props.checked/*custom DOM prop included for automated testing*/}
             onChange={this.handleOnChange}
+            onKeyPress={this.handleKeyPress}
             onBlur={this.handleOnBlur}/>
           <span className="cr"></span>
           <span className={`label-text ${this.props.labelIsSrOnly ? 'sr-only' : ''}`}>

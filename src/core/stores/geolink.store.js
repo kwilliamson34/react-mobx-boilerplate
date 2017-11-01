@@ -203,26 +203,15 @@ class GeolinkStore {
   @action showAddLocationForm() {
     this.pageTitle = 'Add New Favorite';
     this.values.locationName = '';
-    this.clearAlerts();
+    this.clearAlertBars();
   }
 
   @action showEditLocationForm() {
     this.pageTitle = 'Edit Favorite';
-    this.clearAlerts();
+    this.clearAlertBars();
   }
 
   @action submitForm() {
-    if(this.formHasError) {
-      this.showAllFormErrors();
-      return;
-    }
-
-    if(!this.formIsDirty) {
-      this.alertText = 'Please make a change to continue, or discard.';
-      this.showAlert = true;
-      return;
-    }
-
     if(this.pageTitle === 'Edit Favorite') {
       this.editLocation();
     } else if(this.pageTitle === 'Add New Favorite') {
@@ -290,7 +279,7 @@ class GeolinkStore {
 
   @action clearForm() {
     this.resetValues();
-    this.clearAlerts();
+    this.clearAlertBars();
     this.pageTitle = 'Network Status';
     this.searchMap();
     this.clearFormFieldRefList();
@@ -300,14 +289,17 @@ class GeolinkStore {
     this.formFieldRefList = [];
   }
 
-  @action clearAlerts() {
+  @action clearAlertBars() {
     this.showAlert = false;
     this.showSuccess = false;
   }
 
-  @action clearAlertsText() {
-    this.successText = '';
-    this.alertText = '';
+  @action clearAlert() {
+    this.showAlert = false;
+  }
+
+  @action clearSuccess() {
+    this.showSuccess = false;
   }
 
   @action resetValues() {
@@ -327,16 +319,6 @@ class GeolinkStore {
       }
     });
     return formHasChanged;
-  }
-
-  @action showAllFormErrors() {
-    this.formFieldRefList.forEach(ref => {
-      if(ref && ref.hasFunctionalError) {
-        ref.hasVisibleError = ref.hasFunctionalError;
-      }
-    });
-    this.alertText = 'Please fix the following errors.';
-    this.showAlert = true;
   }
 
   @action loadFavorites() {
@@ -403,7 +385,7 @@ class GeolinkStore {
   @observable formFieldRefList = [];
   @observable formHasError = true;
   @observable showAlert = false;
-  @observable alertText = '';
+  @observable alertText = 'Please fix the following errors.';
   @observable showSuccess = false;
   @observable successText = '';
   @observable defaultValues = {
