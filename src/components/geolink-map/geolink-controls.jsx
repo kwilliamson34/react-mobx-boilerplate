@@ -116,7 +116,7 @@ export default class GeolinkControls extends React.Component {
                     <Checkbox id="alerts-toggle"
                       value="Alerts"
                       label="Network Alerts"
-                      tooltipText="Highlights abnormal network malfunction"
+                      tooltipText="Highlights abnormal network function"
                       onChange={this.toggleAlerts}
                       checked={this.geoStore.showAlertLayer}
                       disabled={this.props.disabled || !this.geoStore.authIsComplete} />
