@@ -35,7 +35,7 @@ export class TableColumn extends React.Component {
 
   renderSortableElements = () => {
     return (
-      <div>
+      <div className="sort-button-container">
         <span className="sr-only" aria-live="assertive" aria-relevant="text" aria-atomic="true">
           The table is now sorted by {this.props.headerLabel || this.props.columnDataKey}
           {this.props.sortByAscending ? 'in ascending' : 'in descending'}
