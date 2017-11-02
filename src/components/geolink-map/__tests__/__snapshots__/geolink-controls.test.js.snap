@@ -10,11 +10,11 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
         <div>
           <span
             className="top-right-link">
-            <a
-              href="/manage-favorites"
+            <button
+              className="as-link"
               onClick={[Function anonymous]}>
               Manage Favorites
-            </a>
+            </button>
           </span>
           <h2
             className="as-h5">
@@ -114,11 +114,11 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
                   <input
                     aria-disabled={false}
                     checked={false}
-                    className=""
                     data-checked={false}
                     id=""
                     onBlur={[Function anonymous]}
                     onChange={[Function anonymous]}
+                    onKeyPress={[Function anonymous]}
                     type="checkbox"
                     value="Network" />
                   <span
@@ -151,11 +151,11 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
                   <input
                     aria-disabled={false}
                     checked={false}
-                    className=""
                     data-checked={false}
                     id=""
                     onBlur={[Function anonymous]}
                     onChange={[Function anonymous]}
+                    onKeyPress={[Function anonymous]}
                     type="checkbox"
                     value="Weather" />
                   <span
@@ -179,11 +179,11 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
                   <input
                     aria-disabled={false}
                     checked={false}
-                    className=""
                     data-checked={false}
                     id=""
                     onBlur={[Function anonymous]}
                     onChange={[Function anonymous]}
+                    onKeyPress={[Function anonymous]}
                     type="checkbox"
                     value="Traffic" />
                   <span
@@ -204,11 +204,11 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
                   <input
                     aria-disabled={false}
                     checked={false}
-                    className=""
                     data-checked={false}
                     id=""
                     onBlur={[Function anonymous]}
                     onChange={[Function anonymous]}
+                    onKeyPress={[Function anonymous]}
                     type="checkbox"
                     value="Alerts" />
                   <span
@@ -534,11 +534,11 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
         <div>
           <span
             className="top-right-link">
-            <a
-              href="/manage-favorites"
+            <button
+              className="as-link"
               onClick={[Function anonymous]}>
               Manage Favorites
-            </a>
+            </button>
           </span>
           <h2
             className="as-h5">
@@ -575,11 +575,11 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                   <input
                     aria-disabled={true}
                     checked={false}
-                    className="disabled"
                     data-checked={false}
                     id=""
                     onBlur={[Function anonymous]}
                     onChange={[Function anonymous]}
+                    onKeyPress={[Function anonymous]}
                     type="checkbox"
                     value="Network" />
                   <span
@@ -612,11 +612,11 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                   <input
                     aria-disabled={true}
                     checked={false}
-                    className="disabled"
                     data-checked={false}
                     id=""
                     onBlur={[Function anonymous]}
                     onChange={[Function anonymous]}
+                    onKeyPress={[Function anonymous]}
                     type="checkbox"
                     value="Weather" />
                   <span
@@ -640,11 +640,11 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                   <input
                     aria-disabled={true}
                     checked={false}
-                    className="disabled"
                     data-checked={false}
                     id=""
                     onBlur={[Function anonymous]}
                     onChange={[Function anonymous]}
+                    onKeyPress={[Function anonymous]}
                     type="checkbox"
                     value="Traffic" />
                   <span
@@ -665,11 +665,11 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                   <input
                     aria-disabled={true}
                     checked={false}
-                    className="disabled"
                     data-checked={false}
                     id=""
                     onBlur={[Function anonymous]}
                     onChange={[Function anonymous]}
+                    onKeyPress={[Function anonymous]}
                     type="checkbox"
                     value="Alerts" />
                   <span
@@ -995,11 +995,11 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
         <div>
           <span
             className="top-right-link">
-            <a
-              href="/manage-favorites"
+            <button
+              className="as-link"
               onClick={[Function anonymous]}>
               Manage Favorites
-            </a>
+            </button>
           </span>
           <h2
             className="as-h5">
@@ -1036,11 +1036,11 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                   <input
                     aria-disabled={false}
                     checked={false}
-                    className=""
                     data-checked={false}
                     id=""
                     onBlur={[Function anonymous]}
                     onChange={[Function anonymous]}
+                    onKeyPress={[Function anonymous]}
                     type="checkbox"
                     value="Network" />
                   <span
@@ -1073,11 +1073,11 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                   <input
                     aria-disabled={false}
                     checked={false}
-                    className=""
                     data-checked={false}
                     id=""
                     onBlur={[Function anonymous]}
                     onChange={[Function anonymous]}
+                    onKeyPress={[Function anonymous]}
                     type="checkbox"
                     value="Weather" />
                   <span
@@ -1101,11 +1101,11 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                   <input
                     aria-disabled={false}
                     checked={false}
-                    className=""
                     data-checked={false}
                     id=""
                     onBlur={[Function anonymous]}
                     onChange={[Function anonymous]}
+                    onKeyPress={[Function anonymous]}
                     type="checkbox"
                     value="Traffic" />
                   <span
@@ -1126,11 +1126,11 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                   <input
                     aria-disabled={true}
                     checked={false}
-                    className="disabled"
                     data-checked={false}
                     id=""
                     onBlur={[Function anonymous]}
                     onChange={[Function anonymous]}
+                    onKeyPress={[Function anonymous]}
                     type="checkbox"
                     value="Alerts" />
                   <span
@@ -1456,11 +1456,11 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
         <div>
           <span
             className="top-right-link">
-            <a
-              href="/manage-favorites"
+            <button
+              className="as-link"
               onClick={[Function anonymous]}>
               Manage Favorites
-            </a>
+            </button>
           </span>
           <h2
             className="as-h5">
@@ -1497,11 +1497,11 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                   <input
                     aria-disabled={false}
                     checked={false}
-                    className=""
                     data-checked={false}
                     id=""
                     onBlur={[Function anonymous]}
                     onChange={[Function anonymous]}
+                    onKeyPress={[Function anonymous]}
                     type="checkbox"
                     value="Network" />
                   <span
@@ -1534,11 +1534,11 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                   <input
                     aria-disabled={false}
                     checked={false}
-                    className=""
                     data-checked={false}
                     id=""
                     onBlur={[Function anonymous]}
                     onChange={[Function anonymous]}
+                    onKeyPress={[Function anonymous]}
                     type="checkbox"
                     value="Weather" />
                   <span
@@ -1562,11 +1562,11 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                   <input
                     aria-disabled={false}
                     checked={false}
-                    className=""
                     data-checked={false}
                     id=""
                     onBlur={[Function anonymous]}
                     onChange={[Function anonymous]}
+                    onKeyPress={[Function anonymous]}
                     type="checkbox"
                     value="Traffic" />
                   <span
@@ -1587,11 +1587,11 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                   <input
                     aria-disabled={false}
                     checked={false}
-                    className=""
                     data-checked={false}
                     id=""
                     onBlur={[Function anonymous]}
                     onChange={[Function anonymous]}
+                    onKeyPress={[Function anonymous]}
                     type="checkbox"
                     value="Alerts" />
                   <span

@@ -110,7 +110,7 @@ export default class TextInput extends React.Component {
     return (
       <div className={`form-group ${this.props.className} ${this.hasVisibleError || this.charLimitMessage ? 'has-error' : ''}`}>
         <FormLabel
-          id={this.props.id}
+          htmlFor={this.props.id}
           charLimitMessage={this.charLimitMessage}
           hasError={this.hasVisibleError}
           fieldIsRequired={this.props.required}

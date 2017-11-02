@@ -393,11 +393,7 @@ class GeolinkStore {
     locationName: '',
     locationId: ''
   };
-  @observable values = {
-    locationAddress: '',
-    locationName: '',
-    locationId: ''
-  };
+  @observable values = Object.assign({}, this.defaultValues);
   @observable dropdownIsVisible = false;
   @observable favorites = [];
 

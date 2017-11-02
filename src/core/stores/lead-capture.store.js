@@ -8,7 +8,7 @@ class LeadCaptureStore {
   constructor() {
     // check form for errors
     autorun(() => {
-      // check that initial values are available before valudating for the first time
+      // check that initial values are available before validating for the first time
       if(userStore.userValidationDone) {
         let hasError = false;
         this.formFieldRefList.forEach(ref => {
@@ -116,15 +116,7 @@ class LeadCaptureStore {
     message: '',
     contactAgreement: false
   };
-  @observable values = {
-    title: '',
-    firstName: userStore.user.firstName,
-    lastName: userStore.user.lastName,
-    email: userStore.user.email,
-    phone: userStore.user.phone,
-    message: '',
-    contactAgreement: false
-  };
+  @observable values = Object.assign({}, this.defaultValues);
 }
 
 export const leadCaptureStore = new LeadCaptureStore();

@@ -100,13 +100,8 @@
     }
   }
 
-  form button:not(.close_btn) {
+  .form-actions {
     margin: 3rem 0 8.5rem;
-
-    &.disabled {
-      cursor: auto;
-      pointer-events: auto;
-    }
   }
 }
 

@@ -309,30 +309,7 @@ class MDMStore {
     msintune_userName: '',
     msintune_password: ''
   }
-  @observable values = {
-    mdm_type: '',
-    aw_hostName: '',
-    aw_password: '',
-    aw_tenantCode: '',
-    aw_userName: '',
-    ibm_appAccessKey: '',
-    ibm_appID: '',
-    ibm_appVersion: '',
-    ibm_billingID: '',
-    ibm_password: '',
-    ibm_platformID: '',
-    ibm_rootURL: '',
-    ibm_userName: '',
-    mi_hostName: '',
-    mi_password: '',
-    mi_userName: '',
-    msintune_clientID: '',
-    msintune_clientSecret: '',
-    msintune_hostName: '',
-    msintune_tenantCode: '',
-    msintune_userName: '',
-    msintune_password: ''
-  }
+  @observable values = Object.assign({}, this.defaultValues);
 }
 
 export const mdmStore = new MDMStore();

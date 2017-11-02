@@ -1,12 +1,12 @@
 exports[`<FormLabel /> renders matches previous snapshot 1`] = `
 <div
   className="form-label">
-  <label
+  <legend
     className="control-label "
-    htmlFor="id">
+    htmlFor="">
     testLabel
     
-  </label>
+  </legend>
   
 </div>
 `;
@@ -16,12 +16,9 @@ exports[`<FormLabel /> renders matches previous snapshot 2`] = `
   className="form-label">
   <label
     className="control-label "
-    htmlFor="id">
+    htmlFor="example-id">
     testLabel
-    <span
-      className="help-text">
-      helper text
-    </span>
+    
   </label>
   
 </div>
@@ -32,12 +29,8 @@ exports[`<FormLabel /> renders matches previous snapshot 3`] = `
   className="form-label">
   <label
     className="control-label "
-    htmlFor="id">
+    htmlFor="example-id">
     testLabel
-    <span
-      className="required-asterisks">
-       *
-    </span>
     <span
       className="help-text">
       helper text
@@ -52,7 +45,27 @@ exports[`<FormLabel /> renders matches previous snapshot 4`] = `
   className="form-label">
   <label
     className="control-label "
-    htmlFor="id">
+    htmlFor="example-id">
+    testLabel
+    <span
+      className="required-asterisks">
+       *
+    </span>
+    <span
+      className="help-text">
+      helper text
+    </span>
+  </label>
+  
+</div>
+`;
+
+exports[`<FormLabel /> renders matches previous snapshot 5`] = `
+<div
+  className="form-label">
+  <label
+    className="control-label "
+    htmlFor="example-id">
     testLabel
     <span
       className="required-asterisks">
@@ -74,12 +87,12 @@ exports[`<FormLabel /> renders matches previous snapshot 4`] = `
 </div>
 `;
 
-exports[`<FormLabel /> renders matches previous snapshot 5`] = `
+exports[`<FormLabel /> renders matches previous snapshot 6`] = `
 <div
   className="form-label">
   <label
     className="control-label sr-only"
-    htmlFor="id">
+    htmlFor="example-id">
     testLabel
     <span
       className="required-asterisks">

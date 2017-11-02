@@ -20,6 +20,15 @@
   }
 }
 
+.form-actions {
+  display: block;
+  text-align: center;
+
+  .form-group {
+    display: inline-block;
+  }
+}
+
 #lead-capture-page,
 #customer-feedback-page {
   .checkbox .cr {
@@ -39,7 +48,7 @@
     }
   }
 
-  .submit-button-wrapper {
+  .form-actions .button-wrapper{
     margin-top: 0;
     margin-bottom: 40px;
   }

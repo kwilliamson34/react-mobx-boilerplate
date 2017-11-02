@@ -83,7 +83,7 @@ export default class CheckboxList extends React.Component {
     return (
       <div className={`form-group ${this.props.id + '-class'} ${this.hasVisibleError ? 'has-error' : ''}`}>
         <FormLabel
-          id={this.props.id}
+          htmlFor={this.props.id}
           hasError={this.hasVisibleError}
           fieldIsRequired={this.props.required}
           labelText={this.props.labelText}
