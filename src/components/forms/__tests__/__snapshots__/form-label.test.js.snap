@@ -77,10 +77,15 @@ exports[`<FormLabel /> renders matches previous snapshot 5`] = `
     </span>
   </label>
   <div
-    aria-live="polite"
-    className="msgBlock error error-list"
-    role="alert">
-    <span>
+    className="msgBlock error error-list">
+    <span
+      aria-live="assertive"
+      role="alert">
+      
+    </span>
+    <span
+      aria-live=""
+      role="">
       This field has an error
     </span>
   </div>
@@ -104,10 +109,15 @@ exports[`<FormLabel /> renders matches previous snapshot 6`] = `
     </span>
   </label>
   <div
-    aria-live="polite"
-    className="msgBlock error error-list"
-    role="alert">
-    <span>
+    className="msgBlock error error-list">
+    <span
+      aria-live="assertive"
+      role="alert">
+      
+    </span>
+    <span
+      aria-live=""
+      role="">
       This field has an error
     </span>
   </div>
