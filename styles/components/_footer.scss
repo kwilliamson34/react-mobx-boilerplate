@@ -1,6 +1,7 @@
 $footer-font-color: $fn-dark;
 
 footer {
+  margin-top: $footer-margin-top;
   border-top: 5px solid $fn-black;
 
   .logoRow {
@@ -43,7 +44,7 @@ footer {
       font-size: 1.6rem;
       font-weight: $fn-normal-weight;
       color: $footer-font-color;
-      margin-bottom: 15px;
+      margin-bottom: 23px;
       line-height: 1.4;
 
       a {
@@ -420,10 +421,6 @@ footer {
 
     .footer-main {
       li {
-
-        &:not(:last-child) {
-          margin-bottom: 23px;
-        }
         .new-tab-link {
           .icon-external-site {
             display:none;
