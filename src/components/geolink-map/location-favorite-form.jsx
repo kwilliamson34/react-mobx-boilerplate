@@ -41,6 +41,7 @@ class LocationFavoriteForm extends React.Component {
           required={true}
           charLimit={1000}
           errorMessage="Please enter an address."
+          announceError={this.store.showAlert}
           className="col-xs-12 col-sm-7 search-form"
           showClearButton={true}
           handleSubmit={this.store.searchMap.bind(this.store)}
@@ -55,6 +56,7 @@ class LocationFavoriteForm extends React.Component {
           charLimit={100}
           required={true}
           errorMessage="Please enter a name."
+          announceError={this.store.showAlert}
           className="col-xs-12 col-sm-5" />
       </div>
     );

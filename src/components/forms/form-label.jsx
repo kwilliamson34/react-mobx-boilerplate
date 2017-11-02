@@ -7,13 +7,14 @@ export default class FormLabel extends React.Component {
 
   static propTypes = {
     id: PropTypes.string.isRequired,
-    charLimitMessage: PropTypes.string,
     labelText: PropTypes.string.isRequired,
     helperText: PropTypes.string,
     hasError: PropTypes.bool,
     errorMessage: PropTypes.string,
+    charLimitReached: PropTypes.bool,
     fieldIsRequired: PropTypes.bool,
-    srOnly: PropTypes.bool
+    srOnly: PropTypes.bool,
+    announceError: PropTypes.bool
   }
 
   static defaultProps = {
@@ -25,13 +26,15 @@ export default class FormLabel extends React.Component {
 
   renderFieldError() {
     let markup = '';
-    if (this.props.charLimitMessage || this.props.hasError) {
+    if (this.props.charLimitReached || this.props.hasError) {
       markup = (
-        <div className="msgBlock error error-list" role="alert" aria-live="polite">
-          {this.props.charLimitMessage && (this.props.charLimitMessage)}
-          {this.props.hasError && (
-            <span>{this.props.errorMessage}</span>
-          )}
+        <div className="msgBlock error error-list">
+          <span role="alert" aria-live="assertive">
+            {this.props.charLimitReached ? 'Character limit reached.' : ''}
+          </span>
+          <span role={this.props.announceError ? 'status' : ''} aria-live={this.props.announceError ? 'polite' : ''}>
+            {this.props.hasError && (this.props.errorMessage)}
+          </span>
         </div>
       );
     }
