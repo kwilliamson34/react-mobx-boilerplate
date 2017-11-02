@@ -22,7 +22,7 @@ class LocationFavoriteForm extends React.Component {
   }
 
   componentDidMount() {
-    this.firstInput.refs.input.focus();
+    this.firstInput.input.focus();
   }
 
   componentWillUnmount() {
@@ -33,7 +33,10 @@ class LocationFavoriteForm extends React.Component {
     return (
       <div className="location-favorite-form">
         <TextInput
-          ref={ref => {this.store.formFieldRefList.push(ref); this.firstInput = ref;}}
+          ref={ref => {
+            this.firstInput = ref;
+            this.store.formFieldRefList.push(ref);
+          }}
           dataObject={this.store.values}
           id="locationAddress"
           type="search"
