@@ -27,7 +27,8 @@ export default class TextInput extends React.Component {
     submitIcon: PropTypes.string,
     iconClass: PropTypes.string,
     onDropIntoList: PropTypes.func,
-    disableAutoComplete: PropTypes.bool
+    disableAutoComplete: PropTypes.bool,
+    announceError: PropTypes.bool
   }
 
   static defaultProps = {
@@ -42,7 +43,7 @@ export default class TextInput extends React.Component {
     disabledAutocomplete: false
   }
 
-  @observable charLimitMessage = '';
+  @observable charLimitReached = false;
   @observable hasVisibleError = false;
   @computed get valueInStore() {
     return this.props.dataObject[this.props.id];
@@ -63,19 +64,11 @@ export default class TextInput extends React.Component {
     const newValue = e.target.value;
     if (this.props.charLimit) {
       this.props.dataObject[this.props.id] = newValue.substr(0, this.props.charLimit);
-      this.checkCharLimitMessage(newValue);
+      this.charLimitReached = newValue.length > this.props.charLimit;
     } else {
       this.props.dataObject[this.props.id] = newValue;
     }
     this.hasVisibleError = this.isEmpty;
-  }
-
-  checkCharLimitMessage = (fieldValue) => {
-    if (fieldValue.length >= this.props.charLimit) {
-      this.charLimitMessage = 'Character limit reached.';
-    } else {
-      this.charLimitMessage = '';
-    }
   }
 
   handleOnBlur = () => {
@@ -108,16 +101,17 @@ export default class TextInput extends React.Component {
     const clearButtonVisible = this.props.showClearButton && this.valueInStore !== '';
     const submitButtonVisible = this.props.handleSubmit !== undefined;
     return (
-      <div className={`form-group ${this.props.className} ${this.hasVisibleError || this.charLimitMessage ? 'has-error' : ''}`}>
+      <div className={`form-group ${this.props.className} ${this.hasVisibleError || this.charLimitReached ? 'has-error' : ''}`}>
         <FormLabel
           htmlFor={this.props.id}
-          charLimitMessage={this.charLimitMessage}
+          charLimitMessage={this.charLimitReached}
           hasError={this.hasVisibleError}
           fieldIsRequired={this.props.required}
           labelText={this.props.labelText}
           srOnly={this.props.labelIsSrOnly}
           helperText={this.props.helperText}
-          errorMessage={this.props.errorMessage} />
+          errorMessage={this.props.errorMessage}
+          announceError={this.props.announceError} />
         <div className={`input-group ${this.props.iconClass ? 'has-icon' : ''}`}>
           <Tag
             className="form-control"

@@ -19,7 +19,8 @@ export default class CheckboxList extends React.Component {
     errorMessage: PropTypes.string,
     selectAll: PropTypes.func,
     clearAll: PropTypes.func,
-    children: PropTypes.array
+    children: PropTypes.array,
+    announceError: PropTypes.bool
   }
 
   static defaultProps = {
@@ -87,7 +88,8 @@ export default class CheckboxList extends React.Component {
           hasError={this.hasVisibleError}
           fieldIsRequired={this.props.required}
           labelText={this.props.labelText}
-          errorMessage={this.props.errorMessage}/>
+          errorMessage={this.props.errorMessage}
+          announceError={this.props.announceError}/>
 
         <div className="selection-buttons">
           <div className="checkbox">

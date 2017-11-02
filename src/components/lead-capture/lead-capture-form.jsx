@@ -38,6 +38,7 @@ class LeadCaptureForm extends React.Component {
           labelText="First Name"
           required={true}
           errorMessage="Please enter your name."
+          announceError={this.store.showAlert}
           charLimit={256}/>
 
         <TextInput
@@ -48,6 +49,7 @@ class LeadCaptureForm extends React.Component {
           labelText="Last Name"
           required={true}
           errorMessage="Please enter your name."
+          announceError={this.store.showAlert}
           charLimit={256}/>
 
         <TextInput
@@ -59,6 +61,7 @@ class LeadCaptureForm extends React.Component {
           required={true}
           getIsValid={utilsService.isValidEmailAddress}
           errorMessage="Please enter a valid email address."
+          announceError={this.store.showAlert}
           charLimit={256}/>
 
         <TextInput
@@ -69,6 +72,7 @@ class LeadCaptureForm extends React.Component {
           labelText="Contact Number"
           required={true}
           errorMessage="Please enter your phone number."
+          announceError={this.store.showAlert}
           charLimit={256}/>
 
         <TextInput
@@ -80,6 +84,7 @@ class LeadCaptureForm extends React.Component {
           labelText="Message (Optional)"
           required={false}
           errorMessage="Please enter a summary of your request."
+          announceError={this.store.showAlert}
           charLimit={600}/>
 
         <Checkbox
@@ -88,6 +93,7 @@ class LeadCaptureForm extends React.Component {
           label="By submitting this information, you agree to be contacted by FirstNet. We will never sell or share your information."
           required={true}
           errorMessage="Please provide consent to be contacted by FirstNet."
+          announceError={this.store.showAlert}
           checked={this.store.values.contactAgreement}
           handleOnChange={this.handleCheckboxOnChange} />
       </div>
