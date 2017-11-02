@@ -19,7 +19,7 @@ export class MobileHeader extends React.Component {
   }
 
   @computed get arrowDirection() {
-    return this.props.sortByAscending ? 'icon-arrowup' : 'icon-arrowdown';
+    return this.props.sortByAscending ? 'icon-arrowUp' : 'icon-arrowDown';
   }
 
   @computed get textDirection() {
@@ -31,27 +31,29 @@ export class MobileHeader extends React.Component {
   }
 
   render() {
-    console.log('asasdasd?', this.props.sortByAscending);
     return (
       <div className={`mobile-header ${this.props.className}`}>
-        <span className="sr-only" aria-live="assertive" aria-relevant="text" aria-atomic="true">
-          The table is now sorted by {this.props.sortName || this.props.sortData}
-          {this.props.sortByAscending ? 'in ascending' : 'in descending'}
-          order.
-        </span>
-        <Checkbox
-          id="select-all-checkbox"
-          label="Select or Deselect All Checkboxes"
-          value="Select or Deselect All Checkboxes"
-          labelIsSrOnly={true}
-          handleOnChange={this.props.handleSelectAllCheckbox}
-          checked={this.props.checkSelectAllCheckbox}/>
-        <button type="button" className="as-link mobile-header-button" onClick={this.toggleSort}>
-          <span className="sort-name">
-            {`Sort by ${this.props.sortName}`} &ndash; {this.textDirection}
+        <div className="flex-wrapper">
+          <span className="sr-only" aria-live="assertive" aria-relevant="text" aria-atomic="true">
+            The table is now sorted by {this.props.sortName || this.props.sortData}
+            {this.props.sortByAscending ? 'in ascending' : 'in descending'}
+            order.
           </span>
-          <i className={this.arrowDirection} aria-hidden="true" />
-        </button>
+          <Checkbox
+            id="select-all-checkbox"
+            label="Select or Deselect All Checkboxes"
+            value="Select or Deselect All Checkboxes"
+            labelIsSrOnly={true}
+            handleOnChange={this.props.handleSelectAllCheckbox}
+            checked={this.props.checkSelectAllCheckbox}/>
+          <button type="button" className="as-link mobile-header-button" onClick={this.toggleSort}>
+            <span className="sort-name">
+              {`Sort by ${this.props.sortName}`} &ndash; {this.textDirection}
+            </span>
+            <i className={this.arrowDirection} aria-hidden="true" />
+          </button>
+        </div>
+        <hr/>
       </div>
     )
   }

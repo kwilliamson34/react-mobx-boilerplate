@@ -282,7 +282,6 @@ export default class ManageFavoritesPage extends React.Component {
     return (
       <div className="mobile-favorites-delete-button">
         <button role="button" className={`fn-primary ${this.manageFavoritesStore.disableDeleteButton ? 'disabled' : ''}`} onClick={this.handleDeleteAction}>
-          <i className="icon-trash" aria-hidden="true" />
           <span>
             {
               this.manageFavoritesStore.disableDeleteButton &&
@@ -292,9 +291,9 @@ export default class ManageFavoritesPage extends React.Component {
             }
             <span aria-hidden={this.manageFavoritesStore.disableDeleteButton}>
               {
-                this.manageFavoritesStore.disableDeleteButton || oneItemSelected
+                this.manageFavoritesStore.disableDeleteButton
                 ? 'Delete Favorite'
-                : `Delete ${this.manageFavoritesStore.checkedRows.length} Favorites`
+                : `Delete ${this.manageFavoritesStore.checkedRows.length} Favorite${oneItemSelected ? '' : 's'}`
               }
             </span>
           </span>
@@ -459,6 +458,7 @@ export default class ManageFavoritesPage extends React.Component {
               {!this.manageFavoritesStore.isLoading && !this.manageFavoritesStore.shouldRenderRows && this.renderNoResults()}
               {this.manageFavoritesStore.shouldRenderRows && this.renderTopAndBottomFeatures('bottom')}
               {this.manageFavoritesStore.showLoadMoreButton && this.manageFavoritesStore.shouldRenderRows && this.renderLoadMoreButton()}
+              <hr className="mobile-hr"/>
               {this.manageFavoritesStore.shouldRenderRows && this.renderMobileDeleteButton()}
             </div>
           </div>
