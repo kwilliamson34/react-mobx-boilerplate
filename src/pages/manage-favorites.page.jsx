@@ -392,6 +392,7 @@ export default class ManageFavoritesPage extends React.Component {
               <SortableTable
                 rows={this.manageFavoritesStore.sortedRows}
                 activeRows={this.manageFavoritesStore.checkedRows}
+                totalRowCount={this.manageFavoritesStore.rows.length}
                 tableId="manage-locations-table"
                 keyToUseAsId="locationFavoriteId"
                 shouldRenderRows={this.manageFavoritesStore.shouldRenderRows} >
@@ -404,14 +405,14 @@ export default class ManageFavoritesPage extends React.Component {
                     checkSelectAllCheckbox={this.manageFavoritesStore.checkSelectAllCheckbox}
                     sortName={'Name'} />
                 </span>
-                <span role="columnheader" className="table-container checkbox-container">
+                <span data="column" className="table-container checkbox-container">
                   <TableColumn
                     bindDataToEach={'locationFavoriteId'}
                     repeatingJsx={this.renderRowCheckbox}
                     additionalHeaderJsx={this.renderSelectAllCheckbox()}
                     columnClassName={'checkbox-column'} />
                 </span>
-                <span role="columnheader" className="table-container center-container">
+                <span data="column" className="table-container center-container">
                   <TableColumn
                     toggleSort={this.handleToggleSort}
                     sortByAscending={this.manageFavoritesStore.sortDirections['favoriteName']}
@@ -427,7 +428,7 @@ export default class ManageFavoritesPage extends React.Component {
                     columnDataKey={'locationFavoriteAddress'}
                     columnClassName={'location-address-column'} />
                 </span>
-                <span role="columnheader" className="table-container buttons-container">
+                <span data="column" className="table-container buttons-container">
                   <TableColumn
                     bindDataToEach={'locationFavoriteId'}
                     repeatingJsx={this.renderEditButton}

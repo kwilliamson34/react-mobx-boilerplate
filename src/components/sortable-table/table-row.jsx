@@ -9,7 +9,8 @@ export class TableRow extends React.Component {
     id: PropTypes.number.isRequired,
     row: PropTypes.object.isRequired,
     columns: PropTypes.array.isRequired,
-    rowIsActive: PropTypes.bool
+    rowIsActive: PropTypes.bool,
+    rowIndex: PropTypes.number
   }
 
   static defaultProps = {
@@ -36,7 +37,7 @@ export class TableRow extends React.Component {
 
   render() {
     return (
-      <div role="row" className={`table-row ${this.props.rowIsActive ? 'active' : ''}`}>
+      <div role="row" aria-rowindex={this.props.rowIndex} className={`table-row ${this.props.rowIsActive ? 'active' : ''}`}>
         {this.props.columns.map((column, i) => {
           let columnChildren = [];
           //push individual children into an array so that we don't have to write out two render functions;

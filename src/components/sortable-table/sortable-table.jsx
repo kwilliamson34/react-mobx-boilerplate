@@ -14,6 +14,7 @@ export class SortableTable extends React.Component {
     caption: PropTypes.string,
     rows: PropTypes.array,
     activeRows: PropTypes.object,
+    totalRowCount: PropTypes.number,
     shouldRenderRows: PropTypes.bool,
     activeColumn: PropTypes.string
   };
@@ -34,7 +35,7 @@ export class SortableTable extends React.Component {
   }
 
   renderRows = (rows, columns) => {
-    return rows.map(row => {
+    return rows.map((row, i) => {
       //identify which field we want to use as the id/value;
       const targetedId = row[this.props.keyToUseAsId];
       const rowIsActive = this.props.activeRows.indexOf(targetedId.toString()) > -1;
@@ -44,20 +45,21 @@ export class SortableTable extends React.Component {
           columns={columns}
           row={row}
           rowIsActive={rowIsActive}
-          key={targetedId} />
+          key={targetedId}
+          rowIndex={i} />
       )
     })
   }
 
   parseChildren = () => {
     this.columns = this.props.children.filter(child => {
-      return child.props.role === 'columnheader';
+      return child.props.data === 'column';
     })
   }
 
   render() {
     return (
-      <div role="table" id={this.props.tableId} className={`sortable-table ${this.props.tableId}-class`}>
+      <div role="table" aria-rolecount={this.props.totalRowCount} id={this.props.tableId} className={`sortable-table ${this.props.tableId}-class`}>
         {this.props.caption && <caption>{this.props.caption}</caption>}
         <div className="table-head">
           {this.props.children}

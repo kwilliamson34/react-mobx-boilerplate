@@ -33,7 +33,7 @@ export class TableColumn extends React.Component {
     return this.props.isActive ? 'sort-button active' : 'sort-button';
   }
 
-  renderSortableElements = () => {
+  renderSortingElements = () => {
     return (
       <div className="sort-button-container">
         <span className="sr-only" aria-live="assertive" aria-relevant="text" aria-atomic="true">
@@ -54,8 +54,8 @@ export class TableColumn extends React.Component {
 
   render() {
     return (
-      <div className={`table-head-column ${this.props.columnClassName}`}>
-        {this.props.toggleSort && this.renderSortableElements()}
+      <div role="columnheader" className={`table-head-column ${this.props.columnClassName}`}>
+        {this.props.toggleSort && this.renderSortingElements()}
         {this.props.additionalHeaderJsx}
         {
           this.props.headerLabel && !this.props.toggleSort &&
