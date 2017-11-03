@@ -14,7 +14,8 @@ export default class Checkbox extends React.Component {
     checked: PropTypes.bool,
     required: PropTypes.bool,
     errorMessage: PropTypes.string,
-    tooltipText: PropTypes.string
+    tooltipText: PropTypes.string,
+    announceError: PropTypes.bool
   }
 
   static defaultProps = {
@@ -24,6 +25,11 @@ export default class Checkbox extends React.Component {
     checked: false, //Note: checked must always have a value so this can be a controlled component
     disabled: false,
     errorMessage: ''
+  }
+
+  constructor(props) {
+    super(props);
+    this.ENTER_KEY_CODE = 13;
   }
 
   componentWillMount() {
@@ -42,6 +48,12 @@ export default class Checkbox extends React.Component {
       this.showError(event);
     }
     this.hasBeenVisited = true;
+  }
+
+  handleKeyPress = (event) => {
+    if(event.charCode === this.ENTER_KEY_CODE) {
+      this.handleOnChange(event);
+    }
   }
 
   handleOnBlur = (event) => {
@@ -63,9 +75,11 @@ export default class Checkbox extends React.Component {
       : '';
     return (
       <div className={`checkbox form-group ${disabledClass}`}>
-        {this.hasVisibleError && <div className="msgBlock error error-list" role="alert" aria-live="polite">
-          <span>{this.props.errorMessage}</span>
-        </div>}
+        {this.hasVisibleError &&
+          <div className="msgBlock error error-list" role={this.props.announceError ? 'status' : ''} aria-live={this.props.announceError ? 'polite' : ''}>
+            <span>{this.props.errorMessage}</span>
+          </div>
+        }
         <label>
           <input
             type="checkbox"
@@ -77,6 +91,7 @@ export default class Checkbox extends React.Component {
             checked={this.props.checked}
             data-checked={this.props.checked/*custom DOM prop included for automated testing*/}
             onChange={this.handleOnChange}
+            onKeyPress={this.handleKeyPress}
             onBlur={this.handleOnBlur}/>
           <span className="cr"></span>
           <span className={`label-text ${this.props.labelIsSrOnly ? 'sr-only' : ''}`}>

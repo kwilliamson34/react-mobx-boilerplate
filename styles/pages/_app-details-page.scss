@@ -4,7 +4,8 @@
 
   .loading-container {
     text-align: center;
-    padding: 4rem 0;
+    padding: 10rem 0;
+    margin-bottom: 0 - $footer-margin-top;
   }
 
   .breadcrumb-nav {
@@ -53,6 +54,7 @@
 
   .app-developer {
     padding: 60px 0 100px;
+    margin-bottom: 0 - $footer-margin-top;
 
     .developer-website {
       margin-top: 40px;

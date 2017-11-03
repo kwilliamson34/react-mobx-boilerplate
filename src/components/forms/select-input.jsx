@@ -17,7 +17,8 @@ export default class SelectInput extends React.Component {
     optionsList: PropTypes.array,
     placeholder: PropTypes.string,
     disabled: PropTypes.bool,
-    errorMessage: PropTypes.string
+    errorMessage: PropTypes.string,
+    announceError: PropTypes.bool
   }
 
   static defaultProps = {
@@ -57,7 +58,8 @@ export default class SelectInput extends React.Component {
           fieldIsRequired={this.props.required}
           labelText={this.props.labelText}
           helperText={this.props.helperText}
-          errorMessage={this.props.errorMessage}/>
+          errorMessage={this.props.errorMessage}
+          announceError={this.props.announceError}/>
         <select
           className="form-control form-control-lg"
           ref="input"

@@ -108,7 +108,7 @@ class FeedbackStore {
     details: '',
     operatingSystem: '',
     email: userStore.user.email,
-    phone: userStore.user.phone,
+    phoneNo: userStore.user.phone,
     likely: ''
   };
   @observable values = {
@@ -117,7 +117,7 @@ class FeedbackStore {
     details: '',
     operatingSystem: '',
     email: userStore.user.email,
-    phone: userStore.user.phone,
+    phoneNo: userStore.user.phone,
     likely: ''
   };
 }
