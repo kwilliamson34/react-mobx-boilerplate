@@ -43,11 +43,15 @@ export default class Checkbox extends React.Component {
   }
 
   handleOnChange = (event) => {
-    if (!this.props.disabled && this.props.handleOnChange) {
-      this.props.handleOnChange(event.target);
-      this.showError(event);
+    if(this.props.disabled) {
+      event.preventDefault();
+    } else {
+      if (this.props.handleOnChange) {
+        this.props.handleOnChange(event.target);
+        this.showError(event);
+      }
+      this.hasBeenVisited = true;
     }
-    this.hasBeenVisited = true;
   }
 
   handleKeyPress = (event) => {
@@ -86,7 +90,6 @@ export default class Checkbox extends React.Component {
             id={this.props.id}
             ref="input"
             aria-disabled={this.props.disabled}
-            className={disabledClass}
             value={this.props.value || this.props.label}
             checked={this.props.checked}
             data-checked={this.props.checked/*custom DOM prop included for automated testing*/}

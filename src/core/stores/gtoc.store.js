@@ -72,10 +72,7 @@ class GTOCStore {
     email: '',
     femaList: []
   };
-  @observable values = {
-    email: '',
-    femaList: []
-  };
+  @observable values = Object.assign({}, this.defaultValues);
 }
 
 export const gtocStore = new GTOCStore();

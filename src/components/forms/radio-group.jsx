@@ -6,7 +6,7 @@ import {observable, computed} from 'mobx';
 import FormLabel from './form-label';
 
 @observer
-export default class SelectInput extends React.Component {
+export default class RadioGroup extends React.Component {
 
   static propTypes = {
     dataObject: PropTypes.object.isRequired,
@@ -15,11 +15,9 @@ export default class SelectInput extends React.Component {
     labelText: PropTypes.string,
     helperText: PropTypes.string,
     optionsList: PropTypes.array,
-    placeholder: PropTypes.string,
     disabled: PropTypes.bool,
     errorMessage: PropTypes.string,
-    className: PropTypes.string,
-    announceError: PropTypes.bool
+    className: PropTypes.string
   }
 
   static defaultProps = {
@@ -49,31 +47,35 @@ export default class SelectInput extends React.Component {
     this.hasVisibleError = this.hasFunctionalError;
   }
 
-  render() {
-    const value = this.props.dataObject[this.props.id];
+  renderRadioInputs = () => {
+    return this.props.optionsList.map(option => (
+      <label key={option.title}>
+        <input type="radio"
+          name={this.props.id}
+          value={option.title}
+          aria-disabled={this.props.disabled}
+          checked={this.valueInStore === option.title}
+          onChange={this.handleOnChange}/>
+        {option.title}
+        <span className="cr"></span>
+      </label>
+    ));
+  }
 
+  render() {
+    const disabledClass = this.props.disabled
+      ? 'disabled'
+      : '';
     return (
-      <div className={`form-group ${this.props.className} ${this.hasVisibleError ? 'has-error' : ''}`}>
+      <fieldset className={`form-group radio ${this.props.className} ${disabledClass} ${this.hasVisibleError ? 'has-error' : ''}`} onBlur={this.handleOnBlur}>
         <FormLabel
-          htmlFor={this.props.id}
           hasError={this.hasVisibleError}
           fieldIsRequired={this.props.required}
           labelText={this.props.labelText}
           helperText={this.props.helperText}
-          errorMessage={this.props.errorMessage}
-          announceError={this.props.announceError}/>
-        <select
-          className="form-control form-control-lg"
-          ref="input"
-          id={this.props.id}
-          onChange={this.handleOnChange}
-          onBlur={this.handleOnBlur}
-          value={value}
-          disabled={this.props.disabled}>
-          {this.props.placeholder && <option value="">{this.props.placeholder}</option>}
-          {this.props.optionsList.map(option => <option value={option.value || option.title} key={option.value || option.title}>{option.title}</option> )}
-        </select>
-      </div>
+          errorMessage={this.props.errorMessage}/>
+        {this.renderRadioInputs()}
+      </fieldset>
     )
   }
 }

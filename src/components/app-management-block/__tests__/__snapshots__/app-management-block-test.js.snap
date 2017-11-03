@@ -12,11 +12,11 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
         <input
           aria-disabled={false}
           checked={false}
-          className=""
           data-checked={false}
           id="Available-123"
           onBlur={[Function anonymous]}
           onChange={[Function anonymous]}
+          onKeyPress={[Function anonymous]}
           type="checkbox"
           value="Available" />
         <span
@@ -37,11 +37,11 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
         <input
           aria-disabled={true}
           checked={false}
-          className="disabled"
           data-checked={false}
           id="Recommended-123"
           onBlur={[Function anonymous]}
           onChange={[Function anonymous]}
+          onKeyPress={[Function anonymous]}
           type="checkbox"
           value="Recommended" />
         <span
@@ -74,11 +74,11 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
         <input
           aria-disabled={false}
           checked={true}
-          className=""
           data-checked={true}
           id="Available-123"
           onBlur={[Function anonymous]}
           onChange={[Function anonymous]}
+          onKeyPress={[Function anonymous]}
           type="checkbox"
           value="Available" />
         <span
@@ -99,11 +99,11 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
         <input
           aria-disabled={false}
           checked={false}
-          className=""
           data-checked={false}
           id="Recommended-123"
           onBlur={[Function anonymous]}
           onChange={[Function anonymous]}
+          onKeyPress={[Function anonymous]}
           type="checkbox"
           value="Recommended" />
         <span
@@ -136,11 +136,11 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
         <input
           aria-disabled={false}
           checked={true}
-          className=""
           data-checked={true}
           id="Available-123"
           onBlur={[Function anonymous]}
           onChange={[Function anonymous]}
+          onKeyPress={[Function anonymous]}
           type="checkbox"
           value="Available" />
         <span
@@ -161,11 +161,11 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
         <input
           aria-disabled={false}
           checked={true}
-          className=""
           data-checked={true}
           id="Recommended-123"
           onBlur={[Function anonymous]}
           onChange={[Function anonymous]}
+          onKeyPress={[Function anonymous]}
           type="checkbox"
           value="Recommended" />
         <span
@@ -198,11 +198,11 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
         <input
           aria-disabled={false}
           checked={false}
-          className=""
           data-checked={false}
           id="Available-123"
           onBlur={[Function anonymous]}
           onChange={[Function anonymous]}
+          onKeyPress={[Function anonymous]}
           type="checkbox"
           value="Available" />
         <span
@@ -223,11 +223,11 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
         <input
           aria-disabled={true}
           checked={true}
-          className="disabled"
           data-checked={true}
           id="Recommended-123"
           onBlur={[Function anonymous]}
           onChange={[Function anonymous]}
+          onKeyPress={[Function anonymous]}
           type="checkbox"
           value="Recommended" />
         <span

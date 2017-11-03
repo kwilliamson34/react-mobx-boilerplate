@@ -28,7 +28,7 @@ exports[`<FeedbackForm /> renders matches previous snapshot 1`] = `
       className="form-actions ">
       
       <div
-        className="form-group text-center submit-button-wrapper">
+        className="form-group button-wrapper">
         <button
           className="fn-primary form-submit "
           onClick={[Function anonymous]}

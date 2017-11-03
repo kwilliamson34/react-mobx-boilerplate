@@ -73,7 +73,7 @@ export default function asForm (MyComponent, attributes) {
         submitButtonText = this.store.submitButtonText;
       }
       return (
-        <div className="form-group text-center submit-button-wrapper">
+        <div className="form-group button-wrapper">
           <button type="button" onClick={this.handleSubmit} className={`fn-primary form-submit ${(this.props.disabled || this.store.formHasError) ? 'disabled' : ''}`}>
             {submitButtonText}
           </button>
@@ -83,7 +83,7 @@ export default function asForm (MyComponent, attributes) {
 
     renderSecondaryButton = () => {
       return (
-        <div className="form-group text-center submit-button-wrapper">
+        <div className="form-group button-wrapper">
           <button type="button" onClick={this.handleSecondaryAction} className='fn-secondary form-submit'>
             {this.secondaryButtonText}
           </button>

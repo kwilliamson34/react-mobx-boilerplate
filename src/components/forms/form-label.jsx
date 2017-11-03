@@ -6,7 +6,7 @@ import {observer} from 'mobx-react';
 export default class FormLabel extends React.Component {
 
   static propTypes = {
-    id: PropTypes.string.isRequired,
+    htmlFor: PropTypes.string,
     labelText: PropTypes.string.isRequired,
     helperText: PropTypes.string,
     hasError: PropTypes.bool,
@@ -18,6 +18,7 @@ export default class FormLabel extends React.Component {
   }
 
   static defaultProps = {
+    htmlFor: '',
     helperText: '',
     hasError: false,
     errorMessage: 'This field has an error',
@@ -42,15 +43,16 @@ export default class FormLabel extends React.Component {
   }
 
   render() {
+    const TagName = this.props.htmlFor ? 'label' : 'legend';
     return (
       <div className="form-label">
-        <label className={`control-label ${this.props.srOnly ? 'sr-only' : ''}`} htmlFor={this.props.id}>
+        <TagName className={`control-label ${this.props.srOnly ? 'sr-only' : ''}`} htmlFor={this.props.htmlFor}>
           {this.props.labelText}
           {this.props.fieldIsRequired &&
             <span className="required-asterisks"> *</span>
           }
           {this.props.helperText ? <span className="help-text">{this.props.helperText}</span> : ''}
-        </label>
+        </TagName>
         {this.renderFieldError()}
       </div>
     )

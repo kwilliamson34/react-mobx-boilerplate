@@ -102,7 +102,7 @@ class ManageFavoritesStore {
       ? this.checkedRows.remove(rowId)
       : this.checkedRows.push(rowId);
 	}
-  
+
   @action resetPage() {
     this.resetPagination();
     this.clearSearchQuery();
@@ -210,18 +210,14 @@ class ManageFavoritesStore {
   @observable moreToLoad = false;
 
   @observable activeColumn = 'locationFavoriteId';
+  
   //to keep the order toggling simple, true is ascending and false is descending;
-  @observable sortDirections = {
-    'favoriteName': false,
-    'locationFavoriteAddress': false,
-    'locationFavoriteId': false
-  };
-
   @observable sortDirectionsDefaults = {
     'favoriteName': false,
     'locationFavoriteAddress': false,
     'locationFavoriteId': false
   }
+  @observable sortDirections = Object.assign({}, this.sortDirectionsDefaults);
 }
 
 export const manageFavoritesStore = new ManageFavoritesStore();
