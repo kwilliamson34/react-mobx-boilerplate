@@ -594,15 +594,14 @@
     .favorite-name-column,
     .location-address-column {
       padding: 0;
+      flex-grow: 0;
     }
 
     .favorite-name-column {
-      flex-grow: 0;
       padding-right: 15px;
     }
 
     .location-address-column {
-      flex-grow: 0;
       padding-right: 50px;
     }
   }
