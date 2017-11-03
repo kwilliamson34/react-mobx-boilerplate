@@ -130,7 +130,7 @@ $map-controls-text-line-height: 1.3;
   border-top: 1px solid $fn-grey;
   padding-top: 30px;
   background-color: $fn-ltgrey;
-  padding-bottom: 80px;
+  margin-bottom: 80px - $footer-margin-top;
 
   .dropdown-visible {
     .form-control {
@@ -379,8 +379,7 @@ $map-controls-text-line-height: 1.3;
 }
 
 .container.location-favorites {
-  padding-top: 60px;
-  padding-bottom: 60px;
+  padding-top: 6rem;
   display: block;
 
   .alert {
@@ -391,14 +390,19 @@ $map-controls-text-line-height: 1.3;
     display: inline-block;
   }
 
-  .submit-button-wrapper {
-    float: left;
-    padding-right: 30px;
+  .form-actions {
+    margin-top: 0;
 
-    button {
-      margin-top: 0;
+    .submit-button-wrapper {
+      float: left;
+      padding-right: 30px;
+
+      button {
+        margin-top: 0;
+      }
     }
   }
+
 }
 /**********************************************/
 @media #{$mobile} {
