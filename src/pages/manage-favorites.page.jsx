@@ -62,7 +62,6 @@ export default class ManageFavoritesPage extends React.Component {
   }
 
   handleToggleSort = (key) => {
-    console.log('ding', this.manageFavoritesStore.sortDirections['favoriteName']);
     this.manageFavoritesStore.toggleSort(key);
   }
 
@@ -302,21 +301,6 @@ export default class ManageFavoritesPage extends React.Component {
     )
   }
 
-  // renderRowButtons = (id) => {
-  //   return (
-  //     <div className="row-buttons">
-  //       <button className="as-link edit-location-button" onClick={() => this.handleEditButton(id)}>
-  //         <i className="icon-pencil" aria-hidden="true" />
-  //         <span>Edit</span>
-  //       </button>
-  //       <button className="as-link map-it-button" onClick={() => this.handleMapItButton(id)}>
-  //         <i className="icon-map-marker" aria-hidden="true" />
-  //         <span>Map It</span>
-  //       </button>
-  //     </div>
-  //   )
-  // }
-
   renderEditButton = (id) => {
     return (
       <button className="as-link edit-location-button" onClick={() => this.handleEditButton(id)}>
@@ -411,7 +395,7 @@ export default class ManageFavoritesPage extends React.Component {
                 tableId="manage-locations-table"
                 keyToUseAsId="locationFavoriteId"
                 shouldRenderRows={this.manageFavoritesStore.shouldRenderRows} >
-                <span role="mobile-header" className="mobile-header">
+                <span className="mobile-header">
                   <MobileHeader
                     toggleSort={this.handleToggleSort}
                     sortByAscending={this.manageFavoritesStore.sortDirections['favoriteName']}

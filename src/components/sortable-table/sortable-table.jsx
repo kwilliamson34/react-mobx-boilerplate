@@ -50,11 +50,9 @@ export class SortableTable extends React.Component {
   }
 
   parseChildren = () => {
-    console.log('children', this.props.children);
     this.columns = this.props.children.filter(child => {
       return child.props.role === 'column';
     })
-    console.log('this.columns', this.columns);
   }
 
   render() {

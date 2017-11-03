@@ -192,7 +192,6 @@ class ManageFavoritesStore {
       : this.rows.length > this.sortedRows.length;
   }
 
-
   @observable rows = [];
   @observable checkedRows = [];
 
