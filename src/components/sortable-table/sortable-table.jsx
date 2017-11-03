@@ -51,18 +51,18 @@ export class SortableTable extends React.Component {
 
   parseChildren = () => {
     this.columns = this.props.children.filter(child => {
-      return child.props.role === 'column';
+      return child.props.role === 'columnheader';
     })
   }
 
   render() {
     return (
-      <div id={this.props.tableId} className={`sortable-table ${this.props.tableId}-class`}>
+      <div role="table" id={this.props.tableId} className={`sortable-table ${this.props.tableId}-class`}>
         {this.props.caption && <caption>{this.props.caption}</caption>}
         <div className="table-head">
           {this.props.children}
         </div>
-        <div className="table-body">
+        <div role="rowgroup" className="table-body">
           {this.props.shouldRenderRows && this.renderRows(this.props.rows, this.columns)}
         </div>
       </div>

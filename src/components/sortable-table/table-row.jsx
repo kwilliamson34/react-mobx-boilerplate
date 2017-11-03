@@ -25,7 +25,7 @@ export class TableRow extends React.Component {
         renderString = this.props.row[cell.props.columnDataKey];
       }
       return (
-        <div key={`table-row-${i}`} className={`table-cell ${cell.props.columnClassName}`}>
+        <div role="cell" key={`table-row-${i}`} className={`table-cell ${cell.props.columnClassName}`}>
           <div className="row-contents-wrapper">
             <span>{renderString}</span>
           </div>
@@ -36,7 +36,7 @@ export class TableRow extends React.Component {
 
   render() {
     return (
-      <div className={`table-row ${this.props.rowIsActive ? 'active' : ''}`}>
+      <div role="row" className={`table-row ${this.props.rowIsActive ? 'active' : ''}`}>
         {this.props.columns.map((column, i) => {
           let columnChildren = [];
           //push individual children into an array so that we don't have to write out two render functions;

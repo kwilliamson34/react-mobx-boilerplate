@@ -404,14 +404,14 @@ export default class ManageFavoritesPage extends React.Component {
                     checkSelectAllCheckbox={this.manageFavoritesStore.checkSelectAllCheckbox}
                     sortName={'Name'} />
                 </span>
-                <span role="column" className="table-container checkbox-container">
+                <span role="columnheader" className="table-container checkbox-container">
                   <TableColumn
                     bindDataToEach={'locationFavoriteId'}
                     repeatingJsx={this.renderRowCheckbox}
                     additionalHeaderJsx={this.renderSelectAllCheckbox()}
                     columnClassName={'checkbox-column'} />
                 </span>
-                <span role="column" className="table-container center-container">
+                <span role="columnheader" className="table-container center-container">
                   <TableColumn
                     toggleSort={this.handleToggleSort}
                     sortByAscending={this.manageFavoritesStore.sortDirections['favoriteName']}
@@ -427,7 +427,7 @@ export default class ManageFavoritesPage extends React.Component {
                     columnDataKey={'locationFavoriteAddress'}
                     columnClassName={'location-address-column'} />
                 </span>
-                <span role="column" className="table-container buttons-container">
+                <span role="columnheader" className="table-container buttons-container">
                   <TableColumn
                     bindDataToEach={'locationFavoriteId'}
                     repeatingJsx={this.renderEditButton}
