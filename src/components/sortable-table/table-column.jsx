@@ -14,6 +14,7 @@ export class TableColumn extends React.Component {
     columnClassName: PropTypes.string,
     headerLabel: PropTypes.string,
     additionalHeaderJsx: PropTypes.object,
+    srOnlyAnnouncement: PropTypes.string,
     children: PropTypes.node
   }
 

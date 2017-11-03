@@ -46,7 +46,8 @@ export class SortableTable extends React.Component {
           row={row}
           rowIsActive={rowIsActive}
           key={targetedId}
-          rowIndex={i} />
+          rowIndex={(i + 1)}
+          totalRowsDisplayed={this.props.rows.length} />
       )
     })
   }
@@ -62,6 +63,7 @@ export class SortableTable extends React.Component {
       <div aria-rowcount={this.props.totalRowCount} id={this.props.tableId} className={`sortable-table ${this.props.tableId}-class`}>
         {this.props.caption && <caption>{this.props.caption}</caption>}
         <div className="table-head">
+          <span className="sr-only" tabIndex="0">{`You are currently on a table. There are ${this.columns.length} columns and ${this.props.totalRowCount} rows.`}</span>
           {this.props.children}
         </div>
         <div role="rowgroup" className="table-body">
