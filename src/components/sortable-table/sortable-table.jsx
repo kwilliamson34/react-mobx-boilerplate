@@ -59,7 +59,7 @@ export class SortableTable extends React.Component {
 
   render() {
     return (
-      <div role="table" aria-rolecount={this.props.totalRowCount} id={this.props.tableId} className={`sortable-table ${this.props.tableId}-class`}>
+      <div aria-rowcount={this.props.totalRowCount} id={this.props.tableId} className={`sortable-table ${this.props.tableId}-class`}>
         {this.props.caption && <caption>{this.props.caption}</caption>}
         <div className="table-head">
           {this.props.children}
