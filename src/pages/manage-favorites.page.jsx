@@ -401,40 +401,40 @@ export default class ManageFavoritesPage extends React.Component {
                   <MobileHeader
                     toggleSort={this.handleToggleSort}
                     sortByAscending={this.manageFavoritesStore.sortDirections['favoriteName']}
-                    sortData={'favoriteName'}
+                    sortData="favoriteName"
                     handleSelectAllCheckbox={this.handleSelectAllCheckbox}
                     checkSelectAllCheckbox={this.manageFavoritesStore.checkSelectAllCheckbox}
-                    sortName={'Name'} />
+                    sortName="Name" />
                 </span>
                 <span data="column" className="table-container checkbox-container">
                   <TableColumn
                     rowActions={this.renderRowCheckbox}
                     additionalHeaderJsx={this.renderSelectAllCheckbox()}
-                    columnClassName={'checkbox-column'} />
+                    columnClassName="checkbox-column" />
                 </span>
                 <span data="column" className="table-container center-container">
                   <TableColumn
                     toggleSort={this.handleToggleSort}
                     sortByAscending={this.manageFavoritesStore.sortDirections['favoriteName']}
                     isActive={this.manageFavoritesStore.activeColumn === 'favoriteName'}
-                    headerLabel={'Name'}
-                    columnDataKey={'favoriteName'}
-                    columnClassName={'favorite-name-column'} />
+                    headerLabel="Name"
+                    columnDataKey="favoriteName"
+                    columnClassName="favorite-name-column" />
                   <TableColumn
                     toggleSort={this.handleToggleSort}
                     sortByAscending={this.manageFavoritesStore.sortDirections['locationFavoriteAddress']}
                     isActive={this.manageFavoritesStore.activeColumn === 'locationFavoriteAddress'}
-                    headerLabel={'Location/Address'}
-                    columnDataKey={'locationFavoriteAddress'}
-                    columnClassName={'location-address-column'} />
+                    headerLabel="Location/Address"
+                    columnDataKey="locationFavoriteAddress"
+                    columnClassName="location-address-column" />
                 </span>
                 <span data="column" className="table-container buttons-container">
                   <TableColumn
                     rowActions={this.renderEditButton}
-                    columnClassName={'buttons-column'} />
+                    columnClassName="buttons-column" />
                   <TableColumn
                     rowActions={this.renderMapItButton}
-                    columnClassName={'buttons-column'} />
+                    columnClassName="buttons-column" />
                 </span>
               </SortableTable>
               {this.manageFavoritesStore.isLoading && this.renderIsLoading()}

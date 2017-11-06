@@ -26,21 +26,22 @@ export class TableRow extends React.Component {
       Array.isArray(column.props.children)
         ? columnChildren = column.props.children
         : columnChildren.push(column.props.children);
-      //build the srOnly text by finding columns with headerLabels;
+      //build the srOnlyRowDescription text by finding columns with headerLabels;
       columnChildren.forEach(child => {
         if (child.props.headerLabel) {
           srOnlyRowDescription += `${child.props.headerLabel}: ${this.props.row[child.props.columnDataKey]}. `;
         }
       })
       return {
-        className: column.props.className,
+        containerName: column.props.className,
         columnChildren: columnChildren
       };
     });
 
+    //render the columns inside their containers, and pass srOnlyRowDescription back up to the page;
     let returnArray = childrenArray.map((children, i) => {
       return (
-        <span className={children.className} key={`table-column-${i}`}>
+        <span className={children.containerName} key={`table-column-${i}`}>
           {this.renderCells(children.columnChildren, srOnlyRowDescription)}
         </span>
       )
