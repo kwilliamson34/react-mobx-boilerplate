@@ -303,7 +303,7 @@ export default class ManageFavoritesPage extends React.Component {
 
   renderEditButton = (id) => {
     return (
-      <button className="as-link edit-location-button" onClick={() => this.handleEditButton(id)}>
+      <button className="as-link favorites-table-button" onClick={() => this.handleEditButton(id)}>
         <i className="icon-pencil" aria-hidden="true" />
         <span>Edit</span>
       </button>
@@ -312,7 +312,7 @@ export default class ManageFavoritesPage extends React.Component {
 
   renderMapItButton = (id) => {
     return (
-      <button className="as-link map-it-button" onClick={() => this.handleMapItButton(id)}>
+      <button className="as-link favorites-table-button" onClick={() => this.handleMapItButton(id)}>
         <i className="icon-map-marker" aria-hidden="true" />
         <span>Map It</span>
       </button>
@@ -390,6 +390,7 @@ export default class ManageFavoritesPage extends React.Component {
             <div className="col-xs-12">
               {(this.manageFavoritesStore.shouldRenderRows || this.manageFavoritesStore.showSearchResults) && this.renderTopAndBottomFeatures('top')}
               <SortableTable
+                ref={(ref) => this.tableRef = ref}
                 rows={this.manageFavoritesStore.sortedRows}
                 activeRows={this.manageFavoritesStore.checkedRows}
                 totalRowCount={this.manageFavoritesStore.rows.length}
@@ -407,7 +408,6 @@ export default class ManageFavoritesPage extends React.Component {
                 </span>
                 <span data="column" className="table-container checkbox-container">
                   <TableColumn
-                    bindDataToEach={'locationFavoriteId'}
                     repeatingJsx={this.renderRowCheckbox}
                     additionalHeaderJsx={this.renderSelectAllCheckbox()}
                     columnClassName={'checkbox-column'} />
@@ -430,11 +430,9 @@ export default class ManageFavoritesPage extends React.Component {
                 </span>
                 <span data="column" className="table-container buttons-container">
                   <TableColumn
-                    bindDataToEach={'locationFavoriteId'}
                     repeatingJsx={this.renderEditButton}
                     columnClassName={'buttons-column'} />
                   <TableColumn
-                    bindDataToEach={'locationFavoriteId'}
                     repeatingJsx={this.renderMapItButton}
                     columnClassName={'buttons-column'} />
                 </span>

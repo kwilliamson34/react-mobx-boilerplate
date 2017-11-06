@@ -266,6 +266,7 @@
       flex-grow: 1;
 
       button {
+
         display: inline-block;
         text-transform: uppercase;
         text-decoration: none;
@@ -287,8 +288,13 @@
 
       &:focus,
       &:hover,
-      &:visited {
+      &:visited,
+      &:focus-within {
         background-color: $fn-ltblue;
+
+        button {
+          @include focus();
+        }
 
         i {
           color: $fn-white;
@@ -498,11 +504,13 @@
 
         &:focus,
         &:hover,
-        &:visited {
+        &:visited,
+        &:focus-within {
           background-color: inherit;
 
           button {
             background-color: $fn-ltblue;
+            border-radius: 50%;
           }
 
           i {
@@ -570,11 +578,13 @@
 
         &:focus,
         &:hover,
-        &:visited {
+        &:visited,
+        &:focus-within {
           background-color: inherit;
 
           button {
             background-color: inherit;
+            border-radius: 5px;
 
             span {
               &:hover,
