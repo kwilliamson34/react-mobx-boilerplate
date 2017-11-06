@@ -20,6 +20,7 @@ export default function asForm (MyComponent, attributes) {
         formIsDirty: PropTypes.bool,
         formHasError: PropTypes.bool,
         updateAlert: PropTypes.func,
+        updateSuccess: PropTypes.func,
         alertToDisplay: PropTypes.string,
         successToDisplay: PropTypes.string,
         submitButtonText: PropTypes.string //optional computed, overwrites attribute and default
