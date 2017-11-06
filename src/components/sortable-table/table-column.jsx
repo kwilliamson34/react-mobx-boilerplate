@@ -14,13 +14,9 @@ export class TableColumn extends React.Component {
     columnClassName: PropTypes.string,
     headerLabel: PropTypes.string,
     additionalHeaderJsx: PropTypes.object,
-    srOnlyAnnouncement: PropTypes.string,
-    children: PropTypes.node
+    srOnlyAnnouncement: PropTypes.string
   }
 
-  static defaultProps = {
-    children: []
-  }
 
   @computed get arrowDirection() {
     return this.props.sortByAscending ? 'arrow-up' : 'arrow-down';
@@ -38,8 +34,8 @@ export class TableColumn extends React.Component {
     return (
       <div className="sort-button-container">
         <span className="sr-only" aria-live="assertive" aria-relevant="text" aria-atomic="true">
-          The table is now sorted by {this.props.headerLabel || this.props.columnDataKey}
-          {this.props.sortByAscending ? 'in ascending' : 'in descending'}
+          The table is now sorted by {(this.props.headerLabel || this.props.columnDataKey) + ' in'}
+          {this.props.sortByAscending ? 'ascending' : 'descending'}
           order.
         </span>
         <button type="button" className={this.isActive()} onClick={this.toggleSort}>

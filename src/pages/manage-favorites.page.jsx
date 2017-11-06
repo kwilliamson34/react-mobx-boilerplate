@@ -66,9 +66,7 @@ export default class ManageFavoritesPage extends React.Component {
   }
 
   handleRowCheckboxOnChange = (e) => {
-    if (e.type === 'checkbox') {
-      this.manageFavoritesStore.handleCheckboxChange(e.value);
-    }
+    this.manageFavoritesStore.handleCheckboxChange(e.value);
   }
 
   handleSelectAllCheckbox = () => {
@@ -336,7 +334,6 @@ export default class ManageFavoritesPage extends React.Component {
       <Checkbox
         id="select-all-checkbox"
         label="Select or Deselect All Checkboxes"
-        value="Select or Deselect All Checkboxes"
         labelIsSrOnly={true}
         handleOnChange={this.handleSelectAllCheckbox}
         checked={this.manageFavoritesStore.checkSelectAllCheckbox}/>
@@ -408,7 +405,7 @@ export default class ManageFavoritesPage extends React.Component {
                 </span>
                 <span data="column" className="table-container checkbox-container">
                   <TableColumn
-                    repeatingJsx={this.renderRowCheckbox}
+                    rowActions={this.renderRowCheckbox}
                     additionalHeaderJsx={this.renderSelectAllCheckbox()}
                     columnClassName={'checkbox-column'} />
                 </span>
@@ -430,10 +427,10 @@ export default class ManageFavoritesPage extends React.Component {
                 </span>
                 <span data="column" className="table-container buttons-container">
                   <TableColumn
-                    repeatingJsx={this.renderEditButton}
+                    rowActions={this.renderEditButton}
                     columnClassName={'buttons-column'} />
                   <TableColumn
-                    repeatingJsx={this.renderMapItButton}
+                    rowActions={this.renderMapItButton}
                     columnClassName={'buttons-column'} />
                 </span>
               </SortableTable>

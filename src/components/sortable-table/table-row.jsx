@@ -39,8 +39,8 @@ export class TableRow extends React.Component {
   renderCells = (cells) => {
     return cells.map((cell, i) => {
       let renderString = '';
-      if (cell.props.repeatingJsx) {
-        renderString = cell.props.repeatingJsx(this.props.id);
+      if (cell.props.rowActions) {
+        renderString = cell.props.rowActions(this.props.id);
       } else {
         renderString = this.props.row[cell.props.columnDataKey];
       }
