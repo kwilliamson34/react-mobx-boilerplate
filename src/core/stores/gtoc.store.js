@@ -22,24 +22,19 @@ class GTOCStore {
       history.push('/subscribe-to-alerts-success');
     }
     const failure = () => {
-      this.alertText = 'An unknown error occured. Please try again later.';
-      this.showAlert = true;
+      this.updateAlert('An unknown error occured. Please try again later.');
     }
     apiService.submitGTOCSubscriptionForm(this.values).then(success, failure);
   }
 
   @action clearForm() {
     this.values = Object.assign({}, this.defaultValues);
-    this.showAlert = false;
+    this.updateAlert('');
     this.clearFormFieldRefList();
   }
 
-  @action clearAlert() {
-    this.showAlert = false;
-  }
-
-  @action clearSuccess() {
-    this.showSuccess = false;
+  @action updateAlert(alertText) {
+    this.alertToDisplay = alertText;
   }
 
   @action clearFormFieldRefList() {
@@ -66,8 +61,7 @@ class GTOCStore {
 
   @observable formFieldRefList = [];
   @observable formHasError = true;
-  @observable alertText = 'Please fix the following errors.';
-  @observable showAlert = false;
+  @observable alertToDisplay = '';
   @observable defaultValues = {
     email: '',
     femaList: []

@@ -7,7 +7,8 @@ import TextInput from '../forms/text-input';
 @observer
 class MobileIronForm extends React.Component {
   static propTypes = {
-    store: PropTypes.object
+    store: PropTypes.object,
+    announceErrors: PropTypes.bool
   }
 
   constructor(props) {
@@ -23,11 +24,11 @@ class MobileIronForm extends React.Component {
     const disabled = this.store.mdmIsConfigured;
     return (
       <div>
-        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="mi_hostName" type="input" labelText="Host Name" required={true} disabled={disabled} errorMessage="Please enter a valid host name." announceError={this.store.showAlert} charLimit={256}/>
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="mi_hostName" type="input" labelText="Host Name" required={true} disabled={disabled} errorMessage="Please enter a valid host name." announceError={this.props.announceErrors} charLimit={256}/>
 
-        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="mi_userName" type="input" labelText="MobileIron Core Username" required={true} disabled={disabled} errorMessage="Please enter a valid MobileIron Core username." announceError={this.store.showAlert} charLimit={256}/>
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="mi_userName" type="input" labelText="MobileIron Core Username" required={true} disabled={disabled} errorMessage="Please enter a valid MobileIron Core username." announceError={this.props.announceErrors} charLimit={256}/>
 
-        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="mi_password" type="password" labelText="MobileIron Core Password" required={true} disabled={disabled} errorMessage="Please enter a valid MobileIron Core password." announceError={this.store.showAlert} charLimit={256}/>
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="mi_password" type="password" labelText="MobileIron Core Password" required={true} disabled={disabled} errorMessage="Please enter a valid MobileIron Core password." announceError={this.props.announceErrors} charLimit={256}/>
       </div>
     );
   }

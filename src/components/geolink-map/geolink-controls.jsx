@@ -134,13 +134,17 @@ export default class GeolinkControls extends React.Component {
   }
 
   render() {
+    const displaySuccess = this.store.successToDisplay && this.store.successToDisplay.length > 0;
     return (
       <section className="geolink-controls light-grey-bg">
-        {this.store.showSuccess &&
+        {displaySuccess &&
           <div className="container">
             <div className="row">
               <div className="col-xs-12">
-                <Alerts showSuccess={this.store.showSuccess} successText={this.store.successText} clearSuccess={this.store.clearSuccess.bind(this.store)} />
+                <Alerts
+                  showSuccess={displaySuccess}
+                  successText={this.store.successToDisplay}
+                  clearSuccess={() => {this.store.updateSuccess('')}} />
               </div>
             </div>
           </div>

@@ -151,7 +151,13 @@ export default class AppDetailsPage extends React.Component {
             <div className="row">
               <div className="col-xs-12">
                 <PageTitle className="sr-only">App Details</PageTitle>
-                <Alerts showAlert={this.mdmStore.showAlertOnAppDetails} alertText="This app could not be pushed to MDM." clearAlert={this.mdmStore.clearAlert.bind(this.mdmStore)} showSuccess={this.mdmStore.showSuccessOnAppDetails} successText="This app has been pushed to MDM." clearSuccess={this.mdmStore.clearSuccess.bind(this.mdmStore)}/>
+                <Alerts
+                  showAlert={this.mdmStore.showAlertOnAppDetails}
+                  alertText="This app could not be pushed to MDM."
+                  clearAlert={this.mdmStore.clearAlertAndReferences.bind(this.mdmStore)}
+                  showSuccess={this.mdmStore.showSuccessOnAppDetails}
+                  successText="This app has been pushed to MDM."
+                  clearSuccess={this.mdmStore.clearSuccess.bind(this.mdmStore)}/>
               </div>
             </div>
           </div>
