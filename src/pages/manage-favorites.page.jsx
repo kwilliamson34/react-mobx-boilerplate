@@ -302,8 +302,9 @@ export default class ManageFavoritesPage extends React.Component {
   renderEditButton = (id) => {
     return (
       <button className="as-link favorites-table-button" onClick={() => this.handleEditButton(id)}>
+        <span className="sr-only">Edit Row Info</span>
         <i className="icon-pencil" aria-hidden="true" />
-        <span>Edit</span>
+        <span aria-hidden="true">Edit</span>
       </button>
     )
   }
@@ -311,20 +312,22 @@ export default class ManageFavoritesPage extends React.Component {
   renderMapItButton = (id) => {
     return (
       <button className="as-link favorites-table-button" onClick={() => this.handleMapItButton(id)}>
+        <span className="sr-only">Map Location/Address</span>
         <i className="icon-map-marker" aria-hidden="true" />
-        <span>Map It</span>
+        <span aria-hidden="true">Map It</span>
       </button>
     )
   }
 
-  renderRowCheckbox = (id) => {
+  renderRowCheckbox = (id, srOnlyRowDescription) => {
+    const label = srOnlyRowDescription + ' Select checkbox to select row';
     return (
       <Checkbox
         id={id.toString()}
         value={id.toString()}
         handleOnChange={this.handleRowCheckboxOnChange}
         checked={this.manageFavoritesStore.checkedRows.indexOf(id.toString()) > -1}
-        label="Checkbox for row"
+        label={label}
         labelIsSrOnly={true}/>
     )
   }

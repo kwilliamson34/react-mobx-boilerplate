@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
-import {computed} from 'mobx';
 
 @observer
 export class TableRow extends React.Component {
@@ -19,28 +18,41 @@ export class TableRow extends React.Component {
     rowIsActive: false
   }
 
-  @computed get srOnlyRowDescription() {
-    let srOnlyCellInfo = '';
-    this.props.columns.map((column) => {
+  renderRow = (columns) => {
+    let srOnlyRowDescription = `You are on row ${this.props.rowIndex} of ${this.props.totalRowsDisplayed}. `;
+    let childrenArray = columns.map((column) => {
       let columnChildren = [];
       //push individual children into an array so that we don't have to write out two render functions;
       Array.isArray(column.props.children)
         ? columnChildren = column.props.children
         : columnChildren.push(column.props.children);
+      //build the srOnly text by finding columns with headerLabels;
       columnChildren.forEach(child => {
         if (child.props.headerLabel) {
-          srOnlyCellInfo += `${child.props.headerLabel}: ${this.props.row[child.props.columnDataKey]} `;
+          srOnlyRowDescription += `${child.props.headerLabel}: ${this.props.row[child.props.columnDataKey]}. `;
         }
       })
+      return {
+        className: column.props.className,
+        columnChildren: columnChildren
+      };
+    });
+
+    let returnArray = childrenArray.map((children, i) => {
+      return (
+        <span className={children.className} key={`table-column-${i}`}>
+          {this.renderCells(children.columnChildren, srOnlyRowDescription)}
+        </span>
+      )
     })
-    return `You are on row ${this.props.rowIndex} of ${this.props.totalRowsDisplayed}. ` + srOnlyCellInfo;
+    return returnArray;
   }
 
-  renderCells = (cells) => {
+  renderCells = (cells, srOnlyRowDescription) => {
     return cells.map((cell, i) => {
       let renderString = '';
       if (cell.props.rowActions) {
-        renderString = cell.props.rowActions(this.props.id);
+        renderString = cell.props.rowActions(this.props.id, srOnlyRowDescription);
       } else {
         renderString = this.props.row[cell.props.columnDataKey];
       }
@@ -54,22 +66,12 @@ export class TableRow extends React.Component {
     })
   }
 
+  // <span className="sr-only" tabIndex="0">{this.srOnlyRowDescription}</span>
+
   render() {
     return (
       <div role="row" aria-rowindex={this.props.rowIndex} className={`table-row ${this.props.rowIsActive ? 'active' : ''}`}>
-        <span className="sr-only" tabIndex="0">{this.srOnlyRowDescription}</span>
-        {this.props.columns.map((column, i) => {
-          let columnChildren = [];
-          //push individual children into an array so that we don't have to write out two render functions;
-          Array.isArray(column.props.children)
-            ? columnChildren = column.props.children
-            : columnChildren.push(column.props.children);
-          return (
-            <span className={column.props.className} key={`table-column-${i}`}>
-              {this.renderCells(columnChildren)}
-            </span>
-          )
-        })}
+        {this.renderRow(this.props.columns)}
       </div>
     )
   }

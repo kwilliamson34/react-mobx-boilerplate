@@ -9,7 +9,7 @@ export class SortableTable extends React.Component {
 
   static propTypes = {
     keyToUseAsId: PropTypes.string.isRequired,
-    children: PropTypes.array,
+    children: PropTypes.node,
     tableId: PropTypes.string,
     caption: PropTypes.string,
     rows: PropTypes.array,
@@ -27,7 +27,6 @@ export class SortableTable extends React.Component {
   constructor(props) {
     super(props);
     this.columns = [];
-    this.notColumns = [];
   }
 
   componentWillMount() {
