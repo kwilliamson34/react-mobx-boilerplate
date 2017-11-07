@@ -96,11 +96,9 @@ export default class NetworkStatusPage extends React.Component {
   renderEditLocationDeleteButton = () => {
     return (
       <div className="desktop-favorites-delete-button">
-        <button className="as-link" onClick={this.handleEditLocationDelete}>
+        <button className="btn as-link" onClick={this.handleEditLocationDelete}>
           <i className="icon-trash" aria-hidden="true" />
-          <span>
-            Delete Favorite
-          </span>
+          Delete Favorite
         </button>
       </div>
     )

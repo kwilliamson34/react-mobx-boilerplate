@@ -284,7 +284,7 @@ export default class GeolinkControls extends React.Component {
         <br className="visible-md-inline"/>
         <a href={'tel:' + this.store.networkIssueNumber}>
           <span>
-            <i className="icon-phone-number footer-support-phone" aria-hidden='true'></i>
+            <i className="icon-phone-number" aria-hidden='true'></i>
             <span className="sr-only">Report Network Issue: Phone&nbsp;</span>
             {this.store.networkIssueNumber}
           </span>
