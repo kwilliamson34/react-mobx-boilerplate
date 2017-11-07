@@ -4,23 +4,8 @@ jest.unmock('../table-row');
 
 import {SortableTable} from '../sortable-table';
 import {TableColumn} from '../table-column';
-import {TableRow} from '../table-row';
 
 describe ('<SortableTable> snapshot tests:', () => {
-
-  const renderEditButton = (
-    <button className="as-link edit-location-button" onClick={() => jest.fn()}>
-      <i className="icon-pencil" aria-hidden="true" />
-      <span>Edit</span>
-    </button>
-  )
-
-  const renderMapItButton = (
-    <button className="as-link map-it-button" onClick={() => jest.fn()}>
-      <i className="icon-map-marker" aria-hidden="true" />
-      <span>Map It</span>
-    </button>
-  )
 
   const props = {
     rows: [
@@ -38,15 +23,33 @@ describe ('<SortableTable> snapshot tests:', () => {
     activeRows: [
       '12345'
     ],
+    totalRowCount: 2,
+    activeColumn: 'favoriteName',
     shouldRenderRows: true,
     tableId: 'manage-locations-table',
     keyToUseAsId: 'locationFavoriteId'
   }
 
+const columnProps = {
+  toggleSort: jest.fn(),
+  sortByAscending: true,
+  isActive: true,
+  columnDataKey: 'favoriteName',
+  columnClassName: 'favorite-name-column',
+  headerLabel: 'Name'
+}
+
   describe('render tests:', () => {
     test('should render with props', () => {
       const component = renderer.create(
-        <SortableTable {...props} />
+        <SortableTable {...props}>
+          <span>
+            <TableColumn {...columnProps} />
+          </span>
+          <span>
+            <TableColumn {...columnProps} />
+          </span>
+        </SortableTable>
       );
 
       let tree = component.toJSON();

@@ -13,8 +13,7 @@ export class TableColumn extends React.Component {
     columnDataKey: PropTypes.string,
     columnClassName: PropTypes.string,
     headerLabel: PropTypes.string,
-    additionalHeaderJsx: PropTypes.object,
-    srOnlyAnnouncement: PropTypes.string
+    additionalHeaderJsx: PropTypes.object
   }
 
 

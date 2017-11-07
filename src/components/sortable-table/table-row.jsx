@@ -67,8 +67,6 @@ export class TableRow extends React.Component {
     })
   }
 
-  // <span className="sr-only" tabIndex="0">{this.srOnlyRowDescription}</span>
-
   render() {
     return (
       <div role="row" aria-rowindex={this.props.rowIndex} className={`table-row ${this.props.rowIsActive ? 'active' : ''}`}>
