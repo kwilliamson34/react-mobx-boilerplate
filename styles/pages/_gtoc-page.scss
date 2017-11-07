@@ -21,13 +21,15 @@
       }
     }
 
-    .control-label[for="femaList"] {
-      font-size: $fn-h4-desktop;
-      font-weight: $fn-normal-weight;
-    }
+    .control-label {
+      &[for="femaList"] {
+        font-size: $fn-h4-desktop;
+        font-weight: $fn-normal-weight;
+      }
 
-    .control-label[for="email"] {
-      margin-top: 3rem;
+      &[for="email"] {
+        margin-top: 3rem;
+      }
     }
 
     .selection-buttons {
