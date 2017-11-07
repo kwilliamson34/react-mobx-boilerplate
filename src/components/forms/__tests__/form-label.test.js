@@ -4,7 +4,7 @@ import FormLabel from '../form-label';
 
 describe('<FormLabel />', () => {
   let props = {
-    id: 'id',
+    htmlFor: '',
     labelText: 'testLabel'
   }
 
@@ -12,6 +12,11 @@ describe('<FormLabel />', () => {
     test('matches previous snapshot', () => {
       let component = renderer.create(<FormLabel {...props}/>);
       let tree = component.toJSON();
+      expect(tree).toMatchSnapshot();
+
+      props.htmlFor = 'example-id';
+      component = renderer.create(<FormLabel {...props}/>);
+      tree = component.toJSON();
       expect(tree).toMatchSnapshot();
 
       props.helperText = 'helper text';

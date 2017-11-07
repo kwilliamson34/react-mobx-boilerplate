@@ -2,125 +2,75 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
 
-import {SortableColumn} from './sortable-column';
 import {TableRow} from './table-row';
-import Checkbox from  '../forms/checkbox';
 
 @observer
 export class SortableTable extends React.Component {
 
   static propTypes = {
-    store: PropTypes.shape({
-      checkedRows: PropTypes.object,
-      toggleSort: PropTypes.func,
-      handleCheckboxChange: PropTypes.func,
-      clearAllCheckboxes: PropTypes.func,
-      selectAllCheckboxes: PropTypes.func,
-      checkSelectAllCheckbox: PropTypes.bool
-    }),
+    keyToUseAsId: PropTypes.string.isRequired,
+    children: PropTypes.node,
     tableId: PropTypes.string,
-    idKey: PropTypes.string.isRequired,
     caption: PropTypes.string,
-    columns: PropTypes.array,
     rows: PropTypes.array,
+    activeRows: PropTypes.object,
+    totalRowCount: PropTypes.number,
     shouldRenderRows: PropTypes.bool,
-    activeColumn: PropTypes.string,
-    sortDirections: PropTypes.object,
-    hasCheckboxRow: PropTypes.bool
+    activeColumn: PropTypes.string
   };
 
   static defaultProps = {
-    columns: [],
     rows: [],
-    hasCheckboxRow: false
+    activeRows: []
   }
 
   constructor(props) {
     super(props);
-    this.store = this.props.store;
+    this.columns = [];
   }
 
-  handleToggleSort = (key) => {
-    this.store.toggleSort(key);
-  }
-
-  handleRowCheckboxOnChange = (target) => {
-    if (target.type === 'checkbox') {
-      this.store.handleCheckboxChange(target.value);
-    }
-  }
-
-  handleSelectAll = () => {
-    this.store.checkedRows.length === this.props.rows.length
-      ? this.store.clearAllCheckboxes()
-      : this.store.selectAllCheckboxes();
-  }
-
-  renderSelectAllCheckbox = () => {
-    return (
-      <th className="select-all-checkbox col4">
-        <Checkbox
-          id="select-all-checkbox"
-          label="Select or Deselect All Checkboxes"
-          value="Select or Deselect All Checkboxes"
-          labelIsSrOnly={true}
-          handleOnChange={this.handleSelectAll}
-          checked={this.store.checkSelectAllCheckbox}/>
-      </th>
-    )
-  }
-
-  renderColumns = () => {
-    return this.props.columns.map((col, i) => {
-      const sortByAscending = this.props.sortDirections[col.key];
-      const isActive = this.props.activeColumn === col.key;
-      return (
-        <SortableColumn
-          key={`sortable-column-${i}`}
-          toggleSort={this.handleToggleSort}
-          sortByAscending={sortByAscending}
-          isActive={isActive}
-          columnName={col.name}
-          columnToSort={col.key}
-          className={col.className}>
-          {col.name}
-        </SortableColumn>
-      )
-    })
+  componentWillMount() {
+    //columns and other header elements come in as props.children. parseChildren() separates the column containers (delineated by spans) from other elements;
+    this.parseChildren();
   }
 
   renderRows = (rows, columns) => {
-    return rows.map(row => {
-      //identify which field we want to use as the id/value;
-      const targetedId = row[this.props.idKey];
+    return rows.map((row, i) => {
+      //identify which property on the row object we want to use as the id/value;
+      const targetedId = row[this.props.keyToUseAsId];
+      //rowIndex is for use with aria-rowindex and sr-only row description, to tell screenreaders the position of the row in the table;
+      const rowIndex = i + 1;
+      const rowIsActive = this.props.activeRows.indexOf(targetedId.toString()) > -1;
       return (
         <TableRow
           id={targetedId}
           columns={columns}
           row={row}
-          checkedRows={this.store.checkedRows}
-          hasCheckbox={this.props.hasCheckboxRow}
-          handleOnChange={this.handleRowCheckboxOnChange}
-          key={targetedId}/>
+          rowIsActive={rowIsActive}
+          key={targetedId}
+          rowIndex={rowIndex}
+          totalRowsDisplayed={this.props.rows.length} />
       )
+    })
+  }
+
+  parseChildren = () => {
+    this.columns = this.props.children.filter(child => {
+      return child.props.data === 'column';
     })
   }
 
   render() {
     return (
-      <div>
-        <table id={this.props.tableId} className={`${this.props.tableId}-class table-responsive sortable-table`}>
-          {this.props.caption && <caption>{this.props.caption}</caption>}
-          <thead>
-            <tr>
-              {this.props.hasCheckboxRow && this.renderSelectAllCheckbox()}
-              {this.renderColumns()}
-            </tr>
-          </thead>
-          <tbody>
-            {this.props.shouldRenderRows && this.renderRows(this.props.rows, this.props.columns)}
-          </tbody>
-        </table>
+      <div aria-rowcount={this.props.totalRowCount} id={this.props.tableId} className={`sortable-table ${this.props.tableId}-class`}>
+        {this.props.caption && <caption>{this.props.caption}</caption>}
+        <div ref={(ref) => this.headers = ref} className="table-head">
+          <span className="sr-only" tabIndex="0">{`You are currently on a table. There are ${this.columns.length} columns and ${this.props.totalRowCount} rows.`}</span>
+          {this.props.children}
+        </div>
+        <div ref={(ref) => this.rows = ref} role="rowgroup" className="table-body">
+          {this.props.shouldRenderRows && this.renderRows(this.props.rows, this.columns)}
+        </div>
       </div>
     )
   }

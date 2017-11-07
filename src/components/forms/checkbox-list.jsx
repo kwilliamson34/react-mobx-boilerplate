@@ -84,7 +84,7 @@ export default class CheckboxList extends React.Component {
     return (
       <div className={`form-group ${this.props.id + '-class'} ${this.hasVisibleError ? 'has-error' : ''}`}>
         <FormLabel
-          id={this.props.id}
+          htmlFor={this.props.id}
           hasError={this.hasVisibleError}
           fieldIsRequired={this.props.required}
           labelText={this.props.labelText}
@@ -99,7 +99,7 @@ export default class CheckboxList extends React.Component {
               <span className="select-all-description">Select All</span>
             </label>
           </div>
-          <button type="button" className="as-link" onClick={this.clearAll}>
+          <button type="button" className="btn as-link" onClick={this.clearAll}>
             Clear All
           </button>
         </div>

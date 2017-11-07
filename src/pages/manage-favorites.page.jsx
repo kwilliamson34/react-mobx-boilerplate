@@ -7,7 +7,10 @@ import {history} from '../core/services/history.service';
 import PageTitle from '../components/page-title/page-title';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 import TextInput from '../components/forms/text-input';
+import Checkbox from '../components/forms/checkbox';
 import {SortableTable} from '../components/sortable-table/sortable-table';
+import {TableColumn} from '../components/sortable-table/table-column';
+import {MobileHeader} from '../components/sortable-table/mobile-header';
 import Alerts from '../components/alerts/alerts';
 
 @inject('store')
@@ -39,7 +42,7 @@ export default class ManageFavoritesPage extends React.Component {
   }
 
   clearSuccess = () => {
-    this.manageFavoritesStore.clearSuccess();
+    this.manageFavoritesStore.updateSuccess('');
     this.geolinkStore.clearAlertBars();
   }
 
@@ -56,6 +59,20 @@ export default class ManageFavoritesPage extends React.Component {
 
   advancePagination = () => {
     this.manageFavoritesStore.advancePagination();
+  }
+
+  handleToggleSort = (key) => {
+    this.manageFavoritesStore.toggleSort(key);
+  }
+
+  handleRowCheckboxOnChange = (e) => {
+    this.manageFavoritesStore.handleCheckboxChange(e.value);
+  }
+
+  handleSelectAllCheckbox = () => {
+    this.manageFavoritesStore.checkedRows.length === this.manageFavoritesStore.rows.length
+      ? this.manageFavoritesStore.clearAllCheckboxes()
+      : this.manageFavoritesStore.selectAllCheckboxes();
   }
 
   handleMapItButton = (targetId) => {
@@ -200,7 +217,7 @@ export default class ManageFavoritesPage extends React.Component {
             ? this.renderSearchCounts()
             : this.renderStatCounts()
         }
-        {this.renderDeleteButton()}
+        {this.renderDesktopDeleteButton()}
       </div>
     )
   }
@@ -231,10 +248,10 @@ export default class ManageFavoritesPage extends React.Component {
     )
   }
 
-  renderDeleteButton = () => {
+  renderDesktopDeleteButton = () => {
     const oneItemSelected = this.manageFavoritesStore.checkedRows.length === 1;
     return (
-      <div className="manage-favorites-delete-button">
+      <div className="desktop-favorites-delete-button">
         <button role="button" className={`as-link ${this.manageFavoritesStore.disableDeleteButton ? 'disabled' : ''}`} onClick={this.handleDeleteAction}>
           <i className="icon-trash" aria-hidden="true" />
           <span>
@@ -257,21 +274,72 @@ export default class ManageFavoritesPage extends React.Component {
     )
   }
 
-  renderEditButton = () => {
+  renderMobileDeleteButton = () => {
+    const oneItemSelected = this.manageFavoritesStore.checkedRows.length === 1;
     return (
-      <button className="as-link edit-location-button" tabIndex="-1">
+      <div className="mobile-favorites-delete-button">
+        <button role="button" className={`fn-primary ${this.manageFavoritesStore.disableDeleteButton ? 'disabled' : ''}`} onClick={this.handleDeleteAction}>
+          <span>
+            {
+              this.manageFavoritesStore.disableDeleteButton &&
+              <span className="sr-only">
+                Delete favorites button is inactive. Please select at least one favorite.
+              </span>
+            }
+            <span aria-hidden={this.manageFavoritesStore.disableDeleteButton}>
+              {
+                this.manageFavoritesStore.disableDeleteButton
+                ? 'Delete Favorite'
+                : `Delete ${this.manageFavoritesStore.checkedRows.length} Favorite${oneItemSelected ? '' : 's'}`
+              }
+            </span>
+          </span>
+        </button>
+      </div>
+    )
+  }
+
+  renderEditButton = (id) => {
+    return (
+      <button className="as-link favorites-table-button" onClick={() => this.handleEditButton(id)}>
+        <span className="sr-only">Edit Row Info</span>
         <i className="icon-pencil" aria-hidden="true" />
-        <span>Edit</span>
+        <span aria-hidden="true">Edit</span>
       </button>
     )
   }
 
-  renderMapItButton = () => {
+  renderMapItButton = (id) => {
     return (
-      <button className="as-link map-it-button" tabIndex="-1">
+      <button className="as-link favorites-table-button" onClick={() => this.handleMapItButton(id)}>
+        <span className="sr-only">Map Location/Address</span>
         <i className="icon-map-marker" aria-hidden="true" />
-        <span>Map It</span>
+        <span aria-hidden="true">Map It</span>
       </button>
+    )
+  }
+
+  renderRowCheckbox = (id, srOnlyRowDescription) => {
+    const label = srOnlyRowDescription + ' Select checkbox to select row';
+    return (
+      <Checkbox
+        id={id.toString()}
+        value={id.toString()}
+        handleOnChange={this.handleRowCheckboxOnChange}
+        checked={this.manageFavoritesStore.checkedRows.indexOf(id.toString()) > -1}
+        label={label}
+        labelIsSrOnly={true}/>
+    )
+  }
+
+  renderSelectAllCheckbox = () => {
+    return (
+      <Checkbox
+        id="select-all-checkbox"
+        label="Select or Deselect All Checkboxes"
+        labelIsSrOnly={true}
+        handleOnChange={this.handleSelectAllCheckbox}
+        checked={this.manageFavoritesStore.checkSelectAllCheckbox}/>
     )
   }
 
@@ -296,22 +364,6 @@ export default class ManageFavoritesPage extends React.Component {
       }
     ];
 
-    const tableColumns = [
-      {
-        name: 'Name',
-        key: 'favoriteName',
-        inlineButtonJsx: this.renderEditButton(),
-        onButtonClick: this.handleEditButton,
-        className: 'favorite-name-column col46'
-      }, {
-        name: 'Location/Address',
-        key: 'locationFavoriteAddress',
-        inlineButtonJsx: this.renderMapItButton(),
-        onButtonClick: this.handleMapItButton,
-        className: 'location-address-column col50'
-      }
-    ];
-
     return (
       <article id="manage-location-favorites-page">
         <BreadcrumbNav links={crumbs}/>
@@ -331,26 +383,69 @@ export default class ManageFavoritesPage extends React.Component {
               <div className="row">
                 <div className="col-xs-12">
                   <hr/>
-                  <Alerts showSuccess={this.manageFavoritesStore.showSuccess || this.geolinkStore.showSuccess} successText={this.manageFavoritesStore.successText || this.geolinkStore.successText} clearSuccess={this.clearSuccess}/>
+                  <Alerts
+                    showSuccess={(this.manageFavoritesStore.successToDisplay || this.geolinkStore.successToDisplay || '').length > 0}
+                    successText={this.manageFavoritesStore.successToDisplay || this.geolinkStore.successToDisplay}
+                    clearSuccess={this.clearSuccess}/>
                 </div>
               </div>
             </div>
             <div className="col-xs-12">
               {(this.manageFavoritesStore.shouldRenderRows || this.manageFavoritesStore.showSearchResults) && this.renderTopAndBottomFeatures('top')}
               <SortableTable
-                store={this.manageFavoritesStore}
-                tableId="manage-locations-table"
-                idKey="locationFavoriteId"
-                columns={tableColumns}
+                ref={(ref) => this.tableRef = ref}
                 rows={this.manageFavoritesStore.sortedRows}
-                shouldRenderRows={this.manageFavoritesStore.shouldRenderRows}
-                activeColumn={this.manageFavoritesStore.activeColumn}
-                sortDirections={this.manageFavoritesStore.sortDirections}
-                hasCheckboxRow={true}/>
+                activeRows={this.manageFavoritesStore.checkedRows}
+                totalRowCount={this.manageFavoritesStore.rows.length}
+                tableId="manage-locations-table"
+                keyToUseAsId="locationFavoriteId"
+                shouldRenderRows={this.manageFavoritesStore.shouldRenderRows} >
+                <span className="mobile-header">
+                  <MobileHeader
+                    toggleSort={this.handleToggleSort}
+                    sortByAscending={this.manageFavoritesStore.sortDirections['favoriteName']}
+                    sortData="favoriteName"
+                    handleSelectAllCheckbox={this.handleSelectAllCheckbox}
+                    checkSelectAllCheckbox={this.manageFavoritesStore.checkSelectAllCheckbox}
+                    sortName="Name" />
+                </span>
+                <span data="column" className="table-container checkbox-container">
+                  <TableColumn
+                    rowActions={this.renderRowCheckbox}
+                    additionalHeaderJsx={this.renderSelectAllCheckbox()}
+                    columnClassName="checkbox-column" />
+                </span>
+                <span data="column" className="table-container center-container">
+                  <TableColumn
+                    toggleSort={this.handleToggleSort}
+                    sortByAscending={this.manageFavoritesStore.sortDirections['favoriteName']}
+                    isActive={this.manageFavoritesStore.activeColumn === 'favoriteName'}
+                    headerLabel="Name"
+                    columnDataKey="favoriteName"
+                    columnClassName="favorite-name-column" />
+                  <TableColumn
+                    toggleSort={this.handleToggleSort}
+                    sortByAscending={this.manageFavoritesStore.sortDirections['locationFavoriteAddress']}
+                    isActive={this.manageFavoritesStore.activeColumn === 'locationFavoriteAddress'}
+                    headerLabel="Location/Address"
+                    columnDataKey="locationFavoriteAddress"
+                    columnClassName="location-address-column" />
+                </span>
+                <span data="column" className="table-container buttons-container">
+                  <TableColumn
+                    rowActions={this.renderEditButton}
+                    columnClassName="buttons-column" />
+                  <TableColumn
+                    rowActions={this.renderMapItButton}
+                    columnClassName="buttons-column" />
+                </span>
+              </SortableTable>
               {this.manageFavoritesStore.isLoading && this.renderIsLoading()}
               {!this.manageFavoritesStore.isLoading && !this.manageFavoritesStore.shouldRenderRows && this.renderNoResults()}
               {this.manageFavoritesStore.shouldRenderRows && this.renderTopAndBottomFeatures('bottom')}
               {this.manageFavoritesStore.showLoadMoreButton && this.manageFavoritesStore.shouldRenderRows && this.renderLoadMoreButton()}
+              <hr className="mobile-hr"/>
+              {this.manageFavoritesStore.shouldRenderRows && this.renderMobileDeleteButton()}
             </div>
           </div>
         </div>

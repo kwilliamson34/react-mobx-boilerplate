@@ -29,8 +29,8 @@ export default class Alerts extends React.Component {
           <button type="button" className="close_btn icon-close" onClick={this.props.clearAlert}>
             <span className="sr-only">Close alert</span>
           </button>
-          <p role="alert" aria-live="assertive" aria-atomic={true}>
-            Error: {this.props.alertText}
+          <p role="alert" aria-live="assertive">
+            <strong>Error: </strong>{this.props.alertText}
           </p>
         </div>
       )
@@ -42,8 +42,8 @@ export default class Alerts extends React.Component {
           <button type="button" className="close_btn icon-close" onClick={this.props.clearSuccess}>
             <span className="sr-only">Close alert</span>
           </button>
-          <p role="alert" aria-live="assertive" aria-atomic={true}>
-            Success! {this.props.successText}
+          <p role="alert" aria-live="assertive">
+            <strong>Success! </strong>{this.props.successText}
           </p>
         </div>
       )

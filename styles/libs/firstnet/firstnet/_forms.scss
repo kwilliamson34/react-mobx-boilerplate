@@ -177,19 +177,22 @@ select::-ms-value {
     height: 20px;
     float: left;
     margin: 2px 8px 8px 2px;
+    background-size: 16px 16px;
+    background-position: 2px 2px;
+    background-repeat: no-repeat;
   }
+
   //keyboard-only fallback
   input[type="radio"],
   input[type="checkbox"] {
     @include sr-only;
     &:focus +.cr {
       @include focus();
-      border-radius: 4px;
+      border-radius: 2px;
     }
   }
 
   &.disabled {
-
     label {
       pointer-events: none;
       color: $fn-disabledgrey-chkboxlabel;
@@ -200,33 +203,24 @@ select::-ms-value {
 .radio {
   input[type="radio"] {
     &+ .cr {
-      background: url('/images/radio-unchecked.svg') no-repeat;
-      background-size: 16px 16px;
-      background-position: 2px 2px;
+      background-image: url('/images/radio-unchecked.svg');
     }
 
-    &:disabled {
-      &+ .cr {
-        background: url('/images/radio-unchecked-disabled.svg') no-repeat;
-        background-size: 16px 16px;
-        background-position: 2px 2px;
-      }
+    &:checked + .cr{
+      background-image: url('/images/radio-checked.svg');
+    }
+  }
+
+  &:disabled input[type="radio"],
+  &.disabled input[type="radio"],
+  input[type="radio"]:disabled,
+  input[type="radio"].disabled {
+    &+ .cr {
+      background-image: url('/images/radio-unchecked-disabled.svg');
     }
 
-    &:checked {
-      &+ .cr {
-        background: url('/images/radio-checked.svg') no-repeat;
-        background-size: 16px 16px;
-        background-position: 2px 2px;
-      }
-
-      &:disabled {
-        &+ .cr {
-          background: url('/images/radio-checked-disabled.svg') no-repeat;
-          background-size: 16px 16px;
-          background-position: 2px 2px;
-        }
-      }
+    &:checked + .cr{
+      background-image: url('/images/radio-checked-disabled.svg');
     }
   }
 }
@@ -234,35 +228,24 @@ select::-ms-value {
 .checkbox {
   input[type="checkbox"] {
     &+ .cr {
-      background: url('/images/chkbox.svg') no-repeat;
-      background-size: 16px 16px;
-      background-position: 2px 2px;
+      background-image: url('/images/chkbox.svg');
     }
 
-    &:disabled,
-    &.disabled {
-      &+ .cr {
-        background: url('/images/chkbox-disabled.svg') no-repeat;
-        background-size: 16px 16px;
-        background-position: 2px 2px;
-      }
+    &:checked + .cr {
+      background-image: url('/images/chkbox-checked.svg');
+    }
+  }
+
+  &:disabled input[type="checkbox"],
+  &.disabled input[type="checkbox"],
+  input[type="checkbox"]:disabled
+  input[type="checkbox"].disabled {
+    &+ .cr {
+      background-image: url('/images/chkbox-disabled.svg');
     }
 
-    &:checked {
-      &+ .cr {
-        background: url('/images/chkbox-checked.svg') no-repeat;
-        background-size: 16px 16px;
-        background-position: 2px 2px;
-      }
-
-      &:disabled,
-      &.disabled {
-        &+ .cr {
-          background: url('/images/chkbox-disabled.svg') no-repeat;
-          background-size: 16px 16px;
-          background-position: 2px 2px;
-        }
-      }
+    &:checked + .cr {
+      background-image: url('/images/chkbox-checked-disabled.svg');
     }
   }
 }

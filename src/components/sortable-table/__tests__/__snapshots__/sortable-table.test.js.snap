@@ -1,23 +1,29 @@
 exports[`<SortableTable> snapshot tests: render tests: should render with props 1`] = `
-<div>
-  <table
-    className="manage-locations-table-class table-responsive sortable-table"
-    id="manage-locations-table">
-    <thead>
-      <tr>
-        <th
-          className="select-all-checkbox col7" />
-        <th
-          className="favorite-name-column col50"
-          scope="col">
+<div
+  aria-rowcount={2}
+  className="sortable-table manage-locations-table-class"
+  id="manage-locations-table">
+  <div
+    className="table-head">
+    <span
+      className="sr-only"
+      tabIndex="0">
+      You are currently on a table. There are 0 columns and 2 rows.
+    </span>
+    <span>
+      <div
+        className="table-head-column favorite-name-column"
+        role="columnheader">
+        <div
+          className="sort-button-container">
           <span
             aria-atomic="true"
             aria-live="assertive"
             aria-relevant="text"
             className="sr-only">
             The table is now sorted by 
-            Name
-            in ascending
+            Name in
+            ascending
             order.
           </span>
           <button
@@ -36,22 +42,27 @@ exports[`<SortableTable> snapshot tests: render tests: should render with props 
                 className="arrow-up" />
             </span>
           </button>
-        </th>
-        <th
-          className="location-address-column col45"
-          scope="col">
+        </div>
+      </div>
+    </span>
+    <span>
+      <div
+        className="table-head-column favorite-name-column"
+        role="columnheader">
+        <div
+          className="sort-button-container">
           <span
             aria-atomic="true"
             aria-live="assertive"
             aria-relevant="text"
             className="sr-only">
             The table is now sorted by 
-            Location/Address
-            in ascending
+            Name in
+            ascending
             order.
           </span>
           <button
-            className="sort-button"
+            className="sort-button active"
             onClick={[Function anonymous]}
             type="button">
             <span
@@ -60,131 +71,18 @@ exports[`<SortableTable> snapshot tests: render tests: should render with props 
             </span>
             <span
               className="sort-name">
-              Location/Address
+              Name
               <i
                 aria-hidden="true"
                 className="arrow-up" />
             </span>
           </button>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr
-        className="sortable-table-row "
-        tabIndex="0">
-        <td
-          className="table-row-checkbox "
-          scope="row" />
-        <td
-          className="favorite-name-column col50">
-          <div
-            className="row-contents-wrapper">
-            <span>
-              Best Pineapple Pizza
-            </span>
-          </div>
-          <div
-            className="inline-button-wrapper"
-            data-id="12345"
-            onClick={[Function onClick]}
-            tabIndex="0">
-            <button
-              className="as-link edit-location-button"
-              tabIndex="-1">
-              <i
-                aria-hidden="true"
-                className="icon-pencil" />
-              <span>
-                Edit
-              </span>
-            </button>
-          </div>
-        </td>
-        <td
-          className="location-address-column col45">
-          <div
-            className="row-contents-wrapper">
-            <span>
-              100 Hawaiian Street
-            </span>
-          </div>
-          <div
-            className="inline-button-wrapper"
-            data-id="12345"
-            onClick={[Function onClick]}
-            tabIndex="0">
-            <button
-              className="as-link map-it-button"
-              tabIndex="-1">
-              <i
-                aria-hidden="true"
-                className="icon-map-marker" />
-              <span>
-                Map It
-              </span>
-            </button>
-          </div>
-        </td>
-      </tr>
-      <tr
-        className="sortable-table-row "
-        tabIndex="0">
-        <td
-          className="table-row-checkbox "
-          scope="row" />
-        <td
-          className="favorite-name-column col50">
-          <div
-            className="row-contents-wrapper">
-            <span>
-              Best Coconut Slushies
-            </span>
-          </div>
-          <div
-            className="inline-button-wrapper"
-            data-id="54321"
-            onClick={[Function onClick]}
-            tabIndex="0">
-            <button
-              className="as-link edit-location-button"
-              tabIndex="-1">
-              <i
-                aria-hidden="true"
-                className="icon-pencil" />
-              <span>
-                Edit
-              </span>
-            </button>
-          </div>
-        </td>
-        <td
-          className="location-address-column col45">
-          <div
-            className="row-contents-wrapper">
-            <span>
-              1414 Cocostuff Plaza
-            </span>
-          </div>
-          <div
-            className="inline-button-wrapper"
-            data-id="54321"
-            onClick={[Function onClick]}
-            tabIndex="0">
-            <button
-              className="as-link map-it-button"
-              tabIndex="-1">
-              <i
-                aria-hidden="true"
-                className="icon-map-marker" />
-              <span>
-                Map It
-              </span>
-            </button>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        </div>
+      </div>
+    </span>
+  </div>
+  <div
+    className="table-body"
+    role="rowgroup" />
 </div>
 `;
