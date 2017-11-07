@@ -1,0 +1,60 @@
+exports[`<MobileHeader> snapshot tests:  render tests: should render with props 1`] = `
+<div
+  className="mobile-header mobile-header">
+  <div
+    className="flex-wrapper">
+    <span
+      aria-atomic="true"
+      aria-live="assertive"
+      aria-relevant="text"
+      className="sr-only">
+      The table is now sorted by 
+      Name in
+      ascending
+      order.
+    </span>
+    <div
+      className="checkbox form-group ">
+      <label>
+        <input
+          aria-disabled={false}
+          checked={false}
+          className=""
+          data-checked={false}
+          id="select-all-checkbox"
+          onBlur={[Function anonymous]}
+          onChange={[Function anonymous]}
+          onKeyPress={[Function anonymous]}
+          type="checkbox"
+          value="Select or Deselect All Checkboxes" />
+        <span
+          className="cr" />
+        <span
+          className="label-text sr-only">
+          
+          <span
+            className="label-text-normal">
+            Select or Deselect All Checkboxes
+          </span>
+        </span>
+      </label>
+    </div>
+    <button
+      className="as-link mobile-header-button"
+      onClick={[Function anonymous]}
+      type="button">
+      <span
+        className="sort-name">
+        Sort by 
+        Name
+         – 
+        Ascending
+      </span>
+      <i
+        aria-hidden="true"
+        className="icon-arrowUp" />
+    </button>
+  </div>
+  <hr />
+</div>
+`;
