@@ -83,15 +83,6 @@ exports[`<SortableTable> snapshot tests: render tests: should render with props 
   </div>
   <div
     className="table-body"
-    role="rowgroup">
-    <div
-      aria-rowindex={1}
-      className="table-row active"
-      role="row" />
-    <div
-      aria-rowindex={2}
-      className="table-row "
-      role="row" />
-  </div>
+    role="rowgroup" />
 </div>
 `;
