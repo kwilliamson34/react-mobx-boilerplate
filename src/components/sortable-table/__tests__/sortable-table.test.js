@@ -1,6 +1,5 @@
 jest.unmock('../sortable-table');
 jest.unmock('../table-column');
-jest.unmock('../table-row');
 
 import {SortableTable} from '../sortable-table';
 import {TableColumn} from '../table-column';
