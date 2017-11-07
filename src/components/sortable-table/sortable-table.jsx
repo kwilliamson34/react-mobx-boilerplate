@@ -30,13 +30,16 @@ export class SortableTable extends React.Component {
   }
 
   componentWillMount() {
+    //columns and other header elements come in as props.children. parseChildren() separates the column containers (delineated by spans) from other elements;
     this.parseChildren();
   }
 
   renderRows = (rows, columns) => {
     return rows.map((row, i) => {
-      //identify which field we want to use as the id/value;
+      //identify which property on the row object we want to use as the id/value;
       const targetedId = row[this.props.keyToUseAsId];
+      //rowIndex is for use with aria-rowindex and sr-only row description, to tell screenreaders the position of the row in the table;
+      const rowIndex = i + 1;
       const rowIsActive = this.props.activeRows.indexOf(targetedId.toString()) > -1;
       return (
         <TableRow
@@ -45,7 +48,7 @@ export class SortableTable extends React.Component {
           row={row}
           rowIsActive={rowIsActive}
           key={targetedId}
-          rowIndex={(i + 1)}
+          rowIndex={rowIndex}
           totalRowsDisplayed={this.props.rows.length} />
       )
     })

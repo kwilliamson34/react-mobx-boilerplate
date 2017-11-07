@@ -20,9 +20,10 @@ export class TableRow extends React.Component {
 
   renderRow = (columns) => {
     let srOnlyRowDescription = `You are on row ${this.props.rowIndex} of ${this.props.totalRowsDisplayed}. `;
+    //create an array of columns, in order to sync the order of the row cells;
     let childrenArray = columns.map((column) => {
       let columnChildren = [];
-      //push individual children into an array so that we don't have to write out two render functions;
+      //push individual children objects into an array so that we don't have to write out two render functions;
       Array.isArray(column.props.children)
         ? columnChildren = column.props.children
         : columnChildren.push(column.props.children);
@@ -38,7 +39,7 @@ export class TableRow extends React.Component {
       };
     });
 
-    //render the columns inside their containers, and pass srOnlyRowDescription back up to the page;
+    //render the cells inside their column containers, and pass srOnlyRowDescription back up to the page;
     let returnArray = childrenArray.map((children, i) => {
       return (
         <span className={children.containerName} key={`table-column-${i}`}>
@@ -52,6 +53,7 @@ export class TableRow extends React.Component {
   renderCells = (cells, srOnlyRowDescription) => {
     return cells.map((cell, i) => {
       let renderString = '';
+      //render either rowActions or the contents from the row object. Currently, both cannot exist in the same cell together;
       if (cell.props.rowActions) {
         renderString = cell.props.rowActions(this.props.id, srOnlyRowDescription);
       } else {
