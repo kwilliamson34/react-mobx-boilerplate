@@ -147,7 +147,7 @@ footer {
 
         &.footer-support-phone {
           color: $footer-font-color;
-          margin-right: 5px;
+          margin-left: 0;
 
           &:before {
             font-size: 1.6rem;
@@ -337,16 +337,6 @@ footer {
 
     nav {
       border-bottom: 1px solid $fn-bordergrey;
-    }
-
-    li {
-      a {
-        i {
-          &.footer-support-phone {
-            margin-left: 5px;
-          }
-        }
-      }
     }
   }
 

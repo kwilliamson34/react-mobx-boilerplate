@@ -297,28 +297,7 @@ button {
 }
 
 .btn-link {
-  color: $fn-ltblue;
-  position: relative;
-  display: inline-block;
-  padding: 0 5px 0 0;
-  border-radius: 0;
-  background-color: transparent;
-
-  &.focus,
-  &.hover,
-  &:focus,
-  &:hover {
-    color: $fn-ltblue;
-    border: none;
-    background-color: transparent;
-  }
-
-  &.active,
-  &:active,
-  &.visited,
-  &:visited {
-    color: $fn-blue;
-  }
+  @extend .as-link;
 }
 
 .back-to-top {
