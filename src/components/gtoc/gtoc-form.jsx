@@ -13,7 +13,8 @@ import Checkbox from '../forms/checkbox';
 class GtocForm extends React.Component {
 
   static propTypes = {
-    store: PropTypes.object
+    store: PropTypes.object,
+    announceErrors: PropTypes.bool
   }
 
   constructor (props) {
@@ -55,7 +56,7 @@ class GtocForm extends React.Component {
           required={true}
           selectAll={this.store.selectAll.bind(this.store)}
           clearAll={this.store.clearAll.bind(this.store)}
-          announceError={this.store.showAlert}>
+          announceError={this.props.announceErrors}>
 
           {this.renderCheckbox('Region I', 'Connecticut, Maine, Massachusetts, New Hampshire, Rhode Island, Vermont')}
           {this.renderCheckbox('Region II', 'New Jersey, New York, Puerto Rico, Virgin Islands')}
@@ -78,7 +79,7 @@ class GtocForm extends React.Component {
           required={true}
           getIsValid={utilsService.isValidEmailAddress}
           errorMessage="Please enter a valid email address."
-          announceError={this.store.showAlert}
+          announceError={this.props.announceErrors}
           charLimit={256}/>
       </div>
     );

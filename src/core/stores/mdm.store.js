@@ -37,20 +37,27 @@ class MDMStore {
   }
 
   @action clearForm() {
-    this.showAlert = false;
+    this.clearAlertAndReferences();
     this.values = Object.assign({}, this.defaultValues);
     this.showbreakMDMConnection = false;
     this.clearFormFieldRefList();
   }
 
-  @action clearAlert() {
-    this.showAlert = false;
+  @action clearAlertAndReferences() {
+    this.updateAlert('');
     this.appsReferencedByErrorAlert = [];
   }
 
   @action clearSuccess() {
-    this.showSuccess = false;
-    this.appsReferencedBySuccessAlert = [];
+    this.updateSuccess('');
+  }
+
+  @action updateAlert(alertText) {
+    this.alertToDisplay = alertText;
+  }
+
+  @action updateSuccess(successText) {
+    this.successToDisplay = successText;
   }
 
   @action clearFormFieldRefList() {
@@ -59,15 +66,6 @@ class MDMStore {
   }
 
   // Alert functions
-  @action removeAlert(alertList, idx) {
-    const alertToRemove = alertList[idx];
-    alertList.splice(idx, 1);
-
-    if(alertToRemove.type === 'error') {
-      this.appsReferencedByErrorAlert = [];
-    }
-  }
-
   @action addPushErrorAlert(psk) {
     //add to reference list if not already there
     if(!this.appsReferencedByErrorAlert.find(item => item == psk)) {
@@ -89,11 +87,6 @@ class MDMStore {
     }
   }
 
-  @action throwConnectError() {
-    this.alertText = this.userMessages.connectFail;
-    this.showAlert = true;
-  }
-
   // Modal functions
   @action togglebreakMDMConnection() {
     this.showbreakMDMConnection = !this.showbreakMDMConnection;
@@ -108,7 +101,7 @@ class MDMStore {
       }
     }
     const fail = () => {
-      this.throwConnectError();
+      this.updateAlert(this.userMessages.connectFail);
       this.mdmIsConfigured = false;
     }
     return apiService.getMDMConfiguration().then(success, fail);
@@ -118,19 +111,18 @@ class MDMStore {
     const success = (resp) => {
       let messageObj = resp.data;
       if (messageObj.error) {
-        this.alertText = messageObj.error;
-        this.showAlert = true;
+        this.updateAlert(messageObj.error);
         if (messageObj.error.toLowerCase().includes('credentials')) {
           this.clearStoredCredentials();
         }
       } else {
         this.mdmIsConfigured = true;
-        this.successText = this.userMessages.connectSuccess;
-        this.showSuccess = true;
+        this.clearAlertAndReferences();
+        this.updateSuccess(this.userMessages.connectSuccess);
       }
     }
     const fail = () => {
-      this.throwConnectError();
+      this.updateAlert(this.userMessages.connectFail);
     }
     return apiService.setMDMConfiguration(this.values).then(success, fail);
   }
@@ -138,16 +130,14 @@ class MDMStore {
   @action breakMDMConnection() {
     const success = () => {
       this.clearForm();
-      this.showAllFormErrors = false;
       this.appsReferencedByErrorAlert = [];
       this.appsReferencedBySuccessAlert = [];
       this.mdmIsConfigured = false;
-      this.successText = this.userMessages.breakConnectionSuccess;
-      this.showSuccess = true;
+      this.clearAlertAndReferences();
+      this.updateSuccess(this.userMessages.breakConnectionSuccess);
     }
     const fail = () => {
-      this.alertText = this.userMessages.breakConnectionFail;
-      this.showAlert = true;
+      this.updateAlert(this.userMessages.breakConnectionFail);
     }
     return apiService.breakMDMConfiguration().then(success, fail);
   }
@@ -194,7 +184,7 @@ class MDMStore {
   @action stopPolling(psk) {
     //set a status other than PENDING and IN_PROGRESS to stop polling
     this.appCatalogMDMStatuses.set(psk, 'NOT_INSTALLED');
-    this.throwConnectError();
+    this.updateAlert(this.userMessages.connectFail);
   }
 
   @action pollUntilResolved(psk) {
@@ -269,16 +259,13 @@ class MDMStore {
   @observable formHasError = true;
 
   // Alerts
-  @observable alertText = 'Please fix the following errors.';
-  @observable showAlert = false;
-  @observable successText = '';
-  @observable showSuccess = false;
-
+  @observable alertToDisplay = '';
+  @observable successToDisplay = '';
   @observable appsReferencedBySuccessAlert = [];
   @observable appsReferencedByErrorAlert = [];
   @observable userMessages = {
     missingMdm: 'Please select any MDM.',
-    formError: 'Please correct the errors below.',
+    formError: 'Please fix the following errors.',
     connectSuccess: 'The MDM connection was successful.',
     connectFail: 'There was a problem establishing a connection with MDM.',
     breakConnectionSuccess: 'The connection to MDM has been broken.',

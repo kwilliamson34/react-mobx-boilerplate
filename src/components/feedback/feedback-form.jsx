@@ -13,7 +13,8 @@ import Checkbox from '../forms/checkbox';
 class FeedbackForm extends React.Component {
 
   static propTypes = {
-    store: PropTypes.object
+    store: PropTypes.object,
+    announceErrors: PropTypes.bool
   }
 
   constructor (props) {
@@ -65,7 +66,7 @@ class FeedbackForm extends React.Component {
           required={true}
           placeholder="Select a topic"
           errorMessage="Please choose a topic."
-          announceError={this.store.showAlert}
+          announceError={this.props.announceErrors}
           optionsList={this.topics}/>
 
         <TextInput
@@ -76,7 +77,7 @@ class FeedbackForm extends React.Component {
           labelText="Subject"
           required={true}
           errorMessage="Please enter a subject."
-          announceError={this.store.showAlert}
+          announceError={this.props.announceErrors}
           charLimit={256}/>
 
         <TextInput
@@ -88,7 +89,7 @@ class FeedbackForm extends React.Component {
           labelText="Details"
           required={true}
           errorMessage="Please enter a summary of your feedback."
-          announceError={this.store.showAlert}
+          announceError={this.props.announceErrors}
           charLimit={2500}/>
 
         <SelectInput
@@ -100,7 +101,7 @@ class FeedbackForm extends React.Component {
           required={true}
           placeholder="Select your operating system"
           errorMessage="Please select your operating system."
-          announceError={this.store.showAlert}
+          announceError={this.props.announceErrors}
           optionsList={this.operatingSystems}/>
 
         <TextInput
@@ -115,7 +116,7 @@ class FeedbackForm extends React.Component {
           required={this.store.emailIsRequired}
           getIsValid={utilsService.isValidEmailAddress}
           errorMessage="Please enter an email address."
-          announceError={this.store.showAlert}
+          announceError={this.props.announceErrors}
           charLimit={256}/>
 
         <TextInput
@@ -126,7 +127,7 @@ class FeedbackForm extends React.Component {
           labelText="Phone (Optional)"
           required={false}
           errorMessage="Please enter a valid phone number."
-          announceError={this.store.showAlert}
+          announceError={this.props.announceErrors}
           charLimit={256}/>
 
         <SelectInput
@@ -138,7 +139,7 @@ class FeedbackForm extends React.Component {
           required={true}
           placeholder="Select your likelihood"
           errorMessage="Please select your likelihood."
-          announceError={this.store.showAlert}
+          announceError={this.props.announceErrors}
           optionsList={this.likelihoods}/>
 
 
@@ -160,7 +161,7 @@ class FeedbackForm extends React.Component {
             label="By submitting this information, you agree to be contacted by FirstNet. We will never sell or share your information."
             required={this.store.requireContactAgreement}
             errorMessage="Please provide consent to be contacted by FirstNet."
-            announceError={this.store.showAlert}
+            announceError={this.props.announceErrors}
             checked={this.store.contactAgreement}
             handleOnChange={this.handleCheckboxOnChange} />
         }

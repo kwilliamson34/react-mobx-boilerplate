@@ -42,7 +42,7 @@ export default class ManageFavoritesPage extends React.Component {
   }
 
   clearSuccess = () => {
-    this.manageFavoritesStore.clearSuccess();
+    this.manageFavoritesStore.updateSuccess('');
     this.geolinkStore.clearAlertBars();
   }
 
@@ -383,7 +383,10 @@ export default class ManageFavoritesPage extends React.Component {
               <div className="row">
                 <div className="col-xs-12">
                   <hr/>
-                  <Alerts showSuccess={this.manageFavoritesStore.showSuccess || this.geolinkStore.showSuccess} successText={this.manageFavoritesStore.successText || this.geolinkStore.successText} clearSuccess={this.clearSuccess}/>
+                  <Alerts
+                    showSuccess={(this.manageFavoritesStore.successToDisplay || this.geolinkStore.successToDisplay || '').length > 0}
+                    successText={this.manageFavoritesStore.successToDisplay || this.geolinkStore.successToDisplay}
+                    clearSuccess={this.clearSuccess}/>
                 </div>
               </div>
             </div>
