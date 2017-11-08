@@ -96,7 +96,7 @@ export class FormTemplate extends React.Component {
         {hasError && <div className="msgBlock error error-list" role="alert" aria-live="assertive">
           <span>Please enter a {genericLabel || label.toLowerCase()}.</span>
         </div>}
-        <Tag id={id} ref={ref => refList[id] = ref} type="text" className="form-control" disabled={disabled} value={value} data-charlimit={charLimit}/>
+        <Tag id={id} ref={ref => refList[id] = ref} type="text" className="form-control" disabled={disabled} defaultValue={value} data-charlimit={charLimit}/>
       </div>
     )
   }

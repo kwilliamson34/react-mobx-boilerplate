@@ -11,7 +11,6 @@ class FeedbackStore {
     let input = e.target;
     if(input.dataset.charlimit && input.id) {
       this.feedbackObject[input.id] = input.value.substr(0, input.dataset.charlimit);
-      console.log('right', this.feedbackObject[input.id]);
     } else if (input.id) {
       this.feedbackObject[input.id] = input.value;
     }
