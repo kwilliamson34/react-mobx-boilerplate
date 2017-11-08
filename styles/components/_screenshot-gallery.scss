@@ -49,6 +49,7 @@
 
     .slide-img {
       height: 440px;
+      max-height: 440px;
       width: auto;
       max-width:100%;
       min-width: 240px;
@@ -58,7 +59,7 @@
 
     &.tablet .slide-img{
       height: auto;
-      max-width: 440px;  
+      max-width: 440px;
     }
 
     .slide-caption {
