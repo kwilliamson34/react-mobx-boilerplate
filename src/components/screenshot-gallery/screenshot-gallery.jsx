@@ -21,9 +21,6 @@ export default class ScreenshotGallery extends React.Component {
       mobileArray.push(x);
     });
     let screenshotArray = [...mobileArray, ...tabletArray];
-
-    console.log(JSON.stringify(screenshotArray));
-
     return screenshotArray.map((node, i) => {
       let imgPath = node.path;
       return (
