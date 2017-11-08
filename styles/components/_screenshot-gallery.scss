@@ -6,8 +6,7 @@
     overflow-y: hidden;
     display: flex;
     flex-direction: row;
-    align-items: stretch;
-    justify-content: space-between;
+    align-items: flex-start;
     position: relative;
     padding: 0;
   }
@@ -49,11 +48,17 @@
 
     .slide-img {
       height: 440px;
+      max-height: 440px;
       width: auto;
       max-width:100%;
       min-width: 240px;
       border: 1px solid $fn-grey;
       margin-bottom: 20px;
+    }
+
+    &.tablet .slide-img{
+      height: auto;
+      max-width: 440px;
     }
 
     .slide-caption {
