@@ -158,15 +158,16 @@ class ManageFavoritesStore {
   sortAndReturnRows(rowsToSort) {
     const sortOrder = this.sortDirections[this.activeColumn];
     return rowsToSort.sort((x, y) => {
-      const rowX = x[this.activeColumn].toString().toLowerCase();
-      const rowY = y[this.activeColumn].toString().toLowerCase();
-      if (rowX < rowY) {
-        return sortOrder ? -1 : 1;
-      }
-      if (rowX > rowY) {
-        return sortOrder ? 1 : -1;
-      }
-      return 0;
+      const rowX = x[this.activeColumn].toString().toLowerCase().split(/(\d+)/).filter(Boolean);
+      const rowY = y[this.activeColumn].toString().toLowerCase().split(/(\d+)/).filter(Boolean);
+      console.log('take a peekus', rowX, rowY);
+      // if (rowX < rowY) {
+      //   return sortOrder ? -1 : 1;
+      // }
+      // if (rowX > rowY) {
+      //   return sortOrder ? 1 : -1;
+      // }
+      // return 0;
     });
   }
 
