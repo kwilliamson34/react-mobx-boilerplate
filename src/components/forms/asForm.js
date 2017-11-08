@@ -26,12 +26,14 @@ export default function asForm (MyComponent, attributes) {
         submitButtonText: PropTypes.string //optional computed, overwrites attribute and default
       }),
       disabled: PropTypes.bool,
-      suppressAlertBars: PropTypes.bool
+      suppressAlertBars: PropTypes.bool,
+      persistAlertBars: PropTypes.bool
     }
 
     static defaultProps = {
       disabled: false,
-      suppressAlertBars: false
+      suppressAlertBars: false,
+      persistAlertBars: false
     }
 
     constructor (props) {
@@ -95,8 +97,10 @@ export default function asForm (MyComponent, attributes) {
     }
 
     componentWillUnmount() {
-      this.clearAlert();
-      this.clearSuccess();
+      if(!this.props.persistAlertBars) {
+        this.clearAlert();
+        this.clearSuccess();
+      }
 
       //undo the reroute blockade
       this.unblock();
