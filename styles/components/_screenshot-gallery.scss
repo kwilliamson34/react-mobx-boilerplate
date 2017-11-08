@@ -56,6 +56,11 @@
       margin-bottom: 20px;
     }
 
+    &.tablet .slide-img{
+      height: auto;
+      max-width: 440px;  
+    }
+
     .slide-caption {
       position: absolute;
       width: 100%;
