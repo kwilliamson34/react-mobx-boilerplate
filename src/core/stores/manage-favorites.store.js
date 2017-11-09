@@ -108,6 +108,7 @@ class ManageFavoritesStore {
     this.clearSearchQuery();
     this.updateAlert('');
     this.updateSuccess('');
+    this.activeColumn = 'favoriteName';
     this.rows = [];
     this.searchResults = [];
     this.checkedRows = [];
@@ -212,7 +213,7 @@ class ManageFavoritesStore {
   @observable paginationInterval = 50;
   @observable moreToLoad = false;
 
-  @observable activeColumn = 'locationFavoriteId';
+  @observable activeColumn = 'favoriteName';
 
   //to keep the order toggling simple, true is ascending and false is descending;
   @observable sortDirectionsDefaults = {

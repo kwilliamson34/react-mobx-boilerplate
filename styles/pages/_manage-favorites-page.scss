@@ -139,8 +139,8 @@
           color: $table-active-column-highlight;
           display: none;
           position: absolute;
-          right: 20px;
-          top: 20px;
+          right: 0;
+          top: 25px;
         }
       }
     }
@@ -472,6 +472,7 @@
       width: 78%;
       flex-direction: row;
       flex-grow: 0;
+      align-items: center;
       align-self: auto;
       border: 0;
     }
