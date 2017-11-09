@@ -332,7 +332,7 @@ export default class ManageFavoritesPage extends React.Component {
     )
   }
 
-  renderSelectAllCheckbox = () => {
+  renderSelectAllCheckbox = (srOnlyMessage) => {
     return (
       <Checkbox
         id="select-all-checkbox"
@@ -412,7 +412,7 @@ export default class ManageFavoritesPage extends React.Component {
                 <span data="column" className="table-container checkbox-container">
                   <TableColumn
                     rowActions={this.renderRowCheckbox}
-                    additionalHeaderJsx={this.renderSelectAllCheckbox()}
+                    additionalHeaderActions={this.renderSelectAllCheckbox}
                     columnClassName="checkbox-column" />
                 </span>
                 <span data="column" className="table-container center-container">
