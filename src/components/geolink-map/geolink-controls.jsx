@@ -70,15 +70,19 @@ export default class GeolinkControls extends React.Component {
     }
   }
 
+  clearAlertBars = () => {
+    this.store.clearAlertBars();
+  }
+
   onManageFavoritesClick = () => {
     history.push('/manage-favorites');
-    this.store.clearAlertBars();
+    this.clearAlertBars();
   }
 
   onManageFavoritesEnter = (event) => {
     if(event.charCode === this.ENTER_KEY_CODE) {
       history.push('/manage-favorites');
-      this.store.clearAlertBars();
+      this.clearAlertBars();
     }
   }
 
@@ -124,7 +128,7 @@ export default class GeolinkControls extends React.Component {
               </li>
             )
           })}
-          <li role="button" tabIndex="0" ref={`favItem${this.store.predictedFavorites.length}`} onFocus={() => this.focusedFavorite = this.store.predictedFavorites.length} onClick={this.onManageFavoritesClick} onKeyPress={this.onManageFavoritesEnter} onKeyDown={this.onKeyDown}>
+          <li role="button" tabIndex="0" ref={`favItem${this.store.predictedFavorites.length}`} onFocus={() => this.focusedFavorite = this.store.predictedFavorites.length} onClick={this.clearAlertBars} onKeyPress={this.onManageFavoritesEnter} onKeyDown={this.onKeyDown}>
             Manage all favorites
           </li>
         </ul>
@@ -212,7 +216,7 @@ export default class GeolinkControls extends React.Component {
     return (
       <div>
         <span className="top-right-link">
-          <button className="as-link" onClick={this.onManageFavoritesClick}>Manage Favorites</button>
+          <Link to="/manage-favorites" onClick={this.clearAlertBars}>Manage Favorites</Link>
         </span>
         <h2 className="as-h5">Search</h2>
         <TextInput
