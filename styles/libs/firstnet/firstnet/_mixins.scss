@@ -92,11 +92,3 @@
     overflow: visible;
     clip: auto;
 }
-
-@mixin column-widths {
-  @for $i from 1 through 100 {
-    .#{$class-slug}#{$i*1} {
-      width: 1% * $i;
-    }
-  }
-}
