@@ -127,25 +127,20 @@ exports[`<SolutionsDetailsTemplate /> render renders lead capture section 2`] = 
           Learn More
         </h2>
         <hr />
-        <div
-          className="alert alert-success">
-          <button
-            className="close_btn icon-close"
-            onClick={[Function bound hideSuccess]}
-            type="button">
-            <span
-              className="sr-only">
-              Close alert
-            </span>
-          </button>
-          <p
-            aria-live="assertive"
-            role="alert">
-            <strong>
-              Success! 
-            </strong>
-            Your request has been received. A specialist will be contacting you soon.
-          </p>
+        <div>
+          <span
+            className="solution-name"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "detail1"
+              }
+            } />
+          <a
+            className="btn fn-primary "
+            href="/admin/solutions/category1/detail1/request-info"
+            onClick={[Function anonymous]}>
+            Request Information
+          </a>
         </div>
       </section>
     </div>
@@ -182,25 +177,20 @@ exports[`<SolutionsDetailsTemplate /> render renders lead capture section 3`] = 
           Learn More
         </h2>
         <hr />
-        <div
-          className="alert alert-success">
-          <button
-            className="close_btn icon-close"
-            onClick={[Function bound hideSuccess]}
-            type="button">
-            <span
-              className="sr-only">
-              Close alert
-            </span>
-          </button>
-          <p
-            aria-live="assertive"
-            role="alert">
-            <strong>
-              Success! 
-            </strong>
-            Your request has been received. A specialist will be contacting you soon.
-          </p>
+        <div>
+          <span
+            className="solution-name"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "detail1"
+              }
+            } />
+          <a
+            className="btn fn-primary "
+            href="/admin/solutions/category1/detail1/request-info"
+            onClick={[Function anonymous]}>
+            Request Information
+          </a>
         </div>
       </section>
     </div>
@@ -237,25 +227,20 @@ exports[`<SolutionsDetailsTemplate /> render renders purchasing info section 1`]
           Learn More
         </h2>
         <hr />
-        <div
-          className="alert alert-success">
-          <button
-            className="close_btn icon-close"
-            onClick={[Function bound hideSuccess]}
-            type="button">
-            <span
-              className="sr-only">
-              Close alert
-            </span>
-          </button>
-          <p
-            aria-live="assertive"
-            role="alert">
-            <strong>
-              Success! 
-            </strong>
-            Your request has been received. A specialist will be contacting you soon.
-          </p>
+        <div>
+          <span
+            className="solution-name"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "detail1"
+              }
+            } />
+          <a
+            className="btn fn-primary "
+            href="/admin/solutions/category1/detail1/request-info"
+            onClick={[Function anonymous]}>
+            Request Information
+          </a>
         </div>
       </section>
     </div>
@@ -307,25 +292,20 @@ exports[`<SolutionsDetailsTemplate /> render renders related app section 1`] = `
           Learn More
         </h2>
         <hr />
-        <div
-          className="alert alert-success">
-          <button
-            className="close_btn icon-close"
-            onClick={[Function bound hideSuccess]}
-            type="button">
-            <span
-              className="sr-only">
-              Close alert
-            </span>
-          </button>
-          <p
-            aria-live="assertive"
-            role="alert">
-            <strong>
-              Success! 
-            </strong>
-            Your request has been received. A specialist will be contacting you soon.
-          </p>
+        <div>
+          <span
+            className="solution-name"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "detail1"
+              }
+            } />
+          <a
+            className="btn fn-primary "
+            href="/admin/solutions/category1/detail1/request-info"
+            onClick={[Function anonymous]}>
+            Request Information
+          </a>
         </div>
       </section>
     </div>

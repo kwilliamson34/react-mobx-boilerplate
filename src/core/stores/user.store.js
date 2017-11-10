@@ -79,6 +79,7 @@ class UserStore {
       this.user.pse = userInfo.authorizations[0].pseId || '';
       this.user.pseName = userInfo.authorizations[0].pseName || '';
       this.user.roles = userInfo.authorizations[0].pseUserRoles || [];
+      console.log('User is logged in with roles: ' + this.user.roles.toString());
     } else {
       // FAN mapping hasn't happened; use HALO provided groups and roles
       this.user.pse = '';
