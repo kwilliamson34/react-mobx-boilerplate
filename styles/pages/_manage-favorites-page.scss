@@ -427,7 +427,6 @@
     .table-row {
       box-shadow: none;
       align-items: center;
-      border-top: 0;
       justify-content: flex-start;
       margin-bottom: 0;
       min-height: 60px;
@@ -452,12 +451,20 @@
 
       &.active {
         border-color: $fn-ltblue;
+
+        &+:not(.active) {
+          border-top: 1px solid $fn-ltblue;
+        }
       }
 
       &:not(.active) {
         .center-container {
           background-color: $fn-white;
         }
+      }
+
+      &:not(:last-of-type) {
+        border-bottom: 0;
       }
     }
 
