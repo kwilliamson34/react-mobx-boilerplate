@@ -161,12 +161,8 @@ describe("MDMStore", () => {
   test("stopPolling works as expected", () => {
     let psk = "123";
     store.appCatalogMDMStatuses.set(psk, 'PENDING');
-    store.throwConnectError = jest.fn();
-
     store.stopPolling(psk);
-
     expect(store.appCatalogMDMStatuses.get(psk)).toBe('NOT_INSTALLED');
-    expect(store.throwConnectError).toHaveBeenCalled();
   });
 
   test("pollUntilResolved works as expected", () => {

@@ -19,7 +19,6 @@ exports[`<MobileHeader> snapshot tests:  render tests: should render with props 
         <input
           aria-disabled={false}
           checked={false}
-          className=""
           data-checked={false}
           id="select-all-checkbox"
           onBlur={[Function anonymous]}
