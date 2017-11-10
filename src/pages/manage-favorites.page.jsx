@@ -225,7 +225,7 @@ export default class ManageFavoritesPage extends React.Component {
   renderSearchCounts = () => {
     let length = this.manageFavoritesStore.searchResults.length;
     return (
-      <div className="search-count">
+      <div className="search-count" aria-live="polite">
         {`${length} Result${length !== 1 ? 's' : ''}`}
       </div>
     )
