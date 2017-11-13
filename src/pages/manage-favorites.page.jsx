@@ -25,7 +25,6 @@ export default class ManageFavoritesPage extends React.Component {
     super(props);
     this.manageFavoritesStore = this.props.store.manageFavoritesStore;
     this.geolinkStore = this.props.store.geolinkStore;
-    this.selectAllCheckboxSrOnlyLabel = '';
   }
 
   componentWillMount() {
