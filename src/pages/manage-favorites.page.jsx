@@ -25,11 +25,16 @@ export default class ManageFavoritesPage extends React.Component {
     super(props);
     this.manageFavoritesStore = this.props.store.manageFavoritesStore;
     this.geolinkStore = this.props.store.geolinkStore;
+    this.selectAllCheckboxSrOnlyLabel = '';
   }
 
   componentWillMount() {
     this.manageFavoritesStore.pageIsLoading();
     this.manageFavoritesStore.fetchRows();
+  }
+
+  componentDidMount() {
+    this.manageFavoritesStore.setSelectAllCheckboxSrOnlyLabel(`You are currently on a table. There are ${this.tableRef.relevantColumnsCount} columns and ${this.manageFavoritesStore.sortedRows} rows.`);
   }
 
   componentWillUnmount() {
@@ -332,11 +337,11 @@ export default class ManageFavoritesPage extends React.Component {
     )
   }
 
-  renderSelectAllCheckbox = (srOnlyMessage) => {
+  renderSelectAllCheckbox = () => {
     return (
       <Checkbox
         id="select-all-checkbox"
-        label="Select or Deselect All Checkboxes"
+        label={this.manageFavoritesStore.selectAllCheckboxSrOnlyLabel}
         labelIsSrOnly={true}
         handleOnChange={this.handleSelectAllCheckbox}
         checked={this.manageFavoritesStore.checkSelectAllCheckbox}/>
@@ -394,6 +399,7 @@ export default class ManageFavoritesPage extends React.Component {
               {(this.manageFavoritesStore.shouldRenderRows || this.manageFavoritesStore.showSearchResults) && this.renderTopAndBottomFeatures('top')}
               <SortableTable
                 ref={(ref) => this.tableRef = ref}
+                refList={this.tableRef}
                 rows={this.manageFavoritesStore.sortedRows}
                 activeRows={this.manageFavoritesStore.checkedRows}
                 totalRowCount={this.manageFavoritesStore.rows.length}

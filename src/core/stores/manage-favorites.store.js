@@ -103,6 +103,19 @@ class ManageFavoritesStore {
       : this.checkedRows.push(rowId);
 	}
 
+  @action selectAllCheckboxes() {
+    this.paginatedRows.forEach(row => {
+      const id = row.locationFavoriteId.toString();
+      if (this.checkedRows.indexOf(id) < 0) {
+        this.checkedRows.push(id);
+      }
+    });
+  }
+
+  @action setSelectAllCheckboxSrOnlyLabel(message) {
+    this.selectAllCheckboxSrOnlyLabel = message;
+  }
+
   @action resetPage() {
     this.resetPagination();
     this.clearSearchQuery();
@@ -113,15 +126,6 @@ class ManageFavoritesStore {
     this.searchResults = [];
     this.checkedRows = [];
     this.showSearchResults = false;
-  }
-
-  @action selectAllCheckboxes() {
-    this.paginatedRows.forEach(row => {
-      const id = row.locationFavoriteId.toString();
-      if (this.checkedRows.indexOf(id) < 0) {
-        this.checkedRows.push(id);
-      }
-    });
   }
 
   @action resetPagination() {
@@ -214,6 +218,7 @@ class ManageFavoritesStore {
   @observable moreToLoad = false;
 
   @observable activeColumn = 'favoriteName';
+  @observable selectAllCheckboxSrOnlyLabel = '';
 
   //to keep the order toggling simple, true is ascending and false is descending;
   @observable sortDirectionsDefaults = {
