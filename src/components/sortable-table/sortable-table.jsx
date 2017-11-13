@@ -59,7 +59,6 @@ export class SortableTable extends React.Component {
 
   parseChildren = () => {
     this.columns = this.props.children.filter(child => {
-      console.log('child', child);
       return child.props.data === 'column';
     });
 
@@ -74,10 +73,7 @@ export class SortableTable extends React.Component {
 
   parseTableColumn = (tableColumn) => {
     this.relevantColumnsCount += Boolean(tableColumn.props.additionalHeaderActions || tableColumn.props.headerLabel);
-    // return React.cloneElement
   }
-
-  // `You are currently on a table. There are ${this.tableRef.relevantColumnsCount} columns and ${this.manageFavoritesStore.sortedRows} rows.`
 
   render() {
     return (
