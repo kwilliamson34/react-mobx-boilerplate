@@ -347,7 +347,7 @@ export default class PSEHeader extends React.Component {
 							<ul className="fnnav__main">
 								{this.renderMobileOnlyUserMenu()}
 								{this.userStore.destinationIsPermitted.administration && this.renderAdminMenuItem()}
-								{this.userStore.canViewNetworkStatus &&
+								{this.userStore.destinationIsPermitted.networkStatus &&
 									<li id="hdr-network-status" className="mainnav-item desktop-textlink" role="presentation">
 										<NavLink id="linkBtn-networkStatus" to="/network-status" activeClassName="active">
 											Network Status
