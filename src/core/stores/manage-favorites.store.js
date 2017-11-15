@@ -55,10 +55,10 @@ class ManageFavoritesStore {
           return this.checkedRows.indexOf(idToFind) > -1;
         })
       }
-      this.showSuccess = true;
-      this.successText = this.checkedRows.length > 1
+      const text = this.checkedRows.length > 1
         ? `${this.checkedRows.length} favorites have been deleted.`
-        : `"${this.findRowData(this.checkedRows[0]).favoriteName}" has been deleted.`
+        : `"${this.findRowData(this.checkedRows[0]).favoriteName}" has been deleted.`;
+      this.updateSuccess(text);
       this.clearAllCheckboxes();
       this.handlePagination();
     }
@@ -102,11 +102,13 @@ class ManageFavoritesStore {
       ? this.checkedRows.remove(rowId)
       : this.checkedRows.push(rowId);
 	}
-  
+
   @action resetPage() {
     this.resetPagination();
     this.clearSearchQuery();
-    this.clearSuccess();
+    this.updateAlert('');
+    this.updateSuccess('');
+    this.activeColumn = 'favoriteName';
     this.rows = [];
     this.searchResults = [];
     this.checkedRows = [];
@@ -134,9 +136,12 @@ class ManageFavoritesStore {
     this.searchQuery = '';
   }
 
-  @action clearSuccess() {
-    this.showSuccess = false;
-    this.successText = '';
+  @action updateAlert(alertText) {
+    this.alertToDisplay = alertText;
+  }
+
+  @action updateSuccess(successText) {
+    this.successToDisplay = successText;
   }
 
   @action resetSearch() {
@@ -192,7 +197,6 @@ class ManageFavoritesStore {
       : this.rows.length > this.sortedRows.length;
   }
 
-
   @observable rows = [];
   @observable checkedRows = [];
 
@@ -201,27 +205,23 @@ class ManageFavoritesStore {
   @observable showSearchResults = false;
 
   @observable isLoading = false;
-  @observable showSuccess = false;
-  @observable successText = '';
+  @observable alertToDisplay = '';
+  @observable successToDisplay = '';
 
   @observable paginatedRows = [];
   @observable paginationCount = 0;
   @observable paginationInterval = 50;
   @observable moreToLoad = false;
 
-  @observable activeColumn = 'locationFavoriteId';
-  //to keep the order toggling simple, true is ascending and false is descending;
-  @observable sortDirections = {
-    'favoriteName': false,
-    'locationFavoriteAddress': false,
-    'locationFavoriteId': false
-  };
+  @observable activeColumn = 'favoriteName';
 
+  //to keep the order toggling simple, true is ascending and false is descending;
   @observable sortDirectionsDefaults = {
     'favoriteName': false,
     'locationFavoriteAddress': false,
     'locationFavoriteId': false
   }
+  @observable sortDirections = Object.assign({}, this.sortDirectionsDefaults);
 }
 
 export const manageFavoritesStore = new ManageFavoritesStore();

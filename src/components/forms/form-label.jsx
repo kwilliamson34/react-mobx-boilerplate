@@ -6,17 +6,19 @@ import {observer} from 'mobx-react';
 export default class FormLabel extends React.Component {
 
   static propTypes = {
-    id: PropTypes.string.isRequired,
-    charLimitMessage: PropTypes.string,
+    htmlFor: PropTypes.string,
     labelText: PropTypes.string.isRequired,
     helperText: PropTypes.string,
     hasError: PropTypes.bool,
     errorMessage: PropTypes.string,
+    charLimitReached: PropTypes.bool,
     fieldIsRequired: PropTypes.bool,
-    srOnly: PropTypes.bool
+    srOnly: PropTypes.bool,
+    announceError: PropTypes.bool
   }
 
   static defaultProps = {
+    htmlFor: '',
     helperText: '',
     hasError: false,
     errorMessage: 'This field has an error',
@@ -25,13 +27,15 @@ export default class FormLabel extends React.Component {
 
   renderFieldError() {
     let markup = '';
-    if (this.props.charLimitMessage || this.props.hasError) {
+    if (this.props.charLimitReached || this.props.hasError) {
       markup = (
-        <div className="msgBlock error error-list" role="alert" aria-live="polite">
-          {this.props.charLimitMessage && (this.props.charLimitMessage)}
-          {this.props.hasError && (
-            <span>{this.props.errorMessage}</span>
-          )}
+        <div className="msgBlock error error-list">
+          <span role="alert" aria-live="assertive">
+            {this.props.charLimitReached ? 'Character limit reached.' : ''}
+          </span>
+          <span role={this.props.announceError ? 'status' : ''} aria-live={this.props.announceError ? 'polite' : ''}>
+            {this.props.hasError && (this.props.errorMessage)}
+          </span>
         </div>
       );
     }
@@ -39,15 +43,16 @@ export default class FormLabel extends React.Component {
   }
 
   render() {
+    const TagName = this.props.htmlFor ? 'label' : 'legend';
     return (
       <div className="form-label">
-        <label className={`control-label ${this.props.srOnly ? 'sr-only' : ''}`} htmlFor={this.props.id}>
+        <TagName className={`control-label ${this.props.srOnly ? 'sr-only' : ''}`} htmlFor={this.props.htmlFor}>
           {this.props.labelText}
           {this.props.fieldIsRequired &&
             <span className="required-asterisks"> *</span>
           }
           {this.props.helperText ? <span className="help-text">{this.props.helperText}</span> : ''}
-        </label>
+        </TagName>
         {this.renderFieldError()}
       </div>
     )

@@ -75,7 +75,7 @@ export default class AppDetailsPage extends React.Component {
     return (
       <section className="whats-new">
         <h2 id="app-details-whats-new" className="whats-new-title">What&apos;s New</h2>
-        <div className="whats-new-date">{utilsService.normalizedDate(versionObj.release_date, 'MMMM DD, YYYY')}</div>
+        <div className="whats-new-date">{utilsService.normalizedDate(versionObj.release_date, 'MMMM D, YYYY')}</div>
         <Truncate className="truncate-container" returnToId="app-details-whats-new" charLimit={500}>
           {versionObj.version_note || ''}
         </Truncate>
@@ -151,7 +151,13 @@ export default class AppDetailsPage extends React.Component {
             <div className="row">
               <div className="col-xs-12">
                 <PageTitle className="sr-only">App Details</PageTitle>
-                <Alerts showAlert={this.mdmStore.showAlertOnAppDetails} alertText="This app could not be pushed to MDM." clearAlert={this.mdmStore.clearAlert.bind(this.mdmStore)} showSuccess={this.mdmStore.showSuccessOnAppDetails} successText="This app has been pushed to MDM." clearSuccess={this.mdmStore.clearSuccess.bind(this.mdmStore)}/>
+                <Alerts
+                  showAlert={this.mdmStore.showAlertOnAppDetails}
+                  alertText="This app could not be pushed to MDM."
+                  clearAlert={this.mdmStore.clearAlertAndReferences.bind(this.mdmStore)}
+                  showSuccess={this.mdmStore.showSuccessOnAppDetails}
+                  successText="This app has been pushed to MDM."
+                  clearSuccess={this.mdmStore.clearSuccess.bind(this.mdmStore)}/>
               </div>
             </div>
           </div>

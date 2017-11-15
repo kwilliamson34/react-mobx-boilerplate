@@ -7,7 +7,7 @@ class FeedbackStore {
   constructor() {
     // check form for errors
     autorun(() => {
-      // check that initial values are available before valudating for the first time
+      // check that initial values are available before validating for the first time
       if(userStore.userValidationDone) {
         let hasError = false;
         this.formFieldRefList.forEach(ref => {
@@ -37,10 +37,10 @@ class FeedbackStore {
     const success = () => {
       this.clearForm();
       history.push('/feedback-success');
+      this.alertToDisplay = '';
     }
     const failure = () => {
-      this.alertText = 'An unknown error occured. Please try again later.';
-      this.showAlert = true;
+      this.alertToDisplay = 'An unknown error occured. Please try again later.';
     }
     apiService.submitCustomerFeedbackForm(this.values).then(success, failure);
   }
@@ -53,15 +53,11 @@ class FeedbackStore {
     this.clearFormFieldRefList();
     this.values = Object.assign({}, this.defaultValues);
     this.contactAgreement = false;
-    this.showAlert = false;
+    this.alertToDisplay = '';
   }
 
-  @action clearAlert() {
-    this.showAlert = false;
-  }
-
-  @action clearSuccess() {
-    this.showSuccess = false;
+  @action updateAlert(alertText) {
+    this.alertToDisplay = alertText;
   }
 
   @action clearFormFieldRefList() {
@@ -99,8 +95,7 @@ class FeedbackStore {
 
   @observable formFieldRefList = [];
   @observable formHasError = true;
-  @observable alertText = 'Please fix the following errors.';
-  @observable showAlert = false;
+  @observable alertToDisplay = '';
   @observable contactAgreement = false;
   @observable defaultValues = {
     topic: '',
@@ -108,18 +103,10 @@ class FeedbackStore {
     details: '',
     operatingSystem: '',
     email: userStore.user.email,
-    phone: userStore.user.phone,
+    phoneNo: userStore.user.phone,
     likely: ''
   };
-  @observable values = {
-    topic: '',
-    subject: '',
-    details: '',
-    operatingSystem: '',
-    email: userStore.user.email,
-    phone: userStore.user.phone,
-    likely: ''
-  };
+  @observable values = Object.assign({}, this.defaultValues);
 }
 
 export const feedbackStore = new FeedbackStore();

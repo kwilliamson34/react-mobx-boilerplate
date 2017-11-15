@@ -21,7 +21,7 @@ exports[`<CheckboxList /> renders matches previous snapshot 1`] = `
       </label>
     </div>
     <button
-      className="as-link"
+      className="btn as-link"
       onClick={[Function anonymous]}
       type="button">
       Clear All
@@ -56,7 +56,7 @@ exports[`<CheckboxList /> renders matches previous snapshot 2`] = `
       </label>
     </div>
     <button
-      className="as-link"
+      className="btn as-link"
       onClick={[Function anonymous]}
       type="button">
       Clear All
@@ -94,7 +94,7 @@ exports[`<CheckboxList /> renders matches previous snapshot 3`] = `
       </label>
     </div>
     <button
-      className="as-link"
+      className="btn as-link"
       onClick={[Function anonymous]}
       type="button">
       Clear All

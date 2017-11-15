@@ -5,6 +5,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {history} from '../../core/services/history.service';
 import {observer} from 'mobx-react';
+import {observable, computed, autorun} from 'mobx';
 import Alerts from '../alerts/alerts';
 import $ from 'jquery';
 
@@ -18,36 +19,72 @@ export default function asForm (MyComponent, attributes) {
         handleSecondaryAction: PropTypes.func,
         formIsDirty: PropTypes.bool,
         formHasError: PropTypes.bool,
-        showAlert: PropTypes.bool,
-        alertText: PropTypes.string,
-        successText: PropTypes.string,
+        updateAlert: PropTypes.func,
+        updateSuccess: PropTypes.func,
+        alertToDisplay: PropTypes.string,
+        successToDisplay: PropTypes.string,
         submitButtonText: PropTypes.string //optional computed, overwrites attribute and default
       }),
       disabled: PropTypes.bool,
-      suppressAlertBars: PropTypes.bool
+      suppressAlertBars: PropTypes.bool,
+      persistAlertBars: PropTypes.bool
     }
 
     static defaultProps = {
       disabled: false,
-      suppressAlertBars: false
+      suppressAlertBars: false,
+      persistAlertBars: false
     }
 
     constructor (props) {
       super(props)
       this.store = this.props.store;
+
+      autorun(() => {
+        // pause before announcing errors, so that Assertive alert doesn't interrupt Polite field errors
+        if(this.announceErrors !== this.showAlertBar) {
+          setTimeout(() => {
+            this.announceErrors = this.showAlertBar;
+          }, 1000)
+        }
+      });
+    }
+
+    @observable announceErrors = false;
+
+    @computed get showAlertBar() {
+      return this.store.alertToDisplay != undefined && this.store.alertToDisplay.length > 0;
+    }
+
+    @computed get alertMessage() {
+      return this.store.alertToDisplay === 'DEFAULT' ? 'Please fix the following errors.' : this.store.alertToDisplay;
+    }
+
+    @computed get showSuccessBar() {
+      return this.store.successToDisplay != undefined && this.store.successToDisplay.length > 0;
+    }
+
+    @computed get successMessage() {
+      return this.store.successToDisplay === 'DEFAULT' ? 'Your submission was successful.' : this.store.successToDisplay;
+    }
+
+    clearAlert = () => {
+      if(this.store.updateAlert) {
+        this.store.updateAlert('');
+      }
+    }
+
+    clearSuccess = () => {
+      if(this.store.updateSuccess) {
+        this.store.updateSuccess('');
+      }
     }
 
     componentWillMount() {
       this.interceptedRoute = '';
       this.includeDivider = attributes && attributes.includeDivider;
       this.secondaryButtonText = attributes && attributes.secondaryButtonText ? attributes.secondaryButtonText : '';
-      this.formColClass = attributes && attributes.formColClass ? attributes.formColClass : ''
-      if(!this.store.alertText) {
-        this.store.alertText = 'Please fix the following errors.';
-      }
-      if(!this.store.successText) {
-        this.store.successText = 'Your submission was successful.';
-      }
+      this.formColClass = attributes && attributes.formColClass ? attributes.formColClass : '';
 
       //set up reroute blockade (returns unblocking function)
       this.unblock = history.block((location) => {
@@ -60,6 +97,11 @@ export default function asForm (MyComponent, attributes) {
     }
 
     componentWillUnmount() {
+      if(!this.props.persistAlertBars) {
+        this.clearAlert();
+        this.clearSuccess();
+      }
+
       //undo the reroute blockade
       this.unblock();
     }
@@ -73,7 +115,7 @@ export default function asForm (MyComponent, attributes) {
         submitButtonText = this.store.submitButtonText;
       }
       return (
-        <div className="form-group text-center submit-button-wrapper">
+        <div className="form-group button-wrapper">
           <button type="button" onClick={this.handleSubmit} className={`fn-primary form-submit ${(this.props.disabled || this.store.formHasError) ? 'disabled' : ''}`}>
             {submitButtonText}
           </button>
@@ -83,7 +125,7 @@ export default function asForm (MyComponent, attributes) {
 
     renderSecondaryButton = () => {
       return (
-        <div className="form-group text-center submit-button-wrapper">
+        <div className="form-group button-wrapper">
           <button type="button" onClick={this.handleSecondaryAction} className='fn-secondary form-submit'>
             {this.secondaryButtonText}
           </button>
@@ -96,21 +138,21 @@ export default function asForm (MyComponent, attributes) {
       if(this.store.formHasError) {
         this.showAllFormErrors();
       } else if(!this.store.formIsDirty) {
-        this.store.alertText = 'Please make a change to continue, or discard.';
-        this.store.showAlert = true;
+        this.store.updateAlert('Please make a change to continue, or discard.');
       } else {
         this.store.submitForm();
       }
     }
 
     showAllFormErrors = () => {
+      //manage the alert bar first, so that it's read first
+      this.store.updateAlert('Please fix the following errors.');
+
       this.store.formFieldRefList.forEach(ref => {
         if(ref && ref.hasFunctionalError) {
           ref.hasVisibleError = ref.hasFunctionalError;
         }
       });
-      this.store.alertText = 'Please fix the following errors.';
-      this.store.showAlert = true;
     }
 
     handleSecondaryAction = (event) => {
@@ -175,11 +217,16 @@ export default function asForm (MyComponent, attributes) {
         <section>
           <form noValidate>
             {!this.props.suppressAlertBars &&
-              <Alerts showAlert={this.store.showAlert} alertText={this.store.alertText} clearAlert={this.store.clearAlert.bind(this.store)} showSuccess={this.store.showSuccess} successText={this.store.successText} clearSuccess={this.store.clearSuccess.bind(this.store)} formColClass={this.formColClass}/>}
+              <Alerts
+                showAlert={this.showAlertBar}
+                alertText={this.alertMessage}
+                clearAlert={this.clearAlert.bind(this)}
+                showSuccess={this.showSuccessBar}
+                successText={this.successMessage}
+                clearSuccess={this.clearSuccess.bind(this)}
+                formColClass={this.formColClass}/>}
 
-            <MyComponent {...this.props}
-              showExitModal={this.showExitModal}
-              hideExitModal={this.hideExitModal}/>
+            <MyComponent {...this.props} announceErrors={this.announceErrors}/>
 
             <div className={`form-actions ${this.formColClass}`}>
               {this.includeDivider ? <hr/> : ''}

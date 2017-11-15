@@ -14,7 +14,8 @@ export default class Checkbox extends React.Component {
     checked: PropTypes.bool,
     required: PropTypes.bool,
     errorMessage: PropTypes.string,
-    tooltipText: PropTypes.string
+    tooltipText: PropTypes.string,
+    announceError: PropTypes.bool
   }
 
   static defaultProps = {
@@ -42,11 +43,15 @@ export default class Checkbox extends React.Component {
   }
 
   handleOnChange = (event) => {
-    if (!this.props.disabled && this.props.handleOnChange) {
-      this.props.handleOnChange(event.target);
-      this.showError(event);
+    if(this.props.disabled) {
+      event.preventDefault();
+    } else {
+      if (this.props.handleOnChange) {
+        this.props.handleOnChange(event.target);
+        this.showError(event);
+      }
+      this.hasBeenVisited = true;
     }
-    this.hasBeenVisited = true;
   }
 
   handleKeyPress = (event) => {
@@ -74,16 +79,17 @@ export default class Checkbox extends React.Component {
       : '';
     return (
       <div className={`checkbox form-group ${disabledClass}`}>
-        {this.hasVisibleError && <div className="msgBlock error error-list" role="alert" aria-live="polite">
-          <span>{this.props.errorMessage}</span>
-        </div>}
+        {this.hasVisibleError &&
+          <div className="msgBlock error error-list" role={this.props.announceError ? 'status' : ''} aria-live={this.props.announceError ? 'polite' : ''}>
+            <span>{this.props.errorMessage}</span>
+          </div>
+        }
         <label>
           <input
             type="checkbox"
             id={this.props.id}
             ref={(i) => { this.input = i; }}
             aria-disabled={this.props.disabled}
-            className={disabledClass}
             value={this.props.value || this.props.label}
             checked={this.props.checked}
             data-checked={this.props.checked/*custom DOM prop included for automated testing*/}

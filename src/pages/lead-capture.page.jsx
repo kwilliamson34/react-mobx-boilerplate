@@ -52,6 +52,7 @@ export default class LeadCapturePage extends React.Component {
       }
     ];
 
+    const title = 'Request Information on ' + decodeURIComponent(this.leadCaptureStore.solutionName);
     return (
       <section id="lead-capture-page" className="standalone-form-page">
         <BreadcrumbNav links={crumbs}/>
@@ -59,14 +60,12 @@ export default class LeadCapturePage extends React.Component {
           <div className="container">
             <div className="row text-center">
               <div className="col-xs-12">
-                <PageTitle>Request Information on <span dangerouslySetInnerHTML={{
-                  __html: decodeURIComponent(this.leadCaptureStore.solutionName)
-                }}></span></PageTitle>
+                <PageTitle>{title}</PageTitle>
               </div>
             </div>
             <div className="row">
               <section className="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
-                <LeadCaptureForm store={this.leadCaptureStore}/>
+                <LeadCaptureForm store={this.leadCaptureStore} persistAlertBars={true}/>
               </section>
             </div>
           </div>

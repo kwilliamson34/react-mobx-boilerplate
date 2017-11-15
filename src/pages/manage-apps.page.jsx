@@ -119,7 +119,13 @@ export default class ManageAppsPage extends React.Component {
         <div className="container">
           <div className="row">
             <div className="col-xs-12 col-lg-offset-1 col-lg-10" aria-live="assertive" aria-relevant="additions">
-              <Alerts showAlert={this.mdmStore.showAlertOnManageApps} alertText={this.mdmStore.pushFailMultiple} clearAlert={this.mdmStore.clearAlert.bind(this.mdmStore)} showSuccess={this.mdmStore.showSuccessOnManageApps} successText={this.mdmStore.pushSuccessMultiple} clearSuccess={this.mdmStore.clearSuccess.bind(this.mdmStore)}/>
+              <Alerts
+                showAlert={this.mdmStore.showAlertOnManageApps}
+                alertText={this.mdmStore.pushFailMultiple}
+                clearAlert={this.mdmStore.clearAlertAndReferences.bind(this.mdmStore)}
+                showSuccess={this.mdmStore.showSuccessOnManageApps}
+                successText={this.mdmStore.pushSuccessMultiple}
+                clearSuccess={this.mdmStore.clearSuccess.bind(this.mdmStore)}/>
             </div>
           </div>
         </div>

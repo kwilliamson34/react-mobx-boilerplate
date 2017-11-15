@@ -17,7 +17,9 @@ export default class SelectInput extends React.Component {
     optionsList: PropTypes.array,
     placeholder: PropTypes.string,
     disabled: PropTypes.bool,
-    errorMessage: PropTypes.string
+    errorMessage: PropTypes.string,
+    className: PropTypes.string,
+    announceError: PropTypes.bool
   }
 
   static defaultProps = {
@@ -26,7 +28,8 @@ export default class SelectInput extends React.Component {
     helperText: '',
     required: false,
     disabled: false,
-    errorMessage: 'This entry is not valid.'
+    errorMessage: 'Please select one of the options.',
+    className: ''
   }
 
   @observable hasVisibleError = false;
@@ -50,14 +53,15 @@ export default class SelectInput extends React.Component {
     const value = this.props.dataObject[this.props.id];
 
     return (
-      <div className={`form-group ${this.hasVisibleError ? 'has-error' : ''}`}>
+      <div className={`form-group ${this.props.className} ${this.hasVisibleError ? 'has-error' : ''}`}>
         <FormLabel
-          id={this.props.id}
+          htmlFor={this.props.id}
           hasError={this.hasVisibleError}
           fieldIsRequired={this.props.required}
           labelText={this.props.labelText}
           helperText={this.props.helperText}
-          errorMessage={this.props.errorMessage}/>
+          errorMessage={this.props.errorMessage}
+          announceError={this.props.announceError}/>
         <select
           className="form-control form-control-lg"
           ref={(i) => { this.input = i; }}

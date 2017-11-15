@@ -19,7 +19,8 @@ export default class CheckboxList extends React.Component {
     errorMessage: PropTypes.string,
     selectAll: PropTypes.func,
     clearAll: PropTypes.func,
-    children: PropTypes.array
+    children: PropTypes.array,
+    announceError: PropTypes.bool
   }
 
   static defaultProps = {
@@ -83,11 +84,12 @@ export default class CheckboxList extends React.Component {
     return (
       <div className={`form-group ${this.props.id + '-class'} ${this.hasVisibleError ? 'has-error' : ''}`}>
         <FormLabel
-          id={this.props.id}
+          htmlFor={this.props.id}
           hasError={this.hasVisibleError}
           fieldIsRequired={this.props.required}
           labelText={this.props.labelText}
-          errorMessage={this.props.errorMessage}/>
+          errorMessage={this.props.errorMessage}
+          announceError={this.props.announceError}/>
 
         <div className="selection-buttons">
           <div className="checkbox">
@@ -97,7 +99,7 @@ export default class CheckboxList extends React.Component {
               <span className="select-all-description">Select All</span>
             </label>
           </div>
-          <button type="button" className="as-link" onClick={this.clearAll}>
+          <button type="button" className="btn as-link" onClick={this.clearAll}>
             Clear All
           </button>
         </div>

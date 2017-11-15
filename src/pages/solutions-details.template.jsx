@@ -7,6 +7,7 @@ import PageTitle from '../components/page-title/page-title';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 import PurchasingInfo from '../components/purchasing-info/purchasing-info';
 import {AppDetailBanner} from '../components/app-details/app-detail-banner';
+import Alerts from '../components/alerts/alerts';
 
 @inject('store')
 @observer
@@ -33,7 +34,7 @@ export default class SolutionsDetailsTemplate extends React.Component {
   }
 
   componentWillUnmount() {
-    this.leadCaptureStore.hideSuccess();
+    this.leadCaptureStore.updateSuccess('');
   }
 
   render() {
@@ -105,31 +106,27 @@ export default class SolutionsDetailsTemplate extends React.Component {
   renderLeadCaptureSection = () => {
     const solutionDetailTitle = decodeURIComponent(this.props.match.params.solutionDetail);
     const leadCaptureHref = `/admin/solutions/${this.props.match.params.solutionCategory}/${this.props.match.params.solutionDetail}/request-info`;
-
+    const showSuccess = this.leadCaptureStore.successToDisplay && this.leadCaptureStore.successToDisplay.length > 0;
     return (
       <div className="row">
         <section className="col-xs-12 col-lg-offset-1 col-lg-10 learn-more-section">
           <h2>Learn More</h2>
           <hr/>
-          {this.leadCaptureStore.showSuccess
-            ? <div className="alert alert-success">
-                <button type="button" className="close_btn icon-close" onClick={this.leadCaptureStore.hideSuccess.bind(this.leadCaptureStore)}>
-                  <span className="sr-only">Close alert</span>
-                </button>
-                <p role="alert" aria-live="assertive">
-                  <strong>Success!&nbsp;</strong>Your request has been received. A specialist will be contacting you soon.
-                </p>
-              </div>
+          {showSuccess
+            ? <Alerts
+                showSuccess={true}
+                successText={this.leadCaptureStore.successToDisplay}
+                clearSuccess={() => {this.leadCaptureStore.updateSuccess('')}} />
             : <div>
-              <span className="solution-name" dangerouslySetInnerHTML={{
-                __html: solutionDetailTitle
-              }}></span>
-              <Link to={leadCaptureHref} className={`btn fn-primary ${this.leadCaptureStore.solutionAlreadyRequested
-                ? 'disabled'
-                : ''}`}>
-                Request Information
-              </Link>
-            </div>}
+                <span className="solution-name" dangerouslySetInnerHTML={{
+                  __html: solutionDetailTitle
+                }}></span>
+                <Link to={leadCaptureHref} className={`btn fn-primary ${this.leadCaptureStore.solutionAlreadyRequested
+                  ? 'disabled'
+                  : ''}`}>
+                  Request Information
+                </Link>
+              </div>}
         </section>
       </div>
     )

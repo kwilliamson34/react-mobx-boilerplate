@@ -7,7 +7,8 @@ import TextInput from '../forms/text-input';
 @observer
 class MicrosoftForm extends React.Component {
   static propTypes = {
-    store: PropTypes.object
+    store: PropTypes.object,
+    announceErrors: PropTypes.bool
   }
 
   constructor(props) {
@@ -23,17 +24,17 @@ class MicrosoftForm extends React.Component {
     const disabled = this.store.mdmIsConfigured;
     return (
       <div>
-        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="msintune_clientID" type="input" labelText="Client ID" required={true} disabled={disabled} errorMessage="Please enter a valid client ID." charLimit={256}/>
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="msintune_clientID" type="input" labelText="Client ID" required={true} disabled={disabled} errorMessage="Please enter a valid client ID." announceError={this.props.announceErrors} charLimit={256}/>
 
-        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="msintune_clientSecret" type="input" labelText="Client Secret" required={true} disabled={disabled} errorMessage="Please enter a valid client secret." charLimit={256}/>
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="msintune_clientSecret" type="input" labelText="Client Secret" required={true} disabled={disabled} errorMessage="Please enter a valid client secret." announceError={this.props.announceErrors} charLimit={256}/>
 
-        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="msintune_hostName" type="input" labelText="Host Name" required={true} disabled={disabled} errorMessage="Please enter a valid host name." charLimit={256}/>
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="msintune_hostName" type="input" labelText="Host Name" required={true} disabled={disabled} errorMessage="Please enter a valid host name." announceError={this.props.announceErrors} charLimit={256}/>
 
-        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="msintune_tenantCode" type="input" labelText="Tenant Code" required={true} disabled={disabled} errorMessage="Please enter a valid tenant code." charLimit={256}/>
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="msintune_tenantCode" type="input" labelText="Tenant Code" required={true} disabled={disabled} errorMessage="Please enter a valid tenant code." announceError={this.props.announceErrors} charLimit={256}/>
 
-        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="msintune_userName" type="input" labelText="Microsoft InTune Username" required={true} disabled={disabled} errorMessage="Please enter a valid Microsoft InTune username." charLimit={256}/>
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="msintune_userName" type="input" labelText="Microsoft InTune Username" required={true} disabled={disabled} errorMessage="Please enter a valid Microsoft InTune username." announceError={this.props.announceErrors} charLimit={256}/>
 
-        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="msintune_password" type="password" labelText="Microsoft InTune Password" required={true} disabled={disabled} errorMessage="Please enter a valid Microsoft InTune password." charLimit={256}/>
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="msintune_password" type="password" labelText="Microsoft InTune Password" required={true} disabled={disabled} errorMessage="Please enter a valid Microsoft InTune password." announceError={this.props.announceErrors} charLimit={256}/>
       </div>
     );
   }

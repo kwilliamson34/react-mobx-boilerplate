@@ -231,17 +231,17 @@ class GeolinkStore {
     const success = () => {
       this.resetCurrentFavorite();
       this.pageTitle = 'Network Status';
-      this.successText = '"' + this.values.locationName + '" has been added.';
-      this.showAlert = false;
-      this.showSuccess = true;
+      this.updateSuccess('"' + this.values.locationName + '" has been added.');
+      this.updateAlert('');
     }
     const failure = (err) => {
+      let text;
       if(err.response && err.response.data && err.response.data.message && err.response.data.message.indexOf('already exists') > -1) {
-        this.alertText = 'You already have a favorite named "' + this.values.locationName + '".';
+        text = 'You already have a favorite named "' + this.values.locationName + '".';
       } else {
-        this.alertText = 'The system encountered a problem. Please try again later.';
+        text = 'The system encountered a problem. Please try again later.';
       }
-      this.showAlert = true;
+      this.updateAlert(text);
     }
     apiService.addLocationFavorite(this.values).then(success, failure);
   }
@@ -250,16 +250,16 @@ class GeolinkStore {
     const success = () => {
       this.resetCurrentFavorite();
       this.pageTitle = 'Network Status';
-      this.successText = '"' + this.values.locationName + '" has been updated.';
-      this.showSuccess = true;
+      this.updateAlert('');
+      this.updateSuccess('"' + this.values.locationName + '" has been updated.');
       history.replace('/manage-favorites');
       this.resetValues();
     }
     const failure = (err) => {
-      this.alertText = err.response && err.response.data && err.response.data.message.indexOf('already exists') > -1
+      const text = err.response && err.response.data && err.response.data.message.indexOf('already exists') > -1
         ? 'You already have a favorite named "' + this.values.locationName + '".'
         : 'Please fix the following errors.';
-      this.showAlert = true;
+      this.updateAlert(text);
     }
     apiService.editLocationFavorite(this.values).then(success, failure);
   }
@@ -290,16 +290,16 @@ class GeolinkStore {
   }
 
   @action clearAlertBars() {
-    this.showAlert = false;
-    this.showSuccess = false;
+    this.updateAlert('');
+    this.updateSuccess('');
   }
 
-  @action clearAlert() {
-    this.showAlert = false;
+  @action updateAlert(alertText) {
+    this.alertToDisplay = alertText;
   }
 
-  @action clearSuccess() {
-    this.showSuccess = false;
+  @action updateSuccess(successText) {
+    this.successToDisplay = successText;
   }
 
   @action resetValues() {
@@ -384,20 +384,14 @@ class GeolinkStore {
   //Map Search, Add and Edit Location Favorites
   @observable formFieldRefList = [];
   @observable formHasError = true;
-  @observable showAlert = false;
-  @observable alertText = 'Please fix the following errors.';
-  @observable showSuccess = false;
-  @observable successText = '';
+  @observable alertToDisplay = '';
+  @observable successToDisplay = '';
   @observable defaultValues = {
     locationAddress: '',
     locationName: '',
     locationId: ''
   };
-  @observable values = {
-    locationAddress: '',
-    locationName: '',
-    locationId: ''
-  };
+  @observable values = Object.assign({}, this.defaultValues);
   @observable dropdownIsVisible = false;
   @observable favorites = [];
 

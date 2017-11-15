@@ -222,37 +222,39 @@ export default class Footer extends React.Component {
 
 	render() {
 		return (
-			<footer id="pse-footer">
-				<div className="footer-main">
-					<div className="container">
-						<div className="row">
-							<div className="col-xs-12 logoRow">
-								{this.props.showPrivateLinks
-									? <Link to="/" className="logo-home-link-footer">
-											<img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Local Control Home" />
-										</Link>
-									: <img src="/images/logo-FirstNet-local-control.svg" alt="" aria-hidden="true" />
-								}
+			<div className="footer-container">
+				<footer id="pse-footer">
+					<div className="footer-main">
+						<div className="container">
+							<div className="row">
+								<div className="col-xs-12 logoRow">
+									{this.props.showPrivateLinks
+										? <Link to="/" className="logo-home-link-footer">
+												<img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Local Control Home" />
+											</Link>
+										: <img src="/images/logo-FirstNet-local-control.svg" alt="" aria-hidden="true" />
+									}
+								</div>
 							</div>
-						</div>
-						<div className="row is-flex">
-							{this.renderSitemapColumn()}
-							{this.renderFirstNetColumn()}
-							{this.renderSocialLinkColumn()}
-							{this.renderHelpColumn()}
-						</div>
-					</div>
-				</div>
-				<div className="footer-sub">
-					<div className="container">
-						<div className="row">
-							<div className="col-xs-12">
-								{this.renderBottomNav()}
+							<div className="row is-flex">
+								{this.renderSitemapColumn()}
+								{this.renderFirstNetColumn()}
+								{this.renderSocialLinkColumn()}
+								{this.renderHelpColumn()}
 							</div>
 						</div>
 					</div>
-				</div>
-			</footer>
+					<div className="footer-sub">
+						<div className="container">
+							<div className="row">
+								<div className="col-xs-12">
+									{this.renderBottomNav()}
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
 		);
 	}
 }

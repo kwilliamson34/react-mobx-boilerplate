@@ -9,7 +9,8 @@ import TextInput from '../forms/text-input';
 class LocationFavoriteForm extends React.Component {
 
   static propTypes = {
-    store: PropTypes.object
+    store: PropTypes.object,
+    announceErrors: PropTypes.bool
   }
 
   constructor (props) {
@@ -44,6 +45,7 @@ class LocationFavoriteForm extends React.Component {
           required={true}
           charLimit={1000}
           errorMessage="Please enter an address."
+          announceError={this.props.announceErrors}
           className="col-xs-12 col-sm-7 search-form"
           showClearButton={true}
           handleSubmit={this.store.searchMap.bind(this.store)}
@@ -58,6 +60,7 @@ class LocationFavoriteForm extends React.Component {
           charLimit={100}
           required={true}
           errorMessage="Please enter a name."
+          announceError={this.props.announceErrors}
           className="col-xs-12 col-sm-5" />
       </div>
     );

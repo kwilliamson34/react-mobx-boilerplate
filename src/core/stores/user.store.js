@@ -79,6 +79,7 @@ class UserStore {
       this.user.pse = userInfo.authorizations[0].pseId || '';
       this.user.pseName = userInfo.authorizations[0].pseName || '';
       this.user.roles = userInfo.authorizations[0].pseUserRoles || [];
+      console.log('User is logged in with roles: ' + this.user.roles.toString());
     } else {
       // FAN mapping hasn't happened; use HALO provided groups and roles
       this.user.pse = '';
@@ -131,6 +132,15 @@ class UserStore {
   @observable api_token = '';
   @observable userValidationDone = false;
   @observable validationPromise = '';
+
+  /*
+  'G_FN_IM' Incident Manager,
+  'G_FN_ADM' PSE Administrator with Premier,
+  'G_FN_ITM' PSE Administrator without Premier,
+  'G_FN_SUB' Subscriber (CRU),
+  'G_FN_VOL_ADM' Subscriber Paid Administrator,
+  'G_FN_VOL' Subscriber Paid
+  */
   @observable cardPermissions = {
     shopStandardDevices: ['G_FN_ADM', 'G_FN_VOL'],
     shopSpecializedDevices: ['G_FN_ADM', 'G_FN_VOL'],
@@ -138,7 +148,7 @@ class UserStore {
     manageUsers: ['G_FN_ADM', 'G_FN_ITM'],
     manageBilling: ['G_FN_ADM', 'G_FN_VOL'],
     viewReports: ['G_FN_ADM', 'G_FN_VOL'],
-    manageApps: ['G_FN_ADM', 'G_FN_ITM', 'G_FN_SUB', 'G_FN_VOL_ADM', 'G_FN_VOL'],
+    manageApps: ['G_FN_ADM', 'G_FN_ITM', 'G_FN_VOL_ADM'],
     manageVoicemail: ['G_FN_SUB'],
     administration: ['G_FN_ADM', 'G_FN_ITM', 'G_FN_SUB', 'G_FN_VOL_ADM', 'G_FN_VOL']
   }

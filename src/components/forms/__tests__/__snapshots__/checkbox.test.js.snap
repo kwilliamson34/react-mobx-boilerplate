@@ -5,11 +5,11 @@ exports[`<Checkbox /> renders matches previous snapshot 1`] = `
     <input
       aria-disabled={false}
       checked={false}
-      className=""
       data-checked={false}
       id=""
       onBlur={[Function anonymous]}
       onChange={[Function anonymous]}
+      onKeyPress={[Function anonymous]}
       type="checkbox"
       value="testVal" />
     <span
@@ -33,11 +33,11 @@ exports[`<Checkbox /> renders matches previous snapshot 2`] = `
     <input
       aria-disabled={false}
       checked={false}
-      className=""
       data-checked={false}
       id=""
       onBlur={[Function anonymous]}
       onChange={[Function anonymous]}
+      onKeyPress={[Function anonymous]}
       type="checkbox"
       value="testVal" />
     <span
@@ -61,11 +61,11 @@ exports[`<Checkbox /> renders matches previous snapshot 3`] = `
     <input
       aria-disabled={false}
       checked={false}
-      className=""
       data-checked={false}
       id=""
       onBlur={[Function anonymous]}
       onChange={[Function anonymous]}
+      onKeyPress={[Function anonymous]}
       type="checkbox"
       value="testVal" />
     <span
@@ -89,11 +89,11 @@ exports[`<Checkbox /> renders matches previous snapshot 4`] = `
     <input
       aria-disabled={false}
       checked={false}
-      className=""
       data-checked={false}
       id=""
       onBlur={[Function anonymous]}
       onChange={[Function anonymous]}
+      onKeyPress={[Function anonymous]}
       type="checkbox"
       value="testVal" />
     <span
@@ -117,11 +117,11 @@ exports[`<Checkbox /> renders matches previous snapshot 5`] = `
     <input
       aria-disabled={true}
       checked={false}
-      className="disabled"
       data-checked={false}
       id=""
       onBlur={[Function anonymous]}
       onChange={[Function anonymous]}
+      onKeyPress={[Function anonymous]}
       type="checkbox"
       value="testVal" />
     <span
@@ -145,11 +145,11 @@ exports[`<Checkbox /> renders matches previous snapshot 6`] = `
     <input
       aria-disabled={false}
       checked={false}
-      className=""
       data-checked={false}
       id=""
       onBlur={[Function anonymous]}
       onChange={[Function anonymous]}
+      onKeyPress={[Function anonymous]}
       type="checkbox"
       value="testVal" />
     <span
@@ -163,5 +163,45 @@ exports[`<Checkbox /> renders matches previous snapshot 6`] = `
       </span>
     </span>
   </label>
+</div>
+`;
+
+exports[`<Checkbox /> renders matches previous snapshot 7`] = `
+<div
+  className="checkbox form-group ">
+  <label>
+    <input
+      aria-disabled={false}
+      checked={false}
+      data-checked={false}
+      id=""
+      onBlur={[Function anonymous]}
+      onChange={[Function anonymous]}
+      onKeyPress={[Function anonymous]}
+      type="checkbox"
+      value="testVal" />
+    <span
+      className="cr" />
+    <span
+      className="label-text ">
+      
+      <span
+        className="label-text-normal">
+        testLabel
+      </span>
+    </span>
+  </label>
+  <button
+    className="tooltip"
+    data-placement="top"
+    data-toggle="tooltip"
+    id="tooltip-"
+    role="tooltip"
+    title="dummy text"
+    type="button">
+    <i
+      aria-hidden="true"
+      className="icon-help" />
+  </button>
 </div>
 `;

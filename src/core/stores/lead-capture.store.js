@@ -8,7 +8,7 @@ class LeadCaptureStore {
   constructor() {
     // check form for errors
     autorun(() => {
-      // check that initial values are available before valudating for the first time
+      // check that initial values are available before validating for the first time
       if(userStore.userValidationDone) {
         let hasError = false;
         this.formFieldRefList.forEach(ref => {
@@ -41,12 +41,11 @@ class LeadCaptureStore {
     const success = () => {
       this.recordSolutionRequestInCookie();
       this.clearForm();
-      this.showSuccess = true;
+      this.updateSuccess('Your request has been received. A specialist will be contacting you soon.');
       history.go(-1);
     }
     const failure = () => {
-      this.alertText = 'An unknown error occured. Please try again later.';
-      this.showAlert = true;
+      this.updateAlert('An unknown error occured. Please try again later.');
     }
     apiService.submitLeadCaptureForm(this.values, this.solutionName).then(success, failure);
   }
@@ -54,16 +53,16 @@ class LeadCaptureStore {
   @action clearForm() {
     this.values = Object.assign({}, this.defaultValues);
     this.solutionName = '';
-    this.showAlert = false;
+    this.updateAlert('');
     this.clearFormFieldRefList();
   }
 
-  @action clearAlert() {
-    this.showAlert = false;
+  @action updateAlert(alertText) {
+    this.alertToDisplay = alertText;
   }
 
-  @action clearSuccess() {
-    this.showSuccess = false;
+  @action updateSuccess(successText) {
+    this.successToDisplay = successText;
   }
 
   @action clearFormFieldRefList() {
@@ -78,14 +77,6 @@ class LeadCaptureStore {
       }
     });
     return formHasChanged;
-  }
-
-  @action showSuccess() {
-    this.showSuccess = true;
-  }
-
-  @action hideSuccess() {
-    this.showSuccess = false;
   }
 
   @computed get solutionAlreadyRequested() {
@@ -103,9 +94,8 @@ class LeadCaptureStore {
 
   @observable formFieldRefList = [];
   @observable formHasError = true;
-  @observable alertText = 'Please fix the following errors.';
-  @observable showAlert = false;
-  @observable showSuccess = false;
+  @observable alertToDisplay = '';
+  @observable successToDisplay = '';
   @observable solutionName = '';
   @observable defaultValues = {
     title: '',
@@ -116,15 +106,7 @@ class LeadCaptureStore {
     message: '',
     contactAgreement: false
   };
-  @observable values = {
-    title: '',
-    firstName: userStore.user.firstName,
-    lastName: userStore.user.lastName,
-    email: userStore.user.email,
-    phone: userStore.user.phone,
-    message: '',
-    contactAgreement: false
-  };
+  @observable values = Object.assign({}, this.defaultValues);
 }
 
 export const leadCaptureStore = new LeadCaptureStore();
