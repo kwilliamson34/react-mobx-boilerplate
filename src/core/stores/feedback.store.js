@@ -13,7 +13,7 @@ class FeedbackStore {
         this.formFieldRefList.forEach(ref => {
           if(ref && ref.hasFunctionalError) {
             // ensure that hidden checkbox doesn't prevent form submission if it still has a functional error;
-            if (ref.refs.input && ref.refs.input.id === 'contactAgreement' && !this.requireContactAgreement) {
+            if (ref.input && ref.input.id === 'contactAgreement' && !this.requireContactAgreement) {
               return;
             } else {
               hasError = true;
