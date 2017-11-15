@@ -80,31 +80,33 @@ export default class CheckboxList extends React.Component {
     this.displayErrors();
   }
 
+  // <legend htmlFor={this.props.id} className="sr-only">{this.props.labelText}</legend>
+
+
   render() {
     return (
       <div className={`form-group ${this.props.id + '-class'} ${this.hasVisibleError ? 'has-error' : ''}`}>
-        <FormLabel
-          htmlFor={this.props.id}
-          hasError={this.hasVisibleError}
-          fieldIsRequired={this.props.required}
-          labelText={this.props.labelText}
-          errorMessage={this.props.errorMessage}
-          announceError={this.props.announceError}/>
-
-        <div className="selection-buttons">
-          <div className="checkbox">
-            <label>
-              <input type="checkbox" name="select-all-checkbox" checked={this.allCheckboxesChecked} value="" onClick={this.selectAll}/>
-              <span className="cr"></span>
-              <span className="select-all-description">Select All</span>
-            </label>
-          </div>
-          <button type="button" className="btn as-link" onClick={this.clearAll}>
-            Clear All
-          </button>
-        </div>
-
         <fieldset id={this.props.id} onBlur={this.onBlur}>
+          <FormLabel
+            hasError={this.hasVisibleError}
+            fieldIsRequired={this.props.required}
+            labelText={this.props.labelText}
+            errorMessage={this.props.errorMessage}
+            announceError={this.props.announceError}/>
+
+          <div className="selection-buttons">
+            <div className="checkbox select-all-checkbox">
+              <label>
+                <input type="checkbox" name="select-all-checkbox" checked={this.allCheckboxesChecked} value="" onClick={this.selectAll}/>
+                <span className="cr"></span>
+                <span className="select-all-description">Select All</span>
+              </label>
+            </div>
+            <button type="button" className="btn as-link" onClick={this.clearAll}>
+              Clear All
+            </button>
+          </div>
+          <hr className="gtoc-checklist-hr"/>
           {this.props.children}
         </fieldset>
       </div>
