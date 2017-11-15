@@ -80,9 +80,6 @@ export default class CheckboxList extends React.Component {
     this.displayErrors();
   }
 
-  // <legend htmlFor={this.props.id} className="sr-only">{this.props.labelText}</legend>
-
-
   render() {
     return (
       <div className={`form-group ${this.props.id + '-class'} ${this.hasVisibleError ? 'has-error' : ''}`}>
