@@ -89,7 +89,8 @@ class UtilsService {
   }
 
   isValidEmailAddress(string) {
-    const emailRegex = /^([A-Z|a-z|0-9](\.|_){0,1})+[A-Z|a-z|0-9]@([A-Z|a-z|0-9])+((\.){0,1}[A-Z|a-z|0-9]){2}\.[a-z]{2,3}$/gm;
+    //allowed emails are based on https://blogs.msdn.microsoft.com/testing123/2009/02/06/email-address-test-cases/
+    const emailRegex = /^([A-Z|a-z|0-9|_-](\.|\+){0,1})+[A-Z|a-z|0-9|_-]@([A-Z|a-z|0-9|_-]){0,10}(\.|\+){0,1}([A-Z|a-z|0-9|_-])+\.[a-z]{2,4}$/gm;
     return emailRegex.test(string);
   }
 
