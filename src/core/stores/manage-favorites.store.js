@@ -205,7 +205,7 @@ class ManageFavoritesStore {
 
   @computed get selectAllCheckboxSrOnlyLabel() {
     return this.isLoading
-      ? ''
+      ? 'Select all checkbox selected'
       : `You are currently on a table. There are ${this.tableRef.relevantColumnsCount} columns and ${this.sortedRows.length} rows. Select all checkbox selected`;
   }
 
