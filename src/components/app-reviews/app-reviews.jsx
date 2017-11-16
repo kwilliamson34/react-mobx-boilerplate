@@ -36,6 +36,7 @@ export default class AppReviews extends React.Component {
   }
 
   renderReviews = (reviews) => {
+    console.log('reviews', reviews.peek());
     return reviews.map((node, i) => {
       let authorName = `${node.userFirstName} ${node.userLastName}`;
       return (
