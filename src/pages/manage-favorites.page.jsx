@@ -32,6 +32,10 @@ export default class ManageFavoritesPage extends React.Component {
     this.manageFavoritesStore.fetchRows();
   }
 
+  componentDidMount() {
+    this.manageFavoritesStore.setSelectAllCheckboxSrOnlyLabel(`You are currently on a table. There are ${this.tableRef.relevantColumnsCount} columns and ${this.manageFavoritesStore.sortedRows} rows.`);
+  }
+
   componentWillUnmount() {
     this.manageFavoritesStore.resetPage();
     this.clearSuccess();
@@ -336,7 +340,7 @@ export default class ManageFavoritesPage extends React.Component {
     return (
       <Checkbox
         id="select-all-checkbox"
-        label="Select or Deselect All Checkboxes"
+        label={this.manageFavoritesStore.selectAllCheckboxSrOnlyLabel}
         labelIsSrOnly={true}
         handleOnChange={this.handleSelectAllCheckbox}
         checked={this.manageFavoritesStore.checkSelectAllCheckbox}/>
@@ -394,6 +398,7 @@ export default class ManageFavoritesPage extends React.Component {
               {(this.manageFavoritesStore.shouldRenderRows || this.manageFavoritesStore.showSearchResults) && this.renderTopAndBottomFeatures('top')}
               <SortableTable
                 ref={(ref) => this.tableRef = ref}
+                refList={this.tableRef}
                 rows={this.manageFavoritesStore.sortedRows}
                 activeRows={this.manageFavoritesStore.checkedRows}
                 totalRowCount={this.manageFavoritesStore.rows.length}
@@ -412,7 +417,7 @@ export default class ManageFavoritesPage extends React.Component {
                 <span data="column" className="table-container checkbox-container">
                   <TableColumn
                     rowActions={this.renderRowCheckbox}
-                    additionalHeaderJsx={this.renderSelectAllCheckbox()}
+                    additionalHeaderActions={this.renderSelectAllCheckbox}
                     columnClassName="checkbox-column" />
                 </span>
                 <span data="column" className="table-container center-container">

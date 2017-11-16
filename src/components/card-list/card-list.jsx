@@ -46,7 +46,7 @@ export class CardList extends React.Component {
   }
 
   blurLoadMoreButton = () => {
-    this.refs.loadMoreButton.blur();
+    this.loadMoreButton.blur();
   }
 
   renderCard(card, i) {
@@ -97,7 +97,7 @@ export class CardList extends React.Component {
 
         {this.props.isLoading || this.canLoadMore && this.props.handleLoadMoreClick &&
           <div className="card-list-load-more">
-            <button ref="loadMoreButton" className="btn fn-secondary" onClick={this.props.handleLoadMoreClick}>
+            <button ref={(i) => { this.loadMoreButton = i }} className="btn fn-secondary" onClick={this.props.handleLoadMoreClick}>
               Load More
             </button>
           </div>

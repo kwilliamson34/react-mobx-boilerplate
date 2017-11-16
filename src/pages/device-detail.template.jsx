@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {observer, inject} from 'mobx-react';
+import {utilsService} from '../core/services/utils.service';
 
 import PageTitle from '../components/page-title/page-title';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
@@ -53,7 +54,9 @@ export default class DeviceDetailTemplate extends React.Component {
         <div className="container detail-block">
           <div className="row">
             <div className="col-xs-10 col-xs-offset-1 text-center visible-xs-block visible-sm-block">
-              <PageTitle>{this.externalLinkStore.currentDeviceDetail.deviceName}></PageTitle>
+              <PageTitle>
+                {utilsService.escapeHtmlEntityOutput(this.externalLinkStore.currentDeviceDetail.deviceName)}
+              </PageTitle>
             </div>
           </div>
           <div className="row is-flex">
