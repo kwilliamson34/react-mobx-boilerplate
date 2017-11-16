@@ -33,7 +33,7 @@ export default class ManageFavoritesPage extends React.Component {
   }
 
   componentDidMount() {
-    this.manageFavoritesStore.setSelectAllCheckboxSrOnlyLabel(`You are currently on a table. There are ${this.tableRef.relevantColumnsCount} columns and ${this.manageFavoritesStore.sortedRows} rows.`);
+    this.manageFavoritesStore.setTableRef(this.tableRef);
   }
 
   componentWillUnmount() {
@@ -244,7 +244,7 @@ export default class ManageFavoritesPage extends React.Component {
         </div>
         {
           this.manageFavoritesStore.checkedRows.length > 0 &&
-          <div className="selection-count">
+          <div className="selection-count" aria-live="polite">
             {`${this.manageFavoritesStore.checkedRows.length} Selected`}
           </div>
         }
