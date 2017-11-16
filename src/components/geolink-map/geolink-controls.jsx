@@ -140,7 +140,7 @@ export default class GeolinkControls extends React.Component {
   render() {
     const displaySuccess = this.store.successToDisplay && this.store.successToDisplay.length > 0;
     return (
-      <section className="geolink-controls light-grey-bg">
+      <section className="geolink-controls">
         {displaySuccess &&
           <div className="container">
             <div className="row">

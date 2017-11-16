@@ -137,7 +137,7 @@ export default class NetworkStatusPage extends React.Component {
           <GeolinkControls geolinkStore={this.geoStore} disabled={!showMap}/>}
 
         {(this.geoStore.pageTitle === 'Add New Favorite' || this.geoStore.pageTitle === 'Edit Favorite') &&
-          <section className="light-grey-bg">
+          <section>
             <div className="container location-favorites">
               <div className="row">
                 <div className="col-xs-12 title-wrapper">
