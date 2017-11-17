@@ -62,12 +62,12 @@ describe("MDMStore", () => {
 
     apiService.getMDMConfiguration.mockReturnValue(Promise.resolve({
       data: {
-        mdm_type: 'MOBILE_IRON_CLOUD'
+        mdm_type: 'MOBILE_IRON'
       }
     }));
 
     store.getMDMConfiguration().then(() => {
-      expect(store.values.mdm_type).toBe('MOBILE_IRON_CLOUD');
+      expect(store.values.mdm_type).toBe('MOBILE_IRON');
     });
     
     apiService.getMDMConfiguration.mockReturnValue(Promise.resolve({

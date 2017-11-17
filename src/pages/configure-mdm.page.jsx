@@ -125,7 +125,7 @@ export default class ConfigureMDM extends React.Component {
           <option value="">Select MDM</option>
           <option value="AIRWATCH">Airwatch</option>
           <option value="MAAS360">IBM MaaS360</option>
-          <option value="MOBILE_IRON_CLOUD">MobileIronCloud</option>
+          <option value="MOBILE_IRON">MobileIronCloud</option>
           <option value="MOBILE_IRON_CORE">MobileIronCore</option>
           <option value="MICROSOFT_INTUNE">Microsoft InTune</option>
         </select>
@@ -142,7 +142,7 @@ export default class ConfigureMDM extends React.Component {
       case 'MAAS360':
         MDMFormComponent = IBMForm;
         break;
-      case 'MOBILE_IRON_CLOUD':
+      case 'MOBILE_IRON':
         MDMFormComponent = MobileIronCloudForm;
         break;
       case 'MOBILE_IRON_CORE':
