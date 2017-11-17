@@ -1,5 +1,5 @@
 body {
-  background: #fafafa;
+  background: $fn-white;
   margin: 0;
 
   *:focus {
@@ -14,7 +14,7 @@ i {
 }
 
 main {
-  background: #fff;
+  background: $fn-white;
 
   > article {
     padding-top: 30px;

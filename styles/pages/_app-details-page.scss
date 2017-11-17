@@ -1,5 +1,7 @@
 #app-details-page {
   padding-top: 0;
+  padding-bottom: $footer-margin-top;
+  margin-bottom: 0 - $footer-margin-top;
   background: $fn-ltbluegrey;
 
   .loading-container {
