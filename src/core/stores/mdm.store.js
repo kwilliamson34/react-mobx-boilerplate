@@ -69,7 +69,6 @@ class MDMStore {
 
   @action toggleBoolValue(target) {
     this.values[target] = !this.values[target];
-    console.log(this.values.mi_core_cloudconnected)
   }
 
   // Alert functions
