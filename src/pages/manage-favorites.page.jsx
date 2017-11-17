@@ -33,7 +33,7 @@ export default class ManageFavoritesPage extends React.Component {
   }
 
   componentDidMount() {
-    this.manageFavoritesStore.setSelectAllCheckboxSrOnlyLabel(`You are currently on a table. There are ${this.tableRef.relevantColumnsCount} columns and ${this.manageFavoritesStore.sortedRows} rows.`);
+    this.manageFavoritesStore.setSelectAllCheckboxSrOnlyLabel(`You are currently on a table. There are ${this.tableRef.relevantColumnsCount} columns and ${this.manageFavoritesStore.sortedRows.length} rows.`);
   }
 
   componentWillUnmount() {
@@ -74,7 +74,11 @@ export default class ManageFavoritesPage extends React.Component {
   }
 
   handleSelectAllCheckbox = () => {
-    this.manageFavoritesStore.checkedRows.length === this.manageFavoritesStore.rows.length
+    const displayedRows = this.manageFavoritesStore.showSearchResults
+      ? this.manageFavoritesStore.searchResults
+      : this.manageFavoritesStore.rows;
+
+    this.manageFavoritesStore.checkedRows.length === displayedRows.length
       ? this.manageFavoritesStore.clearAllCheckboxes()
       : this.manageFavoritesStore.selectAllCheckboxes();
   }
