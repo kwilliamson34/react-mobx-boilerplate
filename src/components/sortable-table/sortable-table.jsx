@@ -9,6 +9,7 @@ export class SortableTable extends React.Component {
 
   static propTypes = {
     keyToUseAsId: PropTypes.string.isRequired,
+    refList: PropTypes.object,
     children: PropTypes.node,
     tableId: PropTypes.string,
     caption: PropTypes.string,
@@ -27,6 +28,8 @@ export class SortableTable extends React.Component {
   constructor(props) {
     super(props);
     this.columns = [];
+    //for srOnly purposes. "relevant" defined as any column containing info or actions in its header that affect or describe the contents of its rows.
+    this.relevantColumnsCount = 0;
   }
 
   componentWillMount() {
@@ -57,7 +60,19 @@ export class SortableTable extends React.Component {
   parseChildren = () => {
     this.columns = this.props.children.filter(child => {
       return child.props.data === 'column';
-    })
+    });
+
+    this.columns.map(column => {
+      return Array.isArray(column.props.children)
+        ? column.props.children.forEach(tableColumn => {
+          this.parseTableColumn(tableColumn);
+        })
+        : this.parseTableColumn(column.props.children);
+    });
+  }
+
+  parseTableColumn = (tableColumn) => {
+    this.relevantColumnsCount += Boolean(tableColumn.props.additionalHeaderActions || tableColumn.props.headerLabel);
   }
 
   render() {
@@ -65,7 +80,6 @@ export class SortableTable extends React.Component {
       <div aria-rowcount={this.props.totalRowCount} id={this.props.tableId} className={`sortable-table ${this.props.tableId}-class`}>
         {this.props.caption && <caption>{this.props.caption}</caption>}
         <div ref={(ref) => this.headers = ref} className="table-head">
-          <span className="sr-only" tabIndex="0">{`You are currently on a table. There are ${this.columns.length} columns and ${this.props.totalRowCount} rows.`}</span>
           {this.props.children}
         </div>
         <div ref={(ref) => this.rows = ref} role="rowgroup" className="table-body">

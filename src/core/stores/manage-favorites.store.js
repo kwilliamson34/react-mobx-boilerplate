@@ -8,7 +8,7 @@ class ManageFavoritesStore {
 
   @action fetchRows() {
     const success = (res) => {
-      //initially ordering rows by locationFavoriteId in desc order, which corresponds to 'most recent' first.
+      //rows will initially order by locationName.
       this.rows = this.sortAndReturnRows(res.data.userlocationfavorite);
       this.isLoading = false;
       this.advancePagination();
@@ -76,6 +76,7 @@ class ManageFavoritesStore {
     const success = (res) => {
       this.searchResults = res.data.userlocationfavorite;
       this.showSearchResults = true;
+      this.clearAllCheckboxes();
       this.resetPagination();
       this.advancePagination();
     }
@@ -103,18 +104,6 @@ class ManageFavoritesStore {
       : this.checkedRows.push(rowId);
 	}
 
-  @action resetPage() {
-    this.resetPagination();
-    this.clearSearchQuery();
-    this.updateAlert('');
-    this.updateSuccess('');
-    this.activeColumn = 'favoriteName';
-    this.rows = [];
-    this.searchResults = [];
-    this.checkedRows = [];
-    this.showSearchResults = false;
-  }
-
   @action selectAllCheckboxes() {
     this.paginatedRows.forEach(row => {
       const id = row.locationFavoriteId.toString();
@@ -122,6 +111,23 @@ class ManageFavoritesStore {
         this.checkedRows.push(id);
       }
     });
+  }
+
+  @action setSelectAllCheckboxSrOnlyLabel(message) {
+    this.selectAllCheckboxSrOnlyLabel = message;
+  }
+
+  @action resetPage() {
+    this.resetPagination();
+    this.clearSearchQuery();
+    this.updateAlert('');
+    this.updateSuccess('');
+    this.activeColumn = 'favoriteName';
+    this.selectAllCheckboxSrOnlyLabel = '';
+    this.rows = [];
+    this.searchResults = [];
+    this.checkedRows = [];
+    this.showSearchResults = false;
   }
 
   @action resetPagination() {
@@ -214,6 +220,7 @@ class ManageFavoritesStore {
   @observable moreToLoad = false;
 
   @observable activeColumn = 'favoriteName';
+  @observable selectAllCheckboxSrOnlyLabel = '';
 
   //to keep the order toggling simple, true is ascending and false is descending;
   @observable sortDirectionsDefaults = {

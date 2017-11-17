@@ -22,25 +22,27 @@
     }
 
     .control-label {
-      &[for="femaList"] {
-        font-size: $fn-h4-desktop;
-        font-weight: $fn-normal-weight;
-      }
-
       &[for="email"] {
         margin-top: 3rem;
       }
     }
 
     .selection-buttons {
-      margin-top: 15px;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       align-items: baseline;
+      .select-all-checkbox {
+        border: 0;
+        padding-top: 25px;
+      }
     }
 
-    .selection-buttons,
+    .gtoc-checklist-hr {
+      border-color: $fn-mdgrey;
+      margin: 0;
+    }
+
     fieldset {
       .checkbox {
         label {
@@ -58,36 +60,38 @@
       }
     }
 
-    fieldset .checkbox {
-      vertical-align: middle;
-      border-bottom: 1px solid $fn-grey;
-      padding: 30px 0;
-
-      label {
-        min-height: 1rem;
-        padding-bottom: 0;
-
-        .cr {
-          margin-bottom: 0;
-        }
-
-        strong {
-          width: 20%;
-        }
-
-        span.label-text-normal {
-          display: inline-block;
-          width: 75%;
-          float: right;
-        }
+    fieldset {
+      legend {
+        font-size: $fn-h4-desktop;
+        font-weight: $fn-normal-weight;
       }
+      .checkbox {
+        vertical-align: middle;
+        border-bottom: 1px solid $fn-grey;
+        padding: 30px 0;
 
-      &:first-of-type {
-        border-top: 1px solid $fn-mdgrey;
-      }
+        label {
+          min-height: 1rem;
+          padding-bottom: 0;
 
-      &:last-of-type {
-        border-bottom: 1px solid $fn-mdgrey;
+          .cr {
+            margin-bottom: 0;
+          }
+
+          strong {
+            width: 20%;
+          }
+
+          span.label-text-normal {
+            display: inline-block;
+            width: 75%;
+            float: right;
+          }
+        }
+
+        &:last-of-type:not(.select-all-checkbox) {
+          border-bottom: 1px solid $fn-mdgrey;
+        }
       }
     }
   }

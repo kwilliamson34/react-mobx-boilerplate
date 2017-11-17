@@ -1,6 +1,6 @@
 exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1`] = `
 <section
-  className="geolink-controls light-grey-bg">
+  className="geolink-controls">
   <div
     className="container">
     <div
@@ -125,7 +125,7 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
                     className="cr" />
                   <span
                     className="label-text ">
-                    
+
                     <span
                       className="label-text-normal">
                       Network
@@ -162,7 +162,7 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
                     className="cr" />
                   <span
                     className="label-text ">
-                    
+
                     <span
                       className="label-text-normal">
                       Weather
@@ -190,7 +190,7 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
                     className="cr" />
                   <span
                     className="label-text ">
-                    
+
                     <span
                       className="label-text-normal">
                       Traffic
@@ -215,7 +215,7 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
                     className="cr" />
                   <span
                     className="label-text ">
-                    
+
                     <span
                       className="label-text-normal">
                       Alerts
@@ -249,10 +249,10 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
               <a
                 href="/subscribe-to-alerts"
                 onClick={[Function anonymous]}>
-                Subscribe to 
+                Subscribe to
                 <span
                   className="visible-xs-inline visible-sm-inline">
-                  Network 
+                  Network
                 </span>
                 Alerts
               </a>
@@ -327,10 +327,10 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
           <a
             href="/subscribe-to-alerts"
             onClick={[Function anonymous]}>
-            Subscribe to 
+            Subscribe to
             <span
               className="visible-xs-inline visible-sm-inline">
-              Network 
+              Network
             </span>
             Alerts
           </a>
@@ -377,10 +377,10 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
               <a
                 href="/subscribe-to-alerts"
                 onClick={[Function anonymous]}>
-                Subscribe to 
+                Subscribe to
                 <span
                   className="visible-xs-inline visible-sm-inline">
-                  Network 
+                  Network
                 </span>
                 Alerts
               </a>
@@ -524,7 +524,7 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
 
 exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 1`] = `
 <section
-  className="geolink-controls light-grey-bg">
+  className="geolink-controls">
   <div
     className="container">
     <div
@@ -544,7 +544,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
             className="as-h5">
             Search
           </h2>
-          
+
           <button
             className="as-link add-favorite-button disabled"
             onClick={[Function bound mockConstructor]}>
@@ -586,7 +586,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     className="cr" />
                   <span
                     className="label-text ">
-                    
+
                     <span
                       className="label-text-normal">
                       Network
@@ -623,7 +623,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     className="cr" />
                   <span
                     className="label-text ">
-                    
+
                     <span
                       className="label-text-normal">
                       Weather
@@ -651,7 +651,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     className="cr" />
                   <span
                     className="label-text ">
-                    
+
                     <span
                       className="label-text-normal">
                       Traffic
@@ -676,7 +676,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     className="cr" />
                   <span
                     className="label-text ">
-                    
+
                     <span
                       className="label-text-normal">
                       Alerts
@@ -710,10 +710,10 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
               <a
                 href="/subscribe-to-alerts"
                 onClick={[Function anonymous]}>
-                Subscribe to 
+                Subscribe to
                 <span
                   className="visible-xs-inline visible-sm-inline">
-                  Network 
+                  Network
                 </span>
                 Alerts
               </a>
@@ -788,10 +788,10 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
           <a
             href="/subscribe-to-alerts"
             onClick={[Function anonymous]}>
-            Subscribe to 
+            Subscribe to
             <span
               className="visible-xs-inline visible-sm-inline">
-              Network 
+              Network
             </span>
             Alerts
           </a>
@@ -838,10 +838,10 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
               <a
                 href="/subscribe-to-alerts"
                 onClick={[Function anonymous]}>
-                Subscribe to 
+                Subscribe to
                 <span
                   className="visible-xs-inline visible-sm-inline">
-                  Network 
+                  Network
                 </span>
                 Alerts
               </a>
@@ -985,7 +985,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
 
 exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 2`] = `
 <section
-  className="geolink-controls light-grey-bg">
+  className="geolink-controls">
   <div
     className="container">
     <div
@@ -1005,7 +1005,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
             className="as-h5">
             Search
           </h2>
-          
+
           <button
             className="as-link add-favorite-button disabled"
             onClick={[Function bound mockConstructor]}>
@@ -1047,7 +1047,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     className="cr" />
                   <span
                     className="label-text ">
-                    
+
                     <span
                       className="label-text-normal">
                       Network
@@ -1084,7 +1084,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     className="cr" />
                   <span
                     className="label-text ">
-                    
+
                     <span
                       className="label-text-normal">
                       Weather
@@ -1112,7 +1112,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     className="cr" />
                   <span
                     className="label-text ">
-                    
+
                     <span
                       className="label-text-normal">
                       Traffic
@@ -1137,7 +1137,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     className="cr" />
                   <span
                     className="label-text ">
-                    
+
                     <span
                       className="label-text-normal">
                       Alerts
@@ -1171,10 +1171,10 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
               <a
                 href="/subscribe-to-alerts"
                 onClick={[Function anonymous]}>
-                Subscribe to 
+                Subscribe to
                 <span
                   className="visible-xs-inline visible-sm-inline">
-                  Network 
+                  Network
                 </span>
                 Alerts
               </a>
@@ -1249,10 +1249,10 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
           <a
             href="/subscribe-to-alerts"
             onClick={[Function anonymous]}>
-            Subscribe to 
+            Subscribe to
             <span
               className="visible-xs-inline visible-sm-inline">
-              Network 
+              Network
             </span>
             Alerts
           </a>
@@ -1299,10 +1299,10 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
               <a
                 href="/subscribe-to-alerts"
                 onClick={[Function anonymous]}>
-                Subscribe to 
+                Subscribe to
                 <span
                   className="visible-xs-inline visible-sm-inline">
-                  Network 
+                  Network
                 </span>
                 Alerts
               </a>
@@ -1446,7 +1446,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
 
 exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 3`] = `
 <section
-  className="geolink-controls light-grey-bg">
+  className="geolink-controls">
   <div
     className="container">
     <div
@@ -1466,7 +1466,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
             className="as-h5">
             Search
           </h2>
-          
+
           <button
             className="as-link add-favorite-button disabled"
             onClick={[Function bound mockConstructor]}>
@@ -1508,7 +1508,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     className="cr" />
                   <span
                     className="label-text ">
-                    
+
                     <span
                       className="label-text-normal">
                       Network
@@ -1545,7 +1545,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     className="cr" />
                   <span
                     className="label-text ">
-                    
+
                     <span
                       className="label-text-normal">
                       Weather
@@ -1573,7 +1573,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     className="cr" />
                   <span
                     className="label-text ">
-                    
+
                     <span
                       className="label-text-normal">
                       Traffic
@@ -1598,7 +1598,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     className="cr" />
                   <span
                     className="label-text ">
-                    
+
                     <span
                       className="label-text-normal">
                       Alerts
@@ -1632,10 +1632,10 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
               <a
                 href="/subscribe-to-alerts"
                 onClick={[Function anonymous]}>
-                Subscribe to 
+                Subscribe to
                 <span
                   className="visible-xs-inline visible-sm-inline">
-                  Network 
+                  Network
                 </span>
                 Alerts
               </a>
@@ -1710,10 +1710,10 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
           <a
             href="/subscribe-to-alerts"
             onClick={[Function anonymous]}>
-            Subscribe to 
+            Subscribe to
             <span
               className="visible-xs-inline visible-sm-inline">
-              Network 
+              Network
             </span>
             Alerts
           </a>
@@ -1760,10 +1760,10 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
               <a
                 href="/subscribe-to-alerts"
                 onClick={[Function anonymous]}>
-                Subscribe to 
+                Subscribe to
                 <span
                   className="visible-xs-inline visible-sm-inline">
-                  Network 
+                  Network
                 </span>
                 Alerts
               </a>

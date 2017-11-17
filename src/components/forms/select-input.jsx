@@ -64,7 +64,7 @@ export default class SelectInput extends React.Component {
           announceError={this.props.announceError}/>
         <select
           className="form-control form-control-lg"
-          ref="input"
+          ref={(i) => { this.input = i; }}
           id={this.props.id}
           onChange={this.handleOnChange}
           onBlur={this.handleOnBlur}
