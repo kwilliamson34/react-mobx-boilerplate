@@ -218,6 +218,7 @@
 @media #{$desktop} {
   #admin-dashboard-page {
     .manage-actions {
+      li:first-child:nth-last-child(2) ~ li, //if 2 children, all should be full width
       li:first-child:nth-last-child(3) ~ li { //if 3 children, all should be full width
         width: 100%;
       }
