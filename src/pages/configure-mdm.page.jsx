@@ -6,7 +6,8 @@ import PageTitle from '../components/page-title/page-title';
 import AirWatchForm from '../components/configure-mdm/air-watch-form';
 import IBMForm from '../components/configure-mdm/ibm-form';
 import MicrosoftForm from '../components/configure-mdm/microsoft-form';
-import MobileIronForm from '../components/configure-mdm/mobile-iron-form';
+import MobileIronCloudForm from '../components/configure-mdm/mobile-iron-cloud-form';
+import MobileIronCoreForm from '../components/configure-mdm/mobile-iron-core-form';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 import Alerts from '../components/alerts/alerts';
 import $ from 'jquery';
@@ -124,7 +125,8 @@ export default class ConfigureMDM extends React.Component {
           <option value="">Select MDM</option>
           <option value="AIRWATCH">Airwatch</option>
           <option value="MAAS360">IBM MaaS360</option>
-          <option value="MOBILE_IRON">MobileIron</option>
+          <option value="MOBILE_IRON_CLOUD">MobileIronCloud</option>
+          <option value="MOBILE_IRON_CORE">MobileIronCore</option>
           <option value="MICROSOFT_INTUNE">Microsoft InTune</option>
         </select>
       </div>
@@ -140,8 +142,11 @@ export default class ConfigureMDM extends React.Component {
       case 'MAAS360':
         MDMFormComponent = IBMForm;
         break;
-      case 'MOBILE_IRON':
-        MDMFormComponent = MobileIronForm;
+      case 'MOBILE_IRON_CLOUD':
+        MDMFormComponent = MobileIronCloudForm;
+        break;
+      case 'MOBILE_IRON_CORE':
+        MDMFormComponent = MobileIronCoreForm;
         break;
       case 'MICROSOFT_INTUNE':
         MDMFormComponent = MicrosoftForm;
