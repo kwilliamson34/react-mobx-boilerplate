@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {inject, observer} from 'mobx-react';
+import { inject, observer } from 'mobx-react';
 
 import PageTitle from '../components/page-title/page-title';
 import AirWatchForm from '../components/configure-mdm/air-watch-form';
@@ -23,10 +23,10 @@ export default class ConfigureMDM extends React.Component {
     })
   }
 
-	constructor(props) {
-		super(props);
-		this.mdmStore = this.props.store.mdmStore;
-	}
+  constructor(props) {
+    super(props);
+    this.mdmStore = this.props.store.mdmStore;
+  }
 
   componentWillMount() {
     this.mdmStore.hasBeenSubmitted = false;
@@ -37,9 +37,9 @@ export default class ConfigureMDM extends React.Component {
     this.mdmStore.form = undefined;
   }
 
-	handleSelectChange = (event) => {
-		this.mdmStore.updateMDM(event.target.value);
-	}
+  handleSelectChange = (event) => {
+    this.mdmStore.updateMDM(event.target.value);
+  }
 
   breakMDMConnection = (event) => {
     event.preventDefault();
@@ -80,7 +80,7 @@ export default class ConfigureMDM extends React.Component {
 
   showModal(shouldShow, modalID) {
     if (shouldShow) {
-      $(modalID).modal({backdrop: 'static'});
+      $(modalID).modal({ backdrop: 'static' });
     } else {
       $(modalID).modal('hide');
       $(modalID).data('bs.modal', null);
@@ -107,7 +107,7 @@ export default class ConfigureMDM extends React.Component {
         pageTitle: 'Configure MDM'
       }
     ];
-    return <BreadcrumbNav links={crumbs}/>
+    return <BreadcrumbNav links={crumbs} />
   }
 
   renderMDMSelectMenu = () => {
@@ -133,7 +133,7 @@ export default class ConfigureMDM extends React.Component {
 
   renderProperMDMForm = () => {
     let MDMFormComponent;
-    switch(this.mdmStore.values.mdm_type) {
+    switch (this.mdmStore.values.mdm_type) {
       case 'AIRWATCH':
         MDMFormComponent = AirWatchForm;
         break;
@@ -150,7 +150,7 @@ export default class ConfigureMDM extends React.Component {
         MDMFormComponent = null;
     }
     if (MDMFormComponent) {
-      return <MDMFormComponent store={this.mdmStore} disabled={this.mdmStore.mdmIsConfigured} suppressAlertBars={true}/>
+      return <MDMFormComponent store={this.mdmStore} disabled={this.mdmStore.mdmIsConfigured} suppressAlertBars={true} />
     }
     return null;
   }
@@ -162,6 +162,14 @@ export default class ConfigureMDM extends React.Component {
           <button onClick={this.togglebreakMDMConnection} className="break-mdm-btn fn-primary" aria-labelledby="break-mdm-connection" aria-disabled={!this.mdmStore.mdmIsConfigured}>Break Connection</button>
         </div>
       </div>
+    )
+  }
+
+  renderInTuneDisclaimer = () => {
+    return (
+      <p className="mdm-descriptive-block">
+        Note – Only FirstNet applications that are available in the iTunes or Google Play stores can be pushed to an Intune account through the Local Control site.      
+      </p>
     )
   }
 
@@ -191,8 +199,9 @@ export default class ConfigureMDM extends React.Component {
                     clearAlert={this.mdmStore.clearAlertAndReferences.bind(this.mdmStore)}
                     showSuccess={this.mdmStore.successToDisplay && this.mdmStore.successToDisplay.length > 0}
                     successText={this.mdmStore.successToDisplay}
-                    clearSuccess={this.mdmStore.clearSuccess.bind(this.mdmStore)}/>
+                    clearSuccess={this.mdmStore.clearSuccess.bind(this.mdmStore)} />
                   {this.mdmStore.mdmIsConfigured && <p className="mdm-descriptive-block">Only one MDM can be configured at a time. To configure a new MDM, the existing connection must be broken. Once the existing connection is broken, a new one can be configured.</p>}
+                  {this.mdmStore.values.mdm_type === 'MICROSOFT_INTUNE' && this.renderInTuneDisclaimer()}
                   {this.renderMDMSelectMenu()}
                   {this.renderProperMDMForm()}
                 </section>
