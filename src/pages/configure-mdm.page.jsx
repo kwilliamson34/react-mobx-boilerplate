@@ -125,8 +125,8 @@ export default class ConfigureMDM extends React.Component {
           <option value="">Select MDM</option>
           <option value="AIRWATCH">Airwatch</option>
           <option value="MAAS360">IBM MaaS360</option>
-          <option value="MOBILE_IRON">MobileIronCloud</option>
-          <option value="MOBILE_IRON_CORE">MobileIronCore</option>
+          <option value="MOBILE_IRON">MobileIron Cloud</option>
+          <option value="MOBILE_IRON_CORE">MobileIron Core</option>
           <option value="MICROSOFT_INTUNE">Microsoft Intune</option>
         </select>
       </div>
