@@ -8,7 +8,7 @@ class ManageFavoritesStore {
 
   @action fetchRows() {
     const success = (res) => {
-      //initially ordering rows by locationFavoriteId in desc order, which corresponds to 'most recent' first.
+      //rows will initially order by locationName.
       this.rows = this.sortAndReturnRows(res.data.userlocationfavorite);
       this.isLoading = false;
       this.advancePagination();
@@ -76,6 +76,7 @@ class ManageFavoritesStore {
     const success = (res) => {
       this.searchResults = res.data.userlocationfavorite;
       this.showSearchResults = true;
+      this.clearAllCheckboxes();
       this.resetPagination();
       this.advancePagination();
     }
