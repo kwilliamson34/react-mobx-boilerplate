@@ -41,14 +41,13 @@ export default class Modal extends React.Component {
         $(this.modal).data('bs.modal', null);
       }
     });
+  }
 
+  onKeyDown = (e) => {
     //close modal if user hits Escape key
-    document.onkeydown = (evt) => {
-      evt = evt || window.event;
-      if (evt.keyCode == 27) {
-        this.hideModal();
-      }
-    };
+    if (e.keyCode == 27) {
+      this.hideModal();
+    }
   }
 
   toggleModal = () => {
@@ -65,7 +64,7 @@ export default class Modal extends React.Component {
 
   render() {
     return (
-      <div className="modal-wrapper">
+      <div className="modal-wrapper" onKeyDown={this.onKeyDown}>
         <Portal>
           <div id={this.props.id}
             ref={i => this.modal = i}

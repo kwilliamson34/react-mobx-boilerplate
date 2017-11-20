@@ -20,7 +20,7 @@ export default class JoyrideBase extends React.Component {
     this.checkAnchorExistsTimeoutInterval = 500;
 
     autorun(() => {
-      // pause before announcing errors, so that Assertive alert doesn't interrupt Polite field errors
+      // show modal when needed
       if(this.joyrideStore.showTourIntroModal) {
         this.tourIntroModal.showModal();
       }
