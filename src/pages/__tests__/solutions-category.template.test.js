@@ -1,5 +1,6 @@
-jest.unmock('axios');
 jest.unmock('../../core/stores/master.store');
+jest.unmock('../../core/stores/external-link.store');
+jest.unmock('../../core/services/api.service');
 jest.unmock('../solutions-category.template');
 
 import {observer, inject} from 'mobx-react';

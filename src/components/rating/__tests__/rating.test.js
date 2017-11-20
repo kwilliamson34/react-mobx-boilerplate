@@ -1,5 +1,5 @@
 jest.unmock('../rating');
-jest.unmock('axios');
+
 
 import {Rating} from '../rating';
 

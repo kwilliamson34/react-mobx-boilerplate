@@ -141,7 +141,11 @@ export default class JoyrideBase extends React.Component {
     }
     this.showModal(this.joyrideStore.showTourIntroModal, '#tour-intro-modal');
     return (
-      <div id="tour-intro-modal" className="modal fade" role="dialog" tabIndex="-1" aria-labelledby="tour-modal-title">
+      <div id="tour-intro-modal"
+        className="modal fade"
+        role="dialog"
+        tabIndex="-1"
+        aria-labelledby="tour-modal-title">
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
@@ -154,8 +158,8 @@ export default class JoyrideBase extends React.Component {
               <div className="modal-body">
                 <p>Follow the beacons to take a tour of the important features of this site.</p>
                 <ul>
-                  <li>To reactivate your tour, simply click 'Enable Site Walkthrough' in the <i className="icon-help" aria-hidden="true" /> Help Menu in the header.</li>
-                  <li>To disable the tour, please click on 'Disable Site Walkthrough' in the <i className="icon-help" aria-hidden="true" /> Help menu.</li>
+                  <li>To reactivate your tour, simply click &apos;Enable Site Walkthrough&apos; in the <i className="icon-help" aria-hidden="true"></i> Help Menu in the header.</li>
+                  <li>To disable the tour, please click on &apos;Disable Site Walkthrough&apos; in the <i className="icon-help" aria-hidden="true"></i> Help menu.</li>
                 </ul>
               </div>
               <div className="modal-footer">

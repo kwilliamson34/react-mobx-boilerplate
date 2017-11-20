@@ -6,11 +6,7 @@ exports[`<DeviceCategoryTemplate /> render matches snapshot with zero, one and m
     <div
       className="row">
       <div
-        className="col-xs-12 catalog-header">
-        <h1>
-          
-        </h1>
-      </div>
+        className="col-xs-12 catalog-header" />
     </div>
     <div
       className="row">
@@ -34,11 +30,7 @@ exports[`<DeviceCategoryTemplate /> render matches snapshot with zero, one and m
     <div
       className="row">
       <div
-        className="col-xs-12 catalog-header">
-        <h1>
-          
-        </h1>
-      </div>
+        className="col-xs-12 catalog-header" />
     </div>
     <div
       className="row">
@@ -48,7 +40,7 @@ exports[`<DeviceCategoryTemplate /> render matches snapshot with zero, one and m
           className="mp-content left">
           <li>
             <a
-              href="/admin/devices/category1/undefined"
+              href="/admin/devices/category1/title"
               onClick={[Function anonymous]}>
               <h3
                 dangerouslySetInnerHTML={
@@ -81,11 +73,7 @@ exports[`<DeviceCategoryTemplate /> render matches snapshot with zero, one and m
     <div
       className="row">
       <div
-        className="col-xs-12 catalog-header">
-        <h1>
-          
-        </h1>
-      </div>
+        className="col-xs-12 catalog-header" />
     </div>
     <div
       className="row">
@@ -95,7 +83,7 @@ exports[`<DeviceCategoryTemplate /> render matches snapshot with zero, one and m
           className="mp-content left">
           <li>
             <a
-              href="/admin/devices/category1/undefined"
+              href="/admin/devices/category1/title"
               onClick={[Function anonymous]}>
               <h3
                 dangerouslySetInnerHTML={
@@ -113,7 +101,7 @@ exports[`<DeviceCategoryTemplate /> render matches snapshot with zero, one and m
           </li>
           <li>
             <a
-              href="/admin/devices/category1/undefined"
+              href="/admin/devices/category1/title"
               onClick={[Function anonymous]}>
               <h3
                 dangerouslySetInnerHTML={
@@ -131,7 +119,7 @@ exports[`<DeviceCategoryTemplate /> render matches snapshot with zero, one and m
           </li>
           <li>
             <a
-              href="/admin/devices/category1/undefined"
+              href="/admin/devices/category1/title"
               onClick={[Function anonymous]}>
               <h3
                 dangerouslySetInnerHTML={
@@ -149,7 +137,7 @@ exports[`<DeviceCategoryTemplate /> render matches snapshot with zero, one and m
           </li>
           <li>
             <a
-              href="/admin/devices/category1/undefined"
+              href="/admin/devices/category1/title"
               onClick={[Function anonymous]}>
               <h3
                 dangerouslySetInnerHTML={
@@ -167,7 +155,7 @@ exports[`<DeviceCategoryTemplate /> render matches snapshot with zero, one and m
           </li>
           <li>
             <a
-              href="/admin/devices/category1/undefined"
+              href="/admin/devices/category1/title"
               onClick={[Function anonymous]}>
               <h3
                 dangerouslySetInnerHTML={
@@ -185,7 +173,7 @@ exports[`<DeviceCategoryTemplate /> render matches snapshot with zero, one and m
           </li>
           <li>
             <a
-              href="/admin/devices/category1/undefined"
+              href="/admin/devices/category1/title"
               onClick={[Function anonymous]}>
               <h3
                 dangerouslySetInnerHTML={
@@ -203,7 +191,7 @@ exports[`<DeviceCategoryTemplate /> render matches snapshot with zero, one and m
           </li>
           <li>
             <a
-              href="/admin/devices/category1/undefined"
+              href="/admin/devices/category1/title"
               onClick={[Function anonymous]}>
               <h3
                 dangerouslySetInnerHTML={
@@ -221,7 +209,7 @@ exports[`<DeviceCategoryTemplate /> render matches snapshot with zero, one and m
           </li>
           <li>
             <a
-              href="/admin/devices/category1/undefined"
+              href="/admin/devices/category1/title"
               onClick={[Function anonymous]}>
               <h3
                 dangerouslySetInnerHTML={
@@ -239,7 +227,7 @@ exports[`<DeviceCategoryTemplate /> render matches snapshot with zero, one and m
           </li>
           <li>
             <a
-              href="/admin/devices/category1/undefined"
+              href="/admin/devices/category1/title"
               onClick={[Function anonymous]}>
               <h3
                 dangerouslySetInnerHTML={
@@ -257,7 +245,7 @@ exports[`<DeviceCategoryTemplate /> render matches snapshot with zero, one and m
           </li>
           <li>
             <a
-              href="/admin/devices/category1/undefined"
+              href="/admin/devices/category1/title"
               onClick={[Function anonymous]}>
               <h3
                 dangerouslySetInnerHTML={

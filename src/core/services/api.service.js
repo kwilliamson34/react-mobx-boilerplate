@@ -73,21 +73,15 @@ class ApiService {
     }
 
     getMarketingPortalDevices() {
-      return axios.get(`${base}/marketing/api/devices?_format=json`).then((res) => {
-        return res.data;
-      });
+      return axios.get(`${base}/marketing/api/devices?_format=json`);
     }
 
     getMarketingPortalSolutionDetails() {
-      return axios.get(`${base}/marketing/api/solutions?_format=json`).then((res) => {
-        return res.data;
-      });
+      return axios.get(`${base}/marketing/api/solutions?_format=json`);
     }
 
     getMarketingPortalSolutionCategories() {
-      return axios.get(`${base}/marketing/api/category/solutions?_format=json`).then((res) => {
-        return res.data;
-      });
+      return axios.get(`${base}/marketing/api/category/solutions?_format=json`);
     }
 
     addAppToGroup(appPsk, groupIdentifier) {
@@ -161,6 +155,63 @@ class ApiService {
         method: 'post',
         url: `${base}/gtocalertssubscription`,
         data: gtocObject
+      });
+    }
+
+    getLocationFavorites() {
+      return axios.get(`${base}/user/location/favorite?pseId=${userStore.user.pse}`);
+    }
+
+    deleteLocationFavorites(array) {
+      return axios({
+        method: 'delete',
+        url: `${base}/user/location/favorite/`,
+        data: {
+          pseId: userStore.user.pse,
+          userlocationfavoriteId: array
+        }
+      });
+    }
+
+    searchLocationFavorites(query) {
+      return axios.get(`${base}/user/location/favorite/search?pseId=${userStore.user.pse}&location=${query}`);
+    }
+
+    addLocationFavorite(data) {
+      return axios({
+        method: 'post',
+        url: `${base}/user/location/favorite/`,
+        data: {
+          favoriteName: data.locationName,
+          locationFavoriteAddress: data.locationAddress,
+          pseId: userStore.user.pse
+        }
+      });
+    }
+
+    editLocationFavorite(data) {
+      return axios({
+        method: 'put',
+        url: `${base}/user/location/favorite/${data.locationId}`,
+        data: {
+          favoriteName: data.locationName,
+          locationFavoriteAddress: data.locationAddress,
+          pseId: userStore.user.pse
+        }
+      });
+    }
+
+    submitLeadCaptureForm(data, solutionName) {
+      return axios({
+        method: 'post',
+        url: `${base}/leadcapture`,
+        data: {
+          name: data.firstName + ' ' + data.lastName,
+          email: data.email,
+          phoneNumber: data.phone,
+          message: data.message,
+          solutionName: solutionName
+        }
       });
     }
 }

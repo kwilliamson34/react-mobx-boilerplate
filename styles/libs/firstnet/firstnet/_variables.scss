@@ -26,9 +26,12 @@ $input-placeholder-color: #d5d5d5 !default;
 $input-bgcolor: $fn-ltgrey !default;
 $input-outline: #b7b7b7 !default;
 $input-outline-disabled: #d8d8d8 !default;
+$table-active-column-highlight: #3BB2FF !default;
+$table-row-background-highlight: rgba(16, 113, 188, 0.05) !default;
 
 //tables
 $table-header-bg: black !default;
+$class-slug: col !default;
 
 //link colors
 $active-link-color: $fn-ltblue !default;

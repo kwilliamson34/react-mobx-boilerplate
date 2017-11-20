@@ -3,7 +3,10 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
 
-import Checkbox from '../toggle/checkbox';
+import {history} from '../../core/services/history.service';
+import Checkbox from '../forms/checkbox';
+import TextInput from '../forms/text-input';
+import Alerts from '../alerts/alerts';
 
 @observer
 export default class GeolinkControls extends React.Component {
@@ -14,141 +17,193 @@ export default class GeolinkControls extends React.Component {
 
   constructor(props) {
     super(props);
-    this.geoStore = this.props.geolinkStore;
+    this.store = this.props.geolinkStore;
+    this.ENTER_KEY_CODE = 13;
+    this.UP_KEY_CODE = 38;
+    this.DOWN_KEY_CODE = 40;
+    this.focusedFavorite = null;
   }
 
   componentWillMount() {
-    this.geoStore.resetLayerToggles();
+    this.store.clearFormFieldRefList();
+    this.store.resetLayerToggles();
+    this.store.loadFavorites();
   }
 
-  handleSearchInput = event => {
-    this.geoStore.updateSearchTerm(event.target.value);
+  toggleNetwork = input => {
+    if (input.type === 'checkbox') {
+      this.store.toggleNetwork();
+    }
   };
 
-  handleSearchSubmit = () => {
-    this.geoStore.searchMap();
-
-    //close native keyboard on mobile, to show search result
-    this.refs.searchInput.blur();
+  toggleTraffic = input => {
+    if (input.type === 'checkbox') {
+      this.store.toggleTraffic();
+    }
   };
 
-  handleSearchKeyPress = event => {
-    if (event.key == 'Enter') {
+  toggleWeather = input => {
+    if (input.type === 'checkbox') {
+      this.store.toggleWeather();
+    }
+  };
+
+  toggleAlerts = input => {
+    if (input.type === 'checkbox') {
+      this.store.toggleAlerts();
+    }
+  };
+
+  onFavoriteClick = (favorite) => {
+    this.store.selectFavorite(favorite);
+    this.store.formFieldRefList.find((el) => {
+      return el && (el.input.id === 'locationName' || el.input.id === 'locationAddress');
+    }).input.focus();
+  }
+
+  onFavoriteEnter = (event, favorite) => {
+    if(event.charCode === this.ENTER_KEY_CODE) {
+      this.store.selectFavorite(favorite);
+      this.store.formFieldRefList.find((el) => {
+        return el && (el.input.id === 'locationName' || el.input.id === 'locationAddress');
+      }).input.focus();
+    }
+  }
+
+  clearAlertBars = () => {
+    this.store.clearAlertBars();
+  }
+
+  onManageFavoritesClick = () => {
+    history.push('/manage-favorites');
+    this.clearAlertBars();
+  }
+
+  onManageFavoritesEnter = (event) => {
+    if(event.charCode === this.ENTER_KEY_CODE) {
+      history.push('/manage-favorites');
+      this.clearAlertBars();
+    }
+  }
+
+  onDropIntoList = (event) => {
+    if(event.keyCode === this.DOWN_KEY_CODE && this.store.dropdownIsVisible) {
       event.preventDefault();
-      this.handleSearchSubmit();
+      this.focusedFavorite = 0;
+      this[`favItem${this.focusedFavorite}`].focus();
     }
-  };
+  }
 
-  toggleNetwork = event => {
-    if (event.target.type === 'checkbox') {
-      this.geoStore.toggleNetwork();
+  onKeyDown = (event) => {
+    if(event.keyCode === this.DOWN_KEY_CODE || event.keyCode === this.UP_KEY_CODE) {
+      event.preventDefault();
     }
-  };
+    if(event.keyCode === this.DOWN_KEY_CODE) {
+      this.focusedFavorite = this.store.predictedFavorites.length ? (this.focusedFavorite + 1) % (this.store.predictedFavorites.length + 1) : 0;
+      this[`favItem${this.focusedFavorite}`].focus();
+    } else if(event.keyCode === this.UP_KEY_CODE) {
+      if(this.focusedFavorite === 0) {
+        this.store.formFieldRefList.find((el) => {
+          return el.input.id === 'locationName' || el.input.id === 'locationAddress';
+        }).input.focus();
+      } else {
+        this.focusedFavorite = this.store.predictedFavorites.length ? (this.focusedFavorite + this.store.predictedFavorites.length) % (this.store.predictedFavorites.length + 1) : 0;
+        this[`favItem${this.focusedFavorite}`].focus();
+      }
+    }
+  }
 
-  toggleTraffic = event => {
-    if (event.target.type === 'checkbox') {
-      this.geoStore.toggleTraffic();
-    }
-  };
-
-  toggleWeather = event => {
-    if (event.target.type === 'checkbox') {
-      this.geoStore.toggleWeather();
-    }
-  };
-
-  toggleAlerts = event => {
-    if (event.target.type === 'checkbox') {
-      this.geoStore.toggleAlerts();
-    }
-  };
+  renderPredictiveDropdown = () => {
+    if(this.store.dropdownIsVisible) return (
+      <div className="predictive-dropdown">
+        <ul>
+          {this.store.predictedFavorites.map((favorite, index) => {
+            return (
+              <li role="button" tabIndex="0" ref={`favItem${index}`} onFocus={() => this.focusedFavorite = index} onClick={() => this.onFavoriteClick(favorite)} onKeyPress={(e) => this.onFavoriteEnter(e, favorite)} onKeyDown={this.onKeyDown} key={index}>
+                <i className="icon-star" aria-hidden></i>
+                <span className="sr-only">Search for favorite named</span>
+                <span>{favorite.favoriteName}</span>
+                <span className="sr-only">at address</span>
+                <small>{favorite.locationFavoriteAddress}</small>
+              </li>
+            )
+          })}
+          <li role="button" tabIndex="0" ref={`favItem${this.store.predictedFavorites.length}`} onFocus={() => this.focusedFavorite = this.store.predictedFavorites.length} onClick={this.clearAlertBars} onKeyPress={this.onManageFavoritesEnter} onKeyDown={this.onKeyDown}>
+            Manage all favorites
+          </li>
+        </ul>
+      </div>
+    );
+    return '';
+  }
 
   render() {
+    const displaySuccess = this.store.successToDisplay && this.store.successToDisplay.length > 0;
     return (
       <section className="geolink-controls">
+        {displaySuccess &&
+          <div className="container">
+            <div className="row">
+              <div className="col-xs-12">
+                <Alerts
+                  showSuccess={displaySuccess}
+                  successText={this.store.successToDisplay}
+                  clearSuccess={() => {this.store.updateSuccess('')}} />
+              </div>
+            </div>
+          </div>
+        }
+
         <div className="container">
           <div className="row is-flex">
-            <div className="col-xs-12 col-sm-8 col-md-4 map-search">
-              <h2 className="as-h5">Search</h2>
-              <form className="search-form form-group" onSubmit={this.handleSubmit}>
-                <div className="search-input input-group">
-                  <label htmlFor="search-field" className="control-label">Location</label>
-                  <div className="search-bar">
-                    <input id="search-field" type="search" ref="searchInput" disabled={this.props.disabled} className="form-control" onChange={this.handleSearchInput} onKeyPress={this.handleSearchKeyPress}/>
-                    <button className="btn search-btn" type="button" onClick={this.handleSearchSubmit} disabled={this.props.disabled}>
-                      <span className="sr-only">Search for locations</span>
-                      <span aria-hidden="true" className="icon-search"/>
-                    </button>
-                  </div>
-                </div>
-              </form>
+            <div className="col-xs-12 col-sm-7 col-md-4 map-search">
+              {this.renderSearchArea()}
             </div>
-            <div className="col-xs-12 col-sm-4 col-md-4 map-layers">
-              <h2 className="as-h5">Layers</h2>
+            <hr className="col-xs-12 visible-xs"/>
+            <div className="col-xs-12 col-sm-5 col-md-4 map-layers">
+              <h2>Layers</h2>
               <form className="form-group">
                 <fieldset className="coverage-layers">
                   <legend className="sr-only">Coverage layers</legend>
-                  <div className="col-xs-6 col-sm-12 no-gutters">
-                    <Checkbox
-                      id="network-toggle"
-                      value="Network"
-                      label="Established Network"
+                  <div className="col-xs-6 no-gutters">
+                    <Checkbox label="Network"
                       tooltipText="Represents our fully operational service"
-                      onChange={this.toggleNetwork}
-                      checked={this.geoStore.showNetworkLayer}
+                      handleOnChange={this.toggleNetwork}
+                      checked={this.store.showNetworkLayer}
                       disabled={this.props.disabled} />
-                    <Checkbox
-                      id="weather-toggle"
-                      value="Weather"
-                      label="Weather"
-                      onChange={this.toggleWeather}
-                      checked={this.geoStore.showWeatherLayer}
+                    <Checkbox label="Weather"
+                      handleOnChange={this.toggleWeather}
+                      checked={this.store.showWeatherLayer}
                       disabled={this.props.disabled} />
                   </div>
-                  <div className="col-xs-6 col-sm-12 no-gutters">
-                    <Checkbox
-                      id="traffic-toggle"
-                      value="Traffic"
-                      label="Traffic"
-                      onChange={this.toggleTraffic}
-                      checked={this.geoStore.showTrafficLayer}
+                  <div className="col-xs-6 no-gutters">
+                    <Checkbox label="Traffic"
+                      handleOnChange={this.toggleTraffic}
+                      checked={this.store.showTrafficLayer}
                       disabled={this.props.disabled} />
-                    <Checkbox id="alerts-toggle"
-                      value="Alerts"
-                      label="Network Alerts"
-                      tooltipText="Highlights abnormal network function"
-                      onChange={this.toggleAlerts}
-                      checked={this.geoStore.showAlertLayer}
-                      disabled={this.props.disabled || !this.geoStore.authIsComplete} />
+                    <Checkbox label="Alerts"
+                      tooltipText="Highlights abnormal network malfunction"
+                      handleOnChange={this.toggleAlerts}
+                      checked={this.store.showAlertLayer}
+                      disabled={this.props.disabled || !this.store.authIsComplete} />
                   </div>
                 </fieldset>
               </form>
             </div>
-            <div className="col-md-4 hidden-xs hidden-sm map-network-legend">
-              {this.renderNetworkLegend()}
-              {this.renderNetworkSubscriptionLink()}
-              {this.renderContactInfo()}
-            </div>
+            {this.renderDesktopOnlyNetworkBlock()}
           </div>
 
-          <div className="row">
-            <div className="legend-divider col-xs-12">
-              <hr />
-              <div className="visible-xs-inline">
-                {this.renderNetworkSubscriptionLink()}
-                {this.renderContactInfo()}
-                <hr />
-              </div>
-            </div>
-          </div>
+          {this.renderMobileOnlyContactBlock()}
+
           <div className="row is-flex">
-            <div className="col-xs-12 visible-xs-inline visible-sm-inline">
+            <div className="legend-block col-xs-12 visible-xs-inline visible-sm-inline">
               {this.renderNetworkLegend()}
             </div>
-            <div className="col-xs-12 col-md-6">
+            <hr className="col-xs-12 hidden-xs hidden-sm" />
+            <div className="legend-block col-xs-12 col-md-6">
               {this.renderWeatherLegend()}
             </div>
-            <div className="col-xs-12 col-md-6">
+            <div className="legend-block col-xs-12 col-md-6">
               {this.renderTrafficLegend()}
             </div>
           </div>
@@ -157,11 +212,70 @@ export default class GeolinkControls extends React.Component {
     );
   }
 
+  renderSearchArea = () => {
+    return (
+      <div>
+        <span className="top-right-link">
+          <Link to="/manage-favorites" onClick={this.clearAlertBars}>Manage Favorites</Link>
+        </span>
+        <h2 className="as-h5">Search</h2>
+        <TextInput
+          ref={ref => this.store.formFieldRefList.push(ref)}
+          dataObject={this.store.values}
+          id={this.store.shouldDisplayLocationName ? 'locationName' : 'locationAddress'}
+          type="search"
+          labelText="Address. Use the arrow keys as you type to scroll through your saved favorites."
+          labelIsSrOnly={true}
+          className="search-form"
+          showClearButton={true}
+          handleSubmit={this.store.searchMap.bind(this.store)}
+          iconClass={this.store.shouldDisplayLocationName ? 'icon-star' : ''}
+          onDropIntoList={this.onDropIntoList}
+          disableAutoComplete={true}/>
+        {this.renderPredictiveDropdown()}
+        <button
+          className={`as-link add-favorite-button ${this.store.values.locationAddress && !this.store.shouldDisplayLocationName ? '' : 'disabled'}`}
+          ref={(i) => {this.addFavoriteBtn = i }}
+          onClick={this.store.showAddLocationForm.bind(this.store)}>
+          Add Favorite
+        </button>
+      </div>
+    )
+  }
+
+  renderDesktopOnlyNetworkBlock = () => {
+    return (
+      <div className="col-md-4 hidden-xs hidden-sm map-network-legend">
+        {this.renderNetworkLegend()}
+        {this.renderContactInfo()}
+      </div>
+    )
+  }
+
+  renderMobileOnlyContactBlock = () => {
+    return (
+      <div className="row is-flex visible-xs visible-sm">
+        <div className="col-xs-12 no-gutters">
+          <hr />
+        </div>
+        <div className="col-xs-12 col-sm-6">
+          {this.renderNetworkSubscriptionLink()}
+        </div>
+        <div className="col-xs-12 col-sm-6">
+          {this.renderContactInfo()}
+        </div>
+        <div className="col-xs-12 no-gutters">
+          <hr />
+        </div>
+      </div>
+    )
+  }
+
   renderNetworkSubscriptionLink = () => {
     return (
       <div className="network-subscription-link">
         <Link to="/subscribe-to-alerts">
-          Subscribe to Network Alerts
+          Subscribe to <span className="visible-xs-inline visible-sm-inline">Network </span>Alerts
         </Link>
       </div>
     )
@@ -169,30 +283,27 @@ export default class GeolinkControls extends React.Component {
 
   renderContactInfo = () => {
     return (
-      <div className="network-contact-info">
-        <p><span aria-hidden="true">Report Network Issue:</span>
-          <br className="visible-md-inline"/>
-          <a href={'tel:' + this.geoStore.networkIssueNumber}>
-            <span>
-              <i className="icon-phone-number footer-support-phone" aria-hidden='true'></i>
-              <span className="sr-only">Report Network Issue: Phone&nbsp;</span>
-              {this.geoStore.networkIssueNumber}
-            </span>
-          </a>
-        </p>
-      </div>
+      <p className="network-contact-info">
+        <span aria-hidden="true">Report Network Issue:</span>
+        <br className="visible-md-inline"/>
+        <a href={'tel:' + this.store.networkIssueNumber}>
+          <span>
+            <i className="icon-phone-number" aria-hidden='true'></i>
+            <span className="sr-only">Report Network Issue: Phone&nbsp;</span>
+            {this.store.networkIssueNumber}
+          </span>
+        </a>
+      </p>
     )
   }
 
   renderNetworkLegend = () => {
     return (
       <div>
-        <span className="visible-sm">
+        <span className="hidden-xs hidden-sm">
           {this.renderNetworkSubscriptionLink()}
-          {this.renderContactInfo()}
-          <hr className="visible-sm col-xs-12"/>
         </span>
-        <h2 className="as-h5">
+        <h2>
           Network<span className="sr-only">&nbsp;color key</span>
         </h2>
         <div className="key-labels">
@@ -211,7 +322,7 @@ export default class GeolinkControls extends React.Component {
   renderWeatherLegend = () => {
     return (
       <div>
-        <h2 className="as-h5">Weather<span className="sr-only">&nbsp;color key</span></h2>
+        <h2>Weather<span className="sr-only">&nbsp;color key</span></h2>
         <div className="key-labels">
           <span className="as-label">Light Rain</span>
           <span className="as-label">Heavy Rain</span>
@@ -228,7 +339,7 @@ export default class GeolinkControls extends React.Component {
   renderTrafficLegend = () => {
     return (
       <div>
-        <h2 className="as-h5">Traffic<span className="sr-only">&nbsp;color key</span></h2>
+        <h2>Traffic<span className="sr-only">&nbsp;color key</span></h2>
         <div className="traffic-legend-wrapper ">
           <div className="traffic-bars">
             <div className="key-labels traffic">

@@ -53,7 +53,8 @@
 
     &.truncate-button,
     &.filters-button,
-    &.select-all-button {
+    &.select-all-button,
+    &.favorites-table-button {
       box-shadow: inset 0px 1px 0 0 $fn-ltblue,
       inset 0px 0px 0 1px $fn-ltblue;
     }

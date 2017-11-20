@@ -1,10 +1,6 @@
 #subscribe-to-gtoc-page {
   padding: 0;
 
-  .form-group {
-    margin-top: 30px;
-  }
-
   .content-wrapper {
     position: relative;
 
@@ -26,11 +22,8 @@
     }
 
     .control-label {
-      font-size: $fn-h5-desktop;
-      font-weight: $fn-normal-weight;
-
-      &[for="gtoc_email"] {
-        font-size: $fn-label-desktop;
+      &[for="email"] {
+        margin-top: 3rem;
       }
     }
 
@@ -39,120 +32,94 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: baseline;
-      margin-top: 15px;
-      border: none;
-
-      button {
-        width: 110px;
-        background: none;
-        font-size: $fn-button-desktop;
-        font-weight: $fn-medium-weight;
-        color: $fn-ltblue;
-        text-transform: uppercase;
-        border: none;
-        outline: none;
-        margin: 0;
-        padding: 0;
-        text-decoration: none;
-
-        &:focus {
-          border-radius: 8px;
-          @include focus();
-        }
+      .select-all-checkbox {
+        border: 0;
+        padding-top: 25px;
       }
+    }
+
+    .gtoc-checklist-hr {
+      border-color: $fn-mdgrey;
+      margin: 0;
+    }
+
+    fieldset {
       .checkbox {
-        font-size: $fn-label-desktop;
-        font-weight: $fn-bold-weight;
-        //override default alert text color
-        color: $fn-black;
-        .select-all-description {
-          margin-left: 5px;
+        label {
+          font-size: $fn-label-desktop;
+          color: $fn-black !important; //override default label color, even for an error
+          font-weight: $fn-normal-weight;
+
+          .select-all-description,
+          strong {
+            vertical-align: top;
+            margin-left: 5px;
+            font-weight: $fn-bold-weight;
+          }
         }
       }
     }
 
-    .template-checkbox {
-      margin-top: 20px;
-      vertical-align: middle;
-      border-bottom: 1px solid $fn-grey;
+    fieldset {
+      legend {
+        font-size: $fn-h4-desktop;
+        font-weight: $fn-normal-weight;
+      }
+      .checkbox {
+        vertical-align: middle;
+        border-bottom: 1px solid $fn-grey;
+        padding: 30px 0;
 
-      label {
-        padding-bottom: 20px;
+        label {
+          min-height: 1rem;
+          padding-bottom: 0;
 
-        strong {
-          display: inline-block;
-          vertical-align: top;
-          margin-left: 5px;
-          width: 30%;
+          .cr {
+            margin-bottom: 0;
+          }
 
-          + span {
+          strong {
+            width: 20%;
+          }
+
+          span.label-text-normal {
             display: inline-block;
-            width: 100%;
-            margin-left: 30px;
+            width: 75%;
+            float: right;
           }
         }
 
-        .template-checkbox-description {
-          font-weight: $fn-normal-weight;
-          //override default alert text color
-          color: $fn-black;
+        &:last-of-type:not(.select-all-checkbox) {
+          border-bottom: 1px solid $fn-mdgrey;
         }
       }
-
-      &:first-of-type {
-        padding-top: 20px;
-        margin-top: 0px;
-        border-top: 1px solid $fn-mdgrey;
-      }
-
-      &:last-of-type {
-        border-bottom: 1px solid $fn-mdgrey;
-      }
-    }
-  }
-
-  form button:not(.close_btn) {
-    margin: 3rem 0 8.5rem;
-
-    &.disabled {
-      cursor: auto;
-      pointer-events: auto;
     }
   }
 }
+
 @media #{$mobile} {
   #subscribe-to-gtoc-page {
     .content-wrapper {
       h1 {
         margin: 3rem 0;
       }
-    }
-  }
-}
-@media #{$tablet, $desktop} {
-  #subscribe-to-gtoc-page {
-    .gtoc_email-class {
-      margin-top: 60px;
-    }
 
-    .content-wrapper {
-      .control-label {
-        font-size: $fn-h4-desktop;
+      label,
+      .error {
+        padding: 0;
       }
 
-      .select-all-button {
-        top: 8px;
+      .control-label[for="femaList"] {
+        font-size: $fn-h5-desktop;
       }
 
-      .checkbox {
+      fieldset .checkbox {
+        padding: 20px 0;
+
         label {
-          strong {
-            width: 15%;
-
-            + span {
-              width: 75%;
-              margin-left: 0;
-            }
+          span.label-text-normal {
+            width: 100%;
+            padding-left: 35px;
           }
         }
       }

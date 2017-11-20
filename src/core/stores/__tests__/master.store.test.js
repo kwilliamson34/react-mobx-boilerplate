@@ -1,5 +1,5 @@
 jest.unmock('../master.store');
-jest.unmock('axios');
+
 
 import { pseMasterStore } from '../master.store';
 

@@ -1,5 +1,5 @@
 jest.unmock('../push-to-mdm');
-jest.unmock('axios');
+
 
 import {PushToMDM} from '../push-to-mdm';
 

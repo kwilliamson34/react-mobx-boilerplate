@@ -18,6 +18,8 @@
   "base/typography",
   "base/bootstrap-overrides",
   "base/buttons",
+  "base/tables",
+  "base/shapes",
   "base/joyride-overrides";
 
 //Components
@@ -32,13 +34,11 @@
   "components/faq",
   "components/filters",
   "components/footer",
-  "components/geolink-map",
   "components/header",
   "components/purchasing-info",
   "components/rating",
   "components/ratings-chart",
   "components/screenshot-gallery",
-  "components/search",
   "components/summary-card",
   "components/toggle",
   "components/truncate";
@@ -51,9 +51,11 @@
   "pages/configure-mdm",
   "pages/specialized-devices",
   "pages/solutions",
-  "pages/feedback-page",
+  "pages/standalone-form-page",
   "pages/gtoc-page",
-  "pages/manage-apps-page";
+  "pages/manage-apps-page",
+  "pages/manage-favorites-page",
+  "pages/network-status-page";
 
 //Shame
 @import "base/ie-styles";

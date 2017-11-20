@@ -7,34 +7,36 @@ exports[`<SummaryCard /> render testing matches snapshot 1`] = `
     id="appCard12345"
     onClick={[Function anonymous]}>
     <div
-      className="">
+      className="card-logo">
+      <img
+        alt=""
+        aria-hidden="true"
+        src="../../images/app-icon.png" />
+    </div>
+    <section
+      className="card-info">
       <div
-        className="card-logo">
-        <img
-          alt="app name Logo"
-          src="../../images/app-icon.png" />
+        className="card-name">
+        app name
       </div>
-      <section
-        className="card-info">
-        <div
-          className="card-name">
-          app name
-        </div>
-        <div
-          className="card-publisher">
-          publisher name
-        </div>
-      </section>
       <div
-        className="card-lower-meta">
+        className="card-publisher">
+        <span
+          className="sr-only">
+          Published By 
+        </span>
+        publisher name
+      </div>
+    </section>
+    <div
+      className="card-lower-meta">
+      <div
+        className="card-rating">
         <div
-          className="card-rating">
-          <div
-            className="ratings-container">
-            <span>
-              No Reviews
-            </span>
-          </div>
+          className="ratings-container">
+          <span>
+            No Reviews
+          </span>
         </div>
       </div>
     </div>
@@ -51,34 +53,36 @@ exports[`<SummaryCard /> render testing matches snapshot 2`] = `
     id="appCard12345"
     onClick={[Function anonymous]}>
     <div
-      className="">
+      className="card-logo">
+      <img
+        alt=""
+        aria-hidden="true"
+        src="../../images/app-icon.png" />
+    </div>
+    <section
+      className="card-info">
       <div
-        className="card-logo">
-        <img
-          alt="app name Logo"
-          src="../../images/app-icon.png" />
+        className="card-name">
+        app name
       </div>
-      <section
-        className="card-info">
-        <div
-          className="card-name">
-          app name
-        </div>
-        <div
-          className="card-publisher">
-          publisher name
-        </div>
-      </section>
       <div
-        className="card-lower-meta">
+        className="card-publisher">
+        <span
+          className="sr-only">
+          Published By 
+        </span>
+        publisher name
+      </div>
+    </section>
+    <div
+      className="card-lower-meta">
+      <div
+        className="card-rating">
         <div
-          className="card-rating">
-          <div
-            className="ratings-container">
-            <span>
-              No Reviews
-            </span>
-          </div>
+          className="ratings-container">
+          <span>
+            No Reviews
+          </span>
         </div>
       </div>
     </div>

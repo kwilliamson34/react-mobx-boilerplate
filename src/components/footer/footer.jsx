@@ -23,7 +23,7 @@ export default class Footer extends React.Component {
 		super(props);
 		this.headerStore = this.props.store.headerStore;
 		this.externalLinkStore = this.props.store.externalLinkStore;
-		this.user = this.props.store.userStore;
+		this.userStore = this.props.store.userStore;
 		this.handleSitemapClick = this.handleSitemapClick.bind(this);
 		this.joyrideStore = this.props.store.joyrideStore;
 	}
@@ -52,25 +52,24 @@ export default class Footer extends React.Component {
 							aria-haspopup="true"
 							aria-expanded={this.headerStore.footerSitemapExpanded}>Sitemap</a>
 						<ul className="sitemap-links">
-							{this.user.isAdmin &&
 							<div>
-								<li role="presentation">
+								{this.userStore.destinationIsPermitted.administration && <li role="presentation">
 									<Link to="/admin">PSE Administration</Link>
-								</li>
-								<li role="presentation">
+								</li>}
+								{this.userStore.destinationIsPermitted.manageApps && <li role="presentation">
 									<Link to="/admin/manage-apps">Manage Apps</Link>
-								</li>
-								<li role="presentation">
+								</li>}
+								{this.userStore.destinationIsPermitted.shopSpecializedDevices && <li role="presentation">
 									<Link to="/admin/devices">Specialized Devices</Link>
-								</li>
-								<li role="presentation">
+								</li>}
+								{this.userStore.destinationIsPermitted.shopPublicSafetySolutions && <li role="presentation">
 									<Link to="/admin/solutions">Public Safety Solutions </Link>
-								</li>
+								</li>}
 							</div>
-							}
-							<li role="presentation">
-								<Link to="/network-status">Network Status</Link>
-							</li>
+							{this.userStore.destinationIsPermitted.networkStatus &&
+								<li role="presentation">
+									<Link to="/network-status">Network Status</Link>
+								</li>}
 						</ul>
 					</nav>
 				</div>
@@ -223,37 +222,39 @@ export default class Footer extends React.Component {
 
 	render() {
 		return (
-			<footer id="pse-footer">
-				<div className="footer-main">
-					<div className="container">
-						<div className="row">
-							<div className="col-xs-12 logoRow">
-								{this.props.showPrivateLinks
-									? <Link to="/" className="logo-home-link-footer">
-											<img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Local Control Home" />
-										</Link>
-									: <img src="/images/logo-FirstNet-local-control.svg" alt="" aria-hidden="true" />
-								}
+			<div className="footer-container">
+				<footer id="pse-footer">
+					<div className="footer-main">
+						<div className="container">
+							<div className="row">
+								<div className="col-xs-12 logoRow">
+									{this.props.showPrivateLinks
+										? <Link to="/" className="logo-home-link-footer">
+												<img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Local Control Home" />
+											</Link>
+										: <img src="/images/logo-FirstNet-local-control.svg" alt="" aria-hidden="true" />
+									}
+								</div>
 							</div>
-						</div>
-						<div className="row is-flex">
-							{this.renderSitemapColumn()}
-							{this.renderFirstNetColumn()}
-							{this.renderSocialLinkColumn()}
-							{this.renderHelpColumn()}
-						</div>
-					</div>
-				</div>
-				<div className="footer-sub">
-					<div className="container">
-						<div className="row">
-							<div className="col-xs-12">
-								{this.renderBottomNav()}
+							<div className="row is-flex">
+								{this.renderSitemapColumn()}
+								{this.renderFirstNetColumn()}
+								{this.renderSocialLinkColumn()}
+								{this.renderHelpColumn()}
 							</div>
 						</div>
 					</div>
-				</div>
-			</footer>
+					<div className="footer-sub">
+						<div className="container">
+							<div className="row">
+								<div className="col-xs-12">
+									{this.renderBottomNav()}
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
 		);
 	}
 }

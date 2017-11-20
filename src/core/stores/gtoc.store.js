@@ -1,135 +1,72 @@
-import {action, observable, computed} from 'mobx';
+import {action, observable, computed, autorun} from 'mobx';
 import {apiService} from '../services/api.service';
-import {utilsService} from '../services/utils.service';
 import {history} from '../services/history.service';
 
 class GTOCStore {
-
-  //Form event handler actions
-  @action handleChange(e) {
-    let input = e.target;
-    if(input.id === 'gtoc_email') {
-      this.gtocObject[input.id] = input.value;
-    } else if (input.type === 'checkbox' && input.name !== 'select-all-checkbox') {
-      this.gtocObject.gtoc_femaList.indexOf(input.value) < 0
-        ? this.gtocObject.gtoc_femaList.push(input.value)
-        : this.gtocObject.gtoc_femaList.remove(input.value);
-      //validate immediately on checkbox click
-      this.validateInput(input);
-    }
+  constructor() {
+    // check form for errors
+    autorun(() => {
+      let hasError = false;
+      this.formFieldRefList.forEach(ref => {
+        if(ref && ref.hasFunctionalError) {
+          hasError = true;
+        }
+      });
+      this.formHasError = hasError;
+    })
   }
 
-  @action handleBlur(e) {
-    e.preventDefault();
-    this.validateInput(e.target);
-  }
-
-  @action handleSubmit(e) {
-    e.preventDefault();
-    let form = e.target;
-    const inputs = this.parseForm(form);
-    this.showAlertBar = false;
-    for (var i = 0; i < inputs.length; ++i) {
-      this.validateInput(inputs[i]);
+  @action submitForm() {
+    const success = () => {
+      this.clearForm();
+      history.push('/subscribe-to-alerts-success');
     }
-    if (this.formIsValid) {
-      let data = {};
-      for (let key in this.gtocObject) {
-        data[key.replace('gtoc_', '')] = this.gtocObject[key];
-      }
-      const success = () => {
-        this.clearForm();
-        history.push('/subscribe-to-alerts-success');
-      }
-      const failure = (res) => {
-        //change history to allow user to navigate back to here from error page.
-        history.push('/subscribe-to-alerts');
-        utilsService.handleError(res);
-      }
-      apiService.submitGTOCSubscriptionForm(data).then(success, failure);
-    } else {
-      this.showAlertBar = true;
+    const failure = () => {
+      this.updateAlert('An unknown error occured. Please try again later.');
     }
-  }
-
-  //Validation actions
-  parseForm = (form) => {
-    return form.querySelectorAll('input');
-  }
-
-  isEmpty = (string) => {
-    if(string && string.trim()) {
-      return false;
-    }
-    return true;
-  }
-
-  @action validateInput(input) {
-    if (input.id === 'gtoc_email') {
-      this.hasErrors.gtoc_email = this.isEmpty(input.value) || !utilsService.isValidEmailAddress(input.value);
-    } else if(input.type === 'checkbox'){
-      this.hasErrors.gtoc_femaList = this.gtocObject.gtoc_femaList.length === 0;
-    }
-
-    //hide alert bar if all problems are corrected
-    if (this.formIsValid) {
-      this.showAlertBar = false;
-    }
-  }
-
-  //other actions
-  @action toggleAlertBar() {
-    this.showAlertBar = !this.showAlertBar;
+    apiService.submitGTOCSubscriptionForm(this.values).then(success, failure);
   }
 
   @action clearForm() {
-    this.showAlertBar = false;
-    this.gtocObject = {
-      gtoc_email: '',
-      gtoc_femaList: []
-    }
-    for (let key in this.hasErrors) {
-      this.hasErrors[key] = false;
-    }
+    this.values = Object.assign({}, this.defaultValues);
+    this.updateAlert('');
+    this.clearFormFieldRefList();
   }
 
-  @computed get requiredFieldsEntered() {
-    let requiredFieldsEntered = true;
-    if (this.isEmpty(this.gtocObject.gtoc_email) || !utilsService.isValidEmailAddress(this.gtocObject.gtoc_email)) {
-      requiredFieldsEntered = false;
-    }
-    if (this.gtocObject.gtoc_femaList.length === 0) {
-      requiredFieldsEntered = false;
-    }
-    return requiredFieldsEntered;
+  @action updateAlert(alertText) {
+    this.alertToDisplay = alertText;
   }
 
-  @computed get formIsValid() {
-    for (let key in this.hasErrors) {
-      if (this.hasErrors[key]) {
-        return false;
+  @action clearFormFieldRefList() {
+    this.formFieldRefList = [];
+  }
+
+  @computed get formIsDirty() {
+    let formHasChanged = false;
+    Object.keys(this.values).forEach(key => {
+      if(this.values[key].toString() !== this.defaultValues[key].toString()) {
+        formHasChanged = true;
       }
-    }
-    return true;
+    });
+    return formHasChanged;
   }
 
-  @computed get formHasEntries() {
-    return !this.isEmpty(this.gtocObject.gtoc_email);
+  @action selectAll() {
+    this.values.femaList = ['Region I: Connecticut, Maine, Massachusetts, New Hampshire, Rhode Island, Vermont','Region II: New Jersey, New York, Puerto Rico, Virgin Islands','Region III: District of Columbia, Delaware, Maryland, Pennsylvania, Virginia, West Virginia','Region IV: Alabama, Florida, Georgia, Kentucky, Mississippi, North Carolina, South Carolina, Tennessee','Region V: Illinois, Indiana, Michigan, Minnesota, Ohio, Wisconsin','Region VI: Arkansas, Louisiana, New Mexico, Oklahoma, Texas','Region VII: Iowa, Kansas, Missouri, Nebraska','Region VIII: Colorado, Montana, North Dakota, South Dakota, Utah, Wyoming','Region IX: Arizona, California, Hawaii, Nevada, Pacific Islands','Region X: Alaska, Idaho, Oregon, Washington'];
   }
 
-  @computed get allCheckboxesChecked() {
-    return this.gtocObject.gtoc_femaList.length === 10;
+  @action clearAll() {
+    this.values.femaList = [];
   }
 
-  @observable showAlertBar = false;
-  @observable gtocObject = {
-    gtoc_email: '',
-    gtoc_femaList: []
-  }
-  @observable hasErrors = {
-    gtoc_email: false,
-    gtoc_femaList: false
-  }
+  @observable formFieldRefList = [];
+  @observable formHasError = true;
+  @observable alertToDisplay = '';
+  @observable defaultValues = {
+    email: '',
+    femaList: []
+  };
+  @observable values = Object.assign({}, this.defaultValues);
 }
 
 export const gtocStore = new GTOCStore();

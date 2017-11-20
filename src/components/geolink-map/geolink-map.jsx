@@ -23,18 +23,27 @@ export default class GeolinkMap extends React.Component {
     window.iframeLoaded = null;
   }
 
+  handleUserAllowingLocation = (position) => {
+    const defaultAddress = position.coords.latitude + ', ' + position.coords.longitude;
+    this.props.geolinkStore.defaultValues.locationAddress = defaultAddress;
+    this.props.geolinkStore.values.locationAddress = defaultAddress;
+    this.props.geolinkStore.searchMap();
+  }
+
+  handleUserBlockingLocation = () => {
+    console.log('User has blocked geolocation.');
+  }
+
   onIframeLoad = () => {
     //record isReady in store to swap the placeholder for the map
     this.props.geolinkStore.iframeIsFullyLoaded = true;
 
     //set map defaults
-    if ('geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition(position => {
-        const defaultSearchTerm = position.coords.latitude + ', ' + position.coords.longitude;
-        this.props.geolinkStore.updateDefaultSearchTerm(defaultSearchTerm);
-        this.props.geolinkStore.updateSearchTerm(defaultSearchTerm);
-        this.props.geolinkStore.searchMap();
-      });
+    if (this.props.geolinkStore.values.locationAddress) {
+      this.props.geolinkStore.searchMap();
+      this.props.geolinkStore.disableSearch = false;
+    } else if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition(this.handleUserAllowingLocation, this.handleUserBlockingLocation);
     } else {
       console.warn('Geolocation is not allowed by the browser.');
     }

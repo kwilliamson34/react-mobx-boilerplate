@@ -1,22 +1,9 @@
 import React from 'react';
-import {observer, inject, PropTypes} from 'mobx-react';
 import config from 'config';
 import Footer from '../components/footer/footer.jsx';
 import PageTitle from '../components/page-title/page-title';
 
-@inject('store')
-@observer
 export default class SessionTimeoutPage extends React.Component {
-
-  static propTypes = {
-    store: PropTypes.observableObject.isRequired
-  };
-
-  constructor(props) {
-    super(props)
-    this.externalLinkStore = this.props.store.externalLinkStore;
-  }
-
   render() {
     return (
       <article id="session-timeout">

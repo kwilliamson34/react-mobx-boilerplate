@@ -1,137 +1,112 @@
-import {action, observable, computed} from 'mobx';
+import {action, observable, computed, autorun} from 'mobx';
 import {apiService} from '../services/api.service';
 import {userStore} from './user.store';
-import {utilsService} from '../services/utils.service';
 import {history} from '../services/history.service';
 
 class FeedbackStore {
-  //Form event handler actions
-  @action handleChange(e) {
-    e.preventDefault();
-    let input = e.target;
-    if(input.dataset.charlimit && input.id) {
-      this.feedbackObject[input.id] = input.value.substr(0, input.dataset.charlimit);
-      console.log('right', this.feedbackObject[input.id]);
-    } else if (input.id) {
-      this.feedbackObject[input.id] = input.value;
-    }
-  }
-
-  @action handleBlur(e) {
-    e.preventDefault();
-    let input = e.target;
-    this.validateInput(input);
-    if (this.showAlertBar && this.requiredFieldsEntered) {
-      this.toggleAlertBar();
-    }
-  }
-
-  @action handleSubmit(e) {
-    e.preventDefault();
-    let form = e.target;
-    const inputs = this.parseForm(form);
-    this.showAlertBar = false;
-    for (var i = 0; i < inputs.length; ++i) {
-      this.validateInput(inputs[i]);
-    }
-    if (this.formIsValid) {
-      let data = {};
-      for (let key in this.feedbackObject) {
-        data[key.replace('feedback_', '')] = this.feedbackObject[key];
+  constructor() {
+    // check form for errors
+    autorun(() => {
+      // check that initial values are available before validating for the first time
+      if(userStore.userValidationDone) {
+        let hasError = false;
+        this.formFieldRefList.forEach(ref => {
+          if(ref && ref.hasFunctionalError) {
+            // ensure that hidden checkbox doesn't prevent form submission if it still has a functional error;
+            if (ref.input && ref.input.id === 'contactAgreement' && !this.requireContactAgreement) {
+              return;
+            } else {
+              hasError = true;
+            }
+          }
+        });
+        this.formHasError = hasError;
       }
-      const success = () => {
-        this.clearForm();
-        history.push('/feedback-success');
+    });
+    autorun(() => {
+      // ensure contactAgreement doesn't render checked when user deletes their email and enters a new one;
+      if(userStore.userValidationDone) {
+        if(!this.requireContactAgreement) {
+          this.contactAgreement = false;
+        }
       }
-      const failure = (res) => {
-        //change history to allow user to navigate back to here from error page.
-        history.push('/feedback');
-        utilsService.handleError(res);
-      }
-      apiService.submitCustomerFeedbackForm(data).then(success, failure);
-    } else {
-      this.showAlertBar = true;
+    })
+  }
+
+  @action submitForm() {
+    const success = () => {
+      this.clearForm();
+      history.push('/feedback-success');
+      this.alertToDisplay = '';
     }
-  }
-
-  //Other actions
-  @action validateInput(input) {
-    if (input.id.indexOf('email') > -1) {
-      this.hasErrors[input.id] = !this.isEmpty(input.value) && !utilsService.isValidEmailAddress(input.value);
-    } else if(input.id){
-      this.hasErrors[input.id] = this.isEmpty(this.feedbackObject[input.id]);
+    const failure = () => {
+      this.alertToDisplay = 'An unknown error occured. Please try again later.';
     }
+    apiService.submitCustomerFeedbackForm(this.values).then(success, failure);
   }
 
-  parseForm = (form) => {
-    return form.querySelectorAll('input, select, textarea');
-  }
-
-  isEmpty = (string) => {
-    if(string && string.trim()) {
-      return false;
-    }
-    return true;
-  }
-
-  @action toggleAlertBar() {
-    this.showAlertBar = !this.showAlertBar;
+  @action toggleContactAgreement() {
+    this.contactAgreement = !this.contactAgreement;
   }
 
   @action clearForm() {
-    this.showAlertBar = false;
-    for (let key in this.feedbackObject) {
-      if (key === 'feedback_email') {
-        this.feedbackObject[key] = userStore.user.email || '';
-      } else {
-        this.feedbackObject[key] = '';
+    this.clearFormFieldRefList();
+    this.values = Object.assign({}, this.defaultValues);
+    this.contactAgreement = false;
+    this.alertToDisplay = '';
+  }
+
+  @action updateAlert(alertText) {
+    this.alertToDisplay = alertText;
+  }
+
+  @action clearFormFieldRefList() {
+    this.formFieldRefList = [];
+  }
+
+  @computed get formIsDirty() {
+    let formHasChanged = false;
+    Object.keys(this.values).forEach(key => {
+      if(this.values[key] !== this.defaultValues[key]) {
+        formHasChanged = true;
       }
-    }
-    for (let key in this.hasErrors) {
-      this.hasErrors[key] = false;
-    }
+    });
+    return formHasChanged;
   }
 
-  @action setDefaultEmail() {
-    if (this.isEmpty(this.feedbackObject.feedback_email)) {
-      this.feedbackObject.feedback_email = userStore.user.email || '';
-    }
+  @computed get requireContactAgreement() {
+    return this.values.email.length > 0;
   }
 
-  @computed get formIsValid() {
-    for (let key in this.hasErrors) {
-      if (this.hasErrors[key]) {
-        return false;
+  @computed get emailIsRequired() {
+    const topicsRequiringEmail = [
+      'Credential & Account Management',
+      'Purchasing & Provisioning',
+      'Billing & Payment'
+    ];
+    let emailIsRequired = false;
+    topicsRequiringEmail.forEach(topic => {
+      if (this.values.topic === topic) {
+        emailIsRequired = true;
       }
-    }
-    return true;
+    });
+    return emailIsRequired;
   }
 
-  @computed get requiredFieldsEntered() {
-    let requiredFieldsEntered = true;
-    for (let key in this.feedbackObject) {
-      if (key !== 'feedback_email' && this.isEmpty(this.feedbackObject[key])) requiredFieldsEntered = false;
-    }
-    return requiredFieldsEntered;
-  }
-
-  @computed get formHasEntries() {
-    return !this.isEmpty(this.feedbackObject.feedback_title) || !this.isEmpty(this.feedbackObject.feedback_details);
-  }
-
-  @observable showAlertBar = false;
-  @observable feedbackObject = {
-    feedback_title: '',
-    feedback_details: '',
-    feedback_topic: '',
-    feedback_email: ''
+  @observable formFieldRefList = [];
+  @observable formHasError = true;
+  @observable alertToDisplay = '';
+  @observable contactAgreement = false;
+  @observable defaultValues = {
+    topic: '',
+    subject: '',
+    details: '',
+    operatingSystem: '',
+    email: userStore.user.email,
+    phoneNo: userStore.user.phone,
+    likely: ''
   };
-  @observable hasErrors = {
-    feedback_title: false,
-    feedback_details: false,
-    feedback_topic: false,
-    feedback_email: false
-  };
+  @observable values = Object.assign({}, this.defaultValues);
 }
 
 export const feedbackStore = new FeedbackStore();

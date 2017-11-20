@@ -1,0 +1,88 @@
+exports[`<SortableTable> snapshot tests: render tests: should render with props 1`] = `
+<div
+  aria-rowcount={2}
+  className="sortable-table manage-locations-table-class"
+  id="manage-locations-table">
+  <div
+    className="table-head">
+    <span
+      className="sr-only"
+      tabIndex="0">
+      You are currently on a table. There are 0 columns and 2 rows.
+    </span>
+    <span>
+      <div
+        className="table-head-column favorite-name-column"
+        role="columnheader">
+        <div
+          className="sort-button-container">
+          <span
+            aria-atomic="true"
+            aria-live="assertive"
+            aria-relevant="text"
+            className="sr-only">
+            The table is now sorted by 
+            Name in
+            ascending
+            order.
+          </span>
+          <button
+            className="sort-button active"
+            onClick={[Function anonymous]}
+            type="button">
+            <span
+              className="sr-only">
+              Sort By
+            </span>
+            <span
+              className="sort-name">
+              Name
+              <i
+                aria-hidden="true"
+                className="arrow-up" />
+            </span>
+          </button>
+        </div>
+      </div>
+    </span>
+    <span>
+      <div
+        className="table-head-column favorite-name-column"
+        role="columnheader">
+        <div
+          className="sort-button-container">
+          <span
+            aria-atomic="true"
+            aria-live="assertive"
+            aria-relevant="text"
+            className="sr-only">
+            The table is now sorted by 
+            Name in
+            ascending
+            order.
+          </span>
+          <button
+            className="sort-button active"
+            onClick={[Function anonymous]}
+            type="button">
+            <span
+              className="sr-only">
+              Sort By
+            </span>
+            <span
+              className="sort-name">
+              Name
+              <i
+                aria-hidden="true"
+                className="arrow-up" />
+            </span>
+          </button>
+        </div>
+      </div>
+    </span>
+  </div>
+  <div
+    className="table-body"
+    role="rowgroup" />
+</div>
+`;

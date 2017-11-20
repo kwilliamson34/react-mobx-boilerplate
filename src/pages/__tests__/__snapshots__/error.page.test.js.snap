@@ -12,10 +12,6 @@ exports[`<ErrorPage /> render matches previous snapshot 1`] = `
           aria-hidden="true"
           src="/images/logo-FirstNet-local-control.svg" />
       </div>
-      <h1
-        className="as-h3">
-        You\'ve encountered a permissions error.
-      </h1>
       <p
         dangerouslySetInnerHTML={
           Object {
@@ -29,7 +25,7 @@ exports[`<ErrorPage /> render matches previous snapshot 1`] = `
           <li>
             <a
               href="https://test-apps.firstnet.att.com">
-              Apps
+              App Store
             </a>
           </li>
           <li>
@@ -51,7 +47,8 @@ exports[`<ErrorPage /> render matches previous snapshot 1`] = `
         <hr
           className="or" />
         <a
-          href="https://oidc.stage.flogin.att.com/isam/oidc/endpoint/amapp-runtime-SSPRS/authorize?response_type=id_token+token&client_id=m11635&state=FWpMHzl61gXfcnMmwkp4&&scope=openid&nonce=dsZHN5kvm2a4cVIA0ZdN&response_mode=form_post">
+          href="#"
+          onClick={[Function anonymous]}>
           Log Out
         </a>
       </div>
@@ -74,10 +71,6 @@ exports[`<ErrorPage /> render shows Access Denied for authorization problem 1`] 
           aria-hidden="true"
           src="/images/logo-FirstNet-local-control.svg" />
       </div>
-      <h1
-        className="as-h3">
-        You\'ve encountered a permissions error.
-      </h1>
       <p
         dangerouslySetInnerHTML={
           Object {
@@ -91,7 +84,7 @@ exports[`<ErrorPage /> render shows Access Denied for authorization problem 1`] 
           <li>
             <a
               href="https://test-apps.firstnet.att.com">
-              Apps
+              App Store
             </a>
           </li>
           <li>
@@ -113,7 +106,8 @@ exports[`<ErrorPage /> render shows Access Denied for authorization problem 1`] 
         <hr
           className="or" />
         <a
-          href="https://oidc.stage.flogin.att.com/isam/oidc/endpoint/amapp-runtime-SSPRS/authorize?response_type=id_token+token&client_id=m11635&state=FWpMHzl61gXfcnMmwkp4&&scope=openid&nonce=dsZHN5kvm2a4cVIA0ZdN&response_mode=form_post">
+          href="#"
+          onClick={[Function anonymous]}>
           Log Out
         </a>
       </div>
@@ -136,14 +130,10 @@ exports[`<ErrorPage /> render shows Access Denied for authorization problem 2`] 
           aria-hidden="true"
           src="/images/logo-FirstNet-local-control.svg" />
       </div>
-      <h1
-        className="as-h3">
-        We\'re Sorry.
-      </h1>
       <p
         dangerouslySetInnerHTML={
           Object {
-            "__html": "This page is experiencing an issue. Try again later, or continue to one of the FirstNet Sites below:"
+            "__html": "Unfortunately, you do not have permission to view this page. If you think this is in error, please contact your site administrator, or continue to one of the FirstNet Sites below:"
           }
         } />
       <nav
@@ -153,7 +143,7 @@ exports[`<ErrorPage /> render shows Access Denied for authorization problem 2`] 
           <li>
             <a
               href="https://test-apps.firstnet.att.com">
-              Apps
+              App Store
             </a>
           </li>
           <li>
@@ -170,6 +160,16 @@ exports[`<ErrorPage /> render shows Access Denied for authorization problem 2`] 
           </li>
         </ul>
       </nav>
+      <div
+        className="logout-block">
+        <hr
+          className="or" />
+        <a
+          href="#"
+          onClick={[Function anonymous]}>
+          Log Out
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -189,24 +189,46 @@ exports[`<ErrorPage /> render shows App Unavailable on 410 1`] = `
           aria-hidden="true"
           src="/images/logo-FirstNet-local-control.svg" />
       </div>
-      <h1
-        className="as-h3">
-        App Unavailable
-      </h1>
       <p
         dangerouslySetInnerHTML={
           Object {
-            "__html": "The app you requested is no longer available."
+            "__html": "Unfortunately, you do not have permission to view this page. If you think this is in error, please contact your site administrator, or continue to one of the FirstNet Sites below:"
           }
         } />
-      <section>
+      <nav
+        aria-label="FirstNet Sites"
+        className="sites-list">
+        <ul>
+          <li>
+            <a
+              href="https://test-apps.firstnet.att.com">
+              App Store
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://test-appcontrol.firstnet.att.com/">
+              App Control
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://test-localcontrol.firstnet.att.com">
+              Local Control
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div
+        className="logout-block">
+        <hr
+          className="or" />
         <a
-          className="fn-primary"
-          href="/"
+          href="#"
           onClick={[Function anonymous]}>
-          Return to Home Page
+          Log Out
         </a>
-      </section>
+      </div>
     </div>
   </div>
 </section>
@@ -226,14 +248,10 @@ exports[`<ErrorPage /> render shows Generic message otherwise 1`] = `
           aria-hidden="true"
           src="/images/logo-FirstNet-local-control.svg" />
       </div>
-      <h1
-        className="as-h3">
-        We\'re Sorry.
-      </h1>
       <p
         dangerouslySetInnerHTML={
           Object {
-            "__html": "This page is experiencing an issue. Try again later, or continue to one of the FirstNet Sites below:"
+            "__html": "Unfortunately, you do not have permission to view this page. If you think this is in error, please contact your site administrator, or continue to one of the FirstNet Sites below:"
           }
         } />
       <nav
@@ -243,7 +261,7 @@ exports[`<ErrorPage /> render shows Generic message otherwise 1`] = `
           <li>
             <a
               href="https://test-apps.firstnet.att.com">
-              Apps
+              App Store
             </a>
           </li>
           <li>
@@ -260,6 +278,16 @@ exports[`<ErrorPage /> render shows Generic message otherwise 1`] = `
           </li>
         </ul>
       </nav>
+      <div
+        className="logout-block">
+        <hr
+          className="or" />
+        <a
+          href="#"
+          onClick={[Function anonymous]}>
+          Log Out
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -279,24 +307,46 @@ exports[`<ErrorPage /> render shows Permission Pending 1`] = `
           aria-hidden="true"
           src="/images/logo-FirstNet-local-control.svg" />
       </div>
-      <h1
-        className="as-h3">
-        Account permissions pending.
-      </h1>
       <p
         dangerouslySetInnerHTML={
           Object {
-            "__html": "Permissions for new accounts may take up to 24 hours to properly sync and some pages may not be immediately available.  Please try accessing this page again later."
+            "__html": "Unfortunately, you do not have permission to view this page. If you think this is in error, please contact your site administrator, or continue to one of the FirstNet Sites below:"
           }
         } />
-      <section>
-        <button
-          className="as-link"
-          onClick={[Function onClick]}
-          type="button">
-          Go Back
-        </button>
-      </section>
+      <nav
+        aria-label="FirstNet Sites"
+        className="sites-list">
+        <ul>
+          <li>
+            <a
+              href="https://test-apps.firstnet.att.com">
+              App Store
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://test-appcontrol.firstnet.att.com/">
+              App Control
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://test-localcontrol.firstnet.att.com">
+              Local Control
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div
+        className="logout-block">
+        <hr
+          className="or" />
+        <a
+          href="#"
+          onClick={[Function anonymous]}>
+          Log Out
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -316,10 +366,6 @@ exports[`<ErrorPage /> render shows Service Error for authentication problem 1`]
           aria-hidden="true"
           src="/images/logo-FirstNet-local-control.svg" />
       </div>
-      <h1
-        className="as-h3">
-        Service Issue.
-      </h1>
       <p
         dangerouslySetInnerHTML={
           Object {
@@ -333,7 +379,7 @@ exports[`<ErrorPage /> render shows Service Error for authentication problem 1`]
           <li>
             <a
               href="https://test-apps.firstnet.att.com">
-              Apps
+              App Store
             </a>
           </li>
           <li>
@@ -369,24 +415,46 @@ exports[`<ErrorPage /> render shows Sorry for Page Not Found (404) 1`] = `
           aria-hidden="true"
           src="/images/logo-FirstNet-local-control.svg" />
       </div>
-      <h1
-        className="as-h3">
-        We\'re Sorry.
-      </h1>
       <p
         dangerouslySetInnerHTML={
           Object {
-            "__html": "The page you were looking for could not be found."
+            "__html": "Unfortunately, you do not have permission to view this page. If you think this is in error, please contact your site administrator, or continue to one of the FirstNet Sites below:"
           }
         } />
-      <section>
-        <button
-          className="as-link"
-          onClick={[Function onClick]}
-          type="button">
-          Go Back
-        </button>
-      </section>
+      <nav
+        aria-label="FirstNet Sites"
+        className="sites-list">
+        <ul>
+          <li>
+            <a
+              href="https://test-apps.firstnet.att.com">
+              App Store
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://test-appcontrol.firstnet.att.com/">
+              App Control
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://test-localcontrol.firstnet.att.com">
+              Local Control
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div
+        className="logout-block">
+        <hr
+          className="or" />
+        <a
+          href="#"
+          onClick={[Function anonymous]}>
+          Log Out
+        </a>
+      </div>
     </div>
   </div>
 </section>

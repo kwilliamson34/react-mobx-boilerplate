@@ -7,9 +7,6 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
       className="row">
       <div
         className="col-xs-12 col-sm-10 col-sm-offset-1 catalog-header">
-        <h1>
-          Specialized Devices
-        </h1>
         <p>
           FirstNet offers an extensive selection of devices and accessories. Check out a small selection of our portfolio. To learn more about our full portfolio, contact a FirstNet Specialist.
         </p>
@@ -96,9 +93,6 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
       className="row">
       <div
         className="col-xs-12 col-sm-10 col-sm-offset-1 catalog-header">
-        <h1>
-          Specialized Devices
-        </h1>
         <p>
           FirstNet offers an extensive selection of devices and accessories. Check out a small selection of our portfolio. To learn more about our full portfolio, contact a FirstNet Specialist.
         </p>
@@ -154,7 +148,7 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
             className="mp-content">
             <li>
               <a
-                href="/admin/devices/in-vehicle/undefined"
+                href="/admin/devices/in-vehicle/title"
                 id="invehicle_0"
                 onClick={[Function anonymous]}>
                 <h3
@@ -163,12 +157,16 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
                       "__html": "title"
                     }
                   } />
-                <div
+                <figure
                   className="card-img-wrapper">
                   <img
-                    alt="alt"
+                    alt=""
                     src="url" />
-                </div>
+                  <figcaption
+                    className="sr-only">
+                    alt
+                  </figcaption>
+                </figure>
               </a>
             </li>
           </ul>
@@ -205,9 +203,6 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
       className="row">
       <div
         className="col-xs-12 col-sm-10 col-sm-offset-1 catalog-header">
-        <h1>
-          Specialized Devices
-        </h1>
         <p>
           FirstNet offers an extensive selection of devices and accessories. Check out a small selection of our portfolio. To learn more about our full portfolio, contact a FirstNet Specialist.
         </p>
@@ -229,7 +224,7 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
             className="mp-content">
             <li>
               <a
-                href="/admin/devices/phones/undefined"
+                href="/admin/devices/phones/title"
                 id="phone_0"
                 onClick={[Function anonymous]}>
                 <h3
@@ -238,12 +233,16 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
                       "__html": "title"
                     }
                   } />
-                <div
+                <figure
                   className="card-img-wrapper">
                   <img
-                    alt="alt"
+                    alt=""
                     src="url" />
-                </div>
+                  <figcaption
+                    className="sr-only">
+                    alt
+                  </figcaption>
+                </figure>
               </a>
             </li>
           </ul>
@@ -266,7 +265,7 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
             className="mp-content">
             <li>
               <a
-                href="/admin/devices/tablets/undefined"
+                href="/admin/devices/tablets/title"
                 id="tablet_0"
                 onClick={[Function anonymous]}>
                 <h3
@@ -275,17 +274,21 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
                       "__html": "title"
                     }
                   } />
-                <div
+                <figure
                   className="card-img-wrapper">
                   <img
-                    alt="alt"
+                    alt=""
                     src="url" />
-                </div>
+                  <figcaption
+                    className="sr-only">
+                    alt
+                  </figcaption>
+                </figure>
               </a>
             </li>
             <li>
               <a
-                href="/admin/devices/tablets/undefined"
+                href="/admin/devices/tablets/title"
                 id="tablet_1"
                 onClick={[Function anonymous]}>
                 <h3
@@ -294,17 +297,21 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
                       "__html": "title"
                     }
                   } />
-                <div
+                <figure
                   className="card-img-wrapper">
                   <img
-                    alt="alt"
+                    alt=""
                     src="url" />
-                </div>
+                  <figcaption
+                    className="sr-only">
+                    alt
+                  </figcaption>
+                </figure>
               </a>
             </li>
             <li>
               <a
-                href="/admin/devices/tablets/undefined"
+                href="/admin/devices/tablets/title"
                 id="tablet_2"
                 onClick={[Function anonymous]}>
                 <h3
@@ -313,17 +320,21 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
                       "__html": "title"
                     }
                   } />
-                <div
+                <figure
                   className="card-img-wrapper">
                   <img
-                    alt="alt"
+                    alt=""
                     src="url" />
-                </div>
+                  <figcaption
+                    className="sr-only">
+                    alt
+                  </figcaption>
+                </figure>
               </a>
             </li>
             <li>
               <a
-                href="/admin/devices/tablets/undefined"
+                href="/admin/devices/tablets/title"
                 id="tablet_3"
                 onClick={[Function anonymous]}>
                 <h3
@@ -332,12 +343,16 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
                       "__html": "title"
                     }
                   } />
-                <div
+                <figure
                   className="card-img-wrapper">
                   <img
-                    alt="alt"
+                    alt=""
                     src="url" />
-                </div>
+                  <figcaption
+                    className="sr-only">
+                    alt
+                  </figcaption>
+                </figure>
               </a>
             </li>
           </ul>
@@ -370,7 +385,7 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
             className="mp-content">
             <li>
               <a
-                href="/admin/devices/in-vehicle/undefined"
+                href="/admin/devices/in-vehicle/title"
                 id="invehicle_0"
                 onClick={[Function anonymous]}>
                 <h3
@@ -379,17 +394,21 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
                       "__html": "title"
                     }
                   } />
-                <div
+                <figure
                   className="card-img-wrapper">
                   <img
-                    alt="alt"
+                    alt=""
                     src="url" />
-                </div>
+                  <figcaption
+                    className="sr-only">
+                    alt
+                  </figcaption>
+                </figure>
               </a>
             </li>
             <li>
               <a
-                href="/admin/devices/in-vehicle/undefined"
+                href="/admin/devices/in-vehicle/title"
                 id="invehicle_1"
                 onClick={[Function anonymous]}>
                 <h3
@@ -398,17 +417,21 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
                       "__html": "title"
                     }
                   } />
-                <div
+                <figure
                   className="card-img-wrapper">
                   <img
-                    alt="alt"
+                    alt=""
                     src="url" />
-                </div>
+                  <figcaption
+                    className="sr-only">
+                    alt
+                  </figcaption>
+                </figure>
               </a>
             </li>
             <li>
               <a
-                href="/admin/devices/in-vehicle/undefined"
+                href="/admin/devices/in-vehicle/title"
                 id="invehicle_2"
                 onClick={[Function anonymous]}>
                 <h3
@@ -417,12 +440,16 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
                       "__html": "title"
                     }
                   } />
-                <div
+                <figure
                   className="card-img-wrapper">
                   <img
-                    alt="alt"
+                    alt=""
                     src="url" />
-                </div>
+                  <figcaption
+                    className="sr-only">
+                    alt
+                  </figcaption>
+                </figure>
               </a>
             </li>
           </ul>
@@ -445,7 +472,7 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
             className="mp-content">
             <li>
               <a
-                href="/admin/devices/accessories/undefined"
+                href="/admin/devices/accessories/title"
                 id="accessories_0"
                 onClick={[Function anonymous]}>
                 <h3
@@ -454,17 +481,21 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
                       "__html": "title"
                     }
                   } />
-                <div
+                <figure
                   className="card-img-wrapper">
                   <img
-                    alt="alt"
+                    alt=""
                     src="url" />
-                </div>
+                  <figcaption
+                    className="sr-only">
+                    alt
+                  </figcaption>
+                </figure>
               </a>
             </li>
             <li>
               <a
-                href="/admin/devices/accessories/undefined"
+                href="/admin/devices/accessories/title"
                 id="accessories_1"
                 onClick={[Function anonymous]}>
                 <h3
@@ -473,17 +504,21 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
                       "__html": "title"
                     }
                   } />
-                <div
+                <figure
                   className="card-img-wrapper">
                   <img
-                    alt="alt"
+                    alt=""
                     src="url" />
-                </div>
+                  <figcaption
+                    className="sr-only">
+                    alt
+                  </figcaption>
+                </figure>
               </a>
             </li>
             <li>
               <a
-                href="/admin/devices/accessories/undefined"
+                href="/admin/devices/accessories/title"
                 id="accessories_2"
                 onClick={[Function anonymous]}>
                 <h3
@@ -492,17 +527,21 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
                       "__html": "title"
                     }
                   } />
-                <div
+                <figure
                   className="card-img-wrapper">
                   <img
-                    alt="alt"
+                    alt=""
                     src="url" />
-                </div>
+                  <figcaption
+                    className="sr-only">
+                    alt
+                  </figcaption>
+                </figure>
               </a>
             </li>
             <li>
               <a
-                href="/admin/devices/accessories/undefined"
+                href="/admin/devices/accessories/title"
                 id="accessories_3"
                 onClick={[Function anonymous]}>
                 <h3
@@ -511,12 +550,16 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
                       "__html": "title"
                     }
                   } />
-                <div
+                <figure
                   className="card-img-wrapper">
                   <img
-                    alt="alt"
+                    alt=""
                     src="url" />
-                </div>
+                  <figcaption
+                    className="sr-only">
+                    alt
+                  </figcaption>
+                </figure>
               </a>
             </li>
           </ul>

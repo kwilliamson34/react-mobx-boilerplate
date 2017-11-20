@@ -1,0 +1,63 @@
+.standalone-form-page {
+  padding: 0;
+
+  .content-wrapper h1 {
+    margin: 6rem 0;
+  }
+
+  textarea {
+    height: 125px;
+    line-height: 1.5;
+  }
+
+  .checkbox {
+    padding-top: 15px;
+
+    .error,
+    label {
+      padding-left: 0;
+    }
+  }
+}
+
+.form-actions {
+  display: block;
+  text-align: center;
+
+  .form-group {
+    display: inline-block;
+  }
+}
+
+#lead-capture-page,
+#customer-feedback-page {
+  .checkbox .cr {
+    margin-bottom: 3rem; //checkbox text may wrap to 3 lines
+  }
+}
+
+#customer-feedback-page {
+  .contact-agreement {
+    .checkbox {
+      margin-bottom: 20px;
+    }
+  }
+
+  a {
+    white-space: nowrap;
+  }
+}
+
+@media #{$mobile} {
+  .standalone-form-page {
+    .content-wrapper h1 {
+      margin: 3rem 0;
+    }
+  }
+
+  #customer-feedback-page {
+    .content-wrapper h1 {
+      margin: 2rem 0;
+    }
+  }
+}

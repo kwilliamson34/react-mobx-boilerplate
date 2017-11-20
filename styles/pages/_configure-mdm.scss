@@ -4,7 +4,8 @@
   .mdm-form-wrapper {
     padding-top: 30px;
 
-    h1 {
+    h1,
+    .as-h1 {
       margin: 30px 0;
     }
   }
@@ -19,46 +20,25 @@
 }
 
 .mdm-form {
-  margin-bottom: 90px;
-
-  .mdm-description {
+  .mdm-descriptive-block {
     font-size: $fn-label-desktop;
     line-height: 20px;
     margin-bottom: 30px;
   }
-
-  .form-group {
-    margin-bottom: 30px;
-
-    .help-text {
-      padding-left: 10px;
-    }
-  }
-
-  .msgBlock {
-    font-weight: $fn-medium-weight;
-    font-size: $fn-label-desktop;
-    line-height: 16px;
-  }
-
-  #mdm_submit_btn {
-    min-width: 200px;
-  }
-
 }
-
 @media #{$mobile} {
   #configure-mdm-page {
-
     .break-mdm-wrapper {
       border-bottom: 1px solid $fn-grey;
       padding: 0;
+
       .break-mdm-btn {
         background: transparent;
         color: $fn-ltblue;
         border-color: transparent;
         padding: 0 15px;
         margin: 0 15px;
+
         &.hover,
         &:hover {
           color: $fn-dkgrey;
@@ -66,12 +46,14 @@
           text-decoration: underline;
           box-shadow: none;
         }
-        &:focus,
-        &.focus {
-           box-shadow: 1px 1px 0 0 #1071BC, 1px -1px 0 0 #1071BC, -1px 1px 0 0 #1071BC, -1px -1px 0 0 #1071BC;
-           border-radius: 8px;
-           outline: none;
-       }
+
+        &.focus,
+        &:focus {
+          box-shadow: 1px 1px 0 0 #1071BC, 1px -1px 0 0 #1071BC, -1px 1px 0 0 #1071BC, -1px -1px 0 0 #1071BC;
+          border-radius: 8px;
+          outline: none;
+        }
+
         &.active,
         &:active,
         &:active:focus {

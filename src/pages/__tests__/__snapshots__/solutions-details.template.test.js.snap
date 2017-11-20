@@ -1,55 +1,324 @@
-exports[`<SolutionsDetailsTemplate /> render matches snapshot with and without purchasing info 1`] = `
+exports[`<SolutionsDetailsTemplate /> render matches snapshot 1`] = `
 <article
+  className="solutions-details-page"
   id="solutions-details-page">
   <div
     className="container">
-    <section
-      className="details-wrapper col-lg-offset-1 col-lg-10">
-      <div
-        className="row">
+    <div
+      className="row">
+      <section
+        className="details-wrapper col-lg-offset-1 col-lg-10">
         <div
-          className="col-xs-12 content-wrapper">
+          className="content-wrapper">
           <div
             dangerouslySetInnerHTML={
               Object {
-                "__html": Object {
-                  "path": "match"
-                }
+                "__html": undefined
               }
             } />
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
     <div
-      className="col-lg-offset-1 col-lg-10" />
+      className="row">
+      <section
+        className="col-xs-12 col-lg-offset-1 col-lg-10 learn-more-section">
+        <h2>
+          Learn More
+        </h2>
+        <hr />
+        <div>
+          <span
+            className="solution-name"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "detail1"
+              }
+            } />
+          <a
+            className="btn fn-primary "
+            href="/admin/solutions/category1/detail1/request-info"
+            onClick={[Function anonymous]}>
+            Request Information
+          </a>
+        </div>
+      </section>
+    </div>
   </div>
 </article>
 `;
 
-exports[`<SolutionsDetailsTemplate /> render matches snapshot with and without purchasing info 2`] = `
+exports[`<SolutionsDetailsTemplate /> render renders lead capture section 1`] = `
 <article
+  className="solutions-details-page"
   id="solutions-details-page">
   <div
     className="container">
-    <section
-      className="details-wrapper col-lg-offset-1 col-lg-10">
-      <div
-        className="row">
+    <div
+      className="row">
+      <section
+        className="details-wrapper col-lg-offset-1 col-lg-10">
         <div
-          className="col-xs-12 content-wrapper">
+          className="content-wrapper">
           <div
             dangerouslySetInnerHTML={
               Object {
-                "__html": Object {
-                  "path": "match"
-                }
+                "__html": undefined
               }
             } />
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
     <div
-      className="col-lg-offset-1 col-lg-10" />
+      className="row">
+      <section
+        className="col-xs-12 col-lg-offset-1 col-lg-10 learn-more-section">
+        <h2>
+          Learn More
+        </h2>
+        <hr />
+        <div>
+          <span
+            className="solution-name"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "detail1"
+              }
+            } />
+          <a
+            className="btn fn-primary "
+            href="/admin/solutions/category1/detail1/request-info"
+            onClick={[Function anonymous]}>
+            Request Information
+          </a>
+        </div>
+      </section>
+    </div>
+  </div>
+</article>
+`;
+
+exports[`<SolutionsDetailsTemplate /> render renders lead capture section 2`] = `
+<article
+  className="solutions-details-page"
+  id="solutions-details-page">
+  <div
+    className="container">
+    <div
+      className="row">
+      <section
+        className="details-wrapper col-lg-offset-1 col-lg-10">
+        <div
+          className="content-wrapper">
+          <div
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": undefined
+              }
+            } />
+        </div>
+      </section>
+    </div>
+    <div
+      className="row">
+      <section
+        className="col-xs-12 col-lg-offset-1 col-lg-10 learn-more-section">
+        <h2>
+          Learn More
+        </h2>
+        <hr />
+        <div>
+          <span
+            className="solution-name"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "detail1"
+              }
+            } />
+          <a
+            className="btn fn-primary "
+            href="/admin/solutions/category1/detail1/request-info"
+            onClick={[Function anonymous]}>
+            Request Information
+          </a>
+        </div>
+      </section>
+    </div>
+  </div>
+</article>
+`;
+
+exports[`<SolutionsDetailsTemplate /> render renders lead capture section 3`] = `
+<article
+  className="solutions-details-page"
+  id="solutions-details-page">
+  <div
+    className="container">
+    <div
+      className="row">
+      <section
+        className="details-wrapper col-lg-offset-1 col-lg-10">
+        <div
+          className="content-wrapper">
+          <div
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": undefined
+              }
+            } />
+        </div>
+      </section>
+    </div>
+    <div
+      className="row">
+      <section
+        className="col-xs-12 col-lg-offset-1 col-lg-10 learn-more-section">
+        <h2>
+          Learn More
+        </h2>
+        <hr />
+        <div>
+          <span
+            className="solution-name"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "detail1"
+              }
+            } />
+          <a
+            className="btn fn-primary "
+            href="/admin/solutions/category1/detail1/request-info"
+            onClick={[Function anonymous]}>
+            Request Information
+          </a>
+        </div>
+      </section>
+    </div>
+  </div>
+</article>
+`;
+
+exports[`<SolutionsDetailsTemplate /> render renders purchasing info section 1`] = `
+<article
+  className="solutions-details-page"
+  id="solutions-details-page">
+  <div
+    className="container">
+    <div
+      className="row">
+      <section
+        className="details-wrapper col-lg-offset-1 col-lg-10">
+        <div
+          className="content-wrapper">
+          <div
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": undefined
+              }
+            } />
+        </div>
+      </section>
+    </div>
+    <div
+      className="row">
+      <section
+        className="col-xs-12 col-lg-offset-1 col-lg-10 learn-more-section">
+        <h2>
+          Learn More
+        </h2>
+        <hr />
+        <div>
+          <span
+            className="solution-name"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "detail1"
+              }
+            } />
+          <a
+            className="btn fn-primary "
+            href="/admin/solutions/category1/detail1/request-info"
+            onClick={[Function anonymous]}>
+            Request Information
+          </a>
+        </div>
+      </section>
+    </div>
+    <div
+      className="row">
+      <section
+        className="col-xs-12 col-lg-offset-1 col-lg-10" />
+    </div>
+    <div
+      className="row">
+      <section
+        className="col-xs-12 col-lg-offset-1 col-lg-10 app-details-section">
+        <h2>
+          Related App
+        </h2>
+        <hr />
+      </section>
+    </div>
+  </div>
+</article>
+`;
+
+exports[`<SolutionsDetailsTemplate /> render renders related app section 1`] = `
+<article
+  className="solutions-details-page"
+  id="solutions-details-page">
+  <div
+    className="container">
+    <div
+      className="row">
+      <section
+        className="details-wrapper col-lg-offset-1 col-lg-10">
+        <div
+          className="content-wrapper">
+          <div
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": undefined
+              }
+            } />
+        </div>
+      </section>
+    </div>
+    <div
+      className="row">
+      <section
+        className="col-xs-12 col-lg-offset-1 col-lg-10 learn-more-section">
+        <h2>
+          Learn More
+        </h2>
+        <hr />
+        <div>
+          <span
+            className="solution-name"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "detail1"
+              }
+            } />
+          <a
+            className="btn fn-primary "
+            href="/admin/solutions/category1/detail1/request-info"
+            onClick={[Function anonymous]}>
+            Request Information
+          </a>
+        </div>
+      </section>
+    </div>
+    <div
+      className="row">
+      <section
+        className="col-xs-12 col-lg-offset-1 col-lg-10 app-details-section">
+        <h2>
+          Related App
+        </h2>
+        <hr />
+      </section>
+    </div>
   </div>
 </article>
 `;

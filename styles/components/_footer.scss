@@ -1,5 +1,10 @@
 $footer-font-color: $fn-dark;
 
+.footer-container {
+  background-color: transparent;
+  padding-top: $footer-margin-top;
+}
+
 footer {
   border-top: 5px solid $fn-black;
 
@@ -43,7 +48,7 @@ footer {
       font-size: 1.6rem;
       font-weight: $fn-normal-weight;
       color: $footer-font-color;
-      margin-bottom: 15px;
+      margin-bottom: 23px;
       line-height: 1.4;
 
       a {
@@ -146,7 +151,7 @@ footer {
 
         &.footer-support-phone {
           color: $footer-font-color;
-          margin-right: 5px;
+          margin-left: 0;
 
           &:before {
             font-size: 1.6rem;
@@ -338,16 +343,6 @@ footer {
     nav {
       border-bottom: 1px solid $fn-bordergrey;
     }
-
-    li {
-      a {
-        i {
-          &.footer-support-phone {
-            margin-left: 5px;
-          }
-        }
-      }
-    }
   }
 
   .social-links-list {
@@ -422,10 +417,6 @@ footer {
 
     .footer-main {
       li {
-
-        &:not(:last-child) {
-          margin-bottom: 23px;
-        }
         .new-tab-link {
           .icon-external-site {
             display:none;

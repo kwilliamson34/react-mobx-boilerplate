@@ -68,7 +68,7 @@ export class AppDetailBanner extends React.Component {
   }
 
   details() {
-    const dateToRender = this.appStore.currentAppObject.custom_metadata ? utilsService.normalizedDate(this.appStore.currentAppObject.custom_metadata.release_date, 'MMM DD, YYYY') : '';
+    const dateToRender = this.appStore.currentAppObject.custom_metadata ? utilsService.normalizedDate(this.appStore.currentAppObject.custom_metadata.release_date, 'MMM D, YYYY') : '';
 
     return (
       <div className="app-details">
@@ -166,7 +166,7 @@ export class AppDetailBanner extends React.Component {
     } else if(this.props.actionBlock === 'link_to_details') {
       return (
         <div className="action-block">
-          <Link to={'/app/' + this.appStore.currentAppObject.app_psk} className="fn-primary">Go to App</Link>
+          <Link to={'/app/' + this.appStore.currentAppObject.app_psk} className="fn-secondary">Go to App</Link>
         </div>
       )
     }

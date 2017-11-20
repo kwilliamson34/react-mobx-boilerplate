@@ -5,9 +5,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const precss = require("precss");
 const autoprefixer = require("autoprefixer");
-const args = require('minimist')(process.argv.slice(2));
 
-// // Set environment to prod; allowedEnvs ['dev', 'prod']
+// Set the environment; allowed ['dev','stage','prod']
 const env = 'dev';
 
 console.log('Built for the \x1b[34m' + env + '\x1b[30m environment');
@@ -42,7 +41,7 @@ module.exports = {
 	devServer: {
 		https: true,
 		port: 8443,
-    disableHostCheck: true,
+		disableHostCheck: true,
 		historyApiFallback: true,
 		hot: true,
 
@@ -52,11 +51,11 @@ module.exports = {
 		publicPath: '/',
 		proxy: {
 			'/api': {
-				target: 'https://abed-localcontrol.sapientfirst.net',
+				target: 'https://troy-localcontrol.sapientfirst.net',
 				secure: false
 			},
 			'/oauth/validate': {
-				target: 'https://abed-localcontrol.sapientfirst.net',
+				target: 'https://troy-localcontrol.sapientfirst.net',
 				secure: false
 			}
 		}
@@ -64,7 +63,7 @@ module.exports = {
 	resolve: {
 		extensions: ['.js', '.jsx'],
 		alias: {
-			'config': path.join(__dirname, `config/${env}.endpoints.js`),
+			'config': path.join(__dirname, `config/${env}.endpoints.js`)
 		},
 	},
 	node: {
@@ -141,6 +140,7 @@ module.exports = {
 			}
 		]
 	},
+
 	plugins: [
 		new webpack.IgnorePlugin(/regenerator|nodent|js-beautify/, /ajv/),
 		new webpack.HotModuleReplacementPlugin(),

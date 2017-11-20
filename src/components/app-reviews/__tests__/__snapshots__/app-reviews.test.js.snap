@@ -14,12 +14,14 @@ exports[`<AppReviews /> render tests renders one review and does not render Load
           A Bad Review is Coming
         </div>
         <div
-          className="sr-only">
-          App rated undefined out of 5
-        </div>
-        <div
           className="ratings-container">
           <span>
+            <div
+              className="sr-only">
+              This app has a rating of 
+              1
+               stars out of 5.
+            </div>
             <span
               className="ratings-stars">
               <span
@@ -46,9 +48,7 @@ exports[`<AppReviews /> render tests renders one review and does not render Load
         Cletus Slackjaw of the House Yokel
       </div>
       <div
-        className="review-date">
-        July 14, 2017
-      </div>
+        className="review-date" />
     </div>
     <div
       className="truncate-container">
@@ -60,19 +60,19 @@ exports[`<AppReviews /> render tests renders one review and does not render Load
               "__html": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse …"
             }
           } />
-        <button
-          aria-expanded={false}
-          aria-haspopup="true"
-          className="btn-link truncate-button"
-          onClick={[Function anonymous]}>
-          <span>
-            SHOW MORE
-          </span>
-          <i
-            aria-hidden="true"
-            className="icon-arrowDown" />
-        </button>
       </span>
+      <button
+        aria-expanded={false}
+        aria-haspopup="true"
+        className="btn-link truncate-button"
+        onClick={[Function anonymous]}>
+        <span>
+          Show more
+        </span>
+        <i
+          aria-hidden="true"
+          className="icon-arrowDown" />
+      </button>
     </div>
   </div>
 </div>
@@ -94,12 +94,14 @@ exports[`<AppReviews /> render tests renders three reviews and displays the Load
           A Bad Review is Coming
         </div>
         <div
-          className="sr-only">
-          App rated undefined out of 5
-        </div>
-        <div
           className="ratings-container">
           <span>
+            <div
+              className="sr-only">
+              This app has a rating of 
+              1
+               stars out of 5.
+            </div>
             <span
               className="ratings-stars">
               <span
@@ -126,9 +128,7 @@ exports[`<AppReviews /> render tests renders three reviews and displays the Load
         Cletus Slackjaw of the House Yokel
       </div>
       <div
-        className="review-date">
-        July 14, 2017
-      </div>
+        className="review-date" />
     </div>
     <div
       className="truncate-container">
@@ -140,19 +140,19 @@ exports[`<AppReviews /> render tests renders three reviews and displays the Load
               "__html": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse …"
             }
           } />
-        <button
-          aria-expanded={false}
-          aria-haspopup="true"
-          className="btn-link truncate-button"
-          onClick={[Function anonymous]}>
-          <span>
-            SHOW MORE
-          </span>
-          <i
-            aria-hidden="true"
-            className="icon-arrowDown" />
-        </button>
       </span>
+      <button
+        aria-expanded={false}
+        aria-haspopup="true"
+        className="btn-link truncate-button"
+        onClick={[Function anonymous]}>
+        <span>
+          Show more
+        </span>
+        <i
+          aria-hidden="true"
+          className="icon-arrowDown" />
+      </button>
     </div>
   </div>
   <div
@@ -168,12 +168,14 @@ exports[`<AppReviews /> render tests renders three reviews and displays the Load
           Another Bad Review is Coming
         </div>
         <div
-          className="sr-only">
-          App rated undefined out of 5
-        </div>
-        <div
           className="ratings-container">
           <span>
+            <div
+              className="sr-only">
+              This app has a rating of 
+              1
+               stars out of 5.
+            </div>
             <span
               className="ratings-stars">
               <span
@@ -200,9 +202,7 @@ exports[`<AppReviews /> render tests renders three reviews and displays the Load
         Cletus Slackjaw the Elder of the House Yokel
       </div>
       <div
-        className="review-date">
-        July 14, 2017
-      </div>
+        className="review-date" />
     </div>
     <div
       className="truncate-container">
@@ -214,19 +214,19 @@ exports[`<AppReviews /> render tests renders three reviews and displays the Load
               "__html": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse …"
             }
           } />
-        <button
-          aria-expanded={false}
-          aria-haspopup="true"
-          className="btn-link truncate-button"
-          onClick={[Function anonymous]}>
-          <span>
-            SHOW MORE
-          </span>
-          <i
-            aria-hidden="true"
-            className="icon-arrowDown" />
-        </button>
       </span>
+      <button
+        aria-expanded={false}
+        aria-haspopup="true"
+        className="btn-link truncate-button"
+        onClick={[Function anonymous]}>
+        <span>
+          Show more
+        </span>
+        <i
+          aria-hidden="true"
+          className="icon-arrowDown" />
+      </button>
     </div>
   </div>
   <div
@@ -242,12 +242,14 @@ exports[`<AppReviews /> render tests renders three reviews and displays the Load
           A Good Review is Coming
         </div>
         <div
-          className="sr-only">
-          App rated undefined out of 5
-        </div>
-        <div
           className="ratings-container">
           <span>
+            <div
+              className="sr-only">
+              This app has a rating of 
+              5
+               stars out of 5.
+            </div>
             <span
               className="ratings-stars">
               <span
@@ -274,9 +276,7 @@ exports[`<AppReviews /> render tests renders three reviews and displays the Load
         Cletus Slackjaw the Fat of the House Yokel
       </div>
       <div
-        className="review-date">
-        July 14, 2017
-      </div>
+        className="review-date" />
     </div>
     <div
       className="truncate-container">
@@ -288,19 +288,19 @@ exports[`<AppReviews /> render tests renders three reviews and displays the Load
               "__html": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse …"
             }
           } />
-        <button
-          aria-expanded={false}
-          aria-haspopup="true"
-          className="btn-link truncate-button"
-          onClick={[Function anonymous]}>
-          <span>
-            SHOW MORE
-          </span>
-          <i
-            aria-hidden="true"
-            className="icon-arrowDown" />
-        </button>
       </span>
+      <button
+        aria-expanded={false}
+        aria-haspopup="true"
+        className="btn-link truncate-button"
+        onClick={[Function anonymous]}>
+        <span>
+          Show more
+        </span>
+        <i
+          aria-hidden="true"
+          className="icon-arrowDown" />
+      </button>
     </div>
   </div>
   <button

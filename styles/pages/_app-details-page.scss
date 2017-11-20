@@ -1,21 +1,24 @@
 #app-details-page {
   padding-top: 0;
+  padding-bottom: $footer-margin-top;
+  margin-bottom: 0 - $footer-margin-top;
   background: $fn-ltbluegrey;
 
   .loading-container {
     text-align: center;
-    padding: 4rem 0;
+    padding: 10rem 0;
+    margin-bottom: 0 - $footer-margin-top;
   }
 
   .breadcrumb-nav {
     background: white;
   }
 
-  .app-details-alerts {
-   background: white;
+  .alert-bars {
+   margin-bottom: 0;
 
-   .alerts-wrapper:not(:empty) {
-     padding-bottom: 10px;
+   .alert {
+     margin: 30px 0 0;
    }
  }
 
@@ -53,14 +56,15 @@
 
   .app-developer {
     padding: 60px 0 100px;
+    margin-bottom: 0 - $footer-margin-top;
 
     .developer-website {
       margin-top: 40px;
       text-align: center;
 
       i {
-        margin-left: 10px;
-        font-size: 1.6rem;
+        margin-right: 0;
+        font-size: 1.2rem;
         vertical-align: middle;
       }
     }
@@ -82,18 +86,7 @@
     }
   }
 }
-@media (max-width: $screen-sm) {
-  #app-details-page {
-    .app-details-alerts {
-      background: transparent;
-      padding: 20px 0 0;
 
-      .alert {
-        margin-bottom: 0;
-      }
-    }
-  }
-}
 @media #{$desktop} {
   #app-details-page {
     .app-ratings {

@@ -8,9 +8,11 @@ import {externalLinkStore} from './external-link.store';
 import {geolinkStore} from './geolink.store';
 import {feedbackStore} from './feedback.store';
 import {gtocStore} from './gtoc.store';
+import {manageFavoritesStore} from './manage-favorites.store';
 import {mdmStore} from './mdm.store';
 import {userStore} from './user.store';
 import {joyrideStore} from './joyride.store';
+import {leadCaptureStore} from './lead-capture.store';
 
 class PSEStore {
 	constructor() {
@@ -23,9 +25,11 @@ class PSEStore {
 		this.geolinkStore = geolinkStore;
 		this.feedbackStore = feedbackStore;
 		this.gtocStore = gtocStore;
+		this.manageFavoritesStore = manageFavoritesStore;
 		this.mdmStore = mdmStore;
 		this.userStore = userStore;
 		this.joyrideStore = joyrideStore;
+		this.leadCaptureStore = leadCaptureStore;
 	}
 
 	getUser() {
@@ -59,7 +63,7 @@ class PSEStore {
 	}
 
 	@computed get isLoggedIn() {
-		return this.userStore.authentic_user;
+		return this.userStore.isAuthenticUser;
 	}
 
 	// OBSERVABLES

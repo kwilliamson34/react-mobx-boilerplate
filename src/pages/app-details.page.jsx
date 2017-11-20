@@ -9,7 +9,7 @@ import RatingsChart from '../components/ratings-chart/ratings-chart';
 import AppReviews from '../components/app-reviews/app-reviews';
 import ScreenshotGallery from '../components/screenshot-gallery/screenshot-gallery';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
-import {MDMAlerts} from '../components/configure-mdm/mdm-alerts';
+import Alerts from '../components/alerts/alerts';
 import Truncate from '../components/truncate/truncate';
 import NewTabLink from '../components/link/new-tab-link';
 
@@ -28,7 +28,6 @@ export default class AppDetailsPage extends React.Component {
     this.appStore = this.props.store.appCatalogStore;
     this.mdmStore = this.props.store.mdmStore;
     this.userStore = this.props.store.userStore;
-    this.viewedAlert = false;
   }
 
   componentWillMount() {
@@ -44,11 +43,6 @@ export default class AppDetailsPage extends React.Component {
         });
       }
     }
-  }
-
-  componentWillUnmount() {
-    //FPSE-1064 clear all alerts from this page
-    this.mdmStore.app_detail_alerts = [];
   }
 
   updateCurrentApp() {
@@ -80,8 +74,8 @@ export default class AppDetailsPage extends React.Component {
   renderWhatsNewSection = (versionObj) => {
     return (
       <section className="whats-new">
-        <h2 id="app-details-whats-new" className="whats-new-title">What's New</h2>
-        <div className="whats-new-date">{utilsService.normalizedDate(versionObj.release_date, 'MMMM DD, YYYY')}</div>
+        <h2 id="app-details-whats-new" className="whats-new-title">What&apos;s New</h2>
+        <div className="whats-new-date">{utilsService.normalizedDate(versionObj.release_date, 'MMMM D, YYYY')}</div>
         <Truncate className="truncate-container" returnToId="app-details-whats-new" charLimit={500}>
           {versionObj.version_note || ''}
         </Truncate>
@@ -157,7 +151,13 @@ export default class AppDetailsPage extends React.Component {
             <div className="row">
               <div className="col-xs-12">
                 <PageTitle className="sr-only">App Details</PageTitle>
-                <MDMAlerts store={this.mdmStore} alertList={this.mdmStore.app_detail_alerts} psk={this.props.match.params.appPsk}/>
+                <Alerts
+                  showAlert={this.mdmStore.showAlertOnAppDetails}
+                  alertText="This app could not be pushed to MDM."
+                  clearAlert={this.mdmStore.clearAlertAndReferences.bind(this.mdmStore)}
+                  showSuccess={this.mdmStore.showSuccessOnAppDetails}
+                  successText="This app has been pushed to MDM."
+                  clearSuccess={this.mdmStore.clearSuccess.bind(this.mdmStore)}/>
               </div>
             </div>
           </div>
@@ -170,7 +170,7 @@ export default class AppDetailsPage extends React.Component {
                 isWithinCard={true}
                 containsPrimaryHeader={true}
                 appCatalogStore={this.appStore}
-                configuredMDMType={this.mdmStore.pseMDMObject.toJS().mdm_type}
+                configuredMDMType={this.mdmStore.values.mdm_type}
                 pushToMDM={this.mdmStore.pushToMDM.bind(this.mdmStore)}
                 appCatalogMDMStatuses={this.mdmStore.appCatalogMDMStatuses.toJS()}/>
               <div className="app-description-block">

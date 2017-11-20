@@ -1,4 +1,4 @@
-exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 1`] = `
+exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1`] = `
 <section
   className="geolink-controls">
   <div
@@ -6,51 +6,96 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
     <div
       className="row is-flex">
       <div
-        className="col-xs-12 col-sm-8 col-md-4 map-search">
-        <h2
-          className="as-h5">
-          Search
-        </h2>
-        <form
-          className="search-form form-group"
-          onSubmit={undefined}>
+        className="col-xs-12 col-sm-7 col-md-4 map-search">
+        <div>
+          <span
+            className="top-right-link">
+            <a
+              href="/manage-favorites"
+              onClick={[Function anonymous]}>
+              Manage Favorites
+            </a>
+          </span>
+          <h2
+            className="as-h5">
+            Search
+          </h2>
           <div
-            className="search-input input-group">
-            <label
-              className="control-label"
-              htmlFor="search-field">
-              Location
-            </label>
-            <div
-              className="search-bar">
-              <input
-                className="form-control"
-                disabled={true}
-                id="search-field"
-                onChange={[Function anonymous]}
-                onKeyPress={[Function anonymous]}
-                type="search" />
-              <button
-                className="btn search-btn"
-                disabled={true}
-                onClick={[Function anonymous]}
-                type="button">
+            className="predictive-dropdown">
+            <ul>
+              <li
+                onClick={[Function onClick]}
+                onFocus={[Function onFocus]}
+                onKeyDown={[Function anonymous]}
+                onKeyPress={[Function onKeyPress]}
+                role="button"
+                tabIndex="0">
+                <i
+                  aria-hidden={true}
+                  className="icon-star" />
                 <span
                   className="sr-only">
-                  Search for locations
+                  Search for favorite named
+                </span>
+                <span>
+                  Sapient Corporation
                 </span>
                 <span
-                  aria-hidden="true"
-                  className="icon-search" />
-              </button>
-            </div>
+                  className="sr-only">
+                  at address
+                </span>
+                <small>
+                  40 Fulton Street, New York, NY
+                </small>
+              </li>
+              <li
+                onClick={[Function onClick]}
+                onFocus={[Function onFocus]}
+                onKeyDown={[Function anonymous]}
+                onKeyPress={[Function onKeyPress]}
+                role="button"
+                tabIndex="0">
+                <i
+                  aria-hidden={true}
+                  className="icon-star" />
+                <span
+                  className="sr-only">
+                  Search for favorite named
+                </span>
+                <span>
+                  Williamsburg
+                </span>
+                <span
+                  className="sr-only">
+                  at address
+                </span>
+                <small>
+                  Bedford Ave, Brooklyn, NY
+                </small>
+              </li>
+              <li
+                onClick={[Function anonymous]}
+                onFocus={[Function onFocus]}
+                onKeyDown={[Function anonymous]}
+                onKeyPress={[Function anonymous]}
+                role="button"
+                tabIndex="0">
+                Manage all favorites
+              </li>
+            </ul>
           </div>
-        </form>
+          <button
+            className="as-link add-favorite-button disabled"
+            onClick={[Function bound mockConstructor]}>
+            Add Favorite
+          </button>
+        </div>
       </div>
+      <hr
+        className="col-xs-12 visible-xs" />
       <div
-        className="col-xs-12 col-sm-4 col-md-4 map-layers">
-        <h2
-          className="as-h5">
+        className="col-xs-12 col-sm-5 col-md-4 map-layers">
+        <h2>
           Layers
         </h2>
         <form
@@ -62,124 +107,158 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
               Coverage layers
             </legend>
             <div
-              className="col-xs-6 col-sm-12 no-gutters">
+              className="col-xs-6 no-gutters">
               <div
-                className="checkbox disabled">
+                className="checkbox form-group ">
                 <label>
                   <input
-                    aria-disabled={true}
+                    aria-disabled={false}
                     checked={false}
-                    className="disabled"
                     data-checked={false}
-                    id="network-toggle"
-                    onChange={[Function bound onChange]}
+                    id=""
+                    onBlur={[Function anonymous]}
+                    onChange={[Function anonymous]}
+                    onKeyPress={[Function anonymous]}
                     type="checkbox"
                     value="Network" />
                   <span
                     className="cr" />
                   <span
-                    className="layer-label">
-                    Network
+                    className="label-text ">
+
+                    <span
+                      className="label-text-normal">
+                      Network
+                    </span>
                   </span>
                 </label>
+                <button
+                  className="tooltip"
+                  data-placement="top"
+                  data-toggle="tooltip"
+                  id="tooltip-"
+                  role="tooltip"
+                  title="Represents our fully operational service"
+                  type="button">
+                  <i
+                    aria-hidden="true"
+                    className="icon-help" />
+                </button>
               </div>
               <div
-                className="checkbox disabled">
+                className="checkbox form-group ">
                 <label>
                   <input
-                    aria-disabled={true}
+                    aria-disabled={false}
                     checked={false}
-                    className="disabled"
                     data-checked={false}
-                    id="weather-toggle"
-                    onChange={[Function bound onChange]}
+                    id=""
+                    onBlur={[Function anonymous]}
+                    onChange={[Function anonymous]}
+                    onKeyPress={[Function anonymous]}
                     type="checkbox"
                     value="Weather" />
                   <span
                     className="cr" />
                   <span
-                    className="layer-label">
-                    Weather
+                    className="label-text ">
+
+                    <span
+                      className="label-text-normal">
+                      Weather
+                    </span>
                   </span>
                 </label>
               </div>
             </div>
             <div
-              className="col-xs-6 col-sm-12 no-gutters">
+              className="col-xs-6 no-gutters">
               <div
-                className="checkbox disabled">
+                className="checkbox form-group ">
                 <label>
                   <input
-                    aria-disabled={true}
+                    aria-disabled={false}
                     checked={false}
-                    className="disabled"
                     data-checked={false}
-                    id="traffic-toggle"
-                    onChange={[Function bound onChange]}
+                    id=""
+                    onBlur={[Function anonymous]}
+                    onChange={[Function anonymous]}
+                    onKeyPress={[Function anonymous]}
                     type="checkbox"
                     value="Traffic" />
                   <span
                     className="cr" />
                   <span
-                    className="layer-label">
-                    Traffic
+                    className="label-text ">
+
+                    <span
+                      className="label-text-normal">
+                      Traffic
+                    </span>
                   </span>
                 </label>
               </div>
               <div
-                className="checkbox disabled">
+                className="checkbox form-group ">
                 <label>
                   <input
-                    aria-disabled={true}
+                    aria-disabled={false}
                     checked={false}
-                    className="disabled"
                     data-checked={false}
-                    id="alerts-toggle"
-                    onChange={[Function bound onChange]}
+                    id=""
+                    onBlur={[Function anonymous]}
+                    onChange={[Function anonymous]}
+                    onKeyPress={[Function anonymous]}
                     type="checkbox"
                     value="Alerts" />
                   <span
                     className="cr" />
                   <span
-                    className="layer-label">
-                    Alerts
+                    className="label-text ">
+
+                    <span
+                      className="label-text-normal">
+                      Alerts
+                    </span>
                   </span>
                 </label>
+                <button
+                  className="tooltip"
+                  data-placement="top"
+                  data-toggle="tooltip"
+                  id="tooltip-"
+                  role="tooltip"
+                  title="Highlights abnormal network malfunction"
+                  type="button">
+                  <i
+                    aria-hidden="true"
+                    className="icon-help" />
+                </button>
               </div>
             </div>
           </fieldset>
         </form>
       </div>
       <div
-        className="col-md-4 hidden-xs hidden-sm">
+        className="col-md-4 hidden-xs hidden-sm map-network-legend">
         <div>
           <span
-            className="visible-sm-inline">
+            className="hidden-xs hidden-sm">
             <div
-              className="network-contact-info">
-              <p>
-                Report Network Issue:
-                <br
-                  className="visible-md-inline" />
-                <a
-                  href="tel:undefined">
-                  <i
-                    aria-hidden="true"
-                    className="icon-phone-number footer-support-phone" />
-                  <span
-                    className="sr-only">
-                    Call 
-                  </span>
-                  <span
-                    className="sr-only">
-                     to report a network issue
-                  </span>
-                </a>
-              </p>
+              className="network-subscription-link">
+              <a
+                href="/subscribe-to-alerts"
+                onClick={[Function anonymous]}>
+                Subscribe to
+                <span
+                  className="visible-xs-inline visible-sm-inline">
+                  Network
+                </span>
+                Alerts
+              </a>
             </div>
           </span>
-          <h2
-            className="as-h5">
+          <h2>
             Network
             <span
               className="sr-only">
@@ -212,95 +291,102 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
               src="/images/network-legend.png" />
           </div>
         </div>
-        <div
+        <p
           className="network-contact-info">
-          <p>
+          <span
+            aria-hidden="true">
             Report Network Issue:
-            <br
-              className="visible-md-inline" />
-            <a
-              href="tel:undefined">
+          </span>
+          <br
+            className="visible-md-inline" />
+          <a
+            href="tel:undefined">
+            <span>
               <i
                 aria-hidden="true"
-                className="icon-phone-number footer-support-phone" />
+                className="icon-phone-number" />
               <span
                 className="sr-only">
-                Call 
+                Report Network Issue: Phone 
               </span>
-              <span
-                className="sr-only">
-                 to report a network issue
-              </span>
-            </a>
-          </p>
-        </div>
+            </span>
+          </a>
+        </p>
       </div>
     </div>
     <div
-      className="row">
+      className="row is-flex visible-xs visible-sm">
       <div
-        className="legend-divider col-xs-12">
+        className="col-xs-12 no-gutters">
         <hr />
+      </div>
+      <div
+        className="col-xs-12 col-sm-6">
         <div
-          className="visible-xs-inline">
-          <div
-            className="network-contact-info">
-            <p>
-              Report Network Issue:
-              <br
-                className="visible-md-inline" />
-              <a
-                href="tel:undefined">
-                <i
-                  aria-hidden="true"
-                  className="icon-phone-number footer-support-phone" />
-                <span
-                  className="sr-only">
-                  Call 
-                </span>
-                <span
-                  className="sr-only">
-                   to report a network issue
-                </span>
-              </a>
-            </p>
-          </div>
-          <hr />
+          className="network-subscription-link">
+          <a
+            href="/subscribe-to-alerts"
+            onClick={[Function anonymous]}>
+            Subscribe to
+            <span
+              className="visible-xs-inline visible-sm-inline">
+              Network
+            </span>
+            Alerts
+          </a>
         </div>
+      </div>
+      <div
+        className="col-xs-12 col-sm-6">
+        <p
+          className="network-contact-info">
+          <span
+            aria-hidden="true">
+            Report Network Issue:
+          </span>
+          <br
+            className="visible-md-inline" />
+          <a
+            href="tel:undefined">
+            <span>
+              <i
+                aria-hidden="true"
+                className="icon-phone-number" />
+              <span
+                className="sr-only">
+                Report Network Issue: Phone 
+              </span>
+            </span>
+          </a>
+        </p>
+      </div>
+      <div
+        className="col-xs-12 no-gutters">
+        <hr />
       </div>
     </div>
     <div
       className="row is-flex">
       <div
-        className="col-xs-12 visible-xs-inline visible-sm-inline">
+        className="legend-block col-xs-12 visible-xs-inline visible-sm-inline">
         <div>
           <span
-            className="visible-sm-inline">
+            className="hidden-xs hidden-sm">
             <div
-              className="network-contact-info">
-              <p>
-                Report Network Issue:
-                <br
-                  className="visible-md-inline" />
-                <a
-                  href="tel:undefined">
-                  <i
-                    aria-hidden="true"
-                    className="icon-phone-number footer-support-phone" />
-                  <span
-                    className="sr-only">
-                    Call 
-                  </span>
-                  <span
-                    className="sr-only">
-                     to report a network issue
-                  </span>
-                </a>
-              </p>
+              className="network-subscription-link">
+              <a
+                href="/subscribe-to-alerts"
+                onClick={[Function anonymous]}>
+                Subscribe to
+                <span
+                  className="visible-xs-inline visible-sm-inline">
+                  Network
+                </span>
+                Alerts
+              </a>
             </div>
           </span>
-          <h2
-            className="as-h5">
+          <h2>
             Network
             <span
               className="sr-only">
@@ -334,11 +420,12 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
           </div>
         </div>
       </div>
+      <hr
+        className="col-xs-12 hidden-xs hidden-sm" />
       <div
-        className="col-xs-12 col-md-6">
+        className="legend-block col-xs-12 col-md-6">
         <div>
-          <h2
-            className="as-h5">
+          <h2>
             Weather
             <span
               className="sr-only">
@@ -373,10 +460,470 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
         </div>
       </div>
       <div
-        className="col-xs-12 col-md-6">
+        className="legend-block col-xs-12 col-md-6">
         <div>
+          <h2>
+            Traffic
+            <span
+              className="sr-only">
+               color key
+            </span>
+          </h2>
+          <div
+            className="traffic-legend-wrapper ">
+            <div
+              className="traffic-bars">
+              <div
+                className="key-labels traffic">
+                <span
+                  className="as-label">
+                  Fast
+                </span>
+                <span
+                  className="as-label">
+                  Normal
+                </span>
+                <span
+                  className="as-label">
+                  Slow
+                </span>
+              </div>
+              <div
+                className="traffic-legend">
+                <div />
+                <div />
+                <div />
+              </div>
+            </div>
+            <div
+              className="hazards-legend">
+              <span
+                className="as-label">
+                Construction
+                <br />
+                <i
+                  aria-hidden="true"
+                  className="icon-warning construction" />
+              </span>
+              <span
+                className="as-label">
+                Vehicle Incident
+                <br />
+                <i
+                  aria-hidden="true"
+                  className="icon-warning incident" />
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+`;
+
+exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 1`] = `
+<section
+  className="geolink-controls">
+  <div
+    className="container">
+    <div
+      className="row is-flex">
+      <div
+        className="col-xs-12 col-sm-7 col-md-4 map-search">
+        <div>
+          <span
+            className="top-right-link">
+            <a
+              href="/manage-favorites"
+              onClick={[Function anonymous]}>
+              Manage Favorites
+            </a>
+          </span>
           <h2
             className="as-h5">
+            Search
+          </h2>
+
+          <button
+            className="as-link add-favorite-button disabled"
+            onClick={[Function bound mockConstructor]}>
+            Add Favorite
+          </button>
+        </div>
+      </div>
+      <hr
+        className="col-xs-12 visible-xs" />
+      <div
+        className="col-xs-12 col-sm-5 col-md-4 map-layers">
+        <h2>
+          Layers
+        </h2>
+        <form
+          className="form-group">
+          <fieldset
+            className="coverage-layers">
+            <legend
+              className="sr-only">
+              Coverage layers
+            </legend>
+            <div
+              className="col-xs-6 no-gutters">
+              <div
+                className="checkbox form-group disabled">
+                <label>
+                  <input
+                    aria-disabled={true}
+                    checked={false}
+                    data-checked={false}
+                    id=""
+                    onBlur={[Function anonymous]}
+                    onChange={[Function anonymous]}
+                    onKeyPress={[Function anonymous]}
+                    type="checkbox"
+                    value="Network" />
+                  <span
+                    className="cr" />
+                  <span
+                    className="label-text ">
+
+                    <span
+                      className="label-text-normal">
+                      Network
+                    </span>
+                  </span>
+                </label>
+                <button
+                  className="tooltip"
+                  data-placement="top"
+                  data-toggle="tooltip"
+                  id="tooltip-"
+                  role="tooltip"
+                  title="Represents our fully operational service"
+                  type="button">
+                  <i
+                    aria-hidden="true"
+                    className="icon-help" />
+                </button>
+              </div>
+              <div
+                className="checkbox form-group disabled">
+                <label>
+                  <input
+                    aria-disabled={true}
+                    checked={false}
+                    data-checked={false}
+                    id=""
+                    onBlur={[Function anonymous]}
+                    onChange={[Function anonymous]}
+                    onKeyPress={[Function anonymous]}
+                    type="checkbox"
+                    value="Weather" />
+                  <span
+                    className="cr" />
+                  <span
+                    className="label-text ">
+
+                    <span
+                      className="label-text-normal">
+                      Weather
+                    </span>
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div
+              className="col-xs-6 no-gutters">
+              <div
+                className="checkbox form-group disabled">
+                <label>
+                  <input
+                    aria-disabled={true}
+                    checked={false}
+                    data-checked={false}
+                    id=""
+                    onBlur={[Function anonymous]}
+                    onChange={[Function anonymous]}
+                    onKeyPress={[Function anonymous]}
+                    type="checkbox"
+                    value="Traffic" />
+                  <span
+                    className="cr" />
+                  <span
+                    className="label-text ">
+
+                    <span
+                      className="label-text-normal">
+                      Traffic
+                    </span>
+                  </span>
+                </label>
+              </div>
+              <div
+                className="checkbox form-group disabled">
+                <label>
+                  <input
+                    aria-disabled={true}
+                    checked={false}
+                    data-checked={false}
+                    id=""
+                    onBlur={[Function anonymous]}
+                    onChange={[Function anonymous]}
+                    onKeyPress={[Function anonymous]}
+                    type="checkbox"
+                    value="Alerts" />
+                  <span
+                    className="cr" />
+                  <span
+                    className="label-text ">
+
+                    <span
+                      className="label-text-normal">
+                      Alerts
+                    </span>
+                  </span>
+                </label>
+                <button
+                  className="tooltip"
+                  data-placement="top"
+                  data-toggle="tooltip"
+                  id="tooltip-"
+                  role="tooltip"
+                  title="Highlights abnormal network malfunction"
+                  type="button">
+                  <i
+                    aria-hidden="true"
+                    className="icon-help" />
+                </button>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+      <div
+        className="col-md-4 hidden-xs hidden-sm map-network-legend">
+        <div>
+          <span
+            className="hidden-xs hidden-sm">
+            <div
+              className="network-subscription-link">
+              <a
+                href="/subscribe-to-alerts"
+                onClick={[Function anonymous]}>
+                Subscribe to
+                <span
+                  className="visible-xs-inline visible-sm-inline">
+                  Network
+                </span>
+                Alerts
+              </a>
+            </div>
+          </span>
+          <h2>
+            Network
+            <span
+              className="sr-only">
+               color key
+            </span>
+          </h2>
+          <div
+            className="key-labels">
+            <span
+              className="as-label">
+              4G LTE
+            </span>
+            <span
+              className="as-label">
+              4G
+            </span>
+            <span
+              className="as-label">
+              3G
+            </span>
+            <span
+              className="as-label">
+              2G
+            </span>
+          </div>
+          <div
+            className="legend-gradient">
+            <img
+              alt=""
+              src="/images/network-legend.png" />
+          </div>
+        </div>
+        <p
+          className="network-contact-info">
+          <span
+            aria-hidden="true">
+            Report Network Issue:
+          </span>
+          <br
+            className="visible-md-inline" />
+          <a
+            href="tel:undefined">
+            <span>
+              <i
+                aria-hidden="true"
+                className="icon-phone-number" />
+              <span
+                className="sr-only">
+                Report Network Issue: Phone 
+              </span>
+            </span>
+          </a>
+        </p>
+      </div>
+    </div>
+    <div
+      className="row is-flex visible-xs visible-sm">
+      <div
+        className="col-xs-12 no-gutters">
+        <hr />
+      </div>
+      <div
+        className="col-xs-12 col-sm-6">
+        <div
+          className="network-subscription-link">
+          <a
+            href="/subscribe-to-alerts"
+            onClick={[Function anonymous]}>
+            Subscribe to
+            <span
+              className="visible-xs-inline visible-sm-inline">
+              Network
+            </span>
+            Alerts
+          </a>
+        </div>
+      </div>
+      <div
+        className="col-xs-12 col-sm-6">
+        <p
+          className="network-contact-info">
+          <span
+            aria-hidden="true">
+            Report Network Issue:
+          </span>
+          <br
+            className="visible-md-inline" />
+          <a
+            href="tel:undefined">
+            <span>
+              <i
+                aria-hidden="true"
+                className="icon-phone-number" />
+              <span
+                className="sr-only">
+                Report Network Issue: Phone 
+              </span>
+            </span>
+          </a>
+        </p>
+      </div>
+      <div
+        className="col-xs-12 no-gutters">
+        <hr />
+      </div>
+    </div>
+    <div
+      className="row is-flex">
+      <div
+        className="legend-block col-xs-12 visible-xs-inline visible-sm-inline">
+        <div>
+          <span
+            className="hidden-xs hidden-sm">
+            <div
+              className="network-subscription-link">
+              <a
+                href="/subscribe-to-alerts"
+                onClick={[Function anonymous]}>
+                Subscribe to
+                <span
+                  className="visible-xs-inline visible-sm-inline">
+                  Network
+                </span>
+                Alerts
+              </a>
+            </div>
+          </span>
+          <h2>
+            Network
+            <span
+              className="sr-only">
+               color key
+            </span>
+          </h2>
+          <div
+            className="key-labels">
+            <span
+              className="as-label">
+              4G LTE
+            </span>
+            <span
+              className="as-label">
+              4G
+            </span>
+            <span
+              className="as-label">
+              3G
+            </span>
+            <span
+              className="as-label">
+              2G
+            </span>
+          </div>
+          <div
+            className="legend-gradient">
+            <img
+              alt=""
+              src="/images/network-legend.png" />
+          </div>
+        </div>
+      </div>
+      <hr
+        className="col-xs-12 hidden-xs hidden-sm" />
+      <div
+        className="legend-block col-xs-12 col-md-6">
+        <div>
+          <h2>
+            Weather
+            <span
+              className="sr-only">
+               color key
+            </span>
+          </h2>
+          <div
+            className="key-labels">
+            <span
+              className="as-label">
+              Light Rain
+            </span>
+            <span
+              className="as-label">
+              Heavy Rain
+            </span>
+            <span
+              className="as-label">
+              Snow
+            </span>
+            <span
+              className="as-label">
+              Ice
+            </span>
+          </div>
+          <div
+            className="legend-gradient">
+            <img
+              alt=""
+              src="/images/weather-legend.png" />
+          </div>
+        </div>
+      </div>
+      <div
+        className="legend-block col-xs-12 col-md-6">
+        <div>
+          <h2>
             Traffic
             <span
               className="sr-only">
@@ -444,51 +991,33 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
     <div
       className="row is-flex">
       <div
-        className="col-xs-12 col-sm-8 col-md-4 map-search">
-        <h2
-          className="as-h5">
-          Search
-        </h2>
-        <form
-          className="search-form form-group"
-          onSubmit={undefined}>
-          <div
-            className="search-input input-group">
-            <label
-              className="control-label"
-              htmlFor="search-field">
-              Location
-            </label>
-            <div
-              className="search-bar">
-              <input
-                className="form-control"
-                disabled={false}
-                id="search-field"
-                onChange={[Function anonymous]}
-                onKeyPress={[Function anonymous]}
-                type="search" />
-              <button
-                className="btn search-btn"
-                disabled={false}
-                onClick={[Function anonymous]}
-                type="button">
-                <span
-                  className="sr-only">
-                  Search for locations
-                </span>
-                <span
-                  aria-hidden="true"
-                  className="icon-search" />
-              </button>
-            </div>
-          </div>
-        </form>
+        className="col-xs-12 col-sm-7 col-md-4 map-search">
+        <div>
+          <span
+            className="top-right-link">
+            <a
+              href="/manage-favorites"
+              onClick={[Function anonymous]}>
+              Manage Favorites
+            </a>
+          </span>
+          <h2
+            className="as-h5">
+            Search
+          </h2>
+
+          <button
+            className="as-link add-favorite-button disabled"
+            onClick={[Function bound mockConstructor]}>
+            Add Favorite
+          </button>
+        </div>
       </div>
+      <hr
+        className="col-xs-12 visible-xs" />
       <div
-        className="col-xs-12 col-sm-4 col-md-4 map-layers">
-        <h2
-          className="as-h5">
+        className="col-xs-12 col-sm-5 col-md-4 map-layers">
+        <h2>
           Layers
         </h2>
         <form
@@ -500,124 +1029,158 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
               Coverage layers
             </legend>
             <div
-              className="col-xs-6 col-sm-12 no-gutters">
+              className="col-xs-6 no-gutters">
               <div
-                className="checkbox ">
+                className="checkbox form-group ">
                 <label>
                   <input
                     aria-disabled={false}
                     checked={false}
-                    className=""
                     data-checked={false}
-                    id="network-toggle"
-                    onChange={[Function bound onChange]}
+                    id=""
+                    onBlur={[Function anonymous]}
+                    onChange={[Function anonymous]}
+                    onKeyPress={[Function anonymous]}
                     type="checkbox"
                     value="Network" />
                   <span
                     className="cr" />
                   <span
-                    className="layer-label">
-                    Network
+                    className="label-text ">
+
+                    <span
+                      className="label-text-normal">
+                      Network
+                    </span>
                   </span>
                 </label>
+                <button
+                  className="tooltip"
+                  data-placement="top"
+                  data-toggle="tooltip"
+                  id="tooltip-"
+                  role="tooltip"
+                  title="Represents our fully operational service"
+                  type="button">
+                  <i
+                    aria-hidden="true"
+                    className="icon-help" />
+                </button>
               </div>
               <div
-                className="checkbox ">
+                className="checkbox form-group ">
                 <label>
                   <input
                     aria-disabled={false}
                     checked={false}
-                    className=""
                     data-checked={false}
-                    id="weather-toggle"
-                    onChange={[Function bound onChange]}
+                    id=""
+                    onBlur={[Function anonymous]}
+                    onChange={[Function anonymous]}
+                    onKeyPress={[Function anonymous]}
                     type="checkbox"
                     value="Weather" />
                   <span
                     className="cr" />
                   <span
-                    className="layer-label">
-                    Weather
+                    className="label-text ">
+
+                    <span
+                      className="label-text-normal">
+                      Weather
+                    </span>
                   </span>
                 </label>
               </div>
             </div>
             <div
-              className="col-xs-6 col-sm-12 no-gutters">
+              className="col-xs-6 no-gutters">
               <div
-                className="checkbox ">
+                className="checkbox form-group ">
                 <label>
                   <input
                     aria-disabled={false}
                     checked={false}
-                    className=""
                     data-checked={false}
-                    id="traffic-toggle"
-                    onChange={[Function bound onChange]}
+                    id=""
+                    onBlur={[Function anonymous]}
+                    onChange={[Function anonymous]}
+                    onKeyPress={[Function anonymous]}
                     type="checkbox"
                     value="Traffic" />
                   <span
                     className="cr" />
                   <span
-                    className="layer-label">
-                    Traffic
+                    className="label-text ">
+
+                    <span
+                      className="label-text-normal">
+                      Traffic
+                    </span>
                   </span>
                 </label>
               </div>
               <div
-                className="checkbox disabled">
+                className="checkbox form-group disabled">
                 <label>
                   <input
                     aria-disabled={true}
                     checked={false}
-                    className="disabled"
                     data-checked={false}
-                    id="alerts-toggle"
-                    onChange={[Function bound onChange]}
+                    id=""
+                    onBlur={[Function anonymous]}
+                    onChange={[Function anonymous]}
+                    onKeyPress={[Function anonymous]}
                     type="checkbox"
                     value="Alerts" />
                   <span
                     className="cr" />
                   <span
-                    className="layer-label">
-                    Alerts
+                    className="label-text ">
+
+                    <span
+                      className="label-text-normal">
+                      Alerts
+                    </span>
                   </span>
                 </label>
+                <button
+                  className="tooltip"
+                  data-placement="top"
+                  data-toggle="tooltip"
+                  id="tooltip-"
+                  role="tooltip"
+                  title="Highlights abnormal network malfunction"
+                  type="button">
+                  <i
+                    aria-hidden="true"
+                    className="icon-help" />
+                </button>
               </div>
             </div>
           </fieldset>
         </form>
       </div>
       <div
-        className="col-md-4 hidden-xs hidden-sm">
+        className="col-md-4 hidden-xs hidden-sm map-network-legend">
         <div>
           <span
-            className="visible-sm-inline">
+            className="hidden-xs hidden-sm">
             <div
-              className="network-contact-info">
-              <p>
-                Report Network Issue:
-                <br
-                  className="visible-md-inline" />
-                <a
-                  href="tel:undefined">
-                  <i
-                    aria-hidden="true"
-                    className="icon-phone-number footer-support-phone" />
-                  <span
-                    className="sr-only">
-                    Call 
-                  </span>
-                  <span
-                    className="sr-only">
-                     to report a network issue
-                  </span>
-                </a>
-              </p>
+              className="network-subscription-link">
+              <a
+                href="/subscribe-to-alerts"
+                onClick={[Function anonymous]}>
+                Subscribe to
+                <span
+                  className="visible-xs-inline visible-sm-inline">
+                  Network
+                </span>
+                Alerts
+              </a>
             </div>
           </span>
-          <h2
-            className="as-h5">
+          <h2>
             Network
             <span
               className="sr-only">
@@ -650,95 +1213,102 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
               src="/images/network-legend.png" />
           </div>
         </div>
-        <div
+        <p
           className="network-contact-info">
-          <p>
+          <span
+            aria-hidden="true">
             Report Network Issue:
-            <br
-              className="visible-md-inline" />
-            <a
-              href="tel:undefined">
+          </span>
+          <br
+            className="visible-md-inline" />
+          <a
+            href="tel:undefined">
+            <span>
               <i
                 aria-hidden="true"
-                className="icon-phone-number footer-support-phone" />
+                className="icon-phone-number" />
               <span
                 className="sr-only">
-                Call 
+                Report Network Issue: Phone 
               </span>
-              <span
-                className="sr-only">
-                 to report a network issue
-              </span>
-            </a>
-          </p>
-        </div>
+            </span>
+          </a>
+        </p>
       </div>
     </div>
     <div
-      className="row">
+      className="row is-flex visible-xs visible-sm">
       <div
-        className="legend-divider col-xs-12">
+        className="col-xs-12 no-gutters">
         <hr />
+      </div>
+      <div
+        className="col-xs-12 col-sm-6">
         <div
-          className="visible-xs-inline">
-          <div
-            className="network-contact-info">
-            <p>
-              Report Network Issue:
-              <br
-                className="visible-md-inline" />
-              <a
-                href="tel:undefined">
-                <i
-                  aria-hidden="true"
-                  className="icon-phone-number footer-support-phone" />
-                <span
-                  className="sr-only">
-                  Call 
-                </span>
-                <span
-                  className="sr-only">
-                   to report a network issue
-                </span>
-              </a>
-            </p>
-          </div>
-          <hr />
+          className="network-subscription-link">
+          <a
+            href="/subscribe-to-alerts"
+            onClick={[Function anonymous]}>
+            Subscribe to
+            <span
+              className="visible-xs-inline visible-sm-inline">
+              Network
+            </span>
+            Alerts
+          </a>
         </div>
+      </div>
+      <div
+        className="col-xs-12 col-sm-6">
+        <p
+          className="network-contact-info">
+          <span
+            aria-hidden="true">
+            Report Network Issue:
+          </span>
+          <br
+            className="visible-md-inline" />
+          <a
+            href="tel:undefined">
+            <span>
+              <i
+                aria-hidden="true"
+                className="icon-phone-number" />
+              <span
+                className="sr-only">
+                Report Network Issue: Phone 
+              </span>
+            </span>
+          </a>
+        </p>
+      </div>
+      <div
+        className="col-xs-12 no-gutters">
+        <hr />
       </div>
     </div>
     <div
       className="row is-flex">
       <div
-        className="col-xs-12 visible-xs-inline visible-sm-inline">
+        className="legend-block col-xs-12 visible-xs-inline visible-sm-inline">
         <div>
           <span
-            className="visible-sm-inline">
+            className="hidden-xs hidden-sm">
             <div
-              className="network-contact-info">
-              <p>
-                Report Network Issue:
-                <br
-                  className="visible-md-inline" />
-                <a
-                  href="tel:undefined">
-                  <i
-                    aria-hidden="true"
-                    className="icon-phone-number footer-support-phone" />
-                  <span
-                    className="sr-only">
-                    Call 
-                  </span>
-                  <span
-                    className="sr-only">
-                     to report a network issue
-                  </span>
-                </a>
-              </p>
+              className="network-subscription-link">
+              <a
+                href="/subscribe-to-alerts"
+                onClick={[Function anonymous]}>
+                Subscribe to
+                <span
+                  className="visible-xs-inline visible-sm-inline">
+                  Network
+                </span>
+                Alerts
+              </a>
             </div>
           </span>
-          <h2
-            className="as-h5">
+          <h2>
             Network
             <span
               className="sr-only">
@@ -772,11 +1342,12 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
           </div>
         </div>
       </div>
+      <hr
+        className="col-xs-12 hidden-xs hidden-sm" />
       <div
-        className="col-xs-12 col-md-6">
+        className="legend-block col-xs-12 col-md-6">
         <div>
-          <h2
-            className="as-h5">
+          <h2>
             Weather
             <span
               className="sr-only">
@@ -811,10 +1382,9 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
         </div>
       </div>
       <div
-        className="col-xs-12 col-md-6">
+        className="legend-block col-xs-12 col-md-6">
         <div>
-          <h2
-            className="as-h5">
+          <h2>
             Traffic
             <span
               className="sr-only">
@@ -882,51 +1452,33 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
     <div
       className="row is-flex">
       <div
-        className="col-xs-12 col-sm-8 col-md-4 map-search">
-        <h2
-          className="as-h5">
-          Search
-        </h2>
-        <form
-          className="search-form form-group"
-          onSubmit={undefined}>
-          <div
-            className="search-input input-group">
-            <label
-              className="control-label"
-              htmlFor="search-field">
-              Location
-            </label>
-            <div
-              className="search-bar">
-              <input
-                className="form-control"
-                disabled={false}
-                id="search-field"
-                onChange={[Function anonymous]}
-                onKeyPress={[Function anonymous]}
-                type="search" />
-              <button
-                className="btn search-btn"
-                disabled={false}
-                onClick={[Function anonymous]}
-                type="button">
-                <span
-                  className="sr-only">
-                  Search for locations
-                </span>
-                <span
-                  aria-hidden="true"
-                  className="icon-search" />
-              </button>
-            </div>
-          </div>
-        </form>
+        className="col-xs-12 col-sm-7 col-md-4 map-search">
+        <div>
+          <span
+            className="top-right-link">
+            <a
+              href="/manage-favorites"
+              onClick={[Function anonymous]}>
+              Manage Favorites
+            </a>
+          </span>
+          <h2
+            className="as-h5">
+            Search
+          </h2>
+
+          <button
+            className="as-link add-favorite-button disabled"
+            onClick={[Function bound mockConstructor]}>
+            Add Favorite
+          </button>
+        </div>
       </div>
+      <hr
+        className="col-xs-12 visible-xs" />
       <div
-        className="col-xs-12 col-sm-4 col-md-4 map-layers">
-        <h2
-          className="as-h5">
+        className="col-xs-12 col-sm-5 col-md-4 map-layers">
+        <h2>
           Layers
         </h2>
         <form
@@ -938,124 +1490,158 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
               Coverage layers
             </legend>
             <div
-              className="col-xs-6 col-sm-12 no-gutters">
+              className="col-xs-6 no-gutters">
               <div
-                className="checkbox ">
+                className="checkbox form-group ">
                 <label>
                   <input
                     aria-disabled={false}
                     checked={false}
-                    className=""
                     data-checked={false}
-                    id="network-toggle"
-                    onChange={[Function bound onChange]}
+                    id=""
+                    onBlur={[Function anonymous]}
+                    onChange={[Function anonymous]}
+                    onKeyPress={[Function anonymous]}
                     type="checkbox"
                     value="Network" />
                   <span
                     className="cr" />
                   <span
-                    className="layer-label">
-                    Network
+                    className="label-text ">
+
+                    <span
+                      className="label-text-normal">
+                      Network
+                    </span>
                   </span>
                 </label>
+                <button
+                  className="tooltip"
+                  data-placement="top"
+                  data-toggle="tooltip"
+                  id="tooltip-"
+                  role="tooltip"
+                  title="Represents our fully operational service"
+                  type="button">
+                  <i
+                    aria-hidden="true"
+                    className="icon-help" />
+                </button>
               </div>
               <div
-                className="checkbox ">
+                className="checkbox form-group ">
                 <label>
                   <input
                     aria-disabled={false}
                     checked={false}
-                    className=""
                     data-checked={false}
-                    id="weather-toggle"
-                    onChange={[Function bound onChange]}
+                    id=""
+                    onBlur={[Function anonymous]}
+                    onChange={[Function anonymous]}
+                    onKeyPress={[Function anonymous]}
                     type="checkbox"
                     value="Weather" />
                   <span
                     className="cr" />
                   <span
-                    className="layer-label">
-                    Weather
+                    className="label-text ">
+
+                    <span
+                      className="label-text-normal">
+                      Weather
+                    </span>
                   </span>
                 </label>
               </div>
             </div>
             <div
-              className="col-xs-6 col-sm-12 no-gutters">
+              className="col-xs-6 no-gutters">
               <div
-                className="checkbox ">
+                className="checkbox form-group ">
                 <label>
                   <input
                     aria-disabled={false}
                     checked={false}
-                    className=""
                     data-checked={false}
-                    id="traffic-toggle"
-                    onChange={[Function bound onChange]}
+                    id=""
+                    onBlur={[Function anonymous]}
+                    onChange={[Function anonymous]}
+                    onKeyPress={[Function anonymous]}
                     type="checkbox"
                     value="Traffic" />
                   <span
                     className="cr" />
                   <span
-                    className="layer-label">
-                    Traffic
+                    className="label-text ">
+
+                    <span
+                      className="label-text-normal">
+                      Traffic
+                    </span>
                   </span>
                 </label>
               </div>
               <div
-                className="checkbox ">
+                className="checkbox form-group ">
                 <label>
                   <input
                     aria-disabled={false}
                     checked={false}
-                    className=""
                     data-checked={false}
-                    id="alerts-toggle"
-                    onChange={[Function bound onChange]}
+                    id=""
+                    onBlur={[Function anonymous]}
+                    onChange={[Function anonymous]}
+                    onKeyPress={[Function anonymous]}
                     type="checkbox"
                     value="Alerts" />
                   <span
                     className="cr" />
                   <span
-                    className="layer-label">
-                    Alerts
+                    className="label-text ">
+
+                    <span
+                      className="label-text-normal">
+                      Alerts
+                    </span>
                   </span>
                 </label>
+                <button
+                  className="tooltip"
+                  data-placement="top"
+                  data-toggle="tooltip"
+                  id="tooltip-"
+                  role="tooltip"
+                  title="Highlights abnormal network malfunction"
+                  type="button">
+                  <i
+                    aria-hidden="true"
+                    className="icon-help" />
+                </button>
               </div>
             </div>
           </fieldset>
         </form>
       </div>
       <div
-        className="col-md-4 hidden-xs hidden-sm">
+        className="col-md-4 hidden-xs hidden-sm map-network-legend">
         <div>
           <span
-            className="visible-sm-inline">
+            className="hidden-xs hidden-sm">
             <div
-              className="network-contact-info">
-              <p>
-                Report Network Issue:
-                <br
-                  className="visible-md-inline" />
-                <a
-                  href="tel:undefined">
-                  <i
-                    aria-hidden="true"
-                    className="icon-phone-number footer-support-phone" />
-                  <span
-                    className="sr-only">
-                    Call 
-                  </span>
-                  <span
-                    className="sr-only">
-                     to report a network issue
-                  </span>
-                </a>
-              </p>
+              className="network-subscription-link">
+              <a
+                href="/subscribe-to-alerts"
+                onClick={[Function anonymous]}>
+                Subscribe to
+                <span
+                  className="visible-xs-inline visible-sm-inline">
+                  Network
+                </span>
+                Alerts
+              </a>
             </div>
           </span>
-          <h2
-            className="as-h5">
+          <h2>
             Network
             <span
               className="sr-only">
@@ -1088,95 +1674,102 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
               src="/images/network-legend.png" />
           </div>
         </div>
-        <div
+        <p
           className="network-contact-info">
-          <p>
+          <span
+            aria-hidden="true">
             Report Network Issue:
-            <br
-              className="visible-md-inline" />
-            <a
-              href="tel:undefined">
+          </span>
+          <br
+            className="visible-md-inline" />
+          <a
+            href="tel:undefined">
+            <span>
               <i
                 aria-hidden="true"
-                className="icon-phone-number footer-support-phone" />
+                className="icon-phone-number" />
               <span
                 className="sr-only">
-                Call 
+                Report Network Issue: Phone 
               </span>
-              <span
-                className="sr-only">
-                 to report a network issue
-              </span>
-            </a>
-          </p>
-        </div>
+            </span>
+          </a>
+        </p>
       </div>
     </div>
     <div
-      className="row">
+      className="row is-flex visible-xs visible-sm">
       <div
-        className="legend-divider col-xs-12">
+        className="col-xs-12 no-gutters">
         <hr />
+      </div>
+      <div
+        className="col-xs-12 col-sm-6">
         <div
-          className="visible-xs-inline">
-          <div
-            className="network-contact-info">
-            <p>
-              Report Network Issue:
-              <br
-                className="visible-md-inline" />
-              <a
-                href="tel:undefined">
-                <i
-                  aria-hidden="true"
-                  className="icon-phone-number footer-support-phone" />
-                <span
-                  className="sr-only">
-                  Call 
-                </span>
-                <span
-                  className="sr-only">
-                   to report a network issue
-                </span>
-              </a>
-            </p>
-          </div>
-          <hr />
+          className="network-subscription-link">
+          <a
+            href="/subscribe-to-alerts"
+            onClick={[Function anonymous]}>
+            Subscribe to
+            <span
+              className="visible-xs-inline visible-sm-inline">
+              Network
+            </span>
+            Alerts
+          </a>
         </div>
+      </div>
+      <div
+        className="col-xs-12 col-sm-6">
+        <p
+          className="network-contact-info">
+          <span
+            aria-hidden="true">
+            Report Network Issue:
+          </span>
+          <br
+            className="visible-md-inline" />
+          <a
+            href="tel:undefined">
+            <span>
+              <i
+                aria-hidden="true"
+                className="icon-phone-number" />
+              <span
+                className="sr-only">
+                Report Network Issue: Phone 
+              </span>
+            </span>
+          </a>
+        </p>
+      </div>
+      <div
+        className="col-xs-12 no-gutters">
+        <hr />
       </div>
     </div>
     <div
       className="row is-flex">
       <div
-        className="col-xs-12 visible-xs-inline visible-sm-inline">
+        className="legend-block col-xs-12 visible-xs-inline visible-sm-inline">
         <div>
           <span
-            className="visible-sm-inline">
+            className="hidden-xs hidden-sm">
             <div
-              className="network-contact-info">
-              <p>
-                Report Network Issue:
-                <br
-                  className="visible-md-inline" />
-                <a
-                  href="tel:undefined">
-                  <i
-                    aria-hidden="true"
-                    className="icon-phone-number footer-support-phone" />
-                  <span
-                    className="sr-only">
-                    Call 
-                  </span>
-                  <span
-                    className="sr-only">
-                     to report a network issue
-                  </span>
-                </a>
-              </p>
+              className="network-subscription-link">
+              <a
+                href="/subscribe-to-alerts"
+                onClick={[Function anonymous]}>
+                Subscribe to
+                <span
+                  className="visible-xs-inline visible-sm-inline">
+                  Network
+                </span>
+                Alerts
+              </a>
             </div>
           </span>
-          <h2
-            className="as-h5">
+          <h2>
             Network
             <span
               className="sr-only">
@@ -1210,11 +1803,12 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
           </div>
         </div>
       </div>
+      <hr
+        className="col-xs-12 hidden-xs hidden-sm" />
       <div
-        className="col-xs-12 col-md-6">
+        className="legend-block col-xs-12 col-md-6">
         <div>
-          <h2
-            className="as-h5">
+          <h2>
             Weather
             <span
               className="sr-only">
@@ -1249,10 +1843,9 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
         </div>
       </div>
       <div
-        className="col-xs-12 col-md-6">
+        className="legend-block col-xs-12 col-md-6">
         <div>
-          <h2
-            className="as-h5">
+          <h2>
             Traffic
             <span
               className="sr-only">

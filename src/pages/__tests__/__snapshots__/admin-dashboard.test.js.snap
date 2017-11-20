@@ -1,33 +1,84 @@
-exports[`<AdminDashboard /> renders matches previous snapshot 1`] = `
+exports[`<AdminDashboard /> renders basic render 1`] = `
 <article
   id="admin-dashboard-page">
   <div
     className="container">
     <div
-      className="col-xs-12">
-      <h1>
-        Administration
-      </h1>
-    </div>
+      className="col-xs-12" />
     <div
       className="row no-gutters">
       <section
-        className="col-xs-12 col-lg-8 manage-actions">
-        <div
-          className="col-xs-12">
-          <h2
-            className="as-h4">
-            Management
-          </h2>
-        </div>
+        className="col-xs-12 hide-aside manage-actions">
+        <nav>
+          <ul />
+        </nav>
+      </section>
+    </div>
+  </div>
+</article>
+`;
+
+exports[`<AdminDashboard /> renders render with 2 cards 1`] = `
+<article
+  id="admin-dashboard-page">
+  <div
+    className="container">
+    <div
+      className="col-xs-12" />
+    <div
+      className="row no-gutters">
+      <section
+        className="col-xs-12 hide-aside manage-actions">
         <nav>
           <ul>
             <li
               className="col-xs-12" />
             <li
-              className="col-xs-12" />
+              className="col-xs-12">
+              <a
+                className="dashboard-card manage-apps has-shadow"
+                href="/admin/manage-apps"
+                onClick={[Function anonymous]}>
+                <div
+                  className="desc">
+                  <h3>
+                    Manage apps
+                  </h3>
+                  <p>
+                    Push an app to your Mobile Device Management(MDM) solution, recommend apps, block apps
+                  </p>
+                </div>
+                <span>
+                  Manage apps 
+                  <i
+                    aria-hidden="true"
+                    className="icon-arrowRight" />
+                </span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </section>
+    </div>
+  </div>
+</article>
+`;
+
+exports[`<AdminDashboard /> renders render with 3 cards 1`] = `
+<article
+  id="admin-dashboard-page">
+  <div
+    className="container">
+    <div
+      className="col-xs-12" />
+    <div
+      className="row no-gutters">
+      <section
+        className="col-xs-12 hide-aside manage-actions">
+        <nav>
+          <ul>
             <li
-              className="col-xs-12 col-sm-6">
+              className="col-xs-12">
               <a
                 className="dashboard-card manage-apps has-shadow"
                 href="/admin/manage-apps"
@@ -50,8 +101,139 @@ exports[`<AdminDashboard /> renders matches previous snapshot 1`] = `
               </a>
             </li>
             <li
-              className="col-xs-12 col-sm-6" />
+              className="col-xs-12" />
+            <li
+              className="col-xs-12" />
           </ul>
+        </nav>
+      </section>
+    </div>
+  </div>
+</article>
+`;
+
+exports[`<AdminDashboard /> renders render with 4 cards 1`] = `
+<article
+  id="admin-dashboard-page">
+  <div
+    className="container">
+    <div
+      className="col-xs-12" />
+    <div
+      className="row no-gutters">
+      <section
+        className="col-xs-12 hide-aside manage-actions">
+        <nav>
+          <ul>
+            <li
+              className="col-xs-12">
+              <a
+                className="dashboard-card manage-apps has-shadow"
+                href="/admin/manage-apps"
+                onClick={[Function anonymous]}>
+                <div
+                  className="desc">
+                  <h3>
+                    Manage apps
+                  </h3>
+                  <p>
+                    Push an app to your Mobile Device Management(MDM) solution, recommend apps, block apps
+                  </p>
+                </div>
+                <span>
+                  Manage apps 
+                  <i
+                    aria-hidden="true"
+                    className="icon-arrowRight" />
+                </span>
+              </a>
+            </li>
+            <li
+              className="col-xs-12" />
+            <li
+              className="col-xs-12" />
+            <li
+              className="col-xs-12" />
+          </ul>
+        </nav>
+      </section>
+    </div>
+  </div>
+</article>
+`;
+
+exports[`<AdminDashboard /> renders render with 5 cards 1`] = `
+<article
+  id="admin-dashboard-page">
+  <div
+    className="container">
+    <div
+      className="col-xs-12" />
+    <div
+      className="row no-gutters">
+      <section
+        className="col-xs-12 hide-aside manage-actions">
+        <nav>
+          <ul>
+            <li
+              className="col-xs-12" />
+            <li
+              className="col-xs-12">
+              <a
+                className="dashboard-card manage-apps has-shadow"
+                href="/admin/manage-apps"
+                onClick={[Function anonymous]}>
+                <div
+                  className="desc">
+                  <h3>
+                    Manage apps
+                  </h3>
+                  <p>
+                    Push an app to your Mobile Device Management(MDM) solution, recommend apps, block apps
+                  </p>
+                </div>
+                <span>
+                  Manage apps 
+                  <i
+                    aria-hidden="true"
+                    className="icon-arrowRight" />
+                </span>
+              </a>
+            </li>
+            <li
+              className="col-xs-12" />
+            <li
+              className="col-xs-12" />
+            <li
+              className="col-xs-12" />
+          </ul>
+        </nav>
+      </section>
+    </div>
+  </div>
+</article>
+`;
+
+exports[`<AdminDashboard /> renders render with aside 1`] = `
+<article
+  id="admin-dashboard-page">
+  <div
+    className="container">
+    <div
+      className="col-xs-12" />
+    <div
+      className="row no-gutters">
+      <section
+        className="col-xs-12 col-lg-8 manage-actions">
+        <div
+          className="col-xs-12">
+          <h2
+            className="as-h4">
+            Management
+          </h2>
+        </div>
+        <nav>
+          <ul />
         </nav>
       </section>
       <aside
