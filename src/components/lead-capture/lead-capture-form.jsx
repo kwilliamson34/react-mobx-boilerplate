@@ -79,7 +79,7 @@ class LeadCaptureForm extends React.Component {
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
           dataObject={this.store.values}
-          helperText="Max 600 Characters"
+          helperText="Max 600 characters."
           id="message"
           type="textarea"
           labelText="Message (Optional)"
