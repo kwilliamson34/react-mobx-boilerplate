@@ -120,7 +120,7 @@ $fn-mobile-item-height: 60px;
         margin-left: 5px;
         text-decoration: none;
         font-size: 1.4rem;
-        vertical-align: middle;
+        vertical-align: sub;
 
         &.icon-phone-number {
           margin-right: 5px;
@@ -576,12 +576,13 @@ $fn-mobile-item-height: 60px;
   .dropdown .dropdown-menu > div > li > a {
     i.icon-external-site {
       display: inline-block;
+      vertical-align: sub;
       visibility: hidden;
       margin-left: 5px;
       line-height: 1;
 
       &:before {
-        font-size: $fn-small-text-desktop;
+        font-size: 1.4rem;
       }
     }
 

@@ -178,7 +178,7 @@ export default class Footer extends React.Component {
 						}
 						<li role="presentation">
 							<span aria-hidden>FirstNet Customer Svc:</span><br className={`visible-xs-inline-block visible-md-inline-block ${this.props.showPrivateLinks ? '' : 'visible-lg-inline-block'}`} />
-							<a href={'tel:' + config.attCustomerSupportDialNum}>
+							<a href={'tel:' + config.attCustomerSupportPhone}>
 								<i className="icon-phone-number footer-support-phone" aria-hidden='true'></i>
 								<span className="sr-only">FirstNet Customer Service Phone&nbsp;</span>
 								{config.attCustomerSupportPhone}

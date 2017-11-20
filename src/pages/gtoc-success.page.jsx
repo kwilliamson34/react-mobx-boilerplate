@@ -13,7 +13,7 @@ export default class SubscribeToGTOCSuccess extends React.Component {
             <PageTitle>We&apos;ve received your request.</PageTitle>
             <p>
               Processing your subscription can take up to 14 days, after which you will start receiving alert notifications. If you have any questions, please contact<br className="visible-lg-block"/> FirstNet Customer Service at&nbsp;
-              <a href={'tel:' + config.attCustomerSupportDialNum}>
+              <a href={'tel:' + config.attCustomerSupportPhone}>
 								<span className="sr-only">FirstNet Customer Service Phone&nbsp;</span>
 								{config.attCustomerSupportPhone}
 							</a>.
