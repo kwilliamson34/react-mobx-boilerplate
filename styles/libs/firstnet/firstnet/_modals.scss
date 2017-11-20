@@ -23,24 +23,15 @@
       padding: 60px 30px;
 
       h1 {
-        margin-top: 0;
         margin-bottom: 20px;
-        text-align: center;
       }
 
-      p {
-        text-align: center;
-        margin-bottom: 30px;
-      }
-
-      .fn-primary,
-      .fn-secondary {
-        display: block;
-        width: 100%;
-      }
-
-      button + button {
+      .modal-actions {
         margin-top: 30px;
+
+        button {
+          margin: 10px;
+        }
       }
     }
   }
@@ -54,20 +45,6 @@
         h1 {
           margin-bottom: 30px;
         }
-
-        p {
-          margin-bottom: 40px;
-        }
-
-        .fn-primary,
-        .fn-secondary {
-          display: inline-block;
-          width: auto;
-        }
-
-        button:not(.fn-modal-close) {
-          margin: 0 10px 0;
-        }
       }
     }
   }
@@ -80,18 +57,6 @@
 
         h1 {
           margin-bottom: 30px;
-        }
-
-        p {
-          margin-bottom: 60px;
-        }
-        .fn-primary,
-        .fn-secondary {
-          display: inline-block;
-          width: auto;
-        }
-        button:not(.fn-modal-close) {
-          margin: 0 10px 0;
         }
       }
     }
