@@ -201,10 +201,10 @@ export default function asForm (MyComponent, attributes) {
             id="exit-modal"
             title="Unsaved changes"
             ref={i => this.exitModal = i}
-            primaryAction={this.stayOnPage}
-            primaryButtonLabel="Stay on page"
-            secondaryAction={this.discardFormChanges}
-            secondaryButtonLabel="Discard Changes">
+            primaryAction={this.discardFormChanges}
+            primaryButtonLabel="Discard Changes"
+            secondaryAction={this.stayOnPage}
+            secondaryButtonLabel="Stay On Page">
             <p>Your form changes will not be saved if you navigate away from this page.</p>
           </Modal>
         </section>

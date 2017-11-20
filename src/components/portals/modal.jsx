@@ -41,6 +41,14 @@ export default class Modal extends React.Component {
         $(this.modal).data('bs.modal', null);
       }
     });
+
+    //close modal if user hits Escape key
+    document.onkeydown = (evt) => {
+      evt = evt || window.event;
+      if (evt.keyCode == 27) {
+        this.hideModal();
+      }
+    };
   }
 
   toggleModal = () => {
@@ -55,13 +63,9 @@ export default class Modal extends React.Component {
     this.show = false;
   }
 
-  temp = (e) => {
-    console.log(e.target)
-  }
-
   render() {
     return (
-      <div className="modal-wrapper" onBlur={this.temp}>
+      <div className="modal-wrapper">
         <Portal>
           <div id={this.props.id}
             ref={i => this.modal = i}
@@ -84,13 +88,14 @@ export default class Modal extends React.Component {
                 </div>
                 <div className="row no-gutters modal-actions">
                   <div className="col-xs-12 text-center">
-                    <button className="fn-primary" onClick={this.props.primaryAction}>
-                      {this.props.primaryButtonLabel}
-                    </button>
+                    {/* If there are two buttons, the primary button should be on the right. */}
                     {this.props.secondaryAction !== undefined &&
                       <button className="fn-secondary" onClick={this.props.secondaryAction}>
                         {this.props.secondaryButtonLabel}
                       </button>}
+                    <button className="fn-primary" onClick={this.props.primaryAction}>
+                      {this.props.primaryButtonLabel}
+                    </button>
                   </div>
                 </div>
               </div>
