@@ -37,8 +37,6 @@ class MobileIronCoreForm extends React.Component {
         <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="mi_core_userName" type="input" labelText="MobileIron Core Username" required={true} disabled={disabled} errorMessage="Please enter a valid MobileIron Core username." announceError={this.props.announceErrors} charLimit={256} />
 
         <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="mi_core_password" type="password" labelText="MobileIron Core Password" required={true} disabled={disabled} errorMessage="Please enter a valid MobileIron Core password." announceError={this.props.announceErrors} charLimit={256} />
-
-        <Checkbox ref={ref => this.store.formFieldRefList.push(ref)} id="mi_core_cloudconnected" value={this.store.values.mi_core_cloudconnected} label="Cloud Connected" required={false} disabled={disabled} checked={this.store.values.mi_core_cloudconnected} handleOnChange={this.handleCheckboxOnChange} />
       </div>
     );
   }
