@@ -14,6 +14,7 @@ export default class Modal extends React.Component {
     primaryButtonLabel: PropTypes.string,
     secondaryAction: PropTypes.func,
     secondaryButtonLabel: PropTypes.string,
+    restoreFocusTo: PropTypes.string,
     children: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.object,
@@ -60,6 +61,9 @@ export default class Modal extends React.Component {
 
   hideModal = () => {
     this.show = false;
+    if(this.props.restoreFocusTo){
+      $(this.props.restoreFocusTo).focus();
+    }
   }
 
   render() {

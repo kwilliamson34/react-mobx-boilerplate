@@ -117,6 +117,7 @@ export default class ManageFavoritesPage extends React.Component {
       id="delete-modal"
       title={deleteQuestion}
       ref={i => this.deleteModal = i}
+      restoreFocusTo="#delete-modal-launcher"
       primaryAction={this.deleteFavorites}
       primaryButtonLabel={'Delete ' + favoriteString}
       secondaryAction={this.deleteModal.hideModal}
@@ -230,7 +231,7 @@ export default class ManageFavoritesPage extends React.Component {
     const oneItemSelected = this.manageFavoritesStore.checkedRows.length === 1;
     return (
       <div className="desktop-favorites-delete-button">
-        <button role="button" className={`as-link ${this.manageFavoritesStore.disableDeleteButton ? 'disabled' : ''}`} onClick={this.handleDeleteAction}>
+        <button id="delete-modal-launcher" role="button" className={`as-link ${this.manageFavoritesStore.disableDeleteButton ? 'disabled' : ''}`} onClick={this.handleDeleteAction}>
           <i className="icon-trash" aria-hidden="true" />
           <span>
             {

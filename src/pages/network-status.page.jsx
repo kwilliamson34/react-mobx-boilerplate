@@ -49,6 +49,7 @@ export default class NetworkStatusPage extends React.Component {
       id="delete-modal"
       title={`Delete ${this.geoStore.values.locationName}?`}
       ref={i => this.deleteModal = i}
+      restoreFocusTo="#delete-modal-launcher"
       primaryAction={this.deleteFavorite}
       primaryButtonLabel="Delete Favorite"
       secondaryAction={this.deleteModal.hideModal}
@@ -75,7 +76,7 @@ export default class NetworkStatusPage extends React.Component {
   renderEditLocationDeleteButton = () => {
     return (
       <div className="desktop-favorites-delete-button">
-        <button className="btn as-link" onClick={this.handleDeleteClick}>
+        <button id="delete-modal-launcher" className="btn as-link" onClick={this.handleDeleteClick}>
           <i className="icon-trash" aria-hidden="true" />
           Delete Favorite
         </button>

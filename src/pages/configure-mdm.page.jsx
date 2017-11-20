@@ -51,6 +51,7 @@ export default class ConfigureMDM extends React.Component {
       id="break-connection-modal"
       title="Confirm break connection"
       ref={i => this.breakConnectionModal = i}
+      restoreFocusTo="#connection-modal-launcher"
       primaryAction={this.breakMDMConnection}
       primaryButtonLabel="Break Connection"
       secondaryAction={this.breakConnectionModal.hideModal}
@@ -120,7 +121,7 @@ export default class ConfigureMDM extends React.Component {
 		return (
 			<div className="break-mdm-wrapper col-xs-12">
 				<div className="container">
-					<button onClick={this.breakConnectionModal.showModal} className="break-mdm-btn fn-primary" aria-labelledby="break-mdm-connection" aria-disabled={!this.mdmStore.mdmIsConfigured}>Break Connection</button>
+					<button id="connection-modal-launcher" onClick={this.breakConnectionModal.showModal} className="break-mdm-btn fn-primary" aria-labelledby="break-mdm-connection" aria-disabled={!this.mdmStore.mdmIsConfigured}>Break Connection</button>
 				</div>
 			</div>
 		)
