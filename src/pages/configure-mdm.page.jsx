@@ -23,11 +23,11 @@ export default class ConfigureMDM extends React.Component {
     })
   }
 
-	constructor(props) {
-		super(props);
-		this.mdmStore = this.props.store.mdmStore;
-    this.breakConnectionModal = {};
-	}
+  constructor(props) {
+  	super(props);
+  	this.mdmStore = this.props.store.mdmStore;
+  	this.breakConnectionModal = {};
+  }
 
   componentWillMount() {
     this.mdmStore.hasBeenSubmitted = false;
