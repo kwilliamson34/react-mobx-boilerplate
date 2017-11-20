@@ -113,8 +113,8 @@ class ManageFavoritesStore {
     });
   }
 
-  @action setSelectAllCheckboxSrOnlyLabel(message) {
-    this.selectAllCheckboxSrOnlyLabel = message;
+  @action setTableRef(refList) {
+    this.tableRef = refList;
   }
 
   @action resetPage() {
@@ -128,6 +128,7 @@ class ManageFavoritesStore {
     this.searchResults = [];
     this.checkedRows = [];
     this.showSearchResults = false;
+    this.tableRef = [];
   }
 
   @action resetPagination() {
@@ -203,6 +204,14 @@ class ManageFavoritesStore {
       : this.rows.length > this.sortedRows.length;
   }
 
+  @computed get selectAllCheckboxSrOnlyLabel() {
+    return this.isLoading
+      ? 'Select all checkbox selected'
+      : `You are currently on a table. There are ${this.tableRef.relevantColumnsCount} columns and ${this.sortedRows.length} rows. Select all checkbox selected`;
+  }
+
+  @observable tableRef = [];
+
   @observable rows = [];
   @observable checkedRows = [];
 
@@ -220,7 +229,6 @@ class ManageFavoritesStore {
   @observable moreToLoad = false;
 
   @observable activeColumn = 'favoriteName';
-  @observable selectAllCheckboxSrOnlyLabel = '';
 
   //to keep the order toggling simple, true is ascending and false is descending;
   @observable sortDirectionsDefaults = {
