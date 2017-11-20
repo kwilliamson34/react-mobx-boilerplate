@@ -7,17 +7,13 @@ class JoyrideStore {
 	@action initializeJoyride(joyrideRef) {
 		this.tourRef = joyrideRef;
 		this.tourAutoStart = true;
-		this.tourIsDisabled = document.cookie.indexOf('_fn_lc_tour') != -1 && utilsService.getCookie('_fn_lc_tour') === 'false';
-		if(document.cookie.indexOf('_fn_lc_tour') < 0){
-			this.showTourIntroModal = true;
-		} else {
-			if(!this.tourIsDisabled) {
-				this.showTourIntroModal = false;
-				this.runNow = true;
-				this.setupTour();
-			}
-		}
+		this.introModalSeen = document.cookie.indexOf('_fn_lc_tour') != -1;
+		this.tourIsDisabled = this.introModalSeen && utilsService.getCookie('_fn_lc_tour') === 'false';
 
+		if(!this.tourIsDisabled && this.introModalSeen) {
+			this.runNow = true;
+			this.setupTour();
+		}
 	}
 
 	@action toggleTour() {
@@ -42,7 +38,6 @@ class JoyrideStore {
 		this.tourIsDisabled = true;
 		this.runNow = false;
 		this.tourAutoStart = false;
-		this.showTourIntroModal = false;
 	}
 
 	@action enableTour() {
@@ -61,11 +56,8 @@ class JoyrideStore {
 				}, 500);
 				return;
 			}
-
 			this.nextStepRenderAttempts = 0;
-			this.showTourIntroModal = false;
 			this.currentSteps = this.stepsToShow;
-
 			if(this.tourRef.start) {
 				//if runNow is false, this command will only show the beacons
 				this.tourRef.start(this.runNow, this.currentSteps.peek(), 0);
@@ -148,7 +140,7 @@ class JoyrideStore {
 	@observable tourRef = {};
 	@observable tourIsDisabled = false;
 	@observable tourAutoStart = true;
-	@observable showTourIntroModal = false;
+	@observable introModalSeen = document.cookie.indexOf('_fn_lc_tour') < 0;
 	@observable runNow = false;
 	@observable stepIndex = 0;
 	@observable selector = '';

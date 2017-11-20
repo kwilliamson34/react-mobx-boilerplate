@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Joyride from 'fn-joyride-ui';
 import {observer} from 'mobx-react';
-import {autorun} from 'mobx';
 import $ from 'jquery';
 import Modal from '../portals/modal';
 
@@ -18,18 +17,15 @@ export default class JoyrideBase extends React.Component {
     this.joyrideStore = this.props.joyrideStore;
     this.mountMaxTries = 25;
     this.checkAnchorExistsTimeoutInterval = 500;
-
-    autorun(() => {
-      // show modal when needed
-      if(this.joyrideStore.showTourIntroModal) {
-        this.tourIntroModal.showModal();
-      }
-    });
   }
 
   componentDidMount() {
     this.joyrideStore.tourPage = this.props.location;
     this.joyrideStore.initializeJoyride(this.joyride);
+
+    if(!this.joyrideStore.introModalSeen) {
+      this.tourIntroModal.showModal();
+    }
 
     //replace buggy joyride keydown listener affecting behavior of back button;
     document.body.removeEventListener('keydown', this.joyride.listeners.keyboard);
@@ -42,7 +38,7 @@ export default class JoyrideBase extends React.Component {
       this.joyrideStore.stopTour();
       this.joyrideStore.tourPage = nextProps.location;
 
-      if(!this.joyrideStore.tourIsDisabled && !this.joyrideStore.showTourIntroModal) {
+      if(!this.joyrideStore.tourIsDisabled) {
         this.joyrideStore.runNow = this.joyrideStore.tourAutoStart;
         this.joyrideStore.setupTour();
       }
@@ -70,7 +66,7 @@ export default class JoyrideBase extends React.Component {
 
   handleTourEscapeKey = (e) => {
     const keyDown = (window.Event) ? e.which : e.keyCode;
-    if (this.joyrideStore.showTourIntroModal && this.joyrideStore.runNow && keyDown === 27) {
+    if (this.joyrideStore.runNow && keyDown === 27) {
       document.querySelector('.joyride-tooltip__close').click();
     }
   }
