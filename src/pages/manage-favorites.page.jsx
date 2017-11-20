@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {observer, inject} from 'mobx-react';
-import $ from 'jquery';
 
 import {history} from '../core/services/history.service';
 import PageTitle from '../components/page-title/page-title';
@@ -12,6 +11,7 @@ import {SortableTable} from '../components/sortable-table/sortable-table';
 import {TableColumn} from '../components/sortable-table/table-column';
 import {MobileHeader} from '../components/sortable-table/mobile-header';
 import Alerts from '../components/alerts/alerts';
+import Modal from '../components/portals/modal';
 
 @inject('store')
 @observer
@@ -25,6 +25,7 @@ export default class ManageFavoritesPage extends React.Component {
     super(props);
     this.manageFavoritesStore = this.props.store.manageFavoritesStore;
     this.geolinkStore = this.props.store.geolinkStore;
+    this.deleteModal = {};
   }
 
   componentWillMount() {
@@ -50,15 +51,10 @@ export default class ManageFavoritesPage extends React.Component {
     this.geolinkStore.clearAlertBars();
   }
 
-  keepFavorites = (e) => {
-    e.preventDefault();
-    this.hideDeleteModal();
-  }
-
   deleteFavorites = (e) => {
     e.preventDefault();
     this.manageFavoritesStore.deleteRows();
-    this.hideDeleteModal();
+    this.deleteModal.hideModal();
   }
 
   advancePagination = () => {
@@ -100,18 +96,8 @@ export default class ManageFavoritesPage extends React.Component {
   handleDeleteAction = (e) => {
     e.preventDefault();
     if (!this.manageFavoritesStore.disableDeleteButton) {
-      this.showDeleteModal();
+      this.deleteModal.showModal();
     }
-  }
-
-  showDeleteModal = () => {
-    $('#delete-modal').modal({backdrop: 'static'});
-    $('#delete-modal').modal('show');
-  }
-
-  hideDeleteModal = () => {
-    $('#delete-modal').modal('hide');
-    $('#delete-modal').data('bs.modal', null);
   }
 
   renderDeleteModal = () => {
@@ -127,32 +113,16 @@ export default class ManageFavoritesPage extends React.Component {
       favoriteString = 'Favorites';
     }
 
-    return (
-      <div id="delete-modal" role="dialog" tabIndex="-1" className="modal fade" aria-labelledby="modal-title">
-        <div>
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <button type="button" className="fn-modal-close" onClick={this.hideDeleteModal}>
-                <i aria-hidden="true" className="icon-close"></i>
-                <span className="sr-only">Close window</span>
-              </button>
-              <div className="row no-gutters" id="modal-title">
-                <div className="col-xs-12">
-                  <h1 className="as-h2">
-                    {deleteQuestion}
-                  </h1>
-                  <p>This cannot be undone. New favorites can be added at any time.</p>
-                </div>
-                <div className="col-xs-12 text-center">
-                  <button className="fn-primary" onClick={this.keepFavorites}>Keep {favoriteString}</button>
-                  <button className="fn-secondary" onClick={this.deleteFavorites}>Delete {favoriteString}</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    )
+    return <Modal
+      id="delete-modal"
+      title={deleteQuestion}
+      ref={i => this.deleteModal = i}
+      primaryAction={this.deleteFavorites}
+      primaryButtonLabel={'Delete ' + favoriteString}
+      secondaryAction={this.deleteModal.hideModal}
+      secondaryButtonLabel={'Keep ' + favoriteString}>
+      <p>This cannot be undone. New favorites can be added at any time.</p>
+    </Modal>
   }
 
   renderSearchBar = () => {
