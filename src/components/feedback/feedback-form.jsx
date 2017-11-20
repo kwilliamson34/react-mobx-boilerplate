@@ -83,7 +83,7 @@ class FeedbackForm extends React.Component {
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
           dataObject={this.store.values}
-          helperText="Max 2,500 Characters"
+          helperText="Max 2,500 characters."
           id="details"
           type="textarea"
           labelText="Details"
