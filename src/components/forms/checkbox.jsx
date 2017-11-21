@@ -38,9 +38,11 @@ import {observable, computed} from 'mobx';
   }
 
   @observable hasBeenVisited = false;
-  @observable hasVisibleError = false;
   @computed get hasFunctionalError() {
-    return this.props.required && this.hasBeenVisited && !this.props.checked;
+    return this.props.required && !this.props.checked;
+  }
+  @computed get hasVisibleError() {
+    return this.hasFunctionalError && this.hasBeenVisited;
   }
 
   handleOnChange = (event) => {
@@ -49,7 +51,6 @@ import {observable, computed} from 'mobx';
     } else {
       if (this.props.handleOnChange) {
         this.props.handleOnChange(event.target);
-        this.showError(event);
       }
       this.hasBeenVisited = true;
     }
@@ -61,13 +62,8 @@ import {observable, computed} from 'mobx';
     }
   }
 
-  handleOnBlur = (event) => {
+  handleOnBlur = () => {
     this.hasBeenVisited = true;
-    this.showError(event);
-  }
-
-  showError = () => {
-    this.hasVisibleError = this.hasFunctionalError;
   }
 
   render() {
