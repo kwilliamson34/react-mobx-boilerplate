@@ -58,7 +58,7 @@ class FeedbackForm extends React.Component {
       <div id="feedback-form">
 
         <SelectInput
-          ref={ref => this.store.formFieldRefList.push(ref)}
+          ref={ref => utilsService.registerFormFieldRef(ref, this.store.formFieldRefList)}
           dataObject={this.store.values}
           id="topic"
           type="select"
@@ -70,7 +70,7 @@ class FeedbackForm extends React.Component {
           optionsList={this.topics}/>
 
         <TextInput
-          ref={ref => this.store.formFieldRefList.push(ref)}
+          ref={ref => utilsService.registerFormFieldRef(ref, this.store.formFieldRefList)}
           dataObject={this.store.values}
           id="subject"
           type="input"
@@ -81,7 +81,7 @@ class FeedbackForm extends React.Component {
           charLimit={256}/>
 
         <TextInput
-          ref={ref => this.store.formFieldRefList.push(ref)}
+          ref={ref => utilsService.registerFormFieldRef(ref, this.store.formFieldRefList)}
           dataObject={this.store.values}
           helperText="Max 2,500 characters."
           id="details"
@@ -93,7 +93,7 @@ class FeedbackForm extends React.Component {
           charLimit={2500}/>
 
         <SelectInput
-          ref={ref => this.store.formFieldRefList.push(ref)}
+          ref={ref => utilsService.registerFormFieldRef(ref, this.store.formFieldRefList)}
           dataObject={this.store.values}
           id="operatingSystem"
           type="select"
@@ -105,7 +105,7 @@ class FeedbackForm extends React.Component {
           optionsList={this.operatingSystems}/>
 
         <TextInput
-          ref={ref => this.store.formFieldRefList.push(ref)}
+          ref={ref => utilsService.registerFormFieldRef(ref, this.store.formFieldRefList)}
           dataObject={this.store.values}
           id="email"
           type="input"
@@ -120,7 +120,7 @@ class FeedbackForm extends React.Component {
           charLimit={256}/>
 
         <TextInput
-          ref={ref => this.store.formFieldRefList.push(ref)}
+          ref={ref => utilsService.registerFormFieldRef(ref, this.store.formFieldRefList)}
           dataObject={this.store.values}
           id="phoneNo"
           type="input"
@@ -131,7 +131,7 @@ class FeedbackForm extends React.Component {
           charLimit={256}/>
 
         <SelectInput
-          ref={ref => this.store.formFieldRefList.push(ref)}
+          ref={ref => utilsService.registerFormFieldRef(ref, this.store.formFieldRefList)}
           dataObject={this.store.values}
           id="likely"
           type="select"
@@ -155,7 +155,7 @@ class FeedbackForm extends React.Component {
 
         {this.store.requireContactAgreement &&
           <Checkbox
-            ref={ref => this.store.formFieldRefList.push(ref)}
+            ref={ref => utilsService.registerFormFieldRef(ref, this.store.formFieldRefList)}
             id="contactAgreement"
             value="contactAgreement"
             label="By submitting this information, you agree to be contacted by FirstNet. We will never sell or share your information."
