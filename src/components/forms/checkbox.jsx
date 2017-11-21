@@ -40,7 +40,7 @@ import {observable, computed} from 'mobx';
   @observable hasBeenVisited = false;
   @observable hasVisibleError = false;
   @computed get hasFunctionalError() {
-    return this.props.required && this.hasBeenVisited && !this.props.checked;    
+    return this.props.required && this.hasBeenVisited && !this.props.checked;
   }
 
   handleOnChange = (event) => {
@@ -66,7 +66,7 @@ import {observable, computed} from 'mobx';
     this.showError(event);
   }
 
-  showError = (event) => {
+  showError = () => {
     this.hasVisibleError = this.hasFunctionalError;
   }
 
