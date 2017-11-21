@@ -11,7 +11,6 @@ class FeedbackStore {
       if(userStore.userValidationDone) {
         let hasError = false;
         this.formFieldRefList.forEach(ref => {
-          console.log(ref)
           if(ref && ref.hasFunctionalError) {
             hasError = true;
           }
