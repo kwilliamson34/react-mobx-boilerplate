@@ -32,7 +32,7 @@ class MobileIronCoreForm extends React.Component {
       <div>
         <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="mi_core_hostName" type="input" labelText="Host Name" required={true} disabled={disabled} errorMessage="Please enter a valid host name." announceError={this.props.announceErrors} charLimit={256} />
 
-        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="mi_core_companycode" type="input" labelText="Company Code" required={true} disabled={disabled} errorMessage="Please enter a valid Company Code." announceError={this.props.announceErrors} charLimit={256} />
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="mi_core_companycode" type="input" labelText="Company Code" required={true} disabled={disabled} errorMessage="Please enter a valid company code." announceError={this.props.announceErrors} charLimit={256} />
 
         <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="mi_core_userName" type="input" labelText="MobileIron Core Username" required={true} disabled={disabled} errorMessage="Please enter a valid MobileIron Core username." announceError={this.props.announceErrors} charLimit={256} />
 

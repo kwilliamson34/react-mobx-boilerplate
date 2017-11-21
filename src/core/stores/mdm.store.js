@@ -299,7 +299,6 @@ class MDMStore {
     mi_core_password: '',
     mi_core_userName: '',
     mi_core_companycode: '',
-    mi_core_cloudconnected: false,
     msintune_clientID: '',
     msintune_clientSecret: '',
     msintune_hostName: '',
