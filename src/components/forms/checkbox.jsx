@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {observer} from 'mobx-react';
 import {observable, computed} from 'mobx';
 
-export default class Checkbox extends React.Component {
+@observer export default class Checkbox extends React.Component {
   static propTypes = {
     id: PropTypes.string,
     value: PropTypes.string,
@@ -39,7 +40,7 @@ export default class Checkbox extends React.Component {
   @observable hasBeenVisited = false;
   @observable hasVisibleError = false;
   @computed get hasFunctionalError() {
-    return this.hasVisibleError || !this.hasBeenVisited;
+    return this.props.required && this.hasBeenVisited && !this.props.checked;    
   }
 
   handleOnChange = (event) => {
@@ -61,16 +62,12 @@ export default class Checkbox extends React.Component {
   }
 
   handleOnBlur = (event) => {
-    this.showError(event);
     this.hasBeenVisited = true;
+    this.showError(event);
   }
 
   showError = (event) => {
-    if(!event.target.checked && this.props.required) {
-      this.hasVisibleError = true;
-    } else {
-      this.hasVisibleError = false;
-    }
+    this.hasVisibleError = this.hasFunctionalError;
   }
 
   render() {
