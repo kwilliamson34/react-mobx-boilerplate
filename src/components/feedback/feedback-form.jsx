@@ -153,7 +153,7 @@ class FeedbackForm extends React.Component {
           </p>
         </div>
 
-        {this.store.requireContactAgreement &&
+        <div className={`${this.store.requireContactAgreement ? '' : 'hidden'}`}>
           <Checkbox
             ref={ref => utilsService.registerFormFieldRef(ref, this.store.formFieldRefList)}
             id="contactAgreement"
@@ -164,7 +164,7 @@ class FeedbackForm extends React.Component {
             announceError={this.props.announceErrors}
             checked={this.store.contactAgreement}
             handleOnChange={this.handleCheckboxOnChange} />
-        }
+        </div>
 
       </div>
     );
