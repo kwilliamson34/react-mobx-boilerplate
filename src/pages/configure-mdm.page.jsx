@@ -168,7 +168,7 @@ export default class ConfigureMDM extends React.Component {
   renderInTuneDisclaimer = () => {
     return (
       <p className="mdm-descriptive-block">
-        Note: only FirstNet applications that are available in the iTunes or Google Play stores can be pushed to an Intune account through the Local Control site.
+        Note: only FirstNet applications that are available in the iTunes or Google Play stores can be pushed to an Intune account through the Local Control site.      
       </p>
     )
   }
