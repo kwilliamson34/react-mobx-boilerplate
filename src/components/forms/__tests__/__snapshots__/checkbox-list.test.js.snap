@@ -1,75 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<CheckboxList /> renders matches previous snapshot 1`] = `
 <div
-  className="form-group key-class ">
+  className="form-group key-class "
+>
   <fieldset
     id="key"
-    onBlur={[Function anonymous]}>
+    onBlur={[Function]}
+  >
     <div
-      className="selection-buttons">
+      className="selection-buttons"
+    >
       <div
-        className="checkbox select-all-checkbox">
+        className="checkbox select-all-checkbox"
+      >
         <label>
           <input
             checked={true}
             name="select-all-checkbox"
-            onClick={[Function anonymous]}
+            onClick={[Function]}
             type="checkbox"
-            value="" />
+            value=""
+          />
           <span
-            className="cr" />
+            className="cr"
+          />
           <span
-            className="select-all-description">
+            className="select-all-description"
+          >
             Select All
           </span>
         </label>
       </div>
       <button
         className="btn as-link"
-        onClick={[Function anonymous]}
-        type="button">
+        onClick={[Function]}
+        type="button"
+      >
         Clear All
       </button>
     </div>
     <hr
-      className="gtoc-checklist-hr" />
+      className="gtoc-checklist-hr"
+    />
   </fieldset>
 </div>
 `;
 
 exports[`<CheckboxList /> renders matches previous snapshot 2`] = `
 <div
-  className="form-group key-class ">
+  className="form-group key-class "
+>
   <fieldset
     id="key"
-    onBlur={[Function anonymous]}>
+    onBlur={[Function]}
+  >
     <div
-      className="selection-buttons">
+      className="selection-buttons"
+    >
       <div
-        className="checkbox select-all-checkbox">
+        className="checkbox select-all-checkbox"
+      >
         <label>
           <input
             checked={false}
             name="select-all-checkbox"
-            onClick={[Function anonymous]}
+            onClick={[Function]}
             type="checkbox"
-            value="" />
+            value=""
+          />
           <span
-            className="cr" />
+            className="cr"
+          />
           <span
-            className="select-all-description">
+            className="select-all-description"
+          >
             Select All
           </span>
         </label>
       </div>
       <button
         className="btn as-link"
-        onClick={[Function anonymous]}
-        type="button">
+        onClick={[Function]}
+        type="button"
+      >
         Clear All
       </button>
     </div>
     <hr
-      className="gtoc-checklist-hr" />
+      className="gtoc-checklist-hr"
+    />
     1
     2
   </fieldset>
@@ -78,38 +98,47 @@ exports[`<CheckboxList /> renders matches previous snapshot 2`] = `
 
 exports[`<CheckboxList /> renders matches previous snapshot 3`] = `
 <div
-  className="form-group key-class ">
+  className="form-group key-class "
+>
   <fieldset
     id="key"
-    onBlur={[Function anonymous]}>
+    onBlur={[Function]}
+  >
     <div
-      className="selection-buttons">
+      className="selection-buttons"
+    >
       <div
-        className="checkbox select-all-checkbox">
+        className="checkbox select-all-checkbox"
+      >
         <label>
           <input
             checked={false}
             name="select-all-checkbox"
-            onClick={[Function anonymous]}
+            onClick={[Function]}
             type="checkbox"
-            value="" />
+            value=""
+          />
           <span
-            className="cr" />
+            className="cr"
+          />
           <span
-            className="select-all-description">
+            className="select-all-description"
+          >
             Select All
           </span>
         </label>
       </div>
       <button
         className="btn as-link"
-        onClick={[Function anonymous]}
-        type="button">
+        onClick={[Function]}
+        type="button"
+      >
         Clear All
       </button>
     </div>
     <hr
-      className="gtoc-checklist-hr" />
+      className="gtoc-checklist-hr"
+    />
     1
     2
   </fieldset>

@@ -1,9 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<FormLabel /> renders matches previous snapshot 1`] = `
 <div
-  className="form-label">
+  className="form-label"
+>
   <legend
     className="control-label "
-    htmlFor="">
+    htmlFor=""
+  >
     testLabel
     
   </legend>
@@ -13,10 +17,12 @@ exports[`<FormLabel /> renders matches previous snapshot 1`] = `
 
 exports[`<FormLabel /> renders matches previous snapshot 2`] = `
 <div
-  className="form-label">
+  className="form-label"
+>
   <label
     className="control-label "
-    htmlFor="example-id">
+    htmlFor="example-id"
+  >
     testLabel
     
   </label>
@@ -26,13 +32,16 @@ exports[`<FormLabel /> renders matches previous snapshot 2`] = `
 
 exports[`<FormLabel /> renders matches previous snapshot 3`] = `
 <div
-  className="form-label">
+  className="form-label"
+>
   <label
     className="control-label "
-    htmlFor="example-id">
+    htmlFor="example-id"
+  >
     testLabel
     <span
-      className="help-text">
+      className="help-text"
+    >
       helper text
     </span>
   </label>
@@ -42,17 +51,21 @@ exports[`<FormLabel /> renders matches previous snapshot 3`] = `
 
 exports[`<FormLabel /> renders matches previous snapshot 4`] = `
 <div
-  className="form-label">
+  className="form-label"
+>
   <label
     className="control-label "
-    htmlFor="example-id">
+    htmlFor="example-id"
+  >
     testLabel
     <span
-      className="required-asterisks">
+      className="required-asterisks"
+    >
        *
     </span>
     <span
-      className="help-text">
+      className="help-text"
+    >
       helper text
     </span>
   </label>
@@ -62,30 +75,37 @@ exports[`<FormLabel /> renders matches previous snapshot 4`] = `
 
 exports[`<FormLabel /> renders matches previous snapshot 5`] = `
 <div
-  className="form-label">
+  className="form-label"
+>
   <label
     className="control-label "
-    htmlFor="example-id">
+    htmlFor="example-id"
+  >
     testLabel
     <span
-      className="required-asterisks">
+      className="required-asterisks"
+    >
        *
     </span>
     <span
-      className="help-text">
+      className="help-text"
+    >
       helper text
     </span>
   </label>
   <div
-    className="msgBlock error error-list">
+    className="msgBlock error error-list"
+  >
     <span
       aria-live="assertive"
-      role="alert">
+      role="alert"
+    >
       
     </span>
     <span
       aria-live=""
-      role="">
+      role=""
+    >
       This field has an error
     </span>
   </div>
@@ -94,30 +114,37 @@ exports[`<FormLabel /> renders matches previous snapshot 5`] = `
 
 exports[`<FormLabel /> renders matches previous snapshot 6`] = `
 <div
-  className="form-label">
+  className="form-label"
+>
   <label
     className="control-label sr-only"
-    htmlFor="example-id">
+    htmlFor="example-id"
+  >
     testLabel
     <span
-      className="required-asterisks">
+      className="required-asterisks"
+    >
        *
     </span>
     <span
-      className="help-text">
+      className="help-text"
+    >
       helper text
     </span>
   </label>
   <div
-    className="msgBlock error error-list">
+    className="msgBlock error error-list"
+  >
     <span
       aria-live="assertive"
-      role="alert">
+      role="alert"
+    >
       
     </span>
     <span
       aria-live=""
-      role="">
+      role=""
+    >
       This field has an error
     </span>
   </div>

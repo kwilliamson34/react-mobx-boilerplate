@@ -1,13 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<PurchasingInfo /> render tests matches previous snapshot 1`] = `
 <section
-  className="purchasing-info">
+  className="purchasing-info"
+>
   <h2>
     For Purchasing
   </h2>
   <hr />
   <div>
     <ul
-      className="purchase-options-list">
+      className="purchase-options-list"
+    >
       <li>
         <strong>
           Contact:
@@ -15,19 +19,23 @@ exports[`<PurchasingInfo /> render tests matches previous snapshot 1`] = `
         <span
           dangerouslySetInnerHTML={
             Object {
-              "__html": "Don Johnson"
+              "__html": "Don Johnson",
             }
-          } />
+          }
+        />
       </li>
       <li>
         <strong
-          aria-hidden="true">
+          aria-hidden="true"
+        >
           Phone:
         </strong>
         <a
-          href="tel:1-555-IAM-VICE">
+          href="tel:1-555-IAM-VICE"
+        >
           <span
-            className="sr-only">
+            className="sr-only"
+          >
             Phone: 
           </span>
           1-555-IAM-VICE
@@ -35,13 +43,16 @@ exports[`<PurchasingInfo /> render tests matches previous snapshot 1`] = `
       </li>
       <li>
         <strong
-          aria-hidden="true">
+          aria-hidden="true"
+        >
           Email:
         </strong>
         <a
-          href="mailto:don_the_heat@hotmail.com">
+          href="mailto:don_the_heat@hotmail.com"
+        >
           <span
-            className="sr-only">
+            className="sr-only"
+          >
             Email: 
           </span>
           don_the_heat@hotmail.com
@@ -54,19 +65,23 @@ exports[`<PurchasingInfo /> render tests matches previous snapshot 1`] = `
         <span
           dangerouslySetInnerHTML={
             Object {
-              "__html": "Fast \'n Hot Speedboats\'"
+              "__html": "Fast 'n Hot Speedboats'",
             }
-          } />
+          }
+        />
       </li>
       <li>
         <strong
-          aria-hidden="true">
+          aria-hidden="true"
+        >
           Website:
         </strong>
         <a
-          href="http://www.fastnhotspeedboats.com">
+          href="http://www.fastnhotspeedboats.com"
+        >
           <span
-            className="sr-only">
+            className="sr-only"
+          >
             Website: 
           </span>
           fastnhotspeedboats.com
@@ -79,14 +94,16 @@ exports[`<PurchasingInfo /> render tests matches previous snapshot 1`] = `
 
 exports[`<PurchasingInfo /> render tests should render with no purchasing info shown 1`] = `
 <section
-  className="purchasing-info">
+  className="purchasing-info"
+>
   <h2>
     For Purchasing
   </h2>
   <hr />
   <div>
     <ul
-      className="purchase-options-list" />
+      className="purchase-options-list"
+    />
   </div>
 </section>
 `;

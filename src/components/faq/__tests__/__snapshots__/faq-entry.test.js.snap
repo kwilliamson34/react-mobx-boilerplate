@@ -1,8 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<FaqEntry /> render testing matches snapshot 1`] = `
 <article
-  className="faq-entry">
+  className="faq-entry"
+>
   <h3
-    id="faq-100">
+    id="faq-100"
+  >
     Sample Question
   </h3>
 </article>
@@ -10,9 +14,11 @@ exports[`<FaqEntry /> render testing matches snapshot 1`] = `
 
 exports[`<FaqEntry /> render testing matches snapshot 2`] = `
 <article
-  className="faq-entry">
+  className="faq-entry"
+>
   <h3
-    id="faq-100">
+    id="faq-100"
+  >
     Sample Question
   </h3>
 </article>

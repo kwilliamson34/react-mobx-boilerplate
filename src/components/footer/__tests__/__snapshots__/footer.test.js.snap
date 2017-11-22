@@ -1,150 +1,198 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<Footer /> renders matches previous footer snapshot 1`] = `
 <div
-  className="footer-container">
+  className="footer-container"
+>
   <footer
-    id="pse-footer">
+    id="pse-footer"
+  >
     <div
-      className="footer-main">
+      className="footer-main"
+    >
       <div
-        className="container">
+        className="container"
+      >
         <div
-          className="row">
+          className="row"
+        >
           <div
-            className="col-xs-12 logoRow">
+            className="col-xs-12 logoRow"
+          >
             <a
               className="logo-home-link-footer"
               href="/"
-              onClick={[Function anonymous]}>
+              onClick={[Function]}
+            >
               <img
                 alt="FirstNet Local Control Home"
-                src="/images/logo-FirstNet-local-control.svg" />
+                src="/images/logo-FirstNet-local-control.svg"
+              />
             </a>
           </div>
         </div>
         <div
-          className="row is-flex">
+          className="row is-flex"
+        >
           <div
-            className="col-xs-12 col-md-3">
+            className="col-xs-12 col-md-3"
+          >
             <nav
-              aria-describedby="sitemap">
+              aria-describedby="sitemap"
+            >
               <a
                 aria-expanded={false}
                 aria-haspopup="true"
                 className="sitemap-hdr"
                 href=""
                 id="sitemap"
-                onClick={[Function bound handleSitemapClick]}
+                onClick={[Function]}
                 role="button"
-                tabIndex={-1}>
+                tabIndex={-1}
+              >
                 Sitemap
               </a>
               <ul
-                className="sitemap-links">
+                className="sitemap-links"
+              >
                 <div />
               </ul>
             </nav>
           </div>
           <div
-            className="col-xs-12 col-md-3">
+            className="col-xs-12 col-md-3"
+          >
             <nav
-              aria-describedby="firstnet-sites">
+              aria-describedby="firstnet-sites"
+            >
               <h2
-                id="firstnet-sites">
+                id="firstnet-sites"
+              >
                 Firstnet Sites
               </h2>
               <ul>
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
               </ul>
             </nav>
           </div>
           <div
-            className="col-xs-12 col-md-3">
+            className="col-xs-12 col-md-3"
+          >
             <nav
               aria-describedby="social-links"
-              className="social-nav">
+              className="social-nav"
+            >
               <h2
-                id="social-links">
+                id="social-links"
+              >
                 Follow Us
               </h2>
               <ul
-                className="social-links-list">
+                className="social-links-list"
+              >
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
               </ul>
             </nav>
           </div>
           <div
-            className="col-xs-12 col-md-3">
+            className="col-xs-12 col-md-3"
+          >
             <nav
-              aria-describedby="helpLinks">
+              aria-describedby="helpLinks"
+            >
               <h2
                 className="help-hdr"
-                id="helpLinks">
+                id="helpLinks"
+              >
                 <i
                   aria-hidden="true"
-                  className="icon-help" />
+                  className="icon-help"
+                />
                 Help
               </h2>
               <ul
-                className="help-link-block">
+                className="help-link-block"
+              >
                 <li
-                  role="presentation">
+                  role="presentation"
+                >
                   <a
                     href="/faq"
-                    onClick={[Function anonymous]}>
+                    onClick={[Function]}
+                  >
                     FAQ
                   </a>
                 </li>
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li>
                   <a
                     className="walkthru-toggle"
                     href="#"
-                    onClick={[Function anonymous]}
-                    role="button">
+                    onClick={[Function]}
+                    role="button"
+                  >
                     Disable
                      Site Walkthrough
                   </a>
                 </li>
                 <li
-                  role="presentation">
+                  role="presentation"
+                >
                   <a
                     href="/feedback"
-                    onClick={[Function anonymous]}>
+                    onClick={[Function]}
+                  >
                     Give Us Feedback
                   </a>
                 </li>
                 <li
-                  role="presentation">
+                  role="presentation"
+                >
                   <span
-                    aria-hidden={true}>
+                    aria-hidden={true}
+                  >
                     FirstNet Customer Svc:
                   </span>
                   <br
-                    className="visible-xs-inline-block visible-md-inline-block " />
+                    className="visible-xs-inline-block visible-md-inline-block "
+                  />
                   <a
-                    href="tel:800-574-7000">
+                    href="tel:800-574-7000"
+                  >
                     <i
                       aria-hidden="true"
-                      className="icon-phone-number footer-support-phone" />
+                      className="icon-phone-number footer-support-phone"
+                    />
                     <span
-                      className="sr-only">
+                      className="sr-only"
+                    >
                       FirstNet Customer Service Phone 
                     </span>
                     800-574-7000
@@ -157,26 +205,36 @@ exports[`<Footer /> renders matches previous footer snapshot 1`] = `
       </div>
     </div>
     <div
-      className="footer-sub">
+      className="footer-sub"
+    >
       <div
-        className="container">
+        className="container"
+      >
         <div
-          className="row">
+          className="row"
+        >
           <div
-            className="col-xs-12">
+            className="col-xs-12"
+          >
             <nav>
               <ul
-                className="sub-links">
+                className="sub-links"
+              >
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  className="xs-line-break" />
+                  className="xs-line-break"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
               </ul>
             </nav>
           </div>
@@ -189,52 +247,67 @@ exports[`<Footer /> renders matches previous footer snapshot 1`] = `
 
 exports[`<Footer /> renders user role-based snapshots 1`] = `
 <div
-  className="footer-container">
+  className="footer-container"
+>
   <footer
-    id="pse-footer">
+    id="pse-footer"
+  >
     <div
-      className="footer-main">
+      className="footer-main"
+    >
       <div
-        className="container">
+        className="container"
+      >
         <div
-          className="row">
+          className="row"
+        >
           <div
-            className="col-xs-12 logoRow">
+            className="col-xs-12 logoRow"
+          >
             <a
               className="logo-home-link-footer"
               href="/"
-              onClick={[Function anonymous]}>
+              onClick={[Function]}
+            >
               <img
                 alt="FirstNet Local Control Home"
-                src="/images/logo-FirstNet-local-control.svg" />
+                src="/images/logo-FirstNet-local-control.svg"
+              />
             </a>
           </div>
         </div>
         <div
-          className="row is-flex">
+          className="row is-flex"
+        >
           <div
-            className="col-xs-12 col-md-3">
+            className="col-xs-12 col-md-3"
+          >
             <nav
-              aria-describedby="sitemap">
+              aria-describedby="sitemap"
+            >
               <a
                 aria-expanded={false}
                 aria-haspopup="true"
                 className="sitemap-hdr"
                 href=""
                 id="sitemap"
-                onClick={[Function bound handleSitemapClick]}
+                onClick={[Function]}
                 role="button"
-                tabIndex={-1}>
+                tabIndex={-1}
+              >
                 Sitemap
               </a>
               <ul
-                className="sitemap-links">
+                className="sitemap-links"
+              >
                 <div />
                 <li
-                  role="presentation">
+                  role="presentation"
+                >
                   <a
                     href="/network-status"
-                    onClick={[Function anonymous]}>
+                    onClick={[Function]}
+                  >
                     Network Status
                   </a>
                 </li>
@@ -242,106 +315,139 @@ exports[`<Footer /> renders user role-based snapshots 1`] = `
             </nav>
           </div>
           <div
-            className="col-xs-12 col-md-3">
+            className="col-xs-12 col-md-3"
+          >
             <nav
-              aria-describedby="firstnet-sites">
+              aria-describedby="firstnet-sites"
+            >
               <h2
-                id="firstnet-sites">
+                id="firstnet-sites"
+              >
                 Firstnet Sites
               </h2>
               <ul>
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
               </ul>
             </nav>
           </div>
           <div
-            className="col-xs-12 col-md-3">
+            className="col-xs-12 col-md-3"
+          >
             <nav
               aria-describedby="social-links"
-              className="social-nav">
+              className="social-nav"
+            >
               <h2
-                id="social-links">
+                id="social-links"
+              >
                 Follow Us
               </h2>
               <ul
-                className="social-links-list">
+                className="social-links-list"
+              >
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
               </ul>
             </nav>
           </div>
           <div
-            className="col-xs-12 col-md-3">
+            className="col-xs-12 col-md-3"
+          >
             <nav
-              aria-describedby="helpLinks">
+              aria-describedby="helpLinks"
+            >
               <h2
                 className="help-hdr"
-                id="helpLinks">
+                id="helpLinks"
+              >
                 <i
                   aria-hidden="true"
-                  className="icon-help" />
+                  className="icon-help"
+                />
                 Help
               </h2>
               <ul
-                className="help-link-block">
+                className="help-link-block"
+              >
                 <li
-                  role="presentation">
+                  role="presentation"
+                >
                   <a
                     href="/faq"
-                    onClick={[Function anonymous]}>
+                    onClick={[Function]}
+                  >
                     FAQ
                   </a>
                 </li>
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li>
                   <a
                     className="walkthru-toggle"
                     href="#"
-                    onClick={[Function anonymous]}
-                    role="button">
+                    onClick={[Function]}
+                    role="button"
+                  >
                     Disable
                      Site Walkthrough
                   </a>
                 </li>
                 <li
-                  role="presentation">
+                  role="presentation"
+                >
                   <a
                     href="/feedback"
-                    onClick={[Function anonymous]}>
+                    onClick={[Function]}
+                  >
                     Give Us Feedback
                   </a>
                 </li>
                 <li
-                  role="presentation">
+                  role="presentation"
+                >
                   <span
-                    aria-hidden={true}>
+                    aria-hidden={true}
+                  >
                     FirstNet Customer Svc:
                   </span>
                   <br
-                    className="visible-xs-inline-block visible-md-inline-block " />
+                    className="visible-xs-inline-block visible-md-inline-block "
+                  />
                   <a
-                    href="tel:800-574-7000">
+                    href="tel:800-574-7000"
+                  >
                     <i
                       aria-hidden="true"
-                      className="icon-phone-number footer-support-phone" />
+                      className="icon-phone-number footer-support-phone"
+                    />
                     <span
-                      className="sr-only">
+                      className="sr-only"
+                    >
                       FirstNet Customer Service Phone 
                     </span>
                     800-574-7000
@@ -354,26 +460,36 @@ exports[`<Footer /> renders user role-based snapshots 1`] = `
       </div>
     </div>
     <div
-      className="footer-sub">
+      className="footer-sub"
+    >
       <div
-        className="container">
+        className="container"
+      >
         <div
-          className="row">
+          className="row"
+        >
           <div
-            className="col-xs-12">
+            className="col-xs-12"
+          >
             <nav>
               <ul
-                className="sub-links">
+                className="sub-links"
+              >
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  className="xs-line-break" />
+                  className="xs-line-break"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
               </ul>
             </nav>
           </div>
@@ -386,85 +502,108 @@ exports[`<Footer /> renders user role-based snapshots 1`] = `
 
 exports[`<Footer /> renders user role-based snapshots 2`] = `
 <div
-  className="footer-container">
+  className="footer-container"
+>
   <footer
-    id="pse-footer">
+    id="pse-footer"
+  >
     <div
-      className="footer-main">
+      className="footer-main"
+    >
       <div
-        className="container">
+        className="container"
+      >
         <div
-          className="row">
+          className="row"
+        >
           <div
-            className="col-xs-12 logoRow">
+            className="col-xs-12 logoRow"
+          >
             <a
               className="logo-home-link-footer"
               href="/"
-              onClick={[Function anonymous]}>
+              onClick={[Function]}
+            >
               <img
                 alt="FirstNet Local Control Home"
-                src="/images/logo-FirstNet-local-control.svg" />
+                src="/images/logo-FirstNet-local-control.svg"
+              />
             </a>
           </div>
         </div>
         <div
-          className="row is-flex">
+          className="row is-flex"
+        >
           <div
-            className="col-xs-12 col-md-3">
+            className="col-xs-12 col-md-3"
+          >
             <nav
-              aria-describedby="sitemap">
+              aria-describedby="sitemap"
+            >
               <a
                 aria-expanded={false}
                 aria-haspopup="true"
                 className="sitemap-hdr"
                 href=""
                 id="sitemap"
-                onClick={[Function bound handleSitemapClick]}
+                onClick={[Function]}
                 role="button"
-                tabIndex={-1}>
+                tabIndex={-1}
+              >
                 Sitemap
               </a>
               <ul
-                className="sitemap-links">
+                className="sitemap-links"
+              >
                 <div>
                   <li
-                    role="presentation">
+                    role="presentation"
+                  >
                     <a
                       href="/admin"
-                      onClick={[Function anonymous]}>
+                      onClick={[Function]}
+                    >
                       PSE Administration
                     </a>
                   </li>
                   <li
-                    role="presentation">
+                    role="presentation"
+                  >
                     <a
                       href="/admin/manage-apps"
-                      onClick={[Function anonymous]}>
+                      onClick={[Function]}
+                    >
                       Manage Apps
                     </a>
                   </li>
                   <li
-                    role="presentation">
+                    role="presentation"
+                  >
                     <a
                       href="/admin/devices"
-                      onClick={[Function anonymous]}>
+                      onClick={[Function]}
+                    >
                       Specialized Devices
                     </a>
                   </li>
                   <li
-                    role="presentation">
+                    role="presentation"
+                  >
                     <a
                       href="/admin/solutions"
-                      onClick={[Function anonymous]}>
+                      onClick={[Function]}
+                    >
                       Public Safety Solutions 
                     </a>
                   </li>
                 </div>
                 <li
-                  role="presentation">
+                  role="presentation"
+                >
                   <a
                     href="/network-status"
-                    onClick={[Function anonymous]}>
+                    onClick={[Function]}
+                  >
                     Network Status
                   </a>
                 </li>
@@ -472,106 +611,139 @@ exports[`<Footer /> renders user role-based snapshots 2`] = `
             </nav>
           </div>
           <div
-            className="col-xs-12 col-md-3">
+            className="col-xs-12 col-md-3"
+          >
             <nav
-              aria-describedby="firstnet-sites">
+              aria-describedby="firstnet-sites"
+            >
               <h2
-                id="firstnet-sites">
+                id="firstnet-sites"
+              >
                 Firstnet Sites
               </h2>
               <ul>
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
               </ul>
             </nav>
           </div>
           <div
-            className="col-xs-12 col-md-3">
+            className="col-xs-12 col-md-3"
+          >
             <nav
               aria-describedby="social-links"
-              className="social-nav">
+              className="social-nav"
+            >
               <h2
-                id="social-links">
+                id="social-links"
+              >
                 Follow Us
               </h2>
               <ul
-                className="social-links-list">
+                className="social-links-list"
+              >
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
               </ul>
             </nav>
           </div>
           <div
-            className="col-xs-12 col-md-3">
+            className="col-xs-12 col-md-3"
+          >
             <nav
-              aria-describedby="helpLinks">
+              aria-describedby="helpLinks"
+            >
               <h2
                 className="help-hdr"
-                id="helpLinks">
+                id="helpLinks"
+              >
                 <i
                   aria-hidden="true"
-                  className="icon-help" />
+                  className="icon-help"
+                />
                 Help
               </h2>
               <ul
-                className="help-link-block">
+                className="help-link-block"
+              >
                 <li
-                  role="presentation">
+                  role="presentation"
+                >
                   <a
                     href="/faq"
-                    onClick={[Function anonymous]}>
+                    onClick={[Function]}
+                  >
                     FAQ
                   </a>
                 </li>
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li>
                   <a
                     className="walkthru-toggle"
                     href="#"
-                    onClick={[Function anonymous]}
-                    role="button">
+                    onClick={[Function]}
+                    role="button"
+                  >
                     Disable
                      Site Walkthrough
                   </a>
                 </li>
                 <li
-                  role="presentation">
+                  role="presentation"
+                >
                   <a
                     href="/feedback"
-                    onClick={[Function anonymous]}>
+                    onClick={[Function]}
+                  >
                     Give Us Feedback
                   </a>
                 </li>
                 <li
-                  role="presentation">
+                  role="presentation"
+                >
                   <span
-                    aria-hidden={true}>
+                    aria-hidden={true}
+                  >
                     FirstNet Customer Svc:
                   </span>
                   <br
-                    className="visible-xs-inline-block visible-md-inline-block " />
+                    className="visible-xs-inline-block visible-md-inline-block "
+                  />
                   <a
-                    href="tel:800-574-7000">
+                    href="tel:800-574-7000"
+                  >
                     <i
                       aria-hidden="true"
-                      className="icon-phone-number footer-support-phone" />
+                      className="icon-phone-number footer-support-phone"
+                    />
                     <span
-                      className="sr-only">
+                      className="sr-only"
+                    >
                       FirstNet Customer Service Phone 
                     </span>
                     800-574-7000
@@ -584,26 +756,36 @@ exports[`<Footer /> renders user role-based snapshots 2`] = `
       </div>
     </div>
     <div
-      className="footer-sub">
+      className="footer-sub"
+    >
       <div
-        className="container">
+        className="container"
+      >
         <div
-          className="row">
+          className="row"
+        >
           <div
-            className="col-xs-12">
+            className="col-xs-12"
+          >
             <nav>
               <ul
-                className="sub-links">
+                className="sub-links"
+              >
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  className="xs-line-break" />
+                  className="xs-line-break"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
               </ul>
             </nav>
           </div>
@@ -616,52 +798,67 @@ exports[`<Footer /> renders user role-based snapshots 2`] = `
 
 exports[`<Footer /> renders user role-based snapshots 3`] = `
 <div
-  className="footer-container">
+  className="footer-container"
+>
   <footer
-    id="pse-footer">
+    id="pse-footer"
+  >
     <div
-      className="footer-main">
+      className="footer-main"
+    >
       <div
-        className="container">
+        className="container"
+      >
         <div
-          className="row">
+          className="row"
+        >
           <div
-            className="col-xs-12 logoRow">
+            className="col-xs-12 logoRow"
+          >
             <a
               className="logo-home-link-footer"
               href="/"
-              onClick={[Function anonymous]}>
+              onClick={[Function]}
+            >
               <img
                 alt="FirstNet Local Control Home"
-                src="/images/logo-FirstNet-local-control.svg" />
+                src="/images/logo-FirstNet-local-control.svg"
+              />
             </a>
           </div>
         </div>
         <div
-          className="row is-flex">
+          className="row is-flex"
+        >
           <div
-            className="col-xs-12 col-md-3">
+            className="col-xs-12 col-md-3"
+          >
             <nav
-              aria-describedby="sitemap">
+              aria-describedby="sitemap"
+            >
               <a
                 aria-expanded={false}
                 aria-haspopup="true"
                 className="sitemap-hdr"
                 href=""
                 id="sitemap"
-                onClick={[Function bound handleSitemapClick]}
+                onClick={[Function]}
                 role="button"
-                tabIndex={-1}>
+                tabIndex={-1}
+              >
                 Sitemap
               </a>
               <ul
-                className="sitemap-links">
+                className="sitemap-links"
+              >
                 <div>
                   <li
-                    role="presentation">
+                    role="presentation"
+                  >
                     <a
                       href="/admin"
-                      onClick={[Function anonymous]}>
+                      onClick={[Function]}
+                    >
                       PSE Administration
                     </a>
                   </li>
@@ -670,106 +867,139 @@ exports[`<Footer /> renders user role-based snapshots 3`] = `
             </nav>
           </div>
           <div
-            className="col-xs-12 col-md-3">
+            className="col-xs-12 col-md-3"
+          >
             <nav
-              aria-describedby="firstnet-sites">
+              aria-describedby="firstnet-sites"
+            >
               <h2
-                id="firstnet-sites">
+                id="firstnet-sites"
+              >
                 Firstnet Sites
               </h2>
               <ul>
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
               </ul>
             </nav>
           </div>
           <div
-            className="col-xs-12 col-md-3">
+            className="col-xs-12 col-md-3"
+          >
             <nav
               aria-describedby="social-links"
-              className="social-nav">
+              className="social-nav"
+            >
               <h2
-                id="social-links">
+                id="social-links"
+              >
                 Follow Us
               </h2>
               <ul
-                className="social-links-list">
+                className="social-links-list"
+              >
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
               </ul>
             </nav>
           </div>
           <div
-            className="col-xs-12 col-md-3">
+            className="col-xs-12 col-md-3"
+          >
             <nav
-              aria-describedby="helpLinks">
+              aria-describedby="helpLinks"
+            >
               <h2
                 className="help-hdr"
-                id="helpLinks">
+                id="helpLinks"
+              >
                 <i
                   aria-hidden="true"
-                  className="icon-help" />
+                  className="icon-help"
+                />
                 Help
               </h2>
               <ul
-                className="help-link-block">
+                className="help-link-block"
+              >
                 <li
-                  role="presentation">
+                  role="presentation"
+                >
                   <a
                     href="/faq"
-                    onClick={[Function anonymous]}>
+                    onClick={[Function]}
+                  >
                     FAQ
                   </a>
                 </li>
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li>
                   <a
                     className="walkthru-toggle"
                     href="#"
-                    onClick={[Function anonymous]}
-                    role="button">
+                    onClick={[Function]}
+                    role="button"
+                  >
                     Disable
                      Site Walkthrough
                   </a>
                 </li>
                 <li
-                  role="presentation">
+                  role="presentation"
+                >
                   <a
                     href="/feedback"
-                    onClick={[Function anonymous]}>
+                    onClick={[Function]}
+                  >
                     Give Us Feedback
                   </a>
                 </li>
                 <li
-                  role="presentation">
+                  role="presentation"
+                >
                   <span
-                    aria-hidden={true}>
+                    aria-hidden={true}
+                  >
                     FirstNet Customer Svc:
                   </span>
                   <br
-                    className="visible-xs-inline-block visible-md-inline-block " />
+                    className="visible-xs-inline-block visible-md-inline-block "
+                  />
                   <a
-                    href="tel:800-574-7000">
+                    href="tel:800-574-7000"
+                  >
                     <i
                       aria-hidden="true"
-                      className="icon-phone-number footer-support-phone" />
+                      className="icon-phone-number footer-support-phone"
+                    />
                     <span
-                      className="sr-only">
+                      className="sr-only"
+                    >
                       FirstNet Customer Service Phone 
                     </span>
                     800-574-7000
@@ -782,26 +1012,36 @@ exports[`<Footer /> renders user role-based snapshots 3`] = `
       </div>
     </div>
     <div
-      className="footer-sub">
+      className="footer-sub"
+    >
       <div
-        className="container">
+        className="container"
+      >
         <div
-          className="row">
+          className="row"
+        >
           <div
-            className="col-xs-12">
+            className="col-xs-12"
+          >
             <nav>
               <ul
-                className="sub-links">
+                className="sub-links"
+              >
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  className="xs-line-break" />
+                  className="xs-line-break"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
               </ul>
             </nav>
           </div>
@@ -814,68 +1054,87 @@ exports[`<Footer /> renders user role-based snapshots 3`] = `
 
 exports[`<Footer /> renders user role-based snapshots 4`] = `
 <div
-  className="footer-container">
+  className="footer-container"
+>
   <footer
-    id="pse-footer">
+    id="pse-footer"
+  >
     <div
-      className="footer-main">
+      className="footer-main"
+    >
       <div
-        className="container">
+        className="container"
+      >
         <div
-          className="row">
+          className="row"
+        >
           <div
-            className="col-xs-12 logoRow">
+            className="col-xs-12 logoRow"
+          >
             <a
               className="logo-home-link-footer"
               href="/"
-              onClick={[Function anonymous]}>
+              onClick={[Function]}
+            >
               <img
                 alt="FirstNet Local Control Home"
-                src="/images/logo-FirstNet-local-control.svg" />
+                src="/images/logo-FirstNet-local-control.svg"
+              />
             </a>
           </div>
         </div>
         <div
-          className="row is-flex">
+          className="row is-flex"
+        >
           <div
-            className="col-xs-12 col-md-3">
+            className="col-xs-12 col-md-3"
+          >
             <nav
-              aria-describedby="sitemap">
+              aria-describedby="sitemap"
+            >
               <a
                 aria-expanded={false}
                 aria-haspopup="true"
                 className="sitemap-hdr"
                 href=""
                 id="sitemap"
-                onClick={[Function bound handleSitemapClick]}
+                onClick={[Function]}
                 role="button"
-                tabIndex={-1}>
+                tabIndex={-1}
+              >
                 Sitemap
               </a>
               <ul
-                className="sitemap-links">
+                className="sitemap-links"
+              >
                 <div>
                   <li
-                    role="presentation">
+                    role="presentation"
+                  >
                     <a
                       href="/admin"
-                      onClick={[Function anonymous]}>
+                      onClick={[Function]}
+                    >
                       PSE Administration
                     </a>
                   </li>
                   <li
-                    role="presentation">
+                    role="presentation"
+                  >
                     <a
                       href="/admin/manage-apps"
-                      onClick={[Function anonymous]}>
+                      onClick={[Function]}
+                    >
                       Manage Apps
                     </a>
                   </li>
                   <li
-                    role="presentation">
+                    role="presentation"
+                  >
                     <a
                       href="/admin/solutions"
-                      onClick={[Function anonymous]}>
+                      onClick={[Function]}
+                    >
                       Public Safety Solutions 
                     </a>
                   </li>
@@ -884,106 +1143,139 @@ exports[`<Footer /> renders user role-based snapshots 4`] = `
             </nav>
           </div>
           <div
-            className="col-xs-12 col-md-3">
+            className="col-xs-12 col-md-3"
+          >
             <nav
-              aria-describedby="firstnet-sites">
+              aria-describedby="firstnet-sites"
+            >
               <h2
-                id="firstnet-sites">
+                id="firstnet-sites"
+              >
                 Firstnet Sites
               </h2>
               <ul>
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
               </ul>
             </nav>
           </div>
           <div
-            className="col-xs-12 col-md-3">
+            className="col-xs-12 col-md-3"
+          >
             <nav
               aria-describedby="social-links"
-              className="social-nav">
+              className="social-nav"
+            >
               <h2
-                id="social-links">
+                id="social-links"
+              >
                 Follow Us
               </h2>
               <ul
-                className="social-links-list">
+                className="social-links-list"
+              >
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
               </ul>
             </nav>
           </div>
           <div
-            className="col-xs-12 col-md-3">
+            className="col-xs-12 col-md-3"
+          >
             <nav
-              aria-describedby="helpLinks">
+              aria-describedby="helpLinks"
+            >
               <h2
                 className="help-hdr"
-                id="helpLinks">
+                id="helpLinks"
+              >
                 <i
                   aria-hidden="true"
-                  className="icon-help" />
+                  className="icon-help"
+                />
                 Help
               </h2>
               <ul
-                className="help-link-block">
+                className="help-link-block"
+              >
                 <li
-                  role="presentation">
+                  role="presentation"
+                >
                   <a
                     href="/faq"
-                    onClick={[Function anonymous]}>
+                    onClick={[Function]}
+                  >
                     FAQ
                   </a>
                 </li>
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li>
                   <a
                     className="walkthru-toggle"
                     href="#"
-                    onClick={[Function anonymous]}
-                    role="button">
+                    onClick={[Function]}
+                    role="button"
+                  >
                     Disable
                      Site Walkthrough
                   </a>
                 </li>
                 <li
-                  role="presentation">
+                  role="presentation"
+                >
                   <a
                     href="/feedback"
-                    onClick={[Function anonymous]}>
+                    onClick={[Function]}
+                  >
                     Give Us Feedback
                   </a>
                 </li>
                 <li
-                  role="presentation">
+                  role="presentation"
+                >
                   <span
-                    aria-hidden={true}>
+                    aria-hidden={true}
+                  >
                     FirstNet Customer Svc:
                   </span>
                   <br
-                    className="visible-xs-inline-block visible-md-inline-block " />
+                    className="visible-xs-inline-block visible-md-inline-block "
+                  />
                   <a
-                    href="tel:800-574-7000">
+                    href="tel:800-574-7000"
+                  >
                     <i
                       aria-hidden="true"
-                      className="icon-phone-number footer-support-phone" />
+                      className="icon-phone-number footer-support-phone"
+                    />
                     <span
-                      className="sr-only">
+                      className="sr-only"
+                    >
                       FirstNet Customer Service Phone 
                     </span>
                     800-574-7000
@@ -996,26 +1288,36 @@ exports[`<Footer /> renders user role-based snapshots 4`] = `
       </div>
     </div>
     <div
-      className="footer-sub">
+      className="footer-sub"
+    >
       <div
-        className="container">
+        className="container"
+      >
         <div
-          className="row">
+          className="row"
+        >
           <div
-            className="col-xs-12">
+            className="col-xs-12"
+          >
             <nav>
               <ul
-                className="sub-links">
+                className="sub-links"
+              >
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  className="xs-line-break" />
+                  className="xs-line-break"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
               </ul>
             </nav>
           </div>
@@ -1028,68 +1330,87 @@ exports[`<Footer /> renders user role-based snapshots 4`] = `
 
 exports[`<Footer /> renders user role-based snapshots 5`] = `
 <div
-  className="footer-container">
+  className="footer-container"
+>
   <footer
-    id="pse-footer">
+    id="pse-footer"
+  >
     <div
-      className="footer-main">
+      className="footer-main"
+    >
       <div
-        className="container">
+        className="container"
+      >
         <div
-          className="row">
+          className="row"
+        >
           <div
-            className="col-xs-12 logoRow">
+            className="col-xs-12 logoRow"
+          >
             <a
               className="logo-home-link-footer"
               href="/"
-              onClick={[Function anonymous]}>
+              onClick={[Function]}
+            >
               <img
                 alt="FirstNet Local Control Home"
-                src="/images/logo-FirstNet-local-control.svg" />
+                src="/images/logo-FirstNet-local-control.svg"
+              />
             </a>
           </div>
         </div>
         <div
-          className="row is-flex">
+          className="row is-flex"
+        >
           <div
-            className="col-xs-12 col-md-3">
+            className="col-xs-12 col-md-3"
+          >
             <nav
-              aria-describedby="sitemap">
+              aria-describedby="sitemap"
+            >
               <a
                 aria-expanded={false}
                 aria-haspopup="true"
                 className="sitemap-hdr"
                 href=""
                 id="sitemap"
-                onClick={[Function bound handleSitemapClick]}
+                onClick={[Function]}
                 role="button"
-                tabIndex={-1}>
+                tabIndex={-1}
+              >
                 Sitemap
               </a>
               <ul
-                className="sitemap-links">
+                className="sitemap-links"
+              >
                 <div>
                   <li
-                    role="presentation">
+                    role="presentation"
+                  >
                     <a
                       href="/admin"
-                      onClick={[Function anonymous]}>
+                      onClick={[Function]}
+                    >
                       PSE Administration
                     </a>
                   </li>
                   <li
-                    role="presentation">
+                    role="presentation"
+                  >
                     <a
                       href="/admin/devices"
-                      onClick={[Function anonymous]}>
+                      onClick={[Function]}
+                    >
                       Specialized Devices
                     </a>
                   </li>
                   <li
-                    role="presentation">
+                    role="presentation"
+                  >
                     <a
                       href="/admin/solutions"
-                      onClick={[Function anonymous]}>
+                      onClick={[Function]}
+                    >
                       Public Safety Solutions 
                     </a>
                   </li>
@@ -1098,106 +1419,139 @@ exports[`<Footer /> renders user role-based snapshots 5`] = `
             </nav>
           </div>
           <div
-            className="col-xs-12 col-md-3">
+            className="col-xs-12 col-md-3"
+          >
             <nav
-              aria-describedby="firstnet-sites">
+              aria-describedby="firstnet-sites"
+            >
               <h2
-                id="firstnet-sites">
+                id="firstnet-sites"
+              >
                 Firstnet Sites
               </h2>
               <ul>
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
               </ul>
             </nav>
           </div>
           <div
-            className="col-xs-12 col-md-3">
+            className="col-xs-12 col-md-3"
+          >
             <nav
               aria-describedby="social-links"
-              className="social-nav">
+              className="social-nav"
+            >
               <h2
-                id="social-links">
+                id="social-links"
+              >
                 Follow Us
               </h2>
               <ul
-                className="social-links-list">
+                className="social-links-list"
+              >
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
               </ul>
             </nav>
           </div>
           <div
-            className="col-xs-12 col-md-3">
+            className="col-xs-12 col-md-3"
+          >
             <nav
-              aria-describedby="helpLinks">
+              aria-describedby="helpLinks"
+            >
               <h2
                 className="help-hdr"
-                id="helpLinks">
+                id="helpLinks"
+              >
                 <i
                   aria-hidden="true"
-                  className="icon-help" />
+                  className="icon-help"
+                />
                 Help
               </h2>
               <ul
-                className="help-link-block">
+                className="help-link-block"
+              >
                 <li
-                  role="presentation">
+                  role="presentation"
+                >
                   <a
                     href="/faq"
-                    onClick={[Function anonymous]}>
+                    onClick={[Function]}
+                  >
                     FAQ
                   </a>
                 </li>
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li>
                   <a
                     className="walkthru-toggle"
                     href="#"
-                    onClick={[Function anonymous]}
-                    role="button">
+                    onClick={[Function]}
+                    role="button"
+                  >
                     Disable
                      Site Walkthrough
                   </a>
                 </li>
                 <li
-                  role="presentation">
+                  role="presentation"
+                >
                   <a
                     href="/feedback"
-                    onClick={[Function anonymous]}>
+                    onClick={[Function]}
+                  >
                     Give Us Feedback
                   </a>
                 </li>
                 <li
-                  role="presentation">
+                  role="presentation"
+                >
                   <span
-                    aria-hidden={true}>
+                    aria-hidden={true}
+                  >
                     FirstNet Customer Svc:
                   </span>
                   <br
-                    className="visible-xs-inline-block visible-md-inline-block " />
+                    className="visible-xs-inline-block visible-md-inline-block "
+                  />
                   <a
-                    href="tel:800-574-7000">
+                    href="tel:800-574-7000"
+                  >
                     <i
                       aria-hidden="true"
-                      className="icon-phone-number footer-support-phone" />
+                      className="icon-phone-number footer-support-phone"
+                    />
                     <span
-                      className="sr-only">
+                      className="sr-only"
+                    >
                       FirstNet Customer Service Phone 
                     </span>
                     800-574-7000
@@ -1210,26 +1564,36 @@ exports[`<Footer /> renders user role-based snapshots 5`] = `
       </div>
     </div>
     <div
-      className="footer-sub">
+      className="footer-sub"
+    >
       <div
-        className="container">
+        className="container"
+      >
         <div
-          className="row">
+          className="row"
+        >
           <div
-            className="col-xs-12">
+            className="col-xs-12"
+          >
             <nav>
               <ul
-                className="sub-links">
+                className="sub-links"
+              >
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  className="xs-line-break" />
+                  className="xs-line-break"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
                 <li
-                  role="presentation" />
+                  role="presentation"
+                />
               </ul>
             </nav>
           </div>

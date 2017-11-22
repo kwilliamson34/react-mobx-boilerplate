@@ -1,21 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<NetworkStatusPage /> render matches previous snapshot 1`] = `
 <article
   className="content-wrapper "
-  id="network-page">
+  id="network-page"
+>
   <iframe
     aria-hidden="true"
     className="hidden-iframe"
-    src="https://geo.stage.att.com/appBoard/views/firstnet-pse-remote-auth-dev.html" />
+    src="https://geo.stage.att.com/appBoard/views/firstnet-pse-remote-auth-dev.html"
+  />
   <section
-    id="map-section">
+    id="map-section"
+  >
     <div
-      className="map-placeholder">
+      className="map-placeholder"
+    >
       <p
         aria-live="polite"
-        className="as-h2">
+        className="as-h2"
+      >
         <i
           aria-hidden="true"
-          className="as-h2 icon-reload" />
+          className="as-h2 icon-reload"
+        />
         Loading map…
       </p>
     </div>

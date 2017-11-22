@@ -224,6 +224,29 @@ class UtilsService {
     let expires = 'expires=' + d.toUTCString();
     document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
   }
+
+  registerFormFieldRef(ref, formFieldRefList) {
+    //store refList as simple array so we don't get the "out of bounds" error while looping over it;
+    const refList = formFieldRefList.peek();
+    //sometimes null refs come in;
+    if (!ref) return;
+    //if the ref already exists in the refList, ignore it;
+    if (refList.indexOf(ref) > -1) {
+      return;
+    } else {
+      for (let r in refList) {
+        //if the ref has unmounted, its input field will be null. Remove it;
+        if (!refList[r].input) {
+          formFieldRefList.remove(formFieldRefList[r]);
+        }
+        //check for refs that are different but have matching ids. Remove the existing ref, to replace with the new ref;
+        else if (refList[r] !== ref && Boolean(refList[r].input && ref.input) && refList[r].input.id === ref.input.id) {
+          formFieldRefList.remove(formFieldRefList[r]);
+        }
+      }
+      formFieldRefList.push(ref);
+    }
+  }
 }
 
 export const utilsService = new UtilsService();
