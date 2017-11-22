@@ -1,30 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<RadioGroup /> renders matches previous snapshot 1`] = `
 <fieldset
   className="form-group radio  disabled "
-  onBlur={[Function anonymous]}>
+  onBlur={[Function]}
+>
   <label>
     <input
       aria-disabled={true}
       checked={false}
       name="key"
-      onChange={[Function anonymous]}
+      onChange={[Function]}
       type="radio"
-      value="option 1" />
+      value="option 1"
+    />
     option 1
     <span
-      className="cr" />
+      className="cr"
+    />
   </label>
   <label>
     <input
       aria-disabled={true}
       checked={false}
       name="key"
-      onChange={[Function anonymous]}
+      onChange={[Function]}
       type="radio"
-      value="option 2" />
+      value="option 2"
+    />
     option 2
     <span
-      className="cr" />
+      className="cr"
+    />
   </label>
 </fieldset>
 `;
@@ -32,30 +39,35 @@ exports[`<RadioGroup /> renders matches previous snapshot 1`] = `
 exports[`<RadioGroup /> renders matches previous snapshot 2`] = `
 <fieldset
   className="form-group radio   "
-  onBlur={[Function anonymous]}>
+  onBlur={[Function]}
+>
   <label>
     <input
       aria-disabled={false}
       checked={false}
       name="key"
-      onChange={[Function anonymous]}
+      onChange={[Function]}
       type="radio"
-      value="option 1" />
+      value="option 1"
+    />
     option 1
     <span
-      className="cr" />
+      className="cr"
+    />
   </label>
   <label>
     <input
       aria-disabled={false}
       checked={false}
       name="key"
-      onChange={[Function anonymous]}
+      onChange={[Function]}
       type="radio"
-      value="option 2" />
+      value="option 2"
+    />
     option 2
     <span
-      className="cr" />
+      className="cr"
+    />
   </label>
 </fieldset>
 `;
@@ -63,30 +75,35 @@ exports[`<RadioGroup /> renders matches previous snapshot 2`] = `
 exports[`<RadioGroup /> renders matches previous snapshot 3`] = `
 <fieldset
   className="form-group radio   "
-  onBlur={[Function anonymous]}>
+  onBlur={[Function]}
+>
   <label>
     <input
       aria-disabled={false}
       checked={false}
       name="key"
-      onChange={[Function anonymous]}
+      onChange={[Function]}
       type="radio"
-      value="option 1" />
+      value="option 1"
+    />
     option 1
     <span
-      className="cr" />
+      className="cr"
+    />
   </label>
   <label>
     <input
       aria-disabled={false}
       checked={false}
       name="key"
-      onChange={[Function anonymous]}
+      onChange={[Function]}
       type="radio"
-      value="option 2" />
+      value="option 2"
+    />
     option 2
     <span
-      className="cr" />
+      className="cr"
+    />
   </label>
 </fieldset>
 `;
@@ -94,30 +111,35 @@ exports[`<RadioGroup /> renders matches previous snapshot 3`] = `
 exports[`<RadioGroup /> renders matches previous snapshot 4`] = `
 <fieldset
   className="form-group radio   "
-  onBlur={[Function anonymous]}>
+  onBlur={[Function]}
+>
   <label>
     <input
       aria-disabled={false}
       checked={false}
       name="key"
-      onChange={[Function anonymous]}
+      onChange={[Function]}
       type="radio"
-      value="option 1" />
+      value="option 1"
+    />
     option 1
     <span
-      className="cr" />
+      className="cr"
+    />
   </label>
   <label>
     <input
       aria-disabled={false}
       checked={false}
       name="key"
-      onChange={[Function anonymous]}
+      onChange={[Function]}
       type="radio"
-      value="option 2" />
+      value="option 2"
+    />
     option 2
     <span
-      className="cr" />
+      className="cr"
+    />
   </label>
 </fieldset>
 `;

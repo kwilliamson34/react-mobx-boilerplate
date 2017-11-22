@@ -1,41 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<FAQPage /> render matches previous snapshot 1`] = `
 <article
-  className="faq-article">
+  className="faq-article"
+>
   <section
-    className="faq-page">
+    className="faq-page"
+  >
     <div>
       <div
-        className="faq-top-header">
+        className="faq-top-header"
+      >
         <div
-          className="image-box">
+          className="image-box"
+        >
           <div
-            className="container">
+            className="container"
+          >
             <div
-              className="row">
+              className="row"
+            >
               <div
-                className="col-xs-12 col-sm-10 col-sm-offset-1 faq-header-box" />
+                className="col-xs-12 col-sm-10 col-sm-offset-1 faq-header-box"
+              />
             </div>
           </div>
         </div>
       </div>
       <article
-        className="container">
+        className="container"
+      >
         <div
-          className="row">
+          className="row"
+        >
           <div
-            className="faq-header col-xs-12 col-sm-10 col-sm-offset-1">
+            className="faq-header col-xs-12 col-sm-10 col-sm-offset-1"
+          >
             <div
-              className="hidden-xs">
+              className="hidden-xs"
+            >
               <div
-                className="faq-category-tabs">
+                className="faq-category-tabs"
+              >
                 <ul>
                   <li>
                     <a
                       className="category-tab-button active"
                       data-value="ALL"
                       href="#"
-                      onClick={[Function anonymous]}
-                      role="button">
+                      onClick={[Function]}
+                      role="button"
+                    >
                       ALL
                     </a>
                   </li>
@@ -43,21 +58,26 @@ exports[`<FAQPage /> render matches previous snapshot 1`] = `
               </div>
             </div>
             <div
-              className="hidden-sm hidden-md hidden-lg">
+              className="hidden-sm hidden-md hidden-lg"
+            >
               <div
-                className="faq-category-select">
+                className="faq-category-select"
+              >
                 <form>
                   <label
-                    htmlFor="faqCategory">
+                    htmlFor="faqCategory"
+                  >
                     FILTER BY CATEGORY
                   </label>
                   <select
                     className="form-control"
                     id="faqCategory"
-                    onChange={[Function anonymous]}
-                    value="ALL">
+                    onChange={[Function]}
+                    value="ALL"
+                  >
                     <option
-                      value="ALL">
+                      value="ALL"
+                    >
                       All Categories
                     </option>
                   </select>
@@ -65,13 +85,15 @@ exports[`<FAQPage /> render matches previous snapshot 1`] = `
               </div>
             </div>
             <div
-              className="horizontal-line-header">
+              className="horizontal-line-header"
+            >
               <h2>
                 ALL
               </h2>
             </div>
             <div
-              className="faq-entry-list" />
+              className="faq-entry-list"
+            />
           </div>
         </div>
       </article>
