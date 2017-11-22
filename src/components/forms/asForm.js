@@ -80,14 +80,12 @@ export default function asForm (MyComponent, attributes) {
       }
     }
 
-    componentWillMount() {
+    componentDidMount() {
       this.interceptedRoute = '';
       this.includeDivider = attributes && attributes.includeDivider;
       this.secondaryButtonText = attributes && attributes.secondaryButtonText ? attributes.secondaryButtonText : '';
       this.formColClass = attributes && attributes.formColClass ? attributes.formColClass : '';
-    }
 
-    componentDidMount() {
       //set up reroute blockade (returns unblocking function)
       this.unblock = history.block((location) => {
         if (this.store.formIsDirty && !this.props.disabled) {
