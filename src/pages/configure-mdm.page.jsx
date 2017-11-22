@@ -199,10 +199,10 @@ export default class ConfigureMDM extends React.Component {
               <div className="mdm-form col-md-offset-2 col-xs-12 col-md-8 col-md">
                 <section>
                   <Alerts
-                    showAlert={this.mdmStore.alertToDisplay && this.mdmStore.alertToDisplay.length > 0}
+                    showAlert={Boolean(this.mdmStore.alertToDisplay)}
                     alertText={this.mdmStore.alertToDisplay}
                     clearAlert={this.mdmStore.clearAlertAndReferences.bind(this.mdmStore)}
-                    showSuccess={this.mdmStore.successToDisplay && this.mdmStore.successToDisplay.length > 0}
+                    showSuccess={Boolean(this.mdmStore.successToDisplay)}
                     successText={this.mdmStore.successToDisplay}
                     clearSuccess={this.mdmStore.clearSuccess.bind(this.mdmStore)} />
                   {this.mdmStore.mdmIsConfigured && <p className="mdm-descriptive-block">Only one MDM can be configured at a time. To configure a new MDM, the existing connection must be broken. Once the existing connection is broken, a new one can be configured.</p>}
