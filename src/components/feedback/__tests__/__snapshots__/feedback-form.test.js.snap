@@ -1,21 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<FeedbackForm /> renders matches previous snapshot 1`] = `
 <section>
   <form
-    noValidate={true}>
+    noValidate={true}
+  >
     <div
-      id="feedback-form">
+      id="feedback-form"
+    >
       <div
-        className="text-block">
+        className="text-block"
+      >
         <p>
           Your feedback will help us respond to issues and improve your overall experience. 
           <span
-            aria-hidden="true">
+            aria-hidden="true"
+          >
             If you are experiencing technical issues with devices/applications/network, please call 
           </span>
           <a
-            href="tel:800-574-7000">
+            href="tel:800-574-7000"
+          >
             <span
-              className="sr-only">
+              className="sr-only"
+            >
               If you are experiencing technical issues with devices/applications/network, please call 
             </span>
             800-574-7000
@@ -23,16 +31,22 @@ exports[`<FeedbackForm /> renders matches previous snapshot 1`] = `
           .
         </p>
       </div>
+      <div
+        className="hidden"
+      />
     </div>
     <div
-      className="form-actions ">
+      className="form-actions "
+    >
       
       <div
-        className="form-group button-wrapper">
+        className="form-group button-wrapper"
+      >
         <button
           className="fn-primary form-submit "
-          onClick={[Function anonymous]}
-          type="button">
+          onClick={[Function]}
+          type="button"
+        >
           Submit
         </button>
       </div>
@@ -44,31 +58,40 @@ exports[`<FeedbackForm /> renders matches previous snapshot 1`] = `
     className="modal fade"
     id="exit-modal"
     role="dialog"
-    tabIndex="-1">
+    tabIndex="-1"
+  >
     <div>
       <div
-        className="modal-dialog">
+        className="modal-dialog"
+      >
         <div
-          className="modal-content">
+          className="modal-content"
+        >
           <button
             className="fn-modal-close"
-            onClick={[Function anonymous]}
-            type="button">
+            onClick={[Function]}
+            type="button"
+          >
             <i
               aria-hidden="true"
-              className="icon-close" />
+              className="icon-close"
+            />
             <span
-              className="sr-only">
+              className="sr-only"
+            >
               Close window
             </span>
           </button>
           <div
             className="row no-gutters"
-            id="modal-title">
+            id="modal-title"
+          >
             <div
-              className="col-xs-12">
+              className="col-xs-12"
+            >
               <h1
-                className="as-h2">
+                className="as-h2"
+              >
                 Unsaved changes
               </h1>
               <p>
@@ -76,15 +99,18 @@ exports[`<FeedbackForm /> renders matches previous snapshot 1`] = `
               </p>
             </div>
             <div
-              className="col-xs-12 text-center">
+              className="col-xs-12 text-center"
+            >
               <button
                 className="fn-primary"
-                onClick={[Function anonymous]}>
+                onClick={[Function]}
+              >
                 Stay on Page
               </button>
               <button
                 className="fn-secondary"
-                onClick={[Function anonymous]}>
+                onClick={[Function]}
+              >
                 Discard Changes
               </button>
             </div>

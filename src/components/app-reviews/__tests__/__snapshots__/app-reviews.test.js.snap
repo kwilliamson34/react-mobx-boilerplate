@@ -1,77 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<AppReviews /> render tests renders one review and does not render Load More button 1`] = `
 <div
-  className="reviews-container">
+  className="reviews-container"
+>
   <div
     aria-labelledby="Review-81"
-    className="individual-review-container">
+    className="individual-review-container"
+  >
     <div
-      className="review-metadata">
+      className="review-metadata"
+    >
       <div
-        className="subject-and-rating-container">
+        className="subject-and-rating-container"
+      >
         <div
           className="review-subject"
-          id="Review-81">
+          id="Review-81"
+        >
           A Bad Review is Coming
         </div>
         <div
-          className="ratings-container">
+          className="ratings-container"
+        >
           <span>
             <div
-              className="sr-only">
+              className="sr-only"
+            >
               This app has a rating of 
               1
                stars out of 5.
             </div>
             <span
-              className="ratings-stars">
+              className="ratings-stars"
+            >
               <span
                 aria-hidden="true"
-                className="ratings-star icon-star" />
+                className="ratings-star icon-star"
+              />
               <span
                 aria-hidden="true"
-                className="ratings-star icon-star-o" />
+                className="ratings-star icon-star-o"
+              />
               <span
                 aria-hidden="true"
-                className="ratings-star icon-star-o" />
+                className="ratings-star icon-star-o"
+              />
               <span
                 aria-hidden="true"
-                className="ratings-star icon-star-o" />
+                className="ratings-star icon-star-o"
+              />
               <span
                 aria-hidden="true"
-                className="ratings-star icon-star-o" />
+                className="ratings-star icon-star-o"
+              />
             </span>
           </span>
         </div>
       </div>
       <div
-        className="review-author">
+        className="review-author"
+      >
         Cletus Slackjaw of the House Yokel
       </div>
       <div
-        className="review-date" />
+        className="review-date"
+      />
     </div>
     <div
-      className="truncate-container">
+      className="truncate-container"
+    >
       <span
-        className="truncate-contents">
+        className="truncate-contents"
+      >
         <p
           dangerouslySetInnerHTML={
             Object {
-              "__html": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse …"
+              "__html": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse …",
             }
-          } />
+          }
+        />
       </span>
       <button
         aria-expanded={false}
         aria-haspopup="true"
         className="btn-link truncate-button"
-        onClick={[Function anonymous]}>
+        onClick={[Function]}
+      >
         <span>
           Show more
         </span>
         <i
           aria-hidden="true"
-          className="icon-arrowDown" />
+          className="icon-arrowDown"
+        />
       </button>
     </div>
   </div>
@@ -80,232 +102,291 @@ exports[`<AppReviews /> render tests renders one review and does not render Load
 
 exports[`<AppReviews /> render tests renders three reviews and displays the Load More button 1`] = `
 <div
-  className="reviews-container">
+  className="reviews-container"
+>
   <div
     aria-labelledby="Review-81"
-    className="individual-review-container">
+    className="individual-review-container"
+  >
     <div
-      className="review-metadata">
+      className="review-metadata"
+    >
       <div
-        className="subject-and-rating-container">
+        className="subject-and-rating-container"
+      >
         <div
           className="review-subject"
-          id="Review-81">
+          id="Review-81"
+        >
           A Bad Review is Coming
         </div>
         <div
-          className="ratings-container">
+          className="ratings-container"
+        >
           <span>
             <div
-              className="sr-only">
+              className="sr-only"
+            >
               This app has a rating of 
               1
                stars out of 5.
             </div>
             <span
-              className="ratings-stars">
+              className="ratings-stars"
+            >
               <span
                 aria-hidden="true"
-                className="ratings-star icon-star" />
+                className="ratings-star icon-star"
+              />
               <span
                 aria-hidden="true"
-                className="ratings-star icon-star-o" />
+                className="ratings-star icon-star-o"
+              />
               <span
                 aria-hidden="true"
-                className="ratings-star icon-star-o" />
+                className="ratings-star icon-star-o"
+              />
               <span
                 aria-hidden="true"
-                className="ratings-star icon-star-o" />
+                className="ratings-star icon-star-o"
+              />
               <span
                 aria-hidden="true"
-                className="ratings-star icon-star-o" />
+                className="ratings-star icon-star-o"
+              />
             </span>
           </span>
         </div>
       </div>
       <div
-        className="review-author">
+        className="review-author"
+      >
         Cletus Slackjaw of the House Yokel
       </div>
       <div
-        className="review-date" />
+        className="review-date"
+      />
     </div>
     <div
-      className="truncate-container">
+      className="truncate-container"
+    >
       <span
-        className="truncate-contents">
+        className="truncate-contents"
+      >
         <p
           dangerouslySetInnerHTML={
             Object {
-              "__html": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse …"
+              "__html": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse …",
             }
-          } />
+          }
+        />
       </span>
       <button
         aria-expanded={false}
         aria-haspopup="true"
         className="btn-link truncate-button"
-        onClick={[Function anonymous]}>
+        onClick={[Function]}
+      >
         <span>
           Show more
         </span>
         <i
           aria-hidden="true"
-          className="icon-arrowDown" />
+          className="icon-arrowDown"
+        />
       </button>
     </div>
   </div>
   <div
     aria-labelledby="Review-82"
-    className="individual-review-container">
+    className="individual-review-container"
+  >
     <div
-      className="review-metadata">
+      className="review-metadata"
+    >
       <div
-        className="subject-and-rating-container">
+        className="subject-and-rating-container"
+      >
         <div
           className="review-subject"
-          id="Review-82">
+          id="Review-82"
+        >
           Another Bad Review is Coming
         </div>
         <div
-          className="ratings-container">
+          className="ratings-container"
+        >
           <span>
             <div
-              className="sr-only">
+              className="sr-only"
+            >
               This app has a rating of 
               1
                stars out of 5.
             </div>
             <span
-              className="ratings-stars">
+              className="ratings-stars"
+            >
               <span
                 aria-hidden="true"
-                className="ratings-star icon-star" />
+                className="ratings-star icon-star"
+              />
               <span
                 aria-hidden="true"
-                className="ratings-star icon-star-o" />
+                className="ratings-star icon-star-o"
+              />
               <span
                 aria-hidden="true"
-                className="ratings-star icon-star-o" />
+                className="ratings-star icon-star-o"
+              />
               <span
                 aria-hidden="true"
-                className="ratings-star icon-star-o" />
+                className="ratings-star icon-star-o"
+              />
               <span
                 aria-hidden="true"
-                className="ratings-star icon-star-o" />
+                className="ratings-star icon-star-o"
+              />
             </span>
           </span>
         </div>
       </div>
       <div
-        className="review-author">
+        className="review-author"
+      >
         Cletus Slackjaw the Elder of the House Yokel
       </div>
       <div
-        className="review-date" />
+        className="review-date"
+      />
     </div>
     <div
-      className="truncate-container">
+      className="truncate-container"
+    >
       <span
-        className="truncate-contents">
+        className="truncate-contents"
+      >
         <p
           dangerouslySetInnerHTML={
             Object {
-              "__html": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse …"
+              "__html": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse …",
             }
-          } />
+          }
+        />
       </span>
       <button
         aria-expanded={false}
         aria-haspopup="true"
         className="btn-link truncate-button"
-        onClick={[Function anonymous]}>
+        onClick={[Function]}
+      >
         <span>
           Show more
         </span>
         <i
           aria-hidden="true"
-          className="icon-arrowDown" />
+          className="icon-arrowDown"
+        />
       </button>
     </div>
   </div>
   <div
     aria-labelledby="Review-83"
-    className="individual-review-container">
+    className="individual-review-container"
+  >
     <div
-      className="review-metadata">
+      className="review-metadata"
+    >
       <div
-        className="subject-and-rating-container">
+        className="subject-and-rating-container"
+      >
         <div
           className="review-subject"
-          id="Review-83">
+          id="Review-83"
+        >
           A Good Review is Coming
         </div>
         <div
-          className="ratings-container">
+          className="ratings-container"
+        >
           <span>
             <div
-              className="sr-only">
+              className="sr-only"
+            >
               This app has a rating of 
               5
                stars out of 5.
             </div>
             <span
-              className="ratings-stars">
+              className="ratings-stars"
+            >
               <span
                 aria-hidden="true"
-                className="ratings-star icon-star" />
+                className="ratings-star icon-star"
+              />
               <span
                 aria-hidden="true"
-                className="ratings-star icon-star" />
+                className="ratings-star icon-star"
+              />
               <span
                 aria-hidden="true"
-                className="ratings-star icon-star" />
+                className="ratings-star icon-star"
+              />
               <span
                 aria-hidden="true"
-                className="ratings-star icon-star" />
+                className="ratings-star icon-star"
+              />
               <span
                 aria-hidden="true"
-                className="ratings-star icon-star" />
+                className="ratings-star icon-star"
+              />
             </span>
           </span>
         </div>
       </div>
       <div
-        className="review-author">
+        className="review-author"
+      >
         Cletus Slackjaw the Fat of the House Yokel
       </div>
       <div
-        className="review-date" />
+        className="review-date"
+      />
     </div>
     <div
-      className="truncate-container">
+      className="truncate-container"
+    >
       <span
-        className="truncate-contents">
+        className="truncate-contents"
+      >
         <p
           dangerouslySetInnerHTML={
             Object {
-              "__html": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse …"
+              "__html": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse …",
             }
-          } />
+          }
+        />
       </span>
       <button
         aria-expanded={false}
         aria-haspopup="true"
         className="btn-link truncate-button"
-        onClick={[Function anonymous]}>
+        onClick={[Function]}
+      >
         <span>
           Show more
         </span>
         <i
           aria-hidden="true"
-          className="icon-arrowDown" />
+          className="icon-arrowDown"
+        />
       </button>
     </div>
   </div>
   <button
     className="btn fn-secondary load-more-button"
-    onClick={[Function anonymous]}>
+    onClick={[Function]}
+  >
     Load More
   </button>
 </div>

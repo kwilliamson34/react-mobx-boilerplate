@@ -1,54 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<SelectInput /> renders matches previous snapshot 1`] = `
 <div
-  className="form-group  ">
+  className="form-group  "
+>
   <select
     className="form-control form-control-lg"
     disabled={false}
     id="key"
-    onBlur={[Function anonymous]}
-    onChange={[Function anonymous]}
-    value="" />
+    onBlur={[Function]}
+    onChange={[Function]}
+    value=""
+  />
 </div>
 `;
 
 exports[`<SelectInput /> renders matches previous snapshot 2`] = `
 <div
-  className="form-group  ">
+  className="form-group  "
+>
   <select
     className="form-control form-control-lg"
     disabled={false}
     id="key"
-    onBlur={[Function anonymous]}
-    onChange={[Function anonymous]}
-    value="" />
+    onBlur={[Function]}
+    onChange={[Function]}
+    value=""
+  />
 </div>
 `;
 
 exports[`<SelectInput /> renders matches previous snapshot 3`] = `
 <div
-  className="form-group  ">
+  className="form-group  "
+>
   <select
     className="form-control form-control-lg"
     disabled={false}
     id="key"
-    onBlur={[Function anonymous]}
-    onChange={[Function anonymous]}
-    value="" />
+    onBlur={[Function]}
+    onChange={[Function]}
+    value=""
+  />
 </div>
 `;
 
 exports[`<SelectInput /> renders matches previous snapshot 4`] = `
 <div
-  className="form-group  ">
+  className="form-group  "
+>
   <select
     className="form-control form-control-lg"
     disabled={false}
     id="key"
-    onBlur={[Function anonymous]}
-    onChange={[Function anonymous]}
-    value="">
+    onBlur={[Function]}
+    onChange={[Function]}
+    value=""
+  >
     <option
-      value="">
+      value=""
+    >
       Placeholder
     </option>
   </select>
@@ -57,16 +68,19 @@ exports[`<SelectInput /> renders matches previous snapshot 4`] = `
 
 exports[`<SelectInput /> renders matches previous snapshot 5`] = `
 <div
-  className="form-group  ">
+  className="form-group  "
+>
   <select
     className="form-control form-control-lg"
     disabled={true}
     id="key"
-    onBlur={[Function anonymous]}
-    onChange={[Function anonymous]}
-    value="">
+    onBlur={[Function]}
+    onChange={[Function]}
+    value=""
+  >
     <option
-      value="">
+      value=""
+    >
       Placeholder
     </option>
   </select>
@@ -75,16 +89,19 @@ exports[`<SelectInput /> renders matches previous snapshot 5`] = `
 
 exports[`<SelectInput /> renders matches previous snapshot 6`] = `
 <div
-  className="form-group  ">
+  className="form-group  "
+>
   <select
     className="form-control form-control-lg"
     disabled={true}
     id="key"
-    onBlur={[Function anonymous]}
-    onChange={[Function anonymous]}
-    value="">
+    onBlur={[Function]}
+    onChange={[Function]}
+    value=""
+  >
     <option
-      value="">
+      value=""
+    >
       Placeholder
     </option>
   </select>

@@ -123,7 +123,6 @@ class ManageFavoritesStore {
     this.updateAlert('');
     this.updateSuccess('');
     this.activeColumn = 'favoriteName';
-    this.selectAllCheckboxSrOnlyLabel = '';
     this.rows = [];
     this.searchResults = [];
     this.checkedRows = [];

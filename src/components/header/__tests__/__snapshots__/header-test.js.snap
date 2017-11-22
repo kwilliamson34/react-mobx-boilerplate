@@ -1,41 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<PSEHeader /> render matches snapshot when header store is not initialized 1`] = `
 <header
   className="fnnav pse"
-  role="banner">
+  role="banner"
+>
   <div
-    className="fnnav__mainbar ">
+    className="fnnav__mainbar "
+  >
     <div
-      className="container">
+      className="container"
+    >
       <div
-        className="fnnav__header">
+        className="fnnav__header"
+      >
         <button
           aria-expanded={undefined}
           aria-haspopup="true"
           className="navbar-toggle"
-          onClick={[Function anonymous]}
-          type="button">
+          onClick={[Function]}
+          type="button"
+        >
           <span
-            className="sr-only">
+            className="sr-only"
+          >
             Toggle navigation
           </span>
           <span
-            className="icon-bar" />
+            className="icon-bar"
+          />
           <span
-            className="icon-bar" />
+            className="icon-bar"
+          />
           <span
-            className="icon-bar" />
+            className="icon-bar"
+          />
         </button>
         <div
-          className="fnnav__brand">
+          className="fnnav__brand"
+        >
           <a
             className="logo-home-link"
             href="/"
-            onClick={[Function anonymous]}>
+            onClick={[Function]}
+          >
             <img
               alt="FirstNet Logo"
-              src="/images/logo-FirstNet-local-control.svg" />
+              src="/images/logo-FirstNet-local-control.svg"
+            />
             <span
-              className="sr-only">
+              className="sr-only"
+            >
               Go Home
             </span>
           </a>
@@ -43,77 +58,95 @@ exports[`<PSEHeader /> render matches snapshot when header store is not initiali
       </div>
       <nav
         aria-label="Main Menu"
-        id="main-menu">
+        id="main-menu"
+      >
         <ul
-          className="fnnav__main">
+          className="fnnav__main"
+        >
           <li
             className="mainnav-item yellow"
-            role="presentation">
+            role="presentation"
+          >
             <button
               aria-expanded={undefined}
               aria-haspopup="true"
               className="btnSubmenu"
-              onClick={[Function anonymous]}>
+              onClick={[Function]}
+            >
               <span
-                className="sr-only">
+                className="sr-only"
+              >
                 Expand Profile Menu
               </span>
             </button>
             <a
               className="deaden"
               href="#profile"
-              id="pse-profile">
+              id="pse-profile"
+            >
               <div
-                className="multi-line-item">
+                className="multi-line-item"
+              >
                 <div
-                  className="profile-display">
+                  className="profile-display"
+                >
                   <i
                     aria-hidden="true"
-                    className="icon-profile" />
+                    className="icon-profile"
+                  />
                   undefined undefined
                 </div>
               </div>
             </a>
             <ul
               aria-labelledby="pse-profile"
-              className="collapse ">
+              className="collapse "
+            >
               <li
-                role="presentation" />
+                role="presentation"
+              />
             </ul>
           </li>
           <li
-            className="mainnav-item grey">
+            className="mainnav-item grey"
+          >
             <button
               aria-expanded={undefined}
               aria-haspopup="true"
               className="btnSubmenu"
-              onClick={[Function anonymous]}>
+              onClick={[Function]}
+            >
               <span
-                className="sr-only">
+                className="sr-only"
+              >
                 Expand Help Menu
               </span>
             </button>
             <a
               className="deaden"
               href="/manage-profile"
-              id="pse-help-mobile">
+              id="pse-help-mobile"
+            >
               <i
                 aria-hidden="true"
-                className="icon-help" />
+                className="icon-help"
+              />
               Help
             </a>
             <ul
               aria-labelledby="pse-help-mobile"
               className="collapse "
-              id="pse-help-menu">
+              id="pse-help-menu"
+            >
               <div>
                 <li>
                   <a
                     aria-current={false}
                     className={undefined}
                     href="/faq"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
+                    onClick={[Function]}
+                    style={undefined}
+                  >
                     FAQ
                   </a>
                 </li>
@@ -122,8 +155,9 @@ exports[`<PSEHeader /> render matches snapshot when header store is not initiali
                   <a
                     className="walkthru-toggle"
                     href="#"
-                    onClick={[Function anonymous]}
-                    role="button">
+                    onClick={[Function]}
+                    role="button"
+                  >
                     Disable
                      Site Walkthrough
                   </a>
@@ -133,26 +167,32 @@ exports[`<PSEHeader /> render matches snapshot when header store is not initiali
                     aria-current={false}
                     className={undefined}
                     href="/feedback"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
+                    onClick={[Function]}
+                    style={undefined}
+                  >
                     Give Us Feedback
                   </a>
                 </li>
                 <li>
                   <a
-                    href="tel:800-574-7000">
+                    href="tel:800-574-7000"
+                  >
                     <div
-                      className="multi-line-item">
+                      className="multi-line-item"
+                    >
                       <span
-                        aria-hidden="true">
+                        aria-hidden="true"
+                      >
                         FirstNet Customer Svc: 
                       </span>
                       <br />
                       <i
                         aria-hidden="true"
-                        className="icon-phone-number" />
+                        className="icon-phone-number"
+                      />
                       <span
-                        className="sr-only">
+                        className="sr-only"
+                      >
                         FirstNet Customer Service Phone 
                       </span>
                       800-574-7000
@@ -164,99 +204,122 @@ exports[`<PSEHeader /> render matches snapshot when header store is not initiali
           </li>
           <li
             className="mainnav-item grey logout"
-            role="presentation">
+            role="presentation"
+          >
             <a
               href="#"
-              onClick={[Function anonymous]}>
+              onClick={[Function]}
+            >
               <i
                 aria-hidden="true"
-                className="icon-logout" />
+                className="icon-logout"
+              />
               Log Out
             </a>
           </li>
           <li
-            className="desktop-iconItem dropdown">
+            className="desktop-iconItem dropdown"
+          >
             <button
               aria-expanded="false"
               className="dropdown-toggle"
               data-toggle="dropdown"
               id="profile-header-dropdown"
-              type="button">
+              type="button"
+            >
               <i
                 aria-hidden="true"
-                className="icon-profile" />
+                className="icon-profile"
+              />
               <span
-                className="sr-only">
+                className="sr-only"
+              >
                 Toggle Profile Dropdown
               </span>
             </button>
             <ul
               aria-labelledby="profile-header-dropdown"
               className="dropdown-menu dropdown-menu-right"
-              id="pse-profile-nav">
+              id="pse-profile-nav"
+            >
               <li
                 className="desktop-profile-display"
-                role="presentation">
+                role="presentation"
+              >
                 <a
                   className="deaden"
                   href="#profile"
                   id="pse-profile-desktop"
-                  tabIndex="-1">
+                  tabIndex="-1"
+                >
                   <div
-                    className="multi-line-item">
+                    className="multi-line-item"
+                  >
                     <div
-                      className="profile-display">
+                      className="profile-display"
+                    >
                       <i
                         aria-hidden="true"
-                        className="icon-profile" />
+                        className="icon-profile"
+                      />
                       undefined undefined
                     </div>
                   </div>
                 </a>
               </li>
               <li
-                role="presentation" />
+                role="presentation"
+              />
               <li
-                role="presentation">
+                role="presentation"
+              >
                 <a
                   href="#"
-                  onClick={[Function anonymous]}>
+                  onClick={[Function]}
+                >
                   <i
                     aria-hidden="true"
-                    className="icon-logout" />
+                    className="icon-logout"
+                  />
                   Log Out
                 </a>
               </li>
             </ul>
           </li>
           <li
-            className="desktop-iconItem dropdown">
+            className="desktop-iconItem dropdown"
+          >
             <button
               aria-expanded="false"
               className="dropdown-toggle"
               data-toggle="dropdown"
               id="help-header-dropdown"
-              type="button">
+              type="button"
+            >
               <i
                 aria-hidden="true"
-                className="icon-help" />
+                className="icon-help"
+              />
               <span
-                className="sr-only">
+                className="sr-only"
+              >
                 Toggle Help Dropdown
               </span>
             </button>
             <ul
               aria-labelledby="help-header-dropdown"
               className="dropdown-menu dropdown-menu-right"
-              id="pse-help-nav">
+              id="pse-help-nav"
+            >
               <div>
                 <li>
                   <a
                     aria-current={false}
                     className={undefined}
                     href="/faq"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
+                    onClick={[Function]}
+                    style={undefined}
+                  >
                     FAQ
                   </a>
                 </li>
@@ -265,8 +328,9 @@ exports[`<PSEHeader /> render matches snapshot when header store is not initiali
                   <a
                     className="walkthru-toggle"
                     href="#"
-                    onClick={[Function anonymous]}
-                    role="button">
+                    onClick={[Function]}
+                    role="button"
+                  >
                     Disable
                      Site Walkthrough
                   </a>
@@ -276,26 +340,32 @@ exports[`<PSEHeader /> render matches snapshot when header store is not initiali
                     aria-current={false}
                     className={undefined}
                     href="/feedback"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
+                    onClick={[Function]}
+                    style={undefined}
+                  >
                     Give Us Feedback
                   </a>
                 </li>
                 <li>
                   <a
-                    href="tel:800-574-7000">
+                    href="tel:800-574-7000"
+                  >
                     <div
-                      className="multi-line-item">
+                      className="multi-line-item"
+                    >
                       <span
-                        aria-hidden="true">
+                        aria-hidden="true"
+                      >
                         FirstNet Customer Svc: 
                       </span>
                       <br />
                       <i
                         aria-hidden="true"
-                        className="icon-phone-number" />
+                        className="icon-phone-number"
+                      />
                       <span
-                        className="sr-only">
+                        className="sr-only"
+                      >
                         FirstNet Customer Service Phone 
                       </span>
                       800-574-7000
@@ -311,48 +381,62 @@ exports[`<PSEHeader /> render matches snapshot when header store is not initiali
   </div>
   <div
     className="pageMask hidden-xs hidden-md hidden-lg"
-    onClick={[Function anonymous]} />
+    onClick={[Function]}
+  />
 </header>
 `;
 
 exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
 <header
   className="fnnav pse"
-  role="banner">
+  role="banner"
+>
   <div
-    className="fnnav__mainbar ">
+    className="fnnav__mainbar "
+  >
     <div
-      className="container">
+      className="container"
+    >
       <div
-        className="fnnav__header">
+        className="fnnav__header"
+      >
         <button
           aria-expanded={false}
           aria-haspopup="true"
           className="navbar-toggle"
-          onClick={[Function anonymous]}
-          type="button">
+          onClick={[Function]}
+          type="button"
+        >
           <span
-            className="sr-only">
+            className="sr-only"
+          >
             Toggle navigation
           </span>
           <span
-            className="icon-bar" />
+            className="icon-bar"
+          />
           <span
-            className="icon-bar" />
+            className="icon-bar"
+          />
           <span
-            className="icon-bar" />
+            className="icon-bar"
+          />
         </button>
         <div
-          className="fnnav__brand">
+          className="fnnav__brand"
+        >
           <a
             className="logo-home-link"
             href="/"
-            onClick={[Function anonymous]}>
+            onClick={[Function]}
+          >
             <img
               alt="FirstNet Logo"
-              src="/images/logo-FirstNet-local-control.svg" />
+              src="/images/logo-FirstNet-local-control.svg"
+            />
             <span
-              className="sr-only">
+              className="sr-only"
+            >
               Go Home
             </span>
           </a>
@@ -360,77 +444,95 @@ exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
       </div>
       <nav
         aria-label="Main Menu"
-        id="main-menu">
+        id="main-menu"
+      >
         <ul
-          className="fnnav__main">
+          className="fnnav__main"
+        >
           <li
             className="mainnav-item yellow"
-            role="presentation">
+            role="presentation"
+          >
             <button
               aria-expanded={false}
               aria-haspopup="true"
               className="btnSubmenu"
-              onClick={[Function anonymous]}>
+              onClick={[Function]}
+            >
               <span
-                className="sr-only">
+                className="sr-only"
+              >
                 Expand Profile Menu
               </span>
             </button>
             <a
               className="deaden"
               href="#profile"
-              id="pse-profile">
+              id="pse-profile"
+            >
               <div
-                className="multi-line-item">
+                className="multi-line-item"
+              >
                 <div
-                  className="profile-display">
+                  className="profile-display"
+                >
                   <i
                     aria-hidden="true"
-                    className="icon-profile" />
+                    className="icon-profile"
+                  />
                   undefined undefined
                 </div>
               </div>
             </a>
             <ul
               aria-labelledby="pse-profile"
-              className="collapse ">
+              className="collapse "
+            >
               <li
-                role="presentation" />
+                role="presentation"
+              />
             </ul>
           </li>
           <li
-            className="mainnav-item grey">
+            className="mainnav-item grey"
+          >
             <button
               aria-expanded={false}
               aria-haspopup="true"
               className="btnSubmenu"
-              onClick={[Function anonymous]}>
+              onClick={[Function]}
+            >
               <span
-                className="sr-only">
+                className="sr-only"
+              >
                 Expand Help Menu
               </span>
             </button>
             <a
               className="deaden"
               href="/manage-profile"
-              id="pse-help-mobile">
+              id="pse-help-mobile"
+            >
               <i
                 aria-hidden="true"
-                className="icon-help" />
+                className="icon-help"
+              />
               Help
             </a>
             <ul
               aria-labelledby="pse-help-mobile"
               className="collapse "
-              id="pse-help-menu">
+              id="pse-help-menu"
+            >
               <div>
                 <li>
                   <a
                     aria-current={false}
                     className={undefined}
                     href="/faq"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
+                    onClick={[Function]}
+                    style={undefined}
+                  >
                     FAQ
                   </a>
                 </li>
@@ -439,8 +541,9 @@ exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
                   <a
                     className="walkthru-toggle"
                     href="#"
-                    onClick={[Function anonymous]}
-                    role="button">
+                    onClick={[Function]}
+                    role="button"
+                  >
                     Disable
                      Site Walkthrough
                   </a>
@@ -450,26 +553,32 @@ exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
                     aria-current={false}
                     className={undefined}
                     href="/feedback"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
+                    onClick={[Function]}
+                    style={undefined}
+                  >
                     Give Us Feedback
                   </a>
                 </li>
                 <li>
                   <a
-                    href="tel:800-574-7000">
+                    href="tel:800-574-7000"
+                  >
                     <div
-                      className="multi-line-item">
+                      className="multi-line-item"
+                    >
                       <span
-                        aria-hidden="true">
+                        aria-hidden="true"
+                      >
                         FirstNet Customer Svc: 
                       </span>
                       <br />
                       <i
                         aria-hidden="true"
-                        className="icon-phone-number" />
+                        className="icon-phone-number"
+                      />
                       <span
-                        className="sr-only">
+                        className="sr-only"
+                      >
                         FirstNet Customer Service Phone 
                       </span>
                       800-574-7000
@@ -481,99 +590,122 @@ exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
           </li>
           <li
             className="mainnav-item grey logout"
-            role="presentation">
+            role="presentation"
+          >
             <a
               href="#"
-              onClick={[Function anonymous]}>
+              onClick={[Function]}
+            >
               <i
                 aria-hidden="true"
-                className="icon-logout" />
+                className="icon-logout"
+              />
               Log Out
             </a>
           </li>
           <li
-            className="desktop-iconItem dropdown">
+            className="desktop-iconItem dropdown"
+          >
             <button
               aria-expanded="false"
               className="dropdown-toggle"
               data-toggle="dropdown"
               id="profile-header-dropdown"
-              type="button">
+              type="button"
+            >
               <i
                 aria-hidden="true"
-                className="icon-profile" />
+                className="icon-profile"
+              />
               <span
-                className="sr-only">
+                className="sr-only"
+              >
                 Toggle Profile Dropdown
               </span>
             </button>
             <ul
               aria-labelledby="profile-header-dropdown"
               className="dropdown-menu dropdown-menu-right"
-              id="pse-profile-nav">
+              id="pse-profile-nav"
+            >
               <li
                 className="desktop-profile-display"
-                role="presentation">
+                role="presentation"
+              >
                 <a
                   className="deaden"
                   href="#profile"
                   id="pse-profile-desktop"
-                  tabIndex="-1">
+                  tabIndex="-1"
+                >
                   <div
-                    className="multi-line-item">
+                    className="multi-line-item"
+                  >
                     <div
-                      className="profile-display">
+                      className="profile-display"
+                    >
                       <i
                         aria-hidden="true"
-                        className="icon-profile" />
+                        className="icon-profile"
+                      />
                       undefined undefined
                     </div>
                   </div>
                 </a>
               </li>
               <li
-                role="presentation" />
+                role="presentation"
+              />
               <li
-                role="presentation">
+                role="presentation"
+              >
                 <a
                   href="#"
-                  onClick={[Function anonymous]}>
+                  onClick={[Function]}
+                >
                   <i
                     aria-hidden="true"
-                    className="icon-logout" />
+                    className="icon-logout"
+                  />
                   Log Out
                 </a>
               </li>
             </ul>
           </li>
           <li
-            className="desktop-iconItem dropdown">
+            className="desktop-iconItem dropdown"
+          >
             <button
               aria-expanded="false"
               className="dropdown-toggle"
               data-toggle="dropdown"
               id="help-header-dropdown"
-              type="button">
+              type="button"
+            >
               <i
                 aria-hidden="true"
-                className="icon-help" />
+                className="icon-help"
+              />
               <span
-                className="sr-only">
+                className="sr-only"
+              >
                 Toggle Help Dropdown
               </span>
             </button>
             <ul
               aria-labelledby="help-header-dropdown"
               className="dropdown-menu dropdown-menu-right"
-              id="pse-help-nav">
+              id="pse-help-nav"
+            >
               <div>
                 <li>
                   <a
                     aria-current={false}
                     className={undefined}
                     href="/faq"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
+                    onClick={[Function]}
+                    style={undefined}
+                  >
                     FAQ
                   </a>
                 </li>
@@ -582,8 +714,9 @@ exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
                   <a
                     className="walkthru-toggle"
                     href="#"
-                    onClick={[Function anonymous]}
-                    role="button">
+                    onClick={[Function]}
+                    role="button"
+                  >
                     Disable
                      Site Walkthrough
                   </a>
@@ -593,26 +726,32 @@ exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
                     aria-current={false}
                     className={undefined}
                     href="/feedback"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
+                    onClick={[Function]}
+                    style={undefined}
+                  >
                     Give Us Feedback
                   </a>
                 </li>
                 <li>
                   <a
-                    href="tel:800-574-7000">
+                    href="tel:800-574-7000"
+                  >
                     <div
-                      className="multi-line-item">
+                      className="multi-line-item"
+                    >
                       <span
-                        aria-hidden="true">
+                        aria-hidden="true"
+                      >
                         FirstNet Customer Svc: 
                       </span>
                       <br />
                       <i
                         aria-hidden="true"
-                        className="icon-phone-number" />
+                        className="icon-phone-number"
+                      />
                       <span
-                        className="sr-only">
+                        className="sr-only"
+                      >
                         FirstNet Customer Service Phone 
                       </span>
                       800-574-7000
@@ -628,48 +767,62 @@ exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
   </div>
   <div
     className="pageMask hidden-xs hidden-md hidden-lg"
-    onClick={[Function anonymous]} />
+    onClick={[Function]}
+  />
 </header>
 `;
 
 exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
 <header
   className="fnnav pse"
-  role="banner">
+  role="banner"
+>
   <div
-    className="fnnav__mainbar open">
+    className="fnnav__mainbar open"
+  >
     <div
-      className="container">
+      className="container"
+    >
       <div
-        className="fnnav__header">
+        className="fnnav__header"
+      >
         <button
           aria-expanded={true}
           aria-haspopup="true"
           className="navbar-toggle"
-          onClick={[Function anonymous]}
-          type="button">
+          onClick={[Function]}
+          type="button"
+        >
           <span
-            className="sr-only">
+            className="sr-only"
+          >
             Toggle navigation
           </span>
           <span
-            className="icon-bar" />
+            className="icon-bar"
+          />
           <span
-            className="icon-bar" />
+            className="icon-bar"
+          />
           <span
-            className="icon-bar" />
+            className="icon-bar"
+          />
         </button>
         <div
-          className="fnnav__brand">
+          className="fnnav__brand"
+        >
           <a
             className="logo-home-link"
             href="/"
-            onClick={[Function anonymous]}>
+            onClick={[Function]}
+          >
             <img
               alt="FirstNet Logo"
-              src="/images/logo-FirstNet-local-control.svg" />
+              src="/images/logo-FirstNet-local-control.svg"
+            />
             <span
-              className="sr-only">
+              className="sr-only"
+            >
               Go Home
             </span>
           </a>
@@ -677,77 +830,95 @@ exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
       </div>
       <nav
         aria-label="Main Menu"
-        id="main-menu">
+        id="main-menu"
+      >
         <ul
-          className="fnnav__main">
+          className="fnnav__main"
+        >
           <li
             className="mainnav-item yellow"
-            role="presentation">
+            role="presentation"
+          >
             <button
               aria-expanded={false}
               aria-haspopup="true"
               className="btnSubmenu"
-              onClick={[Function anonymous]}>
+              onClick={[Function]}
+            >
               <span
-                className="sr-only">
+                className="sr-only"
+              >
                 Expand Profile Menu
               </span>
             </button>
             <a
               className="deaden"
               href="#profile"
-              id="pse-profile">
+              id="pse-profile"
+            >
               <div
-                className="multi-line-item">
+                className="multi-line-item"
+              >
                 <div
-                  className="profile-display">
+                  className="profile-display"
+                >
                   <i
                     aria-hidden="true"
-                    className="icon-profile" />
+                    className="icon-profile"
+                  />
                   undefined undefined
                 </div>
               </div>
             </a>
             <ul
               aria-labelledby="pse-profile"
-              className="collapse ">
+              className="collapse "
+            >
               <li
-                role="presentation" />
+                role="presentation"
+              />
             </ul>
           </li>
           <li
-            className="mainnav-item grey">
+            className="mainnav-item grey"
+          >
             <button
               aria-expanded={false}
               aria-haspopup="true"
               className="btnSubmenu"
-              onClick={[Function anonymous]}>
+              onClick={[Function]}
+            >
               <span
-                className="sr-only">
+                className="sr-only"
+              >
                 Expand Help Menu
               </span>
             </button>
             <a
               className="deaden"
               href="/manage-profile"
-              id="pse-help-mobile">
+              id="pse-help-mobile"
+            >
               <i
                 aria-hidden="true"
-                className="icon-help" />
+                className="icon-help"
+              />
               Help
             </a>
             <ul
               aria-labelledby="pse-help-mobile"
               className="collapse "
-              id="pse-help-menu">
+              id="pse-help-menu"
+            >
               <div>
                 <li>
                   <a
                     aria-current={false}
                     className={undefined}
                     href="/faq"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
+                    onClick={[Function]}
+                    style={undefined}
+                  >
                     FAQ
                   </a>
                 </li>
@@ -756,8 +927,9 @@ exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
                   <a
                     className="walkthru-toggle"
                     href="#"
-                    onClick={[Function anonymous]}
-                    role="button">
+                    onClick={[Function]}
+                    role="button"
+                  >
                     Disable
                      Site Walkthrough
                   </a>
@@ -767,26 +939,32 @@ exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
                     aria-current={false}
                     className={undefined}
                     href="/feedback"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
+                    onClick={[Function]}
+                    style={undefined}
+                  >
                     Give Us Feedback
                   </a>
                 </li>
                 <li>
                   <a
-                    href="tel:800-574-7000">
+                    href="tel:800-574-7000"
+                  >
                     <div
-                      className="multi-line-item">
+                      className="multi-line-item"
+                    >
                       <span
-                        aria-hidden="true">
+                        aria-hidden="true"
+                      >
                         FirstNet Customer Svc: 
                       </span>
                       <br />
                       <i
                         aria-hidden="true"
-                        className="icon-phone-number" />
+                        className="icon-phone-number"
+                      />
                       <span
-                        className="sr-only">
+                        className="sr-only"
+                      >
                         FirstNet Customer Service Phone 
                       </span>
                       800-574-7000
@@ -798,99 +976,122 @@ exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
           </li>
           <li
             className="mainnav-item grey logout"
-            role="presentation">
+            role="presentation"
+          >
             <a
               href="#"
-              onClick={[Function anonymous]}>
+              onClick={[Function]}
+            >
               <i
                 aria-hidden="true"
-                className="icon-logout" />
+                className="icon-logout"
+              />
               Log Out
             </a>
           </li>
           <li
-            className="desktop-iconItem dropdown">
+            className="desktop-iconItem dropdown"
+          >
             <button
               aria-expanded="false"
               className="dropdown-toggle"
               data-toggle="dropdown"
               id="profile-header-dropdown"
-              type="button">
+              type="button"
+            >
               <i
                 aria-hidden="true"
-                className="icon-profile" />
+                className="icon-profile"
+              />
               <span
-                className="sr-only">
+                className="sr-only"
+              >
                 Toggle Profile Dropdown
               </span>
             </button>
             <ul
               aria-labelledby="profile-header-dropdown"
               className="dropdown-menu dropdown-menu-right"
-              id="pse-profile-nav">
+              id="pse-profile-nav"
+            >
               <li
                 className="desktop-profile-display"
-                role="presentation">
+                role="presentation"
+              >
                 <a
                   className="deaden"
                   href="#profile"
                   id="pse-profile-desktop"
-                  tabIndex="-1">
+                  tabIndex="-1"
+                >
                   <div
-                    className="multi-line-item">
+                    className="multi-line-item"
+                  >
                     <div
-                      className="profile-display">
+                      className="profile-display"
+                    >
                       <i
                         aria-hidden="true"
-                        className="icon-profile" />
+                        className="icon-profile"
+                      />
                       undefined undefined
                     </div>
                   </div>
                 </a>
               </li>
               <li
-                role="presentation" />
+                role="presentation"
+              />
               <li
-                role="presentation">
+                role="presentation"
+              >
                 <a
                   href="#"
-                  onClick={[Function anonymous]}>
+                  onClick={[Function]}
+                >
                   <i
                     aria-hidden="true"
-                    className="icon-logout" />
+                    className="icon-logout"
+                  />
                   Log Out
                 </a>
               </li>
             </ul>
           </li>
           <li
-            className="desktop-iconItem dropdown">
+            className="desktop-iconItem dropdown"
+          >
             <button
               aria-expanded="false"
               className="dropdown-toggle"
               data-toggle="dropdown"
               id="help-header-dropdown"
-              type="button">
+              type="button"
+            >
               <i
                 aria-hidden="true"
-                className="icon-help" />
+                className="icon-help"
+              />
               <span
-                className="sr-only">
+                className="sr-only"
+              >
                 Toggle Help Dropdown
               </span>
             </button>
             <ul
               aria-labelledby="help-header-dropdown"
               className="dropdown-menu dropdown-menu-right"
-              id="pse-help-nav">
+              id="pse-help-nav"
+            >
               <div>
                 <li>
                   <a
                     aria-current={false}
                     className={undefined}
                     href="/faq"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
+                    onClick={[Function]}
+                    style={undefined}
+                  >
                     FAQ
                   </a>
                 </li>
@@ -899,8 +1100,9 @@ exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
                   <a
                     className="walkthru-toggle"
                     href="#"
-                    onClick={[Function anonymous]}
-                    role="button">
+                    onClick={[Function]}
+                    role="button"
+                  >
                     Disable
                      Site Walkthrough
                   </a>
@@ -910,26 +1112,32 @@ exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
                     aria-current={false}
                     className={undefined}
                     href="/feedback"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
+                    onClick={[Function]}
+                    style={undefined}
+                  >
                     Give Us Feedback
                   </a>
                 </li>
                 <li>
                   <a
-                    href="tel:800-574-7000">
+                    href="tel:800-574-7000"
+                  >
                     <div
-                      className="multi-line-item">
+                      className="multi-line-item"
+                    >
                       <span
-                        aria-hidden="true">
+                        aria-hidden="true"
+                      >
                         FirstNet Customer Svc: 
                       </span>
                       <br />
                       <i
                         aria-hidden="true"
-                        className="icon-phone-number" />
+                        className="icon-phone-number"
+                      />
                       <span
-                        className="sr-only">
+                        className="sr-only"
+                      >
                         FirstNet Customer Service Phone 
                       </span>
                       800-574-7000
@@ -945,48 +1153,62 @@ exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
   </div>
   <div
     className="pageMask hidden-xs hidden-md hidden-lg"
-    onClick={[Function anonymous]} />
+    onClick={[Function]}
+  />
 </header>
 `;
 
 exports[`<PSEHeader /> render user role-based snapshots 1`] = `
 <header
   className="fnnav pse"
-  role="banner">
+  role="banner"
+>
   <div
-    className="fnnav__mainbar ">
+    className="fnnav__mainbar "
+  >
     <div
-      className="container">
+      className="container"
+    >
       <div
-        className="fnnav__header">
+        className="fnnav__header"
+      >
         <button
           aria-expanded={undefined}
           aria-haspopup="true"
           className="navbar-toggle"
-          onClick={[Function anonymous]}
-          type="button">
+          onClick={[Function]}
+          type="button"
+        >
           <span
-            className="sr-only">
+            className="sr-only"
+          >
             Toggle navigation
           </span>
           <span
-            className="icon-bar" />
+            className="icon-bar"
+          />
           <span
-            className="icon-bar" />
+            className="icon-bar"
+          />
           <span
-            className="icon-bar" />
+            className="icon-bar"
+          />
         </button>
         <div
-          className="fnnav__brand">
+          className="fnnav__brand"
+        >
           <a
             className="logo-home-link"
             href="/"
-            onClick={[Function anonymous]}>
+            onClick={[Function]}
+          >
             <img
               alt="FirstNet Logo"
-              src="/images/logo-FirstNet-local-control.svg" />
+              src="/images/logo-FirstNet-local-control.svg"
+            />
             <span
-              className="sr-only">
+              className="sr-only"
+            >
               Go Home
             </span>
           </a>
@@ -994,91 +1216,111 @@ exports[`<PSEHeader /> render user role-based snapshots 1`] = `
       </div>
       <nav
         aria-label="Main Menu"
-        id="main-menu">
+        id="main-menu"
+      >
         <ul
-          className="fnnav__main">
+          className="fnnav__main"
+        >
           <li
             className="mainnav-item yellow"
-            role="presentation">
+            role="presentation"
+          >
             <button
               aria-expanded={undefined}
               aria-haspopup="true"
               className="btnSubmenu"
-              onClick={[Function anonymous]}>
+              onClick={[Function]}
+            >
               <span
-                className="sr-only">
+                className="sr-only"
+              >
                 Expand Profile Menu
               </span>
             </button>
             <a
               className="deaden"
               href="#profile"
-              id="pse-profile">
+              id="pse-profile"
+            >
               <div
-                className="multi-line-item">
+                className="multi-line-item"
+              >
                 <div
-                  className="profile-display">
+                  className="profile-display"
+                >
                   <i
                     aria-hidden="true"
-                    className="icon-profile" />
+                    className="icon-profile"
+                  />
                   undefined undefined
                 </div>
               </div>
             </a>
             <ul
               aria-labelledby="pse-profile"
-              className="collapse ">
+              className="collapse "
+            >
               <li
-                role="presentation" />
+                role="presentation"
+              />
             </ul>
           </li>
           <li
             className="mainnav-item desktop-textlink"
             id="hdr-network-status"
-            role="presentation">
+            role="presentation"
+          >
             <a
               aria-current={false}
               className={undefined}
               href="/network-status"
               id="linkBtn-networkStatus"
-              onClick={[Function anonymous]}
-              style={undefined}>
+              onClick={[Function]}
+              style={undefined}
+            >
               Network Status
             </a>
           </li>
           <li
-            className="mainnav-item grey">
+            className="mainnav-item grey"
+          >
             <button
               aria-expanded={undefined}
               aria-haspopup="true"
               className="btnSubmenu"
-              onClick={[Function anonymous]}>
+              onClick={[Function]}
+            >
               <span
-                className="sr-only">
+                className="sr-only"
+              >
                 Expand Help Menu
               </span>
             </button>
             <a
               className="deaden"
               href="/manage-profile"
-              id="pse-help-mobile">
+              id="pse-help-mobile"
+            >
               <i
                 aria-hidden="true"
-                className="icon-help" />
+                className="icon-help"
+              />
               Help
             </a>
             <ul
               aria-labelledby="pse-help-mobile"
               className="collapse "
-              id="pse-help-menu">
+              id="pse-help-menu"
+            >
               <div>
                 <li>
                   <a
                     aria-current={false}
                     className={undefined}
                     href="/faq"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
+                    onClick={[Function]}
+                    style={undefined}
+                  >
                     FAQ
                   </a>
                 </li>
@@ -1087,8 +1329,9 @@ exports[`<PSEHeader /> render user role-based snapshots 1`] = `
                   <a
                     className="walkthru-toggle"
                     href="#"
-                    onClick={[Function anonymous]}
-                    role="button">
+                    onClick={[Function]}
+                    role="button"
+                  >
                     Disable
                      Site Walkthrough
                   </a>
@@ -1098,26 +1341,32 @@ exports[`<PSEHeader /> render user role-based snapshots 1`] = `
                     aria-current={false}
                     className={undefined}
                     href="/feedback"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
+                    onClick={[Function]}
+                    style={undefined}
+                  >
                     Give Us Feedback
                   </a>
                 </li>
                 <li>
                   <a
-                    href="tel:800-574-7000">
+                    href="tel:800-574-7000"
+                  >
                     <div
-                      className="multi-line-item">
+                      className="multi-line-item"
+                    >
                       <span
-                        aria-hidden="true">
+                        aria-hidden="true"
+                      >
                         FirstNet Customer Svc: 
                       </span>
                       <br />
                       <i
                         aria-hidden="true"
-                        className="icon-phone-number" />
+                        className="icon-phone-number"
+                      />
                       <span
-                        className="sr-only">
+                        className="sr-only"
+                      >
                         FirstNet Customer Service Phone 
                       </span>
                       800-574-7000
@@ -1129,99 +1378,122 @@ exports[`<PSEHeader /> render user role-based snapshots 1`] = `
           </li>
           <li
             className="mainnav-item grey logout"
-            role="presentation">
+            role="presentation"
+          >
             <a
               href="#"
-              onClick={[Function anonymous]}>
+              onClick={[Function]}
+            >
               <i
                 aria-hidden="true"
-                className="icon-logout" />
+                className="icon-logout"
+              />
               Log Out
             </a>
           </li>
           <li
-            className="desktop-iconItem dropdown">
+            className="desktop-iconItem dropdown"
+          >
             <button
               aria-expanded="false"
               className="dropdown-toggle"
               data-toggle="dropdown"
               id="profile-header-dropdown"
-              type="button">
+              type="button"
+            >
               <i
                 aria-hidden="true"
-                className="icon-profile" />
+                className="icon-profile"
+              />
               <span
-                className="sr-only">
+                className="sr-only"
+              >
                 Toggle Profile Dropdown
               </span>
             </button>
             <ul
               aria-labelledby="profile-header-dropdown"
               className="dropdown-menu dropdown-menu-right"
-              id="pse-profile-nav">
+              id="pse-profile-nav"
+            >
               <li
                 className="desktop-profile-display"
-                role="presentation">
+                role="presentation"
+              >
                 <a
                   className="deaden"
                   href="#profile"
                   id="pse-profile-desktop"
-                  tabIndex="-1">
+                  tabIndex="-1"
+                >
                   <div
-                    className="multi-line-item">
+                    className="multi-line-item"
+                  >
                     <div
-                      className="profile-display">
+                      className="profile-display"
+                    >
                       <i
                         aria-hidden="true"
-                        className="icon-profile" />
+                        className="icon-profile"
+                      />
                       undefined undefined
                     </div>
                   </div>
                 </a>
               </li>
               <li
-                role="presentation" />
+                role="presentation"
+              />
               <li
-                role="presentation">
+                role="presentation"
+              >
                 <a
                   href="#"
-                  onClick={[Function anonymous]}>
+                  onClick={[Function]}
+                >
                   <i
                     aria-hidden="true"
-                    className="icon-logout" />
+                    className="icon-logout"
+                  />
                   Log Out
                 </a>
               </li>
             </ul>
           </li>
           <li
-            className="desktop-iconItem dropdown">
+            className="desktop-iconItem dropdown"
+          >
             <button
               aria-expanded="false"
               className="dropdown-toggle"
               data-toggle="dropdown"
               id="help-header-dropdown"
-              type="button">
+              type="button"
+            >
               <i
                 aria-hidden="true"
-                className="icon-help" />
+                className="icon-help"
+              />
               <span
-                className="sr-only">
+                className="sr-only"
+              >
                 Toggle Help Dropdown
               </span>
             </button>
             <ul
               aria-labelledby="help-header-dropdown"
               className="dropdown-menu dropdown-menu-right"
-              id="pse-help-nav">
+              id="pse-help-nav"
+            >
               <div>
                 <li>
                   <a
                     aria-current={false}
                     className={undefined}
                     href="/faq"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
+                    onClick={[Function]}
+                    style={undefined}
+                  >
                     FAQ
                   </a>
                 </li>
@@ -1230,8 +1502,9 @@ exports[`<PSEHeader /> render user role-based snapshots 1`] = `
                   <a
                     className="walkthru-toggle"
                     href="#"
-                    onClick={[Function anonymous]}
-                    role="button">
+                    onClick={[Function]}
+                    role="button"
+                  >
                     Disable
                      Site Walkthrough
                   </a>
@@ -1241,26 +1514,32 @@ exports[`<PSEHeader /> render user role-based snapshots 1`] = `
                     aria-current={false}
                     className={undefined}
                     href="/feedback"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
+                    onClick={[Function]}
+                    style={undefined}
+                  >
                     Give Us Feedback
                   </a>
                 </li>
                 <li>
                   <a
-                    href="tel:800-574-7000">
+                    href="tel:800-574-7000"
+                  >
                     <div
-                      className="multi-line-item">
+                      className="multi-line-item"
+                    >
                       <span
-                        aria-hidden="true">
+                        aria-hidden="true"
+                      >
                         FirstNet Customer Svc: 
                       </span>
                       <br />
                       <i
                         aria-hidden="true"
-                        className="icon-phone-number" />
+                        className="icon-phone-number"
+                      />
                       <span
-                        className="sr-only">
+                        className="sr-only"
+                      >
                         FirstNet Customer Service Phone 
                       </span>
                       800-574-7000
@@ -1276,48 +1555,62 @@ exports[`<PSEHeader /> render user role-based snapshots 1`] = `
   </div>
   <div
     className="pageMask hidden-xs hidden-md hidden-lg"
-    onClick={[Function anonymous]} />
+    onClick={[Function]}
+  />
 </header>
 `;
 
 exports[`<PSEHeader /> render user role-based snapshots 2`] = `
 <header
   className="fnnav pse"
-  role="banner">
+  role="banner"
+>
   <div
-    className="fnnav__mainbar ">
+    className="fnnav__mainbar "
+  >
     <div
-      className="container">
+      className="container"
+    >
       <div
-        className="fnnav__header">
+        className="fnnav__header"
+      >
         <button
           aria-expanded={undefined}
           aria-haspopup="true"
           className="navbar-toggle"
-          onClick={[Function anonymous]}
-          type="button">
+          onClick={[Function]}
+          type="button"
+        >
           <span
-            className="sr-only">
+            className="sr-only"
+          >
             Toggle navigation
           </span>
           <span
-            className="icon-bar" />
+            className="icon-bar"
+          />
           <span
-            className="icon-bar" />
+            className="icon-bar"
+          />
           <span
-            className="icon-bar" />
+            className="icon-bar"
+          />
         </button>
         <div
-          className="fnnav__brand">
+          className="fnnav__brand"
+        >
           <a
             className="logo-home-link"
             href="/"
-            onClick={[Function anonymous]}>
+            onClick={[Function]}
+          >
             <img
               alt="FirstNet Logo"
-              src="/images/logo-FirstNet-local-control.svg" />
+              src="/images/logo-FirstNet-local-control.svg"
+            />
             <span
-              className="sr-only">
+              className="sr-only"
+            >
               Go Home
             </span>
           </a>
@@ -1325,54 +1618,68 @@ exports[`<PSEHeader /> render user role-based snapshots 2`] = `
       </div>
       <nav
         aria-label="Main Menu"
-        id="main-menu">
+        id="main-menu"
+      >
         <ul
-          className="fnnav__main">
+          className="fnnav__main"
+        >
           <li
             className="mainnav-item yellow"
-            role="presentation">
+            role="presentation"
+          >
             <button
               aria-expanded={undefined}
               aria-haspopup="true"
               className="btnSubmenu"
-              onClick={[Function anonymous]}>
+              onClick={[Function]}
+            >
               <span
-                className="sr-only">
+                className="sr-only"
+              >
                 Expand Profile Menu
               </span>
             </button>
             <a
               className="deaden"
               href="#profile"
-              id="pse-profile">
+              id="pse-profile"
+            >
               <div
-                className="multi-line-item">
+                className="multi-line-item"
+              >
                 <div
-                  className="profile-display">
+                  className="profile-display"
+                >
                   <i
                     aria-hidden="true"
-                    className="icon-profile" />
+                    className="icon-profile"
+                  />
                   undefined undefined
                 </div>
               </div>
             </a>
             <ul
               aria-labelledby="pse-profile"
-              className="collapse ">
+              className="collapse "
+            >
               <li
-                role="presentation" />
+                role="presentation"
+              />
             </ul>
           </li>
           <li
             className="mainnav-item desktop-textlink "
-            id="btn-admin">
+            id="btn-admin"
+          >
             <button
               aria-expanded={undefined}
               aria-haspopup="true"
               className="btnSubmenu"
-              onClick={[Function anonymous]}>
+              onClick={[Function]}
+            >
               <span
-                className="sr-only">
+                className="sr-only"
+              >
                 Expand Administration Menu
               </span>
             </button>
@@ -1383,21 +1690,25 @@ exports[`<PSEHeader /> render user role-based snapshots 2`] = `
               className={undefined}
               href="/admin"
               id="linkBtn-admin"
-              onClick={[Function anonymous]}
-              style={undefined}>
+              onClick={[Function]}
+              style={undefined}
+            >
               Administration
             </a>
             <div
               className="header-submenu"
-              id="admin-submenu">
+              id="admin-submenu"
+            >
               <ul
                 aria-labelledby="linkBtn-admin"
                 className="collapse "
                 id="pse-admin-nav"
-                role="navigation">
+                role="navigation"
+              >
                 <strong
                   aria-hidden="true"
-                  className="visible-md-block visible-lg-block">
+                  className="visible-md-block visible-lg-block"
+                >
                   Management
                 </strong>
                 <li />
@@ -1406,8 +1717,9 @@ exports[`<PSEHeader /> render user role-based snapshots 2`] = `
                     aria-current={false}
                     className={undefined}
                     href="/admin/manage-apps"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
+                    onClick={[Function]}
+                    style={undefined}
+                  >
                     Manage Apps
                   </a>
                 </li>
@@ -1418,10 +1730,12 @@ exports[`<PSEHeader /> render user role-based snapshots 2`] = `
                 aria-labelledby="linkBtn-admin"
                 className="collapse "
                 id="pse-aside-nav"
-                role="navigation">
+                role="navigation"
+              >
                 <strong
                   aria-hidden="true"
-                  className="visible-md-block visible-lg-block">
+                  className="visible-md-block visible-lg-block"
+                >
                   Purchasing & Provisioning
                 </strong>
                 <li />
@@ -1430,8 +1744,9 @@ exports[`<PSEHeader /> render user role-based snapshots 2`] = `
                     aria-current={false}
                     className={undefined}
                     href="/admin/devices"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
+                    onClick={[Function]}
+                    style={undefined}
+                  >
                     Specialized Devices
                   </a>
                 </li>
@@ -1440,8 +1755,9 @@ exports[`<PSEHeader /> render user role-based snapshots 2`] = `
                     aria-current={false}
                     className={undefined}
                     href="/admin/solutions"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
+                    onClick={[Function]}
+                    style={undefined}
+                  >
                     Public Safety Solutions
                   </a>
                 </li>
@@ -1451,50 +1767,59 @@ exports[`<PSEHeader /> render user role-based snapshots 2`] = `
           <li
             className="mainnav-item desktop-textlink"
             id="hdr-network-status"
-            role="presentation">
+            role="presentation"
+          >
             <a
               aria-current={false}
               className={undefined}
               href="/network-status"
               id="linkBtn-networkStatus"
-              onClick={[Function anonymous]}
-              style={undefined}>
+              onClick={[Function]}
+              style={undefined}
+            >
               Network Status
             </a>
           </li>
           <li
-            className="mainnav-item grey">
+            className="mainnav-item grey"
+          >
             <button
               aria-expanded={undefined}
               aria-haspopup="true"
               className="btnSubmenu"
-              onClick={[Function anonymous]}>
+              onClick={[Function]}
+            >
               <span
-                className="sr-only">
+                className="sr-only"
+              >
                 Expand Help Menu
               </span>
             </button>
             <a
               className="deaden"
               href="/manage-profile"
-              id="pse-help-mobile">
+              id="pse-help-mobile"
+            >
               <i
                 aria-hidden="true"
-                className="icon-help" />
+                className="icon-help"
+              />
               Help
             </a>
             <ul
               aria-labelledby="pse-help-mobile"
               className="collapse "
-              id="pse-help-menu">
+              id="pse-help-menu"
+            >
               <div>
                 <li>
                   <a
                     aria-current={false}
                     className={undefined}
                     href="/faq"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
+                    onClick={[Function]}
+                    style={undefined}
+                  >
                     FAQ
                   </a>
                 </li>
@@ -1503,8 +1828,9 @@ exports[`<PSEHeader /> render user role-based snapshots 2`] = `
                   <a
                     className="walkthru-toggle"
                     href="#"
-                    onClick={[Function anonymous]}
-                    role="button">
+                    onClick={[Function]}
+                    role="button"
+                  >
                     Disable
                      Site Walkthrough
                   </a>
@@ -1514,26 +1840,32 @@ exports[`<PSEHeader /> render user role-based snapshots 2`] = `
                     aria-current={false}
                     className={undefined}
                     href="/feedback"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
+                    onClick={[Function]}
+                    style={undefined}
+                  >
                     Give Us Feedback
                   </a>
                 </li>
                 <li>
                   <a
-                    href="tel:800-574-7000">
+                    href="tel:800-574-7000"
+                  >
                     <div
-                      className="multi-line-item">
+                      className="multi-line-item"
+                    >
                       <span
-                        aria-hidden="true">
+                        aria-hidden="true"
+                      >
                         FirstNet Customer Svc: 
                       </span>
                       <br />
                       <i
                         aria-hidden="true"
-                        className="icon-phone-number" />
+                        className="icon-phone-number"
+                      />
                       <span
-                        className="sr-only">
+                        className="sr-only"
+                      >
                         FirstNet Customer Service Phone 
                       </span>
                       800-574-7000
@@ -1545,99 +1877,122 @@ exports[`<PSEHeader /> render user role-based snapshots 2`] = `
           </li>
           <li
             className="mainnav-item grey logout"
-            role="presentation">
+            role="presentation"
+          >
             <a
               href="#"
-              onClick={[Function anonymous]}>
+              onClick={[Function]}
+            >
               <i
                 aria-hidden="true"
-                className="icon-logout" />
+                className="icon-logout"
+              />
               Log Out
             </a>
           </li>
           <li
-            className="desktop-iconItem dropdown">
+            className="desktop-iconItem dropdown"
+          >
             <button
               aria-expanded="false"
               className="dropdown-toggle"
               data-toggle="dropdown"
               id="profile-header-dropdown"
-              type="button">
+              type="button"
+            >
               <i
                 aria-hidden="true"
-                className="icon-profile" />
+                className="icon-profile"
+              />
               <span
-                className="sr-only">
+                className="sr-only"
+              >
                 Toggle Profile Dropdown
               </span>
             </button>
             <ul
               aria-labelledby="profile-header-dropdown"
               className="dropdown-menu dropdown-menu-right"
-              id="pse-profile-nav">
+              id="pse-profile-nav"
+            >
               <li
                 className="desktop-profile-display"
-                role="presentation">
+                role="presentation"
+              >
                 <a
                   className="deaden"
                   href="#profile"
                   id="pse-profile-desktop"
-                  tabIndex="-1">
+                  tabIndex="-1"
+                >
                   <div
-                    className="multi-line-item">
+                    className="multi-line-item"
+                  >
                     <div
-                      className="profile-display">
+                      className="profile-display"
+                    >
                       <i
                         aria-hidden="true"
-                        className="icon-profile" />
+                        className="icon-profile"
+                      />
                       undefined undefined
                     </div>
                   </div>
                 </a>
               </li>
               <li
-                role="presentation" />
+                role="presentation"
+              />
               <li
-                role="presentation">
+                role="presentation"
+              >
                 <a
                   href="#"
-                  onClick={[Function anonymous]}>
+                  onClick={[Function]}
+                >
                   <i
                     aria-hidden="true"
-                    className="icon-logout" />
+                    className="icon-logout"
+                  />
                   Log Out
                 </a>
               </li>
             </ul>
           </li>
           <li
-            className="desktop-iconItem dropdown">
+            className="desktop-iconItem dropdown"
+          >
             <button
               aria-expanded="false"
               className="dropdown-toggle"
               data-toggle="dropdown"
               id="help-header-dropdown"
-              type="button">
+              type="button"
+            >
               <i
                 aria-hidden="true"
-                className="icon-help" />
+                className="icon-help"
+              />
               <span
-                className="sr-only">
+                className="sr-only"
+              >
                 Toggle Help Dropdown
               </span>
             </button>
             <ul
               aria-labelledby="help-header-dropdown"
               className="dropdown-menu dropdown-menu-right"
-              id="pse-help-nav">
+              id="pse-help-nav"
+            >
               <div>
                 <li>
                   <a
                     aria-current={false}
                     className={undefined}
                     href="/faq"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
+                    onClick={[Function]}
+                    style={undefined}
+                  >
                     FAQ
                   </a>
                 </li>
@@ -1646,8 +2001,9 @@ exports[`<PSEHeader /> render user role-based snapshots 2`] = `
                   <a
                     className="walkthru-toggle"
                     href="#"
-                    onClick={[Function anonymous]}
-                    role="button">
+                    onClick={[Function]}
+                    role="button"
+                  >
                     Disable
                      Site Walkthrough
                   </a>
@@ -1657,26 +2013,32 @@ exports[`<PSEHeader /> render user role-based snapshots 2`] = `
                     aria-current={false}
                     className={undefined}
                     href="/feedback"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
+                    onClick={[Function]}
+                    style={undefined}
+                  >
                     Give Us Feedback
                   </a>
                 </li>
                 <li>
                   <a
-                    href="tel:800-574-7000">
+                    href="tel:800-574-7000"
+                  >
                     <div
-                      className="multi-line-item">
+                      className="multi-line-item"
+                    >
                       <span
-                        aria-hidden="true">
+                        aria-hidden="true"
+                      >
                         FirstNet Customer Svc: 
                       </span>
                       <br />
                       <i
                         aria-hidden="true"
-                        className="icon-phone-number" />
+                        className="icon-phone-number"
+                      />
                       <span
-                        className="sr-only">
+                        className="sr-only"
+                      >
                         FirstNet Customer Service Phone 
                       </span>
                       800-574-7000
@@ -1692,48 +2054,62 @@ exports[`<PSEHeader /> render user role-based snapshots 2`] = `
   </div>
   <div
     className="pageMask hidden-xs hidden-md hidden-lg"
-    onClick={[Function anonymous]} />
+    onClick={[Function]}
+  />
 </header>
 `;
 
 exports[`<PSEHeader /> render user role-based snapshots 3`] = `
 <header
   className="fnnav pse"
-  role="banner">
+  role="banner"
+>
   <div
-    className="fnnav__mainbar ">
+    className="fnnav__mainbar "
+  >
     <div
-      className="container">
+      className="container"
+    >
       <div
-        className="fnnav__header">
+        className="fnnav__header"
+      >
         <button
           aria-expanded={undefined}
           aria-haspopup="true"
           className="navbar-toggle"
-          onClick={[Function anonymous]}
-          type="button">
+          onClick={[Function]}
+          type="button"
+        >
           <span
-            className="sr-only">
+            className="sr-only"
+          >
             Toggle navigation
           </span>
           <span
-            className="icon-bar" />
+            className="icon-bar"
+          />
           <span
-            className="icon-bar" />
+            className="icon-bar"
+          />
           <span
-            className="icon-bar" />
+            className="icon-bar"
+          />
         </button>
         <div
-          className="fnnav__brand">
+          className="fnnav__brand"
+        >
           <a
             className="logo-home-link"
             href="/"
-            onClick={[Function anonymous]}>
+            onClick={[Function]}
+          >
             <img
               alt="FirstNet Logo"
-              src="/images/logo-FirstNet-local-control.svg" />
+              src="/images/logo-FirstNet-local-control.svg"
+            />
             <span
-              className="sr-only">
+              className="sr-only"
+            >
               Go Home
             </span>
           </a>
@@ -1741,54 +2117,68 @@ exports[`<PSEHeader /> render user role-based snapshots 3`] = `
       </div>
       <nav
         aria-label="Main Menu"
-        id="main-menu">
+        id="main-menu"
+      >
         <ul
-          className="fnnav__main">
+          className="fnnav__main"
+        >
           <li
             className="mainnav-item yellow"
-            role="presentation">
+            role="presentation"
+          >
             <button
               aria-expanded={undefined}
               aria-haspopup="true"
               className="btnSubmenu"
-              onClick={[Function anonymous]}>
+              onClick={[Function]}
+            >
               <span
-                className="sr-only">
+                className="sr-only"
+              >
                 Expand Profile Menu
               </span>
             </button>
             <a
               className="deaden"
               href="#profile"
-              id="pse-profile">
+              id="pse-profile"
+            >
               <div
-                className="multi-line-item">
+                className="multi-line-item"
+              >
                 <div
-                  className="profile-display">
+                  className="profile-display"
+                >
                   <i
                     aria-hidden="true"
-                    className="icon-profile" />
+                    className="icon-profile"
+                  />
                   undefined undefined
                 </div>
               </div>
             </a>
             <ul
               aria-labelledby="pse-profile"
-              className="collapse ">
+              className="collapse "
+            >
               <li
-                role="presentation" />
+                role="presentation"
+              />
             </ul>
           </li>
           <li
             className="mainnav-item desktop-textlink "
-            id="btn-admin">
+            id="btn-admin"
+          >
             <button
               aria-expanded={undefined}
               aria-haspopup="true"
               className="btnSubmenu"
-              onClick={[Function anonymous]}>
+              onClick={[Function]}
+            >
               <span
-                className="sr-only">
+                className="sr-only"
+              >
                 Expand Administration Menu
               </span>
             </button>
@@ -1799,71 +2189,65 @@ exports[`<PSEHeader /> render user role-based snapshots 3`] = `
               className={undefined}
               href="/admin"
               id="linkBtn-admin"
-              onClick={[Function anonymous]}
-              style={undefined}>
+              onClick={[Function]}
+              style={undefined}
+            >
               Administration
             </a>
             <div
               className="header-submenu"
-              id="admin-submenu">
+              id="admin-submenu"
+            >
               <ul
                 aria-labelledby="linkBtn-admin"
                 className="collapse "
                 id="pse-admin-nav"
-                role="navigation">
-                <strong
-                  aria-hidden="true"
-                  className="visible-md-block visible-lg-block">
-                  Management
-                </strong>
+                role="navigation"
+              >
                 <li />
-              </ul>
-              <ul
-                aria-labelledby="linkBtn-admin"
-                className="collapse "
-                id="pse-aside-nav"
-                role="navigation">
-                <strong
-                  aria-hidden="true"
-                  className="visible-md-block visible-lg-block">
-                  Purchasing & Provisioning
-                </strong>
               </ul>
             </div>
           </li>
           <li
-            className="mainnav-item grey">
+            className="mainnav-item grey"
+          >
             <button
               aria-expanded={undefined}
               aria-haspopup="true"
               className="btnSubmenu"
-              onClick={[Function anonymous]}>
+              onClick={[Function]}
+            >
               <span
-                className="sr-only">
+                className="sr-only"
+              >
                 Expand Help Menu
               </span>
             </button>
             <a
               className="deaden"
               href="/manage-profile"
-              id="pse-help-mobile">
+              id="pse-help-mobile"
+            >
               <i
                 aria-hidden="true"
-                className="icon-help" />
+                className="icon-help"
+              />
               Help
             </a>
             <ul
               aria-labelledby="pse-help-mobile"
               className="collapse "
-              id="pse-help-menu">
+              id="pse-help-menu"
+            >
               <div>
                 <li>
                   <a
                     aria-current={false}
                     className={undefined}
                     href="/faq"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
+                    onClick={[Function]}
+                    style={undefined}
+                  >
                     FAQ
                   </a>
                 </li>
@@ -1872,8 +2256,9 @@ exports[`<PSEHeader /> render user role-based snapshots 3`] = `
                   <a
                     className="walkthru-toggle"
                     href="#"
-                    onClick={[Function anonymous]}
-                    role="button">
+                    onClick={[Function]}
+                    role="button"
+                  >
                     Disable
                      Site Walkthrough
                   </a>
@@ -1883,26 +2268,32 @@ exports[`<PSEHeader /> render user role-based snapshots 3`] = `
                     aria-current={false}
                     className={undefined}
                     href="/feedback"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
+                    onClick={[Function]}
+                    style={undefined}
+                  >
                     Give Us Feedback
                   </a>
                 </li>
                 <li>
                   <a
-                    href="tel:800-574-7000">
+                    href="tel:800-574-7000"
+                  >
                     <div
-                      className="multi-line-item">
+                      className="multi-line-item"
+                    >
                       <span
-                        aria-hidden="true">
+                        aria-hidden="true"
+                      >
                         FirstNet Customer Svc: 
                       </span>
                       <br />
                       <i
                         aria-hidden="true"
-                        className="icon-phone-number" />
+                        className="icon-phone-number"
+                      />
                       <span
-                        className="sr-only">
+                        className="sr-only"
+                      >
                         FirstNet Customer Service Phone 
                       </span>
                       800-574-7000
@@ -1914,99 +2305,122 @@ exports[`<PSEHeader /> render user role-based snapshots 3`] = `
           </li>
           <li
             className="mainnav-item grey logout"
-            role="presentation">
+            role="presentation"
+          >
             <a
               href="#"
-              onClick={[Function anonymous]}>
+              onClick={[Function]}
+            >
               <i
                 aria-hidden="true"
-                className="icon-logout" />
+                className="icon-logout"
+              />
               Log Out
             </a>
           </li>
           <li
-            className="desktop-iconItem dropdown">
+            className="desktop-iconItem dropdown"
+          >
             <button
               aria-expanded="false"
               className="dropdown-toggle"
               data-toggle="dropdown"
               id="profile-header-dropdown"
-              type="button">
+              type="button"
+            >
               <i
                 aria-hidden="true"
-                className="icon-profile" />
+                className="icon-profile"
+              />
               <span
-                className="sr-only">
+                className="sr-only"
+              >
                 Toggle Profile Dropdown
               </span>
             </button>
             <ul
               aria-labelledby="profile-header-dropdown"
               className="dropdown-menu dropdown-menu-right"
-              id="pse-profile-nav">
+              id="pse-profile-nav"
+            >
               <li
                 className="desktop-profile-display"
-                role="presentation">
+                role="presentation"
+              >
                 <a
                   className="deaden"
                   href="#profile"
                   id="pse-profile-desktop"
-                  tabIndex="-1">
+                  tabIndex="-1"
+                >
                   <div
-                    className="multi-line-item">
+                    className="multi-line-item"
+                  >
                     <div
-                      className="profile-display">
+                      className="profile-display"
+                    >
                       <i
                         aria-hidden="true"
-                        className="icon-profile" />
+                        className="icon-profile"
+                      />
                       undefined undefined
                     </div>
                   </div>
                 </a>
               </li>
               <li
-                role="presentation" />
+                role="presentation"
+              />
               <li
-                role="presentation">
+                role="presentation"
+              >
                 <a
                   href="#"
-                  onClick={[Function anonymous]}>
+                  onClick={[Function]}
+                >
                   <i
                     aria-hidden="true"
-                    className="icon-logout" />
+                    className="icon-logout"
+                  />
                   Log Out
                 </a>
               </li>
             </ul>
           </li>
           <li
-            className="desktop-iconItem dropdown">
+            className="desktop-iconItem dropdown"
+          >
             <button
               aria-expanded="false"
               className="dropdown-toggle"
               data-toggle="dropdown"
               id="help-header-dropdown"
-              type="button">
+              type="button"
+            >
               <i
                 aria-hidden="true"
-                className="icon-help" />
+                className="icon-help"
+              />
               <span
-                className="sr-only">
+                className="sr-only"
+              >
                 Toggle Help Dropdown
               </span>
             </button>
             <ul
               aria-labelledby="help-header-dropdown"
               className="dropdown-menu dropdown-menu-right"
-              id="pse-help-nav">
+              id="pse-help-nav"
+            >
               <div>
                 <li>
                   <a
                     aria-current={false}
                     className={undefined}
                     href="/faq"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
+                    onClick={[Function]}
+                    style={undefined}
+                  >
                     FAQ
                   </a>
                 </li>
@@ -2015,8 +2429,9 @@ exports[`<PSEHeader /> render user role-based snapshots 3`] = `
                   <a
                     className="walkthru-toggle"
                     href="#"
-                    onClick={[Function anonymous]}
-                    role="button">
+                    onClick={[Function]}
+                    role="button"
+                  >
                     Disable
                      Site Walkthrough
                   </a>
@@ -2026,26 +2441,32 @@ exports[`<PSEHeader /> render user role-based snapshots 3`] = `
                     aria-current={false}
                     className={undefined}
                     href="/feedback"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
+                    onClick={[Function]}
+                    style={undefined}
+                  >
                     Give Us Feedback
                   </a>
                 </li>
                 <li>
                   <a
-                    href="tel:800-574-7000">
+                    href="tel:800-574-7000"
+                  >
                     <div
-                      className="multi-line-item">
+                      className="multi-line-item"
+                    >
                       <span
-                        aria-hidden="true">
+                        aria-hidden="true"
+                      >
                         FirstNet Customer Svc: 
                       </span>
                       <br />
                       <i
                         aria-hidden="true"
-                        className="icon-phone-number" />
+                        className="icon-phone-number"
+                      />
                       <span
-                        className="sr-only">
+                        className="sr-only"
+                      >
                         FirstNet Customer Service Phone 
                       </span>
                       800-574-7000
@@ -2061,48 +2482,62 @@ exports[`<PSEHeader /> render user role-based snapshots 3`] = `
   </div>
   <div
     className="pageMask hidden-xs hidden-md hidden-lg"
-    onClick={[Function anonymous]} />
+    onClick={[Function]}
+  />
 </header>
 `;
 
 exports[`<PSEHeader /> render user role-based snapshots 4`] = `
 <header
   className="fnnav pse"
-  role="banner">
+  role="banner"
+>
   <div
-    className="fnnav__mainbar ">
+    className="fnnav__mainbar "
+  >
     <div
-      className="container">
+      className="container"
+    >
       <div
-        className="fnnav__header">
+        className="fnnav__header"
+      >
         <button
           aria-expanded={undefined}
           aria-haspopup="true"
           className="navbar-toggle"
-          onClick={[Function anonymous]}
-          type="button">
+          onClick={[Function]}
+          type="button"
+        >
           <span
-            className="sr-only">
+            className="sr-only"
+          >
             Toggle navigation
           </span>
           <span
-            className="icon-bar" />
+            className="icon-bar"
+          />
           <span
-            className="icon-bar" />
+            className="icon-bar"
+          />
           <span
-            className="icon-bar" />
+            className="icon-bar"
+          />
         </button>
         <div
-          className="fnnav__brand">
+          className="fnnav__brand"
+        >
           <a
             className="logo-home-link"
             href="/"
-            onClick={[Function anonymous]}>
+            onClick={[Function]}
+          >
             <img
               alt="FirstNet Logo"
-              src="/images/logo-FirstNet-local-control.svg" />
+              src="/images/logo-FirstNet-local-control.svg"
+            />
             <span
-              className="sr-only">
+              className="sr-only"
+            >
               Go Home
             </span>
           </a>
@@ -2110,54 +2545,68 @@ exports[`<PSEHeader /> render user role-based snapshots 4`] = `
       </div>
       <nav
         aria-label="Main Menu"
-        id="main-menu">
+        id="main-menu"
+      >
         <ul
-          className="fnnav__main">
+          className="fnnav__main"
+        >
           <li
             className="mainnav-item yellow"
-            role="presentation">
+            role="presentation"
+          >
             <button
               aria-expanded={undefined}
               aria-haspopup="true"
               className="btnSubmenu"
-              onClick={[Function anonymous]}>
+              onClick={[Function]}
+            >
               <span
-                className="sr-only">
+                className="sr-only"
+              >
                 Expand Profile Menu
               </span>
             </button>
             <a
               className="deaden"
               href="#profile"
-              id="pse-profile">
+              id="pse-profile"
+            >
               <div
-                className="multi-line-item">
+                className="multi-line-item"
+              >
                 <div
-                  className="profile-display">
+                  className="profile-display"
+                >
                   <i
                     aria-hidden="true"
-                    className="icon-profile" />
+                    className="icon-profile"
+                  />
                   undefined undefined
                 </div>
               </div>
             </a>
             <ul
               aria-labelledby="pse-profile"
-              className="collapse ">
+              className="collapse "
+            >
               <li
-                role="presentation" />
+                role="presentation"
+              />
             </ul>
           </li>
           <li
             className="mainnav-item desktop-textlink "
-            id="btn-admin">
+            id="btn-admin"
+          >
             <button
               aria-expanded={undefined}
               aria-haspopup="true"
               className="btnSubmenu"
-              onClick={[Function anonymous]}>
+              onClick={[Function]}
+            >
               <span
-                className="sr-only">
+                className="sr-only"
+              >
                 Expand Administration Menu
               </span>
             </button>
@@ -2168,21 +2617,25 @@ exports[`<PSEHeader /> render user role-based snapshots 4`] = `
               className={undefined}
               href="/admin"
               id="linkBtn-admin"
-              onClick={[Function anonymous]}
-              style={undefined}>
+              onClick={[Function]}
+              style={undefined}
+            >
               Administration
             </a>
             <div
               className="header-submenu"
-              id="admin-submenu">
+              id="admin-submenu"
+            >
               <ul
                 aria-labelledby="linkBtn-admin"
                 className="collapse "
                 id="pse-admin-nav"
-                role="navigation">
+                role="navigation"
+              >
                 <strong
                   aria-hidden="true"
-                  className="visible-md-block visible-lg-block">
+                  className="visible-md-block visible-lg-block"
+                >
                   Management
                 </strong>
                 <li>
@@ -2190,8 +2643,9 @@ exports[`<PSEHeader /> render user role-based snapshots 4`] = `
                     aria-current={false}
                     className={undefined}
                     href="/admin/manage-apps"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
+                    onClick={[Function]}
+                    style={undefined}
+                  >
                     Manage Apps
                   </a>
                 </li>
@@ -2200,10 +2654,12 @@ exports[`<PSEHeader /> render user role-based snapshots 4`] = `
                 aria-labelledby="linkBtn-admin"
                 className="collapse "
                 id="pse-aside-nav"
-                role="navigation">
+                role="navigation"
+              >
                 <strong
                   aria-hidden="true"
-                  className="visible-md-block visible-lg-block">
+                  className="visible-md-block visible-lg-block"
+                >
                   Purchasing & Provisioning
                 </strong>
                 <li>
@@ -2211,8 +2667,9 @@ exports[`<PSEHeader /> render user role-based snapshots 4`] = `
                     aria-current={false}
                     className={undefined}
                     href="/admin/solutions"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
+                    onClick={[Function]}
+                    style={undefined}
+                  >
                     Public Safety Solutions
                   </a>
                 </li>
@@ -2220,38 +2677,45 @@ exports[`<PSEHeader /> render user role-based snapshots 4`] = `
             </div>
           </li>
           <li
-            className="mainnav-item grey">
+            className="mainnav-item grey"
+          >
             <button
               aria-expanded={undefined}
               aria-haspopup="true"
               className="btnSubmenu"
-              onClick={[Function anonymous]}>
+              onClick={[Function]}
+            >
               <span
-                className="sr-only">
+                className="sr-only"
+              >
                 Expand Help Menu
               </span>
             </button>
             <a
               className="deaden"
               href="/manage-profile"
-              id="pse-help-mobile">
+              id="pse-help-mobile"
+            >
               <i
                 aria-hidden="true"
-                className="icon-help" />
+                className="icon-help"
+              />
               Help
             </a>
             <ul
               aria-labelledby="pse-help-mobile"
               className="collapse "
-              id="pse-help-menu">
+              id="pse-help-menu"
+            >
               <div>
                 <li>
                   <a
                     aria-current={false}
                     className={undefined}
                     href="/faq"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
+                    onClick={[Function]}
+                    style={undefined}
+                  >
                     FAQ
                   </a>
                 </li>
@@ -2260,8 +2724,9 @@ exports[`<PSEHeader /> render user role-based snapshots 4`] = `
                   <a
                     className="walkthru-toggle"
                     href="#"
-                    onClick={[Function anonymous]}
-                    role="button">
+                    onClick={[Function]}
+                    role="button"
+                  >
                     Disable
                      Site Walkthrough
                   </a>
@@ -2271,26 +2736,32 @@ exports[`<PSEHeader /> render user role-based snapshots 4`] = `
                     aria-current={false}
                     className={undefined}
                     href="/feedback"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
+                    onClick={[Function]}
+                    style={undefined}
+                  >
                     Give Us Feedback
                   </a>
                 </li>
                 <li>
                   <a
-                    href="tel:800-574-7000">
+                    href="tel:800-574-7000"
+                  >
                     <div
-                      className="multi-line-item">
+                      className="multi-line-item"
+                    >
                       <span
-                        aria-hidden="true">
+                        aria-hidden="true"
+                      >
                         FirstNet Customer Svc: 
                       </span>
                       <br />
                       <i
                         aria-hidden="true"
-                        className="icon-phone-number" />
+                        className="icon-phone-number"
+                      />
                       <span
-                        className="sr-only">
+                        className="sr-only"
+                      >
                         FirstNet Customer Service Phone 
                       </span>
                       800-574-7000
@@ -2302,99 +2773,122 @@ exports[`<PSEHeader /> render user role-based snapshots 4`] = `
           </li>
           <li
             className="mainnav-item grey logout"
-            role="presentation">
+            role="presentation"
+          >
             <a
               href="#"
-              onClick={[Function anonymous]}>
+              onClick={[Function]}
+            >
               <i
                 aria-hidden="true"
-                className="icon-logout" />
+                className="icon-logout"
+              />
               Log Out
             </a>
           </li>
           <li
-            className="desktop-iconItem dropdown">
+            className="desktop-iconItem dropdown"
+          >
             <button
               aria-expanded="false"
               className="dropdown-toggle"
               data-toggle="dropdown"
               id="profile-header-dropdown"
-              type="button">
+              type="button"
+            >
               <i
                 aria-hidden="true"
-                className="icon-profile" />
+                className="icon-profile"
+              />
               <span
-                className="sr-only">
+                className="sr-only"
+              >
                 Toggle Profile Dropdown
               </span>
             </button>
             <ul
               aria-labelledby="profile-header-dropdown"
               className="dropdown-menu dropdown-menu-right"
-              id="pse-profile-nav">
+              id="pse-profile-nav"
+            >
               <li
                 className="desktop-profile-display"
-                role="presentation">
+                role="presentation"
+              >
                 <a
                   className="deaden"
                   href="#profile"
                   id="pse-profile-desktop"
-                  tabIndex="-1">
+                  tabIndex="-1"
+                >
                   <div
-                    className="multi-line-item">
+                    className="multi-line-item"
+                  >
                     <div
-                      className="profile-display">
+                      className="profile-display"
+                    >
                       <i
                         aria-hidden="true"
-                        className="icon-profile" />
+                        className="icon-profile"
+                      />
                       undefined undefined
                     </div>
                   </div>
                 </a>
               </li>
               <li
-                role="presentation" />
+                role="presentation"
+              />
               <li
-                role="presentation">
+                role="presentation"
+              >
                 <a
                   href="#"
-                  onClick={[Function anonymous]}>
+                  onClick={[Function]}
+                >
                   <i
                     aria-hidden="true"
-                    className="icon-logout" />
+                    className="icon-logout"
+                  />
                   Log Out
                 </a>
               </li>
             </ul>
           </li>
           <li
-            className="desktop-iconItem dropdown">
+            className="desktop-iconItem dropdown"
+          >
             <button
               aria-expanded="false"
               className="dropdown-toggle"
               data-toggle="dropdown"
               id="help-header-dropdown"
-              type="button">
+              type="button"
+            >
               <i
                 aria-hidden="true"
-                className="icon-help" />
+                className="icon-help"
+              />
               <span
-                className="sr-only">
+                className="sr-only"
+              >
                 Toggle Help Dropdown
               </span>
             </button>
             <ul
               aria-labelledby="help-header-dropdown"
               className="dropdown-menu dropdown-menu-right"
-              id="pse-help-nav">
+              id="pse-help-nav"
+            >
               <div>
                 <li>
                   <a
                     aria-current={false}
                     className={undefined}
                     href="/faq"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
+                    onClick={[Function]}
+                    style={undefined}
+                  >
                     FAQ
                   </a>
                 </li>
@@ -2403,8 +2897,9 @@ exports[`<PSEHeader /> render user role-based snapshots 4`] = `
                   <a
                     className="walkthru-toggle"
                     href="#"
-                    onClick={[Function anonymous]}
-                    role="button">
+                    onClick={[Function]}
+                    role="button"
+                  >
                     Disable
                      Site Walkthrough
                   </a>
@@ -2414,26 +2909,32 @@ exports[`<PSEHeader /> render user role-based snapshots 4`] = `
                     aria-current={false}
                     className={undefined}
                     href="/feedback"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
+                    onClick={[Function]}
+                    style={undefined}
+                  >
                     Give Us Feedback
                   </a>
                 </li>
                 <li>
                   <a
-                    href="tel:800-574-7000">
+                    href="tel:800-574-7000"
+                  >
                     <div
-                      className="multi-line-item">
+                      className="multi-line-item"
+                    >
                       <span
-                        aria-hidden="true">
+                        aria-hidden="true"
+                      >
                         FirstNet Customer Svc: 
                       </span>
                       <br />
                       <i
                         aria-hidden="true"
-                        className="icon-phone-number" />
+                        className="icon-phone-number"
+                      />
                       <span
-                        className="sr-only">
+                        className="sr-only"
+                      >
                         FirstNet Customer Service Phone 
                       </span>
                       800-574-7000
@@ -2449,48 +2950,62 @@ exports[`<PSEHeader /> render user role-based snapshots 4`] = `
   </div>
   <div
     className="pageMask hidden-xs hidden-md hidden-lg"
-    onClick={[Function anonymous]} />
+    onClick={[Function]}
+  />
 </header>
 `;
 
 exports[`<PSEHeader /> render user role-based snapshots 5`] = `
 <header
   className="fnnav pse"
-  role="banner">
+  role="banner"
+>
   <div
-    className="fnnav__mainbar ">
+    className="fnnav__mainbar "
+  >
     <div
-      className="container">
+      className="container"
+    >
       <div
-        className="fnnav__header">
+        className="fnnav__header"
+      >
         <button
           aria-expanded={undefined}
           aria-haspopup="true"
           className="navbar-toggle"
-          onClick={[Function anonymous]}
-          type="button">
+          onClick={[Function]}
+          type="button"
+        >
           <span
-            className="sr-only">
+            className="sr-only"
+          >
             Toggle navigation
           </span>
           <span
-            className="icon-bar" />
+            className="icon-bar"
+          />
           <span
-            className="icon-bar" />
+            className="icon-bar"
+          />
           <span
-            className="icon-bar" />
+            className="icon-bar"
+          />
         </button>
         <div
-          className="fnnav__brand">
+          className="fnnav__brand"
+        >
           <a
             className="logo-home-link"
             href="/"
-            onClick={[Function anonymous]}>
+            onClick={[Function]}
+          >
             <img
               alt="FirstNet Logo"
-              src="/images/logo-FirstNet-local-control.svg" />
+              src="/images/logo-FirstNet-local-control.svg"
+            />
             <span
-              className="sr-only">
+              className="sr-only"
+            >
               Go Home
             </span>
           </a>
@@ -2498,54 +3013,68 @@ exports[`<PSEHeader /> render user role-based snapshots 5`] = `
       </div>
       <nav
         aria-label="Main Menu"
-        id="main-menu">
+        id="main-menu"
+      >
         <ul
-          className="fnnav__main">
+          className="fnnav__main"
+        >
           <li
             className="mainnav-item yellow"
-            role="presentation">
+            role="presentation"
+          >
             <button
               aria-expanded={undefined}
               aria-haspopup="true"
               className="btnSubmenu"
-              onClick={[Function anonymous]}>
+              onClick={[Function]}
+            >
               <span
-                className="sr-only">
+                className="sr-only"
+              >
                 Expand Profile Menu
               </span>
             </button>
             <a
               className="deaden"
               href="#profile"
-              id="pse-profile">
+              id="pse-profile"
+            >
               <div
-                className="multi-line-item">
+                className="multi-line-item"
+              >
                 <div
-                  className="profile-display">
+                  className="profile-display"
+                >
                   <i
                     aria-hidden="true"
-                    className="icon-profile" />
+                    className="icon-profile"
+                  />
                   undefined undefined
                 </div>
               </div>
             </a>
             <ul
               aria-labelledby="pse-profile"
-              className="collapse ">
+              className="collapse "
+            >
               <li
-                role="presentation" />
+                role="presentation"
+              />
             </ul>
           </li>
           <li
             className="mainnav-item desktop-textlink "
-            id="btn-admin">
+            id="btn-admin"
+          >
             <button
               aria-expanded={undefined}
               aria-haspopup="true"
               className="btnSubmenu"
-              onClick={[Function anonymous]}>
+              onClick={[Function]}
+            >
               <span
-                className="sr-only">
+                className="sr-only"
+              >
                 Expand Administration Menu
               </span>
             </button>
@@ -2556,21 +3085,25 @@ exports[`<PSEHeader /> render user role-based snapshots 5`] = `
               className={undefined}
               href="/admin"
               id="linkBtn-admin"
-              onClick={[Function anonymous]}
-              style={undefined}>
+              onClick={[Function]}
+              style={undefined}
+            >
               Administration
             </a>
             <div
               className="header-submenu"
-              id="admin-submenu">
+              id="admin-submenu"
+            >
               <ul
                 aria-labelledby="linkBtn-admin"
                 className="collapse "
                 id="pse-admin-nav"
-                role="navigation">
+                role="navigation"
+              >
                 <strong
                   aria-hidden="true"
-                  className="visible-md-block visible-lg-block">
+                  className="visible-md-block visible-lg-block"
+                >
                   Management
                 </strong>
                 <li />
@@ -2580,10 +3113,12 @@ exports[`<PSEHeader /> render user role-based snapshots 5`] = `
                 aria-labelledby="linkBtn-admin"
                 className="collapse "
                 id="pse-aside-nav"
-                role="navigation">
+                role="navigation"
+              >
                 <strong
                   aria-hidden="true"
-                  className="visible-md-block visible-lg-block">
+                  className="visible-md-block visible-lg-block"
+                >
                   Purchasing & Provisioning
                 </strong>
                 <li />
@@ -2592,8 +3127,9 @@ exports[`<PSEHeader /> render user role-based snapshots 5`] = `
                     aria-current={false}
                     className={undefined}
                     href="/admin/devices"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
+                    onClick={[Function]}
+                    style={undefined}
+                  >
                     Specialized Devices
                   </a>
                 </li>
@@ -2602,8 +3138,9 @@ exports[`<PSEHeader /> render user role-based snapshots 5`] = `
                     aria-current={false}
                     className={undefined}
                     href="/admin/solutions"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
+                    onClick={[Function]}
+                    style={undefined}
+                  >
                     Public Safety Solutions
                   </a>
                 </li>
@@ -2611,38 +3148,45 @@ exports[`<PSEHeader /> render user role-based snapshots 5`] = `
             </div>
           </li>
           <li
-            className="mainnav-item grey">
+            className="mainnav-item grey"
+          >
             <button
               aria-expanded={undefined}
               aria-haspopup="true"
               className="btnSubmenu"
-              onClick={[Function anonymous]}>
+              onClick={[Function]}
+            >
               <span
-                className="sr-only">
+                className="sr-only"
+              >
                 Expand Help Menu
               </span>
             </button>
             <a
               className="deaden"
               href="/manage-profile"
-              id="pse-help-mobile">
+              id="pse-help-mobile"
+            >
               <i
                 aria-hidden="true"
-                className="icon-help" />
+                className="icon-help"
+              />
               Help
             </a>
             <ul
               aria-labelledby="pse-help-mobile"
               className="collapse "
-              id="pse-help-menu">
+              id="pse-help-menu"
+            >
               <div>
                 <li>
                   <a
                     aria-current={false}
                     className={undefined}
                     href="/faq"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
+                    onClick={[Function]}
+                    style={undefined}
+                  >
                     FAQ
                   </a>
                 </li>
@@ -2651,8 +3195,9 @@ exports[`<PSEHeader /> render user role-based snapshots 5`] = `
                   <a
                     className="walkthru-toggle"
                     href="#"
-                    onClick={[Function anonymous]}
-                    role="button">
+                    onClick={[Function]}
+                    role="button"
+                  >
                     Disable
                      Site Walkthrough
                   </a>
@@ -2662,26 +3207,32 @@ exports[`<PSEHeader /> render user role-based snapshots 5`] = `
                     aria-current={false}
                     className={undefined}
                     href="/feedback"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
+                    onClick={[Function]}
+                    style={undefined}
+                  >
                     Give Us Feedback
                   </a>
                 </li>
                 <li>
                   <a
-                    href="tel:800-574-7000">
+                    href="tel:800-574-7000"
+                  >
                     <div
-                      className="multi-line-item">
+                      className="multi-line-item"
+                    >
                       <span
-                        aria-hidden="true">
+                        aria-hidden="true"
+                      >
                         FirstNet Customer Svc: 
                       </span>
                       <br />
                       <i
                         aria-hidden="true"
-                        className="icon-phone-number" />
+                        className="icon-phone-number"
+                      />
                       <span
-                        className="sr-only">
+                        className="sr-only"
+                      >
                         FirstNet Customer Service Phone 
                       </span>
                       800-574-7000
@@ -2693,99 +3244,122 @@ exports[`<PSEHeader /> render user role-based snapshots 5`] = `
           </li>
           <li
             className="mainnav-item grey logout"
-            role="presentation">
+            role="presentation"
+          >
             <a
               href="#"
-              onClick={[Function anonymous]}>
+              onClick={[Function]}
+            >
               <i
                 aria-hidden="true"
-                className="icon-logout" />
+                className="icon-logout"
+              />
               Log Out
             </a>
           </li>
           <li
-            className="desktop-iconItem dropdown">
+            className="desktop-iconItem dropdown"
+          >
             <button
               aria-expanded="false"
               className="dropdown-toggle"
               data-toggle="dropdown"
               id="profile-header-dropdown"
-              type="button">
+              type="button"
+            >
               <i
                 aria-hidden="true"
-                className="icon-profile" />
+                className="icon-profile"
+              />
               <span
-                className="sr-only">
+                className="sr-only"
+              >
                 Toggle Profile Dropdown
               </span>
             </button>
             <ul
               aria-labelledby="profile-header-dropdown"
               className="dropdown-menu dropdown-menu-right"
-              id="pse-profile-nav">
+              id="pse-profile-nav"
+            >
               <li
                 className="desktop-profile-display"
-                role="presentation">
+                role="presentation"
+              >
                 <a
                   className="deaden"
                   href="#profile"
                   id="pse-profile-desktop"
-                  tabIndex="-1">
+                  tabIndex="-1"
+                >
                   <div
-                    className="multi-line-item">
+                    className="multi-line-item"
+                  >
                     <div
-                      className="profile-display">
+                      className="profile-display"
+                    >
                       <i
                         aria-hidden="true"
-                        className="icon-profile" />
+                        className="icon-profile"
+                      />
                       undefined undefined
                     </div>
                   </div>
                 </a>
               </li>
               <li
-                role="presentation" />
+                role="presentation"
+              />
               <li
-                role="presentation">
+                role="presentation"
+              >
                 <a
                   href="#"
-                  onClick={[Function anonymous]}>
+                  onClick={[Function]}
+                >
                   <i
                     aria-hidden="true"
-                    className="icon-logout" />
+                    className="icon-logout"
+                  />
                   Log Out
                 </a>
               </li>
             </ul>
           </li>
           <li
-            className="desktop-iconItem dropdown">
+            className="desktop-iconItem dropdown"
+          >
             <button
               aria-expanded="false"
               className="dropdown-toggle"
               data-toggle="dropdown"
               id="help-header-dropdown"
-              type="button">
+              type="button"
+            >
               <i
                 aria-hidden="true"
-                className="icon-help" />
+                className="icon-help"
+              />
               <span
-                className="sr-only">
+                className="sr-only"
+              >
                 Toggle Help Dropdown
               </span>
             </button>
             <ul
               aria-labelledby="help-header-dropdown"
               className="dropdown-menu dropdown-menu-right"
-              id="pse-help-nav">
+              id="pse-help-nav"
+            >
               <div>
                 <li>
                   <a
                     aria-current={false}
                     className={undefined}
                     href="/faq"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
+                    onClick={[Function]}
+                    style={undefined}
+                  >
                     FAQ
                   </a>
                 </li>
@@ -2794,8 +3368,9 @@ exports[`<PSEHeader /> render user role-based snapshots 5`] = `
                   <a
                     className="walkthru-toggle"
                     href="#"
-                    onClick={[Function anonymous]}
-                    role="button">
+                    onClick={[Function]}
+                    role="button"
+                  >
                     Disable
                      Site Walkthrough
                   </a>
@@ -2805,26 +3380,32 @@ exports[`<PSEHeader /> render user role-based snapshots 5`] = `
                     aria-current={false}
                     className={undefined}
                     href="/feedback"
-                    onClick={[Function anonymous]}
-                    style={undefined}>
+                    onClick={[Function]}
+                    style={undefined}
+                  >
                     Give Us Feedback
                   </a>
                 </li>
                 <li>
                   <a
-                    href="tel:800-574-7000">
+                    href="tel:800-574-7000"
+                  >
                     <div
-                      className="multi-line-item">
+                      className="multi-line-item"
+                    >
                       <span
-                        aria-hidden="true">
+                        aria-hidden="true"
+                      >
                         FirstNet Customer Svc: 
                       </span>
                       <br />
                       <i
                         aria-hidden="true"
-                        className="icon-phone-number" />
+                        className="icon-phone-number"
+                      />
                       <span
-                        className="sr-only">
+                        className="sr-only"
+                      >
                         FirstNet Customer Service Phone 
                       </span>
                       800-574-7000
@@ -2840,6 +3421,7 @@ exports[`<PSEHeader /> render user role-based snapshots 5`] = `
   </div>
   <div
     className="pageMask hidden-xs hidden-md hidden-lg"
-    onClick={[Function anonymous]} />
+    onClick={[Function]}
+  />
 </header>
 `;

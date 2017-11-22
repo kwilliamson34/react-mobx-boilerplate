@@ -1,56 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<AppManagementBlock /> render matches snapshots with all group combinations 1`] = `
 <fieldset>
   <legend
-    className="sr-only">
+    className="sr-only"
+  >
     Catalog status:
   </legend>
   <div
-    className="app-management">
+    className="app-management"
+  >
     <div
-      className="checkbox form-group ">
+      className="checkbox form-group "
+    >
       <label>
         <input
           aria-disabled={false}
           checked={false}
           data-checked={false}
           id="Available-123"
-          onBlur={[Function anonymous]}
-          onChange={[Function anonymous]}
-          onKeyPress={[Function anonymous]}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onKeyPress={[Function]}
           type="checkbox"
-          value="Available" />
+          value="Available"
+        />
         <span
-          className="cr" />
+          className="cr"
+        />
         <span
-          className="label-text ">
+          className="label-text "
+        >
           
           <span
-            className="label-text-normal">
+            className="label-text-normal"
+          >
             Available
           </span>
         </span>
       </label>
     </div>
     <div
-      className="checkbox form-group disabled">
+      className="checkbox form-group disabled"
+    >
       <label>
         <input
           aria-disabled={true}
           checked={false}
           data-checked={false}
           id="Recommended-123"
-          onBlur={[Function anonymous]}
-          onChange={[Function anonymous]}
-          onKeyPress={[Function anonymous]}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onKeyPress={[Function]}
           type="checkbox"
-          value="Recommended" />
+          value="Recommended"
+        />
         <span
-          className="cr" />
+          className="cr"
+        />
         <span
-          className="label-text ">
+          className="label-text "
+        >
           
           <span
-            className="label-text-normal">
+            className="label-text-normal"
+          >
             Recommended
           </span>
         </span>
@@ -63,56 +77,68 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
 exports[`<AppManagementBlock /> render matches snapshots with all group combinations 2`] = `
 <fieldset>
   <legend
-    className="sr-only">
+    className="sr-only"
+  >
     Catalog status:
   </legend>
   <div
-    className="app-management">
+    className="app-management"
+  >
     <div
-      className="checkbox form-group ">
+      className="checkbox form-group "
+    >
       <label>
         <input
           aria-disabled={false}
           checked={true}
           data-checked={true}
           id="Available-123"
-          onBlur={[Function anonymous]}
-          onChange={[Function anonymous]}
-          onKeyPress={[Function anonymous]}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onKeyPress={[Function]}
           type="checkbox"
-          value="Available" />
+          value="Available"
+        />
         <span
-          className="cr" />
+          className="cr"
+        />
         <span
-          className="label-text ">
+          className="label-text "
+        >
           
           <span
-            className="label-text-normal">
+            className="label-text-normal"
+          >
             Available
           </span>
         </span>
       </label>
     </div>
     <div
-      className="checkbox form-group ">
+      className="checkbox form-group "
+    >
       <label>
         <input
           aria-disabled={false}
           checked={false}
           data-checked={false}
           id="Recommended-123"
-          onBlur={[Function anonymous]}
-          onChange={[Function anonymous]}
-          onKeyPress={[Function anonymous]}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onKeyPress={[Function]}
           type="checkbox"
-          value="Recommended" />
+          value="Recommended"
+        />
         <span
-          className="cr" />
+          className="cr"
+        />
         <span
-          className="label-text ">
+          className="label-text "
+        >
           
           <span
-            className="label-text-normal">
+            className="label-text-normal"
+          >
             Recommended
           </span>
         </span>
@@ -125,56 +151,68 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
 exports[`<AppManagementBlock /> render matches snapshots with all group combinations 3`] = `
 <fieldset>
   <legend
-    className="sr-only">
+    className="sr-only"
+  >
     Catalog status:
   </legend>
   <div
-    className="app-management">
+    className="app-management"
+  >
     <div
-      className="checkbox form-group ">
+      className="checkbox form-group "
+    >
       <label>
         <input
           aria-disabled={false}
           checked={true}
           data-checked={true}
           id="Available-123"
-          onBlur={[Function anonymous]}
-          onChange={[Function anonymous]}
-          onKeyPress={[Function anonymous]}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onKeyPress={[Function]}
           type="checkbox"
-          value="Available" />
+          value="Available"
+        />
         <span
-          className="cr" />
+          className="cr"
+        />
         <span
-          className="label-text ">
+          className="label-text "
+        >
           
           <span
-            className="label-text-normal">
+            className="label-text-normal"
+          >
             Available
           </span>
         </span>
       </label>
     </div>
     <div
-      className="checkbox form-group ">
+      className="checkbox form-group "
+    >
       <label>
         <input
           aria-disabled={false}
           checked={true}
           data-checked={true}
           id="Recommended-123"
-          onBlur={[Function anonymous]}
-          onChange={[Function anonymous]}
-          onKeyPress={[Function anonymous]}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onKeyPress={[Function]}
           type="checkbox"
-          value="Recommended" />
+          value="Recommended"
+        />
         <span
-          className="cr" />
+          className="cr"
+        />
         <span
-          className="label-text ">
+          className="label-text "
+        >
           
           <span
-            className="label-text-normal">
+            className="label-text-normal"
+          >
             Recommended
           </span>
         </span>
@@ -187,56 +225,68 @@ exports[`<AppManagementBlock /> render matches snapshots with all group combinat
 exports[`<AppManagementBlock /> render matches snapshots with all group combinations 4`] = `
 <fieldset>
   <legend
-    className="sr-only">
+    className="sr-only"
+  >
     Catalog status:
   </legend>
   <div
-    className="app-management">
+    className="app-management"
+  >
     <div
-      className="checkbox form-group ">
+      className="checkbox form-group "
+    >
       <label>
         <input
           aria-disabled={false}
           checked={false}
           data-checked={false}
           id="Available-123"
-          onBlur={[Function anonymous]}
-          onChange={[Function anonymous]}
-          onKeyPress={[Function anonymous]}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onKeyPress={[Function]}
           type="checkbox"
-          value="Available" />
+          value="Available"
+        />
         <span
-          className="cr" />
+          className="cr"
+        />
         <span
-          className="label-text ">
+          className="label-text "
+        >
           
           <span
-            className="label-text-normal">
+            className="label-text-normal"
+          >
             Available
           </span>
         </span>
       </label>
     </div>
     <div
-      className="checkbox form-group disabled">
+      className="checkbox form-group disabled"
+    >
       <label>
         <input
           aria-disabled={true}
           checked={true}
           data-checked={true}
           id="Recommended-123"
-          onBlur={[Function anonymous]}
-          onChange={[Function anonymous]}
-          onKeyPress={[Function anonymous]}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onKeyPress={[Function]}
           type="checkbox"
-          value="Recommended" />
+          value="Recommended"
+        />
         <span
-          className="cr" />
+          className="cr"
+        />
         <span
-          className="label-text ">
+          className="label-text "
+        >
           
           <span
-            className="label-text-normal">
+            className="label-text-normal"
+          >
             Recommended
           </span>
         </span>
