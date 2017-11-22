@@ -1,16 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<AppDetailBanner />  render tests matches snapshot when app is INSTALLED 1`] = `
 <section
-  className="app-summary">
+  className="app-summary"
+>
   <div
-    className="">
+    className=""
+  >
     <div
-      className="">
+      className=""
+    >
       <div
-        className="row">
+        className="row"
+      >
         <div
-          className="col-xs-12 col-sm-12 hidden-md hidden-lg">
+          className="col-xs-12 col-sm-12 hidden-md hidden-lg"
+        >
           <div
-            className="app-title">
+            className="app-title"
+          >
             <h3>
               Vampire Finder 3000
             </h3>
@@ -18,23 +26,31 @@ exports[`<AppDetailBanner />  render tests matches snapshot when app is INSTALLE
         </div>
       </div>
       <div
-        className="row">
+        className="row"
+      >
         <div
-          className="col-xs-4 col-sm-3 col-md-3 col-lg-3 appicon-wrapper">
+          className="col-xs-4 col-sm-3 col-md-3 col-lg-3 appicon-wrapper"
+        >
           <div
-            className="app-icon">
+            className="app-icon"
+          >
             <img
               alt="Vampire Finder 3000"
-              src={undefined} />
+              src={undefined}
+            />
           </div>
           <div
-            className="hidden-sm hidden-md hidden-lg">
+            className="hidden-sm hidden-md hidden-lg"
+          >
             <div
-              className="app-rating app-details">
+              className="app-rating app-details"
+            >
               <div
-                className="hidden-sm hidden-md hidden-lg">
+                className="hidden-sm hidden-md hidden-lg"
+              >
                 <span
-                  className="rating-as-text">
+                  className="rating-as-text"
+                >
                   <p>
                     5
                      Stars
@@ -47,37 +63,46 @@ exports[`<AppDetailBanner />  render tests matches snapshot when app is INSTALLE
                 </span>
               </div>
               <div
-                className="hidden-xs" />
+                className="hidden-xs"
+              />
             </div>
           </div>
         </div>
         <div
-          className="col-xs-8 col-sm-9 col-md-9 col-lg-9 appmeta-wrapper">
+          className="col-xs-8 col-sm-9 col-md-9 col-lg-9 appmeta-wrapper"
+        >
           <div
-            className="app-meta row">
+            className="app-meta row"
+          >
             <div
-              className="col-xs-12 hidden-sm hidden-md hidden-lg">
+              className="col-xs-12 hidden-sm hidden-md hidden-lg"
+            >
               
               
               <div
-                className="app-details">
+                className="app-details"
+              >
                 <p
-                  className="version">
+                  className="version"
+                >
                   <strong>
                     Version: 
                   </strong>
                   1.8.2
                 </p>
                 <p
-                  className="updated">
+                  className="updated"
+                >
                   <strong>
                     Released: 
                   </strong>
                   <br
-                    className="hidden-xs hidden-md hidden-lg" />
+                    className="hidden-xs hidden-md hidden-lg"
+                  />
                 </p>
                 <p
-                  className="platform">
+                  className="platform"
+                >
                   <strong>
                     Platform: 
                   </strong>
@@ -85,17 +110,22 @@ exports[`<AppDetailBanner />  render tests matches snapshot when app is INSTALLE
               </div>
             </div>
             <div
-              className="hidden-xs hidden-md hidden-lg">
+              className="hidden-xs hidden-md hidden-lg"
+            >
               <div
-                className="col-sm-4">
+                className="col-sm-4"
+              >
                 
                 
                 <div
-                  className="app-rating app-details">
+                  className="app-rating app-details"
+                >
                   <div
-                    className="hidden-sm hidden-md hidden-lg">
+                    className="hidden-sm hidden-md hidden-lg"
+                  >
                     <span
-                      className="rating-as-text">
+                      className="rating-as-text"
+                    >
                       <p>
                         5
                          Stars
@@ -108,30 +138,37 @@ exports[`<AppDetailBanner />  render tests matches snapshot when app is INSTALLE
                     </span>
                   </div>
                   <div
-                    className="hidden-xs" />
+                    className="hidden-xs"
+                  />
                 </div>
               </div>
               <div
-                className="col-sm-4">
+                className="col-sm-4"
+              >
                 <div
-                  className="app-details">
+                  className="app-details"
+                >
                   <p
-                    className="version">
+                    className="version"
+                  >
                     <strong>
                       Version: 
                     </strong>
                     1.8.2
                   </p>
                   <p
-                    className="updated">
+                    className="updated"
+                  >
                     <strong>
                       Released: 
                     </strong>
                     <br
-                      className="hidden-xs hidden-md hidden-lg" />
+                      className="hidden-xs hidden-md hidden-lg"
+                    />
                   </p>
                   <p
-                    className="platform">
+                    className="platform"
+                  >
                     <strong>
                       Platform: 
                     </strong>
@@ -139,31 +176,39 @@ exports[`<AppDetailBanner />  render tests matches snapshot when app is INSTALLE
                 </div>
               </div>
               <div
-                className="col-sm-4">
+                className="col-sm-4"
+              >
                 
               </div>
             </div>
             <div
-              className="hidden-xs hidden-sm">
+              className="hidden-xs hidden-sm"
+            >
               <div
-                className="col-md-12">
+                className="col-md-12"
+              >
                 <div
-                  className="app-title">
+                  className="app-title"
+                >
                   <h3>
                     Vampire Finder 3000
                   </h3>
                 </div>
               </div>
               <div
-                className="col-md-4">
+                className="col-md-4"
+              >
                 
                 
                 <div
-                  className="app-rating app-details">
+                  className="app-rating app-details"
+                >
                   <div
-                    className="hidden-sm hidden-md hidden-lg">
+                    className="hidden-sm hidden-md hidden-lg"
+                  >
                     <span
-                      className="rating-as-text">
+                      className="rating-as-text"
+                    >
                       <p>
                         5
                          Stars
@@ -176,30 +221,37 @@ exports[`<AppDetailBanner />  render tests matches snapshot when app is INSTALLE
                     </span>
                   </div>
                   <div
-                    className="hidden-xs" />
+                    className="hidden-xs"
+                  />
                 </div>
               </div>
               <div
-                className="col-md-4">
+                className="col-md-4"
+              >
                 <div
-                  className="app-details">
+                  className="app-details"
+                >
                   <p
-                    className="version">
+                    className="version"
+                  >
                     <strong>
                       Version: 
                     </strong>
                     1.8.2
                   </p>
                   <p
-                    className="updated">
+                    className="updated"
+                  >
                     <strong>
                       Released: 
                     </strong>
                     <br
-                      className="hidden-xs hidden-md hidden-lg" />
+                      className="hidden-xs hidden-md hidden-lg"
+                    />
                   </p>
                   <p
-                    className="platform">
+                    className="platform"
+                  >
                     <strong>
                       Platform: 
                     </strong>
@@ -207,7 +259,8 @@ exports[`<AppDetailBanner />  render tests matches snapshot when app is INSTALLE
                 </div>
               </div>
               <div
-                className="col-md-4">
+                className="col-md-4"
+              >
                 
               </div>
             </div>
@@ -215,9 +268,11 @@ exports[`<AppDetailBanner />  render tests matches snapshot when app is INSTALLE
         </div>
       </div>
       <div
-        className="row hidden-sm hidden-md hidden-lg">
+        className="row hidden-sm hidden-md hidden-lg"
+      >
         <div
-          className="col-xs-offset-1 col-xs-10">
+          className="col-xs-offset-1 col-xs-10"
+        >
           
         </div>
       </div>
@@ -228,17 +283,23 @@ exports[`<AppDetailBanner />  render tests matches snapshot when app is INSTALLE
 
 exports[`<AppDetailBanner />  render tests matches snapshot when app is NOT_INSTALLED 1`] = `
 <section
-  className="app-summary">
+  className="app-summary"
+>
   <div
-    className="">
+    className=""
+  >
     <div
-      className="">
+      className=""
+    >
       <div
-        className="row">
+        className="row"
+      >
         <div
-          className="col-xs-12 col-sm-12 hidden-md hidden-lg">
+          className="col-xs-12 col-sm-12 hidden-md hidden-lg"
+        >
           <div
-            className="app-title">
+            className="app-title"
+          >
             <h3>
               Vampire Finder 3000
             </h3>
@@ -246,23 +307,31 @@ exports[`<AppDetailBanner />  render tests matches snapshot when app is NOT_INST
         </div>
       </div>
       <div
-        className="row">
+        className="row"
+      >
         <div
-          className="col-xs-4 col-sm-3 col-md-3 col-lg-3 appicon-wrapper">
+          className="col-xs-4 col-sm-3 col-md-3 col-lg-3 appicon-wrapper"
+        >
           <div
-            className="app-icon">
+            className="app-icon"
+          >
             <img
               alt="Vampire Finder 3000"
-              src={undefined} />
+              src={undefined}
+            />
           </div>
           <div
-            className="hidden-sm hidden-md hidden-lg">
+            className="hidden-sm hidden-md hidden-lg"
+          >
             <div
-              className="app-rating app-details">
+              className="app-rating app-details"
+            >
               <div
-                className="hidden-sm hidden-md hidden-lg">
+                className="hidden-sm hidden-md hidden-lg"
+              >
                 <span
-                  className="rating-as-text">
+                  className="rating-as-text"
+                >
                   <p>
                     5
                      Stars
@@ -275,37 +344,46 @@ exports[`<AppDetailBanner />  render tests matches snapshot when app is NOT_INST
                 </span>
               </div>
               <div
-                className="hidden-xs" />
+                className="hidden-xs"
+              />
             </div>
           </div>
         </div>
         <div
-          className="col-xs-8 col-sm-9 col-md-9 col-lg-9 appmeta-wrapper">
+          className="col-xs-8 col-sm-9 col-md-9 col-lg-9 appmeta-wrapper"
+        >
           <div
-            className="app-meta row">
+            className="app-meta row"
+          >
             <div
-              className="col-xs-12 hidden-sm hidden-md hidden-lg">
+              className="col-xs-12 hidden-sm hidden-md hidden-lg"
+            >
               
               
               <div
-                className="app-details">
+                className="app-details"
+              >
                 <p
-                  className="version">
+                  className="version"
+                >
                   <strong>
                     Version: 
                   </strong>
                   1.8.2
                 </p>
                 <p
-                  className="updated">
+                  className="updated"
+                >
                   <strong>
                     Released: 
                   </strong>
                   <br
-                    className="hidden-xs hidden-md hidden-lg" />
+                    className="hidden-xs hidden-md hidden-lg"
+                  />
                 </p>
                 <p
-                  className="platform">
+                  className="platform"
+                >
                   <strong>
                     Platform: 
                   </strong>
@@ -313,17 +391,22 @@ exports[`<AppDetailBanner />  render tests matches snapshot when app is NOT_INST
               </div>
             </div>
             <div
-              className="hidden-xs hidden-md hidden-lg">
+              className="hidden-xs hidden-md hidden-lg"
+            >
               <div
-                className="col-sm-4">
+                className="col-sm-4"
+              >
                 
                 
                 <div
-                  className="app-rating app-details">
+                  className="app-rating app-details"
+                >
                   <div
-                    className="hidden-sm hidden-md hidden-lg">
+                    className="hidden-sm hidden-md hidden-lg"
+                  >
                     <span
-                      className="rating-as-text">
+                      className="rating-as-text"
+                    >
                       <p>
                         5
                          Stars
@@ -336,30 +419,37 @@ exports[`<AppDetailBanner />  render tests matches snapshot when app is NOT_INST
                     </span>
                   </div>
                   <div
-                    className="hidden-xs" />
+                    className="hidden-xs"
+                  />
                 </div>
               </div>
               <div
-                className="col-sm-4">
+                className="col-sm-4"
+              >
                 <div
-                  className="app-details">
+                  className="app-details"
+                >
                   <p
-                    className="version">
+                    className="version"
+                  >
                     <strong>
                       Version: 
                     </strong>
                     1.8.2
                   </p>
                   <p
-                    className="updated">
+                    className="updated"
+                  >
                     <strong>
                       Released: 
                     </strong>
                     <br
-                      className="hidden-xs hidden-md hidden-lg" />
+                      className="hidden-xs hidden-md hidden-lg"
+                    />
                   </p>
                   <p
-                    className="platform">
+                    className="platform"
+                  >
                     <strong>
                       Platform: 
                     </strong>
@@ -367,31 +457,39 @@ exports[`<AppDetailBanner />  render tests matches snapshot when app is NOT_INST
                 </div>
               </div>
               <div
-                className="col-sm-4">
+                className="col-sm-4"
+              >
                 
               </div>
             </div>
             <div
-              className="hidden-xs hidden-sm">
+              className="hidden-xs hidden-sm"
+            >
               <div
-                className="col-md-12">
+                className="col-md-12"
+              >
                 <div
-                  className="app-title">
+                  className="app-title"
+                >
                   <h3>
                     Vampire Finder 3000
                   </h3>
                 </div>
               </div>
               <div
-                className="col-md-4">
+                className="col-md-4"
+              >
                 
                 
                 <div
-                  className="app-rating app-details">
+                  className="app-rating app-details"
+                >
                   <div
-                    className="hidden-sm hidden-md hidden-lg">
+                    className="hidden-sm hidden-md hidden-lg"
+                  >
                     <span
-                      className="rating-as-text">
+                      className="rating-as-text"
+                    >
                       <p>
                         5
                          Stars
@@ -404,30 +502,37 @@ exports[`<AppDetailBanner />  render tests matches snapshot when app is NOT_INST
                     </span>
                   </div>
                   <div
-                    className="hidden-xs" />
+                    className="hidden-xs"
+                  />
                 </div>
               </div>
               <div
-                className="col-md-4">
+                className="col-md-4"
+              >
                 <div
-                  className="app-details">
+                  className="app-details"
+                >
                   <p
-                    className="version">
+                    className="version"
+                  >
                     <strong>
                       Version: 
                     </strong>
                     1.8.2
                   </p>
                   <p
-                    className="updated">
+                    className="updated"
+                  >
                     <strong>
                       Released: 
                     </strong>
                     <br
-                      className="hidden-xs hidden-md hidden-lg" />
+                      className="hidden-xs hidden-md hidden-lg"
+                    />
                   </p>
                   <p
-                    className="platform">
+                    className="platform"
+                  >
                     <strong>
                       Platform: 
                     </strong>
@@ -435,7 +540,8 @@ exports[`<AppDetailBanner />  render tests matches snapshot when app is NOT_INST
                 </div>
               </div>
               <div
-                className="col-md-4">
+                className="col-md-4"
+              >
                 
               </div>
             </div>
@@ -443,9 +549,11 @@ exports[`<AppDetailBanner />  render tests matches snapshot when app is NOT_INST
         </div>
       </div>
       <div
-        className="row hidden-sm hidden-md hidden-lg">
+        className="row hidden-sm hidden-md hidden-lg"
+      >
         <div
-          className="col-xs-offset-1 col-xs-10">
+          className="col-xs-offset-1 col-xs-10"
+        >
           
         </div>
       </div>
@@ -456,17 +564,23 @@ exports[`<AppDetailBanner />  render tests matches snapshot when app is NOT_INST
 
 exports[`<AppDetailBanner />  render tests matches snapshot when configuredMDMType is falsey 1`] = `
 <section
-  className="app-summary">
+  className="app-summary"
+>
   <div
-    className="">
+    className=""
+  >
     <div
-      className="">
+      className=""
+    >
       <div
-        className="row">
+        className="row"
+      >
         <div
-          className="col-xs-12 col-sm-12 hidden-md hidden-lg">
+          className="col-xs-12 col-sm-12 hidden-md hidden-lg"
+        >
           <div
-            className="app-title">
+            className="app-title"
+          >
             <h3>
               Vampire Finder 3000
             </h3>
@@ -474,23 +588,31 @@ exports[`<AppDetailBanner />  render tests matches snapshot when configuredMDMTy
         </div>
       </div>
       <div
-        className="row">
+        className="row"
+      >
         <div
-          className="col-xs-4 col-sm-3 col-md-3 col-lg-3 appicon-wrapper">
+          className="col-xs-4 col-sm-3 col-md-3 col-lg-3 appicon-wrapper"
+        >
           <div
-            className="app-icon">
+            className="app-icon"
+          >
             <img
               alt="Vampire Finder 3000"
-              src={undefined} />
+              src={undefined}
+            />
           </div>
           <div
-            className="hidden-sm hidden-md hidden-lg">
+            className="hidden-sm hidden-md hidden-lg"
+          >
             <div
-              className="app-rating app-details">
+              className="app-rating app-details"
+            >
               <div
-                className="hidden-sm hidden-md hidden-lg">
+                className="hidden-sm hidden-md hidden-lg"
+              >
                 <span
-                  className="rating-as-text">
+                  className="rating-as-text"
+                >
                   <p>
                     5
                      Stars
@@ -503,37 +625,46 @@ exports[`<AppDetailBanner />  render tests matches snapshot when configuredMDMTy
                 </span>
               </div>
               <div
-                className="hidden-xs" />
+                className="hidden-xs"
+              />
             </div>
           </div>
         </div>
         <div
-          className="col-xs-8 col-sm-9 col-md-9 col-lg-9 appmeta-wrapper">
+          className="col-xs-8 col-sm-9 col-md-9 col-lg-9 appmeta-wrapper"
+        >
           <div
-            className="app-meta row">
+            className="app-meta row"
+          >
             <div
-              className="col-xs-12 hidden-sm hidden-md hidden-lg">
+              className="col-xs-12 hidden-sm hidden-md hidden-lg"
+            >
               
               
               <div
-                className="app-details">
+                className="app-details"
+              >
                 <p
-                  className="version">
+                  className="version"
+                >
                   <strong>
                     Version: 
                   </strong>
                   1.8.2
                 </p>
                 <p
-                  className="updated">
+                  className="updated"
+                >
                   <strong>
                     Released: 
                   </strong>
                   <br
-                    className="hidden-xs hidden-md hidden-lg" />
+                    className="hidden-xs hidden-md hidden-lg"
+                  />
                 </p>
                 <p
-                  className="platform">
+                  className="platform"
+                >
                   <strong>
                     Platform: 
                   </strong>
@@ -541,17 +672,22 @@ exports[`<AppDetailBanner />  render tests matches snapshot when configuredMDMTy
               </div>
             </div>
             <div
-              className="hidden-xs hidden-md hidden-lg">
+              className="hidden-xs hidden-md hidden-lg"
+            >
               <div
-                className="col-sm-4">
+                className="col-sm-4"
+              >
                 
                 
                 <div
-                  className="app-rating app-details">
+                  className="app-rating app-details"
+                >
                   <div
-                    className="hidden-sm hidden-md hidden-lg">
+                    className="hidden-sm hidden-md hidden-lg"
+                  >
                     <span
-                      className="rating-as-text">
+                      className="rating-as-text"
+                    >
                       <p>
                         5
                          Stars
@@ -564,30 +700,37 @@ exports[`<AppDetailBanner />  render tests matches snapshot when configuredMDMTy
                     </span>
                   </div>
                   <div
-                    className="hidden-xs" />
+                    className="hidden-xs"
+                  />
                 </div>
               </div>
               <div
-                className="col-sm-4">
+                className="col-sm-4"
+              >
                 <div
-                  className="app-details">
+                  className="app-details"
+                >
                   <p
-                    className="version">
+                    className="version"
+                  >
                     <strong>
                       Version: 
                     </strong>
                     1.8.2
                   </p>
                   <p
-                    className="updated">
+                    className="updated"
+                  >
                     <strong>
                       Released: 
                     </strong>
                     <br
-                      className="hidden-xs hidden-md hidden-lg" />
+                      className="hidden-xs hidden-md hidden-lg"
+                    />
                   </p>
                   <p
-                    className="platform">
+                    className="platform"
+                  >
                     <strong>
                       Platform: 
                     </strong>
@@ -595,31 +738,39 @@ exports[`<AppDetailBanner />  render tests matches snapshot when configuredMDMTy
                 </div>
               </div>
               <div
-                className="col-sm-4">
+                className="col-sm-4"
+              >
                 
               </div>
             </div>
             <div
-              className="hidden-xs hidden-sm">
+              className="hidden-xs hidden-sm"
+            >
               <div
-                className="col-md-12">
+                className="col-md-12"
+              >
                 <div
-                  className="app-title">
+                  className="app-title"
+                >
                   <h3>
                     Vampire Finder 3000
                   </h3>
                 </div>
               </div>
               <div
-                className="col-md-4">
+                className="col-md-4"
+              >
                 
                 
                 <div
-                  className="app-rating app-details">
+                  className="app-rating app-details"
+                >
                   <div
-                    className="hidden-sm hidden-md hidden-lg">
+                    className="hidden-sm hidden-md hidden-lg"
+                  >
                     <span
-                      className="rating-as-text">
+                      className="rating-as-text"
+                    >
                       <p>
                         5
                          Stars
@@ -632,30 +783,37 @@ exports[`<AppDetailBanner />  render tests matches snapshot when configuredMDMTy
                     </span>
                   </div>
                   <div
-                    className="hidden-xs" />
+                    className="hidden-xs"
+                  />
                 </div>
               </div>
               <div
-                className="col-md-4">
+                className="col-md-4"
+              >
                 <div
-                  className="app-details">
+                  className="app-details"
+                >
                   <p
-                    className="version">
+                    className="version"
+                  >
                     <strong>
                       Version: 
                     </strong>
                     1.8.2
                   </p>
                   <p
-                    className="updated">
+                    className="updated"
+                  >
                     <strong>
                       Released: 
                     </strong>
                     <br
-                      className="hidden-xs hidden-md hidden-lg" />
+                      className="hidden-xs hidden-md hidden-lg"
+                    />
                   </p>
                   <p
-                    className="platform">
+                    className="platform"
+                  >
                     <strong>
                       Platform: 
                     </strong>
@@ -663,7 +821,8 @@ exports[`<AppDetailBanner />  render tests matches snapshot when configuredMDMTy
                 </div>
               </div>
               <div
-                className="col-md-4">
+                className="col-md-4"
+              >
                 
               </div>
             </div>
@@ -671,9 +830,11 @@ exports[`<AppDetailBanner />  render tests matches snapshot when configuredMDMTy
         </div>
       </div>
       <div
-        className="row hidden-sm hidden-md hidden-lg">
+        className="row hidden-sm hidden-md hidden-lg"
+      >
         <div
-          className="col-xs-offset-1 col-xs-10">
+          className="col-xs-offset-1 col-xs-10"
+        >
           
         </div>
       </div>

@@ -1,14 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<SolutionsCategoryTemplate /> render matches snapshot with zero, one and many cards 1`] = `
 <article
-  id="solutions-category-page">
+  id="solutions-category-page"
+>
   <div
-    className="container">
+    className="container"
+  >
     <section
-      className="intro-block" />
+      className="intro-block"
+    />
     <section
-      className="all-cards-wrapper text-center">
+      className="all-cards-wrapper text-center"
+    >
       <nav
-        className="center-block" />
+        className="center-block"
+      />
     </section>
   </div>
 </article>
@@ -16,15 +23,20 @@ exports[`<SolutionsCategoryTemplate /> render matches snapshot with zero, one an
 
 exports[`<SolutionsCategoryTemplate /> render matches snapshot with zero, one and many cards 2`] = `
 <article
-  id="solutions-category-page">
+  id="solutions-category-page"
+>
   <div
-    className="container">
+    className="container"
+  >
     <section
-      className="intro-block" />
+      className="intro-block"
+    />
     <section
-      className="all-cards-wrapper text-center">
+      className="all-cards-wrapper text-center"
+    >
       <nav
-        className="center-block" />
+        className="center-block"
+      />
     </section>
   </div>
 </article>
@@ -32,15 +44,20 @@ exports[`<SolutionsCategoryTemplate /> render matches snapshot with zero, one an
 
 exports[`<SolutionsCategoryTemplate /> render matches snapshot with zero, one and many cards 3`] = `
 <article
-  id="solutions-category-page">
+  id="solutions-category-page"
+>
   <div
-    className="container">
+    className="container"
+  >
     <section
-      className="intro-block" />
+      className="intro-block"
+    />
     <section
-      className="all-cards-wrapper text-center">
+      className="all-cards-wrapper text-center"
+    >
       <nav
-        className="center-block" />
+        className="center-block"
+      />
     </section>
   </div>
 </article>

@@ -1,21 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<SortableTable> snapshot tests: render tests: should render with props 1`] = `
 <div
   aria-rowcount={2}
   className="sortable-table manage-locations-table-class"
-  id="manage-locations-table">
+  id="manage-locations-table"
+>
   <div
-    className="table-head">
+    className="table-head"
+  >
     <span>
       <div
         className="table-head-column favorite-name-column"
-        role="columnheader">
+        role="columnheader"
+      >
         <div
-          className="sort-button-container">
+          className="sort-button-container"
+        >
           <span
             aria-atomic="true"
             aria-live="assertive"
             aria-relevant="text"
-            className="sr-only">
+            className="sr-only"
+          >
             The table is now sorted by 
             Name in
             ascending
@@ -23,18 +30,22 @@ exports[`<SortableTable> snapshot tests: render tests: should render with props 
           </span>
           <button
             className="sort-button active"
-            onClick={[Function anonymous]}
-            type="button">
+            onClick={[Function]}
+            type="button"
+          >
             <span
-              className="sr-only">
+              className="sr-only"
+            >
               Sort By
             </span>
             <span
-              className="sort-name">
+              className="sort-name"
+            >
               Name
               <i
                 aria-hidden="true"
-                className="arrow-up" />
+                className="arrow-up"
+              />
             </span>
           </button>
         </div>
@@ -43,14 +54,17 @@ exports[`<SortableTable> snapshot tests: render tests: should render with props 
     <span>
       <div
         className="table-head-column favorite-name-column"
-        role="columnheader">
+        role="columnheader"
+      >
         <div
-          className="sort-button-container">
+          className="sort-button-container"
+        >
           <span
             aria-atomic="true"
             aria-live="assertive"
             aria-relevant="text"
-            className="sr-only">
+            className="sr-only"
+          >
             The table is now sorted by 
             Name in
             ascending
@@ -58,18 +72,22 @@ exports[`<SortableTable> snapshot tests: render tests: should render with props 
           </span>
           <button
             className="sort-button active"
-            onClick={[Function anonymous]}
-            type="button">
+            onClick={[Function]}
+            type="button"
+          >
             <span
-              className="sr-only">
+              className="sr-only"
+            >
               Sort By
             </span>
             <span
-              className="sort-name">
+              className="sort-name"
+            >
               Name
               <i
                 aria-hidden="true"
-                className="arrow-up" />
+                className="arrow-up"
+              />
             </span>
           </button>
         </div>
@@ -78,6 +96,7 @@ exports[`<SortableTable> snapshot tests: render tests: should render with props 
   </div>
   <div
     className="table-body"
-    role="rowgroup" />
+    role="rowgroup"
+  />
 </div>
 `;

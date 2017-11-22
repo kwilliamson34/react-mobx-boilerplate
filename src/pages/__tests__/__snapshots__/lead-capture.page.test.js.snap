@@ -1,20 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<LeadCapturePage /> renders matches previous snapshot 1`] = `
 <section
   className="standalone-form-page"
-  id="lead-capture-page">
+  id="lead-capture-page"
+>
   <div
-    className="content-wrapper">
+    className="content-wrapper"
+  >
     <div
-      className="container">
+      className="container"
+    >
       <div
-        className="row text-center">
+        className="row text-center"
+      >
         <div
-          className="col-xs-12" />
+          className="col-xs-12"
+        />
       </div>
       <div
-        className="row">
+        className="row"
+      >
         <section
-          className="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6" />
+          className="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6"
+        />
       </div>
     </div>
   </div>

@@ -1,14 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<AdminDashboard /> renders basic render 1`] = `
 <article
-  id="admin-dashboard-page">
+  id="admin-dashboard-page"
+>
   <div
-    className="container">
+    className="container"
+  >
     <div
-      className="col-xs-12" />
+      className="col-xs-12"
+    />
     <div
-      className="row no-gutters">
+      className="row no-gutters"
+    >
       <section
-        className="col-xs-12 hide-aside manage-actions">
+        className="col-xs-12 hide-aside manage-actions"
+      >
         <nav>
           <ul />
         </nav>
@@ -20,27 +27,36 @@ exports[`<AdminDashboard /> renders basic render 1`] = `
 
 exports[`<AdminDashboard /> renders render with 2 cards 1`] = `
 <article
-  id="admin-dashboard-page">
+  id="admin-dashboard-page"
+>
   <div
-    className="container">
+    className="container"
+  >
     <div
-      className="col-xs-12" />
+      className="col-xs-12"
+    />
     <div
-      className="row no-gutters">
+      className="row no-gutters"
+    >
       <section
-        className="col-xs-12 hide-aside manage-actions">
+        className="col-xs-12 hide-aside manage-actions"
+      >
         <nav>
           <ul>
             <li
-              className="col-xs-12" />
+              className="col-xs-12"
+            />
             <li
-              className="col-xs-12">
+              className="col-xs-12"
+            >
               <a
                 className="dashboard-card manage-apps has-shadow"
                 href="/admin/manage-apps"
-                onClick={[Function anonymous]}>
+                onClick={[Function]}
+              >
                 <div
-                  className="desc">
+                  className="desc"
+                >
                   <h3>
                     Manage apps
                   </h3>
@@ -52,7 +68,8 @@ exports[`<AdminDashboard /> renders render with 2 cards 1`] = `
                   Manage apps 
                   <i
                     aria-hidden="true"
-                    className="icon-arrowRight" />
+                    className="icon-arrowRight"
+                  />
                 </span>
               </a>
             </li>
@@ -66,25 +83,33 @@ exports[`<AdminDashboard /> renders render with 2 cards 1`] = `
 
 exports[`<AdminDashboard /> renders render with 3 cards 1`] = `
 <article
-  id="admin-dashboard-page">
+  id="admin-dashboard-page"
+>
   <div
-    className="container">
+    className="container"
+  >
     <div
-      className="col-xs-12" />
+      className="col-xs-12"
+    />
     <div
-      className="row no-gutters">
+      className="row no-gutters"
+    >
       <section
-        className="col-xs-12 hide-aside manage-actions">
+        className="col-xs-12 hide-aside manage-actions"
+      >
         <nav>
           <ul>
             <li
-              className="col-xs-12">
+              className="col-xs-12"
+            >
               <a
                 className="dashboard-card manage-apps has-shadow"
                 href="/admin/manage-apps"
-                onClick={[Function anonymous]}>
+                onClick={[Function]}
+              >
                 <div
-                  className="desc">
+                  className="desc"
+                >
                   <h3>
                     Manage apps
                   </h3>
@@ -96,14 +121,17 @@ exports[`<AdminDashboard /> renders render with 3 cards 1`] = `
                   Manage apps 
                   <i
                     aria-hidden="true"
-                    className="icon-arrowRight" />
+                    className="icon-arrowRight"
+                  />
                 </span>
               </a>
             </li>
             <li
-              className="col-xs-12" />
+              className="col-xs-12"
+            />
             <li
-              className="col-xs-12" />
+              className="col-xs-12"
+            />
           </ul>
         </nav>
       </section>
@@ -114,25 +142,33 @@ exports[`<AdminDashboard /> renders render with 3 cards 1`] = `
 
 exports[`<AdminDashboard /> renders render with 4 cards 1`] = `
 <article
-  id="admin-dashboard-page">
+  id="admin-dashboard-page"
+>
   <div
-    className="container">
+    className="container"
+  >
     <div
-      className="col-xs-12" />
+      className="col-xs-12"
+    />
     <div
-      className="row no-gutters">
+      className="row no-gutters"
+    >
       <section
-        className="col-xs-12 hide-aside manage-actions">
+        className="col-xs-12 hide-aside manage-actions"
+      >
         <nav>
           <ul>
             <li
-              className="col-xs-12">
+              className="col-xs-12"
+            >
               <a
                 className="dashboard-card manage-apps has-shadow"
                 href="/admin/manage-apps"
-                onClick={[Function anonymous]}>
+                onClick={[Function]}
+              >
                 <div
-                  className="desc">
+                  className="desc"
+                >
                   <h3>
                     Manage apps
                   </h3>
@@ -144,16 +180,20 @@ exports[`<AdminDashboard /> renders render with 4 cards 1`] = `
                   Manage apps 
                   <i
                     aria-hidden="true"
-                    className="icon-arrowRight" />
+                    className="icon-arrowRight"
+                  />
                 </span>
               </a>
             </li>
             <li
-              className="col-xs-12" />
+              className="col-xs-12"
+            />
             <li
-              className="col-xs-12" />
+              className="col-xs-12"
+            />
             <li
-              className="col-xs-12" />
+              className="col-xs-12"
+            />
           </ul>
         </nav>
       </section>
@@ -164,27 +204,36 @@ exports[`<AdminDashboard /> renders render with 4 cards 1`] = `
 
 exports[`<AdminDashboard /> renders render with 5 cards 1`] = `
 <article
-  id="admin-dashboard-page">
+  id="admin-dashboard-page"
+>
   <div
-    className="container">
+    className="container"
+  >
     <div
-      className="col-xs-12" />
+      className="col-xs-12"
+    />
     <div
-      className="row no-gutters">
+      className="row no-gutters"
+    >
       <section
-        className="col-xs-12 hide-aside manage-actions">
+        className="col-xs-12 hide-aside manage-actions"
+      >
         <nav>
           <ul>
             <li
-              className="col-xs-12" />
+              className="col-xs-12"
+            />
             <li
-              className="col-xs-12">
+              className="col-xs-12"
+            >
               <a
                 className="dashboard-card manage-apps has-shadow"
                 href="/admin/manage-apps"
-                onClick={[Function anonymous]}>
+                onClick={[Function]}
+              >
                 <div
-                  className="desc">
+                  className="desc"
+                >
                   <h3>
                     Manage apps
                   </h3>
@@ -196,16 +245,20 @@ exports[`<AdminDashboard /> renders render with 5 cards 1`] = `
                   Manage apps 
                   <i
                     aria-hidden="true"
-                    className="icon-arrowRight" />
+                    className="icon-arrowRight"
+                  />
                 </span>
               </a>
             </li>
             <li
-              className="col-xs-12" />
+              className="col-xs-12"
+            />
             <li
-              className="col-xs-12" />
+              className="col-xs-12"
+            />
             <li
-              className="col-xs-12" />
+              className="col-xs-12"
+            />
           </ul>
         </nav>
       </section>
@@ -216,19 +269,26 @@ exports[`<AdminDashboard /> renders render with 5 cards 1`] = `
 
 exports[`<AdminDashboard /> renders render with aside 1`] = `
 <article
-  id="admin-dashboard-page">
+  id="admin-dashboard-page"
+>
   <div
-    className="container">
+    className="container"
+  >
     <div
-      className="col-xs-12" />
+      className="col-xs-12"
+    />
     <div
-      className="row no-gutters">
+      className="row no-gutters"
+    >
       <section
-        className="col-xs-12 col-lg-8 manage-actions">
+        className="col-xs-12 col-lg-8 manage-actions"
+      >
         <div
-          className="col-xs-12">
+          className="col-xs-12"
+        >
           <h2
-            className="as-h4">
+            className="as-h4"
+          >
             Management
           </h2>
         </div>
@@ -237,26 +297,33 @@ exports[`<AdminDashboard /> renders render with aside 1`] = `
         </nav>
       </section>
       <aside
-        className="col-xs-12 col-lg-4 shop-actions">
+        className="col-xs-12 col-lg-4 shop-actions"
+      >
         <div
-          className="col-xs-12">
+          className="col-xs-12"
+        >
           <h2
-            className="as-h4">
+            className="as-h4"
+          >
             Purchasing & Provisioning
           </h2>
         </div>
         <nav>
           <ul>
             <li
-              className="col-xs-12 col-md-6 col-lg-12" />
+              className="col-xs-12 col-md-6 col-lg-12"
+            />
             <li
-              className="col-xs-12 col-md-6 col-lg-12">
+              className="col-xs-12 col-md-6 col-lg-12"
+            >
               <a
                 className="dashboard-card shop-specialized-devices has-shadow"
                 href="/admin/devices"
-                onClick={[Function anonymous]}>
+                onClick={[Function]}
+              >
                 <div
-                  className="desc">
+                  className="desc"
+                >
                   <h3>
                     Shop specialized devices
                   </h3>
@@ -268,18 +335,22 @@ exports[`<AdminDashboard /> renders render with aside 1`] = `
                   Shop Specialized Devices
                   <i
                     aria-hidden="true"
-                    className="icon-arrowRight" />
+                    className="icon-arrowRight"
+                  />
                 </span>
               </a>
             </li>
             <li
-              className="col-xs-12 col-md-6 col-lg-12">
+              className="col-xs-12 col-md-6 col-lg-12"
+            >
               <a
                 className="dashboard-card shop-solutions has-shadow"
                 href="/admin/solutions"
-                onClick={[Function anonymous]}>
+                onClick={[Function]}
+              >
                 <div
-                  className="desc">
+                  className="desc"
+                >
                   <h3>
                     Shop public safety solutions
                   </h3>
@@ -291,7 +362,8 @@ exports[`<AdminDashboard /> renders render with aside 1`] = `
                   Shop Public Safety Solutions 
                   <i
                     aria-hidden="true"
-                    className="icon-arrowRight" />
+                    className="icon-arrowRight"
+                  />
                 </span>
               </a>
             </li>
