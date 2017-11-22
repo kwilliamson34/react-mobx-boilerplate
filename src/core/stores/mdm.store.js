@@ -31,6 +31,8 @@ class MDMStore {
       ibm_userName: '',
       mi_password: '',
       mi_userName: '',
+      mi_core_password: '',
+      mi_core_userName: '',
       msintune_password: '',
       msintune_userName: ''
     });
@@ -63,6 +65,10 @@ class MDMStore {
   @action clearFormFieldRefList() {
     this.formFieldRefList = [];
     this.formHasError = true;
+  }
+
+  @action toggleBoolValue(target) {
+    this.values[target] = !this.values[target];
   }
 
   // Alert functions
@@ -289,6 +295,10 @@ class MDMStore {
     mi_hostName: '',
     mi_password: '',
     mi_userName: '',
+    mi_core_hostName: '',
+    mi_core_password: '',
+    mi_core_userName: '',
+    mi_core_companycode: '',
     msintune_clientID: '',
     msintune_clientSecret: '',
     msintune_hostName: '',

@@ -25,6 +25,9 @@
     line-height: 20px;
     margin-bottom: 30px;
   }
+  .checkbox label {
+    padding-left: 0;
+  }
 }
 @media #{$mobile} {
   #configure-mdm-page {

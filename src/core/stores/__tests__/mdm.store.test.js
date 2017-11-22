@@ -69,6 +69,16 @@ describe("MDMStore", () => {
     store.getMDMConfiguration().then(() => {
       expect(store.values.mdm_type).toBe('MOBILE_IRON');
     });
+    
+    apiService.getMDMConfiguration.mockReturnValue(Promise.resolve({
+      data: {
+        mdm_type: 'MOBILE_IRON_CORE'
+      }
+    }));
+
+    store.getMDMConfiguration().then(() => {
+      expect(store.values.mdm_type).toBe('MOBILE_IRON_CORE');
+    });
   });
 
   test("getMDMConfiguration pushes the right error onto the stack if fails", () => {
