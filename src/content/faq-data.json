@@ -117,7 +117,7 @@
       },
       {
         "question": "Can I push apps to my users' devices?",
-        "answer": "<p>If your PSE uses a Mobile Device Management (MDM) solution then you can push apps from Manage Apps to that MDM, and then from your MDM push them to the mobile devices of members of your organization. </p><p>The MDM solutions supported by FirstNet are AirWatch, MobileIron, and IBM MaaS360. If you do not use one of these MDM’s, you can recommend an app in Local Control, which will flag it in the App Store for all members of your PSE. However, it is up to the user to determine whether to download the app to his/her device from the App Store.</p>",
+        "answer": "<p>If your PSE uses a Mobile Device Management (MDM) solution then you can push apps from Manage Apps to that MDM, and then from your MDM push them to the mobile devices of members of your organization. </p><p>The MDM solutions supported by FirstNet are AirWatch, MobileIron Cloud, MobileIron Core, Microsoft Intune, and IBM MaaS360. If you do not use one of these MDM’s, you can recommend an app in Local Control, which will flag it in the App Store for all members of your PSE. However, it is up to the user to determine whether to download the app to his/her device from the App Store.</p>",
         "id": 17,
         "maxStringLength": 202,
         "category": "Manage Apps"

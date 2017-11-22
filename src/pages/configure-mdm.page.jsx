@@ -6,7 +6,8 @@ import PageTitle from '../components/page-title/page-title';
 import AirWatchForm from '../components/configure-mdm/air-watch-form';
 import IBMForm from '../components/configure-mdm/ibm-form';
 import MicrosoftForm from '../components/configure-mdm/microsoft-form';
-import MobileIronForm from '../components/configure-mdm/mobile-iron-form';
+import MobileIronCloudForm from '../components/configure-mdm/mobile-iron-cloud-form';
+import MobileIronCoreForm from '../components/configure-mdm/mobile-iron-core-form';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 import Alerts from '../components/alerts/alerts';
 import Modal from '../components/portals/modal';
@@ -48,14 +49,14 @@ export default class ConfigureMDM extends React.Component {
 
 	renderBreakConnectionModal = () => {
 		return <Modal
-      id="break-connection-modal"
-      title="Confirm break connection"
-      ref={i => this.breakConnectionModal = i}
-      restoreFocusTo="#connection-modal-launcher"
-      primaryAction={this.breakMDMConnection}
-      primaryButtonLabel="Break Connection"
-      secondaryAction={this.breakConnectionModal.hideModal}
-      secondaryButtonLabel="Keep Connection">
+			id="break-connection-modal"
+			title="Confirm break connection"
+			ref={i => this.breakConnectionModal = i}
+			restoreFocusTo="#connection-modal-launcher"
+			primaryAction={this.breakMDMConnection}
+			primaryButtonLabel="Break Connection"
+			secondaryAction={this.breakConnectionModal.hideModal}
+			secondaryButtonLabel="Keep Connection">
 			<p>This cannot be undone. If you break this application’s connection to MDM, you will have to re-configure it using this form to establish a new connection.</p>
 		</Modal>
 	}
@@ -84,10 +85,11 @@ export default class ConfigureMDM extends React.Component {
 				</label>
 				<select id="mdm_type" className='form-control' onChange={this.handleSelectChange} value={this.mdmStore.values.mdm_type} disabled={this.mdmStore.mdmIsConfigured}>
 					<option value="">Select MDM</option>
-					<option value="AIRWATCH">Airwatch</option>
+					<option value="AIRWATCH">AirWatch</option>
 					<option value="MAAS360">IBM MaaS360</option>
-					<option value="MOBILE_IRON">MobileIron</option>
-					<option value="MICROSOFT_INTUNE">Microsoft InTune</option>
+					<option value="MOBILE_IRON">MobileIron Cloud</option>
+					<option value="MOBILE_IRON_CORE">MobileIron Core</option>
+					<option value="MICROSOFT_INTUNE">Microsoft Intune</option>
 				</select>
 			</div>
 		)
@@ -103,7 +105,10 @@ export default class ConfigureMDM extends React.Component {
 				MDMFormComponent = IBMForm;
 				break;
 			case 'MOBILE_IRON':
-				MDMFormComponent = MobileIronForm;
+				MDMFormComponent = MobileIronCloudForm;
+				break;
+			case 'MOBILE_IRON_CORE':
+				MDMFormComponent = MobileIronCoreForm;
 				break;
 			case 'MICROSOFT_INTUNE':
 				MDMFormComponent = MicrosoftForm;

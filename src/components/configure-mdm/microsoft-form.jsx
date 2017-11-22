@@ -32,9 +32,9 @@ class MicrosoftForm extends React.Component {
 
         <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="msintune_tenantCode" type="input" labelText="Tenant Code" required={true} disabled={disabled} errorMessage="Please enter a valid tenant code." announceError={this.props.announceErrors} charLimit={256}/>
 
-        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="msintune_userName" type="input" labelText="Microsoft InTune Username" required={true} disabled={disabled} errorMessage="Please enter a valid Microsoft InTune username." announceError={this.props.announceErrors} charLimit={256}/>
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="msintune_userName" type="input" labelText="Microsoft Intune Username" required={true} disabled={disabled} errorMessage="Please enter a valid Microsoft Intune username." announceError={this.props.announceErrors} charLimit={256}/>
 
-        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="msintune_password" type="password" labelText="Microsoft InTune Password" required={true} disabled={disabled} errorMessage="Please enter a valid Microsoft InTune password." announceError={this.props.announceErrors} charLimit={256}/>
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="msintune_password" type="password" labelText="Microsoft Intune Password" required={true} disabled={disabled} errorMessage="Please enter a valid Microsoft Intune password." announceError={this.props.announceErrors} charLimit={256}/>
       </div>
     );
   }
