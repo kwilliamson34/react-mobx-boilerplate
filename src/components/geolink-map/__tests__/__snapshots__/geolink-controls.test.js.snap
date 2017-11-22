@@ -86,7 +86,7 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
           </div>
           <button
             className="as-link add-favorite-button disabled"
-            onClick={[Function bound mockConstructor]}>
+            onClick={[Function bound ]}>
             Add Favorite
           </button>
         </div>
@@ -547,7 +547,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
 
           <button
             className="as-link add-favorite-button disabled"
-            onClick={[Function bound mockConstructor]}>
+            onClick={[Function bound ]}>
             Add Favorite
           </button>
         </div>
@@ -1008,7 +1008,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
 
           <button
             className="as-link add-favorite-button disabled"
-            onClick={[Function bound mockConstructor]}>
+            onClick={[Function bound ]}>
             Add Favorite
           </button>
         </div>
@@ -1469,7 +1469,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
 
           <button
             className="as-link add-favorite-button disabled"
-            onClick={[Function bound mockConstructor]}>
+            onClick={[Function bound ]}>
             Add Favorite
           </button>
         </div>
