@@ -20,16 +20,18 @@ export default class AdminDashboardPage extends React.Component {
   }
 
   permissionedCard(isPermitted, linkTo, className, header, description, callToAction = header) {
+    //check if we should use Link or NewTabLink
+    let LinkType = linkTo[0] === '/' ? Link : NewTabLink;
     if(isPermitted){
       return (
         <li className="col-xs-12">
-          <NewTabLink to={linkTo} className={`dashboard-card ${className} has-shadow`}>
+          <LinkType to={linkTo} className={`dashboard-card ${className} has-shadow`}>
             <div className="desc">
               <h3>{header}</h3>
               <p>{description}</p>
             </div>
             <span>{callToAction} <i className="icon-arrowRight" aria-hidden="true"></i></span>
-          </NewTabLink>
+          </LinkType>
         </li>
       )
     }
@@ -60,7 +62,7 @@ export default class AdminDashboardPage extends React.Component {
                   )}
                   {this.permissionedCard(
                     isPermitted.manageApps,
-                    "/admin/manage-apps",
+                    '/admin/manage-apps',
                     'manage-apps',
                     'Manage apps',
                     'Push an app to your Mobile Device Management(MDM) solution, recommend apps, block apps',
