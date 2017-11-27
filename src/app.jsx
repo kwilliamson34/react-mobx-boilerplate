@@ -86,10 +86,12 @@ export default class App extends React.Component {
   }
 
   handleSkipNav = () => {
-    $('#main-content').attr('tabindex', -1);
-    $('#main-content').focus();
-    $('#main-content').blur(() => {
-      $('#main-content').removeAttr('tabindex');
+    //Fix for FPSE-1393 and FPSE-1394. Skip Navigation is not working on IE, as elements without a tabIndex don't take focus. For 508 compliance, #main-content can't permanently have a tabIndex.
+    const mainContent = $('#main-content');
+    mainContent.attr('tabindex', -1);
+    mainContent.focus();
+    mainContent.blur(() => {
+      mainContent.removeAttr('tabindex');
     });
   }
 
