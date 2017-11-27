@@ -62,6 +62,15 @@ export default class AdminDashboardPage extends React.Component {
                       <span>Manage services & billing <i className="icon-arrowRight" aria-hidden="true"></i></span>
                     </NewTabLink>
                   </li>}
+                  {isPermitted.manageIotDevices && <li className="col-xs-12">
+                    <NewTabLink to={config.manageIotDevicesLink} className="dashboard-card manage-iot has-shadow">
+                      <div className="desc">
+                        <h3>Manage IoT devices</h3>
+                        <p>Manage the connectivity of toyr IoT devices</p>
+                      </div>
+                      <span>Manage IoT devices <i className="icon-arrowRight" aria-hidden="true"></i></span>
+                    </NewTabLink>
+                  </li>}
                   {isPermitted.manageVoicemail && <li className="col-xs-12">
                     <NewTabLink to={config.manageVoicemailAndUsageLink} className="dashboard-card manage-voicemail-and-usage has-shadow">
                       <div className="desc">
