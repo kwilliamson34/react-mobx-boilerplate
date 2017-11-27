@@ -10,7 +10,7 @@ exports[`<ScreenshotGallery /> standard snapshot tests: Render tests; should ren
     className="scrollable-region"
   >
     <div
-      className="slide-container"
+      className="slide-container mobile"
     >
       <figure
         className="img-responsive"
@@ -30,7 +30,7 @@ exports[`<ScreenshotGallery /> standard snapshot tests: Render tests; should ren
       </figure>
     </div>
     <div
-      className="slide-container"
+      className="slide-container tablet"
     >
       <figure
         className="img-responsive"

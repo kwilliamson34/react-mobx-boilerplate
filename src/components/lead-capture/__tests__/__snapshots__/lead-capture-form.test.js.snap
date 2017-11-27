@@ -9,7 +9,7 @@ exports[`<LeadCaptureForm /> renders matches previous snapshot 1`] = `
       id="lead-capture-form"
     />
     <div
-      className="form-actions "
+      className="form-actions undefined"
     >
       
       <div

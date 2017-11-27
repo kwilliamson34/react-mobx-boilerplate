@@ -36,7 +36,7 @@ exports[`<FeedbackForm /> renders matches previous snapshot 1`] = `
       />
     </div>
     <div
-      className="form-actions "
+      className="form-actions undefined"
     >
       
       <div
