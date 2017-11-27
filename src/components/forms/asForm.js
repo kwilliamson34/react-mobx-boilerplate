@@ -80,7 +80,7 @@ export default function asForm (MyComponent, attributes) {
       }
     }
 
-    componentWillMount() {
+    componentDidMount() {
       this.interceptedRoute = '';
       this.includeDivider = attributes && attributes.includeDivider;
       this.secondaryButtonText = attributes && attributes.secondaryButtonText ? attributes.secondaryButtonText : '';

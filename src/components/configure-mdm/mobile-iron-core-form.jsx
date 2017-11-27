@@ -3,8 +3,6 @@ import { observer } from 'mobx-react';
 import PropTypes from 'prop-types';
 import asForm from '../forms/asForm.js';
 import TextInput from '../forms/text-input';
-import Checkbox from '../forms/checkbox';
-
 
 @observer
 class MobileIronCoreForm extends React.Component {
@@ -20,10 +18,6 @@ class MobileIronCoreForm extends React.Component {
 
   componentWillMount() {
     this.store.clearFormFieldRefList();
-  }
-
-  handleCheckboxOnChange = (target) => {
-    this.store.toggleBoolValue(target.id);
   }
 
   render() {
