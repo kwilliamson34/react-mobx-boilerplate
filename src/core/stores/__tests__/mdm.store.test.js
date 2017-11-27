@@ -31,7 +31,6 @@ describe("MDMStore", () => {
     store.updateMDM('MAAS360');
 
     expect(store.values.mdm_type).toBe('MAAS360');
-    expect(store.showbreakMDMConnection).toBe(false);
   });
 
   test("clearStoredCredentials works as expected", () => {

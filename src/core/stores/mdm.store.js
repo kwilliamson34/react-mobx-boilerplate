@@ -41,7 +41,6 @@ class MDMStore {
   @action clearForm() {
     this.clearAlertAndReferences();
     this.values = Object.assign({}, this.defaultValues);
-    this.showbreakMDMConnection = false;
     this.clearFormFieldRefList();
   }
 
@@ -91,11 +90,6 @@ class MDMStore {
     if(!this.appsReferencedBySuccessAlert.find(item => item == psk)) {
       this.appsReferencedBySuccessAlert.push(psk);
     }
-  }
-
-  // Modal functions
-  @action togglebreakMDMConnection() {
-    this.showbreakMDMConnection = !this.showbreakMDMConnection;
   }
 
   // MDM Connection functions
@@ -260,7 +254,6 @@ class MDMStore {
   @observable mdmIsConfigured = false;
 
   // Form
-  @observable showbreakMDMConnection = false;
   @observable formFieldRefList = [];
   @observable formHasError = true;
 

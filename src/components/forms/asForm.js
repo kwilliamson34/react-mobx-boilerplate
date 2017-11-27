@@ -7,7 +7,7 @@ import {history} from '../../core/services/history.service';
 import {observer} from 'mobx-react';
 import {observable, computed, autorun} from 'mobx';
 import Alerts from '../alerts/alerts';
-import $ from 'jquery';
+import Modal from '../portals/modal';
 
 @observer
 export default function asForm (MyComponent, attributes) {
@@ -90,7 +90,7 @@ export default function asForm (MyComponent, attributes) {
       this.unblock = history.block((location) => {
         if (this.store.formIsDirty && !this.props.disabled) {
           this.interceptedRoute = location.pathname;
-          this.showExitModal();
+          this.exitModal.showModal();
           return false; //does not allow to proceed to new page
         }
       });
@@ -162,52 +162,15 @@ export default function asForm (MyComponent, attributes) {
       }
     }
 
-    renderExitModal = () => {
-      return (
-        <div id="exit-modal" role="dialog" tabIndex="-1" className="modal fade" aria-labelledby="modal-title">
-          <div>
-            <div className="modal-dialog">
-              <div className="modal-content">
-                <button type="button" className="fn-modal-close" onClick={this.hideExitModal}>
-                  <i aria-hidden="true" className="icon-close"></i>
-                  <span className="sr-only">Close window</span>
-                </button>
-                <div className="row no-gutters" id="modal-title">
-                  <div className="col-xs-12">
-                    <h1 className="as-h2">Unsaved changes</h1>
-                    <p>Your form changes will not be saved if you navigate away from this page.</p>
-                  </div>
-                  <div className="col-xs-12 text-center">
-                    <button className="fn-primary" onClick={this.stayOnPage}>Stay on Page</button>
-                    <button className="fn-secondary" onClick={this.discardFormChanges}>Discard Changes</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )
-    }
-
-    showExitModal = () => {
-      $('#exit-modal').modal({backdrop: 'static'});
-      $('#exit-modal').modal('show');
-    }
-
-    hideExitModal = () => {
-      $('#exit-modal').modal('hide');
-      $('#exit-modal').data('bs.modal', null);
-    }
-
     stayOnPage = (e) => {
       e.preventDefault();
-      this.hideExitModal();
+      this.exitModal.hideModal();
       this.interceptedRoute = '';
     }
 
     discardFormChanges = (e) => {
       e.preventDefault();
-      this.hideExitModal();
+      this.exitModal.hideModal();
       this.store.clearForm();
       history.replace(this.interceptedRoute);
     }
@@ -234,7 +197,16 @@ export default function asForm (MyComponent, attributes) {
               {this.secondaryButtonText ? this.renderSecondaryButton() : ''}
             </div>
           </form>
-          {this.renderExitModal()}
+          <Modal
+            id="exit-modal"
+            title="Unsaved changes"
+            ref={i => this.exitModal = i}
+            primaryAction={this.discardFormChanges}
+            primaryButtonLabel="Discard Changes"
+            secondaryAction={this.stayOnPage}
+            secondaryButtonLabel="Stay On Page">
+            <p>Your form changes will not be saved if you navigate away from this page.</p>
+          </Modal>
         </section>
       )
     }

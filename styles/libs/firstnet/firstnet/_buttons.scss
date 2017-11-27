@@ -250,38 +250,6 @@ button {
   min-width: 100px;
 }
 
-.fn-modal-close {
-  position: absolute;
-  height: 38px;
-  width: 38px;
-  top: 10px;
-  right: 10px;
-  background: transparent;
-  border: none;
-  padding: 5px 0;
-  line-height: 36px;
-  border-radius: 50%;
-  i {
-    &:before {
-      color: $fn-dkgrey;
-      font-size: 21px;
-    }
-  }
-  &:hover,
-  &:active,
-  &:focus,
-  &:active:focus {
-    outline:none;
-    background: $fn-blue;
-    color: $fn-white;
-    i {
-      &:before {
-        color: white
-      }
-    }
-  }
-}
-
 .btn-group {
   & > .btn,
   & > .fn-primary {
@@ -388,13 +356,5 @@ button {
     color: $fn-dkgrey;
     font-weight: $fn-bold-weight;
     box-shadow: none !important;
-  }
-}
-
-/* SM */
-@media only screen and (min-width : 768px) {
-  .fn-modal-close {
-    top: 20px;
-    right: 20px;
   }
 }
