@@ -15,11 +15,7 @@ export default class Modal extends React.Component {
     secondaryAction: PropTypes.func,
     secondaryButtonLabel: PropTypes.string,
     restoreFocusTo: PropTypes.string,
-    children: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.object,
-      PropTypes.array
-    ])
+    children: PropTypes.oneOfType([PropTypes.string, PropTypes.object, PropTypes.array])
   }
 
   static defaultProps = {
@@ -34,7 +30,7 @@ export default class Modal extends React.Component {
     super(props);
     autorun(() => {
       // show or hide the modal using bootstrap methods
-      if(this.show) {
+      if (this.show) {
         $(this.modal).modal({backdrop: 'static'});
         $(this.modal).modal('show');
       } else {
@@ -61,7 +57,7 @@ export default class Modal extends React.Component {
 
   hideModal = () => {
     this.show = false;
-    if(this.props.restoreFocusTo){
+    if (this.props.restoreFocusTo) {
       $(this.props.restoreFocusTo).focus();
     }
   }
@@ -95,7 +91,8 @@ export default class Modal extends React.Component {
                     {this.props.secondaryAction !== undefined &&
                       <button className="fn-secondary" onClick={this.props.secondaryAction}>
                         {this.props.secondaryButtonLabel}
-                      </button>}
+                      </button>
+                    }
                     <button className="fn-primary" onClick={this.props.primaryAction}>
                       {this.props.primaryButtonLabel}
                     </button>

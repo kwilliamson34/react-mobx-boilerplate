@@ -1,15 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-
 const portalRoot = document.getElementById('portal');
 
 export default class Portal extends React.Component {
   static propTypes = {
-    children: PropTypes.oneOfType([
-      PropTypes.object,
-      PropTypes.array
-    ])
+    children: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
   }
 
   constructor(props) {
@@ -26,9 +22,6 @@ export default class Portal extends React.Component {
   }
 
   render() {
-    return ReactDOM.createPortal(
-      this.props.children,
-      this.el,
-    );
+    return ReactDOM.createPortal(this.props.children, this.el);
   }
 }
