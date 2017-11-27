@@ -87,7 +87,12 @@ export default class App extends React.Component {
 
   handleSkipNav = () => {
     console.log('DING!');
+    // document.getElementById('main-content').focus();
+    $('#main-content').attr('tabIndex', -1);
     $('#main-content').focus();
+    $('#main-content').blur(e => {
+      $('#main-content').removeAttr('tabindex');
+    });
   }
 
   getSpecializedDevicesComponent = ({match}) => {
