@@ -21,7 +21,7 @@ export default class AdminDashboardPage extends React.Component {
   }
   
   renderPermissionedCard(card, key = 1) {
-    //check if we are using a local or extenrnal link, and act accordingly.
+    //check if we are using a local or extenrnal link, and act accordingly
     const LinkType = card.linkTo[0] === '/' ? Link : NewTabLink;
     const linkDest = card.linkTo[0] === '/' ? card.linkTo : config[card.linkTo]
     const callToAction = card.callToAction || card.header;
