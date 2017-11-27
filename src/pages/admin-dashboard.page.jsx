@@ -51,7 +51,7 @@ export default class AdminDashboardPage extends React.Component {
               </div>}
               <nav>
                 <ul>
-                {this.permissionedCard(
+                  {this.permissionedCard(
                     isPermitted.manageUsers,
                     config.manageUsersLink,
                     'manage-users',
@@ -102,33 +102,28 @@ export default class AdminDashboardPage extends React.Component {
               </div>
               <nav>
                 <ul>
-                  {isPermitted.shopStandardDevices && <li className="col-xs-12 col-md-6 col-lg-12">
-                    <NewTabLink to={config.shopStandardDevicesLink} className="dashboard-card shop-devices-rates has-shadow">
-                      <div className="desc">
-                        <h3>Shop standard devices &amp; rate plans</h3>
-                        <p>Add a new device, provision an existing device, add a rate plan, feature(s) and accessories</p>
-                      </div>
-                      <span>Shop Devices &amp; Plans <i className="icon-arrowRight" aria-hidden="true"></i></span>
-                    </NewTabLink>
-                  </li>}
-                  {isPermitted.shopSpecializedDevices && <li className="col-xs-12 col-md-6 col-lg-12">
-                    <Link to="/admin/devices" className="dashboard-card shop-specialized-devices has-shadow">
-                      <div className="desc">
-                        <h3>Shop specialized devices</h3>
-                        <p>Purchase ruggedized devices, vehicle routers, etc.</p>
-                      </div>
-                      <span>Shop Specialized Devices<i className="icon-arrowRight" aria-hidden="true"></i></span>
-                    </Link>
-                  </li>}
-                  {isPermitted.shopPublicSafetySolutions && <li className="col-xs-12 col-md-6 col-lg-12">
-                    <Link to="/admin/solutions" className="dashboard-card shop-solutions has-shadow">
-                      <div className="desc">
-                        <h3>Shop public safety solutions</h3>
-                        <p>Browse public safety solutions and choose which are best for your organization</p>
-                      </div>
-                      <span>Shop Public Safety Solutions <i className="icon-arrowRight" aria-hidden="true"></i></span>
-                    </Link>
-                  </li>}
+                  {this.permissionedCard(
+                    isPermitted.shopStandardDevices,
+                    config.shopStandardDevicesLink,
+                    'shop-devices-rates',
+                    'Shop standard devices &amp; rate plans',
+                    'Add a new device, provision an existing device, add a rate plan, feature(s) and accessories',
+                    'Shop Devices &amp; Plans'
+                  )}
+                  {this.permissionedCard(
+                    isPermitted.shopSpecializedDevices,
+                    '/admin/devices',
+                    'shop-specialized-devices',
+                    'Shop specialized devices',
+                    'Purchase ruggedized devices, vehicle routers, etc.'
+                  )}
+                  {this.permissionedCard(
+                    isPermitted.shopPublicSafetySolutions,
+                    '/admin/solutions',
+                    'shop-solutions',
+                    'Shop public safety solutions',
+                    'Browse public safety solutions and choose which are best for your organization',
+                  )}
                 </ul>
               </nav>
             </aside>}
