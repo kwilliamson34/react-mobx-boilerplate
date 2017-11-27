@@ -88,7 +88,7 @@ export default class App extends React.Component {
   handleSkipNav = () => {
     $('#main-content').attr('tabIndex', -1);
     $('#main-content').focus();
-    $('#main-content').blur(e => {
+    $('#main-content').blur(() => {
       $('#main-content').removeAttr('tabindex');
     });
   }
