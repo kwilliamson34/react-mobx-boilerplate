@@ -22,8 +22,9 @@ export default class AdminDashboardPage extends React.Component {
   
   renderPermissionedCard(card, key = 1) {
     //check if we are using a local or extenrnal link, and act accordingly.
-    let LinkType = card.linkTo[0] === '/' ? Link : NewTabLink;
-    let linkDest = card.linkTo[0] === '/' ? card.linkTo : config[card.linkTo]
+    const LinkType = card.linkTo[0] === '/' ? Link : NewTabLink;
+    const linkDest = card.linkTo[0] === '/' ? card.linkTo : config[card.linkTo]
+    const callToAction = card.callToAction || card.header;
     //render if we are allowed
     const isPermitted = this.store.destinationIsPermitted;
     if(isPermitted[card.isPermitted]){
@@ -31,10 +32,10 @@ export default class AdminDashboardPage extends React.Component {
         <li className="col-xs-12" key={key}>
           <LinkType to={linkDest} className={`dashboard-card ${card.className} has-shadow`}>
             <div className="desc">
-              <h3>{card.header}</h3>
-              <p>{card.description}</p>
+              <h3 dangerouslySetInnerHTML={ {__html: card.header} }></h3>
+              <p dangerouslySetInnerHTML={ {__html: card.description} }></p>
             </div>
-            <span>{card.callToAction || card.header} <i className="icon-arrowRight" aria-hidden="true"></i></span>
+            <span><span dangerouslySetInnerHTML={ {__html: callToAction} }></span> <i className="icon-arrowRight" aria-hidden="true"></i></span>
           </LinkType>
         </li>
       )
