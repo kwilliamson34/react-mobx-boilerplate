@@ -14,9 +14,6 @@ export default class Portal extends React.Component {
   }
 
   componentDidMount() {
-    /* The portal element is inserted in the DOM tree after
-    the Modal's children are mounted, meaning that children
-    will be mounted on a detached DOM node. */
     portalRoot.appendChild(this.el);
   }
 
