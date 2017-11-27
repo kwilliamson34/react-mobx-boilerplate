@@ -85,6 +85,11 @@ export default class App extends React.Component {
     });
   }
 
+  handleSkipNav = () => {
+    console.log('DING!');
+    $('#main-content').focus();
+  }
+
   getSpecializedDevicesComponent = ({match}) => {
     return (
       <article id="specialized-devices">
@@ -118,7 +123,7 @@ export default class App extends React.Component {
 					<JoyrideBase location={location.pathname} joyrideStore={pseMasterStore.joyrideStore} />
 				}
         <ScrollToTop>
-          <a href="#main-content" className="skipnav">Skip Navigation</a>
+          <a href="#main-content" className="skipnav" onClick={this.handleSkipNav}>Skip Navigation</a>
           <Header/>
           <main id="main-content">
             <Switch>
