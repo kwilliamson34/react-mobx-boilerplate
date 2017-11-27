@@ -1,8 +1,10 @@
 jest.unmock('../admin-dashboard.page');
+jest.unmock('../../content/admin-cards.js');
 
 import {observer, inject} from 'mobx-react';
 import AdminDashboard from '../admin-dashboard.page';
 import {MemoryRouter} from 'react-router-dom';
+import {adminCards, asideCards} from '../../content/admin-cards.js';
 
 describe('<AdminDashboard />', () => {
   let props = {
