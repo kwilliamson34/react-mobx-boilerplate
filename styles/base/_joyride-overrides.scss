@@ -138,77 +138,77 @@
 }
 
 #tour-intro-modal {
-  .fn-modal-close {
-    top: 30px;
-    right: 23px;
-  }
-
-  .modal-content {
+  &.modal .modal-dialog .modal-content {
     padding: 45px 30px;
     border-radius: 4px;
-  }
 
-  h1.as-h2 {
-    border-bottom: $joyride-header-border-width solid $joyride-header-border-color;
-    color: $joyride-header-color;
-    font-size: $joyride-header-font-size;
-    font-weight: $fn-medium-weight;
-    text-align: left;
-    padding-bottom: 15px;
-    margin-bottom: 30px;
-  }
-
-  .modal-body {
-    text-align: left;
-    font-size: 14px;
-    padding: 0 0 40px;
-
-    p {
-      font-size: $joyride-tooltip-font-size;
-      text-align: left;
-      margin-bottom: 14px;
+    .fn-modal-close {
+      top: 30px;
+      right: 23px;
     }
 
-    ul {
-      list-style: disc;
-      margin-left: 15px;
+    h1.as-h2 {
+      border-bottom: $joyride-header-border-width solid $joyride-header-border-color;
+      color: $joyride-header-color;
+      font-size: $joyride-header-font-size;
+      font-weight: $fn-medium-weight;
+      text-align: left;
+      padding-bottom: 15px;
+      margin-bottom: 30px;
+    }
 
-      li {
+    .modal-body {
+      text-align: left;
+      font-size: 14px;
+      padding: 0 0 40px;
+
+      p {
         font-size: $joyride-tooltip-font-size;
-        line-height: 1.6;
-        margin-bottom: 5px;
+        text-align: left;
+        margin-bottom: 14px;
+      }
 
-        i:before {
-          font-size: 16px;
-          vertical-align: baseline;
+      ul {
+        list-style: disc;
+        margin-left: 15px;
+
+        li {
+          font-size: $joyride-tooltip-font-size;
+          line-height: 1.6;
+          margin-bottom: 5px;
+
+          i:before {
+            font-size: 16px;
+            vertical-align: baseline;
+          }
         }
       }
     }
-  }
 
-  .modal-actions {
-    button {
-      margin: 10px 0;
+    .modal-actions {
+      button {
+        margin: 10px 0;
+      }
     }
   }
 }
 @media #{$tablet, $desktop} {
   #tour-intro-modal {
-    .modal-content {
+    &.modal .modal-dialog .modal-content {
       padding: 45px 60px;
-    }
 
-    .fn-modal-close {
-      right: 60px;
-    }
-
-    .modal-actions {
-      .fn-primary {
-        float: right;
+      .fn-modal-close {
+        right: 60px;
       }
 
-      .fn-secondary {
-        float: left;
+      .modal-actions {
+        .fn-primary {
+          float: right;
+        }
+
+        .fn-secondary {
+          float: left;
+        }
       }
     }
   }
