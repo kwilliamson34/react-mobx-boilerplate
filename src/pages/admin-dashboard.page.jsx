@@ -19,6 +19,22 @@ export default class AdminDashboardPage extends React.Component {
     this.store = this.props.store.userStore;
   }
 
+  permissionedCard(isPermitted, linkTo, className, header, description, callToAction = header) {
+    if(isPermitted){
+      return (
+        <li className="col-xs-12">
+          <NewTabLink to={linkTo} className={`dashboard-card ${className} has-shadow`}>
+            <div className="desc">
+              <h3>{header}</h3>
+              <p>{description}</p>
+            </div>
+            <span>{callToAction} <i className="icon-arrowRight" aria-hidden="true"></i></span>
+          </NewTabLink>
+        </li>
+      )
+    }
+  }
+
   render() {
     const isPermitted = this.store.destinationIsPermitted;
     const hideAside = !(isPermitted.shopStandardDevices || isPermitted.shopSpecializedDevices || isPermitted.shopPublicSafetySolutions);
@@ -35,60 +51,48 @@ export default class AdminDashboardPage extends React.Component {
               </div>}
               <nav>
                 <ul>
-                  {isPermitted.manageUsers && <li className="col-xs-12">
-                    <NewTabLink to={config.manageUsersLink} className="dashboard-card manage-users has-shadow">
-                      <div className="desc">
-                        <h3>Manage users</h3>
-                        <p>Add, edit and remove users</p>
-                      </div>
-                      <span>Manage Users <i className="icon-arrowRight" aria-hidden="true"></i></span>
-                    </NewTabLink>
-                  </li>}
-                  {isPermitted.manageApps && <li className="col-xs-12">
-                    <Link to="/admin/manage-apps" className="dashboard-card manage-apps has-shadow">
-                      <div className="desc">
-                        <h3>Manage apps</h3>
-                        <p>Push an app to your Mobile Device Management(MDM) solution, recommend apps, block apps</p>
-                      </div>
-                      <span>Manage apps <i className="icon-arrowRight" aria-hidden="true"></i></span>
-                    </Link>
-                  </li>}
-                  {isPermitted.manageBilling && <li className="col-xs-12">
-                    <NewTabLink to={config.manageServicesLink} className="dashboard-card manage-services has-shadow">
-                      <div className="desc">
-                        <h3>Manage services & billing</h3>
-                        <p>Assign or remove devices, change rate plans &amp; features, view & pay bills, update information, manage push-to-talk</p>
-                      </div>
-                      <span>Manage services & billing <i className="icon-arrowRight" aria-hidden="true"></i></span>
-                    </NewTabLink>
-                  </li>}
-                  {isPermitted.manageIotDevices && <li className="col-xs-12">
-                    <NewTabLink to={config.manageIotDevicesLink} className="dashboard-card manage-iot has-shadow">
-                      <div className="desc">
-                        <h3>Manage IoT devices</h3>
-                        <p>Manage the connectivity of your IoT devices</p>
-                      </div>
-                      <span>Manage IoT devices <i className="icon-arrowRight" aria-hidden="true"></i></span>
-                    </NewTabLink>
-                  </li>}
-                  {isPermitted.manageVoicemail && <li className="col-xs-12">
-                    <NewTabLink to={config.manageVoicemailAndUsageLink} className="dashboard-card manage-voicemail-and-usage has-shadow">
-                      <div className="desc">
-                        <h3>Manage voicemail &amp; usage</h3>
-                        <p>Manage voicemail and data usage for your devices</p>
-                      </div>
-                      <span>Manage voicemail &amp; usage <i className="icon-arrowRight" aria-hidden="true"></i></span>
-                    </NewTabLink>
-                  </li>}
-                  {isPermitted.viewReports && <li className="col-xs-12">
-                    <NewTabLink to={config.viewWirelessReportsLink} className="dashboard-card manage-wireless-reports has-shadow">
-                      <div className="desc">
-                        <h3>View wireless reports</h3>
-                        <p>View device inventory, rate plan summary, early termination fees, upgrade eligibility, device unlock eligibility</p>
-                      </div>
-                      <span>View Wireless Reports <i className="icon-arrowRight" aria-hidden="true"></i></span>
-                    </NewTabLink>
-                  </li>}
+                {this.permissionedCard(
+                    isPermitted.manageUsers,
+                    config.manageUsersLink,
+                    'manage-users',
+                    'Manage users',
+                    'Add, edit and remove users'
+                  )}
+                  {this.permissionedCard(
+                    isPermitted.manageApps,
+                    "/admin/manage-apps",
+                    'manage-apps',
+                    'Manage apps',
+                    'Push an app to your Mobile Device Management(MDM) solution, recommend apps, block apps',
+                  )}
+                  {this.permissionedCard(
+                    isPermitted.manageBilling,
+                    config.manageServicesLink,
+                    'manage-services',
+                    'Manage services & billing',
+                    'Assign or remove devices, change rate plans &amp; features, view & pay bills, update information, manage push-to-talk'
+                  )}
+                  {this.permissionedCard(
+                    isPermitted.manageIotDevices,
+                    config.manageIotDevicesLink,
+                    'manage-iot',
+                    'Manage IoT devices',
+                    'Manage the connectivity of your IoT devices'
+                  )}
+                  {this.permissionedCard(
+                    isPermitted.manageVoicemail,
+                    config.manageVoicemailAndUsageLink,
+                    'manage-voicemail-and-usage',
+                    'Manage voicemail &amp; usage',
+                    'Manage voicemail and data usage for your devices'
+                  )}
+                  {this.permissionedCard(
+                    isPermitted.viewReports,
+                    config.viewWirelessReportsLink,
+                    'manage-wireless-reports',
+                    'View wireless reports',
+                    'View device inventory, rate plan summary, early termination fees, upgrade eligibility, device unlock eligibility'
+                  )}
                 </ul>
               </nav>
             </section>
