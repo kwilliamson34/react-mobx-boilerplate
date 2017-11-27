@@ -7,7 +7,7 @@ class JoyrideStore {
 	@action initializeJoyride(joyrideRef) {
 		this.tourRef = joyrideRef;
 		this.tourAutoStart = true;
-		this.introModalSeen = document.cookie.indexOf('_fn_lc_tour') != -1;
+		this.introModalSeen = document.cookie.indexOf('_fn_lc_tour') !== -1;
 		this.tourIsDisabled = this.introModalSeen && utilsService.getCookie('_fn_lc_tour') === 'false';
 
 		if(!this.tourIsDisabled && this.introModalSeen) {
