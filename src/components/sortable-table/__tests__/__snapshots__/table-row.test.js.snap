@@ -1,15 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<TableRow> snapshot tests:  render tests: should render with props 1`] = `
 <div
   aria-rowindex={1}
   className="table-row "
-  role="row">
+  role="row"
+>
   <span
-    className="center-container">
+    className="center-container"
+  >
     <div
       className="table-cell favorite-name-column"
-      role="cell">
+      role="cell"
+    >
       <div
-        className="row-contents-wrapper">
+        className="row-contents-wrapper"
+      >
         <span>
           Best Pineapple Pizza
         </span>

@@ -31,6 +31,8 @@ class MDMStore {
       ibm_userName: '',
       mi_password: '',
       mi_userName: '',
+      mi_core_password: '',
+      mi_core_userName: '',
       msintune_password: '',
       msintune_userName: ''
     });
@@ -39,7 +41,6 @@ class MDMStore {
   @action clearForm() {
     this.clearAlertAndReferences();
     this.values = Object.assign({}, this.defaultValues);
-    this.showbreakMDMConnection = false;
     this.clearFormFieldRefList();
   }
 
@@ -65,6 +66,10 @@ class MDMStore {
     this.formHasError = true;
   }
 
+  @action toggleBoolValue(target) {
+    this.values[target] = !this.values[target];
+  }
+
   // Alert functions
   @action addPushErrorAlert(psk) {
     //add to reference list if not already there
@@ -85,11 +90,6 @@ class MDMStore {
     if(!this.appsReferencedBySuccessAlert.find(item => item == psk)) {
       this.appsReferencedBySuccessAlert.push(psk);
     }
-  }
-
-  // Modal functions
-  @action togglebreakMDMConnection() {
-    this.showbreakMDMConnection = !this.showbreakMDMConnection;
   }
 
   // MDM Connection functions
@@ -254,7 +254,6 @@ class MDMStore {
   @observable mdmIsConfigured = false;
 
   // Form
-  @observable showbreakMDMConnection = false;
   @observable formFieldRefList = [];
   @observable formHasError = true;
 
@@ -289,6 +288,10 @@ class MDMStore {
     mi_hostName: '',
     mi_password: '',
     mi_userName: '',
+    mi_core_hostName: '',
+    mi_core_password: '',
+    mi_core_userName: '',
+    mi_core_companycode: '',
     msintune_clientID: '',
     msintune_clientSecret: '',
     msintune_hostName: '',

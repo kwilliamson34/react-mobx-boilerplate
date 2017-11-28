@@ -57,28 +57,32 @@ export default class GeolinkControls extends React.Component {
   onFavoriteClick = (favorite) => {
     this.store.selectFavorite(favorite);
     this.store.formFieldRefList.find((el) => {
-      return el && (el.refs.input.id === 'locationName' || el.refs.input.id === 'locationAddress');
-    }).refs.input.focus();
+      return el && (el.input.id === 'locationName' || el.input.id === 'locationAddress');
+    }).input.focus();
   }
 
   onFavoriteEnter = (event, favorite) => {
     if(event.charCode === this.ENTER_KEY_CODE) {
       this.store.selectFavorite(favorite);
       this.store.formFieldRefList.find((el) => {
-        return el && (el.refs.input.id === 'locationName' || el.refs.input.id === 'locationAddress');
-      }).refs.input.focus();
+        return el && (el.input.id === 'locationName' || el.input.id === 'locationAddress');
+      }).input.focus();
     }
+  }
+
+  clearAlertBars = () => {
+    this.store.clearAlertBars();
   }
 
   onManageFavoritesClick = () => {
     history.push('/manage-favorites');
-    this.store.clearAlertBars();
+    this.clearAlertBars();
   }
 
   onManageFavoritesEnter = (event) => {
     if(event.charCode === this.ENTER_KEY_CODE) {
       history.push('/manage-favorites');
-      this.store.clearAlertBars();
+      this.clearAlertBars();
     }
   }
 
@@ -86,7 +90,7 @@ export default class GeolinkControls extends React.Component {
     if(event.keyCode === this.DOWN_KEY_CODE && this.store.dropdownIsVisible) {
       event.preventDefault();
       this.focusedFavorite = 0;
-      this.refs[`favItem${this.focusedFavorite}`].focus();
+      this[`favItem${this.focusedFavorite}`].focus();
     }
   }
 
@@ -96,15 +100,15 @@ export default class GeolinkControls extends React.Component {
     }
     if(event.keyCode === this.DOWN_KEY_CODE) {
       this.focusedFavorite = this.store.predictedFavorites.length ? (this.focusedFavorite + 1) % (this.store.predictedFavorites.length + 1) : 0;
-      this.refs[`favItem${this.focusedFavorite}`].focus();
+      this[`favItem${this.focusedFavorite}`].focus();
     } else if(event.keyCode === this.UP_KEY_CODE) {
       if(this.focusedFavorite === 0) {
         this.store.formFieldRefList.find((el) => {
-          return el.refs.input.id === 'locationName' || el.refs.input.id === 'locationAddress';
-        }).refs.input.focus();
+          return el.input.id === 'locationName' || el.input.id === 'locationAddress';
+        }).input.focus();
       } else {
         this.focusedFavorite = this.store.predictedFavorites.length ? (this.focusedFavorite + this.store.predictedFavorites.length) % (this.store.predictedFavorites.length + 1) : 0;
-        this.refs[`favItem${this.focusedFavorite}`].focus();
+        this[`favItem${this.focusedFavorite}`].focus();
       }
     }
   }
@@ -124,7 +128,7 @@ export default class GeolinkControls extends React.Component {
               </li>
             )
           })}
-          <li role="button" tabIndex="0" ref={`favItem${this.store.predictedFavorites.length}`} onFocus={() => this.focusedFavorite = this.store.predictedFavorites.length} onClick={this.onManageFavoritesClick} onKeyPress={this.onManageFavoritesEnter} onKeyDown={this.onKeyDown}>
+          <li role="button" tabIndex="0" ref={`favItem${this.store.predictedFavorites.length}`} onFocus={() => this.focusedFavorite = this.store.predictedFavorites.length} onClick={this.clearAlertBars} onKeyPress={this.onManageFavoritesEnter} onKeyDown={this.onKeyDown}>
             Manage all favorites
           </li>
         </ul>
@@ -136,7 +140,7 @@ export default class GeolinkControls extends React.Component {
   render() {
     const displaySuccess = this.store.successToDisplay && this.store.successToDisplay.length > 0;
     return (
-      <section className="geolink-controls light-grey-bg">
+      <section className="geolink-controls">
         {displaySuccess &&
           <div className="container">
             <div className="row">
@@ -212,7 +216,7 @@ export default class GeolinkControls extends React.Component {
     return (
       <div>
         <span className="top-right-link">
-          <button className="as-link" onClick={this.onManageFavoritesClick}>Manage Favorites</button>
+          <Link to="/manage-favorites" onClick={this.clearAlertBars}>Manage Favorites</Link>
         </span>
         <h2 className="as-h5">Search</h2>
         <TextInput
@@ -231,7 +235,7 @@ export default class GeolinkControls extends React.Component {
         {this.renderPredictiveDropdown()}
         <button
           className={`as-link add-favorite-button ${this.store.values.locationAddress && !this.store.shouldDisplayLocationName ? '' : 'disabled'}`}
-          ref="addFavoriteBtn"
+          ref={(i) => {this.addFavoriteBtn = i }}
           onClick={this.store.showAddLocationForm.bind(this.store)}>
           Add Favorite
         </button>

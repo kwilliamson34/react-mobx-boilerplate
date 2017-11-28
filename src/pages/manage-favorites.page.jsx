@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {observer, inject} from 'mobx-react';
-import $ from 'jquery';
 
 import {history} from '../core/services/history.service';
 import PageTitle from '../components/page-title/page-title';
@@ -12,6 +11,7 @@ import {SortableTable} from '../components/sortable-table/sortable-table';
 import {TableColumn} from '../components/sortable-table/table-column';
 import {MobileHeader} from '../components/sortable-table/mobile-header';
 import Alerts from '../components/alerts/alerts';
+import Modal from '../components/portals/modal';
 
 @inject('store')
 @observer
@@ -25,11 +25,16 @@ export default class ManageFavoritesPage extends React.Component {
     super(props);
     this.manageFavoritesStore = this.props.store.manageFavoritesStore;
     this.geolinkStore = this.props.store.geolinkStore;
+    this.deleteModal = {};
   }
 
   componentWillMount() {
     this.manageFavoritesStore.pageIsLoading();
     this.manageFavoritesStore.fetchRows();
+  }
+
+  componentDidMount() {
+    this.manageFavoritesStore.setTableRef(this.tableRef);
   }
 
   componentWillUnmount() {
@@ -46,15 +51,10 @@ export default class ManageFavoritesPage extends React.Component {
     this.geolinkStore.clearAlertBars();
   }
 
-  keepFavorites = (e) => {
-    e.preventDefault();
-    this.hideDeleteModal();
-  }
-
   deleteFavorites = (e) => {
     e.preventDefault();
     this.manageFavoritesStore.deleteRows();
-    this.hideDeleteModal();
+    this.deleteModal.hideModal();
   }
 
   advancePagination = () => {
@@ -70,7 +70,11 @@ export default class ManageFavoritesPage extends React.Component {
   }
 
   handleSelectAllCheckbox = () => {
-    this.manageFavoritesStore.checkedRows.length === this.manageFavoritesStore.rows.length
+    const displayedRows = this.manageFavoritesStore.showSearchResults
+      ? this.manageFavoritesStore.searchResults
+      : this.manageFavoritesStore.rows;
+
+    this.manageFavoritesStore.checkedRows.length === displayedRows.length
       ? this.manageFavoritesStore.clearAllCheckboxes()
       : this.manageFavoritesStore.selectAllCheckboxes();
   }
@@ -92,18 +96,8 @@ export default class ManageFavoritesPage extends React.Component {
   handleDeleteAction = (e) => {
     e.preventDefault();
     if (!this.manageFavoritesStore.disableDeleteButton) {
-      this.showDeleteModal();
+      this.deleteModal.showModal();
     }
-  }
-
-  showDeleteModal = () => {
-    $('#delete-modal').modal({backdrop: 'static'});
-    $('#delete-modal').modal('show');
-  }
-
-  hideDeleteModal = () => {
-    $('#delete-modal').modal('hide');
-    $('#delete-modal').data('bs.modal', null);
   }
 
   renderDeleteModal = () => {
@@ -119,32 +113,17 @@ export default class ManageFavoritesPage extends React.Component {
       favoriteString = 'Favorites';
     }
 
-    return (
-      <div id="delete-modal" role="dialog" tabIndex="-1" className="modal fade" aria-labelledby="modal-title">
-        <div>
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <button type="button" className="fn-modal-close" onClick={this.hideDeleteModal}>
-                <i aria-hidden="true" className="icon-close"></i>
-                <span className="sr-only">Close window</span>
-              </button>
-              <div className="row no-gutters" id="modal-title">
-                <div className="col-xs-12">
-                  <h1 className="as-h2">
-                    {deleteQuestion}
-                  </h1>
-                  <p>This cannot be undone. New favorites can be added at any time.</p>
-                </div>
-                <div className="col-xs-12 text-center">
-                  <button className="fn-primary" onClick={this.keepFavorites}>Keep {favoriteString}</button>
-                  <button className="fn-secondary" onClick={this.deleteFavorites}>Delete {favoriteString}</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    )
+    return <Modal
+      id="delete-modal"
+      title={deleteQuestion}
+      ref={i => this.deleteModal = i}
+      restoreFocusTo="#delete-modal-launcher"
+      primaryAction={this.deleteFavorites}
+      primaryButtonLabel={'Delete ' + favoriteString}
+      secondaryAction={this.deleteModal.hideModal}
+      secondaryButtonLabel={'Keep ' + favoriteString}>
+      <p>This cannot be undone. New favorites can be added at any time.</p>
+    </Modal>
   }
 
   renderSearchBar = () => {
@@ -225,7 +204,7 @@ export default class ManageFavoritesPage extends React.Component {
   renderSearchCounts = () => {
     let length = this.manageFavoritesStore.searchResults.length;
     return (
-      <div className="search-count">
+      <div className="search-count" aria-live="polite">
         {`${length} Result${length !== 1 ? 's' : ''}`}
       </div>
     )
@@ -240,7 +219,7 @@ export default class ManageFavoritesPage extends React.Component {
         </div>
         {
           this.manageFavoritesStore.checkedRows.length > 0 &&
-          <div className="selection-count">
+          <div className="selection-count" aria-live="polite">
             {`${this.manageFavoritesStore.checkedRows.length} Selected`}
           </div>
         }
@@ -252,7 +231,7 @@ export default class ManageFavoritesPage extends React.Component {
     const oneItemSelected = this.manageFavoritesStore.checkedRows.length === 1;
     return (
       <div className="desktop-favorites-delete-button">
-        <button role="button" className={`as-link ${this.manageFavoritesStore.disableDeleteButton ? 'disabled' : ''}`} onClick={this.handleDeleteAction}>
+        <button id="delete-modal-launcher" role="button" className={`as-link ${this.manageFavoritesStore.disableDeleteButton ? 'disabled' : ''}`} onClick={this.handleDeleteAction}>
           <i className="icon-trash" aria-hidden="true" />
           <span>
             {
@@ -336,7 +315,7 @@ export default class ManageFavoritesPage extends React.Component {
     return (
       <Checkbox
         id="select-all-checkbox"
-        label="Select or Deselect All Checkboxes"
+        label={this.manageFavoritesStore.selectAllCheckboxSrOnlyLabel}
         labelIsSrOnly={true}
         handleOnChange={this.handleSelectAllCheckbox}
         checked={this.manageFavoritesStore.checkSelectAllCheckbox}/>
@@ -394,6 +373,7 @@ export default class ManageFavoritesPage extends React.Component {
               {(this.manageFavoritesStore.shouldRenderRows || this.manageFavoritesStore.showSearchResults) && this.renderTopAndBottomFeatures('top')}
               <SortableTable
                 ref={(ref) => this.tableRef = ref}
+                refList={this.tableRef}
                 rows={this.manageFavoritesStore.sortedRows}
                 activeRows={this.manageFavoritesStore.checkedRows}
                 totalRowCount={this.manageFavoritesStore.rows.length}
@@ -412,7 +392,7 @@ export default class ManageFavoritesPage extends React.Component {
                 <span data="column" className="table-container checkbox-container">
                   <TableColumn
                     rowActions={this.renderRowCheckbox}
-                    additionalHeaderJsx={this.renderSelectAllCheckbox()}
+                    additionalHeaderActions={this.renderSelectAllCheckbox}
                     columnClassName="checkbox-column" />
                 </span>
                 <span data="column" className="table-container center-container">

@@ -5,7 +5,7 @@ import asForm from '../forms/asForm.js';
 import TextInput from '../forms/text-input';
 
 @observer
-class MobileIronForm extends React.Component {
+class MobileIronCloudForm extends React.Component {
   static propTypes = {
     store: PropTypes.object,
     announceErrors: PropTypes.bool
@@ -26,12 +26,12 @@ class MobileIronForm extends React.Component {
       <div>
         <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="mi_hostName" type="input" labelText="Host Name" required={true} disabled={disabled} errorMessage="Please enter a valid host name." announceError={this.props.announceErrors} charLimit={256}/>
 
-        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="mi_userName" type="input" labelText="MobileIron Core Username" required={true} disabled={disabled} errorMessage="Please enter a valid MobileIron Core username." announceError={this.props.announceErrors} charLimit={256}/>
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="mi_userName" type="input" labelText="MobileIron Cloud Username" required={true} disabled={disabled} errorMessage="Please enter a valid MobileIron Cloud username." announceError={this.props.announceErrors} charLimit={256}/>
 
-        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="mi_password" type="password" labelText="MobileIron Core Password" required={true} disabled={disabled} errorMessage="Please enter a valid MobileIron Core password." announceError={this.props.announceErrors} charLimit={256}/>
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="mi_password" type="password" labelText="MobileIron Cloud Password" required={true} disabled={disabled} errorMessage="Please enter a valid MobileIron Cloud password." announceError={this.props.announceErrors} charLimit={256}/>
       </div>
     );
   }
 }
 
-export default asForm(MobileIronForm)
+export default asForm(MobileIronCloudForm)

@@ -1,38 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<ScreenshotGallery /> standard snapshot tests: Render tests; should render with props 1`] = `
 <div
   aria-label="App screenshot gallery"
   className="gallery-container"
-  role="region">
+  role="region"
+>
   <div
-    className="scrollable-region">
+    className="scrollable-region"
+  >
     <div
-      className="slide-container">
+      className="slide-container mobile"
+    >
       <figure
-        className="img-responsive">
+        className="img-responsive"
+      >
         <img
           alt="This is a mobile screenshot"
           aria-labelledby="slide-caption-0"
           className="slide-img"
-          src="imgpath.jpg" />
+          src="imgpath.jpg"
+        />
         <figcaption
           className="slide-caption"
-          id="slide-caption-0">
+          id="slide-caption-0"
+        >
           This is a mobile screenshot
         </figcaption>
       </figure>
     </div>
     <div
-      className="slide-container">
+      className="slide-container tablet"
+    >
       <figure
-        className="img-responsive">
+        className="img-responsive"
+      >
         <img
           alt="This is a tablet screenshot"
           aria-labelledby="slide-caption-1"
           className="slide-img"
-          src="imgpath.jpg" />
+          src="imgpath.jpg"
+        />
         <figcaption
           className="slide-caption"
-          id="slide-caption-1">
+          id="slide-caption-1"
+        >
           This is a tablet screenshot
         </figcaption>
       </figure>
@@ -45,8 +57,10 @@ exports[`<ScreenshotGallery /> standard snapshot tests: Render tests; should ren
 <div
   aria-label="App screenshot gallery"
   className="gallery-container"
-  role="region">
+  role="region"
+>
   <div
-    className="scrollable-region" />
+    className="scrollable-region"
+  />
 </div>
 `;

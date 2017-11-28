@@ -1,7 +1,11 @@
 $footer-font-color: $fn-dark;
 
+.footer-container {
+  background-color: transparent;
+  padding-top: $footer-margin-top;
+}
+
 footer {
-  margin-top: $footer-margin-top;
   border-top: 5px solid $fn-black;
 
   .logoRow {

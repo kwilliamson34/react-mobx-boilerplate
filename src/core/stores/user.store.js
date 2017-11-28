@@ -79,6 +79,7 @@ class UserStore {
       this.user.pse = userInfo.authorizations[0].pseId || '';
       this.user.pseName = userInfo.authorizations[0].pseName || '';
       this.user.roles = userInfo.authorizations[0].pseUserRoles || [];
+      console.log('User is logged in with roles: ' + this.user.roles.toString());
     } else {
       // FAN mapping hasn't happened; use HALO provided groups and roles
       this.user.pse = '';
@@ -99,10 +100,6 @@ class UserStore {
     return false;
   }
 
-  @computed get isAdmin() {
-    return this.checkRolesString(['G_FN_IM','G_FN_ADM','G_FN_ITM']);
-  }
-
   @computed get isAuthenticUser() {
     return this.checkRolesString(['G_FN_IM','G_FN_ADM','G_FN_SUB','G_FN_VOL_ADM','G_FN_VOL','G_FN_ITM']);
   }
@@ -111,17 +108,13 @@ class UserStore {
     return this.checkRolesString(['G_FN_SUB','G_FN_VOL_ADM','G_FN_VOL']);
   }
 
-  @computed get canViewNetworkStatus() {
-    return this.checkRolesString(['G_FN_IM','G_FN_ADM','G_FN_ITM']);
-  }
-
   @computed get destinationIsPermitted() {
     let destinationIsPermitted = {};
-    for(let card in this.cardPermissions) {
-      if(_.intersection(this.cardPermissions[card], this.user.roles).length) {
-        destinationIsPermitted[card] = true;
+    for(let route in this.routePermissions) {
+      if(_.intersection(this.routePermissions[route], this.user.roles).length) {
+        destinationIsPermitted[route] = true;
       } else {
-        destinationIsPermitted[card] = false;
+        destinationIsPermitted[route] = false;
       }
     }
     return destinationIsPermitted;
@@ -131,7 +124,16 @@ class UserStore {
   @observable api_token = '';
   @observable userValidationDone = false;
   @observable validationPromise = '';
-  @observable cardPermissions = {
+
+  /*
+  'G_FN_IM' Incident Manager,
+  'G_FN_ADM' PSE Administrator with Premier,
+  'G_FN_ITM' PSE Administrator without Premier,
+  'G_FN_SUB' Subscriber (CRU),
+  'G_FN_VOL_ADM' Subscriber Paid Administrator,
+  'G_FN_VOL' Subscriber Paid
+  */
+  @observable routePermissions = {
     shopStandardDevices: ['G_FN_ADM', 'G_FN_VOL'],
     shopSpecializedDevices: ['G_FN_ADM', 'G_FN_VOL'],
     shopPublicSafetySolutions: ['G_FN_ADM', 'G_FN_VOL_ADM', 'G_FN_VOL'],
@@ -140,7 +142,9 @@ class UserStore {
     viewReports: ['G_FN_ADM', 'G_FN_VOL'],
     manageApps: ['G_FN_ADM', 'G_FN_ITM', 'G_FN_VOL_ADM'],
     manageVoicemail: ['G_FN_SUB'],
-    administration: ['G_FN_ADM', 'G_FN_ITM', 'G_FN_SUB', 'G_FN_VOL_ADM', 'G_FN_VOL']
+    administration: ['G_FN_ADM', 'G_FN_ITM', 'G_FN_SUB', 'G_FN_VOL_ADM', 'G_FN_VOL'],
+    networkStatus: ['G_FN_IM', 'G_FN_ADM', 'G_FN_ITM'],
+    manageIotDevices: ['G_FN_ADM']
   }
 }
 

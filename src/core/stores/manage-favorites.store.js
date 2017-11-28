@@ -8,7 +8,7 @@ class ManageFavoritesStore {
 
   @action fetchRows() {
     const success = (res) => {
-      //initially ordering rows by locationFavoriteId in desc order, which corresponds to 'most recent' first.
+      //rows will initially order by locationName.
       this.rows = this.sortAndReturnRows(res.data.userlocationfavorite);
       this.isLoading = false;
       this.advancePagination();
@@ -76,6 +76,7 @@ class ManageFavoritesStore {
     const success = (res) => {
       this.searchResults = res.data.userlocationfavorite;
       this.showSearchResults = true;
+      this.clearAllCheckboxes();
       this.resetPagination();
       this.advancePagination();
     }
@@ -103,17 +104,6 @@ class ManageFavoritesStore {
       : this.checkedRows.push(rowId);
 	}
 
-  @action resetPage() {
-    this.resetPagination();
-    this.clearSearchQuery();
-    this.updateAlert('');
-    this.updateSuccess('');
-    this.rows = [];
-    this.searchResults = [];
-    this.checkedRows = [];
-    this.showSearchResults = false;
-  }
-
   @action selectAllCheckboxes() {
     this.paginatedRows.forEach(row => {
       const id = row.locationFavoriteId.toString();
@@ -121,6 +111,23 @@ class ManageFavoritesStore {
         this.checkedRows.push(id);
       }
     });
+  }
+
+  @action setTableRef(refList) {
+    this.tableRef = refList;
+  }
+
+  @action resetPage() {
+    this.resetPagination();
+    this.clearSearchQuery();
+    this.updateAlert('');
+    this.updateSuccess('');
+    this.activeColumn = 'favoriteName';
+    this.rows = [];
+    this.searchResults = [];
+    this.checkedRows = [];
+    this.showSearchResults = false;
+    this.tableRef = [];
   }
 
   @action resetPagination() {
@@ -197,6 +204,14 @@ class ManageFavoritesStore {
       : this.rows.length > this.sortedRows.length;
   }
 
+  @computed get selectAllCheckboxSrOnlyLabel() {
+    return this.isLoading
+      ? 'Select all checkbox selected'
+      : `You are currently on a table. There are ${this.tableRef.relevantColumnsCount} columns and ${this.sortedRows.length} rows. Select all checkbox selected`;
+  }
+
+  @observable tableRef = [];
+
   @observable rows = [];
   @observable checkedRows = [];
 
@@ -213,7 +228,7 @@ class ManageFavoritesStore {
   @observable paginationInterval = 50;
   @observable moreToLoad = false;
 
-  @observable activeColumn = 'locationFavoriteId';
+  @observable activeColumn = 'favoriteName';
 
   //to keep the order toggling simple, true is ascending and false is descending;
   @observable sortDirectionsDefaults = {

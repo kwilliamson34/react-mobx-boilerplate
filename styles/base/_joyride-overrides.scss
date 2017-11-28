@@ -138,36 +138,29 @@
 }
 
 #tour-intro-modal {
-  border-radius: 4px;
+  &.modal .modal-dialog .modal-content {
+    padding: 45px 30px;
+    border-radius: 4px;
 
-  .modal {
-    &-content {
-      padding: 45px 30px;
-      border-radius: 4px;
+    .fn-modal-close {
+      top: 30px;
+      right: 23px;
     }
 
-    &-header {
+    h1.as-h2 {
       border-bottom: $joyride-header-border-width solid $joyride-header-border-color;
       color: $joyride-header-color;
-      padding: 0;
+      font-size: $joyride-header-font-size;
+      font-weight: $fn-medium-weight;
+      text-align: left;
+      padding-bottom: 15px;
       margin-bottom: 30px;
-
-      h1 {
-        font-size: $joyride-header-font-size;
-        font-weight: $fn-medium-weight;
-        text-align: left;
-        margin-bottom: 15px;
-      }
-
-      .fn-modal-close {
-        right: 23px;
-      }
     }
 
-    &-body {
+    .modal-body {
       text-align: left;
       font-size: 14px;
-      padding: 0 0 80px;
+      padding: 0 0 40px;
 
       p {
         font-size: $joyride-tooltip-font-size;
@@ -192,23 +185,29 @@
       }
     }
 
-    &-footer {
-      @extend .clearfix;
-      border: 0 none;
-      padding: 0;
+    .modal-actions {
+      button {
+        margin: 10px 0;
+      }
     }
   }
 }
 @media #{$tablet, $desktop} {
   #tour-intro-modal {
-    .modal {
-      &-content {
-        padding: 45px 60px;
+    &.modal .modal-dialog .modal-content {
+      padding: 45px 60px;
+
+      .fn-modal-close {
+        right: 60px;
       }
-      &-header {
-        .fn-modal-close {
-          top: 30px;
-          right: 60px;
+
+      .modal-actions {
+        .fn-primary {
+          float: right;
+        }
+
+        .fn-secondary {
+          float: left;
         }
       }
     }

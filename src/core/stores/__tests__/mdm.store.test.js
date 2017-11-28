@@ -31,7 +31,6 @@ describe("MDMStore", () => {
     store.updateMDM('MAAS360');
 
     expect(store.values.mdm_type).toBe('MAAS360');
-    expect(store.showbreakMDMConnection).toBe(false);
   });
 
   test("clearStoredCredentials works as expected", () => {
@@ -68,6 +67,16 @@ describe("MDMStore", () => {
 
     store.getMDMConfiguration().then(() => {
       expect(store.values.mdm_type).toBe('MOBILE_IRON');
+    });
+    
+    apiService.getMDMConfiguration.mockReturnValue(Promise.resolve({
+      data: {
+        mdm_type: 'MOBILE_IRON_CORE'
+      }
+    }));
+
+    store.getMDMConfiguration().then(() => {
+      expect(store.values.mdm_type).toBe('MOBILE_IRON_CORE');
     });
   });
 
@@ -161,12 +170,8 @@ describe("MDMStore", () => {
   test("stopPolling works as expected", () => {
     let psk = "123";
     store.appCatalogMDMStatuses.set(psk, 'PENDING');
-    store.throwConnectError = jest.fn();
-
     store.stopPolling(psk);
-
     expect(store.appCatalogMDMStatuses.get(psk)).toBe('NOT_INSTALLED');
-    expect(store.throwConnectError).toHaveBeenCalled();
   });
 
   test("pollUntilResolved works as expected", () => {

@@ -23,28 +23,54 @@
       padding: 60px 30px;
 
       h1 {
-        margin-top: 0;
         margin-bottom: 20px;
-        text-align: center;
       }
 
-      p {
-        text-align: center;
-        margin-bottom: 30px;
-      }
-
-      .fn-primary,
-      .fn-secondary {
-        display: block;
-        width: 100%;
-      }
-
-      button + button {
+      .modal-actions {
         margin-top: 30px;
+
+        button {
+          margin: 10px;
+        }
       }
     }
   }
 }
+
+.fn-modal-close {
+  position: absolute;
+  height: 38px;
+  width: 38px;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  padding: 5px 0;
+  line-height: 36px;
+  border-radius: 50%;
+  z-index: 100; //required by Joyride Intro Modal
+
+  i {
+    &:before {
+      color: $fn-dkgrey;
+      font-size: 21px;
+    }
+  }
+  &:hover,
+  &:active,
+  &:focus,
+  &:active:focus {
+    outline:none;
+    background: $fn-blue;
+    color: $fn-white;
+    i {
+      &:before {
+        color: white
+      }
+    }
+  }
+}
+
 @media #{$tablet} {
   .modal {
     .modal-dialog {
@@ -53,20 +79,6 @@
 
         h1 {
           margin-bottom: 30px;
-        }
-
-        p {
-          margin-bottom: 40px;
-        }
-
-        .fn-primary,
-        .fn-secondary {
-          display: inline-block;
-          width: auto;
-        }
-
-        button:not(.fn-modal-close) {
-          margin: 0 10px 0;
         }
       }
     }
@@ -80,18 +92,6 @@
 
         h1 {
           margin-bottom: 30px;
-        }
-
-        p {
-          margin-bottom: 60px;
-        }
-        .fn-primary,
-        .fn-secondary {
-          display: inline-block;
-          width: auto;
-        }
-        button:not(.fn-modal-close) {
-          margin: 0 10px 0;
         }
       }
     }

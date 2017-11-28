@@ -85,6 +85,16 @@ export default class App extends React.Component {
     });
   }
 
+  handleSkipNav = () => {
+    //Fix for FPSE-1393 and FPSE-1394. Skip Navigation is not working on IE, as elements without a tabIndex don't take focus. For 508 compliance, #main-content can't permanently have a tabIndex.
+    const mainContent = $('#main-content');
+    mainContent.attr('tabindex', -1);
+    mainContent.focus();
+    mainContent.blur(() => {
+      mainContent.removeAttr('tabindex');
+    });
+  }
+
   getSpecializedDevicesComponent = ({match}) => {
     return (
       <article id="specialized-devices">
@@ -111,24 +121,51 @@ export default class App extends React.Component {
   }
 
   getMainLayoutComponent = () => {
+    const permissionObject = pseMasterStore.userStore.destinationIsPermitted;
     return (
       <div>
         {config.showOnboardingWalkthrough &&
 					<JoyrideBase location={location.pathname} joyrideStore={pseMasterStore.joyrideStore} />
 				}
         <ScrollToTop>
-          <a href="#main-content" className="skipnav">Skip Navigation</a>
+          <a href="#main-content" className="skipnav" onClick={this.handleSkipNav}>Skip Navigation</a>
           <Header/>
           <main id="main-content">
             <Switch>
-              <Route exact path="/" component={this.getAdminRoutes(AdminDashboardPage)}/>
-              <Route path="/admin/manage-apps" component={this.getAdminRoutes(ManageAppsPage)}/>
-              <Route path="/admin/configure-mdm" component={this.getAdminRoutes(ConfigureMDM)}/>
-              <Route path="/admin/devices" component={this.getAdminRoutes(this.getSpecializedDevicesComponent)}/>
-              <Route path="/admin/solutions" component={this.getAdminRoutes(this.getPublicSafetySolutionsComponent)}/>
-              <Route path="/admin" component={this.getAdminRoutes(AdminDashboardPage)}/>
-              <Route path="/app/:appPsk" component={this.getAdminRoutes(AppDetailsPage)/*TODO redirect to error/404 if psk has no match*/}/>
-              <Route path="/network-status" component={this.getNetworkStatusRoutes(NetworkStatusPage)}/>
+              <Route exact path="/" component={this.checkRoutePermission({
+                  component: AdminDashboardPage,
+                  isPermitted: permissionObject.administration,
+                  redirectPath: '/network-status'
+                })}/>
+              <Route path="/admin/manage-apps" component={this.checkRoutePermission({
+                  component: ManageAppsPage,
+                  isPermitted: permissionObject.manageApps
+                })}/>
+              <Route path="/admin/configure-mdm" component={this.checkRoutePermission({
+                  component: ConfigureMDM,
+                  isPermitted: permissionObject.manageApps
+                })}/>
+              <Route path="/admin/devices" component={this.checkRoutePermission({
+                  component: this.getSpecializedDevicesComponent,
+                  isPermitted: permissionObject.shopSpecializedDevices
+                })}/>
+              <Route path="/admin/solutions" component={this.checkRoutePermission({
+                  component: this.getPublicSafetySolutionsComponent,
+                  isPermitted: permissionObject.shopPublicSafetySolutions
+                })}/>
+              <Route path="/admin" component={this.checkRoutePermission({
+                  component: AdminDashboardPage,
+                  isPermitted: permissionObject.administration,
+                  redirectPath: '/network-status'
+                })}/>
+              <Route path="/app/:appPsk" component={this.checkRoutePermission({
+                  component: AppDetailsPage,
+                  isPermitted: permissionObject.manageApps
+                })/*TODO redirect to error/404 if psk has no match*/}/>
+              <Route path="/network-status" component={this.checkRoutePermission({
+                  component: NetworkStatusPage,
+                  isPermitted: permissionObject.networkStatus
+                })}/>
               <Route path="/manage-favorites" component={ManageFavoritesPage}/>
               <Route path="/subscribe-to-alerts" component={SubscribeToGTOC}/>
               <Route path="/subscribe-to-alerts-success" component={SubscribeToGTOCSuccess}/>
@@ -145,28 +182,8 @@ export default class App extends React.Component {
     );
   }
 
-  getAdminRoutes = (component) => {
-    let destinationIsPermitted = false;
-    if(component === ManageAppsPage) {
-      destinationIsPermitted = pseMasterStore.userStore.destinationIsPermitted.manageApps;
-    } else if(component === this.getSpecializedDevicesComponent) {
-      destinationIsPermitted = pseMasterStore.userStore.destinationIsPermitted.shopSpecializedDevices;
-    } else if(component === this.getPublicSafetySolutionsComponent) {
-      destinationIsPermitted = pseMasterStore.userStore.destinationIsPermitted.shopPublicSafetySolutions;
-    } else if(component === AdminDashboardPage) {
-      destinationIsPermitted = pseMasterStore.userStore.destinationIsPermitted.administration;
-      if(!destinationIsPermitted) {
-        return () => <Redirect to="/network-status"/>;
-      }
-    }
-
-    let roleBasedRoutes = destinationIsPermitted || pseMasterStore.userStore.isAdmin ? component : () => <Redirect to="/error/unauthorized"/>;
-    return roleBasedRoutes;
-  }
-
-  getNetworkStatusRoutes = (component) => {
-    let roleBasedRoutes = pseMasterStore.userStore.canViewNetworkStatus ? component : () => <Redirect to="/error/unauthorized"/>;
-    return roleBasedRoutes;
+  checkRoutePermission = ({component, isPermitted, redirectPath = '/error/unauthorized'}) => {
+    return isPermitted ? component : () => <Redirect to={redirectPath}/>;
   }
 
   getPlainLayoutComponent = () => {

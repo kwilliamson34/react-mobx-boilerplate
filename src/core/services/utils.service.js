@@ -56,7 +56,7 @@ class UtilsService {
   }
 
   getUrlParameter(name) {
-    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    name = name.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
     var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
     var results = regex.exec(window.location.search);
     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
@@ -89,8 +89,13 @@ class UtilsService {
   }
 
   isValidEmailAddress(string) {
-    const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    //allowed emails are based on https://blogs.msdn.microsoft.com/testing123/2009/02/06/email-address-test-cases/
+    const emailRegex = /^([A-Z|a-z|0-9|_-](\.|\+){0,1})+[A-Z|a-z|0-9|_-]@([A-Z|a-z|0-9|_-])*(\.|\+){0,1}([A-Z|a-z|0-9|_-])+\.[a-z]{2,4}$/gm;
     return emailRegex.test(string);
+  }
+
+  escapeHtmlEntityOutput(string) {
+    return string.replace(/'/g, '&apos;');
   }
 
   normalizedDate(date, format) {
@@ -196,7 +201,7 @@ class UtilsService {
     // other browser
     return false;
   }
-  
+
   getCookie(cname) {
     let name = cname + '=';
     let ca = document.cookie.split(';');
@@ -218,6 +223,29 @@ class UtilsService {
     d.setTime(d.getTime() + (expiryDays * 24 * 60 * 60 * 1000));
     let expires = 'expires=' + d.toUTCString();
     document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
+  }
+
+  registerFormFieldRef(ref, formFieldRefList) {
+    //store refList as simple array so we don't get the "out of bounds" error while looping over it;
+    const refList = formFieldRefList.peek();
+    //sometimes null refs come in;
+    if (!ref) return;
+    //if the ref already exists in the refList, ignore it;
+    if (refList.indexOf(ref) > -1) {
+      return;
+    } else {
+      for (let r in refList) {
+        //if the ref has unmounted, its input field will be null. Remove it;
+        if (!refList[r].input) {
+          formFieldRefList.remove(formFieldRefList[r]);
+        }
+        //check for refs that are different but have matching ids. Remove the existing ref, to replace with the new ref;
+        else if (refList[r] !== ref && Boolean(refList[r].input && ref.input) && refList[r].input.id === ref.input.id) {
+          formFieldRefList.remove(formFieldRefList[r]);
+        }
+      }
+      formFieldRefList.push(ref);
+    }
   }
 }
 

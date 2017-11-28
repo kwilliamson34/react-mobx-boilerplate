@@ -217,6 +217,8 @@ export default class PSEHeader extends React.Component {
 	}
 
 	renderAdminMenuItem = () => {
+		const isPermitted = this.userStore.destinationIsPermitted;
+		const hideAside = !(isPermitted.shopStandardDevices || isPermitted.shopSpecializedDevices || isPermitted.shopPublicSafetySolutions);
 		return (
 			<li id="btn-admin" className={`mainnav-item desktop-textlink ${this.headerStore.adminSubMenuIsOpen ? 'expanded' : ''}`}>
 				<button
@@ -242,34 +244,34 @@ export default class PSEHeader extends React.Component {
 						role="navigation"
 						className={`collapse ${this.headerStore.adminSubMenuIsOpen ? 'in' : ''}`}
 						aria-labelledby="linkBtn-admin">
-						<strong className="visible-md-block visible-lg-block" aria-hidden="true">
+						{!hideAside && <strong className="visible-md-block visible-lg-block" aria-hidden="true">
 							Management
-						</strong>
-						{this.userStore.destinationIsPermitted.manageUsers && <li>
+						</strong>}
+						{isPermitted.manageUsers && <li>
 							<NewTabLink to={config.manageUsersLink} onClick={this.handleExternalTabOpen} showIcon={true}>
 								Manage Users
 							</NewTabLink>
 						</li>}
-						{this.userStore.destinationIsPermitted.manageApps && <li>
+						{isPermitted.manageApps && <li>
 							<NavLink to="/admin/manage-apps">Manage Apps</NavLink>
 						</li>}
-						<li>
+						{isPermitted.manageBilling && <li>
 							<NewTabLink to={config.manageServicesLink} onClick={this.handleExternalTabOpen} showIcon={true}>
 								Manage Services &amp; Billing
 							</NewTabLink>
-						</li>
-						{this.userStore.destinationIsPermitted.manageVoicemail && <li>
+						</li>}
+						{isPermitted.manageVoicemail && <li>
 							<NewTabLink to={config.manageVoicemailAndUsageLink} onClick={this.handleExternalTabOpen} showIcon={true}>
 								Manage Voicemail &amp; Usage
 							</NewTabLink>
 						</li>}
-						{this.userStore.destinationIsPermitted.viewReports && <li>
+						{isPermitted.viewReports && <li>
 							<NewTabLink to={config.viewWirelessReportsLink} onClick={this.handleExternalTabOpen} showIcon={true}>
 								View Wireless Reports
 							</NewTabLink>
 						</li>}
 					</ul>
-					<ul
+					{!hideAside && <ul
 						id="pse-aside-nav"
 						role="navigation"
 						className={`collapse ${this.headerStore.adminSubMenuIsOpen ? 'in' : ''}`}
@@ -277,22 +279,22 @@ export default class PSEHeader extends React.Component {
 						<strong className="visible-md-block visible-lg-block" aria-hidden="true">
 							Purchasing &amp; Provisioning
 						</strong>
-						{this.userStore.destinationIsPermitted.shopStandardDevices && <li>
+						{isPermitted.shopStandardDevices && <li>
 							<NewTabLink to={config.shopStandardDevicesLink} onClick={this.handleExternalTabOpen} showIcon={true}>
 								Standard Devices &amp; Rate Plans
 							</NewTabLink>
 						</li>}
-						{this.userStore.destinationIsPermitted.shopSpecializedDevices && <li>
+						{isPermitted.shopSpecializedDevices && <li>
 							<NavLink to="/admin/devices">
 								Specialized Devices
 							</NavLink>
 						</li>}
-						{this.userStore.destinationIsPermitted.shopPublicSafetySolutions && <li>
+						{isPermitted.shopPublicSafetySolutions && <li>
 							<NavLink to="/admin/solutions">
 								Public Safety Solutions
 							</NavLink>
 						</li>}
-					</ul>
+					</ul>}
 				</div>
 			</li>
 		)
@@ -345,7 +347,7 @@ export default class PSEHeader extends React.Component {
 							<ul className="fnnav__main">
 								{this.renderMobileOnlyUserMenu()}
 								{this.userStore.destinationIsPermitted.administration && this.renderAdminMenuItem()}
-								{this.userStore.canViewNetworkStatus &&
+								{this.userStore.destinationIsPermitted.networkStatus &&
 									<li id="hdr-network-status" className="mainnav-item desktop-textlink" role="presentation">
 										<NavLink id="linkBtn-networkStatus" to="/network-status" activeClassName="active">
 											Network Status

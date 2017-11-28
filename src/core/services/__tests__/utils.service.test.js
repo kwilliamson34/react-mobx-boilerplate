@@ -100,7 +100,6 @@ describe('UtilsService', () => {
       expect(utilsService.isValidEmailAddress('johnny@sapient.com')).toBe(true);
       expect(utilsService.isValidEmailAddress('johnny@gmail.com')).toBe(true);
       expect(utilsService.isValidEmailAddress('123@sapient.com')).toBe(true);
-      expect(utilsService.isValidEmailAddress('#@sapient.com')).toBe(true);
     });
 
     test('handleError', () => {

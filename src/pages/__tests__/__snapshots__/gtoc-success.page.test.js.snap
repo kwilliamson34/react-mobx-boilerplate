@@ -1,19 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<GtocSuccessPage /> render matches previous snapshot 1`] = `
 <section
-  className="success-page">
+  className="success-page"
+>
   <div
-    className="container">
+    className="container"
+  >
     <div
-      className="col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
+      className="col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10"
+    >
       <p>
         Processing your subscription can take up to 14 days, after which you will start receiving alert notifications. If you have any questions, please contact
         <br
-          className="visible-lg-block" />
+          className="visible-lg-block"
+        />
          FirstNet Customer Service at 
         <a
-          href="tel:800-574-7000">
+          href="tel:800-574-7000"
+        >
           <span
-            className="sr-only">
+            className="sr-only"
+          >
             FirstNet Customer Service Phone 
           </span>
           800-574-7000
@@ -23,7 +31,8 @@ exports[`<GtocSuccessPage /> render matches previous snapshot 1`] = `
       <a
         className="fn-primary"
         href="/network-status"
-        onClick={[Function anonymous]}>
+        onClick={[Function]}
+      >
         Network Status
       </a>
     </div>

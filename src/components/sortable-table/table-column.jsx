@@ -13,7 +13,7 @@ export class TableColumn extends React.Component {
     columnDataKey: PropTypes.string,
     columnClassName: PropTypes.string,
     headerLabel: PropTypes.string,
-    additionalHeaderJsx: PropTypes.object
+    additionalHeaderActions: PropTypes.func
   }
 
 
@@ -52,7 +52,7 @@ export class TableColumn extends React.Component {
     return (
       <div role="columnheader" className={`table-head-column ${this.props.columnClassName}`}>
         {this.props.toggleSort && this.renderSortingElements()}
-        {this.props.additionalHeaderJsx}
+        {this.props.additionalHeaderActions && this.props.additionalHeaderActions()}
         {
           this.props.headerLabel && !this.props.toggleSort &&
           <div className="header-label">
