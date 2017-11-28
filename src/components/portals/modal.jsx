@@ -33,6 +33,8 @@ export default class Modal extends React.Component {
       if (this.show) {
         $(this.modal).modal({backdrop: 'static'});
         $(this.modal).modal('show');
+        let event = new Event('showModal', {bubbles: true});
+        window.dispatchEvent(event);
       } else {
         $(this.modal).modal('hide');
         $(this.modal).data('bs.modal', null);

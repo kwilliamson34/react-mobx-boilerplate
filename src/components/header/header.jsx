@@ -75,10 +75,12 @@ export default class PSEHeader extends React.Component {
 
 
 		window.addEventListener('resize', this.updateWindowDimensions);
+		window.addEventListener('showModal', this.closeMainMenu);
 	}
 
 	componentWillUnmount() {
 		window.removeEventListener('resize', this.updateWindowDimensions);
+		window.removeEventListener('showModal', this.closeMainMenu);
 	}
 
 	handleRouteChange() {
