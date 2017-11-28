@@ -53,6 +53,8 @@ export default class Modal extends React.Component {
 
   showModal = () => {
     this.show = true;
+    let event = new Event('showModal', {bubbles: true});
+    window.dispatchEvent(event);
   }
 
   hideModal = () => {
