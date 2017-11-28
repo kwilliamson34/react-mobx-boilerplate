@@ -80,7 +80,7 @@ export default class PSEHeader extends React.Component {
 
 	componentWillUnmount() {
 		window.removeEventListener('resize', this.updateWindowDimensions);
-		window.addEventListener('showModal', this.closeMainMenu);
+		window.removeEventListener('showModal', this.closeMainMenu);
 	}
 
 	handleRouteChange() {
