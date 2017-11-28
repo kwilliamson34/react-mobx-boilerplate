@@ -164,10 +164,15 @@ class ManageFavoritesStore {
 
   sortAndReturnRows(rowsToSort) {
     const sortOrder = this.sortDirections[this.activeColumn];
+    let numberRows = rowsToSort.filter(row => parseInt(row.split(' ')[0]) !== NaN);
+    let notNumberRows = rowsToSort.filter(row => parseInt(row.split(' ')[0]) === NaN);
+    console.log('sortedRows', numberRows, notNumberRows);
+
     return rowsToSort.sort((x, y) => {
-      const rowX = x[this.activeColumn].toString().toLowerCase().split(/(\d+)/).filter(Boolean);
-      const rowY = y[this.activeColumn].toString().toLowerCase().split(/(\d+)/).filter(Boolean);
-      console.log('take a peekus', rowX, rowY);
+      const rowX = x[this.activeColumn].toLowerCase().split(' ').filter(Boolean);
+      const rowY = y[this.activeColumn].toLowerCase().split(' ').filter(Boolean);
+      // console.log('rows', rowX, rowY);
+      // console.log('parseInt', parseInt(rowX[0]), parseInt(rowY[0]))
       // if (rowX < rowY) {
       //   return sortOrder ? -1 : 1;
       // }
@@ -228,7 +233,7 @@ class ManageFavoritesStore {
   @observable paginationInterval = 50;
   @observable moreToLoad = false;
 
-  @observable activeColumn = 'favoriteName';
+  @observable activeColumn = 'locationFavoriteAddress';
 
   //to keep the order toggling simple, true is ascending and false is descending;
   @observable sortDirectionsDefaults = {
