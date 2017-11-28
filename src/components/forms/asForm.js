@@ -45,7 +45,7 @@ export default function asForm (MyComponent, attributes) {
         if(this.announceErrors !== this.showAlertBar) {
           setTimeout(() => {
             this.announceErrors = this.showAlertBar;
-          }, 1000)
+          }, 200)
         }
       });
     }
@@ -148,11 +148,14 @@ export default function asForm (MyComponent, attributes) {
       //manage the alert bar first, so that it's read first
       this.store.updateAlert('Please fix the following errors.');
 
+      //show all errors that aren't already shown, triggering screen reader
       this.store.formFieldRefList.forEach(ref => {
         if(ref && ref.hasFunctionalError) {
           ref.hasVisibleError = ref.hasFunctionalError;
         }
       });
+
+      //TODO: move keyboard focus to first input with error?
     }
 
     handleSecondaryAction = (event) => {
@@ -176,6 +179,10 @@ export default function asForm (MyComponent, attributes) {
     }
 
     render () {
+      const formChildProps = {
+        dataObject: this.store.values,
+        announceError: this.announceErrors
+      }
       return (
         <section>
           <form noValidate>
@@ -189,7 +196,7 @@ export default function asForm (MyComponent, attributes) {
                 clearSuccess={this.clearSuccess.bind(this)}
                 formColClass={this.formColClass}/>}
 
-            <MyComponent {...this.props} announceErrors={this.announceErrors}/>
+            <MyComponent {...this.props} formChildProps={formChildProps}/>
 
             <div className={`form-actions ${this.formColClass}`}>
               {this.includeDivider ? <hr/> : ''}

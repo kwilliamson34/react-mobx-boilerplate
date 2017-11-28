@@ -8,7 +8,7 @@ import TextInput from '../forms/text-input';
 class IBMForm extends React.Component {
   static propTypes = {
     store: PropTypes.object,
-    announceErrors: PropTypes.bool
+    formChildProps: PropTypes.object
   }
 
   constructor(props) {
@@ -24,21 +24,21 @@ class IBMForm extends React.Component {
     const disabled = this.store.mdmIsConfigured;
     return (
       <div>
-        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="ibm_rootURL" type="input" labelText="Root URL" required={true} disabled={disabled} errorMessage="Please enter a valid root URL." announceError={this.props.announceErrors} charLimit={256}/>
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} id="ibm_rootURL" type="input" labelText="Root URL" required={true} disabled={disabled} errorMessage="Please enter a valid root URL." charLimit={256} {...this.props.formChildProps}/>
 
-        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="ibm_billingID" type="input" labelText="Billing ID" required={true} disabled={disabled} errorMessage="Please enter a valid billing ID." announceError={this.props.announceErrors} charLimit={256}/>
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} id="ibm_billingID" type="input" labelText="Billing ID" required={true} disabled={disabled} errorMessage="Please enter a valid billing ID." charLimit={256} {...this.props.formChildProps}/>
 
-        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="ibm_userName" type="input" labelText="MaaS360 Username" required={true} disabled={disabled} errorMessage="Please enter a valid MaaS360 username." announceError={this.props.announceErrors} charLimit={256}/>
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} id="ibm_userName" type="input" labelText="MaaS360 Username" required={true} disabled={disabled} errorMessage="Please enter a valid MaaS360 username." charLimit={256} {...this.props.formChildProps}/>
 
-        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="ibm_password" type="password" labelText="MaaS360 Password" required={true} disabled={disabled} errorMessage="Please enter a valid MaaS360 password." announceError={this.props.announceErrors} charLimit={256}/>
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} id="ibm_password" type="password" labelText="MaaS360 Password" required={true} disabled={disabled} errorMessage="Please enter a valid MaaS360 password." charLimit={256} {...this.props.formChildProps}/>
 
-        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="ibm_platformID" type="input" labelText="Platform ID" required={true} disabled={disabled} errorMessage="Please enter a valid platform ID." announceError={this.props.announceErrors} charLimit={256}/>
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} id="ibm_platformID" type="input" labelText="Platform ID" required={true} disabled={disabled} errorMessage="Please enter a valid platform ID." charLimit={256} {...this.props.formChildProps}/>
 
-        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="ibm_appID" type="input" labelText="App ID" required={true} disabled={disabled} errorMessage="Please enter a valid app ID." announceError={this.props.announceErrors} charLimit={256}/>
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} id="ibm_appID" type="input" labelText="App ID" required={true} disabled={disabled} errorMessage="Please enter a valid app ID." charLimit={256} {...this.props.formChildProps}/>
 
-        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="ibm_appVersion" type="input" labelText="App Version" required={true} disabled={disabled} errorMessage="Please enter a valid app version." announceError={this.props.announceErrors} charLimit={256}/>
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} id="ibm_appVersion" type="input" labelText="App Version" required={true} disabled={disabled} errorMessage="Please enter a valid app version." charLimit={256} {...this.props.formChildProps}/>
 
-        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="ibm_appAccessKey" type="input" labelText="App Access Key" required={true} disabled={disabled} errorMessage="Please enter a valid app access key." announceError={this.props.announceErrors} charLimit={256}/>
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} id="ibm_appAccessKey" type="input" labelText="App Access Key" required={true} disabled={disabled} errorMessage="Please enter a valid app access key." charLimit={256} {...this.props.formChildProps}/>
       </div>
     );
   }

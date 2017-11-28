@@ -14,7 +14,7 @@ class GtocForm extends React.Component {
 
   static propTypes = {
     store: PropTypes.object,
-    announceErrors: PropTypes.bool
+    formChildProps: PropTypes.object
   }
 
   constructor (props) {
@@ -50,13 +50,12 @@ class GtocForm extends React.Component {
       <div id="gtoc-form">
         <CheckboxList
           ref={this.saveCheckboxListRef}
-          dataObject={this.store.values}
           id="femaList"
           labelText="Select Network Regions"
           required={true}
           selectAll={this.store.selectAll.bind(this.store)}
           clearAll={this.store.clearAll.bind(this.store)}
-          announceError={this.props.announceErrors}>
+          {...this.props.formChildProps}>
 
           {this.renderCheckbox('Region I', 'Connecticut, Maine, Massachusetts, New Hampshire, Rhode Island, Vermont')}
           {this.renderCheckbox('Region II', 'New Jersey, New York, Puerto Rico, Virgin Islands')}
@@ -72,15 +71,14 @@ class GtocForm extends React.Component {
 
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
-          dataObject={this.store.values}
           id="email"
           type="input"
           labelText="Email"
           required={true}
           getIsValid={utilsService.isValidEmailAddress}
           errorMessage="Please enter a valid email address."
-          announceError={this.props.announceErrors}
-          charLimit={256}/>
+          charLimit={256}
+          {...this.props.formChildProps}/>
       </div>
     );
   }
