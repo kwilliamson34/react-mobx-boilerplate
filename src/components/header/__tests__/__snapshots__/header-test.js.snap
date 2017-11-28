@@ -1720,9 +1720,16 @@ exports[`<PSEHeader /> render user role-based snapshots 2`] = `
                     onClick={[Function]}
                     style={undefined}
                   >
-                    Manage Apps
+                    <span
+                      dangerouslySetInnerHTML={
+                        Object {
+                          "__html": "Manage Apps",
+                        }
+                      }
+                    />
                   </a>
                 </li>
+                <li />
                 <li />
                 <li />
               </ul>
@@ -2646,7 +2653,13 @@ exports[`<PSEHeader /> render user role-based snapshots 4`] = `
                     onClick={[Function]}
                     style={undefined}
                   >
-                    Manage Apps
+                    <span
+                      dangerouslySetInnerHTML={
+                        Object {
+                          "__html": "Manage Apps",
+                        }
+                      }
+                    />
                   </a>
                 </li>
               </ul>
