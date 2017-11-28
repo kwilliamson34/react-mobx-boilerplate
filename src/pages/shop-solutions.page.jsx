@@ -24,10 +24,7 @@ export default class ShopSolutionsPage extends React.Component {
   }
 
   renderCards = (cardsArray) => {
-    //TODO: temporary cut to remove the final "Next Generation 9-11" category from the list. The status of this item is an open question; for now it's not needed.
-    let redactedArray = cardsArray.slice(0, 4);
-
-    return redactedArray.map((card) => {
+    return cardsArray.map((card) => {
       const path = card.name.replace(/ /g, '-').toLowerCase();
       return <SolutionCard
           key={card.name}
