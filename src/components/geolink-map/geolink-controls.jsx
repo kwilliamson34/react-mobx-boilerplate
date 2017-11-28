@@ -220,7 +220,9 @@ export default class GeolinkControls extends React.Component {
         </span>
         <h2 className="as-h5">Search</h2>
         <TextInput
-          ref={ref => this.store.formFieldRefList.push(ref)}
+          ref={ref => {
+            this.store.refToFocus = ref;
+            this.store.formFieldRefList.push(ref)}}
           dataObject={this.store.values}
           id={this.store.shouldDisplayLocationName ? 'locationName' : 'locationAddress'}
           type="search"

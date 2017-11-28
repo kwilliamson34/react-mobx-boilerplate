@@ -1,5 +1,6 @@
 import {action, observable, computed, autorun} from 'mobx';
 import axios from 'axios';
+import _ from 'lodash';
 import config from 'config';
 import {utilsService} from '../services/utils.service';
 import {apiService} from '../services/api.service';
@@ -233,6 +234,9 @@ class GeolinkStore {
       this.pageTitle = 'Network Status';
       this.updateSuccess('"' + this.values.locationName + '" has been added.');
       this.updateAlert('');
+      this.formFieldRefList.find((el) => {
+        return el && (el.input.id === 'locationName' || el.input.id === 'locationAddress');
+      }).input.focus();
     }
     const failure = (err) => {
       let text;
