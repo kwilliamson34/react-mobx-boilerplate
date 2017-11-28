@@ -24,6 +24,10 @@ export default class FeedbackPage extends React.Component {
     this.feedbackStore.setDefaultEmail();
   }
 
+  componentWillUnmount() {
+    this.feedbackStore.clearForm();
+  }
+
   toggleAlertBar = (e) => {
     e.preventDefault();
     this.feedbackStore.toggleAlertBar();
