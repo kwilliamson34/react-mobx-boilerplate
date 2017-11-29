@@ -219,7 +219,20 @@ export default class PSEHeader extends React.Component {
 		)
 	}
 
-	renderPermissionedLink(card, key = 1) {
+	renderPermissionedLinkList = (cards) => {
+		const isPermitted = this.userStore.destinationIsPermitted;
+		return cards.map((card, i) => {
+			if (isPermitted[card.isPermitted]) {
+				return (
+					<li key={i}>
+						{this.renderPermissionedLink(card, i)}
+					</li>
+				)}
+			}
+		)
+	}
+
+	renderPermissionedLink = (card) => {
 		//render if we are allowed
 		const isPermitted = this.userStore.destinationIsPermitted;
 		if (isPermitted[card.isPermitted]) {
@@ -240,11 +253,9 @@ export default class PSEHeader extends React.Component {
 				return letter.toUpperCase();
 			});
 			return (
-				<li key={key}>
-					<LinkType {...props}>
-						<span dangerouslySetInnerHTML={{__html: linkText}}></span>
-					</LinkType>
-				</li>
+				<LinkType {...props}>
+					<span dangerouslySetInnerHTML={{__html: linkText}}></span>
+				</LinkType>
 			)
 		}
 	}
@@ -280,9 +291,7 @@ export default class PSEHeader extends React.Component {
 						{!hideAside && <strong className="visible-md-block visible-lg-block" aria-hidden="true">
 							Management
 						</strong>}
-						{adminCards.map((card, i) => {
-							return this.renderPermissionedLink(card, i)
-						})}
+						{this.renderPermissionedLinkList(adminCards)}
 					</ul>
 					{!hideAside && <ul
 						id="pse-aside-nav"
