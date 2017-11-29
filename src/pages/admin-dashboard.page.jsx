@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import {observer, inject} from 'mobx-react';
 import NewTabLink from '../components/link/new-tab-link';
 import config from 'config';
+import {adminCards, asideCards} from '../content/admin-cards.js';
 import PageTitle from '../components/page-title/page-title';
 
 @inject('store')
@@ -13,12 +14,34 @@ export default class AdminDashboardPage extends React.Component {
   static propTypes = {
     store: PropTypes.object
   }
-
+  
   constructor(props) {
     super(props);
     this.store = this.props.store.userStore;
   }
-
+  
+  renderPermissionedCard(card, key = 1) {
+    //check if we are using a local or extenrnal link, and act accordingly
+    const LinkType = card.linkTo[0] === '/' ? Link : NewTabLink;
+    const linkDest = card.linkTo[0] === '/' ? card.linkTo : config[card.linkTo]
+    const callToAction = card.callToAction || card.header;
+    //render if we are allowed
+    const isPermitted = this.store.destinationIsPermitted;
+    if(isPermitted[card.isPermitted]){
+      return (
+        <li className="col-xs-12" key={key}>
+          <LinkType to={linkDest} className={`dashboard-card ${card.className} has-shadow`}>
+            <div className="desc">
+              <h3 dangerouslySetInnerHTML={ {__html: card.header} }></h3>
+              <p dangerouslySetInnerHTML={ {__html: card.description} }></p>
+            </div>
+            <span><span dangerouslySetInnerHTML={ {__html: callToAction} }></span> <i className="icon-arrowRight" aria-hidden="true"></i></span>
+          </LinkType>
+        </li>
+      )
+    }
+  }
+  
   render() {
     const isPermitted = this.store.destinationIsPermitted;
     const hideAside = !(isPermitted.shopStandardDevices || isPermitted.shopSpecializedDevices || isPermitted.shopPublicSafetySolutions);
@@ -35,51 +58,9 @@ export default class AdminDashboardPage extends React.Component {
               </div>}
               <nav>
                 <ul>
-                  {isPermitted.manageUsers && <li className="col-xs-12">
-                    <NewTabLink to={config.manageUsersLink} className="dashboard-card manage-users has-shadow">
-                      <div className="desc">
-                        <h3>Manage users</h3>
-                        <p>Add, edit and remove users</p>
-                      </div>
-                      <span>Manage Users <i className="icon-arrowRight" aria-hidden="true"></i></span>
-                    </NewTabLink>
-                  </li>}
-                  {isPermitted.manageApps && <li className="col-xs-12">
-                    <Link to="/admin/manage-apps" className="dashboard-card manage-apps has-shadow">
-                      <div className="desc">
-                        <h3>Manage apps</h3>
-                        <p>Push an app to your Mobile Device Management(MDM) solution, recommend apps, block apps</p>
-                      </div>
-                      <span>Manage apps <i className="icon-arrowRight" aria-hidden="true"></i></span>
-                    </Link>
-                  </li>}
-                  {isPermitted.manageBilling && <li className="col-xs-12">
-                    <NewTabLink to={config.manageServicesLink} className="dashboard-card manage-services has-shadow">
-                      <div className="desc">
-                        <h3>Manage services & billing</h3>
-                        <p>Assign or remove devices, change rate plans &amp; features, view & pay bills, update information, manage push-to-talk</p>
-                      </div>
-                      <span>Manage services & billing <i className="icon-arrowRight" aria-hidden="true"></i></span>
-                    </NewTabLink>
-                  </li>}
-                  {isPermitted.manageVoicemail && <li className="col-xs-12">
-                    <NewTabLink to={config.manageVoicemailAndUsageLink} className="dashboard-card manage-voicemail-and-usage has-shadow">
-                      <div className="desc">
-                        <h3>Manage voicemail &amp; usage</h3>
-                        <p>Manage voicemail and data usage for your devices</p>
-                      </div>
-                      <span>Manage voicemail &amp; usage <i className="icon-arrowRight" aria-hidden="true"></i></span>
-                    </NewTabLink>
-                  </li>}
-                  {isPermitted.viewReports && <li className="col-xs-12">
-                    <NewTabLink to={config.viewWirelessReportsLink} className="dashboard-card manage-wireless-reports has-shadow">
-                      <div className="desc">
-                        <h3>View wireless reports</h3>
-                        <p>View device inventory, rate plan summary, early termination fees, upgrade eligibility, device unlock eligibility</p>
-                      </div>
-                      <span>View Wireless Reports <i className="icon-arrowRight" aria-hidden="true"></i></span>
-                    </NewTabLink>
-                  </li>}
+                  {adminCards.map((card, i) => {
+                    return this.renderPermissionedCard(card, i)
+                  })}
                 </ul>
               </nav>
             </section>
@@ -89,33 +70,9 @@ export default class AdminDashboardPage extends React.Component {
               </div>
               <nav>
                 <ul>
-                  {isPermitted.shopStandardDevices && <li className="col-xs-12 col-md-6 col-lg-12">
-                    <NewTabLink to={config.shopStandardDevicesLink} className="dashboard-card shop-devices-rates has-shadow">
-                      <div className="desc">
-                        <h3>Shop standard devices &amp; rate plans</h3>
-                        <p>Add a new device, provision an existing device, add a rate plan, feature(s) and accessories</p>
-                      </div>
-                      <span>Shop Devices &amp; Plans <i className="icon-arrowRight" aria-hidden="true"></i></span>
-                    </NewTabLink>
-                  </li>}
-                  {isPermitted.shopSpecializedDevices && <li className="col-xs-12 col-md-6 col-lg-12">
-                    <Link to="/admin/devices" className="dashboard-card shop-specialized-devices has-shadow">
-                      <div className="desc">
-                        <h3>Shop specialized devices</h3>
-                        <p>Purchase ruggedized devices, vehicle routers, etc.</p>
-                      </div>
-                      <span>Shop Specialized Devices<i className="icon-arrowRight" aria-hidden="true"></i></span>
-                    </Link>
-                  </li>}
-                  {isPermitted.shopPublicSafetySolutions && <li className="col-xs-12 col-md-6 col-lg-12">
-                    <Link to="/admin/solutions" className="dashboard-card shop-solutions has-shadow">
-                      <div className="desc">
-                        <h3>Shop public safety solutions</h3>
-                        <p>Browse public safety solutions and choose which are best for your organization</p>
-                      </div>
-                      <span>Shop Public Safety Solutions <i className="icon-arrowRight" aria-hidden="true"></i></span>
-                    </Link>
-                  </li>}
+                  {asideCards.map((card, i) => {
+                    return this.renderPermissionedCard(card, i)
+                  })}
                 </ul>
               </nav>
             </aside>}

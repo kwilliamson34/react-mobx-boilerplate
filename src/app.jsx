@@ -85,6 +85,16 @@ export default class App extends React.Component {
     });
   }
 
+  handleSkipNav = () => {
+    //Fix for FPSE-1393 and FPSE-1394. Skip Navigation is not working on IE, as elements without a tabIndex don't take focus. For 508 compliance, #main-content can't permanently have a tabIndex.
+    const mainContent = $('#main-content');
+    mainContent.attr('tabindex', -1);
+    mainContent.focus();
+    mainContent.blur(() => {
+      mainContent.removeAttr('tabindex');
+    });
+  }
+
   getSpecializedDevicesComponent = ({match}) => {
     return (
       <article id="specialized-devices">
@@ -118,7 +128,7 @@ export default class App extends React.Component {
 					<JoyrideBase location={location.pathname} joyrideStore={pseMasterStore.joyrideStore} />
 				}
         <ScrollToTop>
-          <a href="#main-content" className="skipnav">Skip Navigation</a>
+          <a href="#main-content" className="skipnav" onClick={this.handleSkipNav}>Skip Navigation</a>
           <Header/>
           <main id="main-content">
             <Switch>

@@ -57,15 +57,30 @@ exports[`<AdminDashboard /> renders render with 2 cards 1`] = `
                 <div
                   className="desc"
                 >
-                  <h3>
-                    Manage apps
-                  </h3>
-                  <p>
-                    Push an app to your Mobile Device Management(MDM) solution, recommend apps, block apps
-                  </p>
+                  <h3
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "Manage apps",
+                      }
+                    }
+                  />
+                  <p
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "Push an app to your Mobile Device Management(MDM) solution, recommend apps, block apps",
+                      }
+                    }
+                  />
                 </div>
                 <span>
-                  Manage apps 
+                  <span
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "Manage apps",
+                      }
+                    }
+                  />
+                   
                   <i
                     aria-hidden="true"
                     className="icon-arrowRight"
@@ -110,15 +125,30 @@ exports[`<AdminDashboard /> renders render with 3 cards 1`] = `
                 <div
                   className="desc"
                 >
-                  <h3>
-                    Manage apps
-                  </h3>
-                  <p>
-                    Push an app to your Mobile Device Management(MDM) solution, recommend apps, block apps
-                  </p>
+                  <h3
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "Manage apps",
+                      }
+                    }
+                  />
+                  <p
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "Push an app to your Mobile Device Management(MDM) solution, recommend apps, block apps",
+                      }
+                    }
+                  />
                 </div>
                 <span>
-                  Manage apps 
+                  <span
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "Manage apps",
+                      }
+                    }
+                  />
+                   
                   <i
                     aria-hidden="true"
                     className="icon-arrowRight"
@@ -169,15 +199,30 @@ exports[`<AdminDashboard /> renders render with 4 cards 1`] = `
                 <div
                   className="desc"
                 >
-                  <h3>
-                    Manage apps
-                  </h3>
-                  <p>
-                    Push an app to your Mobile Device Management(MDM) solution, recommend apps, block apps
-                  </p>
+                  <h3
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "Manage apps",
+                      }
+                    }
+                  />
+                  <p
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "Push an app to your Mobile Device Management(MDM) solution, recommend apps, block apps",
+                      }
+                    }
+                  />
                 </div>
                 <span>
-                  Manage apps 
+                  <span
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "Manage apps",
+                      }
+                    }
+                  />
+                   
                   <i
                     aria-hidden="true"
                     className="icon-arrowRight"
@@ -234,15 +279,30 @@ exports[`<AdminDashboard /> renders render with 5 cards 1`] = `
                 <div
                   className="desc"
                 >
-                  <h3>
-                    Manage apps
-                  </h3>
-                  <p>
-                    Push an app to your Mobile Device Management(MDM) solution, recommend apps, block apps
-                  </p>
+                  <h3
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "Manage apps",
+                      }
+                    }
+                  />
+                  <p
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "Push an app to your Mobile Device Management(MDM) solution, recommend apps, block apps",
+                      }
+                    }
+                  />
                 </div>
                 <span>
-                  Manage apps 
+                  <span
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "Manage apps",
+                      }
+                    }
+                  />
+                   
                   <i
                     aria-hidden="true"
                     className="icon-arrowRight"
@@ -311,10 +371,10 @@ exports[`<AdminDashboard /> renders render with aside 1`] = `
         <nav>
           <ul>
             <li
-              className="col-xs-12 col-md-6 col-lg-12"
+              className="col-xs-12"
             />
             <li
-              className="col-xs-12 col-md-6 col-lg-12"
+              className="col-xs-12"
             >
               <a
                 className="dashboard-card shop-specialized-devices has-shadow"
@@ -324,15 +384,30 @@ exports[`<AdminDashboard /> renders render with aside 1`] = `
                 <div
                   className="desc"
                 >
-                  <h3>
-                    Shop specialized devices
-                  </h3>
-                  <p>
-                    Purchase ruggedized devices, vehicle routers, etc.
-                  </p>
+                  <h3
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "Shop specialized devices",
+                      }
+                    }
+                  />
+                  <p
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "Purchase ruggedized devices, vehicle routers, etc.",
+                      }
+                    }
+                  />
                 </div>
                 <span>
-                  Shop Specialized Devices
+                  <span
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "Shop specialized devices",
+                      }
+                    }
+                  />
+                   
                   <i
                     aria-hidden="true"
                     className="icon-arrowRight"
@@ -341,7 +416,7 @@ exports[`<AdminDashboard /> renders render with aside 1`] = `
               </a>
             </li>
             <li
-              className="col-xs-12 col-md-6 col-lg-12"
+              className="col-xs-12"
             >
               <a
                 className="dashboard-card shop-solutions has-shadow"
@@ -351,15 +426,30 @@ exports[`<AdminDashboard /> renders render with aside 1`] = `
                 <div
                   className="desc"
                 >
-                  <h3>
-                    Shop public safety solutions
-                  </h3>
-                  <p>
-                    Browse public safety solutions and choose which are best for your organization
-                  </p>
+                  <h3
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "Shop public safety solutions",
+                      }
+                    }
+                  />
+                  <p
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "Browse public safety solutions and choose which are best for your organization",
+                      }
+                    }
+                  />
                 </div>
                 <span>
-                  Shop Public Safety Solutions 
+                  <span
+                    dangerouslySetInnerHTML={
+                      Object {
+                        "__html": "Shop public safety solutions",
+                      }
+                    }
+                  />
+                   
                   <i
                     aria-hidden="true"
                     className="icon-arrowRight"
