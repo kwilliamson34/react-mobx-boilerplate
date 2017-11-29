@@ -16,7 +16,11 @@
 
   .msgBlock.error-list {
     margin: 0 0 0.6rem;
-    padding-left: 10px;
+    font-weight: $fn-normal-weight;
+
+    span:not(:empty) {
+      margin-right: 5px;
+    }
   }
 }
 

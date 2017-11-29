@@ -115,7 +115,7 @@ export default class TextInput extends React.Component {
         <div className={`input-group ${this.props.iconClass ? 'has-icon' : ''}`}>
           <Tag
             className="form-control"
-            ref={(i) => {this.input = i;}}
+            ref={(i) => {this.input = i}}
             id={this.props.id}
             type={this.props.type}
             disabled={this.props.disabled}

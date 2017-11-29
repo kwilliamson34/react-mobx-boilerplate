@@ -10,7 +10,7 @@ class LocationFavoriteForm extends React.Component {
 
   static propTypes = {
     store: PropTypes.object,
-    announceErrors: PropTypes.bool
+    formChildProps: PropTypes.object
   }
 
   constructor (props) {
@@ -38,30 +38,28 @@ class LocationFavoriteForm extends React.Component {
             this.firstInput = ref;
             this.store.formFieldRefList.push(ref);
           }}
-          dataObject={this.store.values}
           id="locationAddress"
           type="search"
           labelText="Address"
           required={true}
           charLimit={1000}
           errorMessage="Please enter an address."
-          announceError={this.props.announceErrors}
           className="col-xs-12 col-sm-7 search-form"
           showClearButton={true}
           handleSubmit={this.store.searchMap.bind(this.store)}
-          disableAutoComplete={true} />
+          disableAutoComplete={true}
+          {...this.props.formChildProps}/>
 
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
-          dataObject={this.store.values}
           id="locationName"
           type="input"
           labelText="Name"
           charLimit={100}
           required={true}
           errorMessage="Please enter a name."
-          announceError={this.props.announceErrors}
-          className="col-xs-12 col-sm-5" />
+          className="col-xs-12 col-sm-5"
+          {...this.props.formChildProps}/>
       </div>
     );
   }
