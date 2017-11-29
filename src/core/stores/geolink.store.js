@@ -1,6 +1,5 @@
 import {action, observable, computed, autorun} from 'mobx';
 import axios from 'axios';
-import _ from 'lodash';
 import config from 'config';
 import {utilsService} from '../services/utils.service';
 import {apiService} from '../services/api.service';
