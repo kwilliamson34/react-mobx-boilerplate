@@ -244,6 +244,15 @@
         }
       }
     }
+
+    //FPSE-1509 one special case breaks all the rules
+    [numcards="3"] {
+      .manage-actions:not(.hide-aside) {
+        li {
+          width: 50% !important;
+        }
+      }
+    }
   }
 }
 
