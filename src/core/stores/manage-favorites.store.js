@@ -8,7 +8,7 @@ class ManageFavoritesStore {
 
   @action fetchRows() {
     const success = (res) => {
-      //rows will initially order by locationName.
+      //rows will initially order by locationName in descending order;
       this.rows = this.sortAndReturnRows(res.data.userlocationfavorite);
       this.isLoading = false;
       this.advancePagination();
@@ -167,7 +167,9 @@ class ManageFavoritesStore {
     const sortOrder = this.sortDirections[this.activeColumn];
 
     //find rows that resemble coordinates with a regex;
-    const coordRows = rowsToSort.filter(row => row[this.activeColumn].match(coordRegex));
+    const coordRows = rowsToSort.filter(row => {
+      return row[this.activeColumn].match(coordRegex)
+    });
 
     //determine whether row should be sorted by numbers or not on the basis of the first character of the first element.
     const notNumberRows = rowsToSort.filter(row => {
@@ -194,18 +196,18 @@ class ManageFavoritesStore {
     const sortedNotNumberRows = this.regularSort(notNumberRows, sortOrder);
 
     return sortOrder
-      ? [...sortedCoordRows, ...sortedNumberRows, ...sortedNotNumberRows]
-      : [...sortedNotNumberRows, ...sortedNumberRows, ...sortedCoordRows];
+      ? [...sortedNotNumberRows, ...sortedNumberRows, ...sortedCoordRows]
+      : [...sortedCoordRows, ...sortedNumberRows, ...sortedNotNumberRows]
   }
 
   numberSort = (rowsToSort, sortOrder) => {
     return rowsToSort.sort((x, y) => {
       const rowX = parseInt(x[this.activeColumn].split(' ')[0].replace(/\D+/g, ''));
       const rowY = parseInt(y[this.activeColumn].split(' ')[0].replace(/\D+/g, ''));
-      if (rowX < rowY) {
+      if (rowX > rowY) {
         return sortOrder ? -1 : 1;
       }
-      if (rowX > rowY) {
+      if (rowX < rowY) {
         return sortOrder ? 1 : -1;
       }
       return 0;
@@ -216,10 +218,10 @@ class ManageFavoritesStore {
     return rowsToSort.sort((x, y) => {
       const rowX = x[this.activeColumn].toLowerCase().split(' ').filter(Boolean);
       const rowY = y[this.activeColumn].toLowerCase().split(' ').filter(Boolean);
-      if (rowX < rowY) {
+      if (rowX > rowY) {
         return sortOrder ? -1 : 1;
       }
-      if (rowX > rowY) {
+      if (rowX < rowY) {
         return sortOrder ? 1 : -1;
       }
       return 0;
@@ -276,12 +278,12 @@ class ManageFavoritesStore {
   @observable paginationInterval = 50;
   @observable moreToLoad = false;
 
-  @observable activeColumn = 'locationFavoriteAddress';
+  @observable activeColumn = 'favoriteName';
 
   //to keep the order toggling simple, true is ascending and false is descending;
   @observable sortDirectionsDefaults = {
     'favoriteName': false,
-    'locationFavoriteAddress': true,
+    'locationFavoriteAddress': false,
     'locationFavoriteId': false
   }
   @observable sortDirections = Object.assign({}, this.sortDirectionsDefaults);
