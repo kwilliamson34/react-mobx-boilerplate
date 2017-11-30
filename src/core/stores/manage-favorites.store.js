@@ -189,21 +189,21 @@ class ManageFavoritesStore {
 
     //sort number rows on the basis of their first element, stripped of anything but digits and parsed into an integer;
     //this ensures that absolute size of the number is taken into account.
-    const sortedNumberRows = this.numberSort(numberRows, sortOrder);
+    const sortedNumberRows = this.numberSort(numberRows, sortOrder, this.activeColumn);
 
     //sort the rest normally, as if a string.
-    const sortedCoordRows = this.regularSort(coordRows, sortOrder);
-    const sortedNotNumberRows = this.regularSort(notNumberRows, sortOrder);
+    const sortedCoordRows = this.regularSort(coordRows, sortOrder, this.activeColumn);
+    const sortedNotNumberRows = this.regularSort(notNumberRows, sortOrder, this.activeColumn);
 
     return sortOrder
       ? [...sortedNotNumberRows, ...sortedNumberRows, ...sortedCoordRows]
       : [...sortedCoordRows, ...sortedNumberRows, ...sortedNotNumberRows]
   }
 
-  numberSort = (rowsToSort, sortOrder) => {
+  numberSort = (rowsToSort, sortOrder, activeColumn) => {
     return rowsToSort.sort((x, y) => {
-      const rowX = parseInt(x[this.activeColumn].split(' ')[0].replace(/\D+/g, ''));
-      const rowY = parseInt(y[this.activeColumn].split(' ')[0].replace(/\D+/g, ''));
+      const rowX = parseInt(x[activeColumn].split(' ')[0].replace(/\D+/g, ''));
+      const rowY = parseInt(y[activeColumn].split(' ')[0].replace(/\D+/g, ''));
       if (rowX > rowY) {
         return sortOrder ? -1 : 1;
       }
@@ -214,10 +214,10 @@ class ManageFavoritesStore {
     });
   }
 
-  regularSort = (rowsToSort, sortOrder) => {
+  regularSort = (rowsToSort, sortOrder, activeColumn) => {
     return rowsToSort.sort((x, y) => {
-      const rowX = x[this.activeColumn].toLowerCase().split(' ').filter(Boolean);
-      const rowY = y[this.activeColumn].toLowerCase().split(' ').filter(Boolean);
+      const rowX = x[activeColumn].toLowerCase().split(' ').filter(Boolean);
+      const rowY = y[activeColumn].toLowerCase().split(' ').filter(Boolean);
       if (rowX > rowY) {
         return sortOrder ? -1 : 1;
       }
