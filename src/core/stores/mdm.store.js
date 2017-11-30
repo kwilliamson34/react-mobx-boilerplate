@@ -51,6 +51,7 @@ class MDMStore {
 
   @action clearSuccess() {
     this.updateSuccess('');
+    this.appsReferencedBySuccessAlert = [];
   }
 
   @action updateAlert(alertText) {
