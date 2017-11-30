@@ -163,23 +163,66 @@ class ManageFavoritesStore {
 	}
 
   sortAndReturnRows(rowsToSort) {
+    const coordRegex = /^([-+])?([1-8]?\d(\W\d+)?|90(\W0+)?)\s*(\W?)\s*((N|S|E|W)?)\s*(,?)\s*([-+])?(180(\W0+)?|((1[0-7]\d)|([1-9]?\d))(\W\d+)?)\s*(\W?)\s*((N|S|E|W)?)$/ig;
     const sortOrder = this.sortDirections[this.activeColumn];
-    let numberRows = rowsToSort.filter(row => parseInt(row.split(' ')[0]) !== NaN);
-    let notNumberRows = rowsToSort.filter(row => parseInt(row.split(' ')[0]) === NaN);
-    console.log('sortedRows', numberRows, notNumberRows);
 
+    //find rows that resemble coordinates with a regex;
+    const coordRows = rowsToSort.filter(row => row[this.activeColumn].match(coordRegex));
+
+    //determine whether row should be sorted by numbers or not on the basis of the first character of the first element.
+    const notNumberRows = rowsToSort.filter(row => {
+      if (!row[this.activeColumn].match(coordRegex)) {
+        const firstElement = row[this.activeColumn].split(' ')[0];
+        const firstLetter = firstElement.charAt(0);
+        return isNaN(parseInt(firstLetter)) === true;
+      }
+    });
+    const numberRows = rowsToSort.filter(row => {
+      if (!row[this.activeColumn].match(coordRegex)) {
+        const firstElement = row[this.activeColumn].split(' ')[0];
+        const firstLetter = firstElement.charAt(0);
+        return isNaN(parseInt(firstLetter)) === false;
+      }
+    });
+
+    //sort number rows on the basis of their first element, stripped of anything but digits and parsed into an integer;
+    //this ensures that absolute size of the number is taken into account.
+    const sortedNumberRows = this.numberSort(numberRows, sortOrder);
+
+    //sort the rest normally, as if a string.
+    const sortedCoordRows = this.regularSort(coordRows, sortOrder);
+    const sortedNotNumberRows = this.regularSort(notNumberRows, sortOrder);
+
+    return sortOrder
+      ? [...sortedCoordRows, ...sortedNumberRows, ...sortedNotNumberRows]
+      : [...sortedNotNumberRows, ...sortedNumberRows, ...sortedCoordRows];
+  }
+
+  numberSort = (rowsToSort, sortOrder) => {
+    return rowsToSort.sort((x, y) => {
+      const rowX = parseInt(x[this.activeColumn].split(' ')[0].replace(/\D+/g, ''));
+      const rowY = parseInt(y[this.activeColumn].split(' ')[0].replace(/\D+/g, ''));
+      if (rowX < rowY) {
+        return sortOrder ? -1 : 1;
+      }
+      if (rowX > rowY) {
+        return sortOrder ? 1 : -1;
+      }
+      return 0;
+    });
+  }
+
+  regularSort = (rowsToSort, sortOrder) => {
     return rowsToSort.sort((x, y) => {
       const rowX = x[this.activeColumn].toLowerCase().split(' ').filter(Boolean);
       const rowY = y[this.activeColumn].toLowerCase().split(' ').filter(Boolean);
-      // console.log('rows', rowX, rowY);
-      // console.log('parseInt', parseInt(rowX[0]), parseInt(rowY[0]))
-      // if (rowX < rowY) {
-      //   return sortOrder ? -1 : 1;
-      // }
-      // if (rowX > rowY) {
-      //   return sortOrder ? 1 : -1;
-      // }
-      // return 0;
+      if (rowX < rowY) {
+        return sortOrder ? -1 : 1;
+      }
+      if (rowX > rowY) {
+        return sortOrder ? 1 : -1;
+      }
+      return 0;
     });
   }
 
@@ -238,7 +281,7 @@ class ManageFavoritesStore {
   //to keep the order toggling simple, true is ascending and false is descending;
   @observable sortDirectionsDefaults = {
     'favoriteName': false,
-    'locationFavoriteAddress': false,
+    'locationFavoriteAddress': true,
     'locationFavoriteId': false
   }
   @observable sortDirections = Object.assign({}, this.sortDirectionsDefaults);
