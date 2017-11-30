@@ -19,7 +19,7 @@ export class FaqEntry extends React.Component {
     return (
       <article className="faq-entry">
         <h3 id={'faq-' + this.props.num}>{this.props.faq.question}</h3>
-        <Truncate className="faq-entry-content truncate-container" charLimit={this.props.faq.maxStringLength}>
+        <Truncate className="faq-entry-content truncate-container" cutoffSymbol="" charLimit={this.props.faq.maxStringLength}>
           {this.props.faq.answer}
         </Truncate>
       </article>

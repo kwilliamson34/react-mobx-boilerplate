@@ -48,7 +48,7 @@ export default class AppReviews extends React.Component {
             <div className='review-author'>{authorName}</div>
             <div className='review-date'>{utilsService.normalizedDate(node.reviewDate, 'MMMM D, YYYY')}</div>
           </div>
-          <Truncate returnToId={'Review-' + node.reviewId} charLimit={300} className='truncate-container'>
+          <Truncate charLimit={300} className='truncate-container'>
             {node.comment}
           </Truncate>
         </div>

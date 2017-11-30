@@ -64,7 +64,7 @@ export default class AppDetailsPage extends React.Component {
     return (
       <div>
         <h2 id="app-details-description">Description</h2>
-        <Truncate className="truncate-container" returnToId="app-details-description" charLimit={550}>
+        <Truncate className="truncate-container" charLimit={550}>
           {currentAppObject.long_description}
         </Truncate>
       </div>
@@ -76,7 +76,7 @@ export default class AppDetailsPage extends React.Component {
       <section className="whats-new">
         <h2 id="app-details-whats-new" className="whats-new-title">What&apos;s New</h2>
         <div className="whats-new-date">{utilsService.normalizedDate(versionObj.release_date, 'MMMM D, YYYY')}</div>
-        <Truncate className="truncate-container" returnToId="app-details-whats-new" charLimit={500}>
+        <Truncate className="truncate-container" charLimit={500}>
           {versionObj.version_note || ''}
         </Truncate>
       </section>

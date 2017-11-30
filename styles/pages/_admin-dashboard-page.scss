@@ -228,14 +228,28 @@
       }
 
       &.hide-aside {
-        li {
-          width: 33%;
+        //reset base size
+        li,
+        li:first-child:nth-last-child(2) ~ li {
+          width: 33.3%;
         }
 
         li:first-child,
         li:first-child:nth-last-child(3) ~ li,
         li:first-child + li + li + li:last-child {
-          width: 66%;
+          width: 66.6%;
+        }
+        li:first-child:last-child {
+          width: 100%;
+        }
+      }
+    }
+
+    //FPSE-1509 one special case breaks all the rules
+    [numcards="3"] {
+      .manage-actions:not(.hide-aside) {
+        li {
+          width: 50% !important;
         }
       }
     }
