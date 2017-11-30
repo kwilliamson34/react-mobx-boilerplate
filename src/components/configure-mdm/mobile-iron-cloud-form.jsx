@@ -8,7 +8,7 @@ import TextInput from '../forms/text-input';
 class MobileIronCloudForm extends React.Component {
   static propTypes = {
     store: PropTypes.object,
-    announceErrors: PropTypes.bool
+    formChildProps: PropTypes.object
   }
 
   constructor(props) {
@@ -24,11 +24,11 @@ class MobileIronCloudForm extends React.Component {
     const disabled = this.store.mdmIsConfigured;
     return (
       <div>
-        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="mi_hostName" type="input" labelText="Host Name" required={true} disabled={disabled} errorMessage="Please enter a valid host name." announceError={this.props.announceErrors} charLimit={256}/>
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} id="mi_hostName" type="input" labelText="Host Name" required={true} disabled={disabled} errorMessage="Please enter a valid host name." charLimit={256} {...this.props.formChildProps}/>
 
-        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="mi_userName" type="input" labelText="MobileIron Cloud Username" required={true} disabled={disabled} errorMessage="Please enter a valid MobileIron Cloud username." announceError={this.props.announceErrors} charLimit={256}/>
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} id="mi_userName" type="input" labelText="MobileIron Cloud Username" required={true} disabled={disabled} errorMessage="Please enter a valid MobileIron Cloud username." charLimit={256} {...this.props.formChildProps}/>
 
-        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id="mi_password" type="password" labelText="MobileIron Cloud Password" required={true} disabled={disabled} errorMessage="Please enter a valid MobileIron Cloud password." announceError={this.props.announceErrors} charLimit={256}/>
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} id="mi_password" type="password" labelText="MobileIron Cloud Password" required={true} disabled={disabled} errorMessage="Please enter a valid MobileIron Cloud password." charLimit={256} {...this.props.formChildProps}/>
       </div>
     );
   }

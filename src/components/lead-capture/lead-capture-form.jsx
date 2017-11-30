@@ -12,7 +12,7 @@ class LeadCaptureForm extends React.Component {
 
   static propTypes = {
     store: PropTypes.object,
-    announceErrors: PropTypes.bool
+    formChildProps: PropTypes.object
   }
 
   constructor (props) {
@@ -33,60 +33,55 @@ class LeadCaptureForm extends React.Component {
       <div id="lead-capture-form">
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
-          dataObject={this.store.values}
           id="firstName"
           type="input"
           labelText="First Name"
           required={true}
           errorMessage="Please enter your name."
-          announceError={this.props.announceErrors}
-          charLimit={256}/>
+          charLimit={256}
+          {...this.props.formChildProps}/>
 
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
-          dataObject={this.store.values}
           id="lastName"
           type="input"
           labelText="Last Name"
           required={true}
           errorMessage="Please enter your name."
-          announceError={this.props.announceErrors}
-          charLimit={256}/>
+          charLimit={256}
+          {...this.props.formChildProps}/>
 
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
-          dataObject={this.store.values}
           id="email"
           type="input"
           labelText="Email"
           required={true}
           getIsValid={utilsService.isValidEmailAddress}
           errorMessage="Please enter a valid email address."
-          announceError={this.props.announceErrors}
-          charLimit={256}/>
+          charLimit={256}
+          {...this.props.formChildProps}/>
 
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
-          dataObject={this.store.values}
           id="phone"
           type="input"
           labelText="Contact Number"
           required={true}
           errorMessage="Please enter your phone number."
-          announceError={this.props.announceErrors}
-          charLimit={256}/>
+          charLimit={256}
+          {...this.props.formChildProps}/>
 
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
-          dataObject={this.store.values}
           helperText="Max 600 characters."
           id="message"
           type="textarea"
           labelText="Message (Optional)"
           required={false}
           errorMessage="Please enter a summary of your request."
-          announceError={this.props.announceErrors}
-          charLimit={600}/>
+          charLimit={600}
+          {...this.props.formChildProps}/>
 
         <Checkbox
           ref={ref => this.store.formFieldRefList.push(ref)}
@@ -94,9 +89,9 @@ class LeadCaptureForm extends React.Component {
           label="By submitting this information, you agree to be contacted by FirstNet. We will never sell or share your information."
           required={true}
           errorMessage="Please provide consent to be contacted by FirstNet."
-          announceError={this.props.announceErrors}
           checked={this.store.values.contactAgreement}
-          handleOnChange={this.handleCheckboxOnChange} />
+          handleOnChange={this.handleCheckboxOnChange}
+          {...this.props.formChildProps}/>
       </div>
     );
   }

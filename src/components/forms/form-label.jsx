@@ -26,20 +26,18 @@ export default class FormLabel extends React.Component {
   }
 
   renderFieldError() {
-    let markup = '';
-    if (this.props.charLimitReached || this.props.hasError) {
-      markup = (
-        <div className="msgBlock error error-list">
-          <span role="alert" aria-live="assertive">
-            {this.props.charLimitReached ? 'Character limit reached.' : ''}
-          </span>
-          <span role={this.props.announceError ? 'status' : ''} aria-live={this.props.announceError ? 'polite' : ''}>
-            {this.props.hasError && (this.props.errorMessage)}
-          </span>
-        </div>
-      );
-    }
-    return markup;
+    /* Screen reader section should always be present, not conditionally
+    rendered, to allow aria to manage changes appropriately. */
+    return (
+      <div className="msgBlock error error-list">
+        <span role="alert" aria-live="assertive" aria-atomic="true">
+          {this.props.charLimitReached ? 'Character limit reached.' : ''}
+        </span>
+        <span role={this.props.announceError ? 'status' : ''} aria-live={this.props.announceError ? 'polite' : ''} aria-atomic="true">
+          {this.props.hasError ? this.props.errorMessage : ''}
+        </span>
+      </div>
+    );
   }
 
   render() {
@@ -48,12 +46,10 @@ export default class FormLabel extends React.Component {
       <div className="form-label">
         <TagName className={`control-label ${this.props.srOnly ? 'sr-only' : ''}`} htmlFor={this.props.htmlFor}>
           {this.props.labelText}
-          {this.props.fieldIsRequired &&
-            <span className="required-asterisks"> *</span>
-          }
+          {this.props.fieldIsRequired ? <span className="required-asterisks"> *</span> : ''}
           {this.props.helperText ? <span className="help-text">{this.props.helperText}</span> : ''}
+          {this.renderFieldError()}
         </TagName>
-        {this.renderFieldError()}
       </div>
     )
   }
