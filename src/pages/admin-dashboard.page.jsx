@@ -15,17 +15,15 @@ export default class AdminDashboardPage extends React.Component {
   static propTypes = {
     store: PropTypes.object
   }
-  
-  constructor(props) {
-    super(props);
-    this.store = this.props.store.userStore;
-  }
 
   @observable numCardsShown = 0;
   @observable adminCardsToShow = [];
   @observable asideCardsToShow = [];
 
-  componentWillMount() {
+  constructor(props) {
+    super(props);
+    this.store = this.props.store.userStore;
+
     const isPermitted = this.store.destinationIsPermitted;
     this.adminCardsToShow = adminCards.filter(card => {
       return isPermitted[card.isPermitted]
