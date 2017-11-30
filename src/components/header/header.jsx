@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link, NavLink, withRouter} from 'react-router-dom';
 import NewTabLink from '../link/new-tab-link';
+import {adminCards} from '../../content/admin-cards.js';
 import {observer, inject, PropTypes} from 'mobx-react';
 import config from 'config';
 import $ from 'jquery';
@@ -101,9 +102,9 @@ export default class PSEHeader extends React.Component {
 	updateWindowDimensions = _.debounce(() => {
 		this.closeMainMenu();
 	}, 200, {
-		leading: true,
-		trailing: false
-	});
+			leading: true,
+			trailing: false
+		});
 
 	toggleMainMenu = () => {
 		this.headerStore.toggleMainMenu();
@@ -218,6 +219,47 @@ export default class PSEHeader extends React.Component {
 		)
 	}
 
+	renderPermissionedLinkList = (cards) => {
+		const isPermitted = this.userStore.destinationIsPermitted;
+		return cards.map((card, i) => {
+			if (isPermitted[card.isPermitted]) {
+				return (
+					<li key={i}>
+						{this.renderPermissionedLink(card, i)}
+					</li>
+				)}
+			}
+		)
+	}
+
+	renderPermissionedLink = (card) => {
+		//render if we are allowed
+		const isPermitted = this.userStore.destinationIsPermitted;
+		if (isPermitted[card.isPermitted]) {
+			// check if we are using a local or extenrnal link, and act accordingly
+			const internalLink = card.linkTo[0] === '/'
+			const LinkType = internalLink ? NavLink : NewTabLink;
+			// set conditional props based on internal or external link.
+			const props = {};
+			if (internalLink) {
+				props.to = card.linkTo;
+			} else {
+				props.to = config[card.linkTo];
+				props.onClick = this.handleExternalTabOpen;
+				props.showIcon = true
+			}
+			// Capitalize first letter of the link text
+			const linkText = card.header.toLowerCase().replace(/\b[a-z]/g, function (letter) {
+				return letter.toUpperCase();
+			});
+			return (
+				<LinkType {...props}>
+					<span dangerouslySetInnerHTML={{__html: linkText}}></span>
+				</LinkType>
+			)
+		}
+	}
+
 	renderAdminMenuItem = () => {
 		const isPermitted = this.userStore.destinationIsPermitted;
 		const hideAside = !(isPermitted.shopStandardDevices || isPermitted.shopSpecializedDevices || isPermitted.shopPublicSafetySolutions);
@@ -249,29 +291,7 @@ export default class PSEHeader extends React.Component {
 						{!hideAside && <strong className="visible-md-block visible-lg-block" aria-hidden="true">
 							Management
 						</strong>}
-						{isPermitted.manageUsers && <li>
-							<NewTabLink to={config.manageUsersLink} onClick={this.handleExternalTabOpen} showIcon={true}>
-								Manage Users
-							</NewTabLink>
-						</li>}
-						{isPermitted.manageApps && <li>
-							<NavLink to="/admin/manage-apps">Manage Apps</NavLink>
-						</li>}
-						{isPermitted.manageBilling && <li>
-							<NewTabLink to={config.manageServicesLink} onClick={this.handleExternalTabOpen} showIcon={true}>
-								Manage Services &amp; Billing
-							</NewTabLink>
-						</li>}
-						{isPermitted.manageVoicemail && <li>
-							<NewTabLink to={config.manageVoicemailAndUsageLink} onClick={this.handleExternalTabOpen} showIcon={true}>
-								Manage Voicemail &amp; Usage
-							</NewTabLink>
-						</li>}
-						{isPermitted.viewReports && <li>
-							<NewTabLink to={config.viewWirelessReportsLink} onClick={this.handleExternalTabOpen} showIcon={true}>
-								View Wireless Reports
-							</NewTabLink>
-						</li>}
+						{this.renderPermissionedLinkList(adminCards)}
 					</ul>
 					{!hideAside && <ul
 						id="pse-aside-nav"

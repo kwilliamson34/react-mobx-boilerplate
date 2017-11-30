@@ -3,6 +3,7 @@ jest.unmock('../../../core/stores/header.store');
 jest.unmock('../../../core/stores/user.store');
 jest.unmock('../../../core/stores/external-link.store');
 jest.unmock('../../../core/stores/joyride.store');
+jest.unmock('../../../content/admin-cards.js');
 jest.unmock('../header');
 jest.unmock('jquery');
 
@@ -13,6 +14,7 @@ import {headerStore} from '../../../core/stores/header.store';
 import {userStore} from '../../../core/stores/user.store';
 import {externalLinkStore} from '../../../core/stores/external-link.store';
 import {joyrideStore} from '../../../core/stores/joyride.store';
+import {adminCards} from '../../../content/admin-cards.js';
 
 describe('<PSEHeader />', () => {
   let props = {
