@@ -233,6 +233,9 @@ class GeolinkStore {
       this.pageTitle = 'Network Status';
       this.updateSuccess('"' + this.values.locationName + '" has been added.');
       this.updateAlert('');
+      this.formFieldRefList.find((el) => {
+        return el && (el.input.id === 'locationName' || el.input.id === 'locationAddress');
+      }).input.focus();
     }
     const failure = (err) => {
       let text;
