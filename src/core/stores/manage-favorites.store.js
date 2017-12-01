@@ -8,7 +8,7 @@ class ManageFavoritesStore {
 
   @action fetchRows() {
     const success = (res) => {
-      //rows will initially order by locationName.
+      //rows will initially order by locationName in descending order;
       this.rows = this.sortAndReturnRows(res.data.userlocationfavorite);
       this.isLoading = false;
       this.advancePagination();
@@ -163,14 +163,65 @@ class ManageFavoritesStore {
 	}
 
   sortAndReturnRows(rowsToSort) {
+    const coordRegex = /^([-+])?([1-8]?\d(\W\d+)?|90(\W0+)?)\s*(\W?)\s*((N|S|E|W)?)\s*(,?)\s*([-+])?(180(\W0+)?|((1[0-7]\d)|([1-9]?\d))(\W\d+)?)\s*(\W?)\s*((N|S|E|W)?)$/ig;
     const sortOrder = this.sortDirections[this.activeColumn];
+
+    //find rows that resemble coordinates with a regex;
+    const coordRows = rowsToSort.filter(row => {
+      return row[this.activeColumn].match(coordRegex)
+    });
+
+    //determine whether row should be sorted by numbers or not on the basis of the first character of the first element.
+    const notNumberRows = rowsToSort.filter(row => {
+      if (!row[this.activeColumn].match(coordRegex)) {
+        const firstElement = row[this.activeColumn].split(' ')[0];
+        const firstLetter = firstElement.charAt(0);
+        return isNaN(parseInt(firstLetter)) === true;
+      }
+    });
+    const numberRows = rowsToSort.filter(row => {
+      if (!row[this.activeColumn].match(coordRegex)) {
+        const firstElement = row[this.activeColumn].split(' ')[0];
+        const firstLetter = firstElement.charAt(0);
+        return isNaN(parseInt(firstLetter)) === false;
+      }
+    });
+
+    //sort number rows on the basis of their first element, stripped of anything but digits and parsed into an integer;
+    //this ensures that absolute size of the number is taken into account.
+    const sortedNumberRows = this.numberSort(numberRows, sortOrder, this.activeColumn);
+
+    //sort the rest normally, as if a string.
+    const sortedCoordRows = this.regularSort(coordRows, sortOrder, this.activeColumn);
+    const sortedNotNumberRows = this.regularSort(notNumberRows, sortOrder, this.activeColumn);
+
+    return sortOrder
+      ? [...sortedNotNumberRows, ...sortedNumberRows, ...sortedCoordRows]
+      : [...sortedCoordRows, ...sortedNumberRows, ...sortedNotNumberRows]
+  }
+
+  numberSort = (rowsToSort, sortOrder, activeColumn) => {
     return rowsToSort.sort((x, y) => {
-      const rowX = x[this.activeColumn].toString().toLowerCase();
-      const rowY = y[this.activeColumn].toString().toLowerCase();
-      if (rowX < rowY) {
+      const rowX = parseInt(x[activeColumn].split(' ')[0].replace(/\D+/g, ''));
+      const rowY = parseInt(y[activeColumn].split(' ')[0].replace(/\D+/g, ''));
+      if (rowX > rowY) {
         return sortOrder ? -1 : 1;
       }
+      if (rowX < rowY) {
+        return sortOrder ? 1 : -1;
+      }
+      return 0;
+    });
+  }
+
+  regularSort = (rowsToSort, sortOrder, activeColumn) => {
+    return rowsToSort.sort((x, y) => {
+      const rowX = x[activeColumn].toLowerCase().split(' ').filter(Boolean);
+      const rowY = y[activeColumn].toLowerCase().split(' ').filter(Boolean);
       if (rowX > rowY) {
+        return sortOrder ? -1 : 1;
+      }
+      if (rowX < rowY) {
         return sortOrder ? 1 : -1;
       }
       return 0;
