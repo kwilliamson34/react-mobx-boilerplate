@@ -74,6 +74,11 @@ export default class ManageAppsPage extends React.Component {
     return this.cardListStore.filteredSearchResults.slice(0, totalCards);
   }
 
+  handleClearQuery = () => {
+    this.resetPagination();
+    this.cardListStore.clearSearchQuery();
+  }
+
   handleSearchSubmit = () => {
     this.resetPagination();
     this.cardListStore.getSearchResults();
@@ -87,7 +92,7 @@ export default class ManageAppsPage extends React.Component {
       labelText="Search"
       showClearButton={true}
       handleSubmit={this.handleSearchSubmit}
-      handleClearClick={this.resetPagination}
+      handleClearClick={this.handleClearQuery}
       className="search-form"
       submitIcon="icon-search"/>
   }
