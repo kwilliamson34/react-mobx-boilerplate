@@ -216,8 +216,8 @@ class ManageFavoritesStore {
 
   regularSort = (rowsToSort, sortOrder, activeColumn) => {
     return rowsToSort.sort((x, y) => {
-      const rowX = x[activeColumn].toLowerCase().split(' ').filter(Boolean).join(' ');
-      const rowY = y[activeColumn].toLowerCase().split(' ').filter(Boolean).join(' ');
+      const rowX = x[activeColumn].toLowerCase().split(' ').filter(Boolean);
+      const rowY = y[activeColumn].toLowerCase().split(' ').filter(Boolean);
       if (rowX > rowY) {
         return sortOrder ? -1 : 1;
       }
