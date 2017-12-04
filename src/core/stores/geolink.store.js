@@ -95,7 +95,7 @@ class GeolinkStore {
     this.resetCurrentFavorite(locationData)
 
     this.pageTitle = 'Network Status';
-    history.replace('/network-status');
+    history.push('/network-status');
   }
 
   @action performEditLocationRequest(locationData) {
@@ -111,7 +111,7 @@ class GeolinkStore {
     };
 
     this.pageTitle = 'Edit Favorite';
-    history.replace('/network-status');
+    history.push('/network-status');
   }
 
   @action addAllNetworkLayers() {
@@ -255,7 +255,7 @@ class GeolinkStore {
       this.pageTitle = 'Network Status';
       this.updateAlert('');
       this.updateSuccess('"' + this.values.locationName + '" has been updated.');
-      history.replace('/manage-favorites');
+      history.push('/manage-favorites');
       this.resetValues();
     }
     const failure = (err) => {
@@ -270,7 +270,7 @@ class GeolinkStore {
   @action handleSecondaryAction() {
     if (this.pageTitle === 'Edit Favorite') {
       this.clearForm();
-      history.replace('/manage-favorites');
+      history.push('/manage-favorites');
     } else if (this.pageTitle === 'Add New Favorite') {
       this.pageTitle = 'Network Status';
     }
