@@ -130,11 +130,11 @@ class FeedbackForm extends React.Component {
           type="select"
           labelText="How likely are you to recommend FirstNet?"
           required={true}
-          placeholder="Select your likeliness"
-          errorMessage="Please select your likeliness."
+          placeholder="Select your answer"
+          errorMessage="Please select your answer."
           optionsList={this.likelihoods}
           {...this.props.formChildProps}/>
-        {/* FPSE-1294 screen reader had trouble with "likelihood", so we use "likeliness" */}
+        {/* FPSE-1294 and 1640: screen reader had trouble with "likelihood", so we use "answer" */}
 
         <div className="text-block">
           <p>Your feedback will help us respond to issues and improve your overall experience.&nbsp;
