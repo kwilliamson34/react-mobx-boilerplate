@@ -38,12 +38,15 @@ article.faq-article {
     }
 
     div.faq-entry-content {
-      font-size: $fn-content-page-text-desktop;
       background-color: $fn-ltbluegrey;
       padding: 20px;
       color: $fn-dark;
       margin-left: 0;
       margin-right: 0;
+
+      .truncate-contents p {
+        font-size: $fn-content-page-text-desktop;
+      }
     }
 
     div.faq-entry-content-button {
