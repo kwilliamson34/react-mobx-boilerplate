@@ -358,3 +358,9 @@ button {
     box-shadow: none !important;
   }
 }
+
+@media #{$mobile} {
+  .filters-button {
+    font-size: $fn-button-mobile;
+  }    
+}
