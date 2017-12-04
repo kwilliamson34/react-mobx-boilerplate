@@ -52,7 +52,7 @@ export default class NetworkStatusPage extends React.Component {
       restoreFocusTo="#delete-modal-launcher"
       primaryAction={this.deleteFavorite}
       primaryButtonLabel="Delete Favorite"
-      secondaryAction={this.deleteModal.hideModal}
+      secondaryAction={this.keepFavorite}
       secondaryButtonLabel="Keep Favorite">
       <p>This cannot be undone. New favorites can be added at any time.</p>
     </Modal>
@@ -78,7 +78,7 @@ export default class NetworkStatusPage extends React.Component {
       <div className="desktop-favorites-delete-button">
         <button id="delete-modal-launcher" className="btn as-link" onClick={this.handleDeleteClick}>
           <i className="icon-trash" aria-hidden="true" />
-          Delete Favorite
+          <span>Delete Favorite</span>
         </button>
       </div>
     )
@@ -90,6 +90,11 @@ export default class NetworkStatusPage extends React.Component {
     this.manageFavoritesStore.deleteEditLocationFavorite(idToDelete);
     this.geoStore.setPageTitle('Network Status');
     this.geoStore.resetValues();
+    this.deleteModal.hideModal();
+  }
+
+  keepFavorite = (e) => {
+    e.preventDefault();
     this.deleteModal.hideModal();
   }
 
