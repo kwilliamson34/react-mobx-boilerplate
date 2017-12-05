@@ -68,42 +68,56 @@
 
     li {
       display: inline-block;
-      padding: 0 15px;
       margin-bottom: 25px;
       white-space: nowrap;
-      text-transform: uppercase;
       border-left: solid 1px $fn-dkgrey;
-      font-size: $fn-content-page-text-desktop;
-      font-weight: $fn-medium-weight;
-      color: $fn-ltblue;
-    }
 
-    li > a.active {
-      color: $fn-dkgrey;
-      font-weight: $fn-bold-weight;
-      position: relative;
-      width: 50px;
-      text-align: center;
-      text-decoration: none;
-    }
+      button {
+        padding: 0 15px;
+        font-size: $fn-content-page-text-desktop;
+        font-weight: $fn-medium-weight;
+        text-transform: uppercase;
+        color: $fn-ltblue;
 
-    li > a.active:before {
-      content: "";
-      display: block;
-      width: 0;
-      border: 8px solid $fn-dkgrey;
-      border-color: transparent transparent $fn-dkgrey transparent;
-      position: absolute;
-      top: 70%;
-      left: 50%;
-      margin-left: -8px;
-    }
+        &.active {
+          color: $fn-dkgrey;
+          font-weight: $fn-bold-weight;
+          position: relative;
+          // width: 50px;
+          text-align: center;
+          text-decoration: none;
 
-    li:first-child {
-      border-left: none;
-      padding-left: 0;
+          &:before {
+            content: "";
+            display: block;
+            width: 0;
+            border: 8px solid $fn-dkgrey;
+            border-color: transparent transparent $fn-dkgrey transparent;
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            margin-left: -8px;
+          }
+        }
+      }
+      &:first-child {
+        border-left: none;
+
+        button {          
+          padding-left: 0;
+        }
+      }
     }
   }
+
+  //   li > button.active {
+  //   }
+  //
+  //   li > button.active:before {
+  //   }
+  //
+  //   li
+  // }
 
   .faq-category-select {
     label {

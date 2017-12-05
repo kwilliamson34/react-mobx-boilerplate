@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
+
 import {FaqEntry} from './faq-entry.jsx';
 import PageTitle from '../page-title/page-title';
-// import $ from 'jquery';
 
 @observer
 export class FaqMain extends React.Component {
@@ -17,18 +17,12 @@ export class FaqMain extends React.Component {
     this.store = this.props.store;
   }
 
-  // componentWillMount() {
-    // this.store.toggleFaqPageHeaderButton(true);
-  // }
-
   componentWillUnmount() {
-    // this.store.toggleFaqPageHeaderButton(false);
-    this.store.updateFilter('ALL');
+    this.store.updateFilter('All');
   }
 
   updateCategory = (event) => {
     event.preventDefault();
-    console.log('event.target.value', event.target.value);
     this.store.updateFilter(event.target.value);
   }
 
@@ -44,7 +38,6 @@ export class FaqMain extends React.Component {
   }
 
   renderCategoriesAsButtons = (categories) => {
-    console.log('categories', categories);
     return (
       <div className="faq-category-tabs">
         <ul>
@@ -66,7 +59,7 @@ export class FaqMain extends React.Component {
         <form>
           <label htmlFor="faqCategory">FILTER BY CATEGORY</label>
           <select id="faqCategory" className="form-control" onChange={this.updateCategory} value={this.store.faqCategoryFilter}>
-            <option value="ALL">All Categories</option>
+            <option value="All">All Categories</option>
             {categories.map((category, i) => {
               return (
                 <option key={i} value={category.title}>{category.title}</option>
@@ -81,8 +74,8 @@ export class FaqMain extends React.Component {
   renderFaqEntriesList = () => {
     return (
       <div className="faq-entry-list">
-        {this.store.filteredFaqEntries.map((entry) => {
-          return (<FaqEntry faq={entry} key={entry.id} num={entry.id}/>)
+        {this.store.filteredFaqEntries.map((entry, i) => {
+          return <FaqEntry faq={entry} key={i} num={i}/>
         })}
       </div>
     )
@@ -106,14 +99,14 @@ export class FaqMain extends React.Component {
           <div className="row">
             <div className="faq-header col-xs-12 col-sm-10 col-sm-offset-1">
               <div className="hidden-xs">
-                {this.renderCategoriesAsButtons(this.store.faqs.categories)}
+                {this.renderCategoriesAsButtons(this.store.permissionedCategories)}
               </div>
               <div className="hidden-sm hidden-md hidden-lg">
-                {this.renderCategoriesAsSelectMenu(this.store.faqs.categories)}
+                {this.renderCategoriesAsSelectMenu(this.store.permissionedCategories)}
               </div>
               <div className="horizontal-line-header">
                 <h2>
-                  {this.store.faqCategoryFilter}
+                  {this.store.activeCategory}
                 </h2>
               </div>
               {this.renderFaqEntriesList()}
