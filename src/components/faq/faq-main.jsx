@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
 import {FaqEntry} from './faq-entry.jsx';
 import PageTitle from '../page-title/page-title';
-import $ from 'jquery';
+// import $ from 'jquery';
 
 @observer
 export class FaqMain extends React.Component {
@@ -17,56 +17,59 @@ export class FaqMain extends React.Component {
     this.store = this.props.store;
   }
 
-  componentWillMount() {
-    this.store.toggleFaqPageHeaderButton(true);
-  }
+  // componentWillMount() {
+    // this.store.toggleFaqPageHeaderButton(true);
+  // }
 
   componentWillUnmount() {
-    this.store.toggleFaqPageHeaderButton(false);
+    // this.store.toggleFaqPageHeaderButton(false);
     this.store.updateFilter('ALL');
   }
 
   updateCategory = (event) => {
     event.preventDefault();
-    this.store.updateFilter(event.target.value || $(event.target).data('value'));
+    console.log('event.target.value', event.target.value);
+    this.store.updateFilter(event.target.value);
   }
 
-  renderSingleButton = (category, key) => {
-    const isActive = this.store.faqCategoryFilter === category;
+  renderSingleButton = (category) => {
+    const isActive = this.store.faqCategoryFilter === category.title;
     return (
-      <li key={key}>
-        <a href="#" role="button" data-value={category} onClick={this.updateCategory} className={`category-tab-button ${isActive
-          ? 'active'
-          : ''}`}>
-          {category}
-        </a>
-      </li>
+      <button role="button" value={category.title} onClick={this.updateCategory} className={`as-link category-tab-button ${isActive
+        ? 'active'
+        : ''}`}>
+        {category.title}
+      </button>
     )
   }
 
-  renderCategoriesAsButtons = () => {
+  renderCategoriesAsButtons = (categories) => {
+    console.log('categories', categories);
     return (
       <div className="faq-category-tabs">
         <ul>
-          {this.renderSingleButton('ALL', 0)}
-          {this.store.faqs.categories.map((category, i) => {
-            return this.renderSingleButton(category, i);
+          {categories.map((category, i) => {
+            return (
+              <li key={i}>
+                {this.renderSingleButton(category)}
+              </li>
+            )
           })}
         </ul>
       </div>
     )
   }
 
-  renderCategoriesAsSelectMenu = () => {
+  renderCategoriesAsSelectMenu = (categories) => {
     return (
       <div className="faq-category-select">
         <form>
           <label htmlFor="faqCategory">FILTER BY CATEGORY</label>
           <select id="faqCategory" className="form-control" onChange={this.updateCategory} value={this.store.faqCategoryFilter}>
             <option value="ALL">All Categories</option>
-            {this.store.faqs.categories.map((category, i) => {
+            {categories.map((category, i) => {
               return (
-                <option key={i} value={category}>{category}</option>
+                <option key={i} value={category.title}>{category.title}</option>
               )
             })}
           </select>
@@ -103,10 +106,10 @@ export class FaqMain extends React.Component {
           <div className="row">
             <div className="faq-header col-xs-12 col-sm-10 col-sm-offset-1">
               <div className="hidden-xs">
-                {this.renderCategoriesAsButtons()}
+                {this.renderCategoriesAsButtons(this.store.faqs.categories)}
               </div>
               <div className="hidden-sm hidden-md hidden-lg">
-                {this.renderCategoriesAsSelectMenu()}
+                {this.renderCategoriesAsSelectMenu(this.store.faqs.categories)}
               </div>
               <div className="horizontal-line-header">
                 <h2>
