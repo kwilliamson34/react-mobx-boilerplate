@@ -31,189 +31,189 @@
       }],
     "entries": [{
         "question": "What is FirstNet Local Control?",
-        "answer": "<p>Local Control is FirstNet’s web portal for Public Safety Entities (PSEs).  In Local Control, PSE communications administrators manage their PSE’s access to and use of the FirstNet Network by managing users, devices, solutions, apps, services and billing for their organization.   </p><p>Local Control has an interactive map that provides public safety communications professionals with visibility into current network coverage quality, along with overlays of weather, traffic, and network alerts. Public safety communications professionals can request both emergency and planning assistance when planning for or responding to an event that may have heavy network demands or affects the network itself.</p>",
+        "answer": "Local Control is FirstNet’s web portal for Public Safety Entities (PSEs).  In Local Control, PSE communications administrators manage their PSE’s access to and use of the FirstNet Network by managing users, devices, solutions, apps, services and billing for their organization.\nLocal Control has an interactive map that provides public safety communications professionals with visibility into current network coverage quality, along with overlays of weather, traffic, and network alerts. Public safety communications professionals can request both emergency and planning assistance when planning for or responding to an event that may have heavy network demands or affects the network itself.",
         "id": 1,
         "maxStringLength": 280,
         "category": "General"
       },
       {
         "question": "How do I change my contact information?",
-        "answer": "<p>In the header, click on the profile icon.  From the dropdown, select 'Manage my Profile.'</p>",
+        "answer": "In the header, click on the profile icon.  From the dropdown, select 'Manage my Profile.'",
         "id": 2,
         "maxStringLength": 500,
         "category": "General"
       },
       {
         "question": "Can the general public view FirstNet Local Control?",
-        "answer": "<p>No, the general public cannot use FirstNet Local Control. Access is restricted to PSE communications administrators and incident managers that have opted into the FirstNet program.</p>",
+        "answer": "No, the general public cannot use FirstNet Local Control. Access is restricted to PSE communications administrators and incident managers that have opted into the FirstNet program.",
         "id": 3,
         "maxStringLength": 500,
         "category": "General"
       },
       {
         "question": "Why does my view of Local Control differ from my colleague’s view of the portal?",
-        "answer": "<p>Your view of Local Control is determined by your role settings. If you have questions about your role settings, please use the Live Chat feature on the right side of this window or&nbsp;<span aria-hidden=\"true\">call the FirstNet Customer Service line at&nbsp;</span><a href=\"tel:+18005747000\"><span class=\"sr-only\">call the FirstNet Customer Service line at&nbsp;</span>800-574-7000</a>.</p>",
+        "answer": "Your view of Local Control is determined by your role settings. If you have questions about your role settings, please use the Live Chat feature on the right side of this window or&nbsp;<span aria-hidden=\"true\">call the FirstNet Customer Service line at&nbsp;</span><a href=\"tel:+18005747000\"><span class=\"sr-only\">call the FirstNet Customer Service line at&nbsp;</span>800-574-7000</a>.",
         "id": 4,
         "maxStringLength": 500,
         "category": "General"
       },
       {
         "question": "Which alerts are displayed on the Network Status map?",
-        "answer": "<p>Alerts on the Network Status map highlight disruptions of or degradations in regular service. These may be the result of unexpected outages or planned maintenance. The alerts contain information about the nature of the incident such as the date/time reported, effect on network coverage, and estimated remediation time.</p>",
+        "answer": "Alerts on the Network Status map highlight disruptions of or degradations in regular service. These may be the result of unexpected outages or planned maintenance. The alerts contain information about the nature of the incident such as the date/time reported, effect on network coverage, and estimated remediation time.",
         "id": 5,
         "maxStringLength": 500,
         "category": "Network Status"
       },
       {
         "question": "When should I use the emergency network support number?",
-        "answer": "<p>The emergency network support number should be used when seeking FirstNet assistance while responding to an event that results in heavy network demands or affects the network itself and may affect the ability of first responders and dispatchers to communicate. This number should be treated as the '9-1-1' of FirstNet network support.</p>",
+        "answer": "The emergency network support number should be used when seeking FirstNet assistance while responding to an event that results in heavy network demands or affects the network itself and may affect the ability of first responders and dispatchers to communicate. This number should be treated as the '9-1-1' of FirstNet network support.",
         "id": 6,
         "maxStringLength": 500,
         "category": "Network Status"
       },
       {
         "question": "How do I add or remove a user from the PSE?",
-        "answer": "<p>Clicking the “Manage Users” button in the Administration Dashboard will open the Local Control Public Safety Entity (PSE) profile management in a new window.  Select the Users tab. From there you can add users to your PSE, edit existing users, or remove users.</p>",
+        "answer": "Clicking the “Manage Users” button in the Administration Dashboard will open the Local Control Public Safety Entity (PSE) profile management in a new window.  Select the Users tab. From there you can add users to your PSE, edit existing users, or remove users.",
         "id": 7,
         "maxStringLength": 500,
         "category": "Manage My PSE"
       },
       {
         "question": "How can I view reports of my PSE's usage of our FirstNet Plan?",
-        "answer": "<p>Clicking the “View Wireless Reporting” button in the Administration Dashboard will open FirstNet - Request Reports in a new window.  From here you can select the type of report you would like to view.  Refer to Request User Management Reports for additional detailed help.</p>",
+        "answer": "Clicking the “View Wireless Reporting” button in the Administration Dashboard will open FirstNet - Request Reports in a new window.  From here you can select the type of report you would like to view.  Refer to Request User Management Reports for additional detailed help.",
         "id": 8,
         "maxStringLength": 500,
         "category": "Manage My PSE"
       },
       {
         "question": "How can I change our FirstNet Plan?",
-        "answer": "<p>Clicking the 'Manage Services and Billing' button in the Administration Dashboard will open the FirstNet Premier - Manage page in a new window.  Under the 'I want to' section, choose 'Change Rate Plan' from the dropdown menu and enter the mobile number of the rate plan you want to change.  Click 'Go.'</p>",
+        "answer": "Clicking the 'Manage Services and Billing' button in the Administration Dashboard will open the FirstNet Premier - Manage page in a new window.  Under the 'I want to' section, choose 'Change Rate Plan' from the dropdown menu and enter the mobile number of the rate plan you want to change.  Click 'Go.'",
         "id": 9,
         "maxStringLength": 500,
         "category": "Manage My PSE"
       },
       {
         "question": "How can I view information about my PSE's bill?",
-        "answer": "<p>Clicking the 'Manage Services and Billing' button in the Administration Dashboard will open the FirstNet Premier - Manage page in a new window. In the header, select the 'Billing' tab.</p>",
+        "answer": "Clicking the 'Manage Services and Billing' button in the Administration Dashboard will open the FirstNet Premier - Manage page in a new window. In the header, select the 'Billing' tab.",
         "id": 10,
         "maxStringLength": 500,
         "category": "Manage My PSE"
       },
       {
         "question": "Can I manage more than one PSE's account?",
-        "answer": "<p>Yes, if you are an administrator of more than one PSE, you will receive a separate set of login credentials for each PSE account in order to manage each PSE individually.</p>",
+        "answer": "Yes, if you are an administrator of more than one PSE, you will receive a separate set of login credentials for each PSE account in order to manage each PSE individually.",
         "id": 11,
         "maxStringLength": 500,
         "category": "Manage My PSE"
       },
       {
         "question": "What is a standard device?",
-        "answer": "<p>A standard mobile communication device that is available commercially to all consumers.</p>",
+        "answer": "A standard mobile communication device that is available commercially to all consumers.",
         "id": 12,
         "maxStringLength": 500,
         "category": "Manage My PSE"
       },
       {
         "question": "What is a specialized device?",
-        "answer": "<p>A mobile communication device designed and built specifically for public safety use (such as a rugged mobile device or an in-vehicle modem).</p>",
+        "answer": "A mobile communication device designed and built specifically for public safety use (such as a rugged mobile device or an in-vehicle modem).",
         "id": 13,
         "maxStringLength": 500,
         "category": "Manage My PSE"
       },
       {
         "question": "What is a public safety solution?",
-        "answer": "<p>A software solution that a PSE uses to manage and/or coordinate plans for or response to public safety events (such as computer aided dispatch systems or mobile Push-To-Talk).</p>",
+        "answer": "A software solution that a PSE uses to manage and/or coordinate plans for or response to public safety events (such as computer aided dispatch systems or mobile Push-To-Talk).",
         "id": 14,
         "maxStringLength": 500,
         "category": "Manage My PSE"
       },
       {
         "question": "What if a device or solution has no purchase information?",
-        "answer": "<p>Purchasing information about these devices can be provided by your FirstNet representative.</p>",
+        "answer": "Purchasing information about these devices can be provided by your FirstNet representative.",
         "id": 15,
         "maxStringLength": 500,
         "category": "Manage My PSE"
       },
       {
         "question": "When new apps are released into the FirstNet App Store, are they available to members of my PSE?",
-        "answer": "<p>Yes. All apps that pass the FirstNet Certification & Accreditation process immediately appear in Local Control and become available to users in the App Store.  If you would like to block an app from appearing in your PSE’s App Store, you must uncheck the app’s “Available” checkbox on the Manage Apps page of Local Control.</p>",
+        "answer": "Yes. All apps that pass the FirstNet Certification & Accreditation process immediately appear in Local Control and become available to users in the App Store.  If you would like to block an app from appearing in your PSE’s App Store, you must uncheck the app’s “Available” checkbox on the Manage Apps page of Local Control.",
         "id": 16,
         "maxStringLength": 500,
         "category": "Manage Apps"
       },
       {
         "question": "What is the FirstNet App Store?",
-        "answer": "<p>The FirstNet App Store is a catalogue of apps developed with the needs of the first responder community in mind. Some apps may be stand-alone apps while others may be part of enterprise solutions. The apps are designed to aid first responders in preparing for and responding to incidents, and have been reviewed for security, performance, and data privacy.</p>",
+        "answer": "The FirstNet App Store is a catalogue of apps developed with the needs of the first responder community in mind. Some apps may be stand-alone apps while others may be part of enterprise solutions. The apps are designed to aid first responders in preparing for and responding to incidents, and have been reviewed for security, performance, and data privacy.",
         "id": 17,
         "maxStringLength": 500,
         "category": "Manage Apps"
       },
       {
         "question": "Can I push apps to my users' devices?",
-        "answer": "<p>If your PSE uses a Mobile Device Management (MDM) solution then you can push apps from Manage Apps to that MDM, and then from your MDM push them to the mobile devices of members of your organization. </p><p>The MDM solutions supported by FirstNet are AirWatch, MobileIron Cloud, MobileIron Core, Microsoft Intune, and IBM MaaS360. If you do not use one of these MDM’s, you can recommend an app in Local Control, which will flag it in the App Store for all members of your PSE. However, it is up to the user to determine whether to download the app to his/her device from the App Store.</p>",
+        "answer": "If your PSE uses a Mobile Device Management (MDM) solution then you can push apps from Manage Apps to that MDM, and then from your MDM push them to the mobile devices of members of your organization.\nThe MDM solutions supported by FirstNet are AirWatch, MobileIron Cloud, MobileIron Core, Microsoft Intune, and IBM MaaS360. If you do not use one of these MDM’s, you can recommend an app in Local Control, which will flag it in the App Store for all members of your PSE. However, it is up to the user to determine whether to download the app to his/her device from the App Store.",
         "id": 18,
         "maxStringLength": 202,
         "category": "Manage Apps"
       },
       {
         "question": "Are all of these apps free?",
-        "answer": "<p>There is no cost to download any of the apps in the App Store, however some require subscriptions or enterprise licenses to be used. For these, without valid credentials from the vendor, the app functionality will not be available.</p>",
+        "answer": "There is no cost to download any of the apps in the App Store, however some require subscriptions or enterprise licenses to be used. For these, without valid credentials from the vendor, the app functionality will not be available.",
         "id": 19,
         "maxStringLength": 500,
         "category": "Manage Apps"
       },
       {
         "question": "What apps will I see in FirstNet Local Control?",
-        "answer": "<p>FirstNet Local Control displays all apps that have been submitted through FirstNet App Control and that have passed the FirstNet Certification & Accreditation process. The “Available” checkbox on each app card gives the PSE Administrator the ability to block apps from displaying to their members in the FirstNet App Store.</p>",
+        "answer": "FirstNet Local Control displays all apps that have been submitted through FirstNet App Control and that have passed the FirstNet Certification & Accreditation process. The “Available” checkbox on each app card gives the PSE Administrator the ability to block apps from displaying to their members in the FirstNet App Store.",
         "id": 20,
         "maxStringLength": 500,
         "category": "Manage Apps"
       },
       {
         "question": "Will I be notified when a new app becomes available?",
-        "answer": "<p>You will not receive a notification when a new app becomes available on Local Control. If you would like to actively recommend apps, block apps, or push apps to an MDM, please log into the Manage Apps page of Local Control on a regular basis to take action on any new additions.</p>",
+        "answer": "You will not receive a notification when a new app becomes available on Local Control. If you would like to actively recommend apps, block apps, or push apps to an MDM, please log into the Manage Apps page of Local Control on a regular basis to take action on any new additions.",
         "id": 21,
         "maxStringLength": 500,
         "category": "Manage Apps"
       },
       {
         "question": "What is an MDM?",
-        "answer": "<p>Mobile device management (MDM) solutions are used for the administration of mobile devices, such as smartphones, tablet computers, laptops, and desktop computers. Some PSEs may opt to manage distribution of apps through a third-party MDM solution. If users have an MDM account, Local Control allows users to push apps to that MDM.  The MDM solutions supported by FirstNet are AirWatch, MobileIron, and IBM MaaS360.</p>",
+        "answer": "Mobile device management (MDM) solutions are used for the administration of mobile devices, such as smartphones, tablet computers, laptops, and desktop computers. Some PSEs may opt to manage distribution of apps through a third-party MDM solution. If users have an MDM account, Local Control allows users to push apps to that MDM.  The MDM solutions supported by FirstNet are AirWatch, MobileIron, and IBM MaaS360.",
         "id": 23,
         "maxStringLength": 500,
         "category": "Configure MDM"
       },
       {
         "question": "Can I have more than one MDM configured for a PSE?",
-        "answer": "<p>No. You must break an existing MDM connection in Local Control in order to reconfigure a new one.</p>",
+        "answer": "No. You must break an existing MDM connection in Local Control in order to reconfigure a new one.",
         "id": 24,
         "maxStringLength": 500,
         "category": "Configure MDM"
       },
       {
         "question": "Can any FirstNet Application be pushed to an EMM/MDM through Local Control?",
-        "answer": "<p>Yes, for most supported MDM platforms. Microsoft Intune does not support any applications being pushed that are not also available in either the iTunes or Google Play store. To place other applications in an Intune account, please contact the third party application developer.</p>",
+        "answer": "Yes, for most supported MDM platforms. Microsoft Intune does not support any applications being pushed that are not also available in either the iTunes or Google Play store. To place other applications in an Intune account, please contact the third party application developer.",
         "id": 25,
         "maxStringLength": 500,
         "category": "Configure MDM"
       },
       {
         "question": "Can I remove apps from my MDM?",
-        "answer": "<p>No, not through Local Control. The push feature is a one-way communication. To remove an app that has already been pushed to your third-party MDM, the administrator must do so in the MDM itself.</p>",
+        "answer": "No, not through Local Control. The push feature is a one-way communication. To remove an app that has already been pushed to your third-party MDM, the administrator must do so in the MDM itself.",
         "id": 26,
         "maxStringLength": 500,
         "category": "Configure MDM"
       },
       {
         "question": "When would I need to 're-push' an app?  Are new versions automatically pushed?",
-        "answer": "<p>Since the push to MDM is a one-way communication, Local Control does not know if an app currently exists in a configured MDM. If a user pushed an app to his/her MDM and then removed it from the MDM directly, the user may want an option to re-submit the app to the MDM at a later date.  Additionally, this can be used to push new versions.</p>",
+        "answer": "Since the push to MDM is a one-way communication, Local Control does not know if an app currently exists in a configured MDM. If a user pushed an app to his/her MDM and then removed it from the MDM directly, the user may want an option to re-submit the app to the MDM at a later date.  Additionally, this can be used to push new versions.",
         "id": 27,
         "maxStringLength": 500,
         "category": "Configure MDM"
       },
       {
         "question": "Do you have a question that wasn’t covered here?",
-        "answer": "<p>Please use the Live Chat feature on the right side of this window or&nbsp;<span aria-hidden=\"true\">call the FirstNet Customer Service line at&nbsp;</span><a href=\"tel:+18005747000\"><span class=\"sr-only\">call the FirstNet Customer Service line at&nbsp;</span>800-574-7000</a>.</p>",
+        "answer": "Please use the Live Chat feature on the right side of this window or&nbsp;<span aria-hidden=\"true\">call the FirstNet Customer Service line at&nbsp;</span><a href=\"tel:+18005747000\"><span class=\"sr-only\">call the FirstNet Customer Service line at&nbsp;</span>800-574-7000</a>.",
         "id": 28,
         "maxStringLength": 500,
         "category": "Other"
