@@ -27,7 +27,7 @@ export class FaqMain extends React.Component {
   }
 
   renderSingleButton = (category) => {
-    const isActive = this.store.faqCategoryFilter === category.title;
+    const isActive = this.store.activeCategory === category.title;
     return (
       <button role="button" value={category.title} onClick={this.updateCategory} className={`as-link category-tab-button ${isActive
         ? 'active'

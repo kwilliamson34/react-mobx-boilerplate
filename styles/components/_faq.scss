@@ -83,7 +83,6 @@
           color: $fn-dkgrey;
           font-weight: $fn-bold-weight;
           position: relative;
-          // width: 50px;
           text-align: center;
           text-decoration: none;
 
@@ -103,21 +102,12 @@
       &:first-child {
         border-left: none;
 
-        button {          
+        button {
           padding-left: 0;
         }
       }
     }
   }
-
-  //   li > button.active {
-  //   }
-  //
-  //   li > button.active:before {
-  //   }
-  //
-  //   li
-  // }
 
   .faq-category-select {
     label {
