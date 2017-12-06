@@ -4,7 +4,7 @@
 
 //libs
 @import
-  "~fn-common-ui/styles/main",
+  "~fn-common-ui/styles/main", //must come before joyride
   "~fn-joyride-ui/src/styles/main";
 
 //Utils
