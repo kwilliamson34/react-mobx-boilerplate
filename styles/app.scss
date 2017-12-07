@@ -4,9 +4,8 @@
 
 //libs
 @import
-  "base/bootstrap",
-  "libs/firstnet/firstnet",
-  "~fn-joyride-ui/lib/react-joyride";
+  "~fn-common-ui/styles/main", //must come before joyride
+  "~fn-joyride-ui/src/styles/main";
 
 //Utils
 @import "abstracts/utils";
@@ -15,12 +14,9 @@
 @import
   "base/base",
   "base/mixins",
-  "base/typography",
-  "base/bootstrap-overrides",
   "base/buttons",
   "base/tables",
-  "base/shapes",
-  "base/joyride-overrides";
+  "base/shapes";
 
 //Components
 @import
