@@ -118,7 +118,9 @@
       &:focus,
       &:hover {
         border-bottom: 5px solid $table-active-column-highlight;
+      }
 
+      &.active {
         .sort-name i {
           display: block;
         }
