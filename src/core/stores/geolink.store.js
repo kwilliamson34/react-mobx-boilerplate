@@ -4,6 +4,7 @@ import config from 'config';
 import {utilsService} from '../services/utils.service';
 import {apiService} from '../services/api.service';
 import {history} from '../services/history.service';
+import _ from 'lodash';
 
 const networkLayerNames = [
   'FirstNet:Coverage2G',
@@ -353,7 +354,7 @@ class GeolinkStore {
     return this.favorites.filter(favorite => {
       allSearchTermsMatchFavorite = true;
       for(let term of this.searchTerms) {
-        searchTermPattern = new RegExp(term, 'i');
+        searchTermPattern = new RegExp(_.escapeRegExp(term), 'i');
         if(!searchTermPattern.test(favorite.favoriteName) && !searchTermPattern.test(favorite.locationFavoriteAddress)) {
           allSearchTermsMatchFavorite = false;
           break;
