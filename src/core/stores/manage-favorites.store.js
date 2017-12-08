@@ -175,15 +175,28 @@ class ManageFavoritesStore {
     const notNumberRows = rowsToSort.filter(row => {
       if (!row[this.activeColumn].match(coordRegex)) {
         const firstElement = row[this.activeColumn].split(' ')[0];
-        const firstLetter = firstElement.charAt(0);
-        return isNaN(parseInt(firstLetter)) === true;
+        const firstChar = firstElement.charAt(0);
+        //to allow coordinates beginning with + or - to sort as numbers, check for them and skip to second character if found
+        if (/([+,-]+)/.test(firstChar)) {
+          console.log('DING', row);
+          const secondChar = firstElement.charAt(1);
+          return isNaN(parseInt(secondChar)) === true;
+        } else {
+          return isNaN(parseInt(firstChar)) === true;
+        }
       }
     });
     const numberRows = rowsToSort.filter(row => {
       if (!row[this.activeColumn].match(coordRegex)) {
         const firstElement = row[this.activeColumn].split(' ')[0];
-        const firstLetter = firstElement.charAt(0);
-        return isNaN(parseInt(firstLetter)) === false;
+        const firstChar = firstElement.charAt(0);
+        //to allow coordinates beginning with + or - to sort as numbers, check for them and skip to second character if found
+        if (/([+,-]+)/.test(firstChar)) {
+          const secondChar = firstElement.charAt(1);
+          return isNaN(parseInt(secondChar)) === false;
+        } else {
+          return isNaN(parseInt(firstChar)) === false;
+        }
       }
     });
 
