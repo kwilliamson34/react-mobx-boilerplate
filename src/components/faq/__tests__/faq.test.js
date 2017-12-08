@@ -2,7 +2,6 @@ jest.unmock('../faq');
 
 import React from 'react';
 import {Faq} from '../faq.jsx';
-// import {MemoryRouter} from 'react-router-dom';
 
 describe('<Faq />', () => {
 
