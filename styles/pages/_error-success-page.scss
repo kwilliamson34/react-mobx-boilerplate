@@ -2,11 +2,15 @@
 	min-height: 100vh;
 }
 
+.success-page,
+.session-timeout {
+	margin-bottom: 0 - $footer-margin-top;
+}
+
 .error-page,
 .success-page {
 	background: $fn-grey;
 	padding: 60px 20px;
-	margin-bottom: 0 - $footer-margin-top;
 
 	.logo-container {
 		margin: 0 auto 30px;

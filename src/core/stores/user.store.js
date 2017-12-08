@@ -136,8 +136,8 @@ class UserStore {
   @observable routePermissions = {
     shopStandardDevices: ['G_FN_ADM', 'G_FN_VOL'],
     shopSpecializedDevices: ['G_FN_ADM', 'G_FN_VOL'],
-    shopPublicSafetySolutions: ['G_FN_ADM', 'G_FN_VOL_ADM', 'G_FN_VOL'],
-    manageUsers: ['G_FN_ADM', 'G_FN_ITM'],
+    shopPublicSafetySolutions: ['G_FN_ADM', 'G_FN_VOL'],
+    manageUsers: ['G_FN_ADM', 'G_FN_ITM', 'G_FN_VOL_ADM'],
     manageBilling: ['G_FN_ADM', 'G_FN_VOL'],
     viewReports: ['G_FN_ADM', 'G_FN_VOL'],
     manageApps: ['G_FN_ADM', 'G_FN_ITM', 'G_FN_VOL_ADM'],

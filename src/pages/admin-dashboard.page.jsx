@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import {observer, inject} from 'mobx-react';
+import {observable} from 'mobx';
 import NewTabLink from '../components/link/new-tab-link';
 import config from 'config';
 import {adminCards, asideCards} from '../content/admin-cards.js';
@@ -14,34 +15,44 @@ export default class AdminDashboardPage extends React.Component {
   static propTypes = {
     store: PropTypes.object
   }
-  
+
+  @observable numCardsShown = 0;
+  @observable adminCardsToShow = [];
+  @observable asideCardsToShow = [];
+
   constructor(props) {
     super(props);
     this.store = this.props.store.userStore;
+
+    const isPermitted = this.store.destinationIsPermitted;
+    this.adminCardsToShow = adminCards.filter(card => {
+      return isPermitted[card.isPermitted]
+    });
+    this.asideCardsToShow = asideCards.filter(card => {
+      return isPermitted[card.isPermitted]
+    });
+    this.numCardsShown = this.adminCardsToShow.length + this.asideCardsToShow.length;
   }
-  
-  renderPermissionedCard(card, key = 1) {
+
+  renderCard(card, key = 1) {
     //check if we are using a local or extenrnal link, and act accordingly
     const LinkType = card.linkTo[0] === '/' ? Link : NewTabLink;
     const linkDest = card.linkTo[0] === '/' ? card.linkTo : config[card.linkTo]
     const callToAction = card.callToAction || card.header;
-    //render if we are allowed
-    const isPermitted = this.store.destinationIsPermitted;
-    if(isPermitted[card.isPermitted]){
-      return (
-        <li className="col-xs-12" key={key}>
-          <LinkType to={linkDest} className={`dashboard-card ${card.className} has-shadow`}>
-            <div className="desc">
-              <h3 dangerouslySetInnerHTML={ {__html: card.header} }></h3>
-              <p dangerouslySetInnerHTML={ {__html: card.description} }></p>
-            </div>
-            <span><span dangerouslySetInnerHTML={ {__html: callToAction} }></span> <i className="icon-arrowRight" aria-hidden="true"></i></span>
-          </LinkType>
-        </li>
-      )
-    }
+
+    return (
+      <li className="col-xs-12" key={key}>
+        <LinkType to={linkDest} className={`dashboard-card ${card.className} has-shadow`}>
+          <div className="desc">
+            <h3 dangerouslySetInnerHTML={ {__html: card.header} }></h3>
+            <p dangerouslySetInnerHTML={ {__html: card.description} }></p>
+          </div>
+          <span><span dangerouslySetInnerHTML={ {__html: callToAction} }></span> <i className="icon-arrowRight" aria-hidden="true"></i></span>
+        </LinkType>
+      </li>
+    )
   }
-  
+
   render() {
     const isPermitted = this.store.destinationIsPermitted;
     const hideAside = !(isPermitted.shopStandardDevices || isPermitted.shopSpecializedDevices || isPermitted.shopPublicSafetySolutions);
@@ -51,15 +62,15 @@ export default class AdminDashboardPage extends React.Component {
           <div className="col-xs-12">
             <PageTitle>Administration</PageTitle>
           </div>
-          <div className="row no-gutters">
+          <div className="row no-gutters" numcards={this.numCardsShown}>
             <section className={`col-xs-12 ${hideAside ? 'hide-aside' : 'col-lg-8'} manage-actions`}>
               {!hideAside && <div className="col-xs-12">
                 <h2 className="as-h4">Management</h2>
               </div>}
               <nav>
                 <ul>
-                  {adminCards.map((card, i) => {
-                    return this.renderPermissionedCard(card, i)
+                  {this.adminCardsToShow.map((card, i) => {
+                    return this.renderCard(card, i)
                   })}
                 </ul>
               </nav>
@@ -70,8 +81,8 @@ export default class AdminDashboardPage extends React.Component {
               </div>
               <nav>
                 <ul>
-                  {asideCards.map((card, i) => {
-                    return this.renderPermissionedCard(card, i)
+                  {this.asideCardsToShow.map((card, i) => {
+                    return this.renderCard(card, i)
                   })}
                 </ul>
               </nav>

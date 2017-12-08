@@ -68,24 +68,14 @@ export default function asForm (MyComponent, attributes) {
       return this.store.successToDisplay === 'DEFAULT' ? 'Your submission was successful.' : this.store.successToDisplay;
     }
 
-    clearAlert = () => {
-      if(this.store.updateAlert) {
-        this.store.updateAlert('');
-      }
-    }
-
-    clearSuccess = () => {
-      if(this.store.updateSuccess) {
-        this.store.updateSuccess('');
-      }
+    componentWillMount() {
+      this.interceptedRoute = '';
+      this.includeDivider = attributes && attributes.includeDivider;
+      this.secondaryButtonText = (attributes && attributes.secondaryButtonText) ? attributes.secondaryButtonText : '';
+      this.formColClass = (attributes && attributes.formColClass) ? attributes.formColClass : '';
     }
 
     componentDidMount() {
-      this.interceptedRoute = '';
-      this.includeDivider = attributes && attributes.includeDivider;
-      this.secondaryButtonText = attributes && attributes.secondaryButtonText ? attributes.secondaryButtonText : '';
-      this.formColClass = attributes && attributes.formColClass ? attributes.formColClass : '';
-
       //set up reroute blockade (returns unblocking function)
       this.unblock = history.block((location) => {
         if (this.store.formIsDirty && !this.props.disabled) {
@@ -104,6 +94,18 @@ export default function asForm (MyComponent, attributes) {
 
       //undo the reroute blockade
       this.unblock();
+    }
+
+    clearAlert = () => {
+      if(this.store.updateAlert) {
+        this.store.updateAlert('');
+      }
+    }
+
+    clearSuccess = () => {
+      if(this.store.updateSuccess) {
+        this.store.updateSuccess('');
+      }
     }
 
     renderSubmitButton = () => {

@@ -99,9 +99,9 @@ export default class App extends React.Component {
     return (
       <article id="specialized-devices">
         <Switch>
-          <Route path={`${match.url}/:deviceCategory/:deviceId`} component={DeviceDetailTemplate}/>
-          <Route path={`${match.url}/:deviceCategory`} component={DeviceCategoryTemplate}/>
-          <Route path={match.url} component={DevicesLandingPage}/>
+          <Route path={`${match.url}/:deviceCategory/:deviceId`} component={DeviceDetailTemplate} />
+          <Route path={`${match.url}/:deviceCategory`} component={DeviceCategoryTemplate} />
+          <Route path={match.url} component={DevicesLandingPage} />
         </Switch>
       </article>
     )
@@ -111,10 +111,10 @@ export default class App extends React.Component {
     return (
       <article id="solutions-hub-page">
         <Switch>
-          <Route path={`${match.url}/:solutionCategory/:solutionDetail/request-info`} component={LeadCapturePage}/>
-          <Route path={`${match.url}/:solutionCategory/:solutionDetail`} component={SolutionsDetailTemplate}/>
-          <Route path={`${match.url}/:solutionCategory`} component={SolutionsCategoryTemplate}/>
-          <Route path={match.url} component={ShopSolutionsPage}/>
+          <Route path={`${match.url}/:solutionCategory/:solutionDetail/request-info`} component={LeadCapturePage} />
+          <Route path={`${match.url}/:solutionCategory/:solutionDetail`} component={SolutionsDetailTemplate} />
+          <Route path={`${match.url}/:solutionCategory`} component={SolutionsCategoryTemplate} />
+          <Route path={match.url} component={ShopSolutionsPage} />
         </Switch>
       </article>
     )
@@ -132,48 +132,44 @@ export default class App extends React.Component {
           <Header/>
           <main id="main-content">
             <Switch>
-              <Route exact path="/" component={this.checkRoutePermission({
-                  component: AdminDashboardPage,
-                  isPermitted: permissionObject.administration,
-                  redirectPath: '/network-status'
-                })}/>
+              <Route exact path="/" component={() => <Redirect to="/admin" />} />
               <Route path="/admin/manage-apps" component={this.checkRoutePermission({
                   component: ManageAppsPage,
                   isPermitted: permissionObject.manageApps
-                })}/>
+                })} />
               <Route path="/admin/configure-mdm" component={this.checkRoutePermission({
                   component: ConfigureMDM,
                   isPermitted: permissionObject.manageApps
-                })}/>
+                })} />
               <Route path="/admin/devices" component={this.checkRoutePermission({
                   component: this.getSpecializedDevicesComponent,
                   isPermitted: permissionObject.shopSpecializedDevices
-                })}/>
+                })} />
               <Route path="/admin/solutions" component={this.checkRoutePermission({
                   component: this.getPublicSafetySolutionsComponent,
                   isPermitted: permissionObject.shopPublicSafetySolutions
-                })}/>
+                })} />
               <Route path="/admin" component={this.checkRoutePermission({
                   component: AdminDashboardPage,
                   isPermitted: permissionObject.administration,
                   redirectPath: '/network-status'
-                })}/>
+                })} />
               <Route path="/app/:appPsk" component={this.checkRoutePermission({
                   component: AppDetailsPage,
                   isPermitted: permissionObject.manageApps
-                })/*TODO redirect to error/404 if psk has no match*/}/>
+                })/*TODO redirect to error/404 if psk has no match*/} />
               <Route path="/network-status" component={this.checkRoutePermission({
                   component: NetworkStatusPage,
                   isPermitted: permissionObject.networkStatus
-                })}/>
-              <Route path="/manage-favorites" component={ManageFavoritesPage}/>
-              <Route path="/subscribe-to-alerts" component={SubscribeToGTOC}/>
-              <Route path="/subscribe-to-alerts-success" component={SubscribeToGTOCSuccess}/>
-              <Route path="/feedback" component={FeedbackPage}/>
-              <Route path="/feedback-success" component={FeedbackSuccessPage}/>
-              <Route path="/faq" component={FAQPage}/>
-              <Route path="/help-center" component={HelpCenterPage}/>
-              <Route component={() => <Redirect to="/error/404"/>}/>
+                })} />
+              <Route path="/manage-favorites" component={ManageFavoritesPage} />
+              <Route path="/subscribe-to-alerts" component={SubscribeToGTOC} />
+              <Route path="/subscribe-to-alerts-success" component={SubscribeToGTOCSuccess} />
+              <Route path="/feedback" component={FeedbackPage} />
+              <Route path="/feedback-success" component={FeedbackSuccessPage} />
+              <Route path="/faq" component={FAQPage} />
+              <Route path="/help-center" component={HelpCenterPage} />
+              <Route component={() => <Redirect to="/error/404" />} />
             </Switch>
           </main>
           <Footer/>
@@ -183,18 +179,18 @@ export default class App extends React.Component {
   }
 
   checkRoutePermission = ({component, isPermitted, redirectPath = '/error/unauthorized'}) => {
-    return isPermitted ? component : () => <Redirect to={redirectPath}/>;
+    return isPermitted ? component : () => <Redirect to={redirectPath} />;
   }
 
   getPlainLayoutComponent = () => {
     return (
       <Switch>
-        <Route exact path="/error/404" component={() => <ErrorPage cause="404"/>}/>
-        <Route exact path="/error/unauthorized" component={() => <ErrorPage cause="unauthorized"/>}/>
-        <Route exact path="/error/unavailable" component={() => <ErrorPage cause="410"/>}/>
-        <Route exact path="/error/pending" component={() => <ErrorPage cause="pending" />}/>
-        <Route path="/error" component={ErrorPage}/>
-        <Route component={() => <Redirect to="/error/404"/>}/>
+        <Route exact path="/error/404" component={() => <ErrorPage cause="404" />} />
+        <Route exact path="/error/unauthorized" component={() => <ErrorPage cause="unauthorized" />} />
+        <Route exact path="/error/unavailable" component={() => <ErrorPage cause="410" />} />
+        <Route exact path="/error/pending" component={() => <ErrorPage cause="pending" />} />
+        <Route path="/error" component={ErrorPage} />
+        <Route component={() => <Redirect to="/error/404" />} />
       </Switch>
     )
   }
@@ -203,13 +199,13 @@ export default class App extends React.Component {
     return pseMasterStore.userStore.userValidationDone
       ? (pseMasterStore.isLoggedIn
         ? <Switch>
-            <Route exact path="/session-timeout" component={SessionTimeoutPage}/>
-            <Route path="/error" component={this.getPlainLayoutComponent}/>
-            <Route component={this.getMainLayoutComponent}/>
+            <Route exact path="/session-timeout" component={SessionTimeoutPage} />
+            <Route path="/error" component={this.getPlainLayoutComponent} />
+            <Route component={this.getMainLayoutComponent} />
           </Switch>
         : (pseMasterStore.userStore.isSubscriber
-          ? <ExternalRedirect externalUrl={config.appStore}/>
-          : <ErrorPage cause="unauthorized"/>))
+          ? <ExternalRedirect externalUrl={config.appStore} />
+          : <ErrorPage cause="unauthorized" />))
       : <div className="fn-loading">
           <div className="fn-loading-logo">
             <img src="/images/firstnet-logo.svg" width="173" height="51" alt="" aria-hidden="true" />
