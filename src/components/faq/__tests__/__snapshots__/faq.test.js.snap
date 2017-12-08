@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<FaqMain /> Render testing Matches snapshot 1`] = `
+exports[`<Faq /> Render testing Matches snapshot 1`] = `
 <div>
   <div
     className="faq-top-header"
@@ -38,26 +38,14 @@ exports[`<FaqMain /> Render testing Matches snapshot 1`] = `
           >
             <ul>
               <li>
-                <a
-                  className="category-tab-button active"
-                  data-value="ALL"
-                  href="#"
+                <button
+                  className="as-link category-tab-button "
                   onClick={[Function]}
                   role="button"
+                  value="TEST CATEGORY"
                 >
-                  ALL
-                </a>
-              </li>
-              <li>
-                <a
-                  className="category-tab-button "
-                  data-value="LOREM"
-                  href="#"
-                  onClick={[Function]}
-                  role="button"
-                >
-                  LOREM
-                </a>
+                  TEST CATEGORY
+                </button>
               </li>
             </ul>
           </div>
@@ -78,17 +66,17 @@ exports[`<FaqMain /> Render testing Matches snapshot 1`] = `
                 className="form-control"
                 id="faqCategory"
                 onChange={[Function]}
-                value="ALL"
+                value="All"
               >
                 <option
-                  value="ALL"
+                  value="All"
                 >
                   All Categories
                 </option>
                 <option
-                  value="LOREM"
+                  value="TEST CATEGORY"
                 >
-                  LOREM
+                  TEST CATEGORY
                 </option>
               </select>
             </form>
@@ -98,7 +86,7 @@ exports[`<FaqMain /> Render testing Matches snapshot 1`] = `
           className="horizontal-line-header"
         >
           <h2>
-            ALL
+            All
           </h2>
         </div>
         <div

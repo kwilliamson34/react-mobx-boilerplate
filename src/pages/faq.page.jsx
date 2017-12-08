@@ -2,7 +2,8 @@ import React from 'react';
 import {observer, inject} from 'mobx-react';
 import {PropTypes} from 'prop-types';
 
-import {FaqMain} from '../components/faq/faq-main.jsx';
+import {faqs} from '../content/faq-data.json';
+import {Faq} from '../components/faq/faq.jsx';
 
 @inject('store')
 @observer
@@ -15,7 +16,7 @@ export default class FAQPage extends React.Component {
     return (
       <article className="faq-article">
         <section className="faq-page">
-          <FaqMain store={this.props.store.contentStore}/>
+          <Faq faqData={faqs} userPermissions={this.props.store.userStore.user.roles}/>
         </section>
       </article>
     );
