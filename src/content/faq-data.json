@@ -3,31 +3,31 @@
     "categories": [
       {
         "title": "All",
-        "permissions": ["G_FN_ADM", "G_FN_ITM", "G_FN_SUB", "G_FN_VOL_ADM", "G_FN_VOL"]
+        "permissions": []
       },
       {
         "title": "General",
-        "permissions": ["G_FN_ADM", "G_FN_ITM", "G_FN_SUB", "G_FN_VOL_ADM", "G_FN_VOL"]
+        "permissions": []
       },
       {
         "title": "Network Status",
-        "permissions": ["G_FN_ADM", "G_FN_ITM", "G_FN_SUB", "G_FN_VOL_ADM", "G_FN_VOL"]
+        "permissions": []
       },
       {
         "title": "Manage My PSE",
-        "permissions": ["G_FN_ADM", "G_FN_ITM", "G_FN_SUB", "G_FN_VOL_ADM", "G_FN_VOL"]
+        "permissions": []
       },
       {
         "title": "Manage Apps",
-        "permissions": ["G_FN_ADM", "G_FN_ITM", "G_FN_SUB", "G_FN_VOL_ADM", "G_FN_VOL"]
+        "permissions": []
       },
       {
         "title": "Configure MDM",
-        "permissions": ["G_FN_ADM", "G_FN_ITM", "G_FN_SUB", "G_FN_VOL_ADM", "G_FN_VOL"]
+        "permissions": []
       },
       {
         "title": "Other",
-        "permissions": ["G_FN_ITM", "G_FN_SUB", "G_FN_VOL_ADM", "G_FN_VOL"]
+        "permissions": []
       }],
     "entries": [{
         "question": "What is FirstNet Local Control?",
