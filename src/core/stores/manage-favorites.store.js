@@ -166,10 +166,10 @@ class ManageFavoritesStore {
     const coordRegex = /^([-+])?([1-8]?\d(\W\d+)?|90(\W0+)?)\s*(\W?)\s*((N|S|E|W)?)\s*(,?)\s*([-+])?(180(\W0+)?|((1[0-7]\d)|([1-9]?\d))(\W\d+)?)\s*(\W?)\s*((N|S|E|W)?)$/ig;
     const sortOrder = this.sortDirections[this.activeColumn];
 
-    //find rows that resemble coordinates with a regex;
-    const coordRows = rowsToSort.filter(row => {
-      return row[this.activeColumn].match(coordRegex)
-    });
+    // //find rows that resemble coordinates with a regex;
+    // const coordRows = rowsToSort.filter(row => {
+    //   return row[this.activeColumn].match(coordRegex)
+    // });
 
     //determine whether row should be sorted by numbers or not on the basis of the first character of the first element.
     const notNumberRows = rowsToSort.filter(row => {
@@ -192,12 +192,12 @@ class ManageFavoritesStore {
     const sortedNumberRows = this.numberSort(numberRows, sortOrder, this.activeColumn);
 
     //sort the rest normally, as if a string.
-    const sortedCoordRows = this.regularSort(coordRows, sortOrder, this.activeColumn);
+    // const sortedCoordRows = this.regularSort(coordRows, sortOrder, this.activeColumn);
     const sortedNotNumberRows = this.regularSort(notNumberRows, sortOrder, this.activeColumn);
 
     return sortOrder
-      ? [...sortedNotNumberRows, ...sortedNumberRows, ...sortedCoordRows]
-      : [...sortedCoordRows, ...sortedNumberRows, ...sortedNotNumberRows]
+      ? [...sortedNotNumberRows, ...sortedNumberRows]
+      : [...sortedNumberRows, ...sortedNotNumberRows]
   }
 
   numberSort = (rowsToSort, sortOrder, activeColumn) => {
