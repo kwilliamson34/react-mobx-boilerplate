@@ -29,19 +29,28 @@ export default class Truncate extends React.Component {
 
   constructor(props) {
     super(props);
-    this.stringToTruncate = this.props.children;
+    this.stringToTruncate = '';
     this.shouldTruncate = false;
     this.truncationElements = null;
   }
 
   componentWillMount() {
+    this.setStringToTruncate(this.props.children);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setStringToTruncate(nextProps.children);
+  }
+
+  @observable isTruncated = true;
+
+  setStringToTruncate = (stringToTruncate) => {
+    this.stringToTruncate = stringToTruncate
     this.modifiedString = this.modifyStringToTruncate(this.stringToTruncate);
     this.shouldTruncate = this.checkIfShouldTruncate(this.modifiedString, this.props.charLimit);
     this.showEverythingBlock = this.generateEverythingBlock(this.modifiedString);
     this.showTruncatedBlock = this.generateTruncatedBlock(this.modifiedString, this.props.charLimit);
   }
-
-  @observable isTruncated = true;
 
   modifyStringToTruncate = (string) => {
     let returnString = ''
