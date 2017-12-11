@@ -1,7 +1,4 @@
 body {
-  background: $fn-white;
-  margin: 0;
-
   *:focus {
     @include focus();
   }
@@ -14,8 +11,6 @@ i {
 }
 
 main {
-  background: $fn-white;
-
   > article {
     padding-top: 30px;
   }
@@ -63,107 +58,4 @@ hr {
 h1 + hr,
 h2 + hr {
   border-color: $fn-header-hr-grey;
-}
-
-.form-group {
-  input {
-    //hide pseudo-element for clear on IE
-    &::-ms-clear {
-      display: none;
-    }
-
-    &.form-control:not(:last-child) {
-      padding: 6px 6px 6px 12px;
-      border-right: 0;
-    }
-  }
-
-  .has-icon {
-    position: relative;
-    input {
-      padding-left: 35px !important;
-    }
-    .prefix-icon {
-      position: absolute;
-      left: 14px;
-      top: 17px;
-      font-size: $fn-label-desktop;
-      color: $fn-ltblue;
-      z-index: 2;
-    }
-  }
-
-  &.has-error {
-    input.form-control {
-      border-right: 1px solid $fn-red;
-    }
-  }
-
-  .clear-btn,
-  .submit-btn {
-    @extend .btn;
-    height: 48px;
-    width: 48px;
-
-    [class^="icon-"]:before {
-      line-height: 3;
-      font-size: $fn-button-desktop;
-      color: $fn-dkgrey;
-    }
-
-    .icon-close:before {
-      font-size: 1rem;
-    }
-
-    &:hover,
-    &:active,
-    &:focus {
-      box-shadow: none;
-      outline: none;
-
-      [class^="icon-"]:before {
-        color: $fn-white;
-      }
-    }
-
-    &:hover {
-      background-color: $fn-ltblue;
-      border: 1px solid $fn-ltblue;
-    }
-
-    &:active,
-    &:focus {
-      background-color: $fn-blue;
-      border: 1px solid $fn-blue;
-    }
-  }
-
-  .clear-btn {
-    border-radius: 0;
-    border-top: 1px solid $input-outline;
-    border-bottom: 1px solid $input-outline;
-    border-left: 0 none;
-    background-color: $input-bgcolor;
-  }
-
-  .submit-btn {
-    border-color: $input-outline;
-    border-left: 1px solid $input-outline;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-
-  &.disabled {
-    .clear-btn,
-    .submit-btn {
-      border-color: $fn-disabledgrey;
-    }
-  }
-}
-
-.search-form {
-  input.form-control {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-  }
 }

@@ -463,6 +463,14 @@ $map-controls-text-line-height: 1.3;
   }
 
   .container.location-favorites {
+    .form-actions {
+      text-align: center;
+      .button-wrapper {
+        button {
+          min-width: 220px;
+        }
+      }
+    }
     .submit-button-wrapper {
       button {
         margin: 0;
