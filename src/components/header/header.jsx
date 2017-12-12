@@ -183,7 +183,7 @@ export default class PSEHeader extends React.Component {
 				</button>
 				<div className="fnnav__brand">
 					<Link className="logo-home-link" to="/">
-						<img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Logo"/>
+						<img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Logo" />
 						<span className="sr-only">Go Home</span>
 					</Link>
 				</div>
@@ -396,7 +396,7 @@ export default class PSEHeader extends React.Component {
 										</span>
 									</button>
 									<a id="pse-help-mobile" href="/manage-profile" className="deaden">
-										<i className="icon-help" aria-hidden="true"/>
+										<i className="icon-help" aria-hidden="true" />
 										Help
 									</a>
 									<ul
@@ -408,7 +408,7 @@ export default class PSEHeader extends React.Component {
 								</li>
 								<li className="mainnav-item grey logout" role="presentation">
 									<a href="#" onClick={this.onLogout}>
-										<i className="icon-logout" aria-hidden="true"/>
+										<i className="icon-logout" aria-hidden="true" />
 										Log Out
 									</a>
 								</li>
@@ -440,7 +440,7 @@ export default class PSEHeader extends React.Component {
 										</li>
 										<li role="presentation">
 											<a href="#" onClick={this.onLogout}>
-												<i className="icon-logout" aria-hidden="true"/>
+												<i className="icon-logout" aria-hidden="true" />
 												Log Out
 											</a>
 										</li>
@@ -467,7 +467,7 @@ export default class PSEHeader extends React.Component {
 						</nav>
 					</div>
 				</div>
-				<div className="pageMask hidden-xs hidden-md hidden-lg" onClick={this.closeMainMenu}/>
+				<div className="pageMask hidden-xs hidden-md hidden-lg" onClick={this.closeMainMenu} />
 			</header>
 		);
 	}
