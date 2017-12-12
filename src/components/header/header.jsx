@@ -372,9 +372,17 @@ export default class PSEHeader extends React.Component {
 								{this.userStore.destinationIsPermitted.networkStatus &&
 									<li id="hdr-network-status" className="mainnav-item desktop-textlink" role="presentation">
 										<NavLink id="linkBtn-networkStatus" to="/network-status" activeClassName="active">
-											Network Status
+											Network
 										</NavLink>
-									</li>}
+									</li>
+								}
+								{this.userStore.destinationIsPermitted.incidentUplift &&
+									<li id="hdr-incident-uplift" className="mainnav-item desktop-textlink incidentMenuItem" role="presentation">
+										<NewTabLink to={config.incidentUpliftLink} showIcon>
+											Uplift
+										</NewTabLink>
+									</li>
+								}
 
 								{/* Mobile only menu items */}
 								<li className="mainnav-item grey">
@@ -427,7 +435,6 @@ export default class PSEHeader extends React.Component {
 										</li>
 										<li role="presentation">
 											<NewTabLink to={config.manageMyProfileLink}>
-												<i className="icon-settings" aria-hidden="true"></i>
 												Manage My Profile
 											</NewTabLink>
 										</li>
