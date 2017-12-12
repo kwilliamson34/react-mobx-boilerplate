@@ -52,11 +52,11 @@ $fn-mobile-item-height: 60px;
       display: inline-block;
       text-decoration: none;
       margin-right: 10px;
-      vertical-align: sub;
+      vertical-align: middle;
       font-size: 1.4rem;
     }
   }
-  
+
   &#hdr-incident-uplift {
     > a {
       border-top: 1px solid $mobile-border-grey;
@@ -207,7 +207,7 @@ $fn-mobile-item-height: 60px;
     i {
       position: absolute;
       top: 0;
-      left: -5px;
+      left: -4px;
       z-index: 2;
     }
   }
@@ -506,6 +506,12 @@ $fn-mobile-item-height: 60px;
   .mainnav-item {
     &.expanded {
       background: $fn-white;
+    }
+
+    &#hdr-incident-uplift {
+      > a {
+        border-top: 0 none;
+      }
     }
 
     .header-submenu {
