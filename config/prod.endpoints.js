@@ -21,7 +21,7 @@ const config = {
   manageServicesLink: 'https://wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn',
   manageVoicemailAndUsageLink: 'https://wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn',
   manageIotDevicesLink: 'http://att.com',
-  incidentUpliftLink: 'https://google.com',
+  incidentUpliftLink: 'http://zlx72364.vci.att.com:8085/imp-ui/#/help',
   viewWirelessReportsLink: 'https://wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn?requestedPage=downloadReports',
   shopStandardDevicesLink: 'https://wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn',
   showOnboardingWalkthrough: true
