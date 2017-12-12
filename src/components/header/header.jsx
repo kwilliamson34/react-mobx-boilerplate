@@ -248,8 +248,8 @@ export default class PSEHeader extends React.Component {
 				props.onClick = this.handleExternalTabOpen;
 				props.showIcon = true
 			}
-			// Capitalize first letter of the link text
-			const linkText = card.header.toLowerCase().replace(/\b[a-z]/g, function (letter) {
+			// Capitalize first letter of the link text, but preserve original capitalization in acronyms
+			const linkText = card.header.replace(/\b[a-z]/g, function (letter) {
 				return letter.toUpperCase();
 			});
 			return (
