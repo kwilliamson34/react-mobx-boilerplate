@@ -433,6 +433,13 @@ $map-controls-text-line-height: 1.3;
       flex-basis: auto;
     }
 
+    .tooltip {
+      &:before {
+        width: 150px;
+        white-space: normal;
+      }
+    }
+
     div.map-layers {
       margin-top: 25px;
       margin-bottom: 10px;
