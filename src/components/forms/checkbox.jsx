@@ -107,7 +107,6 @@ import {observable, computed} from 'mobx';
 						type="button"
 						role="tooltip"
 						data-toggle="tooltip"
-						data-placement="top"
 						title={this.props.tooltipText}>
 						<i className="icon-help" aria-hidden="true"></i>
 					</button>
