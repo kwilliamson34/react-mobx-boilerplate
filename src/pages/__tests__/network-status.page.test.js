@@ -3,14 +3,14 @@ jest.unmock('../../core/stores/master.store');
 jest.unmock('../network-status.page');
 
 import {observer, inject} from 'mobx-react';
-import {geolinkStore} from '../../core/stores/geolink.store';
+import {networkStore} from '../../core/stores/network.store';
 import NetworkStatusPage from '../network-status.page';
 
 describe('<NetworkStatusPage />', () => {
   describe('render', () => {
     let props = {
       store: {
-        geolinkStore
+        networkStore
       }
     }
 

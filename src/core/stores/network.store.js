@@ -402,4 +402,4 @@ class GeolinkStore {
   @observable shouldDisplayLocationName = false;
 }
 
-export const geolinkStore = new GeolinkStore();
+export const networkStore = new GeolinkStore();

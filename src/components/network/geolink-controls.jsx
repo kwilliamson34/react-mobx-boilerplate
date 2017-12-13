@@ -11,13 +11,13 @@ import Alerts from '../alerts/alerts';
 @observer
 export default class GeolinkControls extends React.Component {
   static propTypes = {
-    geolinkStore: PropTypes.object.isRequired,
+    networkStore: PropTypes.object.isRequired,
     disabled: PropTypes.bool
   };
 
   constructor(props) {
     super(props);
-    this.store = this.props.geolinkStore;
+    this.store = this.props.networkStore;
     this.ENTER_KEY_CODE = 13;
     this.UP_KEY_CODE = 38;
     this.DOWN_KEY_CODE = 40;
