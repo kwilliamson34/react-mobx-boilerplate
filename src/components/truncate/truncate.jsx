@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
-import {observable} from 'mobx';
+import {observable, computed} from 'mobx';
 
-const singleHtmlRegex = /<\/?\w+((\s+\w+(\s*=\s*(?:".*?"|'.*?'|[\^'">\s]+))?)+\s*|\s*)\/?>/;
-const globalHtmlRegex = /<\/?\w+((\s+\w+(\s*=\s*(?:".*?"|'.*?'|[\^'">\s]+))?)+\s*|\s*)\/?>/g;
-const splitAllElementsRegex = /<[^>]*>|\s?[^<>\s]+\s?/g;
+const SINGLE_HTML_REGEX = /<\/?\w+((\s+\w+(\s*=\s*(?:".*?"|'.*?'|[\^'">\s]+))?)+\s*|\s*)\/?>/;
+const GLOBAL_HTML_REGEX = /<\/?\w+((\s+\w+(\s*=\s*(?:".*?"|'.*?'|[\^'">\s]+))?)+\s*|\s*)\/?>/g;
+const SPLIT_ALL_ELEMENTS_REGEX = /<[^>]*>|\s?[^<>\s]+\s?/g;
 
 @observer
 export default class Truncate extends React.Component {
@@ -29,33 +29,27 @@ export default class Truncate extends React.Component {
 
   constructor(props) {
     super(props);
-    this.stringToTruncate = '';
-    this.shouldTruncate = false;
-    this.truncationElements = null;
-  }
-
-  componentWillMount() {
-    this.setStringToTruncate(this.props.children);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setStringToTruncate(nextProps.children);
+    this.cutoffSymbolString = String.fromCharCode(this.props.cutoffSymbol);
   }
 
   @observable isTruncated = true;
-
-  setStringToTruncate = (stringToTruncate) => {
-    this.stringToTruncate = stringToTruncate
-    this.modifiedString = this.modifyStringToTruncate(this.stringToTruncate);
-    this.shouldTruncate = this.checkIfShouldTruncate(this.modifiedString, this.props.charLimit);
-    this.showEverythingBlock = this.generateEverythingBlock(this.modifiedString);
-    this.showTruncatedBlock = this.generateTruncatedBlock(this.modifiedString, this.props.charLimit);
+  @computed get stringToTruncate() {
+    //This must be a computed to update whenever the props change, e.g. when content fetch is aynchronous.
+    return this.addLineBreaks(this.props.children);
   }
-
-  modifyStringToTruncate = (string) => {
-    let returnString = ''
-    returnString = this.addLineBreaks(string);
-    return returnString;
+  @computed get shouldTruncate() {
+    let rawTextLength = this.getRawText(this.stringToTruncate).length;
+    return rawTextLength > this.props.charLimit;
+  }
+  @computed get splitArray() {
+    //This is a precaution to normalize the showEverythingBlock with the showTruncatedBlock in terms of element structure.
+    return this.stringToTruncate.match(SPLIT_ALL_ELEMENTS_REGEX);
+  }
+  @computed get everythingBlock() {
+    return this.splitArray.join('');
+  }
+  @computed get truncatedBlock() {
+    return this.findCutoffWithinStringAndTruncate(this.splitArray, this.props.charLimit) + this.cutoffSymbolString;
   }
 
   addLineBreaks = (value) => {
@@ -65,41 +59,22 @@ export default class Truncate extends React.Component {
     return value;
   }
 
-  checkIfShouldTruncate = (string, charLimit) => {
-    let rawTextLength = this.getRawText(string).length;
-    return charLimit < rawTextLength;
-  }
-
   getRawText = (string) => {
-    return string.replace(globalHtmlRegex, '');
+    return string.replace(GLOBAL_HTML_REGEX, '');
   }
 
-  generateEverythingBlock = (string) => {
-    //This is a precaution to normalize the showEverythingBlock with the showTruncatedBlock. Might not ultimately be necessary.
-    let splitArray = string.match(splitAllElementsRegex);
-    return splitArray.join('');
-  }
-
-  generateTruncatedBlock = (string, charLimit) => {
-    let splitArray = string.match(splitAllElementsRegex);
-    return this.shouldTruncate
-      ? this.findTruncateBlock(splitArray, charLimit) + this.generateEndElements(this.props.cutoffSymbol)
-      : 'Error';
-  }
-
-  findTruncateBlock = (splitArray, charLimit) => {
+  findCutoffWithinStringAndTruncate = (splitArray, charLimit) => {
     let truncateBlock = '';
 
     //Edge case: The user has entered one big string with no spaces.
-      //Test: The number of elements in the array that are not HTML is 1. We've already determined that the text length of this array is in excess of the charLimit, so this one text element must exceed the charLimit;
-      //Resolution: truncateBlock must be generated straight from the raw text. wholeBlock will generate normally.
+    //Test: The number of elements in the array that are not HTML is 1. We've already determined that the text length of this array is in excess of the charLimit, so this one text element must exceed the charLimit;
+    //Resolution: truncateBlock must be generated straight from the raw text. wholeBlock will generate normally.
     if (splitArray.reduce((x, y) => {
-        return x + (singleHtmlRegex.test(y) ? 0 : 1)
+        return x + (SINGLE_HTML_REGEX.test(y) ? 0 : 1)
       }, 0) === 1) {
         truncateBlock = this.getRawText(this.stringToTruncate).substr(0, charLimit);
-    }
-    //If no edge cases have triggered:
-    else {
+    } else {
+      //No edge cases have triggered
       truncateBlock = this.generateRegularTruncateBlock(splitArray, charLimit);
     }
 
@@ -114,7 +89,7 @@ export default class Truncate extends React.Component {
       let element = array[i];
       if (charCount + element.length > charLimit) break;
 
-      let isHtmlElement = singleHtmlRegex.test(element);
+      let isHtmlElement = SINGLE_HTML_REGEX.test(element);
       truncateBlock += element;
 
       if (!isHtmlElement) {
@@ -122,10 +97,6 @@ export default class Truncate extends React.Component {
       }
     }
     return truncateBlock;
-  }
-
-  generateEndElements = (number) => {
-    return String.fromCharCode(number);
   }
 
   truncateButton = () => {
@@ -142,7 +113,7 @@ export default class Truncate extends React.Component {
     if (this.props.returnToId !== null) document.getElementById(this.props.returnToId).scrollIntoView();
   }
 
-  renderTruncateBlock = (everythingBlock, truncatedBlock) => {
+  renderBlock = (everythingBlock, truncatedBlock) => {
     return (
       <span className="truncate-contents">
         <p dangerouslySetInnerHTML={{__html: `${(this.shouldTruncate && this.isTruncated) ? truncatedBlock : everythingBlock}`}} />
@@ -153,7 +124,7 @@ export default class Truncate extends React.Component {
   render() {
     return (
       <this.props.wrappingElement className={this.props.className}>
-        {this.renderTruncateBlock(this.showEverythingBlock, this.showTruncatedBlock)}
+        {this.renderBlock(this.everythingBlock, this.truncatedBlock)}
         {this.shouldTruncate && this.truncateButton()}
       </this.props.wrappingElement>
     );
