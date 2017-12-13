@@ -58,7 +58,7 @@ export default class PSEHeader extends React.Component {
 			}
 		});
 
-		$('#linkBtn-networkStatus, .logo-home-link').focus(() => {
+		$('#linkBtn-network, .logo-home-link').focus(() => {
 			//Per FPSE-966, focus listener was deadening the network status link on mobile/tablet, so limiting this function call to affect desktop only
 			if (window.innerWidth > 992) {
 				this.headerStore.adminSubMenuIsOpen = false;
@@ -369,9 +369,9 @@ export default class PSEHeader extends React.Component {
 							<ul className="fnnav__main">
 								{this.renderMobileOnlyUserMenu()}
 								{this.userStore.destinationIsPermitted.administration && this.renderAdminMenuItem()}
-								{this.userStore.destinationIsPermitted.networkStatus &&
-									<li id="hdr-network-status" className="mainnav-item desktop-textlink" role="presentation">
-										<NavLink id="linkBtn-networkStatus" to="/network-status" activeClassName="active">
+								{this.userStore.destinationIsPermitted.network &&
+									<li id="hdr-network" className="mainnav-item desktop-textlink" role="presentation">
+										<NavLink id="linkBtn-network" to="/network" activeClassName="active">
 											Network
 										</NavLink>
 									</li>

@@ -1,12 +1,12 @@
 
 jest.unmock('../../core/stores/master.store');
-jest.unmock('../network-status.page');
+jest.unmock('../network.page');
 
 import {observer, inject} from 'mobx-react';
 import {networkStore} from '../../core/stores/network.store';
-import NetworkStatusPage from '../network-status.page';
+import NetworkPage from '../network.page';
 
-describe('<NetworkStatusPage />', () => {
+describe('<NetworkPage />', () => {
   describe('render', () => {
     let props = {
       store: {
@@ -15,7 +15,7 @@ describe('<NetworkStatusPage />', () => {
     }
 
     test('matches previous snapshot', () => {
-      let component = renderer.create(<NetworkStatusPage {...props}/>);
+      let component = renderer.create(<NetworkPage {...props}/>);
       let tree = component.toJSON();
       expect(tree).toMatchSnapshot();
     });

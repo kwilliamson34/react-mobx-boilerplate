@@ -96,7 +96,7 @@ class GeolinkStore {
     this.resetCurrentFavorite(locationData)
 
     this.pageTitle = 'Network Status';
-    history.push('/network-status');
+    history.push('/network');
   }
 
   @action performEditLocationRequest(locationData) {
@@ -112,7 +112,7 @@ class GeolinkStore {
     };
 
     this.pageTitle = 'Edit Favorite';
-    history.push('/network-status');
+    history.push('/network');
   }
 
   @action addAllNetworkLayers() {

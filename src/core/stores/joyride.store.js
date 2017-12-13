@@ -102,7 +102,7 @@ class JoyrideStore {
 			case '/admin/manage-apps':
 				allStepsForThisPage = Beacons.ManageApps;
 				break;
-			case '/network-status':
+			case '/network':
 				allStepsForThisPage = Beacons.NetworkStatus;
 				break;
 			default:

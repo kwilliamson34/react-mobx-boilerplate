@@ -90,7 +90,7 @@ export default class ManageFavoritesPage extends React.Component {
   }
 
   handleAddButton = () => {
-    history.replace('/network-status');
+    history.replace('/network');
   }
 
   handleDeleteAction = (e) => {
@@ -335,7 +335,7 @@ export default class ManageFavoritesPage extends React.Component {
   render() {
     const crumbs = [
       {
-        pageHref: '/network-status',
+        pageHref: '/network',
         pageTitle: 'Network Status'
       }, {
         pageHref: '/manage-favorites',

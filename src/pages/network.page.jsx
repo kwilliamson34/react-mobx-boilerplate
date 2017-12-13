@@ -12,7 +12,7 @@ import Modal from '../components/portals/modal';
 
 @inject('store')
 @observer
-export default class NetworkStatusPage extends React.Component {
+export default class NetworkPage extends React.Component {
 
   static propTypes = {
     store: PropTypes.object.isRequired
