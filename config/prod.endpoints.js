@@ -20,7 +20,8 @@ const config = {
   manageUsersLink: 'https://profilemgt.firstnet.att.com/ebiz/firstnet/index.jsp#/companyInfo/companyInfoProfile',
   manageServicesLink: 'https://wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn',
   manageVoicemailAndUsageLink: 'https://wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn',
-  manageIotDevicesLink: 'http://att.com',  
+  manageIotDevicesLink: 'https://cc19.jasper.com/provision/jsp/login.jsp',
+  incidentUpliftLink: 'http://zlx72364.vci.att.com:8085/imp-ui/#/help',
   viewWirelessReportsLink: 'https://wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn?requestedPage=downloadReports',
   shopStandardDevicesLink: 'https://wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn',
   showOnboardingWalkthrough: true
