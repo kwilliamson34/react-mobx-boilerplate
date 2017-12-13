@@ -183,7 +183,7 @@ export default class PSEHeader extends React.Component {
 				</button>
 				<div className="fnnav__brand">
 					<Link className="logo-home-link" to="/">
-						<img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Logo"/>
+						<img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Logo" />
 						<span className="sr-only">Go Home</span>
 					</Link>
 				</div>
@@ -372,9 +372,17 @@ export default class PSEHeader extends React.Component {
 								{this.userStore.destinationIsPermitted.networkStatus &&
 									<li id="hdr-network-status" className="mainnav-item desktop-textlink" role="presentation">
 										<NavLink id="linkBtn-networkStatus" to="/network-status" activeClassName="active">
-											Network Status
+											Network
 										</NavLink>
-									</li>}
+									</li>
+								}
+								{this.userStore.destinationIsPermitted.incidentUplift &&
+									<li id="hdr-incident-uplift" className="mainnav-item desktop-textlink incidentMenuItem" role="presentation">
+										<NewTabLink to={config.incidentUpliftLink} showIcon>
+											Uplift
+										</NewTabLink>
+									</li>
+								}
 
 								{/* Mobile only menu items */}
 								<li className="mainnav-item grey">
@@ -388,7 +396,7 @@ export default class PSEHeader extends React.Component {
 										</span>
 									</button>
 									<a id="pse-help-mobile" href="/manage-profile" className="deaden">
-										<i className="icon-help" aria-hidden="true"/>
+										<i className="icon-help" aria-hidden="true" />
 										Help
 									</a>
 									<ul
@@ -400,7 +408,7 @@ export default class PSEHeader extends React.Component {
 								</li>
 								<li className="mainnav-item grey logout" role="presentation">
 									<a href="#" onClick={this.onLogout}>
-										<i className="icon-logout" aria-hidden="true"/>
+										<i className="icon-logout" aria-hidden="true" />
 										Log Out
 									</a>
 								</li>
@@ -427,13 +435,12 @@ export default class PSEHeader extends React.Component {
 										</li>
 										<li role="presentation">
 											<NewTabLink to={config.manageMyProfileLink}>
-												<i className="icon-settings" aria-hidden="true"></i>
 												Manage My Profile
 											</NewTabLink>
 										</li>
 										<li role="presentation">
 											<a href="#" onClick={this.onLogout}>
-												<i className="icon-logout" aria-hidden="true"/>
+												<i className="icon-logout" aria-hidden="true" />
 												Log Out
 											</a>
 										</li>
@@ -460,7 +467,7 @@ export default class PSEHeader extends React.Component {
 						</nav>
 					</div>
 				</div>
-				<div className="pageMask hidden-xs hidden-md hidden-lg" onClick={this.closeMainMenu}/>
+				<div className="pageMask hidden-xs hidden-md hidden-lg" onClick={this.closeMainMenu} />
 			</header>
 		);
 	}

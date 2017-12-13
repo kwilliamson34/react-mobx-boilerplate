@@ -68,8 +68,14 @@ export default class Footer extends React.Component {
 							</div>
 							{this.userStore.destinationIsPermitted.networkStatus &&
 								<li role="presentation">
-									<Link to="/network-status">Network Status</Link>
-								</li>}
+									<Link to="/network-status">Network</Link>
+								</li>
+							}
+							{this.userStore.destinationIsPermitted.incidentUplift &&
+								<li role="presentation">
+									<NewTabLink to={config.incidentUpliftLink} showIcon>Uplift</NewTabLink>
+								</li>
+							}
 						</ul>
 					</nav>
 				</div>
