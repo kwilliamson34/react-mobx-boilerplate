@@ -31,8 +31,7 @@ export class PushToMDM extends React.Component {
   @observable ariaLiveMessage = '';
 
   handleClick = () => {
-    const configured = this.props.configuredMDMType !== '';
-    if(!configured){
+    if(!this.isConfigured){
       this.ariaLiveMessage = 'Push to MDM is not available. Configure an MDM to push apps to the system.';
     } else if (this.currentStatus === 'DISABLED') {
       this.ariaLiveMessage = 'Push to MDM is not available for this app.';
