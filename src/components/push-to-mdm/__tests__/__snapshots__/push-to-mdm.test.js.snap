@@ -10,8 +10,10 @@ exports[`<PushToMDM />  render tests  should match snapshot if configuredMDMType
     
   </span>
   <button
-    className="push-button fn-secondary "
+    aria-disabled={false}
+    className="push-button fn-secondary"
     id="pushBtn12345"
+    onBlur={[Function]}
     onClick={[Function]}
     type="button"
   >
@@ -37,8 +39,10 @@ exports[`<PushToMDM />  render tests  should match snapshot if configuredMDMType
     
   </span>
   <button
-    className="push-button fn-primary "
+    aria-disabled={true}
+    className="push-button fn-primary"
     id="pushBtn12345"
+    onBlur={[Function]}
     onClick={[Function]}
     type="button"
   >
@@ -64,8 +68,10 @@ exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match s
     
   </span>
   <button
-    className="push-button fn-primary "
+    aria-disabled={false}
+    className="push-button fn-primary"
     id="pushBtn12345"
+    onBlur={[Function]}
     onClick={[Function]}
     type="button"
   >
@@ -91,8 +97,10 @@ exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match s
     
   </span>
   <button
-    className="push-button fn-primary deaden "
+    aria-disabled={false}
+    className="push-button fn-primary deaden"
     id="pushBtn12345"
+    onBlur={[Function]}
     onClick={[Function]}
     type="button"
   >
@@ -121,8 +129,10 @@ exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match s
     
   </span>
   <button
-    className="push-button fn-secondary "
+    aria-disabled={false}
+    className="push-button fn-secondary"
     id="pushBtn12345"
+    onBlur={[Function]}
     onClick={[Function]}
     type="button"
   >
@@ -148,8 +158,10 @@ exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match s
     
   </span>
   <button
-    className="push-button fn-primary "
+    aria-disabled={false}
+    className="push-button fn-primary"
     id="pushBtn12345"
+    onBlur={[Function]}
     onClick={[Function]}
     type="button"
   >
@@ -175,8 +187,10 @@ exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match s
     
   </span>
   <button
-    className="push-button fn-primary "
+    aria-disabled={false}
+    className="push-button fn-primary"
     id="pushBtn12345"
+    onBlur={[Function]}
     onClick={[Function]}
     type="button"
   >
@@ -202,8 +216,10 @@ exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match s
     
   </span>
   <button
-    className="push-button fn-primary deaden "
+    aria-disabled={false}
+    className="push-button fn-primary deaden"
     id="pushBtn12345"
+    onBlur={[Function]}
     onClick={[Function]}
     type="button"
   >
