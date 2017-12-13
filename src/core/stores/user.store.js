@@ -144,6 +144,7 @@ class UserStore {
     manageVoicemail: ['G_FN_SUB'],
     administration: ['G_FN_ADM', 'G_FN_ITM', 'G_FN_SUB', 'G_FN_VOL_ADM', 'G_FN_VOL'],
     networkStatus: ['G_FN_IM', 'G_FN_ADM', 'G_FN_ITM'],
+    incidentUplift: ['G_FN_IM'],
     manageIotDevices: ['G_FN_ADM']
   }
 }
