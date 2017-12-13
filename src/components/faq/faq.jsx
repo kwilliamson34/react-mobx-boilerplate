@@ -77,9 +77,9 @@ export class Faq extends React.Component {
     return (
       <div className="faq-category-tabs">
         <ul>
-          {categories.map((category, i) => {
+          {categories.map(category => {
             return (
-              <li key={i}>
+              <li key={category.title}>
                 {this.renderSingleButton(category)}
               </li>
             )
