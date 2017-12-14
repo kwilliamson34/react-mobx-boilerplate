@@ -2,7 +2,6 @@ import {action, computed, observable, extendObservable} from 'mobx';
 
 import {appCatalogStore} from './app-catalog.store';
 import {cardListStore} from './card-list.store';
-import {contentStore} from './content.store';
 import {externalLinkStore} from './external-link.store';
 import {feedbackStore} from './feedback.store';
 import {gtocStore} from './gtoc.store';
@@ -18,7 +17,6 @@ class PSEStore {
 	constructor() {
 		//attach all child stores
 		this.appCatalogStore = appCatalogStore;
-		this.contentStore = contentStore;
 		this.cardListStore = cardListStore;
 		this.externalLinkStore = externalLinkStore;
 		this.feedbackStore = feedbackStore;
