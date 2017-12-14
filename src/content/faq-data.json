@@ -2,8 +2,7 @@
   "faqs": {
     "categories": [
       {
-        "title": "All",
-        "hideFromRoles": []
+        "title": "All"
       },
       {
         "title": "General",
@@ -11,19 +10,19 @@
       },
       {
         "title": "Network Status",
-        "hideFromRoles": []
+        "hideFromRoles": ["G_FN_SUB", "G_FN_VOL_ADM", "G_FN_VOL"]
       },
       {
         "title": "Manage My PSE",
-        "hideFromRoles": []
+        "hideFromRoles": ["G_FN_IM", "G_FN_SUB"]
       },
       {
         "title": "Manage Apps",
-        "hideFromRoles": []
+        "hideFromRoles": ["G_FN_IM", "G_FN_SUB", "G_FN_VOL"]
       },
       {
         "title": "Configure MDM",
-        "hideFromRoles": []
+        "hideFromRoles": ["G_FN_IM", "G_FN_SUB", "G_FN_VOL"]
       },
       {
         "title": "Other",

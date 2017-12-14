@@ -26,8 +26,9 @@ export class Faq extends React.Component {
 
   @observable activeCategory = 'All';
   @computed get categoriesToShow() {
+    //Requirements assumption: In the event of a combination role, YES overrides NO
     return this.faq.categories.filter(category => {
-      return _.intersection(this.props.userRolesArray, category.hideFromRoles).length <= 0;
+      return _.difference(this.props.userRolesArray, category.hideFromRoles).length > 0;
     });
   }
   @computed get entriesToShow() {
