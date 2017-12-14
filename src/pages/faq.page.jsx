@@ -16,7 +16,7 @@ export default class FAQPage extends React.Component {
     return (
       <article className="faq-article">
         <section className="faq-page">
-          <Faq faqData={faqs} userPermissions={this.props.store.userStore.user.roles}/>
+          <Faq faqData={faqs} userRolesArray={this.props.store.userStore.user.roles}/>
         </section>
       </article>
     );

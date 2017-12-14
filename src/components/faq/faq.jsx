@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
-import {observable} from 'mobx';
+import {observable, computed} from 'mobx';
 import _ from 'lodash';
 
 import PageTitle from '../page-title/page-title';
@@ -12,17 +12,12 @@ export class Faq extends React.Component {
 
   static propTypes = {
     faqData: PropTypes.object,
-    userPermissions: PropTypes.array
+    userRolesArray: PropTypes.array
   }
 
   constructor(props) {
     super(props);
     this.faq = this.props.faqData;
-    this.allAvailablePermissions = [];
-  }
-
-  componentWillMount() {
-    this.allAvailablePermissions = this.findAvailablePermissions();
   }
 
   componentWillUnmount() {
@@ -30,30 +25,22 @@ export class Faq extends React.Component {
   }
 
   @observable activeCategory = 'All';
-
-  findAvailablePermissions = () => {
-    let allPermissions = [];
-    for (let category in this.faq.categories) {
-      this.faq.categories[category].permissions.forEach(permission => {
-        if (allPermissions.indexOf(permission) === -1) {
-          allPermissions.push(permission);
-        }
-      });
-    }
-    return allPermissions;
+  @computed get categoriesToShow() {
+    return this.faq.categories.filter(category => {
+      return _.intersection(this.props.userRolesArray, category.hideFromRoles).length <= 0;
+    });
   }
-
-  permissionedCategories = () => {
-    return _.intersection(this.allAvailablePermissions, this.props.userPermissions).length > 0
-      ? this.faq.categories.filter(category => _.intersection(category.permissions, this.props.userPermissions).length > 0)
-      : this.faq.categories;
+  @computed get entriesToShow() {
+    return this.faq.entries.filter(faq => {
+      const titlesToShow = this.categoriesToShow.map(category => category.title);
+      return titlesToShow.indexOf(faq.category) > -1;
+    });
   }
-
-  filteredFaqEntries = () => {
+  @computed get activeEntries() {
     if (this.activeCategory === 'All') {
-      return this.faq.entries.filter(faq => this.permissionedCategories().map(category => category.title).indexOf(faq.category) > -1);
+      return this.entriesToShow;
     } else {
-      return this.faq.entries.filter(faq => faq.category === this.activeCategory);
+      return this.entriesToShow.filter(faq => faq.category === this.activeCategory);
     }
   }
 
@@ -64,99 +51,89 @@ export class Faq extends React.Component {
 
   renderSingleButton = (category) => {
     const isActive = this.activeCategory === category.title;
-    return (
-      <button role="button" value={category.title} onClick={this.updateCategory} className={`as-link category-tab-button ${isActive
+    return (<button role="button" value={category.title} onClick={this.updateCategory} className={`as-link category-tab-button ${isActive
         ? 'active'
         : ''}`}>
-        {category.title}
-      </button>
-    )
+      {category.title}
+    </button>)
   }
 
   renderCategoriesAsButtons = (categories) => {
-    return (
-      <div className="faq-category-tabs">
-        <ul>
-          {categories.map(category => {
-            return (
-              <li key={category.title}>
-                {this.renderSingleButton(category)}
-              </li>
-            )
-          })}
-        </ul>
-      </div>
-    )
+    return (<div className="faq-category-tabs">
+      <ul>
+        {
+          categories.map(category => {
+            return (<li key={category.title}>
+              {this.renderSingleButton(category)}
+            </li>)
+          })
+        }
+      </ul>
+    </div>)
   }
 
   renderCategoriesAsSelectMenu = (categories) => {
-    return (
-      <div className="faq-category-select">
-        <form>
-          <label htmlFor="faqCategory">Filter By Category</label>
-          <select id="faqCategory" className="form-control" onChange={this.updateCategory} value={this.activeCategory}>
-            <option value="All">All Categories</option>
-            {categories.map((category, i) => {
-              return (
-                <option key={i} value={category.title}>{category.title}</option>
-              )
-            })}
-          </select>
-        </form>
-      </div>
-    )
+    return (<div className="faq-category-select">
+      <form>
+        <label htmlFor="faqCategory">Filter By Category</label>
+        <select id="faqCategory" className="form-control" onChange={this.updateCategory} value={this.activeCategory}>
+          <option value="All">All Categories</option>
+          {
+            categories.map((category, i) => {
+              return (<option key={i} value={category.title}>{category.title}</option>)
+            })
+          }
+        </select>
+      </form>
+    </div>)
   }
 
   renderFaqEntriesList = () => {
-    return (
-      <div className="faq-entry-list">
-        {this.filteredFaqEntries().map((entry, i) => {
-          return (
-            <article key={i} className="faq-entry">
-              <h3 id={'faq-' + i}>{entry.question}</h3>
-              <Truncate className="faq-entry-content truncate-container" cutoffSymbol="" charLimit={entry.maxStringLength}>
-                {entry.answer}
-              </Truncate>
-            </article>
-          )
-        })}
-      </div>
-    )
+    return (<div className="faq-entry-list">
+      {
+        this.activeEntries.map((entry, i) => {
+          return (<article key={entry.question} className="faq-entry">
+            <h3 id={'faq-' + i}>{entry.question}</h3>
+            <Truncate className="faq-entry-content truncate-container" cutoffSymbol="" charLimit={entry.maxStringLength}>
+              {entry.answer}
+            </Truncate>
+          </article>)
+        })
+      }
+    </div>)
   }
 
   render() {
-    return (
-      <div>
-        <div className="faq-top-header">
-          <div className="image-box">
-            <div className="container">
-              <div className="row">
-                <div className="col-xs-12 col-sm-10 col-sm-offset-1 faq-header-box">
-                  <PageTitle>Frequently Asked&nbsp;Questions</PageTitle>
-                </div>
+    return (<div>
+      <div className="faq-top-header">
+        <div className="image-box">
+          <div className="container">
+            <div className="row">
+              <div className="col-xs-12 col-sm-10 col-sm-offset-1 faq-header-box">
+                <PageTitle>Frequently Asked&nbsp;Questions</PageTitle>
               </div>
             </div>
           </div>
         </div>
-        <article className="container">
-          <div className="row">
-            <div className="faq-header col-xs-12 col-sm-10 col-sm-offset-1">
-              <div className="hidden-xs">
-                {this.renderCategoriesAsButtons(this.permissionedCategories())}
-              </div>
-              <div className="hidden-sm hidden-md hidden-lg">
-                {this.renderCategoriesAsSelectMenu(this.permissionedCategories())}
-              </div>
-              <div className="horizontal-line-header">
-                <h2>
-                  {this.activeCategory}
-                </h2>
-              </div>
-              {this.renderFaqEntriesList()}
-            </div>
-          </div>
-        </article>
       </div>
-    );
+      <article className="container">
+        <div className="row">
+          <div className="faq-header col-xs-12 col-sm-10 col-sm-offset-1">
+            <div className="hidden-xs">
+              {this.renderCategoriesAsButtons(this.categoriesToShow)}
+            </div>
+            <div className="hidden-sm hidden-md hidden-lg">
+              {this.renderCategoriesAsSelectMenu(this.categoriesToShow)}
+            </div>
+            <div className="horizontal-line-header">
+              <h2>
+                {this.activeCategory}
+              </h2>
+            </div>
+            {this.renderFaqEntriesList()}
+          </div>
+        </div>
+      </article>
+    </div>);
   }
 }

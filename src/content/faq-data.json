@@ -3,31 +3,31 @@
     "categories": [
       {
         "title": "All",
-        "permissions": []
+        "hideFromRoles": []
       },
       {
         "title": "General",
-        "permissions": []
+        "hideFromRoles": []
       },
       {
         "title": "Network Status",
-        "permissions": []
+        "hideFromRoles": []
       },
       {
         "title": "Manage My PSE",
-        "permissions": []
+        "hideFromRoles": []
       },
       {
         "title": "Manage Apps",
-        "permissions": []
+        "hideFromRoles": []
       },
       {
         "title": "Configure MDM",
-        "permissions": []
+        "hideFromRoles": []
       },
       {
         "title": "Other",
-        "permissions": []
+        "hideFromRoles": []
       }],
     "entries": [{
         "question": "What is FirstNet Local Control?",

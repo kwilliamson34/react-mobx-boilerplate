@@ -9,7 +9,7 @@ describe('<Faq />', () => {
     categories: [
       {
         title: 'TEST CATEGORY',
-        permissions: ['LOREM']
+        allowedRolesArray: ['LOREM']
       }
     ],
     entries: [
@@ -24,7 +24,7 @@ describe('<Faq />', () => {
 
   let props = {
     faqData: faqs,
-    userPermissions: ['LOREM']
+    userRolesArray: ['LOREM']
   }
 
   describe('Render testing', () => {

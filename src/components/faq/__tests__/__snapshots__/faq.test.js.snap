@@ -60,7 +60,7 @@ exports[`<Faq /> Render testing Matches snapshot 1`] = `
               <label
                 htmlFor="faqCategory"
               >
-                FILTER BY CATEGORY
+                Filter By Category
               </label>
               <select
                 className="form-control"
