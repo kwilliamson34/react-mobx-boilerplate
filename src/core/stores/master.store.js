@@ -1,35 +1,33 @@
 import {action, computed, observable, extendObservable} from 'mobx';
 
-import {headerStore} from './header.store';
 import {appCatalogStore} from './app-catalog.store';
 import {cardListStore} from './card-list.store';
-import {contentStore} from './content.store';
 import {externalLinkStore} from './external-link.store';
-import {geolinkStore} from './geolink.store';
 import {feedbackStore} from './feedback.store';
 import {gtocStore} from './gtoc.store';
-import {manageFavoritesStore} from './manage-favorites.store';
-import {mdmStore} from './mdm.store';
-import {userStore} from './user.store';
+import {headerStore} from './header.store';
 import {joyrideStore} from './joyride.store';
 import {leadCaptureStore} from './lead-capture.store';
+import {manageFavoritesStore} from './manage-favorites.store';
+import {mdmStore} from './mdm.store';
+import {networkStore} from './network.store';
+import {userStore} from './user.store';
 
 class PSEStore {
 	constructor() {
 		//attach all child stores
-		this.headerStore = headerStore;
 		this.appCatalogStore = appCatalogStore;
-		this.contentStore = contentStore;
 		this.cardListStore = cardListStore;
 		this.externalLinkStore = externalLinkStore;
-		this.geolinkStore = geolinkStore;
 		this.feedbackStore = feedbackStore;
 		this.gtocStore = gtocStore;
-		this.manageFavoritesStore = manageFavoritesStore;
-		this.mdmStore = mdmStore;
-		this.userStore = userStore;
+		this.headerStore = headerStore;
 		this.joyrideStore = joyrideStore;
 		this.leadCaptureStore = leadCaptureStore;
+		this.manageFavoritesStore = manageFavoritesStore;
+		this.mdmStore = mdmStore;
+		this.networkStore = networkStore;
+		this.userStore = userStore;
 	}
 
 	getUser() {

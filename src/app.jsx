@@ -22,7 +22,7 @@ import ScrollToTop from './components/scroll-to-top/scroll-to-top';
 import JoyrideBase from './components/joyride-base/joyride-base';
 
 //Pages
-import NetworkStatusPage from './pages/network-status.page';
+import NetworkPage from './pages/network.page';
 import ErrorPage from './pages/error.page.jsx';
 import SessionTimeoutPage from './pages/session-timeout.page';
 import SubscribeToGTOC from './pages/gtoc.page';
@@ -152,15 +152,15 @@ export default class App extends React.Component {
               <Route path="/admin" component={this.checkRoutePermission({
                   component: AdminDashboardPage,
                   isPermitted: permissionObject.administration,
-                  redirectPath: '/network-status'
+                  redirectPath: '/network'
                 })} />
               <Route path="/app/:appPsk" component={this.checkRoutePermission({
                   component: AppDetailsPage,
                   isPermitted: permissionObject.manageApps
                 })/*TODO redirect to error/404 if psk has no match*/} />
-              <Route path="/network-status" component={this.checkRoutePermission({
-                  component: NetworkStatusPage,
-                  isPermitted: permissionObject.networkStatus
+              <Route path="/network" component={this.checkRoutePermission({
+                  component: NetworkPage,
+                  isPermitted: permissionObject.network
                 })} />
               <Route path="/manage-favorites" component={ManageFavoritesPage} />
               <Route path="/subscribe-to-alerts" component={SubscribeToGTOC} />

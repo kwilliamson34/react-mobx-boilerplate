@@ -1,15 +1,15 @@
 
-jest.unmock('../../../core/stores/geolink.store');
+jest.unmock('../../../core/stores/network.store');
 jest.unmock('../geolink-map');
 
 import GeolinkMap from '../geolink-map';
 import {MemoryRouter} from 'react-router-dom';
-import {geolinkStore} from '../../../core/stores/geolink.store';
+import {networkStore} from '../../../core/stores/network.store';
 
 describe('<GeolinkMap />', () => {
   const dumbPromise = new Promise(resolve => {resolve()});
   let props = {
-    geolinkStore
+    networkStore
   }
 
   describe('renders', () => {
@@ -30,19 +30,19 @@ describe('<GeolinkMap />', () => {
 
   describe('API', () => {
     test('starts loading iframe immediately upon initialization', () => {
-      props.geolinkStore.loadGeolinkHtml = jest.fn();
-      props.geolinkStore.loadGeolinkHtml.mockReturnValue(new Promise(resolve => resolve()));
+      props.networkStore.loadGeolinkHtml = jest.fn();
+      props.networkStore.loadGeolinkHtml.mockReturnValue(new Promise(resolve => resolve()));
       let component = renderer.create(<GeolinkMap {...props}/>);
-      expect(props.geolinkStore.loadGeolinkHtml).toBeCalled();
+      expect(props.networkStore.loadGeolinkHtml).toBeCalled();
     });
 
     test('adds network layers by default once iframe loads', () => {
-      props.geolinkStore.addAllNetworkLayers = jest.fn();
+      props.networkStore.addAllNetworkLayers = jest.fn();
 
       let component = renderer.create(<GeolinkMap {...props}/>);
       window.iframeLoaded();
 
-      expect(props.geolinkStore.loadGeolinkHtml).toBeCalled();
+      expect(props.networkStore.loadGeolinkHtml).toBeCalled();
     });
 
     test('uses geolocation if available', () => {
@@ -72,17 +72,17 @@ describe('<GeolinkMap />', () => {
         }}
       }
 
-      props.geolinkStore.updateDefaultSearchTerm = jest.fn();
-      props.geolinkStore.updateSearchTerm = jest.fn();
-      props.geolinkStore.searchMap = jest.fn();
+      props.networkStore.updateDefaultSearchTerm = jest.fn();
+      props.networkStore.updateSearchTerm = jest.fn();
+      props.networkStore.searchMap = jest.fn();
 
       let component = renderer.create(<GeolinkMap {...props}/>);
       window.iframeLoaded();
 
-      // expect(props.geolinkStore.updateDefaultSearchTerm).toBeCalled();
-      // expect(props.geolinkStore.updateSearchTerm).toBeCalled();
-      // expect(props.geolinkStore.searchMap).toBeCalled();
-      // expect(props.geolinkStore.searchTerm).toBe('lat, long')
+      // expect(props.networkStore.updateDefaultSearchTerm).toBeCalled();
+      // expect(props.networkStore.updateSearchTerm).toBeCalled();
+      // expect(props.networkStore.searchMap).toBeCalled();
+      // expect(props.networkStore.searchTerm).toBe('lat, long')
     });
   });
 });

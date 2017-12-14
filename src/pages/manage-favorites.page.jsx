@@ -24,7 +24,7 @@ export default class ManageFavoritesPage extends React.Component {
   constructor(props) {
     super(props);
     this.manageFavoritesStore = this.props.store.manageFavoritesStore;
-    this.geolinkStore = this.props.store.geolinkStore;
+    this.networkStore = this.props.store.networkStore;
     this.deleteModal = {};
   }
 
@@ -48,7 +48,7 @@ export default class ManageFavoritesPage extends React.Component {
 
   clearSuccess = () => {
     this.manageFavoritesStore.updateSuccess('');
-    this.geolinkStore.clearAlertBars();
+    this.networkStore.clearAlertBars();
   }
 
   deleteFavorites = (e) => {
@@ -81,16 +81,16 @@ export default class ManageFavoritesPage extends React.Component {
 
   handleMapItButton = (targetId) => {
     let rowData = this.manageFavoritesStore.findRowData(targetId.toString());
-    this.geolinkStore.performMapFavoriteRequest(rowData);
+    this.networkStore.performMapFavoriteRequest(rowData);
   }
 
   handleEditButton = (targetId) => {
     let rowData = this.manageFavoritesStore.findRowData(targetId.toString());
-    this.geolinkStore.performEditLocationRequest(rowData);
+    this.networkStore.performEditLocationRequest(rowData);
   }
 
   handleAddButton = () => {
-    history.replace('/network-status');
+    history.replace('/network');
   }
 
   handleDeleteAction = (e) => {
@@ -335,7 +335,7 @@ export default class ManageFavoritesPage extends React.Component {
   render() {
     const crumbs = [
       {
-        pageHref: '/network-status',
+        pageHref: '/network',
         pageTitle: 'Network Status'
       }, {
         pageHref: '/manage-favorites',
@@ -363,8 +363,8 @@ export default class ManageFavoritesPage extends React.Component {
                 <div className="col-xs-12">
                   <hr/>
                   <Alerts
-                    showSuccess={(this.manageFavoritesStore.successToDisplay || this.geolinkStore.successToDisplay || '').length > 0}
-                    successText={this.manageFavoritesStore.successToDisplay || this.geolinkStore.successToDisplay}
+                    showSuccess={(this.manageFavoritesStore.successToDisplay || this.networkStore.successToDisplay || '').length > 0}
+                    successText={this.manageFavoritesStore.successToDisplay || this.networkStore.successToDisplay}
                     clearSuccess={this.clearSuccess}/>
                 </div>
               </div>

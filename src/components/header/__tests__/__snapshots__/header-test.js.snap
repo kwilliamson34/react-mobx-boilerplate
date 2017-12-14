@@ -1267,20 +1267,25 @@ exports[`<PSEHeader /> render user role-based snapshots 1`] = `
           </li>
           <li
             className="mainnav-item desktop-textlink"
-            id="hdr-network-status"
+            id="hdr-network"
             role="presentation"
           >
             <a
               aria-current={false}
               className={undefined}
-              href="/network-status"
-              id="linkBtn-networkStatus"
+              href="/network"
+              id="linkBtn-network"
               onClick={[Function]}
               style={undefined}
             >
-              Network Status
+              Network
             </a>
           </li>
+          <li
+            className="mainnav-item desktop-textlink incidentMenuItem"
+            id="hdr-incident-uplift"
+            role="presentation"
+          />
           <li
             className="mainnav-item grey"
           >
@@ -1773,18 +1778,18 @@ exports[`<PSEHeader /> render user role-based snapshots 2`] = `
           </li>
           <li
             className="mainnav-item desktop-textlink"
-            id="hdr-network-status"
+            id="hdr-network"
             role="presentation"
           >
             <a
               aria-current={false}
               className={undefined}
-              href="/network-status"
-              id="linkBtn-networkStatus"
+              href="/network"
+              id="linkBtn-network"
               onClick={[Function]}
               style={undefined}
             >
-              Network Status
+              Network
             </a>
           </li>
           <li
@@ -2639,12 +2644,7 @@ exports[`<PSEHeader /> render user role-based snapshots 4`] = `
                 id="pse-admin-nav"
                 role="navigation"
               >
-                <strong
-                  aria-hidden="true"
-                  className="visible-md-block visible-lg-block"
-                >
-                  Management
-                </strong>
+                <li />
                 <li>
                   <a
                     aria-current={false}
@@ -2660,30 +2660,6 @@ exports[`<PSEHeader /> render user role-based snapshots 4`] = `
                         }
                       }
                     />
-                  </a>
-                </li>
-              </ul>
-              <ul
-                aria-labelledby="linkBtn-admin"
-                className="collapse "
-                id="pse-aside-nav"
-                role="navigation"
-              >
-                <strong
-                  aria-hidden="true"
-                  className="visible-md-block visible-lg-block"
-                >
-                  Purchasing & Provisioning
-                </strong>
-                <li>
-                  <a
-                    aria-current={false}
-                    className={undefined}
-                    href="/admin/solutions"
-                    onClick={[Function]}
-                    style={undefined}
-                  >
-                    Public Safety Solutions
                   </a>
                 </li>
               </ul>
