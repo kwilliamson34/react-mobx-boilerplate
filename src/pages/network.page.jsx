@@ -5,14 +5,14 @@ import config from 'config';
 import {utilsService} from '../core/services/utils.service';
 import PageTitle from '../components/page-title/page-title';
 
-import GeolinkMap from '../components/geolink-map/geolink-map';
-import GeolinkControls from '../components/geolink-map/geolink-controls';
-import LocationFavoriteForm from '../components/geolink-map/location-favorite-form';
+import GeolinkMap from '../components/network/geolink-map';
+import GeolinkControls from '../components/network/geolink-controls';
+import LocationFavoriteForm from '../components/network/location-favorite-form';
 import Modal from '../components/portals/modal';
 
 @inject('store')
 @observer
-export default class NetworkStatusPage extends React.Component {
+export default class NetworkPage extends React.Component {
 
   static propTypes = {
     store: PropTypes.object.isRequired
@@ -20,16 +20,16 @@ export default class NetworkStatusPage extends React.Component {
 
   constructor(props) {
     super(props);
-    this.geoStore = this.props.store.geolinkStore;
+    this.networkStore = this.props.store.networkStore;
     this.joyrideStore = this.props.store.joyrideStore;
     this.manageFavoritesStore = this.props.store.manageFavoritesStore;
     this.deleteModal = {};
 
-    if(!this.geoStore.authIsComplete) {
+    if(!this.networkStore.authIsComplete) {
       window.addEventListener('message', (event) => {
         if(event.data === 'geo-ready') {
           console.log('geo-ready message received from iframe');
-          this.geoStore.authIsComplete = true;
+          this.networkStore.authIsComplete = true;
         }
       }, false);
     }
@@ -41,13 +41,13 @@ export default class NetworkStatusPage extends React.Component {
 
   componentWillUnmount() {
     //restore default defaultValues changed during editLocation request;
-    this.geoStore.resetValues();
+    this.networkStore.resetValues();
   }
 
   renderDeleteModal = () => {
     return <Modal
       id="delete-modal"
-      title={`Delete ${this.geoStore.values.locationName}?`}
+      title={`Delete ${this.networkStore.values.locationName}?`}
       ref={i => this.deleteModal = i}
       restoreFocusTo="#delete-modal-launcher"
       primaryAction={this.deleteFavorite}
@@ -86,10 +86,10 @@ export default class NetworkStatusPage extends React.Component {
 
   deleteFavorite = (e) => {
     e.preventDefault();
-    const idToDelete = this.geoStore.values.locationId;
+    const idToDelete = this.networkStore.values.locationId;
     this.manageFavoritesStore.deleteEditLocationFavorite(idToDelete);
-    this.geoStore.setPageTitle('Network Status');
-    this.geoStore.resetValues();
+    this.networkStore.setPageTitle('Network Status');
+    this.networkStore.resetValues();
     this.deleteModal.hideModal();
   }
 
@@ -99,29 +99,29 @@ export default class NetworkStatusPage extends React.Component {
   }
 
   render() {
-    const showMap = this.geoStore.iframeIsFullyLoaded;
+    const showMap = this.networkStore.iframeIsFullyLoaded;
     return (
       <article id="network-page" className={`content-wrapper ${utilsService.getIsInternetExplorer() ? 'isIE' : ''}`}>
-        <PageTitle className="sr-only">{this.geoStore.pageTitle}</PageTitle>
+        <PageTitle className="sr-only">{this.networkStore.pageTitle}</PageTitle>
         <iframe src={config.geolinkAuthScript} aria-hidden="true" className="hidden-iframe"></iframe>
 
         <section id="map-section">
           {!showMap && this.renderPlaceholder()}
-          <GeolinkMap geolinkStore={this.geoStore} hidden={!showMap} />
+          <GeolinkMap networkStore={this.networkStore} hidden={!showMap} />
         </section>
 
-        {this.geoStore.pageTitle === 'Network Status' &&
-          <GeolinkControls geolinkStore={this.geoStore} disabled={!showMap}/>}
+        {this.networkStore.pageTitle === 'Network Status' &&
+          <GeolinkControls networkStore={this.networkStore} disabled={!showMap}/>}
 
-        {(this.geoStore.pageTitle === 'Add New Favorite' || this.geoStore.pageTitle === 'Edit Favorite') &&
+        {(this.networkStore.pageTitle === 'Add New Favorite' || this.networkStore.pageTitle === 'Edit Favorite') &&
           <section>
             <div className="container location-favorites">
               <div className="row">
                 <div className="col-xs-12 title-wrapper">
-                  <h2 className="as-h1">{this.geoStore.pageTitle}</h2>
-                  {this.geoStore.pageTitle === 'Edit Favorite' && this.renderEditLocationDeleteButton()}
+                  <h2 className="as-h1">{this.networkStore.pageTitle}</h2>
+                  {this.networkStore.pageTitle === 'Edit Favorite' && this.renderEditLocationDeleteButton()}
                 </div>
-                <LocationFavoriteForm store={this.geoStore} disabled={!this.geoStore.formIsDirty}/>
+                <LocationFavoriteForm store={this.networkStore} disabled={!this.networkStore.formIsDirty}/>
               </div>
             </div>
           </section>}

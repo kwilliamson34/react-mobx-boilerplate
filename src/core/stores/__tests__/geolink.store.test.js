@@ -1,8 +1,8 @@
 
-jest.unmock('../geolink.store');
+jest.unmock('../network.store');
 
-import {geolinkStore} from '../geolink.store';
-const store = geolinkStore;
+import {networkStore} from '../network.store';
+const store = networkStore;
 
 describe("GeolinkStore", () => {
   store.mapIframeRef = {

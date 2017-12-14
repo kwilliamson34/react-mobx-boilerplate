@@ -8,7 +8,7 @@ import { MemoryRouter } from 'react-router-dom';
 
 describe('<GeolinkControls />', () => {
   let props = {
-    geolinkStore: {
+    networkStore: {
       toggleNetwork: jest.fn(),
       toggleTraffic: jest.fn(),
       toggleAlerts: jest.fn(),
@@ -31,7 +31,7 @@ describe('<GeolinkControls />', () => {
     test('matches snapshot when enabled and disabled', () => {
       let component, tree;
 
-      props.geolinkStore.authIsComplete = false;
+      props.networkStore.authIsComplete = false;
       props.disabled = true;
       component = renderer.create(<MemoryRouter>
         <GeolinkControls {...props}/>
@@ -39,7 +39,7 @@ describe('<GeolinkControls />', () => {
       tree = component.toJSON();
       expect(tree).toMatchSnapshot();
 
-      props.geolinkStore.authIsComplete = false;
+      props.networkStore.authIsComplete = false;
       props.disabled = false;
       component = renderer.create(<MemoryRouter>
         <GeolinkControls {...props}/>
@@ -47,7 +47,7 @@ describe('<GeolinkControls />', () => {
       tree = component.toJSON();
       expect(tree).toMatchSnapshot();
 
-      props.geolinkStore.authIsComplete = true;
+      props.networkStore.authIsComplete = true;
       props.disabled = false;
       component = renderer.create(<MemoryRouter>
         <GeolinkControls {...props}/>
@@ -59,12 +59,12 @@ describe('<GeolinkControls />', () => {
     test('matches snapshot when dropdown is showing', () => {
       let component, tree;
 
-      props.geolinkStore.predictedFavorites = [
+      props.networkStore.predictedFavorites = [
         { favoriteName: 'Sapient Corporation', locationFavoriteAddress: '40 Fulton Street, New York, NY' },
         { favoriteName: 'Williamsburg', locationFavoriteAddress: 'Bedford Ave, Brooklyn, NY' }
       ]
 
-      props.geolinkStore.dropdownIsVisible = true;
+      props.networkStore.dropdownIsVisible = true;
       component = renderer.create(<MemoryRouter>
         <GeolinkControls {...props}/>
       </MemoryRouter>);
@@ -76,7 +76,7 @@ describe('<GeolinkControls />', () => {
   describe('UI interaction', () => {
     test('displaying controls loads list of favorites', () => {
       //determine the function to spy on
-      const functionToWatch = props.geolinkStore.loadFavorites;
+      const functionToWatch = props.networkStore.loadFavorites;
 
       //trigger the action
       TestUtils.renderIntoDocument(<MemoryRouter><GeolinkControls {...props} /></MemoryRouter>);

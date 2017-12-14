@@ -18,7 +18,7 @@ export default class SubscribeToGTOCSuccess extends React.Component {
 								{config.attCustomerSupportPhone}
 							</a>.
             </p>
-            <Link to="/network-status" className="fn-primary">Network Status</Link>
+            <Link to="/network" className="fn-primary">Network</Link>
           </div>
         </div>
       </section>

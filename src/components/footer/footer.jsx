@@ -66,9 +66,9 @@ export default class Footer extends React.Component {
 									<Link to="/admin/solutions">Public Safety Solutions </Link>
 								</li>}
 							</div>
-							{this.userStore.destinationIsPermitted.networkStatus &&
+							{this.userStore.destinationIsPermitted.network &&
 								<li role="presentation">
-									<Link to="/network-status">Network</Link>
+									<Link to="/network">Network</Link>
 								</li>
 							}
 							{this.userStore.destinationIsPermitted.incidentUplift &&

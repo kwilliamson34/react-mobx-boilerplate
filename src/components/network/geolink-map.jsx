@@ -3,18 +3,18 @@ import PropTypes from 'prop-types';
 
 export default class GeolinkMap extends React.Component {
   static propTypes = {
-    geolinkStore: PropTypes.object.isRequired,
+    networkStore: PropTypes.object.isRequired,
     hidden: PropTypes.bool
   }
 
   componentWillMount() {
     window.iframeLoaded = this.onIframeLoad;
 
-    this.props.geolinkStore.loadGeolinkHtml().then(() => {
+    this.props.networkStore.loadGeolinkHtml().then(() => {
       //write the html into the iframe
-      var doc = this.props.geolinkStore.mapIframeRef.contentWindow.document;
+      var doc = this.props.networkStore.mapIframeRef.contentWindow.document;
       doc.open();
-      doc.write(this.props.geolinkStore.geolinkHtml);
+      doc.write(this.props.networkStore.geolinkHtml);
       doc.close();
     });
   }
@@ -25,9 +25,9 @@ export default class GeolinkMap extends React.Component {
 
   handleUserAllowingLocation = (position) => {
     const defaultAddress = position.coords.latitude + ', ' + position.coords.longitude;
-    this.props.geolinkStore.defaultValues.locationAddress = defaultAddress;
-    this.props.geolinkStore.values.locationAddress = defaultAddress;
-    this.props.geolinkStore.searchMap();
+    this.props.networkStore.defaultValues.locationAddress = defaultAddress;
+    this.props.networkStore.values.locationAddress = defaultAddress;
+    this.props.networkStore.searchMap();
   }
 
   handleUserBlockingLocation = () => {
@@ -36,19 +36,19 @@ export default class GeolinkMap extends React.Component {
 
   onIframeLoad = () => {
     //record isReady in store to swap the placeholder for the map
-    this.props.geolinkStore.iframeIsFullyLoaded = true;
+    this.props.networkStore.iframeIsFullyLoaded = true;
 
     //set map defaults
-    if (this.props.geolinkStore.values.locationAddress) {
-      this.props.geolinkStore.searchMap();
-      this.props.geolinkStore.disableSearch = false;
+    if (this.props.networkStore.values.locationAddress) {
+      this.props.networkStore.searchMap();
+      this.props.networkStore.disableSearch = false;
     } else if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition(this.handleUserAllowingLocation, this.handleUserBlockingLocation);
     } else {
       console.warn('Geolocation is not allowed by the browser.');
     }
 
-    this.props.geolinkStore.addAllNetworkLayers();
+    this.props.networkStore.addAllNetworkLayers();
   }
 
   render() {
@@ -58,7 +58,7 @@ export default class GeolinkMap extends React.Component {
           <iframe
             id="coverage-map"
             title="Interactive Coverage Map"
-            ref={(ref) => this.props.geolinkStore.mapIframeRef = ref}/>
+            ref={(ref) => this.props.networkStore.mapIframeRef = ref}/>
         </div>
       </section>
     );
