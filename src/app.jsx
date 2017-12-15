@@ -87,9 +87,9 @@ export default class App extends React.Component {
     return (
       <article id="specialized-devices">
         <Switch>
-          <Route path={`${match.url}/:deviceCategory/:deviceId`} component={DeviceDetailTemplate}/>
-          <Route path={`${match.url}/:deviceCategory`} component={DeviceCategoryTemplate}/>
-          <Route path={match.url} component={DevicesLandingPage}/>
+          <Route path={`${match.url}/:deviceCategory/:deviceId`} component={DeviceDetailTemplate} />
+          <Route path={`${match.url}/:deviceCategory`} component={DeviceCategoryTemplate} />
+          <Route path={match.url} component={DevicesLandingPage} />
         </Switch>
       </article>
     )
@@ -107,20 +107,22 @@ export default class App extends React.Component {
 		)
 	}
 
+/*
   getLandingPage = () => {
     const userIsAdmin = pseMasterStore.userStore.isAdmin;
     return (
       <Switch>
-        {
-          userIsAdmin
+        {userIsAdmin
           ? <Redirect to="/admin" />
           : <Redirect to="/network-status" />
         }
       </Switch>
     )
   }
+*/
 
   getMainLayoutComponent = () => {
+    const permissionObject = pseMasterStore.userStore.destinationIsPermitted;
     return (
       <div>
         {config.showOnboardingWalkthrough &&
@@ -128,46 +130,67 @@ export default class App extends React.Component {
 				}
         <ScrollToTop>
           <a href="#main-content" className="skipnav">Skip Navigation</a>
-          <Header/>
+          <Header />
           <main id="main-content">
             <Switch>
-              <Route exact path="/" component={this.getLandingPage}/>
-              <Route path="/admin/manage-apps" component={this.getAdminRoutes(ManageAppsPage)}/>
-              <Route path="/admin/configure-mdm" component={this.getAdminRoutes(ConfigureMDM)}/>
-              <Route path="/admin/devices" component={this.getAdminRoutes(this.getSpecializedDevicesComponent)}/>
-              <Route path="/admin/solutions" component={this.getAdminRoutes(this.getPublicSafetySolutionsComponent)}/>
-              <Route path="/admin" component={this.getAdminRoutes(AdminDashboardPage)}/>
-              <Route path="/app/:appPsk" component={this.getAdminRoutes(AppDetailsPage)/*TODO redirect to error/404 if psk has no match*/}/>
-              <Route path="/network-status" component={NetworkStatusPage}/>
-              <Route path="/subscribe-to-alerts" component={SubscribeToGTOC}/>
-              <Route path="/subscribe-to-alerts-success" component={SubscribeToGTOCSuccess}/>
-              <Route path="/feedback" component={FeedbackPage}/>
-              <Route path="/feedback-success" component={FeedbackSuccessPage}/>
-              <Route path="/faq" component={FAQPage}/>
-              <Route path="/help-center" component={HelpCenterPage}/>
-              <Route component={() => <Redirect to="/error/404"/>}/>
+              <Route exact path="/" component={() => <Redirect to="/admin" />} />
+              <Route path="/admin/manage-apps" component={this.checkRoutePermission({
+                  component: ManageAppsPage,
+                  isPermitted: permissionObject.manageApps
+                })} />
+              <Route path="/admin/configure-mdm" component={this.checkRoutePermission({
+                  component: ConfigureMDM,
+                  isPermitted: permissionObject.manageApps
+                })} />
+              <Route path="/admin/devices" component={this.checkRoutePermission({
+                  component: this.getSpecializedDevicesComponent,
+                  isPermitted: permissionObject.shopSpecializedDevices
+                })} />
+              <Route path="/admin/solutions" component={this.checkRoutePermission({
+                  component: this.getPublicSafetySolutionsComponent,
+                  isPermitted: permissionObject.shopPublicSafetySolutions
+                })} />
+              <Route path="/admin" component={this.checkRoutePermission({
+                  component: AdminDashboardPage,
+                  isPermitted: permissionObject.administration,
+                  redirectPath: '/network-status'
+                })} />
+                <Route path="/app/:appPsk" component={this.checkRoutePermission({
+                  component: AppDetailsPage,
+                  isPermitted: permissionObject.manageApps
+                })} />
+                <Route path="/network-status" component={this.checkRoutePermission({
+                  component: NetworkStatusPage,
+                  isPermitted: permissionObject.network
+                })} />
+              <Route path="/subscribe-to-alerts" component={SubscribeToGTOC} />
+              <Route path="/subscribe-to-alerts-success" component={SubscribeToGTOCSuccess} />
+              <Route path="/feedback" component={FeedbackPage} />
+              <Route path="/feedback-success" component={FeedbackSuccessPage} />
+              <Route path="/faq" component={FAQPage} />
+              <Route path="/help-center" component={HelpCenterPage} />
+              <Route component={() => <Redirect to="/error/404" />} />
             </Switch>
           </main>
-          <Footer/>
+          <Footer />
         </ScrollToTop>
       </div>
     );
   }
 
-  getAdminRoutes = (component) => {
-    let roleBasedRoutes = pseMasterStore.userStore.isAdmin ? component : () => <Redirect to="/error/unauthorized"/>;
-    return roleBasedRoutes;
+  checkRoutePermission = ({component, isPermitted, redirectPath = '/error/unauthorized'}) => {
+    return isPermitted ? component : () => <Redirect to={redirectPath} />;
   }
 
   getPlainLayoutComponent = () => {
     return (
       <Switch>
-        <Route exact path="/error/404" component={() => <ErrorPage cause="404"/>}/>
-        <Route exact path="/error/unauthorized" component={() => <ErrorPage cause="unauthorized"/>}/>
-        <Route exact path="/error/unavailable" component={() => <ErrorPage cause="410"/>}/>
-        <Route exact path="/error/pending" component={() => <ErrorPage cause="pending" />}/>
-        <Route path="/error" component={ErrorPage}/>
-        <Route component={() => <Redirect to="/error/404"/>}/>
+        <Route exact path="/error/404" component={() => <ErrorPage cause="404" />} />
+        <Route exact path="/error/unauthorized" component={() => <ErrorPage cause="unauthorized" />} />
+        <Route exact path="/error/unavailable" component={() => <ErrorPage cause="410" />} />
+        <Route exact path="/error/pending" component={() => <ErrorPage cause="pending" />} />
+        <Route path="/error" component={ErrorPage} />
+        <Route component={() => <Redirect to="/error/404" />} />
       </Switch>
     )
   }
@@ -176,33 +199,24 @@ export default class App extends React.Component {
     return pseMasterStore.userStore.userValidationDone
       ? (pseMasterStore.isLoggedIn
         ? <Switch>
-            <Route exact path="/session-timeout" component={SessionTimeoutPage}/>
-            <Route path="/error" component={this.getPlainLayoutComponent}/>
-            <Route component={this.getMainLayoutComponent}/>
+            <Route exact path="/session-timeout" component={SessionTimeoutPage} />
+            <Route path="/error" component={this.getPlainLayoutComponent} />
+            <Route component={this.getMainLayoutComponent} />
           </Switch>
         : (pseMasterStore.userStore.isSubscriber
-          ? <ExternalRedirect externalUrl={config.appStore}/>
-          : <ErrorPage cause="unauthorized"/>))
+          ? <ExternalRedirect externalUrl={config.appStore} />
+          : <ErrorPage cause="unauthorized" />))
       : <div className="fn-loading">
           <div className="fn-loading-logo">
             <img src="/images/firstnet-logo.svg" width="173" height="51" alt="" aria-hidden="true" />
           </div>
-          <h1 className="fn-loading-text">Loading</h1>
-          <div className="fn-loading-circle">
-            <div className="c1 c"></div>
-            <div className="c2 c"></div>
-            <div className="c3 c"></div>
-            <div className="c4 c"></div>
-            <div className="c5 c"></div>
-            <div className="c6 c"></div>
-            <div className="c7 c"></div>
-            <div className="c8 c"></div>
-            <div className="c9 c"></div>
-            <div className="c10 c"></div>
-            <div className="c11 c"></div>
-            <div className="c12 c"></div>
-          </div>
+        <h1 className="fn-loading-text">Loading</h1>
+        <div className="fn-loading-circle">
+          {[...Array(12)].map((x, i) =>
+            <div key={i} className={`c${i+1} c`}></div>
+          )}
         </div>
+      </div>
   }
 
   render() {

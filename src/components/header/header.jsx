@@ -217,6 +217,8 @@ export default class PSEHeader extends React.Component {
 	}
 
 	renderAdminMenuItem = () => {
+		const isPermitted = this.userStore.destinationIsPermitted;
+		const hideAside = !(isPermitted.shopStandardDevices || isPermitted.shopSpecializedDevices || isPermitted.shopPublicSafetySolutions);
 		return (
 			<li id="btn-admin" className={`mainnav-item desktop-textlink ${this.headerStore.adminSubMenuIsOpen ? 'expanded' : ''}`}>
 				<button
@@ -264,6 +266,7 @@ export default class PSEHeader extends React.Component {
 							</NewTabLink>
 						</li>
 					</ul>
+					{!hideAside &&
 					<ul
 						id="pse-aside-nav"
 						role="navigation"
@@ -272,22 +275,29 @@ export default class PSEHeader extends React.Component {
 						<strong className="visible-md-block visible-lg-block" aria-hidden="true">
 							Purchasing &amp; Provisioning
 						</strong>
-						<li>
-							<NewTabLink to={config.shopStandardDevicesLink} onClick={this.handleExternalTabOpen} showIcon={true}>
-								Standard Devices &amp; Rate Plans
-							</NewTabLink>
-						</li>
-						<li>
-							<NavLink to="/admin/devices">
-								Specialized Devices
-							</NavLink>
-						</li>
-						<li>
-							<NavLink to="/admin/solutions">
-								Public Safety Solutions
-							</NavLink>
-						</li>
+						{isPermitted.shopStandardDevices &&
+							<li>
+								<NewTabLink to={config.shopStandardDevicesLink} onClick={this.handleExternalTabOpen} showIcon={true}>
+									Standard Devices &amp; Rate Plans
+								</NewTabLink>
+							</li>
+						}
+						{isPermitted.shopSpecializedDevices &&
+							<li>
+								<NavLink to="/admin/devices">
+									Specialized Devices
+								</NavLink>
+							</li>
+						}
+						{isPermitted.shopPublicSafetySolutions &&
+							<li>
+								<NavLink to="/admin/solutions">
+									Public Safety Solutions
+								</NavLink>
+							</li>
+						}
 					</ul>
+					}
 				</div>
 			</li>
 		)
@@ -339,12 +349,14 @@ export default class PSEHeader extends React.Component {
 						<nav id="main-menu" aria-label="Main Menu">
 							<ul className="fnnav__main">
 								{this.renderMobileOnlyUserMenu()}
-								{this.userStore.isAdmin && this.renderAdminMenuItem() }
-								<li id="hdr-network-status" className="mainnav-item desktop-textlink" role="presentation">
-									<NavLink id="linkBtn-networkStatus" to="/network-status" activeClassName="active">
-										Network Status
-									</NavLink>
-								</li>
+								{this.userStore.destinationIsPermitted.administration && this.renderAdminMenuItem() }
+								{this.userStore.destinationIsPermitted.network &&
+									<li id="hdr-network-status" className="mainnav-item desktop-textlink" role="presentation">
+										<NavLink id="linkBtn-networkStatus" to="/network-status" activeClassName="active">
+											Network Status
+										</NavLink>
+									</li>
+								}
 
 								{/* Mobile only menu items */}
 								<li className="mainnav-item grey">
