@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link, NavLink, withRouter} from 'react-router-dom';
 import NewTabLink from '../link/new-tab-link';
+import {adminCards} from '../../content/admin-cards.js';
 import {observer, inject, PropTypes} from 'mobx-react';
 import config from 'config';
 import $ from 'jquery';
@@ -180,7 +181,7 @@ export default class PSEHeader extends React.Component {
 				</button>
 				<div className="fnnav__brand">
 					<Link className="logo-home-link" to="/">
-						<img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Logo"/>
+						<img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Logo" />
 						<span className="sr-only">Go Home</span>
 					</Link>
 				</div>
@@ -215,93 +216,108 @@ export default class PSEHeader extends React.Component {
 			</li>
 		)
 	}
+	renderPermissionedLinkList = (cards) => {
+			const isPermitted = this.userStore.destinationIsPermitted;
+			return cards.map((card, i) => {
+				if (isPermitted[card.isPermitted]) {
+					return (
+						<li key={i}>
+							{this.renderPermissionedLink(card, i)}
+						</li>
+					)}
+				}
+			)
+		}
 
-	renderAdminMenuItem = () => {
-		const isPermitted = this.userStore.destinationIsPermitted;
-		const hideAside = !(isPermitted.shopStandardDevices || isPermitted.shopSpecializedDevices || isPermitted.shopPublicSafetySolutions);
-		return (
-			<li id="btn-admin" className={`mainnav-item desktop-textlink ${this.headerStore.adminSubMenuIsOpen ? 'expanded' : ''}`}>
-				<button
-					className="btnSubmenu"
-					aria-haspopup="true"
-					onClick={this.toggleAdminSubMenu}
-					aria-expanded={this.headerStore.adminSubMenuIsOpen}>
-					<span className="sr-only">
-						Expand Administration Menu
-					</span>
-				</button>
-				<NavLink
-					id="linkBtn-admin"
-					to="/admin"
-					activeClassName="active"
-					aria-haspopup="true"
-					aria-expanded={this.headerStore.adminSubMenuIsOpen}>
-					Administration
-				</NavLink>
-				<div id="admin-submenu" className="header-submenu">
-					<ul
-						id="pse-admin-nav"
-						role="navigation"
-						className={`collapse ${this.headerStore.adminSubMenuIsOpen ? 'in' : ''}`}
-						aria-labelledby="linkBtn-admin">
-						<strong className="visible-md-block visible-lg-block" aria-hidden="true">
-							Management
-						</strong>
-						<li>
-							<NewTabLink to={config.manageUsersLink} onClick={this.handleExternalTabOpen} showIcon={true}>
-								Manage Users
-							</NewTabLink>
-						</li>
-						<li>
-							<NavLink to="/admin/manage-apps">Manage Apps</NavLink>
-						</li>
-						<li>
-							<NewTabLink to={config.manageServicesLink} onClick={this.handleExternalTabOpen} showIcon={true}>
-								Manage Services &amp; Billing
-							</NewTabLink>
-						</li>
-						<li>
-							<NewTabLink to={config.viewWirelessReportsLink} onClick={this.handleExternalTabOpen} showIcon={true}>
-								View Wireless Reports
-							</NewTabLink>
-						</li>
-					</ul>
-					{!hideAside &&
-					<ul
-						id="pse-aside-nav"
-						role="navigation"
-						className={`collapse ${this.headerStore.adminSubMenuIsOpen ? 'in' : ''}`}
-						aria-labelledby="linkBtn-admin">
-						<strong className="visible-md-block visible-lg-block" aria-hidden="true">
-							Purchasing &amp; Provisioning
-						</strong>
-						{isPermitted.shopStandardDevices &&
-							<li>
+		renderPermissionedLink = (card) => {
+			//render if we are allowed
+			const isPermitted = this.userStore.destinationIsPermitted;
+			if (isPermitted[card.isPermitted]) {
+				// check if we are using a local or extenrnal link, and act accordingly
+				const internalLink = card.linkTo[0] === '/'
+				const LinkType = internalLink ? NavLink : NewTabLink;
+				// set conditional props based on internal or external link.
+				const props = {};
+				if (internalLink) {
+					props.to = card.linkTo;
+				} else {
+					props.to = config[card.linkTo];
+					props.onClick = this.handleExternalTabOpen;
+					props.showIcon = true
+				}
+				// Capitalize first letter of the link text, but preserve original capitalization in acronyms
+				const linkText = card.header.replace(/\b[a-z]/g, function (letter) {
+					return letter.toUpperCase();
+				});
+				return (
+					<LinkType {...props}>
+						<span dangerouslySetInnerHTML={{__html: linkText}}></span>
+					</LinkType>
+				)
+			}
+		}
+
+		renderAdminMenuItem = () => {
+			const isPermitted = this.userStore.destinationIsPermitted;
+			const hideAside = !(isPermitted.shopStandardDevices || isPermitted.shopSpecializedDevices || isPermitted.shopPublicSafetySolutions);
+			return (
+				<li id="btn-admin" className={`mainnav-item desktop-textlink ${this.headerStore.adminSubMenuIsOpen ? 'expanded' : ''}`}>
+					<button
+						className="btnSubmenu"
+						aria-haspopup="true"
+						onClick={this.toggleAdminSubMenu}
+						aria-expanded={this.headerStore.adminSubMenuIsOpen}>
+						<span className="sr-only">
+							Expand Administration Menu
+						</span>
+					</button>
+					<NavLink
+						id="linkBtn-admin"
+						to="/admin"
+						activeClassName="active"
+						aria-haspopup="true"
+						aria-expanded={this.headerStore.adminSubMenuIsOpen}>
+						Administration
+					</NavLink>
+					<div id="admin-submenu" className="header-submenu">
+						<ul
+							id="pse-admin-nav"
+							role="navigation"
+							className={`collapse ${this.headerStore.adminSubMenuIsOpen ? 'in' : ''}`}
+							aria-labelledby="linkBtn-admin">
+							{!hideAside && <strong className="visible-md-block visible-lg-block" aria-hidden="true">
+								Management
+							</strong>}
+							{this.renderPermissionedLinkList(adminCards)}
+						</ul>
+						{!hideAside && <ul
+							id="pse-aside-nav"
+							role="navigation"
+							className={`collapse ${this.headerStore.adminSubMenuIsOpen ? 'in' : ''}`}
+							aria-labelledby="linkBtn-admin">
+							<strong className="visible-md-block visible-lg-block" aria-hidden="true">
+								Purchasing &amp; Provisioning
+							</strong>
+							{isPermitted.shopStandardDevices && <li>
 								<NewTabLink to={config.shopStandardDevicesLink} onClick={this.handleExternalTabOpen} showIcon={true}>
 									Standard Devices &amp; Rate Plans
 								</NewTabLink>
-							</li>
-						}
-						{isPermitted.shopSpecializedDevices &&
-							<li>
+							</li>}
+							{isPermitted.shopSpecializedDevices && <li>
 								<NavLink to="/admin/devices">
 									Specialized Devices
 								</NavLink>
-							</li>
-						}
-						{isPermitted.shopPublicSafetySolutions &&
-							<li>
+							</li>}
+							{isPermitted.shopPublicSafetySolutions && <li>
 								<NavLink to="/admin/solutions">
 									Public Safety Solutions
 								</NavLink>
-							</li>
-						}
-					</ul>
-					}
-				</div>
-			</li>
-		)
-	}
+							</li>}
+						</ul>}
+					</div>
+				</li>
+			)
+		}
 
 	renderHelpMenuItems = () => {
 		return (
@@ -349,7 +365,9 @@ export default class PSEHeader extends React.Component {
 						<nav id="main-menu" aria-label="Main Menu">
 							<ul className="fnnav__main">
 								{this.renderMobileOnlyUserMenu()}
-								{this.userStore.destinationIsPermitted.administration && this.renderAdminMenuItem() }
+								{this.userStore.destinationIsPermitted.administration &&
+									this.renderAdminMenuItem()
+								}
 								{this.userStore.destinationIsPermitted.network &&
 									<li id="hdr-network-status" className="mainnav-item desktop-textlink" role="presentation">
 										<NavLink id="linkBtn-networkStatus" to="/network-status" activeClassName="active">
@@ -370,7 +388,7 @@ export default class PSEHeader extends React.Component {
 										</span>
 									</button>
 									<a id="pse-help-mobile" href="/manage-profile" className="deaden">
-										<i className="icon-help" aria-hidden="true"/>
+										<i className="icon-help" aria-hidden="true" />
 										Help
 									</a>
 									<ul
@@ -382,7 +400,7 @@ export default class PSEHeader extends React.Component {
 								</li>
 								<li className="mainnav-item grey logout" role="presentation">
 									<a href="#" onClick={this.onLogout}>
-										<i className="icon-logout" aria-hidden="true"/>
+										<i className="icon-logout" aria-hidden="true" />
 										Log Out
 									</a>
 								</li>
@@ -415,7 +433,7 @@ export default class PSEHeader extends React.Component {
 										</li>
 										<li role="presentation">
 											<a href="#" onClick={this.onLogout}>
-												<i className="icon-logout" aria-hidden="true"/>
+												<i className="icon-logout" aria-hidden="true" />
 												Log Out
 											</a>
 										</li>
@@ -442,7 +460,7 @@ export default class PSEHeader extends React.Component {
 						</nav>
 					</div>
 				</div>
-				<div className="pageMask hidden-xs hidden-md hidden-lg" onClick={this.closeMainMenu}/>
+				<div className="pageMask hidden-xs hidden-md hidden-lg" onClick={this.closeMainMenu} />
 			</header>
 		);
 	}
