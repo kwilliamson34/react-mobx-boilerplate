@@ -120,7 +120,7 @@ $fn-mobile-item-height: 60px;
         margin-left: 5px;
         text-decoration: none;
         font-size: 1.4rem;
-        vertical-align: middle;
+        vertical-align: sub;
 
         &.icon-phone-number {
           margin-right: 5px;
@@ -347,7 +347,6 @@ $fn-mobile-item-height: 60px;
     max-width: 550px;
     text-align: right;
     background: $fn-white;
-    text-align: right;
     border-top: 0 none;
     visibility: visible;
     overflow-y: visible;
@@ -364,6 +363,7 @@ $fn-mobile-item-height: 60px;
     .desktop-iconItem {
       display: inline-block;
       background: $fn-white;
+      vertical-align: top;
 
       > button {
         display: block;
@@ -376,6 +376,7 @@ $fn-mobile-item-height: 60px;
         text-align: center;
         color: $fn-dkgrey;
         padding: 0;
+        border-radius: 0;
 
         &.active,
         &:active,
@@ -430,7 +431,6 @@ $fn-mobile-item-height: 60px;
 
     .desktop-textlink {
       display: inline-block;
-      float: left;
 
       > button {
         display: none;

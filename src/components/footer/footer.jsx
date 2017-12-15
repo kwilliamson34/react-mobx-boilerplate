@@ -16,19 +16,18 @@ export default class Footer extends React.Component {
 	}
 
 	static defaultProps = {
-    showPrivateLinks: true
-  }
+		showPrivateLinks: true
+	}
 
 	constructor(props) {
 		super(props);
 		this.headerStore = this.props.store.headerStore;
 		this.externalLinkStore = this.props.store.externalLinkStore;
-		this.user = this.props.store.userStore;
-		this.handleSitemapClick = this.handleSitemapClick.bind(this);
+		this.userStore = this.props.store.userStore;
 		this.joyrideStore = this.props.store.joyrideStore;
 	}
 
-	handleSitemapClick(e){
+	handleSitemapClick = (e) => {
 		e.preventDefault();
 		this.headerStore.toggleFooterSitemap();
 	}
@@ -40,8 +39,8 @@ export default class Footer extends React.Component {
 	renderSitemapColumn() {
 		let sitemapCollapseBreakpoint = 992;
 		let allowFocusOnSitemapHeader = this.headerStore.viewportWidth < sitemapCollapseBreakpoint;
-		if(this.props.showPrivateLinks){
-			return(
+		if (this.props.showPrivateLinks) {
+			return (
 				<div className="col-xs-12 col-md-3">
 					<nav aria-describedby="sitemap">
 						<a id="sitemap" href=""
@@ -52,25 +51,31 @@ export default class Footer extends React.Component {
 							aria-haspopup="true"
 							aria-expanded={this.headerStore.footerSitemapExpanded}>Sitemap</a>
 						<ul className="sitemap-links">
-							{this.user.isAdmin &&
-							<div>
+							{this.userStore.destinationIsPermitted.administration &&
 								<li role="presentation">
 									<Link to="/admin">PSE Administration</Link>
 								</li>
+							}
+							{this.userStore.destinationIsPermitted.manageApps &&
 								<li role="presentation">
 									<Link to="/admin/manage-apps">Manage Apps</Link>
 								</li>
+							}
+							{this.userStore.destinationIsPermitted.shopSpecializedDevices &&
 								<li role="presentation">
 									<Link to="/admin/devices">Specialized Devices</Link>
 								</li>
+							}
+							{this.userStore.destinationIsPermitted.shopPublicSafetySolutions &&
 								<li role="presentation">
 									<Link to="/admin/solutions">Public Safety Solutions </Link>
 								</li>
-							</div>
 							}
-							<li role="presentation">
-								<Link to="/network-status">Network Status</Link>
-							</li>
+							{this.userStore.destinationIsPermitted.network &&
+								<li role="presentation">
+									<Link to="/network-status">Network Status</Link>
+								</li>
+							}
 						</ul>
 					</nav>
 				</div>
