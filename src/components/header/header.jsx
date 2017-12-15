@@ -151,60 +151,51 @@ export default class PSEHeader extends React.Component {
   }
 
   renderProfileBlock = () => {
-    return (
-			<div className="multi-line-item">
-				<div className="profile-display">
-					<i className="icon-profile" aria-hidden="true" />
-					{`${this.userStore.user.firstName} ${this.userStore.user.lastName}`}
-					{this.userStore.user.pseName &&
-						<div>{this.userStore.user.pseName}</div>
-					}
-				</div>
-			</div>
-		)
+    return (<div className="multi-line-item">
+      <div className="profile-display">
+        <i className="icon-profile" aria-hidden="true"/> {`${this.userStore.user.firstName} ${this.userStore.user.lastName}`}
+        {this.userStore.user.pseName && <div>{this.userStore.user.pseName}</div>}
+      </div>
+    </div>)
   }
 
   renderBrandArea = () => {
-    return (
-			<div className="fnnav__header">
+    return (<div className="fnnav__header">
       <button type="button" className="navbar-toggle" onClick={this.toggleMainMenu} aria-haspopup="true" aria-expanded={this.headerStore.mainMenuIsOpen}>
         <span className="sr-only">Toggle navigation</span>
-        <span className="icon-bar" />
-        <span className="icon-bar" />
-        <span className="icon-bar" />
+        <span className="icon-bar"/>
+        <span className="icon-bar"/>
+        <span className="icon-bar"/>
       </button>
       <div className="fnnav__brand">
         <Link className="logo-home-link" to="/">
-          <img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Logo" />
+          <img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Logo"/>
           <span className="sr-only">Go Home</span>
         </Link>
       </div>
-    </div>
-	)
+    </div>)
   }
 
   renderMobileOnlyUserMenu = () => {
-    return (
-			<li className="mainnav-item yellow" role="presentation">
-				<button className="btnSubmenu" onClick={this.toggleProfileSubMenu} aria-haspopup="true" aria-expanded={this.headerStore.profileSubMenuIsOpen}>
-					<span className="sr-only">
-						Expand Profile Menu
-					</span>
-				</button>
-				<a id="pse-profile" href="#profile" className="deaden">
-	        {this.renderProfileBlock()}
-	      </a>
-				<ul className={`collapse ${this.headerStore.profileSubMenuIsOpen
-	          ? 'in'
-	          : ''}`} aria-labelledby="pse-profile">
-	        <li role="presentation">
-	          <NewTabLink to={config.manageMyProfileLink} onClick={this.handleExternalTabOpen}>
-	            Manage My Profile
-	          </NewTabLink>
-	        </li>
-	      </ul>
-    	</li>
-		)
+    return (<li className="mainnav-item yellow" role="presentation">
+      <button className="btnSubmenu" onClick={this.toggleProfileSubMenu} aria-haspopup="true" aria-expanded={this.headerStore.profileSubMenuIsOpen}>
+        <span className="sr-only">
+          Expand Profile Menu
+        </span>
+      </button>
+      <a id="pse-profile" href="#profile" className="deaden">
+        {this.renderProfileBlock()}
+      </a>
+      <ul className={`collapse ${this.headerStore.profileSubMenuIsOpen
+          ? 'in'
+          : ''}`} aria-labelledby="pse-profile">
+        <li role="presentation">
+          <NewTabLink to={config.manageMyProfileLink} onClick={this.handleExternalTabOpen}>
+            Manage My Profile
+          </NewTabLink>
+        </li>
+      </ul>
+    </li>)
   }
 
   renderPermissionedLinkList = (cards) => {
@@ -240,207 +231,199 @@ export default class PSEHeader extends React.Component {
       const linkText = card.header.replace(/\b[a-z]/g, function(letter) {
         return letter.toUpperCase();
       });
-      return (
-				<LinkType {...props}>
-					<span dangerouslySetInnerHTML={{
+      return (<LinkType {...props}>
+        <span dangerouslySetInnerHTML={{
             __html: linkText
           }}></span>
-				</LinkType>
-			)
+      </LinkType>)
     }
   }
 
   renderAdminMenuItem = () => {
     const isPermitted = this.userStore.destinationIsPermitted;
     const hideAside = !(isPermitted.shopStandardDevices || isPermitted.shopSpecializedDevices || isPermitted.shopPublicSafetySolutions);
-    return (
-			<li id="btn-admin" className={`mainnav-item desktop-textlink ${this.headerStore.adminSubMenuIsOpen
+    return (<li id="btn-admin" className={`mainnav-item desktop-textlink ${this.headerStore.adminSubMenuIsOpen
         ? 'expanded'
         : ''}`}>
-	      <button className="btnSubmenu" aria-haspopup="true" onClick={this.toggleAdminSubMenu} aria-expanded={this.headerStore.adminSubMenuIsOpen}>
-	        <span className="sr-only">
-	          Expand Administration Menu
-	        </span>
-	      </button>
-	      <NavLink id="linkBtn-admin" to="/admin" activeClassName="active" aria-haspopup="true" aria-expanded={this.headerStore.adminSubMenuIsOpen}>
-	        Administration
-	      </NavLink>
-	      <div id="admin-submenu" className="header-submenu">
-	        <ul id="pse-admin-nav" role="navigation" className={`collapse ${this.headerStore.adminSubMenuIsOpen
-	            ? 'in'
-	            : ''}`} aria-labelledby="linkBtn-admin">
-	          {
-	            !hideAside && <strong className="visible-md-block visible-lg-block" aria-hidden="true">
-	                Management
-	              </strong>
-	          }
-	          {this.renderPermissionedLinkList(adminCards)}
-	        </ul>
-	        {
-	          !hideAside && <ul id="pse-aside-nav" role="navigation" className={`collapse ${this.headerStore.adminSubMenuIsOpen
-	                ? 'in'
-	                : ''}`} aria-labelledby="linkBtn-admin">
-	              <strong className="visible-md-block visible-lg-block" aria-hidden="true">
-	                Purchasing &amp; Provisioning
-	              </strong>
-	              {
-	                isPermitted.shopStandardDevices && <li>
-	                    <NewTabLink to={config.shopStandardDevicesLink} onClick={this.handleExternalTabOpen} showIcon={true}>
-	                      Standard Devices &amp; Rate Plans
-	                    </NewTabLink>
-	                  </li>
-	              }
-	              {
-	                isPermitted.shopSpecializedDevices && <li>
-	                    <NavLink to="/admin/devices">
-	                      Specialized Devices
-	                    </NavLink>
-	                  </li>
-	              }
-	              {
-	                isPermitted.shopPublicSafetySolutions && <li>
-	                    <NavLink to="/admin/solutions">
-	                      Public Safety Solutions
-	                    </NavLink>
-	                  </li>
-	              }
-	            </ul>
-	        }
-	      </div>
-	    </li>
-		)
+      <button className="btnSubmenu" aria-haspopup="true" onClick={this.toggleAdminSubMenu} aria-expanded={this.headerStore.adminSubMenuIsOpen}>
+        <span className="sr-only">
+          Expand Administration Menu
+        </span>
+      </button>
+      <NavLink id="linkBtn-admin" to="/admin" activeClassName="active" aria-haspopup="true" aria-expanded={this.headerStore.adminSubMenuIsOpen}>
+        Administration
+      </NavLink>
+      <div id="admin-submenu" className="header-submenu">
+        <ul id="pse-admin-nav" role="navigation" className={`collapse ${this.headerStore.adminSubMenuIsOpen
+            ? 'in'
+            : ''}`} aria-labelledby="linkBtn-admin">
+          {
+            !hideAside && <strong className="visible-md-block visible-lg-block" aria-hidden="true">
+                Management
+              </strong>
+          }
+          {this.renderPermissionedLinkList(adminCards)}
+        </ul>
+        {
+          !hideAside && <ul id="pse-aside-nav" role="navigation" className={`collapse ${this.headerStore.adminSubMenuIsOpen
+                ? 'in'
+                : ''}`} aria-labelledby="linkBtn-admin">
+              <strong className="visible-md-block visible-lg-block" aria-hidden="true">
+                Purchasing &amp; Provisioning
+              </strong>
+              {
+                isPermitted.shopStandardDevices && <li>
+                    <NewTabLink to={config.shopStandardDevicesLink} onClick={this.handleExternalTabOpen} showIcon={true}>
+                      Standard Devices &amp; Rate Plans
+                    </NewTabLink>
+                  </li>
+              }
+              {
+                isPermitted.shopSpecializedDevices && <li>
+                    <NavLink to="/admin/devices">
+                      Specialized Devices
+                    </NavLink>
+                  </li>
+              }
+              {
+                isPermitted.shopPublicSafetySolutions && <li>
+                    <NavLink to="/admin/solutions">
+                      Public Safety Solutions
+                    </NavLink>
+                  </li>
+              }
+            </ul>
+        }
+      </div>
+    </li>)
   }
 
   renderHelpMenuItems = () => {
-    return (
-			<div>
-	      <li>
-	        <NavLink activeClassName="active" to="/faq">
-	          FAQ
-	        </NavLink>
-	      </li>
-	      <li>
-	        <NewTabLink to={this.externalLinkStore.firstnetTraining} onClick={this.handleExternalTabOpen} showIcon={true}>
-	          Training
-	        </NewTabLink>
-	      </li>
-	      <li>
-	        <a href="#" role="button" className="walkthru-toggle" onClick={this.handleToggleWalkthrough}>
-	          {
-	            `${this.joyrideStore.tourIsDisabled
-	              ? 'Enable'
-	              : 'Disable'}`
-	          }
-	          Site Walkthrough
-	        </a>
-	      </li>
-	      <li>
-	        <NavLink activeClassName="active" to="/feedback">
-	          Give Us Feedback
-	        </NavLink>
-	      </li>
-	      <li>
-	        <a href={'tel:' + config.attCustomerSupportDialNum}>
-	          <div className="multi-line-item">
-	            <span aria-hidden="true">FirstNet Customer Svc:&nbsp;</span><br/>
-	            <i className="icon-phone-number" aria-hidden="true"></i>
-	            <span className="sr-only">FirstNet Customer Service Phone&nbsp;</span>
-	            {config.attCustomerSupportPhone}
-	          </div>
-	        </a>
-	      </li>
-	    </div>
-		)
+    return (<div>
+      <li>
+        <NavLink activeClassName="active" to="/faq">
+          FAQ
+        </NavLink>
+      </li>
+      <li>
+        <NewTabLink to={this.externalLinkStore.firstnetTraining} onClick={this.handleExternalTabOpen} showIcon={true}>
+          Training
+        </NewTabLink>
+      </li>
+      <li>
+        <a href="#" role="button" className="walkthru-toggle" onClick={this.handleToggleWalkthrough}>
+          {
+            `${this.joyrideStore.tourIsDisabled
+              ? 'Enable'
+              : 'Disable'}`
+          }
+          Site Walkthrough
+        </a>
+      </li>
+      <li>
+        <NavLink activeClassName="active" to="/feedback">
+          Give Us Feedback
+        </NavLink>
+      </li>
+      <li>
+        <a href={'tel:' + config.attCustomerSupportDialNum}>
+          <div className="multi-line-item">
+            <span aria-hidden="true">FirstNet Customer Svc:&nbsp;</span><br/>
+            <i className="icon-phone-number" aria-hidden="true"></i>
+            <span className="sr-only">FirstNet Customer Service Phone&nbsp;</span>
+            {config.attCustomerSupportPhone}
+          </div>
+        </a>
+      </li>
+    </div>)
   }
 
   render() {
-    return (
-			<header className="fnnav pse" role="banner">
-				<div className={`fnnav__mainbar ${this.headerStore.mainMenuIsOpen
-	          ? 'open'
-	          : ''}`}>
-					<div className="container">
-	          {this.renderBrandArea()}
-	          <nav id="main-menu" aria-label="Main Menu">
-	            <ul className="fnnav__main">
-	              {this.renderMobileOnlyUserMenu()}
-	              {this.userStore.destinationIsPermitted.administration && this.renderAdminMenuItem()}
-	              {
-	                this.userStore.destinationIsPermitted.network && <li id="hdr-network-status" className="mainnav-item desktop-textlink" role="presentation">
-	                    <NavLink id="linkBtn-networkStatus" to="/network-status" activeClassName="active">
-	                      Network Status
-	                    </NavLink>
-	                  </li>
-	              }
+    return (<header className="fnnav pse" role="banner">
+      <div className={`fnnav__mainbar ${this.headerStore.mainMenuIsOpen
+          ? 'open'
+          : ''}`}>
+        <div className="container">
+          {this.renderBrandArea()}
+          <nav id="main-menu" aria-label="Main Menu">
+            <ul className="fnnav__main">
+              {this.renderMobileOnlyUserMenu()}
+              {this.userStore.destinationIsPermitted.administration && this.renderAdminMenuItem()}
+              {
+                this.userStore.destinationIsPermitted.network && <li id="hdr-network-status" className="mainnav-item desktop-textlink" role="presentation">
+                    <NavLink id="linkBtn-networkStatus" to="/network-status" activeClassName="active">
+                      Network Status
+                    </NavLink>
+                  </li>
+              }
 
-	              {/* Mobile only menu items */}
-	              <li className="mainnav-item grey">
-	                <button className="btnSubmenu" onClick={this.toggleHelpSubMenu} aria-haspopup="true" aria-expanded={this.headerStore.helpSubMenuIsOpen}>
-	                  <span className="sr-only">
-	                    Expand Help Menu
-	                  </span>
-	                </button>
-	                <a id="pse-help-mobile" href="/manage-profile" className="deaden">
-	                  <i className="icon-help" aria-hidden="true" />
-	                  Help
-	                </a>
-	                <ul id="pse-help-menu" className={`collapse ${this.headerStore.helpSubMenuIsOpen
-	                    ? 'in'
-	                    : ''}`} aria-labelledby="pse-help-mobile">
-	                  {this.renderHelpMenuItems()}
-	                </ul>
-	              </li>
-	              <li className="mainnav-item grey logout" role="presentation">
-	                <a href="#" onClick={this.onLogout}>
-	                  <i className="icon-logout" aria-hidden="true" />
-	                  Log Out
-	                </a>
-	              </li>
+              {/* Mobile only menu items */}
+              <li className="mainnav-item grey">
+                <button className="btnSubmenu" onClick={this.toggleHelpSubMenu} aria-haspopup="true" aria-expanded={this.headerStore.helpSubMenuIsOpen}>
+                  <span className="sr-only">
+                    Expand Help Menu
+                  </span>
+                </button>
+                <a id="pse-help-mobile" href="/manage-profile" className="deaden">
+                  <i className="icon-help" aria-hidden="true"/>
+                  Help
+                </a>
+                <ul id="pse-help-menu" className={`collapse ${this.headerStore.helpSubMenuIsOpen
+                    ? 'in'
+                    : ''}`} aria-labelledby="pse-help-mobile">
+                  {this.renderHelpMenuItems()}
+                </ul>
+              </li>
+              <li className="mainnav-item grey logout" role="presentation">
+                <a href="#" onClick={this.onLogout}>
+                  <i className="icon-logout" aria-hidden="true"/>
+                  Log Out
+                </a>
+              </li>
 
-	              {/* Desktop only icon items */}
-	              <li className="desktop-iconItem dropdown">
-	                <button id="profile-header-dropdown" type="button" className="dropdown-toggle" aria-expanded="false" data-toggle="dropdown">
-	                  <i className="icon-profile" aria-hidden="true" />
-	                  <span className="sr-only">Toggle Profile Dropdown</span>
-	                </button>
-	                <ul id="pse-profile-nav" className="dropdown-menu dropdown-menu-right" aria-labelledby="profile-header-dropdown">
-	                  <li role="presentation" className="desktop-profile-display">
-	                    <a id="pse-profile-desktop" href="#profile" className="deaden" tabIndex="-1">
-	                      {this.renderProfileBlock()}
-	                    </a>
-	                  </li>
-	                  <li role="presentation">
-	                    <NewTabLink to={config.manageMyProfileLink}>
-	                      <i className="icon-settings" aria-hidden="true"></i>
-	                      Manage My Profile
-	                    </NewTabLink>
-	                  </li>
-	                  <li role="presentation">
-	                    <a href="#" onClick={this.onLogout}>
-	                      <i className="icon-logout" aria-hidden="true" />
-	                      Log Out
-	                    </a>
-	                  </li>
-	                </ul>
-	              </li>
-	              <li className="desktop-iconItem dropdown">
-	                <button id="help-header-dropdown" type="button" className={(
-	                    this.props.location.pathname === '/faq' || this.props.location.pathname === '/feedback')
-	                    ? 'dropdown-toggle active'
-	                    : 'dropdown-toggle'} aria-expanded="false" data-toggle="dropdown">
-	                  <i className="icon-help" aria-hidden="true" />
-	                  <span className="sr-only">Toggle Help Dropdown</span>
-	                </button>
-	                <ul id="pse-help-nav" className="dropdown-menu dropdown-menu-right" aria-labelledby="help-header-dropdown">
-	                  {this.renderHelpMenuItems()}
-	                </ul>
-	              </li>
-	            </ul>
-	          </nav>
-	        </div>
-	      </div>
-	      <div className="pageMask hidden-xs hidden-md hidden-lg" onClick={this.closeMainMenu} />
-	    </header>
-		);
+              {/* Desktop only icon items */}
+              <li className="desktop-iconItem dropdown">
+                <button id="profile-header-dropdown" type="button" className="dropdown-toggle" aria-expanded="false" data-toggle="dropdown">
+                  <i className="icon-profile" aria-hidden="true"/>
+                  <span className="sr-only">Toggle Profile Dropdown</span>
+                </button>
+                <ul id="pse-profile-nav" className="dropdown-menu dropdown-menu-right" aria-labelledby="profile-header-dropdown">
+                  <li role="presentation" className="desktop-profile-display">
+                    <a id="pse-profile-desktop" href="#profile" className="deaden" tabIndex="-1">
+                      {this.renderProfileBlock()}
+                    </a>
+                  </li>
+                  <li role="presentation">
+                    <NewTabLink to={config.manageMyProfileLink}>
+                      <i className="icon-settings" aria-hidden="true"></i>
+                      Manage My Profile
+                    </NewTabLink>
+                  </li>
+                  <li role="presentation">
+                    <a href="#" onClick={this.onLogout}>
+                      <i className="icon-logout" aria-hidden="true"/>
+                      Log Out
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li className="desktop-iconItem dropdown">
+                <button id="help-header-dropdown" type="button" className={(
+                    this.props.location.pathname === '/faq' || this.props.location.pathname === '/feedback')
+                    ? 'dropdown-toggle active'
+                    : 'dropdown-toggle'} aria-expanded="false" data-toggle="dropdown">
+                  <i className="icon-help" aria-hidden="true"/>
+                  <span className="sr-only">Toggle Help Dropdown</span>
+                </button>
+                <ul id="pse-help-nav" className="dropdown-menu dropdown-menu-right" aria-labelledby="help-header-dropdown">
+                  {this.renderHelpMenuItems()}
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div className="pageMask hidden-xs hidden-md hidden-lg" onClick={this.closeMainMenu}/>
+    </header>);
   }
 }
