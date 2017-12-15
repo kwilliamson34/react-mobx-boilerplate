@@ -16,8 +16,8 @@ export default class Footer extends React.Component {
 	}
 
 	static defaultProps = {
-    showPrivateLinks: true
-  }
+		showPrivateLinks: true
+	}
 
 	constructor(props) {
 		super(props);
@@ -39,8 +39,8 @@ export default class Footer extends React.Component {
 	renderSitemapColumn() {
 		let sitemapCollapseBreakpoint = 992;
 		let allowFocusOnSitemapHeader = this.headerStore.viewportWidth < sitemapCollapseBreakpoint;
-		if(this.props.showPrivateLinks){
-			return(
+		if (this.props.showPrivateLinks) {
+			return (
 				<div className="col-xs-12 col-md-3">
 					<nav aria-describedby="sitemap">
 						<a id="sitemap" href=""

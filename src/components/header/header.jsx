@@ -217,51 +217,51 @@ export default class PSEHeader extends React.Component {
 		)
 	}
 	renderPermissionedLinkList = (cards) => {
-			const isPermitted = this.userStore.destinationIsPermitted;
-			return cards.map((card, i) => {
-				if (isPermitted[card.isPermitted]) {
-					return (
-						<li key={i}>
+		const isPermitted = this.userStore.destinationIsPermitted;
+		return cards.map((card, i) => {
+			if (isPermitted[card.isPermitted]) {
+				return (
+					<li key={i}>
 							{this.renderPermissionedLink(card, i)}
 						</li>
-					)}
-				}
-			)
-		}
-
-		renderPermissionedLink = (card) => {
-			//render if we are allowed
-			const isPermitted = this.userStore.destinationIsPermitted;
-			if (isPermitted[card.isPermitted]) {
-				// check if we are using a local or extenrnal link, and act accordingly
-				const internalLink = card.linkTo[0] === '/'
-				const LinkType = internalLink ? NavLink : NewTabLink;
-				// set conditional props based on internal or external link.
-				const props = {};
-				if (internalLink) {
-					props.to = card.linkTo;
-				} else {
-					props.to = config[card.linkTo];
-					props.onClick = this.handleExternalTabOpen;
-					props.showIcon = true
-				}
-				// Capitalize first letter of the link text, but preserve original capitalization in acronyms
-				const linkText = card.header.replace(/\b[a-z]/g, function (letter) {
-					return letter.toUpperCase();
-				});
-				return (
-					<LinkType {...props}>
-						<span dangerouslySetInnerHTML={{__html: linkText}}></span>
-					</LinkType>
 				)
 			}
-		}
+		})
+	}
 
-		renderAdminMenuItem = () => {
-			const isPermitted = this.userStore.destinationIsPermitted;
-			const hideAside = !(isPermitted.shopStandardDevices || isPermitted.shopSpecializedDevices || isPermitted.shopPublicSafetySolutions);
+	renderPermissionedLink = (card) => {
+		//render if we are allowed
+		const isPermitted = this.userStore.destinationIsPermitted;
+		if (isPermitted[card.isPermitted]) {
+			// check if we are using a local or extenrnal link, and act accordingly
+			const internalLink = card.linkTo[0] === '/'
+			const LinkType = internalLink ? NavLink : NewTabLink;
+			// set conditional props based on internal or external link.
+			const props = {};
+			if (internalLink) {
+				props.to = card.linkTo;
+			} else {
+				props.to = config[card.linkTo];
+				props.onClick = this.handleExternalTabOpen;
+				props.showIcon = true
+			}
+			// Capitalize first letter of the link text, but preserve original capitalization in acronyms
+			const linkText = card.header.replace(/\b[a-z]/g, function (letter) {
+				return letter.toUpperCase();
+			});
 			return (
-				<li id="btn-admin" className={`mainnav-item desktop-textlink ${this.headerStore.adminSubMenuIsOpen ? 'expanded' : ''}`}>
+				<LinkType {...props}>
+						<span dangerouslySetInnerHTML={{__html: linkText}}></span>
+					</LinkType>
+			)
+		}
+	}
+
+	renderAdminMenuItem = () => {
+		const isPermitted = this.userStore.destinationIsPermitted;
+		const hideAside = !(isPermitted.shopStandardDevices || isPermitted.shopSpecializedDevices || isPermitted.shopPublicSafetySolutions);
+		return (
+			<li id="btn-admin" className={`mainnav-item desktop-textlink ${this.headerStore.adminSubMenuIsOpen ? 'expanded' : ''}`}>
 					<button
 						className="btnSubmenu"
 						aria-haspopup="true"
@@ -316,8 +316,8 @@ export default class PSEHeader extends React.Component {
 						</ul>}
 					</div>
 				</li>
-			)
-		}
+		)
+	}
 
 	renderHelpMenuItems = () => {
 		return (
