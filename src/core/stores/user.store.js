@@ -138,10 +138,9 @@ class UserStore {
     manageUsers: ['G_FN_ADM', 'G_FN_ITM', 'G_FN_VOL_ADM'],
     manageBilling: ['G_FN_ADM', 'G_FN_VOL'],
     viewReports: ['G_FN_ADM', 'G_FN_VOL'],
-    manageApps: ['G_FN_ADM', 'G_FN_ITM', 'G_FN_VOL_ADM'],
-    manageVoicemail: ['G_FN_SUB'],
-    administration: ['G_FN_ADM', 'G_FN_ITM', 'G_FN_SUB', 'G_FN_VOL_ADM', 'G_FN_VOL'],
-    network: ['G_FN_IM', 'G_FN_ADM', 'G_FN_ITM']
+    manageApps: ['G_FN_ADM', 'G_FN_VOL_ADM'],
+    administration: ['G_FN_ADM', 'G_FN_VOL_ADM', 'G_FN_VOL'],
+    network: ['G_FN_IM', 'G_FN_ADM']
 	}
 
 }
