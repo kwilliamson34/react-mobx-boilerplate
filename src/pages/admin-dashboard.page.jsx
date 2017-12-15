@@ -1,100 +1,92 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
+import {observer, inject} from 'mobx-react';
+import {observable} from 'mobx';
 import NewTabLink from '../components/link/new-tab-link';
 import config from 'config';
+import {adminCards, asideCards} from '../content/admin-cards.js';
 import PageTitle from '../components/page-title/page-title';
 
+@inject('store')
+@observer
 export default class AdminDashboardPage extends React.Component {
 
+  static propTypes = {
+    store: PropTypes.object
+  }
+
+  @observable numCardsShown = 0;
+  @observable adminCardsToShow = [];
+  @observable asideCardsToShow = [];
+
+  constructor(props) {
+    super(props);
+    this.store = this.props.store.userStore;
+
+    const isPermitted = this.store.destinationIsPermitted;
+    this.adminCardsToShow = adminCards.filter(card => {
+      return isPermitted[card.isPermitted]
+    });
+    this.asideCardsToShow = asideCards.filter(card => {
+      return isPermitted[card.isPermitted]
+    });
+    this.numCardsShown = this.adminCardsToShow.length + this.asideCardsToShow.length;
+  }
+
+  renderCard(card, key = 1) {
+    //check if we are using a local or extenrnal link, and act accordingly
+    const LinkType = card.linkTo[0] === '/' ? Link : NewTabLink;
+    const linkDest = card.linkTo[0] === '/' ? card.linkTo : config[card.linkTo]
+    const callToAction = card.callToAction || card.header;
+
+    return (
+      <li className="col-xs-12" key={key}>
+        <LinkType to={linkDest} className={`dashboard-card ${card.className} has-shadow`}>
+          <div className="desc">
+            <h3 dangerouslySetInnerHTML={ {__html: card.header} }></h3>
+            <p dangerouslySetInnerHTML={ {__html: card.description} }></p>
+          </div>
+          <span><span dangerouslySetInnerHTML={ {__html: callToAction} }></span> <i className="icon-arrowRight" aria-hidden="true"></i></span>
+        </LinkType>
+      </li>
+    )
+  }
+
   render() {
+    const isPermitted = this.store.destinationIsPermitted;
+    const hideAside = !(isPermitted.shopStandardDevices || isPermitted.shopSpecializedDevices || isPermitted.shopPublicSafetySolutions);
     return (
       <article id="admin-dashboard-page">
         <div className="container">
           <div className="col-xs-12">
             <PageTitle>Administration</PageTitle>
           </div>
-          <div className="row no-gutters">
-            <section className="col-xs-12 col-lg-8 manage-actions">
-              <div className="col-xs-12">
+          <div className="row no-gutters" data-numcards={this.numCardsShown}>
+            <section className={`col-xs-12 ${hideAside ? 'hide-aside' : 'col-lg-8'} manage-actions`}>
+              {!hideAside && <div className="col-xs-12">
                 <h2 className="as-h4">Management</h2>
-              </div>
+              </div>}
               <nav>
                 <ul>
-                  <li className="col-xs-12">
-                    <NewTabLink to={config.manageUsersLink} className="dashboard-card manage-users has-shadow">
-                      <div className="desc">
-                        <h3>Manage users</h3>
-                        <p>Add, edit and remove users</p>
-                      </div>
-                      <span>Manage Users <i className="icon-arrowRight" aria-hidden="true"></i></span>
-                    </NewTabLink>
-                  </li>
-                  <li className="col-xs-12">
-                    <NewTabLink to={config.manageServicesLink} className="dashboard-card manage-services has-shadow">
-                      <div className="desc">
-                        <h3>Manage services & billing</h3>
-                        <p>Assign or remove devices, change rate plans &amp; features, view & pay bills, update information, manage push-to-talk</p>
-                      </div>
-                      <span>Manage services & billing <i className="icon-arrowRight" aria-hidden="true"></i></span>
-                    </NewTabLink>
-                  </li>
-                  <li className="col-xs-12 col-sm-6">
-                    <Link to="/admin/manage-apps" className="dashboard-card manage-apps has-shadow">
-                      <div className="desc">
-                        <h3>Manage apps</h3>
-                        <p>Push an app to your Mobile Device Management(MDM) solution, recommend apps, block apps</p>
-                      </div>
-                      <span>Manage apps <i className="icon-arrowRight" aria-hidden="true"></i></span>
-                    </Link>
-                  </li>
-                  <li className="col-xs-12 col-sm-6">
-                    <NewTabLink to={config.viewWirelessReportsLink} className="dashboard-card manage-wireless-reports has-shadow">
-                      <div className="desc">
-                        <h3>View wireless reports</h3>
-                        <p>View device inventory, rate plan summary, early termination fees, upgrade eligibility, device unlock eligibility</p>
-                      </div>
-                      <span>View Wireless Reports <i className="icon-arrowRight" aria-hidden="true"></i></span>
-                    </NewTabLink>
-                  </li>
+                  {this.adminCardsToShow.map((card, i) => {
+                    return this.renderCard(card, i)
+                  })}
                 </ul>
               </nav>
             </section>
-            <aside className="col-xs-12 col-lg-4 shop-actions">
+            {!hideAside && <aside className="col-xs-12 col-lg-4 shop-actions">
               <div className="col-xs-12">
                 <h2 className="as-h4">Purchasing &amp; Provisioning</h2>
               </div>
               <nav>
                 <ul>
-                  <li className="col-xs-12 col-md-6 col-lg-12">
-                    <NewTabLink to={config.shopStandardDevicesLink} className="dashboard-card shop-devices-rates has-shadow">
-                      <div className="desc">
-                        <h3>Shop standard devices &amp; rate plans</h3>
-                        <p>Add a new device, provision an existing device, add a rate plan, feature(s) and accessories</p>
-                      </div>
-                      <span>Shop Devices &amp; Plans <i className="icon-arrowRight" aria-hidden="true"></i></span>
-                    </NewTabLink>
-                  </li>
-                  <li className="col-xs-12 col-md-6 col-lg-12">
-                    <Link to="/admin/devices" className="dashboard-card shop-specialized-devices has-shadow">
-                      <div className="desc">
-                        <h3>Shop specialized devices</h3>
-                        <p>Purchase ruggedized devices, vehicle routers, etc.</p>
-                      </div>
-                      <span>Shop Specialized Devices<i className="icon-arrowRight" aria-hidden="true"></i></span>
-                    </Link>
-                  </li>
-                  <li className="col-xs-12 col-md-6 col-lg-12">
-                    <Link to="/admin/solutions" className="dashboard-card shop-solutions has-shadow">
-                      <div className="desc">
-                        <h3>Shop public safety solutions</h3>
-                        <p>Browse public safety solutions and choose which are best for your organization</p>
-                      </div>
-                      <span>Shop Public Safety Solutions <i className="icon-arrowRight" aria-hidden="true"></i></span>
-                    </Link>
-                  </li>
+                  {this.asideCardsToShow.map((card, i) => {
+                    return this.renderCard(card, i)
+                  })}
                 </ul>
               </nav>
-            </aside>
+            </aside>}
           </div>
         </div>
       </article>

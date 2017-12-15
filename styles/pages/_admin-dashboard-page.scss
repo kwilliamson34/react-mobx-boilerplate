@@ -1,5 +1,5 @@
 #admin-dashboard-page {
-  padding-bottom: 60px;
+  padding-bottom: 40px;
 
   h1 {
     margin-bottom: 3rem;
@@ -189,6 +189,84 @@
             margin: 0;
           }
         }
+      }
+    }
+
+    .manage-actions {
+      li {
+        width: 50%;
+      }
+
+      li:first-child, //first child should always be full width
+      li:first-child + li + li + li:last-child { //if 4 children, last should be full width
+        width: 100%;
+      }
+    }
+
+    .shop-actions {
+      li:first-child { //first child should always be full width
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media #{$desktop} {
+  #admin-dashboard-page {
+    .manage-actions {
+      li:first-child:nth-last-child(2) ~ li, //if 2 children, all should be full width
+      li:first-child:nth-last-child(3) ~ li { //if 3 children, all should be full width
+        width: 100%;
+      }
+
+      &.hide-aside {
+        //reset base size
+        li,
+        li:first-child:nth-last-child(2) ~ li {
+          width: 33.3%;
+        }
+
+        li:first-child,
+        li:first-child + li + li + li:last-child {
+          width: 66.6%;
+        }
+        li:first-child:nth-last-child(3),
+        li:first-child:nth-last-child(3) ~ li {
+          width: 33.3%;
+        }
+        li:first-child:last-child {
+          width: 100%;
+        }
+      }
+    }
+
+    //FPSE-1509 one special case breaks all the rules
+    [data-numcards="3"] {
+      .manage-actions:not(.hide-aside) {
+        li {
+          width: 50% !important;
+        }
+      }
+    }
+  }
+}
+
+@media #{$tablet} {
+  #admin-dashboard-page {
+    .manage-actions {
+      li:first-child:nth-last-child(2) ~ li { //if 2 children, all should be full width
+        width: 100%;
+      }
+    }
+
+    .shop-actions {
+      li {
+        width: 50%;
+      }
+
+      li:first-child, //first child should always be full width
+      li:first-child:nth-last-child(2) ~ li { //if 2 children, all should be full width
+        width: 100%;
       }
     }
   }
