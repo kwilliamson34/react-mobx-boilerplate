@@ -1,5 +1,3 @@
-$footer-font-color: $fn-dark;
-
 .footer-container {
   background-color: transparent;
   padding-top: $footer-margin-top;
@@ -10,7 +8,7 @@ footer {
 
   .logoRow {
     > a {
-      display: inline-block;
+      display: block;
       height: 100%;
 
       &:focus {
@@ -26,7 +24,7 @@ footer {
 
     .sitemap-hdr,
     h2 {
-      color: $footer-font-color;
+      color: $fn-dark;
       font-size: 1.8rem;
       line-height: 1.12;
       text-transform: uppercase;
@@ -47,13 +45,13 @@ footer {
       text-transform: uppercase;
       font-size: 1.6rem;
       font-weight: $fn-normal-weight;
-      color: $footer-font-color;
+      color: $fn-dark;
       margin-bottom: 23px;
       line-height: 1.4;
 
       a {
         font-weight: $fn-normal-weight;
-        color: $footer-font-color;
+        color: $fn-dark;
         padding: 2px;
         line-height: 1;
 
@@ -63,7 +61,7 @@ footer {
           text-decoration: none;
           vertical-align: top;
           line-height: 0.9;
-          color: $footer-font-color;
+          color: $fn-dark;
 
           &:before {
             font-size: $fn-small-text-desktop;
@@ -150,7 +148,7 @@ footer {
         }
 
         &.footer-support-phone {
-          color: $footer-font-color;
+          color: $fn-dark;
           margin-left: 0;
 
           &:before {
@@ -247,9 +245,7 @@ footer {
 .help-link-block {
   margin-left: 25px;
 }
-
 /*****************************************************/
-
 @media #{$mobile} {
   footer {
     .logoRow {
@@ -286,7 +282,7 @@ footer {
       margin-right: 45px;
 
       > span {
-        @include sr-friendly-hidden();
+        @include sr-only();
       }
     }
   }
@@ -353,13 +349,13 @@ footer {
       margin-right: 45px;
 
       > span {
-        @include sr-friendly-hidden();
+        @include sr-only();
       }
     }
   }
 
   .footer-sub {
-    padding: 25px 0 20px 0;
+    padding: 25px 0 20px;
 
     .sub-links {
       text-align: right;
@@ -417,15 +413,18 @@ footer {
       li {
         .new-tab-link {
           .icon-external-site {
-            display:none;
+            display: none;
           }
-          &:hover, &:focus{
-            .icon-external-site{
+
+          &:focus,
+          &:hover {
+            .icon-external-site {
               display: inline-block;
             }
           }
         }
       }
+
       .is-flex {
         flex-wrap: nowrap;
 
@@ -451,7 +450,7 @@ footer {
       }
 
       li a span {
-        margin-left:15px;
+        margin-left: 15px;
       }
     }
 
