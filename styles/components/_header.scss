@@ -1,8 +1,6 @@
-$fn-mobile-item-height: 60px;
-
 .fnnav {
   @extend .clearfix;
-  border-top: 5px solid $fn-yellow;
+  border-top: 5px solid $fn-header-bar-color;
 
   &__mainbar {
     background: $fn-white;
@@ -37,7 +35,7 @@ $fn-mobile-item-height: 60px;
   font-size: 14px;
   background: $fn-white;
 
-  > span,
+   > span,
   > a {
     display: block;
     height: $fn-mobile-item-height;
@@ -54,18 +52,6 @@ $fn-mobile-item-height: 60px;
       margin-right: 10px;
       vertical-align: middle;
       font-size: 1.4rem;
-    }
-  }
-
-  &#hdr-incident-uplift {
-    > a {
-      border-top: 1px solid $mobile-border-grey;
-    }
-  }
-
-  &#hdr-network {
-    > a {
-      border-bottom: 0 none;
     }
   }
 
@@ -167,6 +153,32 @@ $fn-mobile-item-height: 60px;
     }
   }
 
+  &.blue {
+    background: $fn-ltblue;
+    color: $fn-white;
+
+     > ul a,
+    .btnSubmenu:before,
+    > a {
+      color: $fn-white;
+    }
+
+    > a {
+      height: 70px;
+      text-transform: none;
+      padding: 5px 0;
+      border-bottom: 1px solid $fn-blue;
+    }
+
+    .btnSubmenu {
+      margin: 5px 0;
+
+      &[aria-expanded=false] + a {
+        border-bottom: 0;
+      }
+    }
+  }
+
   &.grey {
     background: $fn-dkgrey;
     border: 0;
@@ -189,15 +201,14 @@ $fn-mobile-item-height: 60px;
     }
   }
 }
-
 //profile-block
+
 .multi-line-item {
   display: table-cell;
   vertical-align: middle;
   line-height: 1.4;
   height: 60px;
   width: 100%;
-  overflow-y: hidden;
 
   > div.profile-display {
     display: block;
@@ -207,8 +218,76 @@ $fn-mobile-item-height: 60px;
     i {
       position: absolute;
       top: 0;
-      left: -4px;
+      left: 0;
       z-index: 2;
+    }
+  }
+}
+
+.navbar-toggle {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  margin: 0;
+  float: left;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 0;
+  border-left: 1px solid $fn-grey;
+  border-right: 1px solid $fn-grey;
+  text-align: center;
+  background: $fn-white;
+  z-index: 101;
+
+  &:focus {
+    @include focus();
+  }
+
+  &:active,
+  &:active:focus {
+    box-shadow: none !important;
+  }
+
+  &[aria-expanded=true] {
+    background: $header-mobile-bgcolor;
+    border-left: 1px solid $header-mobile-bgcolor;
+    border-right: 1px solid $header-mobile-bgcolor;
+    color: $header-mobile-menu-text;
+
+    .icon-bar {
+      background: $fn-white;
+      opacity: 1;
+      transform: rotate(45deg) translate(-4px, -14px);
+      margin-left: 10px;
+
+      &:nth-last-child(3) {
+        opacity: 0;
+        transform: rotate(0deg) scale(0.2, 0.2);
+      }
+
+      &:nth-last-child(2) {
+        opacity: 1;
+        transform: rotate(-45deg) translate(2px, 10px);
+      }
+    }
+  }
+
+  .icon-bar {
+    background: $fn-dkgrey;
+    height: 3px;
+    margin: 4px auto;
+    position: relative;
+    display: block;
+    z-index: 1;
+    transform-origin: 4px 0;
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0), background 0.5s cubic-bezier(0.77,0.2,0.05,1.0), opacity 0.55s ease;
+
+    &:first-child {
+      transform-origin: 0 0;
+    }
+
+    &:nth-last-child(2) {
+      transform-origin: 0 100%;
     }
   }
 }
@@ -223,10 +302,16 @@ $fn-mobile-item-height: 60px;
   z-index: 70;
   display: none;
 }
-
 /* mobile */
 @media only screen and (min-width : 0px) {
-  $fn-primary-nav-height: 60px;
+  .navbar-toggle {
+    width: 49px;
+    height: $header-nav-height-mobile;
+
+    &[aria-expanded=true] .icon-bar {
+      margin-left: -2px;
+    }
+  }
 
   .fnnav {
     border-bottom: 1px solid $fn-grey;
@@ -237,13 +322,14 @@ $fn-mobile-item-height: 60px;
   }
 
   .fnnav__mainbar {
-    height: $fn-primary-nav-height;
+    height: $header-nav-height-mobile;
 
     &.open {
       .fnnav__main {
         left: 0;
-        visibility:visible;
-        .btnSubmenu{
+        visibility: visible;
+
+        .btnSubmenu {
           display: inline-block;
         }
       }
@@ -261,7 +347,8 @@ $fn-mobile-item-height: 60px;
     left: -100vw;
     height: calc(100vh - 60px);
     visibility: hidden;
-    .btnSubmenu{
+
+    .btnSubmenu {
       display: none;
     }
   }
@@ -269,16 +356,18 @@ $fn-mobile-item-height: 60px;
   .desktop-iconItem {
     display: none;
   }
-
-  #pse-admin-nav {
-    > li:last-child {
-      border-bottom: 1px solid $mobile-border-grey;
-    }
-  }
 }
 /*Tablet*/
 @media only screen and (min-width : 768px) {
-  $fn-primary-nav-height: 98px;
+  .navbar-toggle {
+    width: 72px;
+    height: $header-nav-height-tablet;
+    display: block;
+
+    &[aria-expanded=true] .icon-bar {
+      margin-left: 10px;
+    }
+  }
 
   .fnnav {
     border-bottom: 1px solid $fn-grey;
@@ -289,7 +378,7 @@ $fn-mobile-item-height: 60px;
   }
 
   .fnnav__mainbar {
-    height: $fn-primary-nav-height;
+    height: $header-nav-height-tablet;
 
     > .container {
       width: 100%;
@@ -303,7 +392,8 @@ $fn-mobile-item-height: 60px;
     left: -505px;
     max-width: 505px;
     visibility: hidden;
-    .btnSubmenu{
+
+    .btnSubmenu {
       display: none;
     }
   }
@@ -314,14 +404,20 @@ $fn-mobile-item-height: 60px;
 }
 /* Desktop */
 @media only screen and (min-width : 992px) {
-  $fn-primary-nav-height: 94px;
+  .navbar-toggle {
+    display: none;
+  }
 
   .pageMask {
     display: none;
   }
 
   .fnnav {
-    border-bottom: 5px solid $fn-ltblue;
+    border-bottom: 1px solid $fn-grey;
+
+    &.pse {
+      border-bottom: 5px solid $fn-ltblue;
+    }
   }
 
   .fnnav__utility {
@@ -329,7 +425,7 @@ $fn-mobile-item-height: 60px;
   }
 
   .fnnav__mainbar {
-    height: $fn-primary-nav-height;
+    height: $header-nav-height-desktop;
 
     > .container {
       width: 970px;
@@ -341,7 +437,7 @@ $fn-mobile-item-height: 60px;
   .fnnav__header {
     display: inline-block;
     float: left;
-    width: 340px;
+    width: $fn-desktop-logo-width;
   }
 
   .fnnav__main {
@@ -351,7 +447,7 @@ $fn-mobile-item-height: 60px;
     float: right;
     width: 580px;
     max-width: 580px;
-    height: $fn-primary-nav-height;
+    height: $header-nav-height-desktop;
     padding: 0;
     text-align: right;
     background: $fn-white;
@@ -379,13 +475,13 @@ $fn-mobile-item-height: 60px;
         background: $fn-white;
         border: 0;
         width: 60px;
-        line-height: $fn-primary-nav-height;
+        line-height: $header-nav-height-desktop;
         border-left: 1px solid $fn-grey;
-        border-radius: 0;
-        height: $fn-primary-nav-height;
+        height: $header-nav-height-desktop;
         text-align: center;
         color: $fn-dkgrey;
         padding: 0;
+        border-radius: 0;
 
         &.active,
         &:active,
@@ -413,7 +509,7 @@ $fn-mobile-item-height: 60px;
         }
 
         > a {
-          height: 70px;
+          min-height: 70px;
           text-transform: none;
 
           i {
@@ -432,7 +528,8 @@ $fn-mobile-item-height: 60px;
           padding-left: 23px;
         }
       }
-      .walkthru-toggle{
+
+      .walkthru-toggle {
         background: none;
         line-height: 48px;
         border: 0;
@@ -450,8 +547,8 @@ $fn-mobile-item-height: 60px;
         font-size: $fn-landing-page-text-desktop;
         font-weight: $fn-medium-weight;
         border-bottom: none;
-        height: $fn-primary-nav-height;
-        line-height: $fn-primary-nav-height;
+        height: $header-nav-height-desktop;
+        line-height: $header-nav-height-desktop;
         color: $fn-dkgrey;
         padding: 0 24px;
         min-width: 124px;
@@ -490,12 +587,6 @@ $fn-mobile-item-height: 60px;
             border-bottom: 8px solid $fn-ltblue;
           }
         }
-        > i.icon-external-site {
-
-          &:before {
-            font-size: 1.4rem;
-          }
-        }
       }
     }
   }
@@ -507,12 +598,6 @@ $fn-mobile-item-height: 60px;
   .mainnav-item {
     &.expanded {
       background: $fn-white;
-    }
-
-    &#hdr-incident-uplift {
-      > a {
-        border-top: 0 none;
-      }
     }
 
     .header-submenu {
@@ -587,15 +672,10 @@ $fn-mobile-item-height: 60px;
     }
   }
 
-  #pse-admin-nav {
-    > li:last-child {
-      border-bottom: 0 none;
-    }
-  }
-
   //external link icon
   .header-submenu a,
-  .dropdown .dropdown-menu > div > li > a {
+  .dropdown .dropdown-menu > div > li > a
+   {
     i.icon-external-site {
       display: inline-block;
       vertical-align: sub;
@@ -608,9 +688,9 @@ $fn-mobile-item-height: 60px;
       }
     }
 
-    &:focus,
     &:active,
     &:active:focus,
+    &:focus,
     &:hover {
       i.icon-external-site {
         visibility: visible;
@@ -628,7 +708,6 @@ $fn-mobile-item-height: 60px;
   .mainnav-item {
     .header-submenu {
       padding: 30px calc( ((100% - 1170px)/ 2) + 162px) 30px 30px;
-
     }
   }
 }
