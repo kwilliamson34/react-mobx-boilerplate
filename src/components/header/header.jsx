@@ -193,7 +193,7 @@ export default class PSEHeader extends React.Component {
 
 	renderMobileOnlyUserMenu = () => {
 		return (
-			<li className="mainnav-item yellow" role="presentation">
+			<li className="mainnav-item blue" role="presentation">
 				<button
 					className="btnSubmenu"
 					onClick={this.toggleProfileSubMenu}

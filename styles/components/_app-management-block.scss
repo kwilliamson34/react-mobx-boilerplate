@@ -13,11 +13,14 @@
     }
   }
 
-  button {
-    font-size: 1.4rem;
+  .push-button {
     display: block;
     padding: 0;
     width: 100%;
     margin-top: -5px;
+
+    i:before {
+      padding-right: 5px;
+    }
   }
 }
