@@ -3,7 +3,6 @@ import {userStore} from './user.store';
 import {apiService} from '../services/api.service';
 import {history} from '../services/history.service';
 import {utilsService} from '../services/utils.service';
-import $ from 'jquery';
 
 class LeadCaptureStore {
   constructor() {
@@ -24,7 +23,6 @@ class LeadCaptureStore {
 
   @action setCurrentSolution(solutionName) {
     this.solutionName = solutionName;
-    this.solutionNamePlainText = $('<textarea />').html(decodeURIComponent(solutionName)).text();
   }
 
   @action toggleContactAgreement() {
@@ -49,7 +47,7 @@ class LeadCaptureStore {
     const failure = () => {
       this.updateAlert('An unknown error occured. Please try again later.');
     }
-    apiService.submitLeadCaptureForm(this.values, this.solutionNamePlainText).then(success, failure);
+    apiService.submitLeadCaptureForm(this.values, this.solutionName).then(success, failure);
   }
 
   @action clearForm() {
