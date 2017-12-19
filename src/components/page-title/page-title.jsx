@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import DocumentTitle from 'react-document-title';
 import {a11yAnnounce} from '../../core/services/a11y-announce.service';
+import {computed} from 'mobx';
+import $ from 'jquery';
 
 export default class PageTitle extends React.Component {
 	static propTypes = {
@@ -14,6 +16,14 @@ export default class PageTitle extends React.Component {
 		className: ''
 	}
 
+	@computed get plainTitle() {
+		if(this.props.plainTextTitle) {
+			return this.props.plainTextTitle;
+		}
+		const decodedText = $('<textarea />').html(this.props.children).text();
+		return decodedText;
+	}
+
 	componentDidMount() {
 		this.announceTitle();
 	}
@@ -23,23 +33,12 @@ export default class PageTitle extends React.Component {
 	}
 
 	shouldComponentUpdate(nextProps) {
-		if (
-			nextProps.children !== this.props.children ||
-			nextProps.className !== this.props.className
-		) {
-			return true;
-		} else return false;
+		return nextProps.children !== this.props.children || nextProps.className !== this.props.className;
 	}
-
-	getPlainTitle = () => {
-		return this.props.plainTextTitle
-			? this.props.plainTextTitle
-			: this.props.children;
-	};
 
 	announceTitle = () => {
 		a11yAnnounce({
-			message: this.getPlainTitle(),
+			message: this.plainTitle,
 			messageType: 'status'
 		});
 	};
@@ -47,9 +46,9 @@ export default class PageTitle extends React.Component {
 	render() {
 		const documentTitlePrefix = 'FirstNet Local Control';
 		return (
-			<DocumentTitle title={`${documentTitlePrefix}: ${this.getPlainTitle()}`}>
-				<h1 className={this.props.className}>
-					{this.props.children}
+			<DocumentTitle title={`${documentTitlePrefix}: ${this.plainTitle}`}>
+				<h1 ref={ref => this.header = ref} className={this.props.className}>
+					{this.plainTitle}
 				</h1>
 			</DocumentTitle>
 		);
