@@ -68,7 +68,7 @@ export default class SolutionsDetailsTemplate extends React.Component {
           <div className="row">
             <section className="details-wrapper col-lg-offset-1 col-lg-10">
               <div className="content-wrapper">
-                <PageTitle className="sr-only">Solution Details</PageTitle>
+                <PageTitle className="sr-only">{solutionDetailTitle}</PageTitle>
                 <div dangerouslySetInnerHTML={{
                   __html: solutionDetail.body
                 }}></div>
