@@ -23,7 +23,6 @@ export default class GeolinkMap extends React.Component {
   }
 
   componentWillUnmount() {
-    console.log("unmounting geolink-map")
     window.iframeLoaded = null;
   }
 
