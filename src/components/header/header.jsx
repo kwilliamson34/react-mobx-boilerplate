@@ -6,6 +6,8 @@ import {observer, inject, PropTypes} from 'mobx-react';
 import config from 'config';
 import $ from 'jquery';
 import _ from 'lodash';
+import { history } from '../../core/services/history.service';
+
 
 @inject('store')
 @withRouter
@@ -22,6 +24,13 @@ export default class PSEHeader extends React.Component {
 		this.userStore = this.props.store.userStore;
 		this.joyrideStore = this.props.store.joyrideStore;
 		this.externalLinkStore = this.props.store.externalLinkStore;
+		history.listen((location) => {
+			console.log("------------------")
+			// console.log(history.entries)
+			console.log(window.history.state)
+			console.log("changed to", location)
+			console.log("++++++++++++++++++++++")
+		});
 	}
 
 	componentDidUpdate(prevProps) {
