@@ -111,7 +111,7 @@ exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match s
     <span
       dangerouslySetInnerHTML={
         Object {
-          "__html": "Submitting&hellip;",
+          "__html": "Pushing&hellip;",
         }
       }
     />
@@ -230,7 +230,7 @@ exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match s
     <span
       dangerouslySetInnerHTML={
         Object {
-          "__html": "Submitting&hellip;",
+          "__html": "Pushing&hellip;",
         }
       }
     />

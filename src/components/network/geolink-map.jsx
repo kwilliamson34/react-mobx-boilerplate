@@ -13,7 +13,10 @@ export default class GeolinkMap extends React.Component {
     this.props.networkStore.loadGeolinkHtml().then(() => {
       //write the html into the iframe
       var doc = this.props.networkStore.mapIframeRef.contentWindow.document;
-      doc.open();
+      // FNMP-1646 - this stops the browser from creating additional history object just for the iframe
+      // "If you dont want to create a history entry, replace open() with open("text/html", "replace").""
+      // from: https://developer.mozilla.org/en-US/docs/Web/API/Document/open
+      doc.open('text/html', 'replace');
       doc.write(this.props.networkStore.geolinkHtml);
       doc.close();
     });

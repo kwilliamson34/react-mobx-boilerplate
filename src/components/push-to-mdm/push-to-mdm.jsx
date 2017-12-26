@@ -60,7 +60,7 @@ export class PushToMDM extends React.Component {
         case 'PENDING':
           btnClass = 'fn-primary deaden';
           iconClass = 'icon-reload';
-          btnLabel = 'Submitting&hellip;';
+          btnLabel = 'Pushing&hellip;';
           break;
         case 'INSTALLED':
           btnClass = 'fn-secondary';

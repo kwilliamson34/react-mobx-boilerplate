@@ -156,16 +156,14 @@ export default class PSEHeader extends React.Component {
 	}
 
 	renderProfileBlock = () => {
-		return (
-			<div className="multi-line-item">
-				<div className="profile-display">
-					<i className="icon-profile" aria-hidden="true" />
-					{`${this.userStore.user.firstName} ${this.userStore.user.lastName}`}
-					{this.userStore.user.pseName && <div>{this.userStore.user.pseName}</div>}
-				</div>
-			</div>
-		)
-	}
+    return (<div>
+      <i className="icon-profile" aria-hidden="true"/>
+      <span className="pull-right-of-icon">
+        {`${this.userStore.user.firstName} ${this.userStore.user.lastName}`}<br/>
+        {this.userStore.user.pseName || ''}
+      </span>
+    </div>)
+  }
 
 	renderBrandArea = () => {
 		return (
@@ -193,7 +191,7 @@ export default class PSEHeader extends React.Component {
 
 	renderMobileOnlyUserMenu = () => {
 		return (
-			<li className="mainnav-item yellow" role="presentation">
+			<li className="mainnav-item blue" role="presentation">
 				<button
 					className="btnSubmenu"
 					onClick={this.toggleProfileSubMenu}
@@ -203,7 +201,7 @@ export default class PSEHeader extends React.Component {
 						Expand Profile Menu
 					</span>
 				</button>
-				<a id="pse-profile" href="#profile" className="deaden">
+				<a id="pse-profile" href="#profile" className="multi-line-item deaden">
 					{this.renderProfileBlock()}
 				</a>
 				<ul
@@ -414,7 +412,7 @@ export default class PSEHeader extends React.Component {
 								</li>
 
 								{/* Desktop only icon items */}
-								<li className="desktop-iconItem dropdown">
+								<li className="desktop-iconItem dropdown first-iconItem">
 									<button
 										id="profile-header-dropdown"
 										type="button"
@@ -428,7 +426,7 @@ export default class PSEHeader extends React.Component {
 										id="pse-profile-nav"
 										className="dropdown-menu dropdown-menu-right"
 										aria-labelledby="profile-header-dropdown">
-										<li role="presentation" className="desktop-profile-display">
+										<li role="presentation" className="desktop-profile-display multi-line-item">
 											<a id="pse-profile-desktop" href="#profile" className="deaden" tabIndex="-1">
 												{this.renderProfileBlock()}
 											</a>
@@ -441,7 +439,7 @@ export default class PSEHeader extends React.Component {
 										<li role="presentation">
 											<a href="#" onClick={this.onLogout}>
 												<i className="icon-logout" aria-hidden="true" />
-												Log Out
+												<span className="pull-right-of-icon">Log Out</span>
 											</a>
 										</li>
 									</ul>
