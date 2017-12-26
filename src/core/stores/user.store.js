@@ -26,7 +26,7 @@ class UserStore {
     const fail = (err) => {
       if (err.response.status === 401) {
 
-        if(!this.userValidationDone){
+        if (!this.userValidationDone) {
           window.location.replace(config.haloLogin);
           throw new Error('Auth failed - redirecting to SSO login...');
         } else {
@@ -86,7 +86,6 @@ class UserStore {
       this.user.pseName = '';
       this.user.roles = userInfo.roles || [];
     }
-
     this.userValidationDone = true;
   }
 
