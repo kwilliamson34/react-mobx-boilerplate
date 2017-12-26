@@ -194,12 +194,12 @@ class ManageFavoritesStore {
   numberSort = (rowsToSort, sortOrder, activeColumn) => {
     //attempts to transform strings into readable integers, in order to sort by absolute size;
     //1: splits the string at spaces and finds first element;
-    //2: splits the first element at periods, in order to handle coordinates (TODO: more symbols needed in a regex, could be a degree symbol for example);
+    //2: splits the first element at periods and degree symbols, in order to handle coordinates. We'll still sort based on the first element;
     //3: removes characters not either a plus or minus symbol or a number;
     //4: parseInt the result into an integer.
     return rowsToSort.sort((x, y) => {
-      const rowX = parseInt(x[activeColumn].split(' ')[0].split('.')[0].replace(/[^[+,\-,0-9]+/g, ''));
-      const rowY = parseInt(y[activeColumn].split(' ')[0].split('.')[0].replace(/[^[+,\-,0-9]+/g, ''));
+      const rowX = parseInt(x[activeColumn].split(' ')[0].split('.')[0].split('°')[0].replace(/[^[+,\-,0-9]+/g, ''));
+      const rowY = parseInt(y[activeColumn].split(' ')[0].split('.')[0].split('°')[0].replace(/[^[+,\-,0-9]+/g, ''));
       if (rowX > rowY) {
         return sortOrder ? -1 : 1;
       }
