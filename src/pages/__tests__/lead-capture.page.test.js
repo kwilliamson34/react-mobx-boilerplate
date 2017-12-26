@@ -1,6 +1,7 @@
 jest.unmock('../../core/stores/lead-capture.store');
 jest.unmock('../lead-capture.page');
 jest.unmock('../../components/forms/asForm');
+jest.unmock('jquery');
 
 import {observer, inject} from 'mobx-react';
 import {leadCaptureStore} from '../../core/stores/lead-capture.store';
