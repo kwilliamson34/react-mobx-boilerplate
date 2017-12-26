@@ -166,6 +166,8 @@ class ManageFavoritesStore {
     const coordRegex = /^([-+])?([1-8]?\d(\W\d+)?|90(\W0+)?)\s*(\W?)\s*((N|S|E|W)?)\s*(,?)\s*([-+])?(180(\W0+)?|((1[0-7]\d)|([1-9]?\d))(\W\d+)?)\s*(\W?)\s*((N|S|E|W)?)$/ig;
     const sortOrder = this.sortDirections[this.activeColumn];
 
+    console.log('rowsToSort', rowsToSort);
+
     // //find rows that resemble coordinates with a regex;
     // const coordRows = rowsToSort.filter(row => {
     //   return row[this.activeColumn].match(coordRegex)
@@ -203,6 +205,8 @@ class ManageFavoritesStore {
 
       }
     });
+
+    // console.log('numberRows', numberRows);
 
     //sort number rows on the basis of their first element, stripped of anything but digits and parsed into an integer;
     //this ensures that absolute size of the number is taken into account.
