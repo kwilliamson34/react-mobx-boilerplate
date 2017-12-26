@@ -87,6 +87,16 @@
   }
 }
 
+@media #{$tablet} {
+  .app-details-alerts {
+    background: transparent!important;
+
+    .alert {
+      margin: 10px auto 0;
+    }
+  }
+}
+
 @media #{$desktop} {
   #app-details-page {
     .app-ratings {

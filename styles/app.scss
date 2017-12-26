@@ -14,13 +14,11 @@
 @import
   "base/base",
   "base/mixins",
-  "base/buttons",
   "base/tables",
   "base/shapes";
 
 //Components
 @import
-  "components/alert",
   "components/app-availability",
   "components/app-detail-banner",
   "components/app-management-block",
@@ -29,8 +27,6 @@
   "components/card-list",
   "components/faq",
   "components/filters",
-  "components/footer",
-  "components/header",
   "components/purchasing-info",
   "components/rating",
   "components/ratings-chart",
@@ -51,7 +47,7 @@
   "pages/gtoc-page",
   "pages/manage-apps-page",
   "pages/manage-favorites-page",
-  "pages/network-status-page";
+  "pages/network-page";
 
 //Shame
 @import "base/ie-styles";

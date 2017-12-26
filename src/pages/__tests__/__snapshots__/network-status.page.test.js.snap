@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<NetworkStatusPage /> render matches previous snapshot 1`] = `
+exports[`<NetworkPage /> render matches previous snapshot 1`] = `
 <article
   className="content-wrapper "
   id="network-page"

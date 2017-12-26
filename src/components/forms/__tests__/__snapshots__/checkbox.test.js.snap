@@ -230,7 +230,6 @@ exports[`<Checkbox /> renders matches previous snapshot 7`] = `
   </label>
   <button
     className="tooltip"
-    data-placement="top"
     data-toggle="tooltip"
     id="tooltip-"
     role="tooltip"

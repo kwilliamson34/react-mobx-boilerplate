@@ -305,12 +305,15 @@ exports[`<Footer /> renders user role-based snapshots 1`] = `
                   role="presentation"
                 >
                   <a
-                    href="/network-status"
+                    href="/network"
                     onClick={[Function]}
                   >
-                    Network Status
+                    Network
                   </a>
                 </li>
+                <li
+                  role="presentation"
+                />
               </ul>
             </nav>
           </div>
@@ -601,10 +604,10 @@ exports[`<Footer /> renders user role-based snapshots 2`] = `
                   role="presentation"
                 >
                   <a
-                    href="/network-status"
+                    href="/network"
                     onClick={[Function]}
                   >
-                    Network Status
+                    Network
                   </a>
                 </li>
               </ul>
@@ -1126,16 +1129,6 @@ exports[`<Footer /> renders user role-based snapshots 4`] = `
                       onClick={[Function]}
                     >
                       Manage Apps
-                    </a>
-                  </li>
-                  <li
-                    role="presentation"
-                  >
-                    <a
-                      href="/admin/solutions"
-                      onClick={[Function]}
-                    >
-                      Public Safety Solutions 
                     </a>
                   </li>
                 </div>

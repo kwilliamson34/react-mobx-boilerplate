@@ -58,7 +58,7 @@ export default class PSEHeader extends React.Component {
 			}
 		});
 
-		$('#linkBtn-networkStatus, .logo-home-link').focus(() => {
+		$('#linkBtn-network, .logo-home-link').focus(() => {
 			//Per FPSE-966, focus listener was deadening the network status link on mobile/tablet, so limiting this function call to affect desktop only
 			if (window.innerWidth > 992) {
 				this.headerStore.adminSubMenuIsOpen = false;
@@ -156,16 +156,14 @@ export default class PSEHeader extends React.Component {
 	}
 
 	renderProfileBlock = () => {
-		return (
-			<div className="multi-line-item">
-				<div className="profile-display">
-					<i className="icon-profile" aria-hidden="true" />
-					{`${this.userStore.user.firstName} ${this.userStore.user.lastName}`}
-					{this.userStore.user.pseName && <div>{this.userStore.user.pseName}</div>}
-				</div>
-			</div>
-		)
-	}
+    return (<div>
+      <i className="icon-profile" aria-hidden="true"/>
+      <span className="pull-right-of-icon">
+        {`${this.userStore.user.firstName} ${this.userStore.user.lastName}`}<br/>
+        {this.userStore.user.pseName || ''}
+      </span>
+    </div>)
+  }
 
 	renderBrandArea = () => {
 		return (
@@ -183,7 +181,7 @@ export default class PSEHeader extends React.Component {
 				</button>
 				<div className="fnnav__brand">
 					<Link className="logo-home-link" to="/">
-						<img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Logo"/>
+						<img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Logo" />
 						<span className="sr-only">Go Home</span>
 					</Link>
 				</div>
@@ -193,7 +191,7 @@ export default class PSEHeader extends React.Component {
 
 	renderMobileOnlyUserMenu = () => {
 		return (
-			<li className="mainnav-item yellow" role="presentation">
+			<li className="mainnav-item blue" role="presentation">
 				<button
 					className="btnSubmenu"
 					onClick={this.toggleProfileSubMenu}
@@ -203,7 +201,7 @@ export default class PSEHeader extends React.Component {
 						Expand Profile Menu
 					</span>
 				</button>
-				<a id="pse-profile" href="#profile" className="deaden">
+				<a id="pse-profile" href="#profile" className="multi-line-item deaden">
 					{this.renderProfileBlock()}
 				</a>
 				<ul
@@ -248,8 +246,8 @@ export default class PSEHeader extends React.Component {
 				props.onClick = this.handleExternalTabOpen;
 				props.showIcon = true
 			}
-			// Capitalize first letter of the link text
-			const linkText = card.header.toLowerCase().replace(/\b[a-z]/g, function (letter) {
+			// Capitalize first letter of the link text, but preserve original capitalization in acronyms
+			const linkText = card.header.replace(/\b[a-z]/g, function (letter) {
 				return letter.toUpperCase();
 			});
 			return (
@@ -369,12 +367,20 @@ export default class PSEHeader extends React.Component {
 							<ul className="fnnav__main">
 								{this.renderMobileOnlyUserMenu()}
 								{this.userStore.destinationIsPermitted.administration && this.renderAdminMenuItem()}
-								{this.userStore.destinationIsPermitted.networkStatus &&
-									<li id="hdr-network-status" className="mainnav-item desktop-textlink" role="presentation">
-										<NavLink id="linkBtn-networkStatus" to="/network-status" activeClassName="active">
-											Network Status
+								{this.userStore.destinationIsPermitted.network &&
+									<li id="hdr-network" className="mainnav-item desktop-textlink" role="presentation">
+										<NavLink id="linkBtn-network" to="/network" activeClassName="active">
+											Network
 										</NavLink>
-									</li>}
+									</li>
+								}
+								{this.userStore.destinationIsPermitted.incidentUplift &&
+									<li id="hdr-incident-uplift" className="mainnav-item desktop-textlink incidentMenuItem" role="presentation">
+										<NewTabLink to={config.incidentUpliftLink} showIcon>
+											Uplift
+										</NewTabLink>
+									</li>
+								}
 
 								{/* Mobile only menu items */}
 								<li className="mainnav-item grey">
@@ -388,7 +394,7 @@ export default class PSEHeader extends React.Component {
 										</span>
 									</button>
 									<a id="pse-help-mobile" href="/manage-profile" className="deaden">
-										<i className="icon-help" aria-hidden="true"/>
+										<i className="icon-help" aria-hidden="true" />
 										Help
 									</a>
 									<ul
@@ -400,13 +406,13 @@ export default class PSEHeader extends React.Component {
 								</li>
 								<li className="mainnav-item grey logout" role="presentation">
 									<a href="#" onClick={this.onLogout}>
-										<i className="icon-logout" aria-hidden="true"/>
+										<i className="icon-logout" aria-hidden="true" />
 										Log Out
 									</a>
 								</li>
 
 								{/* Desktop only icon items */}
-								<li className="desktop-iconItem dropdown">
+								<li className="desktop-iconItem dropdown first-iconItem">
 									<button
 										id="profile-header-dropdown"
 										type="button"
@@ -420,21 +426,20 @@ export default class PSEHeader extends React.Component {
 										id="pse-profile-nav"
 										className="dropdown-menu dropdown-menu-right"
 										aria-labelledby="profile-header-dropdown">
-										<li role="presentation" className="desktop-profile-display">
+										<li role="presentation" className="desktop-profile-display multi-line-item">
 											<a id="pse-profile-desktop" href="#profile" className="deaden" tabIndex="-1">
 												{this.renderProfileBlock()}
 											</a>
 										</li>
 										<li role="presentation">
 											<NewTabLink to={config.manageMyProfileLink}>
-												<i className="icon-settings" aria-hidden="true"></i>
 												Manage My Profile
 											</NewTabLink>
 										</li>
 										<li role="presentation">
 											<a href="#" onClick={this.onLogout}>
-												<i className="icon-logout" aria-hidden="true"/>
-												Log Out
+												<i className="icon-logout" aria-hidden="true" />
+												<span className="pull-right-of-icon">Log Out</span>
 											</a>
 										</li>
 									</ul>
@@ -460,7 +465,7 @@ export default class PSEHeader extends React.Component {
 						</nav>
 					</div>
 				</div>
-				<div className="pageMask hidden-xs hidden-md hidden-lg" onClick={this.closeMainMenu}/>
+				<div className="pageMask hidden-xs hidden-md hidden-lg" onClick={this.closeMainMenu} />
 			</header>
 		);
 	}

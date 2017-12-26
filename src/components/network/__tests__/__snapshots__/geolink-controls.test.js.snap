@@ -165,7 +165,6 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
                 </label>
                 <button
                   className="tooltip"
-                  data-placement="top"
                   data-toggle="tooltip"
                   id="tooltip-"
                   role="tooltip"
@@ -273,7 +272,6 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
                 </label>
                 <button
                   className="tooltip"
-                  data-placement="top"
                   data-toggle="tooltip"
                   id="tooltip-"
                   role="tooltip"
@@ -619,7 +617,6 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
                 className="as-label"
               >
                 Construction
-                <br />
                 <i
                   aria-hidden="true"
                   className="icon-warning construction"
@@ -629,7 +626,6 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
                 className="as-label"
               >
                 Vehicle Incident
-                <br />
                 <i
                   aria-hidden="true"
                   className="icon-warning incident"
@@ -736,7 +732,6 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                 </label>
                 <button
                   className="tooltip"
-                  data-placement="top"
                   data-toggle="tooltip"
                   id="tooltip-"
                   role="tooltip"
@@ -844,7 +839,6 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                 </label>
                 <button
                   className="tooltip"
-                  data-placement="top"
                   data-toggle="tooltip"
                   id="tooltip-"
                   role="tooltip"
@@ -1190,7 +1184,6 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                 className="as-label"
               >
                 Construction
-                <br />
                 <i
                   aria-hidden="true"
                   className="icon-warning construction"
@@ -1200,7 +1193,6 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                 className="as-label"
               >
                 Vehicle Incident
-                <br />
                 <i
                   aria-hidden="true"
                   className="icon-warning incident"
@@ -1307,7 +1299,6 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                 </label>
                 <button
                   className="tooltip"
-                  data-placement="top"
                   data-toggle="tooltip"
                   id="tooltip-"
                   role="tooltip"
@@ -1415,7 +1406,6 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                 </label>
                 <button
                   className="tooltip"
-                  data-placement="top"
                   data-toggle="tooltip"
                   id="tooltip-"
                   role="tooltip"
@@ -1761,7 +1751,6 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                 className="as-label"
               >
                 Construction
-                <br />
                 <i
                   aria-hidden="true"
                   className="icon-warning construction"
@@ -1771,7 +1760,6 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                 className="as-label"
               >
                 Vehicle Incident
-                <br />
                 <i
                   aria-hidden="true"
                   className="icon-warning incident"
@@ -1878,7 +1866,6 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                 </label>
                 <button
                   className="tooltip"
-                  data-placement="top"
                   data-toggle="tooltip"
                   id="tooltip-"
                   role="tooltip"
@@ -1986,7 +1973,6 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                 </label>
                 <button
                   className="tooltip"
-                  data-placement="top"
                   data-toggle="tooltip"
                   id="tooltip-"
                   role="tooltip"
@@ -2332,7 +2318,6 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                 className="as-label"
               >
                 Construction
-                <br />
                 <i
                   aria-hidden="true"
                   className="icon-warning construction"
@@ -2342,7 +2327,6 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                 className="as-label"
               >
                 Vehicle Incident
-                <br />
                 <i
                   aria-hidden="true"
                   className="icon-warning incident"
