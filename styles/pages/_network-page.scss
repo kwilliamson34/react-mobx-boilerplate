@@ -113,6 +113,10 @@ $map-controls-text-line-height: 1.3;
 
   .form-group input {
     background-color: $fn-white;
+
+    &:focus {
+      z-index: 0;
+    }
   }
 
   .clear-btn:not(:focus):not(:hover) {
