@@ -284,9 +284,9 @@ class GeolinkStore {
   @action clearForm() {
     this.resetValues();
     this.clearAlertBars();
-    this.pageTitle = 'Network Status';
-    this.searchMap();
     this.clearFormFieldRefList();
+    this.setPageTitle('Network Status');
+    this.searchMap();
   }
 
   @action clearFormFieldRefList() {

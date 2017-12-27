@@ -87,9 +87,8 @@ export default class NetworkPage extends React.Component {
   deleteFavorite = (e) => {
     e.preventDefault();
     const idToDelete = this.networkStore.values.locationId;
+    this.networkStore.clearForm();
     this.manageFavoritesStore.deleteEditLocationFavorite(idToDelete);
-    this.networkStore.setPageTitle('Network Status');
-    this.networkStore.resetValues();
     this.deleteModal.hideModal();
   }
 
