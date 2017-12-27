@@ -33,7 +33,7 @@ exports[`<GtocSuccessPage /> render matches previous snapshot 1`] = `
         href="/network"
         onClick={[Function]}
       >
-        Network Status
+        Network
       </a>
     </div>
   </div>

@@ -64,23 +64,23 @@ export default class App extends React.Component {
 
   componentWillMount() {
     //check for URL token parameter
-		const urlToken = utilsService.getUrlParameter('token');
-		if(urlToken && urlToken.length > 0) {
-			pseMasterStore.userStore.initUserObject(urlToken);
-		} else {
-			//get token the long way
-			pseMasterStore.userStore.validateUser();
-		}
+    const urlToken = utilsService.getUrlParameter('token');
+    if (urlToken && urlToken.length > 0) {
+      pseMasterStore.userStore.initUserObject(urlToken);
+    } else {
+      //get token the long way
+      pseMasterStore.userStore.validateUser();
+    }
   }
 
   componentDidMount() {
-    document.addEventListener('keydown', function (e) {
+    document.addEventListener('keydown', function(e) {
       if (e.keyCode === 9) {
         $('body').addClass('show-focus-styles');
       }
     });
 
-    document.addEventListener('click', function () {
+    document.addEventListener('click', function() {
       $('body').removeClass('show-focus-styles');
     });
   }
@@ -125,8 +125,8 @@ export default class App extends React.Component {
     return (
       <div>
         {config.showOnboardingWalkthrough &&
-					<JoyrideBase location={location.pathname} joyrideStore={pseMasterStore.joyrideStore} />
-				}
+          <JoyrideBase location={location.pathname} joyrideStore={pseMasterStore.joyrideStore} />
+        }
         <ScrollToTop>
           <a href="#main-content" className="skipnav" onClick={this.handleSkipNav}>Skip Navigation</a>
           <Header/>
@@ -172,14 +172,20 @@ export default class App extends React.Component {
               <Route component={() => <Redirect to="/error/404" />} />
             </Switch>
           </main>
-          <Footer/>
+          <Footer />
         </ScrollToTop>
       </div>
     );
   }
 
-  checkRoutePermission = ({component, isPermitted, redirectPath = '/error/unauthorized'}) => {
-    return isPermitted ? component : () => <Redirect to={redirectPath} />;
+  checkRoutePermission = ({
+    component,
+    isPermitted,
+    redirectPath = '/error/unauthorized'
+  }) => {
+    return isPermitted
+      ? component
+      : () => <Redirect to={redirectPath} />;
   }
 
   getPlainLayoutComponent = () => {
@@ -197,7 +203,8 @@ export default class App extends React.Component {
 
   getSessionDependentContent() {
     return pseMasterStore.userStore.userValidationDone
-      ? (pseMasterStore.isLoggedIn
+      ? (
+        pseMasterStore.isLoggedIn
         ? <Switch>
             <Route exact path="/session-timeout" component={SessionTimeoutPage} />
             <Route path="/error" component={this.getPlainLayoutComponent} />
