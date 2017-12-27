@@ -1,4 +1,5 @@
 import {action, observable, computed, autorun} from 'mobx';
+import {userStore} from './user.store';
 import {apiService} from '../services/api.service';
 import {history} from '../services/history.service';
 
@@ -6,13 +7,16 @@ class GTOCStore {
   constructor() {
     // check form for errors
     autorun(() => {
-      let hasError = false;
-      this.formFieldRefList.forEach(ref => {
-        if(ref && ref.hasFunctionalError) {
-          hasError = true;
-        }
-      });
-      this.formHasError = hasError;
+      // check that initial values are available before validating for the first time
+      if(userStore.userValidationDone) {
+        let hasError = false;
+        this.formFieldRefList.forEach(ref => {
+          if(ref && ref.hasFunctionalError) {
+            hasError = true;
+          }
+        });
+        this.formHasError = hasError;
+      }
     })
   }
 
@@ -63,7 +67,8 @@ class GTOCStore {
   @observable formHasError = true;
   @observable alertToDisplay = '';
   @observable defaultValues = {
-    email: '',
+    gtocSelection: '',
+    email: userStore.user.email,
     femaList: []
   };
   @observable values = Object.assign({}, this.defaultValues);

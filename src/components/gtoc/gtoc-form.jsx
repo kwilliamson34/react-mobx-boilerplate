@@ -8,6 +8,7 @@ import asForm from '../forms/asForm.js';
 import TextInput from '../forms/text-input';
 import CheckboxList from '../forms/checkbox-list';
 import Checkbox from '../forms/checkbox';
+import RadioGroup from '../forms/radio-group';
 
 @observer
 class GtocForm extends React.Component {
@@ -46,28 +47,51 @@ class GtocForm extends React.Component {
   }
 
   render() {
+    const radioOptions = [
+      {
+        title: 'Subscribe to alerts',
+        subTitle: 'Select regions to subscribe to network alerts.'
+      },
+      {
+        title: 'Unsubscribe',
+        subTitle: 'Cancel all existing network alerts subscriptions.'
+      }
+    ]
+
     return (
       <div id="gtoc-form">
-        <CheckboxList
-          ref={this.saveCheckboxListRef}
-          id="femaList"
-          labelText="Select Network Regions"
-          required={true}
-          selectAll={this.store.selectAll.bind(this.store)}
-          clearAll={this.store.clearAll.bind(this.store)}
-          {...this.props.formChildProps}>
 
-          {this.renderCheckbox('Region I', 'Connecticut, Maine, Massachusetts, New Hampshire, Rhode Island, Vermont')}
-          {this.renderCheckbox('Region II', 'New Jersey, New York, Puerto Rico, Virgin Islands')}
-          {this.renderCheckbox('Region III', 'District of Columbia, Delaware, Maryland, Pennsylvania, Virginia, West Virginia')}
-          {this.renderCheckbox('Region IV', 'Alabama, Florida, Georgia, Kentucky, Mississippi, North Carolina, South Carolina, Tennessee')}
-          {this.renderCheckbox('Region V', 'Illinois, Indiana, Michigan, Minnesota, Ohio, Wisconsin')}
-          {this.renderCheckbox('Region VI', 'Arkansas, Louisiana, New Mexico, Oklahoma, Texas')}
-          {this.renderCheckbox('Region VII', 'Iowa, Kansas, Missouri, Nebraska')}
-          {this.renderCheckbox('Region VIII', 'Colorado, Montana, North Dakota, South Dakota, Utah, Wyoming')}
-          {this.renderCheckbox('Region IX', 'Arizona, California, Hawaii, Nevada, Pacific Islands')}
-          {this.renderCheckbox('Region X', 'Alaska, Idaho, Oregon, Washington')}
-        </CheckboxList>
+        <hr/>
+        <RadioGroup
+          dataObject={this.store.values}
+          id="gtocSelection"
+          optionsList={radioOptions}
+          insertHr={true}
+          {...this.props.formChildProps}>
+            <div className={this.store.values.gtocSelection === 'Subscribe to alerts' ? '' : 'hidden'}>
+              <CheckboxList
+                ref={this.saveCheckboxListRef}
+                id="femaList"
+                labelText="Select Network Regions"
+                required={true}
+                selectAll={this.store.selectAll.bind(this.store)}
+                clearAll={this.store.clearAll.bind(this.store)}
+                {...this.props.formChildProps}>
+
+                {this.renderCheckbox('Region I', 'Connecticut, Maine, Massachusetts, New Hampshire, Rhode Island, Vermont')}
+                {this.renderCheckbox('Region II', 'New Jersey, New York, Puerto Rico, Virgin Islands')}
+                {this.renderCheckbox('Region III', 'District of Columbia, Delaware, Maryland, Pennsylvania, Virginia, West Virginia')}
+                {this.renderCheckbox('Region IV', 'Alabama, Florida, Georgia, Kentucky, Mississippi, North Carolina, South Carolina, Tennessee')}
+                {this.renderCheckbox('Region V', 'Illinois, Indiana, Michigan, Minnesota, Ohio, Wisconsin')}
+                {this.renderCheckbox('Region VI', 'Arkansas, Louisiana, New Mexico, Oklahoma, Texas')}
+                {this.renderCheckbox('Region VII', 'Iowa, Kansas, Missouri, Nebraska')}
+                {this.renderCheckbox('Region VIII', 'Colorado, Montana, North Dakota, South Dakota, Utah, Wyoming')}
+                {this.renderCheckbox('Region IX', 'Arizona, California, Hawaii, Nevada, Pacific Islands')}
+                {this.renderCheckbox('Region X', 'Alaska, Idaho, Oregon, Washington')}
+              </CheckboxList>
+            </div>
+        </RadioGroup>
+
 
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
