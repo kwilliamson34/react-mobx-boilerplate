@@ -18,18 +18,18 @@ export default class SubscribeToGTOC extends React.Component {
         <div className="content-wrapper">
           <div className="container">
             <div className="row text-center">
-              <div className="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8">
-                <PageTitle>Subscribe to Network Alerts</PageTitle>
+              <div className="col-xs-10 col-md-8">
+                <PageTitle>Manage Network Alerts</PageTitle>
               </div>
-              <div className="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
+              <div className="col-xs-10 col-md-8">
                 <figure>
-                  <figcaption>FEMA Regions Map</figcaption>
                   <img className="img-responsive" src="/images/fema-regions-map.png" alt=""/>
+                  <figcaption>FEMA Regions Map</figcaption>
                 </figure>
               </div>
             </div>
             <div className="row">
-              <section className="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
+              <section className="col-xs-12">
                 <GtocForm store={this.props.store.gtocStore}/>
               </section>
             </div>

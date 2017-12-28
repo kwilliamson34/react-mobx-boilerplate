@@ -31,49 +31,72 @@ class GtocForm extends React.Component {
     handleCheckboxOnChange: () => {}
   }
 
+  @observable radioGroupRef = {
+    handleRadioOnChange: () => {}
+  }
+
   saveCheckboxListRef = (ref) => {
     this.store.formFieldRefList.push(ref);
     this.checkboxListRef = ref;
   }
 
+  saveRadioGroupRef = (ref) => {
+    this.store.formFieldRefList.push(ref);
+    this.radioGroupRef = ref;
+  }
+
   renderCheckbox = (strongLabel, label) => {
     const fullLabel = strongLabel + ': ' + label;
-    return <Checkbox
-      value={fullLabel}
-      strongLabel={strongLabel}
-      label={label}
-      checked={this.store.values.femaList.indexOf(fullLabel) > -1}
-      handleOnChange={this.checkboxListRef.handleCheckboxOnChange} />
+    return (
+      <div className="checkbox-wrapper">
+        <Checkbox
+          value={fullLabel}
+          strongLabel={strongLabel}
+          label={label}
+          checked={this.store.values.femaList.indexOf(fullLabel) > -1}
+          handleOnChange={this.checkboxListRef.handleCheckboxOnChange} />
+        <hr className="checkbox-hr"/>
+      </div>
+    )
+  }
+
+  renderRadioInputs = (title, subTitle) => {
+    return (
+      <label className="radio-label">
+        <input type="radio"
+          name={title}
+          value={title}
+          checked={this.store.values.gtocSelection === title}
+          onChange={this.radioGroupRef.handleRadioOnChange}/>
+        {title}
+        <span className="cr"></span>
+        <div className="radio-subtitle">{subTitle}</div>
+      </label>
+    )
   }
 
   render() {
-    const radioOptions = [
-      {
-        title: 'Subscribe to alerts',
-        subTitle: 'Select regions to subscribe to network alerts.'
-      },
-      {
-        title: 'Unsubscribe',
-        subTitle: 'Cancel all existing network alerts subscriptions.'
-      }
-    ]
-
     return (
       <div id="gtoc-form">
-
-        <hr/>
+        <hr className="radio-group-hr" />
         <RadioGroup
+          ref={this.saveRadioGroupRef}
           dataObject={this.store.values}
+          required={true}
           id="gtocSelection"
-          optionsList={radioOptions}
-          insertHr={true}
+          labelIsSrOnly={true}
+          className="radiogroup-fieldset"
           {...this.props.formChildProps}>
+
+            {this.renderRadioInputs('Subscribe to alerts', 'Select regions to subscribe to network alerts.')}
             <div className={this.store.values.gtocSelection === 'Subscribe to alerts' ? '' : 'hidden'}>
               <CheckboxList
                 ref={this.saveCheckboxListRef}
                 id="femaList"
-                labelText="Select Network Regions"
-                required={true}
+                className="femalist-fieldset"
+                labelText=""
+                labelIsSrOnly={false}
+                required={this.store.values.gtocSelection === 'Subscribe to alerts'}
                 selectAll={this.store.selectAll.bind(this.store)}
                 clearAll={this.store.clearAll.bind(this.store)}
                 {...this.props.formChildProps}>
@@ -90,8 +113,12 @@ class GtocForm extends React.Component {
                 {this.renderCheckbox('Region X', 'Alaska, Idaho, Oregon, Washington')}
               </CheckboxList>
             </div>
-        </RadioGroup>
 
+            <hr className="radio-group-hr" />
+            {this.renderRadioInputs('Unsubscribe', 'Cancel all existing network alerts subscriptions.')}
+            <hr className="radio-group-hr" />
+
+        </RadioGroup>
 
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}

@@ -14,7 +14,9 @@ export default class CheckboxList extends React.Component {
     required: PropTypes.bool,
     charLimit: PropTypes.number,
     disabled: PropTypes.bool,
+    className: PropTypes.string,
     labelText: PropTypes.string,
+    labelIsSrOnly: PropTypes.bool,
     getIsValid: PropTypes.func,
     errorMessage: PropTypes.string,
     selectAll: PropTypes.func,
@@ -24,7 +26,9 @@ export default class CheckboxList extends React.Component {
   }
 
   static defaultProps = {
+    className: '',
     labelText: '',
+    labelIsSrOnly: false,
     required: false,
     disabled: false,
     errorMessage: 'Please select at least one option.',
@@ -82,12 +86,13 @@ export default class CheckboxList extends React.Component {
 
   render() {
     return (
-      <div className={`form-group ${this.props.id + '-class'} ${this.hasVisibleError ? 'has-error' : ''}`}>
-        <fieldset id={this.props.id} onBlur={this.onBlur}>
+      <div className={`form-group ${this.hasVisibleError ? 'has-error' : ''}`}>
+        <fieldset id={this.props.id} className={this.props.className} onBlur={this.onBlur}>
           <FormLabel
             hasError={this.hasVisibleError}
             fieldIsRequired={this.props.required}
             labelText={this.props.labelText}
+            srOnly={this.props.labelIsSrOnly}
             errorMessage={this.props.errorMessage}
             announceError={this.props.announceError}/>
 
@@ -99,7 +104,7 @@ export default class CheckboxList extends React.Component {
                 <span className="select-all-description">Select All</span>
               </label>
             </div>
-            <button type="button" className="btn as-link" onClick={this.clearAll}>
+            <button type="button" className="clear-all-button btn as-link" onClick={this.clearAll}>
               Clear All
             </button>
           </div>

@@ -15,21 +15,20 @@ export default class RadioGroup extends React.Component {
     labelText: PropTypes.string,
     helperText: PropTypes.string,
     optionsList: PropTypes.array,
-    insertHr: PropTypes.bool,
     disabled: PropTypes.bool,
     errorMessage: PropTypes.string,
+    labelIsSrOnly: PropTypes.bool,
     className: PropTypes.string,
     children: PropTypes.node
   }
 
   static defaultProps = {
-    optionsList: [],
     labelText: '',
     helperText: '',
     required: false,
     disabled: false,
-    insertHr: false,
     errorMessage: 'Please select one of the options.',
+    labelIsSrOnly: false,
     className: ''
   }
 
@@ -41,10 +40,10 @@ export default class RadioGroup extends React.Component {
     return this.props.required && this.valueInStore === '';
   }
 
-  handleOnChange = (e) => {
+  //this handler should be passed to all checkbox children in the list if not using optionsList;
+  handleRadioOnChange = (e) => {
     this.props.dataObject[this.props.id] = e.target.value;
     this.hasVisibleError = this.hasFunctionalError;
-    console.log('asdasd', this.props.dataObject[this.props.id]);
   }
 
   handleOnBlur = () => {
@@ -59,11 +58,9 @@ export default class RadioGroup extends React.Component {
           value={option.title}
           aria-disabled={this.props.disabled}
           checked={this.valueInStore === option.title}
-          onChange={this.handleOnChange}/>
+          onChange={this.handleRadioOnChange}/>
         {option.title}
         <span className="cr"></span>
-        {option.subTitle && <div className="radio-group-subtitle">{option.subTitle}</div>}
-        {this.props.insertHr && <hr className="radio-group-hr" />}
       </label>
 
     ));
@@ -80,8 +77,9 @@ export default class RadioGroup extends React.Component {
           fieldIsRequired={this.props.required}
           labelText={this.props.labelText}
           helperText={this.props.helperText}
+          srOnly={this.props.labelIsSrOnly}
           errorMessage={this.props.errorMessage}/>
-        {this.renderRadioInputs()}
+        {Boolean(this.props.optionsList) && this.renderRadioInputs()}
         {this.props.children}
       </fieldset>
     )
