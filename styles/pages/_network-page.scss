@@ -111,8 +111,16 @@ $map-controls-text-line-height: 1.3;
     }
   }
 
-  .form-group input {
+  .form-group {
+    input {
     background-color: $fn-white;
+      //Compensates for Bootstrap setting z-index: 3 on .form-control with focus, causing the blue star favorite icon to vanish.
+      &:focus {
+        + i {
+          z-index: 3;
+        }
+      }
+    }
   }
 
   .clear-btn:not(:focus):not(:hover) {
