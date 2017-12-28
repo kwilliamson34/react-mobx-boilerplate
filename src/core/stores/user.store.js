@@ -101,15 +101,13 @@ class UserStore {
     return this.checkRolesString([
       'G_FN_IM',
       'G_FN_ADM',
-      'G_FN_SUB',
       'G_FN_VOL_ADM',
-      'G_FN_VOL',
-      'G_FN_ITM'
+      'G_FN_VOL'
     ]);
   }
 
   @computed get isSubscriber() {
-    return this.checkRolesString(['G_FN_SUB', 'G_FN_VOL_ADM', 'G_FN_VOL']);
+    return this.checkRolesString(['G_FN_SUB']);
   }
 
   @computed get destinationIsPermitted() {
