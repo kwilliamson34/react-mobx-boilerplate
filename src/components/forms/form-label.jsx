@@ -13,6 +13,7 @@ export default class FormLabel extends React.Component {
     errorMessage: PropTypes.string,
     charLimitReached: PropTypes.bool,
     fieldIsRequired: PropTypes.bool,
+    showRequiredAsterisk: PropTypes.bool,
     srOnly: PropTypes.bool,
     announceError: PropTypes.bool
   }
@@ -22,7 +23,8 @@ export default class FormLabel extends React.Component {
     helperText: '',
     hasError: false,
     errorMessage: 'This field has an error',
-    fieldIsRequired: false
+    fieldIsRequired: false,
+    showRequiredAsterisk: true
   }
 
   renderFieldError() {
@@ -46,7 +48,7 @@ export default class FormLabel extends React.Component {
       <div className="form-label">
         <TagName className={`control-label ${this.props.srOnly ? 'sr-only' : ''}`} htmlFor={this.props.htmlFor}>
           {this.props.labelText}
-          {this.props.fieldIsRequired ? <span className="required-asterisks"> *</span> : ''}
+          {this.props.fieldIsRequired && this.props.showRequiredAsterisk ? <span className="required-asterisks"> *</span> : ''}
           {this.props.helperText ? <span className="help-text">{this.props.helperText}</span> : ''}
           {this.renderFieldError()}
         </TagName>

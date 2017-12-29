@@ -17,6 +17,7 @@ export default class CheckboxList extends React.Component {
     className: PropTypes.string,
     labelText: PropTypes.string,
     labelIsSrOnly: PropTypes.bool,
+    showRequiredAsterisk: PropTypes.bool,
     getIsValid: PropTypes.func,
     errorMessage: PropTypes.string,
     selectAll: PropTypes.func,
@@ -29,6 +30,7 @@ export default class CheckboxList extends React.Component {
     className: '',
     labelText: '',
     labelIsSrOnly: false,
+    showRequiredAsterisk: true,
     required: false,
     disabled: false,
     errorMessage: 'Please select at least one option.',
@@ -93,6 +95,7 @@ export default class CheckboxList extends React.Component {
             fieldIsRequired={this.props.required}
             labelText={this.props.labelText}
             srOnly={this.props.labelIsSrOnly}
+            showRequiredAsterisk={this.props.showRequiredAsterisk}
             errorMessage={this.props.errorMessage}
             announceError={this.props.announceError}/>
 

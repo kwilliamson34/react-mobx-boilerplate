@@ -96,6 +96,7 @@ class GtocForm extends React.Component {
                 className="femalist-fieldset"
                 labelText=""
                 labelIsSrOnly={false}
+                showRequiredAsterisk={false}
                 required={this.store.values.gtocSelection === 'Subscribe to alerts'}
                 selectAll={this.store.selectAll.bind(this.store)}
                 clearAll={this.store.clearAll.bind(this.store)}
