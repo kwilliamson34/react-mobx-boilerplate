@@ -165,30 +165,24 @@ class ManageFavoritesStore {
   sortAndReturnRows(rowsToSort) {
     const sortOrder = this.sortDirections[this.activeColumn];
 
-    //determine whether row should be sorted by numbers or not on the basis of the first (or second) character of the first element.
-    const notNumberRows = rowsToSort.filter(row => {
+    //partition sorts rowsToSort into an array containing two arrays. The first array matches the conditions, the second does not;
+    //sortedRows[0] will be string rows, the second will be number rows.
+    let sortedRows = _.partition(rowsToSort, (row) => {
       const firstElement = row[this.activeColumn].split(' ')[0];
       //if the first character of firstElement is a + or - symbol, ignore it and check the second character;
       const testCharacter = /([+,-]+)/.test(firstElement.charAt(0))
         ? firstElement.charAt(1)
         : firstElement.charAt(0);
+
       return isNaN(parseInt(testCharacter)) === true;
     });
-    const numberRows = rowsToSort.filter(row => {
-      const firstElement = row[this.activeColumn].split(' ')[0];
-      //if the first character of firstElement is a + or - symbol, ignore it and check the second character;
-      const testCharacter = /([+,-]+)/.test(firstElement.charAt(0))
-        ? firstElement.charAt(1)
-        : firstElement.charAt(0);
-      return isNaN(parseInt(testCharacter)) === false;
-    });
 
-    const sortedNumberRows = this.numberSort(numberRows, sortOrder, this.activeColumn);
-    const sortedNotNumberRows = this.stringSort(notNumberRows, sortOrder, this.activeColumn);
+    const sortedStringRows = this.stringSort(sortedRows[0], sortOrder, this.activeColumn);
+    const sortedNumberRows = this.numberSort(sortedRows[1], sortOrder, this.activeColumn);
 
     return sortOrder
-      ? [...sortedNotNumberRows, ...sortedNumberRows]
-      : [...sortedNumberRows, ...sortedNotNumberRows]
+      ? [...sortedStringRows, ...sortedNumberRows]
+      : [...sortedNumberRows, ...sortedStringRows]
   }
 
   numberSort = (rowsToSort, sortOrder, activeColumn) => {
