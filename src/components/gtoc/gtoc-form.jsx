@@ -70,7 +70,13 @@ class GtocForm extends React.Component {
           onChange={this.radioGroupRef.handleRadioOnChange}/>
         {title}
         <span className="cr"></span>
-        <div className="radio-subtitle">{subTitle}</div>
+        <span className="subtitle-wrapper">
+          <div className="radio-subtitle">{subTitle}</div>
+          {
+            title === 'Subscribe to alerts' && this.store.values.gtocSelection === 'Subscribe to alerts' &&
+            <span className="required-asterisks"> *</span>
+          }
+        </span>
       </label>
     )
   }

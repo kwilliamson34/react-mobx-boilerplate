@@ -5,7 +5,7 @@
     position: relative;
 
     h1 {
-      margin: 6rem 0;
+      margin: 30px 0;
       text-align: left;
     }
 
@@ -61,28 +61,22 @@
         font-size: $fn-h5-desktop;
         text-transform: uppercase;
       }
-      .radio-subtitle {
-        text-transform: none;
-        font-size: $fn-small-text-desktop;
-        font-weight: $fn-light-weight;
-        font-style: italic;
-      }
-    }
+      .subtitle-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
 
-    fieldset {
-      .checkbox {
-        label {
-          font-size: $fn-label-desktop;
-          color: $fn-black !important; //override default label color, even for an error
-          font-weight: $fn-normal-weight;
+        .radio-subtitle {
+          text-transform: none;
+          font-size: $fn-small-text-desktop;
+          font-weight: $fn-light-weight;
+          font-style: italic;
+          padding-top: 5px;
+        }
 
-          .select-all-description,
-          strong {
-            vertical-align: top;
-            // margin-left: 5px;
-            font-weight: $fn-medium-weight;
-            font-size: $fn-h5-desktop;
-          }
+        .required-asterisks {
+          margin-left: 5px;
+          align-self: flex-start;
         }
       }
     }
@@ -90,11 +84,28 @@
     .femalist-fieldset {
       padding-left: 30px;
 
+      .control-label {
+        padding-left: 20px;
+      }
+
       .select-all-checkbox {
         label {
           min-height: 0;
           padding-bottom: 20px;
         }
+      }
+
+      .select-all-description,
+      strong {
+        vertical-align: top;
+        font-weight: $fn-medium-weight;
+        font-size: $fn-h5-desktop;
+      }
+
+      label {
+        font-size: $fn-label-desktop;
+        color: $fn-black !important; //override default label color, even for an error
+        font-weight: $fn-normal-weight;
       }
 
       .cr {
@@ -110,12 +121,23 @@
           label {
             min-height: 0;
             padding: 0;
+            font-size: $fn-label-desktop;
+            color: $fn-black !important; //override default label color, even for an error
+            font-weight: $fn-normal-weight;
 
             span.label-text-normal {
               display: inline-block;
               font-size: $fn-h5-desktop;
               width: 100%;
               float: right;
+            }
+
+            .select-all-description,
+            strong {
+              vertical-align: top;
+              // margin-left: 5px;
+              font-weight: $fn-medium-weight;
+              font-size: $fn-h5-desktop;
             }
           }
 
@@ -140,36 +162,6 @@
   }
 }
 
-@media #{$mobile} {
-  #subscribe-to-gtoc-page {
-    .content-wrapper {
-      h1 {
-        margin: 3rem 0;
-      }
-
-      // label,
-      // .error {
-      //   padding: 0;
-      // }
-
-      // .control-label[for="femaList"] {
-      //   font-size: $fn-h5-desktop;
-      // }
-
-      fieldset .checkbox {
-        padding: 20px 0;
-
-        label {
-          span.label-text-normal {
-            width: 100%;
-            // padding-left: 35px;
-          }
-        }
-      }
-    }
-  }
-}
-
 @media #{$tablet} {
   #subscribe-to-gtoc-page {
     .content-wrapper {
@@ -177,9 +169,6 @@
         .checkbox-wrapper {
           .checkbox {
             padding: 30px 0 30px 20px;
-            // span.label-text-normal {
-            //   width: 100%;
-            // }
           }
         }
       }
@@ -189,6 +178,10 @@
 
 @media #{$desktop} {
   #subscribe-to-gtoc-page {
+    h1 {
+      margin: 60px 0;
+    }
+
     .content-wrapper {
       .femalist-fieldset {
         width: 75%;
