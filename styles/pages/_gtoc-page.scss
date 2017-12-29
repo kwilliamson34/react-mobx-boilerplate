@@ -121,9 +121,6 @@
           label {
             min-height: 0;
             padding: 0;
-            font-size: $fn-label-desktop;
-            color: $fn-black !important; //override default label color, even for an error
-            font-weight: $fn-normal-weight;
 
             span.label-text-normal {
               display: inline-block;
@@ -131,16 +128,7 @@
               width: 100%;
               float: right;
             }
-
-            .select-all-description,
-            strong {
-              vertical-align: top;
-              // margin-left: 5px;
-              font-weight: $fn-medium-weight;
-              font-size: $fn-h5-desktop;
-            }
           }
-
         }
         &:last-of-type {
 
