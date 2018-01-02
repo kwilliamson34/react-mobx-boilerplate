@@ -370,7 +370,7 @@ export default class PSEHeader extends React.Component {
 								{this.userStore.destinationIsPermitted.network &&
 									<li id="hdr-network" className="mainnav-item desktop-textlink" role="presentation">
 										<NavLink id="linkBtn-network" to="/network" activeClassName="active">
-											Network Status
+											Network
 										</NavLink>
 									</li>
 								}
