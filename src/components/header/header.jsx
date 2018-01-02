@@ -315,9 +315,8 @@ export default class PSEHeader extends React.Component {
           {
             `${this.joyrideStore.tourIsDisabled
               ? 'Enable'
-              : 'Disable'}`
+              : 'Disable'} Site Walkthrough`
           }
-          Site Walkthrough
         </a>
       </li>
       <li>
