@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {inject, observer} from 'mobx-react';
-import {computed, autorun} from 'mobx';
+import {computed} from 'mobx';
 
 import LeadCaptureForm from '../components/lead-capture/lead-capture-form';
 import PageTitle from '../components/page-title/page-title';
