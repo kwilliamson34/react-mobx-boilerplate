@@ -47,7 +47,7 @@ export default class NetworkPage extends React.Component {
   renderDeleteModal = () => {
     return <Modal
       id="delete-modal"
-      title={`Delete ${this.networkStore.values.locationName}?`}
+      title={`Delete "${this.networkStore.values.locationName}"?`}
       ref={i => this.deleteModal = i}
       restoreFocusTo="#delete-modal-launcher"
       primaryAction={this.deleteFavorite}

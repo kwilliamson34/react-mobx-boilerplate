@@ -46,6 +46,7 @@ class LocationFavoriteForm extends React.Component {
           errorMessage="Please enter an address."
           className="col-xs-12 col-sm-7 search-form"
           showClearButton={true}
+          iconClass="icon-star"
           handleSubmit={this.store.searchMap.bind(this.store)}
           disableAutoComplete={true}
           {...this.props.formChildProps}/>
