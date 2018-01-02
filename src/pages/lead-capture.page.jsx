@@ -37,10 +37,10 @@ export default class LeadCapturePage extends React.Component {
   constructor(props) {
     super(props);
     this.leadCaptureStore = this.props.store.leadCaptureStore;
+  }
 
-    autorun(() => {
-      this.leadCaptureStore.setCurrentSolution(this.solutionNamePlainText);
-    })
+  componentDidMount() {
+    this.leadCaptureStore.setCurrentSolution(this.solutionNamePlainText);
   }
 
   render = () => {
