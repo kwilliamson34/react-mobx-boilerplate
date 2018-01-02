@@ -39,10 +39,7 @@ export default class LeadCapturePage extends React.Component {
     this.leadCaptureStore = this.props.store.leadCaptureStore;
 
     autorun(() => {
-      // check that initial values are available before validating for the first time
-      if(this.leadCaptureStore.solutionName !== this.solutionNamePlainText) {
-        this.leadCaptureStore.setCurrentSolution(this.solutionNamePlainText);
-      }
+      this.leadCaptureStore.setCurrentSolution(this.solutionNamePlainText);
     })
   }
 
