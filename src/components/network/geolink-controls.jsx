@@ -156,50 +156,34 @@ export default class GeolinkControls extends React.Component {
 
         <div className="container">
           <div className="row is-flex">
-            <div className="col-xs-12 col-sm-7 col-md-4 map-search">
+            <div className="col-xs-12 col-md-6 map-search">
               {this.renderSearchArea()}
             </div>
-            <hr className="col-xs-12 visible-xs"/>
-            <div className="col-xs-12 col-sm-5 col-md-4 map-layers">
-              <h2>Layers</h2>
-              <form className="form-group">
-                <fieldset className="coverage-layers">
-                  <legend className="sr-only">Coverage layers</legend>
-                  <div className="col-xs-6 no-gutters">
-                    <Checkbox label="Network"
-                      tooltipText="Represents our fully operational service"
-                      handleOnChange={this.toggleNetwork}
-                      checked={this.store.showNetworkLayer}
-                      disabled={this.props.disabled} />
-                    <Checkbox label="Weather"
-                      handleOnChange={this.toggleWeather}
-                      checked={this.store.showWeatherLayer}
-                      disabled={this.props.disabled} />
-                  </div>
-                  <div className="col-xs-6 no-gutters">
-                    <Checkbox label="Traffic"
-                      handleOnChange={this.toggleTraffic}
-                      checked={this.store.showTrafficLayer}
-                      disabled={this.props.disabled} />
-                    <Checkbox label="Alerts"
-                      tooltipText="Highlights abnormal network malfunction"
-                      handleOnChange={this.toggleAlerts}
-                      checked={this.store.showAlertLayer}
-                      disabled={this.props.disabled || !this.store.authIsComplete} />
-                  </div>
-                </fieldset>
-              </form>
+            <hr className="col-xs-12 visible-xs visible-sm"/>
+            <div className="col-xs-12 col-md-6 map-layers">
+              {this.renderLayersArea()}
             </div>
-            {this.renderDesktopOnlyNetworkBlock()}
           </div>
 
-          {this.renderMobileOnlyContactBlock()}
+          <div className="row is-flex">
+            <div className="col-xs-12 no-gutters">
+              <hr />
+            </div>
+            <div className="col-xs-12 col-sm-6">
+              {this.renderContactInfo()}
+            </div>
+            <div className="col-xs-12 col-sm-6 right-align-text">
+              {this.renderNetworkSubscriptionLink()}
+            </div>
+            <div className="col-xs-12 no-gutters">
+              <hr />
+            </div>
+          </div>
 
           <div className="row is-flex">
-            <div className="legend-block col-xs-12 visible-xs-inline visible-sm-inline">
+            <div className="legend-block col-xs-12 col-md-6">
               {this.renderNetworkLegend()}
             </div>
-            <hr className="col-xs-12 hidden-xs hidden-sm" />
             <div className="legend-block col-xs-12 col-md-6">
               {this.renderWeatherLegend()}
             </div>
@@ -215,9 +199,6 @@ export default class GeolinkControls extends React.Component {
   renderSearchArea = () => {
     return (
       <div>
-        <span className="top-right-link">
-          <Link to="/manage-favorites" onClick={this.clearAlertBars}>Manage Favorites</Link>
-        </span>
         <h2 className="as-h5">Search</h2>
         <TextInput
           ref={ref => this.store.formFieldRefList.push(ref)}
@@ -233,40 +214,52 @@ export default class GeolinkControls extends React.Component {
           onDropIntoList={this.onDropIntoList}
           disableAutoComplete={true}/>
         {this.renderPredictiveDropdown()}
-        <button
-          className={`as-link add-favorite-button ${this.store.values.locationAddress && !this.store.shouldDisplayLocationName ? '' : 'disabled'}`}
-          ref={(i) => {this.addFavoriteBtn = i }}
-          onClick={this.store.showAddLocationForm.bind(this.store)}>
-          Add Favorite
-        </button>
+        <div className="col-xs-6 no-gutters">
+          <button
+            className={`as-link add-favorite-button ${this.store.values.locationAddress && !this.store.shouldDisplayLocationName ? '' : 'disabled'}`}
+            ref={(i) => {this.addFavoriteBtn = i }}
+            onClick={this.store.showAddLocationForm.bind(this.store)}>
+            Add Favorite
+          </button>
+        </div>
+        <div className="col-xs-6 no-gutters text-right">
+          <Link to="/manage-favorites" onClick={this.clearAlertBars}>Manage Favorites</Link>
+        </div>
       </div>
     )
   }
 
-  renderDesktopOnlyNetworkBlock = () => {
+  renderLayersArea = () => {
     return (
-      <div className="col-md-4 hidden-xs hidden-sm map-network-legend">
-        {this.renderNetworkLegend()}
-        {this.renderContactInfo()}
-      </div>
-    )
-  }
-
-  renderMobileOnlyContactBlock = () => {
-    return (
-      <div className="row is-flex visible-xs visible-sm">
-        <div className="col-xs-12 no-gutters">
-          <hr />
-        </div>
-        <div className="col-xs-12 col-sm-6">
-          {this.renderNetworkSubscriptionLink()}
-        </div>
-        <div className="col-xs-12 col-sm-6">
-          {this.renderContactInfo()}
-        </div>
-        <div className="col-xs-12 no-gutters">
-          <hr />
-        </div>
+      <div>
+        <h2>Layers</h2>
+        <form className="form-group">
+          <fieldset className="coverage-layers">
+            <legend className="sr-only">Coverage layers</legend>
+            <div className="col-xs-12 col-sm-6 no-gutters">
+              <Checkbox label="Established Network"
+                tooltipText="Represents our fully operational service"
+                handleOnChange={this.toggleNetwork}
+                checked={this.store.showNetworkLayer}
+                disabled={this.props.disabled} />
+              <Checkbox label="Weather"
+                handleOnChange={this.toggleWeather}
+                checked={this.store.showWeatherLayer}
+                disabled={this.props.disabled} />
+            </div>
+            <div className="col-xs-12 col-sm-6 no-gutters">
+              <Checkbox label="Traffic"
+                handleOnChange={this.toggleTraffic}
+                checked={this.store.showTrafficLayer}
+                disabled={this.props.disabled} />
+              <Checkbox label="Network Alerts"
+                tooltipText="Highlights abnormal network malfunction"
+                handleOnChange={this.toggleAlerts}
+                checked={this.store.showAlertLayer}
+                disabled={this.props.disabled || !this.store.authIsComplete} />
+            </div>
+          </fieldset>
+        </form>
       </div>
     )
   }
@@ -275,7 +268,7 @@ export default class GeolinkControls extends React.Component {
     return (
       <div className="network-subscription-link">
         <Link to="/subscribe-to-alerts">
-          Subscribe to <span className="visible-xs-inline visible-sm-inline">Network </span>Alerts
+          Subscribe to Network Alerts
         </Link>
       </div>
     )
@@ -285,7 +278,6 @@ export default class GeolinkControls extends React.Component {
     return (
       <p className="network-contact-info">
         <span aria-hidden="true">Report Network Issue:</span>
-        <br className="visible-md-inline"/>
         <a href={'tel:' + this.store.networkIssueNumber}>
           <span>
             <i className="icon-phone-number" aria-hidden='true'></i>
@@ -300,9 +292,6 @@ export default class GeolinkControls extends React.Component {
   renderNetworkLegend = () => {
     return (
       <div>
-        <span className="hidden-xs hidden-sm">
-          {this.renderNetworkSubscriptionLink()}
-        </span>
         <h2>
           Network<span className="sr-only">&nbsp;color key</span>
         </h2>
@@ -354,8 +343,9 @@ export default class GeolinkControls extends React.Component {
             </div>
           </div>
           <div className="hazards-legend">
-            <span className="as-label">Construction<i className="icon-warning construction" aria-hidden="true"/></span>
-            <span className="as-label">Vehicle Incident<i className="icon-warning incident" aria-hidden="true"/></span>
+            <span className="as-label"></span>
+            <span className="as-label"><i className="icon-warning construction" aria-hidden="true"/><br className="visible-xs" />Construction</span>
+            <span className="as-label"><i className="icon-warning incident" aria-hidden="true"/><br className="visible-xs" />Vehicle Incident</span>
           </div>
         </div>
       </div>
