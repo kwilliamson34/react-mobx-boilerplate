@@ -166,7 +166,7 @@ class ManageFavoritesStore {
     const sortOrder = this.sortDirections[this.activeColumn];
 
     //partition sorts rowsToSort into an array containing two arrays. The first array matches the conditions, the second does not;
-    //sortedRows[0] will be string rows, the second will be number rows.
+    //sortedRows[0] will be string rows, sortedRows[1] will be number rows.
     let sortedRows = _.partition(rowsToSort, (row) => {
       const firstElement = row[this.activeColumn].split(' ')[0];
       //if the first character of firstElement is a + or - symbol, ignore it and check the second character;
