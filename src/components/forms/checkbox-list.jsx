@@ -101,13 +101,13 @@ export default class CheckboxList extends React.Component {
 
           <div className="selection-buttons">
             <div className="checkbox select-all-checkbox">
-              <label>
+              <label className="select-all-checkbox-label">
                 <input type="checkbox" name="select-all-checkbox" checked={this.allCheckboxesChecked} value="" onClick={this.selectAll}/>
                 <span className="cr"></span>
                 <span className="select-all-description">Select All</span>
               </label>
             </div>
-            <button type="button" className="clear-all-button btn as-link" onClick={this.clearAll}>
+            <button type="button" className="btn as-link clear-all-button" onClick={this.clearAll}>
               Clear All
             </button>
           </div>

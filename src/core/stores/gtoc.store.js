@@ -25,7 +25,7 @@ class GTOCStore {
       this.subscribeToGTOC();
     }
     else if (this.values.gtocSelection === 'Unsubscribe') {
-      this.unsubscribeToGTOC();
+      this.unsubscribeFromGTOC();
     }
   }
 
@@ -37,10 +37,10 @@ class GTOCStore {
     const failure = () => {
       this.updateAlert('An unknown error occured. Please try again later.');
     }
-    apiService.submitSubscribeToGTOC(this.values).then(success, failure);
+    apiService.subscribeToGTOC(this.values).then(success, failure);
   }
 
-  @action unsubscribeToGTOC() {
+  @action unsubscribeFromGTOC() {
     const success = () => {
       this.clearForm();
       history.push('/unsubscribe-to-alerts-success');
@@ -48,7 +48,7 @@ class GTOCStore {
     const failure = () => {
       this.updateAlert('An unknown error occured. Please try again later.');
     }
-    apiService.submitUnsubscribeToGTOC(this.values.email).then(success, failure);
+    apiService.unsubscribeFromGTOC(this.values.email).then(success, failure);
   }
 
   @action clearForm() {

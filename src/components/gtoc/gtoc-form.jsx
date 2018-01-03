@@ -47,17 +47,12 @@ class GtocForm extends React.Component {
 
   renderCheckbox = (strongLabel, label) => {
     const fullLabel = strongLabel + ': ' + label;
-    return (
-      <div className="checkbox-wrapper">
-        <Checkbox
-          value={fullLabel}
-          strongLabel={strongLabel}
-          label={label}
-          checked={this.store.values.femaList.indexOf(fullLabel) > -1}
-          handleOnChange={this.checkboxListRef.handleCheckboxOnChange} />
-        <hr className="checkbox-hr"/>
-      </div>
-    )
+    return <Checkbox
+            value={fullLabel}
+            strongLabel={strongLabel}
+            label={label}
+            checked={this.store.values.femaList.indexOf(fullLabel) > -1}
+            handleOnChange={this.checkboxListRef.handleCheckboxOnChange} />
   }
 
   renderRadioInputs = (title, subTitle) => {
@@ -71,7 +66,7 @@ class GtocForm extends React.Component {
         {title}
         <span className="cr"></span>
         <span className="subtitle-wrapper">
-          <div className="radio-subtitle">{subTitle}</div>
+          <div className="help-text">{subTitle}</div>
           {
             title === 'Subscribe to alerts' && this.store.values.gtocSelection === 'Subscribe to alerts' &&
             <span className="required-asterisks"> *</span>

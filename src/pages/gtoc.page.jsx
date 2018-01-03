@@ -19,12 +19,12 @@ export default class SubscribeToGTOC extends React.Component {
           <div className="container">
             <div className="row text-center">
               <div className="col-xs-10 col-md-8">
-                <PageTitle>Manage Network Alerts</PageTitle>
+                <PageTitle className="manage-alerts-h1">Manage Network Alerts</PageTitle>
               </div>
               <div className="col-xs-10 col-md-8">
-                <figure>
-                  <img className="img-responsive" src="/images/fema-regions-map.png" alt=""/>
-                  <figcaption>FEMA Regions Map</figcaption>
+                <figure className="fema-map-wrapper">
+                  <img className="img-responsive fema-map" src="/images/fema-regions-map.png" alt=""/>
+                  <figcaption className="fema-figcaption">FEMA Regions Map</figcaption>
                 </figure>
               </div>
             </div>

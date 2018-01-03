@@ -150,23 +150,23 @@ class ApiService {
       });
     }
 
-    submitSubscribeToGTOC(gtocObject) {
+    subscribeToGTOC(gtocObject) {
       return axios({
         method: 'post',
         url: `${base}/gtocalertssubscription`,
         data: {
-          'email': gtocObject.email,
-          'femaList': gtocObject.femaList
+          email: gtocObject.email,
+          femaList: gtocObject.femaList
         }
       });
     }
 
-    submitUnsubscribeToGTOC(email) {
+    unsubscribeFromGTOC(email) {
       return axios({
         method: 'post',
         url: `${base}/gtocalertsunsubscribe`,
         data: {
-          'email': email
+          email: email
         }
       });
     }

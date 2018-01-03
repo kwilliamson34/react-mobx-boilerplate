@@ -77,7 +77,7 @@ import {observable, computed} from 'mobx';
             <span>{this.props.errorMessage}</span>
           </div>
         }
-        <label>
+        <label className="checkbox-label">
           <input
             type="checkbox"
             id={this.props.id}
@@ -92,7 +92,7 @@ import {observable, computed} from 'mobx';
           <span className="cr"></span>
           <span className={`label-text ${this.props.labelIsSrOnly ? 'sr-only' : ''}`}>
             {this.props.strongLabel
-              ? <strong>{this.props.strongLabel}:&nbsp;</strong>
+              ? <strong className="strong-label">{this.props.strongLabel}:&nbsp;</strong>
               : ''}
             <span className="label-text-normal">{this.props.label}</span>
             {this.props.required &&

@@ -4,19 +4,19 @@
   .content-wrapper {
     position: relative;
 
-    h1 {
+    .manage-alerts-h1 {
       margin: 30px 0;
       text-align: left;
     }
 
-    figure {
-      figcaption {
+    .fema-map-wrapper {
+      .fema-figcaption {
         text-align: left;
         font-size: $fn-small-text-desktop;
         margin-bottom: 20px;
       }
 
-      img {
+      .fema-map {
         width: 100%;
         margin-bottom: 30px;
       }
@@ -33,19 +33,19 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: baseline;
+
       .select-all-checkbox {
         border: 0;
       }
 
       .clear-all-button {
-        font-weight: $fn-bold-weight;
         font-size: $fn-h5-desktop;
       }
     }
 
     .gtoc-checklist-hr {
       border-color: $fn-mdgrey;
-      margin: 0 0 0 20px;
+      margin: 0;
     }
 
     .radio-group-hr {
@@ -59,18 +59,16 @@
         padding: 0;
         margin-top: 60px;
         font-size: $fn-h5-desktop;
+        color: $fn-black !important; //override default label color, even for an error
         text-transform: uppercase;
       }
+      //TODO: remember to fix this if we change the asterisk and stuff. Change the wrapper name or remove;
       .subtitle-wrapper {
         display: flex;
         flex-direction: row;
         align-items: center;
 
-        .radio-subtitle {
-          text-transform: none;
-          font-size: $fn-small-text-desktop;
-          font-weight: $fn-light-weight;
-          font-style: italic;
+        .help-text {
           padding-top: 5px;
         }
 
@@ -82,27 +80,26 @@
     }
 
     .femalist-fieldset {
-      padding-left: 30px;
+      padding-left: 50px;
 
       .control-label {
         padding-left: 20px;
       }
 
-      .select-all-checkbox {
-        label {
-          min-height: 0;
-          padding-bottom: 20px;
-        }
+      .select-all-checkbox-label {
+        min-height: 0;
+        padding-bottom: 20px;
+        padding-left: 0;
       }
 
       .select-all-description,
-      strong {
-        vertical-align: top;
+      .strong-label {
         font-weight: $fn-medium-weight;
         font-size: $fn-h5-desktop;
       }
 
-      label {
+      .checkbox-label,
+      .select-all-checkbox-label {
         font-size: $fn-label-desktop;
         color: $fn-black !important; //override default label color, even for an error
         font-weight: $fn-normal-weight;
@@ -112,52 +109,38 @@
         margin-bottom: 0;
       }
 
-      .checkbox-wrapper {
-        .checkbox {
-          vertical-align: middle;
-          padding: 20px;
-          padding-right: 0px;
+      .checkbox:not(.select-all-checkbox) {
+        vertical-align: middle;
+        padding: 20px 0;
+        border-bottom: 1px solid $fn-grey;
 
-          label {
-            min-height: 0;
-            padding: 0;
+        .checkbox-label {
+          min-height: 0;
+          padding: 0;
 
-            span.label-text-normal {
-              display: inline-block;
-              font-size: $fn-h5-desktop;
-              width: 100%;
-              float: right;
-            }
+          span.label-text-normal {
+            display: inline-block;
+            font-size: $fn-h5-desktop;
+            width: 100%;
+            float: right;
           }
         }
         &:last-of-type {
-
-          .checkbox {
-            padding-bottom: 0;
-          }
-
-          hr {
-            display: none;
-          }
+          padding-bottom: 0;
+          border-bottom: none;
         }
-      }
-
-      .checkbox-hr {
-        border-color: $fn-grey;
-        margin: 0 0 0 20px;
       }
     }
   }
 }
 
+//TODO: Tablet styles are bunked up
 @media #{$tablet} {
   #subscribe-to-gtoc-page {
     .content-wrapper {
       .femalist-fieldset {
-        .checkbox-wrapper {
-          .checkbox {
-            padding: 30px 0 30px 20px;
-          }
+        .checkbox {
+          padding: 30px 0 30px 20px;
         }
       }
     }
@@ -166,7 +149,7 @@
 
 @media #{$desktop} {
   #subscribe-to-gtoc-page {
-    h1 {
+    .manage-alerts-h1 {
       margin: 60px 0;
     }
 
@@ -174,13 +157,11 @@
       .femalist-fieldset {
         width: 75%;
 
-        .checkbox-wrapper {
-          .checkbox {
-            padding: 30px 0 30px 20px;
-            label {
-              span.label-text-normal {
-                width: 85%;
-              }
+        .checkbox:not(.select-all-checkbox) {
+          padding: 30px 0;
+          .checkbox-label {
+            span.label-text-normal {
+              width: 85%;
             }
           }
         }
