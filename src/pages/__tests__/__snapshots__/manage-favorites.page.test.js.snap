@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ManageFavoritesPage /> render matches previous snapshot 1`] = `
+<article
+  id="manage-location-favorites-page"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col-xs-12"
+      />
+      <div
+        className="container"
+      >
+        <div
+          className="row"
+        >
+          <div
+            className="favorites-search col-xs-12"
+          />
+        </div>
+      </div>
+      <div
+        className="container"
+      >
+        <div
+          className="row"
+        >
+          <div
+            className="col-xs-12"
+          >
+            <hr />
+          </div>
+        </div>
+      </div>
+      <div
+        className="col-xs-12"
+      >
+        <div
+          aria-rowcount={0}
+          className="sortable-table manage-locations-table-class"
+          id="manage-locations-table"
+        >
+          <div
+            className="table-head"
+          >
+            <span
+              className="mobile-header"
+            />
+            <span
+              className="table-container checkbox-container"
+              data="column"
+            />
+            <span
+              className="table-container center-container"
+              data="column"
+            />
+            <span
+              className="table-container buttons-container"
+              data="column"
+            />
+          </div>
+          <div
+            className="table-body"
+            role="rowgroup"
+          />
+        </div>
+        <div
+          className="no-results-container"
+        >
+          <div
+            className="no-fetch-results"
+          >
+            <div
+              className="as-h2"
+            >
+              No Favorites
+            </div>
+            <p>
+              No favorite locations have been added yet. Add some!
+            </p>
+            <button
+              className="fn-primary"
+              onClick={[Function]}
+            >
+              Add From Map
+            </button>
+          </div>
+        </div>
+        <hr
+          className="mobile-hr"
+        />
+      </div>
+    </div>
+  </div>
+</article>
+`;

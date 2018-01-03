@@ -1,18 +1,23 @@
 
 jest.unmock('../../core/stores/master.store');
 jest.unmock('../faq.page');
-jest.unmock('../../components/faq/faq-main');
+jest.unmock('../../components/faq/faq');
+jest.unmock('../../content/faq-data.json');
 
 import {observer, inject} from 'mobx-react';
-import {contentStore} from '../../core/stores/content.store';
 import FAQPage from '../faq.page';
-import {FaqMain} from '../../components/faq/faq-main';
+import {Faq} from '../../components/faq/faq';
+import {faqs} from '../../content/faq-data.json';
 
 describe('<FAQPage />', () => {
   describe('render', () => {
     let props = {
       store: {
-        contentStore
+        userStore: {
+          user: {
+            roles: ['G_FN_ADM']
+          }
+        }
       }
     }
 

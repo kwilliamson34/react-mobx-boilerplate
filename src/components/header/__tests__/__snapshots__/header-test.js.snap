@@ -64,7 +64,7 @@ exports[`<PSEHeader /> render matches snapshot when header store is not initiali
           className="fnnav__main"
         >
           <li
-            className="mainnav-item yellow"
+            className="mainnav-item blue"
             role="presentation"
           >
             <button
@@ -80,22 +80,22 @@ exports[`<PSEHeader /> render matches snapshot when header store is not initiali
               </span>
             </button>
             <a
-              className="deaden"
+              className="multi-line-item deaden"
               href="#profile"
               id="pse-profile"
             >
-              <div
-                className="multi-line-item"
-              >
-                <div
-                  className="profile-display"
+              <div>
+                <i
+                  aria-hidden="true"
+                  className="icon-profile"
+                />
+                <span
+                  className="pull-right-of-icon"
                 >
-                  <i
-                    aria-hidden="true"
-                    className="icon-profile"
-                  />
                   undefined undefined
-                </div>
+                  <br />
+                  
+                </span>
               </div>
             </a>
             <ul
@@ -218,7 +218,7 @@ exports[`<PSEHeader /> render matches snapshot when header store is not initiali
             </a>
           </li>
           <li
-            className="desktop-iconItem dropdown"
+            className="desktop-iconItem dropdown first-iconItem"
           >
             <button
               aria-expanded="false"
@@ -243,7 +243,7 @@ exports[`<PSEHeader /> render matches snapshot when header store is not initiali
               id="pse-profile-nav"
             >
               <li
-                className="desktop-profile-display"
+                className="desktop-profile-display multi-line-item"
                 role="presentation"
               >
                 <a
@@ -252,18 +252,18 @@ exports[`<PSEHeader /> render matches snapshot when header store is not initiali
                   id="pse-profile-desktop"
                   tabIndex="-1"
                 >
-                  <div
-                    className="multi-line-item"
-                  >
-                    <div
-                      className="profile-display"
+                  <div>
+                    <i
+                      aria-hidden="true"
+                      className="icon-profile"
+                    />
+                    <span
+                      className="pull-right-of-icon"
                     >
-                      <i
-                        aria-hidden="true"
-                        className="icon-profile"
-                      />
                       undefined undefined
-                    </div>
+                      <br />
+                      
+                    </span>
                   </div>
                 </a>
               </li>
@@ -281,7 +281,11 @@ exports[`<PSEHeader /> render matches snapshot when header store is not initiali
                     aria-hidden="true"
                     className="icon-logout"
                   />
-                  Log Out
+                  <span
+                    className="pull-right-of-icon"
+                  >
+                    Log Out
+                  </span>
                 </a>
               </li>
             </ul>
@@ -450,7 +454,7 @@ exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
           className="fnnav__main"
         >
           <li
-            className="mainnav-item yellow"
+            className="mainnav-item blue"
             role="presentation"
           >
             <button
@@ -466,22 +470,22 @@ exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
               </span>
             </button>
             <a
-              className="deaden"
+              className="multi-line-item deaden"
               href="#profile"
               id="pse-profile"
             >
-              <div
-                className="multi-line-item"
-              >
-                <div
-                  className="profile-display"
+              <div>
+                <i
+                  aria-hidden="true"
+                  className="icon-profile"
+                />
+                <span
+                  className="pull-right-of-icon"
                 >
-                  <i
-                    aria-hidden="true"
-                    className="icon-profile"
-                  />
                   undefined undefined
-                </div>
+                  <br />
+                  
+                </span>
               </div>
             </a>
             <ul
@@ -604,7 +608,7 @@ exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
             </a>
           </li>
           <li
-            className="desktop-iconItem dropdown"
+            className="desktop-iconItem dropdown first-iconItem"
           >
             <button
               aria-expanded="false"
@@ -629,7 +633,7 @@ exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
               id="pse-profile-nav"
             >
               <li
-                className="desktop-profile-display"
+                className="desktop-profile-display multi-line-item"
                 role="presentation"
               >
                 <a
@@ -638,18 +642,18 @@ exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
                   id="pse-profile-desktop"
                   tabIndex="-1"
                 >
-                  <div
-                    className="multi-line-item"
-                  >
-                    <div
-                      className="profile-display"
+                  <div>
+                    <i
+                      aria-hidden="true"
+                      className="icon-profile"
+                    />
+                    <span
+                      className="pull-right-of-icon"
                     >
-                      <i
-                        aria-hidden="true"
-                        className="icon-profile"
-                      />
                       undefined undefined
-                    </div>
+                      <br />
+                      
+                    </span>
                   </div>
                 </a>
               </li>
@@ -667,7 +671,11 @@ exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
                     aria-hidden="true"
                     className="icon-logout"
                   />
-                  Log Out
+                  <span
+                    className="pull-right-of-icon"
+                  >
+                    Log Out
+                  </span>
                 </a>
               </li>
             </ul>
@@ -836,7 +844,7 @@ exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
           className="fnnav__main"
         >
           <li
-            className="mainnav-item yellow"
+            className="mainnav-item blue"
             role="presentation"
           >
             <button
@@ -852,22 +860,22 @@ exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
               </span>
             </button>
             <a
-              className="deaden"
+              className="multi-line-item deaden"
               href="#profile"
               id="pse-profile"
             >
-              <div
-                className="multi-line-item"
-              >
-                <div
-                  className="profile-display"
+              <div>
+                <i
+                  aria-hidden="true"
+                  className="icon-profile"
+                />
+                <span
+                  className="pull-right-of-icon"
                 >
-                  <i
-                    aria-hidden="true"
-                    className="icon-profile"
-                  />
                   undefined undefined
-                </div>
+                  <br />
+                  
+                </span>
               </div>
             </a>
             <ul
@@ -990,7 +998,7 @@ exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
             </a>
           </li>
           <li
-            className="desktop-iconItem dropdown"
+            className="desktop-iconItem dropdown first-iconItem"
           >
             <button
               aria-expanded="false"
@@ -1015,7 +1023,7 @@ exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
               id="pse-profile-nav"
             >
               <li
-                className="desktop-profile-display"
+                className="desktop-profile-display multi-line-item"
                 role="presentation"
               >
                 <a
@@ -1024,18 +1032,18 @@ exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
                   id="pse-profile-desktop"
                   tabIndex="-1"
                 >
-                  <div
-                    className="multi-line-item"
-                  >
-                    <div
-                      className="profile-display"
+                  <div>
+                    <i
+                      aria-hidden="true"
+                      className="icon-profile"
+                    />
+                    <span
+                      className="pull-right-of-icon"
                     >
-                      <i
-                        aria-hidden="true"
-                        className="icon-profile"
-                      />
                       undefined undefined
-                    </div>
+                      <br />
+                      
+                    </span>
                   </div>
                 </a>
               </li>
@@ -1053,7 +1061,11 @@ exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
                     aria-hidden="true"
                     className="icon-logout"
                   />
-                  Log Out
+                  <span
+                    className="pull-right-of-icon"
+                  >
+                    Log Out
+                  </span>
                 </a>
               </li>
             </ul>
@@ -1222,7 +1234,7 @@ exports[`<PSEHeader /> render user role-based snapshots 1`] = `
           className="fnnav__main"
         >
           <li
-            className="mainnav-item yellow"
+            className="mainnav-item blue"
             role="presentation"
           >
             <button
@@ -1238,22 +1250,22 @@ exports[`<PSEHeader /> render user role-based snapshots 1`] = `
               </span>
             </button>
             <a
-              className="deaden"
+              className="multi-line-item deaden"
               href="#profile"
               id="pse-profile"
             >
-              <div
-                className="multi-line-item"
-              >
-                <div
-                  className="profile-display"
+              <div>
+                <i
+                  aria-hidden="true"
+                  className="icon-profile"
+                />
+                <span
+                  className="pull-right-of-icon"
                 >
-                  <i
-                    aria-hidden="true"
-                    className="icon-profile"
-                  />
                   undefined undefined
-                </div>
+                  <br />
+                  
+                </span>
               </div>
             </a>
             <ul
@@ -1397,7 +1409,7 @@ exports[`<PSEHeader /> render user role-based snapshots 1`] = `
             </a>
           </li>
           <li
-            className="desktop-iconItem dropdown"
+            className="desktop-iconItem dropdown first-iconItem"
           >
             <button
               aria-expanded="false"
@@ -1422,7 +1434,7 @@ exports[`<PSEHeader /> render user role-based snapshots 1`] = `
               id="pse-profile-nav"
             >
               <li
-                className="desktop-profile-display"
+                className="desktop-profile-display multi-line-item"
                 role="presentation"
               >
                 <a
@@ -1431,18 +1443,18 @@ exports[`<PSEHeader /> render user role-based snapshots 1`] = `
                   id="pse-profile-desktop"
                   tabIndex="-1"
                 >
-                  <div
-                    className="multi-line-item"
-                  >
-                    <div
-                      className="profile-display"
+                  <div>
+                    <i
+                      aria-hidden="true"
+                      className="icon-profile"
+                    />
+                    <span
+                      className="pull-right-of-icon"
                     >
-                      <i
-                        aria-hidden="true"
-                        className="icon-profile"
-                      />
                       undefined undefined
-                    </div>
+                      <br />
+                      
+                    </span>
                   </div>
                 </a>
               </li>
@@ -1460,7 +1472,11 @@ exports[`<PSEHeader /> render user role-based snapshots 1`] = `
                     aria-hidden="true"
                     className="icon-logout"
                   />
-                  Log Out
+                  <span
+                    className="pull-right-of-icon"
+                  >
+                    Log Out
+                  </span>
                 </a>
               </li>
             </ul>
@@ -1629,7 +1645,7 @@ exports[`<PSEHeader /> render user role-based snapshots 2`] = `
           className="fnnav__main"
         >
           <li
-            className="mainnav-item yellow"
+            className="mainnav-item blue"
             role="presentation"
           >
             <button
@@ -1645,22 +1661,22 @@ exports[`<PSEHeader /> render user role-based snapshots 2`] = `
               </span>
             </button>
             <a
-              className="deaden"
+              className="multi-line-item deaden"
               href="#profile"
               id="pse-profile"
             >
-              <div
-                className="multi-line-item"
-              >
-                <div
-                  className="profile-display"
+              <div>
+                <i
+                  aria-hidden="true"
+                  className="icon-profile"
+                />
+                <span
+                  className="pull-right-of-icon"
                 >
-                  <i
-                    aria-hidden="true"
-                    className="icon-profile"
-                  />
                   undefined undefined
-                </div>
+                  <br />
+                  
+                </span>
               </div>
             </a>
             <ul
@@ -1903,7 +1919,7 @@ exports[`<PSEHeader /> render user role-based snapshots 2`] = `
             </a>
           </li>
           <li
-            className="desktop-iconItem dropdown"
+            className="desktop-iconItem dropdown first-iconItem"
           >
             <button
               aria-expanded="false"
@@ -1928,7 +1944,7 @@ exports[`<PSEHeader /> render user role-based snapshots 2`] = `
               id="pse-profile-nav"
             >
               <li
-                className="desktop-profile-display"
+                className="desktop-profile-display multi-line-item"
                 role="presentation"
               >
                 <a
@@ -1937,18 +1953,18 @@ exports[`<PSEHeader /> render user role-based snapshots 2`] = `
                   id="pse-profile-desktop"
                   tabIndex="-1"
                 >
-                  <div
-                    className="multi-line-item"
-                  >
-                    <div
-                      className="profile-display"
+                  <div>
+                    <i
+                      aria-hidden="true"
+                      className="icon-profile"
+                    />
+                    <span
+                      className="pull-right-of-icon"
                     >
-                      <i
-                        aria-hidden="true"
-                        className="icon-profile"
-                      />
                       undefined undefined
-                    </div>
+                      <br />
+                      
+                    </span>
                   </div>
                 </a>
               </li>
@@ -1966,7 +1982,11 @@ exports[`<PSEHeader /> render user role-based snapshots 2`] = `
                     aria-hidden="true"
                     className="icon-logout"
                   />
-                  Log Out
+                  <span
+                    className="pull-right-of-icon"
+                  >
+                    Log Out
+                  </span>
                 </a>
               </li>
             </ul>
@@ -2135,7 +2155,7 @@ exports[`<PSEHeader /> render user role-based snapshots 3`] = `
           className="fnnav__main"
         >
           <li
-            className="mainnav-item yellow"
+            className="mainnav-item blue"
             role="presentation"
           >
             <button
@@ -2151,22 +2171,22 @@ exports[`<PSEHeader /> render user role-based snapshots 3`] = `
               </span>
             </button>
             <a
-              className="deaden"
+              className="multi-line-item deaden"
               href="#profile"
               id="pse-profile"
             >
-              <div
-                className="multi-line-item"
-              >
-                <div
-                  className="profile-display"
+              <div>
+                <i
+                  aria-hidden="true"
+                  className="icon-profile"
+                />
+                <span
+                  className="pull-right-of-icon"
                 >
-                  <i
-                    aria-hidden="true"
-                    className="icon-profile"
-                  />
                   undefined undefined
-                </div>
+                  <br />
+                  
+                </span>
               </div>
             </a>
             <ul
@@ -2331,7 +2351,7 @@ exports[`<PSEHeader /> render user role-based snapshots 3`] = `
             </a>
           </li>
           <li
-            className="desktop-iconItem dropdown"
+            className="desktop-iconItem dropdown first-iconItem"
           >
             <button
               aria-expanded="false"
@@ -2356,7 +2376,7 @@ exports[`<PSEHeader /> render user role-based snapshots 3`] = `
               id="pse-profile-nav"
             >
               <li
-                className="desktop-profile-display"
+                className="desktop-profile-display multi-line-item"
                 role="presentation"
               >
                 <a
@@ -2365,18 +2385,18 @@ exports[`<PSEHeader /> render user role-based snapshots 3`] = `
                   id="pse-profile-desktop"
                   tabIndex="-1"
                 >
-                  <div
-                    className="multi-line-item"
-                  >
-                    <div
-                      className="profile-display"
+                  <div>
+                    <i
+                      aria-hidden="true"
+                      className="icon-profile"
+                    />
+                    <span
+                      className="pull-right-of-icon"
                     >
-                      <i
-                        aria-hidden="true"
-                        className="icon-profile"
-                      />
                       undefined undefined
-                    </div>
+                      <br />
+                      
+                    </span>
                   </div>
                 </a>
               </li>
@@ -2394,7 +2414,11 @@ exports[`<PSEHeader /> render user role-based snapshots 3`] = `
                     aria-hidden="true"
                     className="icon-logout"
                   />
-                  Log Out
+                  <span
+                    className="pull-right-of-icon"
+                  >
+                    Log Out
+                  </span>
                 </a>
               </li>
             </ul>
@@ -2563,7 +2587,7 @@ exports[`<PSEHeader /> render user role-based snapshots 4`] = `
           className="fnnav__main"
         >
           <li
-            className="mainnav-item yellow"
+            className="mainnav-item blue"
             role="presentation"
           >
             <button
@@ -2579,22 +2603,22 @@ exports[`<PSEHeader /> render user role-based snapshots 4`] = `
               </span>
             </button>
             <a
-              className="deaden"
+              className="multi-line-item deaden"
               href="#profile"
               id="pse-profile"
             >
-              <div
-                className="multi-line-item"
-              >
-                <div
-                  className="profile-display"
+              <div>
+                <i
+                  aria-hidden="true"
+                  className="icon-profile"
+                />
+                <span
+                  className="pull-right-of-icon"
                 >
-                  <i
-                    aria-hidden="true"
-                    className="icon-profile"
-                  />
                   undefined undefined
-                </div>
+                  <br />
+                  
+                </span>
               </div>
             </a>
             <ul
@@ -2776,7 +2800,7 @@ exports[`<PSEHeader /> render user role-based snapshots 4`] = `
             </a>
           </li>
           <li
-            className="desktop-iconItem dropdown"
+            className="desktop-iconItem dropdown first-iconItem"
           >
             <button
               aria-expanded="false"
@@ -2801,7 +2825,7 @@ exports[`<PSEHeader /> render user role-based snapshots 4`] = `
               id="pse-profile-nav"
             >
               <li
-                className="desktop-profile-display"
+                className="desktop-profile-display multi-line-item"
                 role="presentation"
               >
                 <a
@@ -2810,18 +2834,18 @@ exports[`<PSEHeader /> render user role-based snapshots 4`] = `
                   id="pse-profile-desktop"
                   tabIndex="-1"
                 >
-                  <div
-                    className="multi-line-item"
-                  >
-                    <div
-                      className="profile-display"
+                  <div>
+                    <i
+                      aria-hidden="true"
+                      className="icon-profile"
+                    />
+                    <span
+                      className="pull-right-of-icon"
                     >
-                      <i
-                        aria-hidden="true"
-                        className="icon-profile"
-                      />
                       undefined undefined
-                    </div>
+                      <br />
+                      
+                    </span>
                   </div>
                 </a>
               </li>
@@ -2839,7 +2863,11 @@ exports[`<PSEHeader /> render user role-based snapshots 4`] = `
                     aria-hidden="true"
                     className="icon-logout"
                   />
-                  Log Out
+                  <span
+                    className="pull-right-of-icon"
+                  >
+                    Log Out
+                  </span>
                 </a>
               </li>
             </ul>
@@ -3008,7 +3036,7 @@ exports[`<PSEHeader /> render user role-based snapshots 5`] = `
           className="fnnav__main"
         >
           <li
-            className="mainnav-item yellow"
+            className="mainnav-item blue"
             role="presentation"
           >
             <button
@@ -3024,22 +3052,22 @@ exports[`<PSEHeader /> render user role-based snapshots 5`] = `
               </span>
             </button>
             <a
-              className="deaden"
+              className="multi-line-item deaden"
               href="#profile"
               id="pse-profile"
             >
-              <div
-                className="multi-line-item"
-              >
-                <div
-                  className="profile-display"
+              <div>
+                <i
+                  aria-hidden="true"
+                  className="icon-profile"
+                />
+                <span
+                  className="pull-right-of-icon"
                 >
-                  <i
-                    aria-hidden="true"
-                    className="icon-profile"
-                  />
                   undefined undefined
-                </div>
+                  <br />
+                  
+                </span>
               </div>
             </a>
             <ul
@@ -3247,7 +3275,7 @@ exports[`<PSEHeader /> render user role-based snapshots 5`] = `
             </a>
           </li>
           <li
-            className="desktop-iconItem dropdown"
+            className="desktop-iconItem dropdown first-iconItem"
           >
             <button
               aria-expanded="false"
@@ -3272,7 +3300,7 @@ exports[`<PSEHeader /> render user role-based snapshots 5`] = `
               id="pse-profile-nav"
             >
               <li
-                className="desktop-profile-display"
+                className="desktop-profile-display multi-line-item"
                 role="presentation"
               >
                 <a
@@ -3281,18 +3309,18 @@ exports[`<PSEHeader /> render user role-based snapshots 5`] = `
                   id="pse-profile-desktop"
                   tabIndex="-1"
                 >
-                  <div
-                    className="multi-line-item"
-                  >
-                    <div
-                      className="profile-display"
+                  <div>
+                    <i
+                      aria-hidden="true"
+                      className="icon-profile"
+                    />
+                    <span
+                      className="pull-right-of-icon"
                     >
-                      <i
-                        aria-hidden="true"
-                        className="icon-profile"
-                      />
                       undefined undefined
-                    </div>
+                      <br />
+                      
+                    </span>
                   </div>
                 </a>
               </li>
@@ -3310,7 +3338,11 @@ exports[`<PSEHeader /> render user role-based snapshots 5`] = `
                     aria-hidden="true"
                     className="icon-logout"
                   />
-                  Log Out
+                  <span
+                    className="pull-right-of-icon"
+                  >
+                    Log Out
+                  </span>
                 </a>
               </li>
             </ul>
