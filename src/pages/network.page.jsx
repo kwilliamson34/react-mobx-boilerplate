@@ -100,7 +100,7 @@ export default class NetworkPage extends React.Component {
   render() {
     const showMap = this.networkStore.iframeIsFullyLoaded;
     return (
-      <article id="network-page" className={`content-wrapper ${utilsService.getIsInternetExplorer() ? 'isIE' : ''}`}>
+      <article id="network-page" className="content-wrapper">
         <PageTitle className="sr-only">{this.networkStore.pageTitle}</PageTitle>
         <iframe src={config.geolinkAuthScript} aria-hidden="true" className="hidden-iframe"></iframe>
 
