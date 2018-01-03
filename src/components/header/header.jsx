@@ -191,7 +191,7 @@ export default class PSEHeader extends React.Component {
 
 	renderMobileOnlyUserMenu = () => {
 		return (
-			<li className="mainnav-item blue" role="presentation">
+			<li className="mainnav-item multi-line-item blue" role="presentation">
 				<button
 					className="btnSubmenu"
 					onClick={this.toggleProfileSubMenu}
@@ -201,7 +201,7 @@ export default class PSEHeader extends React.Component {
 						Expand Profile Menu
 					</span>
 				</button>
-				<a id="pse-profile" href="#profile" className="multi-line-item deaden">
+				<a id="pse-profile" href="#profile" className="deaden">
 					{this.renderProfileBlock()}
 				</a>
 				<ul
@@ -343,9 +343,9 @@ export default class PSEHeader extends React.Component {
 						Give Us Feedback
 					</NavLink>
 				</li>
-				<li>
+				<li className="multi-line-item">
 					<a href={'tel:' + config.attCustomerSupportPhone}>
-						<div className="multi-line-item">
+						<div>
 							<span aria-hidden="true">FirstNet Customer Svc:&nbsp;</span><br />
 							<i className="icon-phone-number" aria-hidden="true"></i>
 							<span className="sr-only">FirstNet Customer Service Phone&nbsp;</span>
