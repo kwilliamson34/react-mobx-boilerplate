@@ -128,7 +128,7 @@ export default class GeolinkControls extends React.Component {
               </li>
             )
           })}
-          <li role="button" tabIndex="0" ref={`favItem${this.store.predictedFavorites.length}`} onFocus={() => this.focusedFavorite = this.store.predictedFavorites.length} onClick={this.clearAlertBars} onKeyPress={this.onManageFavoritesEnter} onKeyDown={this.onKeyDown}>
+          <li role="button" tabIndex="0" ref={`favItem${this.store.predictedFavorites.length}`} onFocus={() => this.focusedFavorite = this.store.predictedFavorites.length} onClick={this.onManageFavoritesClick} onKeyPress={this.onManageFavoritesEnter} onKeyDown={this.onKeyDown}>
             Manage all favorites
           </li>
         </ul>
