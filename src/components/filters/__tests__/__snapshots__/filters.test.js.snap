@@ -29,35 +29,6 @@ exports[`<Filters /> matches previous snapshot 1`] = `
           <div>
             <label
               className="control-label filter-category-label"
-              htmlFor="category-filter"
-              tabIndex="0"
-            >
-              Category
-            </label>
-            <select
-              className="form-control"
-              defaultValue={undefined}
-              id="category-filter"
-              onChange={[Function]}
-            >
-              <option
-                value=""
-              >
-                All Categories
-              </option>
-            </select>
-          </div>
-        </div>
-      </div>
-      <div
-        className="col-sm-4 col-xs-12"
-      >
-        <div
-          className="form-group"
-        >
-          <div>
-            <label
-              className="control-label filter-category-label"
               htmlFor="segment-filter"
               tabIndex="0"
             >
@@ -73,6 +44,35 @@ exports[`<Filters /> matches previous snapshot 1`] = `
                 value=""
               >
                 All Branches/Disciplines
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div
+        className="col-sm-4 col-xs-12"
+      >
+        <div
+          className="form-group"
+        >
+          <div>
+            <label
+              className="control-label filter-category-label"
+              htmlFor="category-filter"
+              tabIndex="0"
+            >
+              Category
+            </label>
+            <select
+              className="form-control"
+              defaultValue={undefined}
+              id="category-filter"
+              onChange={[Function]}
+            >
+              <option
+                value=""
+              >
+                All Categories
               </option>
             </select>
           </div>
@@ -175,6 +175,35 @@ exports[`<Filters /> matches previous snapshot 2`] = `
           <div>
             <label
               className="control-label filter-category-label"
+              htmlFor="segment-filter"
+              tabIndex="0"
+            >
+              Branch/Discipline
+            </label>
+            <select
+              className="form-control"
+              defaultValue={undefined}
+              id="segment-filter"
+              onChange={[Function]}
+            >
+              <option
+                value=""
+              >
+                All Branches/Disciplines
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div
+        className="col-sm-4 col-xs-12"
+      >
+        <div
+          className="form-group"
+        >
+          <div>
+            <label
+              className="control-label filter-category-label"
               htmlFor="category-filter"
               tabIndex="0"
             >
@@ -197,35 +226,6 @@ exports[`<Filters /> matches previous snapshot 2`] = `
               <option
                 value={undefined}
               />
-            </select>
-          </div>
-        </div>
-      </div>
-      <div
-        className="col-sm-4 col-xs-12"
-      >
-        <div
-          className="form-group"
-        >
-          <div>
-            <label
-              className="control-label filter-category-label"
-              htmlFor="segment-filter"
-              tabIndex="0"
-            >
-              Branch/Discipline
-            </label>
-            <select
-              className="form-control"
-              defaultValue={undefined}
-              id="segment-filter"
-              onChange={[Function]}
-            >
-              <option
-                value=""
-              >
-                All Branches/Disciplines
-              </option>
             </select>
           </div>
         </div>
@@ -327,21 +327,21 @@ exports[`<Filters /> matches previous snapshot 3`] = `
           <div>
             <label
               className="control-label filter-category-label"
-              htmlFor="category-filter"
+              htmlFor="segment-filter"
               tabIndex="0"
             >
-              Category
+              Branch/Discipline
             </label>
             <select
               className="form-control"
               defaultValue={undefined}
-              id="category-filter"
+              id="segment-filter"
               onChange={[Function]}
             >
               <option
                 value=""
               >
-                All Categories
+                All Branches/Disciplines
               </option>
               <option
                 value={undefined}
@@ -362,21 +362,21 @@ exports[`<Filters /> matches previous snapshot 3`] = `
           <div>
             <label
               className="control-label filter-category-label"
-              htmlFor="segment-filter"
+              htmlFor="category-filter"
               tabIndex="0"
             >
-              Branch/Discipline
+              Category
             </label>
             <select
               className="form-control"
               defaultValue={undefined}
-              id="segment-filter"
+              id="category-filter"
               onChange={[Function]}
             >
               <option
                 value=""
               >
-                All Branches/Disciplines
+                All Categories
               </option>
               <option
                 value={undefined}
@@ -485,21 +485,21 @@ exports[`<Filters /> matches previous snapshot 4`] = `
           <div>
             <label
               className="control-label filter-category-label"
-              htmlFor="category-filter"
+              htmlFor="segment-filter"
               tabIndex="0"
             >
-              Category
+              Branch/Discipline
             </label>
             <select
               className="form-control"
               defaultValue={undefined}
-              id="category-filter"
+              id="segment-filter"
               onChange={[Function]}
             >
               <option
                 value=""
               >
-                All Categories
+                All Branches/Disciplines
               </option>
               <option
                 value={undefined}
@@ -520,21 +520,21 @@ exports[`<Filters /> matches previous snapshot 4`] = `
           <div>
             <label
               className="control-label filter-category-label"
-              htmlFor="segment-filter"
+              htmlFor="category-filter"
               tabIndex="0"
             >
-              Branch/Discipline
+              Category
             </label>
             <select
               className="form-control"
               defaultValue={undefined}
-              id="segment-filter"
+              id="category-filter"
               onChange={[Function]}
             >
               <option
                 value=""
               >
-                All Branches/Disciplines
+                All Categories
               </option>
               <option
                 value={undefined}
