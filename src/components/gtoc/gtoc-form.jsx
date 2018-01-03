@@ -85,7 +85,8 @@ class GtocForm extends React.Component {
           dataObject={this.store.values}
           required={true}
           id="gtocSelection"
-          labelIsSrOnly={true}
+          labelTextIsSrOnly={true}
+          labelErrorIsSrOnly={true}
           className="radiogroup-fieldset"
           {...this.props.formChildProps}>
 
@@ -95,8 +96,9 @@ class GtocForm extends React.Component {
                 ref={this.saveCheckboxListRef}
                 id="femaList"
                 className="femalist-fieldset"
-                labelText=""
-                labelIsSrOnly={false}
+                labelText="FEMA Regions List"
+                labelTextIsSrOnly={true}
+                labelErrorIsSrOnly={false}
                 showRequiredAsterisk={false}
                 required={this.store.values.gtocSelection === 'Subscribe to alerts'}
                 selectAll={this.store.selectAll.bind(this.store)}

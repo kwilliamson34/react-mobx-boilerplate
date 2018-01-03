@@ -307,7 +307,8 @@ export default class ManageFavoritesPage extends React.Component {
         handleOnChange={this.handleRowCheckboxOnChange}
         checked={this.manageFavoritesStore.checkedRows.indexOf(id.toString()) > -1}
         label={label}
-        labelIsSrOnly={true}/>
+        labelTestIsSrOnly={true}
+        labelErrorIsSrOnly={true}/>
     )
   }
 
@@ -316,7 +317,8 @@ export default class ManageFavoritesPage extends React.Component {
       <Checkbox
         id="select-all-checkbox"
         label={this.manageFavoritesStore.selectAllCheckboxSrOnlyLabel}
-        labelIsSrOnly={true}
+        labelTextIsSrOnly={true}
+        labelErrorIsSrOnly={true}
         handleOnChange={this.handleSelectAllCheckbox}
         checked={this.manageFavoritesStore.checkSelectAllCheckbox}/>
     )

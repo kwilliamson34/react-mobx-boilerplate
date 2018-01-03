@@ -17,7 +17,8 @@ export default class TextInput extends React.Component {
     disabled: PropTypes.bool,
     labelText: PropTypes.string,
     helperText: PropTypes.string,
-    labelIsSrOnly: PropTypes.bool,
+    labelTextIsSrOnly: PropTypes.bool,
+    labelErrorIsSrOnly: PropTypes.bool,
     getIsValid: PropTypes.func,
     errorMessage: PropTypes.string,
     className: PropTypes.string,
@@ -34,7 +35,8 @@ export default class TextInput extends React.Component {
   static defaultProps = {
     labelText: '',
     helperText: '',
-    labelIsSrOnly: false,
+    labelTextIsSrOnly: false,
+    labelErrorIsSrOnly: false,
     required: false,
     disabled: false,
     errorMessage: 'This entry is not valid.',
@@ -108,7 +110,8 @@ export default class TextInput extends React.Component {
           hasError={this.hasVisibleError}
           fieldIsRequired={this.props.required}
           labelText={this.props.labelText}
-          srOnly={this.props.labelIsSrOnly}
+          labelTextIsSrOnly={this.props.labelTextIsSrOnly}
+          labelErrorIsSrOnly={this.props.labelErrorIsSrOnly}
           helperText={this.props.helperText}
           errorMessage={this.props.errorMessage}
           announceError={this.props.announceError} />

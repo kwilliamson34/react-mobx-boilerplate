@@ -16,7 +16,8 @@ export default class CheckboxList extends React.Component {
     disabled: PropTypes.bool,
     className: PropTypes.string,
     labelText: PropTypes.string,
-    labelIsSrOnly: PropTypes.bool,
+    labelTextIsSrOnly: PropTypes.bool,
+    labelErrorIsSrOnly: PropTypes.bool,
     showRequiredAsterisk: PropTypes.bool,
     getIsValid: PropTypes.func,
     errorMessage: PropTypes.string,
@@ -29,7 +30,8 @@ export default class CheckboxList extends React.Component {
   static defaultProps = {
     className: '',
     labelText: '',
-    labelIsSrOnly: false,
+    labelTextIsSrOnly: false,
+    labelErrorIsSrOnly: false,
     showRequiredAsterisk: true,
     required: false,
     disabled: false,
@@ -94,7 +96,8 @@ export default class CheckboxList extends React.Component {
             hasError={this.hasVisibleError}
             fieldIsRequired={this.props.required}
             labelText={this.props.labelText}
-            srOnly={this.props.labelIsSrOnly}
+            labelTextIsSrOnly={this.props.labelTextIsSrOnly}
+            labelErrorIsSrOnly={this.props.labelErrorIsSrOnly}
             showRequiredAsterisk={this.props.showRequiredAsterisk}
             errorMessage={this.props.errorMessage}
             announceError={this.props.announceError}/>
