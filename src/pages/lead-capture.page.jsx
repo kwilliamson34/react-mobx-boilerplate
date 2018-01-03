@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {inject, observer} from 'mobx-react';
-import {computed, autorun} from 'mobx';
+import {computed} from 'mobx';
 
 import LeadCaptureForm from '../components/lead-capture/lead-capture-form';
 import PageTitle from '../components/page-title/page-title';
@@ -37,13 +37,10 @@ export default class LeadCapturePage extends React.Component {
   constructor(props) {
     super(props);
     this.leadCaptureStore = this.props.store.leadCaptureStore;
+  }
 
-    autorun(() => {
-      // check that initial values are available before validating for the first time
-      if(this.leadCaptureStore.solutionName !== this.solutionNamePlainText) {
-        this.leadCaptureStore.setCurrentSolution(this.solutionNamePlainText);
-      }
-    })
+  componentDidMount() {
+    this.leadCaptureStore.setCurrentSolution(this.solutionNamePlainText);
   }
 
   render = () => {
