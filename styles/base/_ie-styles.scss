@@ -1,26 +1,3 @@
 body{
   -ms-overflow-style: scrollbar;
 }
-.isIE{
-  @media #{$tablet} {
-    .geolink-controls {
-      .map-search{
-        flex-basis: 50%;
-      }
-      .map-layers,
-      .map-network-legend{
-        flex-basis: 23%;
-      }
-    }
-  }
-
-  @media #{$desktop} {
-    .geolink-controls {
-      .map-search,
-      .map-layers,
-      .map-network-legend{
-        flex-basis: 25%;
-      }
-    }
-  }
-}
