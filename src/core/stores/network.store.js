@@ -85,6 +85,7 @@ class GeolinkStore {
     if(this.values.locationName === '' && this.selectedFavoriteName !== '' && this.pageTitle === 'Network Status') {
       this.shouldDisplayLocationName = false;
       this.values.locationAddress = '';
+      this.selectedFavoriteName = '';
     }
   }
 
