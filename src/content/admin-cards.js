@@ -18,7 +18,7 @@ export const adminCards = [
         linkTo: 'manageServicesLink',
         className: 'manage-services',
         header: 'Manage services & billing',
-        description: 'Assign or remove devices, change rate plans &amp; features, view & pay bills, update information, manage push-to-talk'
+        description: 'Assign or remove devices, change rate plans & features, view & pay bills, update information, manage push-to-talk'
     },
     {
         isPermitted: 'manageIotDevices',
@@ -31,7 +31,7 @@ export const adminCards = [
         isPermitted: 'manageVoicemail',
         linkTo: 'manageVoicemailAndUsageLink',
         className: 'manage-voicemail-and-usage',
-        header: 'Manage voicemail &amp; usage',
+        header: 'Manage voicemail & usage',
         description: 'Manage voicemail and data usage for your devices'
     },
     {
@@ -48,15 +48,17 @@ export const asideCards = [
         isPermitted: 'shopStandardDevices',
         linkTo: 'shopStandardDevicesLink',
         className: 'shop-devices-rates',
-        header: 'Shop standard devices &amp; rate plans',
+        header: 'Shop standard devices & rate plans',
+        navLinkName: 'Standard devices & rate plans',
         description: 'Add a new device, provision an existing device, add a rate plan, feature(s) and accessories',
-        callToAction: 'Shop Devices &amp; Plans'
+        callToAction: 'Shop Devices & Plans'
     },
     {
         isPermitted: 'shopSpecializedDevices',
         linkTo: '/admin/devices',
         className: 'shop-specialized-devices',
         header: 'Shop specialized devices',
+        navLinkName: 'Specialized devices',
         description: 'Purchase ruggedized devices, vehicle routers, etc.'
     },
     {
@@ -64,6 +66,7 @@ export const asideCards = [
         linkTo: '/admin/solutions',
         className: 'shop-solutions',
         header: 'Shop public safety solutions',
+        navLinkName: 'Public safety solutions',
         description: 'Browse public safety solutions and choose which are best for your organization'
     }
 ]
