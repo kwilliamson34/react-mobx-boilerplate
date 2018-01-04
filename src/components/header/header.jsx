@@ -399,7 +399,7 @@ export default class PSEHeader extends React.Component {
 								</li>
 
 								{/* Desktop only icon items */}
-								<li className="desktop-iconItem dropdown">
+								<li className={`desktop-iconItem dropdown ${(this.userStore.destinationIsPermitted.administration && this.userStore.destinationIsPermitted.incidentUplift)? '' : 'first-iconItem'}`}>
 									<button
 										id="profile-header-dropdown"
 										type="button"
