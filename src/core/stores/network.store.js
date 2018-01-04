@@ -39,13 +39,6 @@ class GeolinkStore {
         this.dropdownIsVisible = true;
       }
     });
-    // necessary in order to hide favorite star when value is removed via 'clear' button
-    autorun(() => {
-      if(this.values.locationName === '' && this.selectedFavoriteName !== '' && this.pageTitle === 'Network Status') {
-        this.shouldDisplayLocationName = false;
-        this.values.locationAddress = '';
-      }
-    })
     // check form for errors
     autorun(() => {
       let hasError = false;
@@ -287,6 +280,13 @@ class GeolinkStore {
     this.clearFormFieldRefList();
     this.setPageTitle('Network Status');
     this.searchMap();
+  }
+
+  @action clearSearch() {
+    // necessary in order to hide favorite star when value is removed via 'clear' button
+    this.shouldDisplayLocationName = false;
+    this.values.locationAddress = '';
+    this.selectedFavoriteName = '';
   }
 
   @action clearFormFieldRefList() {
