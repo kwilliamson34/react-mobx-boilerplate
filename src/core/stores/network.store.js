@@ -274,7 +274,6 @@ class GeolinkStore {
       this.clearForm();
       history.push('/manage-favorites');
     } else if (this.pageTitle === 'Add New Favorite') {
-      // this.shouldDisplayLocationName = true;
       this.pageTitle = 'Network Status';
     }
   }
