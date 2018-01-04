@@ -15,7 +15,6 @@
     "axios": "^0.17.0",
     "bootstrap": "^3.3.7",
     "date-fns": "^1.29.0",
-
     "fn-joyride-ui": "git+ssh://git@us.tools.publicis.sapient.com/fnapi/fn-joyride-ui.git#v2.0.1",
     "fn-common-ui": "git+ssh://git@us.tools.publicis.sapient.com/fnapi/common-ui.git#v1.3.1",
     "jquery": "^3.2.1",
