@@ -2,6 +2,7 @@ import React from 'react';
 import {Link, NavLink, withRouter} from 'react-router-dom';
 import NewTabLink from '../link/new-tab-link';
 import {adminCards} from '../../content/admin-cards.js';
+import {asideCards} from '../../content/admin-cards.js';
 import {observer, inject, PropTypes} from 'mobx-react';
 import config from 'config';
 import $ from 'jquery';
@@ -246,8 +247,9 @@ export default class PSEHeader extends React.Component {
 				props.onClick = this.handleExternalTabOpen;
 				props.showIcon = true
 			}
+			const linkTextRaw = card.navLinkName ? card.navLinkName : card.header;
 			// Capitalize first letter of the link text, but preserve original capitalization in acronyms
-			const linkText = card.header.replace(/\b[a-z]/g, function (letter) {
+			const linkText = linkTextRaw.replace(/\b[a-z]/g, function (letter) {
 				return letter.toUpperCase();
 			});
 			return (
@@ -299,21 +301,7 @@ export default class PSEHeader extends React.Component {
 						<strong className="visible-md-block visible-lg-block" aria-hidden="true">
 							Purchasing &amp; Provisioning
 						</strong>
-						{isPermitted.shopStandardDevices && <li>
-							<NewTabLink to={config.shopStandardDevicesLink} onClick={this.handleExternalTabOpen} showIcon={true}>
-								Standard Devices &amp; Rate Plans
-							</NewTabLink>
-						</li>}
-						{isPermitted.shopSpecializedDevices && <li>
-							<NavLink to="/admin/devices">
-								Specialized Devices
-							</NavLink>
-						</li>}
-						{isPermitted.shopPublicSafetySolutions && <li>
-							<NavLink to="/admin/solutions">
-								Public Safety Solutions
-							</NavLink>
-						</li>}
+						{this.renderPermissionedLinkList(asideCards)}
 					</ul>}
 				</div>
 			</li>
