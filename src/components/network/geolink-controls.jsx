@@ -61,6 +61,10 @@ export default class GeolinkControls extends React.Component {
     }).input.focus();
   }
 
+  onSearchClearClick = () => {
+    this.store.onSearchClearClick();
+  }
+
   onFavoriteEnter = (event, favorite) => {
     if(event.charCode === this.ENTER_KEY_CODE) {
       this.store.selectFavorite(favorite);
@@ -210,6 +214,7 @@ export default class GeolinkControls extends React.Component {
           className="search-form"
           showClearButton={true}
           handleSubmit={this.store.searchMap.bind(this.store)}
+          handleClearClick={this.onSearchClearClick}
           iconClass={this.store.shouldDisplayLocationName ? 'icon-star' : ''}
           onDropIntoList={this.onDropIntoList}
           disableAutoComplete={true}/>

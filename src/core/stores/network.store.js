@@ -39,13 +39,6 @@ class GeolinkStore {
         this.dropdownIsVisible = true;
       }
     });
-    // necessary in order to hide favorite star when value is removed via 'clear' button
-    autorun(() => {
-      if(this.values.locationName === '' && this.selectedFavoriteName !== '' && this.pageTitle === 'Network Status') {
-        this.shouldDisplayLocationName = false;
-        this.values.locationAddress = '';
-      }
-    })
     // check form for errors
     autorun(() => {
       let hasError = false;
@@ -84,6 +77,14 @@ class GeolinkStore {
         eventName: 'doMapGeocode',
         value: this.values.locationAddress
       }, '*');
+    }
+  }
+
+  @action onSearchClearClick() {
+    // necessary in order to hide favorite star when value is removed via 'clear' button
+    if(this.values.locationName === '' && this.selectedFavoriteName !== '' && this.pageTitle === 'Network Status') {
+      this.shouldDisplayLocationName = false;
+      this.values.locationAddress = '';
     }
   }
 
@@ -273,6 +274,7 @@ class GeolinkStore {
       this.clearForm();
       history.push('/manage-favorites');
     } else if (this.pageTitle === 'Add New Favorite') {
+      // this.shouldDisplayLocationName = true;
       this.pageTitle = 'Network Status';
     }
   }
