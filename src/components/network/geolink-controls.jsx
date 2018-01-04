@@ -62,7 +62,7 @@ export default class GeolinkControls extends React.Component {
   }
 
   onSearchClearClick = () => {
-    this.store.onSearchClearClick();
+    this.store.clearSearch();
   }
 
   onFavoriteEnter = (event, favorite) => {
