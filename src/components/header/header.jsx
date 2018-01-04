@@ -412,7 +412,7 @@ export default class PSEHeader extends React.Component {
 								</li>
 
 								{/* Desktop only icon items */}
-								<li className="desktop-iconItem dropdown first-iconItem">
+								<li className="desktop-iconItem dropdown">
 									<button
 										id="profile-header-dropdown"
 										type="button"
