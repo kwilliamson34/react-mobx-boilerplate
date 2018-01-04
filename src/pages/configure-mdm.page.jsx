@@ -34,7 +34,7 @@ export default class ConfigureMDM extends React.Component {
   }
 
   componentWillUnmount() {
-    this.mdmStore.form = undefined;
+    this.mdmStore.clearSuccess();
   }
 
   handleSelectChange = (event) => {

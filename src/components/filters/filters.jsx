@@ -57,24 +57,24 @@ export class Filters extends React.Component {
         <div className="col-sm-4 col-xs-12">
           <div className="form-group">
             {this.renderSelect({
-              id: 'category-filter',
-              label: 'Category',
-              defaultDisplayName: 'All Categories',
-              initialValue: this.store.categoryFilter,
-              changeHandler: this.handleCategoryChange,
-              optionsArray: this.store.categories
-            })}
-          </div>
-        </div>
-        <div className="col-sm-4 col-xs-12">
-          <div className="form-group">
-            {this.renderSelect({
               id: 'segment-filter',
               label: 'Branch/Discipline',
               defaultDisplayName: 'All Branches/Disciplines',
               initialValue: this.store.segmentFilter,
               changeHandler: this.handleSegmentChange,
               optionsArray: this.store.segments
+            })}
+          </div>
+        </div>
+        <div className="col-sm-4 col-xs-12">
+          <div className="form-group">
+            {this.renderSelect({
+              id: 'category-filter',
+              label: 'Category',
+              defaultDisplayName: 'All Categories',
+              initialValue: this.store.categoryFilter,
+              changeHandler: this.handleCategoryChange,
+              optionsArray: this.store.categories
             })}
           </div>
         </div>

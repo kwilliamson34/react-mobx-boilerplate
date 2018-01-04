@@ -2,7 +2,7 @@
 
 exports[`<NetworkPage /> render matches previous snapshot 1`] = `
 <article
-  className="content-wrapper "
+  className="content-wrapper"
   id="network-page"
 >
   <iframe

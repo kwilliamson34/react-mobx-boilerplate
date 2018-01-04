@@ -44,15 +44,74 @@ exports[`<FAQPage /> render matches previous snapshot 1`] = `
               >
                 <ul>
                   <li>
-                    <a
-                      className="category-tab-button active"
-                      data-value="ALL"
-                      href="#"
+                    <button
+                      className="as-link category-tab-button active"
                       onClick={[Function]}
                       role="button"
+                      value="All"
                     >
-                      ALL
-                    </a>
+                      All
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      className="as-link category-tab-button "
+                      onClick={[Function]}
+                      role="button"
+                      value="General"
+                    >
+                      General
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      className="as-link category-tab-button "
+                      onClick={[Function]}
+                      role="button"
+                      value="Network Status"
+                    >
+                      Network Status
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      className="as-link category-tab-button "
+                      onClick={[Function]}
+                      role="button"
+                      value="Manage My PSE"
+                    >
+                      Manage My PSE
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      className="as-link category-tab-button "
+                      onClick={[Function]}
+                      role="button"
+                      value="Manage Apps"
+                    >
+                      Manage Apps
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      className="as-link category-tab-button "
+                      onClick={[Function]}
+                      role="button"
+                      value="Configure MDM"
+                    >
+                      Configure MDM
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      className="as-link category-tab-button "
+                      onClick={[Function]}
+                      role="button"
+                      value="Other"
+                    >
+                      Other
+                    </button>
                   </li>
                 </ul>
               </div>
@@ -67,18 +126,53 @@ exports[`<FAQPage /> render matches previous snapshot 1`] = `
                   <label
                     htmlFor="faqCategory"
                   >
-                    FILTER BY CATEGORY
+                    Filter By Category
                   </label>
                   <select
                     className="form-control"
                     id="faqCategory"
                     onChange={[Function]}
-                    value="ALL"
+                    value="All"
                   >
                     <option
-                      value="ALL"
+                      value="All"
                     >
                       All Categories
+                    </option>
+                    <option
+                      value="All"
+                    >
+                      All
+                    </option>
+                    <option
+                      value="General"
+                    >
+                      General
+                    </option>
+                    <option
+                      value="Network Status"
+                    >
+                      Network Status
+                    </option>
+                    <option
+                      value="Manage My PSE"
+                    >
+                      Manage My PSE
+                    </option>
+                    <option
+                      value="Manage Apps"
+                    >
+                      Manage Apps
+                    </option>
+                    <option
+                      value="Configure MDM"
+                    >
+                      Configure MDM
+                    </option>
+                    <option
+                      value="Other"
+                    >
+                      Other
                     </option>
                   </select>
                 </form>
@@ -88,12 +182,256 @@ exports[`<FAQPage /> render matches previous snapshot 1`] = `
               className="horizontal-line-header"
             >
               <h2>
-                ALL
+                All
               </h2>
             </div>
             <div
               className="faq-entry-list"
-            />
+            >
+              <article
+                className="faq-entry"
+              >
+                <h3
+                  id="faq-0"
+                >
+                  What is FirstNet Local Control?
+                </h3>
+              </article>
+              <article
+                className="faq-entry"
+              >
+                <h3
+                  id="faq-1"
+                >
+                  How do I change my contact information?
+                </h3>
+              </article>
+              <article
+                className="faq-entry"
+              >
+                <h3
+                  id="faq-2"
+                >
+                  Can the general public view FirstNet Local Control?
+                </h3>
+              </article>
+              <article
+                className="faq-entry"
+              >
+                <h3
+                  id="faq-3"
+                >
+                  Why does my view of Local Control differ from my colleague’s view of the portal?
+                </h3>
+              </article>
+              <article
+                className="faq-entry"
+              >
+                <h3
+                  id="faq-4"
+                >
+                  Which alerts are displayed on the Network Status map?
+                </h3>
+              </article>
+              <article
+                className="faq-entry"
+              >
+                <h3
+                  id="faq-5"
+                >
+                  When should I use the emergency network support number?
+                </h3>
+              </article>
+              <article
+                className="faq-entry"
+              >
+                <h3
+                  id="faq-6"
+                >
+                  How do I add or remove a user from the PSE?
+                </h3>
+              </article>
+              <article
+                className="faq-entry"
+              >
+                <h3
+                  id="faq-7"
+                >
+                  How can I view reports of my PSE's usage of our FirstNet Plan?
+                </h3>
+              </article>
+              <article
+                className="faq-entry"
+              >
+                <h3
+                  id="faq-8"
+                >
+                  How can I change our FirstNet Plan?
+                </h3>
+              </article>
+              <article
+                className="faq-entry"
+              >
+                <h3
+                  id="faq-9"
+                >
+                  How can I view information about my PSE's bill?
+                </h3>
+              </article>
+              <article
+                className="faq-entry"
+              >
+                <h3
+                  id="faq-10"
+                >
+                  Can I manage more than one PSE's account?
+                </h3>
+              </article>
+              <article
+                className="faq-entry"
+              >
+                <h3
+                  id="faq-11"
+                >
+                  What is a standard device?
+                </h3>
+              </article>
+              <article
+                className="faq-entry"
+              >
+                <h3
+                  id="faq-12"
+                >
+                  What is a specialized device?
+                </h3>
+              </article>
+              <article
+                className="faq-entry"
+              >
+                <h3
+                  id="faq-13"
+                >
+                  What is a public safety solution?
+                </h3>
+              </article>
+              <article
+                className="faq-entry"
+              >
+                <h3
+                  id="faq-14"
+                >
+                  What if a device or solution has no purchase information?
+                </h3>
+              </article>
+              <article
+                className="faq-entry"
+              >
+                <h3
+                  id="faq-15"
+                >
+                  When new apps are released into the FirstNet App Store, are they available to members of my PSE?
+                </h3>
+              </article>
+              <article
+                className="faq-entry"
+              >
+                <h3
+                  id="faq-16"
+                >
+                  What is the FirstNet App Store?
+                </h3>
+              </article>
+              <article
+                className="faq-entry"
+              >
+                <h3
+                  id="faq-17"
+                >
+                  Can I push apps to my users' devices?
+                </h3>
+              </article>
+              <article
+                className="faq-entry"
+              >
+                <h3
+                  id="faq-18"
+                >
+                  Are all of these apps free?
+                </h3>
+              </article>
+              <article
+                className="faq-entry"
+              >
+                <h3
+                  id="faq-19"
+                >
+                  What apps will I see in FirstNet Local Control?
+                </h3>
+              </article>
+              <article
+                className="faq-entry"
+              >
+                <h3
+                  id="faq-20"
+                >
+                  Will I be notified when a new app becomes available?
+                </h3>
+              </article>
+              <article
+                className="faq-entry"
+              >
+                <h3
+                  id="faq-21"
+                >
+                  What is an MDM?
+                </h3>
+              </article>
+              <article
+                className="faq-entry"
+              >
+                <h3
+                  id="faq-22"
+                >
+                  Can I have more than one MDM configured for a PSE?
+                </h3>
+              </article>
+              <article
+                className="faq-entry"
+              >
+                <h3
+                  id="faq-23"
+                >
+                  Can any FirstNet Application be pushed to an EMM/MDM through Local Control?
+                </h3>
+              </article>
+              <article
+                className="faq-entry"
+              >
+                <h3
+                  id="faq-24"
+                >
+                  Can I remove apps from my MDM?
+                </h3>
+              </article>
+              <article
+                className="faq-entry"
+              >
+                <h3
+                  id="faq-25"
+                >
+                  When would I need to 're-push' an app?  Are new versions automatically pushed?
+                </h3>
+              </article>
+              <article
+                className="faq-entry"
+              >
+                <h3
+                  id="faq-26"
+                >
+                  Do you have a question that wasn’t covered here?
+                </h3>
+              </article>
+            </div>
           </div>
         </div>
       </article>

@@ -163,47 +163,37 @@ class ManageFavoritesStore {
 	}
 
   sortAndReturnRows(rowsToSort) {
-    const coordRegex = /^([-+])?([1-8]?\d(\W\d+)?|90(\W0+)?)\s*(\W?)\s*((N|S|E|W)?)\s*(,?)\s*([-+])?(180(\W0+)?|((1[0-7]\d)|([1-9]?\d))(\W\d+)?)\s*(\W?)\s*((N|S|E|W)?)$/ig;
     const sortOrder = this.sortDirections[this.activeColumn];
 
-    //find rows that resemble coordinates with a regex;
-    const coordRows = rowsToSort.filter(row => {
-      return row[this.activeColumn].match(coordRegex)
+    //partition sorts rowsToSort into an array containing two arrays. The first array matches the conditions, the second does not;
+    //sortedRows[0] will be string rows, sortedRows[1] will be number rows.
+    let sortedRows = _.partition(rowsToSort, (row) => {
+      const firstElement = row[this.activeColumn].split(' ')[0];
+      //if the first character of firstElement is a + or - symbol, ignore it and check the second character;
+      const testCharacter = /([+,-]+)/.test(firstElement.charAt(0))
+        ? firstElement.charAt(1)
+        : firstElement.charAt(0);
+
+      return isNaN(parseInt(testCharacter)) === true;
     });
 
-    //determine whether row should be sorted by numbers or not on the basis of the first character of the first element.
-    const notNumberRows = rowsToSort.filter(row => {
-      if (!row[this.activeColumn].match(coordRegex)) {
-        const firstElement = row[this.activeColumn].split(' ')[0];
-        const firstLetter = firstElement.charAt(0);
-        return isNaN(parseInt(firstLetter)) === true;
-      }
-    });
-    const numberRows = rowsToSort.filter(row => {
-      if (!row[this.activeColumn].match(coordRegex)) {
-        const firstElement = row[this.activeColumn].split(' ')[0];
-        const firstLetter = firstElement.charAt(0);
-        return isNaN(parseInt(firstLetter)) === false;
-      }
-    });
-
-    //sort number rows on the basis of their first element, stripped of anything but digits and parsed into an integer;
-    //this ensures that absolute size of the number is taken into account.
-    const sortedNumberRows = this.numberSort(numberRows, sortOrder, this.activeColumn);
-
-    //sort the rest normally, as if a string.
-    const sortedCoordRows = this.regularSort(coordRows, sortOrder, this.activeColumn);
-    const sortedNotNumberRows = this.regularSort(notNumberRows, sortOrder, this.activeColumn);
+    const sortedStringRows = this.stringSort(sortedRows[0], sortOrder, this.activeColumn);
+    const sortedNumberRows = this.numberSort(sortedRows[1], sortOrder, this.activeColumn);
 
     return sortOrder
-      ? [...sortedNotNumberRows, ...sortedNumberRows, ...sortedCoordRows]
-      : [...sortedCoordRows, ...sortedNumberRows, ...sortedNotNumberRows]
+      ? [...sortedStringRows, ...sortedNumberRows]
+      : [...sortedNumberRows, ...sortedStringRows]
   }
 
   numberSort = (rowsToSort, sortOrder, activeColumn) => {
+    //attempts to transform strings into readable integers, in order to sort by absolute size;
+    //1: splits the string at spaces and finds first element;
+    //2: splits the first element at periods and degree symbols, in order to handle coordinates. We'll still sort based on the first element;
+    //3: removes characters not either a plus or minus symbol or a number;
+    //4: parseInt the result into an integer.
     return rowsToSort.sort((x, y) => {
-      const rowX = parseInt(x[activeColumn].split(' ')[0].replace(/\D+/g, ''));
-      const rowY = parseInt(y[activeColumn].split(' ')[0].replace(/\D+/g, ''));
+      const rowX = parseInt(x[activeColumn].split(' ')[0].split('.')[0].split('°')[0].replace(/[^[+,\-,0-9]+/g, ''));
+      const rowY = parseInt(y[activeColumn].split(' ')[0].split('.')[0].split('°')[0].replace(/[^[+,\-,0-9]+/g, ''));
       if (rowX > rowY) {
         return sortOrder ? -1 : 1;
       }
@@ -214,7 +204,9 @@ class ManageFavoritesStore {
     });
   }
 
-  regularSort = (rowsToSort, sortOrder, activeColumn) => {
+  stringSort = (rowsToSort, sortOrder, activeColumn) => {
+    //sorts as if a string, serially from position 0;
+    //.filter removes empty strings.
     return rowsToSort.sort((x, y) => {
       const rowX = x[activeColumn].toLowerCase().split(' ').filter(Boolean);
       const rowY = y[activeColumn].toLowerCase().split(' ').filter(Boolean);

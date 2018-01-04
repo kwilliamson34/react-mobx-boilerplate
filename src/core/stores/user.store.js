@@ -1,5 +1,6 @@
 import {observable, computed, action} from 'mobx';
 import {apiService} from '../services/api.service';
+import {utilsService} from '../services/utils.service';
 import {history} from '../services/history.service';
 import config from 'config';
 import _ from 'lodash';
@@ -26,10 +27,11 @@ class UserStore {
     const fail = (err) => {
       if (err.response.status === 401) {
 
-        if(!this.userValidationDone){
+        if (!this.userValidationDone) {
           window.location.replace(config.haloLogin);
           throw new Error('Auth failed - redirecting to SSO login...');
         } else {
+          this.resetLeadCaptureFormCookie();
           //Redirect to session timeout page
           history.replace('/session-timeout');
           throw new Error('Session timed out');
@@ -61,10 +63,16 @@ class UserStore {
   @action logoutUser() {
     apiService.logoutUser().then(() => {
       window.location.replace(config.haloLogout);
+      this.resetLeadCaptureFormCookie();
     }).catch((err) => {
       console.error('Received error on logout: ', err);
       window.location.replace(config.haloLogout); //go to halo logout anyway
     });
+  }
+
+  @action resetLeadCaptureFormCookie() {
+    //clears record of requests made through Solution Lead Capture form, re-enabling all buttons on Solution Detail pages.
+    utilsService.setCookie('_fn_lc_solutions_requested', []);
   }
 
   conditionUserObj(userInfo) {
@@ -86,7 +94,6 @@ class UserStore {
       this.user.pseName = '';
       this.user.roles = userInfo.roles || [];
     }
-
     this.userValidationDone = true;
   }
 

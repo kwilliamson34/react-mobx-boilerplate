@@ -47,7 +47,7 @@ export default class NetworkPage extends React.Component {
   renderDeleteModal = () => {
     return <Modal
       id="delete-modal"
-      title={`Delete ${this.networkStore.values.locationName}?`}
+      title={`Delete "${this.networkStore.values.locationName}"?`}
       ref={i => this.deleteModal = i}
       restoreFocusTo="#delete-modal-launcher"
       primaryAction={this.deleteFavorite}
@@ -87,9 +87,8 @@ export default class NetworkPage extends React.Component {
   deleteFavorite = (e) => {
     e.preventDefault();
     const idToDelete = this.networkStore.values.locationId;
+    this.networkStore.clearForm();
     this.manageFavoritesStore.deleteEditLocationFavorite(idToDelete);
-    this.networkStore.setPageTitle('Network Status');
-    this.networkStore.resetValues();
     this.deleteModal.hideModal();
   }
 
@@ -101,7 +100,7 @@ export default class NetworkPage extends React.Component {
   render() {
     const showMap = this.networkStore.iframeIsFullyLoaded;
     return (
-      <article id="network-page" className={`content-wrapper ${utilsService.getIsInternetExplorer() ? 'isIE' : ''}`}>
+      <article id="network-page" className="content-wrapper">
         <PageTitle className="sr-only">{this.networkStore.pageTitle}</PageTitle>
         <iframe src={config.geolinkAuthScript} aria-hidden="true" className="hidden-iframe"></iframe>
 

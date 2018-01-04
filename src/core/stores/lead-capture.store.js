@@ -52,7 +52,7 @@ class LeadCaptureStore {
 
   @action clearForm() {
     this.values = Object.assign({}, this.defaultValues);
-    this.solutionName = '';
+    this.setCurrentSolution('');
     this.updateAlert('');
     this.clearFormFieldRefList();
   }
