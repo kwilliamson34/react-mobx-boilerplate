@@ -305,7 +305,7 @@ class GeolinkStore {
   @action updateSuccess(successText) {
     this.successToDisplay = successText;
   }
-  
+
   @action resetValues() {
     this.defaultValues = {
       locationAddress: '',
