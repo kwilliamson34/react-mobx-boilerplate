@@ -305,7 +305,7 @@ class GeolinkStore {
   @action updateSuccess(successText) {
     this.successToDisplay = successText;
   }
-
+  
   @action resetValues() {
     this.defaultValues = {
       locationAddress: '',
@@ -313,7 +313,6 @@ class GeolinkStore {
       locationId: ''
     };
     this.values = Object.assign({}, this.defaultValues);
-    this.shouldDisplayLocationName = false;
   }
 
   @computed get formIsDirty() {
@@ -343,6 +342,11 @@ class GeolinkStore {
     this.searchMap();
     this.shouldDisplayLocationName = true;
     this.selectedFavoriteName = favorite.favoriteName;
+  }
+
+  @action resetFavorites() {
+    this.shouldDisplayLocationName = false;
+    this.selectedFavoriteName = '';
   }
 
   @computed get searchTerms() {
