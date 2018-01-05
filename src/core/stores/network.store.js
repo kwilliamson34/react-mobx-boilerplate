@@ -313,6 +313,7 @@ class GeolinkStore {
       locationId: ''
     };
     this.values = Object.assign({}, this.defaultValues);
+    this.shouldDisplayLocationName = false;
   }
 
   @computed get formIsDirty() {
