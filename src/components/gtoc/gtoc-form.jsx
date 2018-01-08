@@ -49,11 +49,11 @@ class GtocForm extends React.Component {
   renderCheckbox = (strongLabel, label) => {
     const fullLabel = strongLabel + ': ' + label;
     return <Checkbox
-            value={fullLabel}
-            strongLabel={strongLabel}
-            label={label}
-            checked={this.store.values.femaList.indexOf(fullLabel) > -1}
-            handleOnChange={this.checkboxListRef.handleCheckboxOnChange} />
+      value={fullLabel}
+      strongLabel={strongLabel}
+      label={label}
+      checked={this.store.values.femaList.indexOf(fullLabel) > -1}
+      handleOnChange={this.checkboxListRef.handleCheckboxOnChange} />
   }
 
   renderRadioInput = (title, helperText) => {

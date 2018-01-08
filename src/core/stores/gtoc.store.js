@@ -52,7 +52,7 @@ class GTOCStore {
   }
 
   @action clearForm() {
-    this.values = Object.assign({}, this.defaultValues);
+    this.values = JSON.parse(JSON.stringify(this.defaultValues));
     this.updateAlert('');
     this.clearFormFieldRefList();
   }
@@ -69,7 +69,7 @@ class GTOCStore {
     let formHasChanged = false;
     Object.keys(this.values).forEach(key => {
       //exclude gtocSelection to prevent Unsaved Changes modal from triggering after RadioGroup change.
-      if(key !== 'gtocSelection' && this.values[key].toString() !== this.defaultValues[key].toString()) {
+      if (key !== 'gtocSelection' && this.values[key].toString() !== this.defaultValues[key].toString()) {
         formHasChanged = true;
       }
     });
@@ -92,7 +92,7 @@ class GTOCStore {
     email: userStore.user.email,
     femaList: []
   };
-  @observable values = Object.assign({}, this.defaultValues);
+  @observable values = JSON.parse(JSON.stringify(this.defaultValues));
 }
 
 export const gtocStore = new GTOCStore();
