@@ -1,6 +1,10 @@
 #subscribe-to-gtoc-page {
   padding: 0;
 
+  .form-actions {
+    text-align: left;
+  }
+
   .content-wrapper {
     position: relative;
 
@@ -17,7 +21,6 @@
       }
 
       .fema-map {
-        width: 100%;
         margin-bottom: 30px;
       }
     }
@@ -62,8 +65,7 @@
         color: $fn-black !important; //override default label color, even for an error
         text-transform: uppercase;
       }
-      //TODO: remember to fix this if we change the asterisk and stuff. Change the wrapper name or remove;
-      .subtitle-wrapper {
+      .help-text-wrapper {
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -80,10 +82,10 @@
     }
 
     .femalist-fieldset {
-      padding-left: 50px;
+      padding-left: 35px;
 
       .control-label {
-        padding-left: 20px;
+        padding-left: 0;
       }
 
       .select-all-checkbox-label {
@@ -134,19 +136,6 @@
   }
 }
 
-//TODO: Tablet styles are bunked up
-@media #{$tablet} {
-  #subscribe-to-gtoc-page {
-    .content-wrapper {
-      .femalist-fieldset {
-        .checkbox {
-          padding: 30px 0 30px 20px;
-        }
-      }
-    }
-  }
-}
-
 @media #{$desktop} {
   #subscribe-to-gtoc-page {
     .manage-alerts-h1 {
@@ -155,8 +144,6 @@
 
     .content-wrapper {
       .femalist-fieldset {
-        width: 75%;
-
         .checkbox:not(.select-all-checkbox) {
           padding: 30px 0;
           .checkbox-label {
@@ -166,6 +153,10 @@
           }
         }
       }
+    }
+
+    .email-input {
+      width: 50%;
     }
   }
 }

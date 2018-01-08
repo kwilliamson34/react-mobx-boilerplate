@@ -68,7 +68,8 @@ class GTOCStore {
   @computed get formIsDirty() {
     let formHasChanged = false;
     Object.keys(this.values).forEach(key => {
-      if(this.values[key].toString() !== this.defaultValues[key].toString()) {
+      //exclude gtocSelection to prevent Unsaved Changes modal from triggering after RadioGroup change.
+      if(key !== 'gtocSelection' && this.values[key].toString() !== this.defaultValues[key].toString()) {
         formHasChanged = true;
       }
     });

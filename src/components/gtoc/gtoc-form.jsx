@@ -9,6 +9,7 @@ import TextInput from '../forms/text-input';
 import CheckboxList from '../forms/checkbox-list';
 import Checkbox from '../forms/checkbox';
 import RadioGroup from '../forms/radio-group';
+import RadioInput from '../forms/radio-input';
 
 @observer
 class GtocForm extends React.Component {
@@ -55,25 +56,15 @@ class GtocForm extends React.Component {
             handleOnChange={this.checkboxListRef.handleCheckboxOnChange} />
   }
 
-  renderRadioInputs = (title, subTitle) => {
-    return (
-      <label className="radio-label">
-        <input type="radio"
-          name={title}
-          value={title}
-          checked={this.store.values.gtocSelection === title}
-          onChange={this.radioGroupRef.handleRadioOnChange}/>
-        {title}
-        <span className="cr"></span>
-        <span className="subtitle-wrapper">
-          <div className="help-text">{subTitle}</div>
-          {
-            title === 'Subscribe to alerts' && this.store.values.gtocSelection === 'Subscribe to alerts' &&
-            <span className="required-asterisks"> *</span>
-          }
-        </span>
-      </label>
-    )
+  renderRadioInput = (title, helperText) => {
+    return <RadioInput
+      id="gtocSelection"
+      value={title}
+      labelText={title}
+      helperText={helperText}
+      checked={this.store.values.gtocSelection === title}
+      requiredAsteriskOnHelperText={title === 'Subscribe to alerts' && this.store.values.gtocSelection === 'Subscribe to alerts'}
+      handleOnChange={this.radioGroupRef.handleRadioOnChange}/>
   }
 
   render() {
@@ -87,11 +78,11 @@ class GtocForm extends React.Component {
           id="gtocSelection"
           labelTextIsSrOnly={true}
           labelErrorIsSrOnly={true}
-          className="radiogroup-fieldset"
+          className="col-xs-12 radiogroup-fieldset"
           {...this.props.formChildProps}>
 
-            {this.renderRadioInputs('Subscribe to alerts', 'Select regions to subscribe to network alerts.')}
-            <div className={this.store.values.gtocSelection === 'Subscribe to alerts' ? '' : 'hidden'}>
+            {this.renderRadioInput('Subscribe to alerts', 'Select regions to subscribe to network alerts.')}
+            <div className={`col-xs-12 col-lg-10 ${this.store.values.gtocSelection === 'Subscribe to alerts' ? '' : 'hidden'}`}>
               <CheckboxList
                 ref={this.saveCheckboxListRef}
                 id="femaList"
@@ -99,7 +90,6 @@ class GtocForm extends React.Component {
                 labelText="FEMA Regions List"
                 labelTextIsSrOnly={true}
                 labelErrorIsSrOnly={false}
-                showRequiredAsterisk={false}
                 required={this.store.values.gtocSelection === 'Subscribe to alerts'}
                 selectAll={this.store.selectAll.bind(this.store)}
                 clearAll={this.store.clearAll.bind(this.store)}
@@ -118,10 +108,9 @@ class GtocForm extends React.Component {
               </CheckboxList>
             </div>
 
-            <hr className="radio-group-hr" />
-            {this.renderRadioInputs('Unsubscribe', 'Cancel all existing network alerts subscriptions.')}
-            <hr className="radio-group-hr" />
-
+            <hr className="col-xs-12 radio-group-hr" />
+            {this.renderRadioInput('Unsubscribe', 'Cancel all existing network alerts subscriptions.')}
+            <hr className="col-xs-12 radio-group-hr" />
         </RadioGroup>
 
         <TextInput
@@ -129,6 +118,7 @@ class GtocForm extends React.Component {
           id="email"
           type="input"
           labelText="Email"
+          className="email-input"
           required={true}
           getIsValid={utilsService.isValidEmailAddress}
           errorMessage="Please enter a valid email address."
@@ -139,4 +129,4 @@ class GtocForm extends React.Component {
   }
 }
 
-export default asForm(GtocForm, {submitButtonText: 'Subscribe'})
+export default asForm(GtocForm, {submitButtonText: 'Submit'})

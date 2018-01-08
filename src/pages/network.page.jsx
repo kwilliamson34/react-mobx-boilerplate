@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {inject, observer} from 'mobx-react';
 import config from 'config';
-import {utilsService} from '../core/services/utils.service';
 import PageTitle from '../components/page-title/page-title';
 
 import GeolinkMap from '../components/network/geolink-map';

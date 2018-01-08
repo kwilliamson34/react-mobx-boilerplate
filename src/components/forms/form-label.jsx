@@ -13,7 +13,6 @@ export default class FormLabel extends React.Component {
     errorMessage: PropTypes.string,
     charLimitReached: PropTypes.bool,
     fieldIsRequired: PropTypes.bool,
-    showRequiredAsterisk: PropTypes.bool,
     labelTextIsSrOnly: PropTypes.bool,
     labelErrorIsSrOnly: PropTypes.bool,
     announceError: PropTypes.bool
@@ -26,8 +25,7 @@ export default class FormLabel extends React.Component {
     errorMessage: 'This field has an error',
     labelTextIsSrOnly: false,
     labelErrorIsSrOnly: false,
-    fieldIsRequired: false,
-    showRequiredAsterisk: true
+    fieldIsRequired: false
   }
 
   renderFieldError() {
@@ -49,9 +47,9 @@ export default class FormLabel extends React.Component {
     const TagName = this.props.htmlFor ? 'label' : 'legend';
     return (
       <div className="form-label">
-        <TagName className={`control-label ${this.props.labelTextIsSrOnly && this.props.labelErrorIsSrOnly ? 'sr-only' : ''}`} htmlFor={this.props.htmlFor}>
+        <TagName className="control-label" htmlFor={this.props.htmlFor}>
           <span className={`${this.props.labelTextIsSrOnly ? 'sr-only' : ''}`}>{this.props.labelText}</span>
-          {this.props.fieldIsRequired && this.props.showRequiredAsterisk ? <span className="required-asterisks"> *</span> : ''}
+          {this.props.fieldIsRequired ? <span className={`required-asterisks ${this.props.labelTextIsSrOnly ? 'sr-only' : ''}`}> *</span> : ''}
           {this.props.helperText ? <span className="help-text">{this.props.helperText}</span> : ''}
           {this.renderFieldError()}
         </TagName>

@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
 import {observable, computed} from 'mobx';
 
+import FormLabel from '../forms/form-label';
+
 @observer
 export default class RadioGroup extends React.Component {
 
@@ -11,11 +13,11 @@ export default class RadioGroup extends React.Component {
     id: PropTypes.string.isRequired,
     required: PropTypes.bool,
     labelText: PropTypes.string,
-    helperText: PropTypes.string,
-    optionsList: PropTypes.array,
-    disabled: PropTypes.bool,
+    labelTextIsSrOnly: PropTypes.bool,
     errorMessage: PropTypes.string,
-    labelIsSrOnly: PropTypes.bool,
+    labelErrorIsSrOnly: PropTypes.bool,
+    helperText: PropTypes.string,
+    disabled: PropTypes.bool,
     className: PropTypes.string,
     children: PropTypes.node
   }
@@ -26,7 +28,8 @@ export default class RadioGroup extends React.Component {
     required: false,
     disabled: false,
     errorMessage: 'Please select one of the options.',
-    labelIsSrOnly: false,
+    labelTextIsSrOnly: false,
+    labelErrorIsSrOnly: false,
     className: ''
   }
 
@@ -38,30 +41,14 @@ export default class RadioGroup extends React.Component {
     return this.props.required && this.valueInStore === '';
   }
 
-  //this handler should be passed to all checkbox children in the list if not using optionsList;
+  //this handler should be passed to all checkbox children in the list;
   handleRadioOnChange = (e) => {
-    this.props.dataObject[this.props.id] = e.target.value;
+    this.props.dataObject[this.props.id] = e.value;
     this.hasVisibleError = this.hasFunctionalError;
   }
 
   handleOnBlur = () => {
     this.hasVisibleError = this.hasFunctionalError;
-  }
-
-  renderRadioInputs = () => {
-    return this.props.optionsList.map(option => (
-      <label key={option.title}>
-        <input type="radio"
-          name={this.props.id}
-          value={option.title}
-          aria-disabled={this.props.disabled}
-          checked={this.valueInStore === option.title}
-          onChange={this.handleRadioOnChange}/>
-        {option.title}
-        <span className="cr"></span>
-      </label>
-
-    ));
   }
 
   render() {
@@ -75,9 +62,9 @@ export default class RadioGroup extends React.Component {
           fieldIsRequired={this.props.required}
           labelText={this.props.labelText}
           helperText={this.props.helperText}
-          srOnly={this.props.labelIsSrOnly}
+          labelTextIsSrOnly={this.props.labelTextIsSrOnly}
+          labelErrorIsSrOnly={this.props.labelErrorIsSrOnly}
           errorMessage={this.props.errorMessage}/>
-        {Boolean(this.props.optionsList) && this.renderRadioInputs()}
         {this.props.children}
       </fieldset>
     )
