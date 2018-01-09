@@ -41,6 +41,8 @@ export default class NetworkPage extends React.Component {
   componentWillUnmount() {
     //restore default defaultValues changed during editLocation request;
     this.networkStore.resetValues();
+    //reset selected favorite and remove blue star icon from Search field;
+    this.networkStore.resetFavorites();
   }
 
   renderDeleteModal = () => {
