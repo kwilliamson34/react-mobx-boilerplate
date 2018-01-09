@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link, NavLink, withRouter} from 'react-router-dom';
-import NewTabLink from '../link/new-tab-link';
+import {NewTabLink} from 'fn-common-ui';
 import {adminCards, asideCards} from '../../content/admin-cards.js';
 import {observer, inject, PropTypes} from 'mobx-react';
 import config from 'config';

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {observer,inject} from 'mobx-react';
 import config from 'config';
 
-import NewTabLink from '../link/new-tab-link';
+import {NewTabLink} from 'fn-common-ui';
 
 @inject('store')
 @observer

@@ -151,9 +151,11 @@ exports[`<Footer /> renders matches previous footer snapshot 1`] = `
                 <li
                   role="presentation"
                 />
-                <li>
+                <li
+                  role="presentation"
+                >
                   <a
-                    className="walkthru-toggle"
+                    className="walkthru-toggle as-table-cell"
                     href="#"
                     onClick={[Function]}
                     role="button"
@@ -409,9 +411,11 @@ exports[`<Footer /> renders user role-based snapshots 1`] = `
                 <li
                   role="presentation"
                 />
-                <li>
+                <li
+                  role="presentation"
+                >
                   <a
-                    className="walkthru-toggle"
+                    className="walkthru-toggle as-table-cell"
                     href="#"
                     onClick={[Function]}
                     role="button"
@@ -593,6 +597,7 @@ exports[`<Footer /> renders user role-based snapshots 2`] = `
                     role="presentation"
                   >
                     <a
+                      className="as-table-cell"
                       href="/admin/solutions"
                       onClick={[Function]}
                     >
@@ -705,9 +710,11 @@ exports[`<Footer /> renders user role-based snapshots 2`] = `
                 <li
                   role="presentation"
                 />
-                <li>
+                <li
+                  role="presentation"
+                >
                   <a
-                    className="walkthru-toggle"
+                    className="walkthru-toggle as-table-cell"
                     href="#"
                     onClick={[Function]}
                     role="button"
@@ -961,9 +968,11 @@ exports[`<Footer /> renders user role-based snapshots 3`] = `
                 <li
                   role="presentation"
                 />
-                <li>
+                <li
+                  role="presentation"
+                >
                   <a
-                    className="walkthru-toggle"
+                    className="walkthru-toggle as-table-cell"
                     href="#"
                     onClick={[Function]}
                     role="button"
@@ -1227,9 +1236,11 @@ exports[`<Footer /> renders user role-based snapshots 4`] = `
                 <li
                   role="presentation"
                 />
-                <li>
+                <li
+                  role="presentation"
+                >
                   <a
-                    className="walkthru-toggle"
+                    className="walkthru-toggle as-table-cell"
                     href="#"
                     onClick={[Function]}
                     role="button"
@@ -1401,6 +1412,7 @@ exports[`<Footer /> renders user role-based snapshots 5`] = `
                     role="presentation"
                   >
                     <a
+                      className="as-table-cell"
                       href="/admin/solutions"
                       onClick={[Function]}
                     >
@@ -1503,9 +1515,11 @@ exports[`<Footer /> renders user role-based snapshots 5`] = `
                 <li
                   role="presentation"
                 />
-                <li>
+                <li
+                  role="presentation"
+                >
                   <a
-                    className="walkthru-toggle"
+                    className="walkthru-toggle as-table-cell"
                     href="#"
                     onClick={[Function]}
                     role="button"
