@@ -7,11 +7,7 @@ exports[`<GtocForm /> renders matches previous snapshot 1`] = `
   >
     <div
       id="gtoc-form"
-    >
-      <hr
-        className="radio-group-hr"
-      />
-    </div>
+    />
     <div
       className="form-actions "
     >
@@ -24,7 +20,7 @@ exports[`<GtocForm /> renders matches previous snapshot 1`] = `
           onClick={[Function]}
           type="button"
         >
-          Subscribe
+          Submit
         </button>
       </div>
       

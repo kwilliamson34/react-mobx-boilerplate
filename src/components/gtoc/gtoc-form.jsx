@@ -70,7 +70,6 @@ class GtocForm extends React.Component {
   render() {
     return (
       <div id="gtoc-form">
-        <hr className="radio-group-hr" />
         <RadioGroup
           ref={this.saveRadioGroupRef}
           dataObject={this.store.values}
@@ -81,6 +80,7 @@ class GtocForm extends React.Component {
           className="col-xs-12 radiogroup-fieldset"
           {...this.props.formChildProps}>
 
+            <hr className="radio-group-hr" />
             {this.renderRadioInput('Subscribe to alerts', 'Select regions to subscribe to network alerts.')}
             <div className={`col-xs-12 col-lg-10 ${this.store.values.gtocSelection === 'Subscribe to alerts' ? '' : 'hidden'}`}>
               <CheckboxList
