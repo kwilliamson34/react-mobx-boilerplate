@@ -26,7 +26,8 @@ import NetworkPage from './pages/network.page';
 import ErrorPage from './pages/error.page.jsx';
 import SessionTimeoutPage from './pages/session-timeout.page';
 import SubscribeToGTOC from './pages/gtoc.page';
-import SubscribeToGTOCSuccess from './pages/gtoc-success.page';
+import SubscribeToGTOCSuccess from './pages/gtoc-subscribe-success.page';
+import UnsubscribeToGTOCSuccess from './pages/gtoc-unsubscribe-success.page';
 import ManageFavoritesPage from './pages/manage-favorites.page';
 
 //Admin pages
@@ -165,6 +166,7 @@ export default class App extends React.Component {
               <Route path="/manage-favorites" component={ManageFavoritesPage} />
               <Route path="/subscribe-to-alerts" component={SubscribeToGTOC} />
               <Route path="/subscribe-to-alerts-success" component={SubscribeToGTOCSuccess} />
+              <Route path="/unsubscribe-to-alerts-success" component={UnsubscribeToGTOCSuccess} />
               <Route path="/feedback" component={FeedbackPage} />
               <Route path="/feedback-success" component={FeedbackSuccessPage} />
               <Route path="/faq" component={FAQPage} />

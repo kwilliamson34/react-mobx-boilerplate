@@ -13,20 +13,23 @@ export default class RadioGroup extends React.Component {
     id: PropTypes.string.isRequired,
     required: PropTypes.bool,
     labelText: PropTypes.string,
-    helperText: PropTypes.string,
-    optionsList: PropTypes.array,
-    disabled: PropTypes.bool,
+    labelTextIsSrOnly: PropTypes.bool,
     errorMessage: PropTypes.string,
-    className: PropTypes.string
+    labelErrorIsSrOnly: PropTypes.bool,
+    helperText: PropTypes.string,
+    disabled: PropTypes.bool,
+    className: PropTypes.string,
+    children: PropTypes.node
   }
 
   static defaultProps = {
-    optionsList: [],
     labelText: '',
     helperText: '',
     required: false,
     disabled: false,
     errorMessage: 'Please select one of the options.',
+    labelTextIsSrOnly: false,
+    labelErrorIsSrOnly: false,
     className: ''
   }
 
@@ -38,28 +41,14 @@ export default class RadioGroup extends React.Component {
     return this.props.required && this.valueInStore === '';
   }
 
-  handleOnChange = (e) => {
-    this.props.dataObject[this.props.id] = e.target.value;
+  //this handler should be passed to all checkbox children in the list;
+  handleRadioOnChange = (e) => {
+    this.props.dataObject[this.props.id] = e.value;
     this.hasVisibleError = this.hasFunctionalError;
   }
 
   handleOnBlur = () => {
     this.hasVisibleError = this.hasFunctionalError;
-  }
-
-  renderRadioInputs = () => {
-    return this.props.optionsList.map(option => (
-      <label key={option.title}>
-        <input type="radio"
-          name={this.props.id}
-          value={option.title}
-          aria-disabled={this.props.disabled}
-          checked={this.valueInStore === option.title}
-          onChange={this.handleOnChange}/>
-        {option.title}
-        <span className="cr"></span>
-      </label>
-    ));
   }
 
   render() {
@@ -73,8 +62,10 @@ export default class RadioGroup extends React.Component {
           fieldIsRequired={this.props.required}
           labelText={this.props.labelText}
           helperText={this.props.helperText}
+          labelTextIsSrOnly={this.props.labelTextIsSrOnly}
+          labelErrorIsSrOnly={this.props.labelErrorIsSrOnly}
           errorMessage={this.props.errorMessage}/>
-        {this.renderRadioInputs()}
+        {this.props.children}
       </fieldset>
     )
   }

@@ -11,7 +11,7 @@ import ScreenshotGallery from '../components/screenshot-gallery/screenshot-galle
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 import Alerts from '../components/alerts/alerts';
 import Truncate from '../components/truncate/truncate';
-import NewTabLink from '../components/link/new-tab-link';
+import {NewTabLink} from 'fn-common-ui';
 
 @inject('store')
 @observer

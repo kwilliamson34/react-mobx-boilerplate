@@ -344,6 +344,11 @@ class GeolinkStore {
     this.selectedFavoriteName = favorite.favoriteName;
   }
 
+  @action resetFavorites() {
+    this.shouldDisplayLocationName = false;
+    this.selectedFavoriteName = '';
+  }
+
   @computed get searchTerms() {
     return this.values.locationAddress.split(' ');
   }

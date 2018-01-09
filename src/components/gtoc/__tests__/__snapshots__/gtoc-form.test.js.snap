@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GtocForm /> renders matches previous snapshot 1`] = `
+<section>
+  <form
+    noValidate={true}
+  >
+    <div
+      id="gtoc-form"
+    />
+    <div
+      className="form-actions "
+    >
+      
+      <div
+        className="form-group button-wrapper"
+      >
+        <button
+          className="fn-primary form-submit "
+          onClick={[Function]}
+          type="button"
+        >
+          Submit
+        </button>
+      </div>
+      
+    </div>
+  </form>
+</section>
+`;
