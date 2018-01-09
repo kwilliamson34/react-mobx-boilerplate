@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
 import {observable, computed} from 'mobx';
 
-import FormLabel from '../forms/form-label';
+import FormLabel from './form-label';
 
 @observer
 export default class RadioGroup extends React.Component {
