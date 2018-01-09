@@ -63,7 +63,7 @@ export default class Footer extends React.Component {
 									<Link to="/admin/devices">Specialized Devices</Link>
 								</li>}
 								{this.userStore.destinationIsPermitted.shopPublicSafetySolutions && <li role="presentation">
-									<Link to="/admin/solutions">Public Safety Solutions </Link>
+									<Link to="/admin/solutions" className="as-table-cell">Public Safety Solutions </Link>
 								</li>}
 							</div>
 							{this.userStore.destinationIsPermitted.network &&
@@ -171,8 +171,8 @@ export default class Footer extends React.Component {
 							</li>
 						}
 						{this.props.showPrivateLinks &&
-							<li>
-								<a href="#" role="button" className="walkthru-toggle" onClick={this.handleToggleWalkthrough}>
+							<li role="presentation">
+								<a href="#" role="button" className="walkthru-toggle as-table-cell" onClick={this.handleToggleWalkthrough}>
 									{`${this.joyrideStore.tourIsDisabled ? 'Enable' : 'Disable'}`} Site Walkthrough
 								</a>
 							</li>

@@ -201,7 +201,7 @@ export default class PSEHeader extends React.Component {
 						Expand Profile Menu
 					</span>
 				</button>
-				<a id="pse-profile" href="#profile" className="deaden">
+				<a id="pse-profile" href="#profile" className="deaden mobile-profile-block">
 					{this.renderProfileBlock()}
 				</a>
 				<ul
