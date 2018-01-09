@@ -35,9 +35,7 @@ export default class RadioInput extends React.Component {
       }
     }
   }
-
-  // title === 'Subscribe to alerts' && this.store.values.gtocSelection === 'Subscribe to alerts' &&
-
+  
   render() {
     return (
       <label className="radio-label">
