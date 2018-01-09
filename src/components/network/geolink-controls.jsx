@@ -210,7 +210,8 @@ export default class GeolinkControls extends React.Component {
           id={this.store.shouldDisplayLocationName ? 'locationName' : 'locationAddress'}
           type="search"
           labelText="Address. Use the arrow keys as you type to scroll through your saved favorites."
-          labelIsSrOnly={true}
+          labelTextIsSrOnly={true}
+          labelErrorIsSrOnly={true}
           className="search-form"
           showClearButton={true}
           handleSubmit={this.store.searchMap.bind(this.store)}
