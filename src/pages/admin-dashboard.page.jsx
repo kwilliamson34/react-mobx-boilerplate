@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import {observer, inject} from 'mobx-react';
 import {observable} from 'mobx';
-import NewTabLink from '../components/link/new-tab-link';
+import {NewTabLink} from 'fn-common-ui';
 import config from 'config';
 import {adminCards, asideCards} from '../content/admin-cards.js';
 import PageTitle from '../components/page-title/page-title';
