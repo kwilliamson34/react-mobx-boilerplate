@@ -7,7 +7,7 @@ const CompressionPlugin = require('compression-webpack-plugin');
 const precss = require("precss");
 const autoprefixer = require("autoprefixer");
 
-// Set the environment; allowed ['dev','stage','prod']
+// Set the environment; allowed ['dev','qa','stage','prod']
 const env = 'prod';
 
 console.log('Built for the \x1b[34m' + env + '\x1b[30m environment');
@@ -138,7 +138,7 @@ module.exports = {
 				output: { path: path.join(__dirname, "build") }
 			}
 		}),
-		
+
 		new CompressionPlugin({
 			asset: "[path].gz[query]",
 			algorithm: "gzip",

@@ -2,12 +2,13 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 
 const precss = require("precss");
 const autoprefixer = require("autoprefixer");
 
 // Set the environment; allowed ['dev','qa','stage','prod']
-const env = 'dev';
+const env = 'qa';
 
 console.log('Built for the \x1b[34m' + env + '\x1b[30m environment');
 
@@ -17,18 +18,6 @@ module.exports = {
 		'babel-polyfill',
 		// babel doesn't handle Promise by default
 		// this enables promise polyfills for IE
-
-		'react-hot-loader/patch',
-		// activate HMR for React
-
-		'webpack-dev-server/client?https://localhost:8443',
-		// bundle the client for webpack-dev-server
-		// and connect to the provided endpoint
-
-		'webpack/hot/only-dev-server',
-		// bundle the client for hot reloading
-		// only- means to only hot reload for successful updates
-
 		'./index.jsx'
 	],
 	output: {
@@ -37,29 +26,6 @@ module.exports = {
 		publicPath: '/'
 		// necessary for HMR to know where to load the hot update chunks
 	},
-	devtool: 'eval',
-	devServer: {
-		https: true,
-		port: 8443,
-		disableHostCheck: true,
-		historyApiFallback: true,
-		hot: true,
-
-		contentBase: path.resolve(__dirname, 'build'),
-		// match the output path
-
-		publicPath: '/',
-		proxy: {
-			'/api': {
-				target: 'https://troy-localcontrol.sapientfirst.net',
-				secure: false
-			},
-			'/oauth/validate': {
-				target: 'https://troy-localcontrol.sapientfirst.net',
-				secure: false
-			}
-		}
-	},
 	resolve: {
 		extensions: ['.js', '.jsx'],
 		alias: {
@@ -67,7 +33,7 @@ module.exports = {
 		},
 	},
 	node: {
-    console: true,
+    console: false,
     fs: 'empty',
     net: 'empty',
     tls: 'empty'
@@ -142,8 +108,9 @@ module.exports = {
 	},
 
 	plugins: [
+		new webpack.optimize.UglifyJsPlugin(), //minify everything
+		new webpack.optimize.AggressiveMergingPlugin(),//Merge chunks
 		new webpack.IgnorePlugin(/regenerator|nodent|js-beautify/, /ajv/),
-		new webpack.HotModuleReplacementPlugin(),
 
 		new webpack.ProvidePlugin({
 			'jQuery': 'jquery',
@@ -156,7 +123,7 @@ module.exports = {
 		}),
 
 		new HtmlWebpackPlugin({
-			template: './index.dev.ejs',
+			template: './index.qa.ejs',
 			hash: false
 		}),
 
@@ -170,6 +137,14 @@ module.exports = {
 				context: path.join(__dirname, "src"),
 				output: { path: path.join(__dirname, "build") }
 			}
+		}),
+
+		new CompressionPlugin({
+			asset: "[path].gz[query]",
+			algorithm: "gzip",
+			test: /\.js$|\.css$|\.html$/,
+			threshold: 10240,
+			minRatio: 0.8
 		})
 	]
 };
