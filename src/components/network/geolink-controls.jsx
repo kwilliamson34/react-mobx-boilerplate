@@ -264,6 +264,22 @@ export default class GeolinkControls extends React.Component {
                 checked={this.store.showAlertLayer}
                 disabled={this.props.disabled || !this.store.authIsComplete} />
             </div>
+            <div className="col-xs-12 col-sm-6 no-gutters">
+              <Checkbox label="Fire"
+                handleOnChange={this.toggleTraffic}
+                checked={this.store.showTrafficLayer}
+                disabled={this.props.disabled} />
+              <Checkbox label="Flood"
+                handleOnChange={this.toggleAlerts}
+                checked={this.store.showAlertLayer}
+                disabled={this.props.disabled || !this.store.authIsComplete} />
+            </div>
+            <div className="col-xs-12 col-sm-6 no-gutters">
+              <Checkbox label="Wind"
+                handleOnChange={this.toggleTraffic}
+                checked={this.store.showTrafficLayer}
+                disabled={this.props.disabled} />
+            </div>
           </fieldset>
         </form>
       </div>
