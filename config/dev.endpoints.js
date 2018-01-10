@@ -21,7 +21,7 @@ const config = {
   manageServicesLink: 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn',
   manageVoicemailAndUsageLink: 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn',
   manageIotDevicesLink: 'https://fnstaging.jasper.com/provision/jsp/login.jsp',
-  incidentUpliftLink: 'http://zlx72364.vci.att.com:8085/imp-ui/#/help',
+  incidentUpliftLink: 'https://test-incidentmgt.firstnet.att.com',
   viewWirelessReportsLink: 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn?requestedPage=downloadReports',
   shopStandardDevicesLink: 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn',
   showOnboardingWalkthrough: true
