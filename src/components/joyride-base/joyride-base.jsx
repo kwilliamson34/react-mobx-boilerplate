@@ -47,7 +47,6 @@ export default class JoyrideBase extends React.Component {
 
   componentWillUnmount() {
     this.joyrideStore.stopTour();
-    this.showModal(false, '#tour-intro-modal');
   }
 
   handleCloseIntro = () => {
