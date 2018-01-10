@@ -42,7 +42,8 @@ export class MobileHeader extends React.Component {
           <Checkbox
             id="select-all-checkbox"
             label="Select or Deselect All Checkboxes"
-            labelIsSrOnly={true}
+            labelTextIsSrOnly={true}
+            labelErrorIsSrOnly={true}
             handleOnChange={this.props.handleSelectAllCheckbox}
             checked={this.props.checkSelectAllCheckbox}/>
           <button type="button" className="as-link mobile-header-button" onClick={this.toggleSort}>

@@ -1,4 +1,5 @@
 import {action, observable, computed, autorun} from 'mobx';
+import {userStore} from './user.store';
 import {apiService} from '../services/api.service';
 import {history} from '../services/history.service';
 
@@ -6,17 +7,29 @@ class GTOCStore {
   constructor() {
     // check form for errors
     autorun(() => {
-      let hasError = false;
-      this.formFieldRefList.forEach(ref => {
-        if(ref && ref.hasFunctionalError) {
-          hasError = true;
-        }
-      });
-      this.formHasError = hasError;
+      // check that initial values are available before validating for the first time
+      if(userStore.userValidationDone) {
+        let hasError = false;
+        this.formFieldRefList.forEach(ref => {
+          if(ref && ref.hasFunctionalError) {
+            hasError = true;
+          }
+        });
+        this.formHasError = hasError;
+      }
     })
   }
 
   @action submitForm() {
+    if (this.values.gtocSelection === 'Subscribe to alerts') {
+      this.subscribeToGTOC();
+    }
+    else if (this.values.gtocSelection === 'Unsubscribe') {
+      this.unsubscribeFromGTOC();
+    }
+  }
+
+  @action subscribeToGTOC() {
     const success = () => {
       this.clearForm();
       history.push('/subscribe-to-alerts-success');
@@ -24,11 +37,22 @@ class GTOCStore {
     const failure = () => {
       this.updateAlert('An unknown error occured. Please try again later.');
     }
-    apiService.submitGTOCSubscriptionForm(this.values).then(success, failure);
+    apiService.subscribeToGTOC(this.values).then(success, failure);
+  }
+
+  @action unsubscribeFromGTOC() {
+    const success = () => {
+      this.clearForm();
+      history.push('/unsubscribe-to-alerts-success');
+    }
+    const failure = () => {
+      this.updateAlert('An unknown error occured. Please try again later.');
+    }
+    apiService.unsubscribeFromGTOC(this.values.email).then(success, failure);
   }
 
   @action clearForm() {
-    this.values = Object.assign({}, this.defaultValues);
+    this.values = JSON.parse(JSON.stringify(this.defaultValues));
     this.updateAlert('');
     this.clearFormFieldRefList();
   }
@@ -44,7 +68,8 @@ class GTOCStore {
   @computed get formIsDirty() {
     let formHasChanged = false;
     Object.keys(this.values).forEach(key => {
-      if(this.values[key].toString() !== this.defaultValues[key].toString()) {
+      //exclude gtocSelection to prevent Unsaved Changes modal from triggering after RadioGroup change.
+      if (key !== 'gtocSelection' && this.values[key].toString() !== this.defaultValues[key].toString()) {
         formHasChanged = true;
       }
     });
@@ -63,10 +88,11 @@ class GTOCStore {
   @observable formHasError = true;
   @observable alertToDisplay = '';
   @observable defaultValues = {
-    email: '',
+    gtocSelection: '',
+    email: userStore.user.email,
     femaList: []
   };
-  @observable values = Object.assign({}, this.defaultValues);
+  @observable values = JSON.parse(JSON.stringify(this.defaultValues));
 }
 
 export const gtocStore = new GTOCStore();

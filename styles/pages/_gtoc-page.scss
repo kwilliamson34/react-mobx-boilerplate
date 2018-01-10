@@ -1,21 +1,26 @@
 #subscribe-to-gtoc-page {
   padding: 0;
 
+  .form-actions {
+    text-align: left;
+  }
+
   .content-wrapper {
     position: relative;
 
-    h1 {
-      margin: 6rem 0;
+    .manage-alerts-h1 {
+      margin: 30px 0;
+      text-align: left;
     }
 
-    figure {
-      figcaption {
+    .fema-map-wrapper {
+      .fema-figcaption {
         text-align: left;
         font-size: $fn-small-text-desktop;
         margin-bottom: 20px;
       }
 
-      img {
+      .fema-map {
         width: 100%;
         margin-bottom: 30px;
       }
@@ -23,7 +28,7 @@
 
     .control-label {
       &[for="email"] {
-        margin-top: 3rem;
+        margin-top: 55px;
       }
     }
 
@@ -32,9 +37,13 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: baseline;
+
       .select-all-checkbox {
         border: 0;
-        padding-top: 25px;
+      }
+
+      .clear-all-button {
+        font-size: $fn-h5-desktop;
       }
     }
 
@@ -43,86 +52,116 @@
       margin: 0;
     }
 
-    fieldset {
-      .checkbox {
-        label {
-          font-size: $fn-label-desktop;
-          color: $fn-black !important; //override default label color, even for an error
-          font-weight: $fn-normal-weight;
+    .radio-group-hr {
+      border-color: $fn-mdgrey;
+      margin-top: 60px;
+      margin-bottom: 0;
+      padding: 0;
+    }
 
-          .select-all-description,
-          strong {
-            vertical-align: top;
-            margin-left: 5px;
-            font-weight: $fn-bold-weight;
-          }
+
+    .radiogroup-fieldset {
+      padding-left: 0;
+
+      .radio-label {
+        padding: 0;
+        margin-top: 60px;
+        font-size: $fn-h5-desktop;
+        color: $fn-black !important; //override default label color, even for an error
+        text-transform: uppercase;
+      }
+      .help-text-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .help-text {
+          padding-top: 5px;
+        }
+
+        .required-asterisks {
+          margin-left: 5px;
+          align-self: flex-start;
         }
       }
     }
 
-    fieldset {
-      legend {
-        font-size: $fn-h4-desktop;
+    .femalist-fieldset {
+      padding-left: 35px;
+
+      .control-label {
+        padding-left: 0;
+      }
+
+      .select-all-checkbox-label {
+        min-height: 0;
+        padding-bottom: 20px;
+        padding-left: 0;
+      }
+
+      .select-all-description,
+      .strong-label {
+        font-weight: $fn-medium-weight;
+        font-size: $fn-h5-desktop;
+      }
+
+      .checkbox-label,
+      .select-all-checkbox-label {
+        font-size: $fn-label-desktop;
+        color: $fn-black !important; //override default label color, even for an error
         font-weight: $fn-normal-weight;
       }
-      .checkbox {
+
+      .cr {
+        margin-bottom: 0;
+      }
+
+      .checkbox:not(.select-all-checkbox) {
         vertical-align: middle;
+        padding: 20px 0;
         border-bottom: 1px solid $fn-grey;
-        padding: 30px 0;
 
-        label {
-          min-height: 1rem;
-          padding-bottom: 0;
-
-          .cr {
-            margin-bottom: 0;
-          }
-
-          strong {
-            width: 20%;
-          }
+        .checkbox-label {
+          min-height: 0;
+          padding: 0;
 
           span.label-text-normal {
             display: inline-block;
-            width: 75%;
+            font-size: $fn-h5-desktop;
+            width: 100%;
             float: right;
           }
         }
-
-        &:last-of-type:not(.select-all-checkbox) {
-          border-bottom: 1px solid $fn-mdgrey;
+        &:last-of-type {
+          padding-bottom: 0;
+          border-bottom: none;
         }
       }
     }
   }
 }
 
-@media #{$mobile} {
+@media #{$desktop} {
   #subscribe-to-gtoc-page {
+    .manage-alerts-h1 {
+      margin: 60px 0;
+    }
+
     .content-wrapper {
-      h1 {
-        margin: 3rem 0;
-      }
-
-      label,
-      .error {
-        padding: 0;
-      }
-
-      .control-label[for="femaList"] {
-        font-size: $fn-h5-desktop;
-      }
-
-      fieldset .checkbox {
-        padding: 20px 0;
-
-        label {
-          span.label-text-normal {
-            width: 100%;
-            padding-left: 35px;
+      .femalist-fieldset {
+        .checkbox:not(.select-all-checkbox) {
+          padding: 30px 0;
+          .checkbox-label {
+            span.label-text-normal {
+              width: 85%;
+            }
           }
         }
       }
+    }
+
+    .email-input {
+      width: 50%;
     }
   }
 }
