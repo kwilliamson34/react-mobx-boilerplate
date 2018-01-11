@@ -23,7 +23,6 @@ export default function asForm (MyComponent, attributes) {
         updateSuccess: PropTypes.func,
         alertToDisplay: PropTypes.string,
         successToDisplay: PropTypes.string,
-        suppressExitModal: PropTypes.bool,
         submitButtonText: PropTypes.string //optional computed, overwrites attribute and default
       }),
       disabled: PropTypes.bool,
@@ -80,9 +79,6 @@ export default function asForm (MyComponent, attributes) {
       //set up reroute blockade (returns unblocking function)
       this.unblock = history.block((location) => {
         if (this.store.formIsDirty && !this.props.disabled) {
-          if (Boolean(this.store.suppressExitModal) && this.store.suppressExitModal) {
-            return;
-          }
           this.interceptedRoute = location.pathname;
           this.exitModal.showModal();
           return false; //does not allow to proceed to new page
