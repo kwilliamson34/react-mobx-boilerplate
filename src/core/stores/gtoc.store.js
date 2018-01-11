@@ -76,6 +76,7 @@ class GTOCStore {
   }
 
   @computed get suppressExitModal() {
+    //prevents exit modal from firing if the user has only selected a radio button, but nothing else has changed;
     let suppressExitModal = false;
     Object.keys(this.values).forEach(key => {
       if (key !== 'gtocSelection' && this.values[key].toString() !== this.defaultValues[key].toString()) {
