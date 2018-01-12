@@ -1,4 +1,4 @@
-![FirstNet](images/firstnetlogo-144x144.png) FirstNet Local Control
+![FirstNet Local Control](images/logo-FirstNet-local-control.svg)
 =======
 
 ## How to use this app
