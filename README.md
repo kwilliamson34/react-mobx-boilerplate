@@ -25,7 +25,7 @@ By default, this will build for the `prod` environment. There are four environme
 
 `prod`, intended for production.
 
-`stage`, intended for production testing.
+`stage`, intended for User Acceptance Testing (UAT).
 
 `qa`, intended for internal testing.
 
