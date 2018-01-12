@@ -147,7 +147,6 @@ export default function asForm (MyComponent, attributes) {
     }
 
     handleDefaultFormOnSubmit = (event) => {
-      console.log('DANNNNG');
       event.preventDefault();
     }
 
