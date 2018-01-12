@@ -146,6 +146,11 @@ export default function asForm (MyComponent, attributes) {
       }
     }
 
+    handleDefaultFormOnSubmit = (event) => {
+      console.log('DANNNNG');
+      event.preventDefault();
+    }
+
     showAllFormErrors = () => {
       //manage the alert bar first, so that it's read first
       this.store.updateAlert('Please fix the following errors.');
@@ -187,7 +192,7 @@ export default function asForm (MyComponent, attributes) {
       }
       return (
         <section>
-          <form noValidate>
+          <form noValidate onSubmit={this.handleDefaultFormOnSubmit}>
             {!this.props.suppressAlertBars &&
               <Alerts
                 showAlert={this.showAlertBar}

@@ -36,12 +36,6 @@ export default class RadioInput extends React.Component {
     }
   }
 
-  handleKeyPress = (e) => {
-    if (e.key == 'Enter') {
-      e.preventDefault();
-    }
-  }
-
   render() {
     return (
       <label className="radio-label">
@@ -49,7 +43,6 @@ export default class RadioInput extends React.Component {
           name={this.props.id}
           value={this.props.value}
           checked={this.props.checked}
-          onKeyPress={this.handleKeyPress}
           aria-disabled={this.props.disabled}
           onChange={this.handleOnChange}/>
         {this.props.labelText || this.props.value}
