@@ -35,7 +35,7 @@ export default class RadioInput extends React.Component {
       }
     }
   }
-  
+
   render() {
     return (
       <label className="radio-label">
