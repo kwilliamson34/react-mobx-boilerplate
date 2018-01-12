@@ -1,43 +1,30 @@
-## SECTION 1. GETTING STARTED
+![FirstNet Local Control](/images/logo-FirstNet-local-control.svg)
+=======
 
-### Step 1.1. How to reach the QA sites
+## How to use this app
 
-For QA purposes, the FirstNet portals are currently deployed on servers which can be accessed without any setup. Go to [Halo Authorized Links](https://tools.publicis.sapient.com/confluence/pages/viewpage.action?spaceKey=FPSE&title=Halo+authorized+links) for links that will log you in directly to these sites. No further steps are necessary.
+You need to have Node 8.6 or newer to run this app. [Download Node 8.6+](https://nodejs.org/)
 
-If you are doing development, continue to the next steps.
+### For Development
 
-### Step 1.2. How to install Node
+Install Node packages and start webpack-dev-server
 
-Node 8.6 or newer is required to run this app. [Download Node 8.6+](https://nodejs.org/)
+```
+npm install
 
-NOTE: To check your Node version, enter `node -v` in your terminal. If this doesn't show you a version number, you probably don't have Node installed.
+npm start
+```
 
-### Step 1.3. Configure your computer to use SSH
+A browser window will open on your default browser and attempt to navigate to the portal. You may be asked for login credentials.
 
-FirstNet requires a number of private Node packages to run. To enable installation of these packages, follow the steps in Section 1 ('Steps to set up your SSH key') of [this Readme](https://us.tools.publicis.sapient.com/bitbucket/projects/FNAPI/repos/common-ui/browse/README.md) to configure your computer for SSH (Secure Shell) transfers.
+### For Deployment
 
-### Step 1.4. How to this clone repository onto your computer
+To start a build for deployment, run
 
-From your terminal, run `git clone ssh://git@us.tools.publicis.sapient.com/fpse/pse-homepage-ui.git`. The repo will download into a new directory called `pse-homepage-ui`. Go to this directory. You should be on a git branch named `dev`. This is the main development branch for IOC1. See Section 2 ('Branch names') below for more information on Sapient FirstNet's git branch naming conventions.
+`npm run build`
 
-### Step 1.5. How to install required Node packages and start Node server
+By default, this will build for the `prod` environment. There are three environments predefined in the Webpack configuration files.
 
-From your development branch, run `npm install`. Your computer will install the Node packages required to run this app. This may take several minutes.
-
-After installation is complete, run `npm start`.
-
-After the server starts, a window will open in your preferred browser and direct you to the FirstNet portal. You may dismiss any security/privacy warnings. If you have not already logged in to this FirstNet portal, you may be directed to an error page. Continue to Step 1.6
-
-### Step 1.6. How to login to access localhost
-
-Go to [Halo Authorized Links](https://tools.publicis.sapient.com/confluence/pages/viewpage.action?spaceKey=FPSE&title=Halo+authorized+links) and find the "Localhost (for Developers)" section. Use these links to login directly to your localhost.
-
-## TESTING
-
-Testing is done with [Jest](https://facebook.github.io/jest/). Please provide a snapshot test for each page or component, or update existing snapshots if a page or component has changed.
-
-Tests should be placed in a directory called `__tests__`, within the directory containing the page/component being tested. The test file should contain 'test' within its filename, for example, `my-component.test.js`. These steps allow Jest to find the test files.
-
-Run all tests using `npm test`. To run an individual test, add the specific file name, for example, `npm test my-component.test.js`. To update a snapshot, use `npm test my-component.test.js -- -u`.
-
-NOTE: `npm test -- -u` will update all available snapshots. Be careful that you don't fill your branch up with unwanted changes!
+`prod`, for production.
+`stage`, for testing.
+`dev`, for development.
