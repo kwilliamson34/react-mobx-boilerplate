@@ -12,7 +12,7 @@ Install Node packages using `npm install`.
 
 Start webpack-dev-server using `npm start`.
 
-After dev server begins, a browser window will open on your default browser and attempt to navigate to the portal. You may be asked for login credentials.
+After dev server starts, a browser window will open on your default browser and attempt to navigate to the portal. You may be asked for login credentials.
 
 
 ### For Deployment
