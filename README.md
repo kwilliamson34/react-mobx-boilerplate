@@ -1,4 +1,4 @@
-FirstNet Local Control (/images/firstnetlogo-144x144.png)
+![FirstNet](/images/firstnetlogo-144x144.png) FirstNet Local Control
 =======
 
 ## How to use this app
@@ -27,6 +27,6 @@ To start a build for deployment, run
 
 By default, this will build for the `prod` environment. There are three environments predefined in the Webpack configuration files.
 
-* `prod`, for production.
-* `stage`, for testing.
+* `prod`, for production;
+* `stage`, for testing;
 * `dev`, for development.
