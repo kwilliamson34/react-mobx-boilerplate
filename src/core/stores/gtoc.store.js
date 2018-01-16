@@ -20,7 +20,7 @@ class GTOCStore {
     })
   }
 
-  @action submitForm(e) {
+  @action submitForm() {
     if (this.values.gtocSelection === 'Subscribe to alerts') {
       this.subscribeToGTOC();
     }
