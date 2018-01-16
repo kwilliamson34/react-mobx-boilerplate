@@ -1,12 +1,12 @@
 
 jest.unmock('../../core/stores/master.store');
 jest.unmock('../faq.page');
-jest.unmock('../../components/faq/faq');
+jest.unmock('fn-common-ui');
 jest.unmock('../../content/faq-data.json');
 
 import {observer, inject} from 'mobx-react';
 import FAQPage from '../faq.page';
-import {Faq} from '../../components/faq/faq';
+import {FAQ} from 'fn-common-ui';
 import {faqs} from '../../content/faq-data.json';
 
 describe('<FAQPage />', () => {
