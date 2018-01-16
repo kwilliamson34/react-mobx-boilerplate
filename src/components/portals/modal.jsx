@@ -11,8 +11,10 @@ export default class Modal extends React.Component {
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     primaryAction: PropTypes.func.isRequired,
+    primaryButtonClass: PropTypes.string,
     primaryButtonLabel: PropTypes.string,
     secondaryAction: PropTypes.func,
+    secondaryButtonClass: PropTypes.string,
     secondaryButtonLabel: PropTypes.string,
     restoreFocusTo: PropTypes.string,
     children: PropTypes.oneOfType([PropTypes.string, PropTypes.object, PropTypes.array])
@@ -20,7 +22,9 @@ export default class Modal extends React.Component {
 
   static defaultProps = {
     primaryButtonLabel: 'Save',
+    primaryButtonClass: '',
     secondaryButtonLabel: 'Exit',
+    secondaryButtonClass: '',
     children: ''
   }
 
@@ -91,11 +95,11 @@ export default class Modal extends React.Component {
                   <div className="col-xs-12 text-center">
                     {/* If there are two buttons, the primary button should be on the right. */}
                     {this.props.secondaryAction !== undefined &&
-                      <button className="fn-secondary" onClick={this.props.secondaryAction}>
+                      <button className={`fn-secondary ${this.props.secondaryButtonClass}`} onClick={this.props.secondaryAction}>
                         {this.props.secondaryButtonLabel}
                       </button>
                     }
-                    <button className="fn-primary" onClick={this.props.primaryAction}>
+                    <button className={`fn-primary ${this.props.primaryButtonClass}`} onClick={this.props.primaryAction}>
                       {this.props.primaryButtonLabel}
                     </button>
                   </div>
