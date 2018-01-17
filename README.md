@@ -4,7 +4,7 @@
 ### Prerequisites
 
 * Node v8.6 or higher from [https://nodejs.org/](https://nodejs.org/).
-* Git version control system from [https://git-scm.com/](https://git-scm.com/).
+* Git command line client from [https://git-scm.com/](https://git-scm.com/).
 
 ### Development
 
