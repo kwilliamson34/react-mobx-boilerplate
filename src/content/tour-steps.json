@@ -77,9 +77,21 @@
         }
       },
       {
+        "title": "Map Locations",
+        "text": "<p>Enter any street address or ZIP code to center the map on a specific location. Save a location to your favorites and manage all favorite locations.</p>",
+        "selector": ".map-search",
+        "position": "top"
+      },
+      {
         "title": "Map Controls",
-        "text": "<p>Enter any street address or ZIP code to center the map on a specific location.</p><p>Select map overlays to view current weather, traffic, and network specific alerts.</p><p>Report network issues and subscribe to get alerts.</p>",
-        "selector": ".geolink-controls",
+        "text": "<p>Select map overlays to view current weather, traffic, fire, wind, flood, and network specific alerts.</p>",
+        "selector": ".map-layers",
+        "position": "top"
+      },
+      {
+        "title": "Network Issues",
+        "text": "<p>Report network issues and subscribe to get alerts.</p>",
+        "selector": ".network-contact-info",
         "position": "top"
       }
     ]
