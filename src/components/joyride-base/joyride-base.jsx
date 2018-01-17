@@ -47,7 +47,6 @@ export default class JoyrideBase extends React.Component {
 
   componentWillUnmount() {
     this.joyrideStore.stopTour();
-    this.showModal(false, '#tour-intro-modal');
   }
 
   handleCloseIntro = () => {
@@ -138,8 +137,10 @@ export default class JoyrideBase extends React.Component {
       title="Welcome to Local Control"
       ref={i => this.tourIntroModal = i}
       primaryAction={this.handleStartTour}
+      primaryButtonClass="pull-right"
       primaryButtonLabel="Start Walkthrough"
       secondaryAction={this.handleDisableTour}
+      secondaryButtonClass="pull-left"
       secondaryButtonLabel="Disable Walkthrough">
       <div className="modal-body">
         <p>Follow the beacons to take a tour of the important features of this site.</p>

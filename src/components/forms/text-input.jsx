@@ -66,7 +66,7 @@ export default class TextInput extends React.Component {
     const newValue = e.target.value;
     if (this.props.charLimit) {
       this.props.dataObject[this.props.id] = newValue.substr(0, this.props.charLimit);
-      this.charLimitReached = newValue.length > this.props.charLimit;
+      this.charLimitReached = newValue.length >= this.props.charLimit;
     } else {
       this.props.dataObject[this.props.id] = newValue;
     }
@@ -103,7 +103,7 @@ export default class TextInput extends React.Component {
     const clearButtonVisible = this.props.showClearButton && this.valueInStore !== '';
     const submitButtonVisible = this.props.handleSubmit !== undefined;
     return (
-      <div className={`form-group ${this.props.className} ${this.hasVisibleError || this.charLimitReached ? 'has-error' : ''}`}>
+      <div className={`form-group ${this.props.className} ${this.hasVisibleError ? 'has-error' : ''}`}>
         <FormLabel
           htmlFor={this.props.id}
           charLimitReached={this.charLimitReached}
