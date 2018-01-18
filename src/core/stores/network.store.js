@@ -415,6 +415,9 @@ class GeolinkStore {
   @observable showWeatherLayer = false;
   @observable showTrafficLayer = false;
   @observable showAlertLayer = false;
+  @observable showFireLayer = false;
+  @observable showFloodLayer = false;
+  @observable showWindLayer = false;
   @observable networkIssueNumber = '800-574-7000';
 
   //Map Search, Add and Edit Location Favorites
