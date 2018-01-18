@@ -1,84 +1,48 @@
-.filters.row {
-  padding-bottom: 30px;
-  .control-label.filter-category-label {
-    font-size: $fn-h5-mobile;
-    font-weight: $fn-medium-weight;
-    padding-bottom: 5px;
-  }
-  .form-group-title {
-    margin: 10px 0 -10px;
-    padding-left: 25px;
-  }
+.filters {
+  position: relative;
+  padding: 10px 0;
+
   .form-group {
-    margin-top: 5px;
-    margin-bottom: 0;
-  }
-  .reset-filters {
-    margin-top: 15px;
-  }
-  .filter-toggle {
-    height: 33px;
-    margin-top: 30px;
-    padding: 4px 20px 0;
-    border: none;
-    color: $fn-white;
-    border-radius: 20px 20px 0 0;
-    font-size: 1.4rem;
-    font-weight: $fn-medium-weight;
-    letter-spacing: 1px;
-    background-color: $fn-ltblue;
-  }
-  .filter-toggle-border {
-    margin: 0 0 0 -15px;
-    border-top: none;
-    width: 100vw;
-    height: 5px;
-    background-color: $fn-ltblue;
-  }
-}
-
-.selectable-button {
-  li {
-    height: 48px;
-  }
-  .list-inline {
-    margin-right: -5px;
-  }
-  .btn-selectable {
-    font-size: 1.4rem;
+    display: inline-block;
     width: 100%;
-    min-width: auto;
-    padding: initial;
-    border: 1px solid $fn-ltblue;
-    border-radius: 6px;
-    font-size: 1.4rem;
-    text-transform: uppercase;
-    text-align: center;
-    i {
-      margin-right: 5px;
-    }
-    i,
-    span {
-      pointer-events: none;
-    }
-    &.active,
-    &.hover,
-    &:active,
-    &:active:focus,
-    &:hover {
-      background: $fn-blue;
-      color: $fn-white;
+    margin: 5px 0 1rem;
+
+    select {
+      display: block;
     }
   }
-}
-
-@media #{$desktop} {
-  .filters.row {
-    padding: 20px 0 30px;
-    .divider-bottom {
-      margin: 20px 15px 10px;
-      width: calc( 100% - 30px);
-      border-bottom: 1px solid $fn-grey;
+  .selectable-button {
+    li {
+      height: 48px;
+    }
+    .list-inline {
+      margin-right: -5px;
+    }
+    .btn-selectable {
+      font-size: 1.4rem;
+      width: 100%;
+      min-width: auto;
+      padding: initial;
+      border: 1px solid $fn-ltblue;
+      border-radius: 6px;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      text-align: center;
+      i {
+        margin-right: 5px;
+      }
+      i,
+      span {
+        pointer-events: none;
+      }
+      &.active,
+      &.hover,
+      &:active,
+      &:active:focus,
+      &:hover {
+        background: $fn-blue;
+        color: $fn-white;
+      }
     }
   }
 }
