@@ -54,6 +54,25 @@ export default class GeolinkControls extends React.Component {
     }
   };
 
+  toggleFire = input => {
+    if (input.type === 'checkbox') {
+      this.store.toggleFire();
+    }
+  };
+
+  toggleWind = input => {
+    if (input.type === 'checkbox') {
+      this.store.toggleWind();
+    }
+  };
+
+  toggleFlood = input => {
+    if (input.type === 'checkbox') {
+      this.store.toggleFlood();
+    }
+  };
+
+
   onFavoriteClick = (favorite) => {
     this.store.selectFavorite(favorite);
     this.store.formFieldRefList.find((el) => {
@@ -266,18 +285,18 @@ export default class GeolinkControls extends React.Component {
             </div>
             <div className="col-xs-12 col-sm-6 no-gutters">
               <Checkbox label="Fire"
-                handleOnChange={this.toggleTraffic}
-                checked={this.store.showTrafficLayer}
+                handleOnChange={this.toggleFire}
+                checked={this.store.showFireLayer}
                 disabled={this.props.disabled} />
               <Checkbox label="Flood"
-                handleOnChange={this.toggleAlerts}
-                checked={this.store.showAlertLayer}
+                handleOnChange={this.toggleFlood}
+                checked={this.store.showFloodLayer}
                 disabled={this.props.disabled || !this.store.authIsComplete} />
             </div>
             <div className="col-xs-12 col-sm-6 no-gutters">
               <Checkbox label="Wind"
-                handleOnChange={this.toggleTraffic}
-                checked={this.store.showTrafficLayer}
+                handleOnChange={this.toggleWind}
+                checked={this.store.showWindLayer}
                 disabled={this.props.disabled} />
             </div>
           </fieldset>
