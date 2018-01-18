@@ -187,6 +187,33 @@ class GeolinkStore {
     }, '*');
   }
 
+  @action toggleFire() {
+    this.showFireLayer = !this.showFireLayer;
+    this.mapIframeRef.contentWindow.postMessage({
+      eventName: 'loadLayer',
+      value: 'Mobility:FireWarnings',
+      flag: this.showFireLayer
+    }, '*');
+  }
+
+  @action toggleFlood() {
+    this.showFloodLayer = !this.showFloodLayer;
+    this.mapIframeRef.contentWindow.postMessage({
+      eventName: 'loadLayer',
+      value: 'FlashFloods_FN',
+      flag: this.showFloodLayer
+    }, '*');
+  }
+
+  @action toggleWind() {
+    this.showWindLayer = !this.showWindLayer;
+    this.mapIframeRef.contentWindow.postMessage({
+      eventName: 'loadLayer',
+      value: 'Mobility:WindWarnings',
+      flag: this.showWindLayer
+    }, '*');
+  }
+
   @action resetLayerToggles() {
     this.showNetworkLayer = true;
     this.showWeatherLayer = false;
