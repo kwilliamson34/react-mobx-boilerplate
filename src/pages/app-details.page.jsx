@@ -10,7 +10,7 @@ import AppReviews from '../components/app-reviews/app-reviews';
 import ScreenshotGallery from '../components/screenshot-gallery/screenshot-gallery';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 import Alerts from '../components/alerts/alerts';
-import Truncate from '../components/truncate/truncate';
+import {Truncate} from 'fn-common-ui';
 import {NewTabLink} from 'fn-common-ui';
 
 @inject('store')
