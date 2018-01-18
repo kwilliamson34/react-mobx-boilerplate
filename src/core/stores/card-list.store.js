@@ -73,7 +73,11 @@ class CardListStore {
   }
 
   @action changePlatformFilter(value) {
-    this.platformFilter = value;
+    if (this.platformFilter === value) {
+			this.platformFilter = '';
+		} else {
+			this.platformFilter = value;
+		}
   }
 
   @action addFilterElementRef(id, ref) {
@@ -178,14 +182,9 @@ class CardListStore {
   @observable idToFocus = null;
   @observable showFilters = false;
 
-  @observable platforms = [{
-      display: 'iOS',
-      name: 'IOS'
-    },
-    {
-      display: 'Android',
-      name: 'ANDROID'
-    }
+  @observable platforms = [		
+    {display: 'iOS', name: 'IOS', icon: 'icon-apple'},
+    {display: 'Android', name: 'ANDROID', icon: 'icon-android'}
   ];
   @observable platformFilter = '';
   @observable categories = [];
