@@ -2,9 +2,10 @@
 
 exports[`<CheckboxList /> renders matches previous snapshot 1`] = `
 <div
-  className="form-group key-class "
+  className="form-group "
 >
   <fieldset
+    className=""
     id="key"
     onBlur={[Function]}
   >
@@ -14,7 +15,9 @@ exports[`<CheckboxList /> renders matches previous snapshot 1`] = `
       <div
         className="checkbox select-all-checkbox"
       >
-        <label>
+        <label
+          className="select-all-checkbox-label"
+        >
           <input
             checked={true}
             name="select-all-checkbox"
@@ -33,7 +36,7 @@ exports[`<CheckboxList /> renders matches previous snapshot 1`] = `
         </label>
       </div>
       <button
-        className="btn as-link"
+        className="btn as-link clear-all-button"
         onClick={[Function]}
         type="button"
       >
@@ -49,9 +52,10 @@ exports[`<CheckboxList /> renders matches previous snapshot 1`] = `
 
 exports[`<CheckboxList /> renders matches previous snapshot 2`] = `
 <div
-  className="form-group key-class "
+  className="form-group "
 >
   <fieldset
+    className=""
     id="key"
     onBlur={[Function]}
   >
@@ -61,7 +65,9 @@ exports[`<CheckboxList /> renders matches previous snapshot 2`] = `
       <div
         className="checkbox select-all-checkbox"
       >
-        <label>
+        <label
+          className="select-all-checkbox-label"
+        >
           <input
             checked={false}
             name="select-all-checkbox"
@@ -80,7 +86,7 @@ exports[`<CheckboxList /> renders matches previous snapshot 2`] = `
         </label>
       </div>
       <button
-        className="btn as-link"
+        className="btn as-link clear-all-button"
         onClick={[Function]}
         type="button"
       >
@@ -98,9 +104,10 @@ exports[`<CheckboxList /> renders matches previous snapshot 2`] = `
 
 exports[`<CheckboxList /> renders matches previous snapshot 3`] = `
 <div
-  className="form-group key-class "
+  className="form-group "
 >
   <fieldset
+    className=""
     id="key"
     onBlur={[Function]}
   >
@@ -110,7 +117,9 @@ exports[`<CheckboxList /> renders matches previous snapshot 3`] = `
       <div
         className="checkbox select-all-checkbox"
       >
-        <label>
+        <label
+          className="select-all-checkbox-label"
+        >
           <input
             checked={false}
             name="select-all-checkbox"
@@ -129,7 +138,7 @@ exports[`<CheckboxList /> renders matches previous snapshot 3`] = `
         </label>
       </div>
       <button
-        className="btn as-link"
+        className="btn as-link clear-all-button"
         onClick={[Function]}
         type="button"
       >
