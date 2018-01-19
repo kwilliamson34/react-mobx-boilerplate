@@ -1,8 +1,6 @@
 jest.unmock('../app-reviews');
 jest.unmock('mobx');
-
 jest.unmock('date-fns');
-jest.unmock('../../truncate/truncate');
 jest.unmock('../../rating/rating');
 
 import AppReviews from '../app-reviews';
