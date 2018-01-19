@@ -178,17 +178,16 @@ export default class GeolinkControls extends React.Component {
         }
 
         <div className="container">
-          <div className="row is-flex">
-            <div className="col-xs-12 col-md-6 map-search">
+          <div className="col-xs-12 col-md-6 is-flex">
+            <div className="col-xs-12 map-search">
               {this.renderSearchArea()}
             </div>
-            <hr className="col-xs-12 visible-xs visible-sm"/>
-            <div className="col-xs-12 col-md-6 map-layers">
+            <div className="col-xs-12 no-gutters">
+              <hr />
+            </div>
+            <div className="col-xs-12 map-layers">
               {this.renderLayersArea()}
             </div>
-          </div>
-
-          <div className="row is-flex">
             <div className="col-xs-12 no-gutters">
               <hr />
             </div>
@@ -203,14 +202,20 @@ export default class GeolinkControls extends React.Component {
             </div>
           </div>
 
-          <div className="row is-flex">
-            <div className="legend-block col-xs-12 col-md-6">
+          <div className="col-xs-12 col-md-6 is-flex">
+            <div className="legend-block col-xs-12">
               {this.renderNetworkLegend()}
             </div>
-            <div className="legend-block col-xs-12 col-md-6">
+            <div className="legend-block col-xs-12">
               {this.renderWeatherLegend()}
             </div>
-            <div className="legend-block col-xs-12 col-md-6">
+            <div className="legend-block col-xs-12">
+              {this.renderWeatherLegend()}
+            </div>
+            <div className="legend-block col-xs-12">
+              {this.renderTrafficLegend()}
+            </div>
+            <div className="legend-block col-xs-12">
               {this.renderTrafficLegend()}
             </div>
           </div>
