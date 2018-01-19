@@ -80,18 +80,10 @@ class CardListStore {
 		}
   }
 
-  @action addFilterElementRef(id, ref) {
-    this.filterElementRefs[id] = ref;
-  }
-
   @action resetFilters() {
     this.categoryFilter = '';
     this.segmentFilter = '';
     this.platformFilter = '';
-
-    Object.keys(this.filterElementRefs).forEach((key) => {
-      this.filterElementRefs[key].value = '';
-    });
   }
 
   @action restoreOriginalList() {
@@ -178,7 +170,6 @@ class CardListStore {
   @observable searchQuery = '';
   @observable isLoading = false;
   @observable searchIsApplied = false;
-  @observable filterElementRefs = [];
   @observable idToFocus = null;
   @observable showFilters = false;
 

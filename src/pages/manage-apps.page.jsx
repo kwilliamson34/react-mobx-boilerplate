@@ -6,7 +6,7 @@ import {utilsService} from '../core/services/utils.service';
 
 import PageTitle from '../components/page-title/page-title';
 import {CardList} from '../components/card-list/card-list';
-import {Filters} from '../components/filters/filters';
+import {Filters} from 'fn-common-ui';
 import Alerts from '../components/alerts/alerts';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 import TextInput from '../components/forms/text-input';
