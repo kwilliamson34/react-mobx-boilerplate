@@ -11,4 +11,39 @@
       display: block;
     }
   }
+  .selectable-button {
+    li {
+      height: 48px;
+    }
+    .list-inline {
+      margin-right: -5px;
+    }
+    .btn-selectable {
+      font-size: 1.4rem;
+      width: 100%;
+      min-width: auto;
+      padding: initial;
+      border: 1px solid $fn-ltblue;
+      border-radius: 6px;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      text-align: center;
+      background: $fn-white;
+      i {
+        margin-right: 5px;
+      }
+      i,
+      span {
+        pointer-events: none;
+      }
+      &.active,
+      &.hover,
+      &:active,
+      &:active:focus,
+      &:hover {
+        background: $fn-blue;
+        color: $fn-white;
+      }
+    }
+  }
 }
