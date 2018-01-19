@@ -5,14 +5,18 @@ exports[`<FormLabel /> renders matches previous snapshot 1`] = `
   className="form-label"
 >
   <legend
-    className="control-label "
+    className="control-label"
     htmlFor=""
   >
-    testLabel
+    <span
+      className=""
+    >
+      testLabel
+    </span>
     
     
     <div
-      className="msgBlock error error-list"
+      className="msgBlock error error-list "
     >
       <span
         aria-atomic="true"
@@ -38,14 +42,18 @@ exports[`<FormLabel /> renders matches previous snapshot 2`] = `
   className="form-label"
 >
   <label
-    className="control-label "
+    className="control-label"
     htmlFor="example-id"
   >
-    testLabel
+    <span
+      className=""
+    >
+      testLabel
+    </span>
     
     
     <div
-      className="msgBlock error error-list"
+      className="msgBlock error error-list "
     >
       <span
         aria-atomic="true"
@@ -71,10 +79,14 @@ exports[`<FormLabel /> renders matches previous snapshot 3`] = `
   className="form-label"
 >
   <label
-    className="control-label "
+    className="control-label"
     htmlFor="example-id"
   >
-    testLabel
+    <span
+      className=""
+    >
+      testLabel
+    </span>
     
     <span
       className="help-text"
@@ -82,7 +94,7 @@ exports[`<FormLabel /> renders matches previous snapshot 3`] = `
       helper text
     </span>
     <div
-      className="msgBlock error error-list"
+      className="msgBlock error error-list "
     >
       <span
         aria-atomic="true"
@@ -108,12 +120,16 @@ exports[`<FormLabel /> renders matches previous snapshot 4`] = `
   className="form-label"
 >
   <label
-    className="control-label "
+    className="control-label"
     htmlFor="example-id"
   >
-    testLabel
     <span
-      className="required-asterisks"
+      className=""
+    >
+      testLabel
+    </span>
+    <span
+      className="required-asterisks "
     >
        *
     </span>
@@ -123,7 +139,7 @@ exports[`<FormLabel /> renders matches previous snapshot 4`] = `
       helper text
     </span>
     <div
-      className="msgBlock error error-list"
+      className="msgBlock error error-list "
     >
       <span
         aria-atomic="true"
@@ -149,12 +165,16 @@ exports[`<FormLabel /> renders matches previous snapshot 5`] = `
   className="form-label"
 >
   <label
-    className="control-label "
+    className="control-label"
     htmlFor="example-id"
   >
-    testLabel
     <span
-      className="required-asterisks"
+      className=""
+    >
+      testLabel
+    </span>
+    <span
+      className="required-asterisks "
     >
        *
     </span>
@@ -164,7 +184,7 @@ exports[`<FormLabel /> renders matches previous snapshot 5`] = `
       helper text
     </span>
     <div
-      className="msgBlock error error-list"
+      className="msgBlock error error-list "
     >
       <span
         aria-atomic="true"
@@ -190,12 +210,16 @@ exports[`<FormLabel /> renders matches previous snapshot 6`] = `
   className="form-label"
 >
   <label
-    className="control-label sr-only"
+    className="control-label"
     htmlFor="example-id"
   >
-    testLabel
     <span
-      className="required-asterisks"
+      className=""
+    >
+      testLabel
+    </span>
+    <span
+      className="required-asterisks "
     >
        *
     </span>
@@ -205,7 +229,7 @@ exports[`<FormLabel /> renders matches previous snapshot 6`] = `
       helper text
     </span>
     <div
-      className="msgBlock error error-list"
+      className="msgBlock error error-list "
     >
       <span
         aria-atomic="true"

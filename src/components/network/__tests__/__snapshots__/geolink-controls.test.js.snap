@@ -142,7 +142,9 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
                 <div
                   className="checkbox form-group "
                 >
-                  <label>
+                  <label
+                    className="checkbox-label"
+                  >
                     <input
                       aria-disabled={false}
                       checked={false}
@@ -185,7 +187,9 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
                 <div
                   className="checkbox form-group "
                 >
-                  <label>
+                  <label
+                    className="checkbox-label"
+                  >
                     <input
                       aria-disabled={false}
                       checked={false}
@@ -219,7 +223,9 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
                 <div
                   className="checkbox form-group "
                 >
-                  <label>
+                  <label
+                    className="checkbox-label"
+                  >
                     <input
                       aria-disabled={false}
                       checked={false}
@@ -249,7 +255,9 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
                 <div
                   className="checkbox form-group "
                 >
-                  <label>
+                  <label
+                    className="checkbox-label"
+                  >
                     <input
                       aria-disabled={false}
                       checked={false}
@@ -599,7 +607,9 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                 <div
                   className="checkbox form-group disabled"
                 >
-                  <label>
+                  <label
+                    className="checkbox-label"
+                  >
                     <input
                       aria-disabled={true}
                       checked={false}
@@ -642,7 +652,9 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                 <div
                   className="checkbox form-group disabled"
                 >
-                  <label>
+                  <label
+                    className="checkbox-label"
+                  >
                     <input
                       aria-disabled={true}
                       checked={false}
@@ -676,7 +688,9 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                 <div
                   className="checkbox form-group disabled"
                 >
-                  <label>
+                  <label
+                    className="checkbox-label"
+                  >
                     <input
                       aria-disabled={true}
                       checked={false}
@@ -706,7 +720,9 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                 <div
                   className="checkbox form-group disabled"
                 >
-                  <label>
+                  <label
+                    className="checkbox-label"
+                  >
                     <input
                       aria-disabled={true}
                       checked={false}
@@ -1056,7 +1072,9 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                 <div
                   className="checkbox form-group "
                 >
-                  <label>
+                  <label
+                    className="checkbox-label"
+                  >
                     <input
                       aria-disabled={false}
                       checked={false}
@@ -1099,7 +1117,9 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                 <div
                   className="checkbox form-group "
                 >
-                  <label>
+                  <label
+                    className="checkbox-label"
+                  >
                     <input
                       aria-disabled={false}
                       checked={false}
@@ -1133,7 +1153,9 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                 <div
                   className="checkbox form-group "
                 >
-                  <label>
+                  <label
+                    className="checkbox-label"
+                  >
                     <input
                       aria-disabled={false}
                       checked={false}
@@ -1163,7 +1185,9 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                 <div
                   className="checkbox form-group disabled"
                 >
-                  <label>
+                  <label
+                    className="checkbox-label"
+                  >
                     <input
                       aria-disabled={true}
                       checked={false}
@@ -1513,7 +1537,9 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                 <div
                   className="checkbox form-group "
                 >
-                  <label>
+                  <label
+                    className="checkbox-label"
+                  >
                     <input
                       aria-disabled={false}
                       checked={false}
@@ -1556,7 +1582,9 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                 <div
                   className="checkbox form-group "
                 >
-                  <label>
+                  <label
+                    className="checkbox-label"
+                  >
                     <input
                       aria-disabled={false}
                       checked={false}
@@ -1590,7 +1618,9 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                 <div
                   className="checkbox form-group "
                 >
-                  <label>
+                  <label
+                    className="checkbox-label"
+                  >
                     <input
                       aria-disabled={false}
                       checked={false}
@@ -1620,7 +1650,9 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                 <div
                   className="checkbox form-group "
                 >
-                  <label>
+                  <label
+                    className="checkbox-label"
+                  >
                     <input
                       aria-disabled={false}
                       checked={false}
