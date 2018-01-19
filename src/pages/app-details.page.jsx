@@ -10,7 +10,7 @@ import AppReviews from '../components/app-reviews/app-reviews';
 import ScreenshotGallery from '../components/screenshot-gallery/screenshot-gallery';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 import Alerts from '../components/alerts/alerts';
-import Truncate from '../components/truncate/truncate';
+import {Truncate} from 'fn-common-ui';
 import {NewTabLink} from 'fn-common-ui';
 
 @inject('store')
@@ -64,7 +64,7 @@ export default class AppDetailsPage extends React.Component {
     return (
       <div>
         <h2 id="app-details-description">Description</h2>
-        <Truncate className="truncate-container" charLimit={550}>
+        <Truncate charLimit={550}>
           {currentAppObject.long_description}
         </Truncate>
       </div>
@@ -76,7 +76,7 @@ export default class AppDetailsPage extends React.Component {
       <section className="whats-new">
         <h2 id="app-details-whats-new" className="whats-new-title">What&apos;s New</h2>
         <div className="whats-new-date">{utilsService.normalizedDate(versionObj.release_date, 'MMMM D, YYYY')}</div>
-        <Truncate className="truncate-container" charLimit={500}>
+        <Truncate charLimit={500}>
           {versionObj.version_note || ''}
         </Truncate>
       </section>

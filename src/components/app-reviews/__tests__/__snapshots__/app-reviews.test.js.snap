@@ -67,35 +67,6 @@ exports[`<AppReviews /> render tests renders one review and does not render Load
         className="review-date"
       />
     </div>
-    <div
-      className="truncate-container"
-    >
-      <span
-        className="truncate-contents"
-      >
-        <p
-          dangerouslySetInnerHTML={
-            Object {
-              "__html": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse …",
-            }
-          }
-        />
-      </span>
-      <button
-        aria-expanded={false}
-        aria-haspopup="true"
-        className="btn-link truncate-button"
-        onClick={[Function]}
-      >
-        <span>
-          Show more
-        </span>
-        <i
-          aria-hidden="true"
-          className="icon-arrowDown"
-        />
-      </button>
-    </div>
   </div>
 </div>
 `;
@@ -167,35 +138,6 @@ exports[`<AppReviews /> render tests renders three reviews and displays the Load
         className="review-date"
       />
     </div>
-    <div
-      className="truncate-container"
-    >
-      <span
-        className="truncate-contents"
-      >
-        <p
-          dangerouslySetInnerHTML={
-            Object {
-              "__html": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse …",
-            }
-          }
-        />
-      </span>
-      <button
-        aria-expanded={false}
-        aria-haspopup="true"
-        className="btn-link truncate-button"
-        onClick={[Function]}
-      >
-        <span>
-          Show more
-        </span>
-        <i
-          aria-hidden="true"
-          className="icon-arrowDown"
-        />
-      </button>
-    </div>
   </div>
   <div
     aria-labelledby="Review-82"
@@ -260,35 +202,6 @@ exports[`<AppReviews /> render tests renders three reviews and displays the Load
         className="review-date"
       />
     </div>
-    <div
-      className="truncate-container"
-    >
-      <span
-        className="truncate-contents"
-      >
-        <p
-          dangerouslySetInnerHTML={
-            Object {
-              "__html": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse …",
-            }
-          }
-        />
-      </span>
-      <button
-        aria-expanded={false}
-        aria-haspopup="true"
-        className="btn-link truncate-button"
-        onClick={[Function]}
-      >
-        <span>
-          Show more
-        </span>
-        <i
-          aria-hidden="true"
-          className="icon-arrowDown"
-        />
-      </button>
-    </div>
   </div>
   <div
     aria-labelledby="Review-83"
@@ -352,35 +265,6 @@ exports[`<AppReviews /> render tests renders three reviews and displays the Load
       <div
         className="review-date"
       />
-    </div>
-    <div
-      className="truncate-container"
-    >
-      <span
-        className="truncate-contents"
-      >
-        <p
-          dangerouslySetInnerHTML={
-            Object {
-              "__html": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse …",
-            }
-          }
-        />
-      </span>
-      <button
-        aria-expanded={false}
-        aria-haspopup="true"
-        className="btn-link truncate-button"
-        onClick={[Function]}
-      >
-        <span>
-          Show more
-        </span>
-        <i
-          aria-hidden="true"
-          className="icon-arrowDown"
-        />
-      </button>
     </div>
   </div>
   <button
