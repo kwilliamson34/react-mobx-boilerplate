@@ -182,7 +182,7 @@ class CardListStore {
   @observable idToFocus = null;
   @observable showFilters = false;
 
-  @observable platforms = [		
+  @observable platforms = [
     {display: 'iOS', name: 'IOS', icon: 'icon-apple'},
     {display: 'Android', name: 'ANDROID', icon: 'icon-android'}
   ];
