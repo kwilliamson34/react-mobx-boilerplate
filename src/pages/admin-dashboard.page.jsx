@@ -63,7 +63,7 @@ export default class AdminDashboardPage extends React.Component {
             <PageTitle>Administration</PageTitle>
           </div>
           <div className="row no-gutters" numcards={this.numCardsShown}>
-            <section className={`col-xs-12 ${hideAside ? 'hide-aside' : 'col-lg-8'} manage-actions`}>
+            <section className={`col-xs-12 ${hideAside ? 'hide-aside' : 'col-lg-8'} manage-actions walkthrough-admin-dashboard`}>
               {!hideAside && <div className="col-xs-12">
                 <h2 className="as-h4">Management</h2>
               </div>}
@@ -75,7 +75,7 @@ export default class AdminDashboardPage extends React.Component {
                 </ul>
               </nav>
             </section>
-            {!hideAside && <aside className="col-xs-12 col-lg-4 shop-actions">
+            {!hideAside && <aside className="col-xs-12 col-lg-4 shop-actions walkthrough-purchasing">
               <div className="col-xs-12">
                 <h2 className="as-h4">Purchasing &amp; Provisioning</h2>
               </div>
