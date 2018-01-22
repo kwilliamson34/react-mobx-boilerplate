@@ -82,29 +82,18 @@ exports[`<Filters /> matches previous snapshot 1`] = `
         className="col-sm-4 col-xs-12"
       >
         <div
-          className="form-group"
+          className="selectable-button form-group"
         >
-          <div>
-            <label
-              className="control-label filter-category-label"
-              htmlFor="platform-filter"
-              tabIndex="0"
-            >
-              Platform
-            </label>
-            <select
-              className="form-control"
-              defaultValue={undefined}
-              id="platform-filter"
-              onChange={[Function]}
-            >
-              <option
-                value=""
-              >
-                All Platforms
-              </option>
-            </select>
-          </div>
+          <label
+            className="selectable-button-group-label control-label"
+            htmlFor="platform-filter"
+          >
+            Platform
+          </label>
+          <ul
+            className="list-inline"
+            id="platform-filter"
+          />
         </div>
       </div>
     </div>
@@ -234,29 +223,18 @@ exports[`<Filters /> matches previous snapshot 2`] = `
         className="col-sm-4 col-xs-12"
       >
         <div
-          className="form-group"
+          className="selectable-button form-group"
         >
-          <div>
-            <label
-              className="control-label filter-category-label"
-              htmlFor="platform-filter"
-              tabIndex="0"
-            >
-              Platform
-            </label>
-            <select
-              className="form-control"
-              defaultValue={undefined}
-              id="platform-filter"
-              onChange={[Function]}
-            >
-              <option
-                value=""
-              >
-                All Platforms
-              </option>
-            </select>
-          </div>
+          <label
+            className="selectable-button-group-label control-label"
+            htmlFor="platform-filter"
+          >
+            Platform
+          </label>
+          <ul
+            className="list-inline"
+            id="platform-filter"
+          />
         </div>
       </div>
     </div>
@@ -392,29 +370,18 @@ exports[`<Filters /> matches previous snapshot 3`] = `
         className="col-sm-4 col-xs-12"
       >
         <div
-          className="form-group"
+          className="selectable-button form-group"
         >
-          <div>
-            <label
-              className="control-label filter-category-label"
-              htmlFor="platform-filter"
-              tabIndex="0"
-            >
-              Platform
-            </label>
-            <select
-              className="form-control"
-              defaultValue={undefined}
-              id="platform-filter"
-              onChange={[Function]}
-            >
-              <option
-                value=""
-              >
-                All Platforms
-              </option>
-            </select>
-          </div>
+          <label
+            className="selectable-button-group-label control-label"
+            htmlFor="platform-filter"
+          >
+            Platform
+          </label>
+          <ul
+            className="list-inline"
+            id="platform-filter"
+          />
         </div>
       </div>
     </div>
@@ -550,35 +517,65 @@ exports[`<Filters /> matches previous snapshot 4`] = `
         className="col-sm-4 col-xs-12"
       >
         <div
-          className="form-group"
+          className="selectable-button form-group"
         >
-          <div>
-            <label
-              className="control-label filter-category-label"
-              htmlFor="platform-filter"
-              tabIndex="0"
+          <label
+            className="selectable-button-group-label control-label"
+            htmlFor="platform-filter"
+          >
+            Platform
+          </label>
+          <ul
+            className="list-inline"
+            id="platform-filter"
+          >
+            <li
+              className="list-inline-item col-xs-6"
+              role="presentation"
             >
-              Platform
-            </label>
-            <select
-              className="form-control"
-              defaultValue={undefined}
-              id="platform-filter"
-              onChange={[Function]}
-            >
-              <option
-                value=""
+              <button
+                className="btn fn-secondary btn-selectable  active"
+                onClick={[Function]}
+                value={undefined}
               >
-                All Platforms
-              </option>
-              <option
+                <i
+                  aria-hidden={true}
+                  className="icon undefined"
+                />
+                <span
+                  className="sr-only"
+                >
+                  show all apps
+                </span>
+                <span
+                  aria-hidden={true}
+                />
+              </button>
+            </li>
+            <li
+              className="list-inline-item col-xs-6"
+              role="presentation"
+            >
+              <button
+                className="btn fn-secondary btn-selectable  active"
+                onClick={[Function]}
                 value={undefined}
-              />
-              <option
-                value={undefined}
-              />
-            </select>
-          </div>
+              >
+                <i
+                  aria-hidden={true}
+                  className="icon undefined"
+                />
+                <span
+                  className="sr-only"
+                >
+                  show all apps
+                </span>
+                <span
+                  aria-hidden={true}
+                />
+              </button>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

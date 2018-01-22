@@ -51,6 +51,33 @@ export class Filters extends React.Component {
     );
   }
 
+  renderSelectableButton = (id, currentValue, changeHandler, option) => {
+    return (
+      <li className="list-inline-item col-xs-6" role="presentation" key={id}>
+        <button className={`btn fn-secondary btn-selectable ${(currentValue === option.name ? ' active' : '')}`}
+          value={option.name}
+          onClick={changeHandler}>
+          <i className={`icon ${option.icon}`} aria-hidden></i>
+          <span className="sr-only">{(currentValue === option.name ? 'show all apps' : `only show apps for ${option.display}`)}</span>
+          <span aria-hidden>{option.display}</span>
+        </button>
+      </li>
+    )
+  }
+
+  renderSelectableButtonGroup = ({ id, label, currentValue, changeHandler, optionsArray }) => {
+    return (
+      <div className="selectable-button form-group">
+        <label htmlFor={id} className="selectable-button-group-label control-label">{label}</label>
+        <ul className="list-inline" id={id}>
+          {optionsArray.map((option, index) => {
+            return this.renderSelectableButton(index, currentValue, changeHandler, option)
+          })}
+        </ul>
+      </div>
+    )
+  }
+
   renderFilters() {
     return (
       <div className={!this.store.showFilters ? 'hidden-xs' : ''}>
@@ -79,16 +106,13 @@ export class Filters extends React.Component {
           </div>
         </div>
         <div className="col-sm-4 col-xs-12">
-          <div className="form-group">
-            {this.renderSelect({
-              id: 'platform-filter',
-              label: 'Platform',
-              defaultDisplayName: 'All Platforms',
-              initialValue: this.store.platformFilter,
-              changeHandler: this.handlePlatformChange,
-              optionsArray: this.store.platforms
-            })}
-          </div>
+          {this.renderSelectableButtonGroup({
+            id: 'platform-filter',
+            label: 'Platform',
+            currentValue: this.store.platformFilter,
+            changeHandler: this.handlePlatformChange,
+            optionsArray: this.store.platforms
+          })}
         </div>
       </div>
     );
