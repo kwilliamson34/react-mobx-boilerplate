@@ -139,8 +139,8 @@ class CardListStore {
         }
       }
       let platformCheck = () => {
-        if (this.filters.segment) {
-          return app.platform.toUpperCase() === this.filters.segment.toUpperCase();
+        if (this.filters.platform) {
+          return app.platform.toUpperCase() === this.filters.platform.toUpperCase();
         } else {
           return true;
         }
