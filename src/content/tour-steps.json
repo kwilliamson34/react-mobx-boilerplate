@@ -5,6 +5,8 @@
         "title": "Navigation Menu",
         "text": "<p>Navigate to other Local Control capabilities, manage account, and access help pages.</p>",
         "selector": ".fnnav__main",
+        "xsSelector": ".navbar-toggle",
+        "smSelector": ".navbar-toggle",
         "position": "top"
       },
       {
