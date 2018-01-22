@@ -1,6 +1,6 @@
-import { action, observable, computed } from 'mobx';
-import { Beacons } from '../../content/tour-steps.json';
-import { utilsService } from '../services/utils.service';
+import {action, observable, computed} from 'mobx';
+import {Beacons} from '../../content/tour-steps.json';
+import {utilsService} from '../services/utils.service';
 import $ from 'jquery';
 
 class JoyrideStore {
@@ -77,9 +77,9 @@ class JoyrideStore {
 	@action recordStepAsSeenInCookie(stepInfo) {
 		if (stepInfo.action === 'next' || stepInfo.action === 'close' && stepInfo.type === 'step:after') {
 			let stepsAlreadySeen = this.stepsSeen;
-			let stepSelector = stepInfo.step.selector;
-			if (stepsAlreadySeen.indexOf(stepSelector) === -1) {
-				stepsAlreadySeen.push(stepSelector);
+			let stepTitle = stepInfo.step.title;
+			if (stepsAlreadySeen.indexOf(stepTitle) === -1) {
+				stepsAlreadySeen.push(stepTitle);
 				utilsService.setCookie('_fn_lc_tour_steps_seen', JSON.stringify(stepsAlreadySeen));
 			}
 		}
@@ -110,7 +110,7 @@ class JoyrideStore {
 			}
 		}
 		let unseenSteps = allStepsForThisPage.filter(step => {
-			return this.stepsSeen.indexOf(step.selector) < 0;
+			return this.stepsSeen.indexOf(step.title) < 0;
 		});
 		return unseenSteps;
 	}
@@ -142,8 +142,8 @@ class JoyrideStore {
 	@observable tourAutoStart = true;
 	@observable introModalSeen = document.cookie.indexOf('_fn_lc_tour') < 0;
 	@observable runNow = false;
-	@observable stepIndex = 0;
-	@observable selector = '';
+	// @observable stepIndex = 0;
+	// @observable selector = '';
 
 	nextStepRenderAttempts = 0;
 	nextStepMaxRenderAttempts = 10;
