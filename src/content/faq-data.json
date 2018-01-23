@@ -9,7 +9,7 @@
         "hideFromRoles": []
       },
       {
-        "title": "Network Status",
+        "title": "Network",
         "hideFromRoles": ["G_FN_SUB", "G_FN_VOL_ADM", "G_FN_VOL"]
       },
       {
@@ -53,16 +53,16 @@
         "category": "General"
       },
       {
-        "question": "Which alerts are displayed on the Network Status map?",
-        "answer": "Alerts on the Network Status map highlight disruptions of or degradations in regular service. These may be the result of unexpected outages or planned maintenance. The alerts contain information about the nature of the incident such as the date/time reported, effect on network coverage, and estimated remediation time.",
+        "question": "Which alerts are displayed on the Network map?",
+        "answer": "Alerts on the Network map highlight disruptions of or degradations in regular service. These may be the result of unexpected outages or planned maintenance. The alerts contain information about the nature of the incident such as the date/time reported, effect on network coverage, and estimated remediation time.",
         "maxStringLength": 500,
-        "category": "Network Status"
+        "category": "Network"
       },
       {
         "question": "When should I use the emergency network support number?",
         "answer": "The emergency network support number should be used when seeking FirstNet assistance while responding to an event that results in heavy network demands or affects the network itself and may affect the ability of first responders and dispatchers to communicate. This number should be treated as the '9-1-1' of FirstNet network support.",
         "maxStringLength": 500,
-        "category": "Network Status"
+        "category": "Network"
       },
       {
         "question": "How do I add or remove a user from the PSE?",

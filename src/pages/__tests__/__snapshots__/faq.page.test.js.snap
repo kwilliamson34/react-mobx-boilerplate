@@ -63,9 +63,9 @@ exports[`<FAQPage /> render matches previous snapshot 1`] = `
                     className="as-link category-tab-button "
                     onClick={[Function]}
                     role="button"
-                    value="Network Status"
+                    value="Network"
                   >
-                    Network Status
+                    Network
                   </button>
                 </li>
                 <li>
@@ -145,9 +145,9 @@ exports[`<FAQPage /> render matches previous snapshot 1`] = `
                     General
                   </option>
                   <option
-                    value="Network Status"
+                    value="Network"
                   >
-                    Network Status
+                    Network
                   </option>
                   <option
                     value="Manage My PSE"
@@ -307,7 +307,7 @@ exports[`<FAQPage /> render matches previous snapshot 1`] = `
               <h3
                 id="faq-4"
               >
-                Which alerts are displayed on the Network Status map?
+                Which alerts are displayed on the Network map?
               </h3>
               <div
                 className="truncate-container faq-entry-content"
@@ -318,7 +318,7 @@ exports[`<FAQPage /> render matches previous snapshot 1`] = `
                   <p
                     dangerouslySetInnerHTML={
                       Object {
-                        "__html": "Alerts on the Network Status map highlight disruptions of or degradations in regular service. These may be the result of unexpected outages or planned maintenance. The alerts contain information about the nature of the incident such as the date/time reported, effect on network coverage, and estimated remediation time.",
+                        "__html": "Alerts on the Network map highlight disruptions of or degradations in regular service. These may be the result of unexpected outages or planned maintenance. The alerts contain information about the nature of the incident such as the date/time reported, effect on network coverage, and estimated remediation time.",
                       }
                     }
                   />

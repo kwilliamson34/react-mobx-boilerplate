@@ -336,7 +336,7 @@ export default class ManageFavoritesPage extends React.Component {
     const crumbs = [
       {
         pageHref: '/network',
-        pageTitle: 'Network Status'
+        pageTitle: 'Network'
       }, {
         pageHref: '/manage-favorites',
         pageTitle: 'Manage Favorites'
