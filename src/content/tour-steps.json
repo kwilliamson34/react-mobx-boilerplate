@@ -13,13 +13,7 @@
         "title": "Administrative Dashboard",
         "text": "<p>Manage users and apps, assign devices, and view reports.</p>",
         "selector": ".walkthrough-admin-dashboard",
-        "position": "right"
-      },
-      {
-        "title": "Purchasing & Provisioning Options",
-        "text": "<p>Explore, shop, and provision devices.</p>",
-        "selector": ".walkthrough-purchasing",
-        "position": "left"
+        "position": "top"
       }
     ],
     "ManageApps": [
@@ -73,7 +67,7 @@
         "title": "Coverage",
         "text": "<p>View the network coverage for a specific area.</p>",
         "selector": ".walkthrough-coverage-map",
-        "position": "bottom",
+        "position": "right",
         "style": {
           "marginTop": "-60px"
         }
