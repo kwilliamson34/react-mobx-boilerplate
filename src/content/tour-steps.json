@@ -11,7 +11,7 @@
       },
       {
         "title": "Administrative Dashboard",
-        "text": "<p>Manage users and apps, assign devices, and view reports.</p>",
+        "text": "<p>Explore management capabilities specific to your role.</p>",
         "selector": ".walkthrough-admin-dashboard",
         "position": "top"
       }
