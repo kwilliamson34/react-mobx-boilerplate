@@ -110,7 +110,7 @@ export default class NetworkPage extends React.Component {
           <GeolinkMap networkStore={this.networkStore} hidden={!showMap} />
         </section>
 
-        {this.networkStore.pageTitle === 'Network Status' &&
+        {this.networkStore.pageTitle === 'Network' &&
           <GeolinkControls networkStore={this.networkStore} disabled={!showMap}/>}
 
         {(this.networkStore.pageTitle === 'Add New Favorite' || this.networkStore.pageTitle === 'Edit Favorite') &&

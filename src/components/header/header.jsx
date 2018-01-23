@@ -59,7 +59,7 @@ export default class PSEHeader extends React.Component {
 		});
 
 		$('#linkBtn-network, .logo-home-link').focus(() => {
-			//Per FPSE-966, focus listener was deadening the network status link on mobile/tablet, so limiting this function call to affect desktop only
+			//Per FPSE-966, focus listener was deadening the network link on mobile/tablet, so limiting this function call to affect desktop only
 			if (window.innerWidth > 992) {
 				this.headerStore.adminSubMenuIsOpen = false;
 			}
