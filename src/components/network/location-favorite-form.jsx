@@ -27,7 +27,7 @@ class LocationFavoriteForm extends React.Component {
   }
 
   componentWillUnmount() {
-    this.store.setPageTitle('Network Status');
+    this.store.setPageTitle('Network');
   }
 
   render() {
