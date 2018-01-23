@@ -64,35 +64,24 @@ class CardListStore {
     this.searchQuery = value;
   }
 
-  @action changeCategoryFilter(value) {
-    this.categoryFilter = value;
-  }
+	@action changeFilter(value, filter) {
+		this.filters[filter] = value;
+	}
 
-  @action changeSegmentFilter(value) {
-    this.segmentFilter = value;
-  }
-
-  @action changePlatformFilter(value) {
-    if (this.platformFilter === value) {
-			this.platformFilter = '';
+	@action toggleFilter(value, filter) {
+		if (this.filters[filter] === value) {
+			this.filters[filter] = '';
 		} else {
-			this.platformFilter = value;
+			this.filters[filter] = value;
 		}
-  }
+	}
 
-  @action addFilterElementRef(id, ref) {
-    this.filterElementRefs[id] = ref;
-  }
-
-  @action resetFilters() {
-    this.categoryFilter = '';
-    this.segmentFilter = '';
-    this.platformFilter = '';
-
-    Object.keys(this.filterElementRefs).forEach((key) => {
-      this.filterElementRefs[key].value = '';
-    });
-  }
+	@action resetFilters() {
+		this.filters.platform = '';
+		this.filters.category = '';
+		this.filters.segment = '';
+		this.filters.device = '';
+	}
 
   @action restoreOriginalList() {
     this.resetFilters();
@@ -130,9 +119,9 @@ class CardListStore {
   @computed get filteredSearchResults() {
     return this.searchResults.filter((app) => {
       let categoryCheck = () => {
-        if (this.categoryFilter) {
+        if (this.filters.category) {
           let matches = app.category.filter(category => {
-            return category.toUpperCase() === this.categoryFilter.toUpperCase()
+            return category.toUpperCase() === this.filters.category.toUpperCase()
           });
           return matches.length > 0;
         } else {
@@ -140,9 +129,9 @@ class CardListStore {
         }
       }
       let segmentCheck = () => {
-        if (this.segmentFilter) {
+        if (this.filters.segment) {
           let matches = app.user_segment.filter(segment => {
-            return segment.toUpperCase() === this.segmentFilter.toUpperCase()
+            return segment.toUpperCase() === this.filters.segment.toUpperCase()
           });
           return matches.length > 0;
         } else {
@@ -150,8 +139,8 @@ class CardListStore {
         }
       }
       let platformCheck = () => {
-        if (this.platformFilter) {
-          return app.platform.toUpperCase() === this.platformFilter.toUpperCase();
+        if (this.filters.platform) {
+          return app.platform.toUpperCase() === this.filters.platform.toUpperCase();
         } else {
           return true;
         }
@@ -161,7 +150,7 @@ class CardListStore {
   }
 
   @computed get filterIsApplied() {
-    return (this.categoryFilter || this.segmentFilter || this.platformFilter) ? true : false;
+    return (this.filters.category || this.filters.segment || this.filters.platform) ? true : false;
   }
 
   @computed get resultsCountLabel() {
@@ -178,19 +167,20 @@ class CardListStore {
   @observable searchQuery = '';
   @observable isLoading = false;
   @observable searchIsApplied = false;
-  @observable filterElementRefs = [];
   @observable idToFocus = null;
   @observable showFilters = false;
-
-  @observable platforms = [
-    {display: 'iOS', name: 'IOS', icon: 'icon-apple'},
-    {display: 'Android', name: 'ANDROID', icon: 'icon-android'}
-  ];
-  @observable platformFilter = '';
-  @observable categories = [];
-  @observable categoryFilter = '';
-  @observable segments = [];
-  @observable segmentFilter = '';
+	@observable filters = {
+		category: '',
+		segment: '',
+		platform: '',
+		device: ''
+	}
+	@observable categories = [];
+	@observable segments = [];
+	@observable platforms = [
+		{display: 'iOS', name: 'IOS', icon: 'icon-apple'},
+		{display: 'Android', name: 'ANDROID', icon: 'icon-android'}
+	];
 }
 
 export const cardListStore = new CardListStore();
