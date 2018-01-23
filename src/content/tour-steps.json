@@ -68,11 +68,11 @@
         "position": "top"
       }
     ],
-    "NetworkStatus": [
+    "Network": [
       {
         "title": "Coverage",
         "text": "<p>View the network coverage for a specific area.</p>",
-        "selector": "#map-section",
+        "selector": ".walkthrough-coverage-map",
         "position": "bottom",
         "style": {
           "marginTop": "-60px"

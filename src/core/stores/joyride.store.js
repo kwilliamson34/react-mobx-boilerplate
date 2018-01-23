@@ -103,7 +103,7 @@ class JoyrideStore {
 				allStepsForThisPage = Beacons.ManageApps;
 				break;
 			case '/network':
-				allStepsForThisPage = Beacons.NetworkStatus;
+				allStepsForThisPage = Beacons.Network;
 				break;
 			default:
 				allStepsForThisPage = [];
