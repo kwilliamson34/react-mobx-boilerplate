@@ -28,28 +28,28 @@ describe("FilterStore", () => {
   test("is not filtered or searched initially", () => {
     expect(store.filteredSearchResults.length).toBe(6)
     expect(store.searchIsApplied).toBe(false);
-    expect(store.platformFilter).toBe('');
-    expect(store.categoryFilter).toBe('');
-    expect(store.segmentFilter).toBe('');
+    expect(store.filters.platform).toBe('');
+    expect(store.filters.category).toBe('');
+    expect(store.filters.segment).toBe('');
   });
 
   test("filters list after applying filter", () => {
-    store.changeSegmentFilter("FIRE & RESCUE");
-    expect(store.segmentFilter).toBe("FIRE & RESCUE");
+    store.changeFilter("FIRE & RESCUE", 'segment');
+    expect(store.filters.segment).toBe("FIRE & RESCUE");
     expect(store.filteredSearchResults.length).toBe(2);
 
-    store.changeSegmentFilter("EMERGENCY MANAGEMENT");
-    expect(store.segmentFilter).toBe("EMERGENCY MANAGEMENT");
+    store.changeFilter("EMERGENCY MANAGEMENT", 'segment');
+    expect(store.filters.segment).toBe("EMERGENCY MANAGEMENT");
     expect(store.filteredSearchResults.length).toBe(1);
 
-    store.changeSegmentFilter("");
-    store.changeCategoryFilter("cat2");
-    expect(store.categoryFilter).toBe("cat2");
+    store.changeFilter("", 'segment');
+    store.changeFilter("cat2", 'category');
+    expect(store.filters.category).toBe("cat2");
     expect(store.filteredSearchResults.length).toBe(2);
 
-    store.changeCategoryFilter("");
-    store.changePlatformFilter("IOS");
-    expect(store.platformFilter).toBe("IOS");
+    store.changeFilter("", 'category');
+    store.changeFilter("IOS", 'platform');
+    expect(store.filters.platform).toBe("IOS");
     expect(store.filteredSearchResults.length).toBe(4);
   });
 
@@ -59,17 +59,17 @@ describe("FilterStore", () => {
 
   test("updates appropriately when user resets their filters", () => {
     store.searchResults = arrayOfSixApps;
-    store.changeSegmentFilter("");
-    store.changeCategoryFilter("");
-    store.changePlatformFilter("");
+    store.changeFilter("", 'segment');
+    store.changeFilter("", 'category');
+    store.changeFilter("", 'platform');
     expect(store.filteredSearchResults.length).toBe(6);
 
-    store.changePlatformFilter("ANDROID");
-    expect(store.platformFilter).toBe("ANDROID");
+    store.changeFilter("ANDROID", 'platform');
+    expect(store.filters.platform).toBe("ANDROID");
     expect(store.filteredSearchResults.length).toBe(2);
 
     store.resetFilters();
-    expect(store.platformFilter).toBe("");
+    expect(store.filters.platform).toBe("");
     expect(store.filteredSearchResults.length).toBe(6);
     expect(store.filterIsApplied).toBe(false);
   });
@@ -95,14 +95,14 @@ describe("CardListStore", () => {
     test("updates appropriately when user clears all search and filter inputs", () => {
       store.originalCardList = arrayOfSixApps;
       store.searchResults = [];
-      store.changePlatformFilter("ANDROID");
-      store.changeSegmentFilter("HAZMAT");
+      store.changeFilter("ANDROID", 'platform');
+      store.changeFilter("HAZMAT", 'segment');
       store.handleSearchInput("hello");
 
       store.restoreOriginalList();
-      expect(store.platformFilter).toBe("");
-      expect(store.segmentFilter).toBe("");
-      expect(store.categoryFilter).toBe("");
+      expect(store.filters.platform).toBe("");
+      expect(store.filters.segment).toBe("");
+      expect(store.filters.category).toBe("");
       expect(store.searchQuery).toBe("");
       expect(store.searchIsApplied).toBe(false);
       expect(store.searchResults).toBe(arrayOfSixApps);
