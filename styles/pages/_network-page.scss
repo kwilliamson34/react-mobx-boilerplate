@@ -166,6 +166,11 @@ $map-controls-text-line-height: 1.3;
     }
   }
 
+  div.map-layers {
+    margin-top: 25px;
+    margin-bottom: 10px;
+  }
+
   h2 {
     font-size: $map-controls-text-size;
     padding-bottom: 20px;
@@ -468,11 +473,6 @@ $map-controls-text-line-height: 1.3;
       }
     }
 
-    div.map-layers {
-      margin-top: 25px;
-      margin-bottom: 10px;
-    }
-
     .add-favorite-button {
       margin: 25px 0;
     }
@@ -559,7 +559,6 @@ $map-controls-text-line-height: 1.3;
       // flex-basis: 38%;
       padding-left: 0;
       padding-right: 0;
-      margin: 30px 0 20px;
 
       h2 {
         padding-left: 40px;
@@ -597,6 +596,10 @@ $map-controls-text-line-height: 1.3;
 }
 @media #{$desktop} {
   .geolink-controls {
+    .has-right-border {
+      border-right: 1px solid $fn-grey;
+    }
+
     .map-layers,
     .map-search {
       // flex-basis: 50%;
@@ -604,7 +607,6 @@ $map-controls-text-line-height: 1.3;
 
     .map-layers {
       fieldset {
-        border-left: 1px solid $fn-grey;
         margin: 0 -40px;
         padding-left: 40px;
       }

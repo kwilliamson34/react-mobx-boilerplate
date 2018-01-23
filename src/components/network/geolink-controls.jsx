@@ -178,7 +178,7 @@ export default class GeolinkControls extends React.Component {
         }
 
         <div className="container">
-          <div className="col-xs-12 col-md-6 is-flex">
+          <div className="col-xs-12 col-md-6 is-flex has-right-border">
             <div className="col-xs-12 map-search">
               {this.renderSearchArea()}
             </div>
