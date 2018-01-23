@@ -142,8 +142,6 @@ class JoyrideStore {
 	@observable tourAutoStart = true;
 	@observable introModalSeen = document.cookie.indexOf('_fn_lc_tour') < 0;
 	@observable runNow = false;
-	// @observable stepIndex = 0;
-	// @observable selector = '';
 
 	nextStepRenderAttempts = 0;
 	nextStepMaxRenderAttempts = 10;
