@@ -88,7 +88,7 @@ class ApiService {
       console.log('Adding app with appPsk=' + appPsk + ' to groupIdentifier="' + groupIdentifier + '"...');
       return axios({
         method: 'post',
-        url: `${base}/v2/app/group`,
+        url: `${base}/app/group`,
         data: {
           appPsk,
           groupIdentifier,
@@ -101,7 +101,7 @@ class ApiService {
       console.log('Removing app with appPsk=' + appPsk + ' from groupIdentifier="' + groupIdentifier + '"...');
       return axios({
         method: 'delete',
-        url: `${base}/v2/app/group`,
+        url: `${base}/app/group`,
         data: {
           appPsk,
           groupIdentifier,
