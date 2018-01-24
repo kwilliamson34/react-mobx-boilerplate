@@ -69,6 +69,7 @@ export class AppDetailBanner extends React.Component {
 
   details() {
     const dateToRender = this.appStore.currentAppObject.custom_metadata ? utilsService.normalizedDate(this.appStore.currentAppObject.custom_metadata.release_date, 'MMM D, YYYY') : '';
+
     return (
       <div className="app-details">
         <p className="version">
