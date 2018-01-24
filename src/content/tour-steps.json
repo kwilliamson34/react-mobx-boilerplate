@@ -13,7 +13,8 @@
         "title": "Administrative Dashboard",
         "text": "<p>Explore management capabilities specific to your role.</p>",
         "selector": ".walkthrough-admin-dashboard",
-        "position": "top"
+        "position": "top",
+        "forcePosition": true
       }
     ],
     "ManageApps": [
@@ -67,10 +68,8 @@
         "title": "Coverage",
         "text": "<p>View the network coverage for a specific area.</p>",
         "selector": ".walkthrough-coverage-map",
-        "position": "right",
-        "style": {
-          "marginTop": "-60px"
-        }
+        "position": "top",
+        "forcePosition": true
       },
       {
         "title": "Map Locations",
