@@ -42,21 +42,21 @@ class ApiService {
 
     getSearchResults(query) {
       let endpoint = query
-        ? `${base}/apps/admin/search?searchTxt=${query}&pseId=${userStore.user.pse}`
-        : `${base}/apps/admin?pseId=${userStore.user.pse}`
+        ? `${base}/v2/apps/admin/search?searchTxt=${query}&pseId=${userStore.user.pse}`
+        : `${base}/v2/apps/admin?pseId=${userStore.user.pse}`
       return axios.get(endpoint).then((res) => {
         return utilsService.mapAppsToCards(res.data.applications);
       });
     }
 
     getAdminApps() {
-      return axios.get(`${base}/apps/admin?pseId=${userStore.user.pse}`).then(res => {
+      return axios.get(`${base}/v2/apps/admin?pseId=${userStore.user.pse}`).then(res => {
         return utilsService.mapAppsToCards(res.data.applications);
       });
     }
 
     getAppDetails(appPSK) {
-      return axios.get(`${base}/app/admin?appPsk=${appPSK}&pseId=${userStore.user.pse}`).then(res => {
+      return axios.get(`${base}/v2/app/admin?appPsk=${appPSK}&pseId=${userStore.user.pse}`).then(res => {
         let arrayRes = [];
         arrayRes.push(res.data);
         return arrayRes;
@@ -88,7 +88,7 @@ class ApiService {
       console.log('Adding app with appPsk=' + appPsk + ' to groupIdentifier="' + groupIdentifier + '"...');
       return axios({
         method: 'post',
-        url: `${base}/app/group`,
+        url: `${base}/v2/app/group`,
         data: {
           appPsk,
           groupIdentifier,
@@ -101,7 +101,7 @@ class ApiService {
       console.log('Removing app with appPsk=' + appPsk + ' from groupIdentifier="' + groupIdentifier + '"...');
       return axios({
         method: 'delete',
-        url: `${base}/app/group`,
+        url: `${base}/v2/app/group`,
         data: {
           appPsk,
           groupIdentifier,

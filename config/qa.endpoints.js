@@ -8,7 +8,7 @@ const config = {
   geolinkAuthScript: 'https://geo.stage.att.com/appBoard/views/firstnet-pse-remote-auth.html',
   geolinkAbMapConstantsFileName: 'abMapConstantsFNST.js',
   mktgPortalImgBaseUrl: 'https://www.firstnet.ws',
-  apiBase: '/api/v2',
+  apiBase: '/api',
   attCustomerSupportPhone: '800-574-7000',
   firstnetGov: 'https://firstnet.gov/',
   firstnetCom: 'https://www.firstnet.com/',
