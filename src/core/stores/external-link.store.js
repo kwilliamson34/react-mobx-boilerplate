@@ -161,11 +161,11 @@ class ExternalLinkStore {
   @observable solutionsConsultantPhone = '833-717-8638';
   @observable firstnetTraining = 'http://mmsrv01b.intellor.com/att/digitalexperience/firstnet.html';
 
-  @observable firstnetFacebook = 'https://www.facebook.com/firstnetgov/';
-  @observable firstnetLinkedIn = 'https://www.linkedin.com/company/first-responder-network-authority-firstnet-';
-  @observable firstnetTwitter = 'https://twitter.com/FirstNetGov';
+  @observable firstnetFacebook = 'https://www.facebook.com/firstnet';
+  @observable firstnetLinkedIn = 'https://www.linkedin.com/showcase/firstnet/';
+  @observable firstnetTwitter = 'https://www.twitter.com/firstnet';
   @observable firstnetTumblr = 'https://firstnetgov.tumblr.com/';
-  @observable firstnetYoutube = 'https://www.youtube.com/user/FirstNetGov';
+  @observable firstnetYoutube = 'https://www.youtube.com/firstnet';
 
   @observable termsOfUse = 'https://www.att.com/legal/terms.attWebsiteTermsOfUse.html';
   @observable accessibilityLink = 'https://www.firstnet.com/accessibility';
