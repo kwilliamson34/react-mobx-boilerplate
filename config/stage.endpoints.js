@@ -16,7 +16,7 @@ const config = {
   appControl: 'https://test-appcontrol.firstnet.att.com/',
   localControl: 'https://test-localcontrol.firstnet.att.com/',
   devPortal: 'https://test-developer.firstnet.att.com',
-  manageMyProfileLink: 'https://test-profilemgt.firstnet.att.com/firstnet/icam/index.html#/firstnet/icam/index/my-profile-view-only',
+  manageMyProfileLink: 'https://test-profilemgt2.firstnet.att.com/firstnet/icam/index.html#/firstnet/icam/index/my-profile-view-only',
   manageUsersLink: 'https://test-profilemgt2.firstnet.att.com/firstnet/icam/index.html#/firstnet/icam/index/lander-city',
   manageServicesLink: 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn',
   manageVoicemailAndUsageLink: 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn',
