@@ -170,7 +170,7 @@ export default class PSEHeader extends React.Component {
 			<div className="fnnav__header">
 				<button
 					type="button"
-					className="navbar-toggle"
+					className="navbar-toggle walkthrough-hamburger-menu"
 					onClick={this.toggleMainMenu}
 					aria-haspopup="true"
 					aria-expanded={this.headerStore.mainMenuIsOpen}>
@@ -351,7 +351,7 @@ export default class PSEHeader extends React.Component {
 					<div className="container">
 						{this.renderBrandArea()}
 						<nav id="main-menu" aria-label="Main Menu">
-							<ul className="fnnav__main">
+							<ul className="fnnav__main walkthrough-nav-header">
 								{this.renderMobileOnlyUserMenu()}
 								{this.userStore.destinationIsPermitted.administration && this.renderAdminMenuItem()}
 								{this.userStore.destinationIsPermitted.network &&

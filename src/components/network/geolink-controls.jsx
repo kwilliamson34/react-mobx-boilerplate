@@ -160,11 +160,11 @@ export default class GeolinkControls extends React.Component {
 
         <div className="container">
           <div className="row is-flex">
-            <div className="col-xs-12 col-md-6 map-search">
+            <div className="col-xs-12 col-md-6 map-search walkthrough-map-locations">
               {this.renderSearchArea()}
             </div>
             <hr className="col-xs-12 visible-xs visible-sm"/>
-            <div className="col-xs-12 col-md-6 map-layers">
+            <div className="col-xs-12 col-md-6 map-layers walkthrough-map-controls">
               {this.renderLayersArea()}
             </div>
           </div>
@@ -282,7 +282,7 @@ export default class GeolinkControls extends React.Component {
 
   renderContactInfo = () => {
     return (
-      <p className="network-contact-info">
+      <p className="network-contact-info walkthrough-network-issues">
         <span aria-hidden="true">Report Network Issue:</span>
         <a href={'tel:' + this.store.networkIssueNumber}>
           <span>

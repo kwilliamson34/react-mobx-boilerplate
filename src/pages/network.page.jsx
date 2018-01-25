@@ -105,7 +105,7 @@ export default class NetworkPage extends React.Component {
         <PageTitle className="sr-only">{this.networkStore.pageTitle}</PageTitle>
         <iframe src={config.geolinkAuthScript} aria-hidden="true" className="hidden-iframe"></iframe>
 
-        <section id="map-section">
+        <section id="map-section" className="walkthrough-coverage-map">
           {!showMap && this.renderPlaceholder()}
           <GeolinkMap networkStore={this.networkStore} hidden={!showMap} />
         </section>

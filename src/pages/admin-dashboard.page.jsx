@@ -62,7 +62,7 @@ export default class AdminDashboardPage extends React.Component {
           <div className="col-xs-12">
             <PageTitle>Administration</PageTitle>
           </div>
-          <div className="row no-gutters" numcards={this.numCardsShown}>
+          <div className="row no-gutters walkthrough-admin-dashboard" numcards={this.numCardsShown}>
             <section className={`col-xs-12 ${hideAside ? 'hide-aside' : 'col-lg-8'} manage-actions`}>
               {!hideAside && <div className="col-xs-12">
                 <h2 className="as-h4">Management</h2>

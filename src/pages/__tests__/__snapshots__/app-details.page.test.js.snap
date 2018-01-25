@@ -197,7 +197,7 @@ exports[`<AppDetailsPage /> render matches snapshot when app has not been matche
   </div>
   <div>
     <div
-      className="app-description-block"
+      className="app-description-block walkthrough-app-details"
     >
       
       <section
@@ -238,7 +238,7 @@ exports[`<AppDetailsPage /> render matches snapshot when app has not been matche
       </section>
     </div>
     <section
-      className="app-ratings"
+      className="app-ratings walkthrough-app-ratings"
     >
       <div
         className="container"
