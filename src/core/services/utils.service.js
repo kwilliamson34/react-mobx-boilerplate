@@ -1,5 +1,5 @@
 import dateFns from 'date-fns/format';
-import isValid from 'date-fns/is_valid'
+import isValid from 'date-fns/is_valid';
 import {userStore} from '../stores/user.store';
 import {history} from './history.service';
 import $ from 'jquery';
@@ -98,11 +98,12 @@ class UtilsService {
     return string.replace(/'/g, '&apos;');
   }
 
-  normalizedDate(date, format) {
-    //to prevent discrepencies, split the date string at 'T' and ignore the localization data which follows; before the 'T' is the simple date, with month, day, year;
-    const newDate = date.split('T')[0];
-    //check if date is in a valid format, else return an empty string;
-    const dateToRender = isValid(new Date(newDate)) ? dateFns(newDate, format) : '';
+  normalizedDate(date, displayFormat = 'MMMM D, YYYY') {
+    //all dates come from services in Unix (epoch) time, which is in seconds. Use .valueOf() to convert to milliseconds for use in Moment and date-fns;
+    const newDate = new Date();
+    newDate.setTime(date.valueOf());
+    //check if the date is in a valid format, else return an empty string. This prevents 'Invalid Date' from showing in case of a date error.
+    const dateToRender = isValid(new Date(newDate)) ? dateFns(newDate, displayFormat) : '';
     return dateToRender;
   }
 
