@@ -13,8 +13,7 @@
         "title": "Administrative Dashboard",
         "text": "<p>Explore management capabilities specific to your role.</p>",
         "selector": ".walkthrough-admin-dashboard",
-        "position": "top",
-        "forcePosition": true
+        "position": "top"
       }
     ],
     "ManageApps": [
@@ -38,7 +37,7 @@
       },
       {
         "title": "Manage Help",
-        "text": "<p>Control which apps will be available and/or recommended to your agency’s users in the App Store.</p><p>Push an app to a Mobile Device Management (MDM) solution to control its distribution.</p>",
+        "text": "<p>Control which apps will be available and/or recommended to your agencyâ€™s users in the App Store.</p><p>Push an app to a Mobile Device Management (MDM) solution to control its distribution.</p>",
         "selector": ".walkthrough-manage-help",
         "position": "left"
       }
@@ -68,8 +67,10 @@
         "title": "Coverage",
         "text": "<p>View the network coverage for a specific area.</p>",
         "selector": ".walkthrough-coverage-map",
-        "position": "top",
-        "forcePosition": true
+        "position": "right",
+        "style": {
+          "marginTop": "-60px"
+        }
       },
       {
         "title": "Map Locations",
@@ -79,7 +80,7 @@
       },
       {
         "title": "Map Controls",
-        "text": "<p>Select map overlays to view current weather, traffic, fire, wind, flood, and network specific alerts.</p>",
+        "text": "<p>Select map overlays to view current weather, traffic, and network specific alerts.</p>",
         "selector": ".walkthrough-map-controls",
         "position": "top"
       },
