@@ -37,7 +37,7 @@
       },
       {
         "title": "Manage Help",
-        "text": "<p>Control which apps will be available and/or recommended to your agencyâ€™s users in the App Store.</p><p>Push an app to a Mobile Device Management (MDM) solution to control its distribution.</p>",
+        "text": "<p>Control which apps will be available and/or recommended to your agency&apos;s users in the App Store.</p><p>Push an app to a Mobile Device Management (MDM) solution to control its distribution.</p>",
         "selector": ".walkthrough-manage-help",
         "position": "left"
       }
