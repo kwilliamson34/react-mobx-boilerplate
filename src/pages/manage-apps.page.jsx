@@ -115,7 +115,7 @@ export default class ManageAppsPage extends React.Component {
           <div className="row">
             <div className="configure-mdm-container col-xs-12 col-lg-offset-1 col-lg-10">
               <div className="configure-mdm-wrapper">
-                <Link to="/admin/configure-mdm" className="configure-mdm-btn fn-primary">Configure MDM</Link>
+                <Link to="/admin/configure-mdm" className="configure-mdm-btn fn-primary walkthrough-mdm-button">Configure MDM</Link>
               </div>
               <PageTitle>Manage Apps</PageTitle>
             </div>
@@ -134,7 +134,7 @@ export default class ManageAppsPage extends React.Component {
             </div>
           </div>
         </div>
-        <div className="manage-apps-form">
+        <div className="manage-apps-form walkthrough-search-and-filter">
           <div className="container">
             <div className="row">
               <div className="col-xs-12 col-lg-offset-1 col-lg-10">

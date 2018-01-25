@@ -163,7 +163,7 @@ export default class JoyrideBase extends React.Component {
           autoStart={this.joyrideStore.tourAutoStart}
           showOverlay={true}
           locale={{
-            last: 'Finished',
+            last: 'Finish',
             back: 'Back',
             next: 'Next'
           }}

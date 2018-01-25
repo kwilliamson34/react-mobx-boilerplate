@@ -11,6 +11,7 @@ exports[`<NetworkPage /> render matches previous snapshot 1`] = `
     src="https://geo.stage.att.com/appBoard/views/firstnet-pse-remote-auth-dev.html"
   />
   <section
+    className="walkthrough-coverage-map"
     id="map-section"
   >
     <div

@@ -17,7 +17,7 @@ exports[`<ManageAppsPage /> render matches previous snapshot 1`] = `
           className="configure-mdm-wrapper"
         >
           <a
-            className="configure-mdm-btn fn-primary"
+            className="configure-mdm-btn fn-primary walkthrough-mdm-button"
             href="/admin/configure-mdm"
             onClick={[Function]}
           >
@@ -41,7 +41,7 @@ exports[`<ManageAppsPage /> render matches previous snapshot 1`] = `
     </div>
   </div>
   <div
-    className="manage-apps-form"
+    className="manage-apps-form walkthrough-search-and-filter"
   >
     <div
       className="container"
@@ -134,7 +134,7 @@ exports[`<ManageAppsPage /> render matches previous snapshot 2`] = `
           className="configure-mdm-wrapper"
         >
           <a
-            className="configure-mdm-btn fn-primary"
+            className="configure-mdm-btn fn-primary walkthrough-mdm-button"
             href="/admin/configure-mdm"
             onClick={[Function]}
           >
@@ -158,7 +158,7 @@ exports[`<ManageAppsPage /> render matches previous snapshot 2`] = `
     </div>
   </div>
   <div
-    className="manage-apps-form"
+    className="manage-apps-form walkthrough-search-and-filter"
   >
     <div
       className="container"
@@ -251,7 +251,7 @@ exports[`<ManageAppsPage /> render matches previous snapshot 3`] = `
           className="configure-mdm-wrapper"
         >
           <a
-            className="configure-mdm-btn fn-primary"
+            className="configure-mdm-btn fn-primary walkthrough-mdm-button"
             href="/admin/configure-mdm"
             onClick={[Function]}
           >
@@ -275,7 +275,7 @@ exports[`<ManageAppsPage /> render matches previous snapshot 3`] = `
     </div>
   </div>
   <div
-    className="manage-apps-form"
+    className="manage-apps-form walkthrough-search-and-filter"
   >
     <div
       className="container"
