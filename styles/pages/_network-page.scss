@@ -180,8 +180,10 @@ $map-controls-text-line-height: 1.3;
   }
 
   .legend-block {
+    @extend .clearfix;
+    margin-bottom: 30px;
+
     h2 {
-      padding-top: 30px;
       padding-bottom: 20px;
     }
   }
@@ -201,6 +203,16 @@ $map-controls-text-line-height: 1.3;
         padding-left: 0;
         width: auto;
       }
+    }
+  }
+
+  .map-controls {
+    border-right: 0 none;
+
+    > div {
+      border-bottom: 1px solid $fn-grey;
+      padding-bottom: 30px;
+      margin-bottom: 30px;
     }
   }
 
@@ -262,6 +274,26 @@ $map-controls-text-line-height: 1.3;
       height: 21px;
       border-radius: 11px;
     }
+    &.fire{
+      &:before{
+        content:'';
+        display: block;
+        width: 100%;
+        height: 21px;
+        border-radius: 11px;
+        background: #f58a0b;
+      }
+    }
+    &.flood{
+      &:before{
+        content: '';
+        display: block;
+        width: 100%;
+        height: 21px;
+        border-radius: 11px;
+        background: #06d6fa;
+      }
+    }
   }
 
   .as-link,
@@ -270,7 +302,7 @@ $map-controls-text-line-height: 1.3;
     font-size: $map-controls-mobile-text-size;
     line-height: $map-controls-text-line-height;
     text-transform: uppercase;
-    margin: 20px 0;
+    margin: 20px 0 0;
   }
 
   .network-contact-info {
@@ -393,18 +425,15 @@ $map-controls-text-line-height: 1.3;
     }
   }
 
-  .network-contact-info {
-    margin: 20px 0 10px;
-  }
-  .network-subscription-link {
-    margin: 10px 0 20px;
-  }
-  
   .network-contact-info,
   .network-subscription-link {
     a {
       margin: 0;
     }
+  }
+
+  .network-subscription-link {
+    text-align: left;
   }
 }
 
@@ -452,6 +481,8 @@ $map-controls-text-line-height: 1.3;
     }
   }
 }
+
+
 /**********************************************/
 @media #{$mobile} {
   .geolink-controls {
@@ -464,7 +495,7 @@ $map-controls-text-line-height: 1.3;
     [class*='col-'] {
       padding-left: 20px;
       padding-right: 20px;
-    }  
+    }
 
     .tooltip {
       &:before {
@@ -478,13 +509,20 @@ $map-controls-text-line-height: 1.3;
     }
 
     .network-subscription-link a {
+      margin-top: 15px;
       margin-bottom: 0;
     }
 
-    .legend-block {
-      h2 {
-        padding-top: 20px;
-        padding-bottom: 10px;
+    .halved {
+      > div {
+        &:first-child {
+          padding-right: 15px;
+          padding-left: 0;
+        }
+        &:last-child {
+          padding-right: 0;
+          padding-left: 0;
+        }
       }
     }
 
@@ -542,21 +580,33 @@ $map-controls-text-line-height: 1.3;
     a {
       font-size: $map-controls-text-size;
     }
-  
+
     .network-contact-info {
       font-size: $map-controls-text-size;
+    }
+
+    .network-subscription-link {
+      text-align: right;
     }
 
     .map-network-legend {
       flex-basis: auto;
     }
 
-    // .map-search {
-    //   flex-basis: 58%;
-    // }
+    .halved {
+      > div {
+        &:first-child {
+          padding-right: 20px;
+          padding-left: 0;
+        }
+        &:last-child {
+          padding-right: 0;
+          padding-left:20px
+        }
+      }
+    }
 
     .map-layers {
-      // flex-basis: 38%;
       padding-left: 0;
       padding-right: 0;
 
@@ -568,7 +618,7 @@ $map-controls-text-line-height: 1.3;
         padding-left: 40px;
       }
     }
-    
+
     // deprecated but retained until testing on physical ipad is complete.
     .traffic-legend-wrapper {
       .traffic-bars {
@@ -576,22 +626,17 @@ $map-controls-text-line-height: 1.3;
         // float: left;
         // padding-right: 15px;
       }
-      
+
       .hazards-legend {
         // width: 40%;
         // float: left;
         // padding-left: 15px;
-        
+
         span.as-label {
           // width: 48%;
         }
       }
     }
-
-    .network-contact-info,
-    .network-subscription-link {
-      margin: 35px 0;
-    }  
   }
 }
 @media #{$desktop} {
@@ -616,10 +661,9 @@ $map-controls-text-line-height: 1.3;
       }
     }
 
-    .network-contact-info,
-    .network-subscription-link {
-      margin: 35px 0;
-    }  
+    .map-controls {
+      border-right: 1px solid $fn-grey;
+    }
 
     .right-align-text {
       text-align: right;
@@ -633,9 +677,26 @@ $map-controls-text-line-height: 1.3;
     a {
       font-size: $map-controls-text-size;
     }
-  
+
     .network-contact-info {
       font-size: $map-controls-text-size;
+    }
+
+    .network-subscription-link {
+      text-align: right;
+    }
+
+    .halved {
+      > div {
+        &:first-child {
+          padding-right: 20px;
+          padding-left: 0;
+        }
+        &:last-child {
+          padding-right: 0;
+          padding-left:20px
+        }
+      }
     }
 
     .traffic-legend-wrapper {
