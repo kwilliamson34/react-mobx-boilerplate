@@ -141,52 +141,57 @@ export default class GeolinkControls extends React.Component {
 
   renderPredictiveDropdown = () => {
     if (this.store.dropdownIsVisible)
-      return (<div className="predictive-dropdown">
-        <ul>
-          {
-            this.store.predictedFavorites.map((favorite, index) => {
-              return (<li role="button" tabIndex="0" ref={`favItem${index}`} onFocus={() => this.focusedFavorite = index} onClick={() => this.onFavoriteClick(favorite)} onKeyPress={(e) => this.onFavoriteEnter(e, favorite)} onKeyDown={this.onKeyDown} key={index}>
-                <i className="icon-star" aria-hidden="aria-hidden"></i>
-                <span className="sr-only">Search for favorite named</span>
-                <span>{favorite.favoriteName}</span>
-                <span className="sr-only">at address</span>
-                <small>{favorite.locationFavoriteAddress}</small>
-              </li>)
-            })
-          }
-          <li role="button" tabIndex="0" ref={`favItem${this.store.predictedFavorites.length}`} onFocus={() => this.focusedFavorite = this.store.predictedFavorites.length} onClick={this.onManageFavoritesClick} onKeyPress={this.onManageFavoritesEnter} onKeyDown={this.onKeyDown}>
-            Manage all favorites
-          </li>
-        </ul>
-      </div>);
+      return (
+        <div className="predictive-dropdown">
+          <ul>
+            {
+              this.store.predictedFavorites.map((favorite, index) => {
+                return (<li role="button" tabIndex="0" ref={`favItem${index}`} onFocus={() => this.focusedFavorite = index} onClick={() => this.onFavoriteClick(favorite)} onKeyPress={(e) => this.onFavoriteEnter(e, favorite)} onKeyDown={this.onKeyDown} key={index}>
+                  <i className="icon-star" aria-hidden="aria-hidden"></i>
+                  <span className="sr-only">Search for favorite named</span>
+                  <span>{favorite.favoriteName}</span>
+                  <span className="sr-only">at address</span>
+                  <small>{favorite.locationFavoriteAddress}</small>
+                </li>)
+              })
+            }
+            <li role="button" tabIndex="0" ref={`favItem${this.store.predictedFavorites.length}`} onFocus={() => this.focusedFavorite = this.store.predictedFavorites.length} onClick={this.onManageFavoritesClick} onKeyPress={this.onManageFavoritesEnter} onKeyDown={this.onKeyDown}>
+              Manage all favorites
+            </li>
+          </ul>
+        </div>
+      );
     return '';
   }
 
   renderSearchArea = () => {
-    return (<div>
-      <h2 className="as-h5">Search</h2>
-      <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id={this.store.shouldDisplayLocationName
-          ? 'locationName'
-          : 'locationAddress'} type="search" labelText="Address. Use the arrow keys as you type to scroll through your saved favorites." labelTextIsSrOnly={true} labelErrorIsSrOnly={true} className="search-form" showClearButton={true} handleSubmit={this.store.searchMap.bind(this.store)} handleClearClick={this.onSearchClearClick} iconClass={this.store.shouldDisplayLocationName
-          ? 'icon-star'
-          : ''} onDropIntoList={this.onDropIntoList} disableAutoComplete={true}/> {this.renderPredictiveDropdown()}
-      <div className="col-xs-6 no-gutters">
-        <button className={`as-link add-favorite-button ${this.store.values.locationAddress && !this.store.shouldDisplayLocationName
-            ? ''
-            : 'disabled'}`} ref={(i) => {
-            this.addFavoriteBtn = i
-          }} onClick={this.store.showAddLocationForm.bind(this.store)}>
-          Add Favorite
-        </button>
+    return (
+      <div>
+        <h2 className="as-h5">Search</h2>
+        <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id={this.store.shouldDisplayLocationName
+            ? 'locationName'
+            : 'locationAddress'} type="search" labelText="Address. Use the arrow keys as you type to scroll through your saved favorites." labelTextIsSrOnly={true} labelErrorIsSrOnly={true} className="search-form" showClearButton={true} handleSubmit={this.store.searchMap.bind(this.store)} handleClearClick={this.onSearchClearClick} iconClass={this.store.shouldDisplayLocationName
+            ? 'icon-star'
+            : ''} onDropIntoList={this.onDropIntoList} disableAutoComplete={true}/> {this.renderPredictiveDropdown()}
+        <div className="col-xs-6 no-gutters">
+          <button className={`as-link add-favorite-button ${this.store.values.locationAddress && !this.store.shouldDisplayLocationName
+              ? ''
+              : 'disabled'}`} ref={(i) => {
+              this.addFavoriteBtn = i
+            }} onClick={this.store.showAddLocationForm.bind(this.store)}>
+            Add Favorite
+          </button>
+        </div>
+        <div className="col-xs-6 no-gutters text-right">
+          <Link to="/manage-favorites" onClick={this.clearAlertBars}>Manage Favorites</Link>
+        </div>
       </div>
-      <div className="col-xs-6 no-gutters text-right">
-        <Link to="/manage-favorites" onClick={this.clearAlertBars}>Manage Favorites</Link>
-      </div>
-    </div>)
+    )
   }
 
   renderLayersArea = () => {
-    return (<div>
+    return (
+      <div>
       <h2>Layers</h2>
       <form className="form-group">
         <fieldset className="coverage-layers">
@@ -208,7 +213,8 @@ export default class GeolinkControls extends React.Component {
           </div>
         </fieldset>
       </form>
-    </div>)
+    </div>
+    )
   }
 
   renderNetworkSubscriptionLink = () => {
@@ -386,6 +392,7 @@ export default class GeolinkControls extends React.Component {
           </div>
         </div>
       </div>
-    </section>);
+    </section>
+  );
   }
 }
