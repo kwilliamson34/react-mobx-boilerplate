@@ -172,7 +172,7 @@ export default class GeolinkControls extends React.Component {
             ? 'locationName'
             : 'locationAddress'} type="search" labelText="Address. Use the arrow keys as you type to scroll through your saved favorites." labelTextIsSrOnly={true} labelErrorIsSrOnly={true} className="search-form" showClearButton={true} handleSubmit={this.store.searchMap.bind(this.store)} handleClearClick={this.onSearchClearClick} iconClass={this.store.shouldDisplayLocationName
             ? 'icon-star'
-            : ''} onDropIntoList={this.onDropIntoList} disableAutoComplete={true}/> {this.renderPredictiveDropdown()}
+            : ''} onDropIntoList={this.onDropIntoList} disableAutoComplete={true} /> {this.renderPredictiveDropdown()}
         <div className="col-xs-6 no-gutters">
           <button className={`as-link add-favorite-button ${this.store.values.locationAddress && !this.store.shouldDisplayLocationName
               ? ''
@@ -197,19 +197,19 @@ export default class GeolinkControls extends React.Component {
         <fieldset className="coverage-layers">
           <legend className="sr-only">Coverage layers</legend>
           <div className="col-xs-12 col-sm-6 no-gutters">
-            <Checkbox label="Established Network" tooltipText="Represents our fully operational service" handleOnChange={this.toggleNetwork} checked={this.store.showNetworkLayer} disabled={this.props.disabled}/>
-            <Checkbox label="Weather" handleOnChange={this.toggleWeather} checked={this.store.showWeatherLayer} disabled={this.props.disabled}/>
+            <Checkbox label="Established Network" tooltipText="Represents our fully operational service" handleOnChange={this.toggleNetwork} checked={this.store.showNetworkLayer} disabled={this.props.disabled} />
+            <Checkbox label="Weather" handleOnChange={this.toggleWeather} checked={this.store.showWeatherLayer} disabled={this.props.disabled} />
           </div>
           <div className="col-xs-12 col-sm-6 no-gutters">
-            <Checkbox label="Traffic" handleOnChange={this.toggleTraffic} checked={this.store.showTrafficLayer} disabled={this.props.disabled}/>
-            <Checkbox label="Network Alerts" tooltipText="Highlights abnormal network malfunction" handleOnChange={this.toggleAlerts} checked={this.store.showAlertLayer} disabled={this.props.disabled || !this.store.authIsComplete}/>
+            <Checkbox label="Traffic" handleOnChange={this.toggleTraffic} checked={this.store.showTrafficLayer} disabled={this.props.disabled} />
+            <Checkbox label="Network Alerts" tooltipText="Highlights abnormal network malfunction" handleOnChange={this.toggleAlerts} checked={this.store.showAlertLayer} disabled={this.props.disabled || !this.store.authIsComplete} />
           </div>
           <div className="col-xs-12 col-sm-6 no-gutters">
-            <Checkbox label="Fire" handleOnChange={this.toggleFire} checked={this.store.showFireLayer} disabled={this.props.disabled}/>
-            <Checkbox label="Flood" handleOnChange={this.toggleFlood} checked={this.store.showFloodLayer} disabled={this.props.disabled}/>
+            <Checkbox label="Fire" handleOnChange={this.toggleFire} checked={this.store.showFireLayer} disabled={this.props.disabled} />
+            <Checkbox label="Flood" handleOnChange={this.toggleFlood} checked={this.store.showFloodLayer} disabled={this.props.disabled} />
           </div>
           <div className="col-xs-12 col-sm-6 no-gutters">
-            <Checkbox label="Wind" handleOnChange={this.toggleWind} checked={this.store.showWindLayer} disabled={this.props.disabled}/>
+            <Checkbox label="Wind" handleOnChange={this.toggleWind} checked={this.store.showWindLayer} disabled={this.props.disabled} />
           </div>
         </fieldset>
       </form>
@@ -281,7 +281,7 @@ export default class GeolinkControls extends React.Component {
         <span className="as-label">Ice</span>
       </div>
       <div className="legend-gradient">
-        <img src="/images/weather-legend.png" alt=""/>
+        <img src="/images/weather-legend.png" alt="" />
       </div>
     </div>)
   }
@@ -349,8 +349,8 @@ export default class GeolinkControls extends React.Component {
           </div>
           <div className="hazards-legend">
             <span className="as-label"></span>
-            <span className="as-label"><i className="icon-warning construction" aria-hidden="true"/><br className="visible-xs"/>Construction</span>
-            <span className="as-label"><i className="icon-warning incident" aria-hidden="true"/><br className="visible-xs"/>Vehicle Incident</span>
+            <span className="as-label"><i className="icon-warning construction" aria-hidden="true" /><br className="visible-xs" />Construction</span>
+            <span className="as-label"><i className="icon-warning incident" aria-hidden="true" /><br className="visible-xs" />Vehicle Incident</span>
           </div>
         </div>
       </React.Fragment>
@@ -370,7 +370,7 @@ export default class GeolinkControls extends React.Component {
                 successText={this.store.successToDisplay}
                 clearSuccess={() => {
                   this.store.updateSuccess('')
-                }}/>
+                }} />
               </div>
             </div>
           </div>
