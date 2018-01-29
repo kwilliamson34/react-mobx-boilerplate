@@ -66,7 +66,7 @@ export default class AppManagementBlock extends React.Component {
     return (
       <fieldset>
         <legend className="sr-only">Catalog status:</legend>
-        {this.matchingApp && <div className="app-management">
+        {this.matchingApp && <div className="app-management walkthrough-manage-help">
           <Checkbox
             label="Available"
             id={'Available-' + this.props.psk}

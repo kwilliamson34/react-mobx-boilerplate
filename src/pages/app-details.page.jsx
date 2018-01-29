@@ -85,7 +85,7 @@ export default class AppDetailsPage extends React.Component {
 
   renderReviewsSection = (currentAppObject) => {
     return (
-      <section className="app-ratings">
+      <section className="app-ratings walkthrough-app-ratings">
         <div className="container">
           <div className="row">
             <div className="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
@@ -173,7 +173,7 @@ export default class AppDetailsPage extends React.Component {
                 configuredMDMType={this.mdmStore.values.mdm_type}
                 pushToMDM={this.mdmStore.pushToMDM.bind(this.mdmStore)}
                 appCatalogMDMStatuses={this.mdmStore.appCatalogMDMStatuses.toJS()}/>
-              <div className="app-description-block">
+              <div className="app-description-block walkthrough-app-details">
                 {this.renderScreenshotGallery(this.appStore.currentAppObject)}
                 <section className="app-description">
                   <div className="container">

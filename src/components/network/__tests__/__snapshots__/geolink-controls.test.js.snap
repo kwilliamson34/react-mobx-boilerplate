@@ -11,7 +11,7 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
       className="row is-flex"
     >
       <div
-        className="col-xs-12 col-md-6 map-search"
+        className="col-xs-12 col-md-6 map-search walkthrough-map-locations"
       >
         <div>
           <h2
@@ -119,7 +119,7 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
         className="col-xs-12 visible-xs visible-sm"
       />
       <div
-        className="col-xs-12 col-md-6 map-layers"
+        className="col-xs-12 col-md-6 map-layers walkthrough-map-controls"
       >
         <div>
           <h2>
@@ -315,7 +315,7 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
         className="col-xs-12 col-sm-6"
       >
         <p
-          className="network-contact-info"
+          className="network-contact-info walkthrough-network-issues"
         >
           <span
             aria-hidden="true"
@@ -549,7 +549,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
       className="row is-flex"
     >
       <div
-        className="col-xs-12 col-md-6 map-search"
+        className="col-xs-12 col-md-6 map-search walkthrough-map-locations"
       >
         <div>
           <h2
@@ -584,7 +584,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
         className="col-xs-12 visible-xs visible-sm"
       />
       <div
-        className="col-xs-12 col-md-6 map-layers"
+        className="col-xs-12 col-md-6 map-layers walkthrough-map-controls"
       >
         <div>
           <h2>
@@ -780,7 +780,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
         className="col-xs-12 col-sm-6"
       >
         <p
-          className="network-contact-info"
+          className="network-contact-info walkthrough-network-issues"
         >
           <span
             aria-hidden="true"
@@ -1014,7 +1014,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
       className="row is-flex"
     >
       <div
-        className="col-xs-12 col-md-6 map-search"
+        className="col-xs-12 col-md-6 map-search walkthrough-map-locations"
       >
         <div>
           <h2
@@ -1049,7 +1049,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
         className="col-xs-12 visible-xs visible-sm"
       />
       <div
-        className="col-xs-12 col-md-6 map-layers"
+        className="col-xs-12 col-md-6 map-layers walkthrough-map-controls"
       >
         <div>
           <h2>
@@ -1245,7 +1245,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
         className="col-xs-12 col-sm-6"
       >
         <p
-          className="network-contact-info"
+          className="network-contact-info walkthrough-network-issues"
         >
           <span
             aria-hidden="true"
@@ -1479,7 +1479,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
       className="row is-flex"
     >
       <div
-        className="col-xs-12 col-md-6 map-search"
+        className="col-xs-12 col-md-6 map-search walkthrough-map-locations"
       >
         <div>
           <h2
@@ -1514,7 +1514,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
         className="col-xs-12 visible-xs visible-sm"
       />
       <div
-        className="col-xs-12 col-md-6 map-layers"
+        className="col-xs-12 col-md-6 map-layers walkthrough-map-controls"
       >
         <div>
           <h2>
@@ -1710,7 +1710,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
         className="col-xs-12 col-sm-6"
       >
         <p
-          className="network-contact-info"
+          className="network-contact-info walkthrough-network-issues"
         >
           <span
             aria-hidden="true"
