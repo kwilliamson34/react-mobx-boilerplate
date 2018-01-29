@@ -16,7 +16,7 @@ const config = {
   appStore: 'https://stage-apps.sapientfirst.net',
   appControl: 'https://stage-appcontrol.sapientfirst.net',
   localControl: 'https://stage-localcontrol.sapientfirst.net',
-  devPortal: 'https://test-developer.firstnet.att.com',
+  devPortal: 'https://test-developer.firstnet.com',
   manageMyProfileLink: 'https://test-profilemgt.firstnet.att.com/firstnet/icam/index.html#/firstnet/icam/index/my-profile-view-only',
   manageUsersLink: 'https://test-profilemgt.firstnet.att.com/firstnet/icam/index.html#/firstnet/icam/index/lander-city',
   manageServicesLink: 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn',
