@@ -156,7 +156,7 @@
       },
       {
         "question": "What is an MDM?",
-        "answer": "Mobile device management (MDM) solutions are used for the administration of mobile devices, such as smartphones, tablet computers, laptops, and desktop computers. Some PSEs may opt to manage distribution of apps through a third-party MDM solution. If users have an MDM account, Local Control allows users to push apps to that MDM.  The MDM solutions supported by FirstNet are AirWatch, MobileIron, and IBM MaaS360.",
+        "answer": "Mobile device management (MDM) solutions are used for the administration of mobile devices, such as smartphones, tablet computers, laptops, and desktop computers. Some PSEs may opt to manage distribution of apps through a third-party MDM solution. If users have an MDM account, Local Control allows users to push apps to that MDM.  The MDM solutions supported by FirstNet are AirWatch, MobileIron Cloud, MobileIron Core, Microsoft Intune, and IBM MaaS360.",
         "maxStringLength": 500,
         "category": "Configure MDM"
       },
