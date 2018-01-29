@@ -16,7 +16,7 @@ const config = {
   appStore: 'https://test-apps.firstnet.att.com',
   appControl: 'https://test-appcontrol.firstnet.att.com/',
   localControl: 'https://test-localcontrol.firstnet.att.com',
-  devPortal: 'https://test-developer.firstnet.att.com',
+  devPortal: 'https://test-developer.firstnet.com',
   manageMyProfileLink: 'https://test-profilemgt.firstnet.att.com/ebiz/firstnet/userDetails/viewMyProfile',
   manageUsersLink: 'https://test-profilemgt.firstnet.att.com/ebiz/firstnet/index.jsp#/companyInfo/companyInfoProfile',
   manageServicesLink: 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn',

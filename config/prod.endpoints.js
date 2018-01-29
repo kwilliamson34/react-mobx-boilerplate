@@ -16,7 +16,7 @@ const config = {
   appStore: 'https://apps.firstnet.att.com/',
   appControl: 'https://appcontrol.firstnet.att.com/',
   localControl: 'https://localcontrol.firstnet.att.com',
-  devPortal: 'https://developer.firstnet.att.com',
+  devPortal: 'https://developer.firstnet.com',
   manageMyProfileLink: 'https://profilemgt.firstnet.att.com/firstnet/icam/index.html#/firstnet/icam/index/my-profile-view-only',
   manageUsersLink: 'https://profilemgt.firstnet.att.com/firstnet/icam/index.html#/firstnet/icam/index/lander-city',
   manageServicesLink: 'https://wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn',
