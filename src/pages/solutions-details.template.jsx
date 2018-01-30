@@ -78,7 +78,7 @@ export default class SolutionsDetailsTemplate extends React.Component {
 
           {this.renderLeadCaptureSection()}
 
-          {purchasingInfo &&
+          {true &&
             <div className="row">
               <section className="col-xs-12 col-lg-offset-1 col-lg-10">
                 <PurchasingInfo contactInfo={purchasingInfo}/>

@@ -1,4 +1,6 @@
 .purchasing-info {
+  margin-left: 5px;
+
   h2 {
     padding-top: 6rem;
   }
@@ -24,21 +26,17 @@
         font-weight: $fn-normal-weight;
       }
 
+      a {
+        display: inline-block;
+        word-break: break-all;
+        width: 70%;
+      }
+
       strong {
         display: inline-block;
         font-weight: $fn-medium-weight;
-      }
-    }
-  }
-}
-
-@media #{$mobile} {
-  .purchasing-info {
-    margin-left: 5px;
-
-    .purchase-options-list {
-      strong {
-        width: 130px;
+        vertical-align: top;
+        width: 30%;
       }
     }
   }
@@ -47,10 +45,15 @@
 @media #{$tablet} {
   .purchasing-info {
     margin-left: 0px;
-
     .purchase-options-list {
-      strong {
-        width: 130px;
+      li {
+        strong {
+          width: 15%;
+        }
+
+        a {
+          width: 85%;
+        }
       }
     }
   }
@@ -59,8 +62,14 @@
 @media #{$desktop} {
   .purchasing-info {
     .purchase-options-list {
-      strong {
-        width: 140px;
+      li {
+        strong {
+          width: 15%;
+        }
+
+        a {
+          width: 85%;
+        }
       }
     }
   }
