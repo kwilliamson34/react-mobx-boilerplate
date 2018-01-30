@@ -11,7 +11,7 @@ exports[`<AdminDashboard /> renders basic render 1`] = `
       className="col-xs-12"
     />
     <div
-      className="row no-gutters"
+      className="row no-gutters walkthrough-admin-dashboard"
       numcards={0}
     >
       <section
@@ -37,7 +37,7 @@ exports[`<AdminDashboard /> renders render with 2 cards 1`] = `
       className="col-xs-12"
     />
     <div
-      className="row no-gutters"
+      className="row no-gutters walkthrough-admin-dashboard"
       numcards={2}
     >
       <section
@@ -109,7 +109,7 @@ exports[`<AdminDashboard /> renders render with 3 cards 1`] = `
       className="col-xs-12"
     />
     <div
-      className="row no-gutters"
+      className="row no-gutters walkthrough-admin-dashboard"
       numcards={3}
     >
       <section
@@ -184,7 +184,7 @@ exports[`<AdminDashboard /> renders render with 4 cards 1`] = `
       className="col-xs-12"
     />
     <div
-      className="row no-gutters"
+      className="row no-gutters walkthrough-admin-dashboard"
       numcards={4}
     >
       <section
@@ -262,7 +262,7 @@ exports[`<AdminDashboard /> renders render with 5 cards 1`] = `
       className="col-xs-12"
     />
     <div
-      className="row no-gutters"
+      className="row no-gutters walkthrough-admin-dashboard"
       numcards={5}
     >
       <section
@@ -343,7 +343,7 @@ exports[`<AdminDashboard /> renders render with aside 1`] = `
       className="col-xs-12"
     />
     <div
-      className="row no-gutters"
+      className="row no-gutters walkthrough-admin-dashboard"
       numcards={3}
     >
       <section

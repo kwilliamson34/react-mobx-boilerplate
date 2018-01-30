@@ -120,7 +120,7 @@
       },
       {
         "question": "When new apps are released into the FirstNet App Store, are they available to members of my PSE?",
-        "answer": "Yes. All apps that pass the FirstNet Certification & Accreditation process immediately appear in Local Control and become available to users in the App Store.  If you would like to block an app from appearing in your PSE’s App Store, you must uncheck the app’s “Available” checkbox on the Manage Apps page of Local Control.",
+        "answer": "Yes. All apps that pass the FirstNet App Review process immediately appear in Local Control and become available to users in the App Store.  If you would like to block an app from appearing in your PSE’s App Store, you must uncheck the app’s “Available” checkbox on the Manage Apps page of Local Control.",
         "maxStringLength": 500,
         "category": "Manage Apps"
       },
@@ -144,7 +144,7 @@
       },
       {
         "question": "What apps will I see in FirstNet Local Control?",
-        "answer": "FirstNet Local Control displays all apps that have been submitted through FirstNet App Control and that have passed the FirstNet Certification & Accreditation process. The “Available” checkbox on each app card gives the PSE Administrator the ability to block apps from displaying to their members in the FirstNet App Store.",
+        "answer": "FirstNet Local Control displays all apps that have been submitted through FirstNet App Control and that have passed the FirstNet App Review process. The “Available” checkbox on each app card gives the PSE Administrator the ability to block apps from displaying to their members in the FirstNet App Store.",
         "maxStringLength": 500,
         "category": "Manage Apps"
       },
@@ -156,7 +156,7 @@
       },
       {
         "question": "What is an MDM?",
-        "answer": "Mobile device management (MDM) solutions are used for the administration of mobile devices, such as smartphones, tablet computers, laptops, and desktop computers. Some PSEs may opt to manage distribution of apps through a third-party MDM solution. If users have an MDM account, Local Control allows users to push apps to that MDM.  The MDM solutions supported by FirstNet are AirWatch, MobileIron, and IBM MaaS360.",
+        "answer": "Mobile device management (MDM) solutions are used for the administration of mobile devices, such as smartphones, tablet computers, laptops, and desktop computers. Some PSEs may opt to manage distribution of apps through a third-party MDM solution. If users have an MDM account, Local Control allows users to push apps to that MDM.  The MDM solutions supported by FirstNet are AirWatch, MobileIron Cloud, MobileIron Core, Microsoft Intune, and IBM MaaS360.",
         "maxStringLength": 500,
         "category": "Configure MDM"
       },
@@ -186,7 +186,7 @@
       },
       {
         "question": "Do you have a question that wasn’t covered here?",
-        "answer": "Please use the Live Chat feature on the right side of this window or&nbsp;<span aria-hidden=\"true\">call the FirstNet Customer Service line at&nbsp;</span><a href=\"tel:+18005747000\"><span class=\"sr-only\">call the FirstNet Customer Service line at&nbsp;</span>800-574-7000</a>.",
+        "answer": "Learn more about FirstNet by visiting our <a href=\"http:\/\/mmsrv01b.intellor.com\/att\/digitalexperience\/firstnet.html\" rel=\"noopener noreferrer\" target=\"_blank\">Training Portal<i class=\"icon-external-site\"></i></a>, using the Live Chat feature on the right side of this window, or&nbsp;<span aria-hidden=\"true\">calling the FirstNet Customer Service line at&nbsp;</span><a href=\"tel:+18005747000\"><span class=\"sr-only\">call the FirstNet Customer Service line at&nbsp;</span>800-574-7000</a>.",
         "maxStringLength": 500,
         "category": "Other"
       }
