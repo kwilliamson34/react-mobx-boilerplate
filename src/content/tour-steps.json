@@ -4,45 +4,41 @@
       {
         "title": "Navigation Menu",
         "text": "<p>Navigate to other Local Control capabilities, manage account, and access help pages.</p>",
-        "selector": ".fnnav__main",
+        "selector": ".walkthrough-nav-header",
+        "xsSelector": ".walkthrough-hamburger-menu",
+        "smSelector": ".walkthrough-hamburger-menu",
         "position": "top"
       },
       {
         "title": "Administrative Dashboard",
-        "text": "<p>Manage users and apps, assign devices, and view reports.</p>",
-        "selector": ".manage-actions",
-        "position": "right"
-      },
-      {
-        "title": "Purchasing & Provisioning Options",
-        "text": "<p>Explore, shop, and provision devices.</p>",
-        "selector": "aside",
-        "position": "left"
+        "text": "<p>Explore management capabilities specific to your role.</p>",
+        "selector": ".walkthrough-admin-dashboard",
+        "position": "top"
       }
     ],
     "ManageApps": [
       {
         "title": "Configure",
         "text": "<p>Configure the connection to your Mobile Device Management (MDM) solution.</p>",
-        "selector": ".configure-mdm-btn",
+        "selector": ".walkthrough-mdm-button",
         "position": "left"
       },
       {
         "title": "Search and Filter",
         "text": "<p>Search by keywords and/or filter apps.</p>",
-        "selector": ".manage-apps-form",
+        "selector": ".walkthrough-search-and-filter",
         "position": "left"
       },
       {
         "title": "App Summary",
         "text": "<p>View high level info about the app, such as its name, developer, and average rating.</p>",
-        "selector": ".card-wrapper",
+        "selector": ".walkthrough-app-summary",
         "position": "left"
       },
       {
         "title": "Manage Help",
-        "text": "<p>Control which apps will be available and/or recommended to your agency’s users in the App Store.</p><p>Push an app to a Mobile Device Management (MDM) solution to control its distribution.</p>",
-        "selector": ".app-management",
+        "text": "<p>Control which apps will be available and/or recommended to your agency&apos;s users in the App Store.</p><p>Push an app to a Mobile Device Management (MDM) solution to control its distribution.</p>",
+        "selector": ".walkthrough-manage-help",
         "position": "left"
       }
     ],
@@ -50,36 +46,48 @@
       {
         "title": "App Summary",
         "text": "<p>View key info about the app.</p><p>Manage the app through Available, Recommended, and Push to MDM options.</p>",
-        "selector": ".white-card",
+        "selector": ".walkthrough-app-summary",
         "position": "bottom"
       },
       {
         "title": "App Details",
         "text": "<p>View detailed information about the app.</p>",
-        "selector": ".app-description-block",
+        "selector": ".walkthrough-app-details",
         "position": "top"
       },
       {
         "title": "Ratings and Reviews",
         "text": "<p>Read reviews submitted by App Store users.</p>",
-        "selector": ".app-ratings",
+        "selector": ".walkthrough-app-ratings",
         "position": "top"
       }
     ],
-    "NetworkStatus": [
+    "Network": [
       {
         "title": "Coverage",
         "text": "<p>View the network coverage for a specific area.</p>",
-        "selector": "#map-section",
-        "position": "bottom",
+        "selector": ".walkthrough-coverage-map",
+        "position": "right",
         "style": {
           "marginTop": "-60px"
         }
       },
       {
+        "title": "Map Locations",
+        "text": "<p>Enter any street address or ZIP code to center the map on a specific location. Save a location to your favorites and manage all favorite locations.</p>",
+        "selector": ".walkthrough-map-locations",
+        "position": "top"
+      },
+      {
         "title": "Map Controls",
-        "text": "<p>Enter any street address or ZIP code to center the map on a specific location.</p><p>Select map overlays to view current weather, traffic, and network specific alerts.</p><p>Report network issues and subscribe to get alerts.</p>",
-        "selector": ".geolink-controls",
+        "text": "<p>Select map overlays to view current weather, traffic, fire, wind, flash flood, and network specific alerts.</p>",
+        "selector": ".walkthrough-map-controls",
+        "position": "top"
+      },
+      {
+        "title": "Network Issues",
+        "text": "<p>Report network issues and subscribe to get alerts.</p>",
+        "selector": ".walkthrough-network-issues",
         "position": "top"
       }
     ]

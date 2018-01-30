@@ -14,20 +14,24 @@ exports[`<GtocPage /> render matches previous snapshot 1`] = `
         className="row text-center"
       >
         <div
-          className="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8"
+          className="col-xs-10 col-md-8"
         />
         <div
-          className="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6"
+          className="col-xs-12 col-md-8"
         >
-          <figure>
-            <figcaption>
-              FEMA Regions Map
-            </figcaption>
+          <figure
+            className="fema-map-wrapper"
+          >
             <img
               alt=""
-              className="img-responsive"
+              className="img-responsive fema-map"
               src="/images/fema-regions-map.png"
             />
+            <figcaption
+              className="fema-figcaption"
+            >
+              FEMA Regions Map
+            </figcaption>
           </figure>
         </div>
       </div>
@@ -35,7 +39,7 @@ exports[`<GtocPage /> render matches previous snapshot 1`] = `
         className="row"
       >
         <section
-          className="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6"
+          className="col-xs-12"
         />
       </div>
     </div>

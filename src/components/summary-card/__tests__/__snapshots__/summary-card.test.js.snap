@@ -2,7 +2,7 @@
 
 exports[`<SummaryCard /> render testing matches snapshot 1`] = `
 <div
-  className="card-wrapper"
+  className="card-wrapper walkthrough-app-summary"
 >
   <a
     className="card-focus has-shadow card-container center-block  "
@@ -59,7 +59,7 @@ exports[`<SummaryCard /> render testing matches snapshot 1`] = `
 
 exports[`<SummaryCard /> render testing matches snapshot 2`] = `
 <div
-  className="card-wrapper"
+  className="card-wrapper walkthrough-app-summary"
 >
   <a
     className="card-focus has-shadow card-container center-block  "

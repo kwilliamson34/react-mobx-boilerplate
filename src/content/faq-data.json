@@ -9,7 +9,7 @@
         "hideFromRoles": []
       },
       {
-        "title": "Network Status",
+        "title": "Network",
         "hideFromRoles": ["G_FN_SUB", "G_FN_VOL_ADM", "G_FN_VOL"]
       },
       {
@@ -53,16 +53,16 @@
         "category": "General"
       },
       {
-        "question": "Which alerts are displayed on the Network Status map?",
-        "answer": "Alerts on the Network Status map highlight disruptions of or degradations in regular service. These may be the result of unexpected outages or planned maintenance. The alerts contain information about the nature of the incident such as the date/time reported, effect on network coverage, and estimated remediation time.",
+        "question": "Which alerts are displayed on the Network map?",
+        "answer": "Alerts on the Network map highlight disruptions of or degradations in regular service. These may be the result of unexpected outages or planned maintenance. The alerts contain information about the nature of the incident such as the date/time reported, effect on network coverage, and estimated remediation time.",
         "maxStringLength": 500,
-        "category": "Network Status"
+        "category": "Network"
       },
       {
         "question": "When should I use the emergency network support number?",
         "answer": "The emergency network support number should be used when seeking FirstNet assistance while responding to an event that results in heavy network demands or affects the network itself and may affect the ability of first responders and dispatchers to communicate. This number should be treated as the '9-1-1' of FirstNet network support.",
         "maxStringLength": 500,
-        "category": "Network Status"
+        "category": "Network"
       },
       {
         "question": "How do I add or remove a user from the PSE?",
@@ -186,7 +186,7 @@
       },
       {
         "question": "Do you have a question that wasn’t covered here?",
-        "answer": "Please use the Live Chat feature on the right side of this window or&nbsp;<span aria-hidden=\"true\">call the FirstNet Customer Service line at&nbsp;</span><a href=\"tel:+18005747000\"><span class=\"sr-only\">call the FirstNet Customer Service line at&nbsp;</span>800-574-7000</a>.",
+        "answer": "Learn more about FirstNet by visiting our <a href=\"http:\/\/mmsrv01b.intellor.com\/att\/digitalexperience\/firstnet.html\" rel=\"noopener noreferrer\" target=\"_blank\">Training Portal<i class=\"icon-external-site\"></i></a>, using the Live Chat feature on the right side of this window, or&nbsp;<span aria-hidden=\"true\">calling the FirstNet Customer Service line at&nbsp;</span><a href=\"tel:+18005747000\"><span class=\"sr-only\">call the FirstNet Customer Service line at&nbsp;</span>800-574-7000</a>.",
         "maxStringLength": 500,
         "category": "Other"
       }

@@ -21,7 +21,7 @@ class GeolinkStore {
 
     // determines whether to show address or favorite name
     autorun(() => {
-      if(this.values.locationName !== this.selectedFavoriteName && this.shouldDisplayLocationName && this.values.locationName !== '' && this.pageTitle === 'Network Status') {
+      if(this.values.locationName !== this.selectedFavoriteName && this.shouldDisplayLocationName && this.values.locationName !== '' && this.pageTitle === 'Network') {
         this.values.locationAddress = this.values.locationName;
         this.values.locationName = '';
         this.selectedFavoriteName = '';
@@ -88,7 +88,7 @@ class GeolinkStore {
     };
     this.resetCurrentFavorite(locationData)
 
-    this.pageTitle = 'Network Status';
+    this.pageTitle = 'Network';
     history.push('/network');
   }
 
@@ -251,7 +251,7 @@ class GeolinkStore {
   @action addLocation() {
     const success = () => {
       this.resetCurrentFavorite();
-      this.pageTitle = 'Network Status';
+      this.pageTitle = 'Network';
       this.updateSuccess('"' + this.values.locationName + '" has been added.');
       this.updateAlert('');
       this.formFieldRefList.find((el) => {
@@ -273,7 +273,7 @@ class GeolinkStore {
   @action editLocation() {
     const success = () => {
       this.resetCurrentFavorite();
-      this.pageTitle = 'Network Status';
+      this.pageTitle = 'Network';
       this.updateAlert('');
       this.updateSuccess('"' + this.values.locationName + '" has been updated.');
       history.push('/manage-favorites');
@@ -293,7 +293,7 @@ class GeolinkStore {
       this.clearForm();
       history.push('/manage-favorites');
     } else if (this.pageTitle === 'Add New Favorite') {
-      this.pageTitle = 'Network Status';
+      this.pageTitle = 'Network';
     }
   }
 
@@ -305,7 +305,7 @@ class GeolinkStore {
     this.resetValues();
     this.clearAlertBars();
     this.clearFormFieldRefList();
-    this.setPageTitle('Network Status');
+    this.setPageTitle('Network');
     this.searchMap();
   }
 
@@ -402,7 +402,7 @@ class GeolinkStore {
 
   //OBSERVABLES
   //Page
-  @observable pageTitle = 'Network Status';
+  @observable pageTitle = 'Network';
 
   //Map
   @observable iframeIsFullyLoaded = false;
