@@ -1,18 +1,16 @@
 .purchasing-info {
-  margin-left: 5px;
-
-  h2 {
+  .purchasing-info-headline {
     padding-top: 6rem;
   }
 
-  hr {
+  .purchasing-info-hr {
     margin-bottom: 0;
   }
 
   .purchase-options-list {
     @extend .clearfix;
 
-    li {
+    .purchasing-options-list-item {
       font-size: $fn-content-page-text-desktop;
       width: 100%;
       padding: 20px 0;
@@ -22,21 +20,21 @@
         border: 0;
       }
 
-      span {
+      .purchasing-options-non-link {
         font-weight: $fn-normal-weight;
       }
 
-      a {
-        display: inline-block;
-        word-break: break-all;
-        width: 70%;
-      }
-
-      strong {
+      .purchasing-options-strong {
         display: inline-block;
         font-weight: $fn-medium-weight;
         vertical-align: top;
         width: 30%;
+      }
+
+      .purchasing-options-link {
+        display: inline-block;
+        word-break: break-all;
+        width: 70%;
       }
     }
   }
@@ -44,14 +42,13 @@
 
 @media #{$tablet} {
   .purchasing-info {
-    margin-left: 0px;
     .purchase-options-list {
-      li {
-        strong {
+      .purchasing-options-list-item {
+        .purchasing-options-strong {
           width: 15%;
         }
 
-        a {
+        .purchasing-options-link {
           width: 85%;
         }
       }
@@ -62,12 +59,12 @@
 @media #{$desktop} {
   .purchasing-info {
     .purchase-options-list {
-      li {
-        strong {
+      .purchasing-options-list-item {
+        .purchasing-options-strong {
           width: 15%;
         }
 
-        a {
+        .purchasing-options-link {
           width: 85%;
         }
       }
