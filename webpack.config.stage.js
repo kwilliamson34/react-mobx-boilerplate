@@ -7,7 +7,7 @@ const CompressionPlugin = require('compression-webpack-plugin');
 const precss = require("precss");
 const autoprefixer = require("autoprefixer");
 
-// Set the environment; allowed ['dev','qa','stage','prod']
+// Set the environment; allowed ['dev','qa','stage','uat','prod']
 const env = 'stage';
 
 console.log('Built for the \x1b[34m' + env + '\x1b[30m environment');
