@@ -191,7 +191,7 @@ class GeolinkStore {
     this.showFireLayer = !this.showFireLayer;
     this.mapIframeRef.contentWindow.postMessage({
       eventName: 'loadLayer',
-      value: 'Mobility:FireWarnings',
+      value: 'Mobility:FireAreas',
       flag: this.showFireLayer
     }, '*');
   }
@@ -209,7 +209,7 @@ class GeolinkStore {
     this.showWindLayer = !this.showWindLayer;
     this.mapIframeRef.contentWindow.postMessage({
       eventName: 'loadLayer',
-      value: 'Mobility:WindWarnings',
+      value: 'Mobility:WindWarningsAndWatches',
       flag: this.showWindLayer
     }, '*');
   }
