@@ -23,42 +23,42 @@ export default class PurchasingInfo extends React.Component {
   render() {
     return(
       <section className="purchasing-info">
-        <h2 className="purchasing-info-headline">For Purchasing</h2>
-        <hr className="purchasing-info-hr" />
+        <h2>For Purchasing</h2>
+        <hr />
         <div>
           <ul className="purchase-options-list">
             {this.props.contactInfo.contact_name !== '' &&
-              <li className="purchasing-options-list-item">
-                <strong className="purchasing-options-strong">Contact:</strong>
-                <span className="purchasing-options-non-link" dangerouslySetInnerHTML={{__html: this.props.contactInfo.contact_name}} />
+              <li>
+                <strong>Contact:</strong>
+                <span dangerouslySetInnerHTML={{__html: this.props.contactInfo.contact_name}} />
               </li>
             }
             {this.props.contactInfo.contact_phone !== '' &&
-              <li className="purchasing-options-list-item">
-                <strong className="purchasing-options-strong" aria-hidden="true">Phone:</strong>
-                <a className="purchasing-options-link" href={`tel:${this.props.contactInfo.contact_phone}`}>
+              <li>
+                <strong aria-hidden="true">Phone:</strong>
+                <a href={`tel:${this.props.contactInfo.contact_phone}`}>
                   <span className="sr-only">Phone:&nbsp;</span>
                   {this.props.contactInfo.contact_phone}
                 </a>
               </li>
             }
             {this.props.contactInfo.contact_email !== '' &&
-              <li className="purchasing-options-list-item">
-                <strong className="purchasing-options-strong" aria-hidden="true">Email:</strong>
-                <a className="purchasing-options-link" href={`mailto:${this.props.contactInfo.contact_email}`}><span className="sr-only">Email:&nbsp;</span>{this.props.contactInfo.contact_email}</a>
+              <li>
+                <strong aria-hidden="true">Email:</strong>
+                <a href={`mailto:${this.props.contactInfo.contact_email}`}><span className="sr-only">Email:&nbsp;</span>{this.props.contactInfo.contact_email}</a>
               </li>
             }
             {this.props.contactInfo.contact_company !== '' &&
-              <li className="purchasing-options-list-item">
-                <strong className="purchasing-options-strong">Company:</strong>
+              <li>
+                <strong>Company:</strong>
                 <span dangerouslySetInnerHTML={{__html: this.props.contactInfo.contact_company}} />
               </li>
             }
             {this.props.contactInfo.contact_website !== '' &&
-              <li className="purchasing-options-list-item">
-                <strong className="purchasing-options-strong" aria-hidden="true">Website:</strong>
+              <li>
+                <strong aria-hidden="true">Website:</strong>
                 <span className="sr-only">Website:&nbsp;</span>
-                <NewTabLink className="purchasing-options-link" to={this.props.contactInfo.contact_website}>
+                <NewTabLink to={this.props.contactInfo.contact_website} showIcon={true}>
                   {this.cutContactWebsite(this.props.contactInfo.contact_website)}
                 </NewTabLink>
               </li>

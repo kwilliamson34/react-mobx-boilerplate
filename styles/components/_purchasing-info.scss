@@ -1,16 +1,16 @@
 .purchasing-info {
-  .purchasing-info-headline {
+  h2 {
     padding-top: 6rem;
   }
 
-  .purchasing-info-hr {
+  hr {
     margin-bottom: 0;
   }
 
   .purchase-options-list {
     @extend .clearfix;
 
-    .purchasing-options-list-item {
+    li {
       font-size: $fn-content-page-text-desktop;
       width: 100%;
       padding: 20px 0;
@@ -20,21 +20,23 @@
         border: 0;
       }
 
-      .purchasing-options-non-link {
-        font-weight: $fn-normal-weight;
-      }
-
-      .purchasing-options-strong {
+      strong {
         display: inline-block;
         font-weight: $fn-medium-weight;
         vertical-align: top;
         width: 30%;
       }
 
-      .purchasing-options-link {
+      a {
         display: inline-block;
         word-break: break-all;
         width: 70%;
+      }
+
+      i {
+        padding-left: 10px;
+        font-size: $fn-small-text-desktop;
+        vertical-align: -1px;
       }
     }
   }
@@ -43,12 +45,12 @@
 @media #{$tablet} {
   .purchasing-info {
     .purchase-options-list {
-      .purchasing-options-list-item {
-        .purchasing-options-strong {
+      li {
+        strong {
           width: 15%;
         }
 
-        .purchasing-options-link {
+        a {
           width: 85%;
         }
       }
@@ -59,12 +61,12 @@
 @media #{$desktop} {
   .purchasing-info {
     .purchase-options-list {
-      .purchasing-options-list-item {
-        .purchasing-options-strong {
+      li {
+        strong {
           width: 15%;
         }
 
-        .purchasing-options-link {
+        a {
           width: 85%;
         }
       }
