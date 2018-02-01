@@ -4,28 +4,19 @@ exports[`<PurchasingInfo /> render tests matches previous snapshot 1`] = `
 <section
   className="purchasing-info"
 >
-  <h2
-    className="purchasing-info-headline"
-  >
+  <h2>
     For Purchasing
   </h2>
-  <hr
-    className="purchasing-info-hr"
-  />
+  <hr />
   <div>
     <ul
       className="purchase-options-list"
     >
-      <li
-        className="purchasing-options-list-item"
-      >
-        <strong
-          className="purchasing-options-strong"
-        >
+      <li>
+        <strong>
           Contact:
         </strong>
         <span
-          className="purchasing-options-non-link"
           dangerouslySetInnerHTML={
             Object {
               "__html": "Don Johnson",
@@ -33,17 +24,13 @@ exports[`<PurchasingInfo /> render tests matches previous snapshot 1`] = `
           }
         />
       </li>
-      <li
-        className="purchasing-options-list-item"
-      >
+      <li>
         <strong
           aria-hidden="true"
-          className="purchasing-options-strong"
         >
           Phone:
         </strong>
         <a
-          className="purchasing-options-link"
           href="tel:1-555-IAM-VICE"
         >
           <span
@@ -54,17 +41,13 @@ exports[`<PurchasingInfo /> render tests matches previous snapshot 1`] = `
           1-555-IAM-VICE
         </a>
       </li>
-      <li
-        className="purchasing-options-list-item"
-      >
+      <li>
         <strong
           aria-hidden="true"
-          className="purchasing-options-strong"
         >
           Email:
         </strong>
         <a
-          className="purchasing-options-link"
           href="mailto:don_the_heat@hotmail.com"
         >
           <span
@@ -75,12 +58,8 @@ exports[`<PurchasingInfo /> render tests matches previous snapshot 1`] = `
           don_the_heat@hotmail.com
         </a>
       </li>
-      <li
-        className="purchasing-options-list-item"
-      >
-        <strong
-          className="purchasing-options-strong"
-        >
+      <li>
+        <strong>
           Company:
         </strong>
         <span
@@ -91,12 +70,9 @@ exports[`<PurchasingInfo /> render tests matches previous snapshot 1`] = `
           }
         />
       </li>
-      <li
-        className="purchasing-options-list-item"
-      >
+      <li>
         <strong
           aria-hidden="true"
-          className="purchasing-options-strong"
         >
           Website:
         </strong>
@@ -115,14 +91,10 @@ exports[`<PurchasingInfo /> render tests should render with no purchasing info s
 <section
   className="purchasing-info"
 >
-  <h2
-    className="purchasing-info-headline"
-  >
+  <h2>
     For Purchasing
   </h2>
-  <hr
-    className="purchasing-info-hr"
-  />
+  <hr />
   <div>
     <ul
       className="purchase-options-list"
