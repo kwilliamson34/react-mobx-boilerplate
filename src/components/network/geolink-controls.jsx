@@ -166,7 +166,7 @@ export default class GeolinkControls extends React.Component {
 
   renderSearchArea = () => {
     return (
-      <div>
+      <div className="walkthrough-map-locations">
         <h2 className="as-h5">Search</h2>
         <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id={this.store.shouldDisplayLocationName
             ? 'locationName'
@@ -191,7 +191,7 @@ export default class GeolinkControls extends React.Component {
 
   renderLayersArea = () => {
     return (
-      <div>
+      <div className="walkthrough-map-controls">
         <h2>Layers</h2>
         <form className="form-group">
           <fieldset className="coverage-layers">
@@ -269,7 +269,7 @@ export default class GeolinkControls extends React.Component {
 
   renderContactSubscribeBlock = () => {
     return (
-      <div>
+      <div className="walkthrough-network-issues">
         {this.renderContactInfo()}
         {this.renderNetworkSubscriptionLink()}
       </div>)
@@ -346,7 +346,7 @@ export default class GeolinkControls extends React.Component {
 
   renderFireFloodBlock = () => {
     return (
-      <div className="legend-block halved">
+      <div className="legend-block two-col-legend">
         {this.renderFireLegend()}
         {this.renderFlashFloodLegend()}
       </div>
@@ -370,10 +370,9 @@ export default class GeolinkControls extends React.Component {
               <div></div>
             </div>
           </div>
-          <div className="hazards-legend">
-            <span className="as-label"></span>
-            <span className="as-label"><i className="icon-warning construction" aria-hidden="true" /><br className="visible-xs" />Construction</span>
-            <span className="as-label"><i className="icon-warning incident" aria-hidden="true" /><br className="visible-xs" />Vehicle Incident</span>
+          <div className="hazards-legend two-col-legend">
+            <span className="col-xs-6 as-label"><i className="icon-warning construction" aria-hidden="true" /><br className="visible-xs" />Construction</span>
+            <span className="col-xs-6 as-label"><i className="icon-warning incident" aria-hidden="true" /><br className="visible-xs" />Vehicle Incident</span>
           </div>
         </div>
       </React.Fragment>
