@@ -76,16 +76,11 @@ exports[`<PurchasingInfo /> render tests matches previous snapshot 1`] = `
         >
           Website:
         </strong>
-        <a
-          href="http://www.fastnhotspeedboats.com"
+        <span
+          className="sr-only"
         >
-          <span
-            className="sr-only"
-          >
-            Website: 
-          </span>
-          fastnhotspeedboats.com
-        </a>
+          Website: 
+        </span>
       </li>
     </ul>
   </div>
