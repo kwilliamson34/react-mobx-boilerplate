@@ -346,7 +346,7 @@ export default class GeolinkControls extends React.Component {
 
   renderFireFloodBlock = () => {
     return (
-      <div className="legend-block halved">
+      <div className="legend-block two-col-legend">
         {this.renderFireLegend()}
         {this.renderFlashFloodLegend()}
       </div>
@@ -370,10 +370,9 @@ export default class GeolinkControls extends React.Component {
               <div></div>
             </div>
           </div>
-          <div className="hazards-legend">
-            <span className="as-label"></span>
-            <span className="as-label"><i className="icon-warning construction" aria-hidden="true" /><br className="visible-xs" />Construction</span>
-            <span className="as-label"><i className="icon-warning incident" aria-hidden="true" /><br className="visible-xs" />Vehicle Incident</span>
+          <div className="hazards-legend two-col-legend">
+            <span className="col-xs-6 as-label"><i className="icon-warning construction" aria-hidden="true" /><br className="visible-xs" />Construction</span>
+            <span className="col-xs-6 as-label"><i className="icon-warning incident" aria-hidden="true" /><br className="visible-xs" />Vehicle Incident</span>
           </div>
         </div>
       </React.Fragment>
