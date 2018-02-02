@@ -202,16 +202,6 @@ export default class GeolinkControls extends React.Component {
                 handleOnChange={this.toggleNetwork}
                 checked={this.store.showNetworkLayer}
                 disabled={this.props.disabled} />
-              <Checkbox label="Weather"
-                handleOnChange={this.toggleWeather}
-                checked={this.store.showWeatherLayer}
-                disabled={this.props.disabled} />
-            </div>
-            <div className="col-xs-12 col-sm-6 no-gutters">
-              <Checkbox label="Traffic"
-                handleOnChange={this.toggleTraffic}
-                checked={this.store.showTrafficLayer}
-                disabled={this.props.disabled} />
               <Checkbox label="Network Alerts"
                 tooltipText="Highlights abnormal network malfunction"
                 handleOnChange={this.toggleAlerts}
@@ -229,10 +219,20 @@ export default class GeolinkControls extends React.Component {
                 disabled={this.props.disabled || !this.store.authIsComplete} />
             </div>
             <div className="col-xs-12 col-sm-6 no-gutters">
+              <Checkbox label="Weather"
+                handleOnChange={this.toggleWeather}
+                checked={this.store.showWeatherLayer}
+                disabled={this.props.disabled} />
               <Checkbox label="Wind"
                 handleOnChange={this.toggleWind}
                 checked={this.store.showWindLayer}
                 disabled={this.props.disabled || !this.store.authIsComplete} />
+            </div>
+            <div className="col-xs-12 col-sm-6 no-gutters">
+              <Checkbox label="Traffic"
+                handleOnChange={this.toggleTraffic}
+                checked={this.store.showTrafficLayer}
+                disabled={this.props.disabled} />
             </div>
           </fieldset>
         </form>
