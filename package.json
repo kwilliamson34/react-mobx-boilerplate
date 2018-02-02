@@ -16,7 +16,7 @@
     "bootstrap": "^3.3.7",
     "date-fns": "^1.29.0",
     "fn-joyride-ui": "git+ssh://git@us.tools.publicis.sapient.com/fnapi/fn-joyride-ui.git#v2.1.0",
-    "fn-common-ui": "git+ssh://git@us.tools.publicis.sapient.com/fnapi/common-ui.git#v1.4.6",
+    "fn-common-ui": "git+ssh://git@us.tools.publicis.sapient.com/fnapi/common-ui.git#v1.4.7",
     "jquery": "^3.2.1",
     "lodash": "^4.17.4",
     "mobx": "^3.3.1",
