@@ -80,7 +80,7 @@
       },
       {
         "title": "Map Controls",
-        "text": "<p>Select map overlays to view current weather, traffic, and network specific alerts.</p>",
+        "text": "<p>Select map overlays to view current weather, traffic, fire, wind, flash flood, and network specific alerts.</p>",
         "selector": ".walkthrough-map-controls",
         "position": "top"
       },
