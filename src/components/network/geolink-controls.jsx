@@ -166,7 +166,7 @@ export default class GeolinkControls extends React.Component {
 
   renderSearchArea = () => {
     return (
-      <div>
+      <div className="walkthrough-map-locations">
         <h2 className="as-h5">Search</h2>
         <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id={this.store.shouldDisplayLocationName
             ? 'locationName'
@@ -191,7 +191,7 @@ export default class GeolinkControls extends React.Component {
 
   renderLayersArea = () => {
     return (
-      <div>
+      <div className="walkthrough-map-controls">
         <h2>Layers</h2>
         <form className="form-group">
           <fieldset className="coverage-layers">
@@ -269,7 +269,7 @@ export default class GeolinkControls extends React.Component {
 
   renderContactSubscribeBlock = () => {
     return (
-      <div>
+      <div className="walkthrough-network-issues">
         {this.renderContactInfo()}
         {this.renderNetworkSubscriptionLink()}
       </div>)
