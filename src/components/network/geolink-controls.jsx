@@ -213,7 +213,7 @@ export default class GeolinkControls extends React.Component {
                 handleOnChange={this.toggleFire}
                 checked={this.store.showFireLayer}
                 disabled={this.props.disabled || !this.store.authIsComplete} />
-              <Checkbox label="Flood"
+              <Checkbox label="Flash Flood"
                 handleOnChange={this.toggleFlood}
                 checked={this.store.showFloodLayer}
                 disabled={this.props.disabled || !this.store.authIsComplete} />
