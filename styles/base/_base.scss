@@ -63,3 +63,23 @@ h1 + hr,
 h2 + hr {
   border-color: $fn-header-hr-grey;
 }
+
+// spinning reload icon
+.icon-reload {
+  display: inline-block;
+  vertical-align: middle;
+  height: 34px;
+  width: 34px;
+  margin-right: 5px;
+  font-size: 3.6rem;
+  -webkit-animation: spin 4s linear infinite;
+  -moz-animation: spin 4s linear infinite;
+  animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+  }
+}
