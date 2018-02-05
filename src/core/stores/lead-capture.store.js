@@ -22,6 +22,8 @@ class LeadCaptureStore {
   }
 
   @action setCurrentSolution(solutionName) {
+    // FPSE-1953 AT&T is URI decoded as AT&amp;T which causes problems with cookies et al, so additionally replace it before setting it.
+    solutionName = solutionName.replace(/&amp;/g, '&');
     this.solutionName = solutionName;
   }
 
