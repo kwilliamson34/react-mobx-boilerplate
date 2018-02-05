@@ -21,6 +21,13 @@ export const adminCards = [
         description: 'Assign or remove devices, change rate plans & features, view & pay bills, update information, manage push-to-talk'
     },
     {
+        isPermitted: 'manageIotDevices',
+        linkTo: 'manageIotDevicesLink',
+        className: 'manage-iot',
+        header: 'Manage IoT devices',
+        description: 'Manage the connectivity of your IoT devices'
+    },
+    {
         isPermitted: 'manageVoicemail',
         linkTo: 'manageVoicemailAndUsageLink',
         className: 'manage-voicemail-and-usage',
