@@ -13,7 +13,9 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
       <div
         className="col-xs-12 col-md-6 map-controls"
       >
-        <div>
+        <div
+          className="walkthrough-map-locations"
+        >
           <h2
             className="as-h5"
           >
@@ -115,7 +117,9 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
             </a>
           </div>
         </div>
-        <div>
+        <div
+          className="walkthrough-map-controls"
+        >
           <h2>
             Layers
           </h2>
@@ -274,7 +278,7 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
                       onChange={[Function]}
                       onKeyPress={[Function]}
                       type="checkbox"
-                      value="Flood"
+                      value="Flash Flood"
                     />
                     <span
                       className="cr"
@@ -286,7 +290,7 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
                       <span
                         className="label-text-normal"
                       >
-                        Flood
+                        Flash Flood
                       </span>
                     </span>
                   </label>
@@ -399,7 +403,9 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
             </fieldset>
           </form>
         </div>
-        <div>
+        <div
+          className="walkthrough-network-issues"
+        >
           <div
             className="col-xs-12 col-sm-4 col-md-6 col-lg-4 no-gutters"
           >
@@ -580,7 +586,7 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
           </div>
         </div>
         <div
-          className="legend-block halved"
+          className="legend-block two-col-legend"
         >
           <div
             className="col-xs-6"
@@ -655,13 +661,10 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
             </div>
           </div>
           <div
-            className="hazards-legend"
+            className="hazards-legend two-col-legend"
           >
             <span
-              className="as-label"
-            />
-            <span
-              className="as-label"
+              className="col-xs-6 as-label"
             >
               <i
                 aria-hidden="true"
@@ -673,7 +676,7 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
               Construction
             </span>
             <span
-              className="as-label"
+              className="col-xs-6 as-label"
             >
               <i
                 aria-hidden="true"
@@ -705,7 +708,9 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
       <div
         className="col-xs-12 col-md-6 map-controls"
       >
-        <div>
+        <div
+          className="walkthrough-map-locations"
+        >
           <h2
             className="as-h5"
           >
@@ -734,7 +739,9 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
             </a>
           </div>
         </div>
-        <div>
+        <div
+          className="walkthrough-map-controls"
+        >
           <h2>
             Layers
           </h2>
@@ -893,7 +900,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                       onChange={[Function]}
                       onKeyPress={[Function]}
                       type="checkbox"
-                      value="Flood"
+                      value="Flash Flood"
                     />
                     <span
                       className="cr"
@@ -905,7 +912,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                       <span
                         className="label-text-normal"
                       >
-                        Flood
+                        Flash Flood
                       </span>
                     </span>
                   </label>
@@ -1018,7 +1025,9 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
             </fieldset>
           </form>
         </div>
-        <div>
+        <div
+          className="walkthrough-network-issues"
+        >
           <div
             className="col-xs-12 col-sm-4 col-md-6 col-lg-4 no-gutters"
           >
@@ -1199,7 +1208,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
           </div>
         </div>
         <div
-          className="legend-block halved"
+          className="legend-block two-col-legend"
         >
           <div
             className="col-xs-6"
@@ -1274,13 +1283,10 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
             </div>
           </div>
           <div
-            className="hazards-legend"
+            className="hazards-legend two-col-legend"
           >
             <span
-              className="as-label"
-            />
-            <span
-              className="as-label"
+              className="col-xs-6 as-label"
             >
               <i
                 aria-hidden="true"
@@ -1292,7 +1298,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
               Construction
             </span>
             <span
-              className="as-label"
+              className="col-xs-6 as-label"
             >
               <i
                 aria-hidden="true"
@@ -1324,7 +1330,9 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
       <div
         className="col-xs-12 col-md-6 map-controls"
       >
-        <div>
+        <div
+          className="walkthrough-map-locations"
+        >
           <h2
             className="as-h5"
           >
@@ -1353,7 +1361,9 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
             </a>
           </div>
         </div>
-        <div>
+        <div
+          className="walkthrough-map-controls"
+        >
           <h2>
             Layers
           </h2>
@@ -1512,7 +1522,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                       onChange={[Function]}
                       onKeyPress={[Function]}
                       type="checkbox"
-                      value="Flood"
+                      value="Flash Flood"
                     />
                     <span
                       className="cr"
@@ -1524,7 +1534,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                       <span
                         className="label-text-normal"
                       >
-                        Flood
+                        Flash Flood
                       </span>
                     </span>
                   </label>
@@ -1637,7 +1647,9 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
             </fieldset>
           </form>
         </div>
-        <div>
+        <div
+          className="walkthrough-network-issues"
+        >
           <div
             className="col-xs-12 col-sm-4 col-md-6 col-lg-4 no-gutters"
           >
@@ -1818,7 +1830,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
           </div>
         </div>
         <div
-          className="legend-block halved"
+          className="legend-block two-col-legend"
         >
           <div
             className="col-xs-6"
@@ -1893,13 +1905,10 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
             </div>
           </div>
           <div
-            className="hazards-legend"
+            className="hazards-legend two-col-legend"
           >
             <span
-              className="as-label"
-            />
-            <span
-              className="as-label"
+              className="col-xs-6 as-label"
             >
               <i
                 aria-hidden="true"
@@ -1911,7 +1920,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
               Construction
             </span>
             <span
-              className="as-label"
+              className="col-xs-6 as-label"
             >
               <i
                 aria-hidden="true"
@@ -1943,7 +1952,9 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
       <div
         className="col-xs-12 col-md-6 map-controls"
       >
-        <div>
+        <div
+          className="walkthrough-map-locations"
+        >
           <h2
             className="as-h5"
           >
@@ -1972,7 +1983,9 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
             </a>
           </div>
         </div>
-        <div>
+        <div
+          className="walkthrough-map-controls"
+        >
           <h2>
             Layers
           </h2>
@@ -2131,7 +2144,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                       onChange={[Function]}
                       onKeyPress={[Function]}
                       type="checkbox"
-                      value="Flood"
+                      value="Flash Flood"
                     />
                     <span
                       className="cr"
@@ -2143,7 +2156,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                       <span
                         className="label-text-normal"
                       >
-                        Flood
+                        Flash Flood
                       </span>
                     </span>
                   </label>
@@ -2256,7 +2269,9 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
             </fieldset>
           </form>
         </div>
-        <div>
+        <div
+          className="walkthrough-network-issues"
+        >
           <div
             className="col-xs-12 col-sm-4 col-md-6 col-lg-4 no-gutters"
           >
@@ -2437,7 +2452,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
           </div>
         </div>
         <div
-          className="legend-block halved"
+          className="legend-block two-col-legend"
         >
           <div
             className="col-xs-6"
@@ -2512,13 +2527,10 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
             </div>
           </div>
           <div
-            className="hazards-legend"
+            className="hazards-legend two-col-legend"
           >
             <span
-              className="as-label"
-            />
-            <span
-              className="as-label"
+              className="col-xs-6 as-label"
             >
               <i
                 aria-hidden="true"
@@ -2530,7 +2542,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
               Construction
             </span>
             <span
-              className="as-label"
+              className="col-xs-6 as-label"
             >
               <i
                 aria-hidden="true"
