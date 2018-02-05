@@ -11,7 +11,7 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
       className="row is-flex"
     >
       <div
-        className="col-xs-12 col-md-6 map-search walkthrough-map-locations"
+        className="col-xs-12 col-md-6 map-controls"
       >
         <div>
           <h2
@@ -19,6 +19,7 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
           >
             Search
           </h2>
+           
           <div
             className="predictive-dropdown"
           >
@@ -32,7 +33,7 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
                 tabIndex="0"
               >
                 <i
-                  aria-hidden={true}
+                  aria-hidden="aria-hidden"
                   className="icon-star"
                 />
                 <span
@@ -61,7 +62,7 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
                 tabIndex="0"
               >
                 <i
-                  aria-hidden={true}
+                  aria-hidden="aria-hidden"
                   className="icon-star"
                 />
                 <span
@@ -114,13 +115,6 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
             </a>
           </div>
         </div>
-      </div>
-      <hr
-        className="col-xs-12 visible-xs visible-sm"
-      />
-      <div
-        className="col-xs-12 col-md-6 map-layers walkthrough-map-controls"
-      >
         <div>
           <h2>
             Layers
@@ -199,6 +193,123 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
                       onChange={[Function]}
                       onKeyPress={[Function]}
                       type="checkbox"
+                      value="Network Alerts"
+                    />
+                    <span
+                      className="cr"
+                    />
+                    <span
+                      className="label-text "
+                    >
+                      
+                      <span
+                        className="label-text-normal"
+                      >
+                        Network Alerts
+                      </span>
+                    </span>
+                  </label>
+                  <button
+                    className="tooltip"
+                    data-toggle="tooltip"
+                    id="tooltip-"
+                    role="tooltip"
+                    title="Highlights abnormal network malfunction"
+                    type="button"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="icon-help"
+                    />
+                  </button>
+                </div>
+              </div>
+              <div
+                className="col-xs-12 col-sm-6 no-gutters"
+              >
+                <div
+                  className="checkbox form-group "
+                >
+                  <label
+                    className="checkbox-label"
+                  >
+                    <input
+                      aria-disabled={false}
+                      checked={false}
+                      data-checked={false}
+                      id=""
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onKeyPress={[Function]}
+                      type="checkbox"
+                      value="Fire"
+                    />
+                    <span
+                      className="cr"
+                    />
+                    <span
+                      className="label-text "
+                    >
+                      
+                      <span
+                        className="label-text-normal"
+                      >
+                        Fire
+                      </span>
+                    </span>
+                  </label>
+                </div>
+                <div
+                  className="checkbox form-group "
+                >
+                  <label
+                    className="checkbox-label"
+                  >
+                    <input
+                      aria-disabled={false}
+                      checked={false}
+                      data-checked={false}
+                      id=""
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onKeyPress={[Function]}
+                      type="checkbox"
+                      value="Flood"
+                    />
+                    <span
+                      className="cr"
+                    />
+                    <span
+                      className="label-text "
+                    >
+                      
+                      <span
+                        className="label-text-normal"
+                      >
+                        Flood
+                      </span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <div
+                className="col-xs-12 col-sm-6 no-gutters"
+              >
+                <div
+                  className="checkbox form-group "
+                >
+                  <label
+                    className="checkbox-label"
+                  >
+                    <input
+                      aria-disabled={false}
+                      checked={false}
+                      data-checked={false}
+                      id=""
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onKeyPress={[Function]}
+                      type="checkbox"
                       value="Weather"
                     />
                     <span
@@ -212,6 +323,38 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
                         className="label-text-normal"
                       >
                         Weather
+                      </span>
+                    </span>
+                  </label>
+                </div>
+                <div
+                  className="checkbox form-group "
+                >
+                  <label
+                    className="checkbox-label"
+                  >
+                    <input
+                      aria-disabled={false}
+                      checked={false}
+                      data-checked={false}
+                      id=""
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onKeyPress={[Function]}
+                      type="checkbox"
+                      value="Wind"
+                    />
+                    <span
+                      className="cr"
+                    />
+                    <span
+                      className="label-text "
+                    >
+                      
+                      <span
+                        className="label-text-normal"
+                      >
+                        Wind
                       </span>
                     </span>
                   </label>
@@ -252,120 +395,61 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
                     </span>
                   </label>
                 </div>
-                <div
-                  className="checkbox form-group "
-                >
-                  <label
-                    className="checkbox-label"
-                  >
-                    <input
-                      aria-disabled={false}
-                      checked={false}
-                      data-checked={false}
-                      id=""
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onKeyPress={[Function]}
-                      type="checkbox"
-                      value="Network Alerts"
-                    />
-                    <span
-                      className="cr"
-                    />
-                    <span
-                      className="label-text "
-                    >
-                      
-                      <span
-                        className="label-text-normal"
-                      >
-                        Network Alerts
-                      </span>
-                    </span>
-                  </label>
-                  <button
-                    className="tooltip"
-                    data-toggle="tooltip"
-                    id="tooltip-"
-                    role="tooltip"
-                    title="Highlights abnormal network malfunction"
-                    type="button"
-                  >
-                    <i
-                      aria-hidden="true"
-                      className="icon-help"
-                    />
-                  </button>
-                </div>
               </div>
             </fieldset>
           </form>
         </div>
-      </div>
-    </div>
-    <div
-      className="row is-flex"
-    >
-      <div
-        className="col-xs-12 no-gutters"
-      >
-        <hr />
-      </div>
-      <div
-        className="col-xs-12 col-sm-6"
-      >
-        <p
-          className="network-contact-info walkthrough-network-issues"
-        >
-          <span
-            aria-hidden="true"
+        <div>
+          <div
+            className="col-xs-12 col-sm-4 col-md-6 col-lg-4 no-gutters"
           >
-            Report Network Issue:
-          </span>
-          <a
-            href="tel:undefined"
-          >
-            <span>
-              <i
-                aria-hidden="true"
-                className="icon-phone-number"
-              />
+            <p
+              className="network-contact-info"
+            >
               <span
-                className="sr-only"
+                aria-hidden="true"
               >
-                Report Network Issue: Phone 
+                Report Network Issue:
               </span>
-            </span>
-          </a>
-        </p>
-      </div>
-      <div
-        className="col-xs-12 col-sm-6 right-align-text"
-      >
-        <div
-          className="network-subscription-link"
-        >
-          <a
-            href="/subscribe-to-alerts"
-            onClick={[Function]}
+              <a
+                href="tel:undefined"
+              >
+                <span>
+                  <i
+                    aria-hidden="true"
+                    className="icon-phone-number"
+                  />
+                  <span
+                    className="sr-only"
+                  >
+                    Report Network Issue: Phone 
+                  </span>
+                </span>
+              </a>
+            </p>
+          </div>
+          <div
+            className="col-xs-12 col-sm-8 col-md-6 col-lg-8 no-gutters"
           >
-            Subscribe to Network Alerts
-          </a>
+            <div
+              className="network-subscription-link"
+            >
+              <a
+                href="/subscribe-to-alerts"
+                onClick={[Function]}
+              >
+                Subscribe to Network Alerts
+              </a>
+            </div>
+          </div>
         </div>
       </div>
       <div
-        className="col-xs-12 no-gutters"
+        className="col-xs-12 col-md-6 map-legends"
       >
-        <hr />
-      </div>
-    </div>
-    <div
-      className="row is-flex"
-    >
-      <div
-        className="legend-block col-xs-12 col-md-6"
-      >
-        <div>
+        <div
+          className="legend-block"
+        >
           <h2>
             Network
             <span
@@ -407,11 +491,9 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
             />
           </div>
         </div>
-      </div>
-      <div
-        className="legend-block col-xs-12 col-md-6"
-      >
-        <div>
+        <div
+          className="legend-block"
+        >
           <h2>
             Weather
             <span
@@ -453,13 +535,11 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
             />
           </div>
         </div>
-      </div>
-      <div
-        className="legend-block col-xs-12 col-md-6"
-      >
-        <div>
+        <div
+          className="legend-block"
+        >
           <h2>
-            Traffic
+            Wind
             <span
               className="sr-only"
             >
@@ -467,69 +547,143 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
             </span>
           </h2>
           <div
-            className="traffic-legend-wrapper "
+            className="key-labels"
+          >
+            <span
+              className="as-label"
+            >
+              31-57 MPH
+            </span>
+            <span
+              className="as-label"
+            >
+              40-58 MPH
+            </span>
+            <span
+              className="as-label"
+            >
+              74+ MPH
+            </span>
+            <span
+              className="as-label"
+            >
+              115 MPH
+            </span>
+          </div>
+          <div
+            className="legend-gradient"
+          >
+            <img
+              alt=""
+              src="/images/wind-legend.png"
+            />
+          </div>
+        </div>
+        <div
+          className="legend-block halved"
+        >
+          <div
+            className="col-xs-6"
+          >
+            <h2>
+              Fire
+              <span
+                className="sr-only"
+              >
+                 color key
+              </span>
+            </h2>
+            <div
+              className="legend-gradient fire"
+            />
+          </div>
+          <div
+            className="col-xs-6"
+          >
+            <h2>
+              Flash Flood
+              <span
+                className="sr-only"
+              >
+                 color key
+              </span>
+            </h2>
+            <div
+              className="legend-gradient flood"
+            />
+          </div>
+        </div>
+        <h2>
+          Traffic
+          <span
+            className="sr-only"
+          >
+             color key
+          </span>
+        </h2>
+        <div
+          className="traffic-legend-wrapper "
+        >
+          <div
+            className="traffic-bars"
           >
             <div
-              className="traffic-bars"
+              className="key-labels traffic"
             >
-              <div
-                className="key-labels traffic"
+              <span
+                className="as-label"
               >
-                <span
-                  className="as-label"
-                >
-                  Fast
-                </span>
-                <span
-                  className="as-label"
-                >
-                  Normal
-                </span>
-                <span
-                  className="as-label"
-                >
-                  Slow
-                </span>
-              </div>
-              <div
-                className="traffic-legend"
+                Fast
+              </span>
+              <span
+                className="as-label"
               >
-                <div />
-                <div />
-                <div />
-              </div>
+                Normal
+              </span>
+              <span
+                className="as-label"
+              >
+                Slow
+              </span>
             </div>
             <div
-              className="hazards-legend"
+              className="traffic-legend"
             >
-              <span
-                className="as-label"
-              />
-              <span
-                className="as-label"
-              >
-                <i
-                  aria-hidden="true"
-                  className="icon-warning construction"
-                />
-                <br
-                  className="visible-xs"
-                />
-                Construction
-              </span>
-              <span
-                className="as-label"
-              >
-                <i
-                  aria-hidden="true"
-                  className="icon-warning incident"
-                />
-                <br
-                  className="visible-xs"
-                />
-                Vehicle Incident
-              </span>
+              <div />
+              <div />
+              <div />
             </div>
+          </div>
+          <div
+            className="hazards-legend"
+          >
+            <span
+              className="as-label"
+            />
+            <span
+              className="as-label"
+            >
+              <i
+                aria-hidden="true"
+                className="icon-warning construction"
+              />
+              <br
+                className="visible-xs"
+              />
+              Construction
+            </span>
+            <span
+              className="as-label"
+            >
+              <i
+                aria-hidden="true"
+                className="icon-warning incident"
+              />
+              <br
+                className="visible-xs"
+              />
+              Vehicle Incident
+            </span>
           </div>
         </div>
       </div>
@@ -549,7 +703,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
       className="row is-flex"
     >
       <div
-        className="col-xs-12 col-md-6 map-search walkthrough-map-locations"
+        className="col-xs-12 col-md-6 map-controls"
       >
         <div>
           <h2
@@ -557,6 +711,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
           >
             Search
           </h2>
+           
           
           <div
             className="col-xs-6 no-gutters"
@@ -579,13 +734,6 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
             </a>
           </div>
         </div>
-      </div>
-      <hr
-        className="col-xs-12 visible-xs visible-sm"
-      />
-      <div
-        className="col-xs-12 col-md-6 map-layers walkthrough-map-controls"
-      >
         <div>
           <h2>
             Layers
@@ -664,6 +812,123 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                       onChange={[Function]}
                       onKeyPress={[Function]}
                       type="checkbox"
+                      value="Network Alerts"
+                    />
+                    <span
+                      className="cr"
+                    />
+                    <span
+                      className="label-text "
+                    >
+                      
+                      <span
+                        className="label-text-normal"
+                      >
+                        Network Alerts
+                      </span>
+                    </span>
+                  </label>
+                  <button
+                    className="tooltip"
+                    data-toggle="tooltip"
+                    id="tooltip-"
+                    role="tooltip"
+                    title="Highlights abnormal network malfunction"
+                    type="button"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="icon-help"
+                    />
+                  </button>
+                </div>
+              </div>
+              <div
+                className="col-xs-12 col-sm-6 no-gutters"
+              >
+                <div
+                  className="checkbox form-group disabled"
+                >
+                  <label
+                    className="checkbox-label"
+                  >
+                    <input
+                      aria-disabled={true}
+                      checked={false}
+                      data-checked={false}
+                      id=""
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onKeyPress={[Function]}
+                      type="checkbox"
+                      value="Fire"
+                    />
+                    <span
+                      className="cr"
+                    />
+                    <span
+                      className="label-text "
+                    >
+                      
+                      <span
+                        className="label-text-normal"
+                      >
+                        Fire
+                      </span>
+                    </span>
+                  </label>
+                </div>
+                <div
+                  className="checkbox form-group disabled"
+                >
+                  <label
+                    className="checkbox-label"
+                  >
+                    <input
+                      aria-disabled={true}
+                      checked={false}
+                      data-checked={false}
+                      id=""
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onKeyPress={[Function]}
+                      type="checkbox"
+                      value="Flood"
+                    />
+                    <span
+                      className="cr"
+                    />
+                    <span
+                      className="label-text "
+                    >
+                      
+                      <span
+                        className="label-text-normal"
+                      >
+                        Flood
+                      </span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <div
+                className="col-xs-12 col-sm-6 no-gutters"
+              >
+                <div
+                  className="checkbox form-group disabled"
+                >
+                  <label
+                    className="checkbox-label"
+                  >
+                    <input
+                      aria-disabled={true}
+                      checked={false}
+                      data-checked={false}
+                      id=""
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onKeyPress={[Function]}
+                      type="checkbox"
                       value="Weather"
                     />
                     <span
@@ -677,6 +942,38 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                         className="label-text-normal"
                       >
                         Weather
+                      </span>
+                    </span>
+                  </label>
+                </div>
+                <div
+                  className="checkbox form-group disabled"
+                >
+                  <label
+                    className="checkbox-label"
+                  >
+                    <input
+                      aria-disabled={true}
+                      checked={false}
+                      data-checked={false}
+                      id=""
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onKeyPress={[Function]}
+                      type="checkbox"
+                      value="Wind"
+                    />
+                    <span
+                      className="cr"
+                    />
+                    <span
+                      className="label-text "
+                    >
+                      
+                      <span
+                        className="label-text-normal"
+                      >
+                        Wind
                       </span>
                     </span>
                   </label>
@@ -717,120 +1014,61 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     </span>
                   </label>
                 </div>
-                <div
-                  className="checkbox form-group disabled"
-                >
-                  <label
-                    className="checkbox-label"
-                  >
-                    <input
-                      aria-disabled={true}
-                      checked={false}
-                      data-checked={false}
-                      id=""
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onKeyPress={[Function]}
-                      type="checkbox"
-                      value="Network Alerts"
-                    />
-                    <span
-                      className="cr"
-                    />
-                    <span
-                      className="label-text "
-                    >
-                      
-                      <span
-                        className="label-text-normal"
-                      >
-                        Network Alerts
-                      </span>
-                    </span>
-                  </label>
-                  <button
-                    className="tooltip"
-                    data-toggle="tooltip"
-                    id="tooltip-"
-                    role="tooltip"
-                    title="Highlights abnormal network malfunction"
-                    type="button"
-                  >
-                    <i
-                      aria-hidden="true"
-                      className="icon-help"
-                    />
-                  </button>
-                </div>
               </div>
             </fieldset>
           </form>
         </div>
-      </div>
-    </div>
-    <div
-      className="row is-flex"
-    >
-      <div
-        className="col-xs-12 no-gutters"
-      >
-        <hr />
-      </div>
-      <div
-        className="col-xs-12 col-sm-6"
-      >
-        <p
-          className="network-contact-info walkthrough-network-issues"
-        >
-          <span
-            aria-hidden="true"
+        <div>
+          <div
+            className="col-xs-12 col-sm-4 col-md-6 col-lg-4 no-gutters"
           >
-            Report Network Issue:
-          </span>
-          <a
-            href="tel:undefined"
-          >
-            <span>
-              <i
-                aria-hidden="true"
-                className="icon-phone-number"
-              />
+            <p
+              className="network-contact-info"
+            >
               <span
-                className="sr-only"
+                aria-hidden="true"
               >
-                Report Network Issue: Phone 
+                Report Network Issue:
               </span>
-            </span>
-          </a>
-        </p>
-      </div>
-      <div
-        className="col-xs-12 col-sm-6 right-align-text"
-      >
-        <div
-          className="network-subscription-link"
-        >
-          <a
-            href="/subscribe-to-alerts"
-            onClick={[Function]}
+              <a
+                href="tel:undefined"
+              >
+                <span>
+                  <i
+                    aria-hidden="true"
+                    className="icon-phone-number"
+                  />
+                  <span
+                    className="sr-only"
+                  >
+                    Report Network Issue: Phone 
+                  </span>
+                </span>
+              </a>
+            </p>
+          </div>
+          <div
+            className="col-xs-12 col-sm-8 col-md-6 col-lg-8 no-gutters"
           >
-            Subscribe to Network Alerts
-          </a>
+            <div
+              className="network-subscription-link"
+            >
+              <a
+                href="/subscribe-to-alerts"
+                onClick={[Function]}
+              >
+                Subscribe to Network Alerts
+              </a>
+            </div>
+          </div>
         </div>
       </div>
       <div
-        className="col-xs-12 no-gutters"
+        className="col-xs-12 col-md-6 map-legends"
       >
-        <hr />
-      </div>
-    </div>
-    <div
-      className="row is-flex"
-    >
-      <div
-        className="legend-block col-xs-12 col-md-6"
-      >
-        <div>
+        <div
+          className="legend-block"
+        >
           <h2>
             Network
             <span
@@ -872,11 +1110,9 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
             />
           </div>
         </div>
-      </div>
-      <div
-        className="legend-block col-xs-12 col-md-6"
-      >
-        <div>
+        <div
+          className="legend-block"
+        >
           <h2>
             Weather
             <span
@@ -918,13 +1154,11 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
             />
           </div>
         </div>
-      </div>
-      <div
-        className="legend-block col-xs-12 col-md-6"
-      >
-        <div>
+        <div
+          className="legend-block"
+        >
           <h2>
-            Traffic
+            Wind
             <span
               className="sr-only"
             >
@@ -932,69 +1166,143 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
             </span>
           </h2>
           <div
-            className="traffic-legend-wrapper "
+            className="key-labels"
+          >
+            <span
+              className="as-label"
+            >
+              31-57 MPH
+            </span>
+            <span
+              className="as-label"
+            >
+              40-58 MPH
+            </span>
+            <span
+              className="as-label"
+            >
+              74+ MPH
+            </span>
+            <span
+              className="as-label"
+            >
+              115 MPH
+            </span>
+          </div>
+          <div
+            className="legend-gradient"
+          >
+            <img
+              alt=""
+              src="/images/wind-legend.png"
+            />
+          </div>
+        </div>
+        <div
+          className="legend-block halved"
+        >
+          <div
+            className="col-xs-6"
+          >
+            <h2>
+              Fire
+              <span
+                className="sr-only"
+              >
+                 color key
+              </span>
+            </h2>
+            <div
+              className="legend-gradient fire"
+            />
+          </div>
+          <div
+            className="col-xs-6"
+          >
+            <h2>
+              Flash Flood
+              <span
+                className="sr-only"
+              >
+                 color key
+              </span>
+            </h2>
+            <div
+              className="legend-gradient flood"
+            />
+          </div>
+        </div>
+        <h2>
+          Traffic
+          <span
+            className="sr-only"
+          >
+             color key
+          </span>
+        </h2>
+        <div
+          className="traffic-legend-wrapper "
+        >
+          <div
+            className="traffic-bars"
           >
             <div
-              className="traffic-bars"
+              className="key-labels traffic"
             >
-              <div
-                className="key-labels traffic"
+              <span
+                className="as-label"
               >
-                <span
-                  className="as-label"
-                >
-                  Fast
-                </span>
-                <span
-                  className="as-label"
-                >
-                  Normal
-                </span>
-                <span
-                  className="as-label"
-                >
-                  Slow
-                </span>
-              </div>
-              <div
-                className="traffic-legend"
+                Fast
+              </span>
+              <span
+                className="as-label"
               >
-                <div />
-                <div />
-                <div />
-              </div>
+                Normal
+              </span>
+              <span
+                className="as-label"
+              >
+                Slow
+              </span>
             </div>
             <div
-              className="hazards-legend"
+              className="traffic-legend"
             >
-              <span
-                className="as-label"
-              />
-              <span
-                className="as-label"
-              >
-                <i
-                  aria-hidden="true"
-                  className="icon-warning construction"
-                />
-                <br
-                  className="visible-xs"
-                />
-                Construction
-              </span>
-              <span
-                className="as-label"
-              >
-                <i
-                  aria-hidden="true"
-                  className="icon-warning incident"
-                />
-                <br
-                  className="visible-xs"
-                />
-                Vehicle Incident
-              </span>
+              <div />
+              <div />
+              <div />
             </div>
+          </div>
+          <div
+            className="hazards-legend"
+          >
+            <span
+              className="as-label"
+            />
+            <span
+              className="as-label"
+            >
+              <i
+                aria-hidden="true"
+                className="icon-warning construction"
+              />
+              <br
+                className="visible-xs"
+              />
+              Construction
+            </span>
+            <span
+              className="as-label"
+            >
+              <i
+                aria-hidden="true"
+                className="icon-warning incident"
+              />
+              <br
+                className="visible-xs"
+              />
+              Vehicle Incident
+            </span>
           </div>
         </div>
       </div>
@@ -1014,7 +1322,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
       className="row is-flex"
     >
       <div
-        className="col-xs-12 col-md-6 map-search walkthrough-map-locations"
+        className="col-xs-12 col-md-6 map-controls"
       >
         <div>
           <h2
@@ -1022,6 +1330,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
           >
             Search
           </h2>
+           
           
           <div
             className="col-xs-6 no-gutters"
@@ -1044,13 +1353,6 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
             </a>
           </div>
         </div>
-      </div>
-      <hr
-        className="col-xs-12 visible-xs visible-sm"
-      />
-      <div
-        className="col-xs-12 col-md-6 map-layers walkthrough-map-controls"
-      >
         <div>
           <h2>
             Layers
@@ -1113,74 +1415,6 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                       className="icon-help"
                     />
                   </button>
-                </div>
-                <div
-                  className="checkbox form-group "
-                >
-                  <label
-                    className="checkbox-label"
-                  >
-                    <input
-                      aria-disabled={false}
-                      checked={false}
-                      data-checked={false}
-                      id=""
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onKeyPress={[Function]}
-                      type="checkbox"
-                      value="Weather"
-                    />
-                    <span
-                      className="cr"
-                    />
-                    <span
-                      className="label-text "
-                    >
-                      
-                      <span
-                        className="label-text-normal"
-                      >
-                        Weather
-                      </span>
-                    </span>
-                  </label>
-                </div>
-              </div>
-              <div
-                className="col-xs-12 col-sm-6 no-gutters"
-              >
-                <div
-                  className="checkbox form-group "
-                >
-                  <label
-                    className="checkbox-label"
-                  >
-                    <input
-                      aria-disabled={false}
-                      checked={false}
-                      data-checked={false}
-                      id=""
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onKeyPress={[Function]}
-                      type="checkbox"
-                      value="Traffic"
-                    />
-                    <span
-                      className="cr"
-                    />
-                    <span
-                      className="label-text "
-                    >
-                      
-                      <span
-                        className="label-text-normal"
-                      >
-                        Traffic
-                      </span>
-                    </span>
-                  </label>
                 </div>
                 <div
                   className="checkbox form-group disabled"
@@ -1228,74 +1462,232 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                   </button>
                 </div>
               </div>
+              <div
+                className="col-xs-12 col-sm-6 no-gutters"
+              >
+                <div
+                  className="checkbox form-group disabled"
+                >
+                  <label
+                    className="checkbox-label"
+                  >
+                    <input
+                      aria-disabled={true}
+                      checked={false}
+                      data-checked={false}
+                      id=""
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onKeyPress={[Function]}
+                      type="checkbox"
+                      value="Fire"
+                    />
+                    <span
+                      className="cr"
+                    />
+                    <span
+                      className="label-text "
+                    >
+                      
+                      <span
+                        className="label-text-normal"
+                      >
+                        Fire
+                      </span>
+                    </span>
+                  </label>
+                </div>
+                <div
+                  className="checkbox form-group disabled"
+                >
+                  <label
+                    className="checkbox-label"
+                  >
+                    <input
+                      aria-disabled={true}
+                      checked={false}
+                      data-checked={false}
+                      id=""
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onKeyPress={[Function]}
+                      type="checkbox"
+                      value="Flood"
+                    />
+                    <span
+                      className="cr"
+                    />
+                    <span
+                      className="label-text "
+                    >
+                      
+                      <span
+                        className="label-text-normal"
+                      >
+                        Flood
+                      </span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <div
+                className="col-xs-12 col-sm-6 no-gutters"
+              >
+                <div
+                  className="checkbox form-group "
+                >
+                  <label
+                    className="checkbox-label"
+                  >
+                    <input
+                      aria-disabled={false}
+                      checked={false}
+                      data-checked={false}
+                      id=""
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onKeyPress={[Function]}
+                      type="checkbox"
+                      value="Weather"
+                    />
+                    <span
+                      className="cr"
+                    />
+                    <span
+                      className="label-text "
+                    >
+                      
+                      <span
+                        className="label-text-normal"
+                      >
+                        Weather
+                      </span>
+                    </span>
+                  </label>
+                </div>
+                <div
+                  className="checkbox form-group disabled"
+                >
+                  <label
+                    className="checkbox-label"
+                  >
+                    <input
+                      aria-disabled={true}
+                      checked={false}
+                      data-checked={false}
+                      id=""
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onKeyPress={[Function]}
+                      type="checkbox"
+                      value="Wind"
+                    />
+                    <span
+                      className="cr"
+                    />
+                    <span
+                      className="label-text "
+                    >
+                      
+                      <span
+                        className="label-text-normal"
+                      >
+                        Wind
+                      </span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <div
+                className="col-xs-12 col-sm-6 no-gutters"
+              >
+                <div
+                  className="checkbox form-group "
+                >
+                  <label
+                    className="checkbox-label"
+                  >
+                    <input
+                      aria-disabled={false}
+                      checked={false}
+                      data-checked={false}
+                      id=""
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onKeyPress={[Function]}
+                      type="checkbox"
+                      value="Traffic"
+                    />
+                    <span
+                      className="cr"
+                    />
+                    <span
+                      className="label-text "
+                    >
+                      
+                      <span
+                        className="label-text-normal"
+                      >
+                        Traffic
+                      </span>
+                    </span>
+                  </label>
+                </div>
+              </div>
             </fieldset>
           </form>
         </div>
-      </div>
-    </div>
-    <div
-      className="row is-flex"
-    >
-      <div
-        className="col-xs-12 no-gutters"
-      >
-        <hr />
-      </div>
-      <div
-        className="col-xs-12 col-sm-6"
-      >
-        <p
-          className="network-contact-info walkthrough-network-issues"
-        >
-          <span
-            aria-hidden="true"
+        <div>
+          <div
+            className="col-xs-12 col-sm-4 col-md-6 col-lg-4 no-gutters"
           >
-            Report Network Issue:
-          </span>
-          <a
-            href="tel:undefined"
-          >
-            <span>
-              <i
-                aria-hidden="true"
-                className="icon-phone-number"
-              />
+            <p
+              className="network-contact-info"
+            >
               <span
-                className="sr-only"
+                aria-hidden="true"
               >
-                Report Network Issue: Phone 
+                Report Network Issue:
               </span>
-            </span>
-          </a>
-        </p>
-      </div>
-      <div
-        className="col-xs-12 col-sm-6 right-align-text"
-      >
-        <div
-          className="network-subscription-link"
-        >
-          <a
-            href="/subscribe-to-alerts"
-            onClick={[Function]}
+              <a
+                href="tel:undefined"
+              >
+                <span>
+                  <i
+                    aria-hidden="true"
+                    className="icon-phone-number"
+                  />
+                  <span
+                    className="sr-only"
+                  >
+                    Report Network Issue: Phone 
+                  </span>
+                </span>
+              </a>
+            </p>
+          </div>
+          <div
+            className="col-xs-12 col-sm-8 col-md-6 col-lg-8 no-gutters"
           >
-            Subscribe to Network Alerts
-          </a>
+            <div
+              className="network-subscription-link"
+            >
+              <a
+                href="/subscribe-to-alerts"
+                onClick={[Function]}
+              >
+                Subscribe to Network Alerts
+              </a>
+            </div>
+          </div>
         </div>
       </div>
       <div
-        className="col-xs-12 no-gutters"
+        className="col-xs-12 col-md-6 map-legends"
       >
-        <hr />
-      </div>
-    </div>
-    <div
-      className="row is-flex"
-    >
-      <div
-        className="legend-block col-xs-12 col-md-6"
-      >
-        <div>
+        <div
+          className="legend-block"
+        >
           <h2>
             Network
             <span
@@ -1337,11 +1729,9 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
             />
           </div>
         </div>
-      </div>
-      <div
-        className="legend-block col-xs-12 col-md-6"
-      >
-        <div>
+        <div
+          className="legend-block"
+        >
           <h2>
             Weather
             <span
@@ -1383,13 +1773,11 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
             />
           </div>
         </div>
-      </div>
-      <div
-        className="legend-block col-xs-12 col-md-6"
-      >
-        <div>
+        <div
+          className="legend-block"
+        >
           <h2>
-            Traffic
+            Wind
             <span
               className="sr-only"
             >
@@ -1397,69 +1785,143 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
             </span>
           </h2>
           <div
-            className="traffic-legend-wrapper "
+            className="key-labels"
+          >
+            <span
+              className="as-label"
+            >
+              31-57 MPH
+            </span>
+            <span
+              className="as-label"
+            >
+              40-58 MPH
+            </span>
+            <span
+              className="as-label"
+            >
+              74+ MPH
+            </span>
+            <span
+              className="as-label"
+            >
+              115 MPH
+            </span>
+          </div>
+          <div
+            className="legend-gradient"
+          >
+            <img
+              alt=""
+              src="/images/wind-legend.png"
+            />
+          </div>
+        </div>
+        <div
+          className="legend-block halved"
+        >
+          <div
+            className="col-xs-6"
+          >
+            <h2>
+              Fire
+              <span
+                className="sr-only"
+              >
+                 color key
+              </span>
+            </h2>
+            <div
+              className="legend-gradient fire"
+            />
+          </div>
+          <div
+            className="col-xs-6"
+          >
+            <h2>
+              Flash Flood
+              <span
+                className="sr-only"
+              >
+                 color key
+              </span>
+            </h2>
+            <div
+              className="legend-gradient flood"
+            />
+          </div>
+        </div>
+        <h2>
+          Traffic
+          <span
+            className="sr-only"
+          >
+             color key
+          </span>
+        </h2>
+        <div
+          className="traffic-legend-wrapper "
+        >
+          <div
+            className="traffic-bars"
           >
             <div
-              className="traffic-bars"
+              className="key-labels traffic"
             >
-              <div
-                className="key-labels traffic"
+              <span
+                className="as-label"
               >
-                <span
-                  className="as-label"
-                >
-                  Fast
-                </span>
-                <span
-                  className="as-label"
-                >
-                  Normal
-                </span>
-                <span
-                  className="as-label"
-                >
-                  Slow
-                </span>
-              </div>
-              <div
-                className="traffic-legend"
+                Fast
+              </span>
+              <span
+                className="as-label"
               >
-                <div />
-                <div />
-                <div />
-              </div>
+                Normal
+              </span>
+              <span
+                className="as-label"
+              >
+                Slow
+              </span>
             </div>
             <div
-              className="hazards-legend"
+              className="traffic-legend"
             >
-              <span
-                className="as-label"
-              />
-              <span
-                className="as-label"
-              >
-                <i
-                  aria-hidden="true"
-                  className="icon-warning construction"
-                />
-                <br
-                  className="visible-xs"
-                />
-                Construction
-              </span>
-              <span
-                className="as-label"
-              >
-                <i
-                  aria-hidden="true"
-                  className="icon-warning incident"
-                />
-                <br
-                  className="visible-xs"
-                />
-                Vehicle Incident
-              </span>
+              <div />
+              <div />
+              <div />
             </div>
+          </div>
+          <div
+            className="hazards-legend"
+          >
+            <span
+              className="as-label"
+            />
+            <span
+              className="as-label"
+            >
+              <i
+                aria-hidden="true"
+                className="icon-warning construction"
+              />
+              <br
+                className="visible-xs"
+              />
+              Construction
+            </span>
+            <span
+              className="as-label"
+            >
+              <i
+                aria-hidden="true"
+                className="icon-warning incident"
+              />
+              <br
+                className="visible-xs"
+              />
+              Vehicle Incident
+            </span>
           </div>
         </div>
       </div>
@@ -1479,7 +1941,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
       className="row is-flex"
     >
       <div
-        className="col-xs-12 col-md-6 map-search walkthrough-map-locations"
+        className="col-xs-12 col-md-6 map-controls"
       >
         <div>
           <h2
@@ -1487,6 +1949,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
           >
             Search
           </h2>
+           
           
           <div
             className="col-xs-6 no-gutters"
@@ -1509,13 +1972,6 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
             </a>
           </div>
         </div>
-      </div>
-      <hr
-        className="col-xs-12 visible-xs visible-sm"
-      />
-      <div
-        className="col-xs-12 col-md-6 map-layers walkthrough-map-controls"
-      >
         <div>
           <h2>
             Layers
@@ -1594,6 +2050,123 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                       onChange={[Function]}
                       onKeyPress={[Function]}
                       type="checkbox"
+                      value="Network Alerts"
+                    />
+                    <span
+                      className="cr"
+                    />
+                    <span
+                      className="label-text "
+                    >
+                      
+                      <span
+                        className="label-text-normal"
+                      >
+                        Network Alerts
+                      </span>
+                    </span>
+                  </label>
+                  <button
+                    className="tooltip"
+                    data-toggle="tooltip"
+                    id="tooltip-"
+                    role="tooltip"
+                    title="Highlights abnormal network malfunction"
+                    type="button"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="icon-help"
+                    />
+                  </button>
+                </div>
+              </div>
+              <div
+                className="col-xs-12 col-sm-6 no-gutters"
+              >
+                <div
+                  className="checkbox form-group "
+                >
+                  <label
+                    className="checkbox-label"
+                  >
+                    <input
+                      aria-disabled={false}
+                      checked={false}
+                      data-checked={false}
+                      id=""
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onKeyPress={[Function]}
+                      type="checkbox"
+                      value="Fire"
+                    />
+                    <span
+                      className="cr"
+                    />
+                    <span
+                      className="label-text "
+                    >
+                      
+                      <span
+                        className="label-text-normal"
+                      >
+                        Fire
+                      </span>
+                    </span>
+                  </label>
+                </div>
+                <div
+                  className="checkbox form-group "
+                >
+                  <label
+                    className="checkbox-label"
+                  >
+                    <input
+                      aria-disabled={false}
+                      checked={false}
+                      data-checked={false}
+                      id=""
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onKeyPress={[Function]}
+                      type="checkbox"
+                      value="Flood"
+                    />
+                    <span
+                      className="cr"
+                    />
+                    <span
+                      className="label-text "
+                    >
+                      
+                      <span
+                        className="label-text-normal"
+                      >
+                        Flood
+                      </span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <div
+                className="col-xs-12 col-sm-6 no-gutters"
+              >
+                <div
+                  className="checkbox form-group "
+                >
+                  <label
+                    className="checkbox-label"
+                  >
+                    <input
+                      aria-disabled={false}
+                      checked={false}
+                      data-checked={false}
+                      id=""
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onKeyPress={[Function]}
+                      type="checkbox"
                       value="Weather"
                     />
                     <span
@@ -1607,6 +2180,38 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                         className="label-text-normal"
                       >
                         Weather
+                      </span>
+                    </span>
+                  </label>
+                </div>
+                <div
+                  className="checkbox form-group "
+                >
+                  <label
+                    className="checkbox-label"
+                  >
+                    <input
+                      aria-disabled={false}
+                      checked={false}
+                      data-checked={false}
+                      id=""
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onKeyPress={[Function]}
+                      type="checkbox"
+                      value="Wind"
+                    />
+                    <span
+                      className="cr"
+                    />
+                    <span
+                      className="label-text "
+                    >
+                      
+                      <span
+                        className="label-text-normal"
+                      >
+                        Wind
                       </span>
                     </span>
                   </label>
@@ -1647,120 +2252,61 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
                     </span>
                   </label>
                 </div>
-                <div
-                  className="checkbox form-group "
-                >
-                  <label
-                    className="checkbox-label"
-                  >
-                    <input
-                      aria-disabled={false}
-                      checked={false}
-                      data-checked={false}
-                      id=""
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onKeyPress={[Function]}
-                      type="checkbox"
-                      value="Network Alerts"
-                    />
-                    <span
-                      className="cr"
-                    />
-                    <span
-                      className="label-text "
-                    >
-                      
-                      <span
-                        className="label-text-normal"
-                      >
-                        Network Alerts
-                      </span>
-                    </span>
-                  </label>
-                  <button
-                    className="tooltip"
-                    data-toggle="tooltip"
-                    id="tooltip-"
-                    role="tooltip"
-                    title="Highlights abnormal network malfunction"
-                    type="button"
-                  >
-                    <i
-                      aria-hidden="true"
-                      className="icon-help"
-                    />
-                  </button>
-                </div>
               </div>
             </fieldset>
           </form>
         </div>
-      </div>
-    </div>
-    <div
-      className="row is-flex"
-    >
-      <div
-        className="col-xs-12 no-gutters"
-      >
-        <hr />
-      </div>
-      <div
-        className="col-xs-12 col-sm-6"
-      >
-        <p
-          className="network-contact-info walkthrough-network-issues"
-        >
-          <span
-            aria-hidden="true"
+        <div>
+          <div
+            className="col-xs-12 col-sm-4 col-md-6 col-lg-4 no-gutters"
           >
-            Report Network Issue:
-          </span>
-          <a
-            href="tel:undefined"
-          >
-            <span>
-              <i
-                aria-hidden="true"
-                className="icon-phone-number"
-              />
+            <p
+              className="network-contact-info"
+            >
               <span
-                className="sr-only"
+                aria-hidden="true"
               >
-                Report Network Issue: Phone 
+                Report Network Issue:
               </span>
-            </span>
-          </a>
-        </p>
-      </div>
-      <div
-        className="col-xs-12 col-sm-6 right-align-text"
-      >
-        <div
-          className="network-subscription-link"
-        >
-          <a
-            href="/subscribe-to-alerts"
-            onClick={[Function]}
+              <a
+                href="tel:undefined"
+              >
+                <span>
+                  <i
+                    aria-hidden="true"
+                    className="icon-phone-number"
+                  />
+                  <span
+                    className="sr-only"
+                  >
+                    Report Network Issue: Phone 
+                  </span>
+                </span>
+              </a>
+            </p>
+          </div>
+          <div
+            className="col-xs-12 col-sm-8 col-md-6 col-lg-8 no-gutters"
           >
-            Subscribe to Network Alerts
-          </a>
+            <div
+              className="network-subscription-link"
+            >
+              <a
+                href="/subscribe-to-alerts"
+                onClick={[Function]}
+              >
+                Subscribe to Network Alerts
+              </a>
+            </div>
+          </div>
         </div>
       </div>
       <div
-        className="col-xs-12 no-gutters"
+        className="col-xs-12 col-md-6 map-legends"
       >
-        <hr />
-      </div>
-    </div>
-    <div
-      className="row is-flex"
-    >
-      <div
-        className="legend-block col-xs-12 col-md-6"
-      >
-        <div>
+        <div
+          className="legend-block"
+        >
           <h2>
             Network
             <span
@@ -1802,11 +2348,9 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
             />
           </div>
         </div>
-      </div>
-      <div
-        className="legend-block col-xs-12 col-md-6"
-      >
-        <div>
+        <div
+          className="legend-block"
+        >
           <h2>
             Weather
             <span
@@ -1848,13 +2392,11 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
             />
           </div>
         </div>
-      </div>
-      <div
-        className="legend-block col-xs-12 col-md-6"
-      >
-        <div>
+        <div
+          className="legend-block"
+        >
           <h2>
-            Traffic
+            Wind
             <span
               className="sr-only"
             >
@@ -1862,69 +2404,143 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
             </span>
           </h2>
           <div
-            className="traffic-legend-wrapper "
+            className="key-labels"
+          >
+            <span
+              className="as-label"
+            >
+              31-57 MPH
+            </span>
+            <span
+              className="as-label"
+            >
+              40-58 MPH
+            </span>
+            <span
+              className="as-label"
+            >
+              74+ MPH
+            </span>
+            <span
+              className="as-label"
+            >
+              115 MPH
+            </span>
+          </div>
+          <div
+            className="legend-gradient"
+          >
+            <img
+              alt=""
+              src="/images/wind-legend.png"
+            />
+          </div>
+        </div>
+        <div
+          className="legend-block halved"
+        >
+          <div
+            className="col-xs-6"
+          >
+            <h2>
+              Fire
+              <span
+                className="sr-only"
+              >
+                 color key
+              </span>
+            </h2>
+            <div
+              className="legend-gradient fire"
+            />
+          </div>
+          <div
+            className="col-xs-6"
+          >
+            <h2>
+              Flash Flood
+              <span
+                className="sr-only"
+              >
+                 color key
+              </span>
+            </h2>
+            <div
+              className="legend-gradient flood"
+            />
+          </div>
+        </div>
+        <h2>
+          Traffic
+          <span
+            className="sr-only"
+          >
+             color key
+          </span>
+        </h2>
+        <div
+          className="traffic-legend-wrapper "
+        >
+          <div
+            className="traffic-bars"
           >
             <div
-              className="traffic-bars"
+              className="key-labels traffic"
             >
-              <div
-                className="key-labels traffic"
+              <span
+                className="as-label"
               >
-                <span
-                  className="as-label"
-                >
-                  Fast
-                </span>
-                <span
-                  className="as-label"
-                >
-                  Normal
-                </span>
-                <span
-                  className="as-label"
-                >
-                  Slow
-                </span>
-              </div>
-              <div
-                className="traffic-legend"
+                Fast
+              </span>
+              <span
+                className="as-label"
               >
-                <div />
-                <div />
-                <div />
-              </div>
+                Normal
+              </span>
+              <span
+                className="as-label"
+              >
+                Slow
+              </span>
             </div>
             <div
-              className="hazards-legend"
+              className="traffic-legend"
             >
-              <span
-                className="as-label"
-              />
-              <span
-                className="as-label"
-              >
-                <i
-                  aria-hidden="true"
-                  className="icon-warning construction"
-                />
-                <br
-                  className="visible-xs"
-                />
-                Construction
-              </span>
-              <span
-                className="as-label"
-              >
-                <i
-                  aria-hidden="true"
-                  className="icon-warning incident"
-                />
-                <br
-                  className="visible-xs"
-                />
-                Vehicle Incident
-              </span>
+              <div />
+              <div />
+              <div />
             </div>
+          </div>
+          <div
+            className="hazards-legend"
+          >
+            <span
+              className="as-label"
+            />
+            <span
+              className="as-label"
+            >
+              <i
+                aria-hidden="true"
+                className="icon-warning construction"
+              />
+              <br
+                className="visible-xs"
+              />
+              Construction
+            </span>
+            <span
+              className="as-label"
+            >
+              <i
+                aria-hidden="true"
+                className="icon-warning incident"
+              />
+              <br
+                className="visible-xs"
+              />
+              Vehicle Incident
+            </span>
           </div>
         </div>
       </div>

@@ -20,25 +20,23 @@
         border: 0;
       }
 
-      span {
-        font-weight: $fn-normal-weight;
-      }
-
       strong {
         display: inline-block;
         font-weight: $fn-medium-weight;
+        vertical-align: top;
+        width: 30%;
       }
-    }
-  }
-}
 
-@media #{$mobile} {
-  .purchasing-info {
-    margin-left: 5px;
+      a {
+        display: inline-block;
+        word-break: break-all;
+        width: 70%;
+      }
 
-    .purchase-options-list {
-      strong {
-        width: 130px;
+      i {
+        padding-left: 10px;
+        font-size: $fn-small-text-desktop;
+        vertical-align: -1px;
       }
     }
   }
@@ -46,11 +44,15 @@
 
 @media #{$tablet} {
   .purchasing-info {
-    margin-left: 0px;
-
     .purchase-options-list {
-      strong {
-        width: 130px;
+      li {
+        strong {
+          width: 15%;
+        }
+
+        a {
+          width: 85%;
+        }
       }
     }
   }
@@ -59,8 +61,14 @@
 @media #{$desktop} {
   .purchasing-info {
     .purchase-options-list {
-      strong {
-        width: 140px;
+      li {
+        strong {
+          width: 15%;
+        }
+
+        a {
+          width: 85%;
+        }
       }
     }
   }

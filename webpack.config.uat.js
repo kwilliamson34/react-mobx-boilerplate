@@ -8,7 +8,7 @@ const precss = require("precss");
 const autoprefixer = require("autoprefixer");
 
 // Set the environment; allowed ['dev','qa','stage','uat','prod']
-const env = 'prod';
+const env = 'uat';
 
 console.log('Built for the \x1b[34m' + env + '\x1b[30m environment');
 
@@ -123,7 +123,7 @@ module.exports = {
 		}),
 
 		new HtmlWebpackPlugin({
-			template: './index.ejs',
+			template: './index.qa.ejs',
 			hash: false
 		}),
 

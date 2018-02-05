@@ -1,4 +1,4 @@
-const config = {
+var config = {
   httpProtocol: 'https://',
   ssoCrack: 'https://localhost:8443/oauth/validate',
   haloLogin: 'https://oidc.idp.flogin.att.com/isam/oidc/endpoint/amapp-runtime-PSE/authorize?response_type=id_token+token&client_id=m14332&state=FWpMHzl61gXfcnMmwkp4&&scope=openid&nonce=dsZHN5kvm2a4cVIA0ZdN&response_mode=form_post',
@@ -15,7 +15,7 @@ const config = {
   appStore: 'https://apps.firstnet.att.com/',
   appControl: 'https://appcontrol.firstnet.att.com/',
   localControl: 'https://localcontrol.firstnet.att.com',
-  devPortal: 'https://developer.firstnet.att.com',
+  devPortal: 'https://developer.firstnet.com',
   manageMyProfileLink: 'https://profilemgt.firstnet.att.com/firstnet/icam/index.html#/firstnet/icam/index/my-profile-view-only',
   manageUsersLink: 'https://profilemgt.firstnet.att.com/firstnet/icam/index.html#/firstnet/icam/index/lander-city',
   manageServicesLink: 'https://wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn',

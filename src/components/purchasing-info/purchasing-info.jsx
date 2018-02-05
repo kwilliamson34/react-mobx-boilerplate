@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
+import {NewTabLink} from 'fn-common-ui';
 
 @observer
 export default class PurchasingInfo extends React.Component {
@@ -56,7 +57,10 @@ export default class PurchasingInfo extends React.Component {
             {this.props.contactInfo.contact_website !== '' &&
               <li>
                 <strong aria-hidden="true">Website:</strong>
-                <a href={this.props.contactInfo.contact_website}><span className="sr-only">Website:&nbsp;</span>{this.cutContactWebsite(this.props.contactInfo.contact_website)}</a>
+                <span className="sr-only">Website:&nbsp;</span>
+                <NewTabLink to={this.props.contactInfo.contact_website} showIcon={true}>
+                  {this.cutContactWebsite(this.props.contactInfo.contact_website)}
+                </NewTabLink>
               </li>
             }
           </ul>

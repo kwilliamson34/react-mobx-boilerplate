@@ -1,4 +1,4 @@
-const config = {
+var config = {
   httpProtocol: 'https://',
   ssoCrack: 'https://localhost:8443/oauth/validate',
   haloLogin: 'https://oidc.stage.flogin.att.com/isam/oidc/endpoint/amapp-runtime-PSE/authorize?response_type=id_token+token&client_id=m11635&state=FWpMHzl61gXfcnMmwkp4&&scope=openid&nonce=dsZHN5kvm2a4cVIA0ZdN&response_mode=form_post',
@@ -15,7 +15,7 @@ const config = {
   appStore: 'https://test-apps.firstnet.att.com',
   appControl: 'https://test-appcontrol.firstnet.att.com/',
   localControl: 'https://test-localcontrol.firstnet.att.com',
-  devPortal: 'https://test-developer.firstnet.att.com',
+  devPortal: 'https://test-developer.firstnet.com',
   manageMyProfileLink: 'https://test-profilemgt.firstnet.att.com/ebiz/firstnet/userDetails/viewMyProfile',
   manageUsersLink: 'https://test-profilemgt.firstnet.att.com/ebiz/firstnet/index.jsp#/companyInfo/companyInfoProfile',
   manageServicesLink: 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn',
