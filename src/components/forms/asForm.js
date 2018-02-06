@@ -81,7 +81,7 @@ export default function asForm (MyComponent, attributes) {
         if (this.store.formIsDirty && !this.props.disabled) {
           this.interceptedRoute = location.pathname;
           // If this isn't a simple "skip navigation" click, show the exit modal and block the transition
-          if(location.hash !== "#main-content"){
+          if(location.hash !== '#main-content'){
             this.exitModal.showModal();
             return false; //does not allow to proceed to new page
           }
