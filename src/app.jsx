@@ -122,7 +122,6 @@ export default class App extends React.Component {
   }
 
   getMainLayoutComponent = () => {
-    console.log(1, pseMasterStore.userStore.userValidationDone, pseMasterStore.userStore.user)
     const permissionObject = pseMasterStore.userStore.destinationIsPermitted;
     return (
       <div>

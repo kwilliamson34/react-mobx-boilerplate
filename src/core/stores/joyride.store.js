@@ -5,7 +5,6 @@ import $ from 'jquery';
 
 class JoyrideStore {
 	@action initializeJoyride(joyrideRef) {
-		console.log("initializing joyride")
 		this.tourRef = joyrideRef;
 		this.tourAutoStart = true;
 		this.introModalSeen = document.cookie.indexOf('_fn_lc_tour') !== -1;
@@ -49,7 +48,6 @@ class JoyrideStore {
 	}
 
 	@action setupTour() {
-		console.log("setupTour", this.tourIsDisabled , this.stepsToShow)
 		if(!this.tourIsDisabled && this.stepsToShow.length > 0) {
 			if(!this.nextStepAnchorHasRendered && this.nextStepRenderAttempts++ < this.nextStepMaxRenderAttempts) {
 				//Required anchor(s) have not been rendered yet. Wait to start the tour.
@@ -61,7 +59,6 @@ class JoyrideStore {
 			this.nextStepRenderAttempts = 0;
 			this.currentSteps = this.stepsToShow;
 			if(this.tourRef.start) {
-				console.log(4)
 				//if runNow is false, this command will only show the beacons
 				this.tourRef.start(this.runNow, this.currentSteps.peek(), 0);
 			}
