@@ -102,7 +102,9 @@ export default class JoyrideBase extends React.Component {
 
   checkAnchorExists = (number, stepInfo) => {
     if (number < this.mountMaxTries && stepInfo.step) {
+      console.log(3)
       if($(stepInfo.step.selector).get(0) !== undefined) {
+        console.log(2)
         this.joyride.start(true, this.joyrideStore.currentSteps.peek(), stepInfo.index)
       } else {
         //retry. the component it's supposed to attach to may not be fully rendered.
@@ -115,6 +117,7 @@ export default class JoyrideBase extends React.Component {
   }
 
   handleStepChange = (stepInfo) => {
+    console.log("step change", stepInfo)
     if (stepInfo.step && stepInfo.type === 'error:target_not_found') {
       this.checkAnchorExists(0, stepInfo);
     }
@@ -153,6 +156,7 @@ export default class JoyrideBase extends React.Component {
   }
 
   render(){
+    console.log("Render joyride-base", this.joyrideStore.runNow, this.joyrideStore.tourAutoStart, this.joyrideStore.currentSteps.peek())
     return(
       <div id="walkthru">
         {this.renderTourIntroModal()}
