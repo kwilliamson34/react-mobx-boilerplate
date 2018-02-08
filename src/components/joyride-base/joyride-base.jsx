@@ -115,7 +115,7 @@ export default class JoyrideBase extends React.Component {
   }
 
   handleStepChange = (stepInfo) => {
-    if (stepInfo.step && stepInfo.type === 'error:target_not_found') {
+    if (stepInfo.step && stepInfo.type === 'error:target_not_found' && this.joyrideStore.runNow) {
       this.checkAnchorExists(0, stepInfo);
     }
     /* Step type lifecycle:
