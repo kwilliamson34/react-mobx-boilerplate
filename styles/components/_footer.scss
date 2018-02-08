@@ -121,18 +121,6 @@ footer {
             }
           }
         }
-
-        &.tumblr {
-          &:active,
-          &:focus,
-          &:hover {
-            padding-bottom: 5px;
-
-            i {
-              color: $fn-tumblr;
-            }
-          }
-        }
       }
 
       i {
