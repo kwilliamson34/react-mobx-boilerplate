@@ -13,7 +13,7 @@ var config = {
   attCustomerSupportDialNum: '+18005747000',
   firstnetGov: 'https://firstnet.gov/',
   firstnetCom: 'https://www.firstnet.com/',
-  appStore: 'https://stage-apps.sapientfirst.net',
+  appCatalog: 'https://stage-apps.sapientfirst.net',
   appControl: 'https://stage-appcontrol.sapientfirst.net',
   localControl: 'https://stage-localcontrol.sapientfirst.net',
   devPortal: 'https://test-developer.firstnet.com',
