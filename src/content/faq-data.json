@@ -119,32 +119,32 @@
         "category": "Manage My PSE"
       },
       {
-        "question": "When new apps are released into the FirstNet App Store, are they available to members of my PSE?",
-        "answer": "Yes. All apps that pass the FirstNet App Review process immediately appear in Local Control and become available to users in the App Store.  If you would like to block an app from appearing in your PSE’s App Store, you must uncheck the app’s “Available” checkbox on the Manage Apps page of Local Control.",
+        "question": "When new apps are released into the FirstNet App Catalog, are they available to members of my PSE?",
+        "answer": "Yes. All apps that pass the FirstNet App Review process immediately appear in Local Control and become available to users in the App Catalog.  If you would like to block an app from appearing in your PSE’s App Catalog, you must uncheck the app’s “Available” checkbox on the Manage Apps page of Local Control.",
         "maxStringLength": 500,
         "category": "Manage Apps"
       },
       {
-        "question": "What is the FirstNet App Store?",
-        "answer": "The FirstNet App Store is a catalogue of apps developed with the needs of the first responder community in mind. Some apps may be stand-alone apps while others may be part of enterprise solutions. The apps are designed to aid first responders in preparing for and responding to incidents, and have been reviewed for security, performance, and data privacy.",
+        "question": "What is the FirstNet App Catalog?",
+        "answer": "The FirstNet App Catalog is a catalogue of apps developed with the needs of the first responder community in mind. Some apps may be stand-alone apps while others may be part of enterprise solutions. The apps are designed to aid first responders in preparing for and responding to incidents, and have been reviewed for security, performance, and data privacy.",
         "maxStringLength": 500,
         "category": "Manage Apps"
       },
       {
         "question": "Can I push apps to my users' devices?",
-        "answer": "If your PSE uses a Mobile Device Management (MDM) solution then you can push apps from Manage Apps to that MDM, and then from your MDM push them to the mobile devices of members of your organization.\nThe MDM solutions supported by FirstNet are AirWatch, MobileIron Cloud, MobileIron Core, Microsoft Intune, and IBM MaaS360. If you do not use one of these MDM’s, you can recommend an app in Local Control, which will flag it in the App Store for all members of your PSE. However, it is up to the user to determine whether to download the app to his/her device from the App Store.",
+        "answer": "If your PSE uses a Mobile Device Management (MDM) solution then you can push apps from Manage Apps to that MDM, and then from your MDM push them to the mobile devices of members of your organization.\nThe MDM solutions supported by FirstNet are AirWatch, MobileIron Cloud, MobileIron Core, Microsoft Intune, and IBM MaaS360. If you do not use one of these MDM’s, you can recommend an app in Local Control, which will flag it in the App Catalog for all members of your PSE. However, it is up to the user to determine whether to download the app to his/her device from the App Catalog.",
         "maxStringLength": 202,
         "category": "Manage Apps"
       },
       {
         "question": "Are all of these apps free?",
-        "answer": "There is no cost to download any of the apps in the App Store, however some require subscriptions or enterprise licenses to be used. For these, without valid credentials from the vendor, the app functionality will not be available.",
+        "answer": "There is no cost to download any of the apps in the App Catalog, however some require subscriptions or enterprise licenses to be used. For these, without valid credentials from the vendor, the app functionality will not be available.",
         "maxStringLength": 500,
         "category": "Manage Apps"
       },
       {
         "question": "What apps will I see in FirstNet Local Control?",
-        "answer": "FirstNet Local Control displays all apps that have been submitted through FirstNet App Control and that have passed the FirstNet App Review process. The “Available” checkbox on each app card gives the PSE Administrator the ability to block apps from displaying to their members in the FirstNet App Store.",
+        "answer": "FirstNet Local Control displays all apps that have been submitted through FirstNet App Control and that have passed the FirstNet App Review process. The “Available” checkbox on each app card gives the PSE Administrator the ability to block apps from displaying to their members in the FirstNet App Catalog.",
         "maxStringLength": 500,
         "category": "Manage Apps"
       },

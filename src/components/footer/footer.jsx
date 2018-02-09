@@ -99,7 +99,7 @@ export default class Footer extends React.Component {
 							<NewTabLink to={config.appControl} showIcon={true}>App Control</NewTabLink>
 						</li>
 						<li role="presentation">
-							<NewTabLink to={config.appStore} showIcon={true}>App Store</NewTabLink>
+							<NewTabLink to={config.appCatalog} showIcon={true}>App Catalog</NewTabLink>
 						</li>
 					</ul>
 				</nav>

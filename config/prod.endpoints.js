@@ -12,7 +12,7 @@ var config = {
   attCustomerSupportPhone: '800-574-7000',
   firstnetGov: 'https://firstnet.gov/',
   firstnetCom: 'https://www.firstnet.com/',
-  appStore: 'https://apps.firstnet.att.com/',
+  appCatalog: 'https://apps.firstnet.att.com/',
   appControl: 'https://appcontrol.firstnet.att.com/',
   localControl: 'https://localcontrol.firstnet.att.com',
   devPortal: 'https://developer.firstnet.com',
