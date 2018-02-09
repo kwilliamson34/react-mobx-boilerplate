@@ -71,7 +71,7 @@ export default class ErrorPage extends React.Component {
             {showLinksforOtherPortals &&
               <nav className="sites-list" aria-label="FirstNet Sites">
                 <ul>
-                  <li><a href={config.appStore}>App Store</a></li>
+                  <li><a href={config.appCatalog}>App Catalog</a></li>
                   <li><a href={config.appControl}>App Control</a></li>
                   <li><a href={config.localControl}>Local Control</a></li>
                 </ul>
