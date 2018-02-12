@@ -167,7 +167,8 @@ export default class GeolinkControls extends React.Component {
   renderSearchArea = () => {
     return (
       <div className="walkthrough-map-locations">
-        <h2 className="as-h5">Search</h2>
+        <h2 className="as-h5">Location</h2>
+        <div className="help-text">Search by City, Address or Coordinates</div>
         <TextInput ref={ref => this.store.formFieldRefList.push(ref)} dataObject={this.store.values} id={this.store.shouldDisplayLocationName
             ? 'locationName'
             : 'locationAddress'} type="search" labelText="Address. Use the arrow keys as you type to scroll through your saved favorites." labelTextIsSrOnly={true} labelErrorIsSrOnly={true} className="search-form" showClearButton={true} handleSubmit={this.store.searchMap.bind(this.store)} handleClearClick={this.onSearchClearClick} iconClass={this.store.shouldDisplayLocationName
@@ -179,7 +180,7 @@ export default class GeolinkControls extends React.Component {
               : 'disabled'}`} ref={(i) => {
               this.addFavoriteBtn = i
             }} onClick={this.store.showAddLocationForm.bind(this.store)}>
-            Add Favorite
+            Add Favorite Place
           </button>
         </div>
         <div className="col-xs-6 no-gutters text-right">
