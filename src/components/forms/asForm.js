@@ -80,8 +80,11 @@ export default function asForm (MyComponent, attributes) {
       this.unblock = history.block((location) => {
         if (this.store.formIsDirty && !this.props.disabled) {
           this.interceptedRoute = location.pathname;
-          this.exitModal.showModal();
-          return false; //does not allow to proceed to new page
+          // If this isn't a simple "skip navigation" click, show the exit modal and block the transition
+          if(location.hash !== '#main-content'){
+            this.exitModal.showModal();
+            return false; //does not allow to proceed to new page
+          }
         }
       });
     }
