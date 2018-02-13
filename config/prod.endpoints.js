@@ -1,4 +1,4 @@
-const config = {
+var config = {
   httpProtocol: 'https://',
   ssoCrack: 'https://localhost:8443/oauth/validate',
   haloLogin: 'https://oidc.idp.flogin.att.com/isam/oidc/endpoint/amapp-runtime-PSE/authorize?response_type=id_token+token&client_id=m14332&state=FWpMHzl61gXfcnMmwkp4&&scope=openid&nonce=dsZHN5kvm2a4cVIA0ZdN&response_mode=form_post',
