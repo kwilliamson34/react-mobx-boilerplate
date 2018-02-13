@@ -205,22 +205,22 @@ $map-controls-text-line-height: 1.3;
       }
     }
   }
-  .walkthrough-map-locations {
-    .as-h5 {
-      padding-bottom: 15px;
-    }
-    .help-text {
-      font-style: normal;
-    }
-  }
-
+  
   .map-controls {
     border-right: 0 none;
-
+    
     > div {
       border-bottom: 1px solid $fn-grey;
       padding-bottom: 30px;
       margin-bottom: 30px;
+    }
+
+    .as-h5 {
+      padding-bottom: 15px;
+    }
+
+    .help-text {
+      font-style: normal;
     }
   }
   
