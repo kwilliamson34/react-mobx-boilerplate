@@ -146,7 +146,7 @@ export default class GeolinkControls extends React.Component {
           <ul>
             {
               this.store.predictedFavorites.map((favorite, index) => {
-                return (<li role="button" tabIndex="0" ref={`favItem${index}`} onFocus={() => this.focusedFavorite = index} onClick={() => this.onFavoriteClick(favorite)} onKeyPress={(e) => this.onFavoriteEnter(e, favorite)} onKeyDown={this.onKeyDown} key={index}>
+                return (<li role="button" tabIndex="0" ref={(ref) => this[`favItem${index}`] = ref} onFocus={() => this.focusedFavorite = index} onClick={() => this.onFavoriteClick(favorite)} onKeyPress={(e) => this.onFavoriteEnter(e, favorite)} onKeyDown={this.onKeyDown} key={index}>
                   <i className="icon-star" aria-hidden="aria-hidden"></i>
                   <span className="sr-only">Search for favorite named</span>
                   <span>{favorite.favoriteName}</span>
