@@ -99,7 +99,7 @@ export default class Footer extends React.Component {
 							<NewTabLink to={config.appControl} showIcon={true}>App Control</NewTabLink>
 						</li>
 						<li role="presentation">
-							<NewTabLink to={config.appStore} showIcon={true}>App Store</NewTabLink>
+							<NewTabLink to={config.appCatalog} showIcon={true}>App Catalog</NewTabLink>
 						</li>
 					</ul>
 				</nav>
@@ -129,12 +129,6 @@ export default class Footer extends React.Component {
 							<NewTabLink to={this.externalLinkStore.firstnetTwitter} className="fn-social-icon twitter">
 								<i aria-hidden="true" className="icon-twitter"></i>
 								<span className="title">Twitter</span>
-							</NewTabLink>
-						</li>
-						<li role="presentation">
-							<NewTabLink to={this.externalLinkStore.firstnetTumblr} className="fn-social-icon tumblr">
-								<i aria-hidden="true" className="icon-tumblr"></i>
-								<span className="title">Tumblr</span>
 							</NewTabLink>
 						</li>
 						<li role="presentation">
