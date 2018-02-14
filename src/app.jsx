@@ -217,7 +217,7 @@ export default class App extends React.Component {
           : <ErrorPage cause="unauthorized" />))
       : <div className="fn-loading">
           <div className="fn-loading-logo">
-            <img src="/images/firstnet-logo.svg" width="173" height="51" alt="" aria-hidden="true" />
+            <img src="/images/firstnet-logo.svg" width="173" height="51" alt="FirstNet logo" />
           </div>
           <h1 className="fn-loading-text">Loading</h1>
           <div className="fn-loading-circle">

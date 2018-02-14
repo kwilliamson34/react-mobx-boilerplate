@@ -64,7 +64,7 @@ export default class ErrorPage extends React.Component {
         <div className="container">
           <div className="col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
             <div className="logo-container">
-              <img src="/images/logo-FirstNet-local-control.svg" alt="" aria-hidden="true" />
+              <img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Local Control logo" />
             </div>
             <PageTitle className="as-h3">{title}</PageTitle>
             <p dangerouslySetInnerHTML={{__html: body_content}} />
