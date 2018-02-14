@@ -228,11 +228,13 @@ export default class Footer extends React.Component {
 						<div className="container">
 							<div className="row">
 								<div className="col-xs-12 logoRow">
-									{this.props.showPrivateLinks
-										? <Link to="/" className="logo-home-link-footer">
-												<img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Local Control Home" />
-											</Link>
-										: <img src="/images/logo-FirstNet-local-control.svg" alt="" aria-hidden="true" />
+									{
+									  this.props.showPrivateLinks
+									    ? <Link to="/" className="logo-home-link-footer">
+									        <img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Local Control logo"/>
+									        <span className="sr-only">Go Home</span>
+									      </Link>
+									    : <img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Local Control logo"/>
 									}
 								</div>
 							</div>

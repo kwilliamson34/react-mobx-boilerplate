@@ -45,7 +45,7 @@ exports[`<PSEHeader /> render matches snapshot when header store is not initiali
             onClick={[Function]}
           >
             <img
-              alt="FirstNet Logo"
+              alt="FirstNet Local Control logo"
               src="/images/logo-FirstNet-local-control.svg"
             />
             <span
@@ -435,7 +435,7 @@ exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
             onClick={[Function]}
           >
             <img
-              alt="FirstNet Logo"
+              alt="FirstNet Local Control logo"
               src="/images/logo-FirstNet-local-control.svg"
             />
             <span
@@ -825,7 +825,7 @@ exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
             onClick={[Function]}
           >
             <img
-              alt="FirstNet Logo"
+              alt="FirstNet Local Control logo"
               src="/images/logo-FirstNet-local-control.svg"
             />
             <span
@@ -1215,7 +1215,7 @@ exports[`<PSEHeader /> render user role-based snapshots 1`] = `
             onClick={[Function]}
           >
             <img
-              alt="FirstNet Logo"
+              alt="FirstNet Local Control logo"
               src="/images/logo-FirstNet-local-control.svg"
             />
             <span
@@ -1626,7 +1626,7 @@ exports[`<PSEHeader /> render user role-based snapshots 2`] = `
             onClick={[Function]}
           >
             <img
-              alt="FirstNet Logo"
+              alt="FirstNet Local Control logo"
               src="/images/logo-FirstNet-local-control.svg"
             />
             <span
@@ -1750,7 +1750,6 @@ exports[`<PSEHeader /> render user role-based snapshots 2`] = `
                     />
                   </a>
                 </li>
-                <li />
                 <li />
                 <li />
               </ul>
@@ -2148,7 +2147,7 @@ exports[`<PSEHeader /> render user role-based snapshots 3`] = `
             onClick={[Function]}
           >
             <img
-              alt="FirstNet Logo"
+              alt="FirstNet Local Control logo"
               src="/images/logo-FirstNet-local-control.svg"
             />
             <span
@@ -2580,7 +2579,7 @@ exports[`<PSEHeader /> render user role-based snapshots 4`] = `
             onClick={[Function]}
           >
             <img
-              alt="FirstNet Logo"
+              alt="FirstNet Local Control logo"
               src="/images/logo-FirstNet-local-control.svg"
             />
             <span
@@ -3029,7 +3028,7 @@ exports[`<PSEHeader /> render user role-based snapshots 5`] = `
             onClick={[Function]}
           >
             <img
-              alt="FirstNet Logo"
+              alt="FirstNet Local Control logo"
               src="/images/logo-FirstNet-local-control.svg"
             />
             <span
@@ -3135,7 +3134,6 @@ exports[`<PSEHeader /> render user role-based snapshots 5`] = `
                 >
                   Management
                 </strong>
-                <li />
                 <li />
               </ul>
               <ul
