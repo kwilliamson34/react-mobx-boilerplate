@@ -163,7 +163,7 @@ exports[`<Footer /> renders matches previous footer snapshot 1`] = `
                     role="button"
                   >
                     Disable
-                     Site Walkthrough
+                    Site Walkthrough
                   </a>
                 </li>
                 <li
@@ -180,7 +180,7 @@ exports[`<Footer /> renders matches previous footer snapshot 1`] = `
                   role="presentation"
                 >
                   <span
-                    aria-hidden={true}
+                    aria-hidden="aria-hidden"
                   >
                     FirstNet Customer Svc:
                   </span>
@@ -425,7 +425,7 @@ exports[`<Footer /> renders user role-based snapshots 1`] = `
                     role="button"
                   >
                     Disable
-                     Site Walkthrough
+                    Site Walkthrough
                   </a>
                 </li>
                 <li
@@ -442,7 +442,7 @@ exports[`<Footer /> renders user role-based snapshots 1`] = `
                   role="presentation"
                 >
                   <span
-                    aria-hidden={true}
+                    aria-hidden="aria-hidden"
                   >
                     FirstNet Customer Svc:
                   </span>
@@ -610,7 +610,7 @@ exports[`<Footer /> renders user role-based snapshots 2`] = `
                       href="/admin/solutions"
                       onClick={[Function]}
                     >
-                      Public Safety Solutions 
+                      Public Safety Solutions
                     </a>
                   </li>
                 </div>
@@ -726,7 +726,7 @@ exports[`<Footer /> renders user role-based snapshots 2`] = `
                     role="button"
                   >
                     Disable
-                     Site Walkthrough
+                    Site Walkthrough
                   </a>
                 </li>
                 <li
@@ -743,7 +743,7 @@ exports[`<Footer /> renders user role-based snapshots 2`] = `
                   role="presentation"
                 >
                   <span
-                    aria-hidden={true}
+                    aria-hidden="aria-hidden"
                   >
                     FirstNet Customer Svc:
                   </span>
@@ -986,7 +986,7 @@ exports[`<Footer /> renders user role-based snapshots 3`] = `
                     role="button"
                   >
                     Disable
-                     Site Walkthrough
+                    Site Walkthrough
                   </a>
                 </li>
                 <li
@@ -1003,7 +1003,7 @@ exports[`<Footer /> renders user role-based snapshots 3`] = `
                   role="presentation"
                 >
                   <span
-                    aria-hidden={true}
+                    aria-hidden="aria-hidden"
                   >
                     FirstNet Customer Svc:
                   </span>
@@ -1256,7 +1256,7 @@ exports[`<Footer /> renders user role-based snapshots 4`] = `
                     role="button"
                   >
                     Disable
-                     Site Walkthrough
+                    Site Walkthrough
                   </a>
                 </li>
                 <li
@@ -1273,7 +1273,7 @@ exports[`<Footer /> renders user role-based snapshots 4`] = `
                   role="presentation"
                 >
                   <span
-                    aria-hidden={true}
+                    aria-hidden="aria-hidden"
                   >
                     FirstNet Customer Svc:
                   </span>
@@ -1431,7 +1431,7 @@ exports[`<Footer /> renders user role-based snapshots 5`] = `
                       href="/admin/solutions"
                       onClick={[Function]}
                     >
-                      Public Safety Solutions 
+                      Public Safety Solutions
                     </a>
                   </li>
                 </div>
@@ -1537,7 +1537,7 @@ exports[`<Footer /> renders user role-based snapshots 5`] = `
                     role="button"
                   >
                     Disable
-                     Site Walkthrough
+                    Site Walkthrough
                   </a>
                 </li>
                 <li
@@ -1554,7 +1554,7 @@ exports[`<Footer /> renders user role-based snapshots 5`] = `
                   role="presentation"
                 >
                   <span
-                    aria-hidden={true}
+                    aria-hidden="aria-hidden"
                   >
                     FirstNet Customer Svc:
                   </span>
