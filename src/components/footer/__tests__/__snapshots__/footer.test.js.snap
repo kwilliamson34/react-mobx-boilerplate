@@ -25,9 +25,14 @@ exports[`<Footer /> renders matches previous footer snapshot 1`] = `
               onClick={[Function]}
             >
               <img
-                alt="FirstNet Local Control Home"
+                alt="FirstNet Local Control logo"
                 src="/images/logo-FirstNet-local-control.svg"
               />
+              <span
+                className="sr-only"
+              >
+                Go Home
+              </span>
             </a>
           </div>
         </div>
@@ -101,9 +106,6 @@ exports[`<Footer /> renders matches previous footer snapshot 1`] = `
               <ul
                 className="social-links-list"
               >
-                <li
-                  role="presentation"
-                />
                 <li
                   role="presentation"
                 />
@@ -272,9 +274,14 @@ exports[`<Footer /> renders user role-based snapshots 1`] = `
               onClick={[Function]}
             >
               <img
-                alt="FirstNet Local Control Home"
+                alt="FirstNet Local Control logo"
                 src="/images/logo-FirstNet-local-control.svg"
               />
+              <span
+                className="sr-only"
+              >
+                Go Home
+              </span>
             </a>
           </div>
         </div>
@@ -361,9 +368,6 @@ exports[`<Footer /> renders user role-based snapshots 1`] = `
               <ul
                 className="social-links-list"
               >
-                <li
-                  role="presentation"
-                />
                 <li
                   role="presentation"
                 />
@@ -532,9 +536,14 @@ exports[`<Footer /> renders user role-based snapshots 2`] = `
               onClick={[Function]}
             >
               <img
-                alt="FirstNet Local Control Home"
+                alt="FirstNet Local Control logo"
                 src="/images/logo-FirstNet-local-control.svg"
               />
+              <span
+                className="sr-only"
+              >
+                Go Home
+              </span>
             </a>
           </div>
         </div>
@@ -660,9 +669,6 @@ exports[`<Footer /> renders user role-based snapshots 2`] = `
               <ul
                 className="social-links-list"
               >
-                <li
-                  role="presentation"
-                />
                 <li
                   role="presentation"
                 />
@@ -831,9 +837,14 @@ exports[`<Footer /> renders user role-based snapshots 3`] = `
               onClick={[Function]}
             >
               <img
-                alt="FirstNet Local Control Home"
+                alt="FirstNet Local Control logo"
                 src="/images/logo-FirstNet-local-control.svg"
               />
+              <span
+                className="sr-only"
+              >
+                Go Home
+              </span>
             </a>
           </div>
         </div>
@@ -918,9 +929,6 @@ exports[`<Footer /> renders user role-based snapshots 3`] = `
               <ul
                 className="social-links-list"
               >
-                <li
-                  role="presentation"
-                />
                 <li
                   role="presentation"
                 />
@@ -1089,9 +1097,14 @@ exports[`<Footer /> renders user role-based snapshots 4`] = `
               onClick={[Function]}
             >
               <img
-                alt="FirstNet Local Control Home"
+                alt="FirstNet Local Control logo"
                 src="/images/logo-FirstNet-local-control.svg"
               />
+              <span
+                className="sr-only"
+              >
+                Go Home
+              </span>
             </a>
           </div>
         </div>
@@ -1186,9 +1199,6 @@ exports[`<Footer /> renders user role-based snapshots 4`] = `
               <ul
                 className="social-links-list"
               >
-                <li
-                  role="presentation"
-                />
                 <li
                   role="presentation"
                 />
@@ -1357,9 +1367,14 @@ exports[`<Footer /> renders user role-based snapshots 5`] = `
               onClick={[Function]}
             >
               <img
-                alt="FirstNet Local Control Home"
+                alt="FirstNet Local Control logo"
                 src="/images/logo-FirstNet-local-control.svg"
               />
+              <span
+                className="sr-only"
+              >
+                Go Home
+              </span>
             </a>
           </div>
         </div>
@@ -1465,9 +1480,6 @@ exports[`<Footer /> renders user role-based snapshots 5`] = `
               <ul
                 className="social-links-list"
               >
-                <li
-                  role="presentation"
-                />
                 <li
                   role="presentation"
                 />
