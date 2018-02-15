@@ -281,9 +281,9 @@ export default class ManageFavoritesPage extends React.Component {
   renderEditButton = (id) => {
     return (
       <button className="as-link favorites-table-button" onClick={() => this.handleEditButton(id)}>
-        <span className="sr-only">Edit Row Info</span>
+        <span className="sr-only">Edit favorite</span>
         <i className="icon-pencil" aria-hidden="true" />
-        <span aria-hidden="true">Edit</span>
+        <span aria-hidden="true" className="hidden-xs hidden-sm">Edit</span>
       </button>
     )
   }
@@ -291,9 +291,9 @@ export default class ManageFavoritesPage extends React.Component {
   renderMapItButton = (id) => {
     return (
       <button className="as-link favorites-table-button" onClick={() => this.handleMapItButton(id)}>
-        <span className="sr-only">Map Location/Address</span>
+        <span className="sr-only">Locate favorite on map</span>
         <i className="icon-map-marker" aria-hidden="true" />
-        <span aria-hidden="true">Map It</span>
+        <span aria-hidden="true" className="hidden-xs hidden-sm">Map It</span>
       </button>
     )
   }
