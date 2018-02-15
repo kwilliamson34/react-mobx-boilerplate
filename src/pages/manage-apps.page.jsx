@@ -138,6 +138,11 @@ export default class ManageAppsPage extends React.Component {
           <div className="container">
             <div className="row">
               <div className="col-xs-12 col-lg-offset-1 col-lg-10">
+                <div className="sr-only">
+                  <span role="alert" aria-live="assertive" aria-atomic="true">
+                    {this.cardListStore.isLoading ? `Loading apps` : ''}
+                  </span>
+                </div>
                 {this.renderSearchBar()}
                 <hr/>
                 <Filters ref={ref => this.filterForm = ref} resetPagination={this.resetPagination} store={this.cardListStore}/>
