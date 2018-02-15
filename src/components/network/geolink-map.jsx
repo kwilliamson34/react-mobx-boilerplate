@@ -60,6 +60,7 @@ export default class GeolinkMap extends React.Component {
         <div className="map-wrapper">
           <iframe
             id="coverage-map"
+            role="map"
             title="Interactive Coverage Map"
             ref={(ref) => this.props.networkStore.mapIframeRef = ref}/>
         </div>
