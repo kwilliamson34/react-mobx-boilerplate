@@ -90,6 +90,7 @@ class UtilsService {
 
   isValidEmailAddress(string) {
     //allowed emails are based on https://blogs.msdn.microsoft.com/testing123/2009/02/06/email-address-test-cases/
+    //FPSE-2227 -> Updated to support multiple subdomains. Pull request includes test cases.
     const emailRegex = /^([A-Z|a-z|0-9|_-](\.|\+){0,1})+[A-Z|a-z|0-9|_-]@([\w-]+\.)+?([\w]{2,})(:\d+)?(\/\S*)?$/gm;
     return emailRegex.test(string);
   }
