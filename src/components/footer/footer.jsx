@@ -174,9 +174,8 @@ export default class Footer extends React.Component {
                   {
                     `${this.joyrideStore.tourIsDisabled
                       ? 'Enable'
-                      : 'Disable'}`
+                      : 'Disable'} Site Walkthrough`
                   }
-                  Site Walkthrough
                 </a>
               </li>
           }
