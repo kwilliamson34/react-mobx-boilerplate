@@ -6,27 +6,27 @@
       },
       {
         "title": "General",
-        "hideFromRoles": ["G_FN"]
+        "hideFromRoles": []
       },
       {
         "title": "Network",
-        "hideFromRoles": ["G_FN", "G_FN_SUB", "G_FN_VOL_ADM", "G_FN_VOL"]
+        "hideFromRoles": ["G_FN_SUB", "G_FN_VOL_ADM", "G_FN_VOL"]
       },
       {
         "title": "Manage My PSE",
-        "hideFromRoles": ["G_FN", "G_FN_IM", "G_FN_SUB"]
+        "hideFromRoles": ["G_FN_IM", "G_FN_SUB"]
       },
       {
         "title": "Manage Apps",
-        "hideFromRoles": ["G_FN", "G_FN_IM", "G_FN_SUB", "G_FN_VOL"]
+        "hideFromRoles": ["G_FN_IM", "G_FN_SUB", "G_FN_VOL"]
       },
       {
         "title": "Configure MDM",
-        "hideFromRoles": ["G_FN", "G_FN_IM", "G_FN_SUB", "G_FN_VOL"]
+        "hideFromRoles": ["G_FN_IM", "G_FN_SUB", "G_FN_VOL"]
       },
       {
         "title": "Other",
-        "hideFromRoles": ["G_FN"]
+        "hideFromRoles": []
       }],
     "entries": [{
         "question": "What is FirstNet Local Control?",
