@@ -77,7 +77,7 @@ export default class Footer extends React.Component {
             }
             {
               this.userStore.destinationIsPermitted.incidentUplift && <li role="presentation">
-                  <NewTabLink to={config.incidentUpliftLink} showIcon="showIcon">Uplift</NewTabLink>
+                  <NewTabLink to={config.incidentUpliftLink} showIcon>Uplift</NewTabLink>
                 </li>
             }
           </ul>
