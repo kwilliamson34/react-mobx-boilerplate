@@ -13,10 +13,14 @@ var config = {
   attCustomerSupportDialNum: '+18005747000',
   firstnetGov: 'https://firstnet.gov/',
   firstnetCom: 'https://www.firstnet.com/',
-  appStore: 'https://stage-apps.sapientfirst.net',
+  appCatalog: 'https://stage-apps.sapientfirst.net',
   appControl: 'https://stage-appcontrol.sapientfirst.net',
   localControl: 'https://stage-localcontrol.sapientfirst.net',
-  devPortal: 'https://test-developer.firstnet.com',
+<<<<<<< HEAD
+  devPortal: 'https://test-developer.firstnet.com/developer/mvc/auth/login?siteId=PORTALPROPER&destPage=%2F',
+=======
+  devPortal: 'https://test-developer.firstnet.com/developer/mvc/auth/login?siteId=PORTALPROPER&amp;destPage=%2F',
+>>>>>>> 2dd43b26f2139db3c4920d984d7d782b1592fd8b
   manageMyProfileLink: 'https://test-profilemgt.firstnet.att.com/firstnet/icam/index.html#/firstnet/icam/index/my-profile-view-only',
   manageUsersLink: 'https://test-profilemgt.firstnet.att.com/firstnet/icam/index.html#/firstnet/icam/index/lander-city',
   manageServicesLink: 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn',

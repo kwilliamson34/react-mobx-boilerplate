@@ -24,8 +24,7 @@ exports[`<SessionTimeoutPage /> render matches previous snapshot 1`] = `
               className="logo-container"
             >
               <img
-                alt=""
-                aria-hidden="true"
+                alt="FirstNet Local Control logo"
                 src="/images/logo-FirstNet-local-control.svg"
               />
             </div>

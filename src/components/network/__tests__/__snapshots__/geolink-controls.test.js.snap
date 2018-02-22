@@ -19,8 +19,13 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
           <h2
             className="as-h5"
           >
-            Search
+            Location
           </h2>
+          <div
+            className="help-text"
+          >
+            Search by City, Address or Coordinates
+          </div>
            
           <div
             className="predictive-dropdown"
@@ -103,7 +108,7 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
               className="as-link add-favorite-button disabled"
               onClick={[Function]}
             >
-              Add Favorite
+              Add Favorite Place
             </button>
           </div>
           <div
@@ -714,8 +719,13 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
           <h2
             className="as-h5"
           >
-            Search
+            Location
           </h2>
+          <div
+            className="help-text"
+          >
+            Search by City, Address or Coordinates
+          </div>
            
           
           <div
@@ -725,7 +735,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
               className="as-link add-favorite-button disabled"
               onClick={[Function]}
             >
-              Add Favorite
+              Add Favorite Place
             </button>
           </div>
           <div
@@ -1336,8 +1346,13 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
           <h2
             className="as-h5"
           >
-            Search
+            Location
           </h2>
+          <div
+            className="help-text"
+          >
+            Search by City, Address or Coordinates
+          </div>
            
           
           <div
@@ -1347,7 +1362,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
               className="as-link add-favorite-button disabled"
               onClick={[Function]}
             >
-              Add Favorite
+              Add Favorite Place
             </button>
           </div>
           <div
@@ -1958,8 +1973,13 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
           <h2
             className="as-h5"
           >
-            Search
+            Location
           </h2>
+          <div
+            className="help-text"
+          >
+            Search by City, Address or Coordinates
+          </div>
            
           
           <div
@@ -1969,7 +1989,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
               className="as-link add-favorite-button disabled"
               onClick={[Function]}
             >
-              Add Favorite
+              Add Favorite Place
             </button>
           </div>
           <div
