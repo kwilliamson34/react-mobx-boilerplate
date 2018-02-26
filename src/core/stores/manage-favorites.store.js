@@ -164,11 +164,15 @@ class ManageFavoritesStore {
 
   sortAndReturnRows(rowsToSort) {
     const isAscendingOrder = this.sortByAscending[this.activeColumn];
-
-    //partition sorts rowsToSort into an array containing two arrays. The first array matches the conditions, the second does not;
-    //sortedRows[0] will be string rows, sortedRows[1] will be number rows.
+    /*
+    partition sorts rowsToSort into an array containing two arrays. The first array matches the conditions, the second does not;
+    sortedRows[0] will be string rows, sortedRows[1] will be number rows.
+    */
     let sortedRows = _.partition(rowsToSort, (row) => {
-      //partition is decided by the first character (or second character, see below) of the string being sorted. If it's a number, we'll sort it as a proper integer, and otherwise as a string.
+      /*
+      partition is decided by the first character (or second character, see below) of the string being sorted.
+      If it's a number, we'll sort it as a proper integer, and otherwise as a string.
+      */
       const firstElement = row[this.activeColumn].split(' ')[0];
       //if the first character of firstElement is a + or - symbol, ignore it and check the second character;
       const testCharacter = /([+,-]+)/.test(firstElement.charAt(0))
@@ -187,16 +191,21 @@ class ManageFavoritesStore {
   }
 
   numberSort = (rowsToSort, isAscendingOrder, activeColumn) => {
-    //numberSort transforms strings into readable integers, in order to sort by absolute size;
-    //Step 1. split the string at spaces and finds first element;
-    //Step 2. split the first element at periods and degree symbols, in order to handle coordinates.
-    //Step 3. remove any characters that are not a number or a + or - symbol;
-    //Step 4. parseInt the result into an integer.
+    /*
+    numberSort transforms strings into readable integers, in order to sort by absolute size;
+    Step 1. split the string at spaces and finds first element;
+    Step 2. split the first element at periods and degree symbols, in order to handle coordinates.
+    Step 3. remove any characters that are not a number or a + or - symbol;
+    Step 4. parseInt the result into an integer.
+    */
     return rowsToSort.sort((x, y) => {
       const rowX = parseInt(x[activeColumn].split(' ')[0].split('.')[0].split('°')[0].replace(/[^[+,\-,0-9]+/g, ''));
       const rowY = parseInt(y[activeColumn].split(' ')[0].split('.')[0].split('°')[0].replace(/[^[+,\-,0-9]+/g, ''));
 
-      //This sort order assumes that A -> Z and 0 -> 9 is ascending order, and Z -> A and 9 -> 0 is descending. stringSort uses the same order.
+      /*
+      This sort order assumes that A -> Z and 0 -> 9 is ascending order, and Z -> A and 9 -> 0 is descending.
+      stringSort uses the same order.
+      */
       if (rowX < rowY) {
         return isAscendingOrder ? -1 : 1;
       }
@@ -208,8 +217,10 @@ class ManageFavoritesStore {
   }
 
   stringSort = (rowsToSort, isAscendingOrder, activeColumn) => {
-    //sorts as if a string, serially from position 0;
-    //.filter removes empty strings.
+    /*
+    sorts as if a string, serially from position 0;
+    .filter removes empty strings.
+    */
     return rowsToSort.sort((x, y) => {
       const rowX = x[activeColumn].toLowerCase().split(' ').filter(Boolean);
       const rowY = y[activeColumn].toLowerCase().split(' ').filter(Boolean);
