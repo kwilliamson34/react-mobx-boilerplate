@@ -159,11 +159,11 @@ class ManageFavoritesStore {
 
 	@action toggleSort(key) {
     this.activeColumn = key;
-    this.sortDirections[key] = !this.sortDirections[key];
+    this.sortByAscending[key] = !this.sortByAscending[key];
 	}
 
   sortAndReturnRows(rowsToSort) {
-    const sortOrder = this.sortDirections[this.activeColumn];
+    const isAscendingOrder = this.sortByAscending[this.activeColumn];
 
     //partition sorts rowsToSort into an array containing two arrays. The first array matches the conditions, the second does not;
     //sortedRows[0] will be string rows, sortedRows[1] will be number rows.
@@ -178,15 +178,15 @@ class ManageFavoritesStore {
       return isNaN(parseInt(testCharacter)) === true;
     });
 
-    const sortedStringRows = this.stringSort(sortedRows[0], sortOrder, this.activeColumn);
-    const sortedNumberRows = this.numberSort(sortedRows[1], sortOrder, this.activeColumn);
+    const sortedStringRows = this.stringSort(sortedRows[0], isAscendingOrder, this.activeColumn);
+    const sortedNumberRows = this.numberSort(sortedRows[1], isAscendingOrder, this.activeColumn);
 
-    return sortOrder
+    return isAscendingOrder
       ? [...sortedStringRows, ...sortedNumberRows]
       : [...sortedNumberRows, ...sortedStringRows]
   }
 
-  numberSort = (rowsToSort, sortOrder, activeColumn) => {
+  numberSort = (rowsToSort, isAscendingOrder, activeColumn) => {
     //numberSort transforms strings into readable integers, in order to sort by absolute size;
     //Step 1. split the string at spaces and finds first element;
     //Step 2. split the first element at periods and degree symbols, in order to handle coordinates.
@@ -198,26 +198,26 @@ class ManageFavoritesStore {
 
       //This sort order assumes that A -> Z and 0 -> 9 is ascending order, and Z -> A and 9 -> 0 is descending. stringSort uses the same order.
       if (rowX < rowY) {
-        return sortOrder ? -1 : 1;
+        return isAscendingOrder ? -1 : 1;
       }
       if (rowX > rowY) {
-        return sortOrder ? 1 : -1;
+        return isAscendingOrder ? 1 : -1;
       }
       return 0;
     });
   }
 
-  stringSort = (rowsToSort, sortOrder, activeColumn) => {
+  stringSort = (rowsToSort, isAscendingOrder, activeColumn) => {
     //sorts as if a string, serially from position 0;
     //.filter removes empty strings.
     return rowsToSort.sort((x, y) => {
       const rowX = x[activeColumn].toLowerCase().split(' ').filter(Boolean);
       const rowY = y[activeColumn].toLowerCase().split(' ').filter(Boolean);
       if (rowX < rowY) {
-        return sortOrder ? -1 : 1;
+        return isAscendingOrder ? -1 : 1;
       }
       if (rowX > rowY) {
-        return sortOrder ? 1 : -1;
+        return isAscendingOrder ? 1 : -1;
       }
       return 0;
     });
@@ -276,12 +276,12 @@ class ManageFavoritesStore {
   @observable activeColumn = 'favoriteName';
 
   //to keep the order toggling simple, true is ascending and false is descending;
-  @observable sortDirectionsDefaults = {
+  @observable sortByAscendingDefaults = {
     'favoriteName': false,
     'locationFavoriteAddress': false,
     'locationFavoriteId': false
   }
-  @observable sortDirections = Object.assign({}, this.sortDirectionsDefaults);
+  @observable sortByAscending = Object.assign({}, this.sortByAscendingDefaults);
 }
 
 export const manageFavoritesStore = new ManageFavoritesStore();
