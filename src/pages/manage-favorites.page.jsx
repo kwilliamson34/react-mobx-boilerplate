@@ -153,39 +153,29 @@ export default class ManageFavoritesPage extends React.Component {
   }
 
   renderNoResults = () => {
-    return (
-      <div className="no-results-container">
-        {
-          this.manageFavoritesStore.showSearchResults
-            ? this.renderNoSearchResults()
-            : this.renderNoFetchResults()
-        }
-      </div>
-    )
+    return this.manageFavoritesStore.showSearchResults
+      ? this.renderNoSearchResults()
+      : this.renderNoFetchResults();
   }
 
   renderNoFetchResults = () => {
-    return (
-      <div className="no-fetch-results">
-        <div className="as-h2">No Favorites</div>
-        <p>No favorite locations have been added yet. Add some!</p>
-        <button className="fn-primary" onClick={this.handleAddButton}>
-          Add From Map
-        </button>
-      </div>
-    )
+    return (<div className="no-results-container">
+      <p className="no-results-title">No Favorites</p>
+      <p aria-live="polite">No favorite locations have been added yet. Add some!</p>
+      <button className="fn-primary" onClick={this.handleAddButton}>
+        Add From Map
+      </button>
+    </div>)
   }
 
   renderNoSearchResults = () => {
-    return (
-      <div className="no-search-results">
-        <div className="as-h2">No Results</div>
-        <div className="no-search-results-text">There are no results to display. Please retry your search.</div>
-        <button className="fn-primary" onClick={this.resetSearch}>
-          Load All Favorites
-        </button>
-      </div>
-    )
+    return (<div className="no-results-container">
+      <p className="no-results-title">No Results</p>
+      <p aria-live="polite">There are no results to display. Please retry your search.</p>
+      <button className="fn-primary" onClick={this.resetSearch}>
+        Load All Favorites
+      </button>
+    </div>)
   }
 
   renderTopAndBottomFeatures = (position) => {
