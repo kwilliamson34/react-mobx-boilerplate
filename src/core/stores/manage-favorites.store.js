@@ -168,6 +168,7 @@ class ManageFavoritesStore {
     //partition sorts rowsToSort into an array containing two arrays. The first array matches the conditions, the second does not;
     //sortedRows[0] will be string rows, sortedRows[1] will be number rows.
     let sortedRows = _.partition(rowsToSort, (row) => {
+      //partition is decided by the first character (or second character, see below) of the string being sorted. If it's a number, we'll sort it as a proper integer, and otherwise as a string.
       const firstElement = row[this.activeColumn].split(' ')[0];
       //if the first character of firstElement is a + or - symbol, ignore it and check the second character;
       const testCharacter = /([+,-]+)/.test(firstElement.charAt(0))
@@ -187,17 +188,19 @@ class ManageFavoritesStore {
 
   numberSort = (rowsToSort, sortOrder, activeColumn) => {
     //attempts to transform strings into readable integers, in order to sort by absolute size;
-    //1: splits the string at spaces and finds first element;
-    //2: splits the first element at periods and degree symbols, in order to handle coordinates. We'll still sort based on the first element;
+    //Step 1. split the string at spaces and finds first element;
+    //Step 2. split the first element at periods and degree symbols, in order to handle coordinates.
     //3: removes characters not either a plus or minus symbol or a number;
     //4: parseInt the result into an integer.
     return rowsToSort.sort((x, y) => {
       const rowX = parseInt(x[activeColumn].split(' ')[0].split('.')[0].split('°')[0].replace(/[^[+,\-,0-9]+/g, ''));
       const rowY = parseInt(y[activeColumn].split(' ')[0].split('.')[0].split('°')[0].replace(/[^[+,\-,0-9]+/g, ''));
-      if (rowX > rowY) {
+
+      //This sort order assumes that A -> Z and 0 -> 9 is ascending order, and Z -> A and 9 -> 0 is descending. stringSort uses the same order.
+      if (rowX < rowY) {
         return sortOrder ? -1 : 1;
       }
-      if (rowX < rowY) {
+      if (rowX > rowY) {
         return sortOrder ? 1 : -1;
       }
       return 0;
@@ -210,10 +213,10 @@ class ManageFavoritesStore {
     return rowsToSort.sort((x, y) => {
       const rowX = x[activeColumn].toLowerCase().split(' ').filter(Boolean);
       const rowY = y[activeColumn].toLowerCase().split(' ').filter(Boolean);
-      if (rowX > rowY) {
+      if (rowX < rowY) {
         return sortOrder ? -1 : 1;
       }
-      if (rowX < rowY) {
+      if (rowX > rowY) {
         return sortOrder ? 1 : -1;
       }
       return 0;
