@@ -187,11 +187,11 @@ class ManageFavoritesStore {
   }
 
   numberSort = (rowsToSort, sortOrder, activeColumn) => {
-    //attempts to transform strings into readable integers, in order to sort by absolute size;
+    //numberSort transforms strings into readable integers, in order to sort by absolute size;
     //Step 1. split the string at spaces and finds first element;
     //Step 2. split the first element at periods and degree symbols, in order to handle coordinates.
-    //3: removes characters not either a plus or minus symbol or a number;
-    //4: parseInt the result into an integer.
+    //Step 3. remove any characters that are not a number or a + or - symbol;
+    //Step 4. parseInt the result into an integer.
     return rowsToSort.sort((x, y) => {
       const rowX = parseInt(x[activeColumn].split(' ')[0].split('.')[0].split('°')[0].replace(/[^[+,\-,0-9]+/g, ''));
       const rowY = parseInt(y[activeColumn].split(' ')[0].split('.')[0].split('°')[0].replace(/[^[+,\-,0-9]+/g, ''));
