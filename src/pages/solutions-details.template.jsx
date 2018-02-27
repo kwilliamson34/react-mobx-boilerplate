@@ -136,7 +136,7 @@ export default class SolutionsDetailsTemplate extends React.Component {
                 }}></span>
               <button onClick={this.handleLeadCaptureOnClick} aria-disabled={this.leadCaptureStore.solutionAlreadyRequested} className="fn-primary">
                     Request Information
-                </button>
+              </button>
               </div>}
         </section>
       </div>
