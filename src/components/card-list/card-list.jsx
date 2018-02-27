@@ -104,7 +104,7 @@ export class CardList extends React.Component {
         }
         {this.showNoResultsBlock &&
           <div className="no-results-container">
-            <p className="as-h2">No Results</p>
+            <p className="no-results-title">No Results</p>
             <p aria-live="polite">There are no results to display. Please retry your search.</p>
             {this.props.handleViewAllAppsClick &&
               <button id="view-all-apps-button" type="button" className="btn fn-primary" onClick={this.props.handleViewAllAppsClick}>Load All Apps</button>

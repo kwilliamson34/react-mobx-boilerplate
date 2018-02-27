@@ -35,20 +35,23 @@ export default class AdminDashboardPage extends React.Component {
   }
 
   renderCard(card, key = 1) {
-    //check if we are using a local or extenrnal link, and act accordingly
-    const LinkType = card.linkTo[0] === '/' ? Link : NewTabLink;
-    const linkDest = card.linkTo[0] === '/' ? card.linkTo : config[card.linkTo]
+    //check if we are using a local or external link
+    const isInternalLink = card.linkTo[0] === '/';
+    const LinkTag = isInternalLink ? Link : NewTabLink;
+    const linkDest = isInternalLink ? card.linkTo : config[card.linkTo]
     const callToAction = card.callToAction || card.header;
 
     return (
       <li className="col-xs-12" key={key}>
-        <LinkType to={linkDest} className={`dashboard-card ${card.className} has-shadow`}>
+        <LinkTag to={linkDest} className={`dashboard-card ${card.className} has-shadow`}>
           <div className="desc">
             <h3 dangerouslySetInnerHTML={ {__html: card.header} }></h3>
             <p dangerouslySetInnerHTML={ {__html: card.description} }></p>
           </div>
-          <span><span dangerouslySetInnerHTML={ {__html: callToAction} }></span> <i className="icon-arrowRight" aria-hidden="true"></i></span>
-        </LinkType>
+          <span>
+            <span dangerouslySetInnerHTML={ {__html: callToAction} }></span>&nbsp;<i className={isInternalLink ? 'icon-arrowRight' : 'icon-external-site'} aria-hidden="true"></i>
+          </span>
+        </LinkTag>
       </li>
     )
   }
