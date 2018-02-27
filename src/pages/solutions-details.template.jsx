@@ -134,7 +134,7 @@ export default class SolutionsDetailsTemplate extends React.Component {
                 <span className="solution-name" dangerouslySetInnerHTML={{
                   __html: solutionDetailTitle
                 }}></span>
-              <button onClick={this.handleLeadCaptureOnClick} aria-disabled={this.leadCaptureStore.solutionAlreadyRequested} className="fn-primary">
+              <button onClick={this.handleLeadCaptureOnClick} aria-disabled={this.leadCaptureStore.solutionAlreadyRequested} className="fn-primary learn-more-button">
                     Request Information
               </button>
               </div>}
