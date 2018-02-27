@@ -383,7 +383,7 @@ export default class ManageFavoritesPage extends React.Component {
                 <span className="mobile-header">
                   <MobileHeader
                     toggleSort={this.handleToggleSort}
-                    sortByAscending={this.manageFavoritesStore.sortDirections['favoriteName']}
+                    sortByAscending={this.manageFavoritesStore.sortByAscending['favoriteName']}
                     sortData="favoriteName"
                     handleSelectAllCheckbox={this.handleSelectAllCheckbox}
                     checkSelectAllCheckbox={this.manageFavoritesStore.checkSelectAllCheckbox}
@@ -398,14 +398,14 @@ export default class ManageFavoritesPage extends React.Component {
                 <span data="column" className="table-container center-container">
                   <TableColumn
                     toggleSort={this.handleToggleSort}
-                    sortByAscending={this.manageFavoritesStore.sortDirections['favoriteName']}
+                    sortByAscending={this.manageFavoritesStore.sortByAscending['favoriteName']}
                     isActive={this.manageFavoritesStore.activeColumn === 'favoriteName'}
                     headerLabel="Name"
                     columnDataKey="favoriteName"
                     columnClassName="favorite-name-column" />
                   <TableColumn
                     toggleSort={this.handleToggleSort}
-                    sortByAscending={this.manageFavoritesStore.sortDirections['locationFavoriteAddress']}
+                    sortByAscending={this.manageFavoritesStore.sortByAscending['locationFavoriteAddress']}
                     isActive={this.manageFavoritesStore.activeColumn === 'locationFavoriteAddress'}
                     headerLabel="Location/Address"
                     columnDataKey="locationFavoriteAddress"
