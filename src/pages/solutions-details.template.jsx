@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {observer, inject} from 'mobx-react';
-import {Link} from 'react-router-dom';
 
 import {history} from '../core/services/history.service';
+import {a11yAnnounce} from '../core/services/a11y-announce.service';
 import PageTitle from '../components/page-title/page-title';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 import PurchasingInfo from '../components/purchasing-info/purchasing-info';
@@ -40,6 +40,10 @@ export default class SolutionsDetailsTemplate extends React.Component {
 
   handleLeadCaptureOnClick = (event) => {
     if (this.leadCaptureStore.solutionAlreadyRequested) {
+      a11yAnnounce({
+        message: 'Request Information form already submitted',
+        messageType: 'status'
+      });
       event.preventDefault();
     } else {
       const leadCaptureHref = `/admin/solutions/${this.props.match.params.solutionCategory}/${this.props.match.params.solutionDetail}/request-info`;
@@ -130,7 +134,7 @@ export default class SolutionsDetailsTemplate extends React.Component {
                 <span className="solution-name" dangerouslySetInnerHTML={{
                   __html: solutionDetailTitle
                 }}></span>
-              <button onClick={this.handleLeadCaptureOnClick} aria-label={this.leadCaptureStore.solutionAlreadyRequested ? 'Request Information form already submitted' : ''} aria-disabled={this.leadCaptureStore.solutionAlreadyRequested} className="fn-primary">
+              <button onClick={this.handleLeadCaptureOnClick} aria-disabled={this.leadCaptureStore.solutionAlreadyRequested} className="fn-primary">
                     Request Information
                 </button>
               </div>}
