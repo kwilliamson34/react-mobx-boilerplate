@@ -121,9 +121,7 @@ export default class SolutionsDetailsTemplate extends React.Component {
                 <span className="solution-name" dangerouslySetInnerHTML={{
                   __html: solutionDetailTitle
                 }}></span>
-                <Link to={leadCaptureHref} className={`btn fn-primary ${this.leadCaptureStore.solutionAlreadyRequested
-                  ? 'disabled'
-                  : ''}`}>
+              <Link to={leadCaptureHref} aria-label={this.leadCaptureStore.solutionAlreadyRequested ? 'Form already submitted' : ''} aria-disabled={this.leadCaptureStore.solutionAlreadyRequested} className="btn fn-primary">
                   Request Information
                 </Link>
               </div>}
