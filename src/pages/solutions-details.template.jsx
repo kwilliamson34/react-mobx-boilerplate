@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {observer, inject} from 'mobx-react';
 import {Link} from 'react-router-dom';
 
+import {history} from '../core/services/history.service';
 import PageTitle from '../components/page-title/page-title';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 import PurchasingInfo from '../components/purchasing-info/purchasing-info';
@@ -35,6 +36,15 @@ export default class SolutionsDetailsTemplate extends React.Component {
 
   componentWillUnmount() {
     this.leadCaptureStore.updateSuccess('');
+  }
+
+  handleLeadCaptureOnClick = (event) => {
+    if (this.leadCaptureStore.solutionAlreadyRequested) {
+      event.preventDefault();
+    } else {
+      const leadCaptureHref = `/admin/solutions/${this.props.match.params.solutionCategory}/${this.props.match.params.solutionDetail}/request-info`;
+      history.push(leadCaptureHref);
+    }
   }
 
   render() {
@@ -105,7 +115,6 @@ export default class SolutionsDetailsTemplate extends React.Component {
 
   renderLeadCaptureSection = () => {
     const solutionDetailTitle = decodeURIComponent(this.props.match.params.solutionDetail);
-    const leadCaptureHref = `/admin/solutions/${this.props.match.params.solutionCategory}/${this.props.match.params.solutionDetail}/request-info`;
     const showSuccess = this.leadCaptureStore.successToDisplay && this.leadCaptureStore.successToDisplay.length > 0;
     return (
       <div className="row">
@@ -121,9 +130,9 @@ export default class SolutionsDetailsTemplate extends React.Component {
                 <span className="solution-name" dangerouslySetInnerHTML={{
                   __html: solutionDetailTitle
                 }}></span>
-              <Link to={leadCaptureHref} aria-label={this.leadCaptureStore.solutionAlreadyRequested ? 'Form already submitted' : ''} aria-disabled={this.leadCaptureStore.solutionAlreadyRequested} className="btn fn-primary">
-                  Request Information
-                </Link>
+              <button onClick={this.handleLeadCaptureOnClick} aria-label={this.leadCaptureStore.solutionAlreadyRequested ? 'Request Information button disabled. Form already submitted' : ''} aria-disabled={this.leadCaptureStore.solutionAlreadyRequested} className="fn-primary">
+                    Request Information
+                </button>
               </div>}
         </section>
       </div>
