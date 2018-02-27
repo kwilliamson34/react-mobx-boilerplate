@@ -5,6 +5,7 @@ import config from 'config'
 import PageTitle from '../components/page-title/page-title';
 
 export default class UnsubscribeToGTOCSuccess extends React.Component {
+
   render() {
     return (
       <section className="success-page">

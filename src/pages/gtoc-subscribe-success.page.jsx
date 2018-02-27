@@ -2,9 +2,15 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import config from 'config'
 
+import {history} from '../core/services/history.service';
 import PageTitle from '../components/page-title/page-title';
 
 export default class SubscribeToGTOCSuccess extends React.Component {
+
+  componentDidMount() {
+    console.log('history', history.location.state);
+  }
+
   render() {
     return (
       <section className="success-page">

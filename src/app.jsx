@@ -24,6 +24,7 @@ import JoyrideBase from './components/joyride-base/joyride-base';
 //Pages
 import NetworkPage from './pages/network.page';
 import ErrorPage from './pages/error.page.jsx';
+import SuccessPage from './pages/success.page.jsx';
 import SessionTimeoutPage from './pages/session-timeout.page';
 import SubscribeToGTOC from './pages/gtoc.page';
 import SubscribeToGTOCSuccess from './pages/gtoc-subscribe-success.page';
@@ -169,6 +170,7 @@ export default class App extends React.Component {
               <Route path="/unsubscribe-to-alerts-success" component={UnsubscribeToGTOCSuccess} />
               <Route path="/feedback" component={FeedbackPage} />
               <Route path="/feedback-success" component={FeedbackSuccessPage} />
+              <Route path="/success" component={SuccessPage} />
               <Route path="/faq" component={FAQPage} />
               <Route path="/help-center" component={HelpCenterPage} />
               <Route component={() => <Redirect to="/error/404" />} />
