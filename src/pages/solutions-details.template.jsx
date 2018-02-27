@@ -130,7 +130,7 @@ export default class SolutionsDetailsTemplate extends React.Component {
                 <span className="solution-name" dangerouslySetInnerHTML={{
                   __html: solutionDetailTitle
                 }}></span>
-              <button onClick={this.handleLeadCaptureOnClick} aria-label={this.leadCaptureStore.solutionAlreadyRequested ? 'Request Information button disabled. Form already submitted' : ''} aria-disabled={this.leadCaptureStore.solutionAlreadyRequested} className="fn-primary">
+              <button onClick={this.handleLeadCaptureOnClick} aria-label={this.leadCaptureStore.solutionAlreadyRequested ? 'Request Information form already submitted' : ''} aria-disabled={this.leadCaptureStore.solutionAlreadyRequested} className="fn-primary">
                     Request Information
                 </button>
               </div>}
