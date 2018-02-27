@@ -27,8 +27,6 @@ import ErrorPage from './pages/error.page.jsx';
 import SuccessPage from './pages/success.page.jsx';
 import SessionTimeoutPage from './pages/session-timeout.page';
 import SubscribeToGTOC from './pages/gtoc.page';
-import SubscribeToGTOCSuccess from './pages/gtoc-subscribe-success.page';
-import UnsubscribeToGTOCSuccess from './pages/gtoc-unsubscribe-success.page';
 import ManageFavoritesPage from './pages/manage-favorites.page';
 
 //Admin pages
@@ -52,7 +50,6 @@ import SolutionsCategoryTemplate from './pages/solutions-category.template';
 import HelpCenterPage from './pages/help-center.page';
 import FAQPage from './pages/faq.page';
 import FeedbackPage from './pages/feedback.page';
-import FeedbackSuccessPage from './pages/feedback-success.page';
 
 //Components
 import ExternalRedirect from './components/external-redirect/external-redirect';
@@ -166,10 +163,7 @@ export default class App extends React.Component {
                 })} />
               <Route path="/manage-favorites" component={ManageFavoritesPage} />
               <Route path="/subscribe-to-alerts" component={SubscribeToGTOC} />
-              <Route path="/subscribe-to-alerts-success" component={SubscribeToGTOCSuccess} />
-              <Route path="/unsubscribe-to-alerts-success" component={UnsubscribeToGTOCSuccess} />
               <Route path="/feedback" component={FeedbackPage} />
-              <Route path="/feedback-success" component={FeedbackSuccessPage} />
               <Route path="/success" component={SuccessPage} />
               <Route path="/faq" component={FAQPage} />
               <Route path="/help-center" component={HelpCenterPage} />
