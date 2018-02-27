@@ -41,7 +41,8 @@ export default class SolutionsDetailsTemplate extends React.Component {
   handleLeadCaptureOnClick = (event) => {
     if (this.leadCaptureStore.solutionAlreadyRequested) {
       a11yAnnounce({
-        message: 'Request Information form already submitted',
+        message: 'This form already submitted',
+        resetBefore: true,
         messageType: 'status'
       });
       event.preventDefault();
@@ -135,7 +136,7 @@ export default class SolutionsDetailsTemplate extends React.Component {
                   __html: solutionDetailTitle
                 }}></span>
               <button onClick={this.handleLeadCaptureOnClick} aria-disabled={this.leadCaptureStore.solutionAlreadyRequested} className="fn-primary learn-more-button">
-                    Request Information
+                  Request Information
               </button>
               </div>}
         </section>
