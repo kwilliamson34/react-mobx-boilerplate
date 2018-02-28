@@ -42,7 +42,7 @@ export default class Footer extends React.Component {
     let allowFocusOnSitemapHeader = this.headerStore.viewportWidth < sitemapCollapseBreakpoint;
     if (this.props.showPrivateLinks) {
       return (<div className="col-xs-12 col-md-3">
-        <nav aria-describedby="sitemap">
+        <div aria-describedby="sitemap">
           <a id="sitemap" href="" onClick={this.handleSitemapClick} tabIndex={allowFocusOnSitemapHeader
               ? 0
               : -1} className="sitemap-hdr" role="button" aria-haspopup="true" aria-expanded={this.headerStore.footerSitemapExpanded}>Sitemap</a>
@@ -81,7 +81,7 @@ export default class Footer extends React.Component {
                 </li>
             }
           </ul>
-        </nav>
+        </div>
       </div>);
     }
   }
@@ -90,7 +90,7 @@ export default class Footer extends React.Component {
     return (<div className={`col-xs-12 ${this.props.showPrivateLinks
         ? 'col-md-3'
         : 'col-md-4'}`}>
-      <nav aria-describedby="firstnet-sites">
+      <div aria-describedby="firstnet-sites">
         <h2 id="firstnet-sites">Firstnet Sites</h2>
         <ul >
           <li role="presentation">
@@ -106,7 +106,7 @@ export default class Footer extends React.Component {
             <NewTabLink to={config.appCatalog} showIcon={true}>App Catalog</NewTabLink>
           </li>
         </ul>
-      </nav>
+      </div>
     </div>);
   }
 
@@ -114,7 +114,7 @@ export default class Footer extends React.Component {
     return (<div className={`col-xs-12 ${this.props.showPrivateLinks
         ? 'col-md-3'
         : 'col-md-4'}`}>
-      <nav className="social-nav" aria-describedby="social-links">
+      <div className="social-nav" aria-describedby="social-links">
         <h2 id="social-links">Follow Us</h2>
         <ul className="social-links-list">
           <li role="presentation">
@@ -142,7 +142,7 @@ export default class Footer extends React.Component {
             </NewTabLink>
           </li>
         </ul>
-      </nav>
+      </div>
     </div>);
   }
 
@@ -150,7 +150,7 @@ export default class Footer extends React.Component {
     return (<div className={`col-xs-12 ${this.props.showPrivateLinks
         ? 'col-md-3'
         : 'col-md-4'}`}>
-      <nav aria-describedby="helpLinks">
+      <div aria-describedby="helpLinks">
         <h2 id="helpLinks" className="help-hdr">
           <i className="icon-help" aria-hidden="true"/>
           Help
@@ -195,12 +195,12 @@ export default class Footer extends React.Component {
             </a>
           </li>
         </ul>
-      </nav>
+      </div>
     </div>);
   }
 
   renderBottomNav() {
-    return (<nav>
+    return (<div>
       <ul className="sub-links">
         <li role="presentation">
           <NewTabLink to={this.externalLinkStore.privacyPolicyLink}>
@@ -224,43 +224,45 @@ export default class Footer extends React.Component {
           </NewTabLink>
         </li>
       </ul>
-    </nav>);
+    </div>);
   }
 
   render() {
     return (<div className="footer-container">
       <footer id="pse-footer">
-        <div className="footer-main">
-          <div className="container">
-            <div className="row">
-              <div className="col-xs-12 logoRow">
-                {
-                  this.props.showPrivateLinks
-                    ? <Link to="/" className="logo-home-link-footer">
-                        <img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Local Control logo"/>
-                        <span className="sr-only">Go Home</span>
-                      </Link>
-                    : <img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Local Control logo"/>
-                }
+        <nav aria-label="Supporting Navigation.">
+          <div className="footer-main">
+            <div className="container">
+              <div className="row">
+                <div className="col-xs-12 logoRow">
+                  {
+                    this.props.showPrivateLinks
+                      ? <Link to="/" className="logo-home-link-footer">
+                          <img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Local Control logo"/>
+                          <span className="sr-only">Go Home</span>
+                        </Link>
+                      : <img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Local Control logo"/>
+                  }
+                </div>
               </div>
-            </div>
-            <div className="row is-flex">
-              {this.renderSitemapColumn()}
-              {this.renderFirstNetColumn()}
-              {this.renderSocialLinkColumn()}
-              {this.renderHelpColumn()}
-            </div>
-          </div>
-        </div>
-        <div className="footer-sub">
-          <div className="container">
-            <div className="row">
-              <div className="col-xs-12">
-                {this.renderBottomNav()}
+              <div className="row is-flex">
+                {this.renderSitemapColumn()}
+                {this.renderFirstNetColumn()}
+                {this.renderSocialLinkColumn()}
+                {this.renderHelpColumn()}
               </div>
             </div>
           </div>
-        </div>
+          <div className="footer-sub">
+            <div className="container">
+              <div className="row">
+                <div className="col-xs-12">
+                  {this.renderBottomNav()}
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
       </footer>
     </div>);
   }

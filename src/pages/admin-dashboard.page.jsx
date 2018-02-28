@@ -70,25 +70,25 @@ export default class AdminDashboardPage extends React.Component {
               {!hideAside && <div className="col-xs-12">
                 <h2 className="as-h4">Management</h2>
               </div>}
-              <nav>
+              <div>
                 <ul>
                   {this.adminCardsToShow.map((card, i) => {
                     return this.renderCard(card, i)
                   })}
                 </ul>
-              </nav>
+              </div>
             </section>
             {!hideAside && <aside className="col-xs-12 col-lg-4 shop-actions">
               <div className="col-xs-12">
                 <h2 className="as-h4">Purchasing &amp; Provisioning</h2>
               </div>
-              <nav>
+              <div>
                 <ul>
                   {this.asideCardsToShow.map((card, i) => {
                     return this.renderCard(card, i)
                   })}
                 </ul>
-              </nav>
+              </div>
             </aside>}
           </div>
         </div>
