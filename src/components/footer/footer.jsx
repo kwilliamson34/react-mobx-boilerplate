@@ -230,7 +230,7 @@ export default class Footer extends React.Component {
   render() {
     return (<div className="footer-container">
       <footer id="pse-footer">
-        <nav aria-label="Supporting Navigation">
+        <nav aria-label="Supporting Navigation.">
           <div className="footer-main">
             <div className="container">
               <div className="row">
