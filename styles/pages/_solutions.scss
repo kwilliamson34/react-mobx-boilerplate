@@ -1,6 +1,6 @@
 #solutions-hub-page {
   padding-top: 0;
-  
+
   .all-cards-wrapper {
     .solutions-card {
       display: flex;
@@ -171,12 +171,14 @@
       hr {
         margin-bottom: 20px;
       }
+
       .solution-name {
         line-height: 2;
         font-size: 2.4rem;
         display: inline-block;
       }
-      a {
+
+      .learn-more-button {
         display: inline-block;
         float: right;
       }
@@ -215,7 +217,7 @@
       }
 
       .learn-more-section {
-        a {
+        .learn-more-button {
           margin-top: 15px;
           float: none;
           max-width: 250px;
