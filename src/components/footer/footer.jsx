@@ -230,39 +230,37 @@ export default class Footer extends React.Component {
   render() {
     return (<div className="footer-container">
       <footer id="pse-footer">
-        <nav aria-label="Supporting Navigation">
-          <div className="footer-main">
-            <div className="container">
-              <div className="row">
-                <div className="col-xs-12 logoRow">
-                  {
-                    this.props.showPrivateLinks
-                      ? <Link to="/" className="logo-home-link-footer">
-                          <img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Local Control logo"/>
-                          <span className="sr-only">Go Home</span>
-                        </Link>
-                      : <img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Local Control logo"/>
-                  }
-                </div>
-              </div>
-              <div className="row is-flex">
-                {this.renderSitemapColumn()}
-                {this.renderFirstNetColumn()}
-                {this.renderSocialLinkColumn()}
-                {this.renderHelpColumn()}
+        <nav className="footer-main" aria-label="Supporting Navigation">
+          <div className="container">
+            <div className="row">
+              <div className="col-xs-12 logoRow">
+                {
+                  this.props.showPrivateLinks
+                    ? <Link to="/" className="logo-home-link-footer">
+                        <img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Local Control logo"/>
+                        <span className="sr-only">Go Home</span>
+                      </Link>
+                    : <img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Local Control logo"/>
+                }
               </div>
             </div>
-          </div>
-          <div className="footer-sub">
-            <div className="container">
-              <div className="row">
-                <div className="col-xs-12">
-                  {this.renderBottomNav()}
-                </div>
-              </div>
+            <div className="row is-flex">
+              {this.renderSitemapColumn()}
+              {this.renderFirstNetColumn()}
+              {this.renderSocialLinkColumn()}
+              {this.renderHelpColumn()}
             </div>
           </div>
         </nav>
+        <div className="footer-sub">
+          <div className="container">
+            <div className="row">
+              <div className="col-xs-12">
+                {this.renderBottomNav()}
+              </div>
+            </div>
+          </div>
+        </div>
       </footer>
     </div>);
   }
