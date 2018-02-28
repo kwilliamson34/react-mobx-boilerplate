@@ -46,13 +46,13 @@ exports[`<SolutionsDetailsTemplate /> render matches snapshot 1`] = `
               }
             }
           />
-          <a
-            className="btn fn-primary "
-            href="/admin/solutions/category1/detail1/request-info"
+          <button
+            aria-disabled={false}
+            className="fn-primary"
             onClick={[Function]}
           >
             Request Information
-          </a>
+          </button>
         </div>
       </section>
     </div>
@@ -106,13 +106,13 @@ exports[`<SolutionsDetailsTemplate /> render renders lead capture section 1`] = 
               }
             }
           />
-          <a
-            className="btn fn-primary "
-            href="/admin/solutions/category1/detail1/request-info"
+          <button
+            aria-disabled={false}
+            className="fn-primary"
             onClick={[Function]}
           >
             Request Information
-          </a>
+          </button>
         </div>
       </section>
     </div>
@@ -166,13 +166,13 @@ exports[`<SolutionsDetailsTemplate /> render renders lead capture section 2`] = 
               }
             }
           />
-          <a
-            className="btn fn-primary "
-            href="/admin/solutions/category1/detail1/request-info"
+          <button
+            aria-disabled={false}
+            className="fn-primary"
             onClick={[Function]}
           >
             Request Information
-          </a>
+          </button>
         </div>
       </section>
     </div>
@@ -226,13 +226,13 @@ exports[`<SolutionsDetailsTemplate /> render renders lead capture section 3`] = 
               }
             }
           />
-          <a
-            className="btn fn-primary "
-            href="/admin/solutions/category1/detail1/request-info"
+          <button
+            aria-disabled={false}
+            className="fn-primary"
             onClick={[Function]}
           >
             Request Information
-          </a>
+          </button>
         </div>
       </section>
     </div>
@@ -286,13 +286,13 @@ exports[`<SolutionsDetailsTemplate /> render renders purchasing info section 1`]
               }
             }
           />
-          <a
-            className="btn fn-primary "
-            href="/admin/solutions/category1/detail1/request-info"
+          <button
+            aria-disabled={false}
+            className="fn-primary"
             onClick={[Function]}
           >
             Request Information
-          </a>
+          </button>
         </div>
       </section>
     </div>
@@ -365,13 +365,13 @@ exports[`<SolutionsDetailsTemplate /> render renders related app section 1`] = `
               }
             }
           />
-          <a
-            className="btn fn-primary "
-            href="/admin/solutions/category1/detail1/request-info"
+          <button
+            aria-disabled={false}
+            className="fn-primary"
             onClick={[Function]}
           >
             Request Information
-          </a>
+          </button>
         </div>
       </section>
     </div>
