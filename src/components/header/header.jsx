@@ -284,7 +284,6 @@ export default class PSEHeader extends React.Component {
 				<div id="admin-submenu" className="header-submenu">
 					<ul
 						id="pse-admin-nav"
-						role="navigation"
 						className={`collapse ${this.headerStore.adminSubMenuIsOpen ? 'in' : ''}`}
 						aria-labelledby="linkBtn-admin">
 						{!hideAside && <strong className="visible-md-block visible-lg-block" aria-hidden="true">
@@ -294,7 +293,6 @@ export default class PSEHeader extends React.Component {
 					</ul>
 					{!hideAside && <ul
 						id="pse-aside-nav"
-						role="navigation"
 						className={`collapse ${this.headerStore.adminSubMenuIsOpen ? 'in' : ''}`}
 						aria-labelledby="linkBtn-admin">
 						<strong className="visible-md-block visible-lg-block" aria-hidden="true">

@@ -129,7 +129,7 @@ export default class App extends React.Component {
         <ScrollToTop>
           <a href="#main-content" className="skipnav" onClick={this.handleSkipNav}>Skip Navigation</a>
           <Header/>
-          <main id="main-content">
+          <main aria-label="Main Content." id="main-content">
             <Switch>
               <Route exact path="/" component={() => <Redirect to="/admin" />} />
               <Route path="/admin/manage-apps" component={this.checkRoutePermission({

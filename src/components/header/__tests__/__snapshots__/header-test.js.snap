@@ -1724,7 +1724,6 @@ exports[`<PSEHeader /> render user role-based snapshots 2`] = `
                 aria-labelledby="linkBtn-admin"
                 className="collapse "
                 id="pse-admin-nav"
-                role="navigation"
               >
                 <strong
                   aria-hidden="true"
@@ -1757,7 +1756,6 @@ exports[`<PSEHeader /> render user role-based snapshots 2`] = `
                 aria-labelledby="linkBtn-admin"
                 className="collapse "
                 id="pse-aside-nav"
-                role="navigation"
               >
                 <strong
                   aria-hidden="true"
@@ -2245,7 +2243,6 @@ exports[`<PSEHeader /> render user role-based snapshots 3`] = `
                 aria-labelledby="linkBtn-admin"
                 className="collapse "
                 id="pse-admin-nav"
-                role="navigation"
               >
                 <li />
               </ul>
@@ -2677,7 +2674,6 @@ exports[`<PSEHeader /> render user role-based snapshots 4`] = `
                 aria-labelledby="linkBtn-admin"
                 className="collapse "
                 id="pse-admin-nav"
-                role="navigation"
               >
                 <li />
                 <li>
@@ -3126,7 +3122,6 @@ exports[`<PSEHeader /> render user role-based snapshots 5`] = `
                 aria-labelledby="linkBtn-admin"
                 className="collapse "
                 id="pse-admin-nav"
-                role="navigation"
               >
                 <strong
                   aria-hidden="true"
@@ -3140,7 +3135,6 @@ exports[`<PSEHeader /> render user role-based snapshots 5`] = `
                 aria-labelledby="linkBtn-admin"
                 className="collapse "
                 id="pse-aside-nav"
-                role="navigation"
               >
                 <strong
                   aria-hidden="true"
