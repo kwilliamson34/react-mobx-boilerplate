@@ -3,7 +3,6 @@ import {userStore} from './user.store';
 
 import {successPage} from '../services/success-page.service';
 import {apiService} from '../services/api.service';
-// import {history} from '../services/history.service';
 
 class GTOCStore {
   constructor() {
@@ -39,7 +38,7 @@ class GTOCStore {
         message: 'Processing your subscription can take up to 24 hours, after which you will start receiving alert notifications.',
         contactUs: true,
         returnToUrl: '/network',
-        returnToButtonText: 'Network'
+        returnToButtonText: 'Return to Network'
       });
     }
     const failure = () => {
@@ -56,7 +55,7 @@ class GTOCStore {
         message: 'Cancelling your subscription can take up to 24 hours, after which you will stop receiving alert notifications.',
         contactUs: true,
         returnToUrl: '/network',
-        returnToButtonText: 'Network'
+        returnToButtonText: 'Return to Network'
       });
     }
     const failure = () => {

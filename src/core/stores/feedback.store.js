@@ -3,7 +3,6 @@ import {apiService} from '../services/api.service';
 import {userStore} from './user.store';
 
 import {successPage} from '../services/success-page.service';
-// import {history} from '../services/history.service';
 
 class FeedbackStore {
   constructor() {
@@ -35,8 +34,7 @@ class FeedbackStore {
       this.clearForm();
       successPage({
         pageTitle: 'Thanks for your feedback!',
-        message: 'We appreciate you taking the time to provide your thoughts about this site. Your comments will help us to improve our tools going forward.',
-        contactUs: false
+        message: 'We appreciate you taking the time to provide your thoughts about this site. Your comments will help us to improve our tools going forward.'
       });
       this.alertToDisplay = '';
     }
