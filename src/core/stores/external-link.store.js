@@ -192,7 +192,6 @@ class ExternalLinkStore {
   @observable currentDeviceName = '';
 
   @observable solutionsConsultantPhone = '833-717-8638';
-  @observable firstnetTraining = 'http://mmsrv01b.intellor.com/att/digitalexperience/firstnet.html';
 
   @observable firstnetFacebook = 'https://www.facebook.com/firstnet';
   @observable firstnetLinkedIn = 'https://www.linkedin.com/showcase/firstnet/';

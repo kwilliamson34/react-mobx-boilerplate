@@ -15,6 +15,7 @@ var config = {
   appCatalog: 'https://test-apps.firstnet.att.com',
   appControl: 'https://test-appcontrol.firstnet.att.com/',
   localControl: 'https://test-localcontrol.firstnet.att.com',
+  firstnetTraining: 'https://troy-training.firstnet.att.com',
   devPortal: 'https://test-developer.firstnet.com/developer/mvc/auth/login?siteId=PORTALPROPER&destPage=%2F',
   manageMyProfileLink: 'https://test-profilemgt.firstnet.att.com/firstnet/icam/index.html#/firstnet/icam/index/my-profile-view-only',
   manageUsersLink: 'https://test-profilemgt.firstnet.att.com/firstnet/icam/index.html#/firstnet/icam/index/lander-city',
