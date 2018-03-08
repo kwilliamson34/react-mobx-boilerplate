@@ -6,6 +6,7 @@ var config = {
   apperianUploads: 'https://ease.apperian.com/uploads/',
   cloudGeolinkAssets: 'https://onemap.att.com/icecapmap',
   geolinkAuthScript: 'https://geo.att.com/appBoard/views/firstnet-pse-remote-auth.html',
+  geolinkKeepaliveResource: 'https://geo.att.com/appBoard/assets/images/firstnet/singlepixel.png',
   geolinkAbMapConstantsFileName: 'abMapConstantsFN.js',
   mktgPortalImgBaseUrl: 'https://www.firstnet.com',
   apiBase: '/api',

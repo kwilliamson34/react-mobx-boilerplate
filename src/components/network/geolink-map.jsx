@@ -62,6 +62,7 @@ export default class GeolinkMap extends React.Component {
             id="coverage-map"
             role="map"
             title="Interactive Coverage Map"
+            name={this.props.networkStore.geoSessionKey /*Used to trace unique cache hits*/}
             ref={(ref) => this.props.networkStore.mapIframeRef = ref}/>
         </div>
       </section>
