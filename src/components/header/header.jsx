@@ -316,7 +316,7 @@ export default class PSEHeader extends React.Component {
 					</NavLink>
 				</li>
 				<li>
-					<NewTabLink to={this.externalLinkStore.firstnetTraining} onClick={this.handleExternalTabOpen} showIcon={true}>
+					<NewTabLink to={config.firstnetTraining} onClick={this.handleExternalTabOpen} showIcon={true}>
 						Training
 					</NewTabLink>
 				</li>
