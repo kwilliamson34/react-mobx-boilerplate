@@ -16,6 +16,7 @@ var config = {
   appCatalog: 'https://stage-apps.sapientfirst.net',
   appControl: 'https://stage-appcontrol.sapientfirst.net',
   localControl: 'https://stage-localcontrol.sapientfirst.net',
+  firstnetTraining: 'https://stage-training.sapientfirst.net',
   devPortal: 'https://test-developer.firstnet.com/developer/mvc/auth/login?siteId=PORTALPROPER&destPage=%2F',
   manageMyProfileLink: 'https://test-profilemgt.firstnet.att.com/firstnet/icam/index.html#/firstnet/icam/index/my-profile-view-only',
   manageUsersLink: 'https://test-profilemgt.firstnet.att.com/firstnet/icam/index.html#/firstnet/icam/index/lander-city',
