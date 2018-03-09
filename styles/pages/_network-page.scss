@@ -90,26 +90,26 @@ $map-controls-text-line-height: 1.3;
     justify-content: space-between;
     align-items: baseline;
 
-    .manage-favorites-delete-button {
-      font-size: 16px;
-
-      button {
-        text-transform: uppercase;
-        text-decoration: none;
-
-        &:focus,
-        &:hover {
-          span {
-            text-decoration: underline;
-          }
-        }
-
-        i {
-          font-size: 16px;
-          padding-right: 10px;
-        }
-      }
-    }
+    // .manage-favorites-delete-button {
+    //   font-size: 16px;
+    //
+    //   button {
+    //     text-transform: uppercase;
+    //     // text-decoration: none;
+    //
+    //     // &:focus,
+    //     // &:hover {
+    //     //   span {
+    //     //     text-decoration: underline;
+    //     //   }
+    //     // }
+    //
+    //     i {
+    //       font-size: 16px;
+    //       padding-right: 10px;
+    //     }
+    //   }
+    // }
   }
 
   .form-group {
@@ -334,19 +334,9 @@ $map-controls-text-line-height: 1.3;
     a {
       display: inline-block;
       white-space: nowrap;
-      text-decoration: none;
 
       .icon-phone-number:before {
         font-size: 16px;
-      }
-
-      &:hover,
-      &:focus,
-      &:active,
-      &:focus-within {
-        .network-issue-number {
-          text-decoration: underline;
-        }
       }
     }
   }
@@ -520,15 +510,15 @@ $map-controls-text-line-height: 1.3;
   .as-link {
     font-size: $fn-button-desktop;
     text-transform: uppercase;
-    text-decoration: none;
+    // text-decoration: none;
     padding: 0;
 
-    &:focus,
-    &:hover {
-      span {
-        text-decoration: underline;
-      }
-    }
+    // &:focus,
+    // &:hover {
+    //   span {
+    //     text-decoration: underline;
+    //   }
+    // }
 
     i {
       font-size: $fn-button-desktop;

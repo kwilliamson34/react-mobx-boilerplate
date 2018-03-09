@@ -12,17 +12,6 @@
         text-align: left;
         width: 100%;
         min-height: 440px;
-
-        > a {
-          text-decoration: none;
-
-          &:focus,
-          &:hover {
-            .card-title,
-            .learn-more {
-              text-decoration: underline;
-            }
-          }
         }
 
         .learn-more {
