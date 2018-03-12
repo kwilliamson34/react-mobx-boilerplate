@@ -1,5 +1,5 @@
 jest.unmock('../mdm.store');
-jest.unmock('axios');
+
 jest.unmock('../../services/history.service');
 jest.unmock('mobx');
 
@@ -16,185 +16,28 @@ describe("MDMStore", () => {
     store = mdmStore;
   });
 
-  test("getBrowserCloseAlert updates event properly", () => {
-    let event = {};
-    store.formData.mdm_type = '';
-    store.getBrowserCloseAlert(event);
-    expect(event.returnValue).toBe(undefined);
+  test("formIsDirty returns true iff the user has entered info", () => {
+    store.values.mdm_type = '';
+    expect(store.formIsDirty).toBe(false);
 
-    store.formData.mdm_type = 'AIRWATCH';
-    store.formHasChanged = true;
-    store.getBrowserCloseAlert(event);
-    expect(event.returnValue).toBe(true);
-  });
-
-  test("formHasChanged returns true iff the user has entered info", () => {
-    store.formData.mdm_type = '';
-    expect(store.formHasUnsavedChanges).toBe(false);
-
-    store.formData.mdm_type = 'AIRWATCH';
-    store.formHasChanged = false;
-    expect(store.formHasUnsavedChanges).toBe(false);
-
-    store.formHasChanged = true;
-    expect(store.formHasUnsavedChanges).toBe(true);
+    store.values.mdm_type = 'AIRWATCH';
+    store.values.aw_password = 'password';
+    expect(store.formIsDirty).toBe(true);
   });
 
   test("updateMDM sets the MDM and resets the form", () => {
-    store.formData.mdm_type = 'AIRWATCH';
+    store.values.mdm_type = 'AIRWATCH';
 
     store.updateMDM('MAAS360');
 
-    expect(store.formData.mdm_type).toBe('MAAS360');
-    expect(store.beingSubmitted).toBe(false);
-    expect(store.formHasChanged).toBe(false);
-    expect(store.showExitModal).toBe(false);
-    expect(store.showbreakMDMConnection).toBe(false);
-  });
-
-  test("updateForm properly updates store based on input", () => {
-    store.formHasChanged = false;
-    store.formData['text-input'] = 'old value';
-
-    let input = {
-      id: 'text-input',
-      value: 'new value'
-    }
-
-    store.updateForm(input);
-    expect(store.formHasChanged).toBe(true);
-    expect(store.formData['text-input']).toBe('new value');
+    expect(store.values.mdm_type).toBe('MAAS360');
   });
 
   test("clearStoredCredentials works as expected", () => {
     //TODO
   });
 
-  test("submitForm works as expected", () => {
-    //TODO
-  });
-
-  test("can remove alert based on page id and index", () => {
-    store.mdm_form_alerts = ['0','1','2'];
-    store.removeAlert(store.mdm_form_alerts, 0);
-    expect(store.mdm_form_alerts[0]).toBe('1');
-    expect(store.mdm_form_alerts[1]).toBe('2');
-    expect(store.mdm_form_alerts[2]).toBe(undefined);
-
-    store.manage_apps_alerts = ['0','1','2'];
-    store.removeAlert(store.manage_apps_alerts, 1);
-    expect(store.manage_apps_alerts[0]).toBe('0');
-    expect(store.manage_apps_alerts[1]).toBe('2');
-    expect(store.manage_apps_alerts[2]).toBe(undefined);
-  });
-
-  test("clearAlerts encompasses all pages where alerts might be shown", () => {
-    store.mdm_form_alerts = [{},{},{}];
-    store.manage_apps_alerts = [{}];
-
-    store.clearAlerts();
-
-    expect(store.mdm_form_alerts.length).toBe(0);
-    expect(store.manage_apps_alerts.length).toBe(0);
-  });
-
-  test("addPushErrorAlert pushes the right error onto the stack", () => {
-    store.manage_apps_alerts = [];
-    store.mdm_form_alerts = [];
-    store.addPushErrorAlert();
-    expect(store.manage_apps_alerts.length).toBe(1);
-    expect(store.manage_apps_alerts[0].message).toBe(store.userMessages.pushFailMultiple);
-  });
-
-  test("addPushSuccessAlert pushes the right message onto the stack", () => {
-    store.manage_apps_alerts = [];
-    store.mdm_form_alerts = [];
-    store.addPushSuccessAlert();
-    expect(store.manage_apps_alerts.length).toBe(1);
-    expect(store.manage_apps_alerts[0].message).toBe(store.userMessages.pushSuccessMultiple);
-  });
-
-  test("throwConnectError pushes the right error onto the stack", () => {
-    store.manage_apps_alerts = [];
-    store.mdm_form_alerts = [];
-    store.throwConnectError({alertList: store.manage_apps_alerts});
-    expect(store.manage_apps_alerts.length).toBe(1);
-    expect(store.manage_apps_alerts[0].message).toBe(store.userMessages.connectFail);
-
-    store.throwConnectError({alertList: store.mdm_form_alerts});
-    expect(store.mdm_form_alerts.length).toBe(1);
-    expect(store.mdm_form_alerts[0].message).toBe(store.userMessages.connectFail);
-  });
-
-  test("showErrorAlert works correctly", () => {
-    store.manage_apps_alerts = [];
-    store.mdm_form_alerts = [];
-
-    store.showErrorAlert({alertList: store.manage_apps_alerts, message: ''});
-    expect(store.manage_apps_alerts.length).toBe(1);
-    expect(store.manage_apps_alerts[0].type).toBe('error');
-    expect(store.manage_apps_alerts[0].message).toBe(store.userMessages.connectFail);
-
-    store.showErrorAlert({alertList: store.manage_apps_alerts, message: 'message1'});
-    expect(store.manage_apps_alerts.length).toBe(2);
-    expect(store.manage_apps_alerts[1].type).toBe('error');
-    expect(store.manage_apps_alerts[1].message).toBe('message1');
-
-    store.showErrorAlert({alertList: store.mdm_form_alerts, message: 'message2'});
-    expect(store.mdm_form_alerts.length).toBe(1);
-    expect(store.mdm_form_alerts[0].type).toBe('error');
-    expect(store.mdm_form_alerts[0].message).toBe('message2');
-  });
-
-  test("showSuccessAlert works correctly", () => {
-    store.manage_apps_alerts = [];
-    store.mdm_form_alerts = [];
-
-    store.showSuccessAlert({alertList: store.manage_apps_alerts, message: ''});
-    expect(store.manage_apps_alerts.length).toBe(0);
-
-    store.showSuccessAlert({alertList: store.manage_apps_alerts, message: 'message1'});
-    expect(store.manage_apps_alerts.length).toBe(1);
-    expect(store.manage_apps_alerts[0].type).toBe('success');
-    expect(store.manage_apps_alerts[0].message).toBe('message1');
-
-    store.showSuccessAlert({alertList: store.manage_apps_alerts, message: 'message2'});
-    expect(store.manage_apps_alerts.length).toBe(2);
-    expect(store.manage_apps_alerts[1].type).toBe('success');
-    expect(store.manage_apps_alerts[1].message).toBe('message2');
-
-    store.showSuccessAlert({alertList: store.mdm_form_alerts, message: 'message3'});
-    expect(store.mdm_form_alerts.length).toBe(1);
-    expect(store.mdm_form_alerts[0].type).toBe('success');
-    expect(store.mdm_form_alerts[0].message).toBe('message3');
-  });
-
-  test("modal toggles work correctly", () => {
-    store.showExitModal = false;
-    store.showbreakMDMConnection = false;
-
-    store.toggleExitModal();
-    expect(store.showExitModal).toBe(true);
-    store.toggleExitModal();
-    expect(store.showExitModal).toBe(false);
-
-    store.togglebreakMDMConnection();
-    expect(store.showbreakMDMConnection).toBe(true);
-    store.togglebreakMDMConnection();
-    expect(store.showbreakMDMConnection).toBe(false);
-  });
-
-  //TODO
-  // test("enable/disable exit modal works correctly", () => {
-  //   store.showExitModal = false;
-  //   history.block = jest.fn()
-  //   store.enableSaveDialogs();
-  //   store.formHasChanged = true;
-  //   TestUtils.Simulate.beforeUnload(window);
-  //   expect(store.showExitModal).toBe(true);
-  // });
-
-  test("records the right formData.mdm_type", () => {
+  test("records the right mdm_type", () => {
     apiService.getMDMConfiguration = jest.fn();
     apiService.getMDMConfiguration.mockReturnValue(Promise.resolve({
       data: {
@@ -203,7 +46,7 @@ describe("MDMStore", () => {
     }));
 
     store.getMDMConfiguration().then(() => {
-      expect(store.formData.mdm_type).toBe('AIRWATCH');
+      expect(store.values.mdm_type).toBe('AIRWATCH');
     });
 
     apiService.getMDMConfiguration.mockReturnValue(Promise.resolve({
@@ -213,7 +56,7 @@ describe("MDMStore", () => {
     }));
 
     store.getMDMConfiguration().then(() => {
-      expect(store.formData.mdm_type).toBe('MAAS360');
+      expect(store.values.mdm_type).toBe('MAAS360');
     });
 
     apiService.getMDMConfiguration.mockReturnValue(Promise.resolve({
@@ -223,7 +66,17 @@ describe("MDMStore", () => {
     }));
 
     store.getMDMConfiguration().then(() => {
-      expect(store.formData.mdm_type).toBe('MOBILE_IRON');
+      expect(store.values.mdm_type).toBe('MOBILE_IRON');
+    });
+    
+    apiService.getMDMConfiguration.mockReturnValue(Promise.resolve({
+      data: {
+        mdm_type: 'MOBILE_IRON_CORE'
+      }
+    }));
+
+    store.getMDMConfiguration().then(() => {
+      expect(store.values.mdm_type).toBe('MOBILE_IRON_CORE');
     });
   });
 
@@ -233,70 +86,6 @@ describe("MDMStore", () => {
     apiService.getMDMConfiguration.mockReturnValue(Promise.reject());
 
     store.getMDMConfiguration().then(() => {
-      expect(store.mdm_form_alerts.length).toBe(1);
-      expect(store.mdm_form_alerts[0].message).toBe(store.userMessages.connectFail);
-    });
-  });
-
-  test("setMDMConfiguration shows success message on success", () => {
-    store.mdm_form_alerts = [];
-    store.formData.mdm_type = 'AIRWATCH';
-    apiService.setMDMConfiguration = jest.fn();
-    apiService.setMDMConfiguration.mockReturnValue(Promise.resolve({
-      data: {
-        message: 'success message'
-      }
-    }));
-
-    store.setMDMConfiguration().then(() => {
-      expect(store.mdm_form_alerts.length).toBe(1);
-      expect(store.mdm_form_alerts[0].message).toBe('success message');
-      expect(store.showExitModal).toBe(false);
-      expect(store.formHasChanged).toBe(false);
-      expect(store.hasBeenSubmitted).toBe(true);
-    });
-  });
-
-  test("setMDMConfiguration clears out the form if fails based on credentials", () => {
-    store.mdm_form_alerts = [];
-    apiService.setMDMConfiguration = jest.fn();
-    apiService.setMDMConfiguration.mockReturnValue(Promise.resolve({
-      data: {
-        error: 'this is an error about credentials'
-      }
-    }));
-
-    store.formData.mdm_type = 'AIRWATCH';
-    store.formData.aw_password = 'password';
-    store.formData.aw_userName = 'username';
-    store.setMDMConfiguration().then(() => {
-      expect(store.formData.aw_password).toBe('');
-      expect(store.formData.aw_userName).toBe('');
-    });
-
-    store.formData.mdm_type = 'MAAS360';
-    store.formData.ibm_password = 'password';
-    store.formData.ibm_userName = 'username';
-    store.setMDMConfiguration().then(() => {
-      expect(store.formData.ibm_password).toBe('');
-      expect(store.formData.ibm_userName).toBe('');
-    });
-
-    store.formData.mdm_type = 'MOBILE_IRON';
-    store.formData.mi_password = 'password';
-    store.formData.mi_userName = 'username';
-    store.setMDMConfiguration().then(() => {
-      expect(store.formData.mi_password).toBe('');
-      expect(store.formData.mi_userName).toBe('');
-    });
-  });
-
-  test("setMDMConfiguration pushes the right error onto the stack if fails", () => {
-    store.mdm_form_alerts = [];
-    apiService.setMDMConfiguration = jest.fn();
-    apiService.setMDMConfiguration.mockReturnValue(Promise.reject());
-
-    store.setMDMConfiguration().then(() => {
       expect(store.mdm_form_alerts.length).toBe(1);
       expect(store.mdm_form_alerts[0].message).toBe(store.userMessages.connectFail);
     });
@@ -381,12 +170,8 @@ describe("MDMStore", () => {
   test("stopPolling works as expected", () => {
     let psk = "123";
     store.appCatalogMDMStatuses.set(psk, 'PENDING');
-    store.throwConnectError = jest.fn();
-
     store.stopPolling(psk);
-
     expect(store.appCatalogMDMStatuses.get(psk)).toBe('NOT_INSTALLED');
-    expect(store.throwConnectError).toHaveBeenCalled();
   });
 
   test("pollUntilResolved works as expected", () => {

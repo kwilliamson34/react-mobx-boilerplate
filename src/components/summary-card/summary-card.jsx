@@ -36,7 +36,7 @@ export class SummaryCard extends React.Component {
 
   componentDidMount() {
     if (this.props.shouldFocus) {
-      this.refs.div.children[0].focus();
+      this.div.children[0].focus();
     }
   }
 
@@ -45,7 +45,7 @@ export class SummaryCard extends React.Component {
     const selectedClass = this.props.selected ? 'mdm_selected' : '';
     const cardClass = `card-focus has-shadow card-container center-block ${errorClass} ${selectedClass}`;
     return (
-      <div className="card-wrapper" ref="div">
+      <div className="card-wrapper walkthrough-app-summary" ref={(i) => { this.div = i }}>
         <Link to={'/app/' + this.props.display.app_psk} id={'appCard' + this.props.display.app_psk} className={cardClass}>
         {this.props.display.type == 'CERTIFIED' &&
           <div className="certified-app-label">

@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GeolinkMap /> renders matches snapshot when hidden and visible 1`] = `
+<section
+  className="geolink-map hidden"
+>
+  <div
+    className="map-wrapper"
+  >
+    <iframe
+      id="coverage-map"
+      role="map"
+      title="Interactive Coverage Map"
+    />
+  </div>
+</section>
+`;
+
+exports[`<GeolinkMap /> renders matches snapshot when hidden and visible 2`] = `
+<section
+  className="geolink-map "
+>
+  <div
+    className="map-wrapper"
+  >
+    <iframe
+      id="coverage-map"
+      role="map"
+      title="Interactive Coverage Map"
+    />
+  </div>
+</section>
+`;

@@ -1,5 +1,5 @@
 #admin-dashboard-page {
-  padding-bottom: 40px;
+  margin-bottom: 40px - $footer-margin-top;
 
   h1 {
     margin-bottom: 3rem;
@@ -43,6 +43,14 @@
 
     &.manage-services {
       background-image: url('/images/manage-services.svg');
+    }
+
+    &.manage-iot {
+      background-image: url('/images/manage-iot.svg');
+    }
+
+    &.manage-voicemail-and-usage {
+      background-image: url('/images/voicemail-and-usage.svg');
     }
 
     &.manage-wireless-reports {
@@ -241,7 +249,7 @@
     }
 
     //FPSE-1509 one special case breaks all the rules
-    [data-numcards="3"] {
+    [numcards="3"] {
       .manage-actions:not(.hide-aside) {
         li {
           width: 50% !important;

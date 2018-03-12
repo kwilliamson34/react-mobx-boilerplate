@@ -1,25 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<RatingsChart /> renders matches snapshot for ratings-chart 1`] = `
 <div
   aria-describedby="chart-info"
-  className="ratings-chart">
+  className="ratings-chart"
+>
   <div
-    className="sr-only"
-    id="chart-info">
-    This app has 
-    3
-     reviews with an average rating of 
-    3
-    .
-  </div>
-  <div
-    className="row">
+    className="row"
+  >
     <div
-      className="col-xs-12 col-sm-4 average-ratings-col">
+      className="col-xs-12 col-sm-4 average-ratings-col"
+    >
       <svg
         aria-hidden="true"
         className="doughnut"
         height={215}
-        width={215}>
+        width={215}
+      >
         <circle
           className="doughnut-track"
           cx={107.5}
@@ -27,10 +24,11 @@ exports[`<RatingsChart /> renders matches snapshot for ratings-chart 1`] = `
           r={100}
           style={
             Object {
-              "strokeWidth": 3
+              "strokeWidth": 3,
             }
           }
-          transform="rotate(-90 107.5,107.5)" />
+          transform="rotate(-90 107.5,107.5)"
+        />
         <circle
           className="doughnut-indicator"
           cx={107.5}
@@ -39,66 +37,89 @@ exports[`<RatingsChart /> renders matches snapshot for ratings-chart 1`] = `
           style={
             Object {
               "strokeDasharray": "376.99111843077515 628.3185307179587",
-              "strokeWidth": 15
+              "strokeWidth": 15,
             }
           }
-          transform="rotate(-90 107.5,107.5)" />
-        <circle
-          className="doughnut-endpoint"
-          cx={107.5}
-          cy={7.5}
-          r={7.5} />
+          transform="rotate(-90 107.5,107.5)"
+        />
         <circle
           className="doughnut-endpoint"
           cx={107.5}
           cy={7.5}
           r={7.5}
-          transform="rotate(216,107.5,107.5)" />
+        />
+        <circle
+          className="doughnut-endpoint"
+          cx={107.5}
+          cy={7.5}
+          r={7.5}
+          transform="rotate(216,107.5,107.5)"
+        />
         <text
           className="doughnut-text"
           style={
             Object {
-              "fontSize": 107.5
+              "fontSize": 107.5,
             }
           }
           x={107.5}
-          y={139.75} />
+          y={139.75}
+        />
       </svg>
       <div
-        className="total-reviews">
+        className="total-reviews"
+      >
         <div
-          className="ratings-container">
+          className="ratings-container"
+        >
           <span>
+            <div
+              className="sr-only"
+            >
+              This app has a rating of 
+              3
+               stars out of 5.
+            </div>
             <span
-              className="ratings-stars">
+              className="ratings-stars"
+            >
               <span
                 aria-hidden="true"
-                className="ratings-star icon-star" />
+                className="ratings-star icon-star"
+              />
               <span
                 aria-hidden="true"
-                className="ratings-star icon-star" />
+                className="ratings-star icon-star"
+              />
               <span
                 aria-hidden="true"
-                className="ratings-star icon-star" />
+                className="ratings-star icon-star"
+              />
               <span
                 aria-hidden="true"
-                className="ratings-star icon-star-o" />
+                className="ratings-star icon-star-o"
+              />
               <span
                 aria-hidden="true"
-                className="ratings-star icon-star-o" />
+                className="ratings-star icon-star-o"
+              />
             </span>
             <span
-              className="app-reviews-count hidden-xs">
+              className="app-reviews-count hidden-xs"
+            >
               <span
-                className="sr-only">
-                Reviewed by
+                className="sr-only"
+              >
+                Reviewed by 
+                3
+                 people.
               </span>
-               (
-              3
-              )
               <span
-                className="sr-only">
-                 people
+                aria-hidden="true"
+              >
+                 (
+                3
+                )
               </span>
             </span>
           </span>
@@ -106,35 +127,44 @@ exports[`<RatingsChart /> renders matches snapshot for ratings-chart 1`] = `
       </div>
     </div>
     <div
-      className="col-xs-12 col-sm-8 overall-ratings-col">
+      className="col-xs-12 col-sm-8 overall-ratings-col"
+    >
       <div
-        className="horizontal-bar-chart">
+        className="horizontal-bar-chart"
+      >
         <div
-          className="bar-wrapper">
+          className="bar-wrapper"
+        >
           <label
-            className="ratings-container">
-            <i
-              aria-hidden="true"
-              className="ratings-star icon-star" />
+            className="ratings-container"
+          >
             <span
               aria-hidden="true"
-              className="ratings-number">
+              className="ratings-number"
+            >
               5
             </span>
+            <i
+              aria-hidden="true"
+              className="ratings-star icon-star"
+            />
           </label>
           <div
             className="bar"
             style={
               Object {
-                "width": "100%"
+                "width": "100%",
               }
-            }>
+            }
+          >
             <div
-              className="bar-value">
+              className="bar-value"
+            >
               1
               <span
-                className="sr-only">
-                of reviews gave 
+                className="sr-only"
+              >
+                 of reviews gave 
                 5
                  stars
               </span>
@@ -142,31 +172,38 @@ exports[`<RatingsChart /> renders matches snapshot for ratings-chart 1`] = `
           </div>
         </div>
         <div
-          className="bar-wrapper">
+          className="bar-wrapper"
+        >
           <label
-            className="ratings-container">
-            <i
-              aria-hidden="true"
-              className="ratings-star icon-star" />
+            className="ratings-container"
+          >
             <span
               aria-hidden="true"
-              className="ratings-number">
+              className="ratings-number"
+            >
               4
             </span>
+            <i
+              aria-hidden="true"
+              className="ratings-star icon-star"
+            />
           </label>
           <div
             className="bar"
             style={
               Object {
-                "width": "1%"
+                "width": "1%",
               }
-            }>
+            }
+          >
             <div
-              className="bar-value">
+              className="bar-value"
+            >
               0
               <span
-                className="sr-only">
-                of reviews gave 
+                className="sr-only"
+              >
+                 of reviews gave 
                 4
                  stars
               </span>
@@ -174,31 +211,38 @@ exports[`<RatingsChart /> renders matches snapshot for ratings-chart 1`] = `
           </div>
         </div>
         <div
-          className="bar-wrapper">
+          className="bar-wrapper"
+        >
           <label
-            className="ratings-container">
-            <i
-              aria-hidden="true"
-              className="ratings-star icon-star" />
+            className="ratings-container"
+          >
             <span
               aria-hidden="true"
-              className="ratings-number">
+              className="ratings-number"
+            >
               3
             </span>
+            <i
+              aria-hidden="true"
+              className="ratings-star icon-star"
+            />
           </label>
           <div
             className="bar"
             style={
               Object {
-                "width": "100%"
+                "width": "100%",
               }
-            }>
+            }
+          >
             <div
-              className="bar-value">
+              className="bar-value"
+            >
               1
               <span
-                className="sr-only">
-                of reviews gave 
+                className="sr-only"
+              >
+                 of reviews gave 
                 3
                  stars
               </span>
@@ -206,31 +250,38 @@ exports[`<RatingsChart /> renders matches snapshot for ratings-chart 1`] = `
           </div>
         </div>
         <div
-          className="bar-wrapper">
+          className="bar-wrapper"
+        >
           <label
-            className="ratings-container">
-            <i
-              aria-hidden="true"
-              className="ratings-star icon-star" />
+            className="ratings-container"
+          >
             <span
               aria-hidden="true"
-              className="ratings-number">
+              className="ratings-number"
+            >
               2
             </span>
+            <i
+              aria-hidden="true"
+              className="ratings-star icon-star"
+            />
           </label>
           <div
             className="bar"
             style={
               Object {
-                "width": "1%"
+                "width": "1%",
               }
-            }>
+            }
+          >
             <div
-              className="bar-value">
+              className="bar-value"
+            >
               0
               <span
-                className="sr-only">
-                of reviews gave 
+                className="sr-only"
+              >
+                 of reviews gave 
                 2
                  stars
               </span>
@@ -238,31 +289,38 @@ exports[`<RatingsChart /> renders matches snapshot for ratings-chart 1`] = `
           </div>
         </div>
         <div
-          className="bar-wrapper">
+          className="bar-wrapper"
+        >
           <label
-            className="ratings-container">
-            <i
-              aria-hidden="true"
-              className="ratings-star icon-star" />
+            className="ratings-container"
+          >
             <span
               aria-hidden="true"
-              className="ratings-number">
+              className="ratings-number"
+            >
               1
             </span>
+            <i
+              aria-hidden="true"
+              className="ratings-star icon-star"
+            />
           </label>
           <div
             className="bar"
             style={
               Object {
-                "width": "100%"
+                "width": "100%",
               }
-            }>
+            }
+          >
             <div
-              className="bar-value">
+              className="bar-value"
+            >
               1
               <span
-                className="sr-only">
-                of reviews gave 
+                className="sr-only"
+              >
+                 of reviews gave 
                 1
                  stars
               </span>
@@ -278,25 +336,20 @@ exports[`<RatingsChart /> renders matches snapshot for ratings-chart 1`] = `
 exports[`<RatingsChart /> renders matches snapshot for ratings-chart when only one review is passed in 1`] = `
 <div
   aria-describedby="chart-info"
-  className="ratings-chart">
+  className="ratings-chart"
+>
   <div
-    className="sr-only"
-    id="chart-info">
-    This app has 
-    1
-     reviews with an average rating of 
-    1
-    .
-  </div>
-  <div
-    className="row">
+    className="row"
+  >
     <div
-      className="col-xs-12 col-sm-4 average-ratings-col">
+      className="col-xs-12 col-sm-4 average-ratings-col"
+    >
       <svg
         aria-hidden="true"
         className="doughnut"
         height={215}
-        width={215}>
+        width={215}
+      >
         <circle
           className="doughnut-track"
           cx={107.5}
@@ -304,10 +357,11 @@ exports[`<RatingsChart /> renders matches snapshot for ratings-chart when only o
           r={100}
           style={
             Object {
-              "strokeWidth": 3
+              "strokeWidth": 3,
             }
           }
-          transform="rotate(-90 107.5,107.5)" />
+          transform="rotate(-90 107.5,107.5)"
+        />
         <circle
           className="doughnut-indicator"
           cx={107.5}
@@ -316,66 +370,89 @@ exports[`<RatingsChart /> renders matches snapshot for ratings-chart when only o
           style={
             Object {
               "strokeDasharray": "125.66370614359172 628.3185307179587",
-              "strokeWidth": 15
+              "strokeWidth": 15,
             }
           }
-          transform="rotate(-90 107.5,107.5)" />
-        <circle
-          className="doughnut-endpoint"
-          cx={107.5}
-          cy={7.5}
-          r={7.5} />
+          transform="rotate(-90 107.5,107.5)"
+        />
         <circle
           className="doughnut-endpoint"
           cx={107.5}
           cy={7.5}
           r={7.5}
-          transform="rotate(72,107.5,107.5)" />
+        />
+        <circle
+          className="doughnut-endpoint"
+          cx={107.5}
+          cy={7.5}
+          r={7.5}
+          transform="rotate(72,107.5,107.5)"
+        />
         <text
           className="doughnut-text"
           style={
             Object {
-              "fontSize": 107.5
+              "fontSize": 107.5,
             }
           }
           x={107.5}
-          y={139.75} />
+          y={139.75}
+        />
       </svg>
       <div
-        className="total-reviews">
+        className="total-reviews"
+      >
         <div
-          className="ratings-container">
+          className="ratings-container"
+        >
           <span>
+            <div
+              className="sr-only"
+            >
+              This app has a rating of 
+              1
+               stars out of 5.
+            </div>
             <span
-              className="ratings-stars">
+              className="ratings-stars"
+            >
               <span
                 aria-hidden="true"
-                className="ratings-star icon-star" />
+                className="ratings-star icon-star"
+              />
               <span
                 aria-hidden="true"
-                className="ratings-star icon-star-o" />
+                className="ratings-star icon-star-o"
+              />
               <span
                 aria-hidden="true"
-                className="ratings-star icon-star-o" />
+                className="ratings-star icon-star-o"
+              />
               <span
                 aria-hidden="true"
-                className="ratings-star icon-star-o" />
+                className="ratings-star icon-star-o"
+              />
               <span
                 aria-hidden="true"
-                className="ratings-star icon-star-o" />
+                className="ratings-star icon-star-o"
+              />
             </span>
             <span
-              className="app-reviews-count hidden-xs">
+              className="app-reviews-count hidden-xs"
+            >
               <span
-                className="sr-only">
-                Reviewed by
+                className="sr-only"
+              >
+                Reviewed by 
+                1
+                 people.
               </span>
-               (
-              1
-              )
               <span
-                className="sr-only">
-                 people
+                aria-hidden="true"
+              >
+                 (
+                1
+                )
               </span>
             </span>
           </span>
@@ -383,35 +460,44 @@ exports[`<RatingsChart /> renders matches snapshot for ratings-chart when only o
       </div>
     </div>
     <div
-      className="col-xs-12 col-sm-8 overall-ratings-col">
+      className="col-xs-12 col-sm-8 overall-ratings-col"
+    >
       <div
-        className="horizontal-bar-chart">
+        className="horizontal-bar-chart"
+      >
         <div
-          className="bar-wrapper">
+          className="bar-wrapper"
+        >
           <label
-            className="ratings-container">
-            <i
-              aria-hidden="true"
-              className="ratings-star icon-star" />
+            className="ratings-container"
+          >
             <span
               aria-hidden="true"
-              className="ratings-number">
+              className="ratings-number"
+            >
               5
             </span>
+            <i
+              aria-hidden="true"
+              className="ratings-star icon-star"
+            />
           </label>
           <div
             className="bar"
             style={
               Object {
-                "width": "1%"
+                "width": "1%",
               }
-            }>
+            }
+          >
             <div
-              className="bar-value">
+              className="bar-value"
+            >
               0
               <span
-                className="sr-only">
-                of reviews gave 
+                className="sr-only"
+              >
+                 of reviews gave 
                 5
                  stars
               </span>
@@ -419,31 +505,38 @@ exports[`<RatingsChart /> renders matches snapshot for ratings-chart when only o
           </div>
         </div>
         <div
-          className="bar-wrapper">
+          className="bar-wrapper"
+        >
           <label
-            className="ratings-container">
-            <i
-              aria-hidden="true"
-              className="ratings-star icon-star" />
+            className="ratings-container"
+          >
             <span
               aria-hidden="true"
-              className="ratings-number">
+              className="ratings-number"
+            >
               4
             </span>
+            <i
+              aria-hidden="true"
+              className="ratings-star icon-star"
+            />
           </label>
           <div
             className="bar"
             style={
               Object {
-                "width": "1%"
+                "width": "1%",
               }
-            }>
+            }
+          >
             <div
-              className="bar-value">
+              className="bar-value"
+            >
               0
               <span
-                className="sr-only">
-                of reviews gave 
+                className="sr-only"
+              >
+                 of reviews gave 
                 4
                  stars
               </span>
@@ -451,31 +544,38 @@ exports[`<RatingsChart /> renders matches snapshot for ratings-chart when only o
           </div>
         </div>
         <div
-          className="bar-wrapper">
+          className="bar-wrapper"
+        >
           <label
-            className="ratings-container">
-            <i
-              aria-hidden="true"
-              className="ratings-star icon-star" />
+            className="ratings-container"
+          >
             <span
               aria-hidden="true"
-              className="ratings-number">
+              className="ratings-number"
+            >
               3
             </span>
+            <i
+              aria-hidden="true"
+              className="ratings-star icon-star"
+            />
           </label>
           <div
             className="bar"
             style={
               Object {
-                "width": "1%"
+                "width": "1%",
               }
-            }>
+            }
+          >
             <div
-              className="bar-value">
+              className="bar-value"
+            >
               0
               <span
-                className="sr-only">
-                of reviews gave 
+                className="sr-only"
+              >
+                 of reviews gave 
                 3
                  stars
               </span>
@@ -483,31 +583,38 @@ exports[`<RatingsChart /> renders matches snapshot for ratings-chart when only o
           </div>
         </div>
         <div
-          className="bar-wrapper">
+          className="bar-wrapper"
+        >
           <label
-            className="ratings-container">
-            <i
-              aria-hidden="true"
-              className="ratings-star icon-star" />
+            className="ratings-container"
+          >
             <span
               aria-hidden="true"
-              className="ratings-number">
+              className="ratings-number"
+            >
               2
             </span>
+            <i
+              aria-hidden="true"
+              className="ratings-star icon-star"
+            />
           </label>
           <div
             className="bar"
             style={
               Object {
-                "width": "1%"
+                "width": "1%",
               }
-            }>
+            }
+          >
             <div
-              className="bar-value">
+              className="bar-value"
+            >
               0
               <span
-                className="sr-only">
-                of reviews gave 
+                className="sr-only"
+              >
+                 of reviews gave 
                 2
                  stars
               </span>
@@ -515,31 +622,38 @@ exports[`<RatingsChart /> renders matches snapshot for ratings-chart when only o
           </div>
         </div>
         <div
-          className="bar-wrapper">
+          className="bar-wrapper"
+        >
           <label
-            className="ratings-container">
-            <i
-              aria-hidden="true"
-              className="ratings-star icon-star" />
+            className="ratings-container"
+          >
             <span
               aria-hidden="true"
-              className="ratings-number">
+              className="ratings-number"
+            >
               1
             </span>
+            <i
+              aria-hidden="true"
+              className="ratings-star icon-star"
+            />
           </label>
           <div
             className="bar"
             style={
               Object {
-                "width": "100%"
+                "width": "100%",
               }
-            }>
+            }
+          >
             <div
-              className="bar-value">
+              className="bar-value"
+            >
               1
               <span
-                className="sr-only">
-                of reviews gave 
+                className="sr-only"
+              >
+                 of reviews gave 
                 1
                  stars
               </span>
@@ -555,25 +669,20 @@ exports[`<RatingsChart /> renders matches snapshot for ratings-chart when only o
 exports[`<RatingsChart /> renders matches snapshot for ratings-chart when zero reviews are passed in 1`] = `
 <div
   aria-describedby="chart-info"
-  className="ratings-chart">
+  className="ratings-chart"
+>
   <div
-    className="sr-only"
-    id="chart-info">
-    This app has 
-    0
-     reviews with an average rating of 
-    0
-    .
-  </div>
-  <div
-    className="row">
+    className="row"
+  >
     <div
-      className="col-xs-12 col-sm-4 average-ratings-col">
+      className="col-xs-12 col-sm-4 average-ratings-col"
+    >
       <svg
         aria-hidden="true"
         className="doughnut"
         height={215}
-        width={215}>
+        width={215}
+      >
         <circle
           className="doughnut-track"
           cx={107.5}
@@ -581,10 +690,11 @@ exports[`<RatingsChart /> renders matches snapshot for ratings-chart when zero r
           r={100}
           style={
             Object {
-              "strokeWidth": 3
+              "strokeWidth": 3,
             }
           }
-          transform="rotate(-90 107.5,107.5)" />
+          transform="rotate(-90 107.5,107.5)"
+        />
         <circle
           className="doughnut-indicator"
           cx={107.5}
@@ -593,35 +703,41 @@ exports[`<RatingsChart /> renders matches snapshot for ratings-chart when zero r
           style={
             Object {
               "strokeDasharray": "0 628.3185307179587",
-              "strokeWidth": 15
+              "strokeWidth": 15,
             }
           }
-          transform="rotate(-90 107.5,107.5)" />
-        <circle
-          className="doughnut-endpoint"
-          cx={107.5}
-          cy={7.5}
-          r={7.5} />
+          transform="rotate(-90 107.5,107.5)"
+        />
         <circle
           className="doughnut-endpoint"
           cx={107.5}
           cy={7.5}
           r={7.5}
-          transform="rotate(0,107.5,107.5)" />
+        />
+        <circle
+          className="doughnut-endpoint"
+          cx={107.5}
+          cy={7.5}
+          r={7.5}
+          transform="rotate(0,107.5,107.5)"
+        />
         <text
           className="doughnut-text"
           style={
             Object {
-              "fontSize": 107.5
+              "fontSize": 107.5,
             }
           }
           x={107.5}
-          y={139.75} />
+          y={139.75}
+        />
       </svg>
       <div
-        className="total-reviews">
+        className="total-reviews"
+      >
         <div
-          className="ratings-container">
+          className="ratings-container"
+        >
           <span>
             No Reviews
           </span>
@@ -629,35 +745,44 @@ exports[`<RatingsChart /> renders matches snapshot for ratings-chart when zero r
       </div>
     </div>
     <div
-      className="col-xs-12 col-sm-8 overall-ratings-col">
+      className="col-xs-12 col-sm-8 overall-ratings-col"
+    >
       <div
-        className="horizontal-bar-chart">
+        className="horizontal-bar-chart"
+      >
         <div
-          className="bar-wrapper">
+          className="bar-wrapper"
+        >
           <label
-            className="ratings-container">
-            <i
-              aria-hidden="true"
-              className="ratings-star icon-star" />
+            className="ratings-container"
+          >
             <span
               aria-hidden="true"
-              className="ratings-number">
+              className="ratings-number"
+            >
               5
             </span>
+            <i
+              aria-hidden="true"
+              className="ratings-star icon-star"
+            />
           </label>
           <div
             className="bar"
             style={
               Object {
-                "width": "1%"
+                "width": "1%",
               }
-            }>
+            }
+          >
             <div
-              className="bar-value">
+              className="bar-value"
+            >
               0
               <span
-                className="sr-only">
-                of reviews gave 
+                className="sr-only"
+              >
+                 of reviews gave 
                 5
                  stars
               </span>
@@ -665,31 +790,38 @@ exports[`<RatingsChart /> renders matches snapshot for ratings-chart when zero r
           </div>
         </div>
         <div
-          className="bar-wrapper">
+          className="bar-wrapper"
+        >
           <label
-            className="ratings-container">
-            <i
-              aria-hidden="true"
-              className="ratings-star icon-star" />
+            className="ratings-container"
+          >
             <span
               aria-hidden="true"
-              className="ratings-number">
+              className="ratings-number"
+            >
               4
             </span>
+            <i
+              aria-hidden="true"
+              className="ratings-star icon-star"
+            />
           </label>
           <div
             className="bar"
             style={
               Object {
-                "width": "1%"
+                "width": "1%",
               }
-            }>
+            }
+          >
             <div
-              className="bar-value">
+              className="bar-value"
+            >
               0
               <span
-                className="sr-only">
-                of reviews gave 
+                className="sr-only"
+              >
+                 of reviews gave 
                 4
                  stars
               </span>
@@ -697,31 +829,38 @@ exports[`<RatingsChart /> renders matches snapshot for ratings-chart when zero r
           </div>
         </div>
         <div
-          className="bar-wrapper">
+          className="bar-wrapper"
+        >
           <label
-            className="ratings-container">
-            <i
-              aria-hidden="true"
-              className="ratings-star icon-star" />
+            className="ratings-container"
+          >
             <span
               aria-hidden="true"
-              className="ratings-number">
+              className="ratings-number"
+            >
               3
             </span>
+            <i
+              aria-hidden="true"
+              className="ratings-star icon-star"
+            />
           </label>
           <div
             className="bar"
             style={
               Object {
-                "width": "1%"
+                "width": "1%",
               }
-            }>
+            }
+          >
             <div
-              className="bar-value">
+              className="bar-value"
+            >
               0
               <span
-                className="sr-only">
-                of reviews gave 
+                className="sr-only"
+              >
+                 of reviews gave 
                 3
                  stars
               </span>
@@ -729,31 +868,38 @@ exports[`<RatingsChart /> renders matches snapshot for ratings-chart when zero r
           </div>
         </div>
         <div
-          className="bar-wrapper">
+          className="bar-wrapper"
+        >
           <label
-            className="ratings-container">
-            <i
-              aria-hidden="true"
-              className="ratings-star icon-star" />
+            className="ratings-container"
+          >
             <span
               aria-hidden="true"
-              className="ratings-number">
+              className="ratings-number"
+            >
               2
             </span>
+            <i
+              aria-hidden="true"
+              className="ratings-star icon-star"
+            />
           </label>
           <div
             className="bar"
             style={
               Object {
-                "width": "1%"
+                "width": "1%",
               }
-            }>
+            }
+          >
             <div
-              className="bar-value">
+              className="bar-value"
+            >
               0
               <span
-                className="sr-only">
-                of reviews gave 
+                className="sr-only"
+              >
+                 of reviews gave 
                 2
                  stars
               </span>
@@ -761,31 +907,38 @@ exports[`<RatingsChart /> renders matches snapshot for ratings-chart when zero r
           </div>
         </div>
         <div
-          className="bar-wrapper">
+          className="bar-wrapper"
+        >
           <label
-            className="ratings-container">
-            <i
-              aria-hidden="true"
-              className="ratings-star icon-star" />
+            className="ratings-container"
+          >
             <span
               aria-hidden="true"
-              className="ratings-number">
+              className="ratings-number"
+            >
               1
             </span>
+            <i
+              aria-hidden="true"
+              className="ratings-star icon-star"
+            />
           </label>
           <div
             className="bar"
             style={
               Object {
-                "width": "1%"
+                "width": "1%",
               }
-            }>
+            }
+          >
             <div
-              className="bar-value">
+              className="bar-value"
+            >
               0
               <span
-                className="sr-only">
-                of reviews gave 
+                className="sr-only"
+              >
+                 of reviews gave 
                 1
                  stars
               </span>
@@ -794,7 +947,8 @@ exports[`<RatingsChart /> renders matches snapshot for ratings-chart when zero r
         </div>
       </div>
       <div
-        className="zero-reviews">
+        className="zero-reviews"
+      >
         No Reviews Yet!
       </div>
     </div>

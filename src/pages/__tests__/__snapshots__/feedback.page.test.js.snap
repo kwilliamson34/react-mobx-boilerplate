@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FeedbackPage /> render matches previous snapshot 1`] = `
+<section
+  className="standalone-form-page"
+  id="customer-feedback-page"
+>
+  <div
+    className="content-wrapper"
+  >
+    <div
+      className="container"
+    >
+      <div
+        className="row text-center"
+      >
+        <div
+          className="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6"
+        />
+      </div>
+      <div
+        className="row"
+      >
+        <section
+          className="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+`;

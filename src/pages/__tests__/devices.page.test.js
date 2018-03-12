@@ -1,4 +1,4 @@
-jest.unmock('axios');
+
 jest.unmock('../../core/stores/master.store');
 jest.unmock('../devices.page');
 
@@ -70,18 +70,6 @@ describe('<DevicesPage />', () => {
       invehicle: [],
       accessories: []
     }
-
-    test('displays if the device landing data has been retrieved', () => {
-      let component, tree;
-      props.store.externalLinkStore.fetchDeviceLandingData = jest.fn();
-
-      props.store.externalLinkStore.allSpecializedDevices = [{},{}];
-      component = renderer.create(<MemoryRouter>
-        <DevicesPage { ...props}/>
-      </MemoryRouter>);
-
-      expect(props.store.externalLinkStore.fetchDeviceLandingData).toBeCalled();
-    });
 
     test('fetches if the device landing data is missing', () => {
       let component, tree;

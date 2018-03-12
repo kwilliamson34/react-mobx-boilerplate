@@ -1,19 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<SolutionsCategoryTemplate /> render matches snapshot with zero, one and many cards 1`] = `
 <article
-  id="solutions-category-page">
+  id="solutions-category-page"
+>
   <div
-    className="container">
+    className="container"
+  >
     <section
-      className="intro-block">
-      <h1
-        className="centered">
-        match
-      </h1>
-    </section>
+      className="intro-block"
+    />
     <section
-      className="all-cards-wrapper text-center">
+      className="all-cards-wrapper text-center"
+    >
       <nav
-        className="center-block" />
+        className="center-block"
+      />
     </section>
   </div>
 </article>
@@ -21,61 +23,20 @@ exports[`<SolutionsCategoryTemplate /> render matches snapshot with zero, one an
 
 exports[`<SolutionsCategoryTemplate /> render matches snapshot with zero, one and many cards 2`] = `
 <article
-  id="solutions-category-page">
+  id="solutions-category-page"
+>
   <div
-    className="container">
+    className="container"
+  >
     <section
-      className="intro-block">
-      <h1
-        className="centered">
-        match
-      </h1>
-    </section>
+      className="intro-block"
+    />
     <section
-      className="all-cards-wrapper text-center">
+      className="all-cards-wrapper text-center"
+    >
       <nav
-        className="center-block">
-        <div
-          className="col-xs-12 col-sm-6 col-md-6 col-lg-4 solutions-card">
-          <div
-            className="card-wrapper has-shadow">
-            <a
-              href="undefined/undefined"
-              onClick={[Function anonymous]}>
-              <div
-                className="card-img-wrapper">
-                <img
-                  alt="title"
-                  src="url" />
-              </div>
-              <div
-                className="card-contents-wrapper">
-                <h3
-                  className="card-title"
-                  dangerouslySetInnerHTML={
-                    Object {
-                      "__html": "title"
-                    }
-                  } />
-                <div
-                  className="card-desc"
-                  dangerouslySetInnerHTML={
-                    Object {
-                      "__html": "description"
-                    }
-                  } />
-              </div>
-              <div
-                className="learn-more">
-                Learn More
-                <i
-                  aria-hidden="true"
-                  className="icon-arrowRight" />
-              </div>
-            </a>
-          </div>
-        </div>
-      </nav>
+        className="center-block"
+      />
     </section>
   </div>
 </article>
@@ -83,61 +44,20 @@ exports[`<SolutionsCategoryTemplate /> render matches snapshot with zero, one an
 
 exports[`<SolutionsCategoryTemplate /> render matches snapshot with zero, one and many cards 3`] = `
 <article
-  id="solutions-category-page">
+  id="solutions-category-page"
+>
   <div
-    className="container">
+    className="container"
+  >
     <section
-      className="intro-block">
-      <h1
-        className="centered">
-        match
-      </h1>
-    </section>
+      className="intro-block"
+    />
     <section
-      className="all-cards-wrapper text-center">
+      className="all-cards-wrapper text-center"
+    >
       <nav
-        className="center-block">
-        <div
-          className="col-xs-12 col-sm-6 col-md-6 col-lg-4 solutions-card">
-          <div
-            className="card-wrapper has-shadow">
-            <a
-              href="undefined/undefined"
-              onClick={[Function anonymous]}>
-              <div
-                className="card-img-wrapper">
-                <img
-                  alt="title"
-                  src="url" />
-              </div>
-              <div
-                className="card-contents-wrapper">
-                <h3
-                  className="card-title"
-                  dangerouslySetInnerHTML={
-                    Object {
-                      "__html": "title"
-                    }
-                  } />
-                <div
-                  className="card-desc"
-                  dangerouslySetInnerHTML={
-                    Object {
-                      "__html": "description"
-                    }
-                  } />
-              </div>
-              <div
-                className="learn-more">
-                Learn More
-                <i
-                  aria-hidden="true"
-                  className="icon-arrowRight" />
-              </div>
-            </a>
-          </div>
-        </div>
-      </nav>
+        className="center-block"
+      />
     </section>
   </div>
 </article>

@@ -1,24 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<PushToMDM />  render tests  should match snapshot if configuredMDMType is configured 1`] = `
 <div>
   <span
     aria-live="assertive"
     className="sr-only"
-    role="alert">
+    role="alert"
+  >
     
   </span>
   <button
-    className="push-button fn-secondary "
+    aria-disabled={false}
+    className="push-button fn-secondary"
     id="pushBtn12345"
-    onClick={[Function anonymous]}
-    type="button">
+    onBlur={[Function]}
+    onClick={[Function]}
+    type="button"
+  >
     
     <span
-      aria-hidden="true"
       dangerouslySetInnerHTML={
         Object {
-          "__html": "Re-Push to MDM"
+          "__html": "Re-Push to MDM",
         }
-      } />
+      }
+    />
   </button>
 </div>
 `;
@@ -28,22 +34,26 @@ exports[`<PushToMDM />  render tests  should match snapshot if configuredMDMType
   <span
     aria-live="assertive"
     className="sr-only"
-    role="alert">
+    role="alert"
+  >
     
   </span>
   <button
-    className="push-button fn-primary "
+    aria-disabled={true}
+    className="push-button fn-primary"
     id="pushBtn12345"
-    onClick={[Function anonymous]}
-    type="button">
+    onBlur={[Function]}
+    onClick={[Function]}
+    type="button"
+  >
     
     <span
-      aria-hidden="true"
       dangerouslySetInnerHTML={
         Object {
-          "__html": "Push to MDM"
+          "__html": "Push to MDM",
         }
-      } />
+      }
+    />
   </button>
 </div>
 `;
@@ -53,72 +63,26 @@ exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match s
   <span
     aria-live="assertive"
     className="sr-only"
-    role="alert">
+    role="alert"
+  >
     
   </span>
   <button
-    className="push-button fn-primary "
+    aria-disabled={false}
+    className="push-button fn-primary"
     id="pushBtn12345"
-    onClick={[Function anonymous]}
-    type="button">
+    onBlur={[Function]}
+    onClick={[Function]}
+    type="button"
+  >
     
     <span
-      aria-hidden="true"
       dangerouslySetInnerHTML={
         Object {
-          "__html": "Push to MDM"
+          "__html": "Push to MDM",
         }
-      } />
-  </button>
-</div>
-`;
-
-exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match snapshot if appCatalogMDMStatuses is INSTALLED 1`] = `
-<div>
-  <span
-    aria-live="assertive"
-    className="sr-only"
-    role="alert">
-    
-  </span>
-  <button
-    className="push-button fn-secondary "
-    id="pushBtn12345"
-    onClick={[Function anonymous]}
-    type="button">
-    
-    <span
-      aria-hidden="true"
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "Re-Push to MDM"
-        }
-      } />
-  </button>
-</div>
-`;
-
-exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match snapshot if appCatalogMDMStatuses is INSTALLED_UPDATABLE 1`] = `
-<div>
-  <span
-    aria-live="assertive"
-    className="sr-only"
-    role="alert">
-    
-  </span>
-  <button
-    className="push-button fn-primary "
-    id="pushBtn12345"
-    onClick={[Function anonymous]}
-    type="button">
-    
-    <span
-      aria-hidden="true"
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "Push to MDM"
-        }
-      } />
+      }
+    />
   </button>
 </div>
 `;
@@ -128,24 +92,87 @@ exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match s
   <span
     aria-live="assertive"
     className="sr-only"
-    role="alert">
+    role="alert"
+  >
     
   </span>
   <button
-    className="push-button fn-primary deaden "
+    aria-disabled={false}
+    className="push-button fn-primary deaden"
     id="pushBtn12345"
-    onClick={[Function anonymous]}
-    type="button">
+    onBlur={[Function]}
+    onClick={[Function]}
+    type="button"
+  >
     <i
       aria-hidden="true"
-      className="icon-reload" />
+      className="icon-reload"
+    />
     <span
-      aria-hidden="true"
       dangerouslySetInnerHTML={
         Object {
-          "__html": "Submitting&hellip;"
+          "__html": "Pushing&hellip;",
         }
-      } />
+      }
+    />
+  </button>
+</div>
+`;
+
+exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match snapshot if appCatalogMDMStatuses is INSTALLED 1`] = `
+<div>
+  <span
+    aria-live="assertive"
+    className="sr-only"
+    role="alert"
+  >
+    
+  </span>
+  <button
+    aria-disabled={false}
+    className="push-button fn-secondary"
+    id="pushBtn12345"
+    onBlur={[Function]}
+    onClick={[Function]}
+    type="button"
+  >
+    
+    <span
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Re-Push to MDM",
+        }
+      }
+    />
+  </button>
+</div>
+`;
+
+exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match snapshot if appCatalogMDMStatuses is INSTALLED_UPDATABLE 1`] = `
+<div>
+  <span
+    aria-live="assertive"
+    className="sr-only"
+    role="alert"
+  >
+    
+  </span>
+  <button
+    aria-disabled={false}
+    className="push-button fn-primary"
+    id="pushBtn12345"
+    onBlur={[Function]}
+    onClick={[Function]}
+    type="button"
+  >
+    
+    <span
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Push to MDM",
+        }
+      }
+    />
   </button>
 </div>
 `;
@@ -155,22 +182,26 @@ exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match s
   <span
     aria-live="assertive"
     className="sr-only"
-    role="alert">
+    role="alert"
+  >
     
   </span>
   <button
-    className="push-button fn-primary "
+    aria-disabled={false}
+    className="push-button fn-primary"
     id="pushBtn12345"
-    onClick={[Function anonymous]}
-    type="button">
+    onBlur={[Function]}
+    onClick={[Function]}
+    type="button"
+  >
     
     <span
-      aria-hidden="true"
       dangerouslySetInnerHTML={
         Object {
-          "__html": "Push to MDM"
+          "__html": "Push to MDM",
         }
-      } />
+      }
+    />
   </button>
 </div>
 `;
@@ -180,24 +211,29 @@ exports[`<PushToMDM />  test all appCatalogMDMStatuses conditions should match s
   <span
     aria-live="assertive"
     className="sr-only"
-    role="alert">
+    role="alert"
+  >
     
   </span>
   <button
-    className="push-button fn-primary deaden "
+    aria-disabled={false}
+    className="push-button fn-primary deaden"
     id="pushBtn12345"
-    onClick={[Function anonymous]}
-    type="button">
+    onBlur={[Function]}
+    onClick={[Function]}
+    type="button"
+  >
     <i
       aria-hidden="true"
-      className="icon-reload" />
+      className="icon-reload"
+    />
     <span
-      aria-hidden="true"
       dangerouslySetInnerHTML={
         Object {
-          "__html": "Submitting&hellip;"
+          "__html": "Pushing&hellip;",
         }
-      } />
+      }
+    />
   </button>
 </div>
 `;

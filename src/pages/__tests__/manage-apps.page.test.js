@@ -1,4 +1,4 @@
-jest.unmock('axios');
+
 jest.unmock('../../core/stores/master.store');
 jest.unmock('../manage-apps.page');
 jest.unmock('../../components/card-list/card-list');
@@ -140,32 +140,6 @@ describe('<ManageAppsPage />', () => {
       expect(props.store.cardListStore.restoreOriginalList).toBeCalled();
       expect(props.store.resetPage).toBeCalled();
       expect(props.store.cardListStore.resetIdToFocus).toBeCalled();
-    });
-
-    test('loads more apps on button click', () => {
-      let card = {
-        app_psk: '123',
-        name: 'name'
-      }
-      props.store.cardListStore.filteredSearchResults = [card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card,card];
-      props.store.pages['manageAppsPage'] = 1;
-
-      props.store.changePage = jest.fn();
-      props.store.cardListStore.setIdToFocus = jest.fn();
-
-      let component = TestUtils.renderIntoDocument(<MemoryRouter>
-          <ManageAppsPage {...props} />
-      </MemoryRouter>);
-
-      const button = TestUtils.findAllInRenderedTree(component, (inst) => {
-        if(ReactDOM.findDOMNode(inst) && ReactDOM.findDOMNode(inst).getAttribute('id')) {
-          return ReactDOM.findDOMNode(inst).getAttribute('id') == 'card-list-load-more-btn';
-        }
-      })[0];
-
-      TestUtils.Simulate.click(button);
-      expect(props.store.changePage).toBeCalled();
-      expect(props.store.cardListStore.setIdToFocus).toBeCalled();
     });
   });
 });

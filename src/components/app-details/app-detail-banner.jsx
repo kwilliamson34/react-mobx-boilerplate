@@ -166,7 +166,7 @@ export class AppDetailBanner extends React.Component {
     } else if(this.props.actionBlock === 'link_to_details') {
       return (
         <div className="action-block">
-          <Link to={'/app/' + this.appStore.currentAppObject.app_psk} className="fn-primary">Go to App</Link>
+          <Link to={'/app/' + this.appStore.currentAppObject.app_psk} className="fn-secondary">Go to App</Link>
         </div>
       )
     }
@@ -179,7 +179,7 @@ export class AppDetailBanner extends React.Component {
     return (
       <section className="app-summary">
         <div className={this.props.isWithinCard ? 'container' : ''}>
-          <div className={this.props.isWithinCard ? 'white-card' : ''}>
+          <div className={this.props.isWithinCard ? 'white-card walkthrough-app-summary' : ''}>
             <div className="row">
               <div className="col-xs-12 col-sm-12 hidden-md hidden-lg">
                 {this.title()}

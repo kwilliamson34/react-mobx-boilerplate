@@ -2,13 +2,12 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 
 const precss = require("precss");
 const autoprefixer = require("autoprefixer");
 
-// Set environment to prod; allowed ['dev','stage','prod']
+// Set the environment; allowed ['dev','qa','stage','uat','prod']
 const env = 'stage';
 
 console.log('Built for the \x1b[34m' + env + '\x1b[30m environment');
@@ -139,8 +138,6 @@ module.exports = {
 				output: { path: path.join(__dirname, "build") }
 			}
 		}),
-
-		new LodashModuleReplacementPlugin(),
 
 		new CompressionPlugin({
 			asset: "[path].gz[query]",

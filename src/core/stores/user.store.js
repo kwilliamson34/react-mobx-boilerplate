@@ -1,5 +1,6 @@
 import {observable, computed, action} from 'mobx';
 import {apiService} from '../services/api.service';
+import {utilsService} from '../services/utils.service';
 import {history} from '../services/history.service';
 import config from 'config';
 import _ from 'lodash';
@@ -30,6 +31,7 @@ class UserStore {
           window.location.replace(config.haloLogin);
           throw new Error('Auth failed - redirecting to SSO login...');
         } else {
+          this.resetLeadCaptureFormCookie();
           //Redirect to session timeout page
           history.replace('/session-timeout');
           throw new Error('Session timed out');
@@ -61,10 +63,16 @@ class UserStore {
   @action logoutUser() {
     apiService.logoutUser().then(() => {
       window.location.replace(config.haloLogout);
+      this.resetLeadCaptureFormCookie();
     }).catch((err) => {
       console.error('Received error on logout: ', err);
       window.location.replace(config.haloLogout); //go to halo logout anyway
     });
+  }
+
+  @action resetLeadCaptureFormCookie() {
+    //clears record of requests made through Solution Lead Capture form, re-enabling all buttons on Solution Detail pages.
+    utilsService.setCookie('_fn_lc_solutions_requested', []);
   }
 
   conditionUserObj(userInfo) {
@@ -73,11 +81,13 @@ class UserStore {
     this.user.firstName = userInfo.firstName || '';
     this.user.lastName = userInfo.lastName || '';
     this.user.username = userInfo.username || '';
+    this.user.phone = userInfo.phone || '';
     // check if FAN mapping has occurred and designate internal PSE roles
     if (userInfo.authorizations.length) {
       this.user.pse = userInfo.authorizations[0].pseId || '';
       this.user.pseName = userInfo.authorizations[0].pseName || '';
-      this.user.roles = userInfo.authorizations[0].pseUserRoles || '';
+      this.user.roles = userInfo.authorizations[0].pseUserRoles || [];
+      console.log('User is logged in with roles: ' + this.user.roles.toString());
     } else {
       // FAN mapping hasn't happened; use HALO provided groups and roles
       this.user.pse = '';
@@ -88,32 +98,27 @@ class UserStore {
   }
 
   checkRolesString = (allowedRoles) => {
-    if (!this.user.roles) {
+    if(!this.user.roles) {
       return false;
     }
-    if (_.intersection(allowedRoles, this.user.roles).length > 0) {
+    if(_.intersection(allowedRoles, this.user.roles).length > 0) {
       return true;
     }
     return false;
   }
 
   @computed get isAuthenticUser() {
-    return this.checkRolesString([
-      'G_FN_IM',
-      'G_FN_ADM',
-      'G_FN_VOL_ADM',
-      'G_FN_VOL'
-    ]);
+    return this.checkRolesString(['G_FN_IM','G_FN_ADM','G_FN_SUB','G_FN_VOL_ADM','G_FN_VOL','G_FN_ITM']);
   }
 
   @computed get isSubscriber() {
-    return this.checkRolesString(['G_FN_SUB']);
+    return this.checkRolesString(['G_FN_SUB','G_FN_VOL_ADM','G_FN_VOL']);
   }
 
   @computed get destinationIsPermitted() {
     let destinationIsPermitted = {};
-    for (let route in this.routePermissions) {
-      if (_.intersection(this.routePermissions[route], this.user.roles).length) {
+    for(let route in this.routePermissions) {
+      if(_.intersection(this.routePermissions[route], this.user.roles).length) {
         destinationIsPermitted[route] = true;
       } else {
         destinationIsPermitted[route] = false;
@@ -128,11 +133,13 @@ class UserStore {
   @observable validationPromise = '';
 
   /*
-	'G_FN_IM' Incident Manager,
-	'G_FN_ADM' PSE Administrator with Premier,
-	'G_FN_VOL_ADM' Subscriber Paid Administrator,
-	'G_FN_VOL' Subscriber Paid
-	*/
+  'G_FN_IM' Incident Manager,
+  'G_FN_ADM' PSE Administrator with Premier,
+  'G_FN_ITM' PSE Administrator without Premier,
+  'G_FN_SUB' Subscriber (CRU),
+  'G_FN_VOL_ADM' Subscriber Paid Administrator,
+  'G_FN_VOL' Subscriber Paid
+  */
   @observable routePermissions = {
     shopStandardDevices: ['G_FN_ADM', 'G_FN_VOL'],
     shopSpecializedDevices: ['G_FN_ADM', 'G_FN_VOL'],
@@ -140,11 +147,13 @@ class UserStore {
     manageUsers: ['G_FN_ADM', 'G_FN_ITM', 'G_FN_VOL_ADM'],
     manageBilling: ['G_FN_ADM', 'G_FN_VOL'],
     viewReports: ['G_FN_ADM'],
-    manageApps: ['G_FN_ADM', 'G_FN_VOL_ADM'],
-    administration: ['G_FN_ADM', 'G_FN_VOL_ADM', 'G_FN_VOL'],
-    network: ['G_FN_IM', 'G_FN_ADM']
+    manageApps: ['G_FN_ADM', 'G_FN_ITM', 'G_FN_VOL_ADM'],
+    manageVoicemail: ['G_FN_SUB'],
+    administration: ['G_FN_ADM', 'G_FN_ITM', 'G_FN_SUB', 'G_FN_VOL_ADM', 'G_FN_VOL'],
+    network: ['G_FN_IM', 'G_FN_ADM', 'G_FN_ITM'],
+    incidentUplift: ['G_FN_IM'],
+    manageIotDevices: [] // FPSE-2149 - temporarily remove IOT devices, will be re-implemented later
   }
-
 }
 
 export const userStore = new UserStore();

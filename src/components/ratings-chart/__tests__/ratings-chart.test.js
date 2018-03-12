@@ -1,4 +1,4 @@
-jest.unmock('axios');
+
 jest.unmock('../ratings-chart');
 jest.unmock('../doughnut');
 jest.unmock('../horizontal-bar');

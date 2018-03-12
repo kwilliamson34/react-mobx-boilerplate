@@ -22,11 +22,13 @@ import ScrollToTop from './components/scroll-to-top/scroll-to-top';
 import JoyrideBase from './components/joyride-base/joyride-base';
 
 //Pages
-import NetworkStatusPage from './pages/network-status.page';
+import NetworkPage from './pages/network.page';
 import ErrorPage from './pages/error.page.jsx';
 import SessionTimeoutPage from './pages/session-timeout.page';
 import SubscribeToGTOC from './pages/gtoc.page';
-import SubscribeToGTOCSuccess from './pages/gtoc-success.page';
+import SubscribeToGTOCSuccess from './pages/gtoc-subscribe-success.page';
+import UnsubscribeToGTOCSuccess from './pages/gtoc-unsubscribe-success.page';
+import ManageFavoritesPage from './pages/manage-favorites.page';
 
 //Admin pages
 import ManageAppsPage from './pages/manage-apps.page';
@@ -38,6 +40,7 @@ import DevicesLandingPage from './pages/devices.page';
 import DeviceCategoryTemplate from './pages/device-category.template';
 import DeviceDetailTemplate from './pages/device-detail.template';
 import ShopSolutionsPage from './pages/shop-solutions.page';
+import LeadCapturePage from './pages/lead-capture.page';
 
 //Content pages
 import AppDetailsPage from './pages/app-details.page';
@@ -83,6 +86,16 @@ export default class App extends React.Component {
     });
   }
 
+  handleSkipNav = () => {
+    //Fix for FPSE-1393 and FPSE-1394. Skip Navigation is not working on IE, as elements without a tabIndex don't take focus. For 508 compliance, #main-content can't permanently have a tabIndex.
+    const mainContent = $('#main-content');
+    mainContent.attr('tabindex', -1);
+    mainContent.focus();
+    mainContent.blur(() => {
+      mainContent.removeAttr('tabindex');
+    });
+  }
+
   getSpecializedDevicesComponent = ({match}) => {
     return (
       <article id="specialized-devices">
@@ -99,6 +112,7 @@ export default class App extends React.Component {
     return (
       <article id="solutions-hub-page">
         <Switch>
+          <Route path={`${match.url}/:solutionCategory/:solutionDetail/request-info`} component={LeadCapturePage} />
           <Route path={`${match.url}/:solutionCategory/:solutionDetail`} component={SolutionsDetailTemplate} />
           <Route path={`${match.url}/:solutionCategory`} component={SolutionsCategoryTemplate} />
           <Route path={match.url} component={ShopSolutionsPage} />
@@ -115,20 +129,44 @@ export default class App extends React.Component {
           <JoyrideBase location={location.pathname} joyrideStore={pseMasterStore.joyrideStore} />
         }
         <ScrollToTop>
-          <a href="#main-content" className="skipnav">Skip Navigation</a>
-          <Header />
+          <a href="#main-content" className="skipnav" onClick={this.handleSkipNav}>Skip Navigation</a>
+          <Header/>
           <main id="main-content">
             <Switch>
-              <Route exact="exact" path="/" component={() => <Redirect to="/admin" />} />
-              <Route path="/admin/manage-apps" component={this.checkRoutePermission({component: ManageAppsPage, isPermitted: permissionObject.manageApps})} />
-              <Route path="/admin/configure-mdm" component={this.checkRoutePermission({component: ConfigureMDM, isPermitted: permissionObject.manageApps})} />
-              <Route path="/admin/devices" component={this.checkRoutePermission({component: this.getSpecializedDevicesComponent, isPermitted: permissionObject.shopSpecializedDevices})} />
-              <Route path="/admin/solutions" component={this.checkRoutePermission({component: this.getPublicSafetySolutionsComponent, isPermitted: permissionObject.shopPublicSafetySolutions})} />
-              <Route path="/admin" component={this.checkRoutePermission({component: AdminDashboardPage, isPermitted: permissionObject.administration, redirectPath: '/network-status'})} />
-              <Route path="/app/:appPsk" component={this.checkRoutePermission({component: AppDetailsPage, isPermitted: permissionObject.manageApps})} />
-              <Route path="/network-status" component={this.checkRoutePermission({component: NetworkStatusPage, isPermitted: permissionObject.network})} />
+              <Route exact path="/" component={() => <Redirect to="/admin" />} />
+              <Route path="/admin/manage-apps" component={this.checkRoutePermission({
+                  component: ManageAppsPage,
+                  isPermitted: permissionObject.manageApps
+                })} />
+              <Route path="/admin/configure-mdm" component={this.checkRoutePermission({
+                  component: ConfigureMDM,
+                  isPermitted: permissionObject.manageApps
+                })} />
+              <Route path="/admin/devices" component={this.checkRoutePermission({
+                  component: this.getSpecializedDevicesComponent,
+                  isPermitted: permissionObject.shopSpecializedDevices
+                })} />
+              <Route path="/admin/solutions" component={this.checkRoutePermission({
+                  component: this.getPublicSafetySolutionsComponent,
+                  isPermitted: permissionObject.shopPublicSafetySolutions
+                })} />
+              <Route path="/admin" component={this.checkRoutePermission({
+                  component: AdminDashboardPage,
+                  isPermitted: permissionObject.administration,
+                  redirectPath: '/network'
+                })} />
+              <Route path="/app/:appPsk" component={this.checkRoutePermission({
+                  component: AppDetailsPage,
+                  isPermitted: permissionObject.manageApps
+                })/*TODO redirect to error/404 if psk has no match*/} />
+              <Route path="/network" component={this.checkRoutePermission({
+                  component: NetworkPage,
+                  isPermitted: permissionObject.network
+                })} />
+              <Route path="/manage-favorites" component={ManageFavoritesPage} />
               <Route path="/subscribe-to-alerts" component={SubscribeToGTOC} />
               <Route path="/subscribe-to-alerts-success" component={SubscribeToGTOCSuccess} />
+              <Route path="/unsubscribe-to-alerts-success" component={UnsubscribeToGTOCSuccess} />
               <Route path="/feedback" component={FeedbackPage} />
               <Route path="/feedback-success" component={FeedbackSuccessPage} />
               <Route path="/faq" component={FAQPage} />
@@ -155,13 +193,13 @@ export default class App extends React.Component {
   getPlainLayoutComponent = () => {
     return (
       <Switch>
-      <Route exact="exact" path="/error/404" component={() => <ErrorPage cause="404" />} />
-      <Route exact="exact" path="/error/unauthorized" component={() => <ErrorPage cause="unauthorized" />} />
-      <Route exact="exact" path="/error/unavailable" component={() => <ErrorPage cause="410" />} />
-      <Route exact="exact" path="/error/pending" component={() => <ErrorPage cause="pending" />} />
-      <Route path="/error" component={ErrorPage} />
-      <Route component={() => <Redirect to="/error/404" />} />
-    </Switch>
+        <Route exact path="/error/404" component={() => <ErrorPage cause="404" />} />
+        <Route exact path="/error/unauthorized" component={() => <ErrorPage cause="unauthorized" />} />
+        <Route exact path="/error/unavailable" component={() => <ErrorPage cause="410" />} />
+        <Route exact path="/error/pending" component={() => <ErrorPage cause="pending" />} />
+        <Route path="/error" component={ErrorPage} />
+        <Route component={() => <Redirect to="/error/404" />} />
+      </Switch>
     )
   }
 
@@ -170,23 +208,24 @@ export default class App extends React.Component {
       ? (
         pseMasterStore.isLoggedIn
         ? <Switch>
-          <Route exact="exact" path="/session-timeout" component={SessionTimeoutPage} />
-          <Route path="/error" component={this.getPlainLayoutComponent} />
-          <Route component={this.getMainLayoutComponent} />
-        </Switch>
-        : (
-          pseMasterStore.userStore.isSubscriber
+            <Route exact path="/session-timeout" component={SessionTimeoutPage} />
+            <Route path="/error" component={this.getPlainLayoutComponent} />
+            <Route component={this.getMainLayoutComponent} />
+          </Switch>
+        : (pseMasterStore.userStore.isSubscriber
           ? <ExternalRedirect externalUrl={config.appStore} />
           : <ErrorPage cause="unauthorized" />))
       : <div className="fn-loading">
-        <div className="fn-loading-logo">
-          <img src="/images/firstnet-logo.svg" width="173" height="51" alt="" aria-hidden="true" />
+          <div className="fn-loading-logo">
+            <img src="/images/firstnet-logo.svg" width="173" height="51" alt="FirstNet logo" />
+          </div>
+          <h1 className="fn-loading-text">Loading</h1>
+          <div className="fn-loading-circle">
+            {[...Array(12)].map((x, i) =>
+              <div key={i} className={`c${i+1} c`}></div>
+            )}
+          </div>
         </div>
-        <h1 className="fn-loading-text">Loading</h1>
-        <div className="fn-loading-circle">
-          {[...Array(12)].map((x, i) => <div key={i} className={`c${i + 1} c`}></div>)}
-        </div>
-      </div>
   }
 
   render() {

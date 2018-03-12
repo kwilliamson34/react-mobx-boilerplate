@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GtocPage /> render matches previous snapshot 1`] = `
+<section
+  id="subscribe-to-gtoc-page"
+>
+  <div
+    className="content-wrapper"
+  >
+    <div
+      className="container"
+    >
+      <div
+        className="row text-center"
+      >
+        <div
+          className="col-xs-10 col-md-8"
+        />
+        <div
+          className="col-xs-12 col-md-8"
+        >
+          <figure
+            className="fema-map-wrapper"
+          >
+            <img
+              alt=""
+              className="img-responsive fema-map"
+              src="/images/fema-regions-map.png"
+            />
+            <figcaption
+              className="fema-figcaption"
+            >
+              FEMA Regions Map
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+      <div
+        className="row"
+      >
+        <section
+          className="col-xs-12"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+`;

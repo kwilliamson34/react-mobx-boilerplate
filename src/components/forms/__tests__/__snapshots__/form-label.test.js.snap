@@ -1,0 +1,251 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FormLabel /> renders matches previous snapshot 1`] = `
+<div
+  className="form-label"
+>
+  <legend
+    className="control-label"
+    htmlFor=""
+  >
+    <span
+      className=""
+    >
+      testLabel
+    </span>
+    
+    
+    <div
+      className="msgBlock error error-list "
+    >
+      <span
+        aria-atomic="true"
+        aria-live="assertive"
+        role="alert"
+      >
+        
+      </span>
+      <span
+        aria-atomic="true"
+        aria-live=""
+        role=""
+      >
+        
+      </span>
+    </div>
+  </legend>
+</div>
+`;
+
+exports[`<FormLabel /> renders matches previous snapshot 2`] = `
+<div
+  className="form-label"
+>
+  <label
+    className="control-label"
+    htmlFor="example-id"
+  >
+    <span
+      className=""
+    >
+      testLabel
+    </span>
+    
+    
+    <div
+      className="msgBlock error error-list "
+    >
+      <span
+        aria-atomic="true"
+        aria-live="assertive"
+        role="alert"
+      >
+        
+      </span>
+      <span
+        aria-atomic="true"
+        aria-live=""
+        role=""
+      >
+        
+      </span>
+    </div>
+  </label>
+</div>
+`;
+
+exports[`<FormLabel /> renders matches previous snapshot 3`] = `
+<div
+  className="form-label"
+>
+  <label
+    className="control-label"
+    htmlFor="example-id"
+  >
+    <span
+      className=""
+    >
+      testLabel
+    </span>
+    
+    <span
+      className="help-text"
+    >
+      helper text
+    </span>
+    <div
+      className="msgBlock error error-list "
+    >
+      <span
+        aria-atomic="true"
+        aria-live="assertive"
+        role="alert"
+      >
+        
+      </span>
+      <span
+        aria-atomic="true"
+        aria-live=""
+        role=""
+      >
+        
+      </span>
+    </div>
+  </label>
+</div>
+`;
+
+exports[`<FormLabel /> renders matches previous snapshot 4`] = `
+<div
+  className="form-label"
+>
+  <label
+    className="control-label"
+    htmlFor="example-id"
+  >
+    <span
+      className=""
+    >
+      testLabel
+    </span>
+    <span
+      className="required-asterisks "
+    >
+       *
+    </span>
+    <span
+      className="help-text"
+    >
+      helper text
+    </span>
+    <div
+      className="msgBlock error error-list "
+    >
+      <span
+        aria-atomic="true"
+        aria-live="assertive"
+        role="alert"
+      >
+        
+      </span>
+      <span
+        aria-atomic="true"
+        aria-live=""
+        role=""
+      >
+        
+      </span>
+    </div>
+  </label>
+</div>
+`;
+
+exports[`<FormLabel /> renders matches previous snapshot 5`] = `
+<div
+  className="form-label"
+>
+  <label
+    className="control-label"
+    htmlFor="example-id"
+  >
+    <span
+      className=""
+    >
+      testLabel
+    </span>
+    <span
+      className="required-asterisks "
+    >
+       *
+    </span>
+    <span
+      className="help-text"
+    >
+      helper text
+    </span>
+    <div
+      className="msgBlock error error-list "
+    >
+      <span
+        aria-atomic="true"
+        aria-live="assertive"
+        role="alert"
+      >
+        
+      </span>
+      <span
+        aria-atomic="true"
+        aria-live=""
+        role=""
+      >
+        This field has an error
+      </span>
+    </div>
+  </label>
+</div>
+`;
+
+exports[`<FormLabel /> renders matches previous snapshot 6`] = `
+<div
+  className="form-label"
+>
+  <label
+    className="control-label"
+    htmlFor="example-id"
+  >
+    <span
+      className=""
+    >
+      testLabel
+    </span>
+    <span
+      className="required-asterisks "
+    >
+       *
+    </span>
+    <span
+      className="help-text"
+    >
+      helper text
+    </span>
+    <div
+      className="msgBlock error error-list "
+    >
+      <span
+        aria-atomic="true"
+        aria-live="assertive"
+        role="alert"
+      >
+        
+      </span>
+      <span
+        aria-atomic="true"
+        aria-live=""
+        role=""
+      >
+        This field has an error
+      </span>
+    </div>
+  </label>
+</div>
+`;

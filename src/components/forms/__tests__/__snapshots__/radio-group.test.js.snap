@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RadioGroup /> renders matches previous snapshot 1`] = `
+<fieldset
+  className="form-group radio  disabled "
+  onBlur={[Function]}
+/>
+`;
+
+exports[`<RadioGroup /> renders matches previous snapshot 2`] = `
+<fieldset
+  className="form-group radio   "
+  onBlur={[Function]}
+/>
+`;
+
+exports[`<RadioGroup /> renders matches previous snapshot 3`] = `
+<fieldset
+  className="form-group radio   "
+  onBlur={[Function]}
+/>
+`;
+
+exports[`<RadioGroup /> renders matches previous snapshot 4`] = `
+<fieldset
+  className="form-group radio   "
+  onBlur={[Function]}
+/>
+`;

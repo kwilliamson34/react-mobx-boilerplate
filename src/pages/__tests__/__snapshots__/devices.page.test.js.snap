@@ -1,15 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<DevicesPage /> render matches snapshot with zero, one and many cards in each row 1`] = `
 <div
-  className="devices-landing">
+  className="devices-landing"
+>
   <div
-    className="container">
+    className="container"
+  >
     <div
-      className="row">
+      className="row"
+    >
       <div
-        className="col-xs-12 col-sm-10 col-sm-offset-1 catalog-header">
-        <h1>
-          Specialized Devices
-        </h1>
+        className="col-xs-12 col-sm-10 col-sm-offset-1 catalog-header"
+      >
         <p>
           FirstNet offers an extensive selection of devices and accessories. Check out a small selection of our portfolio. To learn more about our full portfolio, contact a FirstNet Specialist.
         </p>
@@ -17,69 +20,89 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
     </div>
   </div>
   <section
-    className="view-phone">
+    className="view-phone"
+  >
     <div
-      className="container">
+      className="container"
+    >
       <div
-        className="row">
+        className="row"
+      >
         <div
-          className="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-12 col-md-offset-1 col-md-10">
+          className="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-12 col-md-offset-1 col-md-10"
+        >
           <h2>
             Phones
           </h2>
           <ul
-            className="mp-content" />
+            className="mp-content"
+          />
         </div>
       </div>
     </div>
   </section>
   <section
-    className="view-tablet">
+    className="view-tablet"
+  >
     <div
-      className="container">
+      className="container"
+    >
       <div
-        className="row">
+        className="row"
+      >
         <div
-          className="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-12 col-md-offset-1 col-md-10">
+          className="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-12 col-md-offset-1 col-md-10"
+        >
           <h2>
             Tablets
           </h2>
           <ul
-            className="mp-content" />
+            className="mp-content"
+          />
         </div>
       </div>
     </div>
   </section>
   <section
-    className="view-invehicle">
+    className="view-invehicle"
+  >
     <div
-      className="container">
+      className="container"
+    >
       <div
-        className="row">
+        className="row"
+      >
         <div
-          className="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-12 col-md-offset-1 col-md-10">
+          className="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-12 col-md-offset-1 col-md-10"
+        >
           <h2>
             In-Vehicle
           </h2>
           <ul
-            className="mp-content" />
+            className="mp-content"
+          />
         </div>
       </div>
     </div>
   </section>
   <section
-    className="view-accessories">
+    className="view-accessories"
+  >
     <div
-      className="container">
+      className="container"
+    >
       <div
-        className="row">
+        className="row"
+      >
         <div
-          className="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-12 col-md-offset-1 col-md-10">
+          className="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-12 col-md-offset-1 col-md-10"
+        >
           <h2>
             Accessories
           </h2>
           <ul
-            className="mp-content" />
+            className="mp-content"
+          />
         </div>
       </div>
     </div>
@@ -89,16 +112,17 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
 
 exports[`<DevicesPage /> render matches snapshot with zero, one and many cards in each row 2`] = `
 <div
-  className="devices-landing">
+  className="devices-landing"
+>
   <div
-    className="container">
+    className="container"
+  >
     <div
-      className="row">
+      className="row"
+    >
       <div
-        className="col-xs-12 col-sm-10 col-sm-offset-1 catalog-header">
-        <h1>
-          Specialized Devices
-        </h1>
+        className="col-xs-12 col-sm-10 col-sm-offset-1 catalog-header"
+      >
         <p>
           FirstNet offers an extensive selection of devices and accessories. Check out a small selection of our portfolio. To learn more about our full portfolio, contact a FirstNet Specialist.
         </p>
@@ -106,69 +130,93 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
     </div>
   </div>
   <section
-    className="view-phone">
+    className="view-phone"
+  >
     <div
-      className="container">
+      className="container"
+    >
       <div
-        className="row">
+        className="row"
+      >
         <div
-          className="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-12 col-md-offset-1 col-md-10">
+          className="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-12 col-md-offset-1 col-md-10"
+        >
           <h2>
             Phones
           </h2>
           <ul
-            className="mp-content" />
+            className="mp-content"
+          />
         </div>
       </div>
     </div>
   </section>
   <section
-    className="view-tablet">
+    className="view-tablet"
+  >
     <div
-      className="container">
+      className="container"
+    >
       <div
-        className="row">
+        className="row"
+      >
         <div
-          className="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-12 col-md-offset-1 col-md-10">
+          className="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-12 col-md-offset-1 col-md-10"
+        >
           <h2>
             Tablets
           </h2>
           <ul
-            className="mp-content" />
+            className="mp-content"
+          />
         </div>
       </div>
     </div>
   </section>
   <section
-    className="view-invehicle">
+    className="view-invehicle"
+  >
     <div
-      className="container">
+      className="container"
+    >
       <div
-        className="row">
+        className="row"
+      >
         <div
-          className="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-12 col-md-offset-1 col-md-10">
+          className="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-12 col-md-offset-1 col-md-10"
+        >
           <h2>
             In-Vehicle
           </h2>
           <ul
-            className="mp-content">
+            className="mp-content"
+          >
             <li>
               <a
-                href="/admin/devices/in-vehicle/undefined"
+                href="/admin/devices/in-vehicle/title"
                 id="invehicle_0"
-                onClick={[Function anonymous]}>
+                onClick={[Function]}
+              >
                 <h3
                   dangerouslySetInnerHTML={
                     Object {
-                      "__html": "title"
+                      "__html": "title",
                     }
-                  } />
-                <div
-                  className="card-img-wrapper">
+                  }
+                />
+                <figure
+                  className="card-img-wrapper"
+                >
                   <img
-                    alt="alt"
-                    src="url" />
-                </div>
+                    alt=""
+                    src="url"
+                  />
+                  <figcaption
+                    className="sr-only"
+                  >
+                    alt
+                  </figcaption>
+                </figure>
               </a>
             </li>
           </ul>
@@ -177,18 +225,23 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
     </div>
   </section>
   <section
-    className="view-accessories">
+    className="view-accessories"
+  >
     <div
-      className="container">
+      className="container"
+    >
       <div
-        className="row">
+        className="row"
+      >
         <div
-          className="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-12 col-md-offset-1 col-md-10">
+          className="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-12 col-md-offset-1 col-md-10"
+        >
           <h2>
             Accessories
           </h2>
           <ul
-            className="mp-content" />
+            className="mp-content"
+          />
         </div>
       </div>
     </div>
@@ -198,16 +251,17 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
 
 exports[`<DevicesPage /> render matches snapshot with zero, one and many cards in each row 3`] = `
 <div
-  className="devices-landing">
+  className="devices-landing"
+>
   <div
-    className="container">
+    className="container"
+  >
     <div
-      className="row">
+      className="row"
+    >
       <div
-        className="col-xs-12 col-sm-10 col-sm-offset-1 catalog-header">
-        <h1>
-          Specialized Devices
-        </h1>
+        className="col-xs-12 col-sm-10 col-sm-offset-1 catalog-header"
+      >
         <p>
           FirstNet offers an extensive selection of devices and accessories. Check out a small selection of our portfolio. To learn more about our full portfolio, contact a FirstNet Specialist.
         </p>
@@ -215,35 +269,49 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
     </div>
   </div>
   <section
-    className="view-phone">
+    className="view-phone"
+  >
     <div
-      className="container">
+      className="container"
+    >
       <div
-        className="row">
+        className="row"
+      >
         <div
-          className="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-12 col-md-offset-1 col-md-10">
+          className="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-12 col-md-offset-1 col-md-10"
+        >
           <h2>
             Phones
           </h2>
           <ul
-            className="mp-content">
+            className="mp-content"
+          >
             <li>
               <a
-                href="/admin/devices/phones/undefined"
+                href="/admin/devices/phones/title"
                 id="phone_0"
-                onClick={[Function anonymous]}>
+                onClick={[Function]}
+              >
                 <h3
                   dangerouslySetInnerHTML={
                     Object {
-                      "__html": "title"
+                      "__html": "title",
                     }
-                  } />
-                <div
-                  className="card-img-wrapper">
+                  }
+                />
+                <figure
+                  className="card-img-wrapper"
+                >
                   <img
-                    alt="alt"
-                    src="url" />
-                </div>
+                    alt=""
+                    src="url"
+                  />
+                  <figcaption
+                    className="sr-only"
+                  >
+                    alt
+                  </figcaption>
+                </figure>
               </a>
             </li>
           </ul>
@@ -252,102 +320,145 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
     </div>
   </section>
   <section
-    className="view-tablet">
+    className="view-tablet"
+  >
     <div
-      className="container">
+      className="container"
+    >
       <div
-        className="row">
+        className="row"
+      >
         <div
-          className="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-12 col-md-offset-1 col-md-10">
+          className="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-12 col-md-offset-1 col-md-10"
+        >
           <h2>
             Tablets
           </h2>
           <ul
-            className="mp-content">
+            className="mp-content"
+          >
             <li>
               <a
-                href="/admin/devices/tablets/undefined"
+                href="/admin/devices/tablets/title"
                 id="tablet_0"
-                onClick={[Function anonymous]}>
+                onClick={[Function]}
+              >
                 <h3
                   dangerouslySetInnerHTML={
                     Object {
-                      "__html": "title"
+                      "__html": "title",
                     }
-                  } />
-                <div
-                  className="card-img-wrapper">
+                  }
+                />
+                <figure
+                  className="card-img-wrapper"
+                >
                   <img
-                    alt="alt"
-                    src="url" />
-                </div>
+                    alt=""
+                    src="url"
+                  />
+                  <figcaption
+                    className="sr-only"
+                  >
+                    alt
+                  </figcaption>
+                </figure>
               </a>
             </li>
             <li>
               <a
-                href="/admin/devices/tablets/undefined"
+                href="/admin/devices/tablets/title"
                 id="tablet_1"
-                onClick={[Function anonymous]}>
+                onClick={[Function]}
+              >
                 <h3
                   dangerouslySetInnerHTML={
                     Object {
-                      "__html": "title"
+                      "__html": "title",
                     }
-                  } />
-                <div
-                  className="card-img-wrapper">
+                  }
+                />
+                <figure
+                  className="card-img-wrapper"
+                >
                   <img
-                    alt="alt"
-                    src="url" />
-                </div>
+                    alt=""
+                    src="url"
+                  />
+                  <figcaption
+                    className="sr-only"
+                  >
+                    alt
+                  </figcaption>
+                </figure>
               </a>
             </li>
             <li>
               <a
-                href="/admin/devices/tablets/undefined"
+                href="/admin/devices/tablets/title"
                 id="tablet_2"
-                onClick={[Function anonymous]}>
+                onClick={[Function]}
+              >
                 <h3
                   dangerouslySetInnerHTML={
                     Object {
-                      "__html": "title"
+                      "__html": "title",
                     }
-                  } />
-                <div
-                  className="card-img-wrapper">
+                  }
+                />
+                <figure
+                  className="card-img-wrapper"
+                >
                   <img
-                    alt="alt"
-                    src="url" />
-                </div>
+                    alt=""
+                    src="url"
+                  />
+                  <figcaption
+                    className="sr-only"
+                  >
+                    alt
+                  </figcaption>
+                </figure>
               </a>
             </li>
             <li>
               <a
-                href="/admin/devices/tablets/undefined"
+                href="/admin/devices/tablets/title"
                 id="tablet_3"
-                onClick={[Function anonymous]}>
+                onClick={[Function]}
+              >
                 <h3
                   dangerouslySetInnerHTML={
                     Object {
-                      "__html": "title"
+                      "__html": "title",
                     }
-                  } />
-                <div
-                  className="card-img-wrapper">
+                  }
+                />
+                <figure
+                  className="card-img-wrapper"
+                >
                   <img
-                    alt="alt"
-                    src="url" />
-                </div>
+                    alt=""
+                    src="url"
+                  />
+                  <figcaption
+                    className="sr-only"
+                  >
+                    alt
+                  </figcaption>
+                </figure>
               </a>
             </li>
           </ul>
         </div>
         <div
-          className="row">
+          className="row"
+        >
           <a
             className="fn-primary showAll"
             href="/admin/devices/tablets"
-            onClick={[Function anonymous]}>
+            onClick={[Function]}
+          >
             Explore All 
             Tablets
           </a>
@@ -356,73 +467,105 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
     </div>
   </section>
   <section
-    className="view-invehicle">
+    className="view-invehicle"
+  >
     <div
-      className="container">
+      className="container"
+    >
       <div
-        className="row">
+        className="row"
+      >
         <div
-          className="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-12 col-md-offset-1 col-md-10">
+          className="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-12 col-md-offset-1 col-md-10"
+        >
           <h2>
             In-Vehicle
           </h2>
           <ul
-            className="mp-content">
+            className="mp-content"
+          >
             <li>
               <a
-                href="/admin/devices/in-vehicle/undefined"
+                href="/admin/devices/in-vehicle/title"
                 id="invehicle_0"
-                onClick={[Function anonymous]}>
+                onClick={[Function]}
+              >
                 <h3
                   dangerouslySetInnerHTML={
                     Object {
-                      "__html": "title"
+                      "__html": "title",
                     }
-                  } />
-                <div
-                  className="card-img-wrapper">
+                  }
+                />
+                <figure
+                  className="card-img-wrapper"
+                >
                   <img
-                    alt="alt"
-                    src="url" />
-                </div>
+                    alt=""
+                    src="url"
+                  />
+                  <figcaption
+                    className="sr-only"
+                  >
+                    alt
+                  </figcaption>
+                </figure>
               </a>
             </li>
             <li>
               <a
-                href="/admin/devices/in-vehicle/undefined"
+                href="/admin/devices/in-vehicle/title"
                 id="invehicle_1"
-                onClick={[Function anonymous]}>
+                onClick={[Function]}
+              >
                 <h3
                   dangerouslySetInnerHTML={
                     Object {
-                      "__html": "title"
+                      "__html": "title",
                     }
-                  } />
-                <div
-                  className="card-img-wrapper">
+                  }
+                />
+                <figure
+                  className="card-img-wrapper"
+                >
                   <img
-                    alt="alt"
-                    src="url" />
-                </div>
+                    alt=""
+                    src="url"
+                  />
+                  <figcaption
+                    className="sr-only"
+                  >
+                    alt
+                  </figcaption>
+                </figure>
               </a>
             </li>
             <li>
               <a
-                href="/admin/devices/in-vehicle/undefined"
+                href="/admin/devices/in-vehicle/title"
                 id="invehicle_2"
-                onClick={[Function anonymous]}>
+                onClick={[Function]}
+              >
                 <h3
                   dangerouslySetInnerHTML={
                     Object {
-                      "__html": "title"
+                      "__html": "title",
                     }
-                  } />
-                <div
-                  className="card-img-wrapper">
+                  }
+                />
+                <figure
+                  className="card-img-wrapper"
+                >
                   <img
-                    alt="alt"
-                    src="url" />
-                </div>
+                    alt=""
+                    src="url"
+                  />
+                  <figcaption
+                    className="sr-only"
+                  >
+                    alt
+                  </figcaption>
+                </figure>
               </a>
             </li>
           </ul>
@@ -431,102 +574,145 @@ exports[`<DevicesPage /> render matches snapshot with zero, one and many cards i
     </div>
   </section>
   <section
-    className="view-accessories">
+    className="view-accessories"
+  >
     <div
-      className="container">
+      className="container"
+    >
       <div
-        className="row">
+        className="row"
+      >
         <div
-          className="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-12 col-md-offset-1 col-md-10">
+          className="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-12 col-md-offset-1 col-md-10"
+        >
           <h2>
             Accessories
           </h2>
           <ul
-            className="mp-content">
+            className="mp-content"
+          >
             <li>
               <a
-                href="/admin/devices/accessories/undefined"
+                href="/admin/devices/accessories/title"
                 id="accessories_0"
-                onClick={[Function anonymous]}>
+                onClick={[Function]}
+              >
                 <h3
                   dangerouslySetInnerHTML={
                     Object {
-                      "__html": "title"
+                      "__html": "title",
                     }
-                  } />
-                <div
-                  className="card-img-wrapper">
+                  }
+                />
+                <figure
+                  className="card-img-wrapper"
+                >
                   <img
-                    alt="alt"
-                    src="url" />
-                </div>
+                    alt=""
+                    src="url"
+                  />
+                  <figcaption
+                    className="sr-only"
+                  >
+                    alt
+                  </figcaption>
+                </figure>
               </a>
             </li>
             <li>
               <a
-                href="/admin/devices/accessories/undefined"
+                href="/admin/devices/accessories/title"
                 id="accessories_1"
-                onClick={[Function anonymous]}>
+                onClick={[Function]}
+              >
                 <h3
                   dangerouslySetInnerHTML={
                     Object {
-                      "__html": "title"
+                      "__html": "title",
                     }
-                  } />
-                <div
-                  className="card-img-wrapper">
+                  }
+                />
+                <figure
+                  className="card-img-wrapper"
+                >
                   <img
-                    alt="alt"
-                    src="url" />
-                </div>
+                    alt=""
+                    src="url"
+                  />
+                  <figcaption
+                    className="sr-only"
+                  >
+                    alt
+                  </figcaption>
+                </figure>
               </a>
             </li>
             <li>
               <a
-                href="/admin/devices/accessories/undefined"
+                href="/admin/devices/accessories/title"
                 id="accessories_2"
-                onClick={[Function anonymous]}>
+                onClick={[Function]}
+              >
                 <h3
                   dangerouslySetInnerHTML={
                     Object {
-                      "__html": "title"
+                      "__html": "title",
                     }
-                  } />
-                <div
-                  className="card-img-wrapper">
+                  }
+                />
+                <figure
+                  className="card-img-wrapper"
+                >
                   <img
-                    alt="alt"
-                    src="url" />
-                </div>
+                    alt=""
+                    src="url"
+                  />
+                  <figcaption
+                    className="sr-only"
+                  >
+                    alt
+                  </figcaption>
+                </figure>
               </a>
             </li>
             <li>
               <a
-                href="/admin/devices/accessories/undefined"
+                href="/admin/devices/accessories/title"
                 id="accessories_3"
-                onClick={[Function anonymous]}>
+                onClick={[Function]}
+              >
                 <h3
                   dangerouslySetInnerHTML={
                     Object {
-                      "__html": "title"
+                      "__html": "title",
                     }
-                  } />
-                <div
-                  className="card-img-wrapper">
+                  }
+                />
+                <figure
+                  className="card-img-wrapper"
+                >
                   <img
-                    alt="alt"
-                    src="url" />
-                </div>
+                    alt=""
+                    src="url"
+                  />
+                  <figcaption
+                    className="sr-only"
+                  >
+                    alt
+                  </figcaption>
+                </figure>
               </a>
             </li>
           </ul>
         </div>
         <div
-          className="row">
+          className="row"
+        >
           <a
             className="fn-primary showAll"
             href="/admin/devices/accessories"
-            onClick={[Function anonymous]}>
+            onClick={[Function]}
+          >
             Explore All 
             Accessories
           </a>

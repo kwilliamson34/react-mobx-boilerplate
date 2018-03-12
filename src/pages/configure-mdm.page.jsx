@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {inject, observer} from 'mobx-react';
-import {history} from '../core/services/history.service';
 
 import PageTitle from '../components/page-title/page-title';
-import {MDMAlerts} from '../components/configure-mdm/mdm-alerts';
-import {AirWatchForm} from '../components/configure-mdm/air-watch-form';
-import {IBMForm} from '../components/configure-mdm/ibm-form';
-import {MobileIronForm} from '../components/configure-mdm/mobile-iron-form';
+import AirWatchForm from '../components/configure-mdm/air-watch-form';
+import IBMForm from '../components/configure-mdm/ibm-form';
+import MicrosoftForm from '../components/configure-mdm/microsoft-form';
+import MobileIronCloudForm from '../components/configure-mdm/mobile-iron-cloud-form';
+import MobileIronCoreForm from '../components/configure-mdm/mobile-iron-core-form';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
-import $ from 'jquery';
+import Alerts from '../components/alerts/alerts';
+import Modal from '../components/portals/modal';
 
 @inject('store')
 @observer
@@ -17,137 +18,47 @@ export default class ConfigureMDM extends React.Component {
 
   static propTypes = {
     store: PropTypes.shape({
-      mdmStore: PropTypes.shape({
-        formData: PropTypes.object
-      })
+      mdmStore: PropTypes.shape({formData: PropTypes.object})
     })
   }
 
-	constructor(props) {
-		super(props);
-		this.store = this.props.store.mdmStore;
-	}
+  constructor(props) {
+    super(props);
+    this.mdmStore = this.props.store.mdmStore;
+    this.breakConnectionModal = {};
+  }
 
   componentWillMount() {
-    this.store.hasBeenSubmitted = false;
-    this.store.getMDMConfiguration();
-    this.store.enableSaveDialogs();
+    this.mdmStore.hasBeenSubmitted = false;
+    this.mdmStore.getMDMConfiguration();
   }
 
   componentWillUnmount() {
-    this.clearModals();
-    this.store.disableSaveDialogs();
-    this.store.form = undefined;
-
-    //FPSE-1064 clear all alerts from this page
-    this.store.mdm_form_alerts = [];
+    this.mdmStore.clearSuccess();
   }
 
-  // Configure MDM Form Functions
-	handleSelectChange = (event) => {
-		this.store.updateMDM(event.target.value);
-	}
-
-  updateForm = (event) => {
-    event.preventDefault();
-    if(event.target.id !== 'mdm_submit_btn'){
-      this.store.updateForm(event.target);
-    }
-  }
-
-  handleSubmit = (event) => {
-    event.preventDefault();
-    this.store.submitForm();
-  }
-
-  // MDM Modals Functions
-  discardFormChanges = (event) => {
-    event.preventDefault();
-    this.store.resetMDMForm();
-    history.push(this.store.interceptedRoute);
+  handleSelectChange = (event) => {
+    this.mdmStore.updateMDM(event.target.value);
   }
 
   breakMDMConnection = (event) => {
     event.preventDefault();
-    this.store.breakMDMConnection();
-    this.togglebreakMDMConnection(event);
+    this.mdmStore.breakMDMConnection();
+    this.breakConnectionModal.hideModal();
   }
 
-  toggleExitModal = (event) => {
-    event.preventDefault();
-    this.store.toggleExitModal();
-  }
-
-  togglebreakMDMConnection = (event) => {
-    event.preventDefault();
-    this.store.togglebreakMDMConnection();
-  }
-
-  renderExitModal = (showExitModal) => {
-    this.showModal(showExitModal, '#exitModal')
-
-    return (
-      <div id="exitModal" className="modal fade" tabIndex="-1" role="dialog" aria-labelledby="exit-modal-title">
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <button type="button" autoFocus="true" id="exitModalCloseBtn" className="fn-modal-close" onClick={this.toggleExitModal}>
-              <i aria-hidden="true" className="icon-close"></i>
-              <span className="sr-only">Close window</span>
-            </button>
-            <div className="row no-gutters" id="exit-modal-title">
-              <div className="col-xs-12">
-                <PageTitle className="as-h2">Unsaved changes</PageTitle>
-                <p>Your form changes will not be saved if you navigate away from this page.</p>
-              </div>
-              <div className="col-xs-12 text-center">
-                <button className="fn-primary" onClick={this.toggleExitModal}>Stay on Page</button>
-                <button className="fn-secondary" onClick={this.discardFormChanges}>Discard Changes</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    )
-  }
-
-  renderBreakConnectionModal = (showbreakMDMConnection) => {
-    this.showModal(showbreakMDMConnection, '#breakConnectionModal');
-    return (
-      <div id="breakConnectionModal"  className="modal fade" tabIndex="-1" role="dialog" aria-labelledby="break-connection-modal-title">
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <button type="button" className="fn-modal-close" onClick={this.togglebreakMDMConnection}>
-              <i aria-hidden="true" className="icon-close"></i>
-              <span className="sr-only">Close window</span>
-            </button>
-            <div className="row no-gutters" id="break-connection-modal-title">
-              <div className="col-xs-12">
-                <PageTitle className="as-h2">Confirm break connection</PageTitle>
-                <p>This cannot be undone. If you break this application’s connection to MDM, you will have to re-configure it using this form to establish a new connection.</p>
-              </div>
-              <div className="col-xs-12 text-center">
-                <button className="fn-primary" onClick={this.togglebreakMDMConnection}>Keep Connection</button>
-                <button className="fn-secondary" onClick={this.breakMDMConnection}>Break Connection</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    )
-  }
-
-  showModal(shouldShow, modalID) {
-    if (shouldShow) {
-      $(modalID).modal({backdrop: 'static'});
-    } else {
-      $(modalID).modal('hide');
-      $(modalID).data('bs.modal', null);
-    }
-  }
-
-  clearModals = () => {
-    $('.modal-backdrop, #exitModal, #breakConnectionModal').remove();
-    $('body').removeClass('modal-open');
+  renderBreakConnectionModal = () => {
+    return <Modal
+			id="break-connection-modal"
+			title="Confirm break connection"
+			ref={i => this.breakConnectionModal = i}
+			restoreFocusTo="#connection-modal-launcher"
+			primaryAction={this.breakMDMConnection}
+			primaryButtonLabel="Break Connection"
+			secondaryAction={this.breakConnectionModal.hideModal}
+			secondaryButtonLabel="Keep Connection">
+      <p>This cannot be undone. If you break this application’s connection to MDM, you will have to re-configure it using this form to establish a new connection.</p>
+    </Modal>
   }
 
   renderBreadcrumb = () => {
@@ -155,12 +66,10 @@ export default class ConfigureMDM extends React.Component {
       {
         pageHref: '/admin',
         pageTitle: 'Administration Dashboard'
-      },
-      {
+      }, {
         pageHref: '/admin/manage-apps',
         pageTitle: 'Manage Apps'
-      },
-      {
+      }, {
         pageHref: '/admin/configure-mdm',
         pageTitle: 'Configure MDM'
       }
@@ -169,28 +78,24 @@ export default class ConfigureMDM extends React.Component {
   }
 
   renderMDMSelectMenu = () => {
-    return (
-      <div className='form-group has-feedback'>
-        <label className="control-label" htmlFor="mdm">
-          Your MDM<span className="required-asterisks"> *</span>
-        </label>
-        <select id="mdm_type"
-          className={`form-control ${this.store.formData.mdm_type ? '' : 'placeholder'}`}
-          onChange={this.handleSelectChange}
-          value={this.store.formData.mdm_type}
-          disabled={this.store.isConfigured}>
-          <option value="">Select MDM</option>
-          <option value="AIRWATCH">Airwatch</option>
-          <option value="MAAS360">IBM MaaS360</option>
-          <option value="MOBILE_IRON">MobileIron</option>
-        </select>
-      </div>
-    )
+    return (<div className='form-group has-feedback'>
+      <label className="control-label" htmlFor="mdm">
+        Your MDM<span className="required-asterisks"> *</span>
+      </label>
+      <select id="mdm_type" className='form-control' onChange={this.handleSelectChange} value={this.mdmStore.values.mdm_type} disabled={this.mdmStore.mdmIsConfigured}>
+        <option value="">Select MDM</option>
+        <option value="AIRWATCH">AirWatch</option>
+        <option value="MAAS360">IBM MaaS360</option>
+        <option value="MOBILE_IRON">MobileIron Cloud</option>
+        <option value="MOBILE_IRON_CORE">MobileIron Core</option>
+        <option value="MICROSOFT_INTUNE">Microsoft Intune</option>
+      </select>
+    </div>)
   }
 
   renderProperMDMForm = () => {
-    let MDMFormComponent = null;
-    switch(this.store.formData.mdm_type) {
+    let MDMFormComponent;
+    switch (this.mdmStore.values.mdm_type) {
       case 'AIRWATCH':
         MDMFormComponent = AirWatchForm;
         break;
@@ -198,87 +103,66 @@ export default class ConfigureMDM extends React.Component {
         MDMFormComponent = IBMForm;
         break;
       case 'MOBILE_IRON':
-        MDMFormComponent = MobileIronForm;
+        MDMFormComponent = MobileIronCloudForm;
+        break;
+      case 'MOBILE_IRON_CORE':
+        MDMFormComponent = MobileIronCoreForm;
+        break;
+      case 'MICROSOFT_INTUNE':
+        MDMFormComponent = MicrosoftForm;
         break;
       default:
         MDMFormComponent = null;
     }
     if (MDMFormComponent) {
-      return <MDMFormComponent renderFormInput={this.renderFormInput}/>
+      return <MDMFormComponent store={this.mdmStore} disabled={this.mdmStore.mdmIsConfigured} suppressAlertBars={true}/>
     }
     return null;
   }
 
-  renderFormInput = ({id, label, genericLabel, type}) => {
-    const value = this.store.formData[id];
-    const hasError = value === '';
-    return (
-      <div className={`form-group has-feedback ${hasError ? 'has-error' : ''}`}>
-        <label className="control-label" htmlFor={id}>{label}<span className="required-asterisks"> *</span></label>
-        {hasError && <div className="msgBlock error error-list" role="alert" aria-live="assertive">
-          <span>Please enter a valid {genericLabel || label.toLowerCase()}.</span>
-        </div>}
-        <input id={id} ref={ref => this.store.formFieldRefs[id] = ref} type={type || 'text'} className="form-control" disabled={this.store.isConfigured} defaultValue={value}/>
-      </div>
-    )
-  }
-
-  renderSubmitButton = () => {
-    const disabled = !this.store.mdmFormIsValid || this.store.isConfigured || this.store.beingSubmitted;
-    return (
-      <div className="form-group text-center">
-        <button id="mdm_submit_btn" aria-labelledby="configure-mdm-form" type="submit" className={`fn-primary ${disabled ? 'disabled' : ''}`}>
-        {this.store.beingSubmitted
-          ? <span>
-              <i className="icon-reload" aria-label="Still Submitting Form"></i>
-              &nbsp;&nbsp;Submitting&hellip;
-            </span>
-          : <span>Submit</span>}
-        </button>
-      </div>
-    )
-  }
-
   renderBreakConnectionButton = () => {
-    return (
-      <div className="break-mdm-wrapper col-xs-12">
-        <div className="container">
-          <button onClick={this.togglebreakMDMConnection} className="break-mdm-btn fn-primary" aria-labelledby="break-mdm-connection" aria-disabled={!this.store.isConfigured}>Break Connection</button>
-        </div>
+    return (<div className="break-mdm-wrapper col-xs-12">
+      <div className="container">
+        <button id="connection-modal-launcher" onClick={this.breakConnectionModal.showModal} className="break-mdm-btn fn-primary" aria-labelledby="break-mdm-connection" aria-disabled={!this.mdmStore.mdmIsConfigured}>Break Connection</button>
       </div>
-    )
+    </div>)
+  }
+
+  renderInTuneDisclaimer = () => {
+    return (<p className="mdm-descriptive-block">
+      Note: only FirstNet applications that are available in the iTunes or Google Play stores can be pushed to an Intune account through the Local Control site.
+    </p>)
   }
 
   render() {
-    return (
-      <article id="configure-mdm-page">
-        {this.renderBreadcrumb()}
-        {this.store.isConfigured && this.renderBreakConnectionButton()}
-        <div className="mdm-form-wrapper container">
-          <div className="col-xs-12 text-center">
-            <PageTitle childrenContainHTML>
-              <span className="hidden-xs">Configure Mobile Device Management (MDM)</span>
-              <span className="visible-xs-inline">Configure MDM</span>
-            </PageTitle>
-          </div>
-
-          <div className="row no-gutters">
-            <section className="col-xs-12 col-lg-10 col-lg-offset-1">
-              <div className="mdm-form col-md-offset-2 col-xs-12 col-md-8 col-md">
-                <MDMAlerts store={this.store} alertList={this.store.mdm_form_alerts}/>
-                <form id="configure-mdm-form" onSubmit={this.handleSubmit} noValidate onChange={this.updateForm} onBlur={this.updateForm}>
-                  {this.store.isConfigured && <p className="mdm-description">Only one MDM can be configured at a time. To configure a new MDM, the existing connection must be broken. Once the existing connection is broken, a new one can be configured.</p>}
-                  {this.renderMDMSelectMenu()}
-                  {this.renderProperMDMForm()}
-                  {this.renderSubmitButton()}
-                </form>
-              </div>
-            </section>
-          </div>
+    return (<article id="configure-mdm-page">
+      {this.renderBreadcrumb()}
+      {this.mdmStore.mdmIsConfigured && this.renderBreakConnectionButton()}
+      <div className="mdm-form-wrapper container">
+        <div className="col-xs-12 text-center">
+          <PageTitle className="sr-only">
+            Configure Mobile Device Management
+          </PageTitle>
+          <h2 className="as-h1" aria-hidden={true}>
+            <span className="hidden-xs">Configure Mobile Device Management (MDM)</span>
+            <span className="visible-xs-inline">Configure MDM</span>
+          </h2>
         </div>
-        {this.renderExitModal(this.store.showExitModal)}
-        {this.renderBreakConnectionModal(this.store.showbreakMDMConnection)}
-      </article>
-    )
+
+        <div className="row no-gutters">
+          <section className="col-xs-12 col-lg-10 col-lg-offset-1">
+            <div className="mdm-form col-md-offset-2 col-xs-12 col-md-8 col-md">
+              <section>
+                <Alerts showAlert={Boolean(this.mdmStore.alertToDisplay)} alertText={this.mdmStore.alertToDisplay} clearAlert={this.mdmStore.clearAlertAndReferences.bind(this.mdmStore)} showSuccess={Boolean(this.mdmStore.successToDisplay)} successText={this.mdmStore.successToDisplay} clearSuccess={this.mdmStore.clearSuccess.bind(this.mdmStore)}/> {this.mdmStore.mdmIsConfigured && <p className="mdm-descriptive-block">Only one MDM can be configured at a time. To configure a new MDM, the existing connection must be broken. Once the existing connection is broken, a new one can be configured.</p>}
+                {this.mdmStore.values.mdm_type === 'MICROSOFT_INTUNE' && this.renderInTuneDisclaimer()}
+                {this.renderMDMSelectMenu()}
+                {this.renderProperMDMForm()}
+              </section>
+            </div>
+          </section>
+        </div>
+      </div>
+      {this.renderBreakConnectionModal()}
+    </article>)
   }
 }

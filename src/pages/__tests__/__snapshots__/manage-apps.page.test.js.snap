@@ -1,18 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<ManageAppsPage /> render matches previous snapshot 1`] = `
 <article
-  id="manage-apps-page">
+  id="manage-apps-page"
+>
   <div
-    className="container header">
+    className="container header"
+  >
     <div
-      className="row">
+      className="row"
+    >
       <div
-        className="configure-mdm-container col-xs-12 col-lg-offset-1 col-lg-10">
+        className="configure-mdm-container col-xs-12 col-lg-offset-1 col-lg-10"
+      >
         <div
-          className="configure-mdm-wrapper">
+          className="configure-mdm-wrapper"
+        >
           <a
-            className="configure-mdm-btn fn-primary"
+            className="configure-mdm-btn fn-primary walkthrough-mdm-button"
             href="/admin/configure-mdm"
-            onClick={[Function anonymous]}>
+            onClick={[Function]}
+          >
             Configure MDM
           </a>
         </div>
@@ -20,65 +28,85 @@ exports[`<ManageAppsPage /> render matches previous snapshot 1`] = `
     </div>
   </div>
   <div
-    className="container">
+    className="container"
+  >
     <div
-      className="row">
+      className="row"
+    >
       <div
         aria-live="assertive"
         aria-relevant="additions"
-        className="col-xs-12 col-lg-offset-1 col-lg-10" />
+        className="col-xs-12 col-lg-offset-1 col-lg-10"
+      />
     </div>
   </div>
   <div
-    className="manage-apps-form">
+    className="manage-apps-form walkthrough-search-and-filter"
+  >
     <div
-      className="container">
+      className="container"
+    >
       <div
-        className="row">
+        className="row"
+      >
         <div
-          className="col-xs-12 col-lg-offset-1 col-lg-10">
+          className="col-xs-12 col-lg-offset-1 col-lg-10"
+        >
           <hr />
         </div>
       </div>
     </div>
   </div>
   <div
-    className="container">
+    className="container"
+  >
     <div
-      className="row">
+      className="row"
+    >
       <div
-        className="col-xs-12 col-lg-offset-1 col-lg-10">
+        className="col-xs-12 col-lg-offset-1 col-lg-10"
+      >
         <p
           aria-live="polite"
-          className="as-h2 results-count" />
+          className="as-h2 results-count"
+        />
       </div>
     </div>
   </div>
   <div
-    className="container">
+    className="container"
+  >
     <div
-      className="row">
+      className="row"
+    >
       <div
-        className="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-12 col-lg-offset-1 col-lg-10">
+        className="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-12 col-lg-offset-1 col-lg-10"
+      >
         <section
-          className="card-list-container card-list-substitute">
+          className="card-list-container card-list-substitute"
+        >
           <div
-            className="row" />
+            className="row"
+          />
           <div
-            className="no-results-container">
+            className="no-results-container"
+          >
             <p
-              className="as-h2">
+              className="as-h2"
+            >
               No Results
             </p>
             <p
-              aria-live="polite">
+              aria-live="polite"
+            >
               There are no results to display. Please retry your search.
             </p>
             <button
               className="btn fn-primary"
               id="view-all-apps-button"
-              onClick={[Function anonymous]}
-              type="button">
+              onClick={[Function]}
+              type="button"
+            >
               Load All Apps
             </button>
           </div>
@@ -91,19 +119,25 @@ exports[`<ManageAppsPage /> render matches previous snapshot 1`] = `
 
 exports[`<ManageAppsPage /> render matches previous snapshot 2`] = `
 <article
-  id="manage-apps-page">
+  id="manage-apps-page"
+>
   <div
-    className="container header">
+    className="container header"
+  >
     <div
-      className="row">
+      className="row"
+    >
       <div
-        className="configure-mdm-container col-xs-12 col-lg-offset-1 col-lg-10">
+        className="configure-mdm-container col-xs-12 col-lg-offset-1 col-lg-10"
+      >
         <div
-          className="configure-mdm-wrapper">
+          className="configure-mdm-wrapper"
+        >
           <a
-            className="configure-mdm-btn fn-primary"
+            className="configure-mdm-btn fn-primary walkthrough-mdm-button"
             href="/admin/configure-mdm"
-            onClick={[Function anonymous]}>
+            onClick={[Function]}
+          >
             Configure MDM
           </a>
         </div>
@@ -111,65 +145,85 @@ exports[`<ManageAppsPage /> render matches previous snapshot 2`] = `
     </div>
   </div>
   <div
-    className="container">
+    className="container"
+  >
     <div
-      className="row">
+      className="row"
+    >
       <div
         aria-live="assertive"
         aria-relevant="additions"
-        className="col-xs-12 col-lg-offset-1 col-lg-10" />
+        className="col-xs-12 col-lg-offset-1 col-lg-10"
+      />
     </div>
   </div>
   <div
-    className="manage-apps-form">
+    className="manage-apps-form walkthrough-search-and-filter"
+  >
     <div
-      className="container">
+      className="container"
+    >
       <div
-        className="row">
+        className="row"
+      >
         <div
-          className="col-xs-12 col-lg-offset-1 col-lg-10">
+          className="col-xs-12 col-lg-offset-1 col-lg-10"
+        >
           <hr />
         </div>
       </div>
     </div>
   </div>
   <div
-    className="container">
+    className="container"
+  >
     <div
-      className="row">
+      className="row"
+    >
       <div
-        className="col-xs-12 col-lg-offset-1 col-lg-10">
+        className="col-xs-12 col-lg-offset-1 col-lg-10"
+      >
         <p
           aria-live="polite"
-          className="as-h2 results-count" />
+          className="as-h2 results-count"
+        />
       </div>
     </div>
   </div>
   <div
-    className="container">
+    className="container"
+  >
     <div
-      className="row">
+      className="row"
+    >
       <div
-        className="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-12 col-lg-offset-1 col-lg-10">
+        className="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-12 col-lg-offset-1 col-lg-10"
+      >
         <section
-          className="card-list-container card-list-substitute">
+          className="card-list-container card-list-substitute"
+        >
           <div
-            className="row" />
+            className="row"
+          />
           <div
-            className="no-results-container">
+            className="no-results-container"
+          >
             <p
-              className="as-h2">
+              className="as-h2"
+            >
               No Results
             </p>
             <p
-              aria-live="polite">
+              aria-live="polite"
+            >
               There are no results to display. Please retry your search.
             </p>
             <button
               className="btn fn-primary"
               id="view-all-apps-button"
-              onClick={[Function anonymous]}
-              type="button">
+              onClick={[Function]}
+              type="button"
+            >
               Load All Apps
             </button>
           </div>
@@ -182,19 +236,25 @@ exports[`<ManageAppsPage /> render matches previous snapshot 2`] = `
 
 exports[`<ManageAppsPage /> render matches previous snapshot 3`] = `
 <article
-  id="manage-apps-page">
+  id="manage-apps-page"
+>
   <div
-    className="container header">
+    className="container header"
+  >
     <div
-      className="row">
+      className="row"
+    >
       <div
-        className="configure-mdm-container col-xs-12 col-lg-offset-1 col-lg-10">
+        className="configure-mdm-container col-xs-12 col-lg-offset-1 col-lg-10"
+      >
         <div
-          className="configure-mdm-wrapper">
+          className="configure-mdm-wrapper"
+        >
           <a
-            className="configure-mdm-btn fn-primary"
+            className="configure-mdm-btn fn-primary walkthrough-mdm-button"
             href="/admin/configure-mdm"
-            onClick={[Function anonymous]}>
+            onClick={[Function]}
+          >
             Configure MDM
           </a>
         </div>
@@ -202,65 +262,85 @@ exports[`<ManageAppsPage /> render matches previous snapshot 3`] = `
     </div>
   </div>
   <div
-    className="container">
+    className="container"
+  >
     <div
-      className="row">
+      className="row"
+    >
       <div
         aria-live="assertive"
         aria-relevant="additions"
-        className="col-xs-12 col-lg-offset-1 col-lg-10" />
+        className="col-xs-12 col-lg-offset-1 col-lg-10"
+      />
     </div>
   </div>
   <div
-    className="manage-apps-form">
+    className="manage-apps-form walkthrough-search-and-filter"
+  >
     <div
-      className="container">
+      className="container"
+    >
       <div
-        className="row">
+        className="row"
+      >
         <div
-          className="col-xs-12 col-lg-offset-1 col-lg-10">
+          className="col-xs-12 col-lg-offset-1 col-lg-10"
+        >
           <hr />
         </div>
       </div>
     </div>
   </div>
   <div
-    className="container">
+    className="container"
+  >
     <div
-      className="row">
+      className="row"
+    >
       <div
-        className="col-xs-12 col-lg-offset-1 col-lg-10">
+        className="col-xs-12 col-lg-offset-1 col-lg-10"
+      >
         <p
           aria-live="polite"
-          className="as-h2 results-count" />
+          className="as-h2 results-count"
+        />
       </div>
     </div>
   </div>
   <div
-    className="container">
+    className="container"
+  >
     <div
-      className="row">
+      className="row"
+    >
       <div
-        className="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-12 col-lg-offset-1 col-lg-10">
+        className="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-12 col-lg-offset-1 col-lg-10"
+      >
         <section
-          className="card-list-container card-list-substitute">
+          className="card-list-container card-list-substitute"
+        >
           <div
-            className="row" />
+            className="row"
+          />
           <div
-            className="no-results-container">
+            className="no-results-container"
+          >
             <p
-              className="as-h2">
+              className="as-h2"
+            >
               No Results
             </p>
             <p
-              aria-live="polite">
+              aria-live="polite"
+            >
               There are no results to display. Please retry your search.
             </p>
             <button
               className="btn fn-primary"
               id="view-all-apps-button"
-              onClick={[Function anonymous]}
-              type="button">
+              onClick={[Function]}
+              type="button"
+            >
               Load All Apps
             </button>
           </div>

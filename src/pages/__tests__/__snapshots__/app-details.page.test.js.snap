@@ -1,29 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<AppDetailsPage /> render matches snapshot before and after PSE is assigned 1`] = `
 <article
-  id="app-details-page">
+  id="app-details-page"
+>
   <div
-    className="app-details-alerts">
+    className="app-details-alerts"
+  >
     <div
-      className="container">
+      className="container"
+    >
       <div
-        className="row">
+        className="row"
+      >
         <div
-          className="col-xs-12" />
+          className="col-xs-12"
+        />
       </div>
     </div>
   </div>
   <div
-    className="container loading-container">
+    className="container loading-container"
+  >
     <div
-      className="row">
+      className="row"
+    >
       <div
-        className="col-xs-12">
+        className="col-xs-12"
+      >
         <p
           aria-live="polite"
-          className="as-h2">
+          className="as-h2"
+        >
           <i
             aria-hidden="true"
-            className="as-h2 icon-reload" />
+            className="as-h2 icon-reload"
+          />
           Loading app…
         </p>
       </div>
@@ -34,30 +46,40 @@ exports[`<AppDetailsPage /> render matches snapshot before and after PSE is assi
 
 exports[`<AppDetailsPage /> render matches snapshot before and after PSE is assigned 2`] = `
 <article
-  id="app-details-page">
+  id="app-details-page"
+>
   <div
-    className="app-details-alerts">
+    className="app-details-alerts"
+  >
     <div
-      className="container">
+      className="container"
+    >
       <div
-        className="row">
+        className="row"
+      >
         <div
-          className="col-xs-12" />
+          className="col-xs-12"
+        />
       </div>
     </div>
   </div>
   <div
-    className="container loading-container">
+    className="container loading-container"
+  >
     <div
-      className="row">
+      className="row"
+    >
       <div
-        className="col-xs-12">
+        className="col-xs-12"
+      >
         <p
           aria-live="polite"
-          className="as-h2">
+          className="as-h2"
+        >
           <i
             aria-hidden="true"
-            className="as-h2 icon-reload" />
+            className="as-h2 icon-reload"
+          />
           Loading app…
         </p>
       </div>
@@ -68,30 +90,40 @@ exports[`<AppDetailsPage /> render matches snapshot before and after PSE is assi
 
 exports[`<AppDetailsPage /> render matches snapshot when app has not been matched yet 1`] = `
 <article
-  id="app-details-page">
+  id="app-details-page"
+>
   <div
-    className="app-details-alerts">
+    className="app-details-alerts"
+  >
     <div
-      className="container">
+      className="container"
+    >
       <div
-        className="row">
+        className="row"
+      >
         <div
-          className="col-xs-12" />
+          className="col-xs-12"
+        />
       </div>
     </div>
   </div>
   <div
-    className="container loading-container">
+    className="container loading-container"
+  >
     <div
-      className="row">
+      className="row"
+    >
       <div
-        className="col-xs-12">
+        className="col-xs-12"
+      >
         <p
           aria-live="polite"
-          className="as-h2">
+          className="as-h2"
+        >
           <i
             aria-hidden="true"
-            className="as-h2 icon-reload" />
+            className="as-h2 icon-reload"
+          />
           Loading app…
         </p>
       </div>
@@ -102,30 +134,40 @@ exports[`<AppDetailsPage /> render matches snapshot when app has not been matche
 
 exports[`<AppDetailsPage /> render matches snapshot when app has not been matched yet 2`] = `
 <article
-  id="app-details-page">
+  id="app-details-page"
+>
   <div
-    className="app-details-alerts">
+    className="app-details-alerts"
+  >
     <div
-      className="container">
+      className="container"
+    >
       <div
-        className="row">
+        className="row"
+      >
         <div
-          className="col-xs-12" />
+          className="col-xs-12"
+        />
       </div>
     </div>
   </div>
   <div
-    className="container loading-container">
+    className="container loading-container"
+  >
     <div
-      className="row">
+      className="row"
+    >
       <div
-        className="col-xs-12">
+        className="col-xs-12"
+      >
         <p
           aria-live="polite"
-          className="as-h2">
+          className="as-h2"
+        >
           <i
             aria-hidden="true"
-            className="as-h2 icon-reload" />
+            className="as-h2 icon-reload"
+          />
           Loading app…
         </p>
       </div>
@@ -136,58 +178,77 @@ exports[`<AppDetailsPage /> render matches snapshot when app has not been matche
 
 exports[`<AppDetailsPage /> render matches snapshot when app has not been matched yet 3`] = `
 <article
-  id="app-details-page">
+  id="app-details-page"
+>
   <div
-    className="app-details-alerts">
+    className="app-details-alerts"
+  >
     <div
-      className="container">
+      className="container"
+    >
       <div
-        className="row">
+        className="row"
+      >
         <div
-          className="col-xs-12" />
+          className="col-xs-12"
+        />
       </div>
     </div>
   </div>
   <div>
-    
-    <section
-      className="app-description">
-      <div
-        className="container">
+    <div
+      className="app-description-block walkthrough-app-details"
+    >
+      
+      <section
+        className="app-description"
+      >
         <div
-          className="row">
+          className="container"
+        >
           <div
-            className="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
-            <div>
-              <h2
-                id="app-details-description">
-                Description
-              </h2>
-            </div>
-            <section
-              className="whats-new">
-              <h2
-                className="whats-new-title"
-                id="app-details-whats-new">
-                What\'s New
-              </h2>
-              <div
-                className="whats-new-date">
-                October 31, 2011
+            className="row"
+          >
+            <div
+              className="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10"
+            >
+              <div>
+                <h2
+                  id="app-details-description"
+                >
+                  Description
+                </h2>
               </div>
-            </section>
+              <section
+                className="whats-new"
+              >
+                <h2
+                  className="whats-new-title"
+                  id="app-details-whats-new"
+                >
+                  What's New
+                </h2>
+                <div
+                  className="whats-new-date"
+                />
+              </section>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
     <section
-      className="app-ratings">
+      className="app-ratings walkthrough-app-ratings"
+    >
       <div
-        className="container">
+        className="container"
+      >
         <div
-          className="row">
+          className="row"
+        >
           <div
-            className="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
+            className="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10"
+          >
             <h2>
               Reviews
             </h2>
@@ -196,131 +257,35 @@ exports[`<AppDetailsPage /> render matches snapshot when app has not been matche
       </div>
     </section>
     <section
-      className="app-developer">
+      className="app-developer"
+    >
       <div
-        className="container">
+        className="container"
+      >
         <div
-          className="row">
+          className="row"
+        >
           <div
-            className="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
+            className="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10"
+          >
             <h2>
-              About the Developer
+              About this Developer
             </h2>
             <p
               className="dev-description"
               dangerouslySetInnerHTML={
                 Object {
-                  "__html": ""
+                  "__html": "",
                 }
-              } />
+              }
+            />
             <div
-              className="developer-website" />
+              className="developer-website"
+            />
           </div>
         </div>
       </div>
     </section>
-  </div>
-</article>
-`;
-
-exports[`<AppDetailsPage /> render matches snapshot when showing 0, 1, and many MDM alerts 1`] = `
-<article
-  id="app-details-page">
-  <div
-    className="app-details-alerts">
-    <div
-      className="container">
-      <div
-        className="row">
-        <div
-          className="col-xs-12" />
-      </div>
-    </div>
-  </div>
-  <div
-    className="container loading-container">
-    <div
-      className="row">
-      <div
-        className="col-xs-12">
-        <p
-          aria-live="polite"
-          className="as-h2">
-          <i
-            aria-hidden="true"
-            className="as-h2 icon-reload" />
-          Loading app…
-        </p>
-      </div>
-    </div>
-  </div>
-</article>
-`;
-
-exports[`<AppDetailsPage /> render matches snapshot when showing 0, 1, and many MDM alerts 2`] = `
-<article
-  id="app-details-page">
-  <div
-    className="app-details-alerts">
-    <div
-      className="container">
-      <div
-        className="row">
-        <div
-          className="col-xs-12" />
-      </div>
-    </div>
-  </div>
-  <div
-    className="container loading-container">
-    <div
-      className="row">
-      <div
-        className="col-xs-12">
-        <p
-          aria-live="polite"
-          className="as-h2">
-          <i
-            aria-hidden="true"
-            className="as-h2 icon-reload" />
-          Loading app…
-        </p>
-      </div>
-    </div>
-  </div>
-</article>
-`;
-
-exports[`<AppDetailsPage /> render matches snapshot when showing 0, 1, and many MDM alerts 3`] = `
-<article
-  id="app-details-page">
-  <div
-    className="app-details-alerts">
-    <div
-      className="container">
-      <div
-        className="row">
-        <div
-          className="col-xs-12" />
-      </div>
-    </div>
-  </div>
-  <div
-    className="container loading-container">
-    <div
-      className="row">
-      <div
-        className="col-xs-12">
-        <p
-          aria-live="polite"
-          className="as-h2">
-          <i
-            aria-hidden="true"
-            className="as-h2 icon-reload" />
-          Loading app…
-        </p>
-      </div>
-    </div>
   </div>
 </article>
 `;

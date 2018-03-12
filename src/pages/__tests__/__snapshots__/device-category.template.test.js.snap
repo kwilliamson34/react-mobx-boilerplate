@@ -1,66 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<DeviceCategoryTemplate /> render matches snapshot with zero, one and many cards 1`] = `
 <section
-  className="device-category">
+  className="device-category"
+>
   <div
-    className="container">
+    className="container"
+  >
     <div
-      className="row">
+      className="row"
+    >
       <div
-        className="col-xs-12 catalog-header">
-        <h1>
-          
-        </h1>
-      </div>
+        className="col-xs-12 catalog-header"
+      />
     </div>
     <div
-      className="row">
+      className="row"
+    >
       <div
-        className="col-xs-offset-2 col-xs-8 col-sm-12 col-sm-offset-0 col-md-offset-1 col-md-10">
+        className="col-xs-offset-2 col-xs-8 col-sm-12 col-sm-offset-0 col-md-offset-1 col-md-10"
+      >
         <ul
-          className="mp-content left" />
+          className="mp-content left"
+        />
       </div>
     </div>
     <div
-      className="row" />
+      className="row"
+    />
   </div>
 </section>
 `;
 
 exports[`<DeviceCategoryTemplate /> render matches snapshot with zero, one and many cards 2`] = `
 <section
-  className="device-category">
+  className="device-category"
+>
   <div
-    className="container">
+    className="container"
+  >
     <div
-      className="row">
+      className="row"
+    >
       <div
-        className="col-xs-12 catalog-header">
-        <h1>
-          
-        </h1>
-      </div>
+        className="col-xs-12 catalog-header"
+      />
     </div>
     <div
-      className="row">
+      className="row"
+    >
       <div
-        className="col-xs-offset-2 col-xs-8 col-sm-12 col-sm-offset-0 col-md-offset-1 col-md-10">
+        className="col-xs-offset-2 col-xs-8 col-sm-12 col-sm-offset-0 col-md-offset-1 col-md-10"
+      >
         <ul
-          className="mp-content left">
+          className="mp-content left"
+        >
           <li>
             <a
-              href="/admin/devices/category1/undefined"
-              onClick={[Function anonymous]}>
+              href="/admin/devices/category1/title"
+              onClick={[Function]}
+            >
               <h3
                 dangerouslySetInnerHTML={
                   Object {
-                    "__html": "title"
+                    "__html": "title",
                   }
-                } />
+                }
+              />
               <div
-                className="card-img-wrapper">
+                className="card-img-wrapper"
+              >
                 <img
                   alt="alt"
-                  src="url" />
+                  src="url"
+                />
               </div>
             </a>
           </li>
@@ -68,208 +81,252 @@ exports[`<DeviceCategoryTemplate /> render matches snapshot with zero, one and m
       </div>
     </div>
     <div
-      className="row" />
+      className="row"
+    />
   </div>
 </section>
 `;
 
 exports[`<DeviceCategoryTemplate /> render matches snapshot with zero, one and many cards 3`] = `
 <section
-  className="device-category">
+  className="device-category"
+>
   <div
-    className="container">
+    className="container"
+  >
     <div
-      className="row">
+      className="row"
+    >
       <div
-        className="col-xs-12 catalog-header">
-        <h1>
-          
-        </h1>
-      </div>
+        className="col-xs-12 catalog-header"
+      />
     </div>
     <div
-      className="row">
+      className="row"
+    >
       <div
-        className="col-xs-offset-2 col-xs-8 col-sm-12 col-sm-offset-0 col-md-offset-1 col-md-10">
+        className="col-xs-offset-2 col-xs-8 col-sm-12 col-sm-offset-0 col-md-offset-1 col-md-10"
+      >
         <ul
-          className="mp-content left">
+          className="mp-content left"
+        >
           <li>
             <a
-              href="/admin/devices/category1/undefined"
-              onClick={[Function anonymous]}>
+              href="/admin/devices/category1/title"
+              onClick={[Function]}
+            >
               <h3
                 dangerouslySetInnerHTML={
                   Object {
-                    "__html": "title"
+                    "__html": "title",
                   }
-                } />
+                }
+              />
               <div
-                className="card-img-wrapper">
+                className="card-img-wrapper"
+              >
                 <img
                   alt="alt"
-                  src="url" />
+                  src="url"
+                />
               </div>
             </a>
           </li>
           <li>
             <a
-              href="/admin/devices/category1/undefined"
-              onClick={[Function anonymous]}>
+              href="/admin/devices/category1/title"
+              onClick={[Function]}
+            >
               <h3
                 dangerouslySetInnerHTML={
                   Object {
-                    "__html": "title"
+                    "__html": "title",
                   }
-                } />
+                }
+              />
               <div
-                className="card-img-wrapper">
+                className="card-img-wrapper"
+              >
                 <img
                   alt="alt"
-                  src="url" />
+                  src="url"
+                />
               </div>
             </a>
           </li>
           <li>
             <a
-              href="/admin/devices/category1/undefined"
-              onClick={[Function anonymous]}>
+              href="/admin/devices/category1/title"
+              onClick={[Function]}
+            >
               <h3
                 dangerouslySetInnerHTML={
                   Object {
-                    "__html": "title"
+                    "__html": "title",
                   }
-                } />
+                }
+              />
               <div
-                className="card-img-wrapper">
+                className="card-img-wrapper"
+              >
                 <img
                   alt="alt"
-                  src="url" />
+                  src="url"
+                />
               </div>
             </a>
           </li>
           <li>
             <a
-              href="/admin/devices/category1/undefined"
-              onClick={[Function anonymous]}>
+              href="/admin/devices/category1/title"
+              onClick={[Function]}
+            >
               <h3
                 dangerouslySetInnerHTML={
                   Object {
-                    "__html": "title"
+                    "__html": "title",
                   }
-                } />
+                }
+              />
               <div
-                className="card-img-wrapper">
+                className="card-img-wrapper"
+              >
                 <img
                   alt="alt"
-                  src="url" />
+                  src="url"
+                />
               </div>
             </a>
           </li>
           <li>
             <a
-              href="/admin/devices/category1/undefined"
-              onClick={[Function anonymous]}>
+              href="/admin/devices/category1/title"
+              onClick={[Function]}
+            >
               <h3
                 dangerouslySetInnerHTML={
                   Object {
-                    "__html": "title"
+                    "__html": "title",
                   }
-                } />
+                }
+              />
               <div
-                className="card-img-wrapper">
+                className="card-img-wrapper"
+              >
                 <img
                   alt="alt"
-                  src="url" />
+                  src="url"
+                />
               </div>
             </a>
           </li>
           <li>
             <a
-              href="/admin/devices/category1/undefined"
-              onClick={[Function anonymous]}>
+              href="/admin/devices/category1/title"
+              onClick={[Function]}
+            >
               <h3
                 dangerouslySetInnerHTML={
                   Object {
-                    "__html": "title"
+                    "__html": "title",
                   }
-                } />
+                }
+              />
               <div
-                className="card-img-wrapper">
+                className="card-img-wrapper"
+              >
                 <img
                   alt="alt"
-                  src="url" />
+                  src="url"
+                />
               </div>
             </a>
           </li>
           <li>
             <a
-              href="/admin/devices/category1/undefined"
-              onClick={[Function anonymous]}>
+              href="/admin/devices/category1/title"
+              onClick={[Function]}
+            >
               <h3
                 dangerouslySetInnerHTML={
                   Object {
-                    "__html": "title"
+                    "__html": "title",
                   }
-                } />
+                }
+              />
               <div
-                className="card-img-wrapper">
+                className="card-img-wrapper"
+              >
                 <img
                   alt="alt"
-                  src="url" />
+                  src="url"
+                />
               </div>
             </a>
           </li>
           <li>
             <a
-              href="/admin/devices/category1/undefined"
-              onClick={[Function anonymous]}>
+              href="/admin/devices/category1/title"
+              onClick={[Function]}
+            >
               <h3
                 dangerouslySetInnerHTML={
                   Object {
-                    "__html": "title"
+                    "__html": "title",
                   }
-                } />
+                }
+              />
               <div
-                className="card-img-wrapper">
+                className="card-img-wrapper"
+              >
                 <img
                   alt="alt"
-                  src="url" />
+                  src="url"
+                />
               </div>
             </a>
           </li>
           <li>
             <a
-              href="/admin/devices/category1/undefined"
-              onClick={[Function anonymous]}>
+              href="/admin/devices/category1/title"
+              onClick={[Function]}
+            >
               <h3
                 dangerouslySetInnerHTML={
                   Object {
-                    "__html": "title"
+                    "__html": "title",
                   }
-                } />
+                }
+              />
               <div
-                className="card-img-wrapper">
+                className="card-img-wrapper"
+              >
                 <img
                   alt="alt"
-                  src="url" />
+                  src="url"
+                />
               </div>
             </a>
           </li>
           <li>
             <a
-              href="/admin/devices/category1/undefined"
-              onClick={[Function anonymous]}>
+              href="/admin/devices/category1/title"
+              onClick={[Function]}
+            >
               <h3
                 dangerouslySetInnerHTML={
                   Object {
-                    "__html": "title"
+                    "__html": "title",
                   }
-                } />
+                }
+              />
               <div
-                className="card-img-wrapper">
+                className="card-img-wrapper"
+              >
                 <img
                   alt="alt"
-                  src="url" />
+                  src="url"
+                />
               </div>
             </a>
           </li>
@@ -277,7 +334,8 @@ exports[`<DeviceCategoryTemplate /> render matches snapshot with zero, one and m
       </div>
     </div>
     <div
-      className="row" />
+      className="row"
+    />
   </div>
 </section>
 `;

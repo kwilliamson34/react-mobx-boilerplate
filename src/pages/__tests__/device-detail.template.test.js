@@ -1,5 +1,6 @@
-jest.unmock('axios');
 jest.unmock('../../core/stores/master.store');
+jest.unmock('../../core/stores/external-link.store');
+jest.unmock('../../core/services/api.service');
 jest.unmock('../device-detail.template');
 
 import {observer, inject} from 'mobx-react';
@@ -35,19 +36,6 @@ describe('<DeviceDetailTemplate />', () => {
       tree = component.toJSON();
       expect(tree).toMatchSnapshot();
     });
-
-    test('matches snapshot with and without terms', () => {
-      let component, tree;
-
-      component = renderer.create(<DeviceDetailTemplate {...props}/>);
-      tree = component.toJSON();
-      expect(tree).toMatchSnapshot();
-
-      props.store.externalLinkStore.currentDeviceDetail.terms = 'terms';
-      component = renderer.create(<DeviceDetailTemplate { ...props}/>);
-      tree = component.toJSON();
-      expect(tree).toMatchSnapshot();
-    });
   });
 
   describe('API', () => {
@@ -68,11 +56,10 @@ describe('<DeviceDetailTemplate />', () => {
       device_image_alt: 'alt',
       device_category: 'category1'
     }
-    props.store.externalLinkStore.currentDeviceDetail = {};
 
     test('does not fetch if the details have already been retrieved', () => {
       let component, tree;
-      props.store.externalLinkStore.currentDeviceDetail.path = 'deviceID1';
+      props.store.externalLinkStore.currentDeviceName = 'deviceID1';
 
       props.store.externalLinkStore.getDevicesData = jest.fn();
       props.store.externalLinkStore.getDevicesData.mockReturnValue(new Promise(resolve => resolve()));
@@ -86,22 +73,9 @@ describe('<DeviceDetailTemplate />', () => {
       expect(props.store.externalLinkStore.fetchAndShowDeviceDetails).not.toBeCalled();
     });
 
-    test('rerenders if user navigates to another detail page', () => {
-      let component, tree;
-      props.store.externalLinkStore.currentDeviceDetail.path = 'deviceID2';
-      props.store.externalLinkStore.fetchAndShowDeviceDetails = jest.fn();
-
-      props.store.externalLinkStore.allSpecializedDevices = [{},{}];
-      component = renderer.create(<MemoryRouter>
-        <DeviceDetailTemplate { ...props}/>
-      </MemoryRouter>);
-
-      expect(props.store.externalLinkStore.fetchAndShowDeviceDetails).toBeCalled();
-    });
-
     test('fetches if the details are missing', () => {
       let component, tree;
-      props.store.externalLinkStore.currentDeviceDetail.path = 'deviceID2';
+      props.store.externalLinkStore.currentDeviceName = 'deviceID2';
       props.store.externalLinkStore.getDevicesData = jest.fn();
       props.store.externalLinkStore.getDevicesData.mockReturnValue(new Promise(resolve => resolve()));
 

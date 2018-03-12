@@ -1,83 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<PurchasingInfo /> render tests matches previous snapshot 1`] = `
-<div
-  className="row"
-  id="purchasing-info">
-  <div
-    className="col-xs-12">
-    <h2>
-      For Purchasing
-    </h2>
-    <div>
-      <ul
-        className="purchase-options-list">
-        <li>
-          <strong>
-            Contact:
-          </strong>
+<section
+  className="purchasing-info"
+>
+  <h2>
+    For Purchasing
+  </h2>
+  <hr />
+  <div>
+    <ul
+      className="purchase-options-list"
+    >
+      <li>
+        <strong>
+          Contact:
+        </strong>
+        <span
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Don Johnson",
+            }
+          }
+        />
+      </li>
+      <li>
+        <strong
+          aria-hidden="true"
+        >
+          Phone:
+        </strong>
+        <a
+          href="tel:1-555-IAM-VICE"
+        >
           <span
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Don Johnson"
-              }
-            } />
-        </li>
-        <li>
-          <strong>
-            Phone:
-          </strong>
-          <a
-            href="tel:1-555-IAM-VICE">
-            1-555-IAM-VICE
-          </a>
-        </li>
-        <li>
-          <strong>
-            Email:
-          </strong>
-          <a
-            href="mailto:don_the_heat@hotmail.com">
-            don_the_heat@hotmail.com
-          </a>
-        </li>
-        <li>
-          <strong>
-            Company:
-          </strong>
+            className="sr-only"
+          >
+            Phone: 
+          </span>
+          1-555-IAM-VICE
+        </a>
+      </li>
+      <li>
+        <strong
+          aria-hidden="true"
+        >
+          Email:
+        </strong>
+        <a
+          href="mailto:don_the_heat@hotmail.com"
+        >
           <span
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Fast \'n Hot Speedboats\'"
-              }
-            } />
-        </li>
-        <li>
-          <strong>
-            Website:
-          </strong>
-          <a
-            href="http://www.fastnhotspeedboats.com">
-            fastnhotspeedboats.com
-          </a>
-        </li>
-      </ul>
-    </div>
+            className="sr-only"
+          >
+            Email: 
+          </span>
+          don_the_heat@hotmail.com
+        </a>
+      </li>
+      <li>
+        <strong>
+          Company:
+        </strong>
+        <span
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Fast 'n Hot Speedboats'",
+            }
+          }
+        />
+      </li>
+      <li>
+        <strong
+          aria-hidden="true"
+        >
+          Website:
+        </strong>
+        <span
+          className="sr-only"
+        >
+          Website: 
+        </span>
+      </li>
+    </ul>
   </div>
-</div>
+</section>
 `;
 
 exports[`<PurchasingInfo /> render tests should render with no purchasing info shown 1`] = `
-<div
-  className="row"
-  id="purchasing-info">
-  <div
-    className="col-xs-12">
-    <h2>
-      For Purchasing
-    </h2>
-    <div>
-      <ul
-        className="purchase-options-list" />
-    </div>
+<section
+  className="purchasing-info"
+>
+  <h2>
+    For Purchasing
+  </h2>
+  <hr />
+  <div>
+    <ul
+      className="purchase-options-list"
+    />
   </div>
-</div>
+</section>
 `;

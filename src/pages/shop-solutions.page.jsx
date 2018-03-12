@@ -20,9 +20,7 @@ export default class ShopSolutionsPage extends React.Component {
   }
 
   componentWillMount() {
-    if (!this.externalLinkStore.solutionCategories.length) {
-      this.externalLinkStore.getSolutionCategories();
-    }
+    this.externalLinkStore.fetchMarketingPortalData();
   }
 
   renderCards = (cardsArray) => {
@@ -55,7 +53,7 @@ export default class ShopSolutionsPage extends React.Component {
               <PageTitle className="sr-only">Public Safety Solutions</PageTitle>
               <h1>For Public Safety, By Public Safety</h1>
               <p>
-                The FirstNet Applications Store and Solutions Catalog offers enhanced technologies to complement public safety's fundamental services and applications. Current solutions include applications that are designed to improve workflow and communication, enhance device and connection security, and enable public safety organizations to scale departmental capabilities by utilizing cloud and IP-based services.
+                The FirstNet Applications Catalog and Solutions Catalog offers enhanced technologies to complement public safety&apos;s fundamental services and applications. Current solutions include applications that are designed to improve workflow and communication, enhance device and connection security, and enable public safety organizations to scale departmental capabilities by utilizing cloud and IP-based services.
               </p>
               <p>
                 FirstNet is cultivating a dedicated public safety applications development program, with participation from leading providers across the applications development community. Many more solutions will be added in response to these focused efforts and as public safety needs evolve.

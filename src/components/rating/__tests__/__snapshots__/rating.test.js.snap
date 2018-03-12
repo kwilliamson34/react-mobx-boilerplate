@@ -1,24 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<Rating />  render tests should match previous snapshot with alternative props 1`] = `
 <div
-  className="ratings-container">
+  className="ratings-container"
+>
   <span>
+    <div
+      className="sr-only"
+    >
+      This app has a rating of 
+      1.5
+       stars out of 5.
+    </div>
     <span
-      className="ratings-stars">
+      className="ratings-stars"
+    >
       <span
         aria-hidden="true"
-        className="ratings-star icon-star" />
+        className="ratings-star icon-star"
+      />
       <span
         aria-hidden="true"
-        className="ratings-star icon-star-half-o" />
+        className="ratings-star icon-star-half-o"
+      />
       <span
         aria-hidden="true"
-        className="ratings-star icon-star-o" />
+        className="ratings-star icon-star-o"
+      />
       <span
         aria-hidden="true"
-        className="ratings-star icon-star-o" />
+        className="ratings-star icon-star-o"
+      />
       <span
         aria-hidden="true"
-        className="ratings-star icon-star-o" />
+        className="ratings-star icon-star-o"
+      />
     </span>
   </span>
 </div>
@@ -26,34 +42,46 @@ exports[`<Rating />  render tests should match previous snapshot with alternativ
 
 exports[`<Rating />  render tests should match previous snapshot with default props 1`] = `
 <div
-  className="ratings-container">
+  className="ratings-container"
+>
   <span>
+    <div
+      className="sr-only"
+    >
+      This app has a rating of 
+      1
+       stars out of 5.
+    </div>
     <span
-      className="ratings-number">
-      <span
-        className="sr-only">
-        Rating of 
-      </span>
+      aria-hidden={true}
+      className="ratings-number"
+    >
        
     </span>
     <span
-      className="ratings-stars">
+      className="ratings-stars"
+    >
       <span
         aria-hidden={true}
-        className="ratings-star icon-star" />
+        className="ratings-star icon-star"
+      />
     </span>
     <span
-      className="app-reviews-count hidden-xs">
+      className="app-reviews-count hidden-xs"
+    >
       <span
-        className="sr-only">
-        Reviewed by
+        className="sr-only"
+      >
+        Reviewed by 
+        1
+         people.
       </span>
-       (
-      1
-      )
       <span
-        className="sr-only">
-         people
+        aria-hidden="true"
+      >
+         (
+        1
+        )
       </span>
     </span>
   </span>

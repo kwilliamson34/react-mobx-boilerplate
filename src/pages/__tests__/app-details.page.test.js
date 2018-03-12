@@ -1,4 +1,4 @@
-jest.unmock('axios');
+
 jest.unmock('../../core/stores/master.store');
 jest.unmock('../app-details.page');
 jest.unmock('date-fns');
@@ -35,26 +35,6 @@ describe('<AppDetailsPage />', () => {
       expect(tree).toMatchSnapshot();
 
       props.store.userStore.user.pse === '123';
-      component = renderer.create(<AppDetailsPage {...props}/>);
-      tree = component.toJSON();
-      expect(tree).toMatchSnapshot();
-    });
-
-    test('matches snapshot when showing 0, 1, and many MDM alerts', () => {
-      let component, tree;
-      props.store.appCatalogStore.fetchAppCatalog = () => {return new Promise(resolve => resolve())};
-
-      props.store.mdmStore.manage_apps_alerts.length = 0;
-      component = renderer.create(<AppDetailsPage {...props}/>);
-      tree = component.toJSON();
-      expect(tree).toMatchSnapshot();
-
-      props.store.mdmStore.manage_apps_alerts.length = 1;
-      component = renderer.create(<AppDetailsPage {...props}/>);
-      tree = component.toJSON();
-      expect(tree).toMatchSnapshot();
-
-      props.store.mdmStore.manage_apps_alerts.length = 3;
       component = renderer.create(<AppDetailsPage {...props}/>);
       tree = component.toJSON();
       expect(tree).toMatchSnapshot();

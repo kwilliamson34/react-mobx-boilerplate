@@ -1,232 +1,49 @@
-exports[`<DeviceDetailTemplate /> render matches snapshot with and without purchasing info 1`] = `
-<section
-  className="device-detail">
-  <div
-    className="container detail-block">
-    <div
-      className="row">
-      <div
-        className="col-xs-10 col-xs-offset-1 text-center visible-xs-block visible-sm-block">
-        <h1
-          dangerouslySetInnerHTML={
-            Object {
-              "__html": undefined
-            }
-          } />
-      </div>
-    </div>
-    <div
-      className="row is-flex">
-      <div
-        className=" col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-6 col-md-offset-0 col-md-4 col-lg-offset-1 col-lg-3">
-        <img
-          alt={undefined}
-          className="img-responsive"
-          src={undefined} />
-      </div>
-      <div
-        className=" col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-6 col-md-offset-0 col-md-7 col-lg-offset-0 col-lg-8">
-        <h1
-          className="hidden-xs hidden-sm">
-          <span
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": undefined
-              }
-            } />
-        </h1>
-        <div
-          className="feature-list"
-          dangerouslySetInnerHTML={
-            Object {
-              "__html": undefined
-            }
-          } />
-        <div
-          className="hidden-xs hidden-sm contact-info" />
-      </div>
-      <div
-        className="contact-info visible-xs-block visible-sm-block col-xs-offset-0 col-xs-12 col-md-offset-4 col-md-7" />
-    </div>
-  </div>
-</section>
-`;
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<DeviceDetailTemplate /> render matches snapshot with and without purchasing info 2`] = `
+exports[`<DeviceDetailTemplate /> render matches snapshot 1`] = `
 <section
-  className="device-detail">
+  className="device-detail"
+>
   <div
-    className="container detail-block">
+    className="container detail-block"
+  >
     <div
-      className="row">
+      className="row"
+    >
       <div
-        className="col-xs-10 col-xs-offset-1 text-center visible-xs-block visible-sm-block">
-        <h1
-          dangerouslySetInnerHTML={
-            Object {
-              "__html": undefined
-            }
-          } />
-      </div>
+        className="col-xs-10 col-xs-offset-1 text-center visible-xs-block visible-sm-block"
+      />
     </div>
     <div
-      className="row is-flex">
+      className="row is-flex"
+    >
       <div
-        className=" col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-6 col-md-offset-0 col-md-4 col-lg-offset-1 col-lg-3">
+        className=" col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-6 col-md-offset-0 col-md-4 col-lg-offset-1 col-lg-3"
+      >
         <img
           alt={undefined}
           className="img-responsive"
-          src={undefined} />
+          src={undefined}
+        />
       </div>
       <div
-        className=" col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-6 col-md-offset-0 col-md-7 col-lg-offset-0 col-lg-8">
-        <h1
-          className="hidden-xs hidden-sm">
-          <span
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": undefined
-              }
-            } />
-        </h1>
+        className=" col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-6 col-md-offset-0 col-md-7 col-lg-offset-0 col-lg-8"
+      >
         <div
           className="feature-list"
           dangerouslySetInnerHTML={
             Object {
-              "__html": undefined
+              "__html": undefined,
             }
-          } />
+          }
+        />
         <div
-          className="hidden-xs hidden-sm contact-info" />
+          className="hidden-xs hidden-sm contact-info"
+        />
       </div>
       <div
-        className="contact-info visible-xs-block visible-sm-block col-xs-offset-0 col-xs-12 col-md-offset-4 col-md-7" />
-    </div>
-  </div>
-</section>
-`;
-
-exports[`<DeviceDetailTemplate /> render matches snapshot with and without terms 1`] = `
-<section
-  className="device-detail">
-  <div
-    className="container detail-block">
-    <div
-      className="row">
-      <div
-        className="col-xs-10 col-xs-offset-1 text-center visible-xs-block visible-sm-block">
-        <h1
-          dangerouslySetInnerHTML={
-            Object {
-              "__html": undefined
-            }
-          } />
-      </div>
-    </div>
-    <div
-      className="row is-flex">
-      <div
-        className=" col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-6 col-md-offset-0 col-md-4 col-lg-offset-1 col-lg-3">
-        <img
-          alt={undefined}
-          className="img-responsive"
-          src={undefined} />
-      </div>
-      <div
-        className=" col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-6 col-md-offset-0 col-md-7 col-lg-offset-0 col-lg-8">
-        <h1
-          className="hidden-xs hidden-sm">
-          <span
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": undefined
-              }
-            } />
-        </h1>
-        <div
-          className="feature-list"
-          dangerouslySetInnerHTML={
-            Object {
-              "__html": undefined
-            }
-          } />
-        <div
-          className="hidden-xs hidden-sm contact-info" />
-      </div>
-      <div
-        className="contact-info visible-xs-block visible-sm-block col-xs-offset-0 col-xs-12 col-md-offset-4 col-md-7" />
-    </div>
-  </div>
-</section>
-`;
-
-exports[`<DeviceDetailTemplate /> render matches snapshot with and without terms 2`] = `
-<section
-  className="device-detail">
-  <div
-    className="container detail-block">
-    <div
-      className="row">
-      <div
-        className="col-xs-10 col-xs-offset-1 text-center visible-xs-block visible-sm-block">
-        <h1
-          dangerouslySetInnerHTML={
-            Object {
-              "__html": undefined
-            }
-          } />
-      </div>
-    </div>
-    <div
-      className="row is-flex">
-      <div
-        className=" col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-6 col-md-offset-0 col-md-4 col-lg-offset-1 col-lg-3">
-        <img
-          alt={undefined}
-          className="img-responsive"
-          src={undefined} />
-      </div>
-      <div
-        className=" col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-6 col-md-offset-0 col-md-7 col-lg-offset-0 col-lg-8">
-        <h1
-          className="hidden-xs hidden-sm">
-          <span
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": undefined
-              }
-            } />
-        </h1>
-        <div
-          className="feature-list"
-          dangerouslySetInnerHTML={
-            Object {
-              "__html": undefined
-            }
-          } />
-        <div
-          className="hidden-xs hidden-sm contact-info" />
-      </div>
-      <div
-        className="contact-info visible-xs-block visible-sm-block col-xs-offset-0 col-xs-12 col-md-offset-4 col-md-7" />
-    </div>
-  </div>
-  <div
-    className="terms-block">
-    <div
-      className="container">
-      <div
-        className="row">
-        <div
-          className=" col-xs-offset-0 col-xs-12 col-lg-offset-1 col-lg-10">
-          <div
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "terms"
-              }
-            } />
-        </div>
-      </div>
+        className="contact-info visible-xs-block visible-sm-block col-xs-offset-0 col-xs-12 col-md-offset-4 col-md-7"
+      />
     </div>
   </div>
 </section>

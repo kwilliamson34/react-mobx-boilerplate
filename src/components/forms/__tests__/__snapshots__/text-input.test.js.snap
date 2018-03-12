@@ -1,0 +1,298 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TextInput /> renders matches previous snapshot 1`] = `
+<div
+  className="form-group  "
+>
+  <div
+    className="input-group "
+  >
+    <textarea
+      autoComplete="on"
+      className="form-control"
+      disabled={false}
+      id="key"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onKeyDown={undefined}
+      onKeyPress={[Function]}
+      type="textarea"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`<TextInput /> renders matches previous snapshot 2`] = `
+<div
+  className="form-group  "
+>
+  <div
+    className="input-group "
+  >
+    <input
+      autoComplete="on"
+      className="form-control"
+      disabled={false}
+      id="key"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onKeyDown={undefined}
+      onKeyPress={[Function]}
+      type="search"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`<TextInput /> renders matches previous snapshot 3`] = `
+<div
+  className="form-group  "
+>
+  <div
+    className="input-group "
+  >
+    <input
+      autoComplete="on"
+      className="form-control"
+      disabled={false}
+      id="key"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onKeyDown={undefined}
+      onKeyPress={[Function]}
+      type="input"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`<TextInput /> renders matches previous snapshot 4`] = `
+<div
+  className="form-group  "
+>
+  <div
+    className="input-group "
+  >
+    <input
+      autoComplete="on"
+      className="form-control"
+      disabled={false}
+      id="key"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onKeyDown={undefined}
+      onKeyPress={[Function]}
+      type="input"
+      value="testvalue"
+    />
+    <span
+      className="input-group-btn"
+    >
+      <button
+        className="clear-btn"
+        onClick={[Function]}
+        type="button"
+      >
+        <span
+          className="sr-only"
+        >
+          Clear
+        </span>
+        <span
+          aria-hidden="true"
+          className="icon-close"
+        />
+      </button>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`<TextInput /> renders matches previous snapshot 5`] = `
+<div
+  className="form-group  "
+>
+  <div
+    className="input-group "
+  >
+    <input
+      autoComplete="on"
+      className="form-control"
+      disabled={false}
+      id="key"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onKeyDown={undefined}
+      onKeyPress={[Function]}
+      type="input"
+      value="testvalue"
+    />
+    <span
+      className="input-group-btn"
+    >
+      <button
+        className="clear-btn"
+        onClick={[Function]}
+        type="button"
+      >
+        <span
+          className="sr-only"
+        >
+          Clear
+        </span>
+        <span
+          aria-hidden="true"
+          className="icon-close"
+        />
+      </button>
+    </span>
+    <span
+      className="input-group-btn"
+    >
+      <button
+        className="submit-btn"
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+      >
+        <span
+          className="sr-only"
+        >
+          Submit
+        </span>
+        <span
+          aria-hidden="true"
+          className="icon-arrowRight"
+        />
+      </button>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`<TextInput /> renders matches previous snapshot 6`] = `
+<div
+  className="form-group  "
+>
+  <div
+    className="input-group "
+  >
+    <input
+      autoComplete="on"
+      className="form-control"
+      disabled={false}
+      id="key"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onKeyDown={undefined}
+      onKeyPress={[Function]}
+      type="input"
+      value="testvalue"
+    />
+    <span
+      className="input-group-btn"
+    >
+      <button
+        className="clear-btn"
+        onClick={[Function]}
+        type="button"
+      >
+        <span
+          className="sr-only"
+        >
+          Clear
+        </span>
+        <span
+          aria-hidden="true"
+          className="icon-close"
+        />
+      </button>
+    </span>
+    <span
+      className="input-group-btn"
+    >
+      <button
+        className="submit-btn"
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+      >
+        <span
+          className="sr-only"
+        >
+          Submit
+        </span>
+        <span
+          aria-hidden="true"
+          className="icon-arrowRight"
+        />
+      </button>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`<TextInput /> renders matches previous snapshot 7`] = `
+<div
+  className="form-group  "
+>
+  <div
+    className="input-group "
+  >
+    <input
+      autoComplete="on"
+      className="form-control"
+      disabled={true}
+      id="key"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onKeyDown={undefined}
+      onKeyPress={[Function]}
+      type="input"
+      value="testvalue"
+    />
+    <span
+      className="input-group-btn"
+    >
+      <button
+        className="clear-btn"
+        onClick={[Function]}
+        type="button"
+      >
+        <span
+          className="sr-only"
+        >
+          Clear
+        </span>
+        <span
+          aria-hidden="true"
+          className="icon-close"
+        />
+      </button>
+    </span>
+    <span
+      className="input-group-btn"
+    >
+      <button
+        className="submit-btn"
+        disabled={true}
+        onClick={[Function]}
+        type="button"
+      >
+        <span
+          className="sr-only"
+        >
+          Submit
+        </span>
+        <span
+          aria-hidden="true"
+          className="icon-arrowRight"
+        />
+      </button>
+    </span>
+  </div>
+</div>
+`;

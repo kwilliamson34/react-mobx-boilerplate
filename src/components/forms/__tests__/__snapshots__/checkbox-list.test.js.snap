@@ -1,0 +1,155 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CheckboxList /> renders matches previous snapshot 1`] = `
+<div
+  className="form-group "
+>
+  <fieldset
+    className=""
+    id="key"
+    onBlur={[Function]}
+  >
+    <div
+      className="selection-buttons"
+    >
+      <div
+        className="checkbox select-all-checkbox"
+      >
+        <label
+          className="select-all-checkbox-label"
+        >
+          <input
+            checked={true}
+            name="select-all-checkbox"
+            onClick={[Function]}
+            type="checkbox"
+            value=""
+          />
+          <span
+            className="cr"
+          />
+          <span
+            className="select-all-description"
+          >
+            Select All
+          </span>
+        </label>
+      </div>
+      <button
+        className="btn as-link clear-all-button"
+        onClick={[Function]}
+        type="button"
+      >
+        Clear All
+      </button>
+    </div>
+    <hr
+      className="gtoc-checklist-hr"
+    />
+  </fieldset>
+</div>
+`;
+
+exports[`<CheckboxList /> renders matches previous snapshot 2`] = `
+<div
+  className="form-group "
+>
+  <fieldset
+    className=""
+    id="key"
+    onBlur={[Function]}
+  >
+    <div
+      className="selection-buttons"
+    >
+      <div
+        className="checkbox select-all-checkbox"
+      >
+        <label
+          className="select-all-checkbox-label"
+        >
+          <input
+            checked={false}
+            name="select-all-checkbox"
+            onClick={[Function]}
+            type="checkbox"
+            value=""
+          />
+          <span
+            className="cr"
+          />
+          <span
+            className="select-all-description"
+          >
+            Select All
+          </span>
+        </label>
+      </div>
+      <button
+        className="btn as-link clear-all-button"
+        onClick={[Function]}
+        type="button"
+      >
+        Clear All
+      </button>
+    </div>
+    <hr
+      className="gtoc-checklist-hr"
+    />
+    1
+    2
+  </fieldset>
+</div>
+`;
+
+exports[`<CheckboxList /> renders matches previous snapshot 3`] = `
+<div
+  className="form-group "
+>
+  <fieldset
+    className=""
+    id="key"
+    onBlur={[Function]}
+  >
+    <div
+      className="selection-buttons"
+    >
+      <div
+        className="checkbox select-all-checkbox"
+      >
+        <label
+          className="select-all-checkbox-label"
+        >
+          <input
+            checked={false}
+            name="select-all-checkbox"
+            onClick={[Function]}
+            type="checkbox"
+            value=""
+          />
+          <span
+            className="cr"
+          />
+          <span
+            className="select-all-description"
+          >
+            Select All
+          </span>
+        </label>
+      </div>
+      <button
+        className="btn as-link clear-all-button"
+        onClick={[Function]}
+        type="button"
+      >
+        Clear All
+      </button>
+    </div>
+    <hr
+      className="gtoc-checklist-hr"
+    />
+    1
+    2
+  </fieldset>
+</div>
+`;

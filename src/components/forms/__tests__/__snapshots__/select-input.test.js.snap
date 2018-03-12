@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SelectInput /> renders matches previous snapshot 1`] = `
+<div
+  className="form-group  "
+>
+  <select
+    className="form-control form-control-lg"
+    disabled={false}
+    id="key"
+    onBlur={[Function]}
+    onChange={[Function]}
+    value=""
+  />
+</div>
+`;
+
+exports[`<SelectInput /> renders matches previous snapshot 2`] = `
+<div
+  className="form-group  "
+>
+  <select
+    className="form-control form-control-lg"
+    disabled={false}
+    id="key"
+    onBlur={[Function]}
+    onChange={[Function]}
+    value=""
+  />
+</div>
+`;
+
+exports[`<SelectInput /> renders matches previous snapshot 3`] = `
+<div
+  className="form-group  "
+>
+  <select
+    className="form-control form-control-lg"
+    disabled={false}
+    id="key"
+    onBlur={[Function]}
+    onChange={[Function]}
+    value=""
+  />
+</div>
+`;
+
+exports[`<SelectInput /> renders matches previous snapshot 4`] = `
+<div
+  className="form-group  "
+>
+  <select
+    className="form-control form-control-lg"
+    disabled={false}
+    id="key"
+    onBlur={[Function]}
+    onChange={[Function]}
+    value=""
+  >
+    <option
+      value=""
+    >
+      Placeholder
+    </option>
+  </select>
+</div>
+`;
+
+exports[`<SelectInput /> renders matches previous snapshot 5`] = `
+<div
+  className="form-group  "
+>
+  <select
+    className="form-control form-control-lg"
+    disabled={true}
+    id="key"
+    onBlur={[Function]}
+    onChange={[Function]}
+    value=""
+  >
+    <option
+      value=""
+    >
+      Placeholder
+    </option>
+  </select>
+</div>
+`;
+
+exports[`<SelectInput /> renders matches previous snapshot 6`] = `
+<div
+  className="form-group  "
+>
+  <select
+    className="form-control form-control-lg"
+    disabled={true}
+    id="key"
+    onBlur={[Function]}
+    onChange={[Function]}
+    value=""
+  >
+    <option
+      value=""
+    >
+      Placeholder
+    </option>
+  </select>
+</div>
+`;

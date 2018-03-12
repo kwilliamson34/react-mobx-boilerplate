@@ -35,7 +35,7 @@ export default class ErrorPage extends React.Component {
     if (this.userStore.auth_error) {
       title = 'Service Issue.';
       body_content = 'This page is experiencing an issue. Try again later, or continue to one of the FirstNet Sites below:';
-    } else if (!this.userStore.authentic_user || this.props.cause === 'unauthorized') {
+    } else if (!this.userStore.isAuthenticUser || this.props.cause === 'unauthorized') {
       title = 'You\'ve encountered a permissions error.';
       body_content = 'Unfortunately, you do not have permission to view this page. If you think this is in error, please contact your site administrator, or continue to one of the FirstNet Sites below:';
       showLogout = true;
@@ -64,14 +64,14 @@ export default class ErrorPage extends React.Component {
         <div className="container">
           <div className="col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
             <div className="logo-container">
-              <img src="/images/logo-FirstNet-local-control.svg" alt="" aria-hidden="true" />
+              <img src="/images/logo-FirstNet-local-control.svg" alt="FirstNet Local Control logo" />
             </div>
             <PageTitle className="as-h3">{title}</PageTitle>
             <p dangerouslySetInnerHTML={{__html: body_content}} />
             {showLinksforOtherPortals &&
               <nav className="sites-list" aria-label="FirstNet Sites">
                 <ul>
-                  <li><a href={config.appStore}>App Store</a></li>
+                  <li><a href={config.appCatalog}>App Catalog</a></li>
                   <li><a href={config.appControl}>App Control</a></li>
                   <li><a href={config.localControl}>Local Control</a></li>
                 </ul>

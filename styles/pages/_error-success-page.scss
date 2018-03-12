@@ -2,6 +2,11 @@
 	min-height: 100vh;
 }
 
+.success-page,
+.session-timeout {
+	margin-bottom: 0 - $footer-margin-top;
+}
+
 .error-page,
 .success-page {
 	background: $fn-grey;

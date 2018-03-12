@@ -1,36 +1,34 @@
 #subscribe-to-gtoc-page {
   padding: 0;
 
-  .form-group {
-    margin-top: 30px;
+  .form-actions {
+    text-align: left;
   }
 
   .content-wrapper {
     position: relative;
 
-    h1 {
-      margin: 6rem 0;
+    .manage-alerts-h1 {
+      margin: 30px 0;
+      text-align: left;
     }
 
-    figure {
-      figcaption {
+    .fema-map-wrapper {
+      .fema-figcaption {
         text-align: left;
         font-size: $fn-small-text-desktop;
         margin-bottom: 20px;
       }
 
-      img {
+      .fema-map {
         width: 100%;
         margin-bottom: 30px;
       }
     }
 
     .control-label {
-      font-size: $fn-h5-desktop;
-      font-weight: $fn-normal-weight;
-
-      &[for="gtoc_email"] {
-        font-size: $fn-label-desktop;
+      &[for="email"] {
+        margin-top: 55px;
       }
     }
 
@@ -39,123 +37,131 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: baseline;
-      margin-top: 15px;
-      border: none;
 
-      button {
-        width: 110px;
-        background: none;
-        font-size: $fn-button-desktop;
-        font-weight: $fn-medium-weight;
-        color: $fn-ltblue;
-        text-transform: uppercase;
-        border: none;
-        outline: none;
-        margin: 0;
-        padding: 0;
-        text-decoration: none;
-
-        &:focus {
-          border-radius: 8px;
-          @include focus();
-        }
+      .select-all-checkbox {
+        border: 0;
       }
-      .checkbox {
-        font-size: $fn-label-desktop;
-        font-weight: $fn-bold-weight;
-        //override default alert text color
-        color: $fn-black;
-        .select-all-description {
+
+      .clear-all-button {
+        font-size: $fn-h5-desktop;
+      }
+    }
+
+    .gtoc-checklist-hr {
+      border-color: $fn-mdgrey;
+      margin: 0;
+    }
+
+    .radio-group-hr {
+      border-color: $fn-mdgrey;
+      margin-top: 60px;
+      margin-bottom: 0;
+      padding: 0;
+    }
+
+
+    .radiogroup-fieldset {
+      padding-left: 0;
+
+      .radio-label {
+        padding: 0;
+        margin-top: 60px;
+        font-size: $fn-h5-desktop;
+        color: $fn-black !important; //override default label color, even for an error
+        text-transform: uppercase;
+      }
+      .help-text-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .help-text {
+          padding-top: 5px;
+        }
+
+        .required-asterisks {
           margin-left: 5px;
+          align-self: flex-start;
         }
       }
     }
 
-    .template-checkbox {
-      margin-top: 20px;
-      vertical-align: middle;
-      border-bottom: 1px solid $fn-grey;
+    .femalist-fieldset {
+      padding-left: 35px;
 
-      label {
+      .control-label {
+        padding-left: 0;
+      }
+
+      .select-all-checkbox-label {
+        min-height: 0;
         padding-bottom: 20px;
+        padding-left: 0;
+      }
 
-        strong {
-          display: inline-block;
-          vertical-align: top;
-          margin-left: 5px;
-          width: 30%;
+      .select-all-description,
+      .strong-label {
+        font-weight: $fn-medium-weight;
+        font-size: $fn-h5-desktop;
+      }
 
-          + span {
+      .checkbox-label,
+      .select-all-checkbox-label {
+        font-size: $fn-label-desktop;
+        color: $fn-black !important; //override default label color, even for an error
+        font-weight: $fn-normal-weight;
+      }
+
+      .cr {
+        margin-bottom: 0;
+      }
+
+      .checkbox:not(.select-all-checkbox) {
+        vertical-align: middle;
+        padding: 20px 0;
+        border-bottom: 1px solid $fn-grey;
+
+        .checkbox-label {
+          min-height: 0;
+          padding: 0;
+
+          span.label-text-normal {
             display: inline-block;
+            font-size: $fn-h5-desktop;
             width: 100%;
-            margin-left: 30px;
+            float: right;
           }
         }
-
-        .template-checkbox-description {
-          font-weight: $fn-normal-weight;
-          //override default alert text color
-          color: $fn-black;
+        &:last-of-type {
+          padding-bottom: 0;
+          border-bottom: none;
         }
       }
-
-      &:first-of-type {
-        padding-top: 20px;
-        margin-top: 0px;
-        border-top: 1px solid $fn-mdgrey;
-      }
-
-      &:last-of-type {
-        border-bottom: 1px solid $fn-mdgrey;
-      }
-    }
-  }
-
-  form button:not(.close_btn) {
-    margin: 3rem 0 8.5rem;
-
-    &.disabled {
-      cursor: auto;
-      pointer-events: auto;
     }
   }
 }
-@media #{$mobile} {
+
+@media #{$desktop} {
   #subscribe-to-gtoc-page {
-    .content-wrapper {
-      h1 {
-        margin: 3rem 0;
-      }
-    }
-  }
-}
-@media #{$tablet, $desktop} {
-  #subscribe-to-gtoc-page {
-    .gtoc_email-class {
-      margin-top: 60px;
+    .manage-alerts-h1 {
+      margin: 60px 0;
     }
 
     .content-wrapper {
-      .control-label {
-        font-size: $fn-h4-desktop;
-      }
-
-      .select-all-button {
-        top: 8px;
-      }
-
-      .checkbox {
-        label {
-          strong {
-            width: 15%;
-
-            + span {
-              width: 75%;
-              margin-left: 0;
+      .femalist-fieldset {
+        .checkbox:not(.select-all-checkbox) {
+          padding: 30px 0;
+          .checkbox-label {
+            span.label-text-normal {
+              width: 85%;
             }
           }
         }
       }
+    }
+
+    .email-input {
+      width: 50%;
     }
   }
 }

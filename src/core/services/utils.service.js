@@ -1,5 +1,5 @@
 import dateFns from 'date-fns/format';
-import isValid from 'date-fns/is_valid'
+import isValid from 'date-fns/is_valid';
 import {userStore} from '../stores/user.store';
 import {history} from './history.service';
 import $ from 'jquery';
@@ -56,7 +56,7 @@ class UtilsService {
   }
 
   getUrlParameter(name) {
-    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    name = name.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
     var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
     var results = regex.exec(window.location.search);
     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
@@ -88,21 +88,23 @@ class UtilsService {
     }
   }
 
-  getDevicesAndSolutionsUrl(string) {
-    //removes HTML code entities and any special characters, before replacing spaces with plus symbol;
-    return string.trim().replace(/&\w{2,8}; ?/g, '').replace(/[^A-Z\s\d]?/ig, '').replace(/ /g, '+').toLowerCase();
-  }
-
   isValidEmailAddress(string) {
-    const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    //allowed emails are based on https://blogs.msdn.microsoft.com/testing123/2009/02/06/email-address-test-cases/
+    //FPSE-2227 -> Updated to support multiple subdomains. Pull request includes test cases.
+    const emailRegex = /^([A-Z|a-z|0-9|_-](\.|\+){0,1})+[A-Z|a-z|0-9|_-]@([\w-]+\.)+?([\w]{2,})(:\d+)?(\/\S*)?$/gm;
     return emailRegex.test(string);
   }
 
-  normalizedDate(date, format) {
-    //to prevent discrepencies, split the date string at 'T' and ignore the localization data which follows; before the 'T' is the simple date, with month, day, year;
-    const newDate = date.split('T')[0];
-    //check if date is in a valid format, else return an empty string;
-    const dateToRender = isValid(new Date(newDate)) ? dateFns(newDate, format) : '';
+  escapeHtmlEntityOutput(string) {
+    return string.replace(/'/g, '&apos;');
+  }
+
+  normalizedDate(date, displayFormat = 'MMMM D, YYYY') {
+    //all dates come from services in Unix (epoch) time, which is in seconds. Use .valueOf() to convert to milliseconds for use in Moment and date-fns;
+    const newDate = new Date();
+    newDate.setTime(date.valueOf());
+    //check if the date is in a valid format, else return an empty string. This prevents 'Invalid Date' from showing in case of a date error.
+    const dateToRender = isValid(new Date(newDate)) ? dateFns(newDate, displayFormat) : '';
     return dateToRender;
   }
 
@@ -202,6 +204,51 @@ class UtilsService {
     return false;
   }
 
+  getCookie(cname) {
+    let name = cname + '=';
+    let ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return '';
+  }
+
+  setCookie(cname, cvalue, exdays) {
+    let expiryDays = exdays || 365;
+    let d = new Date();
+    d.setTime(d.getTime() + (expiryDays * 24 * 60 * 60 * 1000));
+    let expires = 'expires=' + d.toUTCString();
+    document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
+  }
+
+  registerFormFieldRef(ref, formFieldRefList) {
+    //store refList as simple array so we don't get the "out of bounds" error while looping over it;
+    const refList = formFieldRefList.peek();
+    //sometimes null refs come in;
+    if (!ref) return;
+    //if the ref already exists in the refList, ignore it;
+    if (refList.indexOf(ref) > -1) {
+      return;
+    } else {
+      for (let r in refList) {
+        //if the ref has unmounted, its input field will be null. Remove it;
+        if (!refList[r].input) {
+          formFieldRefList.remove(formFieldRefList[r]);
+        }
+        //check for refs that are different but have matching ids. Remove the existing ref, to replace with the new ref;
+        else if (refList[r] !== ref && Boolean(refList[r].input && ref.input) && refList[r].input.id === ref.input.id) {
+          formFieldRefList.remove(formFieldRefList[r]);
+        }
+      }
+      formFieldRefList.push(ref);
+    }
+  }
 }
 
 export const utilsService = new UtilsService();

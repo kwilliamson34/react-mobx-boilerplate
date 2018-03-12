@@ -1,4 +1,4 @@
-jest.unmock('axios');
+
 jest.unmock('../api.service');
 jest.unmock('../utils.service');
 
