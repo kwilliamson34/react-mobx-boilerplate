@@ -62,7 +62,7 @@ class GeolinkStore {
       utilsService.handleError(err);
     }
 
-    return axios.get('/maps/geolink.html', {
+    return axios.get('/maps/geolink.html?key=' + this.geoSessionKey, {
       headers: {
         'X-Frame-Options': 'deny'
       }
@@ -433,6 +433,11 @@ class GeolinkStore {
   @observable values = Object.assign({}, this.defaultValues);
   @observable dropdownIsVisible = false;
   @observable favorites = [];
+
+  /* Create a unique "key" for the geolink session. This resets each time
+  the app mounts, and is applied so that a Halo redirect bypasses cached HTML,
+  and the new bearer token gets passed to the Geolink scripts. */
+  @observable geoSessionKey = Date.now();
 
   @observable shouldDisplayLocationName = false;
 }

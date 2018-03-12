@@ -414,7 +414,7 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
           <div
             className="col-xs-12 col-sm-4 col-md-6 col-lg-4 no-gutters"
           >
-            <p
+            <div
               className="network-contact-info"
             >
               <span
@@ -425,19 +425,20 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
               <a
                 href="tel:undefined"
               >
-                <span>
-                  <i
-                    aria-hidden="true"
-                    className="icon-phone-number"
-                  />
-                  <span
-                    className="sr-only"
-                  >
-                    Report Network Issue: Phone 
-                  </span>
+                <i
+                  aria-hidden="true"
+                  className="icon-phone-number"
+                />
+                <span
+                  className="sr-only"
+                >
+                  Report Network Issue: Phone 
                 </span>
+                <span
+                  className="network-issue-number"
+                />
               </a>
-            </p>
+            </div>
           </div>
           <div
             className="col-xs-12 col-sm-8 col-md-6 col-lg-8 no-gutters"
@@ -1041,7 +1042,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
           <div
             className="col-xs-12 col-sm-4 col-md-6 col-lg-4 no-gutters"
           >
-            <p
+            <div
               className="network-contact-info"
             >
               <span
@@ -1052,19 +1053,20 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
               <a
                 href="tel:undefined"
               >
-                <span>
-                  <i
-                    aria-hidden="true"
-                    className="icon-phone-number"
-                  />
-                  <span
-                    className="sr-only"
-                  >
-                    Report Network Issue: Phone 
-                  </span>
+                <i
+                  aria-hidden="true"
+                  className="icon-phone-number"
+                />
+                <span
+                  className="sr-only"
+                >
+                  Report Network Issue: Phone 
                 </span>
+                <span
+                  className="network-issue-number"
+                />
               </a>
-            </p>
+            </div>
           </div>
           <div
             className="col-xs-12 col-sm-8 col-md-6 col-lg-8 no-gutters"
@@ -1668,7 +1670,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
           <div
             className="col-xs-12 col-sm-4 col-md-6 col-lg-4 no-gutters"
           >
-            <p
+            <div
               className="network-contact-info"
             >
               <span
@@ -1679,19 +1681,20 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
               <a
                 href="tel:undefined"
               >
-                <span>
-                  <i
-                    aria-hidden="true"
-                    className="icon-phone-number"
-                  />
-                  <span
-                    className="sr-only"
-                  >
-                    Report Network Issue: Phone 
-                  </span>
+                <i
+                  aria-hidden="true"
+                  className="icon-phone-number"
+                />
+                <span
+                  className="sr-only"
+                >
+                  Report Network Issue: Phone 
                 </span>
+                <span
+                  className="network-issue-number"
+                />
               </a>
-            </p>
+            </div>
           </div>
           <div
             className="col-xs-12 col-sm-8 col-md-6 col-lg-8 no-gutters"
@@ -2295,7 +2298,7 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
           <div
             className="col-xs-12 col-sm-4 col-md-6 col-lg-4 no-gutters"
           >
-            <p
+            <div
               className="network-contact-info"
             >
               <span
@@ -2306,19 +2309,20 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
               <a
                 href="tel:undefined"
               >
-                <span>
-                  <i
-                    aria-hidden="true"
-                    className="icon-phone-number"
-                  />
-                  <span
-                    className="sr-only"
-                  >
-                    Report Network Issue: Phone 
-                  </span>
+                <i
+                  aria-hidden="true"
+                  className="icon-phone-number"
+                />
+                <span
+                  className="sr-only"
+                >
+                  Report Network Issue: Phone 
                 </span>
+                <span
+                  className="network-issue-number"
+                />
               </a>
-            </p>
+            </div>
           </div>
           <div
             className="col-xs-12 col-sm-8 col-md-6 col-lg-8 no-gutters"

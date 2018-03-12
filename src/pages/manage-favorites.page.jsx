@@ -153,39 +153,29 @@ export default class ManageFavoritesPage extends React.Component {
   }
 
   renderNoResults = () => {
-    return (
-      <div className="no-results-container">
-        {
-          this.manageFavoritesStore.showSearchResults
-            ? this.renderNoSearchResults()
-            : this.renderNoFetchResults()
-        }
-      </div>
-    )
+    return this.manageFavoritesStore.showSearchResults
+      ? this.renderNoSearchResults()
+      : this.renderNoFetchResults();
   }
 
   renderNoFetchResults = () => {
-    return (
-      <div className="no-fetch-results">
-        <div className="as-h2">No Favorites</div>
-        <p>No favorite locations have been added yet. Add some!</p>
-        <button className="fn-primary" onClick={this.handleAddButton}>
-          Add From Map
-        </button>
-      </div>
-    )
+    return (<div className="no-results-container">
+      <p className="no-results-title">No Favorites</p>
+      <p aria-live="polite">No favorite locations have been added yet. Add some!</p>
+      <button className="fn-primary" onClick={this.handleAddButton}>
+        Add From Map
+      </button>
+    </div>)
   }
 
   renderNoSearchResults = () => {
-    return (
-      <div className="no-search-results">
-        <div className="as-h2">No Results</div>
-        <div className="no-search-results-text">There are no results to display. Please retry your search.</div>
-        <button className="fn-primary" onClick={this.resetSearch}>
-          Load All Favorites
-        </button>
-      </div>
-    )
+    return (<div className="no-results-container">
+      <p className="no-results-title">No Results</p>
+      <p aria-live="polite">There are no results to display. Please retry your search.</p>
+      <button className="fn-primary" onClick={this.resetSearch}>
+        Load All Favorites
+      </button>
+    </div>)
   }
 
   renderTopAndBottomFeatures = (position) => {
@@ -383,7 +373,7 @@ export default class ManageFavoritesPage extends React.Component {
                 <span className="mobile-header">
                   <MobileHeader
                     toggleSort={this.handleToggleSort}
-                    sortByAscending={this.manageFavoritesStore.sortDirections['favoriteName']}
+                    sortByAscending={this.manageFavoritesStore.sortByAscending['favoriteName']}
                     sortData="favoriteName"
                     handleSelectAllCheckbox={this.handleSelectAllCheckbox}
                     checkSelectAllCheckbox={this.manageFavoritesStore.checkSelectAllCheckbox}
@@ -398,14 +388,14 @@ export default class ManageFavoritesPage extends React.Component {
                 <span data="column" className="table-container center-container">
                   <TableColumn
                     toggleSort={this.handleToggleSort}
-                    sortByAscending={this.manageFavoritesStore.sortDirections['favoriteName']}
+                    sortByAscending={this.manageFavoritesStore.sortByAscending['favoriteName']}
                     isActive={this.manageFavoritesStore.activeColumn === 'favoriteName'}
                     headerLabel="Name"
                     columnDataKey="favoriteName"
                     columnClassName="favorite-name-column" />
                   <TableColumn
                     toggleSort={this.handleToggleSort}
-                    sortByAscending={this.manageFavoritesStore.sortDirections['locationFavoriteAddress']}
+                    sortByAscending={this.manageFavoritesStore.sortByAscending['locationFavoriteAddress']}
                     isActive={this.manageFavoritesStore.activeColumn === 'locationFavoriteAddress'}
                     headerLabel="Location/Address"
                     columnDataKey="locationFavoriteAddress"
