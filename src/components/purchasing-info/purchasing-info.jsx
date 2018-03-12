@@ -21,7 +21,6 @@ export default class PurchasingInfo extends React.Component {
   }
 
   render() {
-    console.log('asdadad', this.props.contactInfo);
     return(
       <section className="purchasing-info">
         <h2>For Purchasing</h2>
