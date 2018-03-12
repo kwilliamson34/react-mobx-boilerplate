@@ -163,7 +163,7 @@ export default class Footer extends React.Component {
           }
           {
             this.props.showPrivateLinks && <li role="presentation">
-                <NewTabLink to={this.externalLinkStore.firstnetTraining} showIcon={true}>
+                <NewTabLink to={config.firstnetTraining} showIcon={true}>
                   Training
                 </NewTabLink>
               </li>

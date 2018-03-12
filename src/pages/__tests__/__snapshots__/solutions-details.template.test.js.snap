@@ -48,7 +48,7 @@ exports[`<SolutionsDetailsTemplate /> render matches snapshot 1`] = `
           />
           <button
             aria-disabled={false}
-            className="fn-primary"
+            className="fn-primary learn-more-button"
             onClick={[Function]}
           >
             Request Information
@@ -108,7 +108,7 @@ exports[`<SolutionsDetailsTemplate /> render renders lead capture section 1`] = 
           />
           <button
             aria-disabled={false}
-            className="fn-primary"
+            className="fn-primary learn-more-button"
             onClick={[Function]}
           >
             Request Information
@@ -168,7 +168,7 @@ exports[`<SolutionsDetailsTemplate /> render renders lead capture section 2`] = 
           />
           <button
             aria-disabled={false}
-            className="fn-primary"
+            className="fn-primary learn-more-button"
             onClick={[Function]}
           >
             Request Information
@@ -228,7 +228,7 @@ exports[`<SolutionsDetailsTemplate /> render renders lead capture section 3`] = 
           />
           <button
             aria-disabled={false}
-            className="fn-primary"
+            className="fn-primary learn-more-button"
             onClick={[Function]}
           >
             Request Information
@@ -288,7 +288,7 @@ exports[`<SolutionsDetailsTemplate /> render renders purchasing info section 1`]
           />
           <button
             aria-disabled={false}
-            className="fn-primary"
+            className="fn-primary learn-more-button"
             onClick={[Function]}
           >
             Request Information
@@ -367,7 +367,7 @@ exports[`<SolutionsDetailsTemplate /> render renders related app section 1`] = `
           />
           <button
             aria-disabled={false}
-            className="fn-primary"
+            className="fn-primary learn-more-button"
             onClick={[Function]}
           >
             Request Information

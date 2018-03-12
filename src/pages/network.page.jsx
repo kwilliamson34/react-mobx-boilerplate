@@ -8,6 +8,7 @@ import GeolinkMap from '../components/network/geolink-map';
 import GeolinkControls from '../components/network/geolink-controls';
 import LocationFavoriteForm from '../components/network/location-favorite-form';
 import Modal from '../components/portals/modal';
+import {utilsService} from '../core/services/utils.service.js';
 
 @inject('store')
 @observer
@@ -32,6 +33,9 @@ export default class NetworkPage extends React.Component {
         }
       }, false);
     }
+
+    // Ping Geolink every 10 minutes to keep the cookie-based sessions active
+    this.intervalId = setInterval(utilsService.geolinkKeepAlive, 600000);
   }
 
   componentDidUpdate() {
@@ -43,6 +47,8 @@ export default class NetworkPage extends React.Component {
     this.networkStore.resetValues();
     //reset selected favorite and remove blue star icon from Search field;
     this.networkStore.resetFavorites();
+    //stop calling geolinkKeepAlive
+    clearInterval(this.intervalId);
   }
 
   renderDeleteModal = () => {
