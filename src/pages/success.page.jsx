@@ -8,6 +8,7 @@ import PageTitle from '../components/page-title/page-title';
 export default class SuccessPage extends React.Component {
 
   componentDidMount() {
+    //if there is no state (eg, the user has navigated directly to /success), redirect to home.
     if (!history.location.state) {
       history.push('/');
     }
@@ -30,19 +31,19 @@ export default class SuccessPage extends React.Component {
   }
 
   render() {
+    const {pageTitle, message, contactUs, returnToUrl, returnToButtonText} = history.location.state;
+
     return (
       <section className="success-page">
         <div className="container">
-          {history.location.state &&
-            <div className="col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
-              <PageTitle>{history.location.state.pageTitle}</PageTitle>
-              <p>
-                {history.location.state.message}
-                {history.location.state.contactUs && this.renderContactUs()}
-              </p>
-              <Link to={history.location.state.returnToUrl} className="fn-primary">{history.location.state.returnToButtonText}</Link>
-            </div>
-          }
+          <div className="col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
+            <PageTitle>{pageTitle}</PageTitle>
+            <p>
+              {message}
+              {contactUs && this.renderContactUs()}
+            </p>
+            <Link to={returnToUrl} className="fn-primary">{returnToButtonText}</Link>
+          </div>
         </div>
       </section>
     )
