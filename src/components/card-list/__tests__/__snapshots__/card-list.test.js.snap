@@ -632,7 +632,7 @@ exports[`<CardList /> renders matches snapshot with zero, one, and many cards 1`
     className="no-results-container"
   >
     <p
-      className="as-h2"
+      className="no-results-title"
     >
       No Results
     </p>

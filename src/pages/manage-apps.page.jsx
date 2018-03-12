@@ -46,7 +46,10 @@ export default class ManageAppsPage extends React.Component {
 
   componentWillUnmount() {
     this.cardListStore.resetIdToFocus();
+    //catalogHasBeenViewed ensures that batch alerts will only be shown once per session.
     this.appCatalogStore.catalogHasBeenViewed = true;
+    this.mdmStore.clearAlertAndReferences();
+    this.mdmStore.clearSuccess();
   }
 
   componentDidUpdate() {

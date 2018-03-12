@@ -254,16 +254,14 @@ export default class GeolinkControls extends React.Component {
   renderContactInfo = () => {
     return (
       <div className="col-xs-12 col-sm-4 col-md-6 col-lg-4 no-gutters">
-        <p className="network-contact-info">
+        <div className="network-contact-info">
           <span aria-hidden="true">Report Network Issue:</span>
           <a href={'tel:' + this.store.networkIssueNumber}>
-            <span>
-              <i className="icon-phone-number" aria-hidden='true'></i>
-              <span className="sr-only">Report Network Issue: Phone&nbsp;</span>
-              {this.store.networkIssueNumber}
-            </span>
+            <i className="icon-phone-number" aria-hidden='true'></i>
+            <span className="sr-only">Report Network Issue: Phone&nbsp;</span>
+            <span className="network-issue-number">{this.store.networkIssueNumber}</span>
           </a>
-        </p>
+        </div>
       </div>
     )
   }

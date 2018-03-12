@@ -62,15 +62,5 @@ describe('<RadioGroup />', () => {
       expect(component.hasVisibleError).toBe(true);
     });
 
-    test('shows error on change', () => {
-      let component, tree;
-      props.required = true;
-      component = TestUtils.renderIntoDocument(<RadioGroup {...props}/>);
-      expect(component.hasFunctionalError).toBe(true);
-      expect(component.hasVisibleError).toBe(false);
-
-      component.handleOnChange({target: {value: ''}});
-      expect(component.hasVisibleError).toBe(true);
-    });
   });
 });
