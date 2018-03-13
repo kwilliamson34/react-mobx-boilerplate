@@ -83,3 +83,9 @@ h2 + hr {
       transform: rotate(360deg);
   }
 }
+
+
+.shorten-with-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
