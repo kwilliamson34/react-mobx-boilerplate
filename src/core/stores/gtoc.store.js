@@ -1,7 +1,8 @@
 import {action, observable, computed, autorun} from 'mobx';
 import {userStore} from './user.store';
+
+import {successPage} from '../services/success-page.service';
 import {apiService} from '../services/api.service';
-import {history} from '../services/history.service';
 
 class GTOCStore {
   constructor() {
@@ -32,7 +33,13 @@ class GTOCStore {
   @action subscribeToGTOC() {
     const success = () => {
       this.clearForm();
-      history.push('/subscribe-to-alerts-success');
+      successPage({
+        pageTitle: 'We&apos;ve received your request.',
+        message: 'Processing your subscription can take up to 24 hours, after which you will start receiving alert notifications.',
+        contactUs: true,
+        returnToUrl: '/network',
+        returnToButtonText: 'Return to Network'
+      });
     }
     const failure = () => {
       this.updateAlert('An unknown error occured. Please try again later.');
@@ -43,7 +50,13 @@ class GTOCStore {
   @action unsubscribeFromGTOC() {
     const success = () => {
       this.clearForm();
-      history.push('/unsubscribe-to-alerts-success');
+      successPage({
+        pageTitle: 'We&apos;ve received your request.',
+        message: 'Cancelling your subscription can take up to 24 hours, after which you will stop receiving alert notifications.',
+        contactUs: true,
+        returnToUrl: '/network',
+        returnToButtonText: 'Return to Network'
+      });
     }
     const failure = () => {
       this.updateAlert('An unknown error occured. Please try again later.');

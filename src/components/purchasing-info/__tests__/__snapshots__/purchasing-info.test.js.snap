@@ -98,7 +98,13 @@ exports[`<PurchasingInfo /> render tests should render with no purchasing info s
   <div>
     <ul
       className="purchase-options-list"
-    />
+    >
+      
+      
+      
+      
+      
+    </ul>
   </div>
 </section>
 `;

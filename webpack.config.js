@@ -81,6 +81,10 @@ module.exports = (env) => {
         tls: 'empty'
       },
       plugins: [
+        new HtmlWebpackPlugin({
+          template: './index.ejs',
+          hash: false
+        }),
         new CompressionPlugin({
           asset: "[path].gz[query]",
           algorithm: "gzip",
