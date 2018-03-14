@@ -350,14 +350,6 @@
 
     button {
       text-transform: uppercase;
-      text-decoration: none;
-
-      &:focus,
-      &:hover {
-        span {
-          text-decoration: underline;
-        }
-      }
 
       i {
         font-size: $fn-button-desktop;
