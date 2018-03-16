@@ -49,7 +49,7 @@ export const asideCards = [
         linkTo: 'shopStandardDevicesLink',
         className: 'shop-devices-rates',
         header: 'Shop standard devices & rate plans',
-        navLinkName: 'Standard devices & rate plans',
+        navLinkName: 'Standard devices & plans',
         description: 'Add a new device, provision an existing device, add a rate plan, feature(s) and accessories',
         callToAction: 'Shop Devices & Plans'
     },
