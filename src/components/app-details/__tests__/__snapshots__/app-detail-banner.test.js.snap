@@ -19,7 +19,9 @@ exports[`<AppDetailBanner />  render tests matches snapshot when app is INSTALLE
           <div
             className="app-title"
           >
-            <h3>
+            <h3
+              className="shorten-with-ellipsis"
+            >
               Vampire Finder 3000
             </h3>
           </div>
@@ -83,7 +85,7 @@ exports[`<AppDetailBanner />  render tests matches snapshot when app is INSTALLE
                 className="app-details"
               >
                 <p
-                  className="version"
+                  className="version shorten-with-ellipsis"
                 >
                   <strong>
                     Version: 
@@ -149,7 +151,7 @@ exports[`<AppDetailBanner />  render tests matches snapshot when app is INSTALLE
                   className="app-details"
                 >
                   <p
-                    className="version"
+                    className="version shorten-with-ellipsis"
                   >
                     <strong>
                       Version: 
@@ -190,7 +192,9 @@ exports[`<AppDetailBanner />  render tests matches snapshot when app is INSTALLE
                 <div
                   className="app-title"
                 >
-                  <h3>
+                  <h3
+                    className="shorten-with-ellipsis"
+                  >
                     Vampire Finder 3000
                   </h3>
                 </div>
@@ -232,7 +236,7 @@ exports[`<AppDetailBanner />  render tests matches snapshot when app is INSTALLE
                   className="app-details"
                 >
                   <p
-                    className="version"
+                    className="version shorten-with-ellipsis"
                   >
                     <strong>
                       Version: 
@@ -300,7 +304,9 @@ exports[`<AppDetailBanner />  render tests matches snapshot when app is NOT_INST
           <div
             className="app-title"
           >
-            <h3>
+            <h3
+              className="shorten-with-ellipsis"
+            >
               Vampire Finder 3000
             </h3>
           </div>
@@ -364,7 +370,7 @@ exports[`<AppDetailBanner />  render tests matches snapshot when app is NOT_INST
                 className="app-details"
               >
                 <p
-                  className="version"
+                  className="version shorten-with-ellipsis"
                 >
                   <strong>
                     Version: 
@@ -430,7 +436,7 @@ exports[`<AppDetailBanner />  render tests matches snapshot when app is NOT_INST
                   className="app-details"
                 >
                   <p
-                    className="version"
+                    className="version shorten-with-ellipsis"
                   >
                     <strong>
                       Version: 
@@ -471,7 +477,9 @@ exports[`<AppDetailBanner />  render tests matches snapshot when app is NOT_INST
                 <div
                   className="app-title"
                 >
-                  <h3>
+                  <h3
+                    className="shorten-with-ellipsis"
+                  >
                     Vampire Finder 3000
                   </h3>
                 </div>
@@ -513,7 +521,7 @@ exports[`<AppDetailBanner />  render tests matches snapshot when app is NOT_INST
                   className="app-details"
                 >
                   <p
-                    className="version"
+                    className="version shorten-with-ellipsis"
                   >
                     <strong>
                       Version: 
@@ -581,7 +589,9 @@ exports[`<AppDetailBanner />  render tests matches snapshot when configuredMDMTy
           <div
             className="app-title"
           >
-            <h3>
+            <h3
+              className="shorten-with-ellipsis"
+            >
               Vampire Finder 3000
             </h3>
           </div>
@@ -645,7 +655,7 @@ exports[`<AppDetailBanner />  render tests matches snapshot when configuredMDMTy
                 className="app-details"
               >
                 <p
-                  className="version"
+                  className="version shorten-with-ellipsis"
                 >
                   <strong>
                     Version: 
@@ -711,7 +721,7 @@ exports[`<AppDetailBanner />  render tests matches snapshot when configuredMDMTy
                   className="app-details"
                 >
                   <p
-                    className="version"
+                    className="version shorten-with-ellipsis"
                   >
                     <strong>
                       Version: 
@@ -752,7 +762,9 @@ exports[`<AppDetailBanner />  render tests matches snapshot when configuredMDMTy
                 <div
                   className="app-title"
                 >
-                  <h3>
+                  <h3
+                    className="shorten-with-ellipsis"
+                  >
                     Vampire Finder 3000
                   </h3>
                 </div>
@@ -794,7 +806,7 @@ exports[`<AppDetailBanner />  render tests matches snapshot when configuredMDMTy
                   className="app-details"
                 >
                   <p
-                    className="version"
+                    className="version shorten-with-ellipsis"
                   >
                     <strong>
                       Version: 
