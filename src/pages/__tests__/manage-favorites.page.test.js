@@ -13,7 +13,7 @@ describe('<ManageFavoritesPage />', () => {
         manageFavoritesStore: {
           rows: [],
           sortedRows: [],
-          sortDirections: {
+          sortByAscending: {
             'favoriteName': true,
             'locationFavoriteAddress': true,
             'locationFavoriteId': true

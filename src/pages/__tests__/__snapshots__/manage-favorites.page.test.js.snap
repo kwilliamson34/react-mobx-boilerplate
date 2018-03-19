@@ -72,24 +72,22 @@ exports[`<ManageFavoritesPage /> render matches previous snapshot 1`] = `
         <div
           className="no-results-container"
         >
-          <div
-            className="no-fetch-results"
+          <p
+            className="no-results-title"
           >
-            <div
-              className="as-h2"
-            >
-              No Favorites
-            </div>
-            <p>
-              No favorite locations have been added yet. Add some!
-            </p>
-            <button
-              className="fn-primary"
-              onClick={[Function]}
-            >
-              Add From Map
-            </button>
-          </div>
+            No Favorites
+          </p>
+          <p
+            aria-live="polite"
+          >
+            No favorite locations have been added yet. Add some!
+          </p>
+          <button
+            className="fn-primary"
+            onClick={[Function]}
+          >
+            Add From Map
+          </button>
         </div>
         <hr
           className="mobile-hr"

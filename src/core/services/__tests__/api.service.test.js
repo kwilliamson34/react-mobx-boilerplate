@@ -49,7 +49,7 @@ describe('ApiService', () => {
     });
 
     test('Marketing Portal functions return inner data', () => {
-      axios.get = jest.fn().mockReturnValue( Promise.resolve({data: 'hello'}) );
+      axios.get = jest.fn().mockReturnValue( Promise.resolve('hello') );
 
       apiService.getMarketingPortalDevices().then(res => {
         expect(res).toEqual('hello');

@@ -7,244 +7,247 @@ exports[`<Footer /> renders matches previous footer snapshot 1`] = `
   <footer
     id="pse-footer"
   >
-    <div
-      className="footer-main"
+    <nav
+      aria-label="Supporting Navigation."
     >
       <div
-        className="container"
+        className="footer-main"
       >
         <div
-          className="row"
+          className="container"
         >
           <div
-            className="col-xs-12 logoRow"
+            className="row"
           >
-            <a
-              className="logo-home-link-footer"
-              href="/"
-              onClick={[Function]}
-            >
-              <img
-                alt="FirstNet Local Control logo"
-                src="/images/logo-FirstNet-local-control.svg"
-              />
-              <span
-                className="sr-only"
-              >
-                Go Home
-              </span>
-            </a>
-          </div>
-        </div>
-        <div
-          className="row is-flex"
-        >
-          <div
-            className="col-xs-12 col-md-3"
-          >
-            <nav
-              aria-describedby="sitemap"
+            <div
+              className="col-xs-12 logoRow"
             >
               <a
-                aria-expanded={false}
-                aria-haspopup="true"
-                className="sitemap-hdr"
-                href=""
-                id="sitemap"
+                className="logo-home-link-footer"
+                href="/"
                 onClick={[Function]}
-                role="button"
-                tabIndex={-1}
               >
-                Sitemap
+                <img
+                  alt="FirstNet Local Control logo"
+                  src="/images/logo-FirstNet-local-control.svg"
+                />
+                <span
+                  className="sr-only"
+                >
+                  Go Home
+                </span>
               </a>
-              <ul
-                className="sitemap-links"
-              >
-                <div />
-              </ul>
-            </nav>
+            </div>
           </div>
           <div
-            className="col-xs-12 col-md-3"
+            className="row is-flex"
           >
-            <nav
-              aria-describedby="firstnet-sites"
+            <div
+              className="col-xs-12 col-md-3"
             >
-              <h2
-                id="firstnet-sites"
+              <div
+                aria-describedby="sitemap"
               >
-                Firstnet Sites
-              </h2>
-              <ul>
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-              </ul>
-            </nav>
-          </div>
-          <div
-            className="col-xs-12 col-md-3"
-          >
-            <nav
-              aria-describedby="social-links"
-              className="social-nav"
+                <a
+                  aria-expanded={false}
+                  aria-haspopup="true"
+                  className="sitemap-hdr"
+                  href=""
+                  id="sitemap"
+                  onClick={[Function]}
+                  role="button"
+                  tabIndex={-1}
+                >
+                  Sitemap
+                </a>
+                <ul
+                  className="sitemap-links"
+                >
+                  <div />
+                </ul>
+              </div>
+            </div>
+            <div
+              className="col-xs-12 col-md-3"
             >
-              <h2
-                id="social-links"
+              <div
+                aria-describedby="firstnet-sites"
               >
-                Follow Us
-              </h2>
-              <ul
-                className="social-links-list"
-              >
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-              </ul>
-            </nav>
-          </div>
-          <div
-            className="col-xs-12 col-md-3"
-          >
-            <nav
-              aria-describedby="helpLinks"
-            >
-              <h2
-                className="help-hdr"
-                id="helpLinks"
-              >
-                <i
-                  aria-hidden="true"
-                  className="icon-help"
-                />
-                Help
-              </h2>
-              <ul
-                className="help-link-block"
-              >
-                <li
-                  role="presentation"
+                <h2
+                  id="firstnet-sites"
                 >
-                  <a
-                    href="/faq"
-                    onClick={[Function]}
-                  >
-                    FAQ
-                  </a>
-                </li>
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                >
-                  <a
-                    className="walkthru-toggle as-table-cell"
-                    href="#"
-                    onClick={[Function]}
-                    role="button"
-                  >
-                    Disable
-                    Site Walkthrough
-                  </a>
-                </li>
-                <li
-                  role="presentation"
-                >
-                  <a
-                    href="/feedback"
-                    onClick={[Function]}
-                  >
-                    Give Us Feedback
-                  </a>
-                </li>
-                <li
-                  role="presentation"
-                >
-                  <span
-                    aria-hidden="aria-hidden"
-                  >
-                    FirstNet Customer Svc:
-                  </span>
-                  <br
-                    className="visible-xs-inline-block visible-md-inline-block "
+                  Firstnet Sites
+                </h2>
+                <ul>
+                  <li
+                    role="presentation"
                   />
-                  <a
-                    href="tel:800-574-7000"
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                </ul>
+              </div>
+            </div>
+            <div
+              className="col-xs-12 col-md-3"
+            >
+              <div
+                aria-describedby="social-links"
+                className="social-nav"
+              >
+                <h2
+                  id="social-links"
+                >
+                  Follow Us
+                </h2>
+                <ul
+                  className="social-links-list"
+                >
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                </ul>
+              </div>
+            </div>
+            <div
+              className="col-xs-12 col-md-3"
+            >
+              <div
+                aria-describedby="helpLinks"
+              >
+                <h2
+                  className="help-hdr"
+                  id="helpLinks"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="icon-help"
+                  />
+                  Help
+                </h2>
+                <ul
+                  className="help-link-block"
+                >
+                  <li
+                    role="presentation"
                   >
-                    <i
-                      aria-hidden="true"
-                      className="icon-phone-number footer-support-phone"
-                    />
-                    <span
-                      className="sr-only"
+                    <a
+                      href="/faq"
+                      onClick={[Function]}
                     >
-                      FirstNet Customer Service Phone 
+                      FAQ
+                    </a>
+                  </li>
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  >
+                    <a
+                      className="walkthru-toggle as-table-cell"
+                      href="#"
+                      onClick={[Function]}
+                      role="button"
+                    >
+                      Disable Site Walkthrough
+                    </a>
+                  </li>
+                  <li
+                    role="presentation"
+                  >
+                    <a
+                      href="/feedback"
+                      onClick={[Function]}
+                    >
+                      Give Us Feedback
+                    </a>
+                  </li>
+                  <li
+                    role="presentation"
+                  >
+                    <span
+                      aria-hidden="aria-hidden"
+                    >
+                      FirstNet Customer Svc:
                     </span>
-                    800-574-7000
-                  </a>
-                </li>
-              </ul>
-            </nav>
+                    <br
+                      className="visible-xs-inline-block visible-md-inline-block "
+                    />
+                    <a
+                      href="tel:800-574-7000"
+                    >
+                      <i
+                        aria-hidden="true"
+                        className="icon-phone-number footer-support-phone"
+                      />
+                      <span
+                        className="sr-only"
+                      >
+                        FirstNet Customer Service Phone 
+                      </span>
+                      800-574-7000
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div
-      className="footer-sub"
-    >
       <div
-        className="container"
+        className="footer-sub"
       >
         <div
-          className="row"
+          className="container"
         >
           <div
-            className="col-xs-12"
+            className="row"
           >
-            <nav>
-              <ul
-                className="sub-links"
-              >
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-                <li
-                  className="xs-line-break"
-                />
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-              </ul>
-            </nav>
+            <div
+              className="col-xs-12"
+            >
+              <div>
+                <ul
+                  className="sub-links"
+                >
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    className="xs-line-break"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </nav>
   </footer>
 </div>
 `;
@@ -256,257 +259,260 @@ exports[`<Footer /> renders user role-based snapshots 1`] = `
   <footer
     id="pse-footer"
   >
-    <div
-      className="footer-main"
+    <nav
+      aria-label="Supporting Navigation."
     >
       <div
-        className="container"
+        className="footer-main"
       >
         <div
-          className="row"
+          className="container"
         >
           <div
-            className="col-xs-12 logoRow"
+            className="row"
           >
-            <a
-              className="logo-home-link-footer"
-              href="/"
-              onClick={[Function]}
-            >
-              <img
-                alt="FirstNet Local Control logo"
-                src="/images/logo-FirstNet-local-control.svg"
-              />
-              <span
-                className="sr-only"
-              >
-                Go Home
-              </span>
-            </a>
-          </div>
-        </div>
-        <div
-          className="row is-flex"
-        >
-          <div
-            className="col-xs-12 col-md-3"
-          >
-            <nav
-              aria-describedby="sitemap"
+            <div
+              className="col-xs-12 logoRow"
             >
               <a
-                aria-expanded={false}
-                aria-haspopup="true"
-                className="sitemap-hdr"
-                href=""
-                id="sitemap"
+                className="logo-home-link-footer"
+                href="/"
                 onClick={[Function]}
-                role="button"
-                tabIndex={-1}
               >
-                Sitemap
+                <img
+                  alt="FirstNet Local Control logo"
+                  src="/images/logo-FirstNet-local-control.svg"
+                />
+                <span
+                  className="sr-only"
+                >
+                  Go Home
+                </span>
               </a>
-              <ul
-                className="sitemap-links"
-              >
-                <div />
-                <li
-                  role="presentation"
-                >
-                  <a
-                    href="/network"
-                    onClick={[Function]}
-                  >
-                    Network
-                  </a>
-                </li>
-                <li
-                  role="presentation"
-                />
-              </ul>
-            </nav>
+            </div>
           </div>
           <div
-            className="col-xs-12 col-md-3"
+            className="row is-flex"
           >
-            <nav
-              aria-describedby="firstnet-sites"
+            <div
+              className="col-xs-12 col-md-3"
             >
-              <h2
-                id="firstnet-sites"
+              <div
+                aria-describedby="sitemap"
               >
-                Firstnet Sites
-              </h2>
-              <ul>
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-              </ul>
-            </nav>
-          </div>
-          <div
-            className="col-xs-12 col-md-3"
-          >
-            <nav
-              aria-describedby="social-links"
-              className="social-nav"
-            >
-              <h2
-                id="social-links"
-              >
-                Follow Us
-              </h2>
-              <ul
-                className="social-links-list"
-              >
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-              </ul>
-            </nav>
-          </div>
-          <div
-            className="col-xs-12 col-md-3"
-          >
-            <nav
-              aria-describedby="helpLinks"
-            >
-              <h2
-                className="help-hdr"
-                id="helpLinks"
-              >
-                <i
-                  aria-hidden="true"
-                  className="icon-help"
-                />
-                Help
-              </h2>
-              <ul
-                className="help-link-block"
-              >
-                <li
-                  role="presentation"
+                <a
+                  aria-expanded={false}
+                  aria-haspopup="true"
+                  className="sitemap-hdr"
+                  href=""
+                  id="sitemap"
+                  onClick={[Function]}
+                  role="button"
+                  tabIndex={-1}
                 >
-                  <a
-                    href="/faq"
-                    onClick={[Function]}
-                  >
-                    FAQ
-                  </a>
-                </li>
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
+                  Sitemap
+                </a>
+                <ul
+                  className="sitemap-links"
                 >
-                  <a
-                    className="walkthru-toggle as-table-cell"
-                    href="#"
-                    onClick={[Function]}
-                    role="button"
+                  <div />
+                  <li
+                    role="presentation"
                   >
-                    Disable
-                    Site Walkthrough
-                  </a>
-                </li>
-                <li
-                  role="presentation"
-                >
-                  <a
-                    href="/feedback"
-                    onClick={[Function]}
-                  >
-                    Give Us Feedback
-                  </a>
-                </li>
-                <li
-                  role="presentation"
-                >
-                  <span
-                    aria-hidden="aria-hidden"
-                  >
-                    FirstNet Customer Svc:
-                  </span>
-                  <br
-                    className="visible-xs-inline-block visible-md-inline-block "
-                  />
-                  <a
-                    href="tel:800-574-7000"
-                  >
-                    <i
-                      aria-hidden="true"
-                      className="icon-phone-number footer-support-phone"
-                    />
-                    <span
-                      className="sr-only"
+                    <a
+                      href="/network"
+                      onClick={[Function]}
                     >
-                      FirstNet Customer Service Phone 
+                      Network
+                    </a>
+                  </li>
+                  <li
+                    role="presentation"
+                  />
+                </ul>
+              </div>
+            </div>
+            <div
+              className="col-xs-12 col-md-3"
+            >
+              <div
+                aria-describedby="firstnet-sites"
+              >
+                <h2
+                  id="firstnet-sites"
+                >
+                  Firstnet Sites
+                </h2>
+                <ul>
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                </ul>
+              </div>
+            </div>
+            <div
+              className="col-xs-12 col-md-3"
+            >
+              <div
+                aria-describedby="social-links"
+                className="social-nav"
+              >
+                <h2
+                  id="social-links"
+                >
+                  Follow Us
+                </h2>
+                <ul
+                  className="social-links-list"
+                >
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                </ul>
+              </div>
+            </div>
+            <div
+              className="col-xs-12 col-md-3"
+            >
+              <div
+                aria-describedby="helpLinks"
+              >
+                <h2
+                  className="help-hdr"
+                  id="helpLinks"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="icon-help"
+                  />
+                  Help
+                </h2>
+                <ul
+                  className="help-link-block"
+                >
+                  <li
+                    role="presentation"
+                  >
+                    <a
+                      href="/faq"
+                      onClick={[Function]}
+                    >
+                      FAQ
+                    </a>
+                  </li>
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  >
+                    <a
+                      className="walkthru-toggle as-table-cell"
+                      href="#"
+                      onClick={[Function]}
+                      role="button"
+                    >
+                      Disable Site Walkthrough
+                    </a>
+                  </li>
+                  <li
+                    role="presentation"
+                  >
+                    <a
+                      href="/feedback"
+                      onClick={[Function]}
+                    >
+                      Give Us Feedback
+                    </a>
+                  </li>
+                  <li
+                    role="presentation"
+                  >
+                    <span
+                      aria-hidden="aria-hidden"
+                    >
+                      FirstNet Customer Svc:
                     </span>
-                    800-574-7000
-                  </a>
-                </li>
-              </ul>
-            </nav>
+                    <br
+                      className="visible-xs-inline-block visible-md-inline-block "
+                    />
+                    <a
+                      href="tel:800-574-7000"
+                    >
+                      <i
+                        aria-hidden="true"
+                        className="icon-phone-number footer-support-phone"
+                      />
+                      <span
+                        className="sr-only"
+                      >
+                        FirstNet Customer Service Phone 
+                      </span>
+                      800-574-7000
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div
-      className="footer-sub"
-    >
       <div
-        className="container"
+        className="footer-sub"
       >
         <div
-          className="row"
+          className="container"
         >
           <div
-            className="col-xs-12"
+            className="row"
           >
-            <nav>
-              <ul
-                className="sub-links"
-              >
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-                <li
-                  className="xs-line-break"
-                />
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-              </ul>
-            </nav>
+            <div
+              className="col-xs-12"
+            >
+              <div>
+                <ul
+                  className="sub-links"
+                >
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    className="xs-line-break"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </nav>
   </footer>
 </div>
 `;
@@ -518,296 +524,299 @@ exports[`<Footer /> renders user role-based snapshots 2`] = `
   <footer
     id="pse-footer"
   >
-    <div
-      className="footer-main"
+    <nav
+      aria-label="Supporting Navigation."
     >
       <div
-        className="container"
+        className="footer-main"
       >
         <div
-          className="row"
+          className="container"
         >
           <div
-            className="col-xs-12 logoRow"
+            className="row"
           >
-            <a
-              className="logo-home-link-footer"
-              href="/"
-              onClick={[Function]}
-            >
-              <img
-                alt="FirstNet Local Control logo"
-                src="/images/logo-FirstNet-local-control.svg"
-              />
-              <span
-                className="sr-only"
-              >
-                Go Home
-              </span>
-            </a>
-          </div>
-        </div>
-        <div
-          className="row is-flex"
-        >
-          <div
-            className="col-xs-12 col-md-3"
-          >
-            <nav
-              aria-describedby="sitemap"
+            <div
+              className="col-xs-12 logoRow"
             >
               <a
-                aria-expanded={false}
-                aria-haspopup="true"
-                className="sitemap-hdr"
-                href=""
-                id="sitemap"
+                className="logo-home-link-footer"
+                href="/"
                 onClick={[Function]}
-                role="button"
-                tabIndex={-1}
               >
-                Sitemap
+                <img
+                  alt="FirstNet Local Control logo"
+                  src="/images/logo-FirstNet-local-control.svg"
+                />
+                <span
+                  className="sr-only"
+                >
+                  Go Home
+                </span>
               </a>
-              <ul
-                className="sitemap-links"
-              >
-                <div>
-                  <li
-                    role="presentation"
-                  >
-                    <a
-                      href="/admin"
-                      onClick={[Function]}
-                    >
-                      PSE Administration
-                    </a>
-                  </li>
-                  <li
-                    role="presentation"
-                  >
-                    <a
-                      href="/admin/manage-apps"
-                      onClick={[Function]}
-                    >
-                      Manage Apps
-                    </a>
-                  </li>
-                  <li
-                    role="presentation"
-                  >
-                    <a
-                      href="/admin/devices"
-                      onClick={[Function]}
-                    >
-                      Specialized Devices
-                    </a>
-                  </li>
-                  <li
-                    role="presentation"
-                  >
-                    <a
-                      className="as-table-cell"
-                      href="/admin/solutions"
-                      onClick={[Function]}
-                    >
-                      Public Safety Solutions
-                    </a>
-                  </li>
-                </div>
-                <li
-                  role="presentation"
-                >
-                  <a
-                    href="/network"
-                    onClick={[Function]}
-                  >
-                    Network
-                  </a>
-                </li>
-              </ul>
-            </nav>
+            </div>
           </div>
           <div
-            className="col-xs-12 col-md-3"
+            className="row is-flex"
           >
-            <nav
-              aria-describedby="firstnet-sites"
+            <div
+              className="col-xs-12 col-md-3"
             >
-              <h2
-                id="firstnet-sites"
+              <div
+                aria-describedby="sitemap"
               >
-                Firstnet Sites
-              </h2>
-              <ul>
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-              </ul>
-            </nav>
-          </div>
-          <div
-            className="col-xs-12 col-md-3"
-          >
-            <nav
-              aria-describedby="social-links"
-              className="social-nav"
+                <a
+                  aria-expanded={false}
+                  aria-haspopup="true"
+                  className="sitemap-hdr"
+                  href=""
+                  id="sitemap"
+                  onClick={[Function]}
+                  role="button"
+                  tabIndex={-1}
+                >
+                  Sitemap
+                </a>
+                <ul
+                  className="sitemap-links"
+                >
+                  <div>
+                    <li
+                      role="presentation"
+                    >
+                      <a
+                        href="/admin"
+                        onClick={[Function]}
+                      >
+                        PSE Administration
+                      </a>
+                    </li>
+                    <li
+                      role="presentation"
+                    >
+                      <a
+                        href="/admin/manage-apps"
+                        onClick={[Function]}
+                      >
+                        Manage Apps
+                      </a>
+                    </li>
+                    <li
+                      role="presentation"
+                    >
+                      <a
+                        href="/admin/devices"
+                        onClick={[Function]}
+                      >
+                        Specialized Devices
+                      </a>
+                    </li>
+                    <li
+                      role="presentation"
+                    >
+                      <a
+                        className="as-table-cell"
+                        href="/admin/solutions"
+                        onClick={[Function]}
+                      >
+                        Public Safety Solutions
+                      </a>
+                    </li>
+                  </div>
+                  <li
+                    role="presentation"
+                  >
+                    <a
+                      href="/network"
+                      onClick={[Function]}
+                    >
+                      Network
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div
+              className="col-xs-12 col-md-3"
             >
-              <h2
-                id="social-links"
+              <div
+                aria-describedby="firstnet-sites"
               >
-                Follow Us
-              </h2>
-              <ul
-                className="social-links-list"
-              >
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-              </ul>
-            </nav>
-          </div>
-          <div
-            className="col-xs-12 col-md-3"
-          >
-            <nav
-              aria-describedby="helpLinks"
-            >
-              <h2
-                className="help-hdr"
-                id="helpLinks"
-              >
-                <i
-                  aria-hidden="true"
-                  className="icon-help"
-                />
-                Help
-              </h2>
-              <ul
-                className="help-link-block"
-              >
-                <li
-                  role="presentation"
+                <h2
+                  id="firstnet-sites"
                 >
-                  <a
-                    href="/faq"
-                    onClick={[Function]}
-                  >
-                    FAQ
-                  </a>
-                </li>
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                >
-                  <a
-                    className="walkthru-toggle as-table-cell"
-                    href="#"
-                    onClick={[Function]}
-                    role="button"
-                  >
-                    Disable
-                    Site Walkthrough
-                  </a>
-                </li>
-                <li
-                  role="presentation"
-                >
-                  <a
-                    href="/feedback"
-                    onClick={[Function]}
-                  >
-                    Give Us Feedback
-                  </a>
-                </li>
-                <li
-                  role="presentation"
-                >
-                  <span
-                    aria-hidden="aria-hidden"
-                  >
-                    FirstNet Customer Svc:
-                  </span>
-                  <br
-                    className="visible-xs-inline-block visible-md-inline-block "
+                  Firstnet Sites
+                </h2>
+                <ul>
+                  <li
+                    role="presentation"
                   />
-                  <a
-                    href="tel:800-574-7000"
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                </ul>
+              </div>
+            </div>
+            <div
+              className="col-xs-12 col-md-3"
+            >
+              <div
+                aria-describedby="social-links"
+                className="social-nav"
+              >
+                <h2
+                  id="social-links"
+                >
+                  Follow Us
+                </h2>
+                <ul
+                  className="social-links-list"
+                >
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                </ul>
+              </div>
+            </div>
+            <div
+              className="col-xs-12 col-md-3"
+            >
+              <div
+                aria-describedby="helpLinks"
+              >
+                <h2
+                  className="help-hdr"
+                  id="helpLinks"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="icon-help"
+                  />
+                  Help
+                </h2>
+                <ul
+                  className="help-link-block"
+                >
+                  <li
+                    role="presentation"
                   >
-                    <i
-                      aria-hidden="true"
-                      className="icon-phone-number footer-support-phone"
-                    />
-                    <span
-                      className="sr-only"
+                    <a
+                      href="/faq"
+                      onClick={[Function]}
                     >
-                      FirstNet Customer Service Phone 
+                      FAQ
+                    </a>
+                  </li>
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  >
+                    <a
+                      className="walkthru-toggle as-table-cell"
+                      href="#"
+                      onClick={[Function]}
+                      role="button"
+                    >
+                      Disable Site Walkthrough
+                    </a>
+                  </li>
+                  <li
+                    role="presentation"
+                  >
+                    <a
+                      href="/feedback"
+                      onClick={[Function]}
+                    >
+                      Give Us Feedback
+                    </a>
+                  </li>
+                  <li
+                    role="presentation"
+                  >
+                    <span
+                      aria-hidden="aria-hidden"
+                    >
+                      FirstNet Customer Svc:
                     </span>
-                    800-574-7000
-                  </a>
-                </li>
-              </ul>
-            </nav>
+                    <br
+                      className="visible-xs-inline-block visible-md-inline-block "
+                    />
+                    <a
+                      href="tel:800-574-7000"
+                    >
+                      <i
+                        aria-hidden="true"
+                        className="icon-phone-number footer-support-phone"
+                      />
+                      <span
+                        className="sr-only"
+                      >
+                        FirstNet Customer Service Phone 
+                      </span>
+                      800-574-7000
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div
-      className="footer-sub"
-    >
       <div
-        className="container"
+        className="footer-sub"
       >
         <div
-          className="row"
+          className="container"
         >
           <div
-            className="col-xs-12"
+            className="row"
           >
-            <nav>
-              <ul
-                className="sub-links"
-              >
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-                <li
-                  className="xs-line-break"
-                />
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-              </ul>
-            </nav>
+            <div
+              className="col-xs-12"
+            >
+              <div>
+                <ul
+                  className="sub-links"
+                >
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    className="xs-line-break"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </nav>
   </footer>
 </div>
 `;
@@ -819,255 +828,258 @@ exports[`<Footer /> renders user role-based snapshots 3`] = `
   <footer
     id="pse-footer"
   >
-    <div
-      className="footer-main"
+    <nav
+      aria-label="Supporting Navigation."
     >
       <div
-        className="container"
+        className="footer-main"
       >
         <div
-          className="row"
+          className="container"
         >
           <div
-            className="col-xs-12 logoRow"
+            className="row"
           >
-            <a
-              className="logo-home-link-footer"
-              href="/"
-              onClick={[Function]}
-            >
-              <img
-                alt="FirstNet Local Control logo"
-                src="/images/logo-FirstNet-local-control.svg"
-              />
-              <span
-                className="sr-only"
-              >
-                Go Home
-              </span>
-            </a>
-          </div>
-        </div>
-        <div
-          className="row is-flex"
-        >
-          <div
-            className="col-xs-12 col-md-3"
-          >
-            <nav
-              aria-describedby="sitemap"
+            <div
+              className="col-xs-12 logoRow"
             >
               <a
-                aria-expanded={false}
-                aria-haspopup="true"
-                className="sitemap-hdr"
-                href=""
-                id="sitemap"
+                className="logo-home-link-footer"
+                href="/"
                 onClick={[Function]}
-                role="button"
-                tabIndex={-1}
               >
-                Sitemap
+                <img
+                  alt="FirstNet Local Control logo"
+                  src="/images/logo-FirstNet-local-control.svg"
+                />
+                <span
+                  className="sr-only"
+                >
+                  Go Home
+                </span>
               </a>
-              <ul
-                className="sitemap-links"
+            </div>
+          </div>
+          <div
+            className="row is-flex"
+          >
+            <div
+              className="col-xs-12 col-md-3"
+            >
+              <div
+                aria-describedby="sitemap"
               >
-                <div>
+                <a
+                  aria-expanded={false}
+                  aria-haspopup="true"
+                  className="sitemap-hdr"
+                  href=""
+                  id="sitemap"
+                  onClick={[Function]}
+                  role="button"
+                  tabIndex={-1}
+                >
+                  Sitemap
+                </a>
+                <ul
+                  className="sitemap-links"
+                >
+                  <div>
+                    <li
+                      role="presentation"
+                    >
+                      <a
+                        href="/admin"
+                        onClick={[Function]}
+                      >
+                        PSE Administration
+                      </a>
+                    </li>
+                  </div>
+                </ul>
+              </div>
+            </div>
+            <div
+              className="col-xs-12 col-md-3"
+            >
+              <div
+                aria-describedby="firstnet-sites"
+              >
+                <h2
+                  id="firstnet-sites"
+                >
+                  Firstnet Sites
+                </h2>
+                <ul>
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                </ul>
+              </div>
+            </div>
+            <div
+              className="col-xs-12 col-md-3"
+            >
+              <div
+                aria-describedby="social-links"
+                className="social-nav"
+              >
+                <h2
+                  id="social-links"
+                >
+                  Follow Us
+                </h2>
+                <ul
+                  className="social-links-list"
+                >
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                </ul>
+              </div>
+            </div>
+            <div
+              className="col-xs-12 col-md-3"
+            >
+              <div
+                aria-describedby="helpLinks"
+              >
+                <h2
+                  className="help-hdr"
+                  id="helpLinks"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="icon-help"
+                  />
+                  Help
+                </h2>
+                <ul
+                  className="help-link-block"
+                >
                   <li
                     role="presentation"
                   >
                     <a
-                      href="/admin"
+                      href="/faq"
                       onClick={[Function]}
                     >
-                      PSE Administration
+                      FAQ
                     </a>
                   </li>
-                </div>
-              </ul>
-            </nav>
-          </div>
-          <div
-            className="col-xs-12 col-md-3"
-          >
-            <nav
-              aria-describedby="firstnet-sites"
-            >
-              <h2
-                id="firstnet-sites"
-              >
-                Firstnet Sites
-              </h2>
-              <ul>
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-              </ul>
-            </nav>
-          </div>
-          <div
-            className="col-xs-12 col-md-3"
-          >
-            <nav
-              aria-describedby="social-links"
-              className="social-nav"
-            >
-              <h2
-                id="social-links"
-              >
-                Follow Us
-              </h2>
-              <ul
-                className="social-links-list"
-              >
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-              </ul>
-            </nav>
-          </div>
-          <div
-            className="col-xs-12 col-md-3"
-          >
-            <nav
-              aria-describedby="helpLinks"
-            >
-              <h2
-                className="help-hdr"
-                id="helpLinks"
-              >
-                <i
-                  aria-hidden="true"
-                  className="icon-help"
-                />
-                Help
-              </h2>
-              <ul
-                className="help-link-block"
-              >
-                <li
-                  role="presentation"
-                >
-                  <a
-                    href="/faq"
-                    onClick={[Function]}
-                  >
-                    FAQ
-                  </a>
-                </li>
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                >
-                  <a
-                    className="walkthru-toggle as-table-cell"
-                    href="#"
-                    onClick={[Function]}
-                    role="button"
-                  >
-                    Disable
-                    Site Walkthrough
-                  </a>
-                </li>
-                <li
-                  role="presentation"
-                >
-                  <a
-                    href="/feedback"
-                    onClick={[Function]}
-                  >
-                    Give Us Feedback
-                  </a>
-                </li>
-                <li
-                  role="presentation"
-                >
-                  <span
-                    aria-hidden="aria-hidden"
-                  >
-                    FirstNet Customer Svc:
-                  </span>
-                  <br
-                    className="visible-xs-inline-block visible-md-inline-block "
+                  <li
+                    role="presentation"
                   />
-                  <a
-                    href="tel:800-574-7000"
+                  <li
+                    role="presentation"
                   >
-                    <i
-                      aria-hidden="true"
-                      className="icon-phone-number footer-support-phone"
-                    />
-                    <span
-                      className="sr-only"
+                    <a
+                      className="walkthru-toggle as-table-cell"
+                      href="#"
+                      onClick={[Function]}
+                      role="button"
                     >
-                      FirstNet Customer Service Phone 
+                      Disable Site Walkthrough
+                    </a>
+                  </li>
+                  <li
+                    role="presentation"
+                  >
+                    <a
+                      href="/feedback"
+                      onClick={[Function]}
+                    >
+                      Give Us Feedback
+                    </a>
+                  </li>
+                  <li
+                    role="presentation"
+                  >
+                    <span
+                      aria-hidden="aria-hidden"
+                    >
+                      FirstNet Customer Svc:
                     </span>
-                    800-574-7000
-                  </a>
-                </li>
-              </ul>
-            </nav>
+                    <br
+                      className="visible-xs-inline-block visible-md-inline-block "
+                    />
+                    <a
+                      href="tel:800-574-7000"
+                    >
+                      <i
+                        aria-hidden="true"
+                        className="icon-phone-number footer-support-phone"
+                      />
+                      <span
+                        className="sr-only"
+                      >
+                        FirstNet Customer Service Phone 
+                      </span>
+                      800-574-7000
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div
-      className="footer-sub"
-    >
       <div
-        className="container"
+        className="footer-sub"
       >
         <div
-          className="row"
+          className="container"
         >
           <div
-            className="col-xs-12"
+            className="row"
           >
-            <nav>
-              <ul
-                className="sub-links"
-              >
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-                <li
-                  className="xs-line-break"
-                />
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-              </ul>
-            </nav>
+            <div
+              className="col-xs-12"
+            >
+              <div>
+                <ul
+                  className="sub-links"
+                >
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    className="xs-line-break"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </nav>
   </footer>
 </div>
 `;
@@ -1079,265 +1091,268 @@ exports[`<Footer /> renders user role-based snapshots 4`] = `
   <footer
     id="pse-footer"
   >
-    <div
-      className="footer-main"
+    <nav
+      aria-label="Supporting Navigation."
     >
       <div
-        className="container"
+        className="footer-main"
       >
         <div
-          className="row"
+          className="container"
         >
           <div
-            className="col-xs-12 logoRow"
+            className="row"
           >
-            <a
-              className="logo-home-link-footer"
-              href="/"
-              onClick={[Function]}
-            >
-              <img
-                alt="FirstNet Local Control logo"
-                src="/images/logo-FirstNet-local-control.svg"
-              />
-              <span
-                className="sr-only"
-              >
-                Go Home
-              </span>
-            </a>
-          </div>
-        </div>
-        <div
-          className="row is-flex"
-        >
-          <div
-            className="col-xs-12 col-md-3"
-          >
-            <nav
-              aria-describedby="sitemap"
+            <div
+              className="col-xs-12 logoRow"
             >
               <a
-                aria-expanded={false}
-                aria-haspopup="true"
-                className="sitemap-hdr"
-                href=""
-                id="sitemap"
+                className="logo-home-link-footer"
+                href="/"
                 onClick={[Function]}
-                role="button"
-                tabIndex={-1}
               >
-                Sitemap
+                <img
+                  alt="FirstNet Local Control logo"
+                  src="/images/logo-FirstNet-local-control.svg"
+                />
+                <span
+                  className="sr-only"
+                >
+                  Go Home
+                </span>
               </a>
-              <ul
-                className="sitemap-links"
+            </div>
+          </div>
+          <div
+            className="row is-flex"
+          >
+            <div
+              className="col-xs-12 col-md-3"
+            >
+              <div
+                aria-describedby="sitemap"
               >
-                <div>
+                <a
+                  aria-expanded={false}
+                  aria-haspopup="true"
+                  className="sitemap-hdr"
+                  href=""
+                  id="sitemap"
+                  onClick={[Function]}
+                  role="button"
+                  tabIndex={-1}
+                >
+                  Sitemap
+                </a>
+                <ul
+                  className="sitemap-links"
+                >
+                  <div>
+                    <li
+                      role="presentation"
+                    >
+                      <a
+                        href="/admin"
+                        onClick={[Function]}
+                      >
+                        PSE Administration
+                      </a>
+                    </li>
+                    <li
+                      role="presentation"
+                    >
+                      <a
+                        href="/admin/manage-apps"
+                        onClick={[Function]}
+                      >
+                        Manage Apps
+                      </a>
+                    </li>
+                  </div>
+                </ul>
+              </div>
+            </div>
+            <div
+              className="col-xs-12 col-md-3"
+            >
+              <div
+                aria-describedby="firstnet-sites"
+              >
+                <h2
+                  id="firstnet-sites"
+                >
+                  Firstnet Sites
+                </h2>
+                <ul>
                   <li
                     role="presentation"
-                  >
-                    <a
-                      href="/admin"
-                      onClick={[Function]}
-                    >
-                      PSE Administration
-                    </a>
-                  </li>
-                  <li
-                    role="presentation"
-                  >
-                    <a
-                      href="/admin/manage-apps"
-                      onClick={[Function]}
-                    >
-                      Manage Apps
-                    </a>
-                  </li>
-                </div>
-              </ul>
-            </nav>
-          </div>
-          <div
-            className="col-xs-12 col-md-3"
-          >
-            <nav
-              aria-describedby="firstnet-sites"
-            >
-              <h2
-                id="firstnet-sites"
-              >
-                Firstnet Sites
-              </h2>
-              <ul>
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-              </ul>
-            </nav>
-          </div>
-          <div
-            className="col-xs-12 col-md-3"
-          >
-            <nav
-              aria-describedby="social-links"
-              className="social-nav"
-            >
-              <h2
-                id="social-links"
-              >
-                Follow Us
-              </h2>
-              <ul
-                className="social-links-list"
-              >
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-              </ul>
-            </nav>
-          </div>
-          <div
-            className="col-xs-12 col-md-3"
-          >
-            <nav
-              aria-describedby="helpLinks"
-            >
-              <h2
-                className="help-hdr"
-                id="helpLinks"
-              >
-                <i
-                  aria-hidden="true"
-                  className="icon-help"
-                />
-                Help
-              </h2>
-              <ul
-                className="help-link-block"
-              >
-                <li
-                  role="presentation"
-                >
-                  <a
-                    href="/faq"
-                    onClick={[Function]}
-                  >
-                    FAQ
-                  </a>
-                </li>
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                >
-                  <a
-                    className="walkthru-toggle as-table-cell"
-                    href="#"
-                    onClick={[Function]}
-                    role="button"
-                  >
-                    Disable
-                    Site Walkthrough
-                  </a>
-                </li>
-                <li
-                  role="presentation"
-                >
-                  <a
-                    href="/feedback"
-                    onClick={[Function]}
-                  >
-                    Give Us Feedback
-                  </a>
-                </li>
-                <li
-                  role="presentation"
-                >
-                  <span
-                    aria-hidden="aria-hidden"
-                  >
-                    FirstNet Customer Svc:
-                  </span>
-                  <br
-                    className="visible-xs-inline-block visible-md-inline-block "
                   />
-                  <a
-                    href="tel:800-574-7000"
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                </ul>
+              </div>
+            </div>
+            <div
+              className="col-xs-12 col-md-3"
+            >
+              <div
+                aria-describedby="social-links"
+                className="social-nav"
+              >
+                <h2
+                  id="social-links"
+                >
+                  Follow Us
+                </h2>
+                <ul
+                  className="social-links-list"
+                >
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                </ul>
+              </div>
+            </div>
+            <div
+              className="col-xs-12 col-md-3"
+            >
+              <div
+                aria-describedby="helpLinks"
+              >
+                <h2
+                  className="help-hdr"
+                  id="helpLinks"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="icon-help"
+                  />
+                  Help
+                </h2>
+                <ul
+                  className="help-link-block"
+                >
+                  <li
+                    role="presentation"
                   >
-                    <i
-                      aria-hidden="true"
-                      className="icon-phone-number footer-support-phone"
-                    />
-                    <span
-                      className="sr-only"
+                    <a
+                      href="/faq"
+                      onClick={[Function]}
                     >
-                      FirstNet Customer Service Phone 
+                      FAQ
+                    </a>
+                  </li>
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  >
+                    <a
+                      className="walkthru-toggle as-table-cell"
+                      href="#"
+                      onClick={[Function]}
+                      role="button"
+                    >
+                      Disable Site Walkthrough
+                    </a>
+                  </li>
+                  <li
+                    role="presentation"
+                  >
+                    <a
+                      href="/feedback"
+                      onClick={[Function]}
+                    >
+                      Give Us Feedback
+                    </a>
+                  </li>
+                  <li
+                    role="presentation"
+                  >
+                    <span
+                      aria-hidden="aria-hidden"
+                    >
+                      FirstNet Customer Svc:
                     </span>
-                    800-574-7000
-                  </a>
-                </li>
-              </ul>
-            </nav>
+                    <br
+                      className="visible-xs-inline-block visible-md-inline-block "
+                    />
+                    <a
+                      href="tel:800-574-7000"
+                    >
+                      <i
+                        aria-hidden="true"
+                        className="icon-phone-number footer-support-phone"
+                      />
+                      <span
+                        className="sr-only"
+                      >
+                        FirstNet Customer Service Phone 
+                      </span>
+                      800-574-7000
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div
-      className="footer-sub"
-    >
       <div
-        className="container"
+        className="footer-sub"
       >
         <div
-          className="row"
+          className="container"
         >
           <div
-            className="col-xs-12"
+            className="row"
           >
-            <nav>
-              <ul
-                className="sub-links"
-              >
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-                <li
-                  className="xs-line-break"
-                />
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-              </ul>
-            </nav>
+            <div
+              className="col-xs-12"
+            >
+              <div>
+                <ul
+                  className="sub-links"
+                >
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    className="xs-line-break"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </nav>
   </footer>
 </div>
 `;
@@ -1349,276 +1364,279 @@ exports[`<Footer /> renders user role-based snapshots 5`] = `
   <footer
     id="pse-footer"
   >
-    <div
-      className="footer-main"
+    <nav
+      aria-label="Supporting Navigation."
     >
       <div
-        className="container"
+        className="footer-main"
       >
         <div
-          className="row"
+          className="container"
         >
           <div
-            className="col-xs-12 logoRow"
+            className="row"
           >
-            <a
-              className="logo-home-link-footer"
-              href="/"
-              onClick={[Function]}
-            >
-              <img
-                alt="FirstNet Local Control logo"
-                src="/images/logo-FirstNet-local-control.svg"
-              />
-              <span
-                className="sr-only"
-              >
-                Go Home
-              </span>
-            </a>
-          </div>
-        </div>
-        <div
-          className="row is-flex"
-        >
-          <div
-            className="col-xs-12 col-md-3"
-          >
-            <nav
-              aria-describedby="sitemap"
+            <div
+              className="col-xs-12 logoRow"
             >
               <a
-                aria-expanded={false}
-                aria-haspopup="true"
-                className="sitemap-hdr"
-                href=""
-                id="sitemap"
+                className="logo-home-link-footer"
+                href="/"
                 onClick={[Function]}
-                role="button"
-                tabIndex={-1}
               >
-                Sitemap
+                <img
+                  alt="FirstNet Local Control logo"
+                  src="/images/logo-FirstNet-local-control.svg"
+                />
+                <span
+                  className="sr-only"
+                >
+                  Go Home
+                </span>
               </a>
-              <ul
-                className="sitemap-links"
-              >
-                <div>
-                  <li
-                    role="presentation"
-                  >
-                    <a
-                      href="/admin"
-                      onClick={[Function]}
-                    >
-                      PSE Administration
-                    </a>
-                  </li>
-                  <li
-                    role="presentation"
-                  >
-                    <a
-                      href="/admin/devices"
-                      onClick={[Function]}
-                    >
-                      Specialized Devices
-                    </a>
-                  </li>
-                  <li
-                    role="presentation"
-                  >
-                    <a
-                      className="as-table-cell"
-                      href="/admin/solutions"
-                      onClick={[Function]}
-                    >
-                      Public Safety Solutions
-                    </a>
-                  </li>
-                </div>
-              </ul>
-            </nav>
+            </div>
           </div>
           <div
-            className="col-xs-12 col-md-3"
+            className="row is-flex"
           >
-            <nav
-              aria-describedby="firstnet-sites"
+            <div
+              className="col-xs-12 col-md-3"
             >
-              <h2
-                id="firstnet-sites"
+              <div
+                aria-describedby="sitemap"
               >
-                Firstnet Sites
-              </h2>
-              <ul>
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-              </ul>
-            </nav>
-          </div>
-          <div
-            className="col-xs-12 col-md-3"
-          >
-            <nav
-              aria-describedby="social-links"
-              className="social-nav"
+                <a
+                  aria-expanded={false}
+                  aria-haspopup="true"
+                  className="sitemap-hdr"
+                  href=""
+                  id="sitemap"
+                  onClick={[Function]}
+                  role="button"
+                  tabIndex={-1}
+                >
+                  Sitemap
+                </a>
+                <ul
+                  className="sitemap-links"
+                >
+                  <div>
+                    <li
+                      role="presentation"
+                    >
+                      <a
+                        href="/admin"
+                        onClick={[Function]}
+                      >
+                        PSE Administration
+                      </a>
+                    </li>
+                    <li
+                      role="presentation"
+                    >
+                      <a
+                        href="/admin/devices"
+                        onClick={[Function]}
+                      >
+                        Specialized Devices
+                      </a>
+                    </li>
+                    <li
+                      role="presentation"
+                    >
+                      <a
+                        className="as-table-cell"
+                        href="/admin/solutions"
+                        onClick={[Function]}
+                      >
+                        Public Safety Solutions
+                      </a>
+                    </li>
+                  </div>
+                </ul>
+              </div>
+            </div>
+            <div
+              className="col-xs-12 col-md-3"
             >
-              <h2
-                id="social-links"
+              <div
+                aria-describedby="firstnet-sites"
               >
-                Follow Us
-              </h2>
-              <ul
-                className="social-links-list"
-              >
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-              </ul>
-            </nav>
-          </div>
-          <div
-            className="col-xs-12 col-md-3"
-          >
-            <nav
-              aria-describedby="helpLinks"
-            >
-              <h2
-                className="help-hdr"
-                id="helpLinks"
-              >
-                <i
-                  aria-hidden="true"
-                  className="icon-help"
-                />
-                Help
-              </h2>
-              <ul
-                className="help-link-block"
-              >
-                <li
-                  role="presentation"
+                <h2
+                  id="firstnet-sites"
                 >
-                  <a
-                    href="/faq"
-                    onClick={[Function]}
-                  >
-                    FAQ
-                  </a>
-                </li>
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                >
-                  <a
-                    className="walkthru-toggle as-table-cell"
-                    href="#"
-                    onClick={[Function]}
-                    role="button"
-                  >
-                    Disable
-                    Site Walkthrough
-                  </a>
-                </li>
-                <li
-                  role="presentation"
-                >
-                  <a
-                    href="/feedback"
-                    onClick={[Function]}
-                  >
-                    Give Us Feedback
-                  </a>
-                </li>
-                <li
-                  role="presentation"
-                >
-                  <span
-                    aria-hidden="aria-hidden"
-                  >
-                    FirstNet Customer Svc:
-                  </span>
-                  <br
-                    className="visible-xs-inline-block visible-md-inline-block "
+                  Firstnet Sites
+                </h2>
+                <ul>
+                  <li
+                    role="presentation"
                   />
-                  <a
-                    href="tel:800-574-7000"
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                </ul>
+              </div>
+            </div>
+            <div
+              className="col-xs-12 col-md-3"
+            >
+              <div
+                aria-describedby="social-links"
+                className="social-nav"
+              >
+                <h2
+                  id="social-links"
+                >
+                  Follow Us
+                </h2>
+                <ul
+                  className="social-links-list"
+                >
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                </ul>
+              </div>
+            </div>
+            <div
+              className="col-xs-12 col-md-3"
+            >
+              <div
+                aria-describedby="helpLinks"
+              >
+                <h2
+                  className="help-hdr"
+                  id="helpLinks"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="icon-help"
+                  />
+                  Help
+                </h2>
+                <ul
+                  className="help-link-block"
+                >
+                  <li
+                    role="presentation"
                   >
-                    <i
-                      aria-hidden="true"
-                      className="icon-phone-number footer-support-phone"
-                    />
-                    <span
-                      className="sr-only"
+                    <a
+                      href="/faq"
+                      onClick={[Function]}
                     >
-                      FirstNet Customer Service Phone 
+                      FAQ
+                    </a>
+                  </li>
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  >
+                    <a
+                      className="walkthru-toggle as-table-cell"
+                      href="#"
+                      onClick={[Function]}
+                      role="button"
+                    >
+                      Disable Site Walkthrough
+                    </a>
+                  </li>
+                  <li
+                    role="presentation"
+                  >
+                    <a
+                      href="/feedback"
+                      onClick={[Function]}
+                    >
+                      Give Us Feedback
+                    </a>
+                  </li>
+                  <li
+                    role="presentation"
+                  >
+                    <span
+                      aria-hidden="aria-hidden"
+                    >
+                      FirstNet Customer Svc:
                     </span>
-                    800-574-7000
-                  </a>
-                </li>
-              </ul>
-            </nav>
+                    <br
+                      className="visible-xs-inline-block visible-md-inline-block "
+                    />
+                    <a
+                      href="tel:800-574-7000"
+                    >
+                      <i
+                        aria-hidden="true"
+                        className="icon-phone-number footer-support-phone"
+                      />
+                      <span
+                        className="sr-only"
+                      >
+                        FirstNet Customer Service Phone 
+                      </span>
+                      800-574-7000
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div
-      className="footer-sub"
-    >
       <div
-        className="container"
+        className="footer-sub"
       >
         <div
-          className="row"
+          className="container"
         >
           <div
-            className="col-xs-12"
+            className="row"
           >
-            <nav>
-              <ul
-                className="sub-links"
-              >
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-                <li
-                  className="xs-line-break"
-                />
-                <li
-                  role="presentation"
-                />
-                <li
-                  role="presentation"
-                />
-              </ul>
-            </nav>
+            <div
+              className="col-xs-12"
+            >
+              <div>
+                <ul
+                  className="sub-links"
+                >
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    className="xs-line-break"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                  <li
+                    role="presentation"
+                  />
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </nav>
   </footer>
 </div>
 `;

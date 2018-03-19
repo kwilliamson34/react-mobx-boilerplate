@@ -2,6 +2,7 @@ import dateFns from 'date-fns/format';
 import isValid from 'date-fns/is_valid';
 import {userStore} from '../stores/user.store';
 import {history} from './history.service';
+import config from 'config';
 import $ from 'jquery';
 
 class UtilsService {
@@ -248,6 +249,27 @@ class UtilsService {
       }
       formFieldRefList.push(ref);
     }
+  }
+
+  /*
+   * FSP-1062, FPSE-2299. Implement a keep alive beacon to keep Geolink
+   * session active. This is done by fetching a static asset from the
+   * geolink server, ignoring any proxy and browser caches.
+   */
+  geolinkKeepAlive() {
+    var noCacheHeaders = new Headers();
+    noCacheHeaders.append('pragma', 'no-cache');
+    noCacheHeaders.append('cache-control', 'no-cache');
+
+    // Execute the call, but do nothing with the response
+    const url = config.geolinkKeepaliveResource;
+    console.log('keepAlive: fetching ' + url);
+    fetch(url, {
+      cache: 'no-store', // tell browser not to cache
+      credentials: 'include', // needed cookie based session
+      headers: noCacheHeaders,
+      mode: 'no-cors'
+    });
   }
 }
 
