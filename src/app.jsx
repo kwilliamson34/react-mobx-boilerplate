@@ -18,7 +18,7 @@ import '../styles/app.scss';
 //Common Components
 import Header from './components/header/header';
 import Footer from './components/footer/footer.jsx';
-import ScrollToTop from './components/scroll-to-top/scroll-to-top';
+import {ScrollToTop} from 'fn-common-ui';
 import JoyrideBase from './components/joyride-base/joyride-base';
 
 //Pages
@@ -126,7 +126,7 @@ export default class App extends React.Component {
         {config.showOnboardingWalkthrough &&
           <JoyrideBase location={location.pathname} joyrideStore={pseMasterStore.joyrideStore} />
         }
-        <ScrollToTop>
+        <ScrollToTop path={history.location.pathname}>
           <a href="#main-content" className="skipnav" onClick={this.handleSkipNav}>Skip Navigation</a>
           <Header/>
           <main aria-label="Main Content." id="main-content">
