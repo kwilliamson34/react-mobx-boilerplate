@@ -205,10 +205,10 @@ $map-controls-text-line-height: 1.3;
       }
     }
   }
-  
+
   .map-controls {
     border-right: 0 none;
-    
+
     > div {
       border-bottom: 1px solid $fn-grey;
       padding-bottom: 30px;
@@ -223,38 +223,38 @@ $map-controls-text-line-height: 1.3;
       font-style: normal;
     }
   }
-  
+
   .map-search {
     button.as-link {
       text-transform: uppercase;
       // width: 50%;
       text-align: left;
       padding: 0;
-      
+
       &.disabled {
         pointer-events: none;
         color: $fn-mdgrey;
-        
+
         &:focus {
           text-decoration: none;
         }
       }
     }
-    
+
     .top-right-link {
       float: right;
-      
+
       a {
         margin: 0;
         width: 100%;
       }
     }
-    
+
     .add-favorite-button {
       margin: 20px 0;
     }
   }
-  
+
   hr {
     border-width: 1px;
     margin: 0 20px;
@@ -333,13 +333,19 @@ $map-controls-text-line-height: 1.3;
 
     a {
       display: inline-block;
+      white-space: nowrap;
+      text-decoration: none;
 
-      span {
-        display: inline-block;
-        white-space: nowrap;
+      .icon-phone-number:before {
+        font-size: 16px;
+      }
 
-        .icon-phone-number:before {
-          font-size: 16px;
+      &:hover,
+      &:focus,
+      &:active,
+      &:focus-within {
+        .network-issue-number {
+          text-decoration: underline;
         }
       }
     }
@@ -485,7 +491,7 @@ $map-controls-text-line-height: 1.3;
 }
 
 .container.location-favorites {
-  padding-top: 6rem;
+  padding-top: 30px;
   display: block;
 
   .alert {

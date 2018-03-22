@@ -1,8 +1,8 @@
 
-jest.unmock('../gtoc-success.page');
+jest.unmock('../gtoc-subscribe-success.page');
 
 import {observer, inject} from 'mobx-react';
-import GtocSuccessPage from '../gtoc-success.page';
+import GtocSuccessPage from '../gtoc-subscribe-success.page';
 import {MemoryRouter} from 'react-router-dom';
 
 describe('<GtocSuccessPage />', () => {
