@@ -9,12 +9,12 @@ var config = Object.assign(CommonConfig.CommonConfig, {
   geolinkKeepaliveResource: 'https://geo.stage.att.com/appBoard/assets/images/firstnet/singlepixel.png',
   geolinkAbMapConstantsFileName: 'abMapConstantsFNST.js',
   mktgPortalImgBaseUrl: 'https://www.firstnet.ws',
-  
+
   appCatalog: 'https://stage-apps.sapientfirst.net/',
   appControl: 'https://stage-appcontrol.sapientfirst.net/',
   localControl: 'https://stage-localcontrol.sapientfirst.net/',
   firstnetTraining: 'https://stage-training.sapientfirst.net/',
-  devPortal: 'https://test-developer.firstnet.com/developer/mvc/auth/login?siteId=PORTALPROPER&destPage=%2F',
+  devPortal: 'https://test-developer.firstnet.com/developer/mvc/auth/login?siteId=PORTALPROPER',
 
   manageMyProfileLink: 'https://test-profilemgt2.firstnet.att.com/firstnet/icam/index.html#/firstnet/icam/index/my-profile-view-only',
   manageUsersLink: 'https://test-profilemgt2.firstnet.att.com/firstnet/icam/index.html#/firstnet/icam/index/lander-city',
