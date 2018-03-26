@@ -184,13 +184,13 @@ exports[`<Footer /> renders matches previous footer snapshot 1`] = `
                     <span
                       aria-hidden="aria-hidden"
                     >
-                      FirstNet Customer Svc:
+                      FirstNet Customer Svc
                     </span>
                     <br
                       className="visible-xs-inline-block visible-md-inline-block "
                     />
                     <a
-                      href="tel:800-574-7000"
+                      href="tel:+18005747000"
                     >
                       <i
                         aria-hidden="true"
@@ -449,13 +449,13 @@ exports[`<Footer /> renders user role-based snapshots 1`] = `
                     <span
                       aria-hidden="aria-hidden"
                     >
-                      FirstNet Customer Svc:
+                      FirstNet Customer Svc
                     </span>
                     <br
                       className="visible-xs-inline-block visible-md-inline-block "
                     />
                     <a
-                      href="tel:800-574-7000"
+                      href="tel:+18005747000"
                     >
                       <i
                         aria-hidden="true"
@@ -753,13 +753,13 @@ exports[`<Footer /> renders user role-based snapshots 2`] = `
                     <span
                       aria-hidden="aria-hidden"
                     >
-                      FirstNet Customer Svc:
+                      FirstNet Customer Svc
                     </span>
                     <br
                       className="visible-xs-inline-block visible-md-inline-block "
                     />
                     <a
-                      href="tel:800-574-7000"
+                      href="tel:+18005747000"
                     >
                       <i
                         aria-hidden="true"
@@ -1016,13 +1016,13 @@ exports[`<Footer /> renders user role-based snapshots 3`] = `
                     <span
                       aria-hidden="aria-hidden"
                     >
-                      FirstNet Customer Svc:
+                      FirstNet Customer Svc
                     </span>
                     <br
                       className="visible-xs-inline-block visible-md-inline-block "
                     />
                     <a
-                      href="tel:800-574-7000"
+                      href="tel:+18005747000"
                     >
                       <i
                         aria-hidden="true"
@@ -1289,13 +1289,13 @@ exports[`<Footer /> renders user role-based snapshots 4`] = `
                     <span
                       aria-hidden="aria-hidden"
                     >
-                      FirstNet Customer Svc:
+                      FirstNet Customer Svc
                     </span>
                     <br
                       className="visible-xs-inline-block visible-md-inline-block "
                     />
                     <a
-                      href="tel:800-574-7000"
+                      href="tel:+18005747000"
                     >
                       <i
                         aria-hidden="true"
@@ -1573,13 +1573,13 @@ exports[`<Footer /> renders user role-based snapshots 5`] = `
                     <span
                       aria-hidden="aria-hidden"
                     >
-                      FirstNet Customer Svc:
+                      FirstNet Customer Svc
                     </span>
                     <br
                       className="visible-xs-inline-block visible-md-inline-block "
                     />
                     <a
-                      href="tel:800-574-7000"
+                      href="tel:+18005747000"
                     >
                       <i
                         aria-hidden="true"

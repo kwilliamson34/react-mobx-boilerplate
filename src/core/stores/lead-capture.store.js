@@ -41,10 +41,11 @@ class LeadCaptureStore {
 
   @action submitForm() {
     const success = () => {
+      const solutionToReturnTo = history.location.pathname.substr(0, history.location.pathname.lastIndexOf('/'))
       this.recordSolutionRequestInCookie();
       this.clearForm();
       this.updateSuccess('Your request has been received. A specialist will be contacting you soon.');
-      history.go(-1);
+      history.replace(solutionToReturnTo);
     }
     const failure = () => {
       this.updateAlert('An unknown error occured. Please try again later.');

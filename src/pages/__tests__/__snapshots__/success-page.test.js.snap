@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SuccessPage /> render matches previous snapshot 1`] = `
+<section
+  className="success-page"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10"
+    >
+      <p>
+        Your page interaction succeeded. This page assures you it is true.
+        <span>
+           If you have any questions, please contact
+          <br
+            className="visible-lg-block"
+          />
+           FirstNet Customer Service at 
+          <a
+            className="customer-support-phone"
+            href="tel:+18005747000"
+          >
+            <span
+              className="sr-only"
+            >
+              FirstNet Customer Service Phone 
+            </span>
+            800-574-7000
+          </a>
+          .
+        </span>
+      </p>
+      <a
+        className="fn-primary"
+        href="/"
+        onClick={[Function]}
+      >
+        Go to Home Page
+      </a>
+    </div>
+  </div>
+</section>
+`;
