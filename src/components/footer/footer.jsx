@@ -94,7 +94,7 @@ export default class Footer extends React.Component {
         <h2 id="firstnet-sites">Firstnet Sites</h2>
         <ul >
           <li role="presentation">
-            <NewTabLink to={config.firstnetCom} showIcon={true}>FirstNet.com</NewTabLink>
+            <NewTabLink to={config.firstNetComHome} showIcon={true}>FirstNet.com</NewTabLink>
           </li>
           <li role="presentation">
             <NewTabLink to={config.devPortal} showIcon={true}>Developer Portal</NewTabLink>
@@ -118,25 +118,25 @@ export default class Footer extends React.Component {
         <h2 id="social-links">Follow Us</h2>
         <ul className="social-links-list">
           <li role="presentation">
-            <NewTabLink to={this.externalLinkStore.firstnetFacebook} className="fn-social-icon fb">
+            <NewTabLink to={config.firstNetFacebook} className="fn-social-icon fb">
               <i aria-hidden="true" className="icon-facebook"></i>
               <span className="title">Facebook</span>
             </NewTabLink>
           </li>
           <li role="presentation">
-            <NewTabLink to={this.externalLinkStore.firstnetLinkedIn} className="fn-social-icon linkedin">
+            <NewTabLink to={config.firstNetLinkedIn} className="fn-social-icon linkedin">
               <i aria-hidden="true" className="icon-linkedin"></i>
               <span className="title">LinkedIn</span>
             </NewTabLink>
           </li>
           <li role="presentation">
-            <NewTabLink to={this.externalLinkStore.firstnetTwitter} className="fn-social-icon twitter">
+            <NewTabLink to={config.firstNetTwitter} className="fn-social-icon twitter">
               <i aria-hidden="true" className="icon-twitter"></i>
               <span className="title">Twitter</span>
             </NewTabLink>
           </li>
           <li role="presentation">
-            <NewTabLink to={this.externalLinkStore.firstnetYoutube} className="fn-social-icon youtube">
+            <NewTabLink to={config.firstNetYouTube} className="fn-social-icon youtube">
               <i aria-hidden="true" className="icon-youtube"></i>
               <span className="title">YouTube</span>
             </NewTabLink>
@@ -188,10 +188,10 @@ export default class Footer extends React.Component {
             <span aria-hidden="aria-hidden">FirstNet Customer Svc</span><br className={`visible-xs-inline-block visible-md-inline-block ${this.props.showPrivateLinks
         ? ''
         : 'visible-lg-inline-block'}`}/>
-            <a href={'tel:' + config.attCustomerSupportPhone}>
+            <a href={'tel:' + config.attDialNumber}>
               <i className="icon-phone-number footer-support-phone" aria-hidden='true'></i>
               <span className="sr-only">FirstNet Customer Service Phone&nbsp;</span>
-              {config.attCustomerSupportPhone}
+              {config.attPhoneNumber}
             </a>
           </li>
         </ul>
@@ -203,23 +203,23 @@ export default class Footer extends React.Component {
     return (<div>
       <ul className="sub-links">
         <li role="presentation">
-          <NewTabLink to={this.externalLinkStore.privacyPolicyLink}>
+          <NewTabLink to={config.firstNetPrivacy}>
             Privacy Policy
           </NewTabLink>
         </li>
         <li role="presentation">
-          <NewTabLink to={this.externalLinkStore.termsOfUse}>
+          <NewTabLink to={config.firstNetTermsConditions}>
             Terms of Use
           </NewTabLink>
         </li>
         <li className="xs-line-break"></li>
         <li role="presentation">
-          <NewTabLink to={this.externalLinkStore.accessibilityLink}>
+          <NewTabLink to={config.firstNetAccessibility}>
             Accessibility
           </NewTabLink>
         </li>
         <li role="presentation">
-          <NewTabLink to={config.firstnetGov}>
+          <NewTabLink to={config.firstNetGovHome}>
             FirstNet.gov
           </NewTabLink>
         </li>
