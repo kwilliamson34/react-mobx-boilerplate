@@ -186,7 +186,11 @@
       },
       {
         "question": "Do you have a question that wasn’t covered here?",
+<<<<<<< HEAD
         "answer": "Learn more about FirstNet by visiting our <a href=\"https:\/\/training.firstnet.att.com\/\" rel=\"noopener noreferrer\" target=\"_blank\">Training Portal<i class=\"icon-external-site\"></i></a>, using the Live Chat feature on the right side of this window, or&nbsp;<span aria-hidden=\"true\">calling the FirstNet Customer Service line at&nbsp;</span><a href=\"tel:+18005747000\"><span class=\"sr-only\">call the FirstNet Customer Service line at&nbsp;</span>800-574-7000</a>.",
+=======
+        "answer": "Learn more about FirstNet by visiting our <a href=\"http:\/\/training.firstnet.att.com\" rel=\"noopener noreferrer\" target=\"_blank\">Training Portal<i class=\"icon-external-site\"></i></a>, using the Live Chat feature on the right side of this window, or&nbsp;<span aria-hidden=\"true\">calling the FirstNet Customer Service line at&nbsp;</span><a href=\"tel:+18005747000\"><span class=\"sr-only\">call the FirstNet Customer Service line at&nbsp;</span>800-574-7000</a>.",
+>>>>>>> cd9306f79f4011b1e0ed9845ea5f3476de4cf0fb
         "maxStringLength": 500,
         "category": "Other"
       }

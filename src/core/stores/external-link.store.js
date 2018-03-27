@@ -192,15 +192,6 @@ class ExternalLinkStore {
   @observable currentDeviceName = '';
 
   @observable solutionsConsultantPhone = '833-717-8638';
-
-  @observable firstnetFacebook = 'https://www.facebook.com/firstnet';
-  @observable firstnetLinkedIn = 'https://www.linkedin.com/showcase/firstnet/';
-  @observable firstnetTwitter = 'https://www.twitter.com/firstnet';
-  @observable firstnetYoutube = 'https://www.youtube.com/firstnet';
-
-  @observable termsOfUse = 'https://www.att.com/legal/terms.attWebsiteTermsOfUse.html';
-  @observable accessibilityLink = 'https://www.firstnet.com/accessibility';
-  @observable privacyPolicyLink = 'https://www.firstnet.com/privacy-policy';
 }
 
 export const externalLinkStore = new ExternalLinkStore();

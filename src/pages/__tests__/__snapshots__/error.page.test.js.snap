@@ -46,7 +46,7 @@ exports[`<ErrorPage /> render matches previous snapshot 1`] = `
           </li>
           <li>
             <a
-              href="https://test-localcontrol.firstnet.att.com"
+              href="https://test-localcontrol.firstnet.att.com/"
             >
               Local Control
             </a>
@@ -117,7 +117,7 @@ exports[`<ErrorPage /> render shows Access Denied for authorization problem 1`] 
           </li>
           <li>
             <a
-              href="https://test-localcontrol.firstnet.att.com"
+              href="https://test-localcontrol.firstnet.att.com/"
             >
               Local Control
             </a>
@@ -188,7 +188,7 @@ exports[`<ErrorPage /> render shows Access Denied for authorization problem 2`] 
           </li>
           <li>
             <a
-              href="https://test-localcontrol.firstnet.att.com"
+              href="https://test-localcontrol.firstnet.att.com/"
             >
               Local Control
             </a>
@@ -259,7 +259,7 @@ exports[`<ErrorPage /> render shows App Unavailable on 410 1`] = `
           </li>
           <li>
             <a
-              href="https://test-localcontrol.firstnet.att.com"
+              href="https://test-localcontrol.firstnet.att.com/"
             >
               Local Control
             </a>
@@ -330,7 +330,7 @@ exports[`<ErrorPage /> render shows Generic message otherwise 1`] = `
           </li>
           <li>
             <a
-              href="https://test-localcontrol.firstnet.att.com"
+              href="https://test-localcontrol.firstnet.att.com/"
             >
               Local Control
             </a>
@@ -401,7 +401,7 @@ exports[`<ErrorPage /> render shows Permission Pending 1`] = `
           </li>
           <li>
             <a
-              href="https://test-localcontrol.firstnet.att.com"
+              href="https://test-localcontrol.firstnet.att.com/"
             >
               Local Control
             </a>
@@ -472,7 +472,7 @@ exports[`<ErrorPage /> render shows Service Error for authentication problem 1`]
           </li>
           <li>
             <a
-              href="https://test-localcontrol.firstnet.att.com"
+              href="https://test-localcontrol.firstnet.att.com/"
             >
               Local Control
             </a>
@@ -530,7 +530,7 @@ exports[`<ErrorPage /> render shows Sorry for Page Not Found (404) 1`] = `
           </li>
           <li>
             <a
-              href="https://test-localcontrol.firstnet.att.com"
+              href="https://test-localcontrol.firstnet.att.com/"
             >
               Local Control
             </a>
