@@ -67,28 +67,29 @@
         "title": "Coverage",
         "text": "<p>View the network coverage for a specific area.</p>",
         "selector": ".walkthrough-coverage-map",
-        "position": "right",
-        "style": {
-          "marginTop": "-60px"
-        }
+        "position": "top",
+        "forcePosition": true
       },
       {
         "title": "Map Locations",
         "text": "<p>Enter any street address or ZIP code to center the map on a specific location. Save a location to your favorites and manage all favorite locations.</p>",
         "selector": ".walkthrough-map-locations",
-        "position": "top"
+        "position": "top",
+        "individualHolePadding": 25
       },
       {
         "title": "Map Controls",
         "text": "<p>Select map overlays to view current weather, traffic, fire, wind, flash flood, and network specific alerts.</p>",
         "selector": ".walkthrough-map-controls",
-        "position": "top"
+        "position": "top",
+        "individualHolePadding": 25
       },
       {
         "title": "Network Issues",
         "text": "<p>Report network issues and subscribe to get alerts.</p>",
         "selector": ".walkthrough-network-issues",
-        "position": "top"
+        "position": "top",
+        "individualHolePadding": 25
       }
     ]
   }
