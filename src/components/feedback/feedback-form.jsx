@@ -139,9 +139,9 @@ class FeedbackForm extends React.Component {
         <div className="text-block">
           <p>Your feedback will help us respond to issues and improve your overall experience.&nbsp;
             <span aria-hidden='true'>If you are experiencing technical issues with devices/applications/network, please call </span>
-            <a href={`tel:${config.attCustomerSupportPhone}`}>
+            <a href={`tel:${config.attDialNumber}`}>
               <span className='sr-only'>If you are experiencing technical issues with devices/applications/network, please call&nbsp;</span>
-              {config.attCustomerSupportPhone}
+              {config.attPhoneNumber}
             </a>.
           </p>
         </div>

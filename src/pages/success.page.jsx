@@ -22,9 +22,9 @@ export default class SuccessPage extends React.Component {
     return (
       <span>
         &nbsp;If you have any questions, please contact<br className="visible-lg-block"/> FirstNet Customer Service at&nbsp;
-        <a className="customer-support-phone" href={'tel:' + config.attCustomerSupportPhone}>
+        <a className="customer-support-phone" href={'tel:' + config.attDialNumber}>
           <span className="sr-only">FirstNet Customer Service Phone&nbsp;</span>
-          {config.attCustomerSupportPhone}
+          {config.attPhoneNumber}
         </a>.
       </span>
     )

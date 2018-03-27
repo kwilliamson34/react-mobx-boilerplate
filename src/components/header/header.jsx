@@ -329,12 +329,12 @@ export default class PSEHeader extends React.Component {
 					</NavLink>
 				</li>
 				<li className="multi-line-item">
-					<a href={'tel:' + config.attCustomerSupportPhone}>
+					<a href={'tel:' + config.attDialNumber}>
 						<div>
 							<span aria-hidden="true">FirstNet Customer Svc:&nbsp;</span><br />
 							<i className="icon-phone-number" aria-hidden="true"></i>
 							<span className="sr-only">FirstNet Customer Service Phone&nbsp;</span>
-							{config.attCustomerSupportPhone}
+							{config.attPhoneNumber}
 						</div>
 					</a>
 				</li>

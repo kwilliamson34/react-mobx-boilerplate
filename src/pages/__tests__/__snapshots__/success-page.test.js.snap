@@ -20,7 +20,7 @@ exports[`<SuccessPage /> render matches previous snapshot 1`] = `
            FirstNet Customer Service at 
           <a
             className="customer-support-phone"
-            href="tel:800-574-7000"
+            href="tel:+18005747000"
           >
             <span
               className="sr-only"

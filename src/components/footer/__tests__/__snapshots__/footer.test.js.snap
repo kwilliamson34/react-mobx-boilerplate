@@ -190,7 +190,7 @@ exports[`<Footer /> renders matches previous footer snapshot 1`] = `
                       className="visible-xs-inline-block visible-md-inline-block "
                     />
                     <a
-                      href="tel:800-574-7000"
+                      href="tel:+18005747000"
                     >
                       <i
                         aria-hidden="true"
@@ -455,7 +455,7 @@ exports[`<Footer /> renders user role-based snapshots 1`] = `
                       className="visible-xs-inline-block visible-md-inline-block "
                     />
                     <a
-                      href="tel:800-574-7000"
+                      href="tel:+18005747000"
                     >
                       <i
                         aria-hidden="true"
@@ -759,7 +759,7 @@ exports[`<Footer /> renders user role-based snapshots 2`] = `
                       className="visible-xs-inline-block visible-md-inline-block "
                     />
                     <a
-                      href="tel:800-574-7000"
+                      href="tel:+18005747000"
                     >
                       <i
                         aria-hidden="true"
@@ -1022,7 +1022,7 @@ exports[`<Footer /> renders user role-based snapshots 3`] = `
                       className="visible-xs-inline-block visible-md-inline-block "
                     />
                     <a
-                      href="tel:800-574-7000"
+                      href="tel:+18005747000"
                     >
                       <i
                         aria-hidden="true"
@@ -1295,7 +1295,7 @@ exports[`<Footer /> renders user role-based snapshots 4`] = `
                       className="visible-xs-inline-block visible-md-inline-block "
                     />
                     <a
-                      href="tel:800-574-7000"
+                      href="tel:+18005747000"
                     >
                       <i
                         aria-hidden="true"
@@ -1579,7 +1579,7 @@ exports[`<Footer /> renders user role-based snapshots 5`] = `
                       className="visible-xs-inline-block visible-md-inline-block "
                     />
                     <a
-                      href="tel:800-574-7000"
+                      href="tel:+18005747000"
                     >
                       <i
                         aria-hidden="true"
