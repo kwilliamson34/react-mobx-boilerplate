@@ -9,11 +9,7 @@ exports[`<GeolinkMap /> renders matches snapshot when hidden and visible 1`] = `
   >
     <iframe
       id="coverage-map"
-<<<<<<< HEAD
-      name={1521815253279}
-=======
       name={1522087337899}
->>>>>>> 55f3f59d9fbab72b0605be35aa71f51ed7ee59fe
       role="map"
       title="Interactive Coverage Map"
     />
@@ -30,11 +26,7 @@ exports[`<GeolinkMap /> renders matches snapshot when hidden and visible 2`] = `
   >
     <iframe
       id="coverage-map"
-<<<<<<< HEAD
-      name={1521815253279}
-=======
       name={1522087337899}
->>>>>>> 55f3f59d9fbab72b0605be35aa71f51ed7ee59fe
       role="map"
       title="Interactive Coverage Map"
     />
