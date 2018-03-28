@@ -58,7 +58,7 @@ export class AppDetailBanner extends React.Component {
     const AppNameTag = this.props.containsPrimaryHeader ? 'h1' : 'h3';
     return (
       <div className="app-title">
-        <AppNameTag>{this.appStore.currentAppObject.app_name || 'Loading app details...'}</AppNameTag>
+        <AppNameTag className="shorten-with-ellipsis">{this.appStore.currentAppObject.app_name || 'Loading app details...'}</AppNameTag>
       </div>
     )
   }
@@ -72,7 +72,7 @@ export class AppDetailBanner extends React.Component {
 
     return (
       <div className="app-details">
-        <p className="version">
+        <p className="version shorten-with-ellipsis">
           <strong>Version:&nbsp;</strong>
           {this.appStore.currentAppObject.version ? this.appStore.currentAppObject.version.version_num : ''}
         </p>
