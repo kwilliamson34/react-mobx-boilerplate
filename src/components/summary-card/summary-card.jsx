@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import {observer} from 'mobx-react';
-import {Rating} from '../rating/rating.jsx';
+import {RatingAsText} from 'fn-common-ui';
 import {utilsService} from '../../core/services/utils.service';
 
 @observer
@@ -66,7 +66,7 @@ export class SummaryCard extends React.Component {
             </section>
             <div className="card-lower-meta">
               <div className="card-rating">
-                <Rating rating={this.props.display.rating} reviewCount={this.props.display.reviews_count} showRatingNumber={true}></Rating>
+                <RatingAsText rating={this.props.display.rating} showReviewCount={false} />
               </div>
               {utilsService.properCaseOS(this.props.display.platform) && <div className="card-platform">
                 <span className="sr-only">Hosted at the&nbsp;</span>

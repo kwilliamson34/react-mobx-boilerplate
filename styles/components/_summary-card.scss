@@ -83,13 +83,13 @@
     width: 90%;
     display: flex;
     align-items: center;
+    font-size: 1.6rem;
     font-weight: $fn-normal-weight;
   }
 
   .card-platform {
     display: inline-block;
     color: $fn-dkgrey;
-    font-size: 1.6rem;
     position: absolute;
     right: 0;
   }

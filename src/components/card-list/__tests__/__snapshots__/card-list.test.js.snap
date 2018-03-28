@@ -98,15 +98,7 @@ exports[`<CardList /> renders matches snapshot before and after loading 2`] = `
           >
             <div
               className="card-rating"
-            >
-              <div
-                className="ratings-container"
-              >
-                <span>
-                  No Reviews
-                </span>
-              </div>
-            </div>
+            />
           </div>
         </a>
       </div>
@@ -153,15 +145,7 @@ exports[`<CardList /> renders matches snapshot before and after loading 2`] = `
           >
             <div
               className="card-rating"
-            >
-              <div
-                className="ratings-container"
-              >
-                <span>
-                  No Reviews
-                </span>
-              </div>
-            </div>
+            />
           </div>
         </a>
       </div>
@@ -208,15 +192,7 @@ exports[`<CardList /> renders matches snapshot before and after loading 2`] = `
           >
             <div
               className="card-rating"
-            >
-              <div
-                className="ratings-container"
-              >
-                <span>
-                  No Reviews
-                </span>
-              </div>
-            </div>
+            />
           </div>
         </a>
       </div>
@@ -263,15 +239,7 @@ exports[`<CardList /> renders matches snapshot before and after loading 2`] = `
           >
             <div
               className="card-rating"
-            >
-              <div
-                className="ratings-container"
-              >
-                <span>
-                  No Reviews
-                </span>
-              </div>
-            </div>
+            />
           </div>
         </a>
       </div>
@@ -318,15 +286,7 @@ exports[`<CardList /> renders matches snapshot before and after loading 2`] = `
           >
             <div
               className="card-rating"
-            >
-              <div
-                className="ratings-container"
-              >
-                <span>
-                  No Reviews
-                </span>
-              </div>
-            </div>
+            />
           </div>
         </a>
       </div>
@@ -384,15 +344,7 @@ exports[`<CardList /> renders matches snapshot with no results 1`] = `
           >
             <div
               className="card-rating"
-            >
-              <div
-                className="ratings-container"
-              >
-                <span>
-                  No Reviews
-                </span>
-              </div>
-            </div>
+            />
           </div>
         </a>
       </div>
@@ -439,15 +391,7 @@ exports[`<CardList /> renders matches snapshot with no results 1`] = `
           >
             <div
               className="card-rating"
-            >
-              <div
-                className="ratings-container"
-              >
-                <span>
-                  No Reviews
-                </span>
-              </div>
-            </div>
+            />
           </div>
         </a>
       </div>
@@ -494,15 +438,7 @@ exports[`<CardList /> renders matches snapshot with no results 1`] = `
           >
             <div
               className="card-rating"
-            >
-              <div
-                className="ratings-container"
-              >
-                <span>
-                  No Reviews
-                </span>
-              </div>
-            </div>
+            />
           </div>
         </a>
       </div>
@@ -549,15 +485,7 @@ exports[`<CardList /> renders matches snapshot with no results 1`] = `
           >
             <div
               className="card-rating"
-            >
-              <div
-                className="ratings-container"
-              >
-                <span>
-                  No Reviews
-                </span>
-              </div>
-            </div>
+            />
           </div>
         </a>
       </div>
@@ -604,15 +532,7 @@ exports[`<CardList /> renders matches snapshot with no results 1`] = `
           >
             <div
               className="card-rating"
-            >
-              <div
-                className="ratings-container"
-              >
-                <span>
-                  No Reviews
-                </span>
-              </div>
-            </div>
+            />
           </div>
         </a>
       </div>
@@ -694,15 +614,7 @@ exports[`<CardList /> renders matches snapshot with zero, one, and many cards 2`
           >
             <div
               className="card-rating"
-            >
-              <div
-                className="ratings-container"
-              >
-                <span>
-                  No Reviews
-                </span>
-              </div>
-            </div>
+            />
           </div>
         </a>
       </div>
@@ -760,15 +672,7 @@ exports[`<CardList /> renders matches snapshot with zero, one, and many cards 3`
           >
             <div
               className="card-rating"
-            >
-              <div
-                className="ratings-container"
-              >
-                <span>
-                  No Reviews
-                </span>
-              </div>
-            </div>
+            />
           </div>
         </a>
       </div>
