@@ -20,7 +20,7 @@ var config = Object.assign(CommonConfig.CommonConfig, {
   manageUsersLink: 'https://test-profilemgt.firstnet.att.com/firstnet/icam/index.html#/firstnet/icam/index/lander-city',
   manageServicesLink: 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn',
   manageVoicemailAndUsageLink: 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn',
-  manageIotDevicesLink: 'https://fnstaging.jasper.com/provision/jsp/login.jsp',
+  manageIotDevicesLink: 'https://fnstaging.jasperwireless.com/provision/saml/login/alias/jasper_saml_fnstaging',
   incidentUpliftLink: 'https://test-incidentmgt.firstnet.att.com/',
   viewWirelessReportsLink: 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn?requestedPage=downloadReports',
   shopStandardDevicesLink: 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn'
