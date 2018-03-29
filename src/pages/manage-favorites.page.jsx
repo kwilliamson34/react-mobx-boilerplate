@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {observer, inject} from 'mobx-react';
 
+import {NoResults} from 'fn-common-ui';
 import {history} from '../core/services/history.service';
 import PageTitle from '../components/page-title/page-title';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
@@ -43,6 +44,7 @@ export default class ManageFavoritesPage extends React.Component {
   }
 
   resetSearch = () => {
+    console.log('DING');
     this.manageFavoritesStore.resetSearch();
   }
 
@@ -159,23 +161,25 @@ export default class ManageFavoritesPage extends React.Component {
   }
 
   renderNoFetchResults = () => {
-    return (<div className="no-results-container">
-      <p className="no-results-title">No Favorites</p>
-      <p aria-live="polite">No favorite locations have been added yet. Add some!</p>
-      <button className="fn-primary" onClick={this.handleAddButton}>
-        Add From Map
-      </button>
-    </div>)
+    return (
+      <NoResults
+        title="No Favorites"
+        text="No favorite locations have been added yet. Add some!"
+        showButton={true}
+        buttonText="Add From Map"
+        buttonOnClick={this.handleAddButton} />
+    )
   }
 
   renderNoSearchResults = () => {
-    return (<div className="no-results-container">
-      <p className="no-results-title">No Results</p>
-      <p aria-live="polite">There are no results to display. Please retry your search.</p>
-      <button className="fn-primary" onClick={this.resetSearch}>
-        Load All Favorites
-      </button>
-    </div>)
+    return (
+      <NoResults
+        title="No Results"
+        text="There are no results to display. Please retry your search."
+        showButton={true}
+        buttonText="Load All Favorites"
+        buttonOnClick={this.resetSearch} />
+    )
   }
 
   renderTopAndBottomFeatures = (position) => {

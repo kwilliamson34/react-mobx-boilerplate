@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
 
+import {NoResults} from 'fn-common-ui';
 import {SummaryCard} from '../summary-card/summary-card.jsx';
 import AppManagementBlock from '../app-management-block/app-management-block.jsx';
 
@@ -103,13 +104,12 @@ export class CardList extends React.Component {
           </div>
         }
         {this.showNoResultsBlock &&
-          <div className="no-results-container">
-            <p className="no-results-title">No Results</p>
-            <p aria-live="polite">There are no results to display. Please retry your search.</p>
-            {this.props.handleViewAllAppsClick &&
-              <button id="view-all-apps-button" type="button" className="btn fn-primary" onClick={this.props.handleViewAllAppsClick}>Load All Apps</button>
-            }
-          </div>
+          <NoResults
+            title="No Results"
+            text="There are no results to display. Please retry your search."
+            showButton={Boolean(this.props.handleViewAllAppsClick)}
+            buttonText="Load All Apps"
+            buttonOnClick={this.props.handleViewAllAppsClick} />
         }
       </section>
     );
