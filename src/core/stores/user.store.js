@@ -108,7 +108,7 @@ class UserStore {
   }
 
   @computed get isAuthenticUser() {
-    return this.checkRolesString(['G_FN_IM','G_FN_ADM','G_FN_SUB','G_FN_VOL_ADM','G_FN_VOL','G_FN_ITM', 'G_FN_IOT_ADM', 'G_FN_IOT_FIN_R', 'G_FN_IOT_USR', 'G_FN_IOT_R']);
+    return this.checkRolesString(['G_FN_IM','G_FN_ADM','G_FN_SUB','G_FN_VOL_ADM','G_FN_VOL','G_FN_ITM','G_FN_IOT_ADM','G_FN_IOT_FIN_R','G_FN_IOT_USR','G_FN_IOT_R']);
   }
 
   @computed get isSubscriber() {
