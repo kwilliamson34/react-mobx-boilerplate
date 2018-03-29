@@ -108,7 +108,7 @@ class UserStore {
   }
 
   @computed get isAuthenticUser() {
-    return this.checkRolesString(['G_FN_IM','G_FN_ADM','G_FN_SUB','G_FN_VOL_ADM','G_FN_VOL','G_FN_ITM']);
+    return this.checkRolesString(['G_FN_IM','G_FN_ADM','G_FN_SUB','G_FN_VOL_ADM','G_FN_VOL','G_FN_ITM', 'G_FN_IOT_ADM', 'G_FN_IOT_FIN_R', 'G_FN_IOT_USR', 'G_FN_IOT_R']);
   }
 
   @computed get isSubscriber() {
@@ -149,7 +149,7 @@ class UserStore {
     viewReports: ['G_FN_ADM'],
     manageApps: ['G_FN_ADM', 'G_FN_ITM', 'G_FN_VOL_ADM'],
     manageVoicemail: ['G_FN_SUB'],
-    administration: ['G_FN_ADM', 'G_FN_ITM', 'G_FN_SUB', 'G_FN_VOL_ADM', 'G_FN_VOL'],
+    administration: ['G_FN_ADM', 'G_FN_ITM', 'G_FN_SUB', 'G_FN_VOL_ADM', 'G_FN_VOL','G_FN_IOT_ADM', 'G_FN_IOT_FIN_R', 'G_FN_IOT_USR', 'G_FN_IOT_R'],
     network: ['G_FN_IM', 'G_FN_ADM', 'G_FN_ITM'],
     incidentUplift: ['G_FN_IM'],
     manageIotDevices: ['G_FN_IOT_ADM', 'G_FN_IOT_FIN_R', 'G_FN_IOT_USR', 'G_FN_IOT_R'] // FPSE-1709 - re-enable IOT card for specific roles.
