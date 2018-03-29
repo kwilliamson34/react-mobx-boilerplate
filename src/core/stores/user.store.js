@@ -152,7 +152,7 @@ class UserStore {
     administration: ['G_FN_ADM', 'G_FN_ITM', 'G_FN_SUB', 'G_FN_VOL_ADM', 'G_FN_VOL'],
     network: ['G_FN_IM', 'G_FN_ADM', 'G_FN_ITM'],
     incidentUplift: ['G_FN_IM'],
-    manageIotDevices: [] // FPSE-2149 - temporarily remove IOT devices, will be re-implemented later
+    manageIotDevices: ['G_FN_IOT_ADM', 'G_FN_IOT_FIN_R', 'G_FN_IOT_USR', 'G_FN_IOT_R'] // FPSE-1709 - re-enable IOT card for specific roles.
   }
 }
 
