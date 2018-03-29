@@ -20,43 +20,6 @@ exports[`<AppReviews /> render tests renders one review and does not render Load
         >
           A Bad Review is Coming
         </div>
-        <div
-          className="ratings-container"
-        >
-          <span>
-            <div
-              className="sr-only"
-            >
-              This app has a rating of 
-              1
-               stars out of 5.
-            </div>
-            <span
-              className="ratings-stars"
-            >
-              <span
-                aria-hidden="true"
-                className="ratings-star icon-star"
-              />
-              <span
-                aria-hidden="true"
-                className="ratings-star icon-star-o"
-              />
-              <span
-                aria-hidden="true"
-                className="ratings-star icon-star-o"
-              />
-              <span
-                aria-hidden="true"
-                className="ratings-star icon-star-o"
-              />
-              <span
-                aria-hidden="true"
-                className="ratings-star icon-star-o"
-              />
-            </span>
-          </span>
-        </div>
       </div>
       <div
         className="review-author"
@@ -91,43 +54,6 @@ exports[`<AppReviews /> render tests renders three reviews and displays the Load
         >
           A Bad Review is Coming
         </div>
-        <div
-          className="ratings-container"
-        >
-          <span>
-            <div
-              className="sr-only"
-            >
-              This app has a rating of 
-              1
-               stars out of 5.
-            </div>
-            <span
-              className="ratings-stars"
-            >
-              <span
-                aria-hidden="true"
-                className="ratings-star icon-star"
-              />
-              <span
-                aria-hidden="true"
-                className="ratings-star icon-star-o"
-              />
-              <span
-                aria-hidden="true"
-                className="ratings-star icon-star-o"
-              />
-              <span
-                aria-hidden="true"
-                className="ratings-star icon-star-o"
-              />
-              <span
-                aria-hidden="true"
-                className="ratings-star icon-star-o"
-              />
-            </span>
-          </span>
-        </div>
       </div>
       <div
         className="review-author"
@@ -155,43 +81,6 @@ exports[`<AppReviews /> render tests renders three reviews and displays the Load
         >
           Another Bad Review is Coming
         </div>
-        <div
-          className="ratings-container"
-        >
-          <span>
-            <div
-              className="sr-only"
-            >
-              This app has a rating of 
-              1
-               stars out of 5.
-            </div>
-            <span
-              className="ratings-stars"
-            >
-              <span
-                aria-hidden="true"
-                className="ratings-star icon-star"
-              />
-              <span
-                aria-hidden="true"
-                className="ratings-star icon-star-o"
-              />
-              <span
-                aria-hidden="true"
-                className="ratings-star icon-star-o"
-              />
-              <span
-                aria-hidden="true"
-                className="ratings-star icon-star-o"
-              />
-              <span
-                aria-hidden="true"
-                className="ratings-star icon-star-o"
-              />
-            </span>
-          </span>
-        </div>
       </div>
       <div
         className="review-author"
@@ -218,43 +107,6 @@ exports[`<AppReviews /> render tests renders three reviews and displays the Load
           id="Review-83"
         >
           A Good Review is Coming
-        </div>
-        <div
-          className="ratings-container"
-        >
-          <span>
-            <div
-              className="sr-only"
-            >
-              This app has a rating of 
-              5
-               stars out of 5.
-            </div>
-            <span
-              className="ratings-stars"
-            >
-              <span
-                aria-hidden="true"
-                className="ratings-star icon-star"
-              />
-              <span
-                aria-hidden="true"
-                className="ratings-star icon-star"
-              />
-              <span
-                aria-hidden="true"
-                className="ratings-star icon-star"
-              />
-              <span
-                aria-hidden="true"
-                className="ratings-star icon-star"
-              />
-              <span
-                aria-hidden="true"
-                className="ratings-star icon-star"
-              />
-            </span>
-          </span>
         </div>
       </div>
       <div

@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 
 import {observer} from 'mobx-react';
-import {Rating} from '../rating/rating.jsx';
 import {utilsService} from '../../core/services/utils.service';
 import AppManagementBlock from '../../components/app-management-block/app-management-block';
+import {RatingAsText} from 'fn-common-ui';
 
 @observer
 export class AppDetailBanner extends React.Component {
@@ -39,17 +39,7 @@ export class AppDetailBanner extends React.Component {
     const rating = this.appStore.currentAppObject.rating;
     return (
       <div className="app-rating app-details">
-        {/*Mobile*/}
-        <div className="hidden-sm hidden-md hidden-lg">
-          <span className="rating-as-text">
-            <p>{rating} Stars</p>
-            <p>{reviewCount ? reviewCount : 'No'} Review{reviewCount === 1 ? '' : 's'}</p>
-          </span>
-        </div>
-        {/*Tablet and Desktop*/}
-        <div className="hidden-xs">
-          <Rating rating={rating} reviewCount={reviewCount} showReviewCount={true}/>
-        </div>
+        <RatingAsText rating={rating} reviewCount={reviewCount} />
       </div>
     )
   }

@@ -5,12 +5,11 @@ import {utilsService} from '../core/services/utils.service';
 
 import PageTitle from '../components/page-title/page-title';
 import {AppDetailBanner} from '../components/app-details/app-detail-banner';
-import RatingsChart from '../components/ratings-chart/ratings-chart';
 import AppReviews from '../components/app-reviews/app-reviews';
 import ScreenshotGallery from '../components/screenshot-gallery/screenshot-gallery';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
 import Alerts from '../components/alerts/alerts';
-import {Truncate} from 'fn-common-ui';
+import {Truncate, RatingsChart} from 'fn-common-ui';
 import {NewTabLink} from 'fn-common-ui';
 
 @inject('store')
