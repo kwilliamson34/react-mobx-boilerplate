@@ -548,20 +548,6 @@ exports[`<CardList /> renders matches snapshot with zero, one, and many cards 1`
   <div
     className="row"
   />
-  <div
-    className="no-results-container"
-  >
-    <p
-      className="no-results-title"
-    >
-      No Results
-    </p>
-    <p
-      aria-live="polite"
-    >
-      There are no results to display. Please retry your search.
-    </p>
-  </div>
 </section>
 `;
 

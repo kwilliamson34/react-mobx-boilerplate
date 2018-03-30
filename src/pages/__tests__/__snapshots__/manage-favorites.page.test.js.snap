@@ -69,26 +69,6 @@ exports[`<ManageFavoritesPage /> render matches previous snapshot 1`] = `
             role="rowgroup"
           />
         </div>
-        <div
-          className="no-results-container"
-        >
-          <p
-            className="no-results-title"
-          >
-            No Favorites
-          </p>
-          <p
-            aria-live="polite"
-          >
-            No favorite locations have been added yet. Add some!
-          </p>
-          <button
-            className="fn-primary"
-            onClick={[Function]}
-          >
-            Add From Map
-          </button>
-        </div>
         <hr
           className="mobile-hr"
         />
