@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {observer, inject} from 'mobx-react';
 
-import {NoResults} from 'fn-common-ui';
 import {history} from '../core/services/history.service';
 import PageTitle from '../components/page-title/page-title';
 import BreadcrumbNav from '../components/breadcrumb-nav/breadcrumb-nav';
@@ -13,6 +12,7 @@ import {TableColumn} from '../components/sortable-table/table-column';
 import {MobileHeader} from '../components/sortable-table/mobile-header';
 import Alerts from '../components/alerts/alerts';
 import Modal from '../components/portals/modal';
+import {NoResults} from 'fn-common-ui';
 
 @inject('store')
 @observer
@@ -44,7 +44,6 @@ export default class ManageFavoritesPage extends React.Component {
   }
 
   resetSearch = () => {
-    console.log('DING');
     this.manageFavoritesStore.resetSearch();
   }
 
