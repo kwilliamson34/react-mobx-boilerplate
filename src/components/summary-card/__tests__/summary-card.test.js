@@ -1,5 +1,4 @@
 jest.unmock('../summary-card');
-jest.unmock('../../rating/rating');
 
 
 import {SummaryCard} from '../summary-card';

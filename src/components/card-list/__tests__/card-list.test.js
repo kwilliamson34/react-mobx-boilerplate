@@ -3,7 +3,7 @@ jest.unmock('../card-list');
 
 // unmocking because we want to test all the way down the chain. If you ONLY want to test card-list, leave these mocked, but that defeats the purpose of testing
 jest.unmock('../../summary-card/summary-card');
-jest.unmock('../../rating/rating');
+// jest.unmock('../../rating/rating');
 
 import {CardList} from '../card-list';
 import {MemoryRouter} from 'react-router-dom';

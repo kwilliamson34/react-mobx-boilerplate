@@ -43,15 +43,7 @@ exports[`<SummaryCard /> render testing matches snapshot 1`] = `
     >
       <div
         className="card-rating"
-      >
-        <div
-          className="ratings-container"
-        >
-          <span>
-            No Reviews
-          </span>
-        </div>
-      </div>
+      />
     </div>
   </a>
 </div>
@@ -100,15 +92,7 @@ exports[`<SummaryCard /> render testing matches snapshot 2`] = `
     >
       <div
         className="card-rating"
-      >
-        <div
-          className="ratings-container"
-        >
-          <span>
-            No Reviews
-          </span>
-        </div>
-      </div>
+      />
     </div>
   </a>
 </div>

@@ -183,7 +183,7 @@ exports[`<PSEHeader /> render matches snapshot when header store is not initiali
                       <span
                         aria-hidden="true"
                       >
-                        FirstNet Customer Svc: 
+                        FirstNet Customer Svc 
                       </span>
                       <br />
                       <i
@@ -360,7 +360,7 @@ exports[`<PSEHeader /> render matches snapshot when header store is not initiali
                       <span
                         aria-hidden="true"
                       >
-                        FirstNet Customer Svc: 
+                        FirstNet Customer Svc 
                       </span>
                       <br />
                       <i
@@ -573,7 +573,7 @@ exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
                       <span
                         aria-hidden="true"
                       >
-                        FirstNet Customer Svc: 
+                        FirstNet Customer Svc 
                       </span>
                       <br />
                       <i
@@ -750,7 +750,7 @@ exports[`<PSEHeader /> render matches snapshot when menu is closed 1`] = `
                       <span
                         aria-hidden="true"
                       >
-                        FirstNet Customer Svc: 
+                        FirstNet Customer Svc 
                       </span>
                       <br />
                       <i
@@ -963,7 +963,7 @@ exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
                       <span
                         aria-hidden="true"
                       >
-                        FirstNet Customer Svc: 
+                        FirstNet Customer Svc 
                       </span>
                       <br />
                       <i
@@ -1140,7 +1140,7 @@ exports[`<PSEHeader /> render matches snapshot when menu is open 1`] = `
                       <span
                         aria-hidden="true"
                       >
-                        FirstNet Customer Svc: 
+                        FirstNet Customer Svc 
                       </span>
                       <br />
                       <i
@@ -1374,7 +1374,7 @@ exports[`<PSEHeader /> render user role-based snapshots 1`] = `
                       <span
                         aria-hidden="true"
                       >
-                        FirstNet Customer Svc: 
+                        FirstNet Customer Svc 
                       </span>
                       <br />
                       <i
@@ -1551,7 +1551,7 @@ exports[`<PSEHeader /> render user role-based snapshots 1`] = `
                       <span
                         aria-hidden="true"
                       >
-                        FirstNet Customer Svc: 
+                        FirstNet Customer Svc 
                       </span>
                       <br />
                       <i
@@ -1893,7 +1893,7 @@ exports[`<PSEHeader /> render user role-based snapshots 2`] = `
                       <span
                         aria-hidden="true"
                       >
-                        FirstNet Customer Svc: 
+                        FirstNet Customer Svc 
                       </span>
                       <br />
                       <i
@@ -2070,7 +2070,7 @@ exports[`<PSEHeader /> render user role-based snapshots 2`] = `
                       <span
                         aria-hidden="true"
                       >
-                        FirstNet Customer Svc: 
+                        FirstNet Customer Svc 
                       </span>
                       <br />
                       <i
@@ -2324,7 +2324,7 @@ exports[`<PSEHeader /> render user role-based snapshots 3`] = `
                       <span
                         aria-hidden="true"
                       >
-                        FirstNet Customer Svc: 
+                        FirstNet Customer Svc 
                       </span>
                       <br />
                       <i
@@ -2501,7 +2501,7 @@ exports[`<PSEHeader /> render user role-based snapshots 3`] = `
                       <span
                         aria-hidden="true"
                       >
-                        FirstNet Customer Svc: 
+                        FirstNet Customer Svc 
                       </span>
                       <br />
                       <i
@@ -2772,7 +2772,7 @@ exports[`<PSEHeader /> render user role-based snapshots 4`] = `
                       <span
                         aria-hidden="true"
                       >
-                        FirstNet Customer Svc: 
+                        FirstNet Customer Svc 
                       </span>
                       <br />
                       <i
@@ -2949,7 +2949,7 @@ exports[`<PSEHeader /> render user role-based snapshots 4`] = `
                       <span
                         aria-hidden="true"
                       >
-                        FirstNet Customer Svc: 
+                        FirstNet Customer Svc 
                       </span>
                       <br />
                       <i
@@ -3256,7 +3256,7 @@ exports[`<PSEHeader /> render user role-based snapshots 5`] = `
                       <span
                         aria-hidden="true"
                       >
-                        FirstNet Customer Svc: 
+                        FirstNet Customer Svc 
                       </span>
                       <br />
                       <i
@@ -3433,7 +3433,7 @@ exports[`<PSEHeader /> render user role-based snapshots 5`] = `
                       <span
                         aria-hidden="true"
                       >
-                        FirstNet Customer Svc: 
+                        FirstNet Customer Svc 
                       </span>
                       <br />
                       <i
