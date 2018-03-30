@@ -9,6 +9,7 @@ global.ReactDOM = ReactDOM;
 global.Router = Router;
 global.TestUtils = TestUtils;
 global.renderer = renderer;
+global.Date.now = () => {1522087337899};
 
 // Skip createElement errors but fail tests on any other error
 console.error = message => {
