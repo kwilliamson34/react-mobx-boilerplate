@@ -4,8 +4,7 @@ import {observer} from 'mobx-react';
 import {observable} from 'mobx';
 
 import {utilsService} from '../../core/services/utils.service';
-import {Rating} from '../rating/rating';
-import {Truncate} from 'fn-common-ui';
+import {Truncate, RatingAsStars} from 'fn-common-ui';
 
 @observer
 export default class AppReviews extends React.Component {
@@ -43,7 +42,7 @@ export default class AppReviews extends React.Component {
           <div className='review-metadata'>
             <div className='subject-and-rating-container'>
               <div className='review-subject' id={'Review-' + node.reviewId}>{node.commentTitle}</div>
-              <Rating rating={node.reviewStar} reviewCount={1}/>
+              <RatingAsStars rating={node.reviewStar} reviewCount={1}/>
             </div>
             <div className='review-author'>{authorName}</div>
             <div className='review-date'>{utilsService.normalizedDate(node.reviewDate, 'MMMM D, YYYY')}</div>
