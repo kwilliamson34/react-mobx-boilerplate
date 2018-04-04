@@ -370,8 +370,8 @@ export default class GeolinkControls extends React.Component {
             </div>
           </div>
           <div className="hazards-legend two-col-legend">
-            <span className="col-xs-6 as-label"><i className="icon-warning construction" aria-hidden="true" /><br className="visible-xs" />Construction</span>
-            <span className="col-xs-6 as-label"><i className="icon-warning incident" aria-hidden="true" /><br className="visible-xs" />Vehicle Incident</span>
+            <span className="col-xs-6 as-label"><i className="icon-warning incident-minor" aria-hidden="true" /><br className="visible-xs" />Minor/Moderate Incident</span>
+            <span className="col-xs-6 as-label"><i className="icon-warning incident-serious" aria-hidden="true" /><br className="visible-xs" />Serious Incident</span>
           </div>
         </div>
       </React.Fragment>
