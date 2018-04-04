@@ -16,7 +16,7 @@ var config = Object.assign(CommonConfig.CommonConfig, {
   firstnetTraining: 'https://test-training.firstnet.att.com/',
   devPortal: 'https://test-developer.firstnet.com/developer/mvc/auth/login?siteId=PORTALPROPER',
 
-  manageMyProfileLink: 'https://test-profilemgt2.firstnet.att.com/firstnet/icam/index.html#/firstnet/icam/index/my-profile-view-only',
+  manageMyProfileLink: 'https://test-profilemgt.firstnet.att.com/firstnet/icam/index.html#/firstnet/icam/index/my-profile-view-only',
   manageUsersLink: 'https://test-profilemgt.firstnet.att.com/firstnet/icam/index.html#/firstnet/icam/index/lander-city',
   manageServicesLink: 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn',
   manageVoicemailAndUsageLink: 'https://test-wireless.firstnet.att.com/b2bservlets/HaloSSOLoginServlet.dyn',
