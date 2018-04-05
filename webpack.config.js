@@ -5,7 +5,7 @@ const CompressionPlugin = require('compression-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 //portal config
-const proxyTarget = 'https://troy-localcontrol.sapientfirst.net';
+const proxyTarget = 'https://abed-localcontrol.sapientfirst.net';
 const localhostPort = 8443;
 
 module.exports = (env) => {
