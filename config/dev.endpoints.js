@@ -10,10 +10,10 @@ var config = Object.assign(CommonConfig.CommonConfig, {
   geolinkAbMapConstantsFileName: 'abMapConstantsFNST.js',
   mktgPortalImgBaseUrl: 'https://www.firstnet.ws',
 
-  appCatalog: 'https://abed-apps.firstnet.att.com',
-  appControl: 'https://abed-appcontrol.firstnet.att.com/',
-  localControl: 'https://abed-localcontrol.firstnet.att.com/',
-  firstnetTraining: 'https://abed-training.firstnet.att.com/',
+  appCatalog: 'https://abed-apps.sapientfirst.net/',
+  appControl: 'https://abed-appcontrol.sapientfirst.net/',
+  localControl: 'https://abed-localcontrol.sapientfirst.net/',
+  firstnetTraining: 'https://abed-training.sapientfirst.net/',
   devPortal: 'https://test-developer.firstnet.com/developer/mvc/auth/login?siteId=PORTALPROPER',
 
   manageMyProfileLink: 'https://test-profilemgt.firstnet.att.com/ebiz/firstnet/userDetails/viewMyProfile',
