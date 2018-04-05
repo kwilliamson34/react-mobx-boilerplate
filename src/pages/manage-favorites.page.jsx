@@ -12,6 +12,7 @@ import {TableColumn} from '../components/sortable-table/table-column';
 import {MobileHeader} from '../components/sortable-table/mobile-header';
 import Alerts from '../components/alerts/alerts';
 import Modal from '../components/portals/modal';
+import {NoResults} from 'fn-common-ui';
 
 @inject('store')
 @observer
@@ -159,23 +160,25 @@ export default class ManageFavoritesPage extends React.Component {
   }
 
   renderNoFetchResults = () => {
-    return (<div className="no-results-container">
-      <p className="no-results-title">No Favorites</p>
-      <p aria-live="polite">No favorite locations have been added yet. Add some!</p>
-      <button className="fn-primary" onClick={this.handleAddButton}>
-        Add From Map
-      </button>
-    </div>)
+    return (
+      <NoResults
+        title="No Favorites"
+        text="No favorite locations have been added yet. Add some!"
+        showButton={true}
+        buttonText="Add From Map"
+        buttonOnClick={this.handleAddButton} />
+    )
   }
 
   renderNoSearchResults = () => {
-    return (<div className="no-results-container">
-      <p className="no-results-title">No Results</p>
-      <p aria-live="polite">There are no results to display. Please retry your search.</p>
-      <button className="fn-primary" onClick={this.resetSearch}>
-        Load All Favorites
-      </button>
-    </div>)
+    return (
+      <NoResults
+        title="No Results"
+        text="There are no results to display. Please retry your search."
+        showButton={true}
+        buttonText="Load All Favorites"
+        buttonOnClick={this.resetSearch} />
+    )
   }
 
   renderTopAndBottomFeatures = (position) => {
