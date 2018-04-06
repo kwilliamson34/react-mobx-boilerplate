@@ -369,11 +369,11 @@ $map-controls-text-line-height: 1.3;
         font-size: 2rem;
         margin-right: 10px;
 
-        &.construction {
+        &.incident-minor {
           color: $fn-yellow;
         }
 
-        &.incident {
+        &.incident-serious {
           color: $fn-alert-red;
         }
       }

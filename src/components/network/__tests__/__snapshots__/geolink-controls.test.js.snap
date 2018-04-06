@@ -674,24 +674,24 @@ exports[`<GeolinkControls /> renders matches snapshot when dropdown is showing 1
             >
               <i
                 aria-hidden="true"
-                className="icon-warning construction"
+                className="icon-warning incident-minor"
               />
               <br
                 className="visible-xs"
               />
-              Construction
+              Minor Incident
             </span>
             <span
               className="col-xs-6 as-label"
             >
               <i
                 aria-hidden="true"
-                className="icon-warning incident"
+                className="icon-warning incident-serious"
               />
               <br
                 className="visible-xs"
               />
-              Vehicle Incident
+              Serious Incident
             </span>
           </div>
         </div>
@@ -1302,24 +1302,24 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
             >
               <i
                 aria-hidden="true"
-                className="icon-warning construction"
+                className="icon-warning incident-minor"
               />
               <br
                 className="visible-xs"
               />
-              Construction
+              Minor Incident
             </span>
             <span
               className="col-xs-6 as-label"
             >
               <i
                 aria-hidden="true"
-                className="icon-warning incident"
+                className="icon-warning incident-serious"
               />
               <br
                 className="visible-xs"
               />
-              Vehicle Incident
+              Serious Incident
             </span>
           </div>
         </div>
@@ -1930,24 +1930,24 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
             >
               <i
                 aria-hidden="true"
-                className="icon-warning construction"
+                className="icon-warning incident-minor"
               />
               <br
                 className="visible-xs"
               />
-              Construction
+              Minor Incident
             </span>
             <span
               className="col-xs-6 as-label"
             >
               <i
                 aria-hidden="true"
-                className="icon-warning incident"
+                className="icon-warning incident-serious"
               />
               <br
                 className="visible-xs"
               />
-              Vehicle Incident
+              Serious Incident
             </span>
           </div>
         </div>
@@ -2558,24 +2558,24 @@ exports[`<GeolinkControls /> renders matches snapshot when enabled and disabled 
             >
               <i
                 aria-hidden="true"
-                className="icon-warning construction"
+                className="icon-warning incident-minor"
               />
               <br
                 className="visible-xs"
               />
-              Construction
+              Minor Incident
             </span>
             <span
               className="col-xs-6 as-label"
             >
               <i
                 aria-hidden="true"
-                className="icon-warning incident"
+                className="icon-warning incident-serious"
               />
               <br
                 className="visible-xs"
               />
-              Vehicle Incident
+              Serious Incident
             </span>
           </div>
         </div>
