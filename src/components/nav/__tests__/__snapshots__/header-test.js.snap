@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> render matches previous snapshot 1`] = `
+<header
+  role="banner"
+>
+  <nav
+    aria-label="Main Menu"
+    id="main-menu"
+  >
+    Header
+  </nav>
+</header>
+`;

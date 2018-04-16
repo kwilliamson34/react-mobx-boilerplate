@@ -1,0 +1,218 @@
+@font-face {
+  font-family: Roboto;
+  font-weight: 300;
+  font-style: normal;
+  src: url("/fonts/roboto/Roboto-Light.woff2") format('woff2'), url("/fonts/roboto/Roboto-Light.woff") format('woff'), url("/fonts/roboto/Roboto-Light.ttf") format('truetype');
+}
+@font-face {
+  font-family: Roboto;
+  font-weight: 300;
+  font-style: italic;
+  src: url("/fonts/roboto/Roboto-LightItalic.ttf") format('truetype');
+}
+@font-face {
+  font-family: Roboto;
+  font-weight: 400;
+  font-style: normal;
+  src: url("/fonts/roboto/Roboto-Regular.woff2") format('woff2'), url("/fonts/roboto/Roboto-Regular.woff") format('woff'), url("/fonts/roboto/Roboto-Regular.ttf") format('truetype');
+}
+@font-face {
+  font-family: Roboto;
+  font-weight: 400;
+  font-style: italic;
+  src: url("/fonts/roboto/Roboto-Italic.ttf") format('truetype');
+}
+@font-face {
+  font-family: Roboto;
+  font-weight: 500;
+  font-style: normal;
+  src: url("/fonts/roboto/Roboto-Medium.woff2") format('woff2'), url("/fonts/roboto/Roboto-Medium.woff") format('woff'), url("/fonts/roboto/Roboto-Medium.ttf") format('truetype');
+}
+@font-face {
+  font-family: Roboto;
+  font-weight: 500;
+  font-style: italic;
+  src: url("/fonts/roboto/Roboto-MediumItalic.ttf") format('truetype');
+}
+@font-face {
+  font-family: Roboto;
+  font-weight: 700;
+  font-style: normal;
+  src: url("/fonts/roboto/Roboto-Bold.woff2") format('woff2'), url("/fonts/roboto/Roboto-Bold.woff") format('woff'), url("/fonts/roboto/Roboto-Bold.ttf") format('truetype');
+}
+@font-face {
+  font-family: Roboto;
+  font-weight: 700;
+  font-style: italic;
+  src: url("/fonts/roboto/Roboto-BoldItalic.ttf") format('truetype');
+}
+@font-face {
+  font-family: Roboto;
+  font-weight: 900;
+  font-style: normal;
+  src: url("/fonts/roboto/Roboto-Black.woff2") format('woff2'),
+    url("/fonts/roboto/Roboto-Black.woff") format('woff'),
+    url("/fonts/roboto/Roboto-Black.ttf") format('truetype');
+}
+
+$roboto: 'Roboto', 'Helvetica-Neue', sans-serif;
+
+html {
+  font-family: $roboto;
+  font-size: 62.5%; //sets rem to base 10 instead of base 16
+}
+
+body {
+  font-size: 1.4rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.6;
+}
+
+.as-h1,
+h1 {
+  font-size: $brand-h1-mobile;
+  font-weight: $brand-normal-weight;
+  line-height: 1.11; //40 leading
+}
+
+.as-h2,
+h2 {
+  font-size: $brand-h2-mobile;
+  font-weight: $brand-normal-weight;
+  line-height: 1.13; //34 leading
+}
+
+.as-h3,
+h3 {
+  font-size: $brand-h3-mobile;
+  font-weight: $brand-normal-weight;
+  line-height: 1.25; //30 leading
+}
+
+.as-h4,
+h4 {
+  font-size: $brand-h4-mobile;
+  font-weight: $brand-medium-weight;
+  text-transform: uppercase;
+  letter-spacing: 1.33px;
+}
+
+.as-h5,
+h5 {
+  font-size: $brand-h5-mobile;
+  font-weight: $brand-medium-weight;
+  text-transform: uppercase;
+  padding-bottom: 2.5rem;
+}
+
+.as-p,
+p {
+  font-size: $brand-content-page-text-mobile;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+
+  &.intro {
+    font-size: $brand-intro-mobile;
+  }
+}
+
+caption,
+p.disclaimer {
+  font-size: $brand-small-text-mobile;
+}
+
+caption {
+  padding-bottom: 5px;
+  color: $brand-dkgrey;
+}
+
+@media #{$tablet, $desktop} {
+  .as-h1,
+  h1 {
+    font-size: $brand-h1-desktop;
+    line-height: 1.2; //58 leading
+  }
+
+  .as-h2,
+  h2 {
+    font-size: $brand-h2-desktop;
+    line-height: 1.11; //40 leading
+  }
+
+  .as-h3,
+  h3 {
+    font-size: $brand-h3-desktop;
+    line-height: 1.07; //30 leading
+  }
+
+  .as-h4,
+  h4 {
+    font-size: $brand-h4-desktop;
+  }
+
+  .as-h5,
+  h5 {
+    font-size: $brand-h5-desktop;
+  }
+
+  .as-p,
+  p {
+    font-size: $brand-content-page-text-desktop;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+
+    &.intro {
+      font-size: $brand-intro-desktop;
+    }
+  }
+
+  caption,
+  p.disclaimer {
+    font-size: $brand-small-text-desktop;
+  }
+}
+
+//color variations
+.green {
+  color: $brand-green;
+}
+
+.red {
+  color: $brand-red;
+}
+
+.yellow {
+  color: $brand-yellow;
+}
+
+.blue {
+  color: $brand-blue;
+}
+
+.ltblue {
+  color: $brand-ltblue;
+}
+
+//style variations
+strong {
+  font-weight: $brand-bold-weight;
+}
+
+em {
+  font-style: italic;
+}
+
+figure {
+  margin-bottom: 1.5rem;
+}
+
+.monospace {
+  font-family: monospace;
+}

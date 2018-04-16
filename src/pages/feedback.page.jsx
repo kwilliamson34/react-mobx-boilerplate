@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {inject, observer} from 'mobx-react';
+
+import BreadcrumbNav from '../components/nav/breadcrumb-nav';
 import FeedbackForm from '../components/feedback/feedback-form';
-import PageTitle from '../components/page-title/page-title';
 
 @inject('store')
 @observer
@@ -18,23 +19,28 @@ export default class FeedbackPage extends React.Component {
   }
 
   render = () => {
+    const links = [
+      {
+        pageHref: '',
+        pageTitle: 'Home'
+      },
+      {
+        pageHref: '/feedback',
+        pageTitle: 'Submit Feedback'
+      }
+    ]
     return (
-      <section id="customer-feedback-page" className="standalone-form-page">
-        <div className="content-wrapper">
-          <div className="container">
-            <div className="row text-center">
-              <div className="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
-                <PageTitle>Submit Feedback</PageTitle>
-              </div>
-            </div>
-            <div className="row">
-              <section className="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
-                <FeedbackForm store={this.feedbackStore}/>
-              </section>
+      <article id="feedback-page" className="standalone-form-page">
+        <BreadcrumbNav links={links}></BreadcrumbNav>
+        <div className="container">
+          <div className="row">
+            <div className="col-xs-10 col-xs-offset-1">
+              <h1>Submit Feedback</h1>
+              <FeedbackForm store={this.feedbackStore}/>
             </div>
           </div>
         </div>
-      </section>
+      </article>
     )
   }
 }

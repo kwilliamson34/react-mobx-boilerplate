@@ -43,7 +43,7 @@ exports[`<FeedbackForm /> renders matches previous snapshot 1`] = `
         className="form-group button-wrapper"
       >
         <button
-          className="fn-primary form-submit "
+          className="brand-primary form-submit "
           onClick={[Function]}
           type="button"
         >

@@ -1,47 +1,32 @@
 import {action, observable, computed, autorun} from 'mobx';
 import {apiService} from '../services/api.service';
 import {userStore} from './user.store';
-
-import {successPage} from '../services/success-page.service';
+import {history} from '../services/history.service';
 
 class FeedbackStore {
   constructor() {
     // check form for errors
     autorun(() => {
-      // check that initial values are available before validating for the first time
-      if(userStore.userValidationDone) {
-        let hasError = false;
-        this.formFieldRefList.forEach(ref => {
-          if(ref && ref.hasFunctionalError) {
-            hasError = true;
-          }
-        });
-        this.formHasError = hasError;
-      }
-    });
-    autorun(() => {
-      // ensure contactAgreement doesn't render checked when user deletes their email and enters a new one;
-      if(userStore.userValidationDone) {
-        if(!this.requireContactAgreement) {
-          this.contactAgreement = false;
+      let hasError = false;
+      this.formFieldRefList.forEach(ref => {
+        if(ref && ref.hasFunctionalError) {
+          hasError = true;
         }
-      }
-    })
+      });
+      this.formHasError = hasError;
+    });
   }
 
   @action submitForm() {
     const success = () => {
       this.clearForm();
-      successPage({
-        pageTitle: 'Thanks for your feedback!',
-        message: 'We appreciate you taking the time to provide your thoughts about this site. Your comments will help us to improve our tools going forward.'
-      });
       this.alertToDisplay = '';
+      history.push('/success');
     }
     const failure = () => {
-      this.alertToDisplay = 'An unknown error occured. Please try again later.';
+      history.push('/error');
     }
-    apiService.submitCustomerFeedbackForm(this.values).then(success, failure);
+    apiService.submitFeedbackForm(this.values).then(success, failure);
   }
 
   @action toggleContactAgreement() {
@@ -71,25 +56,6 @@ class FeedbackStore {
       }
     });
     return formHasChanged;
-  }
-
-  @computed get requireContactAgreement() {
-    return this.values.email.length > 0;
-  }
-
-  @computed get emailIsRequired() {
-    const topicsRequiringEmail = [
-      'Credential & Account Management',
-      'Purchasing & Provisioning',
-      'Billing & Payment'
-    ];
-    let emailIsRequired = false;
-    topicsRequiringEmail.forEach(topic => {
-      if (this.values.topic === topic) {
-        emailIsRequired = true;
-      }
-    });
-    return emailIsRequired;
   }
 
   @observable formFieldRefList = [];

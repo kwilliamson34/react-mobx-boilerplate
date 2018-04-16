@@ -18,7 +18,7 @@ module.exports = {
 	},
 	module: {
 		rules: [
-			{
+      {
 				test: require.resolve('jquery'),
 				use: [
 					{
@@ -46,10 +46,8 @@ module.exports = {
 					fallback: 'style-loader',
 					use: [
 						{ loader: 'css-loader' },
-						{ loader: 'sass-loader' },
-						{ loader: 'postcss-loader' },
 						{ loader: 'sass-loader' }
-					]
+          ]
 				})
 			},
 			{
@@ -87,23 +85,20 @@ module.exports = {
   plugins: [
     new webpack.IgnorePlugin(/regenerator|nodent|js-beautify/, /ajv/),
 
-    new ExtractTextPlugin({
-			filename: 'css/styles.[contenthash].css',
-			disable: process.env.npm_lifecycle_event === 'start'
-		}),
-
     new webpack.ProvidePlugin({
 			'jQuery': 'jquery',
 			'$': 'jquery'
+		}),
+
+    new ExtractTextPlugin({
+			filename: 'css/styles.[contenthash].css',
+			disable: process.env.npm_lifecycle_event === 'start'
 		}),
 
     new webpack.LoaderOptionsPlugin({
 			test: /\.scss$/,
 			debug: true,
 			options: {
-				postcss: function () {
-					return [precss, autoprefixer];
-				},
 				context: path.join(__dirname, "src"),
 				output: { path: path.join(__dirname, "build") }
 			}

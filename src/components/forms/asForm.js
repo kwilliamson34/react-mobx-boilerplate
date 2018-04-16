@@ -6,8 +6,8 @@ import PropTypes from 'prop-types';
 import {history} from '../../core/services/history.service';
 import {observer} from 'mobx-react';
 import {observable, computed, autorun} from 'mobx';
-import Alerts from '../alerts/alerts';
-import Modal from '../portals/modal';
+// import Alerts from '../alerts/alerts';
+// import Modal from '../portals/modal';
 
 @observer
 export default function asForm (MyComponent, attributes) {
@@ -81,10 +81,10 @@ export default function asForm (MyComponent, attributes) {
         if (this.store.formIsDirty && !this.props.disabled) {
           this.interceptedRoute = location.pathname;
           // If this isn't a simple "skip navigation" click, show the exit modal and block the transition
-          if(location.hash !== '#main-content'){
-            this.exitModal.showModal();
-            return false; //does not allow to proceed to new page
-          }
+          // if(location.hash !== '#main-content'){
+          //   this.exitModal.showModal();
+          //   return false; //does not allow to proceed to new page
+          // }
         }
       });
     }
@@ -121,7 +121,7 @@ export default function asForm (MyComponent, attributes) {
       }
       return (
         <div className="form-group button-wrapper">
-          <button type="button" onClick={this.handleSubmit} className={`fn-primary form-submit ${(this.props.disabled || this.store.formHasError) ? 'disabled' : ''}`}>
+          <button type="button" onClick={this.handleSubmit} className={`brand-primary form-submit ${(this.props.disabled || this.store.formHasError) ? 'disabled' : ''}`}>
             {submitButtonText}
           </button>
         </div>
@@ -131,7 +131,7 @@ export default function asForm (MyComponent, attributes) {
     renderSecondaryButton = () => {
       return (
         <div className="form-group button-wrapper">
-          <button type="button" onClick={this.handleSecondaryAction} className='fn-secondary form-submit'>
+          <button type="button" onClick={this.handleSecondaryAction} className='brand-secondary form-submit'>
             {this.secondaryButtonText}
           </button>
         </div>
@@ -191,7 +191,7 @@ export default function asForm (MyComponent, attributes) {
       return (
         <section>
           <form noValidate>
-            {!this.props.suppressAlertBars &&
+            {/*!this.props.suppressAlertBars &&
               <Alerts
                 showAlert={this.showAlertBar}
                 alertText={this.alertMessage}
@@ -199,7 +199,7 @@ export default function asForm (MyComponent, attributes) {
                 showSuccess={this.showSuccessBar}
                 successText={this.successMessage}
                 clearSuccess={this.clearSuccess.bind(this)}
-                formColClass={this.formColClass}/>}
+                formColClass={this.formColClass}/>*/}
 
             <MyComponent {...this.props} formChildProps={formChildProps}/>
 
@@ -209,7 +209,7 @@ export default function asForm (MyComponent, attributes) {
               {this.secondaryButtonText ? this.renderSecondaryButton() : ''}
             </div>
           </form>
-          <Modal
+          {/*<Modal
             id="exit-modal"
             title="Unsaved changes"
             ref={i => this.exitModal = i}
@@ -218,7 +218,7 @@ export default function asForm (MyComponent, attributes) {
             secondaryAction={this.stayOnPage}
             secondaryButtonLabel="Stay On Page">
             <p>Your form changes will not be saved if you navigate away from this page.</p>
-          </Modal>
+          </Modal>*/}
         </section>
       )
     }

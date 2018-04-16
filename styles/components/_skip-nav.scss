@@ -1,0 +1,27 @@
+a.skipnav {
+  left: -999px;
+  position: absolute;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: -999;
+
+  &:active,
+  &:focus {
+    position: relative;
+    display: inline-block;
+    left: auto;
+    top: auto;
+    height: auto;
+    width: auto;
+    overflow: auto;
+    margin: 2px;
+    padding: 5px;
+    border-radius: 8px;
+    border: 1px solid $brand-blue;
+    text-align: center;
+    z-index: 999;
+    color: $brand-black;
+  }
+}

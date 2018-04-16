@@ -1,50 +1,23 @@
-//Import variables first. They will pre-empt the variables included in the
-//firstnet lib marked as !default.
-@import "abstracts/variables";
+//Libs
+@import "libs/bootstrap/bootstrap";
 
-//libs
+//Abstracts
 @import
-  "~fn-common-ui/styles/main", //must come before joyride
-  "~fn-joyride-ui/src/styles/main";
-
-//Utils
-@import "abstracts/utils";
+  "abstracts/variables",
+  "abstracts/breakpoints",
+  "abstracts/utils";
 
 //Base
 @import
+  "base/reset", //must be before _base
   "base/base",
-  "base/mixins",
-  "base/tables",
-  "base/shapes",
-  "base/common-ui-overrides";
+  "base/typography";
 
 //Components
 @import
-  "components/app-availability",
-  "components/app-detail-banner",
-  "components/app-management-block",
-  "components/app-reviews",
-  "components/breadcrumb-nav",
-  "components/card-list",
-  "components/faq",
-  "components/purchasing-info",
-  "components/screenshot-gallery",
-  "components/summary-card",
-  "components/toggle";
+  "components/forms",
+  "components/skip-nav";
 
 //Pages
 @import
-  "pages/error-success-page",
-  "pages/admin-dashboard-page",
-  "pages/app-details-page",
-  "pages/configure-mdm",
-  "pages/specialized-devices",
-  "pages/solutions",
-  "pages/standalone-form-page",
-  "pages/gtoc-page",
-  "pages/manage-apps-page",
-  "pages/manage-favorites-page",
-  "pages/network-page";
-
-//Shame
-@import "base/ie-styles";
+  "pages/form-page";

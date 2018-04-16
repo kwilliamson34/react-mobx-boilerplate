@@ -4,26 +4,178 @@ exports[`<RadioGroup /> renders matches previous snapshot 1`] = `
 <fieldset
   className="form-group radio  disabled "
   onBlur={[Function]}
-/>
+>
+  <div
+    className="form-label"
+  >
+    <legend
+      className="control-label"
+      htmlFor=""
+    >
+      <span
+        className=""
+      >
+        testLabel
+      </span>
+      
+      
+      <div
+        className="msgBlock error error-list "
+      >
+        <span
+          aria-atomic="true"
+          aria-live="assertive"
+          role="alert"
+        >
+          
+        </span>
+        <span
+          aria-atomic="true"
+          aria-live=""
+          role=""
+        >
+          
+        </span>
+      </div>
+    </legend>
+  </div>
+</fieldset>
 `;
 
 exports[`<RadioGroup /> renders matches previous snapshot 2`] = `
 <fieldset
   className="form-group radio   "
   onBlur={[Function]}
-/>
+>
+  <div
+    className="form-label"
+  >
+    <legend
+      className="control-label"
+      htmlFor=""
+    >
+      <span
+        className=""
+      >
+        testLabel
+      </span>
+      
+      
+      <div
+        className="msgBlock error error-list "
+      >
+        <span
+          aria-atomic="true"
+          aria-live="assertive"
+          role="alert"
+        >
+          
+        </span>
+        <span
+          aria-atomic="true"
+          aria-live=""
+          role=""
+        >
+          
+        </span>
+      </div>
+    </legend>
+  </div>
+</fieldset>
 `;
 
 exports[`<RadioGroup /> renders matches previous snapshot 3`] = `
 <fieldset
   className="form-group radio   "
   onBlur={[Function]}
-/>
+>
+  <div
+    className="form-label"
+  >
+    <legend
+      className="control-label"
+      htmlFor=""
+    >
+      <span
+        className=""
+      >
+        testLabel
+      </span>
+      
+      <span
+        className="help-text"
+      >
+        dummy helper text
+      </span>
+      <div
+        className="msgBlock error error-list "
+      >
+        <span
+          aria-atomic="true"
+          aria-live="assertive"
+          role="alert"
+        >
+          
+        </span>
+        <span
+          aria-atomic="true"
+          aria-live=""
+          role=""
+        >
+          
+        </span>
+      </div>
+    </legend>
+  </div>
+</fieldset>
 `;
 
 exports[`<RadioGroup /> renders matches previous snapshot 4`] = `
 <fieldset
   className="form-group radio   "
   onBlur={[Function]}
-/>
+>
+  <div
+    className="form-label"
+  >
+    <legend
+      className="control-label"
+      htmlFor=""
+    >
+      <span
+        className=""
+      >
+        testLabel
+      </span>
+      <span
+        className="required-asterisks "
+      >
+         *
+      </span>
+      <span
+        className="help-text"
+      >
+        dummy helper text
+      </span>
+      <div
+        className="msgBlock error error-list "
+      >
+        <span
+          aria-atomic="true"
+          aria-live="assertive"
+          role="alert"
+        >
+          
+        </span>
+        <span
+          aria-atomic="true"
+          aria-live=""
+          role=""
+        >
+          
+        </span>
+      </div>
+    </legend>
+  </div>
+</fieldset>
 `;

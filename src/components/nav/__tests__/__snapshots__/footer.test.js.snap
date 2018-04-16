@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Footer /> renders matches previous snapshot 1`] = `
+<footer>
+  <nav
+    aria-label="Supporting Navigation."
+  >
+    Footer
+  </nav>
+</footer>
+`;

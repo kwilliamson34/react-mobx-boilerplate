@@ -4,6 +4,40 @@ exports[`<SelectInput /> renders matches previous snapshot 1`] = `
 <div
   className="form-group  "
 >
+  <div
+    className="form-label"
+  >
+    <label
+      className="control-label"
+      htmlFor="key"
+    >
+      <span
+        className=""
+      >
+        
+      </span>
+      
+      
+      <div
+        className="msgBlock error error-list "
+      >
+        <span
+          aria-atomic="true"
+          aria-live="assertive"
+          role="alert"
+        >
+          
+        </span>
+        <span
+          aria-atomic="true"
+          aria-live=""
+          role=""
+        >
+          
+        </span>
+      </div>
+    </label>
+  </div>
   <select
     className="form-control form-control-lg"
     disabled={false}
@@ -19,6 +53,40 @@ exports[`<SelectInput /> renders matches previous snapshot 2`] = `
 <div
   className="form-group  "
 >
+  <div
+    className="form-label"
+  >
+    <label
+      className="control-label"
+      htmlFor="key"
+    >
+      <span
+        className=""
+      >
+        
+      </span>
+      
+      
+      <div
+        className="msgBlock error error-list "
+      >
+        <span
+          aria-atomic="true"
+          aria-live="assertive"
+          role="alert"
+        >
+          
+        </span>
+        <span
+          aria-atomic="true"
+          aria-live=""
+          role=""
+        >
+          
+        </span>
+      </div>
+    </label>
+  </div>
   <select
     className="form-control form-control-lg"
     disabled={false}
@@ -34,6 +102,40 @@ exports[`<SelectInput /> renders matches previous snapshot 3`] = `
 <div
   className="form-group  "
 >
+  <div
+    className="form-label"
+  >
+    <label
+      className="control-label"
+      htmlFor="key"
+    >
+      <span
+        className=""
+      >
+        
+      </span>
+      
+      
+      <div
+        className="msgBlock error error-list "
+      >
+        <span
+          aria-atomic="true"
+          aria-live="assertive"
+          role="alert"
+        >
+          
+        </span>
+        <span
+          aria-atomic="true"
+          aria-live=""
+          role=""
+        >
+          
+        </span>
+      </div>
+    </label>
+  </div>
   <select
     className="form-control form-control-lg"
     disabled={false}
@@ -49,6 +151,40 @@ exports[`<SelectInput /> renders matches previous snapshot 4`] = `
 <div
   className="form-group  "
 >
+  <div
+    className="form-label"
+  >
+    <label
+      className="control-label"
+      htmlFor="key"
+    >
+      <span
+        className=""
+      >
+        
+      </span>
+      
+      
+      <div
+        className="msgBlock error error-list "
+      >
+        <span
+          aria-atomic="true"
+          aria-live="assertive"
+          role="alert"
+        >
+          
+        </span>
+        <span
+          aria-atomic="true"
+          aria-live=""
+          role=""
+        >
+          
+        </span>
+      </div>
+    </label>
+  </div>
   <select
     className="form-control form-control-lg"
     disabled={false}
@@ -70,6 +206,40 @@ exports[`<SelectInput /> renders matches previous snapshot 5`] = `
 <div
   className="form-group  "
 >
+  <div
+    className="form-label"
+  >
+    <label
+      className="control-label"
+      htmlFor="key"
+    >
+      <span
+        className=""
+      >
+        
+      </span>
+      
+      
+      <div
+        className="msgBlock error error-list "
+      >
+        <span
+          aria-atomic="true"
+          aria-live="assertive"
+          role="alert"
+        >
+          
+        </span>
+        <span
+          aria-atomic="true"
+          aria-live=""
+          role=""
+        >
+          
+        </span>
+      </div>
+    </label>
+  </div>
   <select
     className="form-control form-control-lg"
     disabled={true}
@@ -91,6 +261,44 @@ exports[`<SelectInput /> renders matches previous snapshot 6`] = `
 <div
   className="form-group  "
 >
+  <div
+    className="form-label"
+  >
+    <label
+      className="control-label"
+      htmlFor="key"
+    >
+      <span
+        className=""
+      >
+        
+      </span>
+      <span
+        className="required-asterisks "
+      >
+         *
+      </span>
+      
+      <div
+        className="msgBlock error error-list "
+      >
+        <span
+          aria-atomic="true"
+          aria-live="assertive"
+          role="alert"
+        >
+          
+        </span>
+        <span
+          aria-atomic="true"
+          aria-live=""
+          role=""
+        >
+          
+        </span>
+      </div>
+    </label>
+  </div>
   <select
     className="form-control form-control-lg"
     disabled={true}

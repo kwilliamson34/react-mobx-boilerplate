@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {observer} from 'mobx-react';
-import config from 'config';
 import {utilsService} from '../../core/services/utils.service';
 
 import asForm from '../forms/asForm.js';
@@ -21,27 +20,12 @@ class FeedbackForm extends React.Component {
     super(props)
     this.store = this.props.store;
 
-    //title is set as the value, unless the value field is present;
-    this.topics = [
-      {title: 'System Performance'},
-      {title: 'App Management'},
-      {title: 'Portal Design'},
-      {title: 'Credential & Account Management'},
-      {title: 'Purchasing & Provisioning'},
-      {title: 'Billing & Payment'},
-      {title: 'Other'}
-    ];
     this.operatingSystems = [
       {title: 'iOS'},
       {title: 'MacOS'},
       {title: 'Android'},
       {title: 'Windows'},
       {title: 'Other'}
-    ];
-    this.likelihoods = [
-      {title: '1 – Not Likely'},
-      {title: '2 – Somewhat Likely'},
-      {title: '3 – Very Likely'}
     ];
   }
 
@@ -56,17 +40,6 @@ class FeedbackForm extends React.Component {
   render() {
     return (
       <div id="feedback-form">
-
-        <SelectInput
-          ref={ref => utilsService.registerFormFieldRef(ref, this.store.formFieldRefList)}
-          id="topic"
-          type="select"
-          labelText="Topic"
-          required={true}
-          placeholder="Select a topic"
-          errorMessage="Please choose a topic."
-          optionsList={this.topics}
-          {...this.props.formChildProps}/>
 
         <TextInput
           ref={ref => utilsService.registerFormFieldRef(ref, this.store.formFieldRefList)}
@@ -104,10 +77,7 @@ class FeedbackForm extends React.Component {
           ref={ref => utilsService.registerFormFieldRef(ref, this.store.formFieldRefList)}
           id="email"
           type="input"
-          labelText={
-            this.store.emailIsRequired
-              ? 'Email'
-              : 'Email (Optional)'}
+          labelText="Email (Optional)"
           required={this.store.emailIsRequired}
           getIsValid={utilsService.isValidEmailAddress}
           errorMessage="Please enter an email address."
@@ -124,40 +94,20 @@ class FeedbackForm extends React.Component {
           charLimit={256}
           {...this.props.formChildProps}/>
 
-        <SelectInput
-          ref={ref => utilsService.registerFormFieldRef(ref, this.store.formFieldRefList)}
-          id="likely"
-          type="select"
-          labelText="How likely are you to recommend FirstNet?"
-          required={true}
-          placeholder="Select your answer"
-          errorMessage="Please select your answer."
-          optionsList={this.likelihoods}
-          {...this.props.formChildProps}/>
-        {/* FPSE-1294 and 1640: screen reader had trouble with "likelihood", so we use "answer" */}
-
         <div className="text-block">
-          <p>Your feedback will help us respond to issues and improve your overall experience.&nbsp;
-            <span aria-hidden='true'>If you are experiencing technical issues with devices/applications/network, please call </span>
-            <a href={`tel:${config.attDialNumber}`}>
-              <span className='sr-only'>If you are experiencing technical issues with devices/applications/network, please call&nbsp;</span>
-              {config.attPhoneNumber}
-            </a>.
-          </p>
+          <p>Your feedback will help us respond to issues and improve your overall experience.</p>
         </div>
 
-        <div className={`${this.store.requireContactAgreement ? '' : 'hidden'}`}>
-          <Checkbox
-            ref={ref => utilsService.registerFormFieldRef(ref, this.store.formFieldRefList)}
-            id="contactAgreement"
-            value="contactAgreement"
-            label="By submitting this information, you agree to be contacted by FirstNet. We will never sell or share your information."
-            required={this.store.requireContactAgreement}
-            errorMessage="Please provide consent to be contacted by FirstNet."
-            checked={this.store.contactAgreement}
-            handleOnChange={this.handleCheckboxOnChange}
-            {...this.props.formChildProps}/>
-        </div>
+        <Checkbox
+          ref={ref => utilsService.registerFormFieldRef(ref, this.store.formFieldRefList)}
+          id="contactAgreement"
+          value="contactAgreement"
+          label="By submitting this information, you agree to be contacted by FirstNet. We will never sell or share your information."
+          required={this.store.requireContactAgreement}
+          errorMessage="Please provide consent to be contacted by FirstNet."
+          checked={this.store.contactAgreement}
+          handleOnChange={this.handleCheckboxOnChange}
+          {...this.props.formChildProps}/>
 
       </div>
     );

@@ -1,5 +1,111 @@
-$detail-banner-font-size: 1.6rem;
-$footer-margin-top: 100px;
+/* Note: Properties without !default will override local values
+loaded before this file. Properties with !default are able to be overriden
+in a project's variables.scss file. */
 
-//header theming
-$fn-header-bar-color: #EB9F02;
+//Colors
+$brand-ltblue: #1071BC;
+$brand-blue: #18477E;
+$brand-dkblue: #05123b;
+$brand-red: #CB4027;
+$brand-ltorange: #F1A694;
+$brand-orange: #E34B25;
+$brand-yellow: #EB9F02;
+$brand-green: #008740;
+$brand-black: #000000;
+$brand-dark: #212121;
+$brand-dkgrey: #4A4A4A;
+$brand-mdgrey: #909090;
+$brand-grey: #E1E1E1;
+$brand-ltbluegrey: #F2F2F2;
+$brand-ltgrey: #FAFAFA;
+$brand-white: #FFFFFF;
+//Component-specific colors
+$brand-bordergrey: #d8d8d8;
+$brand-disabledgrey: #707070;
+$brand-disabledgrey-chkboxlabel: #8a8a8a;
+$brand-alert-red: #D0021B;
+$brand-certified-blue: #4892C9;
+$brand-certified-grey: #696969;
+$brand-header-hr-grey: #b5b5b5;
+$mobile-border-yellow: #986e18;
+$mobile-border-grey: #b9b9b9;
+$mobile-border-dkgrey: #9b9b9b;
+$brand-highlight-orange: #FDBE3C;
+//Pages
+$footer-margin-top: 100px !default;
+//Cards
+$brand-card-height-tall: 600px !default;
+$brand-card-height-medium: 450px !default;
+$brand-card-height-short: 320px !default;
+$brand-card-height-extra-short: 180px !default;
+//Forms
+$input-placeholder-color: #d5d5d5 !default;
+$input-bgcolor: $brand-ltgrey !default;
+$input-outline: #b7b7b7 !default;
+$input-outline-disabled: #d8d8d8 !default;
+$table-active-column-highlight: #3BB2FF !default;
+$table-row-background-highlight: rgba(16, 113, 188, 0.05) !default;
+//Tables
+$table-header-bg: black !default;
+$class-slug: col !default;
+//Links
+$active-link-color: $brand-ltblue !default;
+$inactive-link-color: $brand-blue !default;
+//Focus
+$focus-lightbg: #4A4A4A !default;
+$focus-darkbg: #e4e4e4 !default;
+$focus-shadow-depth: 1px;
+//Social
+$brand-social-grey: #9b9b9b !default;
+$brand-facebook: #3b5998 !default;
+$brand-twitter: #00aced !default;
+$brand-youtube: #bb0000 !default;
+$brand-linkedin: #007bb6 !default;
+//Font size
+$brand-h1-desktop: 4.8rem !default; //48px
+$brand-h2-desktop: 3.6rem !default; //36px
+$brand-h3-desktop: 2.8rem !default; //28px
+$brand-h4-desktop: 2rem !default; //20px
+$brand-h5-desktop: 1.6rem !default; //16px
+$brand-intro-desktop: 2rem !default; //20px
+$brand-content-page-text-desktop: 1.8rem !default; //18px
+$brand-landing-page-text-desktop: 1.6rem !default; //16px
+$brand-label-desktop: 1.4rem !default; //14px
+$brand-button-desktop: 1.4rem !default; //14px
+$brand-link-desktop: 1.6rem !default; //16px
+$brand-small-text-desktop: 1.2rem !default; //12px
+$brand-caption-text-desktop: 1.2rem !default; //12px
+$brand-h1-mobile: 3.6rem !default;
+$brand-h2-mobile: 3rem !default;
+$brand-h3-mobile: 2.4rem !default;
+$brand-h4-mobile: 1.8rem !default;
+$brand-h5-mobile: 1.4rem !default;
+$brand-intro-mobile: 1.8rem !default;
+$brand-content-page-text-mobile: 1.8rem !default;
+$brand-landing-page-text-mobile: 1.6rem !default;
+$brand-label-mobile: 1.4rem !default;
+$brand-button-mobile: 1.4rem !default;
+$brand-link-mobile: 1.4rem !default;
+$brand-small-text-mobile: 1.2rem !default;
+$brand-caption-text-mobile: 1.2rem !default;
+//Font weight
+$brand-black-weight: 900 !default;
+$brand-bold-weight: 700 !default;
+$brand-medium-weight: 500 !default;
+$brand-normal-weight: 400 !default;
+$brand-light-weight: 300 !default;
+//Animation
+$brand-animation-duration: 0.3s !default;
+//Header Theming
+$brand-mobile-item-height: 60px !default;
+$brand-desktop-logo-width: 275px !default;
+$brand-header-bar-color: #1071BC !default;
+$header-nav-height-mobile: 60px !default;
+$header-nav-height-tablet: 98px !default;
+$header-nav-height-desktop: 94px !default;
+$header-logo-maxwidth-mobile: 220px !default;
+$header-logo-maxwidth-tablet: 350px !default;
+$header-mobile-bgcolor: #1071BC !default;
+$header-mobile-menu-text: #fff !default;
+$header-supports-mobile: true !default;
+$header-textlink-size: 1.4rem !default;

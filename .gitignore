@@ -1,21 +1,6 @@
-build
-build/
-node_modules
-node_modules/
-coverage
-coverage/
-.idea
-.idea/
-.idea/*
-
-#coverage and snapshot folders from jest
-coverage
-coverage/
+build/*
+node_modules/*
 coverage/*
-jest/
+.idea/*
 jest/*
-
-#Strange settings files
-.vscode/
-/.settings/
-/.project
+package-lock.json

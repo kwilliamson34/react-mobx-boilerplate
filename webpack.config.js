@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 //portal config
 const proxyTarget = 'https://abed-localcontrol.sapientfirst.net';
-const localhostPort = 8443;
+const localhostPort = 4000;
 
 module.exports = (env) => {
   const _env = env || 'prod';
@@ -45,11 +45,14 @@ module.exports = (env) => {
         publicPath: '/',
         proxy: {
           '/api': {
-            target: proxyTarget,
+            target: 'https://localhost:7443',
+            pathRewrite: {
+              '/api': ''
+            },
             secure: false
           },
           '/oauth/validate': {
-            target: proxyTarget,
+            target: 'https://localhost:7443',
             secure: false
           }
         }

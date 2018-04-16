@@ -1,27 +1,29 @@
 body {
-  *:focus {
-    @include focus();
+  background: $brand-white;
+  margin: 0;
+
+  main {
+    background: $brand-white;
+
+    > article {
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
   }
 }
 
 i {
   vertical-align: -webkit-baseline-middle;
   vertical-align: middle;
-  font-size: $fn-content-page-text-desktop;
-}
+  font-size: $brand-content-page-text-desktop;
 
-main {
-  > article {
-    padding-top: 30px;
+  &[class^="icon-"] {
+    display: inline-block;
   }
 }
 
-header.fnnav {
-  border-bottom: 5px solid $fn-ltblue;
-}
-
 .content-wrapper {
-    min-height: 635px;
+  min-height: 635px;
 }
 
 .row.is-flex {
@@ -32,36 +34,6 @@ header.fnnav {
 .row.is-flex > [class*='col-'] {
   display: flex;
   flex-direction: column;
-}
-
-form p {
-  font-size: $fn-label-desktop;
-}
-
-.form-actions {
-  margin-top: 4rem;
-}
-
-.certified-app-label {
-  color: $fn-certified-grey;
-  font-size: 1.4rem;
-  font-weight: $fn-normal-weight;
-
-  i:before {
-    color: $fn-certified-blue;
-    font-size: 1.6rem;
-    padding-right: 5px;
-    text-decoration: none !important;
-  }
-}
-
-hr {
-  border-color: $fn-grey;
-}
-
-h1 + hr,
-h2 + hr {
-  border-color: $fn-header-hr-grey;
 }
 
 // spinning reload icon

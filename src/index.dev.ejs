@@ -5,28 +5,19 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>FirstNet Local Control</title>
-	<meta name="application-name" content="LocalControl" />
-	<meta name="apple-mobile-web-app-title" content="FirstNet LocalControl" />
-	<meta property="og:title" content="FirstNet Local Control" />
-	<meta property="og:site_name" content="FirstNet Local Control" />
+	<title>SAMPLE</title>
+	<meta name="application-name" content="SAMPLE" />
+	<meta name="apple-mobile-web-app-title" content="SAMPLE" />
+	<meta property="og:title" content="SAMPLE" />
+	<meta property="og:site_name" content="SAMPLE" />
 	<meta property="og:type" content="website" />
 	<meta property="og:locale" content="en_US" />
-	<meta property="og:description" content="Local control is a key feature of the FirstNet solution, providing a powerful capability to optimize the user experience through a single convenient home page location." />
-	<meta property="og:image" content="https://localcontrol.firstnet.att.com/apple-touch-icon.png" />
 
-	<link rel="icon" type="image/png" sizes="192x192" href="/images/firstnetlogo-192x192.png" />
-	<link rel="icon" type="image/png" sizes="128x128" href="/images/firstnetlogo-128x128.png" />
 	<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
 	<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
-
 </head>
 
 <body>
-	<!--These spans are outside of the react app -->
-	<span role="alert" class="sr-only" id="global-a11y-alert-announcer"></span>
-	<span role="status" class="sr-only" id="global-a11y-status-announcer"></span>
-	<div id="portal"></div>
 	<div id="app">
 		<!--loading animation initial load-->
 		<style type="text/css">
@@ -36,36 +27,26 @@
 				box-sizing: border-box;
 			}
 
-			.fn-loading {
+			.brand-loading {
 				text-align: center;
 				padding-top: 80px;
 			}
 
-			.fn-loading-logo {
-				display: inline-block;
-				margin: 0 auto 50px;
-				width: 200px;
-			}
-
-			.fn-loading-logo img {
-				max-width: 100%;
-			}
-
-			.fn-loading-text {
+			.brand-loading-text {
 				text-transform: uppercase;
 				font-family: 'Roboto', 'Helvetica Neue', sans-serif;
 				font-weight: bold;
 				font-size: 14px;
 			}
 
-			.fn-loading-circle {
+			.brand-loading-circle {
 				margin: 15px auto;
 				width: 40px;
 				height: 40px;
 				position: relative;
 			}
 
-			.fn-loading-circle>div {
+			.brand-loading-circle>div {
 				width: 100%;
 				height: 100%;
 				position: absolute;
@@ -73,7 +54,7 @@
 				top: 0;
 			}
 
-			.fn-loading-circle>.c:before {
+			.brand-loading-circle>.c:before {
 				content: '';
 				display: block;
 				margin: 0 auto;
@@ -233,17 +214,14 @@
 			}
 
 			@media only screen and (min-width: 768px) {
-				.fn-loading {
+				.brand-loading {
 					padding-top: 135px
 				}
 			}
 		</style>
-		<div class="fn-loading">
-			<div class="fn-loading-logo">
-				<img src="/images/firstnet-logo.svg" width="173" height="51" alt="FirstNet logo" />
-			</div>
-			<h1 class="fn-loading-text">Loading</h1>
-			<div class="fn-loading-circle">
+		<div class="brand-loading">
+			<h1 class="brand-loading-text">Loading</h1>
+			<div class="brand-loading-circle">
 				<div class="c1 c"></div>
 				<div class="c2 c"></div>
 				<div class="c3 c"></div>

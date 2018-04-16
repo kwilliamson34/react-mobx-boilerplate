@@ -10,6 +10,40 @@ exports[`<CheckboxList /> renders matches previous snapshot 1`] = `
     onBlur={[Function]}
   >
     <div
+      className="form-label"
+    >
+      <legend
+        className="control-label"
+        htmlFor=""
+      >
+        <span
+          className=""
+        >
+          
+        </span>
+        
+        
+        <div
+          className="msgBlock error error-list "
+        >
+          <span
+            aria-atomic="true"
+            aria-live="assertive"
+            role="alert"
+          >
+            
+          </span>
+          <span
+            aria-atomic="true"
+            aria-live=""
+            role=""
+          >
+            
+          </span>
+        </div>
+      </legend>
+    </div>
+    <div
       className="selection-buttons"
     >
       <div
@@ -59,6 +93,40 @@ exports[`<CheckboxList /> renders matches previous snapshot 2`] = `
     id="key"
     onBlur={[Function]}
   >
+    <div
+      className="form-label"
+    >
+      <legend
+        className="control-label"
+        htmlFor=""
+      >
+        <span
+          className=""
+        >
+          
+        </span>
+        
+        
+        <div
+          className="msgBlock error error-list "
+        >
+          <span
+            aria-atomic="true"
+            aria-live="assertive"
+            role="alert"
+          >
+            
+          </span>
+          <span
+            aria-atomic="true"
+            aria-live=""
+            role=""
+          >
+            
+          </span>
+        </div>
+      </legend>
+    </div>
     <div
       className="selection-buttons"
     >
@@ -111,6 +179,44 @@ exports[`<CheckboxList /> renders matches previous snapshot 3`] = `
     id="key"
     onBlur={[Function]}
   >
+    <div
+      className="form-label"
+    >
+      <legend
+        className="control-label"
+        htmlFor=""
+      >
+        <span
+          className=""
+        >
+          
+        </span>
+        <span
+          className="required-asterisks "
+        >
+           *
+        </span>
+        
+        <div
+          className="msgBlock error error-list "
+        >
+          <span
+            aria-atomic="true"
+            aria-live="assertive"
+            role="alert"
+          >
+            
+          </span>
+          <span
+            aria-atomic="true"
+            aria-live=""
+            role=""
+          >
+            
+          </span>
+        </div>
+      </legend>
+    </div>
     <div
       className="selection-buttons"
     >
